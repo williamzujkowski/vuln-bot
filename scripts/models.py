@@ -9,6 +9,7 @@ from pydantic import BaseModel, Field, validator
 
 class SeverityLevel(str, Enum):
     """CVSS severity levels."""
+
     CRITICAL = "CRITICAL"
     HIGH = "HIGH"
     MEDIUM = "MEDIUM"
@@ -18,6 +19,7 @@ class SeverityLevel(str, Enum):
 
 class ExploitationStatus(str, Enum):
     """Exploitation status for vulnerabilities."""
+
     ACTIVE = "ACTIVE"
     POC = "POC"
     WEAPONIZED = "WEAPONIZED"
@@ -27,6 +29,7 @@ class ExploitationStatus(str, Enum):
 
 class CVSSMetric(BaseModel):
     """CVSS metric data."""
+
     version: str
     vector_string: str
     base_score: float = Field(ge=0.0, le=10.0)
@@ -37,10 +40,11 @@ class CVSSMetric(BaseModel):
 
 class EPSSScore(BaseModel):
     """EPSS (Exploit Prediction Scoring System) data."""
+
     score: float = Field(ge=0.0, le=1.0)
     percentile: float = Field(ge=0.0, le=100.0)
     date: datetime
-    
+
     @validator("score", "percentile")
     def round_values(cls, v):
         """Round to 4 decimal places."""
@@ -49,6 +53,7 @@ class EPSSScore(BaseModel):
 
 class Reference(BaseModel):
     """External reference for a vulnerability."""
+
     url: str
     source: Optional[str] = None
     tags: List[str] = Field(default_factory=list)
@@ -56,6 +61,7 @@ class Reference(BaseModel):
 
 class CPEMatch(BaseModel):
     """CPE (Common Platform Enumeration) match data."""
+
     cpe23_uri: str
     cpe_name: Optional[str] = None
     version_start_including: Optional[str] = None
@@ -66,6 +72,7 @@ class CPEMatch(BaseModel):
 
 class ATTACKTechnique(BaseModel):
     """MITRE ATT&CK technique mapping."""
+
     technique_id: str
     technique_name: str
     tactic: Optional[str] = None
@@ -73,6 +80,7 @@ class ATTACKTechnique(BaseModel):
 
 class VulnerabilitySource(BaseModel):
     """Source information for vulnerability data."""
+
     name: str
     url: Optional[str] = None
     last_modified: Optional[datetime] = None
@@ -80,62 +88,62 @@ class VulnerabilitySource(BaseModel):
 
 class Vulnerability(BaseModel):
     """Complete vulnerability data model."""
+
     # Core identifiers
     cve_id: str = Field(regex=r"^CVE-\d{4}-\d{4,}$")
     title: str
     description: str
-    
+
     # Dates
     published_date: datetime
     last_modified_date: datetime
-    
+
     # Scoring
     cvss_metrics: List[CVSSMetric] = Field(default_factory=list)
     epss_score: Optional[EPSSScore] = None
     risk_score: int = Field(ge=0, le=100, default=0)
-    
+
     # Severity and exploitation
     severity: SeverityLevel
     exploitation_status: ExploitationStatus = ExploitationStatus.UNKNOWN
-    
+
     # Affected systems
     cpe_matches: List[CPEMatch] = Field(default_factory=list)
     affected_vendors: List[str] = Field(default_factory=list)
     affected_products: List[str] = Field(default_factory=list)
-    
+
     # References and mappings
     references: List[Reference] = Field(default_factory=list)
     attack_techniques: List[ATTACKTechnique] = Field(default_factory=list)
-    
+
     # Metadata
     tags: List[str] = Field(default_factory=list)
     sources: List[VulnerabilitySource] = Field(default_factory=list)
-    
+
     # Additional fields for filtering
     requires_user_interaction: Optional[bool] = None
     requires_privileges: Optional[str] = None
     attack_vector: Optional[str] = None
-    
+
     class Config:
         """Pydantic configuration."""
-        json_encoders = {
-            datetime: lambda v: v.isoformat()
-        }
-    
+
+        json_encoders = {datetime: lambda v: v.isoformat()}
+
     @property
     def cvss_base_score(self) -> Optional[float]:
         """Get the highest CVSS base score."""
         if not self.cvss_metrics:
             return None
         return max(metric.base_score for metric in self.cvss_metrics)
-    
+
     @property
     def epss_probability(self) -> Optional[float]:
         """Get EPSS probability as percentage."""
         if not self.epss_score:
             return None
         return round(self.epss_score.score * 100, 2)
-    
+
     def to_summary_dict(self) -> Dict[str, Any]:
         """Convert to summary dictionary for index."""
         return {
@@ -150,7 +158,7 @@ class Vulnerability(BaseModel):
             "vendors": self.affected_vendors[:5],  # Top 5 vendors
             "tags": self.tags,
         }
-    
+
     def to_detail_dict(self) -> Dict[str, Any]:
         """Convert to detailed dictionary for API."""
         return {
@@ -172,7 +180,9 @@ class Vulnerability(BaseModel):
             "epss": {
                 "score": self.epss_score.score,
                 "percentile": self.epss_score.percentile,
-            } if self.epss_score else None,
+            }
+            if self.epss_score
+            else None,
             "riskScore": self.risk_score,
             "exploitationStatus": self.exploitation_status.value,
             "affectedSystems": {
@@ -180,18 +190,24 @@ class Vulnerability(BaseModel):
                     {
                         "cpe23Uri": cpe.cpe23_uri,
                         "versionRange": {
-                            k: v for k, v in {
+                            k: v
+                            for k, v in {
                                 "versionStartIncluding": cpe.version_start_including,
                                 "versionStartExcluding": cpe.version_start_excluding,
                                 "versionEndIncluding": cpe.version_end_including,
                                 "versionEndExcluding": cpe.version_end_excluding,
-                            }.items() if v
-                        } if any([
-                            cpe.version_start_including,
-                            cpe.version_start_excluding,
-                            cpe.version_end_including,
-                            cpe.version_end_excluding,
-                        ]) else None
+                            }.items()
+                            if v
+                        }
+                        if any(
+                            [
+                                cpe.version_start_including,
+                                cpe.version_start_excluding,
+                                cpe.version_end_including,
+                                cpe.version_end_excluding,
+                            ]
+                        )
+                        else None,
                     }
                     for cpe in self.cpe_matches
                 ],
@@ -219,7 +235,9 @@ class Vulnerability(BaseModel):
                     {
                         "name": src.name,
                         "url": src.url,
-                        "lastModified": src.last_modified.isoformat() if src.last_modified else None,
+                        "lastModified": src.last_modified.isoformat()
+                        if src.last_modified
+                        else None,
                     }
                     for src in self.sources
                 ],
@@ -229,15 +247,16 @@ class Vulnerability(BaseModel):
 
 class VulnerabilityBatch(BaseModel):
     """Batch of vulnerabilities for processing."""
+
     vulnerabilities: List[Vulnerability]
     metadata: Dict[str, Any] = Field(default_factory=dict)
     generated_at: datetime = Field(default_factory=datetime.utcnow)
-    
+
     @property
     def count(self) -> int:
         """Get number of vulnerabilities in batch."""
         return len(self.vulnerabilities)
-    
+
     def filter_by_severity(self, min_severity: SeverityLevel) -> List[Vulnerability]:
         """Filter vulnerabilities by minimum severity."""
         severity_order = {
@@ -249,14 +268,13 @@ class VulnerabilityBatch(BaseModel):
         }
         min_level = severity_order[min_severity]
         return [
-            v for v in self.vulnerabilities
-            if severity_order[v.severity] >= min_level
+            v for v in self.vulnerabilities if severity_order[v.severity] >= min_level
         ]
-    
+
     def filter_by_risk_score(self, min_score: int) -> List[Vulnerability]:
         """Filter vulnerabilities by minimum risk score."""
         return [v for v in self.vulnerabilities if v.risk_score >= min_score]
-    
+
     def sort_by_risk(self) -> List[Vulnerability]:
         """Sort vulnerabilities by risk score (descending)."""
         return sorted(

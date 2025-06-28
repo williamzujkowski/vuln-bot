@@ -46,7 +46,7 @@ jobs:
           echo "$HOME/.cargo/bin" >> $GITHUB_PATH
       
       - name: Cache Python dependencies
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.cache/uv
           key: ${{ runner.os }}-uv-${{ hashFiles('requirements.txt') }}
@@ -54,7 +54,7 @@ jobs:
             ${{ runner.os }}-uv-
       
       - name: Cache API responses
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: actions-cache/
           key: api-cache-${{ hashFiles('scripts/harvest/**/*.py') }}
@@ -98,11 +98,16 @@ jobs:
           git diff --cached --quiet || git commit -m "chore: update vulnerability briefing $(date +%Y-%m-%d)"
           git push
       
+      - name: Upload Pages artifact
+        if: github.event_name != 'workflow_dispatch' || !github.event.inputs.dry_run
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public/
+      
       - name: Deploy to GitHub Pages
         if: github.event_name != 'workflow_dispatch' || !github.event.inputs.dry_run
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
         with:
-          artifact_name: github-pages
           token: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Send alerts

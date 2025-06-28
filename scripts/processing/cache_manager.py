@@ -27,9 +27,9 @@ Base = declarative_base()
 
 class VulnerabilityCache(Base):
     """SQLAlchemy model for cached vulnerability data."""
-    
+
     __tablename__ = "vulnerability_cache"
-    
+
     id = Column(Integer, primary_key=True)
     cve_id = Column(String(50), unique=True, nullable=False, index=True)
     data = Column(Text, nullable=False)  # JSON serialized vulnerability
@@ -43,9 +43,9 @@ class VulnerabilityCache(Base):
 
 class HarvestMetadata(Base):
     """SQLAlchemy model for harvest metadata."""
-    
+
     __tablename__ = "harvest_metadata"
-    
+
     id = Column(Integer, primary_key=True)
     harvest_date = Column(DateTime, nullable=False, unique=True, index=True)
     vulnerability_count = Column(Integer, nullable=False)
@@ -59,7 +59,7 @@ class CacheManager:
 
     def __init__(self, cache_dir: Path, ttl_days: int = 10):
         """Initialize cache manager.
-        
+
         Args:
             cache_dir: Directory for cache database
             ttl_days: Time-to-live for cached data in days
@@ -67,20 +67,20 @@ class CacheManager:
         self.cache_dir = cache_dir
         self.ttl_days = ttl_days
         self.logger = structlog.get_logger(self.__class__.__name__)
-        
+
         # Ensure cache directory exists
         self.cache_dir.mkdir(parents=True, exist_ok=True)
-        
+
         # Set up database
         self.db_path = self.cache_dir / "vulnerability_cache.db"
         self.engine = create_engine(
             f"sqlite:///{self.db_path}",
             connect_args={"check_same_thread": False},
         )
-        
+
         # Create tables if they don't exist
         Base.metadata.create_all(self.engine)
-        
+
         # Create session factory
         self.SessionLocal = sessionmaker(bind=self.engine)
 
@@ -99,22 +99,24 @@ class CacheManager:
 
     def cache_vulnerability(self, vulnerability: Vulnerability) -> None:
         """Cache a single vulnerability.
-        
+
         Args:
             vulnerability: Vulnerability to cache
         """
         with self.get_session() as session:
             # Calculate expiration
             expires_at = datetime.utcnow() + timedelta(days=self.ttl_days)
-            
+
             # Check if already exists
-            existing = session.query(VulnerabilityCache).filter_by(
-                cve_id=vulnerability.cve_id
-            ).first()
-            
+            existing = (
+                session.query(VulnerabilityCache)
+                .filter_by(cve_id=vulnerability.cve_id)
+                .first()
+            )
+
             # Serialize vulnerability data
             data_json = json.dumps(vulnerability.dict())
-            
+
             if existing:
                 # Update existing record
                 existing.data = data_json
@@ -139,54 +141,58 @@ class CacheManager:
 
     def cache_batch(self, batch: VulnerabilityBatch) -> None:
         """Cache a batch of vulnerabilities.
-        
+
         Args:
             batch: Batch of vulnerabilities to cache
         """
         self.logger.info("Caching vulnerability batch", count=batch.count)
-        
+
         with self.get_session() as session:
             # Record harvest metadata
             harvest_meta = HarvestMetadata(
                 harvest_date=batch.generated_at,
                 vulnerability_count=batch.count,
-                sources=json.dumps(list(set(
-                    source.name
-                    for vuln in batch.vulnerabilities
-                    for source in vuln.sources
-                ))),
+                sources=json.dumps(
+                    list(
+                        {
+                            source.name
+                            for vuln in batch.vulnerabilities
+                            for source in vuln.sources
+                        }
+                    )
+                ),
                 metadata=json.dumps(batch.metadata),
             )
             session.add(harvest_meta)
-            
+
             # Cache individual vulnerabilities
             for vuln in batch.vulnerabilities:
                 self.cache_vulnerability(vuln)
-        
+
         self.logger.info("Cached vulnerability batch", count=batch.count)
 
     def get_vulnerability(self, cve_id: str) -> Optional[Vulnerability]:
         """Get a cached vulnerability by CVE ID.
-        
+
         Args:
             cve_id: CVE ID to retrieve
-            
+
         Returns:
             Vulnerability if found and not expired, None otherwise
         """
         with self.get_session() as session:
-            cache_entry = session.query(VulnerabilityCache).filter_by(
-                cve_id=cve_id
-            ).first()
-            
+            cache_entry = (
+                session.query(VulnerabilityCache).filter_by(cve_id=cve_id).first()
+            )
+
             if not cache_entry:
                 return None
-            
+
             # Check if expired
             if cache_entry.expires_at < datetime.utcnow():
                 self.logger.debug("Cache entry expired", cve_id=cve_id)
                 return None
-            
+
             # Deserialize vulnerability
             try:
                 data = json.loads(cache_entry.data)
@@ -206,12 +212,12 @@ class CacheManager:
         severity: Optional[str] = None,
     ) -> List[Vulnerability]:
         """Get recent vulnerabilities from cache.
-        
+
         Args:
             limit: Maximum number of vulnerabilities to return
             min_risk_score: Minimum risk score filter
             severity: Severity level filter
-            
+
         Returns:
             List of cached vulnerabilities
         """
@@ -219,19 +225,19 @@ class CacheManager:
             query = session.query(VulnerabilityCache).filter(
                 VulnerabilityCache.expires_at > datetime.utcnow()
             )
-            
+
             if min_risk_score is not None:
                 query = query.filter(VulnerabilityCache.risk_score >= min_risk_score)
-            
+
             if severity:
                 query = query.filter(VulnerabilityCache.severity == severity)
-            
+
             # Order by risk score and published date
             query = query.order_by(
                 desc(VulnerabilityCache.risk_score),
                 desc(VulnerabilityCache.published_date),
             ).limit(limit)
-            
+
             vulnerabilities = []
             for cache_entry in query:
                 try:
@@ -244,7 +250,7 @@ class CacheManager:
                         cve_id=cache_entry.cve_id,
                         error=str(e),
                     )
-            
+
             return vulnerabilities
 
     def get_harvest_metadata(
@@ -252,93 +258,117 @@ class CacheManager:
         limit: int = 10,
     ) -> List[Dict[str, Any]]:
         """Get recent harvest metadata.
-        
+
         Args:
             limit: Maximum number of records to return
-            
+
         Returns:
             List of harvest metadata records
         """
         with self.get_session() as session:
-            records = session.query(HarvestMetadata).order_by(
-                desc(HarvestMetadata.harvest_date)
-            ).limit(limit).all()
-            
+            records = (
+                session.query(HarvestMetadata)
+                .order_by(desc(HarvestMetadata.harvest_date))
+                .limit(limit)
+                .all()
+            )
+
             metadata_list = []
             for record in records:
-                metadata_list.append({
-                    "harvest_date": record.harvest_date.isoformat(),
-                    "vulnerability_count": record.vulnerability_count,
-                    "sources": json.loads(record.sources),
-                    "metadata": json.loads(record.metadata) if record.metadata else {},
-                })
-            
+                metadata_list.append(
+                    {
+                        "harvest_date": record.harvest_date.isoformat(),
+                        "vulnerability_count": record.vulnerability_count,
+                        "sources": json.loads(record.sources),
+                        "metadata": json.loads(record.metadata)
+                        if record.metadata
+                        else {},
+                    }
+                )
+
             return metadata_list
 
     def cleanup_expired(self) -> int:
         """Remove expired cache entries.
-        
+
         Returns:
             Number of entries removed
         """
         with self.get_session() as session:
-            expired_count = session.query(VulnerabilityCache).filter(
-                VulnerabilityCache.expires_at < datetime.utcnow()
-            ).count()
-            
+            expired_count = (
+                session.query(VulnerabilityCache)
+                .filter(VulnerabilityCache.expires_at < datetime.utcnow())
+                .count()
+            )
+
             if expired_count > 0:
                 session.query(VulnerabilityCache).filter(
                     VulnerabilityCache.expires_at < datetime.utcnow()
                 ).delete()
-                
-                self.logger.info("Cleaned up expired cache entries", count=expired_count)
-            
+
+                self.logger.info(
+                    "Cleaned up expired cache entries", count=expired_count
+                )
+
             return expired_count
 
     def get_cache_stats(self) -> Dict[str, Any]:
         """Get cache statistics.
-        
+
         Returns:
             Dictionary of cache statistics
         """
         with self.get_session() as session:
             total_entries = session.query(VulnerabilityCache).count()
-            valid_entries = session.query(VulnerabilityCache).filter(
-                VulnerabilityCache.expires_at > datetime.utcnow()
-            ).count()
-            
+            valid_entries = (
+                session.query(VulnerabilityCache)
+                .filter(VulnerabilityCache.expires_at > datetime.utcnow())
+                .count()
+            )
+
             # Get severity distribution
             severity_counts = {}
-            for severity, count in session.query(
-                VulnerabilityCache.severity,
-                sqlite3.func.count(VulnerabilityCache.id)
-            ).filter(
-                VulnerabilityCache.expires_at > datetime.utcnow()
-            ).group_by(VulnerabilityCache.severity).all():
+            for severity, count in (
+                session.query(
+                    VulnerabilityCache.severity,
+                    sqlite3.func.count(VulnerabilityCache.id),
+                )
+                .filter(VulnerabilityCache.expires_at > datetime.utcnow())
+                .group_by(VulnerabilityCache.severity)
+                .all()
+            ):
                 severity_counts[severity] = count
-            
+
             # Get risk score distribution
             risk_ranges = {
-                "critical": session.query(VulnerabilityCache).filter(
+                "critical": session.query(VulnerabilityCache)
+                .filter(
                     VulnerabilityCache.expires_at > datetime.utcnow(),
-                    VulnerabilityCache.risk_score >= 90
-                ).count(),
-                "high": session.query(VulnerabilityCache).filter(
+                    VulnerabilityCache.risk_score >= 90,
+                )
+                .count(),
+                "high": session.query(VulnerabilityCache)
+                .filter(
                     VulnerabilityCache.expires_at > datetime.utcnow(),
                     VulnerabilityCache.risk_score >= 70,
-                    VulnerabilityCache.risk_score < 90
-                ).count(),
-                "medium": session.query(VulnerabilityCache).filter(
+                    VulnerabilityCache.risk_score < 90,
+                )
+                .count(),
+                "medium": session.query(VulnerabilityCache)
+                .filter(
                     VulnerabilityCache.expires_at > datetime.utcnow(),
                     VulnerabilityCache.risk_score >= 40,
-                    VulnerabilityCache.risk_score < 70
-                ).count(),
-                "low": session.query(VulnerabilityCache).filter(
+                    VulnerabilityCache.risk_score < 70,
+                )
+                .count(),
+                "low": session.query(VulnerabilityCache)
+                .filter(
                     VulnerabilityCache.expires_at > datetime.utcnow(),
-                    VulnerabilityCache.risk_score < 40
-                ).count(),
+                    VulnerabilityCache.risk_score < 40,
+                )
+                .count(),
             }
-            
+
             return {
                 "total_entries": total_entries,
                 "valid_entries": valid_entries,
