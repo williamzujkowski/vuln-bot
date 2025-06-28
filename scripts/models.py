@@ -4,7 +4,7 @@ from datetime import datetime
 from enum import Enum
 from typing import Any, Dict, List, Optional
 
-from pydantic import BaseModel, Field, validator
+from pydantic import BaseModel, Field, field_validator
 
 
 class SeverityLevel(str, Enum):
@@ -45,7 +45,8 @@ class EPSSScore(BaseModel):
     percentile: float = Field(ge=0.0, le=100.0)
     date: datetime
 
-    @validator("score", "percentile")
+    @field_validator("score", "percentile", mode="before")
+    @classmethod
     def round_values(cls, v):
         """Round to 4 decimal places."""
         return round(v, 4)
@@ -90,7 +91,7 @@ class Vulnerability(BaseModel):
     """Complete vulnerability data model."""
 
     # Core identifiers
-    cve_id: str = Field(regex=r"^CVE-\d{4}-\d{4,}$")
+    cve_id: str = Field(pattern=r"^CVE-\d{4}-\d{4,}$")
     title: str
     description: str
 
