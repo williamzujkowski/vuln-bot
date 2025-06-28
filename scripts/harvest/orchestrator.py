@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Dict, List, Optional, Set
 
 import structlog
+import yaml
 
 from scripts.harvest.cvelist_client import CVEListClient
 from scripts.harvest.epss_client import EPSSClient
@@ -15,6 +16,7 @@ from scripts.models import Vulnerability, VulnerabilityBatch
 from scripts.processing.cache_manager import CacheManager
 from scripts.processing.normalizer import VulnerabilityNormalizer
 from scripts.processing.risk_scorer import RiskScorer
+from scripts.quality import DataQualityConfig, DataQualityValidator
 
 
 class HarvestOrchestrator:
@@ -44,6 +46,10 @@ class HarvestOrchestrator:
         self.risk_scorer = RiskScorer()
         self.metrics = MetricsCollector(cache_dir / "metrics.db")
 
+        # Load data quality configuration
+        self.quality_config = self._load_quality_config()
+        self.quality_validator = DataQualityValidator(self.quality_config)
+
         # Initialize clients
         self.cvelist_client = CVEListClient(
             cache_dir=cache_dir / "api_cache",
@@ -52,6 +58,22 @@ class HarvestOrchestrator:
         self.epss_client = EPSSClient(
             cache_dir=cache_dir / "api_cache",
         )
+
+    def _load_quality_config(self) -> DataQualityConfig:
+        """Load data quality configuration from file."""
+        config_path = Path(__file__).parent.parent.parent / "config" / "quality.yaml"
+
+        if config_path.exists():
+            try:
+                with open(config_path) as f:
+                    config_dict = yaml.safe_load(f)
+                    return DataQualityConfig.from_dict(config_dict)
+            except Exception as e:
+                self.logger.warning(
+                    "Failed to load quality config, using defaults", error=str(e)
+                )
+
+        return DataQualityConfig()  # Use defaults
 
     def harvest_cve_data(
         self, years: Optional[List[int]] = None, min_severity: str = "HIGH"
@@ -246,35 +268,41 @@ class HarvestOrchestrator:
             {"before": len(all_vulnerabilities), "after": len(unique_vulnerabilities)},
         )
 
+        # Apply data quality validation
+        self.logger.info("Applying data quality validation")
+        validated_vulnerabilities, quality_stats = (
+            self.quality_validator.filter_vulnerabilities(unique_vulnerabilities)
+        )
+
+        # Record quality metrics
+        self.metrics.record_metric(
+            "quality_pass_rate",
+            quality_stats["passed"] / max(quality_stats["total"], 1) * 100,
+            quality_stats,
+        )
+
+        # Log quality report
+        quality_report = self.quality_validator.get_quality_report(
+            unique_vulnerabilities
+        )
+        self.logger.info(
+            "Data quality report",
+            summary=quality_report["summary"],
+            issues=quality_report["quality_issues"],
+        )
+
+        unique_vulnerabilities = validated_vulnerabilities
+
         # Enrich with EPSS scores
         self.enrich_with_epss(unique_vulnerabilities)
 
-        # Filter by EPSS threshold
-        if min_epss_score > 0:
-            pre_filter_count = len(unique_vulnerabilities)
-            unique_vulnerabilities = [
-                v
-                for v in unique_vulnerabilities
-                if v.epss_score and v.epss_score.score >= min_epss_score
-            ]
+        # Note: EPSS filtering is now handled by quality validator
+        # Update quality config if different threshold is requested
+        if min_epss_score != self.quality_config.min_epss_score:
             self.logger.info(
-                "Filtered by EPSS score",
-                threshold=min_epss_score,
-                before=pre_filter_count,
-                after=len(unique_vulnerabilities),
-                filtered_out=pre_filter_count - len(unique_vulnerabilities),
-            )
-
-            # Record filtering metrics
-            self.metrics.record_metric(
-                "epss_filter_rate",
-                (pre_filter_count - len(unique_vulnerabilities))
-                / max(pre_filter_count, 1)
-                * 100,
-                {
-                    "threshold": min_epss_score,
-                    "filtered_out": pre_filter_count - len(unique_vulnerabilities),
-                },
+                "Using custom EPSS threshold",
+                config_threshold=self.quality_config.min_epss_score,
+                requested_threshold=min_epss_score,
             )
 
         # Calculate risk scores

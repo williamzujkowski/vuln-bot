@@ -1,0 +1,189 @@
+# Data Quality Configuration for Morning Vuln Briefing
+# This file defines quality rules and validation settings
+
+# Severity filtering
+allowed_severities:
+  - CRITICAL
+  - HIGH
+  - MEDIUM
+  - LOW
+min_severity: HIGH
+
+# Score thresholds
+min_cvss_score: 0.0
+max_cvss_score: 10.0
+min_epss_score: 0.6  # 60% minimum EPSS
+max_epss_score: 1.0
+min_risk_score: 0
+max_risk_score: 100
+
+# Required fields for all vulnerability records
+required_fields:
+  - cve_id
+  - title
+  - description
+  - severity
+  - published_date
+  - last_modified_date
+
+# Data validation rules
+max_title_length: 500
+max_description_length: 5000
+max_vendors_per_vuln: 100
+max_products_per_vuln: 200
+max_references_per_vuln: 50
+max_tags_per_vuln: 20
+
+# Date range validation
+min_year: 2024
+max_year: 2025
+allow_future_dates: false
+
+# High-priority vendors (increases risk score)
+priority_vendors:
+  - Microsoft
+  - Google
+  - Apple
+  - Amazon
+  - Oracle
+  - Adobe
+  - Cisco
+  - VMware
+  - Linux
+  - Apache
+  - Mozilla
+  - OpenSSL
+  - Docker
+  - Kubernetes
+  - Jenkins
+  - GitLab
+  - GitHub
+  - Atlassian
+  - Elastic
+  - MongoDB
+  - PostgreSQL
+  - MySQL
+  - Redis
+  - nginx
+  - Node.js
+  - Python
+  - Java
+  - PHP
+  - Ruby
+  - WordPress
+  - Drupal
+  - Joomla
+  - SAP
+  - IBM
+  - Red Hat
+  - Ubuntu
+  - Debian
+  - CentOS
+  - Windows
+  - macOS
+  - Android
+  - iOS
+  - Chrome
+  - Firefox
+  - Safari
+  - Edge
+  - Zoom
+  - Slack
+  - Teams
+
+# Infrastructure tags that increase priority
+infrastructure_tags:
+  - network
+  - infrastructure
+  - remote
+  - authentication
+  - authorization
+  - cryptography
+  - kernel
+  - privilege-escalation
+  - code-execution
+  - sql-injection
+  - xss
+  - xxe
+  - deserialization
+  - path-traversal
+  - file-upload
+  - command-injection
+  - ldap-injection
+  - memory-corruption
+  - buffer-overflow
+  - use-after-free
+  - race-condition
+  - dns
+  - dhcp
+  - vpn
+  - firewall
+  - proxy
+  - load-balancer
+  - container
+  - orchestration
+  - cloud
+  - api
+  - web-server
+  - database
+  - cache
+  - message-queue
+
+# Exploitation status keywords
+exploitation_keywords:
+  - exploited
+  - exploitation
+  - in-the-wild
+  - active
+  - ransomware
+  - malware
+  - botnet
+  - 0day
+  - zero-day
+  - proof-of-concept
+  - poc
+  - metasploit
+  - exploit-db
+  - nuclei
+  - scanner
+  - automated
+  - weaponized
+  - campaign
+  - threat-actor
+  - apt
+  - incident
+
+# Data quality thresholds
+min_description_words: 10
+min_affected_products: 0
+warn_if_no_references: true
+warn_if_no_cvss: true
+warn_if_no_epss: false  # EPSS might not be available for all CVEs
+
+# Deduplication settings
+enable_deduplication: true
+dedup_window_days: 7
+
+# API timeouts
+epss_timeout_seconds: 30.0
+github_timeout_seconds: 60.0
+max_enrichment_retries: 3
+
+# Batch processing limits
+max_batch_size: 1000
+max_vulnerabilities_per_briefing: 50
+
+# Cache settings
+cache_ttl_days: 10
+cache_max_size_mb: 500
+
+# Quality scoring weights (must sum to 1.0)
+quality_score_weights:
+  has_cvss: 0.20
+  has_epss: 0.15
+  has_references: 0.15
+  has_affected_products: 0.10
+  has_cpe: 0.10
+  description_quality: 0.10
+  has_attack_vector: 0.10
+  is_recent: 0.10

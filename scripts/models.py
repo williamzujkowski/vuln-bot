@@ -126,6 +126,9 @@ class Vulnerability(BaseModel):
     requires_privileges: Optional[str] = None
     attack_vector: Optional[str] = None
 
+    # Data quality score (calculated during validation)
+    quality_score: Optional[float] = None
+
     class Config:
         """Pydantic configuration."""
 
@@ -144,6 +147,23 @@ class Vulnerability(BaseModel):
         if not self.epss_score:
             return None
         return round(self.epss_score.score * 100, 2)
+
+    @property
+    def cvss_vector(self) -> Optional[str]:
+        """Get the CVSS vector string from the highest scored metric."""
+        if not self.cvss_metrics:
+            return None
+        # Return vector from the metric with highest base score
+        highest_metric = max(self.cvss_metrics, key=lambda m: m.base_score)
+        return highest_metric.vector_string
+
+    @property
+    def is_exploited(self) -> bool:
+        """Check if vulnerability is being exploited."""
+        return self.exploitation_status in [
+            ExploitationStatus.ACTIVE,
+            ExploitationStatus.WEAPONIZED,
+        ]
 
     def to_summary_dict(self) -> Dict[str, Any]:
         """Convert to summary dictionary for index."""
