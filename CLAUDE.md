@@ -66,7 +66,7 @@ chmod +x .husky/pre-commit .husky/commit-msg
 ### Data Flow
 1. **Nightly Harvesting** (Python scripts in `scripts/`):
    - Fetches from CVEProject/cvelistV5 repository (official CVE List, updated every 7 minutes)
-   - Filters for Critical/High severity CVEs from 2025+ with EPSS scores > 60%
+   - Filters for Critical/High severity CVEs from 2024-2025 with EPSS scores > 60%
    - Enriches with EPSS API data and CISA-ADP container information (KEV/SSVC)
    - Normalizes data and calculates Risk Score (0-100) based on CVSS, EPSS, popularity, infrastructure tags, and newness
    - Caches responses in SQLite using GitHub Actions cache (10-day TTL)

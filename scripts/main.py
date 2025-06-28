@@ -56,7 +56,11 @@ def cli(debug: bool) -> None:
     help="Directory for caching API responses",
 )
 @click.option(
-    "--years", "-y", multiple=True, type=int, help="Years to harvest (default: 2025)"
+    "--years",
+    "-y",
+    multiple=True,
+    type=int,
+    help="Years to harvest (default: 2024, 2025)",
 )
 @click.option(
     "--min-severity",
@@ -81,8 +85,8 @@ def harvest(
 
     logger.info("Starting vulnerability harvest", cache_dir=str(cache_dir))
 
-    # Convert years tuple to list, default to [2025] if empty
-    years_list = list(years) if years else [2025]
+    # Convert years tuple to list, default to [2024, 2025] if empty
+    years_list = list(years) if years else [2024, 2025]
 
     # Collect API keys from environment
     api_keys = {

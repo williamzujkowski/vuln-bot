@@ -4,7 +4,7 @@
 ![CI](https://github.com/yourusername/vuln-bot/actions/workflows/ci.yml/badge.svg)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-An automated vulnerability intelligence platform that harvests, scores, and publishes daily vulnerability briefings using the official CVEProject/cvelistV5 repository. Focuses on Critical and High severity CVEs from 2025 onwards with EPSS scores above 60%.
+An automated vulnerability intelligence platform that harvests, scores, and publishes daily vulnerability briefings using the official CVEProject/cvelistV5 repository. Focuses on Critical and High severity CVEs from 2024-2025 with EPSS scores above 60%.
 
 ## Features
 

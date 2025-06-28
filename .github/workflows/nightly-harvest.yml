@@ -75,6 +75,7 @@ jobs:
           echo "Starting vulnerability harvest..."
           python -m scripts.main harvest \
             --cache-dir actions-cache/ \
+            --years 2024 \
             --years 2025 \
             --min-severity HIGH \
             --min-epss 0.6 \

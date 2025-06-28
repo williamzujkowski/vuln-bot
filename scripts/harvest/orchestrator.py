@@ -66,7 +66,7 @@ class HarvestOrchestrator:
             List of vulnerabilities from CVEList
         """
         if years is None:
-            years = [2025]  # Focus on 2025+ as requested
+            years = [2024, 2025]  # Default to 2024 and 2025
 
         self.logger.info("Harvesting CVE data", years=years, min_severity=min_severity)
 
@@ -137,7 +137,7 @@ class HarvestOrchestrator:
             Batch of harvested and processed vulnerabilities
         """
         if years is None:
-            years = [2025]  # Focus on 2025+ as requested
+            years = [2024, 2025]  # Default to 2024 and 2025
 
         start_time = datetime.now(timezone.utc)
         self.logger.info(
