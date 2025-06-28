@@ -150,7 +150,7 @@ class BriefingGenerator:
                 "---",
                 f"title: Morning Vulnerability Briefing - {data['date_str']}",
                 f"date: {data['date'].isoformat()}",
-                "layout: post",
+                "layout: layouts/post.njk",
                 "tags: [vulnerability, briefing, security]",
                 f"vulnerabilityCount: {data['total_count']}",
                 f"criticalCount: {data['risk_distribution']['critical']}",
