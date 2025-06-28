@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build outputs
+public/
+_site/
+.cache/
+coverage/
+htmlcov/
+*.pyc
+__pycache__/
+
+# Editor directories
+.vscode/
+.idea/
+
+# Git
+.git/
+
+# Python
+*.py
+requirements.txt
+pyproject.toml
+
+# CI/CD
+.github/
+
+# Documentation
+*.md
