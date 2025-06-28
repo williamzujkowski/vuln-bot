@@ -65,7 +65,9 @@ chmod +x .husky/pre-commit .husky/commit-msg
 
 ### Data Flow
 1. **Nightly Harvesting** (Python scripts in `scripts/`):
-   - Fetches from CVE 4.0, EPSS, GitHub Advisory, OSV, Libraries.io, Red Hat, MSRC, Talos
+   - Fetches from CVEProject/cvelistV5 repository (official CVE List, updated every 7 minutes)
+   - Filters for Critical/High severity CVEs from 2025+ with EPSS scores > 60%
+   - Enriches with EPSS API data and CISA-ADP container information (KEV/SSVC)
    - Normalizes data and calculates Risk Score (0-100) based on CVSS, EPSS, popularity, infrastructure tags, and newness
    - Caches responses in SQLite using GitHub Actions cache (10-day TTL)
 
@@ -94,11 +96,8 @@ chmod +x .husky/pre-commit .husky/commit-msg
 
 ### API Keys Required
 Environment secrets needed in GitHub Actions:
-- `GH_ADVISORY_TOKEN` - GitHub Security Advisory access
-- `LIBRARIES_IO_KEY` - Libraries.io API
-- `MSRC_API_KEY` - Microsoft Security Response Center
-- `NVD_API_KEY` - National Vulnerability Database
-- `CVE_API_KEY` - CVE.org API access
+- `EPSS_API_KEY` - EPSS API access (optional, for enrichment)
+- `GITHUB_TOKEN` - GitHub API access (for cloning CVEProject/cvelistV5)
 
 ### Testing Strategy
 - Python: pytest with 80% minimum coverage requirement

@@ -57,22 +57,36 @@ class HarvestMetadata(Base):
 class CacheManager:
     """Manage SQLite cache for vulnerability data."""
 
-    def __init__(self, cache_dir: Path, ttl_days: int = 10):
+    def __init__(
+        self,
+        cache_dir: Optional[Path] = None,
+        db_path: Optional[str] = None,
+        ttl_days: int = 10,
+    ):
         """Initialize cache manager.
 
         Args:
-            cache_dir: Directory for cache database
+            cache_dir: Directory for cache database (deprecated, use db_path)
+            db_path: Direct path to database file
             ttl_days: Time-to-live for cached data in days
         """
-        self.cache_dir = cache_dir
         self.ttl_days = ttl_days
         self.logger = structlog.get_logger(self.__class__.__name__)
+
+        # Handle both cache_dir and db_path for compatibility
+        if db_path:
+            self.db_path = Path(db_path)
+            self.cache_dir = self.db_path.parent
+        elif cache_dir:
+            self.cache_dir = cache_dir
+            self.db_path = self.cache_dir / "vulnerability_cache.db"
+        else:
+            raise ValueError("Either cache_dir or db_path must be provided")
 
         # Ensure cache directory exists
         self.cache_dir.mkdir(parents=True, exist_ok=True)
 
         # Set up database
-        self.db_path = self.cache_dir / "vulnerability_cache.db"
         self.engine = create_engine(
             f"sqlite:///{self.db_path}",
             connect_args={"check_same_thread": False},
@@ -105,7 +119,7 @@ class CacheManager:
         """
         with self.get_session() as session:
             # Calculate expiration
-            expires_at = datetime.utcnow() + timedelta(days=self.ttl_days)
+            expires_at = datetime.now(datetime.UTC) + timedelta(days=self.ttl_days)
 
             # Check if already exists
             existing = (
@@ -124,7 +138,7 @@ class CacheManager:
                 existing.severity = vulnerability.severity.value
                 existing.published_date = vulnerability.published_date
                 existing.last_modified_date = vulnerability.last_modified_date
-                existing.cached_at = datetime.utcnow()
+                existing.cached_at = datetime.now(datetime.UTC)
                 existing.expires_at = expires_at
             else:
                 # Create new record
@@ -189,7 +203,7 @@ class CacheManager:
                 return None
 
             # Check if expired
-            if cache_entry.expires_at < datetime.utcnow():
+            if cache_entry.expires_at < datetime.now(datetime.UTC):
                 self.logger.debug("Cache entry expired", cve_id=cve_id)
                 return None
 
@@ -223,7 +237,7 @@ class CacheManager:
         """
         with self.get_session() as session:
             query = session.query(VulnerabilityCache).filter(
-                VulnerabilityCache.expires_at > datetime.utcnow()
+                VulnerabilityCache.expires_at > datetime.now(datetime.UTC)
             )
 
             if min_risk_score is not None:
@@ -297,13 +311,13 @@ class CacheManager:
         with self.get_session() as session:
             expired_count = (
                 session.query(VulnerabilityCache)
-                .filter(VulnerabilityCache.expires_at < datetime.utcnow())
+                .filter(VulnerabilityCache.expires_at < datetime.now(datetime.UTC))
                 .count()
             )
 
             if expired_count > 0:
                 session.query(VulnerabilityCache).filter(
-                    VulnerabilityCache.expires_at < datetime.utcnow()
+                    VulnerabilityCache.expires_at < datetime.now(datetime.UTC)
                 ).delete()
 
                 self.logger.info(
@@ -322,7 +336,7 @@ class CacheManager:
             total_entries = session.query(VulnerabilityCache).count()
             valid_entries = (
                 session.query(VulnerabilityCache)
-                .filter(VulnerabilityCache.expires_at > datetime.utcnow())
+                .filter(VulnerabilityCache.expires_at > datetime.now(datetime.UTC))
                 .count()
             )
 
@@ -333,7 +347,7 @@ class CacheManager:
                     VulnerabilityCache.severity,
                     sqlite3.func.count(VulnerabilityCache.id),
                 )
-                .filter(VulnerabilityCache.expires_at > datetime.utcnow())
+                .filter(VulnerabilityCache.expires_at > datetime.now(datetime.UTC))
                 .group_by(VulnerabilityCache.severity)
                 .all()
             ):
@@ -343,27 +357,27 @@ class CacheManager:
             risk_ranges = {
                 "critical": session.query(VulnerabilityCache)
                 .filter(
-                    VulnerabilityCache.expires_at > datetime.utcnow(),
+                    VulnerabilityCache.expires_at > datetime.now(datetime.UTC),
                     VulnerabilityCache.risk_score >= 90,
                 )
                 .count(),
                 "high": session.query(VulnerabilityCache)
                 .filter(
-                    VulnerabilityCache.expires_at > datetime.utcnow(),
+                    VulnerabilityCache.expires_at > datetime.now(datetime.UTC),
                     VulnerabilityCache.risk_score >= 70,
                     VulnerabilityCache.risk_score < 90,
                 )
                 .count(),
                 "medium": session.query(VulnerabilityCache)
                 .filter(
-                    VulnerabilityCache.expires_at > datetime.utcnow(),
+                    VulnerabilityCache.expires_at > datetime.now(datetime.UTC),
                     VulnerabilityCache.risk_score >= 40,
                     VulnerabilityCache.risk_score < 70,
                 )
                 .count(),
                 "low": session.query(VulnerabilityCache)
                 .filter(
-                    VulnerabilityCache.expires_at > datetime.utcnow(),
+                    VulnerabilityCache.expires_at > datetime.now(datetime.UTC),
                     VulnerabilityCache.risk_score < 40,
                 )
                 .count(),

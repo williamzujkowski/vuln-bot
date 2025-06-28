@@ -293,7 +293,7 @@ class VulnerabilityNormalizer:
             updated_date = self.parse_date(advisory.get("updated_at"))
 
             if not published_date:
-                published_date = datetime.utcnow()
+                published_date = datetime.now(datetime.UTC)
             if not updated_date:
                 updated_date = published_date
 

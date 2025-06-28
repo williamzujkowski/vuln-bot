@@ -30,15 +30,18 @@
 ## Sprint 2: Data Harvesting (Days 4-7) ✅ PARTIALLY COMPLETED
 
 ### Day 4: API Clients Part 1
-- [x] Implement CVE 4.0 API client
+- [x] ~~Implement CVE 4.0 API client~~ (Replaced with CVEProject/cvelistV5)
+- [ ] Implement CVEProject/cvelistV5 repository client
+- [ ] Parse CVE Record Format v5.0/5.1
 - [x] Implement EPSS API client
 - [x] Create unit tests for API clients
 - [x] Add response caching logic
 
 ### Day 5: API Clients Part 2
-- [ ] Implement GitHub Advisory client
-- [ ] Implement OSV client
-- [ ] Implement Libraries.io client
+- [ ] Implement filtering for Critical/High severity only
+- [ ] Add EPSS score threshold filtering (>60%)
+- [ ] Focus on 2025+ CVEs only
+- [ ] Parse CISA-ADP container for KEV/SSVC data
 - [ ] Create integration tests
 
 ### Day 6: Vendor Feeds

@@ -8,7 +8,7 @@ from typing import Dict, List, Optional, Set
 
 import structlog
 
-from scripts.harvest.cve_client import CVEClient
+from scripts.harvest.cvelist_client import CVEListClient
 from scripts.harvest.epss_client import EPSSClient
 from scripts.models import Vulnerability, VulnerabilityBatch
 from scripts.processing.cache_manager import CacheManager
@@ -43,28 +43,39 @@ class HarvestOrchestrator:
         self.risk_scorer = RiskScorer()
 
         # Initialize clients
-        self.cve_client = CVEClient(
-            api_key=self.api_keys.get("CVE_API_KEY"),
+        self.cvelist_client = CVEListClient(
             cache_dir=cache_dir / "api_cache",
+            use_github_api=True,
         )
         self.epss_client = EPSSClient(
             cache_dir=cache_dir / "api_cache",
         )
 
-    def harvest_cve_data(self, days_back: int = 7) -> List[Vulnerability]:
-        """Harvest CVE data from NVD.
+    def harvest_cve_data(
+        self, years: Optional[List[int]] = None, min_severity: str = "HIGH"
+    ) -> List[Vulnerability]:
+        """Harvest CVE data from CVEProject/cvelistV5.
 
         Args:
-            days_back: Number of days to look back
+            years: List of years to harvest (default: [2025])
+            min_severity: Minimum severity level (HIGH or CRITICAL)
 
         Returns:
-            List of vulnerabilities from CVE/NVD
+            List of vulnerabilities from CVEList
         """
-        self.logger.info("Harvesting CVE data", days_back=days_back)
+        if years is None:
+            years = [2025]  # Focus on 2025+ as requested
+
+        self.logger.info("Harvesting CVE data", years=years, min_severity=min_severity)
 
         try:
-            vulnerabilities = self.cve_client.fetch_and_parse_recent_cves(
-                days_back=days_back
+            from scripts.models import SeverityLevel
+
+            severity_enum = SeverityLevel[min_severity.upper()]
+
+            vulnerabilities = self.cvelist_client.harvest(
+                years=years,
+                min_severity=severity_enum,
             )
             self.logger.info("Harvested CVE data", count=len(vulnerabilities))
             return vulnerabilities
@@ -107,22 +118,31 @@ class HarvestOrchestrator:
 
     def harvest_all_sources(
         self,
-        days_back: int = 7,
+        years: Optional[List[int]] = None,
         include_sources: Optional[Set[str]] = None,
+        min_epss_score: float = 0.6,  # 60% threshold
+        min_severity: str = "HIGH",
     ) -> VulnerabilityBatch:
         """Harvest vulnerabilities from all configured sources.
 
         Args:
-            days_back: Number of days to look back
+            years: List of years to harvest (default: [2025])
             include_sources: Set of sources to include (None = all)
+            min_epss_score: Minimum EPSS score threshold (0.0-1.0)
+            min_severity: Minimum severity level (HIGH or CRITICAL)
 
         Returns:
             Batch of harvested and processed vulnerabilities
         """
-        start_time = datetime.utcnow()
+        if years is None:
+            years = [2025]  # Focus on 2025+ as requested
+
+        start_time = datetime.now(datetime.UTC)
         self.logger.info(
             "Starting vulnerability harvest",
-            days_back=days_back,
+            years=years,
+            min_epss_score=min_epss_score,
+            min_severity=min_severity,
             sources=include_sources or "all",
         )
 
@@ -131,7 +151,9 @@ class HarvestOrchestrator:
 
         all_vulnerabilities = []
         harvest_metadata = {
-            "days_back": days_back,
+            "years": years,
+            "min_epss_score": min_epss_score,
+            "min_severity": min_severity,
             "start_time": start_time.isoformat(),
             "sources": [],
         }
@@ -140,7 +162,9 @@ class HarvestOrchestrator:
         harvest_tasks = []
 
         if not include_sources or "cve" in include_sources:
-            harvest_tasks.append(("CVE/NVD", self.harvest_cve_data, days_back))
+            harvest_tasks.append(
+                ("CVEList", self.harvest_cve_data, years, min_severity)
+            )
 
         # TODO: Add more sources here (GitHub Advisory, OSV, etc.)
 
@@ -192,6 +216,22 @@ class HarvestOrchestrator:
         # Enrich with EPSS scores
         self.enrich_with_epss(unique_vulnerabilities)
 
+        # Filter by EPSS threshold
+        if min_epss_score > 0:
+            pre_filter_count = len(unique_vulnerabilities)
+            unique_vulnerabilities = [
+                v
+                for v in unique_vulnerabilities
+                if v.epss_score and v.epss_score.score >= min_epss_score
+            ]
+            self.logger.info(
+                "Filtered by EPSS score",
+                threshold=min_epss_score,
+                before=pre_filter_count,
+                after=len(unique_vulnerabilities),
+                filtered_out=pre_filter_count - len(unique_vulnerabilities),
+            )
+
         # Calculate risk scores
         self.risk_scorer.score_batch(unique_vulnerabilities)
 
@@ -199,7 +239,7 @@ class HarvestOrchestrator:
         unique_vulnerabilities.sort(key=lambda v: v.risk_score, reverse=True)
 
         # Create batch
-        end_time = datetime.utcnow()
+        end_time = datetime.now(datetime.UTC)
         harvest_metadata["end_time"] = end_time.isoformat()
         harvest_metadata["duration_seconds"] = (end_time - start_time).total_seconds()
         harvest_metadata["total_vulnerabilities"] = len(all_vulnerabilities)

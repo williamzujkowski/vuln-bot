@@ -91,11 +91,13 @@
 ## 🚧 Remaining Tasks
 
 ### High Priority
-1. **Additional API Clients**
-   - GitHub Advisory Database client
-   - OSV (Open Source Vulnerabilities) client
-   - Libraries.io client
-   - Vendor-specific clients (Red Hat, MSRC, Talos)
+1. **Replace Data Source with CVEProject/cvelistV5**
+   - Implement CVEProject/cvelistV5 repository client
+   - Parse CVE Record Format v5.0/5.1
+   - Add Critical/High severity filtering
+   - Implement EPSS score threshold (>60%)
+   - Focus on 2025+ CVEs only
+   - Parse CISA-ADP container for KEV/SSVC enrichment
 
 2. **Enhanced Features**
    - Slack/Teams webhook integration

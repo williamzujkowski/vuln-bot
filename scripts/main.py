@@ -55,9 +55,22 @@ def cli(debug: bool) -> None:
     default=Path(".cache"),
     help="Directory for caching API responses",
 )
-@click.option("--days-back", type=int, default=7, help="Number of days to look back")
+@click.option(
+    "--years", "-y", multiple=True, type=int, help="Years to harvest (default: 2025)"
+)
+@click.option(
+    "--min-severity",
+    type=click.Choice(["HIGH", "CRITICAL"]),
+    default="HIGH",
+    help="Minimum severity level",
+)
+@click.option(
+    "--min-epss", type=float, default=0.6, help="Minimum EPSS score (0.0-1.0)"
+)
 @click.option("--dry-run", is_flag=True, help="Run without making actual API calls")
-def harvest(cache_dir: Path, days_back: int, dry_run: bool) -> None:
+def harvest(
+    cache_dir: Path, years: tuple, min_severity: str, min_epss: float, dry_run: bool
+) -> None:
     """Harvest vulnerability data from all configured sources."""
     logger = structlog.get_logger()
 
@@ -68,13 +81,13 @@ def harvest(cache_dir: Path, days_back: int, dry_run: bool) -> None:
 
     logger.info("Starting vulnerability harvest", cache_dir=str(cache_dir))
 
+    # Convert years tuple to list, default to [2025] if empty
+    years_list = list(years) if years else [2025]
+
     # Collect API keys from environment
     api_keys = {
-        "CVE_API_KEY": os.getenv("CVE_API_KEY"),
-        "NVD_API_KEY": os.getenv("NVD_API_KEY"),
-        "GH_ADVISORY_TOKEN": os.getenv("GH_ADVISORY_TOKEN"),
-        "LIBRARIES_IO_KEY": os.getenv("LIBRARIES_IO_KEY"),
-        "MSRC_API_KEY": os.getenv("MSRC_API_KEY"),
+        "GITHUB_TOKEN": os.getenv("GITHUB_TOKEN"),
+        "EPSS_API_KEY": os.getenv("EPSS_API_KEY"),
     }
 
     # Initialize orchestrator
@@ -85,7 +98,11 @@ def harvest(cache_dir: Path, days_back: int, dry_run: bool) -> None:
 
     # Perform harvest
     try:
-        batch = orchestrator.harvest_all_sources(days_back=days_back)
+        batch = orchestrator.harvest_all_sources(
+            years=years_list,
+            min_severity=min_severity,
+            min_epss_score=min_epss,
+        )
 
         # Display summary
         console.print("\n[green]✓[/green] Vulnerability harvest completed")

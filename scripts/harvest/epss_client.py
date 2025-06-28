@@ -68,7 +68,7 @@ class EPSSClient(BaseAPIClient):
 
             # Get the score date from response
             score_date = date_parser.parse(
-                response.get("score_date", datetime.utcnow().isoformat())
+                response.get("score_date", datetime.now(datetime.UTC).isoformat())
             )
 
             for item in data:
@@ -161,7 +161,7 @@ class EPSSClient(BaseAPIClient):
             reader = csv.DictReader(io.StringIO(content))
 
             scores = {}
-            score_date = datetime.utcnow()  # Will be updated from file
+            score_date = datetime.now(datetime.UTC)  # Will be updated from file
 
             for row in reader:
                 # First row contains the model version and date

@@ -59,7 +59,7 @@ class CVEClient(BaseAPIClient):
             List of raw CVE records
         """
         # Calculate date range
-        end_date = datetime.utcnow()
+        end_date = datetime.now(datetime.UTC)
         start_date = end_date - timedelta(days=days_back)
 
         params = {
