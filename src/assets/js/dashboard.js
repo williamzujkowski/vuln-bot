@@ -37,6 +37,7 @@ document.addEventListener("alpine:init", () => {
     // State
     loading: true,
     error: null,
+    initialLoad: true,
 
     async init() {
       // Load state from URL hash
@@ -50,6 +51,9 @@ document.addEventListener("alpine:init", () => {
 
       // Apply initial filters
       this.applyFilters();
+
+      // Mark initial load as complete
+      this.initialLoad = false;
 
       // Watch for changes
       this.watchFilters();
@@ -223,6 +227,11 @@ document.addEventListener("alpine:init", () => {
     },
 
     saveStateToHash() {
+      // Don't save state during initial load
+      if (this.loading || this.vulnerabilities.length === 0 || this.initialLoad) {
+        return;
+      }
+
       const state = {
         q: this.searchQuery,
         cvssMin: this.filters.cvssMin,
@@ -241,7 +250,7 @@ document.addEventListener("alpine:init", () => {
         size: this.pageSize,
       };
 
-      // Remove empty values
+      // Remove empty values and defaults
       Object.keys(state).forEach((key) => {
         if (
           !state[key] ||
@@ -251,7 +260,9 @@ document.addEventListener("alpine:init", () => {
           (key === "epssMin" && state[key] === 0) ||
           (key === "epssMax" && state[key] === 100) ||
           (key === "page" && state[key] === 1) ||
-          (key === "size" && state[key] === 20)
+          (key === "size" && state[key] === 20) ||
+          (key === "sort" && state[key] === "riskScore") ||
+          (key === "dir" && state[key] === "desc")
         ) {
           delete state[key];
         }
