@@ -9,6 +9,7 @@ import type {
   ExploitationStatus,
 } from "./types/vulnerability";
 import "./types/alpine";
+import { analytics } from "./analytics";
 
 type Fuse<T> = import("fuse.js").default<T>;
 
@@ -65,6 +66,7 @@ interface VulnDashboard {
   formatDate(dateStr: string): string;
   resetFilters(): void;
   exportResults(): void;
+  trackVulnerabilityClick(cveId: string, riskScore: number): void;
 }
 
 document.addEventListener("alpine:init", () => {
@@ -124,6 +126,9 @@ document.addEventListener("alpine:init", () => {
 
         // Watch for changes
         this.watchFilters();
+
+        // Track performance
+        analytics.trackPerformance();
       },
 
       async loadVulnerabilities(): Promise<void> {
@@ -167,6 +172,9 @@ document.addEventListener("alpine:init", () => {
         if (this.searchQuery.trim() && this.fuse) {
           const searchResults = this.fuse.search(this.searchQuery);
           results = searchResults.map((result: any) => result.item);
+
+          // Track search
+          analytics.trackSearch(this.searchQuery, results.length);
         }
 
         // Apply CVSS filter
@@ -261,6 +269,9 @@ document.addEventListener("alpine:init", () => {
           this.sortField = field;
           this.sortDirection = "desc";
         }
+
+        // Track sort change
+        analytics.trackSort(field, this.sortDirection);
 
         this.applyFilters();
       },
@@ -417,6 +428,9 @@ document.addEventListener("alpine:init", () => {
       },
 
       exportResults(): void {
+        // Track export
+        analytics.trackExport("csv", this.filteredVulns.length);
+
         // Create CSV content
         const headers = [
           "CVE ID",
@@ -447,6 +461,10 @@ document.addEventListener("alpine:init", () => {
         a.download = `vulnerabilities-${new Date().toISOString().slice(0, 10)}.csv`;
         a.click();
         URL.revokeObjectURL(url);
+      },
+
+      trackVulnerabilityClick(cveId: string, riskScore: number): void {
+        analytics.trackVulnerabilityClick(cveId, riskScore);
       },
     })
   );

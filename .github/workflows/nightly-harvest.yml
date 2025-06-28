@@ -102,6 +102,15 @@ jobs:
             --days 1 \
             --verbose
       
+      - name: Generate metrics visualization
+        if: always()
+        run: |
+          echo "## 📊 Harvest Metrics" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          python -m scripts.visualize_metrics \
+            --db-path actions-cache/metrics.db \
+            --format github >> $GITHUB_STEP_SUMMARY || echo "Metrics not available" >> $GITHUB_STEP_SUMMARY
+      
       - name: Build static site
         run: |
           npm run build
@@ -139,8 +148,17 @@ jobs:
           name: harvest-logs-${{ github.run_number }}
           path: |
             harvest.log
-            actions-cache/
+            actions-cache/metrics.db
+            actions-cache/api_cache/
           retention-days: 30
+      
+      - name: Export metrics data
+        if: always()
+        run: |
+          python -m scripts.visualize_metrics \
+            --db-path actions-cache/metrics.db \
+            --format json \
+            --export actions-cache/metrics-export.json || true
       
       - name: Create harvest summary
         if: always()

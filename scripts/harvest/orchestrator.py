@@ -10,6 +10,7 @@ import structlog
 
 from scripts.harvest.cvelist_client import CVEListClient
 from scripts.harvest.epss_client import EPSSClient
+from scripts.metrics import MetricsCollector
 from scripts.models import Vulnerability, VulnerabilityBatch
 from scripts.processing.cache_manager import CacheManager
 from scripts.processing.normalizer import VulnerabilityNormalizer
@@ -41,6 +42,7 @@ class HarvestOrchestrator:
         self.cache_manager = CacheManager(cache_dir)
         self.normalizer = VulnerabilityNormalizer()
         self.risk_scorer = RiskScorer()
+        self.metrics = MetricsCollector(cache_dir / "metrics.db")
 
         # Initialize clients
         self.cvelist_client = CVEListClient(
@@ -146,6 +148,16 @@ class HarvestOrchestrator:
             sources=include_sources or "all",
         )
 
+        # Start metrics collection
+        self.metrics.start_harvest(
+            {
+                "years": years,
+                "min_epss_score": min_epss_score,
+                "min_severity": min_severity,
+                "include_sources": list(include_sources) if include_sources else None,
+            }
+        )
+
         # Clean up expired cache entries
         self.cache_manager.cleanup_expired()
 
@@ -193,6 +205,13 @@ class HarvestOrchestrator:
                         source=source_name,
                         count=len(vulnerabilities),
                     )
+
+                    # Record metrics for source
+                    self.metrics.record_metric(
+                        f"source_{source_name}_count",
+                        len(vulnerabilities),
+                        {"source": source_name},
+                    )
                 except Exception as e:
                     self.logger.error(
                         "Failed to harvest",
@@ -208,9 +227,23 @@ class HarvestOrchestrator:
                         }
                     )
 
+                    # Record error
+                    self.metrics.record_error(
+                        "harvest_error", str(e), {"source": source_name}
+                    )
+
         # Deduplicate vulnerabilities
         unique_vulnerabilities = self.normalizer.deduplicate_vulnerabilities(
             all_vulnerabilities
+        )
+
+        # Record deduplication metrics
+        self.metrics.record_metric(
+            "deduplication_rate",
+            (len(all_vulnerabilities) - len(unique_vulnerabilities))
+            / max(len(all_vulnerabilities), 1)
+            * 100,
+            {"before": len(all_vulnerabilities), "after": len(unique_vulnerabilities)},
         )
 
         # Enrich with EPSS scores
@@ -232,8 +265,24 @@ class HarvestOrchestrator:
                 filtered_out=pre_filter_count - len(unique_vulnerabilities),
             )
 
+            # Record filtering metrics
+            self.metrics.record_metric(
+                "epss_filter_rate",
+                (pre_filter_count - len(unique_vulnerabilities))
+                / max(pre_filter_count, 1)
+                * 100,
+                {
+                    "threshold": min_epss_score,
+                    "filtered_out": pre_filter_count - len(unique_vulnerabilities),
+                },
+            )
+
         # Calculate risk scores
         self.risk_scorer.score_batch(unique_vulnerabilities)
+
+        # Record individual vulnerability metrics
+        for vuln in unique_vulnerabilities:
+            self.metrics.record_vulnerability(vuln)
 
         # Sort by risk score
         unique_vulnerabilities.sort(key=lambda v: v.risk_score, reverse=True)
@@ -273,6 +322,16 @@ class HarvestOrchestrator:
             "low": len([v for v in unique_vulnerabilities if v.risk_score < 40]),
         }
         self.logger.info("Risk distribution", **risk_distribution)
+
+        # End metrics collection
+        self.metrics.end_harvest(
+            status="completed",
+            summary={
+                "risk_distribution": risk_distribution,
+                "sources_processed": len(harvest_metadata["sources"]),
+                "cache_hit_rate": getattr(self.cache_manager, "_cache_hit_rate", 0),
+            },
+        )
 
         return batch
 

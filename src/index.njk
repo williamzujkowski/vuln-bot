@@ -250,6 +250,7 @@ title: Morning Vuln Briefing - Dashboard
                       :href="'/vuln-bot/api/vulns/' + vuln.cveId + '.json'" 
                       x-text="vuln.cveId"
                       :aria-label="'View JSON data for ' + vuln.cveId"
+                      @click="$root.trackVulnerabilityClick && $root.trackVulnerabilityClick(vuln.cveId, vuln.riskScore)"
                     ></a>
                   </td>
                   <td role="cell" x-text="vuln.title"></td>
