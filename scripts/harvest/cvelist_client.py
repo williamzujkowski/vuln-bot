@@ -118,20 +118,22 @@ class CVEListClient(BaseAPIClient):
                     item["name"] for item in response.json() if item["type"] == "dir"
                 ]
 
-                # Limit subdirectories for performance (can be removed later)
-                # Process only first few subdirectories to avoid timeout
-                subdirs = subdirs[:5]  # TODO: Remove this limit in production
+                # Process all subdirectories
 
                 self.logger.info(
                     f"Processing {len(subdirs)} subdirectories for year {year}"
                 )
 
-                for subdir in subdirs:
-                    self.logger.debug(f"Fetching CVEs from {year_path}/{subdir}")
-                    cves.extend(
-                        self._fetch_cves_from_directory(
-                            f"{year_path}/{subdir}", min_severity
-                        )
+                for i, subdir in enumerate(subdirs):
+                    self.logger.info(
+                        f"Processing subdirectory {i + 1}/{len(subdirs)}: {year_path}/{subdir}"
+                    )
+                    subdir_cves = self._fetch_cves_from_directory(
+                        f"{year_path}/{subdir}", min_severity
+                    )
+                    cves.extend(subdir_cves)
+                    self.logger.info(
+                        f"Found {len(subdir_cves)} CVEs meeting criteria in {subdir}"
                     )
 
             except Exception as e:
@@ -183,8 +185,7 @@ class CVEListClient(BaseAPIClient):
                     if item["type"] == "file" and item["name"].endswith(".json")
                 ]
 
-                # Limit files per directory for performance (can be removed later)
-                cve_files = cve_files[:10]  # TODO: Remove this limit in production
+                # Process all CVE files
 
                 # Fetch each CVE file
                 for filename in cve_files:
