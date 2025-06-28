@@ -1,6 +1,6 @@
 """Unit tests for vulnerability data models."""
 
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 import pytest
 
@@ -51,7 +51,7 @@ class TestEPSSScore:
         score = EPSSScore(
             score=0.12345,
             percentile=85.6789,
-            date=datetime.utcnow(),
+            date=datetime.now(timezone.utc),
         )
 
         # Should be rounded to 4 decimal places
@@ -65,7 +65,7 @@ class TestEPSSScore:
             EPSSScore(
                 score=1.5,  # Invalid
                 percentile=50.0,
-                date=datetime.utcnow(),
+                date=datetime.now(timezone.utc),
             )
 
 
@@ -79,8 +79,8 @@ class TestVulnerability:
             cve_id="CVE-2024-0001",
             title="Test Vulnerability",
             description="A test vulnerability description",
-            published_date=datetime.utcnow() - timedelta(days=5),
-            last_modified_date=datetime.utcnow(),
+            published_date=datetime.now(timezone.utc) - timedelta(days=5),
+            last_modified_date=datetime.now(timezone.utc),
             severity=SeverityLevel.HIGH,
             cvss_metrics=[
                 CVSSMetric(
@@ -106,8 +106,8 @@ class TestVulnerability:
                 cve_id="INVALID-ID",  # Invalid format
                 title="Test",
                 description="Test",
-                published_date=datetime.utcnow(),
-                last_modified_date=datetime.utcnow(),
+                published_date=datetime.now(timezone.utc),
+                last_modified_date=datetime.now(timezone.utc),
                 severity=SeverityLevel.MEDIUM,
             )
 
@@ -120,8 +120,8 @@ class TestVulnerability:
             cve_id="CVE-2024-0002",
             title="Test",
             description="Test",
-            published_date=datetime.utcnow(),
-            last_modified_date=datetime.utcnow(),
+            published_date=datetime.now(timezone.utc),
+            last_modified_date=datetime.now(timezone.utc),
             severity=SeverityLevel.LOW,
         )
         assert vuln.cvss_base_score is None
@@ -135,7 +135,7 @@ class TestVulnerability:
         sample_vulnerability.epss_score = EPSSScore(
             score=0.456,
             percentile=90.0,
-            date=datetime.utcnow(),
+            date=datetime.now(timezone.utc),
         )
         assert sample_vulnerability.epss_probability == 45.6
 
@@ -170,8 +170,8 @@ class TestVulnerabilityBatch:
                 cve_id=f"CVE-2024-{i:04d}",
                 title=f"Test Vuln {i}",
                 description=f"Description {i}",
-                published_date=datetime.utcnow(),
-                last_modified_date=datetime.utcnow(),
+                published_date=datetime.now(timezone.utc),
+                last_modified_date=datetime.now(timezone.utc),
                 severity=SeverityLevel.HIGH if i % 2 == 0 else SeverityLevel.MEDIUM,
                 risk_score=90 - (i * 10),
             )

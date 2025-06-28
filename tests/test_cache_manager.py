@@ -1,7 +1,7 @@
 """Tests for cache manager."""
 
 import json
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 import pytest
 from sqlalchemy.orm import sessionmaker
@@ -38,8 +38,8 @@ class TestCacheManager:
             title="Test Vulnerability",
             description="Test description",
             severity=SeverityLevel.HIGH,
-            published_date=datetime.now(datetime.UTC) - timedelta(days=5),
-            last_modified_date=datetime.now(datetime.UTC),
+            published_date=datetime.now(timezone.utc) - timedelta(days=5),
+            last_modified_date=datetime.now(timezone.utc),
             references=["https://example.com"],
             affected_vendors=["testvendor"],
             exploitation_status=ExploitationStatus.POC,
@@ -153,8 +153,8 @@ class TestCacheManager:
                 title=f"Vuln {i}",
                 description=f"Description {i}",
                 severity=SeverityLevel.HIGH,
-                published_date=datetime.now(datetime.UTC) - timedelta(days=10 - i),
-                last_modified_date=datetime.now(datetime.UTC),
+                published_date=datetime.now(timezone.utc) - timedelta(days=10 - i),
+                last_modified_date=datetime.now(timezone.utc),
                 risk_score=70.0 + i,
             )
             vulns.append(vuln)
@@ -163,9 +163,9 @@ class TestCacheManager:
         cache_manager.save_vulnerabilities(batch)
 
         # Get vulnerabilities from last 7 days
-        start_date = datetime.now(datetime.UTC) - timedelta(days=7)
+        start_date = datetime.now(timezone.utc) - timedelta(days=7)
         result = cache_manager.get_vulnerabilities_by_date_range(
-            start_date=start_date, end_date=datetime.now(datetime.UTC)
+            start_date=start_date, end_date=datetime.now(timezone.utc)
         )
 
         # Should get 3 vulnerabilities (days 5, 6, 7)
@@ -185,8 +185,8 @@ class TestCacheManager:
                 title=f"Vuln {i}",
                 description=f"Description {i}",
                 severity=SeverityLevel.HIGH,
-                published_date=datetime.now(datetime.UTC) - timedelta(days=1),
-                last_modified_date=datetime.now(datetime.UTC),
+                published_date=datetime.now(timezone.utc) - timedelta(days=1),
+                last_modified_date=datetime.now(timezone.utc),
                 risk_score=70.0 + i,
             )
             vulns.append(vuln)
@@ -196,8 +196,8 @@ class TestCacheManager:
 
         # Get only 5 vulnerabilities
         result = cache_manager.get_vulnerabilities_by_date_range(
-            start_date=datetime.now(datetime.UTC) - timedelta(days=7),
-            end_date=datetime.now(datetime.UTC),
+            start_date=datetime.now(timezone.utc) - timedelta(days=7),
+            end_date=datetime.now(timezone.utc),
             limit=5,
         )
 
@@ -215,8 +215,8 @@ class TestCacheManager:
                 title=f"Vuln {i}",
                 description=f"Description {i}",
                 severity=SeverityLevel.HIGH,
-                published_date=datetime.now(datetime.UTC) - timedelta(days=i),
-                last_modified_date=datetime.now(datetime.UTC),
+                published_date=datetime.now(timezone.utc) - timedelta(days=i),
+                last_modified_date=datetime.now(timezone.utc),
                 risk_score=70.0 + i,
             )
             vulns.append(vuln)
@@ -284,8 +284,8 @@ class TestCacheManager:
             title="Complex Vulnerability",
             description="Test with special chars: 'quotes' and \"double quotes\"",
             severity=SeverityLevel.CRITICAL,
-            published_date=datetime.now(datetime.UTC),
-            last_modified_date=datetime.now(datetime.UTC),
+            published_date=datetime.now(timezone.utc),
+            last_modified_date=datetime.now(timezone.utc),
             references=["https://example.com", "https://test.org"],
             affected_vendors=["vendor1", "vendor2", "vendor3"],
             exploitation_status=ExploitationStatus.ACTIVE,
@@ -303,7 +303,7 @@ class TestCacheManager:
                 cve_id="CVE-2023-9999",
                 score=0.9543,
                 percentile=98.76,
-                date=datetime.now(datetime.UTC),
+                date=datetime.now(timezone.utc),
             ),
         )
 

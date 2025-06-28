@@ -1,6 +1,6 @@
 """Tests for data normalizer."""
 
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 import pytest
 
@@ -31,8 +31,8 @@ class TestVulnerabilityNormalizer:
                 title="First Vuln",
                 description="Description 1",
                 severity=SeverityLevel.HIGH,
-                published_date=datetime.now(datetime.UTC) - timedelta(days=5),
-                last_modified_date=datetime.now(datetime.UTC),
+                published_date=datetime.now(timezone.utc) - timedelta(days=5),
+                last_modified_date=datetime.now(timezone.utc),
                 references=["https://example.com/1"],
                 affected_vendors=["vendor1"],
                 risk_score=75.0,
@@ -42,8 +42,8 @@ class TestVulnerabilityNormalizer:
                 title="Second Vuln",
                 description="Description 2",
                 severity=SeverityLevel.CRITICAL,
-                published_date=datetime.now(datetime.UTC) - timedelta(days=3),
-                last_modified_date=datetime.now(datetime.UTC),
+                published_date=datetime.now(timezone.utc) - timedelta(days=3),
+                last_modified_date=datetime.now(timezone.utc),
                 references=["https://example.com/2"],
                 affected_vendors=["vendor2"],
                 risk_score=85.0,
@@ -71,8 +71,8 @@ class TestVulnerabilityNormalizer:
                 title="First Version",
                 description="Description 1",
                 severity=SeverityLevel.HIGH,
-                published_date=datetime.now(datetime.UTC) - timedelta(days=5),
-                last_modified_date=datetime.now(datetime.UTC) - timedelta(days=5),
+                published_date=datetime.now(timezone.utc) - timedelta(days=5),
+                last_modified_date=datetime.now(timezone.utc) - timedelta(days=5),
                 risk_score=70.0,
             ),
             Vulnerability(
@@ -80,8 +80,8 @@ class TestVulnerabilityNormalizer:
                 title="Updated Version",
                 description="Updated Description",
                 severity=SeverityLevel.CRITICAL,  # Different severity
-                published_date=datetime.now(datetime.UTC) - timedelta(days=5),
-                last_modified_date=datetime.now(datetime.UTC),  # More recent
+                published_date=datetime.now(timezone.utc) - timedelta(days=5),
+                last_modified_date=datetime.now(timezone.utc),  # More recent
                 risk_score=85.0,
             ),
         ]
@@ -102,8 +102,8 @@ class TestVulnerabilityNormalizer:
             title="Base Vulnerability",
             description="Base description",
             severity=SeverityLevel.HIGH,
-            published_date=datetime.now(datetime.UTC) - timedelta(days=5),
-            last_modified_date=datetime.now(datetime.UTC) - timedelta(days=2),
+            published_date=datetime.now(timezone.utc) - timedelta(days=5),
+            last_modified_date=datetime.now(timezone.utc) - timedelta(days=2),
             references=["https://example.com/base"],
             affected_vendors=["vendor1"],
             risk_score=70.0,
@@ -114,8 +114,8 @@ class TestVulnerabilityNormalizer:
             title="Updated Vulnerability",
             description="Updated description",
             severity=SeverityLevel.CRITICAL,
-            published_date=datetime.now(datetime.UTC) - timedelta(days=5),
-            last_modified_date=datetime.now(datetime.UTC),
+            published_date=datetime.now(timezone.utc) - timedelta(days=5),
+            last_modified_date=datetime.now(timezone.utc),
             references=["https://example.com/updated", "https://example.com/new"],
             affected_vendors=["vendor1", "vendor2"],
             exploitation_status=ExploitationStatus.POC,
@@ -166,8 +166,8 @@ class TestVulnerabilityNormalizer:
             title="Base Vulnerability",
             description="Base description",
             severity=SeverityLevel.HIGH,
-            published_date=datetime.now(datetime.UTC) - timedelta(days=5),
-            last_modified_date=datetime.now(datetime.UTC) - timedelta(days=1),
+            published_date=datetime.now(timezone.utc) - timedelta(days=5),
+            last_modified_date=datetime.now(timezone.utc) - timedelta(days=1),
             risk_score=70.0,
         )
 
@@ -177,14 +177,14 @@ class TestVulnerabilityNormalizer:
             title="Base Vulnerability",
             description="Base description",
             severity=SeverityLevel.HIGH,
-            published_date=datetime.now(datetime.UTC) - timedelta(days=5),
-            last_modified_date=datetime.now(datetime.UTC),
+            published_date=datetime.now(timezone.utc) - timedelta(days=5),
+            last_modified_date=datetime.now(timezone.utc),
             risk_score=80.0,  # Different risk score
             epss_score=EPSSScore(
                 cve_id="CVE-2023-0001",
                 score=0.8542,
                 percentile=0.9521,
-                date=datetime.now(datetime.UTC),
+                date=datetime.now(timezone.utc),
             ),
         )
 
@@ -208,8 +208,8 @@ class TestVulnerabilityNormalizer:
                 title=f"Vuln {i}",
                 description=f"Description {i}",
                 severity=SeverityLevel.HIGH,
-                published_date=datetime.now(datetime.UTC) - timedelta(days=i),
-                last_modified_date=datetime.now(datetime.UTC),
+                published_date=datetime.now(timezone.utc) - timedelta(days=i),
+                last_modified_date=datetime.now(timezone.utc),
                 risk_score=90.0 - (i * 10),  # Decreasing risk scores
             )
             vulns.append(vuln)
@@ -229,8 +229,8 @@ class TestVulnerabilityNormalizer:
             title="Vulnerability",
             description="Description",
             severity=SeverityLevel.HIGH,
-            published_date=datetime.now(datetime.UTC) - timedelta(days=5),
-            last_modified_date=datetime.now(datetime.UTC) - timedelta(days=1),
+            published_date=datetime.now(timezone.utc) - timedelta(days=5),
+            last_modified_date=datetime.now(timezone.utc) - timedelta(days=1),
             references=["https://example.com/1", "https://example.com/2"],
             risk_score=70.0,
         )
@@ -240,8 +240,8 @@ class TestVulnerabilityNormalizer:
             title="Vulnerability",
             description="Description",
             severity=SeverityLevel.HIGH,
-            published_date=datetime.now(datetime.UTC) - timedelta(days=5),
-            last_modified_date=datetime.now(datetime.UTC),
+            published_date=datetime.now(timezone.utc) - timedelta(days=5),
+            last_modified_date=datetime.now(timezone.utc),
             references=[
                 "https://example.com/2",
                 "https://example.com/3",
@@ -268,8 +268,8 @@ class TestVulnerabilityNormalizer:
             title="Vulnerability",
             description="Description",
             severity=SeverityLevel.HIGH,
-            published_date=datetime.now(datetime.UTC) - timedelta(days=5),
-            last_modified_date=datetime.now(datetime.UTC) - timedelta(days=1),
+            published_date=datetime.now(timezone.utc) - timedelta(days=5),
+            last_modified_date=datetime.now(timezone.utc) - timedelta(days=1),
             affected_vendors=["microsoft", "adobe"],
             risk_score=70.0,
         )
@@ -279,8 +279,8 @@ class TestVulnerabilityNormalizer:
             title="Vulnerability",
             description="Description",
             severity=SeverityLevel.HIGH,
-            published_date=datetime.now(datetime.UTC) - timedelta(days=5),
-            last_modified_date=datetime.now(datetime.UTC),
+            published_date=datetime.now(timezone.utc) - timedelta(days=5),
+            last_modified_date=datetime.now(timezone.utc),
             affected_vendors=["adobe", "oracle", "microsoft"],
             risk_score=70.0,
         )
@@ -299,8 +299,8 @@ class TestVulnerabilityNormalizer:
             title="Vulnerability",
             description="Description",
             severity=SeverityLevel.HIGH,
-            published_date=datetime.now(datetime.UTC) - timedelta(days=5),
-            last_modified_date=datetime.now(datetime.UTC) - timedelta(days=1),
+            published_date=datetime.now(timezone.utc) - timedelta(days=5),
+            last_modified_date=datetime.now(timezone.utc) - timedelta(days=1),
             tags=["critical", "remote"],
             risk_score=70.0,
         )
@@ -310,8 +310,8 @@ class TestVulnerabilityNormalizer:
             title="Vulnerability",
             description="Description",
             severity=SeverityLevel.HIGH,
-            published_date=datetime.now(datetime.UTC) - timedelta(days=5),
-            last_modified_date=datetime.now(datetime.UTC),
+            published_date=datetime.now(timezone.utc) - timedelta(days=5),
+            last_modified_date=datetime.now(timezone.utc),
             tags=["remote", "exploit", "critical"],
             risk_score=70.0,
         )
@@ -335,8 +335,8 @@ class TestVulnerabilityNormalizer:
                 title=f"Vuln {i}",
                 description=f"Description {i}",
                 severity=SeverityLevel.HIGH if i % 3 == 0 else SeverityLevel.MEDIUM,
-                published_date=datetime.now(datetime.UTC) - timedelta(days=i % 30),
-                last_modified_date=datetime.now(datetime.UTC) - timedelta(hours=i),
+                published_date=datetime.now(timezone.utc) - timedelta(days=i % 30),
+                last_modified_date=datetime.now(timezone.utc) - timedelta(hours=i),
                 risk_score=50.0 + (i % 50),
             )
             vulns.append(vuln)
