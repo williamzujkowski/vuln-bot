@@ -18,10 +18,16 @@
 
 ### 3. **API Clients**
 - ✅ Base API client with rate limiting (`scripts/harvest/base_client.py`)
-- ✅ CVE/NVD client implementation (`scripts/harvest/cve_client.py`)
+- ✅ ~~CVE/NVD client implementation~~ Replaced with CVEList client
+- ✅ CVEProject/cvelistV5 client (`scripts/harvest/cvelist_client.py`)
 - ✅ EPSS client with bulk fetching (`scripts/harvest/epss_client.py`)
 - ✅ Response caching with configurable TTL
 - ✅ Retry logic and error handling
+- ✅ CVE Record Format v5.0/5.1 parser
+- ✅ Critical/High severity filtering
+- ✅ EPSS score threshold filtering (>60%)
+- ✅ 2025+ CVEs only focus
+- ✅ CISA-ADP KEV/SSVC data parsing
 
 ### 4. **Data Processing**
 - ✅ Risk scoring algorithm (`scripts/processing/risk_scorer.py`)
@@ -71,8 +77,14 @@
 ### 11. **Testing**
 - ✅ Unit tests for models (`tests/test_models.py`)
 - ✅ Unit tests for risk scorer (`tests/test_risk_scorer.py`)
+- ✅ Unit tests for base client (`tests/test_base_client.py`)
+- ✅ Unit tests for cache manager (`tests/test_cache_manager.py`)
+- ✅ Unit tests for normalizer (`tests/test_normalizer.py`)
+- ✅ Unit tests for CVE client (`tests/test_cve_client.py`)
+- ✅ Unit tests for EPSS client (`tests/test_epss_client.py`)
 - ✅ Test fixtures and configurations (`tests/conftest.py`)
-- ⚠️  Coverage requirement temporarily lowered to 15% (from 80%)
+- ⚠️  Coverage at 26% (target: 80%)
+- ⚠️  Many tests need updating for new CVEList implementation
 
 ### 12. **Documentation**
 - ✅ Comprehensive README
@@ -91,13 +103,11 @@
 ## 🚧 Remaining Tasks
 
 ### High Priority
-1. **Replace Data Source with CVEProject/cvelistV5**
-   - Implement CVEProject/cvelistV5 repository client
-   - Parse CVE Record Format v5.0/5.1
-   - Add Critical/High severity filtering
-   - Implement EPSS score threshold (>60%)
-   - Focus on 2025+ CVEs only
-   - Parse CISA-ADP container for KEV/SSVC enrichment
+1. **Fix Test Suite**
+   - Create tests for CVEListClient
+   - Update existing tests to work with new data source
+   - Increase test coverage from 26% to 80%+
+   - Fix all failing tests
 
 2. **Enhanced Features**
    - Slack/Teams webhook integration
@@ -159,11 +169,12 @@
 
 ## 📊 Current Stats
 
-- **Lines of Code**: ~3,500 (Python) + ~500 (JavaScript)
-- **Test Coverage**: ~17% (threshold temporarily lowered to 15%)
-- **API Sources**: 2 implemented (CVE/NVD, EPSS)
+- **Lines of Code**: ~3,700 (Python) + ~500 (JavaScript)
+- **Test Coverage**: 26% (target: 80%)
+- **API Sources**: 2 implemented (CVEProject/cvelistV5, EPSS)
 - **Security Checks**: Bandit, CodeQL, npm audit, TruffleHog
 - **CI/CD Status**: All checks passing ✅
+- **Data Source**: Official CVEProject/cvelistV5 repository (updated every 7 minutes)
 
 ## 🎯 Success Metrics
 
