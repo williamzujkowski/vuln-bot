@@ -1,5 +1,10 @@
 /* Main stylesheet for Morning Vuln Briefing */
 
+/* Import design tokens and component system */
+@import "./tokens.css";
+@import "./components.css";
+
+/* Legacy root variables for backward compatibility - will migrate to tokens */
 :root {
   --color-primary: #2563eb;
   --color-secondary: #64748b;
