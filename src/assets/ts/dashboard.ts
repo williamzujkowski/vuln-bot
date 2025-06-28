@@ -52,8 +52,12 @@ interface VulnDashboard {
   // Methods
   init(): Promise<void>;
   loadVulnerabilities(): Promise<void>;
+  setupLazyLoading(): void;
   setupSearch(): void;
   applyFilters(): void;
+  validateFilters(): boolean;
+  announceFilterResults(): void;
+  showValidationErrors(errors: string[]): void;
   sortResults(results: Vulnerability[]): Vulnerability[];
   sort(field: keyof Vulnerability): void;
   updatePagination(): void;
@@ -67,6 +71,7 @@ interface VulnDashboard {
   resetFilters(): void;
   exportResults(): void;
   trackVulnerabilityClick(cveId: string, riskScore: number): void;
+  $nextTick(callback: () => void): void;
 }
 
 document.addEventListener("alpine:init", () => {
@@ -147,11 +152,42 @@ document.addEventListener("alpine:init", () => {
           const data: VulnerabilityResponse = await response.json();
           this.vulnerabilities = data.vulnerabilities || [];
           this.loading = false;
+
+          // Set up intersection observer for lazy loading
+          this.setupLazyLoading();
         } catch (error) {
           const errorMessage = error instanceof Error ? error.message : "Unknown error";
           this.error = errorMessage;
           this.loading = false;
           console.error("Failed to load vulnerabilities:", error);
+        }
+      },
+
+      setupLazyLoading(): void {
+        // Create intersection observer for lazy loading table rows
+        if ("IntersectionObserver" in window) {
+          const observerOptions = {
+            root: null,
+            rootMargin: "100px", // Start loading 100px before visible
+            threshold: 0.01,
+          };
+
+          const lazyLoadObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const element = entry.target as HTMLElement;
+                element.classList.add("loaded");
+                lazyLoadObserver.unobserve(element);
+              }
+            });
+          }, observerOptions);
+
+          // Observe vulnerability rows after render
+          this.$nextTick(() => {
+            document.querySelectorAll(".vulnerability-row[data-lazy]").forEach((row) => {
+              lazyLoadObserver.observe(row);
+            });
+          });
         }
       },
 
@@ -169,6 +205,11 @@ document.addEventListener("alpine:init", () => {
       },
 
       applyFilters(): void {
+        // Validate filters first
+        if (!this.validateFilters()) {
+          return;
+        }
+
         let results: Vulnerability[] = [...this.vulnerabilities];
 
         // Apply search
@@ -236,6 +277,113 @@ document.addEventListener("alpine:init", () => {
         this.filteredVulns = results;
         this.updatePagination();
         this.saveStateToHash();
+
+        // Announce results to screen readers
+        this.announceFilterResults();
+      },
+
+      announceFilterResults(): void {
+        const resultCount = this.filteredVulns.length;
+        const totalCount = this.vulnerabilities.length;
+
+        let announcement = `Showing ${resultCount} of ${totalCount} vulnerabilities`;
+
+        // Add filter context
+        const activeFilters = [];
+        if (this.searchQuery) activeFilters.push(`matching "${this.searchQuery}"`);
+        if (this.filters.severity) activeFilters.push(`severity: ${this.filters.severity}`);
+        if (this.filters.cvssMin > 0 || this.filters.cvssMax < 10) {
+          activeFilters.push(`CVSS: ${this.filters.cvssMin}-${this.filters.cvssMax}`);
+        }
+        if (this.filters.epssMin > 0 || this.filters.epssMax < 100) {
+          activeFilters.push(`EPSS: ${this.filters.epssMin}%-${this.filters.epssMax}%`);
+        }
+        if (this.filters.vendor) activeFilters.push(`vendor: ${this.filters.vendor}`);
+        if (this.filters.exploitationStatus) {
+          activeFilters.push(`exploitation: ${this.filters.exploitationStatus}`);
+        }
+        if (this.filters.tags.length > 0)
+          activeFilters.push(`tags: ${this.filters.tags.join(", ")}`);
+
+        if (activeFilters.length > 0) {
+          announcement += ` with filters: ${activeFilters.join(", ")}`;
+        }
+
+        // Create or update live region
+        let liveRegion = document.getElementById("filter-announcement");
+        if (!liveRegion) {
+          liveRegion = document.createElement("div");
+          liveRegion.id = "filter-announcement";
+          liveRegion.className = "sr-only";
+          liveRegion.setAttribute("role", "status");
+          liveRegion.setAttribute("aria-live", "polite");
+          liveRegion.setAttribute("aria-atomic", "true");
+          document.body.appendChild(liveRegion);
+        }
+
+        // Update announcement
+        liveRegion.textContent = announcement;
+      },
+
+      validateFilters(): boolean {
+        const errors = [];
+
+        // Validate CVSS range
+        if (this.filters.cvssMin > this.filters.cvssMax) {
+          errors.push("CVSS minimum score cannot be greater than maximum");
+        }
+
+        // Validate EPSS range
+        if (this.filters.epssMin > this.filters.epssMax) {
+          errors.push("EPSS minimum score cannot be greater than maximum");
+        }
+
+        // Validate date range
+        if (this.filters.dateFrom && this.filters.dateTo) {
+          const fromDate = new Date(this.filters.dateFrom);
+          const toDate = new Date(this.filters.dateTo);
+          if (fromDate > toDate) {
+            errors.push("Start date cannot be after end date");
+          }
+        }
+
+        // Show errors
+        if (errors.length > 0) {
+          this.showValidationErrors(errors);
+          return false;
+        }
+
+        return true;
+      },
+
+      showValidationErrors(errors: string[]): void {
+        // Create or update error region
+        let errorRegion = document.getElementById("validation-errors");
+        if (!errorRegion) {
+          errorRegion = document.createElement("div");
+          errorRegion.id = "validation-errors";
+          errorRegion.className = "validation-errors";
+          errorRegion.setAttribute("role", "alert");
+          errorRegion.setAttribute("aria-live", "assertive");
+          const filterSection = document.getElementById("search-filters");
+          filterSection?.insertBefore(errorRegion, filterSection.firstChild);
+        }
+
+        // Build error list
+        errorRegion.innerHTML = `
+          <h3>Validation Errors</h3>
+          <ul>
+            ${errors.map((error) => `<li>${error}</li>`).join("")}
+          </ul>
+        `;
+
+        // Focus on first error
+        errorRegion.focus();
+
+        // Clear errors after 5 seconds
+        setTimeout(() => {
+          errorRegion.innerHTML = "";
+        }, 5000);
       },
 
       sortResults(results: Vulnerability[]): Vulnerability[] {
@@ -472,6 +620,12 @@ document.addEventListener("alpine:init", () => {
 
       trackVulnerabilityClick(cveId: string, riskScore: number): void {
         analytics.trackVulnerabilityClick(cveId, { riskScore });
+      },
+
+      $nextTick(callback: () => void): void {
+        // This method is provided by Alpine.js at runtime
+        // @ts-ignore
+        this.$nextTick(callback);
       },
     })
   );

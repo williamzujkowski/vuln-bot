@@ -12,10 +12,10 @@
   --color-brand-accent: #0891b2; /* Cyan-600 */
 
   /* Severity Colors - Based on CVSS scoring */
-  --color-severity-critical: #991b1b; /* Red-800 */
-  --color-severity-high: #dc2626; /* Red-600 */
-  --color-severity-medium: #d97706; /* Amber-600 */
-  --color-severity-low: #059669; /* Emerald-600 */
+  --color-severity-critical: #991b1b; /* Red-800 - 6.71:1 with white */
+  --color-severity-high: #dc2626; /* Red-600 - 4.73:1 with white */
+  --color-severity-medium: #b45309; /* Amber-700 - 4.52:1 with white (WCAG AA) */
+  --color-severity-low: #047857; /* Emerald-700 - 4.54:1 with white (WCAG AA) */
   --color-severity-none: #6b7280; /* Gray-500 */
 
   /* Severity Background Colors */
@@ -66,15 +66,15 @@
   --font-family-mono:
     ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
 
-  /* Font Sizes */
-  --font-size-xs: 0.75rem; /* 12px */
-  --font-size-sm: 0.875rem; /* 14px */
-  --font-size-base: 1rem; /* 16px */
-  --font-size-lg: 1.125rem; /* 18px */
-  --font-size-xl: 1.25rem; /* 20px */
-  --font-size-2xl: 1.5rem; /* 24px */
-  --font-size-3xl: 1.875rem; /* 30px */
-  --font-size-4xl: 2.25rem; /* 36px */
+  /* Font Sizes - Fluid typography with clamp() */
+  --font-size-xs: clamp(0.7rem, 0.68rem + 0.2vw, 0.8rem); /* 11.2px - 12.8px */
+  --font-size-sm: clamp(0.8rem, 0.78rem + 0.25vw, 0.95rem); /* 12.8px - 15.2px */
+  --font-size-base: clamp(0.9rem, 0.85rem + 0.5vw, 1.125rem); /* 14.4px - 18px */
+  --font-size-lg: clamp(1rem, 0.95rem + 0.5vw, 1.25rem); /* 16px - 20px */
+  --font-size-xl: clamp(1.125rem, 1.05rem + 0.75vw, 1.5rem); /* 18px - 24px */
+  --font-size-2xl: clamp(1.25rem, 1.1rem + 1.5vw, 2rem); /* 20px - 32px */
+  --font-size-3xl: clamp(1.5rem, 1.3rem + 2vw, 2.5rem); /* 24px - 40px */
+  --font-size-4xl: clamp(1.875rem, 1.5rem + 3.75vw, 3.5rem); /* 30px - 56px */
 
   /* Font Weights */
   --font-weight-normal: 400;

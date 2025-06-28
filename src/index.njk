@@ -27,7 +27,7 @@ title: Morning Vuln Briefing - Dashboard
       <section id="search-filters" class="filters" aria-label="Search and filter vulnerabilities">
         <h2 class="sr-only">Search and Filter Options</h2>
         
-        <div class="filter-row">
+        <div class="filter-row filter-grid">
           <label for="search-input" class="sr-only">Search vulnerabilities</label>
           <input 
             id="search-input"
@@ -243,8 +243,8 @@ title: Morning Vuln Briefing - Dashboard
               </tr>
             </thead>
             <tbody>
-              <template x-for="vuln in paginatedVulns" :key="vuln.cveId">
-                <tr role="row">
+              <template x-for="(vuln, index) in paginatedVulns" :key="vuln.cveId">
+                <tr role="row" :data-lazy="index > 10 ? 'true' : null" :class="{'loaded': index <= 10}">
                   <td role="cell">
                     <a 
                       :href="'/vuln-bot/api/vulns/' + vuln.cveId + '.json'" 
