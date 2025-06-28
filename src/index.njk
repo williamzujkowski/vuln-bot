@@ -1,0 +1,137 @@
+---
+layout: base
+title: Morning Vuln Briefing - Dashboard
+---
+
+<div class="container">
+  <header class="header">
+    <h1>Morning Vuln Briefing</h1>
+    <p class="tagline">Daily vulnerability intelligence at your fingertips</p>
+  </header>
+
+  <div x-data="vulnDashboard()" x-cloak>
+    <!-- Loading state -->
+    <div x-show="loading" class="loading">
+      Loading vulnerability data...
+    </div>
+
+    <!-- Error state -->
+    <div x-show="error" class="error">
+      <strong>Error:</strong> <span x-text="error"></span>
+    </div>
+
+    <!-- Main dashboard -->
+    <div x-show="!loading && !error" class="filters">
+      <div class="filter-row">
+        <input 
+          type="text" 
+          x-model="searchQuery"
+          placeholder="Search CVE ID, title, or description..."
+          class="search-input"
+          @keyup.enter="applyFilters"
+        >
+        <button @click="resetFilters" style="margin-left: 0.5rem;">Reset</button>
+        <button @click="exportResults" style="margin-left: 0.5rem;">Export CSV</button>
+      </div>
+
+    <div class="filter-row">
+      <div class="filter-group">
+        <label>CVSS Score</label>
+        <input 
+          type="range" 
+          x-model="filters.cvssMin"
+          min="0" 
+          max="10" 
+          step="0.1"
+          class="slider"
+        >
+        <span x-text="filters.cvssMin"></span> - 
+        <input 
+          type="range" 
+          x-model="filters.cvssMax"
+          min="0" 
+          max="10" 
+          step="0.1"
+          class="slider"
+        >
+        <span x-text="filters.cvssMax"></span>
+      </div>
+
+      <div class="filter-group">
+        <label>EPSS Score</label>
+        <input 
+          type="range" 
+          x-model="filters.epssMin"
+          min="0" 
+          max="100" 
+          step="1"
+          class="slider"
+        >
+        <span x-text="filters.epssMin + '%'"></span> - 
+        <input 
+          type="range" 
+          x-model="filters.epssMax"
+          min="0" 
+          max="100" 
+          step="1"
+          class="slider"
+        >
+        <span x-text="filters.epssMax + '%'"></span>
+      </div>
+    </div>
+
+    <div class="results-info">
+      <span>Showing <strong x-text="filteredVulns.length"></strong> vulnerabilities</span>
+    </div>
+
+    <div class="vuln-table">
+      <table>
+        <thead>
+          <tr>
+            <th @click="sort('cveId')">CVE ID</th>
+            <th @click="sort('title')">Title</th>
+            <th @click="sort('cvssScore')">CVSS</th>
+            <th @click="sort('epssScore')">EPSS</th>
+            <th @click="sort('riskScore')">Risk Score</th>
+            <th @click="sort('publishedDate')">Published</th>
+          </tr>
+        </thead>
+        <tbody>
+          <template x-for="vuln in paginatedVulns" :key="vuln.cveId">
+            <tr>
+              <td>
+                <a :href="'/api/vulns/' + vuln.cveId + '.json'" x-text="vuln.cveId"></a>
+              </td>
+              <td x-text="vuln.title"></td>
+              <td>
+                <span class="score" :class="getSeverityClass(vuln.cvssScore)" x-text="vuln.cvssScore"></span>
+              </td>
+              <td x-text="vuln.epssScore + '%'"></td>
+              <td>
+                <span class="risk-score" x-text="vuln.riskScore"></span>
+              </td>
+              <td x-text="formatDate(vuln.publishedDate)"></td>
+            </tr>
+          </template>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="pagination">
+      <select x-model="pageSize">
+        <option value="10">10 per page</option>
+        <option value="20">20 per page</option>
+        <option value="50">50 per page</option>
+        <option value="100">100 per page</option>
+      </select>
+      
+      <div class="page-controls">
+        <button @click="previousPage()" :disabled="currentPage === 1">Previous</button>
+        <span>Page <span x-text="currentPage"></span> of <span x-text="totalPages"></span></span>
+        <button @click="nextPage()" :disabled="currentPage === totalPages">Next</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/js/dashboard.js"></script>

@@ -1,0 +1,115 @@
+name: Nightly Vulnerability Harvest
+
+on:
+  schedule:
+    # Run at 2 AM UTC every day
+    - cron: "0 2 * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Run in dry-run mode (no commits)"
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+env:
+  PYTHON_VERSION: "3.x"
+  NODE_VERSION: "lts/*"
+
+jobs:
+  harvest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: "npm"
+      
+      - name: Install uv
+        run: |
+          curl -LsSf https://astral.sh/uv/install.sh | sh
+          echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+      
+      - name: Cache Python dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/uv
+          key: ${{ runner.os }}-uv-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-uv-
+      
+      - name: Cache API responses
+        uses: actions/cache@v3
+        with:
+          path: actions-cache/
+          key: api-cache-${{ hashFiles('scripts/harvest/**/*.py') }}
+          restore-keys: |
+            api-cache-
+      
+      - name: Install dependencies
+        run: |
+          uv pip install --system -r requirements.txt
+          npm ci
+      
+      - name: Run vulnerability harvest
+        env:
+          CVE_API_KEY: ${{ secrets.CVE_API_KEY }}
+          NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
+          GH_ADVISORY_TOKEN: ${{ secrets.GH_ADVISORY_TOKEN }}
+          LIBRARIES_IO_KEY: ${{ secrets.LIBRARIES_IO_KEY }}
+          MSRC_API_KEY: ${{ secrets.MSRC_API_KEY }}
+        run: |
+          python -m scripts.main harvest --cache-dir actions-cache/
+      
+      - name: Generate vulnerability briefing
+        run: |
+          python -m scripts.main generate-briefing
+      
+      - name: Build static site
+        run: |
+          npm run build
+      
+      - name: Update coverage badge
+        if: github.event_name != 'workflow_dispatch' || !github.event.inputs.dry_run
+        run: |
+          python -m scripts.main update-badge
+      
+      - name: Commit changes
+        if: github.event_name != 'workflow_dispatch' || !github.event.inputs.dry_run
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add -A
+          git diff --cached --quiet || git commit -m "chore: update vulnerability briefing $(date +%Y-%m-%d)"
+          git push
+      
+      - name: Deploy to GitHub Pages
+        if: github.event_name != 'workflow_dispatch' || !github.event.inputs.dry_run
+        uses: actions/deploy-pages@v2
+        with:
+          artifact_name: github-pages
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Send alerts
+        if: env.SEND_ALERTS == 'true' && (github.event_name != 'workflow_dispatch' || !github.event.inputs.dry_run)
+        run: |
+          python -m scripts.main send-alerts
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          TEAMS_WEBHOOK: ${{ secrets.TEAMS_WEBHOOK }}
+          SEND_ALERTS: ${{ vars.SEND_ALERTS }}

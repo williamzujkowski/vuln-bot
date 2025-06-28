@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }} | Morning Vuln Briefing</title>
+  <meta name="description" content="Daily vulnerability intelligence platform with automated harvesting and risk scoring">
+  
+  <link rel="stylesheet" href="/assets/css/main.css">
+  
+  <!-- Alpine.js -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  
+  <!-- Fuse.js -->
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+</head>
+<body>
+  {{ content | safe }}
+  
+  <footer class="footer">
+    <p>Last updated: {{ page.date | dateFormat }}</p>
+    <p>
+      <a href="https://github.com/yourusername/vuln-bot">GitHub</a> | 
+      <a href="/api/vulns/index.json">API</a>
+    </p>
+  </footer>
+</body>
+</html>

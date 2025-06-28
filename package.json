@@ -1,0 +1,56 @@
+{
+  "name": "vuln-bot",
+  "version": "1.0.0",
+  "description": "Morning Vuln Briefing - Automated vulnerability intelligence platform",
+  "private": true,
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve",
+    "clean": "rimraf public",
+    "lint": "eslint 'src/**/*.js' --fix",
+    "format": "prettier --write 'src/**/*.{js,json,css,md}'",
+    "precommit": "lint-staged",
+    "test": "echo 'No tests specified yet'",
+    "prepare": "husky install"
+  },
+  "keywords": [
+    "vulnerability",
+    "security",
+    "cve",
+    "11ty",
+    "static-site"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
+    "eslint": "^8.56.0",
+    "eslint-config-google": "^0.14.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.1.1",
+    "rimraf": "^5.0.5"
+  },
+  "dependencies": {
+    "alpinejs": "^3.13.3",
+    "fuse.js": "^7.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,css,md}": [
+      "prettier --write"
+    ],
+    "*.py": [
+      "ruff check --fix",
+      "ruff format"
+    ]
+  }
+}

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }} | Morning Vuln Briefing</title>
+  <meta name="description" content="{{ description or 'Daily vulnerability intelligence briefing' }}">
+  
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <style>
+    .post-header {
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+    
+    .post-meta {
+      color: var(--color-text-muted);
+      font-size: 0.875rem;
+      margin-top: 0.5rem;
+    }
+    
+    .post-content {
+      line-height: 1.7;
+    }
+    
+    .post-content h2 {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .post-content h3 {
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    .post-content ul {
+      margin: 1rem 0;
+      padding-left: 1.5rem;
+    }
+    
+    .post-content li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .post-content a {
+      color: var(--color-primary);
+      text-decoration: underline;
+    }
+    
+    .post-content code {
+      background-color: var(--color-bg-alt);
+      padding: 0.125rem 0.25rem;
+      border-radius: 0.25rem;
+      font-family: var(--font-mono);
+      font-size: 0.875em;
+    }
+    
+    .post-content blockquote {
+      border-left: 4px solid var(--color-border);
+      padding-left: 1rem;
+      margin: 1rem 0;
+      color: var(--color-text-muted);
+    }
+    
+    .vuln-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    
+    .stat-card {
+      background-color: var(--color-bg-alt);
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      text-align: center;
+    }
+    
+    .stat-card h4 {
+      margin: 0 0 0.5rem 0;
+      color: var(--color-text-muted);
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+    
+    .stat-card .stat-value {
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 0;
+    }
+    
+    .stat-card.critical .stat-value {
+      color: var(--color-critical);
+    }
+    
+    .stat-card.high .stat-value {
+      color: var(--color-danger);
+    }
+    
+    .nav-links {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--color-border);
+    }
+    
+    .nav-links a {
+      color: var(--color-primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1><a href="/" style="color: inherit; text-decoration: none;">Morning Vuln Briefing</a></h1>
+      <p class="tagline">Daily vulnerability intelligence at your fingertips</p>
+    </header>
+    
+    <article class="post">
+      <header class="post-header">
+        <h1>{{ title }}</h1>
+        <div class="post-meta">
+          Published on {{ date | dateFormat }}
+          {% if vulnerabilityCount %}
+            · {{ vulnerabilityCount }} vulnerabilities analyzed
+          {% endif %}
+        </div>
+      </header>
+      
+      {% if vulnerabilityCount %}
+      <div class="vuln-stats">
+        <div class="stat-card critical">
+          <h4>Critical Risk</h4>
+          <p class="stat-value">{{ criticalCount or 0 }}</p>
+        </div>
+        <div class="stat-card high">
+          <h4>High Risk</h4>
+          <p class="stat-value">{{ highCount or 0 }}</p>
+        </div>
+        <div class="stat-card">
+          <h4>Total Analyzed</h4>
+          <p class="stat-value">{{ vulnerabilityCount }}</p>
+        </div>
+      </div>
+      {% endif %}
+      
+      <div class="post-content">
+        {{ content | safe }}
+      </div>
+      
+      <nav class="nav-links">
+        {% if previousPost %}
+        <a href="{{ previousPost.url }}">
+          ← {{ previousPost.data.title }}
+        </a>
+        {% else %}
+        <span></span>
+        {% endif %}
+        
+        {% if nextPost %}
+        <a href="{{ nextPost.url }}">
+          {{ nextPost.data.title }} →
+        </a>
+        {% else %}
+        <span></span>
+        {% endif %}
+      </nav>
+    </article>
+    
+    <footer class="footer">
+      <p>
+        <a href="/">Dashboard</a> | 
+        <a href="/api/vulns/index.json">API</a> | 
+        <a href="https://github.com/yourusername/vuln-bot">GitHub</a>
+      </p>
+    </footer>
+  </div>
+</body>
+</html>
