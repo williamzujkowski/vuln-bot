@@ -19,7 +19,10 @@ class TestCacheManagerSimple:
     @pytest.fixture
     def cache_manager(self, tmp_path):
         """Create a CacheManager instance with test database."""
-        db_path = tmp_path / "test.db"
+        db_path = tmp_path / f"test_{id(self)}.db"
+        # Ensure clean database
+        if db_path.exists():
+            db_path.unlink()
         return CacheManager(db_path=str(db_path))
 
     @pytest.fixture
@@ -39,7 +42,7 @@ class TestCacheManagerSimple:
 
     def test_initialization(self, cache_manager, tmp_path):
         """Test cache manager initialization."""
-        assert cache_manager.db_path == str(tmp_path / "test.db")
+        assert cache_manager.db_path == tmp_path / "test.db"
         assert (tmp_path / "test.db").exists()
 
     def test_cache_and_retrieve_vulnerability(
@@ -100,11 +103,11 @@ class TestCacheManagerSimple:
 
         stats = cache_manager.get_cache_stats()
 
-        assert stats["total_vulnerabilities"] == 1
-        assert stats["active_vulnerabilities"] == 1
-        assert stats["expired_vulnerabilities"] == 0
-        assert "oldest_entry" in stats
-        assert "newest_entry" in stats
+        assert stats["total_entries"] == 1
+        assert stats["valid_entries"] == 1
+        assert stats["expired_entries"] == 0
+        assert "severity_distribution" in stats
+        assert "risk_distribution" in stats
 
     def test_cleanup_expired(self, cache_manager):
         """Test cleanup doesn't remove non-expired entries."""

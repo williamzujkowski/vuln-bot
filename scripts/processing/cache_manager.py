@@ -1,7 +1,6 @@
 """SQLite-based caching manager for vulnerability data."""
 
 import json
-import sqlite3
 from contextlib import contextmanager
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -16,6 +15,7 @@ from sqlalchemy import (
     Text,
     create_engine,
     desc,
+    func,
 )
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import Session, sessionmaker
@@ -35,10 +35,14 @@ class VulnerabilityCache(Base):
     data = Column(Text, nullable=False)  # JSON serialized vulnerability
     risk_score = Column(Integer, nullable=False, index=True)
     severity = Column(String(20), nullable=False, index=True)
-    published_date = Column(DateTime, nullable=False, index=True)
-    last_modified_date = Column(DateTime, nullable=False)
-    cached_at = Column(DateTime, nullable=False, default=datetime.utcnow)
-    expires_at = Column(DateTime, nullable=False, index=True)
+    published_date = Column(DateTime(timezone=True), nullable=False, index=True)
+    last_modified_date = Column(DateTime(timezone=True), nullable=False)
+    cached_at = Column(
+        DateTime(timezone=True),
+        nullable=False,
+        default=lambda: datetime.now(timezone.utc),
+    )
+    expires_at = Column(DateTime(timezone=True), nullable=False, index=True)
 
 
 class HarvestMetadata(Base):
@@ -47,11 +51,17 @@ class HarvestMetadata(Base):
     __tablename__ = "harvest_metadata"
 
     id = Column(Integer, primary_key=True)
-    harvest_date = Column(DateTime, nullable=False, unique=True, index=True)
+    harvest_date = Column(
+        DateTime(timezone=True), nullable=False, unique=True, index=True
+    )
     vulnerability_count = Column(Integer, nullable=False)
     sources = Column(Text, nullable=False)  # JSON list of sources
     extra_metadata = Column(Text)  # JSON additional metadata
-    created_at = Column(DateTime, nullable=False, default=datetime.utcnow)
+    created_at = Column(
+        DateTime(timezone=True),
+        nullable=False,
+        default=lambda: datetime.now(timezone.utc),
+    )
 
 
 class CacheManager:
@@ -343,7 +353,7 @@ class CacheManager:
             for severity, count in (
                 session.query(
                     VulnerabilityCache.severity,
-                    sqlite3.func.count(VulnerabilityCache.id),
+                    func.count(VulnerabilityCache.id),
                 )
                 .filter(VulnerabilityCache.expires_at > datetime.now(timezone.utc))
                 .group_by(VulnerabilityCache.severity)

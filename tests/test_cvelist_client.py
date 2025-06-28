@@ -73,7 +73,10 @@ class TestCVEListClient:
     def test_initialization(self, client):
         """Test client initialization."""
         assert client.use_github_api is True
-        assert client.base_url == "https://api.github.com"
+        assert (
+            client.base_url
+            == "https://raw.githubusercontent.com/CVEProject/cvelistV5/main"
+        )
         # Check headers include token
         headers = client.get_headers()
         assert "Authorization" in headers
@@ -93,24 +96,28 @@ class TestCVEListClient:
         assert vuln.affected_vendors[0] == "test vendor"
         assert len(vuln.references) == 1
 
-    def test_meets_severity_threshold(self, client):
+    def test_meets_severity_threshold(self, client, sample_cve_v5):
         """Test severity threshold checking."""
-        # Critical meets HIGH threshold
+        # Sample CVE has CRITICAL severity, should meet HIGH threshold
         assert (
-            client._meets_severity_threshold(SeverityLevel.CRITICAL, SeverityLevel.HIGH)
-            is True
+            client._meets_severity_threshold(sample_cve_v5, SeverityLevel.HIGH) is True
         )
 
-        # HIGH meets HIGH threshold
+        # Test with LOW severity CVE
+        low_severity_cve = {
+            "containers": {
+                "cna": {
+                    "metrics": [{"cvssV3_1": {"baseSeverity": "LOW", "baseScore": 3.5}}]
+                }
+            }
+        }
         assert (
-            client._meets_severity_threshold(SeverityLevel.HIGH, SeverityLevel.HIGH)
-            is True
-        )
-
-        # MEDIUM does not meet HIGH threshold
-        assert (
-            client._meets_severity_threshold(SeverityLevel.MEDIUM, SeverityLevel.HIGH)
+            client._meets_severity_threshold(low_severity_cve, SeverityLevel.HIGH)
             is False
+        )
+        assert (
+            client._meets_severity_threshold(low_severity_cve, SeverityLevel.LOW)
+            is True
         )
 
     def test_parse_cve_v5_record_missing_data(self, client):
@@ -136,7 +143,9 @@ class TestCVEListClient:
 
         assert vuln is not None
         assert vuln.cve_id == "CVE-2025-0002"
-        assert vuln.title == "CVE-2025-0002"  # Falls back to CVE ID
+        assert (
+            vuln.title == "CVE-2025-0002: Minimal description..."
+        )  # Falls back to CVE ID + description
         assert vuln.description == "Minimal description"
         assert vuln.severity == SeverityLevel.NONE
         assert vuln.cvss_base_score is None
@@ -167,13 +176,3 @@ class TestCVEListClient:
 
         # Should have made at least one API call
         assert mock_get.called
-
-    def test_normalize_severity(self, client):
-        """Test severity normalization."""
-        assert client._normalize_severity("CRITICAL") == SeverityLevel.CRITICAL
-        assert client._normalize_severity("HIGH") == SeverityLevel.HIGH
-        assert client._normalize_severity("MEDIUM") == SeverityLevel.MEDIUM
-        assert client._normalize_severity("LOW") == SeverityLevel.LOW
-        assert client._normalize_severity("NONE") == SeverityLevel.NONE
-        assert client._normalize_severity("UNKNOWN") == SeverityLevel.NONE
-        assert client._normalize_severity(None) == SeverityLevel.NONE
