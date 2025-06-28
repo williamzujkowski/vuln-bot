@@ -6,7 +6,13 @@
   <title>{{ title }} | Morning Vuln Briefing</title>
   <meta name="description" content="Daily vulnerability intelligence platform with automated harvesting and risk scoring">
   
+  <!-- Preconnect to improve performance -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | url }}">
+  
+  <!-- Skip to content link for screen readers -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
   
   <!-- Alpine.js -->
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -15,14 +21,32 @@
   <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
 </head>
 <body>
-  {{ content | safe }}
-  
-  <footer class="footer">
-    <p>Last updated: {{ page.date | dateFormat }}</p>
-    <p>
-      <a href="https://github.com/yourusername/vuln-bot">GitHub</a> | 
-      <a href="{{ '/api/vulns/index.json' | url }}">API</a>
-    </p>
-  </footer>
+  <div class="page-wrapper">
+    <nav class="sr-only" aria-label="Skip navigation">
+      <a href="#main-content" class="skip-link">Skip to main content</a>
+      <a href="#search-filters" class="skip-link">Skip to search and filters</a>
+      <a href="#vulnerability-table" class="skip-link">Skip to vulnerability table</a>
+    </nav>
+    
+    <main id="main-content" role="main">
+      {{ content | safe }}
+    </main>
+    
+    <footer class="footer" role="contentinfo">
+      <div class="footer-content">
+        <p>
+          <time datetime="{{ page.date }}">
+            Last updated: {{ page.date | dateFormat }}
+          </time>
+        </p>
+        <nav aria-label="Footer links">
+          <ul class="footer-links">
+            <li><a href="https://github.com/williamzujkowski/vuln-bot" aria-label="View source code on GitHub">GitHub</a></li>
+            <li><a href="{{ '/api/vulns/index.json' | url }}" aria-label="Access vulnerability data API">API</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>

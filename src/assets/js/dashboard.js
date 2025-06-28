@@ -1,219 +1,356 @@
-(() => {
-  "use strict";
-  document.addEventListener("alpine:init", () => {
-    window.Alpine.data("vulnDashboard", () => ({
-      vulnerabilities: [],
-      filteredVulns: [],
-      paginatedVulns: [],
-      searchQuery: "",
-      fuse: null,
-      filters: {
-        cvssMin: 0,
-        cvssMax: 10,
-        epssMin: 0,
-        epssMax: 100,
-        severity: "",
-        dateFrom: "",
-        dateTo: "",
-        vendor: "",
-        exploitationStatus: "",
-        tags: [],
+/******/ (() => {
+  // webpackBootstrap
+  /******/ "use strict";
+  /******/ var __webpack_modules__ = {
+    /***/ "./src/assets/ts/types/alpine.ts":
+      /*!***************************************!*\
+  !*** ./src/assets/ts/types/alpine.ts ***!
+  \***************************************/
+      /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+        __webpack_require__.r(__webpack_exports__);
+        /**
+         * Alpine.js type extensions
+         */
+
+        /***/
       },
-      sortField: "riskScore",
-      sortDirection: "desc",
-      currentPage: 1,
-      pageSize: 20,
-      totalPages: 1,
-      loading: !0,
-      error: null,
-      initialLoad: !0,
-      async init() {
-        (this.loadStateFromHash(),
-          await this.loadVulnerabilities(),
-          this.setupSearch(),
-          this.applyFilters(),
-          (this.initialLoad = !1),
-          this.watchFilters());
-      },
-      async loadVulnerabilities() {
-        try {
-          ((this.loading = !0), (this.error = null));
-          const t = await fetch("/vuln-bot/api/vulns/index.json");
-          if (!t.ok) throw new Error(`Failed to load vulnerabilities: ${t.status}`);
-          const e = await t.json();
-          ((this.vulnerabilities = e.vulnerabilities || []), (this.loading = !1));
-        } catch (t) {
-          const e = t instanceof Error ? t.message : "Unknown error";
-          ((this.error = e),
-            (this.loading = !1),
-            console.error("Failed to load vulnerabilities:", t));
-        }
-      },
-      setupSearch() {
-        0 !== this.vulnerabilities.length &&
-          (this.fuse = new window.Fuse(this.vulnerabilities, {
+
+    /******/
+  };
+  /************************************************************************/
+  /******/ // The module cache
+  /******/ var __webpack_module_cache__ = {};
+  /******/
+  /******/ // The require function
+  /******/ function __webpack_require__(moduleId) {
+    /******/ // Check if module is in cache
+    /******/ var cachedModule = __webpack_module_cache__[moduleId];
+    /******/ if (cachedModule !== undefined) {
+      /******/ return cachedModule.exports;
+      /******/
+    }
+    /******/ // Create a new module (and put it into the cache)
+    /******/ var module = (__webpack_module_cache__[moduleId] = {
+      /******/ // no module.id needed
+      /******/ // no module.loaded needed
+      /******/ exports: {},
+      /******/
+    });
+    /******/
+    /******/ // Execute the module function
+    /******/ __webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+    /******/
+    /******/ // Return the exports of the module
+    /******/ return module.exports;
+    /******/
+  }
+  /******/
+  /************************************************************************/
+  /******/ /* webpack/runtime/make namespace object */
+  /******/ (() => {
+    /******/ // define __esModule on exports
+    /******/ __webpack_require__.r = (exports) => {
+      /******/ if (typeof Symbol !== "undefined" && Symbol.toStringTag) {
+        /******/ Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
+        /******/
+      }
+      /******/ Object.defineProperty(exports, "__esModule", { value: true });
+      /******/
+    };
+    /******/
+  })();
+  /******/
+  /************************************************************************/
+  var __webpack_exports__ = {};
+  // This entry needs to be wrapped in an IIFE because it needs to be isolated against other modules in the chunk.
+  (() => {
+    /*!************************************!*\
+  !*** ./src/assets/ts/dashboard.ts ***!
+  \************************************/
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony import */ var _types_alpine__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! ./types/alpine */ "./src/assets/ts/types/alpine.ts"
+    );
+    /**
+     * Alpine.js Vulnerability Dashboard - TypeScript Version
+     */
+
+    document.addEventListener("alpine:init", () => {
+      window.Alpine.data("vulnDashboard", () => ({
+        // Data
+        vulnerabilities: [],
+        filteredVulns: [],
+        paginatedVulns: [],
+        searchQuery: "",
+        fuse: null,
+        // Filters
+        filters: {
+          cvssMin: 0,
+          cvssMax: 10,
+          epssMin: 0,
+          epssMax: 100,
+          severity: "",
+          dateFrom: "",
+          dateTo: "",
+          vendor: "",
+          exploitationStatus: "",
+          tags: [],
+        },
+        // Sort
+        sortField: "riskScore",
+        sortDirection: "desc",
+        // Pagination
+        currentPage: 1,
+        pageSize: 20,
+        totalPages: 1,
+        // State
+        loading: true,
+        error: null,
+        initialLoad: true,
+        async init() {
+          // Load state from URL hash
+          this.loadStateFromHash();
+          // Load vulnerability data
+          await this.loadVulnerabilities();
+          // Set up Fuse.js for fuzzy search
+          this.setupSearch();
+          // Apply initial filters
+          this.applyFilters();
+          // Mark initial load as complete
+          this.initialLoad = false;
+          // Watch for changes
+          this.watchFilters();
+        },
+        async loadVulnerabilities() {
+          try {
+            this.loading = true;
+            this.error = null;
+            const response = await fetch("/vuln-bot/api/vulns/index.json");
+            if (!response.ok) {
+              throw new Error(`Failed to load vulnerabilities: ${response.status}`);
+            }
+            const data = await response.json();
+            this.vulnerabilities = data.vulnerabilities || [];
+            this.loading = false;
+          } catch (error) {
+            const errorMessage = error instanceof Error ? error.message : "Unknown error";
+            this.error = errorMessage;
+            this.loading = false;
+            console.error("Failed to load vulnerabilities:", error);
+          }
+        },
+        setupSearch() {
+          if (this.vulnerabilities.length === 0) return;
+          // Configure Fuse.js for fuzzy search
+          const options = {
             keys: ["cveId", "title", "vendors", "products", "tags"],
             threshold: 0.3,
-            includeScore: !0,
-          }));
-      },
-      applyFilters() {
-        let t = [...this.vulnerabilities];
-        if (
-          (this.searchQuery.trim() &&
-            this.fuse &&
-            (t = this.fuse.search(this.searchQuery).map((t) => t.item)),
-          (t = t.filter((t) => {
-            const e = t.cvssScore || 0;
-            return e >= this.filters.cvssMin && e <= this.filters.cvssMax;
-          })),
-          (t = t.filter((t) => {
-            const e = t.epssScore || 0;
-            return e >= this.filters.epssMin && e <= this.filters.epssMax;
-          })),
-          this.filters.severity && (t = t.filter((t) => t.severity === this.filters.severity)),
-          this.filters.dateFrom)
-        ) {
-          const e = new Date(this.filters.dateFrom);
-          t = t.filter((t) => new Date(t.publishedDate) >= e);
-        }
-        if (this.filters.dateTo) {
-          const e = new Date(this.filters.dateTo);
-          t = t.filter((t) => new Date(t.publishedDate) <= e);
-        }
-        if (this.filters.vendor) {
-          const e = this.filters.vendor.toLowerCase();
-          t = t.filter((t) => t.vendors.some((t) => t.toLowerCase().includes(e)));
-        }
-        (this.filters.exploitationStatus &&
-          (t = t.filter((t) => t.exploitationStatus === this.filters.exploitationStatus)),
-          this.filters.tags.length > 0 &&
-            (t = t.filter((t) => this.filters.tags.every((e) => t.tags.includes(e)))),
-          (t = this.sortResults(t)),
-          (this.filteredVulns = t),
-          this.updatePagination(),
-          this.saveStateToHash());
-      },
-      sortResults(t) {
-        const e = this.sortField,
-          s = this.sortDirection;
-        return t.sort((t, i) => {
-          let r = t[e],
-            a = i[e];
-          return (
-            r ?? (r = ""),
-            a ?? (a = ""),
-            "string" == typeof e &&
-              e.includes("Date") &&
-              ((r = new Date(r).getTime()), (a = new Date(a).getTime())),
-            r < a ? ("asc" === s ? -1 : 1) : r > a ? ("asc" === s ? 1 : -1) : 0
-          );
-        });
-      },
-      sort(t) {
-        (this.sortField === t
-          ? (this.sortDirection = "asc" === this.sortDirection ? "desc" : "asc")
-          : ((this.sortField = t), (this.sortDirection = "desc")),
-          this.applyFilters());
-      },
-      updatePagination() {
-        ((this.totalPages = Math.ceil(this.filteredVulns.length / this.pageSize)),
-          (this.currentPage = Math.min(this.currentPage, Math.max(1, this.totalPages))));
-        const t = (this.currentPage - 1) * this.pageSize,
-          e = t + this.pageSize;
-        this.paginatedVulns = this.filteredVulns.slice(t, e);
-      },
-      previousPage() {
-        this.currentPage > 1 && (this.currentPage--, this.updatePagination());
-      },
-      nextPage() {
-        this.currentPage < this.totalPages && (this.currentPage++, this.updatePagination());
-      },
-      watchFilters() {
-        (this.$watch("searchQuery", () => this.applyFilters()),
-          this.$watch("filters", () => this.applyFilters(), { deep: !0 }),
+            includeScore: true,
+          };
+          this.fuse = new window.Fuse(this.vulnerabilities, options);
+        },
+        applyFilters() {
+          let results = [...this.vulnerabilities];
+          // Apply search
+          if (this.searchQuery.trim() && this.fuse) {
+            const searchResults = this.fuse.search(this.searchQuery);
+            results = searchResults.map((result) => result.item);
+          }
+          // Apply CVSS filter
+          results = results.filter((vuln) => {
+            const score = vuln.cvssScore || 0;
+            return score >= this.filters.cvssMin && score <= this.filters.cvssMax;
+          });
+          // Apply EPSS filter
+          results = results.filter((vuln) => {
+            const score = vuln.epssScore || 0;
+            return score >= this.filters.epssMin && score <= this.filters.epssMax;
+          });
+          // Apply severity filter
+          if (this.filters.severity) {
+            results = results.filter((vuln) => vuln.severity === this.filters.severity);
+          }
+          // Apply date filter
+          if (this.filters.dateFrom) {
+            const fromDate = new Date(this.filters.dateFrom);
+            results = results.filter((vuln) => new Date(vuln.publishedDate) >= fromDate);
+          }
+          if (this.filters.dateTo) {
+            const toDate = new Date(this.filters.dateTo);
+            results = results.filter((vuln) => new Date(vuln.publishedDate) <= toDate);
+          }
+          // Apply vendor filter
+          if (this.filters.vendor) {
+            const vendorLower = this.filters.vendor.toLowerCase();
+            results = results.filter((vuln) =>
+              vuln.vendors.some((v) => v.toLowerCase().includes(vendorLower))
+            );
+          }
+          // Apply exploitation status filter
+          if (this.filters.exploitationStatus) {
+            results = results.filter(
+              (vuln) => vuln.exploitationStatus === this.filters.exploitationStatus
+            );
+          }
+          // Apply tag filter
+          if (this.filters.tags.length > 0) {
+            results = results.filter((vuln) =>
+              this.filters.tags.every((tag) => vuln.tags.includes(tag))
+            );
+          }
+          // Apply sorting
+          results = this.sortResults(results);
+          this.filteredVulns = results;
+          this.updatePagination();
+          this.saveStateToHash();
+        },
+        sortResults(results) {
+          const field = this.sortField;
+          const direction = this.sortDirection;
+          return results.sort((a, b) => {
+            let aVal = a[field];
+            let bVal = b[field];
+            // Handle null/undefined values
+            aVal ?? (aVal = "");
+            bVal ?? (bVal = "");
+            // Handle dates
+            if (typeof field === "string" && field.includes("Date")) {
+              aVal = new Date(aVal).getTime();
+              bVal = new Date(bVal).getTime();
+            }
+            // Compare
+            if (aVal < bVal) return direction === "asc" ? -1 : 1;
+            if (aVal > bVal) return direction === "asc" ? 1 : -1;
+            return 0;
+          });
+        },
+        sort(field) {
+          if (this.sortField === field) {
+            // Toggle direction
+            this.sortDirection = this.sortDirection === "asc" ? "desc" : "asc";
+          } else {
+            // New field, default to descending
+            this.sortField = field;
+            this.sortDirection = "desc";
+          }
+          this.applyFilters();
+        },
+        updatePagination() {
+          this.totalPages = Math.ceil(this.filteredVulns.length / this.pageSize);
+          this.currentPage = Math.min(this.currentPage, Math.max(1, this.totalPages));
+          const start = (this.currentPage - 1) * this.pageSize;
+          const end = start + this.pageSize;
+          this.paginatedVulns = this.filteredVulns.slice(start, end);
+        },
+        previousPage() {
+          if (this.currentPage > 1) {
+            this.currentPage--;
+            this.updatePagination();
+          }
+        },
+        nextPage() {
+          if (this.currentPage < this.totalPages) {
+            this.currentPage++;
+            this.updatePagination();
+          }
+        },
+        watchFilters() {
+          // Watch for filter changes
+          this.$watch("searchQuery", () => this.applyFilters());
+          this.$watch("filters", () => this.applyFilters(), { deep: true });
           this.$watch("pageSize", () => {
-            ((this.currentPage = 1), this.updatePagination());
-          }));
-      },
-      saveStateToHash() {
-        if (this.loading || 0 === this.vulnerabilities.length || this.initialLoad) return;
-        const t = {
-          q: this.searchQuery,
-          cvssMin: this.filters.cvssMin,
-          cvssMax: this.filters.cvssMax,
-          epssMin: this.filters.epssMin,
-          epssMax: this.filters.epssMax,
-          severity: this.filters.severity,
-          dateFrom: this.filters.dateFrom,
-          dateTo: this.filters.dateTo,
-          vendor: this.filters.vendor,
-          exploitation: this.filters.exploitationStatus,
-          tags: this.filters.tags.join(","),
-          sort: this.sortField,
-          dir: this.sortDirection,
-          page: this.currentPage,
-          size: this.pageSize,
-        };
-        Object.keys(t).forEach((e) => {
-          const s = t[e];
-          (!s ||
-            "" === s ||
-            ("cvssMin" === e && 0 === s) ||
-            ("cvssMax" === e && 10 === s) ||
-            ("epssMin" === e && 0 === s) ||
-            ("epssMax" === e && 100 === s) ||
-            ("page" === e && 1 === s) ||
-            ("size" === e && 20 === s) ||
-            ("sort" === e && "riskScore" === s) ||
-            ("dir" === e && "desc" === s)) &&
-            delete t[e];
-        });
-        const e = new URLSearchParams(
-          Object.fromEntries(Object.entries(t).map(([t, e]) => [t, String(e)]))
-        ).toString();
-        window.location.hash = e;
-      },
-      loadStateFromHash() {
-        const t = window.location.hash.slice(1);
-        if (!t) return;
-        const e = new URLSearchParams(t);
-        ((this.searchQuery = e.get("q") ?? ""),
-          (this.filters.cvssMin = parseFloat(e.get("cvssMin") ?? "0")),
-          (this.filters.cvssMax = parseFloat(e.get("cvssMax") ?? "10")),
-          (this.filters.epssMin = parseInt(e.get("epssMin") ?? "0")),
-          (this.filters.epssMax = parseInt(e.get("epssMax") ?? "100")),
-          (this.filters.severity = e.get("severity") ?? ""),
-          (this.filters.dateFrom = e.get("dateFrom") ?? ""),
-          (this.filters.dateTo = e.get("dateTo") ?? ""),
-          (this.filters.vendor = e.get("vendor") ?? ""),
-          (this.filters.exploitationStatus = e.get("exploitation") ?? ""));
-        const s = e.get("tags");
-        ((this.filters.tags = s ? s.split(",").filter((t) => t) : []),
-          (this.sortField = e.get("sort") ?? "riskScore"),
-          (this.sortDirection = e.get("dir") ?? "desc"),
-          (this.currentPage = parseInt(e.get("page") ?? "1")),
-          (this.pageSize = parseInt(e.get("size") ?? "20")));
-      },
-      getSeverityClass: (t) =>
-        t >= 9
-          ? "severity-critical"
-          : t >= 7
-            ? "severity-high"
-            : t >= 4
-              ? "severity-medium"
-              : t > 0
-                ? "severity-low"
-                : "severity-none",
-      formatDate: (t) =>
-        new Date(t).toLocaleDateString("en-US", {
-          year: "numeric",
-          month: "short",
-          day: "numeric",
-        }),
-      resetFilters() {
-        ((this.searchQuery = ""),
-          (this.filters = {
+            this.currentPage = 1;
+            this.updatePagination();
+          });
+        },
+        saveStateToHash() {
+          // Don't save state during initial load
+          if (this.loading || this.vulnerabilities.length === 0 || this.initialLoad) {
+            return;
+          }
+          const state = {
+            q: this.searchQuery,
+            cvssMin: this.filters.cvssMin,
+            cvssMax: this.filters.cvssMax,
+            epssMin: this.filters.epssMin,
+            epssMax: this.filters.epssMax,
+            severity: this.filters.severity,
+            dateFrom: this.filters.dateFrom,
+            dateTo: this.filters.dateTo,
+            vendor: this.filters.vendor,
+            exploitation: this.filters.exploitationStatus,
+            tags: this.filters.tags.join(","),
+            sort: this.sortField,
+            dir: this.sortDirection,
+            page: this.currentPage,
+            size: this.pageSize,
+          };
+          // Remove empty values and defaults
+          Object.keys(state).forEach((key) => {
+            const value = state[key];
+            if (
+              !value ||
+              value === "" ||
+              (key === "cvssMin" && value === 0) ||
+              (key === "cvssMax" && value === 10) ||
+              (key === "epssMin" && value === 0) ||
+              (key === "epssMax" && value === 100) ||
+              (key === "page" && value === 1) ||
+              (key === "size" && value === 20) ||
+              (key === "sort" && value === "riskScore") ||
+              (key === "dir" && value === "desc")
+            ) {
+              delete state[key];
+            }
+          });
+          const hash = new URLSearchParams(
+            Object.fromEntries(Object.entries(state).map(([k, v]) => [k, String(v)]))
+          ).toString();
+          window.location.hash = hash;
+        },
+        loadStateFromHash() {
+          const hash = window.location.hash.slice(1);
+          if (!hash) return;
+          const params = new URLSearchParams(hash);
+          // Load search query
+          this.searchQuery = params.get("q") ?? "";
+          // Load filters
+          this.filters.cvssMin = parseFloat(params.get("cvssMin") ?? "0");
+          this.filters.cvssMax = parseFloat(params.get("cvssMax") ?? "10");
+          this.filters.epssMin = parseInt(params.get("epssMin") ?? "0");
+          this.filters.epssMax = parseInt(params.get("epssMax") ?? "100");
+          this.filters.severity = params.get("severity") ?? "";
+          this.filters.dateFrom = params.get("dateFrom") ?? "";
+          this.filters.dateTo = params.get("dateTo") ?? "";
+          this.filters.vendor = params.get("vendor") ?? "";
+          this.filters.exploitationStatus = params.get("exploitation") ?? "";
+          const tags = params.get("tags");
+          this.filters.tags = tags ? tags.split(",").filter((t) => t) : [];
+          // Load sorting
+          this.sortField = params.get("sort") ?? "riskScore";
+          this.sortDirection = params.get("dir") ?? "desc";
+          // Load pagination
+          this.currentPage = parseInt(params.get("page") ?? "1");
+          this.pageSize = parseInt(params.get("size") ?? "20");
+        },
+        getSeverityClass(score) {
+          if (score >= 9) return "severity-critical";
+          if (score >= 7) return "severity-high";
+          if (score >= 4) return "severity-medium";
+          if (score > 0) return "severity-low";
+          return "severity-none";
+        },
+        formatDate(dateStr) {
+          const date = new Date(dateStr);
+          return date.toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+          });
+        },
+        resetFilters() {
+          this.searchQuery = "";
+          this.filters = {
             cvssMin: 0,
             cvssMax: 10,
             epssMin: 0,
@@ -224,34 +361,44 @@
             vendor: "",
             exploitationStatus: "",
             tags: [],
-          }),
-          (this.currentPage = 1),
-          this.applyFilters());
-      },
-      exportResults() {
-        const t = [
-            ["CVE ID", "Title", "Risk Score", "Severity", "CVSS Score", "EPSS %", "Published Date"],
-            ...this.filteredVulns.map((t) => [
-              t.cveId,
-              `"${t.title.replace(/"/g, '""')}"`,
-              t.riskScore.toString(),
-              t.severity,
-              t.cvssScore?.toString() || "",
-              t.epssScore?.toString() || "",
-              t.publishedDate,
-            ]),
-          ]
-            .map((t) => t.join(","))
-            .join("\n"),
-          e = new Blob([t], { type: "text/csv" }),
-          s = URL.createObjectURL(e),
-          i = document.createElement("a");
-        ((i.href = s),
-          (i.download = `vulnerabilities-${new Date().toISOString().slice(0, 10)}.csv`),
-          i.click(),
-          URL.revokeObjectURL(s));
-      },
-    }));
-  });
+          };
+          this.currentPage = 1;
+          this.applyFilters();
+        },
+        exportResults() {
+          // Create CSV content
+          const headers = [
+            "CVE ID",
+            "Title",
+            "Risk Score",
+            "Severity",
+            "CVSS Score",
+            "EPSS %",
+            "Published Date",
+          ];
+          const rows = this.filteredVulns.map((vuln) => [
+            vuln.cveId,
+            `"${vuln.title.replace(/"/g, '""')}"`,
+            vuln.riskScore.toString(),
+            vuln.severity,
+            vuln.cvssScore?.toString() || "",
+            vuln.epssScore?.toString() || "",
+            vuln.publishedDate,
+          ]);
+          const csv = [headers, ...rows].map((row) => row.join(",")).join("\n");
+          // Download CSV
+          const blob = new Blob([csv], { type: "text/csv" });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = `vulnerabilities-${new Date().toISOString().slice(0, 10)}.csv`;
+          a.click();
+          URL.revokeObjectURL(url);
+        },
+      }));
+    });
+  })();
+
+  /******/
 })();
 //# sourceMappingURL=dashboard.js.map

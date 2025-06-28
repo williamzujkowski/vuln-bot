@@ -11,125 +11,331 @@ title: Morning Vuln Briefing - Dashboard
 
   <div x-data="vulnDashboard()" x-cloak>
     <!-- Loading state -->
-    <div x-show="loading" class="loading">
+    <div x-show="loading" class="loading" role="status" aria-live="polite">
+      <span class="sr-only">Loading vulnerability data, please wait...</span>
       Loading vulnerability data...
     </div>
 
     <!-- Error state -->
-    <div x-show="error" class="error">
+    <div x-show="error" class="error" role="alert" aria-live="assertive">
       <strong>Error:</strong> <span x-text="error"></span>
     </div>
 
     <!-- Main dashboard -->
-    <div x-show="!loading && !error" class="filters">
-      <div class="filter-row">
-        <input 
-          type="text" 
-          x-model="searchQuery"
-          placeholder="Search CVE ID, title, or description..."
-          class="search-input"
-          @keyup.enter="applyFilters"
-        >
-        <button @click="resetFilters" style="margin-left: 0.5rem;">Reset</button>
-        <button @click="exportResults" style="margin-left: 0.5rem;">Export CSV</button>
+    <div x-show="!loading && !error">
+      <!-- Search and Filters Section -->
+      <section id="search-filters" class="filters" aria-label="Search and filter vulnerabilities">
+        <h2 class="sr-only">Search and Filter Options</h2>
+        
+        <div class="filter-row">
+          <label for="search-input" class="sr-only">Search vulnerabilities</label>
+          <input 
+            id="search-input"
+            type="text" 
+            x-model="searchQuery"
+            placeholder="Search CVE ID, title, or description..."
+            class="search-input"
+            @keyup.enter="applyFilters"
+            aria-describedby="search-help"
+            autocomplete="off"
+          >
+          <div id="search-help" class="sr-only">
+            Search across CVE IDs, titles, descriptions, vendors, and products. Press Enter to search or type to filter in real-time.
+          </div>
+          
+          <button 
+            @click="resetFilters" 
+            class="btn btn-secondary"
+            aria-label="Reset all filters and search"
+          >
+            Reset Filters
+          </button>
+          
+          <button 
+            @click="exportResults" 
+            class="btn btn-primary"
+            aria-label="Export filtered results as CSV file"
+          >
+            Export CSV
+          </button>
+        </div>
+
+        <div class="filter-row">
+          <fieldset class="filter-group">
+            <legend>CVSS Score Range</legend>
+            <label for="cvss-min" class="sr-only">Minimum CVSS score</label>
+            <input 
+              id="cvss-min"
+              type="range" 
+              x-model="filters.cvssMin"
+              min="0" 
+              max="10" 
+              step="0.1"
+              class="slider"
+              :aria-valuetext="'Minimum CVSS: ' + filters.cvssMin"
+              aria-describedby="cvss-min-value"
+            >
+            <span id="cvss-min-value" x-text="filters.cvssMin" class="range-value" aria-label="Minimum value"></span>
+            <span aria-hidden="true"> - </span>
+            
+            <label for="cvss-max" class="sr-only">Maximum CVSS score</label>
+            <input 
+              id="cvss-max"
+              type="range" 
+              x-model="filters.cvssMax"
+              min="0" 
+              max="10" 
+              step="0.1"
+              class="slider"
+              :aria-valuetext="'Maximum CVSS: ' + filters.cvssMax"
+              aria-describedby="cvss-max-value"
+            >
+            <span id="cvss-max-value" x-text="filters.cvssMax" class="range-value" aria-label="Maximum value"></span>
+          </fieldset>
+
+          <fieldset class="filter-group">
+            <legend>EPSS Score Range</legend>
+            <label for="epss-min" class="sr-only">Minimum EPSS score percentage</label>
+            <input 
+              id="epss-min"
+              type="range" 
+              x-model="filters.epssMin"
+              min="0" 
+              max="100" 
+              step="1"
+              class="slider"
+              :aria-valuetext="'Minimum EPSS: ' + filters.epssMin + ' percent'"
+              aria-describedby="epss-min-value"
+            >
+            <span id="epss-min-value" x-text="filters.epssMin + '%'" class="range-value" aria-label="Minimum percentage"></span>
+            <span aria-hidden="true"> - </span>
+            
+            <label for="epss-max" class="sr-only">Maximum EPSS score percentage</label>
+            <input 
+              id="epss-max"
+              type="range" 
+              x-model="filters.epssMax"
+              min="0" 
+              max="100" 
+              step="1"
+              class="slider"
+              :aria-valuetext="'Maximum EPSS: ' + filters.epssMax + ' percent'"
+              aria-describedby="epss-max-value"
+            >
+            <span id="epss-max-value" x-text="filters.epssMax + '%'" class="range-value" aria-label="Maximum percentage"></span>
+          </fieldset>
+        </div>
+      </section>
+
+      <!-- Results Summary -->
+      <div class="results-info" role="status" aria-live="polite">
+        <span>
+          Showing <strong x-text="filteredVulns.length"></strong> 
+          <span x-text="filteredVulns.length === 1 ? 'vulnerability' : 'vulnerabilities'"></span>
+          <span x-show="searchQuery || Object.values(filters).some(v => v !== '' && v !== 0 && v !== 10 && v !== 100 && (Array.isArray(v) ? v.length > 0 : true))">
+            (filtered from <span x-text="vulnerabilities.length"></span> total)
+          </span>
+        </span>
       </div>
 
-    <div class="filter-row">
-      <div class="filter-group">
-        <label>CVSS Score</label>
-        <input 
-          type="range" 
-          x-model="filters.cvssMin"
-          min="0" 
-          max="10" 
-          step="0.1"
-          class="slider"
-        >
-        <span x-text="filters.cvssMin"></span> - 
-        <input 
-          type="range" 
-          x-model="filters.cvssMax"
-          min="0" 
-          max="10" 
-          step="0.1"
-          class="slider"
-        >
-        <span x-text="filters.cvssMax"></span>
-      </div>
+      <!-- Vulnerability Table -->
+      <section id="vulnerability-table" class="vuln-table-section" aria-label="Vulnerability data table">
+        <h2 class="sr-only">Vulnerability Data</h2>
+        
+        <div class="vuln-table" role="region" aria-label="Vulnerability data table" tabindex="0">
+          <table role="table" aria-label="Vulnerability information sorted by risk score">
+            <thead>
+              <tr role="row">
+                <th 
+                  role="columnheader" 
+                  @click="sort('cveId')" 
+                  tabindex="0"
+                  @keydown.enter="sort('cveId')"
+                  @keydown.space.prevent="sort('cveId')"
+                  :aria-sort="sortField === 'cveId' ? (sortDirection === 'asc' ? 'ascending' : 'descending') : 'none'"
+                  class="sortable-header"
+                  aria-describedby="cve-id-help"
+                >
+                  CVE ID
+                  <span class="sort-indicator" aria-hidden="true" x-show="sortField === 'cveId'">
+                    <span x-show="sortDirection === 'asc'">↑</span>
+                    <span x-show="sortDirection === 'desc'">↓</span>
+                  </span>
+                </th>
+                <th 
+                  role="columnheader" 
+                  @click="sort('title')" 
+                  tabindex="0"
+                  @keydown.enter="sort('title')"
+                  @keydown.space.prevent="sort('title')"
+                  :aria-sort="sortField === 'title' ? (sortDirection === 'asc' ? 'ascending' : 'descending') : 'none'"
+                  class="sortable-header"
+                >
+                  Title
+                  <span class="sort-indicator" aria-hidden="true" x-show="sortField === 'title'">
+                    <span x-show="sortDirection === 'asc'">↑</span>
+                    <span x-show="sortDirection === 'desc'">↓</span>
+                  </span>
+                </th>
+                <th 
+                  role="columnheader" 
+                  @click="sort('cvssScore')" 
+                  tabindex="0"
+                  @keydown.enter="sort('cvssScore')"
+                  @keydown.space.prevent="sort('cvssScore')"
+                  :aria-sort="sortField === 'cvssScore' ? (sortDirection === 'asc' ? 'ascending' : 'descending') : 'none'"
+                  class="sortable-header"
+                  aria-describedby="cvss-help"
+                >
+                  CVSS
+                  <span class="sort-indicator" aria-hidden="true" x-show="sortField === 'cvssScore'">
+                    <span x-show="sortDirection === 'asc'">↑</span>
+                    <span x-show="sortDirection === 'desc'">↓</span>
+                  </span>
+                </th>
+                <th 
+                  role="columnheader" 
+                  @click="sort('epssScore')" 
+                  tabindex="0"
+                  @keydown.enter="sort('epssScore')"
+                  @keydown.space.prevent="sort('epssScore')"
+                  :aria-sort="sortField === 'epssScore' ? (sortDirection === 'asc' ? 'ascending' : 'descending') : 'none'"
+                  class="sortable-header"
+                  aria-describedby="epss-help"
+                >
+                  EPSS
+                  <span class="sort-indicator" aria-hidden="true" x-show="sortField === 'epssScore'">
+                    <span x-show="sortDirection === 'asc'">↑</span>
+                    <span x-show="sortDirection === 'desc'">↓</span>
+                  </span>
+                </th>
+                <th 
+                  role="columnheader" 
+                  @click="sort('riskScore')" 
+                  tabindex="0"
+                  @keydown.enter="sort('riskScore')"
+                  @keydown.space.prevent="sort('riskScore')"
+                  :aria-sort="sortField === 'riskScore' ? (sortDirection === 'asc' ? 'ascending' : 'descending') : 'none'"
+                  class="sortable-header"
+                  aria-describedby="risk-score-help"
+                >
+                  Risk Score
+                  <span class="sort-indicator" aria-hidden="true" x-show="sortField === 'riskScore'">
+                    <span x-show="sortDirection === 'asc'">↑</span>
+                    <span x-show="sortDirection === 'desc'">↓</span>
+                  </span>
+                </th>
+                <th 
+                  role="columnheader" 
+                  @click="sort('publishedDate')" 
+                  tabindex="0"
+                  @keydown.enter="sort('publishedDate')"
+                  @keydown.space.prevent="sort('publishedDate')"
+                  :aria-sort="sortField === 'publishedDate' ? (sortDirection === 'asc' ? 'ascending' : 'descending') : 'none'"
+                  class="sortable-header"
+                >
+                  Published
+                  <span class="sort-indicator" aria-hidden="true" x-show="sortField === 'publishedDate'">
+                    <span x-show="sortDirection === 'asc'">↑</span>
+                    <span x-show="sortDirection === 'desc'">↓</span>
+                  </span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <template x-for="vuln in paginatedVulns" :key="vuln.cveId">
+                <tr role="row">
+                  <td role="cell">
+                    <a 
+                      :href="'/vuln-bot/api/vulns/' + vuln.cveId + '.json'" 
+                      x-text="vuln.cveId"
+                      :aria-label="'View JSON data for ' + vuln.cveId"
+                    ></a>
+                  </td>
+                  <td role="cell" x-text="vuln.title"></td>
+                  <td role="cell">
+                    <span 
+                      class="score" 
+                      :class="getSeverityClass(vuln.cvssScore)" 
+                      x-text="vuln.cvssScore"
+                      :aria-label="'CVSS score: ' + vuln.cvssScore + ', severity: ' + vuln.severity"
+                    ></span>
+                  </td>
+                  <td role="cell">
+                    <span 
+                      x-text="vuln.epssScore + '%'"
+                      :aria-label="'EPSS score: ' + vuln.epssScore + ' percent'"
+                    ></span>
+                  </td>
+                  <td role="cell">
+                    <span 
+                      class="risk-score" 
+                      x-text="vuln.riskScore"
+                      :aria-label="'Risk score: ' + vuln.riskScore + ' out of 100'"
+                    ></span>
+                  </td>
+                  <td role="cell">
+                    <time 
+                      :datetime="vuln.publishedDate"
+                      x-text="formatDate(vuln.publishedDate)"
+                      :aria-label="'Published on ' + formatDate(vuln.publishedDate)"
+                    ></time>
+                  </td>
+                </tr>
+              </template>
+            </tbody>
+          </table>
+        </div>
 
-      <div class="filter-group">
-        <label>EPSS Score</label>
-        <input 
-          type="range" 
-          x-model="filters.epssMin"
-          min="0" 
-          max="100" 
-          step="1"
-          class="slider"
-        >
-        <span x-text="filters.epssMin + '%'"></span> - 
-        <input 
-          type="range" 
-          x-model="filters.epssMax"
-          min="0" 
-          max="100" 
-          step="1"
-          class="slider"
-        >
-        <span x-text="filters.epssMax + '%'"></span>
-      </div>
-    </div>
+        <!-- Hidden help text for screen readers -->
+        <div class="sr-only">
+          <div id="cve-id-help">CVE identifier - click to sort by CVE ID</div>
+          <div id="cvss-help">Common Vulnerability Scoring System score from 0 to 10 - click to sort by CVSS score</div>
+          <div id="epss-help">Exploit Prediction Scoring System percentage - click to sort by EPSS score</div>
+          <div id="risk-score-help">Calculated risk score from 0 to 100 - click to sort by risk score</div>
+        </div>
+      </section>
 
-    <div class="results-info">
-      <span>Showing <strong x-text="filteredVulns.length"></strong> vulnerabilities</span>
-    </div>
-
-    <div class="vuln-table">
-      <table>
-        <thead>
-          <tr>
-            <th @click="sort('cveId')">CVE ID</th>
-            <th @click="sort('title')">Title</th>
-            <th @click="sort('cvssScore')">CVSS</th>
-            <th @click="sort('epssScore')">EPSS</th>
-            <th @click="sort('riskScore')">Risk Score</th>
-            <th @click="sort('publishedDate')">Published</th>
-          </tr>
-        </thead>
-        <tbody>
-          <template x-for="vuln in paginatedVulns" :key="vuln.cveId">
-            <tr>
-              <td>
-                <a :href="'/vuln-bot/api/vulns/' + vuln.cveId + '.json'" x-text="vuln.cveId"></a>
-              </td>
-              <td x-text="vuln.title"></td>
-              <td>
-                <span class="score" :class="getSeverityClass(vuln.cvssScore)" x-text="vuln.cvssScore"></span>
-              </td>
-              <td x-text="vuln.epssScore + '%'"></td>
-              <td>
-                <span class="risk-score" x-text="vuln.riskScore"></span>
-              </td>
-              <td x-text="formatDate(vuln.publishedDate)"></td>
-            </tr>
-          </template>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="pagination">
-      <select x-model="pageSize">
-        <option value="10">10 per page</option>
-        <option value="20">20 per page</option>
-        <option value="50">50 per page</option>
-        <option value="100">100 per page</option>
-      </select>
-      
-      <div class="page-controls">
-        <button @click="previousPage()" :disabled="currentPage === 1">Previous</button>
-        <span>Page <span x-text="currentPage"></span> of <span x-text="totalPages"></span></span>
-        <button @click="nextPage()" :disabled="currentPage === totalPages">Next</button>
-      </div>
+      <!-- Pagination -->
+      <nav class="pagination" aria-label="Vulnerability table pagination">
+        <div class="pagination-info">
+          <label for="page-size-select">Results per page:</label>
+          <select 
+            id="page-size-select" 
+            x-model="pageSize"
+            aria-label="Number of vulnerabilities to show per page"
+          >
+            <option value="10">10 per page</option>
+            <option value="20">20 per page</option>
+            <option value="50">50 per page</option>
+            <option value="100">100 per page</option>
+          </select>
+        </div>
+        
+        <div class="page-controls">
+          <button 
+            @click="previousPage()" 
+            :disabled="currentPage === 1"
+            :aria-label="'Go to previous page, currently on page ' + currentPage"
+            class="btn btn-secondary"
+          >
+            Previous
+          </button>
+          
+          <span role="status" aria-live="polite" class="page-info">
+            Page <span x-text="currentPage"></span> of <span x-text="totalPages"></span>
+          </span>
+          
+          <button 
+            @click="nextPage()" 
+            :disabled="currentPage === totalPages"
+            :aria-label="'Go to next page, currently on page ' + currentPage"
+            class="btn btn-secondary"
+          >
+            Next
+          </button>
+        </div>
+      </nav>
     </div>
   </div>
 </div>
