@@ -67,18 +67,40 @@ jobs:
           npm ci
       
       - name: Run vulnerability harvest
+        id: harvest
         env:
-          CVE_API_KEY: ${{ secrets.CVE_API_KEY }}
-          NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
-          GH_ADVISORY_TOKEN: ${{ secrets.GH_ADVISORY_TOKEN }}
-          LIBRARIES_IO_KEY: ${{ secrets.LIBRARIES_IO_KEY }}
-          MSRC_API_KEY: ${{ secrets.MSRC_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          EPSS_API_KEY: ${{ secrets.EPSS_API_KEY }}
         run: |
-          python -m scripts.main harvest --cache-dir actions-cache/
+          echo "Starting vulnerability harvest..."
+          python -m scripts.main harvest \
+            --cache-dir actions-cache/ \
+            --years 2025 \
+            --min-severity HIGH \
+            --min-epss 0.6 \
+            --verbose 2>&1 | tee harvest.log
+          
+          # Extract metrics from log
+          VULNS_FOUND=$(grep -o "Harvested [0-9]\+ vulnerabilities" harvest.log | grep -o "[0-9]\+" || echo "0")
+          echo "vulnerabilities_found=$VULNS_FOUND" >> $GITHUB_OUTPUT
+          echo "Found $VULNS_FOUND vulnerabilities in harvest"
+          
+          # Check for errors
+          if grep -q "Failed to fetch" harvest.log; then
+            echo "::warning::Some API fetch failures detected"
+          fi
+          
+          if [ "$VULNS_FOUND" = "0" ]; then
+            echo "::warning::No vulnerabilities found - this may indicate an issue"
+          fi
       
       - name: Generate vulnerability briefing
         run: |
-          python -m scripts.main generate-briefing
+          python -m scripts.main generate-briefing \
+            --cache-dir actions-cache/ \
+            --output-dir . \
+            --days 1 \
+            --verbose
       
       - name: Build static site
         run: |
@@ -109,6 +131,37 @@ jobs:
         uses: actions/deploy-pages@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Upload harvest logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: harvest-logs-${{ github.run_number }}
+          path: |
+            harvest.log
+            actions-cache/
+          retention-days: 30
+      
+      - name: Create harvest summary
+        if: always()
+        run: |
+          echo "# Nightly Harvest Summary 📊" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Date:** $(date -u)" >> $GITHUB_STEP_SUMMARY
+          echo "**Vulnerabilities Found:** ${{ steps.harvest.outputs.vulnerabilities_found || 'N/A' }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Status:** ${{ job.status }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ -f harvest.log ]; then
+            echo "## Harvest Log Summary" >> $GITHUB_STEP_SUMMARY
+            echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+            tail -20 harvest.log >> $GITHUB_STEP_SUMMARY
+            echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          if [ "${{ steps.harvest.outputs.vulnerabilities_found }}" != "0" ]; then
+            echo "🌐 **Updated Site:** https://williamzujkowski.github.io/vuln-bot/" >> $GITHUB_STEP_SUMMARY
+          fi
       
       - name: Send alerts
         if: env.SEND_ALERTS == 'true' && (github.event_name != 'workflow_dispatch' || !github.event.inputs.dry_run)
