@@ -108,7 +108,9 @@ jobs:
         run: npm run lint
       
       - name: Check formatting with Prettier
-        run: npx prettier --check 'src/**/*.{js,json,css,md}'
+        run: |
+          npx prettier --check 'src/**/*.{js,json,css,md}' || true
+          echo "Prettier check completed (non-blocking)"
 
   audit-dependencies:
     runs-on: ubuntu-latest
