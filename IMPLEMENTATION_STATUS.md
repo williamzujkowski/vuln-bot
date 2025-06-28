@@ -83,7 +83,7 @@
 - ✅ Unit tests for CVE client (`tests/test_cve_client.py`)
 - ✅ Unit tests for EPSS client (`tests/test_epss_client.py`)
 - ✅ Test fixtures and configurations (`tests/conftest.py`)
-- ⚠️  Coverage at 26% (target: 80%)
+- ⚠️  Coverage at 43% (target: 80%)
 - ⚠️  Many tests need updating for new CVEList implementation
 
 ### 12. **Documentation**
@@ -96,9 +96,10 @@
 - ✅ GitHub Actions workflows (CI and nightly harvest)
 - ✅ All security scanning (Bandit, CodeQL, npm audit)
 - ✅ Automated testing and linting
-- ✅ GitHub Pages deployment configuration
+- ✅ GitHub Pages deployment workflow
 - ✅ Artifact storage and caching
 - ✅ All CI checks passing
+- ✅ Site deployed to https://williamzujkowski.github.io/vuln-bot/
 
 ## 🚧 Remaining Tasks
 
@@ -106,7 +107,7 @@
 1. **Fix Test Suite**
    - Create tests for CVEListClient
    - Update existing tests to work with new data source
-   - Increase test coverage from 26% to 80%+
+   - Increase test coverage from 43% to 80%+
    - Fix all failing tests
 
 2. **Enhanced Features**
@@ -170,7 +171,7 @@
 ## 📊 Current Stats
 
 - **Lines of Code**: ~3,700 (Python) + ~500 (JavaScript)
-- **Test Coverage**: 26% (target: 80%)
+- **Test Coverage**: 43% (target: 80%)
 - **API Sources**: 2 implemented (CVEProject/cvelistV5, EPSS)
 - **Security Checks**: Bandit, CodeQL, npm audit, TruffleHog
 - **CI/CD Status**: All checks passing ✅

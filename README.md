@@ -1,6 +1,6 @@
 # Morning Vuln Briefing
 
-![Coverage](https://img.shields.io/badge/coverage-0%25-red)
+![Coverage](https://img.shields.io/badge/coverage-43%25-yellow)
 ![CI](https://github.com/yourusername/vuln-bot/actions/workflows/ci.yml/badge.svg)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
@@ -8,7 +8,7 @@ An automated vulnerability intelligence platform that harvests, scores, and publ
 
 ## Features
 
-- 🔍 **Official CVE Data**: Uses CVEProject/cvelistV5 repository (updated every 7 minutes) with EPSS enrichment
+- 🔍 **Official CVE Data**: Uses CVEProject/cvelistV5 repository (updated every 7 minutes) with EPSS enrichment and CISA-ADP container data
 - 📊 **Risk Scoring**: Calculates weighted scores (0-100) based on CVSS, EPSS, popularity, and infrastructure tags
 - 🚀 **Static Site Generation**: Uses 11ty to generate fast, SEO-friendly briefings
 - 🔎 **Advanced Filtering**: Client-side dashboard with instant search, CVSS/EPSS sliders, and shareable views
@@ -61,11 +61,8 @@ Visit http://localhost:8080 to view the dashboard.
 
 Set these as GitHub repository secrets:
 
-- `CVE_API_KEY` - CVE.org API access
-- `NVD_API_KEY` - National Vulnerability Database
-- `GH_ADVISORY_TOKEN` - GitHub Security Advisory access
-- `LIBRARIES_IO_KEY` - Libraries.io API
-- `MSRC_API_KEY` - Microsoft Security Response Center
+- `GITHUB_TOKEN` - GitHub API access (for cloning CVEProject/cvelistV5)
+- `EPSS_API_KEY` - EPSS API access (optional, for enrichment)
 
 ### Optional Webhooks
 

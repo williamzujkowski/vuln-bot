@@ -96,8 +96,8 @@ chmod +x .husky/pre-commit .husky/commit-msg
 
 ### API Keys Required
 Environment secrets needed in GitHub Actions:
-- `EPSS_API_KEY` - EPSS API access (optional, for enrichment)
 - `GITHUB_TOKEN` - GitHub API access (for cloning CVEProject/cvelistV5)
+- `EPSS_API_KEY` - EPSS API access (optional, for enrichment)
 
 ### Testing Strategy
 - Python: pytest with 80% minimum coverage requirement

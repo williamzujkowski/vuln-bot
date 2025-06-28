@@ -2,36 +2,34 @@
 
 ## Immediate Actions
 
-1. **Fix Test Suite** 🚨
+1. **Monitor Production Deployment** ✅
+   - Site is live at https://williamzujkowski.github.io/vuln-bot/
+   - GitHub Actions workflows are configured and running
+   - Pages deployment is automated after CI passes
+   - Monitor nightly harvest at 2 AM UTC
+
+2. **Increase Test Coverage** 🚨
    ```bash
-   # Create tests for CVEListClient
-   # Update existing tests for new implementation
-   # Run tests to achieve 80% coverage
+   # Current coverage: 43% → Target: 80%
+   # Focus on untested modules:
+   # - orchestrator.py (0% coverage)
+   # - main.py (0% coverage)
+   # - briefing_generator.py (0% coverage)
    pytest --cov=scripts --cov-report=html
    ```
 
-2. **Test the New Harvest System**
-   ```bash
-   # Test CVEList harvesting for 2025
-   python -m scripts.main harvest --years 2025 --min-severity HIGH --min-epss 0.6
-   
-   # Generate a briefing from harvested data
-   python -m scripts.main generate-briefing
-   ```
-
-3. **Deploy to Production**
-   - Push changes to GitHub
-   - Verify GitHub Actions workflows
-   - Check GitHub Pages deployment
-   - Monitor first automated harvest
+3. **Remove Temporary Limits**
+   - CVEListClient currently limited to 5 directories and 10 files
+   - Remove these limits for production harvesting
+   - Test with full dataset
 
 ## Implementation Priority
 
 ### Immediate (This Week)
-1. ✅ Fix test suite to work with CVEList implementation
-2. ✅ Create comprehensive tests for CVEListClient
-3. ✅ Achieve 80% test coverage
-4. ✅ Verify harvest and briefing generation works
+1. ⏳ Increase test coverage from 43% to 80%
+2. ⏳ Remove temporary limits in CVEListClient
+3. ⏳ Test full-scale harvest with production data
+4. ⏳ Monitor nightly harvest runs
 
 ### Next Week
 1. Add remaining vulnerability sources:
@@ -53,7 +51,9 @@
 1. **`scripts/harvest/cvelist_client.py`** - CVEProject/cvelistV5 client
 2. **`scripts/harvest/orchestrator.py`** - Updated for CVEList and EPSS filtering
 3. **`scripts/main.py`** - New CLI parameters for years and thresholds
-4. **Multiple test files** - Coverage increased from 17% to 26%
+4. **`.github/workflows/pages.yml`** - GitHub Pages deployment workflow
+5. **`src/assets/js/dashboard.js`** - Fixed API paths and state management
+6. **Multiple test files** - Coverage increased from 17% to 43%
 
 ## Testing Strategy
 
