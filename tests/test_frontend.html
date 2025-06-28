@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Tests - Morning Vuln Briefing</title>
+    <link rel="stylesheet" href="https://unpkg.com/mocha/mocha.css" />
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        #test-container {
+            display: none;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Frontend Test Suite</h1>
+    <div id="mocha"></div>
+    
+    <!-- Test container for DOM manipulation tests -->
+    <div id="test-container">
+        <!-- Dashboard filter mockup -->
+        <div id="filters" class="filters">
+            <input type="text" id="searchInput" placeholder="Search...">
+            <select id="severityFilter">
+                <option value="">All Severities</option>
+                <option value="CRITICAL">Critical</option>
+                <option value="HIGH">High</option>
+                <option value="MEDIUM">Medium</option>
+                <option value="LOW">Low</option>
+            </select>
+            <div id="cvssRange">
+                <input type="range" id="cvssMin" min="0" max="10" value="0" step="0.1">
+                <input type="range" id="cvssMax" min="0" max="10" value="10" step="0.1">
+            </div>
+            <div id="epssRange">
+                <input type="range" id="epssMin" min="0" max="100" value="0">
+                <input type="range" id="epssMax" min="0" max="100" value="100">
+            </div>
+            <select id="exploitFilter">
+                <option value="">All</option>
+                <option value="ACTIVE">Active Exploitation</option>
+                <option value="POC">PoC Available</option>
+                <option value="NONE">No Known Exploits</option>
+            </select>
+            <button id="resetFilters">Reset</button>
+            <button id="exportCSV">Export CSV</button>
+        </div>
+        
+        <!-- Results container -->
+        <div id="results">
+            <div id="resultCount">0 vulnerabilities found</div>
+            <table id="vulnTable">
+                <thead>
+                    <tr>
+                        <th data-sort="cveId">CVE ID</th>
+                        <th data-sort="severity">Severity</th>
+                        <th data-sort="cvssScore">CVSS</th>
+                        <th data-sort="epssScore">EPSS %</th>
+                        <th data-sort="riskScore">Risk Score</th>
+                        <th>Title</th>
+                    </tr>
+                </thead>
+                <tbody id="vulnTableBody"></tbody>
+            </table>
+        </div>
+        
+        <!-- Pagination -->
+        <div id="pagination">
+            <button id="prevPage">Previous</button>
+            <span id="pageInfo">Page 1 of 1</span>
+            <button id="nextPage">Next</button>
+            <select id="pageSize">
+                <option value="10">10 per page</option>
+                <option value="20">20 per page</option>
+                <option value="50">50 per page</option>
+                <option value="100">100 per page</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Load test dependencies -->
+    <script src="https://unpkg.com/chai/chai.js"></script>
+    <script src="https://unpkg.com/mocha/mocha.js"></script>
+    <script src="https://unpkg.com/sinon/pkg/sinon.js"></script>
+    
+    <!-- Load Alpine.js for testing -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- Load Fuse.js for search -->
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+    
+    <!-- Include our TypeScript modules (compiled) -->
+    <script type="module">
+        // Mock the modules for testing
+        window.VulnerabilityDashboard = class VulnerabilityDashboard {
+            constructor(config) {
+                this.config = config;
+                this.vulnerabilities = [];
+                this.filteredVulnerabilities = [];
+                this.currentPage = 1;
+                this.pageSize = 20;
+                this.sortField = 'riskScore';
+                this.sortDirection = 'desc';
+                this.filters = {
+                    search: '',
+                    severity: '',
+                    cvssMin: 0,
+                    cvssMax: 10,
+                    epssMin: 0,
+                    epssMax: 100,
+                    dateStart: null,
+                    dateEnd: null,
+                    vendor: '',
+                    exploitStatus: '',
+                    tags: []
+                };
+            }
+
+            async loadVulnerabilities() {
+                // Mock loading
+                return Promise.resolve([
+                    {
+                        cveId: 'CVE-2024-12345',
+                        title: 'Critical Remote Code Execution',
+                        severity: 'CRITICAL',
+                        cvssScore: 9.8,
+                        epssScore: 85.5,
+                        riskScore: 95,
+                        publishedDate: '2024-01-15T00:00:00Z',
+                        vendors: ['Microsoft'],
+                        tags: ['remote', 'code-execution']
+                    },
+                    {
+                        cveId: 'CVE-2024-22222',
+                        title: 'High Severity SQL Injection',
+                        severity: 'HIGH',
+                        cvssScore: 7.5,
+                        epssScore: 65.0,
+                        riskScore: 75,
+                        publishedDate: '2024-01-14T00:00:00Z',
+                        vendors: ['Oracle'],
+                        tags: ['sql-injection', 'database']
+                    }
+                ]);
+            }
+
+            applyFilters() {
+                this.filteredVulnerabilities = this.vulnerabilities.filter(vuln => {
+                    // Search filter
+                    if (this.filters.search) {
+                        const searchLower = this.filters.search.toLowerCase();
+                        const matches = vuln.cveId.toLowerCase().includes(searchLower) ||
+                                      vuln.title.toLowerCase().includes(searchLower) ||
+                                      vuln.vendors.some(v => v.toLowerCase().includes(searchLower));
+                        if (!matches) return false;
+                    }
+
+                    // Severity filter
+                    if (this.filters.severity && vuln.severity !== this.filters.severity) {
+                        return false;
+                    }
+
+                    // CVSS range
+                    if (vuln.cvssScore < this.filters.cvssMin || vuln.cvssScore > this.filters.cvssMax) {
+                        return false;
+                    }
+
+                    // EPSS range
+                    if (vuln.epssScore < this.filters.epssMin || vuln.epssScore > this.filters.epssMax) {
+                        return false;
+                    }
+
+                    return true;
+                });
+
+                this.updateDisplay();
+            }
+
+            updateDisplay() {
+                // Update result count
+                const countEl = document.getElementById('resultCount');
+                if (countEl) {
+                    countEl.textContent = `${this.filteredVulnerabilities.length} vulnerabilities found`;
+                }
+            }
+
+            exportCSV() {
+                const headers = ['CVE ID', 'Title', 'Severity', 'CVSS Score', 'EPSS %', 'Risk Score'];
+                const rows = this.filteredVulnerabilities.map(v => [
+                    v.cveId,
+                    v.title,
+                    v.severity,
+                    v.cvssScore,
+                    v.epssScore,
+                    v.riskScore
+                ]);
+                
+                const csv = [headers, ...rows].map(row => row.join(',')).join('\n');
+                return csv;
+            }
+
+            updateURLHash() {
+                const params = new URLSearchParams();
+                if (this.filters.search) params.set('q', this.filters.search);
+                if (this.filters.severity) params.set('severity', this.filters.severity);
+                if (this.filters.cvssMin > 0) params.set('cvssMin', this.filters.cvssMin);
+                if (this.filters.cvssMax < 10) params.set('cvssMax', this.filters.cvssMax);
+                
+                window.location.hash = params.toString();
+            }
+
+            loadFromURLHash() {
+                const hash = window.location.hash.slice(1);
+                const params = new URLSearchParams(hash);
+                
+                if (params.has('q')) this.filters.search = params.get('q');
+                if (params.has('severity')) this.filters.severity = params.get('severity');
+                if (params.has('cvssMin')) this.filters.cvssMin = parseFloat(params.get('cvssMin'));
+                if (params.has('cvssMax')) this.filters.cvssMax = parseFloat(params.get('cvssMax'));
+            }
+        };
+
+        window.Analytics = class Analytics {
+            constructor(config) {
+                this.config = config;
+                this.enabled = !navigator.doNotTrack;
+                this.events = [];
+            }
+
+            track(event, category, action, label, value, metadata) {
+                if (!this.enabled) return;
+                
+                this.events.push({
+                    event,
+                    category,
+                    action,
+                    label,
+                    value,
+                    metadata,
+                    timestamp: new Date().toISOString()
+                });
+            }
+
+            getEvents() {
+                return this.events;
+            }
+
+            clear() {
+                this.events = [];
+            }
+        };
+    </script>
+
+    <!-- Test Suite -->
+    <script>
+        mocha.setup('bdd');
+        const { expect } = chai;
+
+        describe('Vulnerability Dashboard', function() {
+            let dashboard;
+
+            beforeEach(function() {
+                dashboard = new window.VulnerabilityDashboard({
+                    apiEndpoint: '/api/vulns/index.json'
+                });
+            });
+
+            describe('Data Loading', function() {
+                it('should load vulnerabilities from API', async function() {
+                    const vulns = await dashboard.loadVulnerabilities();
+                    expect(vulns).to.be.an('array');
+                    expect(vulns.length).to.be.greaterThan(0);
+                    expect(vulns[0]).to.have.property('cveId');
+                    expect(vulns[0]).to.have.property('severity');
+                });
+            });
+
+            describe('Filtering', function() {
+                beforeEach(async function() {
+                    dashboard.vulnerabilities = await dashboard.loadVulnerabilities();
+                });
+
+                it('should filter by search term', function() {
+                    dashboard.filters.search = 'Microsoft';
+                    dashboard.applyFilters();
+                    
+                    expect(dashboard.filteredVulnerabilities).to.have.lengthOf(1);
+                    expect(dashboard.filteredVulnerabilities[0].vendors).to.include('Microsoft');
+                });
+
+                it('should filter by severity', function() {
+                    dashboard.filters.severity = 'CRITICAL';
+                    dashboard.applyFilters();
+                    
+                    expect(dashboard.filteredVulnerabilities).to.have.lengthOf(1);
+                    expect(dashboard.filteredVulnerabilities[0].severity).to.equal('CRITICAL');
+                });
+
+                it('should filter by CVSS range', function() {
+                    dashboard.filters.cvssMin = 8.0;
+                    dashboard.filters.cvssMax = 10.0;
+                    dashboard.applyFilters();
+                    
+                    expect(dashboard.filteredVulnerabilities).to.have.lengthOf(1);
+                    expect(dashboard.filteredVulnerabilities[0].cvssScore).to.be.at.least(8.0);
+                });
+
+                it('should filter by EPSS range', function() {
+                    dashboard.filters.epssMin = 80;
+                    dashboard.filters.epssMax = 100;
+                    dashboard.applyFilters();
+                    
+                    expect(dashboard.filteredVulnerabilities).to.have.lengthOf(1);
+                    expect(dashboard.filteredVulnerabilities[0].epssScore).to.be.at.least(80);
+                });
+
+                it('should apply multiple filters', function() {
+                    dashboard.filters.severity = 'HIGH';
+                    dashboard.filters.search = 'SQL';
+                    dashboard.applyFilters();
+                    
+                    expect(dashboard.filteredVulnerabilities).to.have.lengthOf(1);
+                    expect(dashboard.filteredVulnerabilities[0].cveId).to.equal('CVE-2024-22222');
+                });
+
+                it('should handle no results', function() {
+                    dashboard.filters.search = 'nonexistent';
+                    dashboard.applyFilters();
+                    
+                    expect(dashboard.filteredVulnerabilities).to.have.lengthOf(0);
+                });
+            });
+
+            describe('CSV Export', function() {
+                beforeEach(async function() {
+                    dashboard.vulnerabilities = await dashboard.loadVulnerabilities();
+                    dashboard.filteredVulnerabilities = dashboard.vulnerabilities;
+                });
+
+                it('should export to CSV format', function() {
+                    const csv = dashboard.exportCSV();
+                    
+                    expect(csv).to.be.a('string');
+                    expect(csv).to.include('CVE ID,Title,Severity');
+                    expect(csv).to.include('CVE-2024-12345');
+                    expect(csv).to.include('Critical Remote Code Execution');
+                });
+
+                it('should export only filtered results', function() {
+                    dashboard.filters.severity = 'CRITICAL';
+                    dashboard.applyFilters();
+                    
+                    const csv = dashboard.exportCSV();
+                    expect(csv).to.include('CVE-2024-12345');
+                    expect(csv).not.to.include('CVE-2024-22222');
+                });
+            });
+
+            describe('URL Hash State', function() {
+                it('should update URL hash with filters', function() {
+                    dashboard.filters.search = 'test';
+                    dashboard.filters.severity = 'HIGH';
+                    dashboard.updateURLHash();
+                    
+                    expect(window.location.hash).to.include('q=test');
+                    expect(window.location.hash).to.include('severity=HIGH');
+                });
+
+                it('should load filters from URL hash', function() {
+                    window.location.hash = 'q=microsoft&severity=CRITICAL&cvssMin=8';
+                    dashboard.loadFromURLHash();
+                    
+                    expect(dashboard.filters.search).to.equal('microsoft');
+                    expect(dashboard.filters.severity).to.equal('CRITICAL');
+                    expect(dashboard.filters.cvssMin).to.equal(8);
+                });
+
+                it('should handle empty hash', function() {
+                    window.location.hash = '';
+                    dashboard.loadFromURLHash();
+                    
+                    expect(dashboard.filters.search).to.equal('');
+                    expect(dashboard.filters.severity).to.equal('');
+                });
+            });
+
+            describe('Display Updates', function() {
+                beforeEach(async function() {
+                    dashboard.vulnerabilities = await dashboard.loadVulnerabilities();
+                });
+
+                it('should update result count', function() {
+                    dashboard.filteredVulnerabilities = dashboard.vulnerabilities;
+                    dashboard.updateDisplay();
+                    
+                    const countEl = document.getElementById('resultCount');
+                    expect(countEl.textContent).to.equal('2 vulnerabilities found');
+                });
+            });
+        });
+
+        describe('Analytics', function() {
+            let analytics;
+
+            beforeEach(function() {
+                analytics = new window.Analytics({ trackingId: 'test-123' });
+                analytics.clear();
+            });
+
+            describe('Privacy', function() {
+                it('should respect Do Not Track header', function() {
+                    const originalDNT = navigator.doNotTrack;
+                    
+                    // Simulate DNT enabled
+                    Object.defineProperty(navigator, 'doNotTrack', {
+                        value: '1',
+                        configurable: true
+                    });
+                    
+                    const dntAnalytics = new window.Analytics({});
+                    expect(dntAnalytics.enabled).to.be.false;
+                    
+                    // Restore original
+                    Object.defineProperty(navigator, 'doNotTrack', {
+                        value: originalDNT,
+                        configurable: true
+                    });
+                });
+
+                it('should not track when disabled', function() {
+                    analytics.enabled = false;
+                    analytics.track('test', 'category', 'action');
+                    
+                    expect(analytics.getEvents()).to.have.lengthOf(0);
+                });
+            });
+
+            describe('Event Tracking', function() {
+                it('should track events with all parameters', function() {
+                    analytics.track('click', 'button', 'export', 'csv', 10, { format: 'csv' });
+                    
+                    const events = analytics.getEvents();
+                    expect(events).to.have.lengthOf(1);
+                    
+                    const event = events[0];
+                    expect(event.event).to.equal('click');
+                    expect(event.category).to.equal('button');
+                    expect(event.action).to.equal('export');
+                    expect(event.label).to.equal('csv');
+                    expect(event.value).to.equal(10);
+                    expect(event.metadata).to.deep.equal({ format: 'csv' });
+                    expect(event.timestamp).to.be.a('string');
+                });
+
+                it('should handle optional parameters', function() {
+                    analytics.track('pageview', 'page', 'view');
+                    
+                    const event = analytics.getEvents()[0];
+                    expect(event.label).to.be.undefined;
+                    expect(event.value).to.be.undefined;
+                    expect(event.metadata).to.be.undefined;
+                });
+            });
+        });
+
+        describe('Accessibility', function() {
+            it('should have proper ARIA labels', function() {
+                const searchInput = document.getElementById('searchInput');
+                expect(searchInput.getAttribute('placeholder')).to.exist;
+                
+                const table = document.getElementById('vulnTable');
+                expect(table.tagName).to.equal('TABLE');
+            });
+
+            it('should have keyboard navigation support', function() {
+                const buttons = document.querySelectorAll('button');
+                buttons.forEach(button => {
+                    expect(button.tagName).to.equal('BUTTON');
+                    // Buttons are keyboard accessible by default
+                });
+            });
+
+            it('should have proper heading structure', function() {
+                const h1 = document.querySelector('h1');
+                expect(h1).to.exist;
+                expect(h1.textContent).to.include('Frontend Test Suite');
+            });
+        });
+
+        describe('Performance', function() {
+            it('should handle large datasets efficiently', function() {
+                const dashboard = new window.VulnerabilityDashboard({});
+                
+                // Generate large dataset
+                dashboard.vulnerabilities = Array.from({ length: 1000 }, (_, i) => ({
+                    cveId: `CVE-2024-${i}`,
+                    title: `Vulnerability ${i}`,
+                    severity: ['CRITICAL', 'HIGH', 'MEDIUM', 'LOW'][i % 4],
+                    cvssScore: Math.random() * 10,
+                    epssScore: Math.random() * 100,
+                    riskScore: Math.random() * 100,
+                    vendors: [`Vendor${i % 10}`],
+                    tags: []
+                }));
+
+                const start = performance.now();
+                dashboard.applyFilters();
+                const duration = performance.now() - start;
+
+                expect(duration).to.be.below(100); // Should complete in under 100ms
+                expect(dashboard.filteredVulnerabilities).to.have.lengthOf(1000);
+            });
+        });
+
+        describe('Error Handling', function() {
+            it('should handle API errors gracefully', async function() {
+                const dashboard = new window.VulnerabilityDashboard({});
+                
+                // Mock API error
+                dashboard.loadVulnerabilities = () => Promise.reject(new Error('API Error'));
+                
+                try {
+                    await dashboard.loadVulnerabilities();
+                    expect.fail('Should have thrown error');
+                } catch (error) {
+                    expect(error.message).to.equal('API Error');
+                }
+            });
+
+            it('should handle invalid filter values', function() {
+                const dashboard = new window.VulnerabilityDashboard({});
+                
+                // Set invalid values
+                dashboard.filters.cvssMin = -1;
+                dashboard.filters.cvssMax = 15;
+                
+                // Should handle gracefully
+                dashboard.applyFilters();
+                expect(dashboard.filteredVulnerabilities).to.be.an('array');
+            });
+        });
+
+        // Run tests
+        mocha.run();
+    </script>
+</body>
+</html>

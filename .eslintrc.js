@@ -36,5 +36,23 @@ module.exports = {
         "@typescript-eslint/no-unnecessary-type-assertion": "error",
       },
     },
+    {
+      files: ["tests/**/*.ts", "*.config.ts"],
+      parser: "@typescript-eslint/parser",
+      plugins: ["@typescript-eslint"],
+      extends: ["google"],
+      parserOptions: {
+        project: "./tsconfig.test.json",
+        tsconfigRootDir: __dirname,
+      },
+      rules: {
+        "max-len": ["error", { code: 100, ignoreUrls: true, ignoreStrings: true }],
+        "require-jsdoc": "off",
+        "valid-jsdoc": "off",
+        "@typescript-eslint/no-explicit-any": "off", // Allow any in tests
+        "@typescript-eslint/no-unused-vars": "error",
+        "no-unused-expressions": "off", // Allow chai assertions
+      },
+    },
   ],
 };
