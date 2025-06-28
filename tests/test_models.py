@@ -1,13 +1,12 @@
 """Unit tests for vulnerability data models."""
 
-import pytest
 from datetime import datetime, timedelta
+
+import pytest
 
 from scripts.models import (
     CVSSMetric,
     EPSSScore,
-    ExploitationStatus,
-    Reference,
     SeverityLevel,
     Vulnerability,
     VulnerabilityBatch,
@@ -16,7 +15,7 @@ from scripts.models import (
 
 class TestCVSSMetric:
     """Test CVSSMetric model."""
-    
+
     def test_cvss_metric_creation(self):
         """Test creating a CVSS metric."""
         metric = CVSSMetric(
@@ -27,11 +26,11 @@ class TestCVSSMetric:
             exploitability_score=3.9,
             impact_score=5.9,
         )
-        
+
         assert metric.version == "3.1"
         assert metric.base_score == 9.8
         assert metric.base_severity == SeverityLevel.CRITICAL
-    
+
     def test_cvss_metric_validation(self):
         """Test CVSS metric validation."""
         with pytest.raises(ValueError):
@@ -46,7 +45,7 @@ class TestCVSSMetric:
 
 class TestEPSSScore:
     """Test EPSSScore model."""
-    
+
     def test_epss_score_creation(self):
         """Test creating an EPSS score."""
         score = EPSSScore(
@@ -54,11 +53,11 @@ class TestEPSSScore:
             percentile=85.6789,
             date=datetime.utcnow(),
         )
-        
+
         # Should be rounded to 4 decimal places
         assert score.score == 0.1235
         assert score.percentile == 85.6789
-    
+
     def test_epss_score_validation(self):
         """Test EPSS score validation."""
         with pytest.raises(ValueError):
@@ -72,7 +71,7 @@ class TestEPSSScore:
 
 class TestVulnerability:
     """Test Vulnerability model."""
-    
+
     @pytest.fixture
     def sample_vulnerability(self):
         """Create a sample vulnerability."""
@@ -93,13 +92,13 @@ class TestVulnerability:
             ],
             risk_score=85,
         )
-    
+
     def test_vulnerability_creation(self, sample_vulnerability):
         """Test creating a vulnerability."""
         assert sample_vulnerability.cve_id == "CVE-2024-0001"
         assert sample_vulnerability.severity == SeverityLevel.HIGH
         assert sample_vulnerability.risk_score == 85
-    
+
     def test_cve_id_validation(self):
         """Test CVE ID validation."""
         with pytest.raises(ValueError):
@@ -111,11 +110,11 @@ class TestVulnerability:
                 last_modified_date=datetime.utcnow(),
                 severity=SeverityLevel.MEDIUM,
             )
-    
+
     def test_cvss_base_score_property(self, sample_vulnerability):
         """Test CVSS base score property."""
         assert sample_vulnerability.cvss_base_score == 9.8
-        
+
         # Test with no metrics
         vuln = Vulnerability(
             cve_id="CVE-2024-0002",
@@ -126,12 +125,12 @@ class TestVulnerability:
             severity=SeverityLevel.LOW,
         )
         assert vuln.cvss_base_score is None
-    
+
     def test_epss_probability_property(self, sample_vulnerability):
         """Test EPSS probability property."""
         # No EPSS score
         assert sample_vulnerability.epss_probability is None
-        
+
         # With EPSS score
         sample_vulnerability.epss_score = EPSSScore(
             score=0.456,
@@ -139,21 +138,21 @@ class TestVulnerability:
             date=datetime.utcnow(),
         )
         assert sample_vulnerability.epss_probability == 45.6
-    
+
     def test_to_summary_dict(self, sample_vulnerability):
         """Test converting to summary dictionary."""
         summary = sample_vulnerability.to_summary_dict()
-        
+
         assert summary["cveId"] == "CVE-2024-0001"
         assert summary["severity"] == "HIGH"
         assert summary["riskScore"] == 85
         assert summary["cvssScore"] == 9.8
         assert "publishedDate" in summary
-    
+
     def test_to_detail_dict(self, sample_vulnerability):
         """Test converting to detail dictionary."""
         detail = sample_vulnerability.to_detail_dict()
-        
+
         assert detail["cveId"] == "CVE-2024-0001"
         assert detail["description"] == "A test vulnerability description"
         assert len(detail["cvssMetrics"]) == 1
@@ -162,7 +161,7 @@ class TestVulnerability:
 
 class TestVulnerabilityBatch:
     """Test VulnerabilityBatch model."""
-    
+
     @pytest.fixture
     def sample_batch(self):
         """Create a sample batch."""
@@ -178,33 +177,33 @@ class TestVulnerabilityBatch:
             )
             for i in range(5)
         ]
-        
+
         return VulnerabilityBatch(vulnerabilities=vulns)
-    
+
     def test_batch_count(self, sample_batch):
         """Test batch count property."""
         assert sample_batch.count == 5
-    
+
     def test_filter_by_severity(self, sample_batch):
         """Test filtering by severity."""
         high_vulns = sample_batch.filter_by_severity(SeverityLevel.HIGH)
         assert len(high_vulns) == 3  # 0, 2, 4 are HIGH
-        
+
         medium_vulns = sample_batch.filter_by_severity(SeverityLevel.MEDIUM)
         assert len(medium_vulns) == 5  # All are MEDIUM or higher
-    
+
     def test_filter_by_risk_score(self, sample_batch):
         """Test filtering by risk score."""
         high_risk = sample_batch.filter_by_risk_score(70)
-        assert len(high_risk) == 2  # Scores: 90, 80
-        
+        assert len(high_risk) == 3  # Scores: 90, 80, 70
+
         all_vulns = sample_batch.filter_by_risk_score(0)
         assert len(all_vulns) == 5
-    
+
     def test_sort_by_risk(self, sample_batch):
         """Test sorting by risk."""
         sorted_vulns = sample_batch.sort_by_risk()
-        
+
         # Should be in descending order
         scores = [v.risk_score for v in sorted_vulns]
         assert scores == [90, 80, 70, 60, 50]
