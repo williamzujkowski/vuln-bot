@@ -28,6 +28,7 @@ module.exports = function (eleventyConfig) {
       data: "_data",
     },
     templateFormats: ["njk", "md", "html"],
+    pathPrefix: "/vuln-bot/",
     htmlTemplateEngine: "njk",
     markdownTemplateEngine: "njk",
   };
