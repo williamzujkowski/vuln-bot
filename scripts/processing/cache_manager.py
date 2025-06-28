@@ -3,7 +3,7 @@
 import json
 import sqlite3
 from contextlib import contextmanager
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Dict, Generator, List, Optional
 
@@ -119,7 +119,7 @@ class CacheManager:
         """
         with self.get_session() as session:
             # Calculate expiration
-            expires_at = datetime.now(datetime.UTC) + timedelta(days=self.ttl_days)
+            expires_at = datetime.now(timezone.utc) + timedelta(days=self.ttl_days)
 
             # Check if already exists
             existing = (
@@ -129,7 +129,7 @@ class CacheManager:
             )
 
             # Serialize vulnerability data
-            data_json = json.dumps(vulnerability.dict())
+            data_json = vulnerability.model_dump_json()
 
             if existing:
                 # Update existing record
@@ -138,7 +138,7 @@ class CacheManager:
                 existing.severity = vulnerability.severity.value
                 existing.published_date = vulnerability.published_date
                 existing.last_modified_date = vulnerability.last_modified_date
-                existing.cached_at = datetime.now(datetime.UTC)
+                existing.cached_at = datetime.now(timezone.utc)
                 existing.expires_at = expires_at
             else:
                 # Create new record
@@ -203,14 +203,13 @@ class CacheManager:
                 return None
 
             # Check if expired
-            if cache_entry.expires_at < datetime.now(datetime.UTC):
+            if cache_entry.expires_at < datetime.now(timezone.utc):
                 self.logger.debug("Cache entry expired", cve_id=cve_id)
                 return None
 
             # Deserialize vulnerability
             try:
-                data = json.loads(cache_entry.data)
-                return Vulnerability(**data)
+                return Vulnerability.model_validate_json(cache_entry.data)
             except Exception as e:
                 self.logger.error(
                     "Failed to deserialize cached vulnerability",
@@ -237,7 +236,7 @@ class CacheManager:
         """
         with self.get_session() as session:
             query = session.query(VulnerabilityCache).filter(
-                VulnerabilityCache.expires_at > datetime.now(datetime.UTC)
+                VulnerabilityCache.expires_at > datetime.now(timezone.utc)
             )
 
             if min_risk_score is not None:
@@ -255,8 +254,7 @@ class CacheManager:
             vulnerabilities = []
             for cache_entry in query:
                 try:
-                    data = json.loads(cache_entry.data)
-                    vuln = Vulnerability(**data)
+                    vuln = Vulnerability.model_validate_json(cache_entry.data)
                     vulnerabilities.append(vuln)
                 except Exception as e:
                     self.logger.error(
@@ -311,13 +309,13 @@ class CacheManager:
         with self.get_session() as session:
             expired_count = (
                 session.query(VulnerabilityCache)
-                .filter(VulnerabilityCache.expires_at < datetime.now(datetime.UTC))
+                .filter(VulnerabilityCache.expires_at < datetime.now(timezone.utc))
                 .count()
             )
 
             if expired_count > 0:
                 session.query(VulnerabilityCache).filter(
-                    VulnerabilityCache.expires_at < datetime.now(datetime.UTC)
+                    VulnerabilityCache.expires_at < datetime.now(timezone.utc)
                 ).delete()
 
                 self.logger.info(
@@ -336,7 +334,7 @@ class CacheManager:
             total_entries = session.query(VulnerabilityCache).count()
             valid_entries = (
                 session.query(VulnerabilityCache)
-                .filter(VulnerabilityCache.expires_at > datetime.now(datetime.UTC))
+                .filter(VulnerabilityCache.expires_at > datetime.now(timezone.utc))
                 .count()
             )
 
@@ -347,7 +345,7 @@ class CacheManager:
                     VulnerabilityCache.severity,
                     sqlite3.func.count(VulnerabilityCache.id),
                 )
-                .filter(VulnerabilityCache.expires_at > datetime.now(datetime.UTC))
+                .filter(VulnerabilityCache.expires_at > datetime.now(timezone.utc))
                 .group_by(VulnerabilityCache.severity)
                 .all()
             ):
@@ -357,27 +355,27 @@ class CacheManager:
             risk_ranges = {
                 "critical": session.query(VulnerabilityCache)
                 .filter(
-                    VulnerabilityCache.expires_at > datetime.now(datetime.UTC),
+                    VulnerabilityCache.expires_at > datetime.now(timezone.utc),
                     VulnerabilityCache.risk_score >= 90,
                 )
                 .count(),
                 "high": session.query(VulnerabilityCache)
                 .filter(
-                    VulnerabilityCache.expires_at > datetime.now(datetime.UTC),
+                    VulnerabilityCache.expires_at > datetime.now(timezone.utc),
                     VulnerabilityCache.risk_score >= 70,
                     VulnerabilityCache.risk_score < 90,
                 )
                 .count(),
                 "medium": session.query(VulnerabilityCache)
                 .filter(
-                    VulnerabilityCache.expires_at > datetime.now(datetime.UTC),
+                    VulnerabilityCache.expires_at > datetime.now(timezone.utc),
                     VulnerabilityCache.risk_score >= 40,
                     VulnerabilityCache.risk_score < 70,
                 )
                 .count(),
                 "low": session.query(VulnerabilityCache)
                 .filter(
-                    VulnerabilityCache.expires_at > datetime.now(datetime.UTC),
+                    VulnerabilityCache.expires_at > datetime.now(timezone.utc),
                     VulnerabilityCache.risk_score < 40,
                 )
                 .count(),

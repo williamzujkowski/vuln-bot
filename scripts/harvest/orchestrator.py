@@ -2,7 +2,7 @@
 
 import asyncio
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, List, Optional, Set
 
@@ -137,7 +137,7 @@ class HarvestOrchestrator:
         if years is None:
             years = [2025]  # Focus on 2025+ as requested
 
-        start_time = datetime.now(datetime.UTC)
+        start_time = datetime.now(timezone.utc)
         self.logger.info(
             "Starting vulnerability harvest",
             years=years,
@@ -239,7 +239,7 @@ class HarvestOrchestrator:
         unique_vulnerabilities.sort(key=lambda v: v.risk_score, reverse=True)
 
         # Create batch
-        end_time = datetime.now(datetime.UTC)
+        end_time = datetime.now(timezone.utc)
         harvest_metadata["end_time"] = end_time.isoformat()
         harvest_metadata["duration_seconds"] = (end_time - start_time).total_seconds()
         harvest_metadata["total_vulnerabilities"] = len(all_vulnerabilities)

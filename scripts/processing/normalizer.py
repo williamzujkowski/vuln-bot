@@ -1,7 +1,7 @@
 """Data normalization pipeline for vulnerability data from multiple sources."""
 
 import re
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional
 
 import structlog
@@ -293,7 +293,7 @@ class VulnerabilityNormalizer:
             updated_date = self.parse_date(advisory.get("updated_at"))
 
             if not published_date:
-                published_date = datetime.now(datetime.UTC)
+                published_date = datetime.now(timezone.utc)
             if not updated_date:
                 updated_date = published_date
 

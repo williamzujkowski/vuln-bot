@@ -60,7 +60,7 @@ def cli(debug: bool) -> None:
 )
 @click.option(
     "--min-severity",
-    type=click.Choice(["HIGH", "CRITICAL"]),
+    type=click.Choice(["MEDIUM", "HIGH", "CRITICAL"]),
     default="HIGH",
     help="Minimum severity level",
 )

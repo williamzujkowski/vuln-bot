@@ -1,7 +1,7 @@
 """CVE API client for fetching CVE 4.0 records."""
 
 import os
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from typing import Any, Dict, List, Optional
 
 import structlog
@@ -59,7 +59,7 @@ class CVEClient(BaseAPIClient):
             List of raw CVE records
         """
         # Calculate date range
-        end_date = datetime.now(datetime.UTC)
+        end_date = datetime.now(timezone.utc)
         start_date = end_date - timedelta(days=days_back)
 
         params = {

@@ -118,7 +118,16 @@ class CVEListClient(BaseAPIClient):
                     item["name"] for item in response.json() if item["type"] == "dir"
                 ]
 
+                # Limit subdirectories for performance (can be removed later)
+                # Process only first few subdirectories to avoid timeout
+                subdirs = subdirs[:5]  # TODO: Remove this limit in production
+
+                self.logger.info(
+                    f"Processing {len(subdirs)} subdirectories for year {year}"
+                )
+
                 for subdir in subdirs:
+                    self.logger.debug(f"Fetching CVEs from {year_path}/{subdir}")
                     cves.extend(
                         self._fetch_cves_from_directory(
                             f"{year_path}/{subdir}", min_severity
@@ -173,6 +182,9 @@ class CVEListClient(BaseAPIClient):
                     for item in response.json()
                     if item["type"] == "file" and item["name"].endswith(".json")
                 ]
+
+                # Limit files per directory for performance (can be removed later)
+                cve_files = cve_files[:10]  # TODO: Remove this limit in production
 
                 # Fetch each CVE file
                 for filename in cve_files:
@@ -234,6 +246,15 @@ class CVEListClient(BaseAPIClient):
         containers = cve_data.get("containers", {})
         max_severity = SeverityLevel.NONE
 
+        # Severity order for comparison
+        severity_order = {
+            SeverityLevel.NONE: 0,
+            SeverityLevel.LOW: 1,
+            SeverityLevel.MEDIUM: 2,
+            SeverityLevel.HIGH: 3,
+            SeverityLevel.CRITICAL: 4,
+        }
+
         # Check CNA container
         cna = containers.get("cna", {})
         for metric in cna.get("metrics", []):
@@ -241,7 +262,9 @@ class CVEListClient(BaseAPIClient):
                 severity_str = metric["cvssV3_1"].get("baseSeverity", "").upper()
                 if severity_str and hasattr(SeverityLevel, severity_str):
                     severity = SeverityLevel[severity_str]
-                    if severity.value > max_severity.value:
+                    if severity_order.get(severity, 0) > severity_order.get(
+                        max_severity, 0
+                    ):
                         max_severity = severity
 
         # Check ADP containers (including CISA-ADP)
@@ -251,21 +274,16 @@ class CVEListClient(BaseAPIClient):
                     severity_str = metric["cvssV3_1"].get("baseSeverity", "").upper()
                     if severity_str and hasattr(SeverityLevel, severity_str):
                         severity = SeverityLevel[severity_str]
-                        if severity.value > max_severity.value:
+                        if severity_order.get(severity, 0) > severity_order.get(
+                            max_severity, 0
+                        ):
                             max_severity = severity
 
-        # Compare with minimum threshold
-        severity_order = {
-            SeverityLevel.NONE: 0,
-            SeverityLevel.LOW: 1,
-            SeverityLevel.MEDIUM: 2,
-            SeverityLevel.HIGH: 3,
-            SeverityLevel.CRITICAL: 4,
-        }
+        # Get numeric values for comparison
+        max_severity_value = severity_order.get(max_severity, 0)
+        min_severity_value = severity_order.get(min_severity, 3)
 
-        return severity_order.get(max_severity, 0) >= severity_order.get(
-            min_severity, 3
-        )
+        return max_severity_value >= min_severity_value
 
     def parse_cve_v5_record(self, cve_data: Dict[str, Any]) -> Optional[Vulnerability]:
         """Parse CVE Record Format v5.x into Vulnerability model.
@@ -314,11 +332,22 @@ class CVEListClient(BaseAPIClient):
             cvss_metrics = []
             severity = SeverityLevel.NONE
 
+            # Use the same severity order
+            severity_order = {
+                SeverityLevel.NONE: 0,
+                SeverityLevel.LOW: 1,
+                SeverityLevel.MEDIUM: 2,
+                SeverityLevel.HIGH: 3,
+                SeverityLevel.CRITICAL: 4,
+            }
+
             for metric in cna.get("metrics", []):
                 cvss_metric = self._parse_cvss_metric(metric)
                 if cvss_metric:
                     cvss_metrics.append(cvss_metric)
-                    if cvss_metric.base_severity.value > severity.value:
+                    if severity_order.get(
+                        cvss_metric.base_severity, 0
+                    ) > severity_order.get(severity, 0):
                         severity = cvss_metric.base_severity
 
             # Parse affected products

@@ -1,6 +1,6 @@
 """Risk scoring algorithm for vulnerabilities."""
 
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Dict, List
 
 import structlog
@@ -121,7 +121,7 @@ class RiskScorer:
         )
 
         # 4. Age Component (newer = higher risk)
-        age_days = (datetime.now(datetime.UTC) - vulnerability.published_date).days
+        age_days = (datetime.now(timezone.utc) - vulnerability.published_date).days
         if age_days <= 7:
             scores["age"] = 100
         elif age_days <= 30:
@@ -266,7 +266,7 @@ class RiskScorer:
             )
 
         # Age
-        age_days = (datetime.now(datetime.UTC) - vulnerability.published_date).days
+        age_days = (datetime.now(timezone.utc) - vulnerability.published_date).days
         if age_days <= 7:
             factors["age"] = "Published within last week"
         elif age_days <= 30:

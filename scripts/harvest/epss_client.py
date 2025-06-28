@@ -3,7 +3,7 @@
 import csv
 import gzip
 import io
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Dict, List, Optional, Tuple
 
 import requests
@@ -68,7 +68,7 @@ class EPSSClient(BaseAPIClient):
 
             # Get the score date from response
             score_date = date_parser.parse(
-                response.get("score_date", datetime.now(datetime.UTC).isoformat())
+                response.get("score_date", datetime.now(timezone.utc).isoformat())
             )
 
             for item in data:
@@ -161,7 +161,7 @@ class EPSSClient(BaseAPIClient):
             reader = csv.DictReader(io.StringIO(content))
 
             scores = {}
-            score_date = datetime.now(datetime.UTC)  # Will be updated from file
+            score_date = datetime.now(timezone.utc)  # Will be updated from file
 
             for row in reader:
                 # First row contains the model version and date
