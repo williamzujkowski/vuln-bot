@@ -1,4 +1,4 @@
-"""Generate daily vulnerability briefings and JSON API files."""
+"""Generate vulnerability briefings and JSON API files."""
 
 import json
 from pathlib import Path

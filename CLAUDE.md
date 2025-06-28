@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is the "Morning Vuln Briefing" platform - an automated vulnerability intelligence system that harvests, scores, and publishes daily vulnerability briefings. It's a multi-language project using Python for backend data processing and JavaScript/11ty for the static site generation and frontend.
+This is the "Morning Vuln Briefing" platform - an automated vulnerability intelligence system that harvests, scores, and publishes vulnerability briefings every 4 hours. It's a multi-language project using Python for backend data processing and JavaScript/11ty for the static site generation and frontend.
 
 ## Common Development Commands
 
@@ -64,7 +64,7 @@ chmod +x .husky/pre-commit .husky/commit-msg
 ## Architecture Overview
 
 ### Data Flow
-1. **Nightly Harvesting** (Python scripts in `scripts/`):
+1. **Scheduled Harvesting** (Python scripts in `scripts/`, runs every 4 hours):
    - Fetches from CVEProject/cvelistV5 repository (official CVE List, updated every 7 minutes)
    - Filters for Critical/High severity CVEs from 2024-2025 with EPSS scores > 60%
    - Enriches with EPSS API data and CISA-ADP container information (KEV/SSVC)
@@ -72,7 +72,7 @@ chmod +x .husky/pre-commit .husky/commit-msg
    - Caches responses in SQLite using GitHub Actions cache (10-day TTL)
 
 2. **Content Generation** (11ty in `src/`):
-   - Creates daily briefing posts at `_posts/{{date}}-vuln-brief.md` using Nunjucks templates
+   - Creates briefing posts at `_posts/{{date}}-vuln-brief.md` using Nunjucks templates
    - Generates individual vulnerability JSON files at `api/vulns/{{cveId}}.json`
    - Builds consolidated search index at `api/vulns/index.json`
 
@@ -90,7 +90,7 @@ chmod +x .husky/pre-commit .husky/commit-msg
 - `.github/workflows/` - CI/CD pipelines
 
 ### CI/CD Pipeline
-- **Nightly Build**: Runs harvesting, generates content, commits artifacts to main, deploys to gh-pages
+- **Scheduled Build**: Runs harvesting every 4 hours, generates content, commits artifacts to main, deploys to gh-pages
 - **PR Checks**: Linting (Ruff, ESLint), tests (≥80% coverage), security scans (Bandit, TruffleHog, CodeQL)
 - **Security**: npm-audit for dependencies, automated vulnerability scanning
 

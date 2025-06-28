@@ -1,9 +1,10 @@
-name: Nightly Vulnerability Harvest
+name: Vulnerability Harvest (Every 4 Hours)
 
 on:
   schedule:
-    # Run at 2 AM UTC every day
-    - cron: "0 2 * * *"
+    # Run every 4 hours starting at midnight UTC
+    # 0:00, 4:00, 8:00, 12:00, 16:00, 20:00 UTC
+    - cron: "0 */4 * * *"
   workflow_dispatch:
     inputs:
       dry_run:
@@ -164,7 +165,7 @@ jobs:
       - name: Create harvest summary
         if: always()
         run: |
-          echo "# Nightly Harvest Summary 📊" >> $GITHUB_STEP_SUMMARY
+          echo "# Vulnerability Harvest Summary 📊" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**Date:** $(date -u)" >> $GITHUB_STEP_SUMMARY
           echo "**Vulnerabilities Found:** ${{ steps.harvest.outputs.vulnerabilities_found || 'N/A' }}" >> $GITHUB_STEP_SUMMARY

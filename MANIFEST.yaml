@@ -3,7 +3,7 @@
 
 project:
   name: Morning Vuln Briefing
-  description: An automated vulnerability intelligence platform that harvests, scores, and publishes daily vulnerability briefings
+  description: An automated vulnerability intelligence platform that harvests, scores, and publishes vulnerability briefings every 4 hours
   version: 1.0.0
   license: MIT
   repository: https://github.com/wclaytor/vuln-bot
@@ -72,7 +72,7 @@ data_sources:
   - name: FIRST EPSS API
     type: REST API
     description: Exploit Prediction Scoring System
-    update_frequency: daily
+    update_frequency: every 4 hours
   - name: CISA ADP
     type: CVE Containers
     description: CISA's Additional Data Products (KEV, SSVC)
@@ -80,7 +80,7 @@ data_sources:
 
 features:
   harvesting:
-    - description: Automated daily vulnerability collection
+    - description: Automated vulnerability collection every 4 hours
     - sources: CVEProject GitHub repository
     - filtering:
         - severity: HIGH, CRITICAL
@@ -146,8 +146,8 @@ deployment:
 ci_cd:
   provider: GitHub Actions
   workflows:
-    - name: Nightly Harvest
-      schedule: "17 6 * * *"  # 6:17 AM UTC daily
+    - name: Scheduled Harvest
+      schedule: "0 */4 * * *"  # Every 4 hours starting at midnight UTC
       steps:
         - harvest_vulnerabilities
         - generate_content

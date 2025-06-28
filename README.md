@@ -4,7 +4,7 @@
 ![CI](https://github.com/yourusername/vuln-bot/actions/workflows/ci.yml/badge.svg)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-An automated vulnerability intelligence platform that harvests, scores, and publishes daily vulnerability briefings using the official CVEProject/cvelistV5 repository. Focuses on Critical and High severity CVEs from 2024-2025 with EPSS scores above 60%.
+An automated vulnerability intelligence platform that harvests, scores, and publishes vulnerability briefings every 4 hours using the official CVEProject/cvelistV5 repository. Focuses on Critical and High severity CVEs from 2024-2025 with EPSS scores above 60%.
 
 ## Features
 
@@ -12,7 +12,7 @@ An automated vulnerability intelligence platform that harvests, scores, and publ
 - 📊 **Risk Scoring**: Calculates weighted scores (0-100) based on CVSS, EPSS, popularity, and infrastructure tags
 - 🚀 **Static Site Generation**: Uses 11ty to generate fast, SEO-friendly briefings
 - 🔎 **Advanced Filtering**: Client-side dashboard with instant search, CVSS/EPSS sliders, and shareable views
-- 🤖 **Fully Automated**: Nightly harvesting with zero manual intervention required
+- 🤖 **Fully Automated**: Harvesting every 4 hours with zero manual intervention required
 - 🔒 **Security First**: Comprehensive CI/CD with Bandit, CodeQL, and dependency scanning
 
 ## Quick Start

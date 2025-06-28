@@ -159,7 +159,7 @@ def harvest(
     help="Maximum vulnerabilities to include in briefing",
 )
 def generate_briefing(output_dir: Path, cache_dir: Path, limit: int) -> None:
-    """Generate daily vulnerability briefing from harvested data."""
+    """Generate vulnerability briefing from harvested data."""
     logger = structlog.get_logger()
     logger.info("Generating vulnerability briefing", output_dir=str(output_dir))
 
