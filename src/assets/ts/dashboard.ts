@@ -109,6 +109,9 @@ document.addEventListener("alpine:init", () => {
       initialLoad: true,
 
       async init(): Promise<void> {
+        // Start performance timer
+        analytics.startTimer("page-load");
+
         // Load state from URL hash
         this.loadStateFromHash();
 
@@ -128,7 +131,7 @@ document.addEventListener("alpine:init", () => {
         this.watchFilters();
 
         // Track performance
-        analytics.trackPerformance();
+        analytics.endTimer("page-load");
       },
 
       async loadVulnerabilities(): Promise<void> {
@@ -171,7 +174,7 @@ document.addEventListener("alpine:init", () => {
         // Apply search
         if (this.searchQuery.trim() && this.fuse) {
           const searchResults = this.fuse.search(this.searchQuery);
-          results = searchResults.map((result: any) => result.item);
+          results = searchResults.map((result: { item: Vulnerability }) => result.item);
 
           // Track search
           analytics.trackSearch(this.searchQuery, results.length);
@@ -240,8 +243,8 @@ document.addEventListener("alpine:init", () => {
         const direction = this.sortDirection;
 
         return results.sort((a, b) => {
-          let aVal = a[field] as unknown;
-          let bVal = b[field] as unknown;
+          let aVal: string | number = a[field] as string | number;
+          let bVal: string | number = b[field] as string | number;
 
           // Handle null/undefined values
           aVal ??= "";
@@ -254,8 +257,8 @@ document.addEventListener("alpine:init", () => {
           }
 
           // Compare
-          if ((aVal as any) < (bVal as any)) return direction === "asc" ? -1 : 1;
-          if ((aVal as any) > (bVal as any)) return direction === "asc" ? 1 : -1;
+          if (aVal < bVal) return direction === "asc" ? -1 : 1;
+          if (aVal > bVal) return direction === "asc" ? 1 : -1;
           return 0;
         });
       },
@@ -271,7 +274,9 @@ document.addEventListener("alpine:init", () => {
         }
 
         // Track sort change
-        analytics.trackSort(field, this.sortDirection);
+        analytics.track("sort", "interaction", "sort", field, undefined, {
+          direction: this.sortDirection,
+        });
 
         this.applyFilters();
       },
@@ -301,9 +306,11 @@ document.addEventListener("alpine:init", () => {
 
       watchFilters(): void {
         // Watch for filter changes
-        (this as any).$watch("searchQuery", () => this.applyFilters());
-        (this as any).$watch("filters", () => this.applyFilters(), { deep: true });
-        (this as any).$watch("pageSize", () => {
+        (this as unknown as { $watch: Function }).$watch("searchQuery", () => this.applyFilters());
+        (this as unknown as { $watch: Function }).$watch("filters", () => this.applyFilters(), {
+          deep: true,
+        });
+        (this as unknown as { $watch: Function }).$watch("pageSize", () => {
           this.currentPage = 1;
           this.updatePagination();
         });
@@ -464,7 +471,7 @@ document.addEventListener("alpine:init", () => {
       },
 
       trackVulnerabilityClick(cveId: string, riskScore: number): void {
-        analytics.trackVulnerabilityClick(cveId, riskScore);
+        analytics.trackVulnerabilityClick(cveId, { riskScore });
       },
     })
   );

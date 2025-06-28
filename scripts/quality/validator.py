@@ -202,8 +202,8 @@ class DataQualityValidator:
 
     def calculate_quality_score(
         self,
-        vuln: Vulnerability,
-        quality_scores: Dict[str, float],  # noqa: ARG002
+        vuln: Vulnerability,  # noqa: ARG002
+        quality_scores: Dict[str, float],
     ) -> float:
         """Calculate overall quality score for a vulnerability.
 

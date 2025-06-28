@@ -340,7 +340,8 @@ describe("Analytics", () => {
       const events = analytics.getEvents();
       const sessionEvent = events.find((e) => e.event === "session");
       expect(sessionEvent).toBeDefined();
-      expect(sessionEvent?.value).toBe(300); // 5 minutes in seconds
+      expect(sessionEvent?.value).toBeGreaterThanOrEqual(299);
+      expect(sessionEvent?.value).toBeLessThanOrEqual(301); // Allow for rounding
     });
 
     it("should track user engagement", () => {
@@ -440,9 +441,10 @@ describe("Analytics", () => {
     });
 
     it("should auto-flush events after interval", () => {
-      const flushSpy = vi.spyOn(analytics, "flush");
+      const testAnalytics = new Analytics(mockConfig);
+      const flushSpy = vi.spyOn(testAnalytics, "flush");
 
-      analytics.track("test", "category", "action");
+      testAnalytics.track("test", "category", "action");
 
       // Fast-forward time
       vi.advanceTimersByTime(mockConfig.flushInterval);

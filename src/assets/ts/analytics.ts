@@ -2,37 +2,132 @@
  * Frontend analytics for vulnerability dashboard
  */
 
+import type { AnalyticsConfig } from "./types";
+
 interface AnalyticsEvent {
   event: string;
   category: string;
   action: string;
-  label?: string;
-  value?: number;
-  metadata?: Record<string, any>;
-  timestamp: string;
+  label?: string | undefined;
+  value?: number | undefined;
+  metadata?: Record<string, unknown> | undefined;
+  timestamp: number;
 }
 
-class Analytics {
+interface StoredData {
+  events: AnalyticsEvent[];
+  sessionId: string;
+  lastFlush: number;
+}
+
+export class Analytics {
   private events: AnalyticsEvent[] = [];
   private sessionId: string;
   private startTime: number;
-  private isEnabled: boolean = true;
+  private enabled: boolean = true;
+  private config: AnalyticsConfig;
+  private timers: Map<string, number> = new Map();
+  private flushTimeout?: number | undefined;
+  private sessionStartTime?: number | undefined;
 
-  constructor() {
+  constructor(
+    config: AnalyticsConfig = {
+      enabled: true,
+      storageKey: "vuln_analytics",
+      maxEvents: 100,
+      flushInterval: 300000,
+    }
+  ) {
+    this.config = config;
     this.sessionId = this.generateSessionId();
     this.startTime = Date.now();
 
     // Check if analytics should be disabled (e.g., DNT header)
-    if (navigator.doNotTrack === "1") {
-      this.isEnabled = false;
+    const dnt =
+      (navigator as unknown as { doNotTrack?: string }).doNotTrack ??
+      (window as unknown as { doNotTrack?: string }).doNotTrack;
+    if (dnt === "1" || dnt === "yes") {
+      this.enabled = false;
+      return;
+    }
+
+    if (!config.enabled) {
+      this.enabled = false;
+      return;
+    }
+
+    // Load existing events
+    this.loadEvents();
+
+    // Set up auto-flush
+    if (this.config.flushInterval) {
+      this.scheduleFlush();
     }
 
     // Set up page unload handler to save metrics
-    window.addEventListener("beforeunload", () => this.flush());
+    window.addEventListener("beforeunload", () => this.saveEvents());
   }
 
   private generateSessionId(): string {
     return `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+  }
+
+  private loadEvents(): void {
+    if (!this.enabled || !this.config.storageKey) return;
+
+    try {
+      const stored = localStorage.getItem(this.config.storageKey);
+      if (stored) {
+        const data: StoredData = JSON.parse(stored);
+        this.events = data.events || [];
+      }
+    } catch {
+      // Ignore errors
+    }
+  }
+
+  private saveEvents(): void {
+    if (!this.enabled || !this.config.storageKey) return;
+
+    const data: StoredData = {
+      events: this.events,
+      sessionId: this.sessionId,
+      lastFlush: Date.now(),
+    };
+
+    try {
+      localStorage.setItem(this.config.storageKey, JSON.stringify(data));
+    } catch {
+      // Ignore errors
+    }
+  }
+
+  private scheduleFlush(): void {
+    if (this.flushTimeout) {
+      clearTimeout(this.flushTimeout);
+    }
+
+    this.flushTimeout = window.setTimeout(() => {
+      this.flush();
+      this.scheduleFlush();
+    }, this.config.flushInterval);
+  }
+
+  isEnabled(): boolean {
+    return this.enabled;
+  }
+
+  disable(): void {
+    this.enabled = false;
+  }
+
+  enable(): void {
+    this.enabled = true;
+  }
+
+  optOut(): void {
+    this.enabled = false;
+    this.clear();
   }
 
   /**
@@ -45,187 +140,188 @@ class Analytics {
     label?: string,
     value?: number,
     metadata?: Record<string, unknown>
-  ) {
-    if (!this.isEnabled) return;
+  ): void {
+    if (!this.enabled) return;
 
     const analyticsEvent: AnalyticsEvent = {
       event,
       category,
       action,
-      timestamp: new Date().toISOString(),
+      label,
+      value,
+      metadata,
+      timestamp: Date.now(),
     };
-
-    if (label !== undefined) analyticsEvent.label = label;
-    if (value !== undefined) analyticsEvent.value = value;
-    if (metadata !== undefined) analyticsEvent.metadata = metadata;
 
     this.events.push(analyticsEvent);
 
-    // Flush events if buffer is getting large
-    if (this.events.length >= 50) {
-      this.flush();
+    // Enforce max events limit
+    if (this.config.maxEvents && this.events.length > this.config.maxEvents) {
+      this.events = this.events.slice(-this.config.maxEvents);
+    }
+
+    this.saveEvents();
+  }
+
+  getEvents(): AnalyticsEvent[] {
+    return [...this.events];
+  }
+
+  clear(): void {
+    this.events = [];
+    if (this.config.storageKey) {
+      localStorage.removeItem(this.config.storageKey);
     }
   }
 
-  /**
-   * Track search queries
-   */
-  trackSearch(query: string, resultCount: number) {
-    this.track("search", "interaction", "search", query, resultCount, { query, resultCount });
+  // Performance tracking
+  startTimer(name: string): void {
+    this.timers.set(name, performance.now());
   }
 
-  /**
-   * Track filter changes
-   */
-  trackFilter(filterType: string, value: any) {
+  endTimer(name: string, metadata?: Record<string, unknown>): void {
+    const startTime = this.timers.get(name);
+    if (startTime === undefined) return;
+
+    const duration = performance.now() - startTime;
+    this.timers.delete(name);
+
+    this.track("timing", "performance", name, undefined, Math.round(duration), metadata);
+  }
+
+  // User interaction tracking
+  trackVulnerabilityClick(cveId: string, metadata?: Record<string, unknown>): void {
+    this.track("click", "vulnerability", "view", cveId, undefined, metadata);
+  }
+
+  trackSearch(query: string, resultCount: number): void {
+    this.track("search", "search", "query", query, resultCount);
+  }
+
+  trackFilterUsage(filterType: string, value: string, resultCount: number): void {
+    this.track("filter", "filter", filterType, value, resultCount);
+  }
+
+  trackExport(format: string, count: number): void {
+    this.track("export", "export", "download", format, count);
+  }
+
+  trackFilter(filterType: string, value: unknown): void {
     this.track("filter_change", "interaction", "filter", filterType, undefined, {
       filterType,
       value,
     });
   }
 
-  /**
-   * Track sort changes
-   */
-  trackSort(field: string, direction: string) {
-    this.track("sort_change", "interaction", "sort", `${field}_${direction}`, undefined, {
-      field,
-      direction,
+  // Session tracking
+  trackPageView(path: string): void {
+    this.track("pageview", "navigation", "view", path);
+  }
+
+  startSession(): void {
+    this.sessionStartTime = performance.now();
+  }
+
+  endSession(): void {
+    if (this.sessionStartTime === undefined) return;
+
+    const duration = Math.round((performance.now() - this.sessionStartTime) / 1000); // seconds
+    this.track("session", "user", "duration", undefined, duration);
+    this.sessionStartTime = undefined;
+  }
+
+  trackEngagement(data: Record<string, unknown>): void {
+    this.track("engagement", "user", "interaction", undefined, undefined, data);
+  }
+
+  // Error tracking
+  trackError(error: Error | string, metadata?: Record<string, unknown>): void {
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    const errorStack = error instanceof Error ? error.stack : undefined;
+
+    this.track("error", "error", "javascript", errorMessage, undefined, {
+      ...metadata,
+      stack: errorStack,
     });
   }
 
-  /**
-   * Track page views
-   */
-  trackPageView(page: number, pageSize: number) {
-    this.track("page_view", "navigation", "pagination", `page_${page}`, pageSize, {
-      page,
-      pageSize,
+  // Data management
+  getSummary() {
+    const eventCounts: Record<string, number> = {};
+    const categoryCounts: Record<string, number> = {};
+
+    this.events.forEach((event) => {
+      eventCounts[event.event] = (eventCounts[event.event] ?? 0) + 1;
+      categoryCounts[event.category] = (categoryCounts[event.category] ?? 0) + 1;
     });
-  }
-
-  /**
-   * Track CSV exports
-   */
-  trackExport(format: string, count: number) {
-    this.track("export", "interaction", "export", format, count, { format, count });
-  }
-
-  /**
-   * Track vulnerability clicks
-   */
-  trackVulnerabilityClick(cveId: string, riskScore: number) {
-    this.track("vulnerability_click", "interaction", "click", cveId, riskScore, {
-      cveId,
-      riskScore,
-    });
-  }
-
-  /**
-   * Track performance metrics
-   */
-  trackPerformance() {
-    if (!window.performance || !this.isEnabled) return;
-
-    const perfData = window.performance.timing;
-    const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
-    const domReadyTime = perfData.domContentLoadedEventEnd - perfData.navigationStart;
-
-    this.track("performance", "technical", "page_load", undefined, pageLoadTime, {
-      pageLoadTime,
-      domReadyTime,
-      sessionDuration: Date.now() - this.startTime,
-    });
-  }
-
-  /**
-   * Get session summary
-   */
-  getSessionSummary() {
-    const sessionDuration = (Date.now() - this.startTime) / 1000; // in seconds
-
-    const eventCounts = this.events.reduce(
-      (acc, event) => {
-        acc[event.event] = (acc[event.event] ?? 0) + 1;
-        return acc;
-      },
-      {} as Record<string, number>
-    );
 
     return {
-      sessionId: this.sessionId,
-      sessionDuration,
-      eventCount: this.events.length,
-      eventTypes: eventCounts,
-      startTime: new Date(this.startTime).toISOString(),
-      endTime: new Date().toISOString(),
+      totalEvents: this.events.length,
+      eventCounts,
+      categoryCounts,
+      sessionDuration: Date.now() - this.startTime,
     };
   }
 
-  /**
-   * Flush events to storage
-   */
-  private flush() {
-    if (!this.isEnabled || this.events.length === 0) return;
+  exportJSON(): string {
+    return JSON.stringify(
+      {
+        events: this.events,
+        sessionId: this.sessionId,
+        exportDate: new Date().toISOString(),
+        version: "1.0.0",
+      },
+      null,
+      2
+    );
+  }
+
+  async flush(): Promise<void> {
+    if (!this.enabled || !this.config.endpoint || this.events.length === 0) {
+      return;
+    }
 
     try {
-      // Store in localStorage for now (could be sent to a server endpoint)
-      const storageKey = `vuln_analytics_${this.sessionId}`;
-      const existingData = localStorage.getItem(storageKey);
-      const existing = existingData ? JSON.parse(existingData) : { events: [] };
+      await fetch(this.config.endpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          events: this.events,
+          sessionId: this.sessionId,
+        }),
+      });
 
-      existing.events.push(...this.events);
-      existing.summary = this.getSessionSummary();
-
-      localStorage.setItem(storageKey, JSON.stringify(existing));
-
-      // Clear events buffer
+      // Clear events after successful flush
       this.events = [];
-
-      // Clean up old sessions (keep last 10)
-      this.cleanupOldSessions();
+      this.saveEvents();
     } catch (error) {
-      console.error("Failed to save analytics:", error);
+      // Keep events on error
+      console.error("Analytics flush failed:", error);
     }
   }
 
   /**
-   * Clean up old analytics sessions
+   * Export all session data for debugging
    */
-  private cleanupOldSessions() {
-    try {
-      const keys = Object.keys(localStorage).filter((key) => key.startsWith("vuln_analytics_"));
-
-      if (keys.length > 10) {
-        // Sort by timestamp and remove oldest
-        keys
-          .sort()
-          .slice(0, -10)
-          .forEach((key) => {
-            localStorage.removeItem(key);
-          });
-      }
-    } catch (error) {
-      console.error("Failed to cleanup old sessions:", error);
-    }
-  }
-
-  /**
-   * Export analytics data
-   */
-  exportAnalytics(): string {
-    const allSessions = Object.keys(localStorage)
-      .filter((key) => key.startsWith("vuln_analytics_"))
-      .map((key) => {
+  exportSessionData() {
+    const sessions = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key?.includes("vuln_analytics")) {
         try {
-          return JSON.parse(localStorage.getItem(key) ?? "{}");
+          const data = JSON.parse(localStorage.getItem(key) ?? "{}");
+          sessions.push({
+            key,
+            ...data,
+          });
         } catch {
-          return null;
+          // Skip invalid entries
         }
-      })
-      .filter(Boolean);
-
-    return JSON.stringify(allSessions, null, 2);
+      }
+    }
+    return JSON.stringify(sessions, null, 2);
   }
 }
 

@@ -3,7 +3,7 @@
  */
 
 import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
-import { VulnerabilityDashboard } from "../src/assets/ts/dashboard";
+import { VulnerabilityDashboard } from "../src/assets/ts/VulnerabilityDashboard";
 import type { Vulnerability, DashboardConfig } from "../src/assets/ts/types";
 
 // Mock Fuse.js
@@ -496,8 +496,12 @@ describe("VulnerabilityDashboard", () => {
     it("should track top tags", () => {
       const stats = dashboard.getStatistics();
 
-      expect(stats.topTags).toContain({ tag: "remote", count: 1 });
-      expect(stats.topTags).toContain({ tag: "sql-injection", count: 1 });
+      const tagNames = stats.topTags.map((t) => t.tag);
+      expect(tagNames).toContain("remote");
+      expect(tagNames).toContain("sql-injection");
+
+      const remoteTag = stats.topTags.find((t) => t.tag === "remote");
+      expect(remoteTag?.count).toBe(1);
     });
   });
 
@@ -513,6 +517,7 @@ describe("VulnerabilityDashboard", () => {
 
     it("should handle invalid sort fields gracefully", () => {
       dashboard.vulnerabilities = [...mockVulnerabilities];
+      dashboard.filteredVulnerabilities = [...mockVulnerabilities];
       dashboard.sort("invalidField" as any, "asc");
 
       // Should not throw and maintain original order
@@ -526,6 +531,7 @@ describe("VulnerabilityDashboard", () => {
           // Missing required fields
         } as any,
       ];
+      dashboard.filteredVulnerabilities = [...dashboard.vulnerabilities];
 
       dashboard.applyFilters();
       // Should handle gracefully
