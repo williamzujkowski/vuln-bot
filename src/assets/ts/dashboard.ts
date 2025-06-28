@@ -100,7 +100,7 @@ document.addEventListener("alpine:init", () => {
       },
 
       // Sort
-      sortField: "riskScore",
+      sortField: "exploitationStatus",
       sortDirection: "desc",
 
       // Pagination
@@ -501,7 +501,7 @@ document.addEventListener("alpine:init", () => {
             (key === "epssMax" && value === 100) ||
             (key === "page" && value === 1) ||
             (key === "size" && value === 20) ||
-            (key === "sort" && value === "riskScore") ||
+            (key === "sort" && value === "exploitationStatus") ||
             (key === "dir" && value === "desc")
           ) {
             delete state[key];
@@ -540,7 +540,7 @@ document.addEventListener("alpine:init", () => {
         this.filters.tags = tags ? tags.split(",").filter((t) => t) : [];
 
         // Load sorting
-        this.sortField = (params.get("sort") ?? "riskScore") as keyof Vulnerability;
+        this.sortField = (params.get("sort") ?? "exploitationStatus") as keyof Vulnerability;
         this.sortDirection = (params.get("dir") ?? "desc") as "asc" | "desc";
 
         // Load pagination
@@ -591,7 +591,7 @@ document.addEventListener("alpine:init", () => {
         const headers = [
           "CVE ID",
           "Title",
-          "Risk Score",
+          "Exploitation Status",
           "Severity",
           "CVSS Score",
           "EPSS %",
@@ -600,7 +600,7 @@ document.addEventListener("alpine:init", () => {
         const rows = this.filteredVulns.map((vuln) => [
           vuln.cveId,
           `"${vuln.title.replace(/"/g, '""')}"`,
-          vuln.riskScore.toString(),
+          vuln.exploitationStatus,
           vuln.severity,
           vuln.cvssScore?.toString() || "",
           vuln.epssPercentile?.toString() || "",

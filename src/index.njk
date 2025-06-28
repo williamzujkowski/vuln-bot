@@ -195,32 +195,32 @@ title: Morning Vuln Briefing - Dashboard
                 </th>
                 <th 
                   role="columnheader" 
-                  @click="sort('epssScore')" 
+                  @click="sort('epssPercentile')" 
                   tabindex="0"
-                  @keydown.enter="sort('epssScore')"
-                  @keydown.space.prevent="sort('epssScore')"
-                  :aria-sort="sortField === 'epssScore' ? (sortDirection === 'asc' ? 'ascending' : 'descending') : 'none'"
+                  @keydown.enter="sort('epssPercentile')"
+                  @keydown.space.prevent="sort('epssPercentile')"
+                  :aria-sort="sortField === 'epssPercentile' ? (sortDirection === 'asc' ? 'ascending' : 'descending') : 'none'"
                   class="sortable-header"
                   aria-describedby="epss-help"
                 >
                   EPSS
-                  <span class="sort-indicator" aria-hidden="true" x-show="sortField === 'epssScore'">
+                  <span class="sort-indicator" aria-hidden="true" x-show="sortField === 'epssPercentile'">
                     <span x-show="sortDirection === 'asc'">↑</span>
                     <span x-show="sortDirection === 'desc'">↓</span>
                   </span>
                 </th>
                 <th 
                   role="columnheader" 
-                  @click="sort('riskScore')" 
+                  @click="sort('exploitationStatus')" 
                   tabindex="0"
-                  @keydown.enter="sort('riskScore')"
-                  @keydown.space.prevent="sort('riskScore')"
-                  :aria-sort="sortField === 'riskScore' ? (sortDirection === 'asc' ? 'ascending' : 'descending') : 'none'"
+                  @keydown.enter="sort('exploitationStatus')"
+                  @keydown.space.prevent="sort('exploitationStatus')"
+                  :aria-sort="sortField === 'exploitationStatus' ? (sortDirection === 'asc' ? 'ascending' : 'descending') : 'none'"
                   class="sortable-header"
-                  aria-describedby="risk-score-help"
+                  aria-describedby="exploitation-status-help"
                 >
-                  Risk Score
-                  <span class="sort-indicator" aria-hidden="true" x-show="sortField === 'riskScore'">
+                  Exploitation Status
+                  <span class="sort-indicator" aria-hidden="true" x-show="sortField === 'exploitationStatus'">
                     <span x-show="sortDirection === 'asc'">↑</span>
                     <span x-show="sortDirection === 'desc'">↓</span>
                   </span>
@@ -250,7 +250,7 @@ title: Morning Vuln Briefing - Dashboard
                       :href="'/vuln-bot/api/vulns/' + vuln.cveId + '.json'" 
                       x-text="vuln.cveId"
                       :aria-label="'View JSON data for ' + vuln.cveId"
-                      @click="$root.trackVulnerabilityClick && $root.trackVulnerabilityClick(vuln.cveId, vuln.riskScore)"
+                      @click="$root.trackVulnerabilityClick && $root.trackVulnerabilityClick(vuln.cveId, vuln.exploitationStatus)"
                     ></a>
                   </td>
                   <td role="cell" x-text="vuln.title"></td>
@@ -270,9 +270,10 @@ title: Morning Vuln Briefing - Dashboard
                   </td>
                   <td role="cell">
                     <span 
-                      class="risk-score" 
-                      x-text="vuln.riskScore"
-                      :aria-label="'Risk score: ' + vuln.riskScore + ' out of 100'"
+                      class="exploitation-status" 
+                      :class="'status-' + vuln.exploitationStatus.toLowerCase()" 
+                      x-text="vuln.exploitationStatus"
+                      :aria-label="'Exploitation status: ' + vuln.exploitationStatus"
                     ></span>
                   </td>
                   <td role="cell">
@@ -293,7 +294,7 @@ title: Morning Vuln Briefing - Dashboard
           <div id="cve-id-help">CVE identifier - click to sort by CVE ID</div>
           <div id="cvss-help">Common Vulnerability Scoring System score from 0 to 10 - click to sort by CVSS score</div>
           <div id="epss-help">Exploit Prediction Scoring System percentage - click to sort by EPSS score</div>
-          <div id="risk-score-help">Calculated risk score from 0 to 100 - click to sort by risk score</div>
+          <div id="exploitation-status-help">Known exploitation status - ACTIVE: known active exploitation, POC: proof of concept available, UNPROVEN: no known exploitation - click to sort by exploitation status</div>
         </div>
       </section>
 

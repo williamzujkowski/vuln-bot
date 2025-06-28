@@ -195,7 +195,7 @@
         exploitationStatus: "",
         tags: [],
       },
-      sortField: "riskScore",
+      sortField: "exploitationStatus",
       sortDirection: "desc",
       currentPage: 1,
       pageSize: 20,
@@ -425,7 +425,7 @@
             ("epssMax" === e && 100 === s) ||
             ("page" === e && 1 === s) ||
             ("size" === e && 20 === s) ||
-            ("sort" === e && "riskScore" === s) ||
+            ("sort" === e && "exploitationStatus" === s) ||
             ("dir" === e && "desc" === s)) &&
             delete t[e];
         });
@@ -450,7 +450,7 @@
           (this.filters.exploitationStatus = e.get("exploitation") ?? ""));
         const s = e.get("tags");
         ((this.filters.tags = s ? s.split(",").filter((t) => t) : []),
-          (this.sortField = e.get("sort") ?? "riskScore"),
+          (this.sortField = e.get("sort") ?? "exploitationStatus"),
           (this.sortDirection = e.get("dir") ?? "desc"),
           (this.currentPage = parseInt(e.get("page") ?? "1")),
           (this.pageSize = parseInt(e.get("size") ?? "20")));
@@ -491,11 +491,19 @@
       exportResults() {
         t.trackExport("csv", this.filteredVulns.length);
         const e = [
-            ["CVE ID", "Title", "Risk Score", "Severity", "CVSS Score", "EPSS %", "Published Date"],
+            [
+              "CVE ID",
+              "Title",
+              "Exploitation Status",
+              "Severity",
+              "CVSS Score",
+              "EPSS %",
+              "Published Date",
+            ],
             ...this.filteredVulns.map((t) => [
               t.cveId,
               `"${t.title.replace(/"/g, '""')}"`,
-              t.riskScore.toString(),
+              t.exploitationStatus,
               t.severity,
               t.cvssScore?.toString() || "",
               t.epssPercentile?.toString() || "",

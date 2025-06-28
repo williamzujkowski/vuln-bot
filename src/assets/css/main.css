@@ -420,10 +420,34 @@ tr[data-lazy].loaded {
   font-weight: 600;
 }
 
-/* Risk score */
-.risk-score {
+/* Exploitation status */
+.exploitation-status {
   font-weight: var(--font-weight-semibold);
   font-size: var(--font-size-sm);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.status-active {
+  background-color: #dc2626; /* Red for active exploitation */
+  color: white;
+}
+
+.status-poc {
+  background-color: #ea580c; /* Orange for proof of concept */
+  color: white;
+}
+
+.status-unproven {
+  background-color: #16a34a; /* Green for unproven */
+  color: white;
+}
+
+.status-unknown {
+  background-color: #6b7280; /* Gray for unknown */
+  color: white;
 }
 
 /* Links */
