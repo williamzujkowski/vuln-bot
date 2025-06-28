@@ -100,7 +100,7 @@ title: Morning Vuln Briefing - Dashboard
           <template x-for="vuln in paginatedVulns" :key="vuln.cveId">
             <tr>
               <td>
-                <a :href="'/api/vulns/' + vuln.cveId + '.json'" x-text="vuln.cveId"></a>
+                <a :href="'/vuln-bot/api/vulns/' + vuln.cveId + '.json'" x-text="vuln.cveId"></a>
               </td>
               <td x-text="vuln.title"></td>
               <td>

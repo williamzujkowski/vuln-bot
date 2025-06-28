@@ -21,7 +21,7 @@
     <p>Last updated: {{ page.date | dateFormat }}</p>
     <p>
       <a href="https://github.com/yourusername/vuln-bot">GitHub</a> | 
-      <a href="/api/vulns/index.json">API</a>
+      <a href="{{ '/api/vulns/index.json' | url }}">API</a>
     </p>
   </footer>
 </body>

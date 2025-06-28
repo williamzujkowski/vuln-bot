@@ -58,7 +58,7 @@ document.addEventListener("alpine:init", () => {
     async loadVulnerabilities() {
       try {
         this.loading = true;
-        const response = await fetch("/api/vulns/index.json");
+        const response = await fetch("/vuln-bot/api/vulns/index.json");
         if (!response.ok) {
           throw new Error(`Failed to load vulnerabilities: ${response.status}`);
         }
