@@ -2,59 +2,58 @@
 
 ## Immediate Actions
 
-1. **Initialize Git and Install Dependencies**
+1. **Fix Test Suite** 🚨
    ```bash
-   git init
-   git add .
-   git commit -m "feat: initial project structure and configuration"
-   
-   # Install Python dependencies
-   curl -LsSf https://astral.sh/uv/install.sh | sh
-   uv pip install -r requirements.txt
-   
-   # Install Node dependencies
-   npm install
+   # Create tests for CVEListClient
+   # Update existing tests for new implementation
+   # Run tests to achieve 80% coverage
+   pytest --cov=scripts --cov-report=html
    ```
 
-2. **Configure GitHub Repository**
-   - Create repository on GitHub
-   - Add required secrets (CVE_API_KEY, NVD_API_KEY, etc.)
-   - Enable GitHub Pages from Settings
-   - Set up branch protection rules
-
-3. **Make Husky Scripts Executable**
+2. **Test the New Harvest System**
    ```bash
-   chmod +x .husky/pre-commit
-   chmod +x .husky/commit-msg
+   # Test CVEList harvesting for 2025
+   python -m scripts.main harvest --years 2025 --min-severity HIGH --min-epss 0.6
+   
+   # Generate a briefing from harvested data
+   python -m scripts.main generate-briefing
    ```
+
+3. **Deploy to Production**
+   - Push changes to GitHub
+   - Verify GitHub Actions workflows
+   - Check GitHub Pages deployment
+   - Monitor first automated harvest
 
 ## Implementation Priority
 
-### Week 1: Core Functionality
-1. Implement base API client class with rate limiting
-2. Create CVE 4.0 and EPSS clients
-3. Build data normalization pipeline
-4. Develop risk scoring algorithm
+### Immediate (This Week)
+1. ✅ Fix test suite to work with CVEList implementation
+2. ✅ Create comprehensive tests for CVEListClient
+3. ✅ Achieve 80% test coverage
+4. ✅ Verify harvest and briefing generation works
 
-### Week 2: Content Generation
-1. Set up 11ty templates for briefings
-2. Create JSON API endpoint generation
-3. Build search index generator
-4. Implement Alpine.js dashboard
+### Next Week
+1. Add remaining vulnerability sources:
+   - Red Hat Security API
+   - Microsoft Security Response Center
+   - Cisco Talos
+2. Implement webhook notifications (Slack/Teams)
+3. Add historical trend analysis
+4. Create vulnerability diff reports
 
-### Week 3: Polish & Deploy
-1. Complete test coverage to 80%+
-2. Security hardening review
-3. Performance optimization
-4. Production deployment
+### Future Enhancements
+1. Machine learning for risk scoring
+2. Custom alert rules engine
+3. API rate limit monitoring dashboard
+4. Advanced SBOM integration
 
-## Key Implementation Files to Create
+## Key Files Recently Created/Updated
 
-1. **`scripts/harvest/base_client.py`** - Abstract base class for API clients
-2. **`scripts/processing/risk_scorer.py`** - Risk calculation algorithm
-3. **`scripts/processing/normalizer.py`** - Data normalization
-4. **`src/assets/js/dashboard.js`** - Alpine.js dashboard logic
-5. **`src/assets/css/main.css`** - Styling for the dashboard
+1. **`scripts/harvest/cvelist_client.py`** - CVEProject/cvelistV5 client
+2. **`scripts/harvest/orchestrator.py`** - Updated for CVEList and EPSS filtering
+3. **`scripts/main.py`** - New CLI parameters for years and thresholds
+4. **Multiple test files** - Coverage increased from 17% to 26%
 
 ## Testing Strategy
 
