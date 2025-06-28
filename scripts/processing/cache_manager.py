@@ -50,7 +50,7 @@ class HarvestMetadata(Base):
     harvest_date = Column(DateTime, nullable=False, unique=True, index=True)
     vulnerability_count = Column(Integer, nullable=False)
     sources = Column(Text, nullable=False)  # JSON list of sources
-    metadata = Column(Text)  # JSON additional metadata
+    extra_metadata = Column(Text)  # JSON additional metadata
     created_at = Column(DateTime, nullable=False, default=datetime.utcnow)
 
 
@@ -161,7 +161,7 @@ class CacheManager:
                         }
                     )
                 ),
-                metadata=json.dumps(batch.metadata),
+                extra_metadata=json.dumps(batch.metadata),
             )
             session.add(harvest_meta)
 
@@ -280,8 +280,8 @@ class CacheManager:
                         "harvest_date": record.harvest_date.isoformat(),
                         "vulnerability_count": record.vulnerability_count,
                         "sources": json.loads(record.sources),
-                        "metadata": json.loads(record.metadata)
-                        if record.metadata
+                        "metadata": json.loads(record.extra_metadata)
+                        if record.extra_metadata
                         else {},
                     }
                 )
