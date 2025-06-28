@@ -173,6 +173,7 @@ class Vulnerability(BaseModel):
             "severity": self.severity.value,
             "cvssScore": self.cvss_base_score,
             "epssScore": self.epss_probability,
+            "epssPercentile": self.epss_score.percentile if self.epss_score else 0,
             "riskScore": self.risk_score,
             "publishedDate": self.published_date.isoformat(),
             "exploitationStatus": self.exploitation_status.value,

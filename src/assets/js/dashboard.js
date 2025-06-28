@@ -270,7 +270,7 @@
             return e >= this.filters.cvssMin && e <= this.filters.cvssMax;
           })),
           (e = e.filter((t) => {
-            const e = t.epssScore || 0;
+            const e = t.epssPercentile || 0;
             return e >= this.filters.epssMin && e <= this.filters.epssMax;
           })),
           this.filters.severity && (e = e.filter((t) => t.severity === this.filters.severity)),
@@ -498,7 +498,7 @@
               t.riskScore.toString(),
               t.severity,
               t.cvssScore?.toString() || "",
-              t.epssScore?.toString() || "",
+              t.epssPercentile?.toString() || "",
               t.publishedDate,
             ]),
           ]

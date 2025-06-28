@@ -229,8 +229,8 @@ document.addEventListener("alpine:init", () => {
 
         // Apply EPSS filter
         results = results.filter((vuln) => {
-          const score = vuln.epssScore || 0;
-          return score >= this.filters.epssMin && score <= this.filters.epssMax;
+          const percentile = vuln.epssPercentile || 0;
+          return percentile >= this.filters.epssMin && percentile <= this.filters.epssMax;
         });
 
         // Apply severity filter
@@ -302,8 +302,9 @@ document.addEventListener("alpine:init", () => {
         if (this.filters.exploitationStatus) {
           activeFilters.push(`exploitation: ${this.filters.exploitationStatus}`);
         }
-        if (this.filters.tags.length > 0)
+        if (this.filters.tags.length > 0) {
           activeFilters.push(`tags: ${this.filters.tags.join(", ")}`);
+        }
 
         if (activeFilters.length > 0) {
           announcement += ` with filters: ${activeFilters.join(", ")}`;
@@ -602,7 +603,7 @@ document.addEventListener("alpine:init", () => {
           vuln.riskScore.toString(),
           vuln.severity,
           vuln.cvssScore?.toString() || "",
-          vuln.epssScore?.toString() || "",
+          vuln.epssPercentile?.toString() || "",
           vuln.publishedDate,
         ]);
 
