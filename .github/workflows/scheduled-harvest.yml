@@ -78,8 +78,8 @@ jobs:
             --cache-dir actions-cache/ \
             --years 2024 \
             --years 2025 \
-            --min-severity HIGH \
-            --min-epss 0.6 2>&1 | tee harvest.log
+            --min-severity MEDIUM \
+            --min-epss 0.001 2>&1 | tee harvest.log
           
           # Extract metrics from log
           VULNS_FOUND=$(grep -o "Harvested [0-9]\+ vulnerabilities" harvest.log | grep -o "[0-9]\+" || echo "0")

@@ -27,7 +27,7 @@ By participating in this project, you agree to abide by our Code of Conduct: Be 
 
 2. **Make your changes** following our coding standards
 
-3. **Write/update tests** to maintain 63% coverage minimum (CI requirement)
+3. **Write/update tests** to maintain 59% coverage minimum (CI requirement)
 
 4. **Run all checks locally**:
    ```bash

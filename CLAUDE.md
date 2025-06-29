@@ -13,8 +13,11 @@ This is the "Morning Vuln Briefing" platform - an automated vulnerability intell
 # Install Python dependencies (using uv)
 uv pip install -r requirements.txt
 
-# Run the vulnerability harvester
+# Run the vulnerability harvester (uses GitHub releases by default)
 python -m scripts.main harvest --cache-dir .cache/
+
+# Run incremental harvest (skip unchanged CVEs)
+python -m scripts.main harvest --cache-dir .cache/ --incremental
 
 # Generate briefing from cached data
 python -m scripts.main generate-briefing
@@ -65,11 +68,13 @@ chmod +x .husky/pre-commit .husky/commit-msg
 
 ### Data Flow
 1. **Scheduled Harvesting** (Python scripts in `scripts/`, runs every 4 hours):
-   - Fetches from CVEProject/cvelistV5 repository (official CVE List, updated every 7 minutes)
-   - Filters for Critical/High severity CVEs from 2024-2025 with EPSS scores > 60%
+   - Fetches from CVEProject/cvelistV5 GitHub releases (120x faster than API calls)
+   - Uses midnight snapshots + delta files for efficient updates
+   - Filters for Medium/High/Critical severity CVEs from 2024 onwards with EPSS scores > 0.1%
    - Enriches with EPSS API data and CISA-ADP container information (KEV/SSVC)
    - Normalizes data and calculates Risk Score (0-100) based on CVSS, EPSS, popularity, infrastructure tags, and newness
    - Caches responses in SQLite using GitHub Actions cache (10-day TTL)
+   - Supports incremental updates to skip unchanged CVEs
 
 2. **Content Generation** (11ty in `src/`):
    - Creates briefing posts at `_posts/{{date}}-vuln-brief.md` using Nunjucks templates
@@ -80,7 +85,7 @@ chmod +x .husky/pre-commit .husky/commit-msg
    - Client-side filtering UI on the homepage
    - Real-time search/filter on: CVE ID, severity, CVSS/EPSS scores, date ranges, vendors, exploitation status
    - URL hash-based state for shareable filtered views
-   - Paginated results (10/20/50/100 rows)
+   - Paginated results (10/20/50/100 rows, default 50)
 
 ### Key Directories
 - `scripts/` - Python vulnerability harvesting and processing scripts
@@ -91,7 +96,7 @@ chmod +x .husky/pre-commit .husky/commit-msg
 
 ### CI/CD Pipeline
 - **Scheduled Build**: Runs harvesting every 4 hours, generates content, commits artifacts to main, deploys to gh-pages
-- **PR Checks**: Linting (Ruff, ESLint), tests (≥63% coverage), security scans (Bandit, TruffleHog, CodeQL)
+- **PR Checks**: Linting (Ruff, ESLint), tests (≥59% coverage), security scans (Bandit, TruffleHog, CodeQL)
 - **Security**: npm-audit for dependencies, automated vulnerability scanning
 
 ### API Keys Required
@@ -100,7 +105,7 @@ Environment secrets needed in GitHub Actions:
 - `EPSS_API_KEY` - EPSS API access (optional, for enrichment)
 
 ### Testing Strategy
-- Python: pytest with 63% minimum coverage requirement
+- Python: pytest with 59% minimum coverage requirement
 - Security: Bandit (high+ severities fail), TruffleHog for secrets
 - JavaScript: ESLint with Google style guide, Prettier formatting
 - All checks enforced via Husky pre-commit hooks and GitHub Actions

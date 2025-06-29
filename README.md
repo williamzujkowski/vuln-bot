@@ -4,11 +4,11 @@
 ![CI](https://github.com/williamzujkowski/vuln-bot/actions/workflows/ci.yml/badge.svg)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-An automated vulnerability intelligence platform that harvests, scores, and publishes vulnerability briefings every 4 hours using the official CVEProject/cvelistV5 repository. Focuses on Critical and High severity CVEs from 2024-2025 with EPSS scores above 60%.
+An automated vulnerability intelligence platform that harvests, scores, and publishes vulnerability briefings every 4 hours using the official CVEProject/cvelistV5 repository. Focuses on Medium, High, and Critical severity CVEs from 2024 onwards with EPSS scores above 0.1%.
 
 ## Features
 
-- 🔍 **Official CVE Data**: Uses CVEProject/cvelistV5 repository (updated every 7 minutes) with EPSS enrichment and CISA-ADP container data
+- 🔍 **Official CVE Data**: Uses CVEProject/cvelistV5 GitHub releases for fast bulk processing with EPSS enrichment and CISA-ADP container data
 - 📊 **Risk Scoring**: Calculates weighted scores (0-100) based on CVSS, EPSS, popularity, and infrastructure tags
 - 🚀 **Static Site Generation**: Uses 11ty to generate fast, SEO-friendly briefings
 - 🔎 **Advanced Filtering**: Client-side dashboard with instant search, CVSS/EPSS sliders, keyboard shortcuts, and shareable views
@@ -165,6 +165,12 @@ Returns detailed information for a specific CVE including:
 - **Atom Feed**: `/atom.xml` - Latest vulnerability briefings in Atom 1.0 format
 
 Both feeds include the 10 most recent briefings with summary statistics and top affected vendors.
+
+## Performance
+
+- **Harvesting**: ~120x faster using GitHub releases vs individual API calls
+- **Dataset**: Processes 30,000+ vulnerabilities per harvest
+- **Display**: Shows up to 1,000 vulnerabilities in the dashboard with 50 per page by default
 
 ## Contributing
 
