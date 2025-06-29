@@ -1,20 +1,20 @@
 // Vulnerability Detail Viewer Component
 class VulnerabilityViewer {
-    constructor() {
-        this.modal = null;
-        this.currentVuln = null;
+  constructor() {
+    this.modal = null;
+    this.currentVuln = null;
+  }
+
+  show(vulnerability) {
+    // Remove existing modal if any
+    if (this.modal) {
+      this.modal.remove();
     }
 
-    show(vulnerability) {
-        // Remove existing modal if any
-        if (this.modal) {
-            this.modal.remove();
-        }
-
-        // Create modal element
-        this.modal = document.createElement('div');
-        this.modal.className = 'vuln-detail-modal';
-        this.modal.innerHTML = `
+    // Create modal element
+    this.modal = document.createElement("div");
+    this.modal.className = "vuln-detail-modal";
+    this.modal.innerHTML = `
             <div class="modal-backdrop" onclick="vulnViewer.close()"></div>
             <div class="modal-content">
                 <div class="modal-header">
@@ -31,57 +31,60 @@ class VulnerabilityViewer {
             </div>
         `;
 
-        document.body.appendChild(this.modal);
-        this.currentVuln = vulnerability;
-    }
+    document.body.appendChild(this.modal);
+    this.currentVuln = vulnerability;
+  }
 
-    close() {
-        if (this.modal) {
-            this.modal.remove();
-            this.modal = null;
-        }
+  close() {
+    if (this.modal) {
+      this.modal.remove();
+      this.modal = null;
     }
+  }
 
-    formatJSON(obj) {
-        return JSON.stringify(obj, null, 2)
-            .replace(/&/g, '&amp;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;');
-    }
+  formatJSON(obj) {
+    return JSON.stringify(obj, null, 2)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+  }
 
-    copyToClipboard() {
-        const json = JSON.stringify(this.currentVuln, null, 2);
-        navigator.clipboard.writeText(json).then(() => {
-            // Show brief success message
-            const button = event.target;
-            const originalText = button.textContent;
-            button.textContent = 'Copied!';
-            setTimeout(() => {
-                button.textContent = originalText;
-            }, 2000);
-        }).catch(err => {
-            console.error('Failed to copy:', err);
-            alert('Failed to copy to clipboard');
-        });
-    }
+  copyToClipboard() {
+    const json = JSON.stringify(this.currentVuln, null, 2);
+    navigator.clipboard
+      .writeText(json)
+      .then(() => {
+        // Show brief success message
+        const button = event.target;
+        const originalText = button.textContent;
+        button.textContent = "Copied!";
+        setTimeout(() => {
+          button.textContent = originalText;
+        }, 2000);
+      })
+      .catch((err) => {
+        console.error("Failed to copy:", err);
+        alert("Failed to copy to clipboard");
+      });
+  }
 
-    download() {
-        const json = JSON.stringify(this.currentVuln, null, 2);
-        const blob = new Blob([json], { type: 'application/json' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `${this.currentVuln.cveId}.json`;
-        a.click();
-        URL.revokeObjectURL(url);
-    }
+  download() {
+    const json = JSON.stringify(this.currentVuln, null, 2);
+    const blob = new Blob([json], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `${this.currentVuln.cveId}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+  }
 }
 
 // Initialize global viewer instance
-const vulnViewer = new VulnerabilityViewer();
+window.vulnViewer = new VulnerabilityViewer();
 
 // Add CSS for the modal
-const style = document.createElement('style');
+const style = document.createElement("style");
 style.textContent = `
     .vuln-detail-modal {
         position: fixed;

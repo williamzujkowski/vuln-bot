@@ -2,9 +2,8 @@
 """Optimize vulnerability storage by using chunked files instead of individual JSONs."""
 
 import json
-import shutil
-from pathlib import Path
 from collections import defaultdict
+from pathlib import Path
 from typing import Dict, List
 
 
