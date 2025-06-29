@@ -200,14 +200,35 @@ class TestHarvestOrchestrator:
         # Should be called twice (100 + 50)
         assert mock_dependencies["epss"].get_scores_for_cves.call_count == 2
 
-    def test_harvest_all(self, orchestrator, mock_dependencies, sample_vulnerabilities):
+    def test_harvest_all_sources(
+        self, orchestrator, mock_dependencies, sample_vulnerabilities
+    ):
         """Test full harvest pipeline."""
         # Configure mocks
         mock_dependencies["cvelist"].harvest.return_value = sample_vulnerabilities
         mock_dependencies[
             "normalizer"
         ].deduplicate_vulnerabilities.return_value = sample_vulnerabilities
-        mock_dependencies["epss"].get_scores_for_cves.return_value = {
+
+        # Add quality validator mock
+        from unittest.mock import MagicMock, patch
+
+        with patch(
+            "scripts.harvest.orchestrator.DataQualityValidator"
+        ) as mock_validator_class:
+            mock_validator = MagicMock()
+            mock_validator_class.return_value = mock_validator
+            mock_validator.filter_vulnerabilities.return_value = (
+                sample_vulnerabilities,
+                {"total": 2, "passed": 2, "failed": 0},
+            )
+            mock_validator.get_quality_report.return_value = {
+                "summary": {"total": 2, "passed": 2},
+                "quality_issues": [],
+            }
+            orchestrator.quality_validator = mock_validator
+
+        mock_dependencies["epss"].fetch_epss_scores_bulk.return_value = {
             "CVE-2025-1001": EPSSScore(
                 cve_id="CVE-2025-1001",
                 score=0.75,
@@ -252,7 +273,27 @@ class TestHarvestOrchestrator:
         mock_dependencies[
             "normalizer"
         ].deduplicate_vulnerabilities.return_value = sample_vulnerabilities
-        mock_dependencies["epss"].get_scores_for_cves.return_value = {
+
+        # Add quality validator mock to filter based on EPSS
+        from unittest.mock import MagicMock, patch
+
+        with patch(
+            "scripts.harvest.orchestrator.DataQualityValidator"
+        ) as mock_validator_class:
+            mock_validator = MagicMock()
+            mock_validator_class.return_value = mock_validator
+            # Only return vulnerabilities with high EPSS
+            mock_validator.filter_vulnerabilities.return_value = (
+                [sample_vulnerabilities[1]],  # Only CVE-2025-1002 passes
+                {"total": 2, "passed": 1, "failed": 1},
+            )
+            mock_validator.get_quality_report.return_value = {
+                "summary": {"total": 2, "passed": 1},
+                "quality_issues": [{"type": "low_epss", "count": 1}],
+            }
+            orchestrator.quality_validator = mock_validator
+
+        mock_dependencies["epss"].fetch_epss_scores_bulk.return_value = {
             "CVE-2025-1001": EPSSScore(
                 cve_id="CVE-2025-1001",
                 score=0.3,  # Below threshold

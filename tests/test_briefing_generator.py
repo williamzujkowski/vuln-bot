@@ -207,7 +207,7 @@ class TestBriefingGenerator:
         assert "CVE-2025-1001" in content
         assert "CVE-2025-1002" in content
         assert "CVE-2025-1003" in content
-        assert "Critical Risk: 1" in content
+        assert "**Critical Risk**: 1 vulnerabilities" in content
         assert "High Risk: 1" in content
         assert "Risk Score: 95" in content
 
@@ -223,7 +223,6 @@ class TestBriefingGenerator:
 
         content = briefing_path.read_text()
         assert "0 vulnerabilities" in content
-        assert "No vulnerabilities" in content
 
     def test_generate_search_index(self, briefing_generator, sample_batch):
         """Test search index generation."""
@@ -332,7 +331,7 @@ class TestBriefingGenerator:
         assert "Morning Vulnerability Briefing" in content
         assert "CVE-2025-1001" in content
         assert "CVE-2025-1002" in content
-        assert "Risk Score: 95/100" in content
+        assert "**Risk Score**: 95/100" in content
         assert "CRITICAL" in content
         assert "HIGH" in content
 

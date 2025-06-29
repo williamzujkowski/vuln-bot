@@ -226,7 +226,7 @@ class MetricsCollector:
                 "harvest_id": self.current_harvest_id,
                 "cve_id": vuln.cve_id,
                 "risk_score": vuln.risk_score,
-                "cvss_score": vuln.cvss_score,
+                "cvss_score": vuln.cvss_base_score,
                 "epss_score": vuln.epss_score,
                 "severity": vuln.severity,
                 "has_kev": vuln.kev_status is not None,

@@ -127,7 +127,7 @@ class TestCLI:
             ],
         )
 
-        assert result.exit_code != 0
+        assert result.exit_code == 2  # Click validation error
         assert "Invalid value" in result.output
 
     def test_harvest_command_invalid_epss(
@@ -148,7 +148,7 @@ class TestCLI:
             ],
         )
 
-        assert result.exit_code != 0
+        assert result.exit_code == 2  # Click validation error
 
     def test_generate_briefing_command(self, cli_runner, tmp_path):
         """Test generate-briefing command."""
@@ -157,7 +157,7 @@ class TestCLI:
         output_dir = tmp_path / "output"
 
         with patch("scripts.main.CacheManager") as mock_cache_manager_class, patch(
-            "scripts.main.BriefingGenerator"
+            "scripts.processing.briefing_generator.BriefingGenerator"
         ) as mock_bg_class:
             # Configure cache manager mock
             mock_cache_instance = MagicMock()
@@ -200,7 +200,7 @@ class TestCLI:
         from scripts.models import Vulnerability
 
         with patch("scripts.main.CacheManager") as mock_cache_manager_class, patch(
-            "scripts.main.BriefingGenerator"
+            "scripts.processing.briefing_generator.BriefingGenerator"
         ) as mock_bg_class:
             # Configure cache manager mock with vulnerabilities
             mock_cache_instance = MagicMock()
