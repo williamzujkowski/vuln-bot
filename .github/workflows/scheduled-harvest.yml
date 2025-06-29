@@ -99,8 +99,7 @@ jobs:
         run: |
           python -m scripts.main generate-briefing \
             --cache-dir actions-cache/ \
-            --output-dir . \
-            --days 1
+            --output-dir .
       
       - name: Generate metrics visualization
         if: always()
