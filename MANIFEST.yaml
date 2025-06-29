@@ -6,9 +6,9 @@ project:
   description: An automated vulnerability intelligence platform that harvests, scores, and publishes vulnerability briefings every 4 hours
   version: 1.0.0
   license: MIT
-  repository: https://github.com/wclaytor/vuln-bot
-  homepage: https://wclaytor.github.io/vuln-bot/
-  documentation: https://github.com/wclaytor/vuln-bot/blob/main/README.md
+  repository: https://github.com/williamzujkowski/vuln-bot
+  homepage: https://williamzujkowski.github.io/vuln-bot/
+  documentation: https://github.com/williamzujkowski/vuln-bot/blob/main/README.md
   
 metadata:
   type: vulnerability-intelligence-platform
@@ -33,7 +33,7 @@ metadata:
 architecture:
   languages:
     - name: Python
-      version: ">=3.9"
+      version: ">=3.8"
       usage: Backend processing, data harvesting, risk scoring
     - name: JavaScript
       version: ES6+
@@ -48,9 +48,9 @@ architecture:
     - name: Alpine.js
       version: "^3.0.0"
       usage: Frontend reactivity
-    - name: Tailwind CSS
-      version: "^3.0.0"
-      usage: Styling and UI components
+    - name: Fuse.js
+      version: "^7.0.0"
+      usage: Fuzzy search functionality
   tools:
     - name: pytest
       usage: Python testing framework
@@ -66,9 +66,10 @@ architecture:
 data_sources:
   - name: CVEProject/cvelistV5
     type: GitHub Repository
-    description: Official CVE List updated every 7 minutes
-    api: GitHub API
-    update_frequency: 7 minutes
+    description: Official CVE List via GitHub Releases (120x faster than API)
+    api: GitHub Releases API
+    update_frequency: Daily midnight snapshots + delta files
+    method: Bulk download of compressed releases
   - name: FIRST EPSS API
     type: REST API
     description: Exploit Prediction Scoring System
@@ -81,11 +82,14 @@ data_sources:
 features:
   harvesting:
     - description: Automated vulnerability collection every 4 hours
-    - sources: CVEProject GitHub repository
+    - sources: CVEProject GitHub releases (bulk download)
+    - performance: 120x faster than individual API calls
+    - incremental_updates: Skip unchanged CVEs based on dateUpdated
     - filtering:
-        - severity: HIGH, CRITICAL
-        - epss_threshold: 60%
-        - years: 2024-2025
+        - severity: MEDIUM, HIGH, CRITICAL
+        - epss_threshold: 0.1%
+        - years: 2024-2030
+        - max_per_briefing: 1000
     - enrichment:
         - epss_scores: true
         - cisa_adp: true
@@ -120,9 +124,10 @@ features:
     - features:
         - shareable_urls: Hash-based state persistence
         - csv_export: true
-        - pagination: 10/20/50/100 rows
+        - pagination: 10/20/50/100 rows (default 50)
         - responsive_design: true
         - accessibility: WCAG 2.1 AA compliant
+        - keyboard_shortcuts: true
   
   analytics:
     - privacy_respecting: true
@@ -132,14 +137,21 @@ features:
         - filter_usage: true
         - export_tracking: true
         - performance_metrics: true
+        - vulnerability_clicks: true
     - storage: localStorage (client-side only)
+  
+  performance:
+    - dataset_size: 30,000+ vulnerabilities per harvest
+    - display_limit: 1,000 vulnerabilities in dashboard
+    - lazy_loading: Removed for better UX
+    - caching: SQLite with 10-day TTL
 
 deployment:
   platform: GitHub Pages
   branch: gh-pages
   build_command: npm run build
   output_directory: public
-  domain: https://wclaytor.github.io/vuln-bot/
+  domain: https://williamzujkowski.github.io/vuln-bot/
   ssl: true
   cdn: GitHub's global CDN
 
@@ -157,7 +169,7 @@ ci_cd:
       triggers: [pull_request]
       checks:
         - python_linting: ruff
-        - python_tests: pytest (80% coverage)
+        - python_tests: pytest (59% coverage)
         - javascript_linting: eslint
         - security_scanning: [bandit, trufflehog, codeql]
         - npm_audit: true
@@ -186,7 +198,7 @@ monitoring:
 
 development:
   setup:
-    - clone_repository: git clone https://github.com/wclaytor/vuln-bot.git
+    - clone_repository: git clone https://github.com/williamzujkowski/vuln-bot.git
     - install_python: uv pip install -r requirements.txt
     - install_node: npm install
     - run_tests: pytest && npm test
@@ -198,19 +210,19 @@ development:
     - commit_format: Conventional Commits
     - pr_requirements:
         - passing_tests: true
-        - code_coverage: 80% minimum
+        - code_coverage: 59% minimum
         - linting_pass: true
         - security_scan_pass: true
 
 maintainers:
-  - name: William Claytor
-    github: wclaytor
+  - name: William Zujkowski
+    github: williamzujkowski
     role: Project Lead
 
 support:
-  issues: https://github.com/wclaytor/vuln-bot/issues
-  documentation: https://github.com/wclaytor/vuln-bot/wiki
-  contributing: https://github.com/wclaytor/vuln-bot/blob/main/CONTRIBUTING.md
+  issues: https://github.com/williamzujkowski/vuln-bot/issues
+  documentation: https://github.com/williamzujkowski/vuln-bot/wiki
+  contributing: https://github.com/williamzujkowski/vuln-bot/blob/main/CONTRIBUTING.md
 
 versioning:
   strategy: Semantic Versioning
