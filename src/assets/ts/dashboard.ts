@@ -107,7 +107,7 @@ document.addEventListener("alpine:init", () => {
 
       // Pagination
       currentPage: 1,
-      pageSize: 20,
+      pageSize: 50,
       totalPages: 1,
 
       // State

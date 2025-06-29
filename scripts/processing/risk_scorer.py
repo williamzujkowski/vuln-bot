@@ -121,7 +121,11 @@ class RiskScorer:
         )
 
         # 4. Age Component (newer = higher risk)
-        age_days = (datetime.now(timezone.utc) - vulnerability.published_date).days
+        # Ensure datetime is timezone-aware
+        published_date = vulnerability.published_date
+        if published_date.tzinfo is None:
+            published_date = published_date.replace(tzinfo=timezone.utc)
+        age_days = (datetime.now(timezone.utc) - published_date).days
         if age_days <= 7:
             scores["age"] = 100
         elif age_days <= 30:
@@ -266,7 +270,11 @@ class RiskScorer:
             )
 
         # Age
-        age_days = (datetime.now(timezone.utc) - vulnerability.published_date).days
+        # Ensure datetime is timezone-aware
+        published_date = vulnerability.published_date
+        if published_date.tzinfo is None:
+            published_date = published_date.replace(tzinfo=timezone.utc)
+        age_days = (datetime.now(timezone.utc) - published_date).days
         if age_days <= 7:
             factors["age"] = "Published within last week"
         elif age_days <= 30:

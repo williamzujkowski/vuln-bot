@@ -137,14 +137,18 @@ class DataQualityValidator:
             if not self.config.min_year <= year <= self.config.max_year:
                 errors.append(f"Published year {year} outside allowed range")
 
-            if (
-                not self.config.allow_future_dates
-                and vuln.published_date > datetime.now(timezone.utc)
-            ):
+            # Ensure datetime is timezone-aware
+            published_date = vuln.published_date
+            if published_date.tzinfo is None:
+                published_date = published_date.replace(tzinfo=timezone.utc)
+
+            current_time = datetime.now(timezone.utc)
+
+            if not self.config.allow_future_dates and published_date > current_time:
                 errors.append("Published date is in the future")
 
             # Check if recent (within last 30 days)
-            days_old = (datetime.now(timezone.utc) - vuln.published_date).days
+            days_old = (current_time - published_date).days
             quality_scores["is_recent"] = (
                 1.0 if days_old <= 30 else 0.5 if days_old <= 90 else 0.0
             )
