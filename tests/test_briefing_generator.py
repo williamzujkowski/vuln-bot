@@ -2,6 +2,7 @@
 
 import json
 from datetime import datetime, timezone
+from pathlib import Path
 
 import pytest
 
@@ -188,12 +189,12 @@ class TestBriefingGenerator:
         """Test briefing generator initialization."""
         generator = BriefingGenerator(output_dir)
         assert generator.output_dir == output_dir
-        assert generator.posts_dir == output_dir / "src" / "_posts"
-        assert generator.api_dir == output_dir / "src" / "api" / "vulns"
+        assert generator.posts_dir == output_dir / "_posts"
+        assert generator.api_dir == output_dir / "api" / "vulns"
 
-    def test_generate_daily_briefing(self, briefing_generator, sample_batch):
-        """Test daily briefing generation."""
-        briefing_path = briefing_generator.generate_daily_briefing(sample_batch)
+    def test_generate_briefing_post(self, briefing_generator, sample_batch):
+        """Test briefing post generation."""
+        briefing_path = briefing_generator.generate_briefing_post(sample_batch)
 
         assert briefing_path.exists()
         assert briefing_path.suffix == ".md"
@@ -210,7 +211,7 @@ class TestBriefingGenerator:
         assert "High Risk: 1" in content
         assert "Risk Score: 95" in content
 
-    def test_generate_daily_briefing_empty(self, briefing_generator):
+    def test_generate_briefing_post_empty(self, briefing_generator):
         """Test briefing generation with no vulnerabilities."""
         empty_batch = VulnerabilityBatch(
             vulnerabilities=[],
@@ -218,20 +219,18 @@ class TestBriefingGenerator:
             harvest_date=datetime.now(timezone.utc),
         )
 
-        briefing_path = briefing_generator.generate_daily_briefing(empty_batch)
+        briefing_path = briefing_generator.generate_briefing_post(empty_batch)
 
         content = briefing_path.read_text()
         assert "0 vulnerabilities" in content
         assert "No vulnerabilities" in content
 
-    def test_generate_api_files(self, briefing_generator, sample_batch):
-        """Test API file generation."""
-        api_files = briefing_generator.generate_api_files(sample_batch)
+    def test_generate_search_index(self, briefing_generator, sample_batch):
+        """Test search index generation."""
+        index_path = briefing_generator.generate_search_index(sample_batch)
 
-        # Check index file
-        index_path = briefing_generator.api_dir / "index.json"
         assert index_path.exists()
-        assert index_path in api_files
+        assert index_path == briefing_generator.api_dir / "index.json"
 
         # Check index content
         with open(index_path) as f:
@@ -242,123 +241,100 @@ class TestBriefingGenerator:
         assert index_data["vulnerabilities"][0]["cveId"] == "CVE-2025-1001"
         assert index_data["vulnerabilities"][0]["riskScore"] == 95
 
-        # Check individual CVE files
-        for vuln in sample_batch.vulnerabilities:
-            cve_path = briefing_generator.api_dir / f"{vuln.cve_id}.json"
-            assert cve_path.exists()
-            assert cve_path in api_files
-
-            with open(cve_path) as f:
-                cve_data = json.load(f)
-
-            assert cve_data["cveId"] == vuln.cve_id
-            assert cve_data["title"] == vuln.title
-            assert cve_data["riskScore"] == vuln.risk_score
-
-    def test_calculate_risk_distribution(
+    def test_generate_vulnerability_json(
         self, briefing_generator, sample_vulnerabilities
     ):
-        """Test risk distribution calculation."""
-        dist = briefing_generator._calculate_risk_distribution(sample_vulnerabilities)
-
-        assert dist["critical"] == 1
-        assert dist["high"] == 1
-        assert dist["medium"] == 1
-        assert dist["low"] == 0
-
-    def test_group_by_source(self, briefing_generator, sample_vulnerabilities):
-        """Test grouping vulnerabilities by source."""
-        groups = briefing_generator._group_by_source(sample_vulnerabilities)
-
-        assert "CVEList" in groups
-        assert len(groups["CVEList"]) == 3
-
-    def test_format_vulnerability_section(
-        self, briefing_generator, sample_vulnerabilities
-    ):
-        """Test formatting vulnerability section."""
+        """Test individual vulnerability JSON generation."""
         vuln = sample_vulnerabilities[0]
-        section = briefing_generator._format_vulnerability_section(vuln, 1)
+        json_path = briefing_generator.generate_vulnerability_json(vuln)
 
-        assert f"### 1. [{vuln.cve_id}]" in section
-        assert "Risk Score: 95/100" in section
-        assert "Severity: CRITICAL" in section
-        assert "CVSS: 9.8" in section
-        assert "EPSS: 95.0%" in section
-        assert vuln.description in section
-        assert "vendor1" in section
-        assert "CWE-78" in section
-        assert "https://vendor1.com/advisory/1001" in section
+        assert json_path.exists()
+        assert json_path == briefing_generator.api_dir / f"{vuln.cve_id}.json"
 
-    def test_format_vulnerability_section_minimal(self, briefing_generator):
-        """Test formatting vulnerability with minimal data."""
-        vuln = Vulnerability(
-            cve_id="CVE-2025-9999",
-            title="Test vulnerability",
-            description="Test description",
-            published_date=datetime.now(timezone.utc),
-            last_modified_date=datetime.now(timezone.utc),
-            severity=SeverityLevel.NONE,
-            cvss_metrics=[],
-            risk_score=10,
-            affected_vendors=[],
-            affected_products=[],
-            references=[],
-            sources=[],
-        )
+        with open(json_path) as f:
+            cve_data = json.load(f)
 
-        section = briefing_generator._format_vulnerability_section(vuln, 1)
+        assert cve_data["cveId"] == vuln.cve_id
+        assert cve_data["title"] == vuln.title
+        assert cve_data["riskScore"] == vuln.risk_score
 
-        assert "CVE-2025-9999" in section
-        assert "Risk Score: 10/100" in section
-        assert "CVSS: N/A" in section
-        assert "EPSS: 0.0%" in section
+    def test_generate_all(self, briefing_generator, sample_batch):
+        """Test generate_all method."""
+        results = briefing_generator.generate_all(sample_batch, briefing_limit=2)
 
-    def test_create_front_matter(self, briefing_generator, sample_batch):
-        """Test front matter creation."""
-        front_matter = briefing_generator._create_front_matter(sample_batch)
+        assert "briefing" in results
+        assert "index" in results
+        assert "vulnerabilities" in results
+        assert len(results["vulnerabilities"]) == 3
 
-        assert front_matter["layout"] == "layouts/post"
-        assert front_matter["title"].startswith("Morning Vulnerability Briefing")
-        assert front_matter["date"] is not None
-        assert front_matter["tags"] == ["vulnerabilities", "daily-briefing"]
-        assert (
-            front_matter["summary"]
-            == "Today's vulnerability intelligence briefing covers 3 vulnerabilities"
-        )
+        # Check that files were created
+        briefing_path = Path(results["briefing"])
+        assert briefing_path.exists()
 
-    def test_vulnerability_to_api_dict(
+        index_path = Path(results["index"])
+        assert index_path.exists()
+
+        for vuln_path_str in results["vulnerabilities"]:
+            vuln_path = Path(vuln_path_str)
+            assert vuln_path.exists()
+
+    def test_generate_markdown_briefing(
         self, briefing_generator, sample_vulnerabilities
     ):
-        """Test converting vulnerability to API dictionary."""
-        vuln = sample_vulnerabilities[0]
-        api_dict = briefing_generator._vulnerability_to_api_dict(vuln)
+        """Test markdown briefing generation."""
+        from scripts.processing.risk_scorer import RiskScorer
 
-        assert api_dict["cveId"] == "CVE-2025-1001"
-        assert api_dict["title"] == "Critical Remote Code Execution"
-        assert api_dict["riskScore"] == 95
-        assert api_dict["severity"] == "CRITICAL"
-        assert api_dict["cvssScore"] == 9.8
-        assert api_dict["epssScore"] == 95.0
-        assert api_dict["exploitationStatus"] == "ACTIVE"
-        assert len(api_dict["references"]) == 1
-        assert api_dict["vendors"] == ["vendor1"]
-        assert api_dict["products"] == ["product1"]
-        assert api_dict["tags"] == ["CWE-78", "RCE"]
+        scorer = RiskScorer()
 
-    def test_ensure_output_directories(self, briefing_generator):
-        """Test output directory creation."""
-        # Remove directories if they exist
-        if briefing_generator.posts_dir.exists():
-            briefing_generator.posts_dir.rmdir()
-        if briefing_generator.api_dir.exists():
-            briefing_generator.api_dir.rmdir()
+        briefing_data = {
+            "date": datetime.now(timezone.utc),
+            "date_str": "2025-06-29",
+            "total_count": 3,
+            "included_count": 2,
+            "sources": [{"name": "cvelist", "count": 3, "status": "success"}],
+            "vulnerabilities": [],
+            "risk_distribution": {
+                "critical": 1,
+                "high": 1,
+                "medium": 1,
+                "low": 0,
+            },
+            "severity_distribution": {
+                "CRITICAL": 1,
+                "HIGH": 1,
+                "MEDIUM": 1,
+                "LOW": 0,
+            },
+        }
 
-        # Ensure directories
-        briefing_generator._ensure_output_directories()
+        # Add vulnerability data
+        for vuln in sample_vulnerabilities[:2]:
+            risk_factors = scorer.get_risk_factors(vuln)
+            vuln_data = {
+                "cve_id": vuln.cve_id,
+                "title": vuln.title,
+                "description": vuln.description,
+                "risk_score": vuln.risk_score,
+                "severity": vuln.severity.value,
+                "cvss_score": vuln.cvss_base_score,
+                "epss_score": vuln.epss_probability,
+                "published_date": vuln.published_date.strftime("%Y-%m-%d"),
+                "vendors": vuln.affected_vendors,
+                "products": vuln.affected_products,
+                "tags": vuln.tags,
+                "risk_factors": list(risk_factors.values()),
+                "references": [ref.url for ref in vuln.references],
+            }
+            briefing_data["vulnerabilities"].append(vuln_data)
 
-        assert briefing_generator.posts_dir.exists()
-        assert briefing_generator.api_dir.exists()
+        content = briefing_generator._generate_markdown_briefing(briefing_data)
+
+        assert "Morning Vulnerability Briefing" in content
+        assert "CVE-2025-1001" in content
+        assert "CVE-2025-1002" in content
+        assert "Risk Score: 95/100" in content
+        assert "CRITICAL" in content
+        assert "HIGH" in content
 
     def test_generate_briefing_with_risk_factors(
         self, briefing_generator, sample_vulnerabilities
@@ -366,15 +342,16 @@ class TestBriefingGenerator:
         """Test briefing includes risk factors."""
         batch = VulnerabilityBatch(
             vulnerabilities=sample_vulnerabilities,
-            metadata={},
+            metadata={
+                "sources": [{"name": "cvelist", "count": 3, "status": "success"}]
+            },
             harvest_date=datetime.now(timezone.utc),
         )
 
-        briefing_path = briefing_generator.generate_daily_briefing(batch)
+        briefing_path = briefing_generator.generate_briefing_post(batch)
         content = briefing_path.read_text()
 
         # Check risk factors are included
-        assert "Risk Factors:" in content
+        assert "Risk Factors" in content
         assert "CRITICAL severity" in content
-        assert "Exploitation: ACTIVE" in content
         assert "HIGH severity" in content

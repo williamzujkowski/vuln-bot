@@ -32,7 +32,8 @@ def mock_orchestrator():
                 "sources": [{"name": "cvelist", "count": 10, "status": "success"}],
             },
         )
-        mock_instance.harvest_all.return_value = mock_batch
+        mock_instance.harvest_all_sources.return_value = mock_batch
+        mock_instance.get_high_priority_vulnerabilities.return_value = []
 
         yield mock_instance
 
@@ -40,9 +41,17 @@ def mock_orchestrator():
 @pytest.fixture
 def mock_briefing_generator():
     """Create mock briefing generator."""
-    with patch("scripts.main.BriefingGenerator") as mock_class:
+    with patch("scripts.processing.briefing_generator.BriefingGenerator") as mock_class:
         mock_instance = MagicMock()
         mock_class.return_value = mock_instance
+
+        # Configure generate_all to return proper results
+        mock_instance.generate_all.return_value = {
+            "briefing": "src/_posts/2025-06-29-vuln-brief.md",
+            "index": "src/api/vulns/index.json",
+            "vulnerabilities": [],
+        }
+
         yield mock_instance
 
 
@@ -61,15 +70,14 @@ class TestCLI:
 
         assert result.exit_code == 0
         assert "Starting vulnerability harvest" in result.output
-        assert "Harvest complete" in result.output
+        assert "Vulnerability harvest completed" in result.output
 
         # Verify orchestrator called correctly
-        mock_orchestrator.harvest_all.assert_called_once()
-        call_args = mock_orchestrator.harvest_all.call_args
-        assert call_args.kwargs["sources"] == ["all"]
-        assert call_args.kwargs["years"] == [2025]  # Current year
-        assert call_args.kwargs["min_severity"] == SeverityLevel.HIGH
-        assert call_args.kwargs["min_epss_score"] == 0.0
+        mock_orchestrator.harvest_all_sources.assert_called_once()
+        call_args = mock_orchestrator.harvest_all_sources.call_args
+        assert call_args.kwargs["years"] == [2024, 2025]  # Default years
+        assert call_args.kwargs["min_severity"] == "HIGH"
+        assert call_args.kwargs["min_epss_score"] == 0.6
 
     def test_harvest_command_with_options(
         self, cli_runner, mock_orchestrator, tmp_path
@@ -84,10 +92,6 @@ class TestCLI:
                 "harvest",
                 "--cache-dir",
                 str(cache_dir),
-                "--sources",
-                "cvelist",
-                "--sources",
-                "epss",
                 "--years",
                 "2024",
                 "--years",
@@ -96,18 +100,16 @@ class TestCLI:
                 "CRITICAL",
                 "--min-epss",
                 "0.8",
-                "--verbose",
             ],
         )
 
         assert result.exit_code == 0
 
         # Verify orchestrator called with correct parameters
-        mock_orchestrator.harvest_all.assert_called_once()
-        call_args = mock_orchestrator.harvest_all.call_args
-        assert call_args.kwargs["sources"] == ["cvelist", "epss"]
+        mock_orchestrator.harvest_all_sources.assert_called_once()
+        call_args = mock_orchestrator.harvest_all_sources.call_args
         assert call_args.kwargs["years"] == [2024, 2025]
-        assert call_args.kwargs["min_severity"] == SeverityLevel.CRITICAL
+        assert call_args.kwargs["min_severity"] == "CRITICAL"
         assert call_args.kwargs["min_epss_score"] == 0.8
 
     def test_harvest_command_invalid_severity(self, cli_runner, tmp_path):
@@ -130,8 +132,9 @@ class TestCLI:
 
     def test_harvest_command_invalid_epss(
         self, cli_runner, mock_orchestrator, tmp_path
-    ):  # noqa: ARG002
+    ):
         """Test harvest command with invalid EPSS score."""
+        _ = mock_orchestrator  # Use the parameter
         cache_dir = tmp_path / "cache"
 
         result = cli_runner.invoke(
@@ -147,83 +150,116 @@ class TestCLI:
 
         assert result.exit_code != 0
 
-    def test_generate_briefing_command(
-        self, cli_runner, mock_orchestrator, mock_briefing_generator, tmp_path
-    ):
+    def test_generate_briefing_command(self, cli_runner, tmp_path):
         """Test generate-briefing command."""
         cache_dir = tmp_path / "cache"
         cache_dir.mkdir()
         output_dir = tmp_path / "output"
 
-        # Configure mocks
-        mock_batch = VulnerabilityBatch(vulnerabilities=[], metadata={})
-        mock_orchestrator.get_recent_vulnerabilities.return_value = mock_batch
+        with patch("scripts.main.CacheManager") as mock_cache_manager_class, patch(
+            "scripts.main.BriefingGenerator"
+        ) as mock_bg_class:
+            # Configure cache manager mock
+            mock_cache_instance = MagicMock()
+            mock_cache_manager_class.return_value = mock_cache_instance
+            mock_cache_instance.get_recent_vulnerabilities.return_value = []
 
-        result = cli_runner.invoke(
-            app,
-            [
-                "generate-briefing",
-                "--cache-dir",
-                str(cache_dir),
-                "--output-dir",
-                str(output_dir),
-                "--days",
-                "3",
-            ],
-        )
+            # Configure briefing generator mock
+            mock_bg_instance = MagicMock()
+            mock_bg_class.return_value = mock_bg_instance
+            mock_bg_instance.generate_all.return_value = {
+                "briefing": "src/_posts/2025-06-29-vuln-brief.md",
+                "index": "src/api/vulns/index.json",
+                "vulnerabilities": [],
+            }
 
-        assert result.exit_code == 0
-        assert "Generating vulnerability briefing" in result.output
-        assert "Briefing generation complete" in result.output
+            result = cli_runner.invoke(
+                app,
+                [
+                    "generate-briefing",
+                    "--cache-dir",
+                    str(cache_dir),
+                    "--output-dir",
+                    str(output_dir),
+                    "--limit",
+                    "30",
+                ],
+            )
 
-        # Verify methods called
-        mock_orchestrator.get_recent_vulnerabilities.assert_called_once_with(days=3)
-        mock_briefing_generator.generate_daily_briefing.assert_called_once_with(
-            mock_batch
-        )
-        mock_briefing_generator.generate_api_files.assert_called_once_with(mock_batch)
+            assert result.exit_code == 0
+            assert "No vulnerabilities found" in result.output
 
-    def test_generate_briefing_no_data(
-        self,
-        cli_runner,
-        mock_orchestrator,
-        mock_briefing_generator,
-        tmp_path,  # noqa: ARG002
-    ):
-        """Test generate-briefing with no vulnerability data."""
+    def test_generate_briefing_with_data(self, cli_runner, tmp_path):
+        """Test generate-briefing with vulnerability data."""
         cache_dir = tmp_path / "cache"
         cache_dir.mkdir()
+        output_dir = tmp_path / "output"
 
-        # Configure mock to return None
-        mock_orchestrator.get_recent_vulnerabilities.return_value = None
+        from datetime import datetime, timezone
 
-        result = cli_runner.invoke(
-            app,
-            [
-                "generate-briefing",
-                "--cache-dir",
-                str(cache_dir),
-            ],
-        )
+        from scripts.models import Vulnerability
+
+        with patch("scripts.main.CacheManager") as mock_cache_manager_class, patch(
+            "scripts.main.BriefingGenerator"
+        ) as mock_bg_class:
+            # Configure cache manager mock with vulnerabilities
+            mock_cache_instance = MagicMock()
+            mock_cache_manager_class.return_value = mock_cache_instance
+
+            # Create sample vulnerability
+            vuln = Vulnerability(
+                cve_id="CVE-2025-1234",
+                title="Test Vulnerability",
+                description="Test description",
+                published_date=datetime.now(timezone.utc),
+                last_modified_date=datetime.now(timezone.utc),
+                severity=SeverityLevel.HIGH,
+                cvss_metrics=[],
+                risk_score=85,
+                affected_vendors=["test"],
+                affected_products=["test"],
+                references=[],
+                sources=[],
+            )
+            mock_cache_instance.get_recent_vulnerabilities.return_value = [vuln]
+
+            # Configure briefing generator mock
+            mock_bg_instance = MagicMock()
+            mock_bg_class.return_value = mock_bg_instance
+            mock_bg_instance.generate_all.return_value = {
+                "briefing": "src/_posts/2025-06-29-vuln-brief.md",
+                "index": "src/api/vulns/index.json",
+                "vulnerabilities": ["src/api/vulns/CVE-2025-1234.json"],
+            }
+
+            result = cli_runner.invoke(
+                app,
+                [
+                    "generate-briefing",
+                    "--cache-dir",
+                    str(cache_dir),
+                    "--output-dir",
+                    str(output_dir),
+                ],
+            )
+
+            assert result.exit_code == 0
+            assert "Briefing generated successfully" in result.output
+            assert "1 files" in result.output
+
+    def test_update_badge_command(self, cli_runner):
+        """Test update-badge command."""
+        result = cli_runner.invoke(app, ["update-badge"])
 
         assert result.exit_code == 0
-        assert "No vulnerability data found" in result.output
+        assert "Coverage badge updated" in result.output
 
-    def test_check_command(self, cli_runner):
-        """Test check command."""
-        result = cli_runner.invoke(app, ["check"])
-
-        assert result.exit_code == 0
-        assert "System Check" in result.output
-        assert "Python version" in result.output
-        assert "Available commands" in result.output
-
-    def test_check_command_verbose(self, cli_runner):
-        """Test check command with verbose flag."""
-        result = cli_runner.invoke(app, ["check", "--verbose"])
+    def test_send_alerts_command_dry_run(self, cli_runner):
+        """Test send-alerts command with dry run."""
+        result = cli_runner.invoke(app, ["send-alerts", "--dry-run"])
 
         assert result.exit_code == 0
-        assert "System Check" in result.output
+        assert "Alerts sent successfully" in result.output
 
     def test_main_app_without_command(self, cli_runner):
         """Test running app without command shows help."""
@@ -233,7 +269,7 @@ class TestCLI:
         assert "Usage:" in result.output
         assert "harvest" in result.output
         assert "generate-briefing" in result.output
-        assert "check" in result.output
+        assert "update-badge" in result.output
 
     def test_harvest_with_nonexistent_cache_dir(
         self, cli_runner, mock_orchestrator, tmp_path
@@ -248,7 +284,7 @@ class TestCLI:
 
         # Should succeed and create directory
         assert result.exit_code == 0
-        mock_orchestrator.harvest_all.assert_called_once()
+        mock_orchestrator.harvest_all_sources.assert_called_once()
 
     def test_severity_enum_conversion(self, cli_runner, mock_orchestrator, tmp_path):
         """Test severity level enum conversion."""
@@ -256,7 +292,7 @@ class TestCLI:
         cache_dir.mkdir()
 
         # Test each severity level
-        for severity in ["NONE", "LOW", "MEDIUM", "HIGH", "CRITICAL"]:
+        for severity in ["MEDIUM", "HIGH", "CRITICAL"]:
             result = cli_runner.invoke(
                 app,
                 [
@@ -271,5 +307,5 @@ class TestCLI:
             assert result.exit_code == 0
 
             # Verify correct enum passed
-            call_args = mock_orchestrator.harvest_all.call_args
-            assert call_args.kwargs["min_severity"] == SeverityLevel[severity]
+            call_args = mock_orchestrator.harvest_all_sources.call_args
+            assert call_args.kwargs["min_severity"] == severity

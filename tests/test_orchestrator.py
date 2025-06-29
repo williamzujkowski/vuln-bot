@@ -243,7 +243,7 @@ class TestHarvestOrchestrator:
         mock_dependencies["scorer"].score_batch.assert_called_once()
         mock_dependencies["cache"].save_batch.assert_called_once()
 
-    def test_harvest_all_with_epss_filter(
+    def test_harvest_all_sources_with_epss_filter(
         self, orchestrator, mock_dependencies, sample_vulnerabilities
     ):
         """Test harvest with EPSS filtering."""
@@ -268,10 +268,9 @@ class TestHarvestOrchestrator:
         }
 
         # Test harvest with EPSS threshold
-        batch = orchestrator.harvest_all(
-            sources=["cvelist"],
+        batch = orchestrator.harvest_all_sources(
             years=[2025],
-            min_severity=SeverityLevel.HIGH,
+            min_severity="HIGH",
             min_epss_score=0.6,
         )
 
@@ -279,13 +278,12 @@ class TestHarvestOrchestrator:
         assert len(batch.vulnerabilities) == 1
         assert batch.vulnerabilities[0].cve_id == "CVE-2025-1002"
 
-    def test_harvest_all_empty_sources(self, orchestrator, mock_dependencies):
+    def test_harvest_all_sources_empty_sources(self, orchestrator, mock_dependencies):
         """Test harvest with no sources specified."""
         # Configure all sources to return empty
         mock_dependencies["cvelist"].harvest.return_value = []
 
-        batch = orchestrator.harvest_all(
-            sources=["all"],
+        batch = orchestrator.harvest_all_sources(
             years=[2025],
         )
 
@@ -293,13 +291,12 @@ class TestHarvestOrchestrator:
         assert len(batch.vulnerabilities) == 0
         assert batch.metadata["total_vulnerabilities"] == 0
 
-    def test_harvest_all_source_error(self, orchestrator, mock_dependencies):
+    def test_harvest_all_sources_source_error(self, orchestrator, mock_dependencies):
         """Test harvest with source errors."""
         # Configure mock to raise error
         mock_dependencies["cvelist"].harvest.side_effect = Exception("API down")
 
-        batch = orchestrator.harvest_all(
-            sources=["cvelist"],
+        batch = orchestrator.harvest_all_sources(
             years=[2025],
         )
 
@@ -309,39 +306,54 @@ class TestHarvestOrchestrator:
         assert batch.metadata["sources"][0]["status"] == "failed"
         assert "API down" in batch.metadata["sources"][0]["error"]
 
-    def test_get_recent_vulnerabilities(self, orchestrator, mock_dependencies):
-        """Test getting recent vulnerabilities from cache."""
-        # Configure mock
-        mock_batch = VulnerabilityBatch(
-            vulnerabilities=[],
+    def test_get_high_priority_vulnerabilities(
+        self, orchestrator, sample_vulnerabilities
+    ):
+        """Test getting high priority vulnerabilities."""
+        # Create batch with vulnerabilities
+        batch = VulnerabilityBatch(
+            vulnerabilities=sample_vulnerabilities,
             metadata={"harvest_id": "test"},
-            harvest_date=datetime.now(timezone.utc),
+            generated_at=datetime.now(timezone.utc),
         )
-        mock_dependencies["cache"].get_recent_batch.return_value = mock_batch
+
+        # Set risk scores
+        sample_vulnerabilities[0].risk_score = 85
+        sample_vulnerabilities[1].risk_score = 95
 
         # Test
-        result = orchestrator.get_recent_vulnerabilities(days=7)
+        result = orchestrator.get_high_priority_vulnerabilities(batch, limit=10)
 
-        assert result == mock_batch
-        mock_dependencies["cache"].get_recent_batch.assert_called_once_with(days=7)
+        assert len(result) == 2
+        assert all(v.risk_score >= 70 for v in result)
 
-    def test_search_vulnerabilities(
+    def test_harvest_async(
         self, orchestrator, mock_dependencies, sample_vulnerabilities
     ):
-        """Test searching vulnerabilities."""
-        # Configure mock
+        """Test async harvest method."""
+        import asyncio
+
+        # Configure mocks
+        mock_dependencies["cvelist"].harvest.return_value = sample_vulnerabilities
         mock_dependencies[
-            "cache"
-        ].search_vulnerabilities.return_value = sample_vulnerabilities
+            "normalizer"
+        ].deduplicate_vulnerabilities.return_value = sample_vulnerabilities
+        mock_dependencies["epss"].fetch_epss_scores_bulk.return_value = {}
 
-        # Test
-        result = orchestrator.search_vulnerabilities(
-            query="test",
-            severity=SeverityLevel.HIGH,
-            min_score=7.0,
-        )
+        # Test async harvest
+        async def test():
+            batch = await orchestrator.harvest_async()
+            assert isinstance(batch, VulnerabilityBatch)
+            return batch
 
-        assert result == sample_vulnerabilities
+        # Run the async test
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        try:
+            batch = loop.run_until_complete(test())
+            assert batch is not None
+        finally:
+            loop.close()
         mock_dependencies["cache"].search_vulnerabilities.assert_called_once_with(
             query="test",
             severity=SeverityLevel.HIGH,
