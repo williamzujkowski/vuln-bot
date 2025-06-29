@@ -128,7 +128,9 @@ class TestCLI:
         assert result.exit_code != 0
         assert "Invalid value" in result.output
 
-    def test_harvest_command_invalid_epss(self, cli_runner, tmp_path):
+    def test_harvest_command_invalid_epss(
+        self, cli_runner, mock_orchestrator, tmp_path
+    ):  # noqa: ARG002
         """Test harvest command with invalid EPSS score."""
         cache_dir = tmp_path / "cache"
 
@@ -182,8 +184,12 @@ class TestCLI:
         mock_briefing_generator.generate_api_files.assert_called_once_with(mock_batch)
 
     def test_generate_briefing_no_data(
-        self, cli_runner, mock_orchestrator, mock_briefing_generator, tmp_path
-    ):  # noqa: ARG002
+        self,
+        cli_runner,
+        mock_orchestrator,
+        mock_briefing_generator,
+        tmp_path,  # noqa: ARG002
+    ):
         """Test generate-briefing with no vulnerability data."""
         cache_dir = tmp_path / "cache"
         cache_dir.mkdir()
