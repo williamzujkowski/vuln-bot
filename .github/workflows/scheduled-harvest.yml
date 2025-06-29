@@ -79,8 +79,7 @@ jobs:
             --years 2024 \
             --years 2025 \
             --min-severity HIGH \
-            --min-epss 0.6 \
-            --verbose 2>&1 | tee harvest.log
+            --min-epss 0.6 2>&1 | tee harvest.log
           
           # Extract metrics from log
           VULNS_FOUND=$(grep -o "Harvested [0-9]\+ vulnerabilities" harvest.log | grep -o "[0-9]\+" || echo "0")
@@ -101,8 +100,7 @@ jobs:
           python -m scripts.main generate-briefing \
             --cache-dir actions-cache/ \
             --output-dir . \
-            --days 1 \
-            --verbose
+            --days 1
       
       - name: Generate metrics visualization
         if: always()
