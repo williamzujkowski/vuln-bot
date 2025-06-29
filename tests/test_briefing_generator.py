@@ -209,7 +209,7 @@ class TestBriefingGenerator:
         assert "CVE-2025-1003" in content
         assert "**Critical Risk**: 1 vulnerabilities" in content
         assert "**High Risk**: 1 vulnerabilities" in content
-        assert "Risk Score: 95" in content
+        assert "**Risk Score**: 95/100" in content
 
     def test_generate_briefing_post_empty(self, briefing_generator):
         """Test briefing generation with no vulnerabilities."""
