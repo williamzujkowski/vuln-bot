@@ -1,789 +1,479 @@
-/******/ (() => {
-  // webpackBootstrap
-  /******/ "use strict";
-  /******/ var __webpack_modules__ = {
-    /***/ "./src/assets/ts/analytics.ts":
-      /*!************************************!*\
-  !*** ./src/assets/ts/analytics.ts ***!
-  \************************************/
-      /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-        __webpack_require__.r(__webpack_exports__);
-        /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-          /* harmony export */ Analytics: () => /* binding */ Analytics,
-          /* harmony export */ analytics: () => /* binding */ analytics,
-          /* harmony export */
-        });
-        /**
-         * Frontend analytics for vulnerability dashboard
-         */
-        class Analytics {
-          constructor(
-            config = {
-              enabled: true,
-              storageKey: "vuln_analytics",
-              maxEvents: 100,
-              flushInterval: 300000,
-            }
-          ) {
-            this.events = [];
-            this.enabled = true;
-            this.timers = new Map();
-            this.config = config;
-            this.sessionId = this.generateSessionId();
-            this.startTime = Date.now();
-            // Check if analytics should be disabled (e.g., DNT header)
-            const dnt = navigator.doNotTrack ?? window.doNotTrack;
-            if (dnt === "1" || dnt === "yes") {
-              this.enabled = false;
-              return;
-            }
-            if (!config.enabled) {
-              this.enabled = false;
-              return;
-            }
-            // Load existing events
-            this.loadEvents();
-            // Set up auto-flush
-            if (this.config.flushInterval) {
-              this.scheduleFlush();
-            }
-            // Set up page unload handler to save metrics
-            window.addEventListener("beforeunload", () => this.saveEvents());
-          }
-          generateSessionId() {
-            return `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
-          }
-          loadEvents() {
-            if (!this.enabled || !this.config.storageKey) return;
-            try {
-              const stored = localStorage.getItem(this.config.storageKey);
-              if (stored) {
-                const data = JSON.parse(stored);
-                this.events = data.events || [];
-              }
-            } catch {
-              // Ignore errors
-            }
-          }
-          saveEvents() {
-            if (!this.enabled || !this.config.storageKey) return;
-            const data = {
-              events: this.events,
-              sessionId: this.sessionId,
-              lastFlush: Date.now(),
-            };
-            try {
-              localStorage.setItem(this.config.storageKey, JSON.stringify(data));
-            } catch {
-              // Ignore errors
-            }
-          }
-          scheduleFlush() {
-            if (this.flushTimeout) {
-              clearTimeout(this.flushTimeout);
-            }
-            this.flushTimeout = window.setTimeout(() => {
-              this.flush();
-              this.scheduleFlush();
-            }, this.config.flushInterval);
-          }
-          isEnabled() {
-            return this.enabled;
-          }
-          disable() {
-            this.enabled = false;
-          }
-          enable() {
-            this.enabled = true;
-          }
-          optOut() {
-            this.enabled = false;
-            this.clear();
-          }
-          /**
-           * Track a user event
-           */
-          track(event, category, action, label, value, metadata) {
-            if (!this.enabled) return;
-            const analyticsEvent = {
-              event,
-              category,
-              action,
-              label,
-              value,
-              metadata,
-              timestamp: Date.now(),
-            };
-            this.events.push(analyticsEvent);
-            // Enforce max events limit
-            if (this.config.maxEvents && this.events.length > this.config.maxEvents) {
-              this.events = this.events.slice(-this.config.maxEvents);
-            }
-            this.saveEvents();
-          }
-          getEvents() {
-            return [...this.events];
-          }
-          clear() {
-            this.events = [];
-            if (this.config.storageKey) {
-              localStorage.removeItem(this.config.storageKey);
-            }
-          }
-          // Performance tracking
-          startTimer(name) {
-            this.timers.set(name, performance.now());
-          }
-          endTimer(name, metadata) {
-            const startTime = this.timers.get(name);
-            if (startTime === undefined) return;
-            const duration = performance.now() - startTime;
-            this.timers.delete(name);
-            this.track("timing", "performance", name, undefined, Math.round(duration), metadata);
-          }
-          // User interaction tracking
-          trackVulnerabilityClick(cveId, metadata) {
-            this.track("click", "vulnerability", "view", cveId, undefined, metadata);
-          }
-          trackSearch(query, resultCount) {
-            this.track("search", "search", "query", query, resultCount);
-          }
-          trackFilterUsage(filterType, value, resultCount) {
-            this.track("filter", "filter", filterType, value, resultCount);
-          }
-          trackExport(format, count) {
-            this.track("export", "export", "download", format, count);
-          }
-          trackFilter(filterType, value) {
-            this.track("filter_change", "interaction", "filter", filterType, undefined, {
-              filterType,
-              value,
-            });
-          }
-          // Session tracking
-          trackPageView(path) {
-            this.track("pageview", "navigation", "view", path);
-          }
-          startSession() {
-            this.sessionStartTime = performance.now();
-          }
-          endSession() {
-            if (this.sessionStartTime === undefined) return;
-            const duration = Math.round((performance.now() - this.sessionStartTime) / 1000); // seconds
-            this.track("session", "user", "duration", undefined, duration);
-            this.sessionStartTime = undefined;
-          }
-          trackEngagement(data) {
-            this.track("engagement", "user", "interaction", undefined, undefined, data);
-          }
-          // Error tracking
-          trackError(error, metadata) {
-            const errorMessage = error instanceof Error ? error.message : String(error);
-            const errorStack = error instanceof Error ? error.stack : undefined;
-            this.track("error", "error", "javascript", errorMessage, undefined, {
-              ...metadata,
-              stack: errorStack,
-            });
-          }
-          // Data management
-          getSummary() {
-            const eventCounts = {};
-            const categoryCounts = {};
-            this.events.forEach((event) => {
-              eventCounts[event.event] = (eventCounts[event.event] ?? 0) + 1;
-              categoryCounts[event.category] = (categoryCounts[event.category] ?? 0) + 1;
-            });
-            return {
-              totalEvents: this.events.length,
-              eventCounts,
-              categoryCounts,
-              sessionDuration: Date.now() - this.startTime,
-            };
-          }
-          exportJSON() {
-            return JSON.stringify(
-              {
-                events: this.events,
-                sessionId: this.sessionId,
-                exportDate: new Date().toISOString(),
-                version: "1.0.0",
-              },
-              null,
-              2
-            );
-          }
-          async flush() {
-            if (!this.enabled || !this.config.endpoint || this.events.length === 0) {
-              return;
-            }
-            try {
-              await fetch(this.config.endpoint, {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                  events: this.events,
-                  sessionId: this.sessionId,
-                }),
-              });
-              // Clear events after successful flush
-              this.events = [];
-              this.saveEvents();
-            } catch (error) {
-              // Keep events on error
-              console.error("Analytics flush failed:", error);
-            }
-          }
-          /**
-           * Export all session data for debugging
-           */
-          exportSessionData() {
-            const sessions = [];
-            for (let i = 0; i < localStorage.length; i++) {
-              const key = localStorage.key(i);
-              if (key?.includes("vuln_analytics")) {
-                try {
-                  const data = JSON.parse(localStorage.getItem(key) ?? "{}");
-                  sessions.push({
-                    key,
-                    ...data,
-                  });
-                } catch {
-                  // Skip invalid entries
-                }
-              }
-            }
-            return JSON.stringify(sessions, null, 2);
-          }
-        }
-        // Export singleton instance
-        const analytics = new Analytics();
-
-        /***/
-      },
-
-    /***/ "./src/assets/ts/types/alpine.ts":
-      /*!***************************************!*\
-  !*** ./src/assets/ts/types/alpine.ts ***!
-  \***************************************/
-      /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-        __webpack_require__.r(__webpack_exports__);
-        /**
-         * Alpine.js type extensions
-         */
-
-        /***/
-      },
-
-    /******/
-  };
-  /************************************************************************/
-  /******/ // The module cache
-  /******/ var __webpack_module_cache__ = {};
-  /******/
-  /******/ // The require function
-  /******/ function __webpack_require__(moduleId) {
-    /******/ // Check if module is in cache
-    /******/ var cachedModule = __webpack_module_cache__[moduleId];
-    /******/ if (cachedModule !== undefined) {
-      /******/ return cachedModule.exports;
-      /******/
+(() => {
+  "use strict";
+  const t = new (class {
+    constructor(
+      t = { enabled: !0, storageKey: "vuln_analytics", maxEvents: 100, flushInterval: 3e5 }
+    ) {
+      ((this.events = []),
+        (this.enabled = !0),
+        (this.timers = new Map()),
+        (this.config = t),
+        (this.sessionId = this.generateSessionId()),
+        (this.startTime = Date.now()));
+      const e = navigator.doNotTrack ?? window.doNotTrack;
+      "1" !== e && "yes" !== e && t.enabled
+        ? (this.loadEvents(),
+          this.config.flushInterval && this.scheduleFlush(),
+          window.addEventListener("beforeunload", () => this.saveEvents()))
+        : (this.enabled = !1);
     }
-    /******/ // Create a new module (and put it into the cache)
-    /******/ var module = (__webpack_module_cache__[moduleId] = {
-      /******/ // no module.id needed
-      /******/ // no module.loaded needed
-      /******/ exports: {},
-      /******/
-    });
-    /******/
-    /******/ // Execute the module function
-    /******/ __webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-    /******/
-    /******/ // Return the exports of the module
-    /******/ return module.exports;
-    /******/
-  }
-  /******/
-  /************************************************************************/
-  /******/ /* webpack/runtime/define property getters */
-  /******/ (() => {
-    /******/ // define getter functions for harmony exports
-    /******/ __webpack_require__.d = (exports, definition) => {
-      /******/ for (var key in definition) {
-        /******/ if (
-          __webpack_require__.o(definition, key) &&
-          !__webpack_require__.o(exports, key)
-        ) {
-          /******/ Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-          /******/
-        }
-        /******/
-      }
-      /******/
-    };
-    /******/
-  })();
-  /******/
-  /******/ /* webpack/runtime/hasOwnProperty shorthand */
-  /******/ (() => {
-    /******/ __webpack_require__.o = (obj, prop) => Object.prototype.hasOwnProperty.call(obj, prop);
-    /******/
-  })();
-  /******/
-  /******/ /* webpack/runtime/make namespace object */
-  /******/ (() => {
-    /******/ // define __esModule on exports
-    /******/ __webpack_require__.r = (exports) => {
-      /******/ if (typeof Symbol !== "undefined" && Symbol.toStringTag) {
-        /******/ Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
-        /******/
-      }
-      /******/ Object.defineProperty(exports, "__esModule", { value: true });
-      /******/
-    };
-    /******/
-  })();
-  /******/
-  /************************************************************************/
-  var __webpack_exports__ = {};
-  // This entry needs to be wrapped in an IIFE because it needs to be isolated against other modules in the chunk.
-  (() => {
-    /*!************************************!*\
-  !*** ./src/assets/ts/dashboard.ts ***!
-  \************************************/
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony import */ var _types_alpine__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! ./types/alpine */ "./src/assets/ts/types/alpine.ts"
-    );
-    /* harmony import */ var _analytics__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! ./analytics */ "./src/assets/ts/analytics.ts"
-    );
-    /**
-     * Alpine.js Vulnerability Dashboard - TypeScript Version
-     */
-
-    document.addEventListener("alpine:init", () => {
-      window.Alpine.data("vulnDashboard", () => ({
-        // Data
-        vulnerabilities: [],
-        filteredVulns: [],
-        paginatedVulns: [],
-        searchQuery: "",
-        fuse: null,
-        // Filters
-        filters: {
-          cvssMin: 0,
-          cvssMax: 10,
-          epssMin: 0,
-          epssMax: 100,
-          severity: "",
-          dateFrom: "",
-          dateTo: "",
-          vendor: "",
-          exploitationStatus: "",
-          tags: [],
-        },
-        // Sort
-        sortField: "exploitationStatus",
-        sortDirection: "desc",
-        // Pagination
-        currentPage: 1,
-        pageSize: 20,
-        totalPages: 1,
-        // State
-        loading: true,
-        error: null,
-        initialLoad: true,
-        async init() {
-          // Start performance timer
-          _analytics__WEBPACK_IMPORTED_MODULE_1__.analytics.startTimer("page-load");
-          // Load state from URL hash
-          this.loadStateFromHash();
-          // Load vulnerability data
-          await this.loadVulnerabilities();
-          // Set up Fuse.js for fuzzy search
-          this.setupSearch();
-          // Apply initial filters
-          this.applyFilters();
-          // Mark initial load as complete
-          this.initialLoad = false;
-          // Watch for changes
-          this.watchFilters();
-          // Track performance
-          _analytics__WEBPACK_IMPORTED_MODULE_1__.analytics.endTimer("page-load");
-        },
-        async loadVulnerabilities() {
-          try {
-            this.loading = true;
-            this.error = null;
-            const response = await fetch("/vuln-bot/api/vulns/index.json");
-            if (!response.ok) {
-              throw new Error(`Failed to load vulnerabilities: ${response.status}`);
-            }
-            const data = await response.json();
-            this.vulnerabilities = data.vulnerabilities || [];
-            this.loading = false;
-            // Set up intersection observer for lazy loading
-            this.setupLazyLoading();
-          } catch (error) {
-            const errorMessage = error instanceof Error ? error.message : "Unknown error";
-            this.error = errorMessage;
-            this.loading = false;
-            console.error("Failed to load vulnerabilities:", error);
+    generateSessionId() {
+      return `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+    }
+    loadEvents() {
+      if (this.enabled && this.config.storageKey)
+        try {
+          const t = localStorage.getItem(this.config.storageKey);
+          if (t) {
+            const e = JSON.parse(t);
+            this.events = e.events || [];
           }
+        } catch {}
+    }
+    saveEvents() {
+      if (!this.enabled || !this.config.storageKey) return;
+      const t = { events: this.events, sessionId: this.sessionId, lastFlush: Date.now() };
+      try {
+        localStorage.setItem(this.config.storageKey, JSON.stringify(t));
+      } catch {}
+    }
+    scheduleFlush() {
+      (this.flushTimeout && clearTimeout(this.flushTimeout),
+        (this.flushTimeout = window.setTimeout(() => {
+          (this.flush(), this.scheduleFlush());
+        }, this.config.flushInterval)));
+    }
+    isEnabled() {
+      return this.enabled;
+    }
+    disable() {
+      this.enabled = !1;
+    }
+    enable() {
+      this.enabled = !0;
+    }
+    optOut() {
+      ((this.enabled = !1), this.clear());
+    }
+    track(t, e, s, i, r, a) {
+      if (!this.enabled) return;
+      const n = {
+        event: t,
+        category: e,
+        action: s,
+        label: i,
+        value: r,
+        metadata: a,
+        timestamp: Date.now(),
+      };
+      (this.events.push(n),
+        this.config.maxEvents &&
+          this.events.length > this.config.maxEvents &&
+          (this.events = this.events.slice(-this.config.maxEvents)),
+        this.saveEvents());
+    }
+    getEvents() {
+      return [...this.events];
+    }
+    clear() {
+      ((this.events = []),
+        this.config.storageKey && localStorage.removeItem(this.config.storageKey));
+    }
+    startTimer(t) {
+      this.timers.set(t, performance.now());
+    }
+    endTimer(t, e) {
+      const s = this.timers.get(t);
+      if (void 0 === s) return;
+      const i = performance.now() - s;
+      (this.timers.delete(t), this.track("timing", "performance", t, void 0, Math.round(i), e));
+    }
+    trackVulnerabilityClick(t, e) {
+      this.track("click", "vulnerability", "view", t, void 0, e);
+    }
+    trackSearch(t, e) {
+      this.track("search", "search", "query", t, e);
+    }
+    trackFilterUsage(t, e, s) {
+      this.track("filter", "filter", t, e, s);
+    }
+    trackExport(t, e) {
+      this.track("export", "export", "download", t, e);
+    }
+    trackFilter(t, e) {
+      this.track("filter_change", "interaction", "filter", t, void 0, { filterType: t, value: e });
+    }
+    trackPageView(t) {
+      this.track("pageview", "navigation", "view", t);
+    }
+    startSession() {
+      this.sessionStartTime = performance.now();
+    }
+    endSession() {
+      if (void 0 === this.sessionStartTime) return;
+      const t = Math.round((performance.now() - this.sessionStartTime) / 1e3);
+      (this.track("session", "user", "duration", void 0, t), (this.sessionStartTime = void 0));
+    }
+    trackEngagement(t) {
+      this.track("engagement", "user", "interaction", void 0, void 0, t);
+    }
+    trackError(t, e) {
+      const s = t instanceof Error ? t.message : String(t),
+        i = t instanceof Error ? t.stack : void 0;
+      this.track("error", "error", "javascript", s, void 0, { ...e, stack: i });
+    }
+    getSummary() {
+      const t = {},
+        e = {};
+      return (
+        this.events.forEach((s) => {
+          ((t[s.event] = (t[s.event] ?? 0) + 1), (e[s.category] = (e[s.category] ?? 0) + 1));
+        }),
+        {
+          totalEvents: this.events.length,
+          eventCounts: t,
+          categoryCounts: e,
+          sessionDuration: Date.now() - this.startTime,
+        }
+      );
+    }
+    exportJSON() {
+      return JSON.stringify(
+        {
+          events: this.events,
+          sessionId: this.sessionId,
+          exportDate: new Date().toISOString(),
+          version: "1.0.0",
         },
-        setupLazyLoading() {
-          // Create intersection observer for lazy loading table rows
-          if ("IntersectionObserver" in window) {
-            const observerOptions = {
-              root: null,
-              rootMargin: "100px", // Start loading 100px before visible
-              threshold: 0.01,
-            };
-            const lazyLoadObserver = new IntersectionObserver((entries) => {
-              entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                  const element = entry.target;
-                  element.classList.add("loaded");
-                  lazyLoadObserver.unobserve(element);
+        null,
+        2
+      );
+    }
+    async flush() {
+      if (this.enabled && this.config.endpoint && 0 !== this.events.length)
+        try {
+          (await fetch(this.config.endpoint, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ events: this.events, sessionId: this.sessionId }),
+          }),
+            (this.events = []),
+            this.saveEvents());
+        } catch (t) {
+          console.error("Analytics flush failed:", t);
+        }
+    }
+    exportSessionData() {
+      const t = [];
+      for (let e = 0; e < localStorage.length; e++) {
+        const s = localStorage.key(e);
+        if (s?.includes("vuln_analytics"))
+          try {
+            const e = JSON.parse(localStorage.getItem(s) ?? "{}");
+            t.push({ key: s, ...e });
+          } catch {}
+      }
+      return JSON.stringify(t, null, 2);
+    }
+  })();
+  document.addEventListener("alpine:init", () => {
+    window.Alpine.data("vulnDashboard", () => ({
+      vulnerabilities: [],
+      filteredVulns: [],
+      paginatedVulns: [],
+      searchQuery: "",
+      fuse: null,
+      filters: {
+        cvssMin: 0,
+        cvssMax: 10,
+        epssMin: 0,
+        epssMax: 100,
+        severity: "",
+        dateFrom: "",
+        dateTo: "",
+        vendor: "",
+        exploitationStatus: "",
+        tags: [],
+      },
+      sortField: "exploitationStatus",
+      sortDirection: "desc",
+      currentPage: 1,
+      pageSize: 20,
+      totalPages: 1,
+      loading: !0,
+      error: null,
+      initialLoad: !0,
+      async init() {
+        (t.startTimer("page-load"),
+          this.loadStateFromHash(),
+          await this.loadVulnerabilities(),
+          this.setupSearch(),
+          this.applyFilters(),
+          (this.initialLoad = !1),
+          this.watchFilters(),
+          t.endTimer("page-load"));
+      },
+      async loadVulnerabilities() {
+        try {
+          ((this.loading = !0), (this.error = null));
+          const t = await fetch("/vuln-bot/api/vulns/index.json");
+          if (!t.ok) throw new Error(`Failed to load vulnerabilities: ${t.status}`);
+          const e = await t.json();
+          ((this.vulnerabilities = e.vulnerabilities || []),
+            (this.loading = !1),
+            this.setupLazyLoading());
+        } catch (t) {
+          const e = t instanceof Error ? t.message : "Unknown error";
+          ((this.error = e),
+            (this.loading = !1),
+            console.error("Failed to load vulnerabilities:", t));
+        }
+      },
+      setupLazyLoading() {
+        if ("IntersectionObserver" in window) {
+          const t = new IntersectionObserver(
+            (e) => {
+              e.forEach((e) => {
+                if (e.isIntersecting) {
+                  const s = e.target;
+                  (s.classList.add("loaded"), t.unobserve(s));
                 }
               });
-            }, observerOptions);
-            // Observe vulnerability rows after render
-            this.$nextTick(() => {
-              document.querySelectorAll(".vulnerability-row[data-lazy]").forEach((row) => {
-                lazyLoadObserver.observe(row);
-              });
+            },
+            { root: null, rootMargin: "100px", threshold: 0.01 }
+          );
+          this.$nextTick(() => {
+            document.querySelectorAll(".vulnerability-row[data-lazy]").forEach((e) => {
+              t.observe(e);
             });
-          }
-        },
-        setupSearch() {
-          if (this.vulnerabilities.length === 0) return;
-          // Configure Fuse.js for fuzzy search
-          const options = {
+          });
+        }
+      },
+      setupSearch() {
+        0 !== this.vulnerabilities.length &&
+          (this.fuse = new window.Fuse(this.vulnerabilities, {
             keys: ["cveId", "title", "vendors", "products", "tags"],
             threshold: 0.3,
-            includeScore: true,
-          };
-          this.fuse = new window.Fuse(this.vulnerabilities, options);
-        },
-        applyFilters() {
-          // Validate filters first
-          if (!this.validateFilters()) {
-            return;
-          }
-          let results = [...this.vulnerabilities];
-          // Apply search
-          if (this.searchQuery.trim() && this.fuse) {
-            const searchResults = this.fuse.search(this.searchQuery);
-            results = searchResults.map((result) => result.item);
-            // Track search
-            _analytics__WEBPACK_IMPORTED_MODULE_1__.analytics.trackSearch(
-              this.searchQuery,
-              results.length
-            );
-          }
-          // Apply CVSS filter
-          results = results.filter((vuln) => {
-            const score = vuln.cvssScore || 0;
-            return score >= this.filters.cvssMin && score <= this.filters.cvssMax;
-          });
-          // Apply EPSS filter
-          results = results.filter((vuln) => {
-            const percentile = vuln.epssPercentile || 0;
-            return percentile >= this.filters.epssMin && percentile <= this.filters.epssMax;
-          });
-          // Apply severity filter
-          if (this.filters.severity) {
-            results = results.filter((vuln) => vuln.severity === this.filters.severity);
-          }
-          // Apply date filter
-          if (this.filters.dateFrom) {
-            const fromDate = new Date(this.filters.dateFrom);
-            results = results.filter((vuln) => new Date(vuln.publishedDate) >= fromDate);
-          }
-          if (this.filters.dateTo) {
-            const toDate = new Date(this.filters.dateTo);
-            results = results.filter((vuln) => new Date(vuln.publishedDate) <= toDate);
-          }
-          // Apply vendor filter
-          if (this.filters.vendor) {
-            const vendorLower = this.filters.vendor.toLowerCase();
-            results = results.filter((vuln) =>
-              vuln.vendors.some((v) => v.toLowerCase().includes(vendorLower))
-            );
-          }
-          // Apply exploitation status filter
-          if (this.filters.exploitationStatus) {
-            results = results.filter(
-              (vuln) => vuln.exploitationStatus === this.filters.exploitationStatus
-            );
-          }
-          // Apply tag filter
-          if (this.filters.tags.length > 0) {
-            results = results.filter((vuln) =>
-              this.filters.tags.every((tag) => vuln.tags.includes(tag))
-            );
-          }
-          // Apply sorting
-          results = this.sortResults(results);
-          this.filteredVulns = results;
-          this.updatePagination();
-          this.saveStateToHash();
-          // Announce results to screen readers
-          this.announceFilterResults();
-        },
-        announceFilterResults() {
-          const resultCount = this.filteredVulns.length;
-          const totalCount = this.vulnerabilities.length;
-          let announcement = `Showing ${resultCount} of ${totalCount} vulnerabilities`;
-          // Add filter context
-          const activeFilters = [];
-          if (this.searchQuery) activeFilters.push(`matching "${this.searchQuery}"`);
-          if (this.filters.severity) activeFilters.push(`severity: ${this.filters.severity}`);
-          if (this.filters.cvssMin > 0 || this.filters.cvssMax < 10) {
-            activeFilters.push(`CVSS: ${this.filters.cvssMin}-${this.filters.cvssMax}`);
-          }
-          if (this.filters.epssMin > 0 || this.filters.epssMax < 100) {
-            activeFilters.push(`EPSS: ${this.filters.epssMin}%-${this.filters.epssMax}%`);
-          }
-          if (this.filters.vendor) activeFilters.push(`vendor: ${this.filters.vendor}`);
-          if (this.filters.exploitationStatus) {
-            activeFilters.push(`exploitation: ${this.filters.exploitationStatus}`);
-          }
-          if (this.filters.tags.length > 0) {
-            activeFilters.push(`tags: ${this.filters.tags.join(", ")}`);
-          }
-          if (activeFilters.length > 0) {
-            announcement += ` with filters: ${activeFilters.join(", ")}`;
-          }
-          // Create or update live region
-          let liveRegion = document.getElementById("filter-announcement");
-          if (!liveRegion) {
-            liveRegion = document.createElement("div");
-            liveRegion.id = "filter-announcement";
-            liveRegion.className = "sr-only";
-            liveRegion.setAttribute("role", "status");
-            liveRegion.setAttribute("aria-live", "polite");
-            liveRegion.setAttribute("aria-atomic", "true");
-            document.body.appendChild(liveRegion);
-          }
-          // Update announcement
-          liveRegion.textContent = announcement;
-        },
-        validateFilters() {
-          const errors = [];
-          // Validate CVSS range
-          if (this.filters.cvssMin > this.filters.cvssMax) {
-            errors.push("CVSS minimum score cannot be greater than maximum");
-          }
-          // Validate EPSS range
-          if (this.filters.epssMin > this.filters.epssMax) {
-            errors.push("EPSS minimum score cannot be greater than maximum");
-          }
-          // Validate date range
-          if (this.filters.dateFrom && this.filters.dateTo) {
-            const fromDate = new Date(this.filters.dateFrom);
-            const toDate = new Date(this.filters.dateTo);
-            if (fromDate > toDate) {
-              errors.push("Start date cannot be after end date");
-            }
-          }
-          // Show errors
-          if (errors.length > 0) {
-            this.showValidationErrors(errors);
-            return false;
-          }
-          return true;
-        },
-        showValidationErrors(errors) {
-          // Create or update error region
-          let errorRegion = document.getElementById("validation-errors");
-          if (!errorRegion) {
-            errorRegion = document.createElement("div");
-            errorRegion.id = "validation-errors";
-            errorRegion.className = "validation-errors";
-            errorRegion.setAttribute("role", "alert");
-            errorRegion.setAttribute("aria-live", "assertive");
-            const filterSection = document.getElementById("search-filters");
-            filterSection?.insertBefore(errorRegion, filterSection.firstChild);
-          }
-          // Build error list
-          errorRegion.innerHTML = `
-          <h3>Validation Errors</h3>
-          <ul>
-            ${errors.map((error) => `<li>${error}</li>`).join("")}
-          </ul>
-        `;
-          // Focus on first error
-          errorRegion.focus();
-          // Clear errors after 5 seconds
+            includeScore: !0,
+          }));
+      },
+      applyFilters() {
+        if (!this.validateFilters()) return;
+        let e = [...this.vulnerabilities];
+        if (
+          (this.searchQuery.trim() &&
+            this.fuse &&
+            ((e = this.fuse.search(this.searchQuery).map((t) => t.item)),
+            t.trackSearch(this.searchQuery, e.length)),
+          (e = e.filter((t) => {
+            const e = t.cvssScore || 0;
+            return e >= this.filters.cvssMin && e <= this.filters.cvssMax;
+          })),
+          (e = e.filter((t) => {
+            const e = t.epssPercentile || 0;
+            return e >= this.filters.epssMin && e <= this.filters.epssMax;
+          })),
+          this.filters.severity && (e = e.filter((t) => t.severity === this.filters.severity)),
+          this.filters.dateFrom)
+        ) {
+          const t = new Date(this.filters.dateFrom);
+          e = e.filter((e) => new Date(e.publishedDate) >= t);
+        }
+        if (this.filters.dateTo) {
+          const t = new Date(this.filters.dateTo);
+          e = e.filter((e) => new Date(e.publishedDate) <= t);
+        }
+        if (this.filters.vendor) {
+          const t = this.filters.vendor.toLowerCase();
+          e = e.filter((e) => e.vendors.some((e) => e.toLowerCase().includes(t)));
+        }
+        (this.filters.exploitationStatus &&
+          (e = e.filter((t) => t.exploitationStatus === this.filters.exploitationStatus)),
+          this.filters.tags.length > 0 &&
+            (e = e.filter((t) => this.filters.tags.every((e) => t.tags.includes(e)))),
+          (e = this.sortResults(e)),
+          (this.filteredVulns = e),
+          this.updatePagination(),
+          this.saveStateToHash(),
+          this.announceFilterResults());
+      },
+      announceFilterResults() {
+        let t = `Showing ${this.filteredVulns.length} of ${this.vulnerabilities.length} vulnerabilities`;
+        const e = [];
+        (this.searchQuery && e.push(`matching "${this.searchQuery}"`),
+          this.filters.severity && e.push(`severity: ${this.filters.severity}`),
+          (this.filters.cvssMin > 0 || this.filters.cvssMax < 10) &&
+            e.push(`CVSS: ${this.filters.cvssMin}-${this.filters.cvssMax}`),
+          (this.filters.epssMin > 0 || this.filters.epssMax < 100) &&
+            e.push(`EPSS: ${this.filters.epssMin}%-${this.filters.epssMax}%`),
+          this.filters.vendor && e.push(`vendor: ${this.filters.vendor}`),
+          this.filters.exploitationStatus &&
+            e.push(`exploitation: ${this.filters.exploitationStatus}`),
+          this.filters.tags.length > 0 && e.push(`tags: ${this.filters.tags.join(", ")}`),
+          e.length > 0 && (t += ` with filters: ${e.join(", ")}`));
+        let s = document.getElementById("filter-announcement");
+        (s ||
+          ((s = document.createElement("div")),
+          (s.id = "filter-announcement"),
+          (s.className = "sr-only"),
+          s.setAttribute("role", "status"),
+          s.setAttribute("aria-live", "polite"),
+          s.setAttribute("aria-atomic", "true"),
+          document.body.appendChild(s)),
+          (s.textContent = t));
+      },
+      validateFilters() {
+        const t = [];
+        return (
+          this.filters.cvssMin > this.filters.cvssMax &&
+            t.push("CVSS minimum score cannot be greater than maximum"),
+          this.filters.epssMin > this.filters.epssMax &&
+            t.push("EPSS minimum score cannot be greater than maximum"),
+          this.filters.dateFrom &&
+            this.filters.dateTo &&
+            new Date(this.filters.dateFrom) > new Date(this.filters.dateTo) &&
+            t.push("Start date cannot be after end date"),
+          !(t.length > 0 && (this.showValidationErrors(t), 1))
+        );
+      },
+      showValidationErrors(t) {
+        let e = document.getElementById("validation-errors");
+        if (!e) {
+          ((e = document.createElement("div")),
+            (e.id = "validation-errors"),
+            (e.className = "validation-errors"),
+            e.setAttribute("role", "alert"),
+            e.setAttribute("aria-live", "assertive"));
+          const t = document.getElementById("search-filters");
+          t?.insertBefore(e, t.firstChild);
+        }
+        ((e.innerHTML = `\n          <h3>Validation Errors</h3>\n          <ul>\n            ${t.map((t) => `<li>${t}</li>`).join("")}\n          </ul>\n        `),
+          e.focus(),
           setTimeout(() => {
-            errorRegion.innerHTML = "";
-          }, 5000);
-        },
-        sortResults(results) {
-          const field = this.sortField;
-          const direction = this.sortDirection;
-          return results.sort((a, b) => {
-            let aVal = a[field];
-            let bVal = b[field];
-            // Handle null/undefined values
-            aVal ?? (aVal = "");
-            bVal ?? (bVal = "");
-            // Handle dates
-            if (typeof field === "string" && field.includes("Date")) {
-              aVal = new Date(aVal).getTime();
-              bVal = new Date(bVal).getTime();
-            }
-            // Compare
-            if (aVal < bVal) return direction === "asc" ? -1 : 1;
-            if (aVal > bVal) return direction === "asc" ? 1 : -1;
-            return 0;
-          });
-        },
-        sort(field) {
-          if (this.sortField === field) {
-            // Toggle direction
-            this.sortDirection = this.sortDirection === "asc" ? "desc" : "asc";
-          } else {
-            // New field, default to descending
-            this.sortField = field;
-            this.sortDirection = "desc";
-          }
-          // Track sort change
-          _analytics__WEBPACK_IMPORTED_MODULE_1__.analytics.track(
-            "sort",
-            "interaction",
-            "sort",
-            field,
-            undefined,
-            {
-              direction: this.sortDirection,
-            }
+            e.innerHTML = "";
+          }, 5e3));
+      },
+      sortResults(t) {
+        const e = this.sortField,
+          s = this.sortDirection;
+        return t.sort((t, i) => {
+          let r = t[e],
+            a = i[e];
+          return (
+            r ?? (r = ""),
+            a ?? (a = ""),
+            "string" == typeof e &&
+              e.includes("Date") &&
+              ((r = new Date(r).getTime()), (a = new Date(a).getTime())),
+            r < a ? ("asc" === s ? -1 : 1) : r > a ? ("asc" === s ? 1 : -1) : 0
           );
-          this.applyFilters();
-        },
-        updatePagination() {
-          this.totalPages = Math.ceil(this.filteredVulns.length / this.pageSize);
-          this.currentPage = Math.min(this.currentPage, Math.max(1, this.totalPages));
-          const start = (this.currentPage - 1) * this.pageSize;
-          const end = start + this.pageSize;
-          this.paginatedVulns = this.filteredVulns.slice(start, end);
-        },
-        previousPage() {
-          if (this.currentPage > 1) {
-            this.currentPage--;
-            this.updatePagination();
-          }
-        },
-        nextPage() {
-          if (this.currentPage < this.totalPages) {
-            this.currentPage++;
-            this.updatePagination();
-          }
-        },
-        watchFilters() {
-          // Watch for filter changes
-          this.$watch("searchQuery", () => this.applyFilters());
-          this.$watch("filters", () => this.applyFilters(), {
-            deep: true,
-          });
+        });
+      },
+      sort(e) {
+        (this.sortField === e
+          ? (this.sortDirection = "asc" === this.sortDirection ? "desc" : "asc")
+          : ((this.sortField = e), (this.sortDirection = "desc")),
+          t.track("sort", "interaction", "sort", e, void 0, { direction: this.sortDirection }),
+          this.applyFilters());
+      },
+      updatePagination() {
+        ((this.totalPages = Math.ceil(this.filteredVulns.length / this.pageSize)),
+          (this.currentPage = Math.min(this.currentPage, Math.max(1, this.totalPages))));
+        const t = (this.currentPage - 1) * this.pageSize,
+          e = t + this.pageSize;
+        this.paginatedVulns = this.filteredVulns.slice(t, e);
+      },
+      previousPage() {
+        this.currentPage > 1 && (this.currentPage--, this.updatePagination());
+      },
+      nextPage() {
+        this.currentPage < this.totalPages && (this.currentPage++, this.updatePagination());
+      },
+      watchFilters() {
+        (this.$watch("searchQuery", () => this.applyFilters()),
+          this.$watch("filters", () => this.applyFilters(), { deep: !0 }),
           this.$watch("pageSize", () => {
-            this.currentPage = 1;
-            this.updatePagination();
-          });
-        },
-        saveStateToHash() {
-          // Don't save state during initial load
-          if (this.loading || this.vulnerabilities.length === 0 || this.initialLoad) {
-            return;
-          }
-          const state = {
-            q: this.searchQuery,
-            cvssMin: this.filters.cvssMin,
-            cvssMax: this.filters.cvssMax,
-            epssMin: this.filters.epssMin,
-            epssMax: this.filters.epssMax,
-            severity: this.filters.severity,
-            dateFrom: this.filters.dateFrom,
-            dateTo: this.filters.dateTo,
-            vendor: this.filters.vendor,
-            exploitation: this.filters.exploitationStatus,
-            tags: this.filters.tags.join(","),
-            sort: this.sortField,
-            dir: this.sortDirection,
-            page: this.currentPage,
-            size: this.pageSize,
-          };
-          // Remove empty values and defaults
-          Object.keys(state).forEach((key) => {
-            const value = state[key];
-            if (
-              !value ||
-              value === "" ||
-              (key === "cvssMin" && value === 0) ||
-              (key === "cvssMax" && value === 10) ||
-              (key === "epssMin" && value === 0) ||
-              (key === "epssMax" && value === 100) ||
-              (key === "page" && value === 1) ||
-              (key === "size" && value === 20) ||
-              (key === "sort" && value === "exploitationStatus") ||
-              (key === "dir" && value === "desc")
-            ) {
-              delete state[key];
-            }
-          });
-          const hash = new URLSearchParams(
-            Object.fromEntries(Object.entries(state).map(([k, v]) => [k, String(v)]))
-          ).toString();
-          window.location.hash = hash;
-        },
-        loadStateFromHash() {
-          const hash = window.location.hash.slice(1);
-          if (!hash) return;
-          const params = new URLSearchParams(hash);
-          // Load search query
-          this.searchQuery = params.get("q") ?? "";
-          // Load filters
-          this.filters.cvssMin = parseFloat(params.get("cvssMin") ?? "0");
-          this.filters.cvssMax = parseFloat(params.get("cvssMax") ?? "10");
-          this.filters.epssMin = parseInt(params.get("epssMin") ?? "0");
-          this.filters.epssMax = parseInt(params.get("epssMax") ?? "100");
-          this.filters.severity = params.get("severity") ?? "";
-          this.filters.dateFrom = params.get("dateFrom") ?? "";
-          this.filters.dateTo = params.get("dateTo") ?? "";
-          this.filters.vendor = params.get("vendor") ?? "";
-          this.filters.exploitationStatus = params.get("exploitation") ?? "";
-          const tags = params.get("tags");
-          this.filters.tags = tags ? tags.split(",").filter((t) => t) : [];
-          // Load sorting
-          this.sortField = params.get("sort") ?? "exploitationStatus";
-          this.sortDirection = params.get("dir") ?? "desc";
-          // Load pagination
-          this.currentPage = parseInt(params.get("page") ?? "1");
-          this.pageSize = parseInt(params.get("size") ?? "20");
-        },
-        getSeverityClass(score) {
-          if (score >= 9) return "severity-critical";
-          if (score >= 7) return "severity-high";
-          if (score >= 4) return "severity-medium";
-          if (score > 0) return "severity-low";
-          return "severity-none";
-        },
-        formatDate(dateStr) {
-          const date = new Date(dateStr);
-          return date.toLocaleDateString("en-US", {
-            year: "numeric",
-            month: "short",
-            day: "numeric",
-          });
-        },
-        resetFilters() {
-          this.searchQuery = "";
-          this.filters = {
+            ((this.currentPage = 1), this.updatePagination());
+          }));
+      },
+      saveStateToHash() {
+        if (this.loading || 0 === this.vulnerabilities.length || this.initialLoad) return;
+        const t = {
+          q: this.searchQuery,
+          cvssMin: this.filters.cvssMin,
+          cvssMax: this.filters.cvssMax,
+          epssMin: this.filters.epssMin,
+          epssMax: this.filters.epssMax,
+          severity: this.filters.severity,
+          dateFrom: this.filters.dateFrom,
+          dateTo: this.filters.dateTo,
+          vendor: this.filters.vendor,
+          exploitation: this.filters.exploitationStatus,
+          tags: this.filters.tags.join(","),
+          sort: this.sortField,
+          dir: this.sortDirection,
+          page: this.currentPage,
+          size: this.pageSize,
+        };
+        Object.keys(t).forEach((e) => {
+          const s = t[e];
+          (!s ||
+            "" === s ||
+            ("cvssMin" === e && 0 === s) ||
+            ("cvssMax" === e && 10 === s) ||
+            ("epssMin" === e && 0 === s) ||
+            ("epssMax" === e && 100 === s) ||
+            ("page" === e && 1 === s) ||
+            ("size" === e && 20 === s) ||
+            ("sort" === e && "exploitationStatus" === s) ||
+            ("dir" === e && "desc" === s)) &&
+            delete t[e];
+        });
+        const e = new URLSearchParams(
+          Object.fromEntries(Object.entries(t).map(([t, e]) => [t, String(e)]))
+        ).toString();
+        window.location.hash = e;
+      },
+      loadStateFromHash() {
+        const t = window.location.hash.slice(1);
+        if (!t) return;
+        const e = new URLSearchParams(t);
+        ((this.searchQuery = e.get("q") ?? ""),
+          (this.filters.cvssMin = parseFloat(e.get("cvssMin") ?? "0")),
+          (this.filters.cvssMax = parseFloat(e.get("cvssMax") ?? "10")),
+          (this.filters.epssMin = parseInt(e.get("epssMin") ?? "0")),
+          (this.filters.epssMax = parseInt(e.get("epssMax") ?? "100")),
+          (this.filters.severity = e.get("severity") ?? ""),
+          (this.filters.dateFrom = e.get("dateFrom") ?? ""),
+          (this.filters.dateTo = e.get("dateTo") ?? ""),
+          (this.filters.vendor = e.get("vendor") ?? ""),
+          (this.filters.exploitationStatus = e.get("exploitation") ?? ""));
+        const s = e.get("tags");
+        ((this.filters.tags = s ? s.split(",").filter((t) => t) : []),
+          (this.sortField = e.get("sort") ?? "exploitationStatus"),
+          (this.sortDirection = e.get("dir") ?? "desc"),
+          (this.currentPage = parseInt(e.get("page") ?? "1")),
+          (this.pageSize = parseInt(e.get("size") ?? "20")));
+      },
+      getSeverityClass: (t) =>
+        t >= 9
+          ? "severity-critical"
+          : t >= 7
+            ? "severity-high"
+            : t >= 4
+              ? "severity-medium"
+              : t > 0
+                ? "severity-low"
+                : "severity-none",
+      formatDate: (t) =>
+        new Date(t).toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+        }),
+      resetFilters() {
+        ((this.searchQuery = ""),
+          (this.filters = {
             cvssMin: 0,
             cvssMax: 10,
             epssMin: 0,
@@ -794,59 +484,49 @@
             vendor: "",
             exploitationStatus: "",
             tags: [],
-          };
-          this.currentPage = 1;
-          this.applyFilters();
-        },
-        exportResults() {
-          // Track export
-          _analytics__WEBPACK_IMPORTED_MODULE_1__.analytics.trackExport(
-            "csv",
-            this.filteredVulns.length
-          );
-          // Create CSV content
-          const headers = [
-            "CVE ID",
-            "Title",
-            "Exploitation Status",
-            "Severity",
-            "CVSS Score",
-            "EPSS %",
-            "Published Date",
-          ];
-          const rows = this.filteredVulns.map((vuln) => [
-            vuln.cveId,
-            `"${vuln.title.replace(/"/g, '""')}"`,
-            vuln.exploitationStatus,
-            vuln.severity,
-            vuln.cvssScore?.toString() || "",
-            vuln.epssPercentile?.toString() || "",
-            vuln.publishedDate,
-          ]);
-          const csv = [headers, ...rows].map((row) => row.join(",")).join("\n");
-          // Download CSV
-          const blob = new Blob([csv], { type: "text/csv" });
-          const url = URL.createObjectURL(blob);
-          const a = document.createElement("a");
-          a.href = url;
-          a.download = `vulnerabilities-${new Date().toISOString().slice(0, 10)}.csv`;
-          a.click();
-          URL.revokeObjectURL(url);
-        },
-        trackVulnerabilityClick(cveId, riskScore) {
-          _analytics__WEBPACK_IMPORTED_MODULE_1__.analytics.trackVulnerabilityClick(cveId, {
-            riskScore,
-          });
-        },
-        $nextTick(callback) {
-          // This method is provided by Alpine.js at runtime
-          // @ts-ignore
-          this.$nextTick(callback);
-        },
-      }));
-    });
-  })();
-
-  /******/
+          }),
+          (this.currentPage = 1),
+          this.applyFilters());
+      },
+      exportResults() {
+        t.trackExport("csv", this.filteredVulns.length);
+        const e = [
+            [
+              "CVE ID",
+              "Title",
+              "Exploitation Status",
+              "Severity",
+              "CVSS Score",
+              "EPSS %",
+              "Published Date",
+            ],
+            ...this.filteredVulns.map((t) => [
+              t.cveId,
+              `"${t.title.replace(/"/g, '""')}"`,
+              t.exploitationStatus,
+              t.severity,
+              t.cvssScore?.toString() || "",
+              t.epssPercentile?.toString() || "",
+              t.publishedDate,
+            ]),
+          ]
+            .map((t) => t.join(","))
+            .join("\n"),
+          s = new Blob([e], { type: "text/csv" }),
+          i = URL.createObjectURL(s),
+          r = document.createElement("a");
+        ((r.href = i),
+          (r.download = `vulnerabilities-${new Date().toISOString().slice(0, 10)}.csv`),
+          r.click(),
+          URL.revokeObjectURL(i));
+      },
+      trackVulnerabilityClick(e, s) {
+        t.trackVulnerabilityClick(e, { riskScore: s });
+      },
+      $nextTick(t) {
+        this.$nextTick(t);
+      },
+    }));
+  });
 })();
 //# sourceMappingURL=dashboard.js.map

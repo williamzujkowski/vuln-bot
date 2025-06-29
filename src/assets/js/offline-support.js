@@ -1,169 +1,82 @@
-/******/ (() => {
-  // webpackBootstrap
-  /******/ "use strict";
-  /******/ // The require scope
-  /******/ var __webpack_require__ = {};
-  /******/
-  /************************************************************************/
-  /******/ /* webpack/runtime/define property getters */
-  /******/ (() => {
-    /******/ // define getter functions for harmony exports
-    /******/ __webpack_require__.d = (exports, definition) => {
-      /******/ for (var key in definition) {
-        /******/ if (
-          __webpack_require__.o(definition, key) &&
-          !__webpack_require__.o(exports, key)
-        ) {
-          /******/ Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-          /******/
-        }
-        /******/
-      }
-      /******/
-    };
-    /******/
-  })();
-  /******/
-  /******/ /* webpack/runtime/hasOwnProperty shorthand */
-  /******/ (() => {
-    /******/ __webpack_require__.o = (obj, prop) => Object.prototype.hasOwnProperty.call(obj, prop);
-    /******/
-  })();
-  /******/
-  /******/ /* webpack/runtime/make namespace object */
-  /******/ (() => {
-    /******/ // define __esModule on exports
-    /******/ __webpack_require__.r = (exports) => {
-      /******/ if (typeof Symbol !== "undefined" && Symbol.toStringTag) {
-        /******/ Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
-        /******/
-      }
-      /******/ Object.defineProperty(exports, "__esModule", { value: true });
-      /******/
-    };
-    /******/
-  })();
-  /******/
-  /************************************************************************/
-  var __webpack_exports__ = {};
-  /*!******************************************!*\
-  !*** ./src/assets/ts/offline-support.ts ***!
-  \******************************************/
-  __webpack_require__.r(__webpack_exports__);
-  /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-    /* harmony export */ CacheManager: () => /* binding */ CacheManager,
-    /* harmony export */ OfflineIndicator: () => /* binding */ OfflineIndicator,
-    /* harmony export */ OfflineSupport: () => /* binding */ OfflineSupport,
-    /* harmony export */ default: () => /* binding */ OfflineSupport,
-    /* harmony export */
-  });
-  /**
-   * Offline support and service worker registration
-   */
-  class OfflineSupport {
+(() => {
+  "use strict";
+  class e {
     constructor() {
-      this.status = {
+      ((this.status = {
         supported: "serviceWorker" in navigator,
-        registered: false,
+        registered: !1,
         offline: !navigator.onLine,
-        updating: false,
-      };
-      this.listeners = new Map();
-      this.init();
+        updating: !1,
+      }),
+        (this.listeners = new Map()),
+        this.init());
     }
     init() {
-      if (!this.status.supported) {
-        console.warn("Service Worker not supported");
-        return;
-      }
-      this.registerServiceWorker();
-      this.setupOnlineOfflineListeners();
-      this.setupVisibilityChangeListener();
+      this.status.supported
+        ? (this.registerServiceWorker(),
+          this.setupOnlineOfflineListeners(),
+          this.setupVisibilityChangeListener())
+        : console.warn("Service Worker not supported");
     }
     async registerServiceWorker() {
       try {
-        const registration = await navigator.serviceWorker.register(
-          "/vuln-bot/assets/js/service-worker.js",
-          {
-            scope: "/vuln-bot/",
-          }
-        );
-        console.log("Service Worker registered successfully");
-        this.status.registered = true;
-        this.emit("registered", registration);
-        // Listen for service worker updates
-        registration.addEventListener("updatefound", () => {
-          this.status.updating = true;
-          this.emit("updatefound");
-          const newWorker = registration.installing;
-          if (newWorker) {
-            newWorker.addEventListener("statechange", () => {
-              if (newWorker.state === "installed" && navigator.serviceWorker.controller) {
-                this.status.updating = false;
-                this.emit("updateready");
-              }
-            });
-          }
+        const e = await navigator.serviceWorker.register("/vuln-bot/assets/js/service-worker.js", {
+          scope: "/vuln-bot/",
         });
-        // Listen for service worker messages
-        navigator.serviceWorker.addEventListener("message", (event) => {
-          this.handleServiceWorkerMessage(event.data);
-        });
-        // Register for background sync (if supported)
-        if ("sync" in registration) {
-          this.setupBackgroundSync(registration);
-        }
-      } catch (error) {
-        console.error("Service Worker registration failed:", error);
-        this.emit("error", error);
+        (console.log("Service Worker registered successfully"),
+          (this.status.registered = !0),
+          this.emit("registered", e),
+          e.addEventListener("updatefound", () => {
+            ((this.status.updating = !0), this.emit("updatefound"));
+            const t = e.installing;
+            t &&
+              t.addEventListener("statechange", () => {
+                "installed" === t.state &&
+                  navigator.serviceWorker.controller &&
+                  ((this.status.updating = !1), this.emit("updateready"));
+              });
+          }),
+          navigator.serviceWorker.addEventListener("message", (e) => {
+            this.handleServiceWorkerMessage(e.data);
+          }),
+          "sync" in e && this.setupBackgroundSync(e));
+      } catch (e) {
+        (console.error("Service Worker registration failed:", e), this.emit("error", e));
       }
     }
     setupOnlineOfflineListeners() {
-      window.addEventListener("online", () => {
-        this.status.offline = false;
-        this.emit("online");
-        this.syncWhenOnline();
-      });
-      window.addEventListener("offline", () => {
-        this.status.offline = true;
-        this.emit("offline");
-      });
+      (window.addEventListener("online", () => {
+        ((this.status.offline = !1), this.emit("online"), this.syncWhenOnline());
+      }),
+        window.addEventListener("offline", () => {
+          ((this.status.offline = !0), this.emit("offline"));
+        }));
     }
     setupVisibilityChangeListener() {
       document.addEventListener("visibilitychange", () => {
-        if (!document.hidden && navigator.onLine) {
-          this.syncWhenOnline();
-        }
+        !document.hidden && navigator.onLine && this.syncWhenOnline();
       });
     }
-    async setupBackgroundSync(registration) {
+    async setupBackgroundSync(e) {
       try {
-        await registration.sync.register("background-sync-vulns");
-        console.log("Background sync registered");
+        (await e.sync.register("background-sync-vulns"), console.log("Background sync registered"));
       } catch {
         console.log("Background sync not supported or failed to register");
       }
     }
-    handleServiceWorkerMessage(data) {
-      switch (data.type) {
-        case "DATA_UPDATED":
-          this.emit("data-updated", data.message);
-          break;
-        default:
-          console.log("Unhandled service worker message:", data);
-      }
+    handleServiceWorkerMessage(e) {
+      "DATA_UPDATED" === e.type
+        ? this.emit("data-updated", e.message)
+        : console.log("Unhandled service worker message:", e);
     }
     async syncWhenOnline() {
-      if (!navigator.onLine || !this.status.registered) return;
-      try {
-        // Trigger background sync if available
-        const registration = await navigator.serviceWorker.ready;
-        if ("sync" in registration) {
-          await registration.sync.register("background-sync-vulns");
+      if (navigator.onLine && this.status.registered)
+        try {
+          const e = await navigator.serviceWorker.ready;
+          "sync" in e && (await e.sync.register("background-sync-vulns"));
+        } catch (e) {
+          console.log("Background sync trigger failed:", e);
         }
-      } catch (error) {
-        console.log("Background sync trigger failed:", error);
-      }
     }
     getStatus() {
       return { ...this.status };
@@ -175,153 +88,109 @@
       return this.status.supported;
     }
     async updateServiceWorker() {
-      if (!this.status.registered) return;
-      try {
-        const registration = await navigator.serviceWorker.ready;
-        await registration.update();
-        this.emit("update-triggered");
-      } catch (error) {
-        console.error("Service worker update failed:", error);
-        this.emit("error", error);
-      }
+      if (this.status.registered)
+        try {
+          const e = await navigator.serviceWorker.ready;
+          (await e.update(), this.emit("update-triggered"));
+        } catch (e) {
+          (console.error("Service worker update failed:", e), this.emit("error", e));
+        }
     }
     async skipWaiting() {
-      const registration = await navigator.serviceWorker.ready;
-      if (registration.waiting) {
-        registration.waiting.postMessage({ type: "SKIP_WAITING" });
+      const e = await navigator.serviceWorker.ready;
+      e.waiting && e.waiting.postMessage({ type: "SKIP_WAITING" });
+    }
+    on(e, t) {
+      (this.listeners.has(e) || this.listeners.set(e, []), this.listeners.get(e).push(t));
+    }
+    off(e, t) {
+      const s = this.listeners.get(e);
+      if (s) {
+        const e = s.indexOf(t);
+        e > -1 && s.splice(e, 1);
       }
     }
-    // Event system
-    on(event, callback) {
-      if (!this.listeners.has(event)) {
-        this.listeners.set(event, []);
-      }
-      this.listeners.get(event).push(callback);
-    }
-    off(event, callback) {
-      const callbacks = this.listeners.get(event);
-      if (callbacks) {
-        const index = callbacks.indexOf(callback);
-        if (index > -1) {
-          callbacks.splice(index, 1);
-        }
-      }
-    }
-    emit(event, data) {
-      const callbacks = this.listeners.get(event);
-      if (callbacks) {
-        callbacks.forEach((callback) => callback(data));
-      }
+    emit(e, t) {
+      const s = this.listeners.get(e);
+      s && s.forEach((e) => e(t));
     }
   }
-  /**
-   * Offline indicator component
-   */
-  class OfflineIndicator {
-    constructor(offlineSupport) {
-      this.element = null;
-      this.offlineSupport = offlineSupport;
-      this.createIndicator();
-      this.setupEventListeners();
+  class t {
+    constructor(e) {
+      ((this.element = null),
+        (this.offlineSupport = e),
+        this.createIndicator(),
+        this.setupEventListeners());
     }
     createIndicator() {
-      this.element = document.createElement("div");
-      this.element.id = "offline-indicator";
-      this.element.className = "offline-indicator";
-      this.element.setAttribute("role", "status");
-      this.element.setAttribute("aria-live", "polite");
-      this.element.style.cssText = `
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: #dc2626;
-      color: white;
-      text-align: center;
-      padding: 8px;
-      font-size: 14px;
-      transform: translateY(-100%);
-      transition: transform 0.3s ease;
-      z-index: 9999;
-    `;
-      document.body.appendChild(this.element);
+      ((this.element = document.createElement("div")),
+        (this.element.id = "offline-indicator"),
+        (this.element.className = "offline-indicator"),
+        this.element.setAttribute("role", "status"),
+        this.element.setAttribute("aria-live", "polite"),
+        (this.element.style.cssText =
+          "\n      position: fixed;\n      top: 0;\n      left: 0;\n      right: 0;\n      background: #dc2626;\n      color: white;\n      text-align: center;\n      padding: 8px;\n      font-size: 14px;\n      transform: translateY(-100%);\n      transition: transform 0.3s ease;\n      z-index: 9999;\n    "),
+        document.body.appendChild(this.element));
     }
     setupEventListeners() {
-      this.offlineSupport.on("offline", () => {
+      (this.offlineSupport.on("offline", () => {
         this.show("You are currently offline. Some features may be limited.");
-      });
-      this.offlineSupport.on("online", () => {
-        this.show("Connection restored. Syncing data...", "success");
-        setTimeout(() => this.hide(), 3000);
-      });
-      this.offlineSupport.on("data-updated", (message) => {
-        this.show(message, "info");
-        setTimeout(() => this.hide(), 3000);
-      });
-      this.offlineSupport.on("updateready", () => {
-        this.show("New version available. Refresh to update.", "warning");
-      });
+      }),
+        this.offlineSupport.on("online", () => {
+          (this.show("Connection restored. Syncing data...", "success"),
+            setTimeout(() => this.hide(), 3e3));
+        }),
+        this.offlineSupport.on("data-updated", (e) => {
+          (this.show(e, "info"), setTimeout(() => this.hide(), 3e3));
+        }),
+        this.offlineSupport.on("updateready", () => {
+          this.show("New version available. Refresh to update.", "warning");
+        }));
     }
-    show(message, type = "error") {
-      if (!this.element) return;
-      const colors = {
-        error: "#dc2626",
-        success: "#10b981",
-        info: "#2563eb",
-        warning: "#f59e0b",
-      };
-      this.element.textContent = message;
-      this.element.style.backgroundColor = colors[type];
-      this.element.style.transform = "translateY(0)";
+    show(e, t = "error") {
+      this.element &&
+        ((this.element.textContent = e),
+        (this.element.style.backgroundColor = {
+          error: "#dc2626",
+          success: "#10b981",
+          info: "#2563eb",
+          warning: "#f59e0b",
+        }[t]),
+        (this.element.style.transform = "translateY(0)"));
     }
     hide() {
-      if (!this.element) return;
-      this.element.style.transform = "translateY(-100%)";
+      this.element && (this.element.style.transform = "translateY(-100%)");
     }
   }
-  /**
-   * Cache management utilities
-   */
-  class CacheManager {
+  class s {
     static async getCacheSize() {
       if (!("caches" in window)) return 0;
-      let totalSize = 0;
-      const cacheNames = await caches.keys();
-      for (const name of cacheNames) {
-        const cache = await caches.open(name);
-        const keys = await cache.keys();
-        for (const request of keys) {
-          const response = await cache.match(request);
-          if (response) {
-            const blob = await response.blob();
-            totalSize += blob.size;
-          }
+      let e = 0;
+      const t = await caches.keys();
+      for (const s of t) {
+        const t = await caches.open(s),
+          i = await t.keys();
+        for (const s of i) {
+          const i = await t.match(s);
+          i && (e += (await i.blob()).size);
         }
       }
-      return totalSize;
+      return e;
     }
     static async clearCache() {
       if (!("caches" in window)) return;
-      const cacheNames = await caches.keys();
-      await Promise.all(cacheNames.map((name) => caches.delete(name)));
+      const e = await caches.keys();
+      await Promise.all(e.map((e) => caches.delete(e)));
     }
-    static formatBytes(bytes) {
-      if (bytes === 0) return "0 Bytes";
-      const k = 1024;
-      const sizes = ["Bytes", "KB", "MB", "GB"];
-      const i = Math.floor(Math.log(bytes) / Math.log(k));
-      return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + " " + sizes[i];
+    static formatBytes(e) {
+      if (0 === e) return "0 Bytes";
+      const t = Math.floor(Math.log(e) / Math.log(1024));
+      return parseFloat((e / Math.pow(1024, t)).toFixed(2)) + " " + ["Bytes", "KB", "MB", "GB"][t];
     }
   }
-  // Initialize offline support when DOM is ready
   document.addEventListener("DOMContentLoaded", () => {
-    const offlineSupport = new OfflineSupport();
-    new OfflineIndicator(offlineSupport);
-    // Expose to global scope for debugging
-    window.offlineSupport = offlineSupport;
-    window.cacheManager = CacheManager;
+    const i = new e();
+    (new t(i), (window.offlineSupport = i), (window.cacheManager = s));
   });
-
-  /******/
 })();
 //# sourceMappingURL=offline-support.js.map

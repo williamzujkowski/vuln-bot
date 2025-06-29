@@ -101,14 +101,19 @@ export class OfflineSupport {
 
   private async setupBackgroundSync(registration: ServiceWorkerRegistration): Promise<void> {
     try {
-      await (registration as any).sync.register("background-sync-vulns");
+      // Background sync is experimental and requires type assertion
+      await (
+        registration as ServiceWorkerRegistration & {
+          sync: { register: (tag: string) => Promise<void> };
+        }
+      ).sync.register("background-sync-vulns");
       console.log("Background sync registered");
     } catch {
       console.log("Background sync not supported or failed to register");
     }
   }
 
-  private handleServiceWorkerMessage(data: any): void {
+  private handleServiceWorkerMessage(data: { type: string; message?: string }): void {
     switch (data.type) {
       case "DATA_UPDATED":
         this.emit("data-updated", data.message);
@@ -125,7 +130,12 @@ export class OfflineSupport {
       // Trigger background sync if available
       const registration = await navigator.serviceWorker.ready;
       if ("sync" in registration) {
-        await (registration as any).sync.register("background-sync-vulns");
+        // Background sync is experimental and requires type assertion
+        await (
+          registration as ServiceWorkerRegistration & {
+            sync: { register: (tag: string) => Promise<void> };
+          }
+        ).sync.register("background-sync-vulns");
       }
     } catch (error) {
       console.log("Background sync trigger failed:", error);
@@ -182,7 +192,7 @@ export class OfflineSupport {
     }
   }
 
-  private emit(event: string, data?: any): void {
+  private emit(event: string, data?: unknown): void {
     const callbacks = this.listeners.get(event);
     if (callbacks) {
       callbacks.forEach((callback) => callback(data));
@@ -317,9 +327,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const offlineSupport = new OfflineSupport();
   new OfflineIndicator(offlineSupport);
 
-  // Expose to global scope for debugging
-  (window as any).offlineSupport = offlineSupport;
-  (window as any).cacheManager = CacheManager;
+  // Export for global access - debugging only
+  (window as unknown as { offlineSupport: OfflineSupport }).offlineSupport = offlineSupport;
+  (window as unknown as { cacheManager: typeof CacheManager }).cacheManager = CacheManager;
 });
 
 export { OfflineSupport as default };
