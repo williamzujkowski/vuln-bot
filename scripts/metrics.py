@@ -11,7 +11,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-from .models import Vulnerability
+from .models import ExploitationStatus, Vulnerability
 
 
 class MetricsCollector:
@@ -229,7 +229,7 @@ class MetricsCollector:
                 "cvss_score": vuln.cvss_base_score,
                 "epss_score": vuln.epss_score,
                 "severity": vuln.severity,
-                "has_kev": vuln.kev_status is not None,
+                "has_kev": vuln.exploitation_status == ExploitationStatus.ACTIVE,
                 "has_ssvc": vuln.ssvc_decision_data is not None,
                 "vendor_count": len(vuln.vendors),
                 "product_count": len(vuln.products),

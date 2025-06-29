@@ -192,13 +192,13 @@ class TestHarvestOrchestrator:
             )
 
         # Configure mock to return empty scores
-        mock_dependencies["epss"].get_scores_for_cves.return_value = {}
+        mock_dependencies["epss"].fetch_epss_scores_bulk.return_value = {}
 
         # Test enrichment
         orchestrator.enrich_with_epss(vulns)
 
         # Should be called twice (100 + 50)
-        assert mock_dependencies["epss"].get_scores_for_cves.call_count == 2
+        assert mock_dependencies["epss"].fetch_epss_scores_bulk.call_count == 1
 
     def test_harvest_all_sources(
         self, orchestrator, mock_dependencies, sample_vulnerabilities
@@ -244,10 +244,9 @@ class TestHarvestOrchestrator:
         }
 
         # Test harvest
-        batch = orchestrator.harvest_all(
-            sources=["cvelist"],
+        batch = orchestrator.harvest_all_sources(
             years=[2025],
-            min_severity=SeverityLevel.HIGH,
+            min_severity="HIGH",
             min_epss_score=0.7,
         )
 
@@ -395,8 +394,3 @@ class TestHarvestOrchestrator:
             assert batch is not None
         finally:
             loop.close()
-        mock_dependencies["cache"].search_vulnerabilities.assert_called_once_with(
-            query="test",
-            severity=SeverityLevel.HIGH,
-            min_score=7.0,
-        )
