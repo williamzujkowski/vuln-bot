@@ -146,7 +146,7 @@ class TestHarvestOrchestrator:
     ):
         """Test EPSS enrichment."""
         # Configure mock
-        mock_dependencies["epss"].get_scores_for_cves.return_value = {
+        mock_dependencies["epss"].fetch_epss_scores_bulk.return_value = {
             "CVE-2025-1001": EPSSScore(
                 cve_id="CVE-2025-1001",
                 score=0.75,
@@ -164,9 +164,12 @@ class TestHarvestOrchestrator:
         # Test enrichment
         orchestrator.enrich_with_epss(sample_vulnerabilities)
 
+        # The EPSS enrichment sets epss_score on the vulnerability objects
+        assert sample_vulnerabilities[0].epss_score is not None
         assert sample_vulnerabilities[0].epss_score.score == 0.75
+        assert sample_vulnerabilities[1].epss_score is not None
         assert sample_vulnerabilities[1].epss_score.score == 0.85
-        mock_dependencies["epss"].get_scores_for_cves.assert_called_once_with(
+        mock_dependencies["epss"].fetch_epss_scores_bulk.assert_called_once_with(
             ["CVE-2025-1001", "CVE-2025-1002"]
         )
 
@@ -197,7 +200,7 @@ class TestHarvestOrchestrator:
         # Test enrichment
         orchestrator.enrich_with_epss(vulns)
 
-        # Should be called twice (100 + 50)
+        # Should be called once (processes all in one batch)
         assert mock_dependencies["epss"].fetch_epss_scores_bulk.call_count == 1
 
     def test_harvest_all_sources(
@@ -259,7 +262,7 @@ class TestHarvestOrchestrator:
         # Verify methods called
         mock_dependencies["cvelist"].harvest.assert_called_once()
         mock_dependencies["normalizer"].deduplicate_vulnerabilities.assert_called_once()
-        mock_dependencies["epss"].get_scores_for_cves.assert_called_once()
+        mock_dependencies["epss"].fetch_epss_scores_bulk.assert_called_once()
         mock_dependencies["scorer"].score_batch.assert_called_once()
         mock_dependencies["cache"].save_batch.assert_called_once()
 
@@ -323,9 +326,27 @@ class TestHarvestOrchestrator:
         # Configure all sources to return empty
         mock_dependencies["cvelist"].harvest.return_value = []
 
-        batch = orchestrator.harvest_all_sources(
-            years=[2025],
-        )
+        # Mock quality validator
+        from unittest.mock import MagicMock, patch
+
+        with patch(
+            "scripts.harvest.orchestrator.DataQualityValidator"
+        ) as mock_validator_class:
+            mock_validator = MagicMock()
+            mock_validator_class.return_value = mock_validator
+            mock_validator.filter_vulnerabilities.return_value = (
+                [],
+                {"total": 0, "passed": 0, "failed": 0},
+            )
+            mock_validator.get_quality_report.return_value = {
+                "summary": {"total": 0},
+                "quality_issues": [],
+            }
+            orchestrator.quality_validator = mock_validator
+
+            batch = orchestrator.harvest_all_sources(
+                years=[2025],
+            )
 
         assert isinstance(batch, VulnerabilityBatch)
         assert len(batch.vulnerabilities) == 0
@@ -336,9 +357,27 @@ class TestHarvestOrchestrator:
         # Configure mock to raise error
         mock_dependencies["cvelist"].harvest.side_effect = Exception("API down")
 
-        batch = orchestrator.harvest_all_sources(
-            years=[2025],
-        )
+        # Mock quality validator
+        from unittest.mock import MagicMock, patch
+
+        with patch(
+            "scripts.harvest.orchestrator.DataQualityValidator"
+        ) as mock_validator_class:
+            mock_validator = MagicMock()
+            mock_validator_class.return_value = mock_validator
+            mock_validator.filter_vulnerabilities.return_value = (
+                [],
+                {"total": 0, "passed": 0, "failed": 0},
+            )
+            mock_validator.get_quality_report.return_value = {
+                "summary": {"total": 0},
+                "quality_issues": [],
+            }
+            orchestrator.quality_validator = mock_validator
+
+            batch = orchestrator.harvest_all_sources(
+                years=[2025],
+            )
 
         # Should handle error gracefully
         assert isinstance(batch, VulnerabilityBatch)
@@ -380,17 +419,35 @@ class TestHarvestOrchestrator:
         ].deduplicate_vulnerabilities.return_value = sample_vulnerabilities
         mock_dependencies["epss"].fetch_epss_scores_bulk.return_value = {}
 
-        # Test async harvest
-        async def test():
-            batch = await orchestrator.harvest_async()
-            assert isinstance(batch, VulnerabilityBatch)
-            return batch
+        # Add quality validator mock
+        from unittest.mock import MagicMock, patch
 
-        # Run the async test
-        loop = asyncio.new_event_loop()
-        asyncio.set_event_loop(loop)
-        try:
-            batch = loop.run_until_complete(test())
-            assert batch is not None
-        finally:
-            loop.close()
+        with patch(
+            "scripts.harvest.orchestrator.DataQualityValidator"
+        ) as mock_validator_class:
+            mock_validator = MagicMock()
+            mock_validator_class.return_value = mock_validator
+            mock_validator.filter_vulnerabilities.return_value = (
+                sample_vulnerabilities,
+                {"total": 2, "passed": 2, "failed": 0},
+            )
+            mock_validator.get_quality_report.return_value = {
+                "summary": {"total": 2, "passed": 2},
+                "quality_issues": [],
+            }
+            orchestrator.quality_validator = mock_validator
+
+            # Test async harvest
+            async def test():
+                batch = await orchestrator.harvest_async()
+                assert isinstance(batch, VulnerabilityBatch)
+                return batch
+
+            # Run the async test
+            loop = asyncio.new_event_loop()
+            asyncio.set_event_loop(loop)
+            try:
+                batch = loop.run_until_complete(test())
+                assert batch is not None
+            finally:
+                loop.close()

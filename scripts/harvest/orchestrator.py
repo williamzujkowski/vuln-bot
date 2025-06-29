@@ -394,14 +394,18 @@ class HarvestOrchestrator:
 
     async def harvest_async(
         self,
-        days_back: int = 7,
+        years: Optional[List[int]] = None,
         include_sources: Optional[Set[str]] = None,
+        min_epss_score: float = 0.6,
+        min_severity: str = "HIGH",
     ) -> VulnerabilityBatch:
         """Asynchronous version of harvest_all_sources.
 
         Args:
-            days_back: Number of days to look back
+            years: List of years to harvest (default: [2025])
             include_sources: Set of sources to include (None = all)
+            min_epss_score: Minimum EPSS score threshold (0.0-1.0)
+            min_severity: Minimum severity level (HIGH or CRITICAL)
 
         Returns:
             Batch of harvested and processed vulnerabilities
@@ -411,6 +415,8 @@ class HarvestOrchestrator:
         return await loop.run_in_executor(
             None,
             self.harvest_all_sources,
-            days_back,
+            years,
             include_sources,
+            min_epss_score,
+            min_severity,
         )

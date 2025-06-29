@@ -231,8 +231,8 @@ class MetricsCollector:
                 "severity": vuln.severity,
                 "has_kev": vuln.exploitation_status == ExploitationStatus.ACTIVE,
                 "has_ssvc": False,  # SSVC data not available in current model
-                "vendor_count": len(vuln.vendors),
-                "product_count": len(vuln.products),
+                "vendor_count": len(vuln.affected_vendors),
+                "product_count": len(vuln.affected_products),
                 "reference_count": len(vuln.references),
                 "tag_count": len(vuln.tags),
             }
