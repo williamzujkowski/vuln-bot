@@ -28,13 +28,13 @@ class CVEClient(BaseAPIClient):
             api_key: CVE API key (optional but recommended)
             **kwargs: Additional arguments for BaseAPIClient
         """
+        self.api_key = api_key or os.getenv("CVE_API_KEY")
         super().__init__(
             base_url="https://services.nvd.nist.gov/rest/json/cves/2.0",
-            rate_limit_calls=5 if not api_key else 30,  # Higher limit with API key
+            rate_limit_calls=5 if not self.api_key else 30,  # Higher limit with API key
             rate_limit_period=60.0,
             **kwargs,
         )
-        self.api_key = api_key or os.getenv("CVE_API_KEY")
         self.logger = structlog.get_logger(self.__class__.__name__)
 
     def get_headers(self) -> Dict[str, str]:
