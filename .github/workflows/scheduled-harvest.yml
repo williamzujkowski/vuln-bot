@@ -82,7 +82,7 @@ jobs:
             --min-epss 0.1 2>&1 | tee harvest.log
           
           # Extract metrics from log
-          VULNS_FOUND=$(grep -o "Harvested [0-9]\+ vulnerabilities" harvest.log | grep -o "[0-9]\+" || echo "0")
+          VULNS_FOUND=$(grep -o "Total vulnerabilities: [0-9]\+" harvest.log | grep -o "[0-9]\+" | tail -1 || echo "0")
           echo "vulnerabilities_found=$VULNS_FOUND" >> $GITHUB_OUTPUT
           echo "Found $VULNS_FOUND vulnerabilities in harvest"
           
@@ -91,8 +91,9 @@ jobs:
             echo "::warning::Some API fetch failures detected"
           fi
           
-          if [ "$VULNS_FOUND" = "0" ]; then
-            echo "::warning::No vulnerabilities found - this may indicate an issue"
+          # Check if no vulnerabilities were selected (not just harvested)
+          if grep -q "selected=0" harvest.log; then
+            echo "::warning::No vulnerabilities were selected after filtering - check thresholds"
           fi
       
       - name: Generate vulnerability briefing
