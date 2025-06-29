@@ -145,7 +145,7 @@ def sample_vulnerabilities():
             affected_vendors=["vendor3"],
             affected_products=["browser"],
             references=[],
-            exploitation_status=ExploitationStatus.UNPROVEN,
+            exploitation_status=ExploitationStatus.NONE,
             sources=[
                 VulnerabilitySource(
                     name="CVEList",
