@@ -6,51 +6,62 @@ from pathlib import Path
 
 import pytest
 
-from scripts.models import SeverityLevel, Vulnerability, VulnerabilityBatch
+from scripts.models import (
+    EPSSScore,
+    Reference,
+    SeverityLevel,
+    Vulnerability,
+    VulnerabilityBatch,
+)
 from scripts.processing.optimized_briefing_generator import OptimizedBriefingGenerator
 
 
 @pytest.fixture
 def sample_vulnerabilities():
     """Create sample vulnerabilities for testing."""
+    from scripts.models import EPSSScore, Reference
+
     vuln1 = Vulnerability(
         cve_id="CVE-2024-1234",
+        title="Critical vulnerability in system A",
         description="Critical vulnerability in system A",
         severity=SeverityLevel.CRITICAL,
-        published=datetime.now() - timedelta(days=1),
-        last_modified=datetime.now(),
+        published_date=datetime.now() - timedelta(days=1),
+        last_modified_date=datetime.now(),
         cvss_base_score=9.5,
-        epss_score=0.85,
+        epss_score=EPSSScore(score=0.85, percentile=95.0, date=datetime.now()),
         affected_vendors=["Vendor A"],
-        references=["https://example.com/advisory1"],
+        references=[Reference(url="https://example.com/advisory1")],
         risk_score=85.0,
         tags=["infrastructure", "critical"],
     )
 
     vuln2 = Vulnerability(
         cve_id="CVE-2024-5678",
+        title="High severity vulnerability in system B",
         description="High severity vulnerability in system B",
         severity=SeverityLevel.HIGH,
-        published=datetime.now() - timedelta(days=2),
-        last_modified=datetime.now() - timedelta(days=1),
+        published_date=datetime.now() - timedelta(days=2),
+        last_modified_date=datetime.now() - timedelta(days=1),
         cvss_base_score=8.5,
-        epss_score=0.75,
+        epss_score=EPSSScore(score=0.75, percentile=85.0, date=datetime.now()),
         affected_vendors=["Vendor B"],
-        references=["https://example.com/advisory2"],
+        references=[Reference(url="https://example.com/advisory2")],
         risk_score=75.0,
         tags=["application", "high"],
     )
 
     vuln3 = Vulnerability(
         cve_id="CVE-2025-9999",
+        title="Critical vulnerability in system C",
         description="Critical vulnerability in system C",
         severity=SeverityLevel.CRITICAL,
-        published=datetime.now() - timedelta(days=3),
-        last_modified=datetime.now() - timedelta(days=2),
+        published_date=datetime.now() - timedelta(days=3),
+        last_modified_date=datetime.now() - timedelta(days=2),
         cvss_base_score=9.8,
-        epss_score=0.95,
+        epss_score=EPSSScore(score=0.95, percentile=98.0, date=datetime.now()),
         affected_vendors=["Vendor C"],
-        references=["https://example.com/advisory3"],
+        references=[Reference(url="https://example.com/advisory3")],
         risk_score=95.0,
         tags=["infrastructure", "critical"],
     )
@@ -185,14 +196,19 @@ class TestOptimizedBriefingGenerator:
 
             vuln = Vulnerability(
                 cve_id=f"CVE-{year}-{i:04d}",
+                title=f"Test vulnerability {i}",
                 description=f"Test vulnerability {i}",
                 severity=severity,
-                published=datetime.now() - timedelta(days=i),
-                last_modified=datetime.now(),
+                published_date=datetime.now() - timedelta(days=i),
+                last_modified_date=datetime.now(),
                 cvss_base_score=7.0 + (i % 3),
-                epss_score=0.7 + (i % 30) / 100,
+                epss_score=EPSSScore(
+                    score=0.7 + (i % 30) / 100,
+                    percentile=70.0 + (i % 30),
+                    date=datetime.now(),
+                ),
                 affected_vendors=[f"Vendor{i % 10}"],
-                references=[f"https://example.com/advisory{i}"],
+                references=[Reference(url=f"https://example.com/advisory{i}")],
                 risk_score=70.0 + (i % 30),
             )
             vulnerabilities.append(vuln)
@@ -217,14 +233,17 @@ class TestOptimizedBriefingGenerator:
         # Create vulnerability with datetime objects and special characters
         vuln = Vulnerability(
             cve_id="CVE-2024-EDGE",
+            title="Test with special chars",
             description="Test with special chars: ñ, 中文, emoji 🔒",
             severity=SeverityLevel.CRITICAL,
-            published=datetime.now(),
-            last_modified=datetime.now(),
+            published_date=datetime.now(),
+            last_modified_date=datetime.now(),
             cvss_base_score=9.0,
-            epss_score=0.9,
+            epss_score=EPSSScore(score=0.9, percentile=95.0, date=datetime.now()),
             affected_vendors=["Vendor-A", "Vendor/B", "Vendor\\C"],
-            references=["https://example.com/test?param=value&other=123"],
+            references=[
+                Reference(url="https://example.com/test?param=value&other=123")
+            ],
             risk_score=90.0,
             tags=["tag-with-dash", "tag_with_underscore", "tag.with.dot"],
         )

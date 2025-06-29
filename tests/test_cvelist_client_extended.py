@@ -1,10 +1,9 @@
-"""Extended tests for CVEList client to improve coverage."""
+"""Extended tests for CVEListClient to improve coverage."""
 
-from datetime import datetime
-from unittest.mock import Mock, patch
+from datetime import datetime, timedelta
+from unittest.mock import patch
 
 import pytest
-import requests
 
 from scripts.harvest.cvelist_client import CVEListClient
 from scripts.models import SeverityLevel
@@ -14,246 +13,309 @@ class TestCVEListClientExtended:
     """Extended test cases for CVEListClient."""
 
     @pytest.fixture
-    def client(self, tmp_path):
+    def temp_repo_path(self, tmp_path):
+        """Create temporary repository path."""
+        repo_path = tmp_path / "cvelist"
+        repo_path.mkdir()
+        return repo_path
+
+    @pytest.fixture
+    def client(self, temp_repo_path):
         """Create CVEListClient instance."""
-        return CVEListClient(cache_dir=tmp_path / "cache", github_token="test-token")
+        return CVEListClient(
+            local_repo_path=temp_repo_path,
+            use_github_api=True,
+            use_releases=False,
+            cache_dir=temp_repo_path / "cache",
+        )
 
-    def test_fetch_directory_listing(self, client):
-        """Test fetching directory listing from GitHub API."""
-        mock_response = Mock()
-        mock_response.status_code = 200
-        mock_response.json.return_value = [
-            {"name": "CVE-2024-0001.json", "type": "file"},
-            {"name": "CVE-2024-0002.json", "type": "file"},
-            {"name": "README.md", "type": "file"},
-        ]
+    def test_get_headers(self, client):
+        """Test header generation."""
+        headers = client.get_headers()
+        assert "User-Agent" in headers
+        assert "Accept" in headers
 
-        with patch.object(client.session, "get", return_value=mock_response):
-            files = client._fetch_directory_listing("2024/0xxx")
+    def test_initialization_options(self, temp_repo_path):
+        """Test different initialization options."""
+        # With GitHub API
+        client1 = CVEListClient(use_github_api=True)
+        assert client1.base_url == CVEListClient.GITHUB_RAW_URL
 
-            # Should only return CVE JSON files
-            assert len(files) == 2
-            assert all(f.startswith("CVE-") for f in files)
+        # Without GitHub API
+        client2 = CVEListClient(use_github_api=False)
+        assert client2.base_url == ""
 
-    def test_fetch_directory_listing_pagination(self, client):
-        """Test handling of paginated directory listings."""
-        # First page
-        mock_response1 = Mock()
-        mock_response1.status_code = 200
-        mock_response1.json.return_value = [
-            {"name": f"CVE-2024-{i:04d}.json", "type": "file"} for i in range(100)
-        ]
-        mock_response1.links = {"next": {"url": "https://api.github.com/next"}}
+        # With local repo
+        client3 = CVEListClient(local_repo_path=temp_repo_path)
+        assert client3.local_repo_path == temp_repo_path
 
-        # Second page
-        mock_response2 = Mock()
-        mock_response2.status_code = 200
-        mock_response2.json.return_value = [
-            {"name": f"CVE-2024-{i:04d}.json", "type": "file"} for i in range(100, 150)
-        ]
-        mock_response2.links = {}
+    def test_fetch_cve_from_api(self, client):
+        """Test fetching CVE from API."""
+        cve_id = "CVE-2024-1234"
+        year = "2024"
 
-        with patch.object(
-            client.session, "get", side_effect=[mock_response1, mock_response2]
-        ):
-            files = client._fetch_directory_listing("2024/0xxx")
-
-            assert len(files) == 150
-
-    def test_fetch_directory_listing_error(self, client):
-        """Test error handling in directory listing."""
-        mock_response = Mock()
-        mock_response.status_code = 404
-        mock_response.raise_for_status.side_effect = requests.HTTPError("Not found")
-
-        with patch.object(client.session, "get", return_value=mock_response):
-            files = client._fetch_directory_listing("invalid/path")
-
-            # Should return empty list on error
-            assert files == []
-
-    def test_harvest_year_directory(self, client):
-        """Test harvesting a full year directory."""
-        # Mock subdirectory listings
-        subdirs = ["0xxx", "1xxx", "2xxx"]
-
-        def mock_get(url, **kwargs):  # noqa: ARG001
-            response = Mock()
-            response.status_code = 200
-
-            if url.endswith("/2024"):
-                # Year directory listing
-                response.json.return_value = [
-                    {"name": subdir, "type": "dir"} for subdir in subdirs
-                ]
-            elif any(subdir in url for subdir in subdirs):
-                # Subdirectory listing
-                response.json.return_value = [
-                    {"name": "CVE-2024-0001.json", "type": "file"}
-                ]
-            else:
-                # CVE file content
-                response.json.return_value = {
-                    "cveMetadata": {"cveId": "CVE-2024-0001"},
-                    "containers": {
-                        "cna": {
-                            "metrics": [
-                                {
-                                    "cvssV3_1": {
-                                        "baseScore": 9.0,
-                                        "baseSeverity": "CRITICAL",
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                }
-
-            response.links = {}
-            return response
-
-        with patch.object(client.session, "get", side_effect=mock_get):
-            vulns = list(
-                client._harvest_year_directory(2024, min_severity=SeverityLevel.HIGH)
-            )
-
-            # Should process vulnerabilities from all subdirectories
-            assert len(vulns) > 0
-
-    def test_parse_cisa_adp_container(self, client):
-        """Test parsing CISA ADP container data."""
-        cve_data = {
-            "cveMetadata": {"cveId": "CVE-2024-0001"},
+        mock_response = {
+            "cveMetadata": {
+                "cveId": cve_id,
+                "assignerOrgId": "test-org",
+                "state": "PUBLISHED",
+                "datePublished": "2024-01-01T00:00:00Z",
+                "dateUpdated": "2024-01-02T00:00:00Z",
+            },
             "containers": {
                 "cna": {
+                    "title": "Test vulnerability",
+                    "descriptions": [{"lang": "en", "value": "Test description"}],
                     "metrics": [
-                        {"cvssV3_1": {"baseScore": 8.0, "baseSeverity": "HIGH"}}
-                    ]
+                        {
+                            "cvssV3_1": {
+                                "baseScore": 9.8,
+                                "baseSeverity": "CRITICAL",
+                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                            }
+                        }
+                    ],
+                    "references": [{"url": "https://example.com/advisory"}],
+                }
+            },
+        }
+
+        with patch.object(client, "get", return_value=mock_response):
+            result = client.fetch_cve_from_api(cve_id, year)
+            assert result == mock_response
+
+    def test_parse_cve_record(self, client):
+        """Test parsing CVE record."""
+        record = {
+            "cveMetadata": {
+                "cveId": "CVE-2024-1234",
+                "state": "PUBLISHED",
+                "datePublished": "2024-01-01T00:00:00Z",
+                "dateUpdated": "2024-01-02T00:00:00Z",
+            },
+            "containers": {
+                "cna": {
+                    "title": "Test vulnerability",
+                    "descriptions": [{"lang": "en", "value": "Test description"}],
+                    "metrics": [
+                        {
+                            "cvssV3_1": {
+                                "baseScore": 9.8,
+                                "baseSeverity": "CRITICAL",
+                                "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                            }
+                        }
+                    ],
+                    "affected": [{"vendor": "TestVendor", "product": "TestProduct"}],
+                    "references": [{"url": "https://example.com/advisory"}],
+                }
+            },
+        }
+
+        vuln = client.parse_cve_record(record)
+
+        assert vuln is not None
+        assert vuln.cve_id == "CVE-2024-1234"
+        assert vuln.title == "Test vulnerability"
+        assert vuln.description == "Test description"
+        assert vuln.severity == SeverityLevel.CRITICAL
+        assert vuln.cvss_base_score == 9.8
+        assert len(vuln.references) == 1
+        assert vuln.references[0].url == "https://example.com/advisory"
+
+    def test_parse_cvss_metrics(self, client):
+        """Test parsing different CVSS versions."""
+        # CVSS v3.1
+        metrics_v31 = [
+            {
+                "cvssV3_1": {
+                    "baseScore": 8.5,
+                    "baseSeverity": "HIGH",
+                    "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                }
+            }
+        ]
+
+        result = client.parse_cvss_metrics(metrics_v31)
+        assert result["base_score"] == 8.5
+        assert result["severity"] == SeverityLevel.HIGH
+
+        # CVSS v3.0
+        metrics_v30 = [
+            {
+                "cvssV3_0": {
+                    "baseScore": 7.5,
+                    "baseSeverity": "HIGH",
+                    "vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+                }
+            }
+        ]
+
+        result = client.parse_cvss_metrics(metrics_v30)
+        assert result["base_score"] == 7.5
+
+        # CVSS v2.0
+        metrics_v20 = [
+            {
+                "cvssV2_0": {
+                    "baseScore": 6.5,
+                    "vectorString": "AV:N/AC:L/Au:N/C:P/I:P/A:P",
+                }
+            }
+        ]
+
+        result = client.parse_cvss_metrics(metrics_v20)
+        assert result["base_score"] == 6.5
+
+        # No metrics
+        result = client.parse_cvss_metrics([])
+        assert result["base_score"] is None
+        assert result["severity"] == SeverityLevel.MEDIUM
+
+    def test_extract_affected_products(self, client):
+        """Test extracting affected products."""
+        affected = [
+            {
+                "vendor": "Vendor1",
+                "product": "Product1",
+                "versions": [
+                    {"version": "1.0", "status": "affected"},
+                    {"version": "1.1", "status": "affected"},
+                ],
+            },
+            {"vendor": "Vendor2", "product": "Product2"},
+        ]
+
+        vendors = client.extract_affected_vendors(affected)
+        assert "Vendor1" in vendors
+        assert "Vendor2" in vendors
+
+    def test_parse_references(self, client):
+        """Test parsing references."""
+        references = [
+            {"url": "https://example.com/advisory"},
+            {"url": "https://github.com/vendor/repo/security/advisories/GHSA-1234"},
+            {
+                "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-1234",
+                "tags": ["official"],
+            },
+            {"name": "Reference without URL"},
+        ]
+
+        parsed = client.parse_references(references)
+        assert len(parsed) == 3  # Only those with URLs
+        assert parsed[0].url == "https://example.com/advisory"
+        assert parsed[1].source == "github"
+        assert "official" in parsed[2].tags
+
+    def test_harvest_date_range(self, client):
+        """Test harvesting by date range."""
+        start_date = datetime.now() - timedelta(days=7)
+        end_date = datetime.now()
+
+        # Mock the directory listing and CVE fetching
+        mock_listing = [
+            {"name": "CVE-2024-0001.json", "type": "file"},
+            {"name": "CVE-2024-0002.json", "type": "file"},
+        ]
+
+        mock_cve1 = {
+            "cveMetadata": {
+                "cveId": "CVE-2024-0001",
+                "state": "PUBLISHED",
+                "datePublished": (datetime.now() - timedelta(days=3)).isoformat() + "Z",
+                "dateUpdated": (datetime.now() - timedelta(days=2)).isoformat() + "Z",
+            },
+            "containers": {
+                "cna": {
+                    "title": "Test CVE 1",
+                    "descriptions": [{"lang": "en", "value": "Test description 1"}],
+                }
+            },
+        }
+
+        mock_cve2 = {
+            "cveMetadata": {
+                "cveId": "CVE-2024-0002",
+                "state": "PUBLISHED",
+                "datePublished": (datetime.now() - timedelta(days=10)).isoformat()
+                + "Z",
+                "dateUpdated": (datetime.now() - timedelta(days=9)).isoformat() + "Z",
+            },
+            "containers": {
+                "cna": {
+                    "title": "Test CVE 2",
+                    "descriptions": [{"lang": "en", "value": "Test description 2"}],
+                }
+            },
+        }
+
+        with patch.object(
+            client, "_fetch_directory_listing", return_value=mock_listing
+        ), patch.object(client, "get", side_effect=[mock_cve1, mock_cve2]):
+            vulns = list(client.harvest_date_range(start_date, end_date))
+
+            # Should only include CVE-2024-0001 (within date range)
+            assert len(vulns) == 1
+            assert vulns[0].cve_id == "CVE-2024-0001"
+
+    def test_handle_cisa_adp_container(self, client):
+        """Test handling CISA ADP container."""
+        record = {
+            "cveMetadata": {
+                "cveId": "CVE-2024-1234",
+                "state": "PUBLISHED",
+                "datePublished": "2024-01-01T00:00:00Z",
+                "dateUpdated": "2024-01-02T00:00:00Z",
+            },
+            "containers": {
+                "cna": {
+                    "title": "Test vulnerability",
+                    "descriptions": [{"lang": "en", "value": "Test description"}],
                 },
                 "adp": [
                     {
-                        "providerMetadata": {"shortName": "CISA-ADP"},
-                        "metrics": [
-                            {
-                                "other": {
-                                    "type": "ssvc",
-                                    "content": {
-                                        "exploitability": "active",
-                                        "cisaKev": True,
-                                    },
-                                }
-                            }
-                        ],
+                        "providerMetadata": {
+                            "orgId": "134c704f-9b21-4f2e-91b3-4a467353bcc0"  # CISA org ID
+                        },
+                        "title": "CISA-ADP: Known Exploited Vulnerability",
+                        "cisaKnownExploited": True,
+                        "cisaActionDue": "2024-01-15",
                     }
                 ],
             },
         }
 
-        vuln = client._parse_cve_v5_record(cve_data)
-
+        vuln = client.parse_cve_record(record)
         assert vuln is not None
-        assert vuln.tags is not None
-        assert "cisa-kev" in vuln.tags
-        assert "active-exploitation" in vuln.tags
+        assert vuln.cisa_kev is True
+        assert vuln.cisa_kev_due_date is not None
 
-    def test_filter_by_date_range(self, client):
-        """Test date range filtering."""
-        # Create vulnerabilities with different dates
-        recent_cve = {
+    def test_error_handling(self, client):
+        """Test error handling in CVE parsing."""
+        # Invalid record
+        invalid_record = {"invalid": "data"}
+        vuln = client.parse_cve_record(invalid_record)
+        assert vuln is None
+
+        # Missing required fields
+        incomplete_record = {
+            "cveMetadata": {"cveId": "CVE-2024-1234"},
+            "containers": {},
+        }
+        vuln = client.parse_cve_record(incomplete_record)
+        assert vuln is None
+
+    def test_rejected_cve_handling(self, client):
+        """Test handling of rejected CVEs."""
+        rejected_record = {
             "cveMetadata": {
-                "cveId": "CVE-2024-0001",
-                "datePublished": datetime.now().isoformat(),
+                "cveId": "CVE-2024-9999",
+                "state": "REJECTED",
+                "datePublished": "2024-01-01T00:00:00Z",
             },
-            "containers": {
-                "cna": {
-                    "metrics": [
-                        {"cvssV3_1": {"baseScore": 9.0, "baseSeverity": "CRITICAL"}}
-                    ]
-                }
-            },
+            "containers": {},
         }
 
-        old_cve = {
-            "cveMetadata": {
-                "cveId": "CVE-2023-0001",
-                "datePublished": "2023-01-01T00:00:00Z",
-            },
-            "containers": {
-                "cna": {
-                    "metrics": [
-                        {"cvssV3_1": {"baseScore": 9.0, "baseSeverity": "CRITICAL"}}
-                    ]
-                }
-            },
-        }
-
-        # Parse both
-        recent_vuln = client._parse_cve_v5_record(recent_cve)
-        old_vuln = client._parse_cve_v5_record(old_cve)
-
-        assert recent_vuln is not None
-        assert old_vuln is not None
-
-        # Check dates
-        assert recent_vuln.published.year == datetime.now().year
-        assert old_vuln.published.year == 2023
-
-    def test_batch_processing(self, client):
-        """Test batch processing of CVE files."""
-        cve_files = [f"CVE-2024-{i:04d}.json" for i in range(10)]
-
-        def mock_get(url, **kwargs):  # noqa: ARG001
-            response = Mock()
-            response.status_code = 200
-
-            # Extract CVE ID from URL
-            cve_id = url.split("/")[-1].replace(".json", "")
-
-            response.json.return_value = {
-                "cveMetadata": {"cveId": cve_id},
-                "containers": {
-                    "cna": {
-                        "metrics": [
-                            {"cvssV3_1": {"baseScore": 7.5, "baseSeverity": "HIGH"}}
-                        ]
-                    }
-                },
-            }
-
-            return response
-
-        with patch.object(client.session, "get", side_effect=mock_get):
-            vulns = list(
-                client._process_cve_batch(
-                    cve_files, "2024/0xxx", min_severity=SeverityLevel.HIGH
-                )
-            )
-
-            assert len(vulns) == 10
-            assert all(v.severity == SeverityLevel.HIGH for v in vulns)
-
-    def test_rate_limit_handling(self, client):
-        """Test GitHub API rate limit handling."""
-        # First request hits rate limit
-        rate_limit_response = Mock()
-        rate_limit_response.status_code = 403
-        rate_limit_response.headers = {
-            "X-RateLimit-Remaining": "0",
-            "X-RateLimit-Reset": str(int(datetime.now().timestamp()) + 60),
-        }
-        rate_limit_response.raise_for_status.side_effect = requests.HTTPError(
-            "Rate limited"
-        )
-
-        # Second request succeeds
-        success_response = Mock()
-        success_response.status_code = 200
-        success_response.json.return_value = []
-
-        with patch.object(
-            client.session, "get", side_effect=[rate_limit_response, success_response]
-        ), patch("time.sleep"):  # Don't actually sleep in tests
-            files = client._fetch_directory_listing("2024/0xxx")
-
-            # Should retry after rate limit
-            assert isinstance(files, list)
+        vuln = client.parse_cve_record(rejected_record)
+        assert vuln is None

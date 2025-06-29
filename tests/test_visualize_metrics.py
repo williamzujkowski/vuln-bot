@@ -1,263 +1,243 @@
 """Tests for the metrics visualization module."""
 
-import json
-import sqlite3
-
-# Import the module functions we need to test
-import sys
-from datetime import datetime, timedelta
-from pathlib import Path
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 
 import pytest
 
-sys.path.insert(0, str(Path(__file__).parent.parent))
+from scripts.visualize_metrics import (
+    format_duration,
+    generate_github_summary,
+    print_harvest_summary,
+)
 
 
 class TestVisualizeMetrics:
     """Test cases for metrics visualization."""
 
     @pytest.fixture
-    def temp_db(self, tmp_path):
-        """Create temporary metrics database with test data."""
-        db_path = tmp_path / "test_metrics.db"
+    def sample_summary(self):
+        """Create a sample harvest summary."""
+        return {
+            "harvest_id": "test-harvest-001",
+            "status": "success",
+            "duration_seconds": 125.5,
+            "start_time": "2024-01-01T10:00:00Z",
+            "end_time": "2024-01-01T10:02:05Z",
+            "total_vulnerabilities": 150,
+            "risk_distribution": {"critical": 25, "high": 50, "medium": 50, "low": 25},
+            "statistics": {
+                "average_risk_score": 75.5,
+                "critical_count": 25,
+                "has_epss_count": 100,
+                "has_cisa_kev": 10,
+            },
+            "performance": {
+                "total_duration": 125.5,
+                "api_calls": 200,
+                "cache_hits": 150,
+                "cache_hit_rate": 0.75,
+            },
+            "errors": [],
+        }
 
-        # Create tables
-        conn = sqlite3.connect(str(db_path))
-        cursor = conn.cursor()
+    def test_format_duration(self):
+        """Test duration formatting."""
+        # Seconds
+        assert format_duration(45.5) == "45.5 seconds"
 
-        # Create schema (matching metrics.py structure)
-        cursor.execute("""
-            CREATE TABLE IF NOT EXISTS harvest_runs (
-                harvest_id TEXT PRIMARY KEY,
-                start_time TIMESTAMP,
-                end_time TIMESTAMP,
-                status TEXT,
-                total_vulnerabilities INTEGER,
-                high_priority_count INTEGER,
-                error_count INTEGER
-            )
-        """)
+        # Minutes
+        assert format_duration(125.5) == "2.1 minutes"
 
-        cursor.execute("""
-            CREATE TABLE IF NOT EXISTS harvest_metrics (
-                metric_id INTEGER PRIMARY KEY AUTOINCREMENT,
-                harvest_id TEXT,
-                metric_type TEXT,
-                metric_name TEXT,
-                metric_value REAL,
-                recorded_at TIMESTAMP,
-                FOREIGN KEY (harvest_id) REFERENCES harvest_runs(harvest_id)
-            )
-        """)
+        # Hours
+        assert format_duration(3700) == "1.0 hours"
+        assert format_duration(7200) == "2.0 hours"
 
-        # Insert test data
-        now = datetime.now()
-        harvest_id = "test-harvest-001"
-
-        cursor.execute(
-            """
-            INSERT INTO harvest_runs VALUES (?, ?, ?, ?, ?, ?, ?)
-        """,
-            (
-                harvest_id,
-                now - timedelta(minutes=5),
-                now,
-                "success",
-                150,  # total vulnerabilities
-                25,  # high priority
-                2,  # errors
-            ),
-        )
-
-        # Add some metrics
-        metrics = [
-            ("api_response_time", "github_api", 1.234),
-            ("api_response_time", "epss_api", 0.567),
-            ("cache_hit_rate", "overall", 0.85),
-            ("processing_time", "enrichment", 45.6),
-            ("vulnerabilities_processed", "total", 150),
-        ]
-
-        for metric_type, metric_name, value in metrics:
-            cursor.execute(
-                """
-                INSERT INTO harvest_metrics (harvest_id, metric_type, metric_name, metric_value, recorded_at)
-                VALUES (?, ?, ?, ?, ?)
-            """,
-                (harvest_id, metric_type, metric_name, value, now),
-            )
-
-        conn.commit()
-        conn.close()
-
-        return db_path
-
-    def test_format_text_output(self, temp_db):
-        """Test text format output."""
-        from scripts.visualize_metrics import format_metrics
-
-        metrics = format_metrics(str(temp_db), format_type="text")
-
-        # Check output contains expected elements
-        assert "Harvest Run Summary" in metrics
-        assert "test-harvest-001" in metrics
-        assert "Total Vulnerabilities: 150" in metrics
-        assert "High Priority Count: 25" in metrics
-        assert "Status: success" in metrics
-
-    def test_format_github_output(self, temp_db):
-        """Test GitHub markdown format output."""
-        from scripts.visualize_metrics import format_metrics
-
-        metrics = format_metrics(str(temp_db), format_type="github")
-
-        # Check markdown formatting
-        assert "##" in metrics  # Headers
-        assert "|" in metrics  # Table formatting
-        assert "✅" in metrics  # Success emoji
-        assert "📊" in metrics  # Chart emoji
-
-    def test_format_json_output(self, temp_db):
-        """Test JSON format output."""
-        from scripts.visualize_metrics import format_metrics
-
-        metrics_json = format_metrics(str(temp_db), format_type="json")
-
-        # Should be valid JSON
-        metrics = json.loads(metrics_json)
-
-        # Check structure
-        assert "harvest_runs" in metrics
-        assert "metrics" in metrics
-        assert len(metrics["harvest_runs"]) > 0
-        assert metrics["harvest_runs"][0]["harvest_id"] == "test-harvest-001"
-
-    def test_get_recent_harvests(self, temp_db):
-        """Test retrieving recent harvest runs."""
-        from scripts.visualize_metrics import get_recent_harvests
-
-        # Add more harvest runs
-        conn = sqlite3.connect(str(temp_db))
-        cursor = conn.cursor()
-
-        now = datetime.now()
-        for i in range(5):
-            harvest_id = f"test-harvest-{i:03d}"
-            cursor.execute(
-                """
-                INSERT INTO harvest_runs VALUES (?, ?, ?, ?, ?, ?, ?)
-            """,
-                (
-                    harvest_id,
-                    now - timedelta(hours=i * 4),
-                    now - timedelta(hours=i * 4, minutes=-5),
-                    "success" if i % 2 == 0 else "partial",
-                    100 + i * 10,
-                    20 + i,
-                    i,
-                ),
-            )
-
-        conn.commit()
-        conn.close()
-
-        # Get recent harvests
-        recent = get_recent_harvests(str(temp_db), limit=3)
-
-        assert len(recent) == 3
-        # Should be ordered by most recent first
-        assert recent[0]["harvest_id"] == "test-harvest-000"
-
-    def test_calculate_statistics(self, temp_db):
-        """Test statistical calculations."""
-        from scripts.visualize_metrics import calculate_statistics
-
-        stats = calculate_statistics(str(temp_db))
-
-        # Check calculated stats
-        assert "average_vulnerabilities" in stats
-        assert "success_rate" in stats
-        assert "average_duration" in stats
-        assert stats["average_vulnerabilities"] == 150.0
-        assert stats["success_rate"] == 1.0  # 100% success
-
-    def test_export_metrics(self, temp_db, tmp_path):
-        """Test metrics export functionality."""
-        from scripts.visualize_metrics import export_metrics
-
-        export_path = tmp_path / "metrics_export.json"
-
-        export_metrics(str(temp_db), str(export_path))
-
-        # Check file was created
-        assert export_path.exists()
-
-        # Verify content
-        with open(export_path) as f:
-            exported = json.load(f)
-            assert "harvest_runs" in exported
-            assert "metrics" in exported
-            assert "statistics" in exported
-
-    def test_empty_database(self, tmp_path):
-        """Test handling of empty database."""
-        from scripts.visualize_metrics import format_metrics
-
-        # Create empty database
-        empty_db = tmp_path / "empty.db"
-        conn = sqlite3.connect(str(empty_db))
-        cursor = conn.cursor()
-
-        # Create tables but no data
-        cursor.execute("""
-            CREATE TABLE harvest_runs (
-                harvest_id TEXT PRIMARY KEY,
-                start_time TIMESTAMP,
-                end_time TIMESTAMP,
-                status TEXT,
-                total_vulnerabilities INTEGER,
-                high_priority_count INTEGER,
-                error_count INTEGER
-            )
-        """)
-        conn.commit()
-        conn.close()
-
-        # Should handle gracefully
-        metrics = format_metrics(str(empty_db), format_type="text")
-        assert "No harvest data available" in metrics
-
-    def test_missing_database(self, tmp_path):
-        """Test handling of missing database file."""
-        from scripts.visualize_metrics import format_metrics
-
-        missing_db = tmp_path / "missing.db"
-
-        # Should handle gracefully
-        metrics = format_metrics(str(missing_db), format_type="text")
-        assert "Error" in metrics or "No data" in metrics
-
-    def test_main_function(self, temp_db, capsys):
-        """Test main function with different arguments."""
-        from scripts.visualize_metrics import main
-
-        # Test with text format
-        with patch(
-            "sys.argv",
-            ["visualize_metrics.py", "--db-path", str(temp_db), "--format", "text"],
-        ):
-            main()
+    def test_print_harvest_summary(self, sample_summary, capsys):
+        """Test harvest summary printing."""
+        print_harvest_summary(sample_summary)
 
         captured = capsys.readouterr()
-        assert "Harvest Run Summary" in captured.out
+        output = captured.out
 
-    def test_recent_summary(self, temp_db):
-        """Test recent harvests summary."""
-        from scripts.visualize_metrics import format_recent_summary
+        # Check key elements
+        assert "VULNERABILITY HARVEST METRICS SUMMARY" in output
+        assert "Harvest ID: test-harvest-001" in output
+        assert "Status: success" in output
+        assert "Duration: 2.1 minutes" in output
+        assert "Total Vulnerabilities Found: 150" in output
 
-        summary = format_recent_summary(str(temp_db), recent=5)
+        # Check risk distribution
+        assert "Risk Distribution:" in output
+        assert "Critical:" in output
+        assert "High:" in output
+        assert "Medium:" in output
+        assert "Low:" in output
 
-        # Should show summary of recent runs
-        assert "Recent Harvest Runs" in summary
-        assert "test-harvest-001" in summary
+    def test_generate_github_summary(self, sample_summary):
+        """Test GitHub summary generation."""
+        summary_md = generate_github_summary(sample_summary)
+
+        # Check markdown formatting
+        assert "## 📊 Vulnerability Harvest Summary" in summary_md
+        assert "**Harvest ID:** `test-harvest-001`" in summary_md
+        assert "**Status:** ✅ success" in summary_md
+        assert "**Duration:** 2.1 minutes" in summary_md
+
+        # Check statistics section
+        assert "### 📈 Statistics" in summary_md
+        assert "Average Risk Score" in summary_md
+        assert "75.5" in summary_md
+
+        # Check performance section
+        assert "### ⚡ Performance" in summary_md
+        assert "API Calls" in summary_md
+        assert "Cache Hit Rate" in summary_md
+        assert "75.0%" in summary_md
+
+    def test_main_function_with_metrics_db(self, tmp_path, sample_summary, capsys):
+        """Test main function with metrics database."""
+        # Create a temporary metrics database
+        db_path = tmp_path / "metrics.db"
+
+        # Mock MetricsCollector
+        with patch("scripts.visualize_metrics.MetricsCollector") as MockCollector:
+            mock_collector = Mock()
+            mock_collector.get_harvest_summary.return_value = sample_summary
+            MockCollector.return_value = mock_collector
+
+            # Test with text output
+            with patch(
+                "sys.argv",
+                ["visualize_metrics.py", "--db-path", str(db_path), "--format", "text"],
+            ):
+                from scripts.visualize_metrics import main
+
+                main()
+
+            captured = capsys.readouterr()
+            assert "VULNERABILITY HARVEST METRICS SUMMARY" in captured.out
+
+    def test_main_function_github_format(self, tmp_path, sample_summary):
+        """Test main function with GitHub format."""
+        db_path = tmp_path / "metrics.db"
+
+        with patch("scripts.visualize_metrics.MetricsCollector") as MockCollector:
+            mock_collector = Mock()
+            mock_collector.get_harvest_summary.return_value = sample_summary
+            MockCollector.return_value = mock_collector
+
+            # Capture output
+            with patch("sys.stdout.write") as mock_write:
+                with patch(
+                    "sys.argv",
+                    [
+                        "visualize_metrics.py",
+                        "--db-path",
+                        str(db_path),
+                        "--format",
+                        "github",
+                    ],
+                ):
+                    from scripts.visualize_metrics import main
+
+                    main()
+
+                # Check that GitHub summary was written
+                output = "".join(call.args[0] for call in mock_write.call_args_list)
+                assert "## 📊 Vulnerability Harvest Summary" in output
+
+    def test_empty_summary_handling(self, capsys):
+        """Test handling of empty harvest summary."""
+        empty_summary = {
+            "harvest_id": "empty-001",
+            "status": "failure",
+            "duration_seconds": 0,
+            "start_time": "2024-01-01T10:00:00Z",
+            "end_time": "2024-01-01T10:00:00Z",
+            "total_vulnerabilities": 0,
+            "risk_distribution": {},
+            "statistics": {
+                "average_risk_score": 0,
+                "critical_count": 0,
+                "has_epss_count": 0,
+                "has_cisa_kev": 0,
+            },
+            "performance": {
+                "total_duration": 0,
+                "api_calls": 0,
+                "cache_hits": 0,
+                "cache_hit_rate": 0,
+            },
+            "errors": ["Connection failed", "API timeout"],
+        }
+
+        print_harvest_summary(empty_summary)
+
+        captured = capsys.readouterr()
+        assert "Status: failure" in captured.out
+        assert "Total Vulnerabilities Found: 0" in captured.out
+        assert "Connection failed" in captured.out
+
+    def test_partial_success_summary(self):
+        """Test summary with partial success status."""
+        partial_summary = {
+            "harvest_id": "partial-001",
+            "status": "partial_success",
+            "duration_seconds": 300,
+            "start_time": "2024-01-01T10:00:00Z",
+            "end_time": "2024-01-01T10:05:00Z",
+            "total_vulnerabilities": 75,
+            "risk_distribution": {"critical": 10, "high": 30, "medium": 25, "low": 10},
+            "statistics": {
+                "average_risk_score": 65.0,
+                "critical_count": 10,
+                "has_epss_count": 50,
+                "has_cisa_kev": 5,
+            },
+            "performance": {
+                "total_duration": 300,
+                "api_calls": 100,
+                "cache_hits": 25,
+                "cache_hit_rate": 0.25,
+            },
+            "errors": ["Some API calls failed"],
+        }
+
+        github_summary = generate_github_summary(partial_summary)
+        assert "⚠️ partial_success" in github_summary
+        assert "Some API calls failed" in github_summary
+
+    def test_large_numbers_formatting(self):
+        """Test formatting of large numbers in summary."""
+        large_summary = {
+            "harvest_id": "large-001",
+            "status": "success",
+            "duration_seconds": 3600,
+            "start_time": "2024-01-01T10:00:00Z",
+            "end_time": "2024-01-01T11:00:00Z",
+            "total_vulnerabilities": 10000,
+            "risk_distribution": {
+                "critical": 2500,
+                "high": 3500,
+                "medium": 3000,
+                "low": 1000,
+            },
+            "statistics": {
+                "average_risk_score": 72.5,
+                "critical_count": 2500,
+                "has_epss_count": 8000,
+                "has_cisa_kev": 500,
+            },
+            "performance": {
+                "total_duration": 3600,
+                "api_calls": 5000,
+                "cache_hits": 4000,
+                "cache_hit_rate": 0.8,
+            },
+            "errors": [],
+        }
+
+        github_summary = generate_github_summary(large_summary)
+        assert "10000" in github_summary
+        assert "1.0 hours" in github_summary
+        assert "80.0%" in github_summary  # cache hit rate
