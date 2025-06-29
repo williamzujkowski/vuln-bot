@@ -255,7 +255,7 @@ title: Morning Vuln Briefing - Dashboard
             </thead>
             <tbody>
               <template x-for="(vuln, index) in paginatedVulns" :key="vuln.cveId">
-                <tr role="row" :data-lazy="index > 10 ? 'true' : null" :class="{'loaded': index <= 10}">
+                <tr role="row" class="vulnerability-row loaded">
                   <td role="cell">
                     <a 
                       :href="'/vuln-bot/api/vulns/' + vuln.cveId + '.json'" 

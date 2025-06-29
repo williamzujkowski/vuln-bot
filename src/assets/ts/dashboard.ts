@@ -442,6 +442,11 @@ document.addEventListener("alpine:init", () => {
         const start = (this.currentPage - 1) * this.pageSize;
         const end = start + this.pageSize;
         this.paginatedVulns = this.filteredVulns.slice(start, end);
+
+        // Set up lazy loading for new rows after pagination
+        this.$nextTick(() => {
+          this.setupLazyLoading();
+        });
       },
 
       previousPage(): void {
