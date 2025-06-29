@@ -1,0 +1,31 @@
+{#- Responsive image component with WebP support and lazy loading -#}
+{%- set imagePath = src -%}
+{%- set imageAlt = alt or "" -%}
+{%- set imageClass = class or "" -%}
+{%- set imageSizes = sizes or "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" -%}
+{%- set imageLoading = loading or "lazy" -%}
+{%- set imageFetchPriority = fetchpriority or "auto" -%}
+
+<picture class="responsive-image {{ imageClass }}">
+  {#- WebP source for modern browsers -#}
+  {% if webp !== false %}
+  <source 
+    srcset="{{ imagePath | replace('.jpg', '.webp') | replace('.jpeg', '.webp') | replace('.png', '.webp') }}"
+    type="image/webp"
+    sizes="{{ imageSizes }}"
+  >
+  {% endif %}
+  
+  {#- Fallback image -#}
+  <img 
+    src="{{ imagePath }}"
+    alt="{{ imageAlt }}"
+    loading="{{ imageLoading }}"
+    fetchpriority="{{ imageFetchPriority }}"
+    sizes="{{ imageSizes }}"
+    {% if width %}width="{{ width }}"{% endif %}
+    {% if height %}height="{{ height }}"{% endif %}
+    class="{{ imageClass }}"
+    decoding="async"
+  >
+</picture>

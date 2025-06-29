@@ -1,7 +1,11 @@
 const path = require("path");
 
 module.exports = {
-  entry: "./src/assets/ts/dashboard.ts",
+  entry: {
+    dashboard: "./src/assets/ts/dashboard.ts",
+    "offline-support": "./src/assets/ts/offline-support.ts",
+    "image-optimization": "./src/assets/ts/image-optimization.ts",
+  },
   mode: "production",
   module: {
     rules: [
@@ -16,7 +20,7 @@ module.exports = {
     extensions: [".ts", ".js"],
   },
   output: {
-    filename: "dashboard.js",
+    filename: "[name].js",
     path: path.resolve(__dirname, "src/assets/js"),
     clean: true,
   },

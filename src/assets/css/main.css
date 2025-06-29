@@ -49,6 +49,117 @@
   border: 0;
 }
 
+/* Responsive Images */
+.responsive-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.responsive-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--border-radius-md, 8px);
+  transition: opacity 0.3s ease;
+}
+
+/* Image loading states */
+.responsive-image img[loading="lazy"] {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.responsive-image img[loading="lazy"].loaded,
+.responsive-image img[loading="eager"] {
+  opacity: 1;
+}
+
+/* Icon system */
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.icon-sm {
+  width: 16px;
+  height: 16px;
+}
+
+.icon-md {
+  width: 24px;
+  height: 24px;
+}
+
+.icon-lg {
+  width: 32px;
+  height: 32px;
+}
+
+/* Icon in buttons */
+.btn .icon {
+  margin-right: 8px;
+  margin-left: -2px;
+}
+
+.btn .icon:last-child {
+  margin-right: -2px;
+  margin-left: 8px;
+}
+
+.btn .icon:only-child {
+  margin: 0;
+}
+
+/* Image optimization classes */
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.img-cover {
+  object-fit: cover;
+}
+
+.img-contain {
+  object-fit: contain;
+}
+
+.img-lazy {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.img-lazy.loaded {
+  opacity: 1;
+}
+
+/* Performance optimized image containers */
+.image-container {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-bg-alt);
+}
+
+.image-container::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+}
+
+.image-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 /* Skip links for keyboard navigation */
 .skip-link {
   position: absolute;
