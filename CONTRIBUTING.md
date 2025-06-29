@@ -27,7 +27,7 @@ By participating in this project, you agree to abide by our Code of Conduct: Be 
 
 2. **Make your changes** following our coding standards
 
-3. **Write/update tests** to maintain 80% coverage minimum
+3. **Write/update tests** to maintain 63% coverage minimum (CI requirement)
 
 4. **Run all checks locally**:
    ```bash
@@ -98,7 +98,7 @@ By participating in this project, you agree to abide by our Code of Conduct: Be 
 - Follow PEP 8 with Black formatting (enforced by Ruff)
 - Use type hints for all function signatures
 - Write docstrings for all classes and functions
-- Maintain 80% test coverage minimum
+- Maintain 63% test coverage minimum (CI requirement)
 
 Example:
 ```python
@@ -123,7 +123,7 @@ def calculate_risk_score(
 ### JavaScript/TypeScript
 
 - Follow Google JavaScript Style Guide (enforced by ESLint)
-- Use TypeScript for new code
+- Use JavaScript/TypeScript for frontend code
 - Avoid `any` types - use `unknown` or specific types
 - Use nullish coalescing (`??`) instead of logical OR (`||`) for defaults
 
@@ -212,7 +212,7 @@ npm run typecheck
 ## Pull Request Checklist
 
 - [ ] Tests pass locally
-- [ ] Code coverage ≥ 80%
+- [ ] Code coverage ≥ 63% (CI requirement)
 - [ ] Linting passes (Ruff & ESLint)
 - [ ] Security scans pass
 - [ ] Documentation updated

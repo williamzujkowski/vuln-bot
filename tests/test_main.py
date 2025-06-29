@@ -266,8 +266,9 @@ class TestCLI:
         """Test running app without command shows help."""
         result = cli_runner.invoke(app, [])
 
-        assert result.exit_code == 2  # Click expects a command
-        assert "Error" in result.output or "Usage" in result.output
+        # Click group shows help with exit code 0 when no command provided
+        assert result.exit_code == 0
+        assert "Usage" in result.output
         assert "harvest" in result.output
         assert "generate-briefing" in result.output
         assert "update-badge" in result.output

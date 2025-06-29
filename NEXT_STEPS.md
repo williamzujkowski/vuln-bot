@@ -10,11 +10,8 @@
 
 2. **Increase Test Coverage** 🚨
    ```bash
-   # Current coverage: 43% → Target: 80%
-   # Focus on untested modules:
-   # - orchestrator.py (0% coverage)
-   # - main.py (0% coverage)
-   # - briefing_generator.py (0% coverage)
+   # Current coverage: 64% → Target: 80%
+   # Focus on modules with lower coverage
    pytest --cov=scripts --cov-report=html
    ```
 
@@ -26,7 +23,7 @@
 ## Implementation Priority
 
 ### Immediate (This Week)
-1. ⏳ Increase test coverage from 43% to 80%
+1. ⏳ Increase test coverage from 64% to 80%
 2. ⏳ Remove temporary limits in CVEListClient
 3. ⏳ Test full-scale harvest with production data
 4. ⏳ Monitor nightly harvest runs
@@ -53,7 +50,7 @@
 3. **`scripts/main.py`** - New CLI parameters for years and thresholds
 4. **`.github/workflows/pages.yml`** - GitHub Pages deployment workflow
 5. **`src/assets/js/dashboard.js`** - Fixed API paths and state management
-6. **Multiple test files** - Coverage increased from 17% to 43%
+6. **Multiple test files** - Coverage increased to 64%, all tests passing
 
 ## Testing Strategy
 

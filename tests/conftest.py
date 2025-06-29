@@ -1,7 +1,8 @@
 """Pytest configuration and shared fixtures."""
 
-import pytest
 from pathlib import Path
+
+import pytest
 
 
 @pytest.fixture
@@ -21,21 +22,13 @@ def mock_api_response() -> dict:
                 "cve": {
                     "id": "CVE-2024-0001",
                     "descriptions": [
-                        {
-                            "lang": "en",
-                            "value": "Test vulnerability description"
-                        }
+                        {"lang": "en", "value": "Test vulnerability description"}
                     ],
                     "metrics": {
                         "cvssMetricV31": [
-                            {
-                                "cvssData": {
-                                    "baseScore": 7.5,
-                                    "baseSeverity": "HIGH"
-                                }
-                            }
+                            {"cvssData": {"baseScore": 7.5, "baseSeverity": "HIGH"}}
                         ]
-                    }
+                    },
                 }
             }
         ]

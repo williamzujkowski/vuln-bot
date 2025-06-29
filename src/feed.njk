@@ -1,0 +1,51 @@
+---
+permalink: /feed.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Morning Vuln Briefing</title>
+    <description>Automated vulnerability intelligence briefings every 4 hours</description>
+    <link>{{ "https://williamzujkowski.github.io/vuln-bot/" | url }}</link>
+    <atom:link href="{{ "https://williamzujkowski.github.io/vuln-bot/feed.xml" | url }}" rel="self" type="application/rss+xml"/>
+    <language>en</language>
+    {%- if collections.posts and collections.posts.length > 0 -%}
+    <lastBuildDate>{{ collections.posts[0].date | date("%a, %d %b %Y %H:%M:%S %z") }}</lastBuildDate>
+    <pubDate>{{ collections.posts[0].date | date("%a, %d %b %Y %H:%M:%S %z") }}</pubDate>
+    {%- else -%}
+    <lastBuildDate>{{ page.date | date("%a, %d %b %Y %H:%M:%S %z") }}</lastBuildDate>
+    <pubDate>{{ page.date | date("%a, %d %b %Y %H:%M:%S %z") }}</pubDate>
+    {%- endif -%}
+    <ttl>240</ttl>
+    <generator>Eleventy</generator>
+    
+    {%- for post in collections.posts | reverse -%}
+    {%- if loop.index0 < 10 -%}
+    <item>
+      <title>{{ post.data.title | escape }}</title>
+      <description><![CDATA[
+        <h2>Summary</h2>
+        <p>{{ post.data.summary | escape }}</p>
+        
+        <h3>Critical Vulnerabilities: {{ post.data.stats.critical }}</h3>
+        <h3>High Vulnerabilities: {{ post.data.stats.high }}</h3>
+        <h3>Total CVEs: {{ post.data.stats.total }}</h3>
+        
+        <p><a href="{{ post.url | url | absoluteUrl }}">View full briefing</a></p>
+      ]]></description>
+      <link>{{ post.url | url | absoluteUrl }}</link>
+      <guid isPermaLink="true">{{ post.url | url | absoluteUrl }}</guid>
+      <pubDate>{{ post.date | date("%a, %d %b %Y %H:%M:%S %z") }}</pubDate>
+      <dc:creator>Morning Vuln Bot</dc:creator>
+      
+      {%- if post.data.top_vendors -%}
+      {%- for vendor in post.data.top_vendors | limit(5) -%}
+      <category>{{ vendor }}</category>
+      {%- endfor -%}
+      {%- endif -%}
+    </item>
+    {%- endif -%}
+    {%- endfor -%}
+  </channel>
+</rss>

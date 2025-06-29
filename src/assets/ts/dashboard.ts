@@ -71,6 +71,8 @@ interface VulnDashboard {
   resetFilters(): void;
   exportResults(): void;
   trackVulnerabilityClick(cveId: string, riskScore: number): void;
+  setupKeyboardShortcuts(): void;
+  showKeyboardHelp(): void;
   $nextTick(callback: () => void): void;
 }
 
@@ -134,6 +136,9 @@ document.addEventListener("alpine:init", () => {
 
         // Watch for changes
         this.watchFilters();
+
+        // Set up keyboard shortcuts
+        this.setupKeyboardShortcuts();
 
         // Track performance
         analytics.endTimer("page-load");
@@ -621,6 +626,139 @@ document.addEventListener("alpine:init", () => {
 
       trackVulnerabilityClick(cveId: string, riskScore: number): void {
         analytics.trackVulnerabilityClick(cveId, { riskScore });
+      },
+
+      setupKeyboardShortcuts(): void {
+        document.addEventListener("keydown", (event: KeyboardEvent) => {
+          // Ignore if user is typing in an input field
+          if (
+            event.target instanceof HTMLInputElement ||
+            event.target instanceof HTMLTextAreaElement
+          ) {
+            return;
+          }
+
+          // Keyboard shortcuts
+          switch (event.key) {
+            case "/":
+              // Focus search input
+              event.preventDefault();
+              const searchInput = document.getElementById("search-input") as HTMLInputElement;
+              searchInput?.focus();
+              break;
+
+            case "r":
+              // Reset filters
+              if (!event.ctrlKey && !event.metaKey) {
+                event.preventDefault();
+                this.resetFilters();
+              }
+              break;
+
+            case "e":
+              // Export results
+              if (!event.ctrlKey && !event.metaKey) {
+                event.preventDefault();
+                this.exportResults();
+              }
+              break;
+
+            case "ArrowLeft":
+              // Previous page
+              if (!event.ctrlKey && !event.metaKey && !event.shiftKey) {
+                event.preventDefault();
+                this.previousPage();
+              }
+              break;
+
+            case "ArrowRight":
+              // Next page
+              if (!event.ctrlKey && !event.metaKey && !event.shiftKey) {
+                event.preventDefault();
+                this.nextPage();
+              }
+              break;
+
+            case "?":
+              // Show help
+              event.preventDefault();
+              this.showKeyboardHelp();
+              break;
+
+            case "Escape":
+              // Close help modal if open
+              const helpModal = document.getElementById("keyboard-help-modal");
+              if (helpModal && !helpModal.classList.contains("hidden")) {
+                event.preventDefault();
+                helpModal.classList.add("hidden");
+              }
+              break;
+          }
+
+          // Number keys for page size
+          if (event.key >= "1" && event.key <= "4" && !event.ctrlKey && !event.metaKey) {
+            event.preventDefault();
+            const pageSizes = [10, 20, 50, 100];
+            const index = parseInt(event.key) - 1;
+            if (index < pageSizes.length && pageSizes[index] !== undefined) {
+              this.pageSize = pageSizes[index]!;
+            }
+          }
+        });
+      },
+
+      showKeyboardHelp(): void {
+        let helpModal = document.getElementById("keyboard-help-modal");
+
+        if (!helpModal) {
+          // Create help modal
+          helpModal = document.createElement("div");
+          helpModal.id = "keyboard-help-modal";
+          helpModal.className = "modal-backdrop";
+          helpModal.innerHTML = `
+              <div class="modal-content" role="dialog" 
+                   aria-labelledby="keyboard-help-title" aria-modal="true">
+                <h2 id="keyboard-help-title">Keyboard Shortcuts</h2>
+                <button class="modal-close" aria-label="Close help modal"
+                        onclick="document.getElementById('keyboard-help-modal')
+                                 .classList.add('hidden')">
+                  ×
+                </button>
+                <dl class="keyboard-shortcuts">
+                  <dt><kbd>/</kbd></dt>
+                  <dd>Focus search input</dd>
+                  
+                  <dt><kbd>r</kbd></dt>
+                  <dd>Reset all filters</dd>
+                  
+                  <dt><kbd>e</kbd></dt>
+                  <dd>Export results as CSV</dd>
+                  
+                  <dt><kbd>←</kbd> <kbd>→</kbd></dt>
+                  <dd>Navigate between pages</dd>
+                  
+                  <dt><kbd>1</kbd> - <kbd>4</kbd></dt>
+                  <dd>Set page size (10, 20, 50, 100)</dd>
+                  
+                  <dt><kbd>?</kbd></dt>
+                  <dd>Show this help</dd>
+                  
+                  <dt><kbd>Esc</kbd></dt>
+                  <dd>Close this help</dd>
+                </dl>
+              </div>
+            `;
+          document.body.appendChild(helpModal);
+        }
+
+        helpModal.classList.remove("hidden");
+
+        // Focus the close button for accessibility
+        const closeButton = helpModal.querySelector(".modal-close") as HTMLButtonElement;
+        closeButton?.focus();
+
+        // Track help usage
+        analytics.track("keyboard-help", "interaction", "help", "show");
       },
 
       $nextTick(callback: () => void): void {

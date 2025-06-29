@@ -169,3 +169,44 @@
   --breakpoint-xl: 1280px;
   --breakpoint-2xl: 1536px;
 }
+
+/* Dark Theme Overrides */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Updated severity colors for dark theme with WCAG AA compliance */
+    --color-severity-critical: #ffffff; /* White text */
+    --color-severity-high: #ffffff; /* White text */
+    --color-severity-medium: #ffffff; /* White text */
+    --color-severity-low: #ffffff; /* White text */
+    --color-severity-none: #9ca3af; /* Gray-400 */
+
+    /* Dark theme severity backgrounds with proper contrast */
+    --color-severity-critical-bg: #7f1d1d; /* Red-900 - 5.87:1 with white */
+    --color-severity-high-bg: #b91c1c; /* Red-700 - 4.54:1 with white */
+    --color-severity-medium-bg: #92400e; /* Amber-800 - 4.51:1 with white */
+    --color-severity-low-bg: #064e3b; /* Emerald-900 - 4.58:1 with white */
+    --color-severity-none-bg: #1f2937; /* Gray-800 */
+
+    /* Update other semantic colors for dark theme */
+    --color-text-primary: #f9fafb; /* Gray-50 */
+    --color-text-secondary: #d1d5db; /* Gray-300 */
+    --color-text-muted: #9ca3af; /* Gray-400 */
+    --color-text-inverse: #111827; /* Gray-900 */
+
+    --color-bg-primary: #0f172a; /* Slate-900 */
+    --color-bg-secondary: #1e293b; /* Slate-800 */
+    --color-bg-tertiary: #334155; /* Slate-700 */
+
+    --color-border-primary: #334155; /* Slate-700 */
+    --color-border-secondary: #475569; /* Slate-600 */
+    --color-border-focus: #60a5fa; /* Blue-400 */
+
+    --color-link: #60a5fa; /* Blue-400 */
+    --color-link-hover: #93bbfc; /* Blue-300 */
+
+    /* Adjust badge colors for dark theme */
+    --color-neutral-50: #1e293b;
+    --color-neutral-100: #334155;
+    --color-neutral-200: #475569;
+  }
+}

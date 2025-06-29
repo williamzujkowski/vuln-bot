@@ -60,6 +60,15 @@ title: Morning Vuln Briefing - Dashboard
             {% include "components/icon.njk" %}
             Export CSV
           </button>
+          
+          <button 
+            @click="showKeyboardHelp" 
+            class="btn btn-secondary"
+            aria-label="Show keyboard shortcuts"
+            title="Press ? for keyboard shortcuts"
+          >
+            <kbd>?</kbd> Help
+          </button>
         </div>
 
         <div class="filter-row">

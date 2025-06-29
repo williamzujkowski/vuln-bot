@@ -213,7 +213,12 @@ class CacheManager:
                 return None
 
             # Check if expired
-            if cache_entry.expires_at < datetime.now(timezone.utc):
+            # Ensure timezone-aware comparison
+            now = datetime.now(timezone.utc)
+            expires_at = cache_entry.expires_at
+            if expires_at.tzinfo is None:
+                expires_at = expires_at.replace(tzinfo=timezone.utc)
+            if expires_at < now:
                 self.logger.debug("Cache entry expired", cve_id=cve_id)
                 return None
 
@@ -245,8 +250,9 @@ class CacheManager:
             List of cached vulnerabilities
         """
         with self.get_session() as session:
+            now = datetime.now(timezone.utc)
             query = session.query(VulnerabilityCache).filter(
-                VulnerabilityCache.expires_at > datetime.now(timezone.utc)
+                VulnerabilityCache.expires_at > now
             )
 
             if min_risk_score is not None:

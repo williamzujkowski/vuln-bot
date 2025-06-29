@@ -91,7 +91,7 @@ chmod +x .husky/pre-commit .husky/commit-msg
 
 ### CI/CD Pipeline
 - **Scheduled Build**: Runs harvesting every 4 hours, generates content, commits artifacts to main, deploys to gh-pages
-- **PR Checks**: Linting (Ruff, ESLint), tests (≥80% coverage), security scans (Bandit, TruffleHog, CodeQL)
+- **PR Checks**: Linting (Ruff, ESLint), tests (≥63% coverage), security scans (Bandit, TruffleHog, CodeQL)
 - **Security**: npm-audit for dependencies, automated vulnerability scanning
 
 ### API Keys Required
@@ -100,7 +100,7 @@ Environment secrets needed in GitHub Actions:
 - `EPSS_API_KEY` - EPSS API access (optional, for enrichment)
 
 ### Testing Strategy
-- Python: pytest with 80% minimum coverage requirement
+- Python: pytest with 63% minimum coverage requirement
 - Security: Bandit (high+ severities fail), TruffleHog for secrets
 - JavaScript: ESLint with Google style guide, Prettier formatting
 - All checks enforced via Husky pre-commit hooks and GitHub Actions

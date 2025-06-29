@@ -1,7 +1,7 @@
 # Morning Vuln Briefing
 
-![Coverage](https://img.shields.io/badge/coverage-43%25-yellow)
-![CI](https://github.com/yourusername/vuln-bot/actions/workflows/ci.yml/badge.svg)
+![Coverage](https://img.shields.io/badge/coverage-63%25-yellow)
+![CI](https://github.com/williamzujkowski/vuln-bot/actions/workflows/ci.yml/badge.svg)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
 An automated vulnerability intelligence platform that harvests, scores, and publishes vulnerability briefings every 4 hours using the official CVEProject/cvelistV5 repository. Focuses on Critical and High severity CVEs from 2024-2025 with EPSS scores above 60%.
@@ -11,7 +11,8 @@ An automated vulnerability intelligence platform that harvests, scores, and publ
 - 🔍 **Official CVE Data**: Uses CVEProject/cvelistV5 repository (updated every 7 minutes) with EPSS enrichment and CISA-ADP container data
 - 📊 **Risk Scoring**: Calculates weighted scores (0-100) based on CVSS, EPSS, popularity, and infrastructure tags
 - 🚀 **Static Site Generation**: Uses 11ty to generate fast, SEO-friendly briefings
-- 🔎 **Advanced Filtering**: Client-side dashboard with instant search, CVSS/EPSS sliders, and shareable views
+- 🔎 **Advanced Filtering**: Client-side dashboard with instant search, CVSS/EPSS sliders, keyboard shortcuts, and shareable views
+- 📡 **RSS/Atom Feeds**: Subscribe to vulnerability briefings via RSS or Atom feeds
 - 🤖 **Fully Automated**: Harvesting every 4 hours with zero manual intervention required
 - 🔒 **Security First**: Comprehensive CI/CD with Bandit, CodeQL, and dependency scanning
 
@@ -27,7 +28,7 @@ An automated vulnerability intelligence platform that harvests, scores, and publ
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/vuln-bot.git
+git clone https://github.com/williamzujkowski/vuln-bot.git
 cd vuln-bot
 
 # Install Python dependencies
@@ -54,6 +55,18 @@ npm run serve
 ```
 
 Visit http://localhost:8080 to view the dashboard.
+
+### Keyboard Shortcuts
+
+The dashboard supports keyboard shortcuts for improved productivity:
+
+- `/` - Focus search input
+- `r` - Reset all filters
+- `e` - Export results as CSV
+- `←` `→` - Navigate between pages
+- `1`-`4` - Set page size (10, 20, 50, 100)
+- `?` - Show keyboard shortcuts help
+- `Esc` - Close help modal
 
 ## Configuration
 
@@ -146,6 +159,13 @@ Returns detailed information for a specific CVE including:
 - References and patches
 - ATT&CK mappings
 
+### Syndication Feeds
+
+- **RSS Feed**: `/feed.xml` - Latest vulnerability briefings in RSS 2.0 format
+- **Atom Feed**: `/atom.xml` - Latest vulnerability briefings in Atom 1.0 format
+
+Both feeds include the 10 most recent briefings with summary statistics and top affected vendors.
+
 ## Contributing
 
 1. Fork the repository
@@ -153,6 +173,23 @@ Returns detailed information for a specific CVE including:
 3. Commit your changes (`git commit -m 'feat: add amazing feature'`)
 4. Push to the branch (`git push origin feat/amazing-feature`)
 5. Open a Pull Request
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
+
+## Releases
+
+This project uses automated releases via GitHub Actions. To create a new release:
+
+```bash
+# Bump version (patch/minor/major)
+python scripts/bump_version.py patch
+
+# Push changes and tag
+git push origin main
+git push origin v1.0.1
+```
+
+See [Release Process](docs/RELEASE.md) for details.
 
 ## Security
 

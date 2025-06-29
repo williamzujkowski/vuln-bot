@@ -27,6 +27,10 @@
   <!-- DNS prefetch for external resources -->
   <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
   
+  <!-- RSS/Atom feeds -->
+  <link rel="alternate" type="application/rss+xml" title="Morning Vuln Briefing RSS Feed" href="{{ '/feed.xml' | url }}">
+  <link rel="alternate" type="application/atom+xml" title="Morning Vuln Briefing Atom Feed" href="{{ '/atom.xml' | url }}">
+  
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | url }}">
   
   <!-- Skip to content link for screen readers -->
@@ -64,6 +68,8 @@
           <ul class="footer-links">
             <li><a href="https://github.com/williamzujkowski/vuln-bot" aria-label="View source code on GitHub">GitHub</a></li>
             <li><a href="{{ '/api/vulns/index.json' | url }}" aria-label="Access vulnerability data API">API</a></li>
+            <li><a href="{{ '/feed.xml' | url }}" aria-label="Subscribe to RSS feed">RSS</a></li>
+            <li><a href="{{ '/atom.xml' | url }}" aria-label="Subscribe to Atom feed">Atom</a></li>
           </ul>
         </nav>
       </div>

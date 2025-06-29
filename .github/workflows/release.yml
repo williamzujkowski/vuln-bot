@@ -1,0 +1,185 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Release version (e.g., v1.0.0)'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  packages: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          registry-url: 'https://npm.pkg.github.com'
+      
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+      
+      - name: Install dependencies
+        run: |
+          npm ci
+          pip install -r requirements.txt
+      
+      - name: Run tests
+        run: |
+          npm run lint
+          npm run build
+          pytest
+      
+      - name: Get version
+        id: get_version
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "VERSION=${{ github.event.inputs.version }}" >> $GITHUB_OUTPUT
+          else
+            echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Generate changelog
+        id: changelog
+        run: |
+          # Generate changelog from commits since last tag
+          PREVIOUS_TAG=$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || echo "")
+          if [ -z "$PREVIOUS_TAG" ]; then
+            CHANGELOG=$(git log --pretty=format:"- %s" --reverse)
+          else
+            CHANGELOG=$(git log --pretty=format:"- %s" --reverse ${PREVIOUS_TAG}..HEAD)
+          fi
+          
+          # Group changes by type
+          echo "CHANGELOG<<EOF" >> $GITHUB_OUTPUT
+          echo "## What's Changed" >> $GITHUB_OUTPUT
+          echo "" >> $GITHUB_OUTPUT
+          
+          # Features
+          FEATURES=$(echo "$CHANGELOG" | grep -E "^- feat(\(.*\))?:" || true)
+          if [ ! -z "$FEATURES" ]; then
+            echo "### ✨ Features" >> $GITHUB_OUTPUT
+            echo "$FEATURES" | sed 's/- feat\(.*\): /- /' >> $GITHUB_OUTPUT
+            echo "" >> $GITHUB_OUTPUT
+          fi
+          
+          # Fixes
+          FIXES=$(echo "$CHANGELOG" | grep -E "^- fix(\(.*\))?:" || true)
+          if [ ! -z "$FIXES" ]; then
+            echo "### 🐛 Bug Fixes" >> $GITHUB_OUTPUT
+            echo "$FIXES" | sed 's/- fix\(.*\): /- /' >> $GITHUB_OUTPUT
+            echo "" >> $GITHUB_OUTPUT
+          fi
+          
+          # Documentation
+          DOCS=$(echo "$CHANGELOG" | grep -E "^- docs(\(.*\))?:" || true)
+          if [ ! -z "$DOCS" ]; then
+            echo "### 📚 Documentation" >> $GITHUB_OUTPUT
+            echo "$DOCS" | sed 's/- docs\(.*\): /- /' >> $GITHUB_OUTPUT
+            echo "" >> $GITHUB_OUTPUT
+          fi
+          
+          # Chores
+          CHORES=$(echo "$CHANGELOG" | grep -E "^- chore(\(.*\))?:" || true)
+          if [ ! -z "$CHORES" ]; then
+            echo "### 🔧 Maintenance" >> $GITHUB_OUTPUT
+            echo "$CHORES" | sed 's/- chore\(.*\): /- /' >> $GITHUB_OUTPUT
+            echo "" >> $GITHUB_OUTPUT
+          fi
+          
+          # Other changes
+          OTHERS=$(echo "$CHANGELOG" | grep -v -E "^- (feat|fix|docs|chore|test|style|refactor|perf|build|ci)(\(.*\))?:" || true)
+          if [ ! -z "$OTHERS" ]; then
+            echo "### Other Changes" >> $GITHUB_OUTPUT
+            echo "$OTHERS" >> $GITHUB_OUTPUT
+            echo "" >> $GITHUB_OUTPUT
+          fi
+          
+          echo "EOF" >> $GITHUB_OUTPUT
+      
+      - name: Create Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.get_version.outputs.VERSION }}
+          release_name: Release ${{ steps.get_version.outputs.VERSION }}
+          body: |
+            ${{ steps.changelog.outputs.CHANGELOG }}
+            
+            ## 📊 Statistics
+            - Python test coverage: ![Coverage](https://img.shields.io/badge/coverage-64%25-yellow)
+            - Supported Python versions: 3.8+
+            - Supported Node versions: 18+ LTS
+            
+            ## 🚀 Installation
+            
+            ```bash
+            git clone https://github.com/williamzujkowski/vuln-bot.git
+            cd vuln-bot
+            uv pip install -r requirements.txt
+            npm install
+            ```
+            
+            ## 📖 Full Changelog
+            https://github.com/williamzujkowski/vuln-bot/compare/${{ env.PREVIOUS_TAG }}...${{ steps.get_version.outputs.VERSION }}
+          draft: false
+          prerelease: false
+      
+      - name: Build release artifacts
+        run: |
+          # Build the static site
+          npm run build
+          
+          # Create release archive
+          tar -czf vuln-bot-${{ steps.get_version.outputs.VERSION }}.tar.gz \
+            --exclude=node_modules \
+            --exclude=.venv \
+            --exclude=.git \
+            --exclude=.cache \
+            --exclude=public \
+            --exclude=coverage \
+            --exclude=htmlcov \
+            --exclude=.pytest_cache \
+            .
+          
+          # Create site-only archive
+          cd public
+          tar -czf ../vuln-bot-site-${{ steps.get_version.outputs.VERSION }}.tar.gz .
+          cd ..
+      
+      - name: Upload Release Assets
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./vuln-bot-${{ steps.get_version.outputs.VERSION }}.tar.gz
+          asset_name: vuln-bot-${{ steps.get_version.outputs.VERSION }}.tar.gz
+          asset_content_type: application/gzip
+      
+      - name: Upload Site Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./vuln-bot-site-${{ steps.get_version.outputs.VERSION }}.tar.gz
+          asset_name: vuln-bot-site-${{ steps.get_version.outputs.VERSION }}.tar.gz
+          asset_content_type: application/gzip
