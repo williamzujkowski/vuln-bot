@@ -65,11 +65,11 @@ def cli(debug: bool) -> None:
 @click.option(
     "--min-severity",
     type=click.Choice(["MEDIUM", "HIGH", "CRITICAL"]),
-    default="HIGH",
+    default="MEDIUM",
     help="Minimum severity level",
 )
 @click.option(
-    "--min-epss", type=float, default=0.6, help="Minimum EPSS score (0.0-1.0)"
+    "--min-epss", type=float, default=0.001, help="Minimum EPSS score (0.0-1.0)"
 )
 @click.option("--dry-run", is_flag=True, help="Run without making actual API calls")
 def harvest(

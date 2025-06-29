@@ -7,12 +7,12 @@ allowed_severities:
   - HIGH
   - MEDIUM
   - LOW
-min_severity: HIGH
+min_severity: MEDIUM
 
 # Score thresholds
 min_cvss_score: 0.0
 max_cvss_score: 10.0
-min_epss_score: 0.6  # 60% minimum EPSS
+min_epss_score: 0.001  # 0.1% minimum EPSS (much more inclusive)
 max_epss_score: 1.0
 min_risk_score: 0
 max_risk_score: 100
@@ -36,8 +36,8 @@ max_tags_per_vuln: 20
 
 # Date range validation
 min_year: 2024
-max_year: 2025
-allow_future_dates: false
+max_year: 2030  # Extended to support future CVEs
+allow_future_dates: true
 
 # High-priority vendors (increases risk score)
 priority_vendors:
@@ -171,7 +171,7 @@ max_enrichment_retries: 3
 
 # Batch processing limits
 max_batch_size: 1000
-max_vulnerabilities_per_briefing: 50
+max_vulnerabilities_per_briefing: 200
 
 # Cache settings
 cache_ttl_days: 10
