@@ -171,7 +171,7 @@ class HarvestOrchestrator:
         )
 
         # Start metrics collection
-        self.metrics.start_harvest(
+        harvest_id = self.metrics.start_harvest(
             {
                 "years": years,
                 "min_epss_score": min_epss_score,
@@ -185,6 +185,7 @@ class HarvestOrchestrator:
 
         all_vulnerabilities = []
         harvest_metadata = {
+            "harvest_id": str(harvest_id),
             "years": years,
             "min_epss_score": min_epss_score,
             "min_severity": min_severity,

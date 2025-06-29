@@ -227,7 +227,7 @@ class MetricsCollector:
                 "cve_id": vuln.cve_id,
                 "risk_score": vuln.risk_score,
                 "cvss_score": vuln.cvss_base_score,
-                "epss_score": vuln.epss_score,
+                "epss_score": vuln.epss_score.score if vuln.epss_score else None,
                 "severity": vuln.severity,
                 "has_kev": vuln.exploitation_status == ExploitationStatus.ACTIVE,
                 "has_ssvc": False,  # SSVC data not available in current model

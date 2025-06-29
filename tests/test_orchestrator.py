@@ -24,19 +24,28 @@ def mock_dependencies():
         "scripts.harvest.orchestrator.VulnerabilityNormalizer"
     ) as mock_normalizer, patch(
         "scripts.harvest.orchestrator.RiskScorer"
-    ) as mock_scorer, patch("scripts.harvest.orchestrator.CacheManager") as mock_cache:
+    ) as mock_scorer, patch(
+        "scripts.harvest.orchestrator.CacheManager"
+    ) as mock_cache, patch(
+        "scripts.harvest.orchestrator.MetricsCollector"
+    ) as mock_metrics:
         # Configure mocks
         mock_cvelist_instance = MagicMock()
         mock_epss_instance = MagicMock()
         mock_normalizer_instance = MagicMock()
         mock_scorer_instance = MagicMock()
         mock_cache_instance = MagicMock()
+        mock_metrics_instance = MagicMock()
 
         mock_cvelist.return_value = mock_cvelist_instance
         mock_epss.return_value = mock_epss_instance
         mock_normalizer.return_value = mock_normalizer_instance
         mock_scorer.return_value = mock_scorer_instance
         mock_cache.return_value = mock_cache_instance
+        mock_metrics.return_value = mock_metrics_instance
+
+        # Configure metrics mock to return harvest_id
+        mock_metrics_instance.start_harvest.return_value = 123
 
         yield {
             "cvelist": mock_cvelist_instance,
@@ -44,6 +53,7 @@ def mock_dependencies():
             "normalizer": mock_normalizer_instance,
             "scorer": mock_scorer_instance,
             "cache": mock_cache_instance,
+            "metrics": mock_metrics_instance,
         }
 
 
@@ -255,7 +265,7 @@ class TestHarvestOrchestrator:
 
         assert isinstance(batch, VulnerabilityBatch)
         assert len(batch.vulnerabilities) == 2  # Both pass EPSS threshold
-        assert batch.metadata["harvest_id"] is not None
+        assert batch.metadata["harvest_id"] == "123"
         assert batch.metadata["total_vulnerabilities"] == 2
         assert batch.metadata["unique_vulnerabilities"] == 2
 
@@ -264,7 +274,7 @@ class TestHarvestOrchestrator:
         mock_dependencies["normalizer"].deduplicate_vulnerabilities.assert_called_once()
         mock_dependencies["epss"].fetch_epss_scores_bulk.assert_called_once()
         mock_dependencies["scorer"].score_batch.assert_called_once()
-        mock_dependencies["cache"].save_batch.assert_called_once()
+        mock_dependencies["cache"].cache_batch.assert_called_once()
 
     def test_harvest_all_sources_with_epss_filter(
         self, orchestrator, mock_dependencies, sample_vulnerabilities
