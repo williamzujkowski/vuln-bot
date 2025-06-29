@@ -113,3 +113,9 @@ actions-cache/
 *.temp
 tmp/
 temp/
+
+# Development/test outputs
+optimized-storage/
+
+# Individual CVE files (we use chunked storage now)
+src/api/vulns/CVE-*.json
