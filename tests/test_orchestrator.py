@@ -136,7 +136,7 @@ class TestHarvestOrchestrator:
         assert len(result) == 2
         assert all(isinstance(v, Vulnerability) for v in result)
         mock_dependencies["cvelist"].harvest.assert_called_once_with(
-            years=[2025], min_severity=SeverityLevel.HIGH
+            years=[2025], min_severity=SeverityLevel.HIGH, incremental=False
         )
 
     def test_harvest_cve_data_error(self, orchestrator, mock_dependencies):

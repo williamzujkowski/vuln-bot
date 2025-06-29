@@ -76,8 +76,8 @@ class TestCLI:
         mock_orchestrator.harvest_all_sources.assert_called_once()
         call_args = mock_orchestrator.harvest_all_sources.call_args
         assert call_args.kwargs["years"] == [2024, 2025]  # Default years
-        assert call_args.kwargs["min_severity"] == "HIGH"
-        assert call_args.kwargs["min_epss_score"] == 0.6
+        assert call_args.kwargs["min_severity"] == "MEDIUM"
+        assert call_args.kwargs["min_epss_score"] == 0.001
 
     def test_harvest_command_with_options(
         self, cli_runner, mock_orchestrator, tmp_path
