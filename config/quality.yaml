@@ -12,7 +12,7 @@ min_severity: MEDIUM
 # Score thresholds
 min_cvss_score: 0.0
 max_cvss_score: 10.0
-min_epss_score: 0.001  # 0.1% minimum EPSS (much more inclusive)
+min_epss_score: 0.7  # 70% minimum EPSS (high exploitation likelihood)
 max_epss_score: 1.0
 min_risk_score: 0
 max_risk_score: 100
