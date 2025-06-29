@@ -71,9 +71,25 @@ def cli(debug: bool) -> None:
 @click.option(
     "--min-epss", type=float, default=0.001, help="Minimum EPSS score (0.0-1.0)"
 )
+@click.option(
+    "--incremental",
+    is_flag=True,
+    help="Skip CVEs that haven't been updated since last harvest",
+)
+@click.option(
+    "--use-releases/--no-use-releases",
+    default=True,
+    help="Use GitHub releases (faster) instead of individual API calls",
+)
 @click.option("--dry-run", is_flag=True, help="Run without making actual API calls")
 def harvest(
-    cache_dir: Path, years: tuple, min_severity: str, min_epss: float, dry_run: bool
+    cache_dir: Path,
+    years: tuple,
+    min_severity: str,
+    min_epss: float,
+    incremental: bool,
+    use_releases: bool,
+    dry_run: bool,
 ) -> None:
     """Harvest vulnerability data from all configured sources."""
     logger = structlog.get_logger()
@@ -100,12 +116,16 @@ def harvest(
         api_keys=api_keys,
     )
 
+    # Update CVE client to use specified approach
+    orchestrator.cvelist_client.use_releases = use_releases
+
     # Perform harvest
     try:
         batch = orchestrator.harvest_all_sources(
             years=years_list,
             min_severity=min_severity,
             min_epss_score=min_epss,
+            incremental=incremental,
         )
 
         # Display summary

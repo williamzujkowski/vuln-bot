@@ -54,6 +54,8 @@ class HarvestOrchestrator:
         self.cvelist_client = CVEListClient(
             cache_dir=cache_dir / "api_cache",
             use_github_api=True,
+            use_releases=True,  # Use new release-based approach by default
+            cache_manager=self.cache_manager,
         )
         self.epss_client = EPSSClient(
             cache_dir=cache_dir / "api_cache",
@@ -76,13 +78,17 @@ class HarvestOrchestrator:
         return DataQualityConfig()  # Use defaults
 
     def harvest_cve_data(
-        self, years: Optional[List[int]] = None, min_severity: str = "HIGH"
+        self,
+        years: Optional[List[int]] = None,
+        min_severity: str = "HIGH",
+        incremental: bool = False,
     ) -> List[Vulnerability]:
         """Harvest CVE data from CVEProject/cvelistV5.
 
         Args:
             years: List of years to harvest (default: [2025])
             min_severity: Minimum severity level (HIGH or CRITICAL)
+            incremental: If True, skip CVEs that haven't been updated since last harvest
 
         Returns:
             List of vulnerabilities from CVEList
@@ -100,6 +106,7 @@ class HarvestOrchestrator:
             vulnerabilities = self.cvelist_client.harvest(
                 years=years,
                 min_severity=severity_enum,
+                incremental=incremental,
             )
             self.logger.info("Harvested CVE data", count=len(vulnerabilities))
             return vulnerabilities
@@ -146,6 +153,7 @@ class HarvestOrchestrator:
         include_sources: Optional[Set[str]] = None,
         min_epss_score: float = 0.6,  # 60% threshold
         min_severity: str = "HIGH",
+        incremental: bool = False,
     ) -> VulnerabilityBatch:
         """Harvest vulnerabilities from all configured sources.
 
@@ -154,6 +162,7 @@ class HarvestOrchestrator:
             include_sources: Set of sources to include (None = all)
             min_epss_score: Minimum EPSS score threshold (0.0-1.0)
             min_severity: Minimum severity level (HIGH or CRITICAL)
+            incremental: If True, skip CVEs that haven't been updated since last harvest
 
         Returns:
             Batch of harvested and processed vulnerabilities
@@ -198,7 +207,7 @@ class HarvestOrchestrator:
 
         if not include_sources or "cve" in include_sources:
             harvest_tasks.append(
-                ("CVEList", self.harvest_cve_data, years, min_severity)
+                ("CVEList", self.harvest_cve_data, years, min_severity, incremental)
             )
 
         # TODO: Add more sources here (GitHub Advisory, OSV, etc.)
