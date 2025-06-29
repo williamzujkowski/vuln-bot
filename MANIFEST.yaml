@@ -1,230 +1,33 @@
-# MANIFEST.yaml - Project metadata for Morning Vuln Briefing
-# This file provides machine-readable metadata about the project
+# MANIFEST.yaml - Project metadata for Vuln-Bot
 
 project:
-  name: Morning Vuln Briefing
-  description: An automated vulnerability intelligence platform that harvests, scores, and publishes vulnerability briefings every 4 hours
+  name: Vuln-Bot
+  description: High-risk CVE intelligence platform tracking Critical & High severity vulnerabilities with EPSS ≥ 70%
   version: 1.0.0
   license: MIT
   repository: https://github.com/williamzujkowski/vuln-bot
   homepage: https://williamzujkowski.github.io/vuln-bot/
-  documentation: https://github.com/williamzujkowski/vuln-bot/blob/main/README.md
-  
+
 metadata:
   type: vulnerability-intelligence-platform
   category: security-tooling
-  tags:
-    - vulnerability-management
-    - threat-intelligence
-    - security-automation
-    - cve-tracking
-    - risk-assessment
-    - epss-scoring
-  keywords:
-    - CVE
-    - CVSS
-    - EPSS
-    - vulnerability
-    - security
-    - risk-scoring
-    - threat-briefing
-    - automated-harvesting
-
-architecture:
-  languages:
-    - name: Python
-      version: ">=3.8"
-      usage: Backend processing, data harvesting, risk scoring
-    - name: JavaScript
-      version: ES6+
-      usage: Frontend interactivity, client-side filtering
-    - name: TypeScript
-      version: ">=4.0"
-      usage: Type-safe frontend components
-  frameworks:
-    - name: 11ty
-      version: "^2.0.0"
-      usage: Static site generation
-    - name: Alpine.js
-      version: "^3.0.0"
-      usage: Frontend reactivity
-    - name: Fuse.js
-      version: "^7.0.0"
-      usage: Fuzzy search functionality
-  tools:
-    - name: pytest
-      usage: Python testing framework
-    - name: uv
-      usage: Python package management
-    - name: webpack
-      usage: JavaScript/TypeScript bundling
-    - name: ESLint
-      usage: JavaScript linting
-    - name: Ruff
-      usage: Python linting and formatting
-
-data_sources:
-  - name: CVEProject/cvelistV5
-    type: GitHub Repository
-    description: Official CVE List via GitHub Releases (120x faster than API)
-    api: GitHub Releases API
-    update_frequency: Daily midnight snapshots + delta files
-    method: Bulk download of compressed releases
-  - name: FIRST EPSS API
-    type: REST API
-    description: Exploit Prediction Scoring System
-    update_frequency: every 4 hours
-  - name: CISA ADP
-    type: CVE Containers
-    description: CISA's Additional Data Products (KEV, SSVC)
-    update_frequency: as_published
-
-features:
-  harvesting:
-    - description: Automated vulnerability collection every 4 hours
-    - sources: CVEProject GitHub releases (bulk download)
-    - performance: 120x faster than individual API calls
-    - incremental_updates: Skip unchanged CVEs based on dateUpdated
-    - filtering:
-        - severity: MEDIUM, HIGH, CRITICAL
-        - epss_threshold: 0.1%
-        - years: 2024-2030
-        - max_per_briefing: 1000
-    - enrichment:
-        - epss_scores: true
-        - cisa_adp: true
-        - vendor_extraction: true
+  focus: high-risk-cves
+  epss_threshold: 70%
+  severity_levels: [CRITICAL, HIGH]
   
-  risk_scoring:
-    - algorithm: Custom composite scoring
-    - factors:
-        - cvss_score: 40%
-        - epss_score: 30%
-        - vendor_popularity: 15%
-        - infrastructure_tags: 10%
-        - recency: 5%
-    - range: 0-100
-    - categories:
-        - critical: 90-100
-        - high: 70-89
-        - medium: 40-69
-        - low: 0-39
-  
-  frontend:
-    - real_time_search: Fuse.js fuzzy search
-    - filtering:
-        - cve_id: true
-        - severity: true
-        - cvss_range: true
-        - epss_range: true
-        - date_range: true
-        - vendor: true
-        - exploitation_status: true
-        - tags: true
-    - features:
-        - shareable_urls: Hash-based state persistence
-        - csv_export: true
-        - pagination: 10/20/50/100 rows (default 50)
-        - responsive_design: true
-        - accessibility: WCAG 2.1 AA compliant
-        - keyboard_shortcuts: true
-  
-  analytics:
-    - privacy_respecting: true
-    - metrics:
-        - user_interactions: true
-        - search_queries: true
-        - filter_usage: true
-        - export_tracking: true
-        - performance_metrics: true
-        - vulnerability_clicks: true
-    - storage: localStorage (client-side only)
-  
-  performance:
-    - dataset_size: 30,000+ vulnerabilities per harvest
-    - display_limit: 1,000 vulnerabilities in dashboard
-    - lazy_loading: Removed for better UX
-    - caching: SQLite with 10-day TTL
+data_flow:
+  harvest: CVEProject/cvelistV5 → EPSS ≥ 70% Filter → Risk Scoring
+  storage: Chunked by severity-year (8 files vs 33,000+)
+  delivery: Static site via GitHub Pages
 
-deployment:
-  platform: GitHub Pages
-  branch: gh-pages
-  build_command: npm run build
-  output_directory: public
-  domain: https://williamzujkowski.github.io/vuln-bot/
-  ssl: true
-  cdn: GitHub's global CDN
-
-ci_cd:
-  provider: GitHub Actions
-  workflows:
-    - name: Scheduled Harvest
-      schedule: "0 */4 * * *"  # Every 4 hours starting at midnight UTC
-      steps:
-        - harvest_vulnerabilities
-        - generate_content
-        - build_site
-        - deploy_to_pages
-    - name: PR Checks
-      triggers: [pull_request]
-      checks:
-        - python_linting: ruff
-        - python_tests: pytest (59% coverage)
-        - javascript_linting: eslint
-        - security_scanning: [bandit, trufflehog, codeql]
-        - npm_audit: true
-
-security:
-  scanning:
-    - static_analysis: Bandit (Python)
-    - secret_detection: TruffleHog
-    - dependency_scanning: npm audit, GitHub Dependabot
-    - code_analysis: GitHub CodeQL
-  practices:
-    - no_secrets_in_code: true
-    - environment_variables: GitHub Secrets
-    - secure_api_handling: true
-    - input_validation: true
-
-monitoring:
-  metrics:
-    - harvest_success_rate: true
-    - vulnerability_counts: by severity, vendor, exploitation status
-    - processing_duration: true
-    - api_response_times: true
-    - error_tracking: true
-  storage: SQLite metrics.db
-  visualization: GitHub Actions summaries
-
-development:
-  setup:
-    - clone_repository: git clone https://github.com/williamzujkowski/vuln-bot.git
-    - install_python: uv pip install -r requirements.txt
-    - install_node: npm install
-    - run_tests: pytest && npm test
-    - local_server: npm run serve
-  guidelines:
-    - code_style:
-        python: Ruff (Black-compatible)
-        javascript: ESLint with Google style guide
-    - commit_format: Conventional Commits
-    - pr_requirements:
-        - passing_tests: true
-        - code_coverage: 59% minimum
-        - linting_pass: true
-        - security_scan_pass: true
+key_features:
+  - High-risk vulnerability focus (EPSS ≥ 70%)
+  - Automated harvesting every 4 hours
+  - Chunked storage optimization
+  - Client-side filtering and search
+  - RSS/Atom syndication feeds
 
 maintainers:
   - name: William Zujkowski
     github: williamzujkowski
     role: Project Lead
-
-support:
-  issues: https://github.com/williamzujkowski/vuln-bot/issues
-  documentation: https://github.com/williamzujkowski/vuln-bot/wiki
-  contributing: https://github.com/williamzujkowski/vuln-bot/blob/main/CONTRIBUTING.md
-
-versioning:
-  strategy: Semantic Versioning
-  current: 1.0.0
-  changelog: CHANGELOG.md

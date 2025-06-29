@@ -1,6 +1,6 @@
 # Release Process
 
-This document describes how to create a new release of the Morning Vuln Briefing platform.
+This document describes how to create a new release of Vuln-Bot.
 
 ## Prerequisites
 

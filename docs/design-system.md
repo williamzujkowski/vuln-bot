@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Morning Vuln Briefing design system provides a consistent, accessible, and maintainable approach to styling. It's built on design tokens and reusable components.
+The Vuln-Bot design system provides a consistent, accessible, and maintainable approach to styling. It's built on design tokens and reusable components.
 
 ## Design Tokens
 

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is the "Morning Vuln Briefing" platform - an automated vulnerability intelligence system that harvests, scores, and publishes vulnerability briefings every 4 hours. It's a multi-language project using Python for backend data processing and JavaScript/11ty for the static site generation and frontend.
+This is "Vuln-Bot" - a high-risk CVE intelligence platform that tracks Critical & High severity vulnerabilities with EPSS ≥ 70% exploitation probability. It automatically harvests, scores, and publishes vulnerability briefings every 4 hours. It's a multi-language project using Python for backend data processing and JavaScript/11ty for the static site generation and frontend.
 
 ## Common Development Commands
 
@@ -13,14 +13,14 @@ This is the "Morning Vuln Briefing" platform - an automated vulnerability intell
 # Install Python dependencies (using uv)
 uv pip install -r requirements.txt
 
-# Run the vulnerability harvester (uses GitHub releases by default)
+# Run the vulnerability harvester
 python -m scripts.main harvest --cache-dir .cache/
-
-# Run incremental harvest (skip unchanged CVEs)
-python -m scripts.main harvest --cache-dir .cache/ --incremental
 
 # Generate briefing from cached data
 python -m scripts.main generate-briefing
+
+# Generate with optimized storage (chunked by severity-year)
+python -m scripts.main generate-briefing --storage-strategy severity-year
 
 # Run Python linting (Ruff)
 ruff check scripts/
@@ -68,18 +68,17 @@ chmod +x .husky/pre-commit .husky/commit-msg
 
 ### Data Flow
 1. **Scheduled Harvesting** (Python scripts in `scripts/`, runs every 4 hours):
-   - Fetches from CVEProject/cvelistV5 GitHub releases (120x faster than API calls)
-   - Uses midnight snapshots + delta files for efficient updates
-   - Filters for Medium/High/Critical severity CVEs from 2024 onwards with EPSS scores > 0.1%
+   - Fetches from CVEProject/cvelistV5 repository (official CVE List, updated every 7 minutes)
+   - Filters for Critical/High severity CVEs from 2024-2025 with EPSS scores > 60%
    - Enriches with EPSS API data and CISA-ADP container information (KEV/SSVC)
    - Normalizes data and calculates Risk Score (0-100) based on CVSS, EPSS, popularity, infrastructure tags, and newness
    - Caches responses in SQLite using GitHub Actions cache (10-day TTL)
-   - Supports incremental updates to skip unchanged CVEs
 
 2. **Content Generation** (11ty in `src/`):
    - Creates briefing posts at `_posts/{{date}}-vuln-brief.md` using Nunjucks templates
-   - Generates individual vulnerability JSON files at `api/vulns/{{cveId}}.json`
+   - Generates chunked vulnerability data files at `api/vulns/vulns-{{year}}-{{severity}}.json`
    - Builds consolidated search index at `api/vulns/index.json`
+   - Creates chunk index at `api/vulns/chunk-index.json` for navigation
 
 3. **Frontend** (Alpine.js + Fuse.js):
    - Client-side filtering UI on the homepage
@@ -105,7 +104,7 @@ Environment secrets needed in GitHub Actions:
 - `EPSS_API_KEY` - EPSS API access (optional, for enrichment)
 
 ### Testing Strategy
-- Python: pytest with 59% minimum coverage requirement
+- Python: pytest with 80% minimum coverage requirement
 - Security: Bandit (high+ severities fail), TruffleHog for secrets
 - JavaScript: ESLint with Google style guide, Prettier formatting
 - All checks enforced via Husky pre-commit hooks and GitHub Actions

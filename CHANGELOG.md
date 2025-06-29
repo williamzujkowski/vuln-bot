@@ -44,10 +44,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Rebranded to "Vuln-Bot" with high-risk CVE focus
+- EPSS ≥ 70% filtering for most likely exploited vulnerabilities
+- Chunked storage optimization (8 files vs 33,000+ individual JSONs)
+- Client-side vulnerability JSON viewer
+- Enhanced dashboard header with gradient and statistics badges
+
+### Changed
+- Updated branding throughout application
+- Increased EPSS threshold from 0.1% to 70%
+- Replaced individual JSON files with severity-year chunks
+- Optimized storage strategy for better Git performance
+
 ### Planned
 - Additional vulnerability sources (GitHub Advisory, OSV)
 - Email notification system
-- RSS feed generation
 - API rate limit handling improvements
 - Advanced analytics dashboard
 - Multi-language support

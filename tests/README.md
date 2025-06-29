@@ -1,6 +1,6 @@
 # Frontend Tests
 
-This directory contains comprehensive tests for the Morning Vuln Briefing frontend components.
+This directory contains comprehensive tests for Vuln-Bot frontend components.
 
 ## Test Structure
 

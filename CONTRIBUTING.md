@@ -1,6 +1,6 @@
-# Contributing to Morning Vuln Briefing
+# Contributing to Vuln-Bot
 
-Thank you for your interest in contributing to the Morning Vuln Briefing project! This document provides guidelines and instructions for contributing.
+Thank you for your interest in contributing to Vuln-Bot! This document provides guidelines and instructions for contributing to this high-risk CVE intelligence platform.
 
 ## Code of Conduct
 
@@ -27,7 +27,7 @@ By participating in this project, you agree to abide by our Code of Conduct: Be 
 
 2. **Make your changes** following our coding standards
 
-3. **Write/update tests** to maintain 59% coverage minimum (CI requirement)
+3. **Write/update tests** to maintain 80% coverage minimum (CI requirement)
 
 4. **Run all checks locally**:
    ```bash

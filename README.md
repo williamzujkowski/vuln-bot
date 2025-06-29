@@ -1,15 +1,17 @@
-# Morning Vuln Briefing
+# Vuln-Bot
 
 ![Coverage](https://img.shields.io/badge/coverage-59%25-orange)
 ![CI](https://github.com/williamzujkowski/vuln-bot/actions/workflows/ci.yml/badge.svg)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-An automated vulnerability intelligence platform that harvests, scores, and publishes vulnerability briefings every 4 hours using the official CVEProject/cvelistV5 repository. Focuses on Medium, High, and Critical severity CVEs from 2024 onwards with EPSS scores above 0.1%.
+🤖 A high-risk CVE intelligence platform that tracks Critical & High severity vulnerabilities with EPSS ≥ 70% exploitation probability. Automatically harvests, scores, and publishes vulnerability briefings every 4 hours using the official CVEProject/cvelistV5 repository.
 
 ## Features
 
+- 🎯 **High-Risk Focus**: Filters for EPSS ≥ 70% - only the most likely exploited vulnerabilities
 - 🔍 **Official CVE Data**: Uses CVEProject/cvelistV5 GitHub releases for fast bulk processing with EPSS enrichment and CISA-ADP container data
 - 📊 **Risk Scoring**: Calculates weighted scores (0-100) based on CVSS, EPSS, popularity, and infrastructure tags
+- 💾 **Optimized Storage**: Chunked data storage by severity-year instead of 33,000+ individual files
 - 🚀 **Static Site Generation**: Uses 11ty to generate fast, SEO-friendly briefings
 - 🔎 **Advanced Filtering**: Client-side dashboard with instant search, CVSS/EPSS sliders, keyboard shortcuts, and shareable views
 - 📡 **RSS/Atom Feeds**: Subscribe to vulnerability briefings via RSS or Atom feeds
@@ -89,14 +91,20 @@ For alert notifications (feature-flagged):
 
 ```
 ┌─────────────────┐     ┌──────────────────┐     ┌─────────────────┐
-│ Vulnerability   │────▶│ Risk Scoring &   │────▶│ Static Site     │
-│ Sources (APIs)  │     │ Normalization    │     │ Generation      │
+│ CVE Sources     │────▶│ EPSS ≥ 70%       │────▶│ Risk Scoring &  │
+│ (CVEProject)    │     │ Filter           │     │ Normalization   │
 └─────────────────┘     └──────────────────┘     └─────────────────┘
+                                                          │
+                                                          ▼
+                        ┌──────────────────┐     ┌─────────────────┐
+                        │ Chunked Storage  │────▶│ Static Site     │
+                        │ (by severity/yr) │     │ Generation      │
+                        └──────────────────┘     └─────────────────┘
                                 │                          │
                                 ▼                          ▼
                         ┌──────────────────┐     ┌─────────────────┐
                         │ SQLite Cache     │     │ GitHub Pages    │
-                        │ (10-day TTL)     │     │ (public/)       │
+                        │ (10-day TTL)     │     │ (vuln-bot/)     │
                         └──────────────────┘     └─────────────────┘
 ```
 
@@ -146,15 +154,24 @@ vuln-bot/
 
 `GET /api/vulns/index.json`
 
-Returns a consolidated search index of all vulnerabilities.
+Returns a consolidated search index of all vulnerabilities with EPSS ≥ 70%.
 
-### Vulnerability Details
+### Chunked Vulnerability Data
 
-`GET /api/vulns/{cveId}.json`
+`GET /api/vulns/chunk-index.json`
 
-Returns detailed information for a specific CVE including:
+Returns an index of available data chunks organized by severity and year.
+
+`GET /api/vulns/vulns-{year}-{severity}.json`
+
+Returns vulnerability data for a specific year and severity level. Examples:
+- `/api/vulns/vulns-2024-CRITICAL.json`
+- `/api/vulns/vulns-2024-HIGH.json`
+- `/api/vulns/vulns-2025-CRITICAL.json`
+
+Each chunk includes:
 - CVSS vectors and scores
-- EPSS probability
+- EPSS probability (≥ 70%)
 - CPE configurations
 - References and patches
 - ATT&CK mappings
@@ -169,8 +186,9 @@ Both feeds include the 10 most recent briefings with summary statistics and top 
 ## Performance
 
 - **Harvesting**: ~120x faster using GitHub releases vs individual API calls
-- **Dataset**: Processes 30,000+ vulnerabilities per harvest
-- **Display**: Shows up to 1,000 vulnerabilities in the dashboard with 50 per page by default
+- **Dataset**: Processes 30,000+ vulnerabilities, filters to ~250-500 with EPSS ≥ 70%
+- **Storage**: Optimized from 33,000+ individual files to ~8 chunked files
+- **Display**: Shows filtered high-risk vulnerabilities with 50 per page by default
 
 ## Contributing
 
