@@ -377,7 +377,7 @@ class HarvestOrchestrator:
         self,
         batch: VulnerabilityBatch,
         limit: int = 50,
-        min_risk_score: int = 70,
+        min_risk_score: int = 50,
     ) -> List[Vulnerability]:
         """Get high-priority vulnerabilities from a batch.
 
