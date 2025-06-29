@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ title }} | Morning Vuln Briefing</title>
-  <meta name="description" content="Daily vulnerability intelligence platform with automated harvesting and risk scoring">
+  <title>{{ title }} | Vuln-Bot</title>
+  <meta name="description" content="High-Risk CVE Intelligence Platform - Tracking Critical & High severity vulnerabilities with EPSS ≥ 70% exploitation probability">
   
   <!-- Favicon and touch icons -->
   <link rel="icon" type="image/svg+xml" href="{{ '/assets/icons/favicon.svg' | url }}">
@@ -16,7 +16,7 @@
   <meta name="theme-color" content="#2563eb">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="VulnBrief">
+  <meta name="apple-mobile-web-app-title" content="Vuln-Bot">
   
   <!-- Preconnect to improve performance -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
@@ -28,8 +28,8 @@
   <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
   
   <!-- RSS/Atom feeds -->
-  <link rel="alternate" type="application/rss+xml" title="Morning Vuln Briefing RSS Feed" href="{{ '/feed.xml' | url }}">
-  <link rel="alternate" type="application/atom+xml" title="Morning Vuln Briefing Atom Feed" href="{{ '/atom.xml' | url }}">
+  <link rel="alternate" type="application/rss+xml" title="Vuln-Bot RSS Feed" href="{{ '/feed.xml' | url }}">
+  <link rel="alternate" type="application/atom+xml" title="Vuln-Bot Atom Feed" href="{{ '/atom.xml' | url }}">
   
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | url }}">
   
@@ -44,6 +44,9 @@
   
   <!-- Offline support -->
   <script src="{{ '/assets/js/offline-support.js' | url }}" defer></script>
+  
+  <!-- Vulnerability viewer -->
+  <script src="{{ '/assets/js/vuln-viewer.js' | url }}" defer></script>
 </head>
 <body>
   <div class="page-wrapper">
