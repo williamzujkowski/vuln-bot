@@ -63,7 +63,7 @@ By participating in this project, you agree to abide by our Code of Conduct: Be 
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/wclaytor/vuln-bot.git
+   git clone https://github.com/williamzujkowski/vuln-bot.git
    cd vuln-bot
    ```
 

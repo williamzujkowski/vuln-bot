@@ -70,4 +70,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-For a detailed list of changes, see the [commit history](https://github.com/wclaytor/vuln-bot/commits/main).
+For a detailed list of changes, see the [commit history](https://github.com/williamzujkowski/vuln-bot/commits/main).

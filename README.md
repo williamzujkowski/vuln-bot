@@ -1,6 +1,6 @@
 # Vuln-Bot
 
-![Coverage](https://img.shields.io/badge/coverage-54%25-orange)
+![Coverage](https://img.shields.io/badge/coverage-77%25-yellow)
 ![CI](https://github.com/williamzujkowski/vuln-bot/actions/workflows/ci.yml/badge.svg)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
@@ -113,8 +113,8 @@ For alert notifications (feature-flagged):
 ### Running Tests
 
 ```bash
-# Python tests with coverage
-pytest
+# Python tests with coverage (currently 77%)
+pytest --cov=scripts --cov-report=term
 
 # JavaScript linting
 npm run lint
@@ -199,6 +199,13 @@ Both feeds include the 10 most recent briefings with summary statistics and top 
 5. Open a Pull Request
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
+
+### Testing Requirements
+
+- Minimum test coverage: 63% (CI enforced)
+- Target test coverage: 80%+
+- All tests must pass before merging
+- Security scans must pass (Bandit, CodeQL)
 
 ## Releases
 
