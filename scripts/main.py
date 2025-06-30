@@ -295,13 +295,117 @@ def generate_briefing(output_dir: Path, cache_dir: Path, limit: int) -> None:
 
 
 @cli.command()
-def update_badge() -> None:
+@click.option(
+    "--coverage-file",
+    type=click.Path(exists=True, path_type=Path),
+    default=Path("coverage.xml"),
+    help="Path to coverage XML file",
+)
+@click.option(
+    "--readme-file",
+    type=click.Path(exists=True, path_type=Path),
+    default=Path("README.md"),
+    help="Path to README file",
+)
+@click.option(
+    "--dry-run", is_flag=True, help="Show what would be updated without making changes"
+)
+def update_badge(coverage_file: Path, readme_file: Path, dry_run: bool) -> None:
     """Update coverage badge in README."""
     logger = structlog.get_logger()
-    logger.info("Updating coverage badge")
+    logger.info(
+        "Updating coverage badge",
+        coverage_file=str(coverage_file),
+        readme_file=str(readme_file),
+    )
 
-    # TODO: Implement badge update logic
-    console.print("[green]✓[/green] Coverage badge updated")
+    try:
+        import re
+        import xml.etree.ElementTree as ET
+
+        # Parse coverage XML
+        tree = ET.parse(coverage_file)
+        root = tree.getroot()
+
+        # Extract coverage percentage
+        line_rate = float(root.get("line-rate", "0"))
+        coverage_percentage = int(line_rate * 100)
+
+        logger.info(f"Current coverage: {coverage_percentage}%")
+
+        # Determine badge color based on coverage
+        if coverage_percentage >= 90:
+            color = "brightgreen"
+        elif coverage_percentage >= 80:
+            color = "green"
+        elif coverage_percentage >= 70:
+            color = "yellowgreen"
+        elif coverage_percentage >= 60:
+            color = "yellow"
+        elif coverage_percentage >= 50:
+            color = "orange"
+        else:
+            color = "red"
+
+        # Create new badge URL
+        new_badge_url = (
+            f"https://img.shields.io/badge/coverage-{coverage_percentage}%25-{color}"
+        )
+
+        # Read README content
+        readme_content = readme_file.read_text()
+
+        # Find and replace coverage badge
+        # Look for pattern: ![Coverage](https://img.shields.io/badge/coverage-XX%-color)
+        badge_pattern = (
+            r"!\[Coverage\]\(https://img\.shields\.io/badge/coverage-\d+%25-\w+\)"
+        )
+        new_badge = f"![Coverage]({new_badge_url})"
+
+        # Check if badge exists
+        if not re.search(badge_pattern, readme_content):
+            logger.warning("Coverage badge not found in README")
+            console.print("[yellow]⚠[/yellow] Coverage badge not found in README")
+            return
+
+        # Replace the badge
+        updated_content = re.sub(badge_pattern, new_badge, readme_content)
+
+        # Check if content changed
+        if updated_content == readme_content:
+            logger.info("Coverage badge is already up to date")
+            console.print(
+                f"[green]✓[/green] Coverage badge already shows {coverage_percentage}%"
+            )
+            return
+
+        if dry_run:
+            # Show what would be changed
+            old_badge_match = re.search(badge_pattern, readme_content)
+            if old_badge_match:
+                old_badge = old_badge_match.group(0)
+                console.print(
+                    "\n[yellow]🔍 DRY RUN MODE - Would update coverage badge[/yellow]"
+                )
+                console.print(f"  Current: {old_badge}")
+                console.print(f"  New:     {new_badge}")
+                console.print(f"  Coverage: {coverage_percentage}% (color: {color})")
+        else:
+            # Write updated content
+            readme_file.write_text(updated_content)
+            logger.info(f"Updated coverage badge to {coverage_percentage}%")
+            console.print(
+                f"[green]✓[/green] Coverage badge updated to {coverage_percentage}% (color: {color})"
+            )
+
+    except ET.ParseError as e:
+        logger.error("Failed to parse coverage XML", error=str(e))
+        console.print(f"[red]✗[/red] Failed to parse coverage XML: {e}")
+        sys.exit(1)
+    except Exception as e:
+        logger.error("Failed to update coverage badge", error=str(e))
+        console.print(f"[red]✗[/red] Failed to update coverage badge: {e}")
+        sys.exit(1)
 
 
 @cli.command()

@@ -69,7 +69,7 @@ jobs:
       - name: Update coverage badge
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: |
-          python scripts/generate_badge.py
+          python -m scripts.main update-badge
           
       - name: Commit badge update
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
