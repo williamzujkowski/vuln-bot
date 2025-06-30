@@ -11,7 +11,7 @@
 - 🎯 **High-Risk Focus**: Filters for EPSS ≥ 70% - only the most likely exploited vulnerabilities
 - 🔍 **Multiple Data Sources**: CVEProject/cvelistV5 repository and GitHub Security Advisory Database with EPSS enrichment and CISA-ADP container data
 - 📊 **Risk Scoring**: Calculates weighted scores (0-100) based on CVSS, EPSS, popularity, and infrastructure tags
-- 💾 **Optimized Storage**: Chunked data storage by severity-year instead of 33,000+ individual files
+- 💾 **Optimized Storage**: Chunked data storage by severity-year reducing 33,000+ individual files to ~7 chunks
 - 🚀 **Static Site Generation**: Uses 11ty to generate fast, SEO-friendly briefings
 - 🔎 **Advanced Filtering**: Client-side dashboard with instant search, CVSS/EPSS sliders, keyboard shortcuts, and shareable views
 - 📋 **Interactive CVE Details**: Click any CVE ID to view detailed information in an accessible modal with technical details, timeline, and references
@@ -50,8 +50,11 @@ npm run prepare
 # Run the vulnerability harvester
 python -m scripts.main harvest --cache-dir .cache/
 
-# Generate a briefing
+# Generate a briefing (uses chunked storage by default)
 python -m scripts.main generate-briefing
+
+# Specify storage strategy explicitly
+python -m scripts.main generate-briefing --storage-strategy severity-year
 
 # Update coverage badge (for CI/CD)
 python -m scripts.main update-badge

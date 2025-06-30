@@ -226,3 +226,130 @@ class OptimizedBriefingGenerator(BriefingGenerator):
         )
 
         return str(filepath)
+
+    def _generate_markdown(self, data: Dict[str, any]) -> str:
+        """Generate markdown content for the briefing with updated links.
+
+        Overrides parent method to change CVE links to use modal instead of JSON files.
+        """
+        lines = []
+
+        # Front matter
+        lines.extend(
+            [
+                "---",
+                f"title: Morning Vulnerability Briefing - {data['date_str']}",
+                f"date: {data['generated_at']}",
+                "layout: layouts/post.njk",
+                "tags: [vulnerability, briefing, security]",
+                f"vulnerabilityCount: {data['total_count']}",
+                f"criticalCount: {data['severity_distribution']['CRITICAL']}",
+                f"highCount: {data['severity_distribution']['HIGH']}",
+                "---",
+                "",
+            ]
+        )
+
+        # Summary
+        lines.extend(
+            [
+                f"# Morning Vulnerability Briefing - {data['date_str']}",
+                "",
+                f"Today's briefing covers **{data['total_count']} vulnerabilities** from {len(data['sources'])} sources.",
+                "",
+                "## Risk Distribution",
+                "",
+                f"- 🔴 **Critical Risk**: {data['risk_distribution']['critical']} vulnerabilities",
+                f"- 🟠 **High Risk**: {data['risk_distribution']['high']} vulnerabilities",
+                f"- 🟡 **Medium Risk**: {data['risk_distribution']['medium']} vulnerabilities",
+                f"- 🟢 **Low Risk**: {data['risk_distribution']['low']} vulnerabilities",
+                "",
+                "## Top Vulnerabilities",
+                "",
+            ]
+        )
+
+        # Vulnerability details with updated links
+        for i, vuln in enumerate(data["vulnerabilities"], 1):
+            # Change the link to use a JavaScript click handler instead of direct JSON link
+            lines.extend(
+                [
+                    f'### {i}. [{vuln["cve_id"]}](javascript:void(0)) {{: .cve-link data-cve-id="{vuln["cve_id"]}" onclick="window.cveModal && window.cveModal.openModal(\'{vuln["cve_id"]}\')" }}',
+                    "",
+                    f"**Risk Score**: {vuln['risk_score']}/100 | ",
+                    f"**Severity**: {vuln['severity']} | ",
+                    f"**CVSS**: {vuln['cvss_score'] or 'N/A'} | ",
+                    f"**EPSS**: {vuln['epss_score'] or 0:.1f}%",
+                    "",
+                    f"**Summary**: {vuln['description']}",
+                    "",
+                ]
+            )
+
+            if vuln["risk_factors"]:
+                lines.extend(
+                    [
+                        "**Risk Factors**:",
+                        "",
+                    ]
+                )
+                for factor in vuln["risk_factors"]:
+                    lines.append(f"- {factor}")
+                lines.append("")
+
+            if vuln["vendors"]:
+                lines.append(f"**Affected Vendors**: {', '.join(vuln['vendors'])}")
+                lines.append("")
+
+            if vuln["tags"]:
+                lines.append(
+                    f"**Tags**: {', '.join(f'`{tag}`' for tag in vuln['tags'])}"
+                )
+                lines.append("")
+
+            if vuln["references"]:
+                lines.extend(
+                    [
+                        "**References**:",
+                        "",
+                    ]
+                )
+                for ref in vuln["references"]:
+                    lines.append(f"- [{ref}]({ref})")
+                lines.append("")
+
+            lines.append("---")
+            lines.append("")
+
+        # Footer
+        lines.extend(
+            [
+                "## Data Sources",
+                "",
+                "This briefing was generated from the following sources:",
+                "",
+            ]
+        )
+
+        for source in data["sources"]:
+            status = "✅" if source["status"] == "success" else "❌"
+            lines.append(
+                f"- {status} {source['name']}: {source['count']} vulnerabilities"
+            )
+
+        lines.extend(
+            [
+                "",
+                "## About This Briefing",
+                "",
+                "This automated briefing highlights vulnerabilities with:",
+                "- CVSS scores ≥ 7.0 (High/Critical severity)",
+                "- EPSS probability ≥ 70% (high exploitation likelihood)",
+                "- Published or updated within the last 30 days",
+                "",
+                f"Generated: {data['date_str']}",
+                "",
+            ]
+        )
+
+        return "\n".join(lines)

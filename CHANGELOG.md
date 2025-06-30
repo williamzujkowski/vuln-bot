@@ -8,6 +8,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Full chunked storage implementation replacing individual JSON files
+  - Modified CLI to use OptimizedBriefingGenerator by default
+  - Added `--storage-strategy` option to generate-briefing command
+  - Frontend now loads CVE details from chunked data files
+  - Briefing templates updated to use modal instead of direct JSON links
+  - Reduces storage from 33,000+ individual files to ~7 chunk files
+
+### Added
 - GitHub Security Advisory Database as an additional vulnerability data source
   - Implemented GraphQL API client for fetching advisories
   - Added `github_advisory_id` field to vulnerability model

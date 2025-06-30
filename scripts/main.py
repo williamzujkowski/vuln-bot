@@ -246,17 +246,31 @@ def harvest(
     default=50,
     help="Maximum vulnerabilities to include in briefing",
 )
-def generate_briefing(output_dir: Path, cache_dir: Path, limit: int) -> None:
+@click.option(
+    "--storage-strategy",
+    type=click.Choice(["severity-year", "size-chunks", "single-file"]),
+    default="severity-year",
+    help="Storage strategy for vulnerability data (default: severity-year)",
+)
+def generate_briefing(
+    output_dir: Path, cache_dir: Path, limit: int, storage_strategy: str
+) -> None:
     """Generate vulnerability briefing from harvested data."""
     logger = structlog.get_logger()
-    logger.info("Generating vulnerability briefing", output_dir=str(output_dir))
+    logger.info(
+        "Generating vulnerability briefing",
+        output_dir=str(output_dir),
+        storage_strategy=storage_strategy,
+    )
 
     try:
         # Initialize components
-        from scripts.processing.briefing_generator import BriefingGenerator
+        from scripts.processing.optimized_briefing_generator import (
+            OptimizedBriefingGenerator,
+        )
 
         cache_manager = CacheManager(cache_dir)
-        generator = BriefingGenerator(output_dir)
+        generator = OptimizedBriefingGenerator(output_dir, storage_strategy)
 
         # Get recent vulnerabilities from cache
         # Use a very high limit to get all available vulnerabilities
@@ -286,7 +300,11 @@ def generate_briefing(output_dir: Path, cache_dir: Path, limit: int) -> None:
         console.print("\n[green]✓[/green] Briefing generated successfully")
         console.print(f"  Briefing: {results['briefing']}")
         console.print(f"  Index: {results['index']}")
-        console.print(f"  Vulnerability JSONs: {len(results['vulnerabilities'])} files")
+        console.print(f"  Storage strategy: {storage_strategy}")
+        if "chunks" in results and results["chunks"]:
+            console.print(f"  Data chunks: {len(results['chunks'])} files")
+            if results.get("chunk_index"):
+                console.print(f"  Chunk index: {results['chunk_index']}")
 
     except Exception as e:
         logger.error("Failed to generate briefing", error=str(e))

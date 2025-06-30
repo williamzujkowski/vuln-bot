@@ -11,6 +11,8 @@ export interface CveModalData {
   loading: boolean;
   error: string | null;
   activeTab: "overview" | "technical" | "timeline" | "references";
+  chunkIndex: any | null;
+  mainIndex: any | null;
 }
 
 export interface CveModalMethods {
@@ -46,6 +48,8 @@ export function createCveModal(): CveModal {
     loading: false,
     error: null,
     activeTab: "overview",
+    chunkIndex: null,
+    mainIndex: null,
 
     /**
      * Opens modal and loads CVE details
@@ -100,17 +104,71 @@ export function createCveModal(): CveModal {
     },
 
     /**
-     * Loads detailed vulnerability data
+     * Loads detailed vulnerability data from chunked storage
      */
     async loadVulnerabilityDetails(cveId: string): Promise<Vulnerability> {
-      const response = await fetch(`/vuln-bot/api/vulns/${cveId}.json`);
+      try {
+        // Load main index if not already loaded (it contains severity info)
+        if (!this.mainIndex) {
+          const indexResponse = await fetch("/vuln-bot/api/vulns/index.json");
+          if (indexResponse.ok) {
+            this.mainIndex = await indexResponse.json();
+          }
+        }
 
-      if (!response.ok) {
-        throw new Error(`Failed to load CVE details: ${response.status} ${response.statusText}`);
+        // Find the vulnerability in the main index to get its severity
+        let vulnSummary = null;
+        if (this.mainIndex) {
+          vulnSummary = this.mainIndex.vulnerabilities.find((v: any) => v.cveId === cveId);
+        }
+
+        // If found in index and we have chunk index, load from chunks
+        if (vulnSummary) {
+          // Load chunk index if not already loaded
+          if (!this.chunkIndex) {
+            const chunkIndexResponse = await fetch("/vuln-bot/api/vulns/chunk-index.json");
+            if (chunkIndexResponse.ok) {
+              this.chunkIndex = await chunkIndexResponse.json();
+            }
+          }
+
+          // Find the right chunk based on year and severity
+          if (this.chunkIndex && this.chunkIndex.strategy === "severity-year") {
+            const yearMatch = cveId.match(/CVE-(\d{4})-/);
+            if (yearMatch) {
+              const year = yearMatch[1];
+              const severity = vulnSummary.severity;
+              const chunkKey = `${year}-${severity}`;
+
+              const chunk = this.chunkIndex.chunks.find((c: any) => c.key === chunkKey);
+              if (chunk) {
+                const chunkResponse = await fetch(`/vuln-bot/api/vulns/${chunk.file}`);
+                if (chunkResponse.ok) {
+                  const chunkData = await chunkResponse.json();
+                  const vuln = chunkData.vulnerabilities.find((v: any) => v.cveId === cveId);
+                  if (vuln) {
+                    return vuln;
+                  }
+                }
+              }
+            }
+          }
+
+          // If chunk loading failed, return the summary data (it has most fields)
+          return vulnSummary;
+        }
+
+        // Fallback: try loading individual file (for backward compatibility)
+        const response = await fetch(`/vuln-bot/api/vulns/${cveId}.json`);
+        if (response.ok) {
+          return await response.json();
+        }
+
+        throw new Error(`CVE ${cveId} not found in any data source`);
+      } catch (error) {
+        console.error("Failed to load CVE details:", error);
+        throw error;
       }
-
-      const data = await response.json();
-      return data;
     },
 
     /**
