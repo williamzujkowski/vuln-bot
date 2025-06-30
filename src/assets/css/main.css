@@ -217,6 +217,14 @@ body {
   line-height: var(--line-height-relaxed);
 }
 
+.description {
+  margin: 0.75rem auto 0;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  max-width: 800px;
+}
+
 /* Filters */
 .filters {
   background-color: var(--color-bg-alt);
