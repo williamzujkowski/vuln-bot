@@ -129,6 +129,9 @@ class Vulnerability(BaseModel):
     # Data quality score (calculated during validation)
     quality_score: Optional[float] = None
 
+    # Additional identifiers from other sources
+    github_advisory_id: Optional[str] = None
+
     class Config:
         """Pydantic configuration."""
 

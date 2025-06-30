@@ -11,6 +11,7 @@ import yaml
 
 from scripts.harvest.cvelist_client import CVEListClient
 from scripts.harvest.epss_client import EPSSClient
+from scripts.harvest.github_advisory_client import GitHubAdvisoryClient
 from scripts.metrics import MetricsCollector
 from scripts.models import Vulnerability, VulnerabilityBatch
 from scripts.processing.cache_manager import CacheManager
@@ -58,6 +59,9 @@ class HarvestOrchestrator:
             cache_manager=self.cache_manager,
         )
         self.epss_client = EPSSClient(
+            cache_dir=cache_dir / "api_cache",
+        )
+        self.github_advisory_client = GitHubAdvisoryClient(
             cache_dir=cache_dir / "api_cache",
         )
 
@@ -112,6 +116,43 @@ class HarvestOrchestrator:
             return vulnerabilities
         except Exception as e:
             self.logger.error("Failed to harvest CVE data", error=str(e))
+            return []
+
+    def harvest_github_advisory_data(
+        self,
+        min_severity: str = "HIGH",
+        ecosystems: Optional[List[str]] = None,
+    ) -> List[Vulnerability]:
+        """Harvest vulnerability data from GitHub Security Advisory database.
+
+        Args:
+            min_severity: Minimum severity level (HIGH or CRITICAL)
+            ecosystems: List of ecosystems to filter (e.g., ["PIP", "NPM"])
+
+        Returns:
+            List of vulnerabilities from GitHub Advisory
+        """
+        self.logger.info(
+            "Harvesting GitHub Advisory data",
+            min_severity=min_severity,
+            ecosystems=ecosystems,
+        )
+
+        try:
+            from scripts.models import SeverityLevel
+
+            severity_enum = SeverityLevel[min_severity.upper()]
+
+            vulnerabilities = self.github_advisory_client.harvest(
+                min_severity=severity_enum,
+                ecosystems=ecosystems,
+            )
+            self.logger.info(
+                "Harvested GitHub Advisory data", count=len(vulnerabilities)
+            )
+            return vulnerabilities
+        except Exception as e:
+            self.logger.error("Failed to harvest GitHub Advisory data", error=str(e))
             return []
 
     def enrich_with_epss(self, vulnerabilities: List[Vulnerability]) -> None:
@@ -210,7 +251,15 @@ class HarvestOrchestrator:
                 ("CVEList", self.harvest_cve_data, years, min_severity, incremental)
             )
 
-        # TODO: Add more sources here (GitHub Advisory, OSV, etc.)
+        if not include_sources or "github" in include_sources:
+            harvest_tasks.append(
+                (
+                    "GitHub Advisory",
+                    self.harvest_github_advisory_data,
+                    min_severity,
+                    None,
+                )
+            )
 
         # Execute harvest tasks concurrently
         with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
