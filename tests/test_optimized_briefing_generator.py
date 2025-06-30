@@ -117,8 +117,8 @@ class TestOptimizedBriefingGenerator:
         with open(chunk_index) as f:
             index_data = json.load(f)
             assert "chunks" in index_data
-            assert "metadata" in index_data
-            assert index_data["metadata"]["total_vulnerabilities"] == 3
+            assert "total_count" in index_data
+            assert index_data["total_count"] == 3
 
     def test_generate_severity_year_chunks(
         self, temp_output_dir, sample_vulnerabilities
@@ -128,11 +128,12 @@ class TestOptimizedBriefingGenerator:
         generator = OptimizedBriefingGenerator(output_dir=temp_output_dir)
 
         # Call the private method directly
-        chunks = generator._generate_severity_year_chunks(batch)
+        chunk_files, chunk_index_file = generator._generate_severity_year_chunks(batch)
 
         # Verify chunks were created
-        assert isinstance(chunks, list)
-        assert len(chunks) > 0
+        assert isinstance(chunk_files, list)
+        assert len(chunk_files) > 0
+        assert isinstance(chunk_index_file, str)
 
         # Check files were created
         json_dir = temp_output_dir / "api" / "vulns"
@@ -143,14 +144,14 @@ class TestOptimizedBriefingGenerator:
             with open(chunk_file) as f:
                 data = json.load(f)
                 assert "vulnerabilities" in data
-                assert "metadata" in data
+                assert "count" in data
                 assert isinstance(data["vulnerabilities"], list)
 
     def test_generate_single_file(self, temp_output_dir, sample_vulnerabilities):
         """Test single file generation fallback."""
         batch = VulnerabilityBatch(vulnerabilities=sample_vulnerabilities)
         generator = OptimizedBriefingGenerator(
-            output_dir=temp_output_dir, storage_strategy="single"
+            output_dir=temp_output_dir, storage_strategy="single-file"
         )
 
         # Call the single file generation method
@@ -158,14 +159,15 @@ class TestOptimizedBriefingGenerator:
 
         # Check file was created
         assert Path(filepath).exists()
-        assert "all-vulnerabilities" in Path(filepath).name
+        assert "vulns-complete" in Path(filepath).name
 
         # Verify content
         with open(filepath) as f:
             data = json.load(f)
             assert "vulnerabilities" in data
             assert len(data["vulnerabilities"]) == 3
-            assert "metadata" in data
+            assert "count" in data
+            assert data["count"] == 3
 
     def test_empty_batch_handling(self, temp_output_dir):
         """Test handling of empty vulnerability batch."""
@@ -184,7 +186,7 @@ class TestOptimizedBriefingGenerator:
         if chunk_index.exists():
             with open(chunk_index) as f:
                 index_data = json.load(f)
-                assert index_data["metadata"]["total_vulnerabilities"] == 0
+                assert index_data["total_count"] == 0
 
     def test_large_batch_performance(self, temp_output_dir):
         """Test performance with a large batch of vulnerabilities."""
@@ -232,7 +234,7 @@ class TestOptimizedBriefingGenerator:
         """Test JSON serialization with edge cases."""
         # Create vulnerability with datetime objects and special characters
         vuln = Vulnerability(
-            cve_id="CVE-2024-EDGE",
+            cve_id="CVE-2024-0001",
             title="Test with special chars",
             description="Test with special chars: ñ, 中文, emoji 🔒",
             severity=SeverityLevel.CRITICAL,
@@ -261,7 +263,7 @@ class TestOptimizedBriefingGenerator:
         with open(chunk_files[0]) as f:
             data = json.load(f)
             loaded_vuln = data["vulnerabilities"][0]
-            assert loaded_vuln["cve_id"] == "CVE-2024-EDGE"
+            assert loaded_vuln["cveId"] == "CVE-2024-0001"
             assert "ñ" in loaded_vuln["description"]
             assert "中文" in loaded_vuln["description"]
             assert "🔒" in loaded_vuln["description"]
@@ -274,7 +276,7 @@ class TestOptimizedBriefingGenerator:
 
         # Test size-based strategy
         generator = OptimizedBriefingGenerator(
-            output_dir=temp_output_dir, storage_strategy="size"
+            output_dir=temp_output_dir, storage_strategy="size-chunks"
         )
         result = generator.generate_all(batch)
         assert "chunks" in result
@@ -287,7 +289,7 @@ class TestOptimizedBriefingGenerator:
 
         # Test single file strategy
         generator = OptimizedBriefingGenerator(
-            output_dir=temp_output_dir, storage_strategy="single"
+            output_dir=temp_output_dir, storage_strategy="single-file"
         )
         result = generator.generate_all(batch)
         assert "chunks" in result

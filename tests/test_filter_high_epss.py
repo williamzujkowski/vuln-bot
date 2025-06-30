@@ -57,47 +57,86 @@ class TestFilterHighEPSS:
             "generated": "2024-01-01T00:00:00Z",
         }
 
-    def test_filter_high_epss_vulns_success(self, tmp_path, sample_vulnerability_data):
+    @patch("os.path.exists")
+    @patch("os.makedirs")
+    def test_filter_high_epss_vulns_success(
+        self, mock_makedirs, mock_exists, sample_vulnerability_data, capsys
+    ):
         """Test successful filtering of high EPSS vulnerabilities."""
-        # Create source and target directories
-        src_dir = tmp_path / "src" / "api" / "vulns"
-        src_dir.mkdir(parents=True)
-        public_dir = tmp_path / "public" / "api" / "vulns"
+        # Set up the test environment
+        mock_exists.return_value = True
 
-        # Write source data
-        source_file = src_dir / "index.json"
-        source_file.write_text(json.dumps(sample_vulnerability_data))
+        # Variables to capture written data
+        written_data = {}
 
-        # Patch paths
-        with patch("scripts.filter_high_epss.source_index", str(source_file)), patch(
-            "scripts.filter_high_epss.target_index", str(public_dir / "index.json")
-        ), patch("os.makedirs") as mock_makedirs:
+        # Create a custom mock_open that handles reading and writing
+        def mock_open_func(filename, mode="r"):
+            if "r" in mode:
+                # Reading the source file
+                from io import BytesIO, StringIO
+
+                if "b" in mode:
+                    return BytesIO(json.dumps(sample_vulnerability_data).encode())
+                return StringIO(json.dumps(sample_vulnerability_data))
+            elif "w" in mode:
+                # Writing to target file
+                from io import BytesIO, StringIO
+
+                if "b" in mode:
+
+                    class MockBytesWriter(BytesIO):
+                        def __init__(self, filename):
+                            super().__init__()
+                            self.filename = filename
+
+                        def __exit__(self, *args):
+                            written_data[self.filename] = self.getvalue().decode()
+                            return False
+
+                    return MockBytesWriter(filename)
+                else:
+
+                    class MockFileWriter(StringIO):
+                        def __init__(self, filename):
+                            super().__init__()
+                            self.filename = filename
+
+                        def __exit__(self, *args):
+                            written_data[self.filename] = self.getvalue()
+                            return False
+
+                    return MockFileWriter(filename)
+
+        with patch("builtins.open", side_effect=mock_open_func):
+            # Run the function
             filter_high_epss_vulns()
 
-            # Check output directory was created
-            mock_makedirs.assert_called_once_with("public/api/vulns", exist_ok=True)
+        # Check output directory was created
+        mock_makedirs.assert_called_once_with("public/api/vulns", exist_ok=True)
 
-            # Read filtered data
-            target_file = public_dir / "index.json"
-            assert target_file.exists()
+        # Parse the written data
+        assert "public/api/vulns/index.json" in written_data
+        filtered_data = json.loads(written_data["public/api/vulns/index.json"])
 
-            with open(target_file) as f:
-                filtered_data = json.load(f)
+        # Check filtering results - should have 3 vulns with EPSS >= 70
+        assert filtered_data["count"] == 3
+        assert len(filtered_data["vulnerabilities"]) == 3
 
-            # Check filtering results - should have 3 vulns with EPSS >= 70
-            assert filtered_data["count"] == 3
-            assert len(filtered_data["vulnerabilities"]) == 3
+        # Check correct vulns were kept
+        cve_ids = [v["cveId"] for v in filtered_data["vulnerabilities"]]
+        assert "CVE-2024-0001" in cve_ids  # 85.5%
+        assert "CVE-2024-0002" in cve_ids  # 70.0%
+        assert "CVE-2025-0001" in cve_ids  # 90.0%
 
-            # Check correct vulns were kept
-            cve_ids = [v["cveId"] for v in filtered_data["vulnerabilities"]]
-            assert "CVE-2024-0001" in cve_ids  # 85.5%
-            assert "CVE-2024-0002" in cve_ids  # 70.0%
-            assert "CVE-2025-0001" in cve_ids  # 90.0%
+        # These should be filtered out
+        assert "CVE-2024-0003" not in cve_ids  # 65.5%
+        assert "CVE-2024-0004" not in cve_ids  # 50.0%
+        assert "CVE-2025-0002" not in cve_ids  # None
 
-            # These should be filtered out
-            assert "CVE-2024-0003" not in cve_ids  # 65.5%
-            assert "CVE-2024-0004" not in cve_ids  # 50.0%
-            assert "CVE-2025-0002" not in cve_ids  # None
+        # Check console output
+        captured = capsys.readouterr()
+        assert "Total vulnerabilities: 6" in captured.out
+        assert "High EPSS vulnerabilities (>= 70%): 3" in captured.out
 
     def test_filter_high_epss_vulns_no_source_file(self):
         """Test handling when source file doesn't exist."""
@@ -111,38 +150,65 @@ class TestFilterHighEPSS:
                 "Error: src/api/vulns/index.json not found. Run generate-briefing first."
             )
 
+    @patch("shutil.copy")
+    @patch("os.makedirs")
+    @patch("os.path.exists")
     def test_filter_high_epss_vulns_with_backup(
-        self, tmp_path, sample_vulnerability_data
+        self, mock_exists, mock_copy, sample_vulnerability_data
     ):
         """Test backup creation when target file exists."""
-        # Create directories
-        src_dir = tmp_path / "src" / "api" / "vulns"
-        src_dir.mkdir(parents=True)
-        public_dir = tmp_path / "public" / "api" / "vulns"
-        public_dir.mkdir(parents=True)
+        # First call checks source file, second checks if target exists
+        mock_exists.side_effect = [True, True]
 
-        # Write source data
-        source_file = src_dir / "index.json"
-        source_file.write_text(json.dumps(sample_vulnerability_data))
+        # Variables to capture written data
+        written_data = {}
 
-        # Create existing target file
-        target_file = public_dir / "index.json"
-        existing_data = {"existing": "data"}
-        target_file.write_text(json.dumps(existing_data))
+        # Create a custom mock_open that handles reading and writing
+        def mock_open_func(filename, mode="r"):
+            if "r" in mode:
+                # Reading the source file
+                from io import BytesIO, StringIO
 
-        # Patch paths
-        with patch("scripts.filter_high_epss.source_index", str(source_file)), patch(
-            "scripts.filter_high_epss.target_index", str(target_file)
-        ):
+                if "b" in mode:
+                    return BytesIO(json.dumps(sample_vulnerability_data).encode())
+                return StringIO(json.dumps(sample_vulnerability_data))
+            elif "w" in mode:
+                # Writing to target file
+                from io import BytesIO, StringIO
+
+                if "b" in mode:
+
+                    class MockBytesWriter(BytesIO):
+                        def __init__(self, filename):
+                            super().__init__()
+                            self.filename = filename
+
+                        def __exit__(self, *args):
+                            written_data[self.filename] = self.getvalue().decode()
+                            return False
+
+                    return MockBytesWriter(filename)
+                else:
+
+                    class MockFileWriter(StringIO):
+                        def __init__(self, filename):
+                            super().__init__()
+                            self.filename = filename
+
+                        def __exit__(self, *args):
+                            written_data[self.filename] = self.getvalue()
+                            return False
+
+                    return MockFileWriter(filename)
+
+        with patch("builtins.open", side_effect=mock_open_func):
+            # Run the function
             filter_high_epss_vulns()
 
-            # Check backup was created
-            backup_file = public_dir / "index.json.backup"
-            assert backup_file.exists()
-
-            with open(backup_file) as f:
-                backup_data = json.load(f)
-            assert backup_data == existing_data
+        # Check backup was created
+        mock_copy.assert_called_once_with(
+            "public/api/vulns/index.json", "public/api/vulns/index.json.backup"
+        )
 
     def test_organize_into_subfolders(self, tmp_path):
         """Test organizing vulnerabilities into batched subfolders."""
@@ -201,13 +267,11 @@ class TestFilterHighEPSS:
             batch1_data = json.load(f)
         assert batch1_data["count"] == 500
 
-    def test_filter_calls_organize_for_large_dataset(self, tmp_path):
+    @patch("scripts.filter_high_epss.organize_into_subfolders")
+    @patch("os.makedirs")
+    @patch("os.path.exists")
+    def test_filter_calls_organize_for_large_dataset(self, mock_exists, mock_organize):
         """Test that filter_high_epss_vulns calls organize_into_subfolders for large datasets."""
-        # Create source with > 1000 high EPSS vulns
-        src_dir = tmp_path / "src" / "api" / "vulns"
-        src_dir.mkdir(parents=True)
-        public_dir = tmp_path / "public" / "api" / "vulns"
-
         # Create test data with > 1000 high EPSS vulns
         vulns = []
         for i in range(1500):
@@ -225,16 +289,59 @@ class TestFilterHighEPSS:
             "generated": "2024-01-01T00:00:00Z",
         }
 
-        source_file = src_dir / "index.json"
-        source_file.write_text(json.dumps(source_data))
+        mock_exists.return_value = True
 
-        with patch("scripts.filter_high_epss.source_index", str(source_file)), patch(
-            "scripts.filter_high_epss.target_index", str(public_dir / "index.json")
-        ), patch("scripts.filter_high_epss.organize_into_subfolders") as mock_organize:
+        # Variables to capture written data
+        written_data = {}
+
+        # Create a custom mock_open that handles reading and writing
+        def mock_open_func(filename, mode="r"):
+            if "r" in mode:
+                # Reading the source file
+                from io import BytesIO, StringIO
+
+                if "b" in mode:
+                    return BytesIO(json.dumps(source_data).encode())
+                return StringIO(json.dumps(source_data))
+            elif "w" in mode:
+                # Writing to target file
+                from io import BytesIO, StringIO
+
+                if "b" in mode:
+
+                    class MockBytesWriter(BytesIO):
+                        def __init__(self, filename):
+                            super().__init__()
+                            self.filename = filename
+
+                        def __exit__(self, *args):
+                            written_data[self.filename] = self.getvalue().decode()
+                            return False
+
+                    return MockBytesWriter(filename)
+                else:
+
+                    class MockFileWriter(StringIO):
+                        def __init__(self, filename):
+                            super().__init__()
+                            self.filename = filename
+
+                        def __exit__(self, *args):
+                            written_data[self.filename] = self.getvalue()
+                            return False
+
+                    return MockFileWriter(filename)
+
+        with patch("builtins.open", side_effect=mock_open_func):
+            # Run the function
             filter_high_epss_vulns()
 
-            # Should call organize_into_subfolders since we have > 1000 vulns
-            mock_organize.assert_called_once()
+        # Should call organize_into_subfolders since we have > 1000 vulns
+        mock_organize.assert_called_once()
+        # Check it was called with correct arguments
+        call_args = mock_organize.call_args[0]
+        assert len(call_args[0]) == 1500  # All vulns have EPSS >= 70
+        assert call_args[1] == "public/api/vulns"
 
     def test_organize_into_subfolders_custom_batch_size(self, tmp_path):
         """Test organizing with custom batch size."""
@@ -267,19 +374,75 @@ class TestFilterHighEPSS:
         assert master["total_batches"] == 3
         assert master["items_per_batch"] == 100
 
-    def test_main_execution(self, tmp_path, sample_vulnerability_data):
+    @patch("os.makedirs")
+    @patch("os.path.exists")
+    def test_main_execution(self, mock_exists, sample_vulnerability_data, capsys):
         """Test main execution."""
-        # Create source file
-        src_dir = tmp_path / "src" / "api" / "vulns"
-        src_dir.mkdir(parents=True)
-        source_file = src_dir / "index.json"
-        source_file.write_text(json.dumps(sample_vulnerability_data))
+        # Test the module's __main__ execution
+        import runpy
+        import sys
 
-        # Patch paths
-        with patch("scripts.filter_high_epss.source_index", str(source_file)), patch(
-            "scripts.filter_high_epss.target_index",
-            str(tmp_path / "public" / "api" / "vulns" / "index.json"),
-        ), patch("sys.argv", ["filter_high_epss.py"]):
-            from scripts.filter_high_epss import main
+        # Save original argv
+        original_argv = sys.argv
 
-            main()
+        mock_exists.return_value = True
+
+        # Variables to capture written data
+        written_data = {}
+
+        # Create a custom mock_open that handles reading and writing
+        def mock_open_func(filename, mode="r"):
+            if "r" in mode:
+                # Reading the source file
+                from io import BytesIO, StringIO
+
+                if "b" in mode:
+                    return BytesIO(json.dumps(sample_vulnerability_data).encode())
+                return StringIO(json.dumps(sample_vulnerability_data))
+            elif "w" in mode:
+                # Writing to target file
+                from io import BytesIO, StringIO
+
+                if "b" in mode:
+
+                    class MockBytesWriter(BytesIO):
+                        def __init__(self, filename):
+                            super().__init__()
+                            self.filename = filename
+
+                        def __exit__(self, *args):
+                            written_data[self.filename] = self.getvalue().decode()
+                            return False
+
+                    return MockBytesWriter(filename)
+                else:
+
+                    class MockFileWriter(StringIO):
+                        def __init__(self, filename):
+                            super().__init__()
+                            self.filename = filename
+
+                        def __exit__(self, *args):
+                            written_data[self.filename] = self.getvalue()
+                            return False
+
+                    return MockFileWriter(filename)
+
+        try:
+            # Set up argv for the script
+            sys.argv = ["filter_high_epss.py"]
+
+            with patch("builtins.open", side_effect=mock_open_func):
+                # Run the module as __main__
+                runpy.run_module("scripts.filter_high_epss", run_name="__main__")
+
+            # Verify filtering happened
+            assert "public/api/vulns/index.json" in written_data
+
+            # Check console output
+            captured = capsys.readouterr()
+            assert "Total vulnerabilities:" in captured.out
+            assert "High EPSS vulnerabilities" in captured.out
+        finally:
+            # Restore argv
+            sys.argv = original_argv

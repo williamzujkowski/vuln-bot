@@ -2,6 +2,7 @@
 
 import json
 import zipfile
+from datetime import datetime
 from unittest.mock import Mock, patch
 
 import pytest
@@ -64,11 +65,17 @@ class TestCVEListClientAdditional:
             mock_repo_class.assert_called_once_with(client.local_repo_path)
             mock_origin.pull.assert_called_once()
 
-    def test_fetch_cves_from_directory(self, client, temp_repo_path):
+    def test_fetch_cves_from_directory(self, client):
         """Test _fetch_cves_from_directory."""
-        # Create test directory structure
-        year_dir = temp_repo_path / "cves" / "2024" / "1xxx"
-        year_dir.mkdir(parents=True)
+        # Mock the GitHub API response for directory listing
+        mock_files = [
+            {"name": "CVE-2024-1001.json", "type": "file"},
+            {"name": "CVE-2024-1002.json", "type": "file"},
+            {
+                "name": "CVE-2024-1003.json",
+                "type": "file",
+            },  # Will be filtered out (LOW severity)
+        ]
 
         # Create test CVE files
         cve1 = {
@@ -93,16 +100,51 @@ class TestCVEListClientAdditional:
             },
         }
 
-        (year_dir / "CVE-2024-1001.json").write_text(json.dumps(cve1))
-        (year_dir / "CVE-2024-1002.json").write_text(json.dumps(cve2))
+        cve3 = {
+            "cveMetadata": {"cveId": "CVE-2024-1003", "state": "PUBLISHED"},
+            "containers": {
+                "cna": {
+                    "metrics": [{"cvssV3_1": {"baseScore": 3.5, "baseSeverity": "LOW"}}]
+                }
+            },
+        }
 
-        # _fetch_cves_from_directory returns raw CVE data, not parsed vulnerabilities
-        cve_records = client._fetch_cves_from_directory(
-            "cves/2024/1xxx", min_severity=SeverityLevel.HIGH, incremental=False
-        )
+        with patch("requests.get") as mock_get:
+            # Mock directory listing response
+            dir_response = Mock()
+            dir_response.json.return_value = mock_files
+            dir_response.raise_for_status = Mock()
 
-        # Should return the raw CVE data that passed severity threshold
-        assert len(cve_records) == 2
+            # Mock individual file responses
+            file_response1 = Mock()
+            file_response1.json.return_value = cve1
+            file_response1.raise_for_status = Mock()
+
+            file_response2 = Mock()
+            file_response2.json.return_value = cve2
+            file_response2.raise_for_status = Mock()
+
+            file_response3 = Mock()
+            file_response3.json.return_value = cve3
+            file_response3.raise_for_status = Mock()
+
+            # Set up the mock to return different responses
+            mock_get.side_effect = [
+                dir_response,
+                file_response1,
+                file_response2,
+                file_response3,
+            ]
+
+            # _fetch_cves_from_directory returns raw CVE data that meets severity threshold
+            cve_records = client._fetch_cves_from_directory(
+                "cves/2024/1xxx", min_severity=SeverityLevel.HIGH, incremental=False
+            )
+
+            # Should return only HIGH and CRITICAL CVEs
+            assert len(cve_records) == 2
+            assert cve_records[0]["cveMetadata"]["cveId"] == "CVE-2024-1001"
+            assert cve_records[1]["cveMetadata"]["cveId"] == "CVE-2024-1002"
 
     def test_fetch_cves_from_directory_local_repo(self, client, temp_repo_path):
         """Test _fetch_cves_from_directory using local repository."""
@@ -132,43 +174,72 @@ class TestCVEListClientAdditional:
 
         assert len(cve_records) == 1
 
-    def test_fetch_cve_file_success(self, client, temp_repo_path):
-        """Test _fetch_cve_file successfully reads file."""
-        cve_file = temp_repo_path / "test.json"
+    def test_fetch_cve_file_success(self, client):
+        """Test _fetch_cve_file successfully reads file from GitHub."""
         cve_data = {"cveMetadata": {"cveId": "CVE-2024-1234"}}
-        cve_file.write_text(json.dumps(cve_data))
 
-        result = client._fetch_cve_file(str(cve_file))
-        assert result == cve_data
+        with patch("requests.get") as mock_get:
+            mock_response = Mock()
+            mock_response.json.return_value = cve_data
+            mock_response.raise_for_status = Mock()
+            mock_get.return_value = mock_response
 
-    def test_fetch_cve_file_invalid_json(self, client, temp_repo_path):
-        """Test _fetch_cve_file handles invalid JSON."""
-        cve_file = temp_repo_path / "invalid.json"
-        cve_file.write_text("not valid json")
+            result = client._fetch_cve_file("cves/2024/1xxx/CVE-2024-1234.json")
+            assert result == cve_data
 
-        result = client._fetch_cve_file(str(cve_file))
-        assert result is None
+    def test_fetch_cve_file_error(self, client):
+        """Test _fetch_cve_file handles request errors."""
+        with patch("requests.get") as mock_get:
+            mock_get.side_effect = Exception("Network error")
+
+            result = client._fetch_cve_file("cves/2024/1xxx/CVE-2024-1234.json")
+            assert result is None
 
     def test_fetch_cve_file_not_found(self, client):
-        """Test _fetch_cve_file handles missing file."""
-        result = client._fetch_cve_file("/nonexistent/file.json")
-        assert result is None
+        """Test _fetch_cve_file handles 404 errors."""
+        with patch("requests.get") as mock_get:
+            mock_response = Mock()
+            mock_response.raise_for_status.side_effect = Exception("404 Not Found")
+            mock_get.return_value = mock_response
 
-    def test_should_skip_cve_reserved(self, client):
-        """Test _should_skip_cve skips RESERVED CVEs."""
-        assert client._should_skip_cve(
-            "CVE-2024-0001", "/path/CVE-2024-0001-RESERVED.json"
+            result = client._fetch_cve_file("cves/2024/1xxx/CVE-2024-9999.json")
+            assert result is None
+
+    def test_should_skip_cve_no_cache(self, client):
+        """Test _should_skip_cve without cache manager."""
+        client.cache_manager = None
+        result = client._should_skip_cve(
+            "CVE-2024-0001", "cves/2024/0xxx/CVE-2024-0001.json"
         )
+        assert result is False
 
-    def test_should_skip_cve_reject(self, client):
-        """Test _should_skip_cve skips REJECT CVEs."""
-        assert client._should_skip_cve(
-            "CVE-2024-0001", "/path/CVE-2024-0001-REJECT.json"
-        )
+    def test_should_skip_cve_with_cache(self, client):
+        """Test _should_skip_cve with cached vulnerability."""
+        from datetime import timezone
 
-    def test_should_skip_cve_normal(self, client):
-        """Test _should_skip_cve doesn't skip normal CVEs."""
-        assert not client._should_skip_cve("CVE-2024-0001", "/path/CVE-2024-0001.json")
+        # Mock cache manager
+        mock_cache = Mock()
+        cached_vuln = Mock(spec=Vulnerability)
+        # Use timezone-aware datetime
+        cached_vuln.last_modified_date = datetime(2024, 1, 2, tzinfo=timezone.utc)
+        mock_cache.get_vulnerability.return_value = cached_vuln
+        client.cache_manager = mock_cache
+
+        # Mock GitHub API response with older date
+        with patch("requests.get") as mock_get:
+            mock_response = Mock()
+            # This base64 encodes: {"cveMetadata": {"dateUpdated": "2024-01-01T00:00:00Z"}}
+            mock_response.json.return_value = {
+                "content": "eyJjdmVNZXRhZGF0YSI6IHsiZGF0ZVVwZGF0ZWQiOiAiMjAyNC0wMS0wMVQwMDowMDowMFoifX0=",
+                "encoding": "base64",
+            }
+            mock_response.raise_for_status = Mock()
+            mock_get.return_value = mock_response
+
+            result = client._should_skip_cve(
+                "CVE-2024-0001", "cves/2024/0xxx/CVE-2024-0001.json"
+            )
+            assert result is True
 
     def test_fetch_cves_from_releases(self, client):
         """Test _fetch_cves_from_releases."""
@@ -177,191 +248,257 @@ class TestCVEListClientAdditional:
             "published_at": "2024-01-01T00:00:00Z",
             "assets": [
                 {
-                    "name": "midnight-v5.json.zip",
+                    "name": "all_CVEs_at_midnight.json.zip",
                     "browser_download_url": "https://example.com/midnight.zip",
+                    "size": 1024 * 1024,
                 }
             ],
         }
 
-        with patch.object(client, "get", return_value=[mock_release]), patch.object(
-            client, "_download_and_process_zip"
-        ) as mock_download:
-            mock_download.return_value = [Mock(spec=Vulnerability)]
+        cve_data = {
+            "cveMetadata": {
+                "cveId": "CVE-2024-0001",
+                "datePublished": "2024-01-01T00:00:00Z",
+            },
+            "containers": {
+                "cna": {
+                    "metrics": [
+                        {"cvssV3_1": {"baseScore": 9.8, "baseSeverity": "CRITICAL"}}
+                    ]
+                }
+            },
+        }
 
-            vulnerabilities = client._fetch_cves_from_releases(
-                days_back=7, min_severity=SeverityLevel.HIGH, max_vulnerabilities=10
+        with patch("requests.get") as mock_get:
+            # Mock release API response
+            release_response = Mock()
+            release_response.json.return_value = mock_release
+            release_response.raise_for_status = Mock()
+
+            # Return release response for first call
+            mock_get.return_value = release_response
+
+            with patch.object(client, "_download_and_process_zip") as mock_download:
+                mock_download.return_value = [cve_data]
+
+                cves = client._fetch_cves_from_releases(
+                    year=2024, min_severity=SeverityLevel.HIGH, incremental=False
+                )
+
+                assert len(cves) == 1
+                mock_download.assert_called_once()
+
+    def test_process_midnight_file(self, client):
+        """Test _process_midnight_file."""
+        mock_release = {
+            "assets": [
+                {
+                    "name": "all_CVEs_at_midnight_utc.json.zip",
+                    "browser_download_url": "https://example.com/midnight.zip",
+                    "size": 1024 * 1024,
+                }
+            ]
+        }
+
+        cve_data = {
+            "cveMetadata": {
+                "cveId": "CVE-2024-0001",
+                "datePublished": "2024-01-01T00:00:00Z",
+            },
+            "containers": {
+                "cna": {
+                    "metrics": [
+                        {"cvssV3_1": {"baseScore": 9.8, "baseSeverity": "CRITICAL"}}
+                    ]
+                }
+            },
+        }
+
+        with patch.object(client, "_download_and_process_zip") as mock_download:
+            mock_download.return_value = [cve_data]
+
+            cves = client._process_midnight_file(
+                mock_release,
+                year=2024,
+                min_severity=SeverityLevel.LOW,
+                incremental=False,
             )
 
-            assert len(vulnerabilities) == 1
+            assert len(cves) == 1
             mock_download.assert_called_once()
 
-    def test_process_midnight_file(self, client, tmp_path):
-        """Test _process_midnight_file."""
-        # Create a midnight file with CVE entries
-        midnight_data = {
-            "cves": [
-                {
-                    "cveMetadata": {"cveId": "CVE-2024-0001", "state": "PUBLISHED"},
-                    "containers": {"cna": {}},
-                },
-                {
-                    "cveMetadata": {"cveId": "CVE-2024-0002", "state": "PUBLISHED"},
-                    "containers": {"cna": {}},
-                },
-            ]
-        }
-
-        midnight_file = tmp_path / "midnight.json"
-        midnight_file.write_text(json.dumps(midnight_data))
-
-        with patch.object(client, "parse_cve_v5_record") as mock_parse:
-            mock_parse.side_effect = [
-                Mock(spec=Vulnerability),
-                Mock(spec=Vulnerability),
-            ]
-
-            vulnerabilities = client._process_midnight_file(
-                str(midnight_file),
-                min_severity=SeverityLevel.LOW,
-                max_vulnerabilities=10,
-            )
-
-            assert len(vulnerabilities) == 2
-
-    def test_process_delta_files(self, client, tmp_path):
+    def test_process_delta_files(self, client):
         """Test _process_delta_files."""
-        # Create delta files
-        delta1_data = {
-            "new": [
+        mock_release = {
+            "assets": [
                 {
-                    "cveMetadata": {"cveId": "CVE-2024-0001", "state": "PUBLISHED"},
-                    "containers": {"cna": {}},
-                }
-            ],
-            "updated": [
+                    "name": "delta_CVEs_2024-01-01.json.zip",
+                    "browser_download_url": "https://example.com/delta1.zip",
+                    "size": 1024,
+                },
                 {
-                    "cveMetadata": {"cveId": "CVE-2024-0002", "state": "PUBLISHED"},
-                    "containers": {"cna": {}},
-                }
-            ],
+                    "name": "delta_CVEs_2024-01-02.json.zip",
+                    "browser_download_url": "https://example.com/delta2.zip",
+                    "size": 1024,
+                },
+            ]
         }
 
-        delta1_file = tmp_path / "delta_20240101.json"
-        delta1_file.write_text(json.dumps(delta1_data))
+        cve_data = {
+            "cveMetadata": {
+                "cveId": "CVE-2024-0001",
+                "datePublished": "2024-01-01T00:00:00Z",
+            },
+            "containers": {
+                "cna": {
+                    "metrics": [
+                        {"cvssV3_1": {"baseScore": 7.5, "baseSeverity": "HIGH"}}
+                    ]
+                }
+            },
+        }
 
-        with patch.object(client, "parse_cve_v5_record") as mock_parse:
-            mock_parse.side_effect = [
-                Mock(spec=Vulnerability),
-                Mock(spec=Vulnerability),
-            ]
+        with patch.object(client, "_download_and_process_zip") as mock_download:
+            mock_download.return_value = [cve_data]
 
-            vulnerabilities = client._process_delta_files(
-                [str(delta1_file)],
-                min_severity=SeverityLevel.LOW,
-                max_vulnerabilities=10,
+            cves = client._process_delta_files(
+                mock_release, year=2024, min_severity=SeverityLevel.LOW
             )
 
-            assert len(vulnerabilities) == 2
+            assert len(cves) == 2  # Two delta files processed
+            assert mock_download.call_count == 2
 
     def test_download_and_process_zip(self, client, tmp_path):
         """Test _download_and_process_zip."""
+        # Create a test zip file with nested structure
+        zip_path = tmp_path / "test.zip"
+        inner_zip_path = tmp_path / "cves.zip"
+
+        # Create inner zip with CVE files
+        with zipfile.ZipFile(inner_zip_path, "w") as inner_zf:
+            cve_data = {
+                "cveMetadata": {
+                    "cveId": "CVE-2024-0001",
+                    "datePublished": "2024-01-01T00:00:00Z",
+                },
+                "containers": {
+                    "cna": {
+                        "metrics": [
+                            {"cvssV3_1": {"baseScore": 9.8, "baseSeverity": "CRITICAL"}}
+                        ]
+                    }
+                },
+            }
+            inner_zf.writestr("cves/2024/0xxx/CVE-2024-0001.json", json.dumps(cve_data))
+
+        # Create outer zip containing inner zip
+        with zipfile.ZipFile(zip_path, "w") as outer_zf:
+            outer_zf.write(inner_zip_path, "cves.zip")
+
+        mock_asset = {
+            "name": "test.zip",
+            "browser_download_url": "https://example.com/test.zip",
+            "size": 1024,
+        }
+
+        with patch("requests.get") as mock_get:
+            mock_response = Mock()
+            mock_response.iter_content = lambda _: [zip_path.read_bytes()]
+            mock_response.raise_for_status = Mock()
+            mock_get.return_value = mock_response
+
+            cves = client._download_and_process_zip(
+                mock_asset, year=2024, min_severity=SeverityLevel.LOW, incremental=False
+            )
+
+            assert len(cves) == 1
+
+    def test_process_zip_contents(self, client, tmp_path):
+        """Test _process_zip_contents."""
+        # Create a zip file with CVE files for testing
+        zip_path = tmp_path / "test.zip"
+
+        with zipfile.ZipFile(zip_path, "w") as zf:
+            # Add CVE files for year 2024
+            cve1_data = {
+                "cveMetadata": {
+                    "cveId": "CVE-2024-0001",
+                    "datePublished": "2024-01-01T00:00:00Z",
+                },
+                "containers": {
+                    "cna": {
+                        "metrics": [
+                            {"cvssV3_1": {"baseScore": 9.8, "baseSeverity": "CRITICAL"}}
+                        ]
+                    }
+                },
+            }
+            zf.writestr("cves/2024/0xxx/CVE-2024-0001.json", json.dumps(cve1_data))
+
+            # Add a LOW severity CVE that should be filtered out
+            cve2_data = {
+                "cveMetadata": {
+                    "cveId": "CVE-2024-0002",
+                    "datePublished": "2024-01-01T00:00:00Z",
+                },
+                "containers": {
+                    "cna": {
+                        "metrics": [
+                            {"cvssV3_1": {"baseScore": 3.0, "baseSeverity": "LOW"}}
+                        ]
+                    }
+                },
+            }
+            zf.writestr("cves/2024/0xxx/CVE-2024-0002.json", json.dumps(cve2_data))
+
+        mock_asset = {"name": "test.zip"}
+
+        with zipfile.ZipFile(zip_path, "r") as zf:
+            cves = client._process_zip_contents(
+                zf,
+                mock_asset,
+                year=2024,
+                min_severity=SeverityLevel.HIGH,
+                incremental=False,
+            )
+
+            # Should only return the CRITICAL severity CVE
+            assert len(cves) == 1
+            assert cves[0]["cveMetadata"]["cveId"] == "CVE-2024-0001"
+
+    def test_should_skip_cve_in_zip(self, client, tmp_path):
+        """Test _should_skip_cve_in_zip."""
         # Create a test zip file
         zip_path = tmp_path / "test.zip"
         with zipfile.ZipFile(zip_path, "w") as zf:
-            # Add a midnight file
-            midnight_data = {
-                "cves": [
-                    {
-                        "cveMetadata": {"cveId": "CVE-2024-0001", "state": "PUBLISHED"},
-                        "containers": {"cna": {}},
-                    }
-                ]
+            cve_data = {
+                "cveMetadata": {
+                    "cveId": "CVE-2024-0001",
+                    "dateUpdated": "2024-01-02T00:00:00Z",
+                }
             }
-            zf.writestr("midnight-v5.json", json.dumps(midnight_data))
+            zf.writestr("CVE-2024-0001.json", json.dumps(cve_data))
 
-            # Add a delta file
-            delta_data = {
-                "new": [
-                    {
-                        "cveMetadata": {"cveId": "CVE-2024-0002", "state": "PUBLISHED"},
-                        "containers": {"cna": {}},
-                    }
-                ]
-            }
-            zf.writestr("delta_20240101.json", json.dumps(delta_data))
-
-        with patch("urllib.request.urlopen") as mock_urlopen:
-            mock_urlopen.return_value.__enter__.return_value.read.return_value = (
-                zip_path.read_bytes()
+        # Test without cache manager
+        client.cache_manager = None
+        with zipfile.ZipFile(zip_path, "r") as zf:
+            result = client._should_skip_cve_in_zip(
+                "CVE-2024-0001", zf, "CVE-2024-0001.json"
             )
+            assert result is False
 
-            with patch.object(client, "parse_cve_v5_record") as mock_parse:
-                mock_parse.side_effect = [
-                    Mock(spec=Vulnerability),
-                    Mock(spec=Vulnerability),
-                ]
+        # Test with cache manager and older cached version
+        mock_cache = Mock()
+        cached_vuln = Mock()
+        cached_vuln.last_modified_date = datetime(2024, 1, 1)
+        mock_cache.get_vulnerability.return_value = cached_vuln
+        client.cache_manager = mock_cache
 
-                vulnerabilities = client._download_and_process_zip(
-                    "https://example.com/test.zip",
-                    str(tmp_path / "extract"),
-                    min_severity=SeverityLevel.LOW,
-                    max_vulnerabilities=10,
-                )
-
-                assert len(vulnerabilities) == 2
-
-    def test_process_zip_contents_midnight_only(self, client, tmp_path):
-        """Test _process_zip_contents with midnight file only."""
-        extract_dir = tmp_path / "extract"
-        extract_dir.mkdir()
-
-        # Create midnight file
-        midnight_file = extract_dir / "midnight-v5.json"
-        midnight_data = {"cves": []}
-        midnight_file.write_text(json.dumps(midnight_data))
-
-        with patch.object(client, "_process_midnight_file") as mock_process:
-            mock_process.return_value = []
-
-            client._process_zip_contents(
-                str(extract_dir), min_severity=SeverityLevel.LOW, max_vulnerabilities=10
+        with zipfile.ZipFile(zip_path, "r") as zf:
+            result = client._should_skip_cve_in_zip(
+                "CVE-2024-0001", zf, "CVE-2024-0001.json"
             )
-
-            mock_process.assert_called_once()
-
-    def test_process_zip_contents_with_deltas(self, client, tmp_path):
-        """Test _process_zip_contents with delta files."""
-        extract_dir = tmp_path / "extract"
-        extract_dir.mkdir()
-
-        # Create delta files
-        for i in range(3):
-            delta_file = extract_dir / f"delta_2024010{i}.json"
-            delta_file.write_text(json.dumps({"new": [], "updated": []}))
-
-        with patch.object(client, "_process_delta_files") as mock_process:
-            mock_process.return_value = []
-
-            client._process_zip_contents(
-                str(extract_dir), min_severity=SeverityLevel.LOW, max_vulnerabilities=10
-            )
-
-            mock_process.assert_called_once()
-            # Should process all 3 delta files
-            assert len(mock_process.call_args[0][0]) == 3
-
-    def test_should_skip_cve_in_zip(self, client):
-        """Test _should_skip_cve_in_zip."""
-        # Should skip REJECTED
-        assert client._should_skip_cve_in_zip({"cveMetadata": {"state": "REJECTED"}})
-
-        # Should skip without containers
-        assert client._should_skip_cve_in_zip({"cveMetadata": {"state": "PUBLISHED"}})
-
-        # Should not skip valid CVE
-        assert not client._should_skip_cve_in_zip(
-            {"cveMetadata": {"state": "PUBLISHED"}, "containers": {"cna": {}}}
-        )
+            assert result is False  # Should not skip because update is newer
 
     def test_parse_cvss_metric_v31(self, client):
         """Test _parse_cvss_metric for CVSS v3.1."""
@@ -398,8 +535,8 @@ class TestCVEListClientAdditional:
         assert cvss_metric.version == "3.0"
         assert cvss_metric.base_score == 7.5
 
-    def test_parse_cvss_metric_v2(self, client):
-        """Test _parse_cvss_metric for CVSS v2.0."""
+    def test_parse_cvss_metric_none(self, client):
+        """Test _parse_cvss_metric with unsupported version."""
         metric_data = {
             "cvssV2_0": {
                 "baseScore": 10.0,
@@ -409,49 +546,73 @@ class TestCVEListClientAdditional:
 
         cvss_metric = client._parse_cvss_metric(metric_data)
 
-        assert cvss_metric is not None
-        assert cvss_metric.version == "2.0"
-        assert cvss_metric.base_score == 10.0
-        assert (
-            cvss_metric.base_severity == SeverityLevel.CRITICAL
-        )  # 10.0 maps to CRITICAL
+        # Should return None for unsupported CVSS versions
+        assert cvss_metric is None
 
     def test_harvest_from_local_repo(self, client, temp_repo_path):
         """Test harvest using local repository."""
+        # Set client to use local repo
+        client.use_github_api = False
+
         # Create test CVE structure
         year_dir = temp_repo_path / "cves" / "2024" / "1xxx"
         year_dir.mkdir(parents=True)
 
         cve_data = {
-            "cveMetadata": {"cveId": "CVE-2024-1001", "state": "PUBLISHED"},
-            "containers": {"cna": {}},
+            "cveMetadata": {
+                "cveId": "CVE-2024-1001",
+                "datePublished": "2024-01-01T00:00:00Z",
+            },
+            "containers": {
+                "cna": {
+                    "title": "Test CVE",
+                    "descriptions": [{"lang": "en", "value": "Test description"}],
+                    "metrics": [
+                        {"cvssV3_1": {"baseScore": 7.5, "baseSeverity": "HIGH"}}
+                    ],
+                }
+            },
         }
         (year_dir / "CVE-2024-1001.json").write_text(json.dumps(cve_data))
 
-        with patch.object(client, "_ensure_local_repo"), patch.object(
-            client, "parse_cve_v5_record"
-        ) as mock_parse:
-            mock_parse.return_value = Mock(spec=Vulnerability)
-
+        with patch.object(client, "_ensure_local_repo"):
             vulnerabilities = client.harvest(
-                days_back=7, min_severity=SeverityLevel.LOW, limit=10
+                years=[2024], min_severity=SeverityLevel.LOW, max_vulnerabilities=10
             )
 
             assert len(vulnerabilities) == 1
+            assert vulnerabilities[0].cve_id == "CVE-2024-1001"
 
     def test_harvest_from_releases(self, client):
         """Test harvest using releases."""
         client.use_releases = True
 
+        cve_data = {
+            "cveMetadata": {
+                "cveId": "CVE-2024-1001",
+                "datePublished": "2024-01-01T00:00:00Z",
+            },
+            "containers": {
+                "cna": {
+                    "title": "Test CVE",
+                    "descriptions": [{"lang": "en", "value": "Test description"}],
+                    "metrics": [
+                        {"cvssV3_1": {"baseScore": 9.8, "baseSeverity": "CRITICAL"}}
+                    ],
+                }
+            },
+        }
+
         with patch.object(client, "_fetch_cves_from_releases") as mock_fetch:
-            mock_fetch.return_value = [Mock(spec=Vulnerability)]
+            mock_fetch.return_value = [cve_data]
 
             vulnerabilities = client.harvest(
-                days_back=7, min_severity=SeverityLevel.HIGH, limit=10
+                years=[2024], min_severity=SeverityLevel.HIGH, max_vulnerabilities=10
             )
 
             assert len(vulnerabilities) == 1
-            mock_fetch.assert_called_once()
+            assert vulnerabilities[0].cve_id == "CVE-2024-1001"
+            mock_fetch.assert_called_once_with(2024, SeverityLevel.HIGH, False)
 
     def test_get_cve_subdir(self, client):
         """Test _get_cve_subdir."""
