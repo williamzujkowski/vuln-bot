@@ -152,7 +152,17 @@ class CVEClient(BaseAPIClient):
                     impact_score=cvss.get("impactScore"),
                 )
                 cvss_metrics.append(metric)
-                if metric.base_severity.value > severity.value:
+                # Compare severity levels based on their order
+                severity_order = {
+                    SeverityLevel.NONE: 0,
+                    SeverityLevel.LOW: 1,
+                    SeverityLevel.MEDIUM: 2,
+                    SeverityLevel.HIGH: 3,
+                    SeverityLevel.CRITICAL: 4,
+                }
+                if severity_order.get(metric.base_severity, 0) > severity_order.get(
+                    severity, 0
+                ):
                     severity = metric.base_severity
 
             # CVSS v3.0
@@ -167,7 +177,17 @@ class CVEClient(BaseAPIClient):
                     impact_score=cvss.get("impactScore"),
                 )
                 cvss_metrics.append(metric)
-                if metric.base_severity.value > severity.value:
+                # Compare severity levels based on their order
+                severity_order = {
+                    SeverityLevel.NONE: 0,
+                    SeverityLevel.LOW: 1,
+                    SeverityLevel.MEDIUM: 2,
+                    SeverityLevel.HIGH: 3,
+                    SeverityLevel.CRITICAL: 4,
+                }
+                if severity_order.get(metric.base_severity, 0) > severity_order.get(
+                    severity, 0
+                ):
                     severity = metric.base_severity
 
             # CVSS v2.0 (convert severity)
@@ -194,7 +214,15 @@ class CVEClient(BaseAPIClient):
                     base_severity=v2_severity,
                 )
                 cvss_metrics.append(metric)
-                if v2_severity.value > severity.value:
+                # Compare severity levels based on their order
+                severity_order = {
+                    SeverityLevel.NONE: 0,
+                    SeverityLevel.LOW: 1,
+                    SeverityLevel.MEDIUM: 2,
+                    SeverityLevel.HIGH: 3,
+                    SeverityLevel.CRITICAL: 4,
+                }
+                if severity_order.get(v2_severity, 0) > severity_order.get(severity, 0):
                     severity = v2_severity
 
             # Parse configurations (CPEs)

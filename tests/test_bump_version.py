@@ -124,8 +124,8 @@ class TestBumpVersion:
             assert "chore: bump version to 1.2.3" in calls[1][0][0]
 
             # Check git tag
-            assert calls[2][0][0][:3] == ["git", "tag"]
-            assert "v1.2.3" in calls[2][0][0]
+            assert calls[2][0][0][:4] == ["git", "tag", "-a", "v1.2.3"]
+            assert "-m" in calls[2][0][0]
 
     def test_create_git_tag_failure(self):
         """Test handling git tag creation failure."""
