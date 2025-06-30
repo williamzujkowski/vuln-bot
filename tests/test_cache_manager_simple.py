@@ -46,7 +46,6 @@ class TestCacheManagerSimple:
         assert cache_manager.db_path.parent == tmp_path
         assert cache_manager.db_path.exists()
 
-    @pytest.mark.skip(reason="SQLite timezone handling issue in CI")
     def test_cache_and_retrieve_vulnerability(
         self, cache_manager, sample_vulnerability
     ):
@@ -63,7 +62,6 @@ class TestCacheManagerSimple:
         assert retrieved.severity == SeverityLevel.HIGH
         assert retrieved.risk_score == 75.0
 
-    @pytest.mark.skip(reason="SQLite timezone handling issue in CI")
     def test_cache_batch(self, cache_manager, sample_vulnerability):
         """Test caching a batch of vulnerabilities."""
         batch = VulnerabilityBatch(
@@ -112,7 +110,6 @@ class TestCacheManagerSimple:
         assert "severity_distribution" in stats
         assert "risk_distribution" in stats
 
-    @pytest.mark.skip(reason="SQLite timezone handling issue in CI")
     def test_cleanup_expired(self, cache_manager):
         """Test cleanup doesn't remove non-expired entries."""
         vuln = Vulnerability(
