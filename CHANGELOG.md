@@ -1,73 +1,54 @@
 # Changelog
 
-All notable changes to the Vuln-Bot project will be documented in this file.
+All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.0] - 2025-06-28
-
-### Added
-- Initial release of Vuln-Bot platform
-- Automated vulnerability harvesting from CVEProject/cvelistV5
-- EPSS score enrichment for exploit prediction
-- Custom risk scoring algorithm (0-100 scale)
-- Static site generation with 11ty
-- Real-time client-side filtering with Alpine.js
-- TypeScript migration for type-safe frontend
-- WCAG 2.1 AA accessibility compliance
-- Privacy-respecting analytics system
-- GitHub Actions CI/CD pipeline
-- Nightly automated harvesting workflow
-- SQLite-based caching with 10-day TTL
-- CSV export functionality
-- Shareable URL filters via hash parameters
-- Comprehensive test suite (80%+ coverage)
-- Security scanning (Bandit, TruffleHog, CodeQL)
-- Metrics collection and monitoring
-- GitHub Pages deployment
-- Project metadata (MANIFEST.yaml)
-- Contributing guidelines
-
-### Security
-- No secrets in code - all sensitive data in environment variables
-- Input validation on all user inputs
-- Content Security Policy headers
-- Dependency scanning via npm audit
-
-### Performance
-- Client-side filtering for instant results
-- Optimized search with Fuse.js
-- Lazy loading of vulnerability data
-- Webpack bundle optimization
-- CDN delivery via GitHub Pages
-
 ## [Unreleased]
 
 ### Added
-- Rebranded to "Vuln-Bot" with high-risk CVE focus
-- EPSS ≥ 70% filtering for most likely exploited vulnerabilities
-- Chunked storage optimization (8 files vs 33,000+ individual JSONs)
-- Client-side vulnerability JSON viewer
-- Enhanced dashboard header with gradient and statistics badges
+- GitHub Security Advisory Database as an additional vulnerability data source
+  - Implemented GraphQL API client for fetching advisories
+  - Added `github_advisory_id` field to vulnerability model
+  - Integrated into harvest orchestrator with proper pagination
+- Interactive CVE details modal with accessibility features
+  - Four tabs: Overview, Technical Details, Timeline, and References
+  - WCAG 2.1 AA compliance with keyboard navigation
+  - Focus management and screen reader support
+  - Responsive design with mobile breakpoints
+- Badge update functionality for automated coverage reporting
+  - New `update-badge` CLI command
+  - Automatic color coding based on coverage percentage
+  - Dry-run mode for testing
+  - CI/CD integration for automatic updates
+- Webhook alerts for high-risk vulnerabilities
+  - Support for Slack and Teams webhooks
+  - Configurable risk threshold
+  - Dry-run mode for testing
+
+### Fixed
+- SQLite timezone handling issues in cache manager
+  - Convert timezone-aware datetimes to naive UTC for storage
+  - Added helper methods for datetime conversion
+  - All cache-related tests now pass consistently
+- Implemented previously skipped tests in cvelist_client_extended.py
+  - Fixed field name references (vendors → affected_vendors)
+  - All 4 previously skipped tests now pass
 
 ### Changed
-- Updated branding throughout application
-- Increased EPSS threshold from 0.1% to 70%
-- Replaced individual JSON files with severity-year chunks
-- Optimized storage strategy for better Git performance
+- Updated CI workflow to use new badge update command instead of generate_badge.py
+- Enhanced documentation with new features and commands
+- Improved TypeScript type safety in frontend components
 
-### Planned
-- Additional vulnerability sources (GitHub Advisory, OSV)
-- Email notification system
-- API rate limit handling improvements
-- Advanced analytics dashboard
-- Multi-language support
-- Dark mode theme
-- Vulnerability timeline visualization
-- Integration with security tools
-- Webhook notifications
+## [1.0.0] - 2024-12-25
 
----
-
-For a detailed list of changes, see the [commit history](https://github.com/williamzujkowski/vuln-bot/commits/main).
+### Added
+- Initial release of Vuln-Bot
+- High-risk CVE intelligence platform
+- Automated vulnerability harvesting from CVEProject/cvelistV5
+- EPSS enrichment and risk scoring
+- Static site generation with 11ty
+- Advanced filtering dashboard with Alpine.js
+- RSS/Atom feed generation
+- GitHub Actions automation

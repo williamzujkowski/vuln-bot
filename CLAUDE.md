@@ -22,6 +22,12 @@ python -m scripts.main generate-briefing
 # Generate with optimized storage (chunked by severity-year)
 python -m scripts.main generate-briefing --storage-strategy severity-year
 
+# Update coverage badge in README
+python -m scripts.main update-badge
+
+# Send vulnerability alerts to webhooks
+python -m scripts.main send-alerts --risk-threshold 80
+
 # Run Python linting (Ruff)
 ruff check scripts/
 ruff format scripts/
@@ -68,11 +74,13 @@ chmod +x .husky/pre-commit .husky/commit-msg
 
 ### Data Flow
 1. **Scheduled Harvesting** (Python scripts in `scripts/`, runs every 4 hours):
-   - Fetches from CVEProject/cvelistV5 repository (official CVE List, updated every 7 minutes)
+   - Fetches from multiple sources:
+     - CVEProject/cvelistV5 repository (official CVE List, updated every 7 minutes)
+     - GitHub Security Advisory Database (via GraphQL API)
    - Filters for Critical/High severity CVEs from 2024-2025 with EPSS scores ≥ 70%
    - Enriches with EPSS API data and CISA-ADP container information (KEV/SSVC)
    - Normalizes data and calculates Risk Score (0-100) based on CVSS, EPSS, popularity, infrastructure tags, and newness
-   - Caches responses in SQLite using GitHub Actions cache (10-day TTL)
+   - Caches responses in SQLite using GitHub Actions cache (10-day TTL, timezone-aware)
 
 2. **Content Generation** (11ty in `src/`):
    - Creates briefing posts at `_posts/{{date}}-vuln-brief.md` using Nunjucks templates
@@ -80,11 +88,16 @@ chmod +x .husky/pre-commit .husky/commit-msg
    - Builds consolidated search index at `api/vulns/index.json`
    - Creates chunk index at `api/vulns/chunk-index.json` for navigation
 
-3. **Frontend** (Alpine.js + Fuse.js):
+3. **Frontend** (Alpine.js + Fuse.js + TypeScript):
    - Client-side filtering UI on the homepage
    - Real-time search/filter on: CVE ID, severity, CVSS/EPSS scores, date ranges, vendors, exploitation status
    - URL hash-based state for shareable filtered views
    - Paginated results (10/20/50/100 rows, default 50)
+   - Interactive CVE detail modal with:
+     - Overview, Technical Details, Timeline, and References tabs
+     - WCAG 2.1 AA accessibility compliance
+     - Keyboard navigation (Esc to close, Alt+1-4 for tabs)
+     - Focus management and screen reader support
 
 ### Key Directories
 - `scripts/` - Python vulnerability harvesting and processing scripts
@@ -112,4 +125,5 @@ Environment secrets needed in GitHub Actions:
 ### Deployment
 - Static site deployed to GitHub Pages from `gh-pages` branch
 - No backend servers required - fully client-side functionality
-- Coverage badges auto-updated in README via Shields.io
+- Coverage badges auto-updated in README via the `update-badge` command
+- Webhook alerts supported for Slack/Teams notifications

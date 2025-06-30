@@ -9,11 +9,12 @@
 ## Features
 
 - 🎯 **High-Risk Focus**: Filters for EPSS ≥ 70% - only the most likely exploited vulnerabilities
-- 🔍 **Official CVE Data**: Uses CVEProject/cvelistV5 GitHub releases for fast bulk processing with EPSS enrichment and CISA-ADP container data
+- 🔍 **Multiple Data Sources**: CVEProject/cvelistV5 repository and GitHub Security Advisory Database with EPSS enrichment and CISA-ADP container data
 - 📊 **Risk Scoring**: Calculates weighted scores (0-100) based on CVSS, EPSS, popularity, and infrastructure tags
 - 💾 **Optimized Storage**: Chunked data storage by severity-year instead of 33,000+ individual files
 - 🚀 **Static Site Generation**: Uses 11ty to generate fast, SEO-friendly briefings
 - 🔎 **Advanced Filtering**: Client-side dashboard with instant search, CVSS/EPSS sliders, keyboard shortcuts, and shareable views
+- 📋 **Interactive CVE Details**: Click any CVE ID to view detailed information in an accessible modal with technical details, timeline, and references
 - 📡 **RSS/Atom Feeds**: Subscribe to vulnerability briefings via RSS or Atom feeds
 - 🤖 **Fully Automated**: Harvesting every 4 hours with zero manual intervention required
 - 🔒 **Security First**: Comprehensive CI/CD with Bandit, CodeQL, and dependency scanning
@@ -52,6 +53,12 @@ python -m scripts.main harvest --cache-dir .cache/
 # Generate a briefing
 python -m scripts.main generate-briefing
 
+# Update coverage badge (for CI/CD)
+python -m scripts.main update-badge
+
+# Send vulnerability alerts (requires webhook configuration)
+python -m scripts.main send-alerts --risk-threshold 80
+
 # Build and serve the site locally
 npm run serve
 ```
@@ -68,7 +75,11 @@ The dashboard supports keyboard shortcuts for improved productivity:
 - `←` `→` - Navigate between pages
 - `1`-`4` - Set page size (10, 20, 50, 100)
 - `?` - Show keyboard shortcuts help
-- `Esc` - Close help modal
+- `Esc` - Close help modal or CVE details modal
+
+When viewing CVE details:
+- `Alt+1` through `Alt+4` - Switch between tabs (Overview, Technical, Timeline, References)
+- `Tab` - Navigate through interactive elements (focus trapped within modal)
 
 ## Configuration
 
