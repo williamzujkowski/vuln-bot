@@ -1,7 +1,7 @@
 {
   "chunk": "2025-NONE",
   "count": 5,
-  "generated": "2025-06-29T20:17:53.958213",
+  "generated": "2025-06-30T13:58:49.675992",
   "vulnerabilities": [
     {
       "cveId": "CVE-2025-22004",
@@ -19,12 +19,8 @@
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": [
-          "linux"
-        ],
-        "products": [
-          "linux"
-        ]
+        "vendors": ["linux"],
+        "products": ["linux"]
       },
       "references": [
         {
@@ -99,12 +95,8 @@
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": [
-          "google"
-        ],
-        "products": [
-          "chrome"
-        ]
+        "vendors": ["google"],
+        "products": ["chrome"]
       },
       "references": [
         {
@@ -149,14 +141,8 @@
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": [
-          "mozilla"
-        ],
-        "products": [
-          "thunderbird",
-          "firefox",
-          "firefox esr"
-        ]
+        "vendors": ["mozilla"],
+        "products": ["thunderbird", "firefox", "firefox esr"]
       },
       "references": [
         {
@@ -221,9 +207,7 @@
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": [
-          "arm ltd"
-        ],
+        "vendors": ["arm ltd"],
         "products": [
           "bifrost gpu userspace driver",
           "valhall gpu userspace  driver",
@@ -239,9 +223,7 @@
       ],
       "attackTechniques": [],
       "metadata": {
-        "tags": [
-          "CWE-119"
-        ],
+        "tags": ["CWE-119"],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
         "attackVector": null,
@@ -270,13 +252,8 @@
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": [
-          "arm ltd"
-        ],
-        "products": [
-          "arm 5th gen gpu architecture kernel driver",
-          "valhall gpu kernel driver"
-        ]
+        "vendors": ["arm ltd"],
+        "products": ["arm 5th gen gpu architecture kernel driver", "valhall gpu kernel driver"]
       },
       "references": [
         {
@@ -287,9 +264,7 @@
       ],
       "attackTechniques": [],
       "metadata": {
-        "tags": [
-          "CWE-416"
-        ],
+        "tags": ["CWE-416"],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
         "attackVector": null,
