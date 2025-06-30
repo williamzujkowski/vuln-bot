@@ -255,12 +255,43 @@ class TestCLI:
         assert result.exit_code == 0
         assert "Coverage badge updated" in result.output
 
-    def test_send_alerts_command_dry_run(self, cli_runner):
+    @patch("scripts.main.CacheManager")
+    def test_send_alerts_command_dry_run(self, mock_cache_class, cli_runner):
         """Test send-alerts command with dry run."""
+        from datetime import datetime
+
+        from scripts.models import SeverityLevel, Vulnerability
+
+        # Create mock vulnerabilities with high risk scores
+        high_risk_vuln = Vulnerability(
+            cve_id="CVE-2024-1234",
+            title="Test High Risk Vulnerability",
+            description="Test description",
+            severity=SeverityLevel.CRITICAL,
+            published_date=datetime.now(),
+            last_modified_date=datetime.now(),
+            risk_score=85,  # High risk score
+        )
+
+        mock_cache_instance = mock_cache_class.return_value
+        mock_cache_instance.get_recent_vulnerabilities.return_value = [high_risk_vuln]
+
         result = cli_runner.invoke(app, ["send-alerts", "--dry-run"])
 
         assert result.exit_code == 0
-        assert "Alerts sent successfully" in result.output
+        assert "DRY RUN MODE" in result.output
+        assert "Would send 1 alerts" in result.output
+
+    @patch("scripts.main.CacheManager")
+    def test_send_alerts_command_no_vulnerabilities(self, mock_cache_class, cli_runner):
+        """Test send-alerts command when no vulnerabilities are found."""
+        mock_cache_instance = mock_cache_class.return_value
+        mock_cache_instance.get_recent_vulnerabilities.return_value = []
+
+        result = cli_runner.invoke(app, ["send-alerts", "--dry-run"])
+
+        assert result.exit_code == 0
+        assert "No vulnerabilities found" in result.output
 
     def test_main_app_without_command(self, cli_runner):
         """Test running app without command shows help."""

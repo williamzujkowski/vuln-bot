@@ -10,6 +10,7 @@ import type {
 } from "./types/vulnerability";
 import "./types/alpine";
 import { analytics } from "./analytics";
+import { createCveModal, type CveModal } from "./components/CveModal";
 
 type Fuse<T> = import("fuse.js").default<T>;
 
@@ -49,6 +50,9 @@ interface VulnDashboard {
   error: string | null;
   initialLoad: boolean;
 
+  // Modal
+  modal: CveModal;
+
   // Methods
   init(): Promise<void>;
   loadVulnerabilities(): Promise<void>;
@@ -73,10 +77,14 @@ interface VulnDashboard {
   trackVulnerabilityClick(cveId: string, riskScore: number): void;
   setupKeyboardShortcuts(): void;
   showKeyboardHelp(): void;
+  openCveModal(cveId: string): Promise<void>;
   $nextTick(callback: () => void): void;
 }
 
 document.addEventListener("alpine:init", () => {
+  // Register CVE Modal component
+  window.Alpine.data("cveModal", createCveModal);
+
   window.Alpine.data(
     "vulnDashboard",
     (): VulnDashboard => ({
@@ -115,6 +123,9 @@ document.addEventListener("alpine:init", () => {
       error: null,
       initialLoad: true,
 
+      // Modal
+      modal: createCveModal(),
+
       async init(): Promise<void> {
         // Start performance timer
         analytics.startTimer("page-load");
@@ -139,6 +150,9 @@ document.addEventListener("alpine:init", () => {
 
         // Set up keyboard shortcuts
         this.setupKeyboardShortcuts();
+
+        // Make modal available globally for CVE links
+        window.cveModal = this.modal;
 
         // Track performance
         analytics.endTimer("page-load");
@@ -631,6 +645,10 @@ document.addEventListener("alpine:init", () => {
 
       trackVulnerabilityClick(cveId: string, riskScore: number): void {
         analytics.trackVulnerabilityClick(cveId, { riskScore });
+      },
+
+      async openCveModal(cveId: string): Promise<void> {
+        await this.modal.openModal(cveId);
       },
 
       setupKeyboardShortcuts(): void {

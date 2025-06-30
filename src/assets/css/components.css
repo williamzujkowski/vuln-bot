@@ -6,6 +6,9 @@
 /* Import design tokens */
 @import "./tokens.css";
 
+/* Import modal component */
+@import "./components/modal.css";
+
 /* Button Component */
 .btn {
   display: inline-flex;
@@ -636,4 +639,43 @@
   .lg\:flex {
     display: flex;
   }
+}
+
+/* CVE Link Button - styled as a link */
+.cve-link-button {
+  background: none;
+  border: none;
+  color: var(--color-brand-primary);
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: inherit;
+  font-family: inherit;
+  padding: 0;
+  margin: 0;
+  transition: var(--transition-colors);
+}
+
+.cve-link-button:hover {
+  color: var(--color-link-hover);
+  text-decoration: none;
+}
+
+.cve-link-button:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px var(--color-brand-primary);
+  border-radius: 2px;
+}
+
+/* Screen reader only utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }

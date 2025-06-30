@@ -257,12 +257,14 @@ title: Morning Vuln Briefing - Dashboard
               <template x-for="(vuln, index) in paginatedVulns" :key="vuln.cveId">
                 <tr role="row" class="vulnerability-row loaded">
                   <td role="cell">
-                    <a 
-                      :href="'/vuln-bot/api/vulns/' + vuln.cveId + '.json'" 
+                    <button 
+                      type="button"
                       x-text="vuln.cveId"
-                      :aria-label="'View JSON data for ' + vuln.cveId"
-                      @click="$root.trackVulnerabilityClick && $root.trackVulnerabilityClick(vuln.cveId, vuln.exploitationStatus)"
-                    ></a>
+                      :aria-label="'View details for ' + vuln.cveId"
+                      @click="openCveModal(vuln.cveId); trackVulnerabilityClick(vuln.cveId, vuln.riskScore)"
+                      :data-cve-trigger="vuln.cveId"
+                      class="cve-link-button"
+                    ></button>
                   </td>
                   <td role="cell" x-text="vuln.title"></td>
                   <td role="cell">
@@ -352,5 +354,8 @@ title: Morning Vuln Briefing - Dashboard
     </div>
   </div>
 </div>
+
+<!-- CVE Details Modal -->
+{% include "components/cve-modal.njk" %}
 
 <script src="{{ '/assets/js/dashboard.js' | url }}"></script>
