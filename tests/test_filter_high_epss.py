@@ -57,14 +57,16 @@ class TestFilterHighEPSS:
             "generated": "2024-01-01T00:00:00Z",
         }
 
+    @patch("shutil.copy")
     @patch("os.path.exists")
     @patch("os.makedirs")
     def test_filter_high_epss_vulns_success(
-        self, mock_makedirs, mock_exists, sample_vulnerability_data, capsys
+        self, mock_makedirs, mock_exists, _mock_copy, sample_vulnerability_data, capsys
     ):
         """Test successful filtering of high EPSS vulnerabilities."""
         # Set up the test environment
-        mock_exists.return_value = True
+        # First call checks source file, second checks if target exists
+        mock_exists.side_effect = [True, False]
 
         # Variables to capture written data
         written_data = {}
@@ -267,11 +269,12 @@ class TestFilterHighEPSS:
             batch1_data = json.load(f)
         assert batch1_data["count"] == 500
 
+    @patch("shutil.copy")
     @patch("scripts.filter_high_epss.organize_into_subfolders")
     @patch("os.makedirs")
     @patch("os.path.exists")
     def test_filter_calls_organize_for_large_dataset(
-        self, mock_exists, _, mock_organize
+        self, mock_exists, _, mock_organize, _mock_copy
     ):
         """Test that filter_high_epss_vulns calls organize_into_subfolders for large datasets."""
         # Create test data with > 1000 high EPSS vulns
@@ -291,7 +294,8 @@ class TestFilterHighEPSS:
             "generated": "2024-01-01T00:00:00Z",
         }
 
-        mock_exists.return_value = True
+        # First call checks source file, second checks if target exists
+        mock_exists.side_effect = [True, False]
 
         # Variables to capture written data
         written_data = {}
@@ -376,9 +380,12 @@ class TestFilterHighEPSS:
         assert master["total_batches"] == 3
         assert master["items_per_batch"] == 100
 
+    @patch("shutil.copy")
     @patch("os.makedirs")
     @patch("os.path.exists")
-    def test_main_execution(self, mock_exists, _, sample_vulnerability_data, capsys):
+    def test_main_execution(
+        self, mock_exists, _, _mock_copy, sample_vulnerability_data, capsys
+    ):
         """Test main execution."""
         # Test the module's __main__ execution
         import runpy
@@ -387,7 +394,8 @@ class TestFilterHighEPSS:
         # Save original argv
         original_argv = sys.argv
 
-        mock_exists.return_value = True
+        # First call checks source file, second checks if target exists
+        mock_exists.side_effect = [True, False]
 
         # Variables to capture written data
         written_data = {}
