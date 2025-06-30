@@ -91,12 +91,15 @@ class TestBaseAPIClientExtended:
 
     def test_make_request_all_retries_fail(self, client_with_cache):
         """Test when all retries fail."""
+        from tenacity import RetryError
+
         with patch("requests.Session.request") as mock_request:
             mock_request.side_effect = requests.exceptions.ConnectionError(
                 "Network error"
             )
 
-            with pytest.raises(requests.exceptions.ConnectionError):
+            # Tenacity wraps the exception in RetryError after all retries fail
+            with pytest.raises(RetryError):
                 client_with_cache._make_request("GET", "/test")
 
             # The _make_request method uses tenacity retry which will attempt 3 times
@@ -185,6 +188,8 @@ class TestBaseAPIClientExtended:
 
     def test_handle_response_errors(self, client_with_cache):
         """Test response error handling."""
+        from tenacity import RetryError
+
         # Test 404 error
         mock_response = Mock()
         mock_response.status_code = 404
@@ -192,8 +197,9 @@ class TestBaseAPIClientExtended:
 
         with patch(
             "requests.Session.request", return_value=mock_response
-        ), pytest.raises(requests.HTTPError):
-            # Since 404 is not in the retry status list, it should fail immediately with HTTPError
+        ), pytest.raises(RetryError):
+            # HTTPError is a subclass of RequestException, so it will be retried
+            # After 3 attempts, it will raise RetryError
             client_with_cache._make_request("GET", "/notfound")
 
     def test_json_decode_error(self, client_with_cache):

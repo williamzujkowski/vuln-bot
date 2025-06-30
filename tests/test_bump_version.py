@@ -135,7 +135,7 @@ class TestBumpVersion:
             mock_run.side_effect = [
                 Mock(returncode=0),  # git add
                 Mock(returncode=0),  # git commit
-                Mock(returncode=1),  # git tag (fails)
+                subprocess.CalledProcessError(1, ["git", "tag"]),  # git tag fails
             ]
 
             # The function uses subprocess.run with check=True, so it raises CalledProcessError
