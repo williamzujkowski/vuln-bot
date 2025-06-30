@@ -746,8 +746,7 @@ document.addEventListener('alpine:init', () => {
                 this.filters.publishedDateFrom = this.getDateDaysAgo(90);
                 this.filters.publishedDateTo = ''; // Empty means "today"
             }
-            // Don't set default lastModifiedDate filters - field not available in index.json
-            // Keep the fields empty so the filter is not applied by default
+            // Keep lastModifiedDate filters empty by default (users can set if needed)
         },
         async init() {
             // Start performance timer
@@ -869,25 +868,15 @@ document.addEventListener('alpine:init', () => {
                 toDate.setHours(23, 59, 59, 999); // Include entire day
                 results = results.filter((vuln) => new Date(vuln.publishedDate) <= toDate);
             }
-            // Apply last modified date filter (only if the field exists in the data)
+            // Apply last modified date filter
             if (this.filters.lastModifiedDateFrom) {
                 const fromDate = new Date(this.filters.lastModifiedDateFrom);
-                results = results.filter((vuln) => {
-                    // Skip filter if lastModifiedDate is not present
-                    if (!vuln.lastModifiedDate)
-                        return true;
-                    return new Date(vuln.lastModifiedDate) >= fromDate;
-                });
+                results = results.filter((vuln) => new Date(vuln.lastModifiedDate) >= fromDate);
             }
             if (this.filters.lastModifiedDateTo) {
                 const toDate = new Date(this.filters.lastModifiedDateTo);
                 toDate.setHours(23, 59, 59, 999); // Include entire day
-                results = results.filter((vuln) => {
-                    // Skip filter if lastModifiedDate is not present
-                    if (!vuln.lastModifiedDate)
-                        return true;
-                    return new Date(vuln.lastModifiedDate) <= toDate;
-                });
+                results = results.filter((vuln) => new Date(vuln.lastModifiedDate) <= toDate);
             }
             // Apply vendor filter
             if (this.filters.vendor) {
