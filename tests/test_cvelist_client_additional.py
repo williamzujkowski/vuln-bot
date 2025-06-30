@@ -403,7 +403,7 @@ class TestCVEListClientAdditional:
 
         with patch("requests.get") as mock_get:
             mock_response = Mock()
-            mock_response.iter_content = lambda _: [zip_path.read_bytes()]
+            mock_response.iter_content = Mock(return_value=[zip_path.read_bytes()])
             mock_response.raise_for_status = Mock()
             mock_get.return_value = mock_response
 

@@ -154,7 +154,7 @@ class TestFilterHighEPSS:
     @patch("os.makedirs")
     @patch("os.path.exists")
     def test_filter_high_epss_vulns_with_backup(
-        self, mock_exists, mock_copy, sample_vulnerability_data
+        self, mock_exists, _, mock_copy, sample_vulnerability_data
     ):
         """Test backup creation when target file exists."""
         # First call checks source file, second checks if target exists
@@ -270,7 +270,9 @@ class TestFilterHighEPSS:
     @patch("scripts.filter_high_epss.organize_into_subfolders")
     @patch("os.makedirs")
     @patch("os.path.exists")
-    def test_filter_calls_organize_for_large_dataset(self, mock_exists, mock_organize):
+    def test_filter_calls_organize_for_large_dataset(
+        self, mock_exists, _, mock_organize
+    ):
         """Test that filter_high_epss_vulns calls organize_into_subfolders for large datasets."""
         # Create test data with > 1000 high EPSS vulns
         vulns = []
@@ -376,7 +378,7 @@ class TestFilterHighEPSS:
 
     @patch("os.makedirs")
     @patch("os.path.exists")
-    def test_main_execution(self, mock_exists, sample_vulnerability_data, capsys):
+    def test_main_execution(self, mock_exists, _, sample_vulnerability_data, capsys):
         """Test main execution."""
         # Test the module's __main__ execution
         import runpy
