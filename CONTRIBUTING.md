@@ -98,7 +98,7 @@ By participating in this project, you agree to abide by our Code of Conduct: Be 
 - Follow PEP 8 with Black formatting (enforced by Ruff)
 - Use type hints for all function signatures
 - Write docstrings for all classes and functions
-- Maintain 63% test coverage minimum (CI requirement)
+- Maintain 80% test coverage minimum (CI requirement)
 
 Example:
 ```python
@@ -212,7 +212,7 @@ npm run typecheck
 ## Pull Request Checklist
 
 - [ ] Tests pass locally
-- [ ] Code coverage ≥ 63% (CI requirement)
+- [ ] Code coverage ≥ 80% (CI requirement)
 - [ ] Linting passes (Ruff & ESLint)
 - [ ] Security scans pass
 - [ ] Documentation updated

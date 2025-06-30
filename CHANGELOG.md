@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to the Morning Vuln Briefing project will be documented in this file.
+All notable changes to the Vuln-Bot project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - 2025-06-28
 
 ### Added
-- Initial release of Morning Vuln Briefing platform
+- Initial release of Vuln-Bot platform
 - Automated vulnerability harvesting from CVEProject/cvelistV5
 - EPSS score enrichment for exploit prediction
 - Custom risk scoring algorithm (0-100 scale)

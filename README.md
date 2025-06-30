@@ -113,7 +113,7 @@ For alert notifications (feature-flagged):
 ### Running Tests
 
 ```bash
-# Python tests with coverage (currently 77%)
+# Python tests with coverage (currently 88%)
 pytest --cov=scripts --cov-report=term
 
 # JavaScript linting
@@ -202,8 +202,8 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
 ### Testing Requirements
 
-- Minimum test coverage: 63% (CI enforced)
-- Target test coverage: 80%+
+- Minimum test coverage: 80% (CI enforced)
+- Current test coverage: 88%
 - All tests must pass before merging
 - Security scans must pass (Bandit, CodeQL)
 

@@ -69,7 +69,7 @@ chmod +x .husky/pre-commit .husky/commit-msg
 ### Data Flow
 1. **Scheduled Harvesting** (Python scripts in `scripts/`, runs every 4 hours):
    - Fetches from CVEProject/cvelistV5 repository (official CVE List, updated every 7 minutes)
-   - Filters for Critical/High severity CVEs from 2024-2025 with EPSS scores > 60%
+   - Filters for Critical/High severity CVEs from 2024-2025 with EPSS scores ≥ 70%
    - Enriches with EPSS API data and CISA-ADP container information (KEV/SSVC)
    - Normalizes data and calculates Risk Score (0-100) based on CVSS, EPSS, popularity, infrastructure tags, and newness
    - Caches responses in SQLite using GitHub Actions cache (10-day TTL)
@@ -95,7 +95,7 @@ chmod +x .husky/pre-commit .husky/commit-msg
 
 ### CI/CD Pipeline
 - **Scheduled Build**: Runs harvesting every 4 hours, generates content, commits artifacts to main, deploys to gh-pages
-- **PR Checks**: Linting (Ruff, ESLint), tests (≥59% coverage), security scans (Bandit, TruffleHog, CodeQL)
+- **PR Checks**: Linting (Ruff, ESLint), tests (≥80% coverage), security scans (Bandit, TruffleHog, CodeQL)
 - **Security**: npm-audit for dependencies, automated vulnerability scanning
 
 ### API Keys Required
