@@ -147,7 +147,7 @@ class TestBumpVersion:
             assert result == 0
 
         mock_update.assert_called_once_with("1.3.0")
-        mock_tag.assert_called_once_with("1.3.0", "Release version 1.3.0")
+        mock_tag.assert_called_once_with("1.3.0", None)
 
     @patch("scripts.bump_version.get_current_version")
     def test_main_no_current_version(self, mock_get_version):

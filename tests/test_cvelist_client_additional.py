@@ -32,8 +32,8 @@ class TestCVEListClientAdditional:
 
     def test_ensure_local_repo_clones(self, client):
         """Test _ensure_local_repo clones repository if not exists."""
-        # Mock Path to simulate non-existing repo
-        with patch.object(client.local_repo_path, "exists", return_value=False), patch(
+        # Mock Path.exists to simulate non-existing repo
+        with patch("pathlib.Path.exists", return_value=False), patch(
             "scripts.harvest.cvelist_client.subprocess.run"
         ) as mock_run:
             mock_run.return_value = Mock(returncode=0)
