@@ -2,7 +2,12 @@
  * Alpine.js Vulnerability Dashboard - TypeScript Version
  */
 
-import type { Vulnerability, VulnerabilityResponse, SeverityLevel } from "./types/vulnerability";
+import type {
+  Vulnerability,
+  VulnerabilityResponse,
+  SeverityLevel,
+  FilterState,
+} from "./types/vulnerability";
 import "./types/alpine";
 import { analytics } from "./analytics";
 import { createCveModal, type CveModal } from "./components/CveModal";
@@ -18,17 +23,7 @@ interface VulnDashboard {
   fuse: Fuse<Vulnerability> | null;
 
   // Filters
-  filters: {
-    cvssMin: number;
-    cvssMax: number;
-    epssMin: number;
-    epssMax: number;
-    severity: SeverityLevel | "";
-    dateFrom: string;
-    dateTo: string;
-    vendor: string;
-    tags: string[];
-  };
+  filters: FilterState;
 
   // Sort
   sortField: keyof Vulnerability;
@@ -52,6 +47,8 @@ interface VulnDashboard {
   loadVulnerabilities(): Promise<void>;
   setupLazyLoading(): void;
   setupSearch(): void;
+  getDateDaysAgo(days: number): string;
+  setDefaultDateRanges(): void;
   applyFilters(): void;
   validateFilters(): boolean;
   announceFilterResults(): void;
@@ -96,8 +93,12 @@ document.addEventListener("alpine:init", () => {
         epssMin: 0,
         epssMax: 100,
         severity: "",
-        dateFrom: "",
-        dateTo: "",
+        publishedDateFrom: "",
+        publishedDateTo: "",
+        lastModifiedDateFrom: "",
+        lastModifiedDateTo: "",
+        dateFrom: "", // deprecated, keeping for backwards compatibility
+        dateTo: "", // deprecated, keeping for backwards compatibility
         vendor: "",
         tags: [],
       },
@@ -119,12 +120,35 @@ document.addEventListener("alpine:init", () => {
       // Modal
       modal: createCveModal(),
 
+      // Helper function to get date string for n days ago
+      getDateDaysAgo(days: number): string {
+        const date = new Date();
+        date.setDate(date.getDate() - days);
+        return date.toISOString().split("T")[0] as string; // YYYY-MM-DD format
+      },
+
+      // Helper function to set default date ranges
+      setDefaultDateRanges(): void {
+        // Only set defaults if not already loaded from hash
+        if (!this.filters.publishedDateFrom && !this.filters.dateFrom) {
+          this.filters.publishedDateFrom = this.getDateDaysAgo(90);
+          this.filters.publishedDateTo = ""; // Empty means "today"
+        }
+        if (!this.filters.lastModifiedDateFrom) {
+          this.filters.lastModifiedDateFrom = this.getDateDaysAgo(90);
+          this.filters.lastModifiedDateTo = ""; // Empty means "today"
+        }
+      },
+
       async init(): Promise<void> {
         // Start performance timer
         analytics.startTimer("page-load");
 
         // Load state from URL hash
         this.loadStateFromHash();
+
+        // Set default date ranges if not loaded from hash
+        this.setDefaultDateRanges();
 
         // Load vulnerability data
         await this.loadVulnerabilities();
@@ -250,15 +274,30 @@ document.addEventListener("alpine:init", () => {
           results = results.filter((vuln) => vuln.severity === this.filters.severity);
         }
 
-        // Apply date filter
-        if (this.filters.dateFrom) {
-          const fromDate = new Date(this.filters.dateFrom);
+        // Apply published date filter (use new fields or fall back to deprecated fields)
+        const publishedFrom = this.filters.publishedDateFrom || this.filters.dateFrom;
+        if (publishedFrom) {
+          const fromDate = new Date(publishedFrom);
           results = results.filter((vuln) => new Date(vuln.publishedDate) >= fromDate);
         }
 
-        if (this.filters.dateTo) {
-          const toDate = new Date(this.filters.dateTo);
+        const publishedTo = this.filters.publishedDateTo || this.filters.dateTo;
+        if (publishedTo) {
+          const toDate = new Date(publishedTo);
+          toDate.setHours(23, 59, 59, 999); // Include entire day
           results = results.filter((vuln) => new Date(vuln.publishedDate) <= toDate);
+        }
+
+        // Apply last modified date filter
+        if (this.filters.lastModifiedDateFrom) {
+          const fromDate = new Date(this.filters.lastModifiedDateFrom);
+          results = results.filter((vuln) => new Date(vuln.lastModifiedDate) >= fromDate);
+        }
+
+        if (this.filters.lastModifiedDateTo) {
+          const toDate = new Date(this.filters.lastModifiedDateTo);
+          toDate.setHours(23, 59, 59, 999); // Include entire day
+          results = results.filter((vuln) => new Date(vuln.lastModifiedDate) <= toDate);
         }
 
         // Apply vendor filter
@@ -272,7 +311,7 @@ document.addEventListener("alpine:init", () => {
         // Apply tag filter
         if (this.filters.tags.length > 0) {
           results = results.filter((vuln) =>
-            this.filters.tags.every((tag) => vuln.tags.includes(tag))
+            this.filters.tags.every((tag: string) => vuln.tags.includes(tag))
           );
         }
 
@@ -308,6 +347,25 @@ document.addEventListener("alpine:init", () => {
           activeFilters.push(`tags: ${this.filters.tags.join(", ")}`);
         }
 
+        // Date filters
+        const publishedFrom = this.filters.publishedDateFrom || this.filters.dateFrom;
+        const publishedTo = this.filters.publishedDateTo || this.filters.dateTo;
+        if (publishedFrom || publishedTo) {
+          const fromStr = publishedFrom ? `from ${publishedFrom}` : "";
+          const toStr = publishedTo ? `to ${publishedTo}` : "";
+          activeFilters.push(`published ${fromStr} ${toStr}`.trim());
+        }
+
+        if (this.filters.lastModifiedDateFrom || this.filters.lastModifiedDateTo) {
+          const fromStr = this.filters.lastModifiedDateFrom
+            ? `from ${this.filters.lastModifiedDateFrom}`
+            : "";
+          const toStr = this.filters.lastModifiedDateTo
+            ? `to ${this.filters.lastModifiedDateTo}`
+            : "";
+          activeFilters.push(`last modified ${fromStr} ${toStr}`.trim());
+        }
+
         if (activeFilters.length > 0) {
           announcement += ` with filters: ${activeFilters.join(", ")}`;
         }
@@ -341,12 +399,23 @@ document.addEventListener("alpine:init", () => {
           errors.push("EPSS minimum score cannot be greater than maximum");
         }
 
-        // Validate date range
-        if (this.filters.dateFrom && this.filters.dateTo) {
-          const fromDate = new Date(this.filters.dateFrom);
-          const toDate = new Date(this.filters.dateTo);
+        // Validate published date range
+        const publishedFrom = this.filters.publishedDateFrom || this.filters.dateFrom;
+        const publishedTo = this.filters.publishedDateTo || this.filters.dateTo;
+        if (publishedFrom && publishedTo) {
+          const fromDate = new Date(publishedFrom);
+          const toDate = new Date(publishedTo);
           if (fromDate > toDate) {
-            errors.push("Start date cannot be after end date");
+            errors.push("Published start date cannot be after end date");
+          }
+        }
+
+        // Validate last modified date range
+        if (this.filters.lastModifiedDateFrom && this.filters.lastModifiedDateTo) {
+          const fromDate = new Date(this.filters.lastModifiedDateFrom);
+          const toDate = new Date(this.filters.lastModifiedDateTo);
+          if (fromDate > toDate) {
+            errors.push("Last modified start date cannot be after end date");
           }
         }
 
@@ -485,8 +554,12 @@ document.addEventListener("alpine:init", () => {
           epssMin: this.filters.epssMin,
           epssMax: this.filters.epssMax,
           severity: this.filters.severity,
-          dateFrom: this.filters.dateFrom,
-          dateTo: this.filters.dateTo,
+          publishedDateFrom: this.filters.publishedDateFrom,
+          publishedDateTo: this.filters.publishedDateTo,
+          lastModifiedDateFrom: this.filters.lastModifiedDateFrom,
+          lastModifiedDateTo: this.filters.lastModifiedDateTo,
+          dateFrom: this.filters.dateFrom, // Keep for backwards compatibility
+          dateTo: this.filters.dateTo, // Keep for backwards compatibility
           vendor: this.filters.vendor,
           tags: this.filters.tags.join(","),
           sort: this.sortField,
@@ -535,8 +608,12 @@ document.addEventListener("alpine:init", () => {
         this.filters.epssMin = parseInt(params.get("epssMin") ?? "0");
         this.filters.epssMax = parseInt(params.get("epssMax") ?? "100");
         this.filters.severity = (params.get("severity") ?? "") as SeverityLevel | "";
-        this.filters.dateFrom = params.get("dateFrom") ?? "";
-        this.filters.dateTo = params.get("dateTo") ?? "";
+        this.filters.publishedDateFrom = params.get("publishedDateFrom") ?? "";
+        this.filters.publishedDateTo = params.get("publishedDateTo") ?? "";
+        this.filters.lastModifiedDateFrom = params.get("lastModifiedDateFrom") ?? "";
+        this.filters.lastModifiedDateTo = params.get("lastModifiedDateTo") ?? "";
+        this.filters.dateFrom = params.get("dateFrom") ?? ""; // Keep for backwards compatibility
+        this.filters.dateTo = params.get("dateTo") ?? ""; // Keep for backwards compatibility
         this.filters.vendor = params.get("vendor") ?? "";
 
         const tags = params.get("tags");
@@ -576,12 +653,20 @@ document.addEventListener("alpine:init", () => {
           epssMin: 0,
           epssMax: 100,
           severity: "",
+          publishedDateFrom: "",
+          publishedDateTo: "",
+          lastModifiedDateFrom: "",
+          lastModifiedDateTo: "",
           dateFrom: "",
           dateTo: "",
           vendor: "",
           tags: [],
         };
         this.currentPage = 1;
+
+        // Re-apply default date ranges after reset
+        this.setDefaultDateRanges();
+
         this.applyFilters();
       },
 

@@ -137,6 +137,86 @@ title: High-Risk CVE Intelligence Dashboard
             <span id="epss-max-value" x-text="filters.epssMax + '%'" class="range-value" aria-label="Maximum percentage"></span>
           </fieldset>
         </div>
+
+        <!-- Date Range Filters -->
+        <div class="filter-row">
+          <fieldset class="filter-group">
+            <legend>Published Date Range</legend>
+            <div class="date-inputs">
+              <label for="published-date-from">From:</label>
+              <input 
+                id="published-date-from"
+                type="date" 
+                x-model="filters.publishedDateFrom"
+                class="date-input"
+                aria-label="Published date from"
+              >
+              <label for="published-date-to">To:</label>
+              <input 
+                id="published-date-to"
+                type="date" 
+                x-model="filters.publishedDateTo"
+                class="date-input"
+                aria-label="Published date to"
+                :max="new Date().toISOString().split('T')[0]"
+              >
+            </div>
+          </fieldset>
+
+          <fieldset class="filter-group">
+            <legend>Last Modified Date Range</legend>
+            <div class="date-inputs">
+              <label for="modified-date-from">From:</label>
+              <input 
+                id="modified-date-from"
+                type="date" 
+                x-model="filters.lastModifiedDateFrom"
+                class="date-input"
+                aria-label="Last modified date from"
+              >
+              <label for="modified-date-to">To:</label>
+              <input 
+                id="modified-date-to"
+                type="date" 
+                x-model="filters.lastModifiedDateTo"
+                class="date-input"
+                aria-label="Last modified date to"
+                :max="new Date().toISOString().split('T')[0]"
+              >
+            </div>
+          </fieldset>
+        </div>
+
+        <!-- Additional Filters Row -->
+        <div class="filter-row">
+          <fieldset class="filter-group">
+            <legend>Severity</legend>
+            <select 
+              id="severity-filter"
+              x-model="filters.severity"
+              class="select-input"
+              aria-label="Filter by severity"
+            >
+              <option value="">All Severities</option>
+              <option value="CRITICAL">Critical</option>
+              <option value="HIGH">High</option>
+              <option value="MEDIUM">Medium</option>
+              <option value="LOW">Low</option>
+            </select>
+          </fieldset>
+
+          <fieldset class="filter-group">
+            <legend>Vendor</legend>
+            <input 
+              id="vendor-filter"
+              type="text" 
+              x-model="filters.vendor"
+              placeholder="Filter by vendor..."
+              class="text-input"
+              aria-label="Filter by vendor name"
+            >
+          </fieldset>
+        </div>
       </section>
 
       <!-- Results Summary -->

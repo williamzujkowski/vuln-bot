@@ -383,6 +383,71 @@ select:focus-visible {
   outline-offset: 2px;
 }
 
+/* Date inputs */
+.date-inputs {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.date-inputs label {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  min-width: 3rem;
+}
+
+.date-input,
+.text-input,
+.select-input {
+  padding: 0.5rem 0.75rem;
+  font-size: var(--font-size-sm);
+  border: 2px solid var(--color-border);
+  border-radius: 0.375rem;
+  background-color: var(--color-bg);
+  min-height: 44px; /* WCAG AA touch target size */
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
+}
+
+.date-input {
+  width: auto;
+  min-width: 140px;
+}
+
+.text-input {
+  width: 100%;
+  max-width: 200px;
+}
+
+.select-input {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364748b' d='M10.293 3.293L6 7.586 1.707 3.293A1 1 0 00.293 4.707l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  padding-right: 2rem;
+  width: 100%;
+  max-width: 200px;
+}
+
+.date-input:focus,
+.text-input:focus,
+.select-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: var(--focus-ring);
+}
+
+.date-input:focus-visible,
+.text-input:focus-visible,
+.select-input:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
 /* Results info */
 .results-info {
   padding: 1rem 0;
