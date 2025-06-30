@@ -506,7 +506,7 @@ document.addEventListener("alpine:init", () => {
             (key === "epssMin" && value === 0) ||
             (key === "epssMax" && value === 100) ||
             (key === "page" && value === 1) ||
-            (key === "size" && value === 20) ||
+            (key === "size" && value === 50) ||
             (key === "sort" && value === "epssPercentile") ||
             (key === "dir" && value === "desc")
           ) {
@@ -548,7 +548,7 @@ document.addEventListener("alpine:init", () => {
 
         // Load pagination
         this.currentPage = parseInt(params.get("page") ?? "1");
-        this.pageSize = parseInt(params.get("size") ?? "20");
+        this.pageSize = parseInt(params.get("size") ?? "50");
       },
 
       getSeverityClass(score: number): string {
