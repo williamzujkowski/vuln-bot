@@ -590,6 +590,1441 @@
         /***/
       },
 
+    /***/ "./src/assets/ts/components/SavedSearches.ts":
+      /*!***************************************************!*\
+  !*** ./src/assets/ts/components/SavedSearches.ts ***!
+  \***************************************************/
+      /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+          /* harmony export */ SavedSearches: () => /* binding */ SavedSearches,
+          /* harmony export */ createSavedSearchComponent: () =>
+            /* binding */ createSavedSearchComponent,
+          /* harmony export */
+        });
+        /**
+         * Saved Searches and Smart Suggestions Component
+         * Provides saved search functionality and intelligent search suggestions
+         */
+        class SavedSearches {
+          constructor() {
+            this.storageKey = "vuln_saved_searches";
+            this.recentSearchesKey = "vuln_recent_searches";
+            this.maxSavedSearches = 20;
+            this.maxRecentSearches = 10;
+            this.maxSuggestions = 8;
+            this.init();
+          }
+          init() {
+            // Clean up old searches periodically
+            this.cleanupOldSearches();
+          }
+          /**
+           * Save a search with current filters
+           */
+          saveSearch(name, query, filters) {
+            const searches = this.getSavedSearches();
+            const newSearch = {
+              id: this.generateId(),
+              name,
+              query,
+              filters: { ...filters },
+              timestamp: Date.now(),
+            };
+            // Remove existing search with same name
+            const filtered = searches.filter((s) => s.name !== name);
+            // Add new search at beginning
+            filtered.unshift(newSearch);
+            // Keep only max searches
+            const trimmed = filtered.slice(0, this.maxSavedSearches);
+            this.storeSavedSearches(trimmed);
+            return newSearch;
+          }
+          /**
+           * Get all saved searches
+           */
+          getSavedSearches() {
+            try {
+              const stored = localStorage.getItem(this.storageKey);
+              if (stored) {
+                return JSON.parse(stored);
+              }
+            } catch (error) {
+              console.warn("Failed to load saved searches:", error);
+            }
+            return [];
+          }
+          /**
+           * Delete a saved search
+           */
+          deleteSavedSearch(id) {
+            const searches = this.getSavedSearches();
+            const filtered = searches.filter((s) => s.id !== id);
+            this.storeSavedSearches(filtered);
+          }
+          /**
+           * Update search count (for analytics)
+           */
+          updateSearchCount(id, count) {
+            const searches = this.getSavedSearches();
+            const search = searches.find((s) => s.id === id);
+            if (search) {
+              search.count = count;
+              this.storeSavedSearches(searches);
+            }
+          }
+          /**
+           * Add to recent searches
+           */
+          addRecentSearch(query) {
+            if (!query.trim()) return;
+            const recent = this.getRecentSearches();
+            // Remove if already exists
+            const filtered = recent.filter((q) => q !== query);
+            // Add at beginning
+            filtered.unshift(query);
+            // Keep only max recent
+            const trimmed = filtered.slice(0, this.maxRecentSearches);
+            this.storeRecentSearches(trimmed);
+          }
+          /**
+           * Get recent searches
+           */
+          getRecentSearches() {
+            try {
+              const stored = localStorage.getItem(this.recentSearchesKey);
+              if (stored) {
+                return JSON.parse(stored);
+              }
+            } catch (error) {
+              console.warn("Failed to load recent searches:", error);
+            }
+            return [];
+          }
+          /**
+           * Generate search suggestions based on input
+           */
+          generateSuggestions(input, vulnerabilities) {
+            const suggestions = [];
+            const inputLower = input.toLowerCase().trim();
+            if (inputLower.length < 2) {
+              // Show recent searches when input is short
+              const recent = this.getRecentSearches();
+              recent.forEach((query, index) => {
+                suggestions.push({
+                  text: query,
+                  type: "recent",
+                  weight: 100 - index * 10,
+                });
+              });
+              return suggestions.slice(0, this.maxSuggestions);
+            }
+            // CVE ID suggestions
+            if (inputLower.startsWith("cve-") || /^\d{4}/.test(inputLower)) {
+              vulnerabilities.forEach((vuln) => {
+                if (vuln.cveId.toLowerCase().includes(inputLower)) {
+                  suggestions.push({
+                    text: vuln.cveId,
+                    type: "cve",
+                    weight: 90,
+                    metadata: { title: vuln.title },
+                  });
+                }
+              });
+            }
+            // Vendor suggestions
+            const vendors = new Set();
+            vulnerabilities.forEach((vuln) => {
+              vuln.vendors?.forEach((vendor) => {
+                if (vendor.toLowerCase().includes(inputLower)) {
+                  vendors.add(vendor);
+                }
+              });
+            });
+            vendors.forEach((vendor) => {
+              suggestions.push({
+                text: vendor,
+                type: "vendor",
+                weight: 80,
+              });
+            });
+            // Tag suggestions
+            const tags = new Set();
+            vulnerabilities.forEach((vuln) => {
+              vuln.tags?.forEach((tag) => {
+                if (tag.toLowerCase().includes(inputLower)) {
+                  tags.add(tag);
+                }
+              });
+            });
+            tags.forEach((tag) => {
+              suggestions.push({
+                text: tag,
+                type: "tag",
+                weight: 70,
+              });
+            });
+            // Smart suggestions based on common patterns
+            this.addSmartSuggestions(inputLower, suggestions);
+            // Recent search suggestions that match input
+            const recent = this.getRecentSearches();
+            recent.forEach((query, index) => {
+              if (query.toLowerCase().includes(inputLower)) {
+                suggestions.push({
+                  text: query,
+                  type: "recent",
+                  weight: 60 - index * 5,
+                });
+              }
+            });
+            // Sort by weight and remove duplicates
+            const unique = new Map();
+            suggestions.forEach((suggestion) => {
+              const existing = unique.get(suggestion.text);
+              if (!existing || existing.weight < suggestion.weight) {
+                unique.set(suggestion.text, suggestion);
+              }
+            });
+            return Array.from(unique.values())
+              .sort((a, b) => b.weight - a.weight)
+              .slice(0, this.maxSuggestions);
+          }
+          /**
+           * Add smart suggestions based on patterns
+           */
+          addSmartSuggestions(input, suggestions) {
+            const smartPatterns = [
+              { pattern: /buffer.?overflow/i, suggestion: "buffer overflow", weight: 85 },
+              { pattern: /sql.?injection/i, suggestion: "sql injection", weight: 85 },
+              { pattern: /cross.?site/i, suggestion: "cross-site scripting", weight: 85 },
+              { pattern: /remote.?code/i, suggestion: "remote code execution", weight: 85 },
+              { pattern: /privilege.?escalation/i, suggestion: "privilege escalation", weight: 85 },
+              { pattern: /denial.?of.?service/i, suggestion: "denial of service", weight: 85 },
+              {
+                pattern: /authentication.?bypass/i,
+                suggestion: "authentication bypass",
+                weight: 85,
+              },
+              { pattern: /path.?traversal/i, suggestion: "path traversal", weight: 85 },
+              { pattern: /memory.?corruption/i, suggestion: "memory corruption", weight: 85 },
+              {
+                pattern: /information.?disclosure/i,
+                suggestion: "information disclosure",
+                weight: 85,
+              },
+            ];
+            smartPatterns.forEach(({ pattern, suggestion, weight }) => {
+              if (pattern.test(input) && !suggestions.some((s) => s.text === suggestion)) {
+                suggestions.push({
+                  text: suggestion,
+                  type: "smart",
+                  weight,
+                });
+              }
+            });
+            // Year-based suggestions
+            if (/202[0-9]/.test(input)) {
+              const year = input.match(/202[0-9]/)?.[0];
+              if (year) {
+                suggestions.push({
+                  text: `CVE-${year}`,
+                  type: "smart",
+                  weight: 75,
+                });
+              }
+            }
+            // Severity suggestions
+            const severities = ["critical", "high", "medium", "low"];
+            severities.forEach((severity) => {
+              if (severity.startsWith(input.toLowerCase())) {
+                suggestions.push({
+                  text: severity,
+                  type: "smart",
+                  weight: 70,
+                });
+              }
+            });
+          }
+          /**
+           * Export saved searches
+           */
+          exportSavedSearches() {
+            const searches = this.getSavedSearches();
+            return JSON.stringify(searches, null, 2);
+          }
+          /**
+           * Import saved searches
+           */
+          importSavedSearches(jsonData) {
+            try {
+              const searches = JSON.parse(jsonData);
+              if (Array.isArray(searches)) {
+                // Validate structure
+                const valid = searches.every(
+                  (s) => s.id && s.name && typeof s.query === "string" && s.filters
+                );
+                if (valid) {
+                  this.storeSavedSearches(searches.slice(0, this.maxSavedSearches));
+                  return true;
+                }
+              }
+            } catch (error) {
+              console.warn("Failed to import saved searches:", error);
+            }
+            return false;
+          }
+          storeSavedSearches(searches) {
+            try {
+              localStorage.setItem(this.storageKey, JSON.stringify(searches));
+            } catch (error) {
+              console.warn("Failed to save searches:", error);
+            }
+          }
+          storeRecentSearches(searches) {
+            try {
+              localStorage.setItem(this.recentSearchesKey, JSON.stringify(searches));
+            } catch (error) {
+              console.warn("Failed to save recent searches:", error);
+            }
+          }
+          cleanupOldSearches() {
+            const searches = this.getSavedSearches();
+            const cutoff = Date.now() - 90 * 24 * 60 * 60 * 1000; // 90 days
+            const cleaned = searches.filter((s) => s.timestamp > cutoff);
+            if (cleaned.length !== searches.length) {
+              this.storeSavedSearches(cleaned);
+            }
+          }
+          generateId() {
+            return `search_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+          }
+        }
+        /**
+         * Alpine.js component for saved searches UI
+         */
+        function createSavedSearchComponent() {
+          return {
+            savedSearches: new SavedSearches(),
+            showSavedSearches: false,
+            showSuggestions: false,
+            suggestions: [],
+            savedSearchList: [],
+            newSearchName: "",
+            showSaveDialog: false,
+            init() {
+              this.loadSavedSearches();
+              this.setupSuggestionHandlers();
+            },
+            loadSavedSearches() {
+              this.savedSearchList = this.savedSearches.getSavedSearches();
+            },
+            showSaveSearchDialog() {
+              this.showSaveDialog = true;
+              this.newSearchName = "";
+              this.$nextTick(() => {
+                const input = document.getElementById("search-name-input");
+                input?.focus();
+              });
+            },
+            saveCurrentSearch() {
+              if (!this.newSearchName.trim()) return;
+              // Get current state from parent dashboard
+              const dashboard = this.getDashboard();
+              if (dashboard) {
+                const saved = this.savedSearches.saveSearch(
+                  this.newSearchName,
+                  dashboard.searchQuery,
+                  dashboard.filters
+                );
+                this.loadSavedSearches();
+                this.showSaveDialog = false;
+                // Show success message
+                this.showToast(`Search "${saved.name}" saved successfully`);
+              }
+            },
+            loadSavedSearch(search) {
+              const dashboard = this.getDashboard();
+              if (dashboard) {
+                // Apply saved search
+                dashboard.searchQuery = search.query;
+                dashboard.filters = { ...search.filters };
+                dashboard.applyFilters();
+                // Update count
+                this.savedSearches.updateSearchCount(search.id, dashboard.filteredVulns.length);
+                this.loadSavedSearches();
+                this.showSavedSearches = false;
+              }
+            },
+            deleteSavedSearch(id) {
+              this.savedSearches.deleteSavedSearch(id);
+              this.loadSavedSearches();
+            },
+            setupSuggestionHandlers() {
+              // Handle input events for suggestions
+              const searchInput = document.getElementById("search-input");
+              if (searchInput) {
+                searchInput.addEventListener("input", (e) => {
+                  this.updateSuggestions(e.target.value);
+                });
+                searchInput.addEventListener("focus", () => {
+                  this.showSuggestions = true;
+                });
+                searchInput.addEventListener("blur", () => {
+                  // Delay hiding to allow clicks on suggestions
+                  setTimeout(() => {
+                    this.showSuggestions = false;
+                  }, 200);
+                });
+              }
+            },
+            updateSuggestions(input) {
+              const dashboard = this.getDashboard();
+              if (dashboard) {
+                this.suggestions = this.savedSearches.generateSuggestions(
+                  input,
+                  dashboard.vulnerabilities
+                );
+                this.showSuggestions = input.length > 0 && this.suggestions.length > 0;
+              }
+            },
+            applySuggestion(suggestion) {
+              const dashboard = this.getDashboard();
+              if (dashboard) {
+                dashboard.searchQuery = suggestion.text;
+                this.savedSearches.addRecentSearch(suggestion.text);
+                dashboard.applyFilters();
+                this.showSuggestions = false;
+              }
+            },
+            getSuggestionIcon(type) {
+              switch (type) {
+                case "recent":
+                  return "🕒";
+                case "vendor":
+                  return "🏢";
+                case "cve":
+                  return "🔍";
+                case "tag":
+                  return "🏷️";
+                case "smart":
+                  return "💡";
+                default:
+                  return "🔍";
+              }
+            },
+            getDashboard() {
+              // Get reference to main dashboard component
+              return window.vulnDashboard;
+            },
+            showToast(message) {
+              // Simple toast notification
+              const toast = document.createElement("div");
+              toast.className = "toast";
+              toast.textContent = message;
+              toast.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #4ade80;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 8px;
+        z-index: 1000;
+        animation: slideIn 0.3s ease;
+      `;
+              document.body.appendChild(toast);
+              setTimeout(() => {
+                toast.remove();
+              }, 3000);
+            },
+            $nextTick(callback) {
+              // This method is provided by Alpine.js at runtime
+              // @ts-ignore
+              this.$nextTick(callback);
+            },
+          };
+        }
+
+        /***/
+      },
+
+    /***/ "./src/assets/ts/components/SecurityAlerts.ts":
+      /*!****************************************************!*\
+  !*** ./src/assets/ts/components/SecurityAlerts.ts ***!
+  \****************************************************/
+      /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+          /* harmony export */ QuickActionsManager: () => /* binding */ QuickActionsManager,
+          /* harmony export */ SecurityAlertSystem: () => /* binding */ SecurityAlertSystem,
+          /* harmony export */ createSecurityComponent: () => /* binding */ createSecurityComponent,
+          /* harmony export */
+        });
+        /**
+         * Security Alert System and Quick Actions Component
+         * Provides contextual security alerts and quick action buttons for vulnerability management
+         */
+        class SecurityAlertSystem {
+          constructor() {
+            this.alerts = [];
+            this.alertContainer = null;
+            this.maxAlerts = 5;
+            this.subscribers = [];
+            this.init();
+          }
+          init() {
+            this.createAlertContainer();
+            this.setupKeyboardShortcuts();
+          }
+          createAlertContainer() {
+            this.alertContainer = document.createElement("div");
+            this.alertContainer.id = "security-alerts-container";
+            this.alertContainer.className = "security-alerts-container";
+            this.alertContainer.setAttribute("role", "status");
+            this.alertContainer.setAttribute("aria-live", "polite");
+            this.alertContainer.setAttribute("aria-atomic", "false");
+            document.body.appendChild(this.alertContainer);
+          }
+          /**
+           * Add a security alert
+           */
+          addAlert(alert) {
+            const newAlert = {
+              ...alert,
+              id: this.generateId(),
+              timestamp: Date.now(),
+            };
+            // Add to beginning of array (most recent first)
+            this.alerts.unshift(newAlert);
+            // Limit number of alerts
+            if (this.alerts.length > this.maxAlerts) {
+              this.alerts = this.alerts.slice(0, this.maxAlerts);
+            }
+            this.renderAlerts();
+            this.notifySubscribers();
+            // Auto-hide if specified
+            if (alert.autoHide) {
+              setTimeout(() => {
+                this.removeAlert(newAlert.id);
+              }, alert.autoHide);
+            }
+            return newAlert.id;
+          }
+          /**
+           * Remove an alert by ID
+           */
+          removeAlert(id) {
+            this.alerts = this.alerts.filter((alert) => alert.id !== id);
+            this.renderAlerts();
+            this.notifySubscribers();
+          }
+          /**
+           * Clear all alerts
+           */
+          clearAlerts() {
+            this.alerts = [];
+            this.renderAlerts();
+            this.notifySubscribers();
+          }
+          /**
+           * Get all current alerts
+           */
+          getAlerts() {
+            return [...this.alerts];
+          }
+          /**
+           * Subscribe to alert changes
+           */
+          subscribe(callback) {
+            this.subscribers.push(callback);
+            // Return unsubscribe function
+            return () => {
+              this.subscribers = this.subscribers.filter((sub) => sub !== callback);
+            };
+          }
+          notifySubscribers() {
+            this.subscribers.forEach((callback) => callback(this.getAlerts()));
+          }
+          renderAlerts() {
+            if (!this.alertContainer) return;
+            this.alertContainer.innerHTML = "";
+            this.alerts.forEach((alert) => {
+              const alertElement = this.createAlertElement(alert);
+              this.alertContainer.appendChild(alertElement);
+            });
+          }
+          createAlertElement(alert) {
+            const alertDiv = document.createElement("div");
+            alertDiv.className = `security-alert security-alert--${alert.type}`;
+            alertDiv.setAttribute("role", "alert");
+            alertDiv.setAttribute("aria-labelledby", `alert-title-${alert.id}`);
+            alertDiv.setAttribute("aria-describedby", `alert-message-${alert.id}`);
+            const iconMap = {
+              critical: "🚨",
+              warning: "⚠️",
+              info: "ℹ️",
+              success: "✅",
+            };
+            alertDiv.innerHTML = `
+      <div class="security-alert__header">
+        <span class="security-alert__icon" aria-hidden="true">${iconMap[alert.type]}</span>
+        <h3 id="alert-title-${alert.id}" class="security-alert__title">${alert.title}</h3>
+        ${
+          alert.dismissible
+            ? `
+          <button 
+            class="security-alert__dismiss" 
+            aria-label="Dismiss alert"
+            onclick="securityAlerts.removeAlert('${alert.id}')"
+          >
+            ×
+          </button>
+        `
+            : ""
+        }
+      </div>
+      <div id="alert-message-${alert.id}" class="security-alert__message">
+        ${alert.message}
+      </div>
+      ${
+        alert.actions && alert.actions.length > 0
+          ? `
+        <div class="security-alert__actions">
+          ${alert.actions
+            .map(
+              (action) => `
+            <button 
+              class="security-alert__action security-alert__action--${action.type}"
+              onclick="securityAlerts.executeAction('${alert.id}', '${action.id}')"
+              ${action.shortcut ? `title="Shortcut: ${action.shortcut}"` : ""}
+            >
+              ${action.icon ? `<span class="action-icon">${action.icon}</span>` : ""}
+              ${action.label}
+            </button>
+          `
+            )
+            .join("")}
+        </div>
+      `
+          : ""
+      }
+      <div class="security-alert__timestamp">
+        ${new Date(alert.timestamp).toLocaleTimeString()}
+      </div>
+    `;
+            return alertDiv;
+          }
+          /**
+           * Execute an action from an alert
+           */
+          async executeAction(alertId, actionId) {
+            const alert = this.alerts.find((a) => a.id === alertId);
+            if (!alert?.actions) return;
+            const action = alert.actions.find((a) => a.id === actionId);
+            if (!action) return;
+            try {
+              await action.handler();
+            } catch (error) {
+              console.error("Failed to execute alert action:", error);
+              this.addAlert({
+                type: "critical",
+                title: "Action Failed",
+                message: `Failed to execute action: ${error instanceof Error ? error.message : "Unknown error"}`,
+                priority: 100,
+                dismissible: true,
+                autoHide: 5000,
+              });
+            }
+          }
+          setupKeyboardShortcuts() {
+            document.addEventListener("keydown", (event) => {
+              // Alt + A to show/focus alerts
+              if (event.altKey && event.key === "a") {
+                event.preventDefault();
+                this.focusFirstAlert();
+              }
+              // Escape to dismiss focused alert
+              if (event.key === "Escape" && document.activeElement?.closest(".security-alert")) {
+                const alertElement = document.activeElement.closest(".security-alert");
+                const alertId = alertElement
+                  ?.querySelector('[id^="alert-title-"]')
+                  ?.id.replace("alert-title-", "");
+                if (alertId) {
+                  this.removeAlert(alertId);
+                }
+              }
+            });
+          }
+          focusFirstAlert() {
+            const firstAlert = this.alertContainer?.querySelector(".security-alert");
+            firstAlert?.focus();
+          }
+          generateId() {
+            return `alert_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+          }
+        }
+        /**
+         * Quick Actions Manager for security-specific operations
+         */
+        class QuickActionsManager {
+          constructor() {
+            this.actions = new Map();
+            this.container = null;
+            this.init();
+            this.registerDefaultActions();
+          }
+          init() {
+            this.createContainer();
+          }
+          createContainer() {
+            this.container = document.createElement("div");
+            this.container.id = "quick-actions-container";
+            this.container.className = "quick-actions-container";
+            this.container.setAttribute("role", "toolbar");
+            this.container.setAttribute("aria-label", "Quick security actions");
+            // Position in top-right corner
+            this.container.style.cssText = `
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      display: flex;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      padding: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(8px);
+    `;
+            document.body.appendChild(this.container);
+          }
+          /**
+           * Register a quick action
+           */
+          registerAction(action) {
+            this.actions.set(action.id, action);
+            this.renderActions();
+          }
+          /**
+           * Remove a quick action
+           */
+          removeAction(id) {
+            this.actions.delete(id);
+            this.renderActions();
+          }
+          renderActions() {
+            if (!this.container) return;
+            this.container.innerHTML = "";
+            this.actions.forEach((action) => {
+              const button = document.createElement("button");
+              button.className = `quick-action quick-action--${action.type}`;
+              button.setAttribute("aria-label", action.label);
+              button.setAttribute(
+                "title",
+                action.shortcut ? `${action.label} (${action.shortcut})` : action.label
+              );
+              button.innerHTML = `
+        ${action.icon ? `<span class="quick-action__icon">${action.icon}</span>` : ""}
+        <span class="quick-action__label">${action.label}</span>
+      `;
+              button.onclick = async () => {
+                try {
+                  await action.handler();
+                } catch (error) {
+                  console.error("Quick action failed:", error);
+                }
+              };
+              this.container.appendChild(button);
+            });
+          }
+          registerDefaultActions() {
+            // Emergency: Show only critical vulnerabilities
+            this.registerAction({
+              id: "emergency-filter",
+              label: "Emergency",
+              icon: "🚨",
+              type: "danger",
+              shortcut: "Alt+E",
+              handler: () => {
+                const dashboard = window.vulnDashboard;
+                if (dashboard) {
+                  dashboard.filters.severity = "CRITICAL";
+                  dashboard.filters.epssMin = 90;
+                  dashboard.applyFilters();
+                  window.securityAlerts.addAlert({
+                    type: "warning",
+                    title: "Emergency Filter Applied",
+                    message: "Showing only Critical vulnerabilities with EPSS ≥ 90%",
+                    priority: 90,
+                    dismissible: true,
+                    autoHide: 5000,
+                  });
+                }
+              },
+            });
+            // Quick export for SIEM
+            this.registerAction({
+              id: "siem-export",
+              label: "SIEM Export",
+              icon: "📡",
+              type: "primary",
+              shortcut: "Alt+S",
+              handler: () => {
+                const dashboard = window.vulnDashboard;
+                if (dashboard) {
+                  // Export in SIEM-friendly JSON format
+                  const siemData = dashboard.filteredVulns.map((vuln) => ({
+                    timestamp: new Date().toISOString(),
+                    event_type: "vulnerability_alert",
+                    severity: vuln.severity,
+                    cve_id: vuln.cveId,
+                    cvss_score: vuln.cvssScore,
+                    epss_score: vuln.epssPercentile,
+                    vendors: vuln.vendors,
+                    products: vuln.products,
+                    tags: vuln.tags,
+                    published_date: vuln.publishedDate,
+                  }));
+                  const blob = new Blob([JSON.stringify(siemData, null, 2)], {
+                    type: "application/json",
+                  });
+                  const url = URL.createObjectURL(blob);
+                  const a = document.createElement("a");
+                  a.href = url;
+                  a.download = `vuln-siem-export-${new Date().toISOString().slice(0, 10)}.json`;
+                  a.click();
+                  URL.revokeObjectURL(url);
+                  window.securityAlerts.addAlert({
+                    type: "success",
+                    title: "SIEM Export Complete",
+                    message: `Exported ${siemData.length} vulnerabilities in SIEM format`,
+                    priority: 70,
+                    dismissible: true,
+                    autoHide: 3000,
+                  });
+                }
+              },
+            });
+            // Risk assessment summary
+            this.registerAction({
+              id: "risk-summary",
+              label: "Risk Summary",
+              icon: "📊",
+              type: "secondary",
+              shortcut: "Alt+R",
+              handler: () => {
+                const dashboard = window.vulnDashboard;
+                if (dashboard) {
+                  const vulns = dashboard.filteredVulns;
+                  const critical = vulns.filter((v) => v.severity === "CRITICAL").length;
+                  const high = vulns.filter((v) => v.severity === "HIGH").length;
+                  const highEpss = vulns.filter((v) => v.epssPercentile >= 80).length;
+                  window.securityAlerts.addAlert({
+                    type: "info",
+                    title: "Risk Assessment Summary",
+                    message: `
+              <strong>Current Risk Profile:</strong><br>
+              • ${critical} Critical vulnerabilities<br>
+              • ${high} High severity vulnerabilities<br>
+              • ${highEpss} vulnerabilities with EPSS ≥ 80%<br>
+              • Total filtered: ${vulns.length} vulnerabilities
+            `,
+                    priority: 60,
+                    dismissible: true,
+                    actions: [
+                      {
+                        id: "focus-critical",
+                        label: "Focus on Critical",
+                        type: "danger",
+                        handler: () => {
+                          dashboard.filters.severity = "CRITICAL";
+                          dashboard.applyFilters();
+                        },
+                      },
+                      {
+                        id: "high-exploitation",
+                        label: "High Exploitation Risk",
+                        type: "primary",
+                        handler: () => {
+                          dashboard.filters.epssMin = 80;
+                          dashboard.applyFilters();
+                        },
+                      },
+                    ],
+                  });
+                }
+              },
+            });
+            // Setup keyboard shortcuts for quick actions
+            document.addEventListener("keydown", (event) => {
+              if (event.altKey) {
+                switch (event.key.toLowerCase()) {
+                  case "e":
+                    event.preventDefault();
+                    this.actions.get("emergency-filter")?.handler();
+                    break;
+                  case "s":
+                    event.preventDefault();
+                    this.actions.get("siem-export")?.handler();
+                    break;
+                  case "r":
+                    event.preventDefault();
+                    this.actions.get("risk-summary")?.handler();
+                    break;
+                }
+              }
+            });
+          }
+        }
+        /**
+         * Alpine.js component for security alerts and quick actions
+         */
+        function createSecurityComponent() {
+          return {
+            alertSystem: new SecurityAlertSystem(),
+            quickActions: new QuickActionsManager(),
+            alerts: [],
+            showAlerts: true,
+            init() {
+              // Subscribe to alert updates
+              this.alertSystem.subscribe((alerts) => {
+                this.alerts = alerts;
+              });
+              // Set up contextual security monitoring
+              this.setupSecurityMonitoring();
+              // Make globally available
+              window.securityAlerts = this.alertSystem;
+              window.quickActions = this.quickActions;
+            },
+            setupSecurityMonitoring() {
+              // Monitor for high-risk vulnerability patterns
+              // Note: This will be called manually when vulnerabilities change
+              const monitorVulnerabilities = (vulns) => {
+                if (!vulns || vulns.length === 0) return;
+                const highEpssCount = vulns.filter((v) => v.epssPercentile >= 90).length;
+                const recentCritical = vulns.filter((v) => {
+                  const publishedDate = new Date(v.publishedDate);
+                  const daysSincePublished =
+                    (Date.now() - publishedDate.getTime()) / (1000 * 60 * 60 * 24);
+                  return v.severity === "CRITICAL" && daysSincePublished <= 7;
+                }).length;
+                // Alert for newly published critical vulnerabilities
+                if (recentCritical > 0) {
+                  this.alertSystem.addAlert({
+                    type: "critical",
+                    title: "New Critical Vulnerabilities Detected",
+                    message:
+                      `${recentCritical} critical vulnerabilities published in the last 7 days ` +
+                      "require immediate attention.",
+                    priority: 100,
+                    dismissible: true,
+                    actions: [
+                      {
+                        id: "view-recent-critical",
+                        label: "View Recent Critical",
+                        type: "danger",
+                        handler: () => {
+                          const dashboard = window.vulnDashboard;
+                          if (dashboard) {
+                            dashboard.filters.severity = "CRITICAL";
+                            dashboard.filters.publishedDateFrom = new Date(
+                              Date.now() - 7 * 24 * 60 * 60 * 1000
+                            )
+                              .toISOString()
+                              .split("T")[0];
+                            dashboard.applyFilters();
+                          }
+                        },
+                      },
+                    ],
+                  });
+                }
+                // Alert for high exploitation probability
+                if (highEpssCount > 5) {
+                  this.alertSystem.addAlert({
+                    type: "warning",
+                    title: "High Exploitation Risk Detected",
+                    message:
+                      `${highEpssCount} vulnerabilities have EPSS scores ≥ 90%, ` +
+                      "indicating very high exploitation likelihood.",
+                    priority: 80,
+                    dismissible: true,
+                    actions: [
+                      {
+                        id: "focus-high-epss",
+                        label: "Focus High EPSS",
+                        type: "primary",
+                        handler: () => {
+                          const dashboard = window.vulnDashboard;
+                          if (dashboard) {
+                            dashboard.filters.epssMin = 90;
+                            dashboard.applyFilters();
+                          }
+                        },
+                      },
+                    ],
+                  });
+                }
+              };
+              // Make monitoring function available for manual calls
+              this.monitorVulnerabilities = monitorVulnerabilities;
+            },
+            toggleAlerts() {
+              this.showAlerts = !this.showAlerts;
+            },
+            dismissAlert(id) {
+              this.alertSystem.removeAlert(id);
+            },
+            clearAllAlerts() {
+              this.alertSystem.clearAlerts();
+            },
+          };
+        }
+
+        /***/
+      },
+
+    /***/ "./src/assets/ts/components/VirtualScroll.ts":
+      /*!***************************************************!*\
+  !*** ./src/assets/ts/components/VirtualScroll.ts ***!
+  \***************************************************/
+      /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+          /* harmony export */ VirtualScrollManager: () => /* binding */ VirtualScrollManager,
+          /* harmony export */ createVirtualTableComponent: () =>
+            /* binding */ createVirtualTableComponent,
+          /* harmony export */
+        });
+        /**
+         * Virtual Scrolling Component for Performance Optimization
+         * Renders only visible rows to handle large datasets efficiently
+         */
+        class VirtualScrollManager {
+          constructor(container, config) {
+            this.items = [];
+            this.startIndex = 0;
+            this.endIndex = 0;
+            this.scrollTop = 0;
+            this.totalHeight = 0;
+            this.renderedItems = new Map();
+            this.resizeObserver = null;
+            this.scrollTimeout = null;
+            this.container = container;
+            this.config = config;
+            this.init();
+          }
+          init() {
+            this.setupContainer();
+            this.setupViewport();
+            this.setupScrollListener();
+            this.setupResizeObserver();
+          }
+          setupContainer() {
+            this.container.style.position = "relative";
+            this.container.style.overflow = "auto";
+            this.container.style.height = `${this.config.containerHeight}px`;
+          }
+          setupViewport() {
+            this.viewport = document.createElement("div");
+            this.viewport.className = "virtual-scroll-viewport";
+            this.viewport.style.cssText = `
+      position: relative;
+      width: 100%;
+      min-height: 100%;
+    `;
+            this.container.appendChild(this.viewport);
+          }
+          setupScrollListener() {
+            let ticking = false;
+            this.container.addEventListener("scroll", () => {
+              if (!ticking) {
+                requestAnimationFrame(() => {
+                  this.handleScroll();
+                  ticking = false;
+                });
+                ticking = true;
+              }
+              // Track scrolling state for optimizations
+              if (this.scrollTimeout) {
+                clearTimeout(this.scrollTimeout);
+              }
+              this.scrollTimeout = window.setTimeout(() => {
+                // Scrolling ended
+              }, 150);
+            });
+          }
+          setupResizeObserver() {
+            if ("ResizeObserver" in window) {
+              this.resizeObserver = new ResizeObserver(() => {
+                this.updateLayout();
+              });
+              this.resizeObserver.observe(this.container);
+            }
+          }
+          handleScroll() {
+            this.scrollTop = this.container.scrollTop;
+            this.updateVisibleRange();
+            this.renderItems();
+          }
+          updateVisibleRange() {
+            const containerHeight = this.container.clientHeight;
+            const itemHeight = this.config.itemHeight;
+            // Calculate visible range with overscan
+            const startIndex = Math.max(
+              0,
+              Math.floor(this.scrollTop / itemHeight) - this.config.overscan
+            );
+            const visibleItemCount = Math.ceil(containerHeight / itemHeight);
+            const endIndex = Math.min(
+              this.items.length,
+              startIndex + visibleItemCount + this.config.overscan * 2
+            );
+            this.startIndex = startIndex;
+            this.endIndex = endIndex;
+          }
+          renderItems() {
+            // Clear existing rendered items that are outside the visible range
+            this.renderedItems.forEach((element, id) => {
+              const itemIndex = this.items.findIndex((item) => item.id === id);
+              if (itemIndex < this.startIndex || itemIndex >= this.endIndex) {
+                element.remove();
+                this.renderedItems.delete(id);
+              }
+            });
+            // Render items in the visible range
+            for (let i = this.startIndex; i < this.endIndex; i++) {
+              const item = this.items[i];
+              if (!item) continue;
+              if (!this.renderedItems.has(item.id)) {
+                const element = this.config.renderItem(item, i);
+                this.positionItem(element, i);
+                this.viewport.appendChild(element);
+                this.renderedItems.set(item.id, element);
+              }
+            }
+            // Update total height for scrollbar
+            this.updateTotalHeight();
+          }
+          positionItem(element, index) {
+            const item = this.items[index];
+            if (!item) return;
+            const itemHeight = this.config.getItemHeight
+              ? this.config.getItemHeight(item, index)
+              : this.config.itemHeight;
+            element.style.position = "absolute";
+            element.style.top = `${index * this.config.itemHeight}px`;
+            element.style.height = `${itemHeight}px`;
+            element.style.width = "100%";
+            element.style.boxSizing = "border-box";
+          }
+          updateTotalHeight() {
+            this.totalHeight = this.items.length * this.config.itemHeight;
+            this.viewport.style.height = `${this.totalHeight}px`;
+          }
+          updateLayout() {
+            this.updateVisibleRange();
+            this.renderItems();
+          }
+          /**
+           * Set the items to be rendered
+           */
+          setItems(items) {
+            this.items = items;
+            this.updateLayout();
+          }
+          /**
+           * Update a specific item
+           */
+          updateItem(id, data) {
+            const index = this.items.findIndex((item) => item.id === id);
+            if (index >= 0 && this.items[index]) {
+              this.items[index].data = data;
+              // Re-render if item is currently visible
+              if (index >= this.startIndex && index < this.endIndex) {
+                const existingElement = this.renderedItems.get(id);
+                if (existingElement) {
+                  existingElement.remove();
+                  this.renderedItems.delete(id);
+                }
+                const item = this.items[index];
+                if (item) {
+                  const newElement = this.config.renderItem(item, index);
+                  this.positionItem(newElement, index);
+                  this.viewport.appendChild(newElement);
+                  this.renderedItems.set(id, newElement);
+                }
+              }
+            }
+          }
+          /**
+           * Add new items
+           */
+          addItems(newItems) {
+            this.items.push(...newItems);
+            this.updateLayout();
+          }
+          /**
+           * Remove items
+           */
+          removeItems(ids) {
+            this.items = this.items.filter((item) => !ids.includes(item.id));
+            // Remove from rendered items
+            ids.forEach((id) => {
+              const element = this.renderedItems.get(id);
+              if (element) {
+                element.remove();
+                this.renderedItems.delete(id);
+              }
+            });
+            this.updateLayout();
+          }
+          /**
+           * Scroll to a specific item
+           */
+          scrollToItem(id) {
+            const index = this.items.findIndex((item) => item.id === id);
+            if (index >= 0) {
+              const targetScrollTop = index * this.config.itemHeight;
+              this.container.scrollTo({
+                top: targetScrollTop,
+                behavior: "smooth",
+              });
+            }
+          }
+          /**
+           * Get current scroll position info
+           */
+          getScrollInfo() {
+            return {
+              scrollTop: this.scrollTop,
+              startIndex: this.startIndex,
+              endIndex: this.endIndex,
+              totalItems: this.items.length,
+              visibleItems: this.endIndex - this.startIndex,
+            };
+          }
+          /**
+           * Cleanup
+           */
+          destroy() {
+            if (this.resizeObserver) {
+              this.resizeObserver.disconnect();
+            }
+            if (this.scrollTimeout) {
+              clearTimeout(this.scrollTimeout);
+            }
+            this.renderedItems.clear();
+          }
+        }
+        /**
+         * Alpine.js component for virtual scrolling vulnerability table
+         */
+        function createVirtualTableComponent() {
+          return {
+            virtualScroll: null,
+            isVirtualized: false,
+            virtualizationThreshold: 100, // Virtualize when more than 100 items
+            init() {
+              // Note: Manual watching will be set up by the parent component
+            },
+            handleVulnerabilityChange(vulnerabilities) {
+              const shouldVirtualize = vulnerabilities.length > this.virtualizationThreshold;
+              if (shouldVirtualize && !this.isVirtualized) {
+                this.enableVirtualization(vulnerabilities);
+              } else if (!shouldVirtualize && this.isVirtualized) {
+                this.disableVirtualization();
+              } else if (this.isVirtualized && this.virtualScroll) {
+                this.updateVirtualItems(vulnerabilities);
+              }
+            },
+            enableVirtualization(vulnerabilities) {
+              const tableContainer = document.querySelector(".vuln-table");
+              if (!tableContainer) return;
+              // Hide regular table
+              const regularTable = tableContainer.querySelector("table");
+              if (regularTable) {
+                regularTable.style.display = "none";
+              }
+              // Create virtual scroll container
+              const virtualContainer = document.createElement("div");
+              virtualContainer.className = "virtual-vuln-table";
+              virtualContainer.style.height = "600px"; // Fixed height for virtual scrolling
+              tableContainer.appendChild(virtualContainer);
+              const config = {
+                itemHeight: 60, // Approximate row height
+                containerHeight: 600,
+                overscan: 5,
+                renderItem: (item, index) => {
+                  return this.renderVulnerabilityRow(item.data, index);
+                },
+              };
+              this.virtualScroll = new VirtualScrollManager(virtualContainer, config);
+              this.updateVirtualItems(vulnerabilities);
+              this.isVirtualized = true;
+              // Show virtualization indicator
+              this.showVirtualizationStatus(true, vulnerabilities.length);
+            },
+            disableVirtualization() {
+              if (this.virtualScroll) {
+                this.virtualScroll.destroy();
+                this.virtualScroll = null;
+              }
+              // Remove virtual container
+              const virtualContainer = document.querySelector(".virtual-vuln-table");
+              if (virtualContainer) {
+                virtualContainer.remove();
+              }
+              // Show regular table
+              const regularTable = document.querySelector(".vuln-table table");
+              if (regularTable) {
+                regularTable.style.display = "";
+              }
+              this.isVirtualized = false;
+              this.showVirtualizationStatus(false, 0);
+            },
+            updateVirtualItems(vulnerabilities) {
+              if (!this.virtualScroll) return;
+              const items = vulnerabilities.map((vuln) => ({
+                id: vuln.cveId,
+                data: vuln,
+              }));
+              this.virtualScroll.setItems(items);
+            },
+            renderVulnerabilityRow(vulnerability, _index) {
+              const row = document.createElement("div");
+              row.className = "virtual-vuln-row";
+              row.setAttribute("role", "row");
+              // Apply zebra striping
+              if (_index % 2 === 1) {
+                row.classList.add("virtual-vuln-row--alt");
+              }
+              row.innerHTML = `
+        <div class="virtual-vuln-cell virtual-vuln-cell--cve">
+          <button 
+            type="button"
+            class="cve-link-button"
+            onclick="window.vulnDashboard.openCveModal('${vulnerability.cveId}')"
+            aria-label="View details for ${vulnerability.cveId}"
+          >
+            ${vulnerability.cveId}
+          </button>
+        </div>
+        <div class="virtual-vuln-cell virtual-vuln-cell--title">
+          ${this.truncateText(vulnerability.title, 80)}
+        </div>
+        <div class="virtual-vuln-cell virtual-vuln-cell--cvss">
+          <span class="score ${this.getSeverityClass(vulnerability.cvssScore)}" 
+                aria-label="CVSS score: ${vulnerability.cvssScore}, " +
+                  "severity: ${vulnerability.severity}">
+            ${vulnerability.cvssScore ?? "N/A"}
+          </span>
+        </div>
+        <div class="virtual-vuln-cell virtual-vuln-cell--epss">
+          <span aria-label="EPSS percentile: ${vulnerability.epssPercentile}%">
+            ${vulnerability.epssPercentile}%
+          </span>
+        </div>
+        <div class="virtual-vuln-cell virtual-vuln-cell--date">
+          <time datetime="${vulnerability.publishedDate}" 
+                aria-label="Published on ${this.formatDate(vulnerability.publishedDate)}">
+            ${this.formatDate(vulnerability.publishedDate)}
+          </time>
+        </div>
+      `;
+              // Add hover and focus interactions
+              row.addEventListener("mouseenter", () => {
+                row.classList.add("virtual-vuln-row--hover");
+              });
+              row.addEventListener("mouseleave", () => {
+                row.classList.remove("virtual-vuln-row--hover");
+              });
+              return row;
+            },
+            showVirtualizationStatus(enabled, itemCount) {
+              let statusElement = document.getElementById("virtualization-status");
+              if (!statusElement) {
+                statusElement = document.createElement("div");
+                statusElement.id = "virtualization-status";
+                statusElement.className = "virtualization-status";
+                statusElement.setAttribute("role", "status");
+                statusElement.setAttribute("aria-live", "polite");
+                const tableSection = document.querySelector(".vuln-table-section");
+                if (tableSection) {
+                  tableSection.insertBefore(statusElement, tableSection.firstChild);
+                }
+              }
+              if (enabled) {
+                statusElement.innerHTML = `
+          <div class="virtualization-indicator">
+            <span class="virtualization-icon">⚡</span>
+            <span class="virtualization-text">
+              Virtual scrolling enabled for ${itemCount.toLocaleString()} items
+            </span>
+            <span class="virtualization-help">
+              Only visible rows are rendered for optimal performance
+            </span>
+          </div>
+        `;
+                statusElement.style.display = "block";
+              } else {
+                statusElement.style.display = "none";
+              }
+            },
+            truncateText(text, maxLength) {
+              if (text.length <= maxLength) return text;
+              return text.substring(0, maxLength - 3) + "...";
+            },
+            getSeverityClass(score) {
+              if (score >= 9) return "severity-critical";
+              if (score >= 7) return "severity-high";
+              if (score >= 4) return "severity-medium";
+              if (score > 0) return "severity-low";
+              return "severity-none";
+            },
+            formatDate(dateStr) {
+              const date = new Date(dateStr);
+              return date.toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+              });
+            },
+            scrollToTop() {
+              if (this.virtualScroll) {
+                this.virtualScroll.scrollToItem(
+                  this.virtualScroll.getScrollInfo().startIndex.toString()
+                );
+              } else {
+                const tableContainer = document.querySelector(".vuln-table");
+                if (tableContainer) {
+                  tableContainer.scrollTo({ top: 0, behavior: "smooth" });
+                }
+              }
+            },
+            getPerformanceInfo() {
+              if (this.virtualScroll) {
+                const info = this.virtualScroll.getScrollInfo();
+                return {
+                  virtualized: true,
+                  totalItems: info.totalItems,
+                  renderedItems: info.visibleItems,
+                  scrollPosition: Math.round((info.scrollTop / (info.totalItems * 60)) * 100),
+                };
+              }
+              return {
+                virtualized: false,
+                totalItems: 0,
+                renderedItems: 0,
+                scrollPosition: 0,
+              };
+            },
+          };
+        }
+
+        /***/
+      },
+
     /***/ "./src/assets/ts/types/alpine.ts":
       /*!***************************************!*\
   !*** ./src/assets/ts/types/alpine.ts ***!
@@ -689,6 +2124,18 @@
     );
     /* harmony import */ var _components_CveModal__WEBPACK_IMPORTED_MODULE_2__ =
       __webpack_require__(/*! ./components/CveModal */ "./src/assets/ts/components/CveModal.ts");
+    /* harmony import */ var _components_SavedSearches__WEBPACK_IMPORTED_MODULE_3__ =
+      __webpack_require__(
+        /*! ./components/SavedSearches */ "./src/assets/ts/components/SavedSearches.ts"
+      );
+    /* harmony import */ var _components_SecurityAlerts__WEBPACK_IMPORTED_MODULE_4__ =
+      __webpack_require__(
+        /*! ./components/SecurityAlerts */ "./src/assets/ts/components/SecurityAlerts.ts"
+      );
+    /* harmony import */ var _components_VirtualScroll__WEBPACK_IMPORTED_MODULE_5__ =
+      __webpack_require__(
+        /*! ./components/VirtualScroll */ "./src/assets/ts/components/VirtualScroll.ts"
+      );
     /**
      * Alpine.js Vulnerability Dashboard - TypeScript Version
      */
@@ -698,6 +2145,21 @@
       window.Alpine.data(
         "cveModal",
         _components_CveModal__WEBPACK_IMPORTED_MODULE_2__.createCveModal
+      );
+      // Register Saved Search component
+      window.Alpine.data(
+        "savedSearches",
+        _components_SavedSearches__WEBPACK_IMPORTED_MODULE_3__.createSavedSearchComponent
+      );
+      // Register Security Alerts component
+      window.Alpine.data(
+        "securitySystem",
+        _components_SecurityAlerts__WEBPACK_IMPORTED_MODULE_4__.createSecurityComponent
+      );
+      // Register Virtual Table component
+      window.Alpine.data(
+        "virtualTable",
+        _components_VirtualScroll__WEBPACK_IMPORTED_MODULE_5__.createVirtualTableComponent
       );
       window.Alpine.data("vulnDashboard", () => ({
         // Data
@@ -735,6 +2197,8 @@
         initialLoad: true,
         // Modal
         modal: (0, _components_CveModal__WEBPACK_IMPORTED_MODULE_2__.createCveModal)(),
+        // Saved Searches
+        savedSearches: new _components_SavedSearches__WEBPACK_IMPORTED_MODULE_3__.SavedSearches(),
         // Helper function to get date string for n days ago
         getDateDaysAgo(days) {
           const date = new Date();
@@ -839,11 +2303,12 @@
           if (this.searchQuery.trim() && this.fuse) {
             const searchResults = this.fuse.search(this.searchQuery);
             results = searchResults.map((result) => result.item);
-            // Track search
+            // Track search and add to recent searches
             _analytics__WEBPACK_IMPORTED_MODULE_1__.analytics.trackSearch(
               this.searchQuery,
               results.length
             );
+            this.savedSearches.addRecentSearch(this.searchQuery);
           }
           // Apply CVSS filter
           results = results.filter((vuln) => {
@@ -1280,6 +2745,17 @@
                 if (!event.ctrlKey && !event.metaKey && !event.shiftKey) {
                   event.preventDefault();
                   this.nextPage();
+                }
+                break;
+              case "s":
+                // Show saved searches (Ctrl+S or Cmd+S)
+                if (event.ctrlKey || event.metaKey) {
+                  event.preventDefault();
+                  const savedSearchComponent = window.savedSearches;
+                  if (savedSearchComponent) {
+                    savedSearchComponent.showSavedSearches =
+                      !savedSearchComponent.showSavedSearches;
+                  }
                 }
                 break;
               case "?":

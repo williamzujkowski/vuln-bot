@@ -11,6 +11,9 @@ import type {
 import "./types/alpine";
 import { analytics } from "./analytics";
 import { createCveModal, type CveModal } from "./components/CveModal";
+import { createSavedSearchComponent, SavedSearches } from "./components/SavedSearches";
+import { createSecurityComponent } from "./components/SecurityAlerts";
+import { createVirtualTableComponent } from "./components/VirtualScroll";
 
 type Fuse<T> = import("fuse.js").default<T>;
 
@@ -41,6 +44,9 @@ interface VulnDashboard {
 
   // Modal
   modal: CveModal;
+
+  // Saved Searches
+  savedSearches: SavedSearches;
 
   // Methods
   init(): Promise<void>;
@@ -75,6 +81,15 @@ interface VulnDashboard {
 document.addEventListener("alpine:init", () => {
   // Register CVE Modal component
   window.Alpine.data("cveModal", createCveModal);
+
+  // Register Saved Search component
+  window.Alpine.data("savedSearches", createSavedSearchComponent);
+
+  // Register Security Alerts component
+  window.Alpine.data("securitySystem", createSecurityComponent);
+
+  // Register Virtual Table component
+  window.Alpine.data("virtualTable", createVirtualTableComponent);
 
   window.Alpine.data(
     "vulnDashboard",
@@ -119,6 +134,9 @@ document.addEventListener("alpine:init", () => {
 
       // Modal
       modal: createCveModal(),
+
+      // Saved Searches
+      savedSearches: new SavedSearches(),
 
       // Helper function to get date string for n days ago
       getDateDaysAgo(days: number): string {
@@ -250,8 +268,9 @@ document.addEventListener("alpine:init", () => {
           const searchResults = this.fuse.search(this.searchQuery);
           results = searchResults.map((result: { item: Vulnerability }) => result.item);
 
-          // Track search
+          // Track search and add to recent searches
           analytics.trackSearch(this.searchQuery, results.length);
+          this.savedSearches.addRecentSearch(this.searchQuery);
         }
 
         // Apply CVSS filter
@@ -748,6 +767,17 @@ document.addEventListener("alpine:init", () => {
               if (!event.ctrlKey && !event.metaKey && !event.shiftKey) {
                 event.preventDefault();
                 this.nextPage();
+              }
+              break;
+
+            case "s":
+              // Show saved searches (Ctrl+S or Cmd+S)
+              if (event.ctrlKey || event.metaKey) {
+                event.preventDefault();
+                const savedSearchComponent = (window as any).savedSearches;
+                if (savedSearchComponent) {
+                  savedSearchComponent.showSavedSearches = !savedSearchComponent.showSavedSearches;
+                }
               }
               break;
 
