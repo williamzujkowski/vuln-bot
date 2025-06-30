@@ -3,6 +3,7 @@
 /* Import design tokens and component system */
 @import "./tokens.css";
 @import "./components.css";
+@import "./components/widgets.css";
 
 /* Legacy root variables for backward compatibility - will migrate to tokens */
 :root {

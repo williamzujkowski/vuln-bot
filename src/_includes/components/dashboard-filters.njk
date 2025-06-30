@@ -1,0 +1,132 @@
+<!-- Dashboard Filters Component for Widget System -->
+<div class="filter-widget-content" x-data="dashboard">
+  <div class="filter-row filter-grid">
+    <label for="search-input" class="sr-only">Search vulnerabilities</label>
+    <input 
+      id="search-input"
+      type="text" 
+      x-model="searchQuery"
+      placeholder="Search CVE ID, title, or description..."
+      class="search-input"
+      @keyup.enter="applyFilters"
+      aria-describedby="search-help"
+      autocomplete="off"
+    >
+    <div id="search-help" class="sr-only">
+      Search across CVE IDs, titles, descriptions, vendors, and products. Press Enter to search or type to filter in real-time.
+    </div>
+    
+    <button 
+      @click="resetFilters" 
+      class="btn btn-secondary btn-sm"
+      aria-label="Reset all filters and search"
+    >
+      Reset
+    </button>
+    
+    <button 
+      @click="exportResults" 
+      class="btn btn-primary btn-sm"
+      aria-label="Export filtered results as CSV file"
+    >
+      Export
+    </button>
+  </div>
+
+  <div class="filter-row">
+    <fieldset class="filter-group">
+      <legend>CVSS Score Range</legend>
+      <label for="cvss-min" class="sr-only">Minimum CVSS score</label>
+      <input 
+        id="cvss-min"
+        type="range" 
+        x-model="filters.cvssMin"
+        min="0" 
+        max="10" 
+        step="0.1"
+        class="slider"
+        :aria-valuetext="'Minimum CVSS: ' + filters.cvssMin"
+        aria-describedby="cvss-min-value"
+      >
+      <span id="cvss-min-value" x-text="filters.cvssMin" class="range-value" aria-label="Minimum value"></span>
+      <span aria-hidden="true"> - </span>
+      
+      <label for="cvss-max" class="sr-only">Maximum CVSS score</label>
+      <input 
+        id="cvss-max"
+        type="range" 
+        x-model="filters.cvssMax"
+        min="0" 
+        max="10" 
+        step="0.1"
+        class="slider"
+        :aria-valuetext="'Maximum CVSS: ' + filters.cvssMax"
+        aria-describedby="cvss-max-value"
+      >
+      <span id="cvss-max-value" x-text="filters.cvssMax" class="range-value" aria-label="Maximum value"></span>
+    </fieldset>
+
+    <fieldset class="filter-group">
+      <legend>EPSS Score Range</legend>
+      <label for="epss-min" class="sr-only">Minimum EPSS score percentage</label>
+      <input 
+        id="epss-min"
+        type="range" 
+        x-model="filters.epssMin"
+        min="0" 
+        max="100" 
+        step="1"
+        class="slider"
+        :aria-valuetext="'Minimum EPSS: ' + filters.epssMin + ' percent'"
+        aria-describedby="epss-min-value"
+      >
+      <span id="epss-min-value" x-text="filters.epssMin + '%'" class="range-value" aria-label="Minimum percentage"></span>
+      <span aria-hidden="true"> - </span>
+      
+      <label for="epss-max" class="sr-only">Maximum EPSS score percentage</label>
+      <input 
+        id="epss-max"
+        type="range" 
+        x-model="filters.epssMax"
+        min="0" 
+        max="100" 
+        step="1"
+        class="slider"
+        :aria-valuetext="'Maximum EPSS: ' + filters.epssMax + ' percent'"
+        aria-describedby="epss-max-value"
+      >
+      <span id="epss-max-value" x-text="filters.epssMax + '%'" class="range-value" aria-label="Maximum percentage"></span>
+    </fieldset>
+  </div>
+
+  <!-- Additional Filters Row -->
+  <div class="filter-row">
+    <fieldset class="filter-group">
+      <legend>Severity</legend>
+      <select 
+        id="severity-filter"
+        x-model="filters.severity"
+        class="select-input"
+        aria-label="Filter by severity"
+      >
+        <option value="">All Severities</option>
+        <option value="CRITICAL">Critical</option>
+        <option value="HIGH">High</option>
+        <option value="MEDIUM">Medium</option>
+        <option value="LOW">Low</option>
+      </select>
+    </fieldset>
+
+    <fieldset class="filter-group">
+      <legend>Vendor</legend>
+      <input 
+        id="vendor-filter"
+        type="text" 
+        x-model="filters.vendor"
+        placeholder="Filter by vendor..."
+        class="text-input"
+        aria-label="Filter by vendor name"
+      >
+    </fieldset>
+  </div>
+</div>

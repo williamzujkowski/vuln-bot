@@ -10,20 +10,210 @@ title: High-Risk CVE Intelligence Dashboard
     <p class="description">Tracking Critical & High severity vulnerabilities with EPSS ≥ 70% exploitation probability. Automatically harvests, scores, and publishes vulnerability briefings every 4 hours.</p>
   </header>
 
-  <div x-data="vulnDashboard()" x-cloak>
+  <div x-data="{ 
+    dashboard: vulnDashboard(), 
+    widgets: createWidgetManager() 
+  }" x-cloak x-init="
+    // Initialize widget manager when dashboard loads
+    $watch('dashboard.vulnerabilities', () => {
+      if (dashboard.vulnerabilities && dashboard.vulnerabilities.length > 0) {
+        widgets.refreshLayout();
+      }
+    })
+  ">
     <!-- Loading state -->
-    <div x-show="loading" class="loading" role="status" aria-live="polite">
+    <div x-show="dashboard.loading" class="loading" role="status" aria-live="polite">
       <span class="sr-only">Loading vulnerability data, please wait...</span>
       Loading vulnerability data...
     </div>
 
     <!-- Error state -->
-    <div x-show="error" class="error" role="alert" aria-live="assertive">
-      <strong>Error:</strong> <span x-text="error"></span>
+    <div x-show="dashboard.error" class="error" role="alert" aria-live="assertive">
+      <strong>Error:</strong> <span x-text="dashboard.error"></span>
     </div>
 
-    <!-- Main dashboard -->
-    <div x-show="!loading && !error">
+    <!-- Widget Layout Selector -->
+    <div x-show="!dashboard.loading && !dashboard.error" class="layout-selector">
+      <span class="layout-selector-label">Dashboard Layout:</span>
+      <select 
+        x-model="widgets.currentLayout.id" 
+        @change="widgets.switchLayout($event.target.value)"
+        class="layout-selector-dropdown"
+        aria-label="Select dashboard layout"
+      >
+        <template x-for="layout in widgets.availableLayouts" :key="layout.id">
+          <option :value="layout.id" x-text="layout.name"></option>
+        </template>
+      </select>
+      
+      <div class="layout-actions">
+        <button 
+          @click="widgets.toggleEditMode()" 
+          class="layout-action" 
+          :class="{ primary: widgets.isEditMode }"
+          :aria-label="widgets.isEditMode ? 'Exit edit mode' : 'Enter edit mode'"
+        >
+          <span x-text="widgets.isEditMode ? 'Exit Edit' : 'Edit Layout'"></span>
+        </button>
+        
+        <button 
+          @click="showLayoutManager = !showLayoutManager" 
+          class="layout-action"
+          aria-label="Manage layouts"
+        >
+          Manage
+        </button>
+      </div>
+    </div>
+
+    <!-- Widget Grid -->
+    <div x-show="!dashboard.loading && !dashboard.error && widgets.currentLayout" 
+         class="widget-grid" 
+         :class="{ 'edit-mode': widgets.isEditMode }">
+      
+      <template x-for="widget in widgets.getVisibleWidgets()" :key="widget.id">
+        <div 
+          class="widget-container"
+          :class="[
+            'widget-' + widget.type,
+            widget.size ? 'widget-' + widget.size : 'widget-medium'
+          ]"
+          x-data="getWidgetComponent(widget)"
+        >
+          <!-- Widget Header -->
+          <div class="widget-header">
+            <h3 class="widget-title" x-text="widget.title"></h3>
+            <div class="widget-actions">
+              <button 
+                x-show="widgets.isEditMode" 
+                @click="widgets.updateWidgetConfig(widget.id, { visible: false })"
+                class="widget-action"
+                aria-label="Hide widget"
+                title="Hide widget"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>
+                  <line x1="1" y1="1" x2="23" y2="23"/>
+                </svg>
+              </button>
+              
+              <button 
+                x-show="widgets.isEditMode" 
+                class="widget-action widget-drag-handle"
+                aria-label="Drag to reorder"
+                title="Drag to reorder"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="9" cy="12" r="1"/>
+                  <circle cx="9" cy="5" r="1"/>
+                  <circle cx="9" cy="19" r="1"/>
+                  <circle cx="15" cy="12" r="1"/>
+                  <circle cx="15" cy="5" r="1"/>
+                  <circle cx="15" cy="19" r="1"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Widget Content -->
+          <div class="widget-content">
+            <!-- Stats Widget -->
+            <div x-show="widget.type === 'stats'" x-data="createStatsWidget(widget.config)">
+              <div x-show="loading" class="widget-loading">
+                <div class="widget-loading-skeleton"></div>
+                <div class="widget-loading-skeleton"></div>
+                <div class="widget-loading-skeleton"></div>
+              </div>
+              
+              <div x-show="!loading && !error">
+                <template x-for="stat in statistics.slice(0, widget.config.limit || 6)" :key="stat.label">
+                  <div class="stat-item">
+                    <div class="stat-value" x-text="formatValue(stat.value)"></div>
+                    <div class="stat-label" x-text="stat.label"></div>
+                    <div x-show="stat.change" :class="getChangeClass(stat.change)" x-text="getChangeText(stat.change)"></div>
+                  </div>
+                </template>
+              </div>
+            </div>
+
+            <!-- Timeline Widget -->
+            <div x-show="widget.type === 'timeline'" x-data="createTimelineWidget(widget.config)">
+              <div x-show="loading" class="widget-loading">
+                <div class="widget-loading-skeleton tall"></div>
+              </div>
+              
+              <div x-show="!loading && !error">
+                <div class="timeline-header">
+                  <select x-model="selectedTimeRange" @change="changeTimeRange($event.target.value)" class="time-range-select">
+                    <template x-for="option in getTimeRangeOptions()" :key="option.value">
+                      <option :value="option.value" x-text="option.label"></option>
+                    </template>
+                  </select>
+                </div>
+                
+                <div class="timeline-events">
+                  <template x-for="event in events.slice(0, widget.config.limit || 10)" :key="event.id">
+                    <div class="timeline-item" :class="getEventColorClass(event.type)">
+                      <div class="timeline-marker"></div>
+                      <div class="timeline-content">
+                        <div class="timeline-title">
+                          <span x-text="event.title"></span>
+                          <span x-show="event.severity" class="severity-badge" :class="getSeverityClass(event.severity)" x-text="event.severity"></span>
+                        </div>
+                        <div class="timeline-description" x-text="event.description"></div>
+                        <div class="timeline-time" x-text="formatRelativeTime(event.date)"></div>
+                      </div>
+                    </div>
+                  </template>
+                </div>
+              </div>
+            </div>
+
+            <!-- Filters Widget -->
+            <div x-show="widget.type === 'filters'">
+              {% include "components/dashboard-filters.njk" %}
+            </div>
+
+            <!-- Table Widget -->
+            <div x-show="widget.type === 'table'">
+              {% include "components/vulnerability-table.njk" %}
+            </div>
+
+            <!-- Chart Widget -->
+            <div x-show="widget.type === 'chart'" class="chart-container">
+              <div class="chart-placeholder">
+                <p>Chart visualization will be implemented here</p>
+                <div class="chart-config" x-text="'Chart Type: ' + (widget.config.chartType || 'line')"></div>
+              </div>
+            </div>
+
+            <!-- Custom Widget -->
+            <div x-show="widget.type === 'custom'" class="custom-widget">
+              <div x-text="'Custom widget: ' + widget.title"></div>
+              <div x-text="'Configuration: ' + JSON.stringify(widget.config)"></div>
+            </div>
+
+            <!-- Alerts Widget -->
+            <div x-show="widget.type === 'alerts'" class="alerts-widget">
+              <div class="alert-placeholder">
+                <p>Security alerts will be displayed here</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </template>
+
+      <!-- Empty State / Add Widget Drop Zone -->
+      <div x-show="widgets.isEditMode && widgets.getVisibleWidgets().length === 0" class="widget-drop-zone">
+        <div class="drop-zone-content">
+          <h3>No widgets visible</h3>
+          <p>Add widgets from the layout manager or enable hidden widgets</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Legacy Dashboard (Fallback) -->
+    <div x-show="!dashboard.loading && !dashboard.error && !widgets.currentLayout" class="legacy-dashboard">
       <!-- Search and Filters Section -->
       <section id="search-filters" class="filters" aria-label="Search and filter vulnerabilities">
         <h2 class="sr-only">Search and Filter Options</h2>

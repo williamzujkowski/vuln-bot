@@ -2025,6 +2025,1283 @@
         /***/
       },
 
+    /***/ "./src/assets/ts/components/WidgetManager.ts":
+      /*!***************************************************!*\
+  !*** ./src/assets/ts/components/WidgetManager.ts ***!
+  \***************************************************/
+      /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+          /* harmony export */ WidgetManager: () => /* binding */ WidgetManager,
+          /* harmony export */ createWidgetManager: () => /* binding */ createWidgetManager,
+          /* harmony export */
+        });
+        /**
+         * Widget Management System for Dashboard Customization
+         */
+        class WidgetManager {
+          constructor() {
+            this.storageKey = "vuln_widget_preferences";
+            this.defaultLayouts = this.createDefaultLayouts();
+            this.preferences = this.loadPreferences();
+          }
+          /**
+           * Create default dashboard layouts
+           */
+          createDefaultLayouts() {
+            return [
+              {
+                id: "security-analyst",
+                name: "Security Analyst",
+                widgets: [
+                  {
+                    id: "filters",
+                    type: "filters",
+                    title: "Search & Filters",
+                    size: "full",
+                    visible: true,
+                    order: 1,
+                    config: { collapsed: false },
+                  },
+                  {
+                    id: "vulnerability-table",
+                    type: "table",
+                    title: "Vulnerabilities",
+                    size: "large",
+                    visible: true,
+                    order: 2,
+                    config: { pageSize: 50 },
+                  },
+                  {
+                    id: "risk-stats",
+                    type: "stats",
+                    title: "Risk Overview",
+                    size: "small",
+                    visible: true,
+                    order: 3,
+                    config: { showTrends: true },
+                  },
+                ],
+                gridTemplate: "repeat(12, 1fr)",
+                breakpoints: {
+                  desktop: { template: "repeat(12, 1fr)", columns: 12 },
+                  tablet: { template: "repeat(8, 1fr)", columns: 8 },
+                  mobile: { template: "1fr", columns: 1 },
+                },
+                lastModified: Date.now(),
+              },
+              {
+                id: "executive-dashboard",
+                name: "Executive Dashboard",
+                widgets: [
+                  {
+                    id: "risk-overview",
+                    type: "chart",
+                    title: "Risk Distribution",
+                    size: "medium",
+                    visible: true,
+                    order: 1,
+                    config: { chartType: "donut" },
+                  },
+                  {
+                    id: "trend-chart",
+                    type: "chart",
+                    title: "CVE Trends",
+                    size: "medium",
+                    visible: true,
+                    order: 2,
+                    config: { chartType: "line", period: "30d" },
+                  },
+                  {
+                    id: "key-metrics",
+                    type: "stats",
+                    title: "Key Metrics",
+                    size: "full",
+                    visible: true,
+                    order: 3,
+                    config: { showComparison: true },
+                  },
+                  {
+                    id: "top-vendors",
+                    type: "chart",
+                    title: "Most Affected Vendors",
+                    size: "medium",
+                    visible: true,
+                    order: 4,
+                    config: { chartType: "bar", limit: 10 },
+                  },
+                  {
+                    id: "recent-activity",
+                    type: "timeline",
+                    title: "Recent Activity",
+                    size: "medium",
+                    visible: true,
+                    order: 5,
+                    config: { limit: 10 },
+                  },
+                ],
+                gridTemplate: "repeat(12, 1fr)",
+                breakpoints: {
+                  desktop: { template: "repeat(12, 1fr)", columns: 12 },
+                  tablet: { template: "repeat(8, 1fr)", columns: 8 },
+                  mobile: { template: "1fr", columns: 1 },
+                },
+                lastModified: Date.now(),
+              },
+              {
+                id: "researcher-view",
+                name: "Researcher View",
+                widgets: [
+                  {
+                    id: "advanced-filters",
+                    type: "filters",
+                    title: "Advanced Search",
+                    size: "medium",
+                    visible: true,
+                    order: 1,
+                    config: { showAdvanced: true },
+                  },
+                  {
+                    id: "saved-searches",
+                    type: "filters",
+                    title: "Saved Searches",
+                    size: "small",
+                    visible: true,
+                    order: 2,
+                    config: { component: "saved-searches" },
+                  },
+                  {
+                    id: "detailed-table",
+                    type: "table",
+                    title: "Detailed Results",
+                    size: "full",
+                    visible: true,
+                    order: 3,
+                    config: { showAllColumns: true, pageSize: 100 },
+                  },
+                  {
+                    id: "export-tools",
+                    type: "custom",
+                    title: "Export Tools",
+                    size: "small",
+                    visible: true,
+                    order: 4,
+                    config: { formats: ["json", "csv", "pdf"] },
+                  },
+                ],
+                gridTemplate: "repeat(12, 1fr)",
+                breakpoints: {
+                  desktop: { template: "repeat(12, 1fr)", columns: 12 },
+                  tablet: { template: "repeat(8, 1fr)", columns: 8 },
+                  mobile: { template: "1fr", columns: 1 },
+                },
+                lastModified: Date.now(),
+              },
+            ];
+          }
+          /**
+           * Load preferences from localStorage
+           */
+          loadPreferences() {
+            try {
+              const stored = localStorage.getItem(this.storageKey);
+              if (stored) {
+                const parsed = JSON.parse(stored);
+                // Merge with defaults to handle version updates
+                return {
+                  currentLayoutId: parsed.currentLayoutId ?? "security-analyst",
+                  layouts: [...this.defaultLayouts, ...(parsed.layouts ?? [])],
+                  customWidgets: parsed.customWidgets ?? [],
+                };
+              }
+            } catch (error) {
+              console.warn("Failed to load widget preferences:", error);
+            }
+            return {
+              currentLayoutId: "security-analyst",
+              layouts: this.defaultLayouts,
+              customWidgets: [],
+            };
+          }
+          /**
+           * Save preferences to localStorage
+           */
+          savePreferences() {
+            try {
+              localStorage.setItem(this.storageKey, JSON.stringify(this.preferences));
+            } catch (error) {
+              console.error("Failed to save widget preferences:", error);
+            }
+          }
+          /**
+           * Get current layout
+           */
+          getCurrentLayout() {
+            return (
+              this.preferences.layouts.find(
+                (layout) => layout.id === this.preferences.currentLayoutId
+              ) ??
+              this.preferences.layouts[0] ??
+              null
+            );
+          }
+          /**
+           * Get all available layouts
+           */
+          getLayouts() {
+            return this.preferences.layouts;
+          }
+          /**
+           * Switch to a different layout
+           */
+          switchLayout(layoutId) {
+            const layout = this.preferences.layouts.find((l) => l.id === layoutId);
+            if (layout) {
+              this.preferences.currentLayoutId = layoutId;
+              this.savePreferences();
+              return true;
+            }
+            return false;
+          }
+          /**
+           * Create a new custom layout
+           */
+          createLayout(name, baseLayoutId) {
+            const baseLayout = baseLayoutId
+              ? this.preferences.layouts.find((l) => l.id === baseLayoutId)
+              : this.getCurrentLayout();
+            const newLayout = {
+              id: `custom-${Date.now()}`,
+              name,
+              widgets: baseLayout ? [...baseLayout.widgets] : [],
+              gridTemplate: baseLayout?.gridTemplate ?? "repeat(12, 1fr)",
+              breakpoints: baseLayout?.breakpoints ?? {
+                desktop: { template: "repeat(12, 1fr)", columns: 12 },
+                tablet: { template: "repeat(8, 1fr)", columns: 8 },
+                mobile: { template: "1fr", columns: 1 },
+              },
+              lastModified: Date.now(),
+            };
+            this.preferences.layouts.push(newLayout);
+            this.savePreferences();
+            return newLayout.id;
+          }
+          /**
+           * Update widget configuration
+           */
+          updateWidget(layoutId, widgetId, updates) {
+            const layout = this.preferences.layouts.find((l) => l.id === layoutId);
+            if (!layout) return false;
+            const widget = layout.widgets.find((w) => w.id === widgetId);
+            if (!widget) return false;
+            Object.assign(widget, updates);
+            layout.lastModified = Date.now();
+            this.savePreferences();
+            return true;
+          }
+          /**
+           * Add widget to layout
+           */
+          addWidget(layoutId, widget) {
+            const layout = this.preferences.layouts.find((l) => l.id === layoutId);
+            if (!layout) return false;
+            const newWidget = {
+              ...widget,
+              id: `widget-${Date.now()}`,
+              order: Math.max(...layout.widgets.map((w) => w.order), 0) + 1,
+            };
+            layout.widgets.push(newWidget);
+            layout.lastModified = Date.now();
+            this.savePreferences();
+            return true;
+          }
+          /**
+           * Remove widget from layout
+           */
+          removeWidget(layoutId, widgetId) {
+            const layout = this.preferences.layouts.find((l) => l.id === layoutId);
+            if (!layout) return false;
+            const index = layout.widgets.findIndex((w) => w.id === widgetId);
+            if (index === -1) return false;
+            layout.widgets.splice(index, 1);
+            layout.lastModified = Date.now();
+            this.savePreferences();
+            return true;
+          }
+          /**
+           * Reorder widgets in layout
+           */
+          reorderWidgets(layoutId, widgetOrder) {
+            const layout = this.preferences.layouts.find((l) => l.id === layoutId);
+            if (!layout) return false;
+            // Update order based on new positions
+            widgetOrder.forEach((widgetId, index) => {
+              const widget = layout.widgets.find((w) => w.id === widgetId);
+              if (widget) {
+                widget.order = index + 1;
+              }
+            });
+            layout.widgets.sort((a, b) => a.order - b.order);
+            layout.lastModified = Date.now();
+            this.savePreferences();
+            return true;
+          }
+          /**
+           * Delete custom layout
+           */
+          deleteLayout(layoutId) {
+            const index = this.preferences.layouts.findIndex((l) => l.id === layoutId);
+            if (index === -1) return false;
+            // Don't delete default layouts
+            const layout = this.preferences.layouts[index];
+            if (layout && this.defaultLayouts.some((dl) => dl.id === layout.id)) {
+              return false;
+            }
+            this.preferences.layouts.splice(index, 1);
+            // Switch to first available layout if current was deleted
+            if (this.preferences.currentLayoutId === layoutId) {
+              this.preferences.currentLayoutId =
+                this.preferences.layouts[0]?.id ?? "security-analyst";
+            }
+            this.savePreferences();
+            return true;
+          }
+          /**
+           * Export layout configuration
+           */
+          exportLayout(layoutId) {
+            const layout = this.preferences.layouts.find((l) => l.id === layoutId);
+            if (!layout) return null;
+            return JSON.stringify(layout, null, 2);
+          }
+          /**
+           * Import layout configuration
+           */
+          importLayout(configJson) {
+            try {
+              const layout = JSON.parse(configJson);
+              // Validate required fields
+              if (!layout.id || !layout.name || !Array.isArray(layout.widgets)) {
+                throw new Error("Invalid layout configuration");
+              }
+              // Generate new ID if conflicting
+              if (this.preferences.layouts.some((l) => l.id === layout.id)) {
+                layout.id = `imported-${Date.now()}`;
+                layout.name = `${layout.name} (Imported)`;
+              }
+              layout.lastModified = Date.now();
+              this.preferences.layouts.push(layout);
+              this.savePreferences();
+              return layout.id;
+            } catch (error) {
+              console.error("Failed to import layout:", error);
+              return null;
+            }
+          }
+          /**
+           * Reset to default layouts
+           */
+          resetToDefaults() {
+            this.preferences = {
+              currentLayoutId: "security-analyst",
+              layouts: this.defaultLayouts,
+              customWidgets: [],
+            };
+            this.savePreferences();
+          }
+          /**
+           * Get widget grid CSS classes based on size and breakpoint
+           */
+          getWidgetGridClasses(widget, breakpoint = "desktop") {
+            const sizeMap = {
+              desktop: {
+                small: "widget-small col-span-3",
+                medium: "widget-medium col-span-6",
+                large: "widget-large col-span-9",
+                full: "widget-full col-span-12",
+              },
+              tablet: {
+                small: "widget-small col-span-4",
+                medium: "widget-medium col-span-8",
+                large: "widget-large col-span-8",
+                full: "widget-full col-span-8",
+              },
+              mobile: {
+                small: "widget-small col-span-1",
+                medium: "widget-medium col-span-1",
+                large: "widget-large col-span-1",
+                full: "widget-full col-span-1",
+              },
+            };
+            return sizeMap[breakpoint][widget.size] || "col-span-6";
+          }
+        }
+        /**
+         * Create widget manager instance for Alpine.js
+         */
+        function createWidgetManager() {
+          const manager = new WidgetManager();
+          return {
+            manager,
+            currentLayout: manager.getCurrentLayout(),
+            isEditMode: false,
+            availableLayouts: manager.getLayouts(),
+            // Layout management
+            switchLayout(layoutId) {
+              if (manager.switchLayout(layoutId)) {
+                this.currentLayout = manager.getCurrentLayout();
+              }
+            },
+            createLayout(name, baseLayoutId) {
+              const newId = manager.createLayout(name, baseLayoutId);
+              this.availableLayouts = manager.getLayouts();
+              this.switchLayout(newId);
+            },
+            deleteLayout(layoutId) {
+              if (manager.deleteLayout(layoutId)) {
+                this.availableLayouts = manager.getLayouts();
+                this.currentLayout = manager.getCurrentLayout();
+              }
+            },
+            // Widget management
+            toggleWidget(widgetId) {
+              if (!this.currentLayout) return;
+              const widget = this.currentLayout.widgets.find((w) => w.id === widgetId);
+              if (widget) {
+                manager.updateWidget(this.currentLayout.id, widgetId, { visible: !widget.visible });
+                this.refreshLayout();
+              }
+            },
+            updateWidgetConfig(widgetId, config) {
+              if (!this.currentLayout) return;
+              manager.updateWidget(this.currentLayout.id, widgetId, { config });
+              this.refreshLayout();
+            },
+            // Edit mode
+            toggleEditMode() {
+              this.isEditMode = !this.isEditMode;
+            },
+            // Utility methods
+            refreshLayout() {
+              this.currentLayout = manager.getCurrentLayout();
+            },
+            getVisibleWidgets() {
+              return (
+                this.currentLayout?.widgets
+                  .filter((w) => w.visible)
+                  .sort((a, b) => a.order - b.order) ?? []
+              );
+            },
+            exportCurrentLayout() {
+              if (!this.currentLayout) return null;
+              return manager.exportLayout(this.currentLayout.id);
+            },
+            importLayout(configJson) {
+              const newId = manager.importLayout(configJson);
+              if (newId) {
+                this.availableLayouts = manager.getLayouts();
+                this.switchLayout(newId);
+                return true;
+              }
+              return false;
+            },
+            resetToDefaults() {
+              manager.resetToDefaults();
+              this.availableLayouts = manager.getLayouts();
+              this.currentLayout = manager.getCurrentLayout();
+            },
+          };
+        }
+
+        /***/
+      },
+
+    /***/ "./src/assets/ts/components/widgets/StatsWidget.ts":
+      /*!*********************************************************!*\
+  !*** ./src/assets/ts/components/widgets/StatsWidget.ts ***!
+  \*********************************************************/
+      /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+          /* harmony export */ StatsWidget: () => /* binding */ StatsWidget,
+          /* harmony export */ createStatsWidget: () => /* binding */ createStatsWidget,
+          /* harmony export */
+        });
+        /**
+         * Statistics Widget for Dashboard
+         * Displays key vulnerability metrics and trends
+         */
+        class StatsWidget {
+          constructor(config = {}) {
+            this.config = config;
+            this.vulnerabilities = [];
+            this.previousData = [];
+          }
+          /**
+           * Update widget with new vulnerability data
+           */
+          updateData(vulnerabilities, previousData) {
+            this.vulnerabilities = vulnerabilities ?? [];
+            this.previousData = previousData ?? [];
+          }
+          /**
+           * Calculate key statistics
+           */
+          getStatistics() {
+            const stats = [];
+            // Total vulnerabilities
+            const totalChange = this.config.showTrends ? this.calculateChange("total") : undefined;
+            stats.push({
+              label: "Total CVEs",
+              value: this.vulnerabilities.length,
+              ...(totalChange && { change: totalChange }),
+              icon: "shield-alert",
+              color: "primary",
+            });
+            // Critical vulnerabilities
+            const critical = this.vulnerabilities.filter((v) => v.severity === "CRITICAL").length;
+            const criticalChange = this.config.showTrends
+              ? this.calculateChange("critical")
+              : undefined;
+            stats.push({
+              label: "Critical",
+              value: critical,
+              ...(criticalChange && { change: criticalChange }),
+              icon: "alert-triangle",
+              color: "error",
+            });
+            // High severity vulnerabilities
+            const high = this.vulnerabilities.filter((v) => v.severity === "HIGH").length;
+            const highChange = this.config.showTrends ? this.calculateChange("high") : undefined;
+            stats.push({
+              label: "High Severity",
+              value: high,
+              ...(highChange && { change: highChange }),
+              icon: "alert-circle",
+              color: "warning",
+            });
+            // High EPSS scores (>= 90%)
+            const highEpss = this.vulnerabilities.filter((v) => v.epssPercentile >= 90).length;
+            const highEpssChange = this.config.showTrends
+              ? this.calculateChange("highEpss")
+              : undefined;
+            stats.push({
+              label: "High EPSS (90%+)",
+              value: highEpss,
+              ...(highEpssChange && { change: highEpssChange }),
+              icon: "trending-up",
+              color: "error",
+            });
+            // KEV (Known Exploited Vulnerabilities)
+            const kev = this.vulnerabilities.filter((v) => v.tags?.includes("KEV")).length;
+            const kevChange = this.config.showTrends ? this.calculateChange("kev") : undefined;
+            stats.push({
+              label: "KEV Listed",
+              value: kev,
+              ...(kevChange && { change: kevChange }),
+              icon: "zap",
+              color: "error",
+            });
+            // Average CVSS score
+            const avgCvss =
+              this.vulnerabilities.length > 0
+                ? (
+                    this.vulnerabilities.reduce((sum, v) => sum + (v.cvssScore ?? 0), 0) /
+                    this.vulnerabilities.length
+                  ).toFixed(1)
+                : "0.0";
+            const avgCvssChange = this.config.showTrends
+              ? this.calculateChange("avgCvss")
+              : undefined;
+            stats.push({
+              label: "Avg CVSS",
+              value: avgCvss,
+              ...(avgCvssChange && { change: avgCvssChange }),
+              icon: "bar-chart",
+              color: "primary",
+            });
+            // Recent vulnerabilities (last 7 days)
+            const recentDate = new Date();
+            recentDate.setDate(recentDate.getDate() - 7);
+            const recent = this.vulnerabilities.filter((v) => {
+              const pubDate = new Date(v.publishedDate);
+              return pubDate >= recentDate;
+            }).length;
+            const recentChange = this.config.showTrends
+              ? this.calculateChange("recent")
+              : undefined;
+            stats.push({
+              label: "Last 7 Days",
+              value: recent,
+              ...(recentChange && { change: recentChange }),
+              icon: "clock",
+              color: "primary",
+            });
+            // Top affected vendor
+            const vendorCounts = this.getVendorCounts();
+            const topVendor = vendorCounts[0];
+            if (topVendor) {
+              stats.push({
+                label: `Top Vendor`,
+                value: `${topVendor.vendor} (${topVendor.count})`,
+                icon: "building",
+                color: "primary",
+              });
+            }
+            return stats;
+          }
+          /**
+           * Calculate percentage change from previous period
+           */
+          calculateChange(metric) {
+            if (!this.previousData || this.previousData.length === 0) {
+              return undefined;
+            }
+            let currentValue;
+            let previousValue;
+            switch (metric) {
+              case "total":
+                currentValue = this.vulnerabilities.length;
+                previousValue = this.previousData.length;
+                break;
+              case "critical":
+                currentValue = this.vulnerabilities.filter((v) => v.severity === "CRITICAL").length;
+                previousValue = this.previousData.filter((v) => v.severity === "CRITICAL").length;
+                break;
+              case "high":
+                currentValue = this.vulnerabilities.filter((v) => v.severity === "HIGH").length;
+                previousValue = this.previousData.filter((v) => v.severity === "HIGH").length;
+                break;
+              case "highEpss":
+                currentValue = this.vulnerabilities.filter((v) => v.epssPercentile >= 90).length;
+                previousValue = this.previousData.filter((v) => v.epssPercentile >= 90).length;
+                break;
+              case "kev":
+                currentValue = this.vulnerabilities.filter((v) => v.tags?.includes("KEV")).length;
+                previousValue = this.previousData.filter((v) => v.tags?.includes("KEV")).length;
+                break;
+              case "avgCvss":
+                currentValue =
+                  this.vulnerabilities.length > 0
+                    ? this.vulnerabilities.reduce((sum, v) => sum + (v.cvssScore ?? 0), 0) /
+                      this.vulnerabilities.length
+                    : 0;
+                previousValue =
+                  this.previousData.length > 0
+                    ? this.previousData.reduce((sum, v) => sum + (v.cvssScore ?? 0), 0) /
+                      this.previousData.length
+                    : 0;
+                break;
+              case "recent":
+                const recentDate = new Date();
+                recentDate.setDate(recentDate.getDate() - 7);
+                currentValue = this.vulnerabilities.filter((v) => {
+                  const pubDate = new Date(v.publishedDate);
+                  return pubDate >= recentDate;
+                }).length;
+                previousValue = this.previousData.filter((v) => {
+                  const pubDate = new Date(v.publishedDate);
+                  const compareDate = new Date(recentDate);
+                  compareDate.setDate(compareDate.getDate() - 7);
+                  return pubDate >= compareDate && pubDate < recentDate;
+                }).length;
+                break;
+              default:
+                return undefined;
+            }
+            if (previousValue === 0) {
+              return currentValue > 0
+                ? {
+                    value: 100,
+                    direction: "positive",
+                    period: this.config.period ?? "7d",
+                  }
+                : undefined;
+            }
+            const changePercent = ((currentValue - previousValue) / previousValue) * 100;
+            const direction =
+              changePercent > 0 ? "positive" : changePercent < 0 ? "negative" : "neutral";
+            return {
+              value: Math.abs(Math.round(changePercent)),
+              direction,
+              period: this.config.period ?? "7d",
+            };
+          }
+          /**
+           * Get vendor vulnerability counts
+           */
+          getVendorCounts() {
+            const vendorMap = new Map();
+            this.vulnerabilities.forEach((vuln) => {
+              const vendors = vuln.vendors;
+              if (vendors && Array.isArray(vendors)) {
+                vendors.forEach((vendor) => {
+                  if (vendor && typeof vendor === "string") {
+                    vendorMap.set(vendor, (vendorMap.get(vendor) ?? 0) + 1);
+                  }
+                });
+              }
+            });
+            return Array.from(vendorMap.entries())
+              .map(([vendor, count]) => ({ vendor, count }))
+              .sort((a, b) => b.count - a.count)
+              .slice(0, 10);
+          }
+          /**
+           * Get severity distribution
+           */
+          getSeverityDistribution() {
+            const severityMap = new Map();
+            const total = this.vulnerabilities.length;
+            this.vulnerabilities.forEach((vuln) => {
+              const severity = vuln.severity ?? "UNKNOWN";
+              severityMap.set(severity, (severityMap.get(severity) ?? 0) + 1);
+            });
+            return Array.from(severityMap.entries())
+              .map(([severity, count]) => ({
+                severity,
+                count,
+                percentage: total > 0 ? Math.round((count / total) * 100) : 0,
+              }))
+              .sort((a, b) => {
+                const order = { CRITICAL: 4, HIGH: 3, MEDIUM: 2, LOW: 1, UNKNOWN: 0 };
+                return (order[b.severity] ?? 0) - (order[a.severity] ?? 0);
+              });
+          }
+          /**
+           * Get EPSS distribution ranges
+           */
+          getEpssDistribution() {
+            const ranges = [
+              { range: "90-100%", min: 90, max: 100 },
+              { range: "70-89%", min: 70, max: 89 },
+              { range: "50-69%", min: 50, max: 69 },
+              { range: "25-49%", min: 25, max: 49 },
+              { range: "0-24%", min: 0, max: 24 },
+            ];
+            const total = this.vulnerabilities.length;
+            return ranges.map(({ range, min, max }) => {
+              const count = this.vulnerabilities.filter((vuln) => {
+                const epss = vuln.epssPercentile ?? 0;
+                return epss >= min && epss <= max;
+              }).length;
+              return {
+                range,
+                count,
+                percentage: total > 0 ? Math.round((count / total) * 100) : 0,
+              };
+            });
+          }
+          /**
+           * Get timeline data for trend analysis
+           */
+          getTimelineData(days = 30) {
+            const timeline = [];
+            const endDate = new Date();
+            for (let i = days - 1; i >= 0; i--) {
+              const date = new Date(endDate);
+              date.setDate(date.getDate() - i);
+              const dateStr = date.toISOString().split("T")[0] ?? "";
+              const dayVulns = this.vulnerabilities.filter((vuln) => {
+                const pubDate = new Date(vuln.publishedDate).toISOString().split("T")[0];
+                return pubDate === dateStr;
+              });
+              timeline.push({
+                date: dateStr,
+                count: dayVulns.length,
+                critical: dayVulns.filter((v) => v.severity === "CRITICAL").length,
+                high: dayVulns.filter((v) => v.severity === "HIGH").length,
+              });
+            }
+            return timeline;
+          }
+        }
+        /**
+         * Create stats widget for Alpine.js
+         */
+        function createStatsWidget(config = {}) {
+          const widget = new StatsWidget(config);
+          return {
+            widget,
+            statistics: [],
+            severityDistribution: [],
+            epssDistribution: [],
+            timelineData: [],
+            loading: false,
+            error: null,
+            // Initialize with data
+            init(vulnerabilities, previousData) {
+              this.updateData(vulnerabilities, previousData);
+            },
+            // Update widget data
+            updateData(vulnerabilities, previousData) {
+              this.loading = true;
+              this.error = null;
+              try {
+                widget.updateData(vulnerabilities, previousData);
+                this.statistics = widget.getStatistics();
+                this.severityDistribution = widget.getSeverityDistribution();
+                this.epssDistribution = widget.getEpssDistribution();
+                this.timelineData = widget.getTimelineData();
+              } catch (error) {
+                this.error = "Failed to calculate statistics";
+                console.error("Stats widget error:", error);
+              } finally {
+                this.loading = false;
+              }
+            },
+            // Get formatted change text
+            getChangeText(change) {
+              if (!change) return "";
+              const sign =
+                change.direction === "positive" ? "+" : change.direction === "negative" ? "-" : "";
+              return `${sign}${change.value}% vs ${change.period}`;
+            },
+            // Get change CSS class
+            getChangeClass(change) {
+              if (!change) return "";
+              return `stat-change ${change.direction}`;
+            },
+            // Format large numbers
+            formatValue(value) {
+              if (typeof value === "number") {
+                if (value >= 1000000) {
+                  return (value / 1000000).toFixed(1) + "M";
+                } else if (value >= 1000) {
+                  return (value / 1000).toFixed(1) + "K";
+                }
+                return value.toString();
+              }
+              return value;
+            },
+            // Get icon SVG
+            getIcon(iconName) {
+              const icons = {
+                "shield-alert":
+                  '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>',
+                "alert-triangle":
+                  '<path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="m12 17 .01 0"/>',
+                "alert-circle":
+                  '<circle cx="12" cy="12" r="10"/><path d="m9 9 6 6"/><path d="m15 9-6 6"/>',
+                "trending-up":
+                  '<polyline points="22,7 13.5,15.5 8.5,10.5 2,17"/><polyline points="16,7 22,7 22,13"/>',
+                zap: '<polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2"/>',
+                "bar-chart":
+                  '<line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/>',
+                clock: '<circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/>',
+                building:
+                  '<path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12h4"/><path d="M6 8h4"/><path d="M16 8h2"/><path d="M16 12h2"/><path d="M16 16h2"/>',
+              };
+              return icons[iconName] ?? "";
+            },
+          };
+        }
+
+        /***/
+      },
+
+    /***/ "./src/assets/ts/components/widgets/TimelineWidget.ts":
+      /*!************************************************************!*\
+  !*** ./src/assets/ts/components/widgets/TimelineWidget.ts ***!
+  \************************************************************/
+      /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+          /* harmony export */ TimelineWidget: () => /* binding */ TimelineWidget,
+          /* harmony export */ createTimelineWidget: () => /* binding */ createTimelineWidget,
+          /* harmony export */
+        });
+        /**
+         * Timeline Widget for Dashboard
+         * Displays recent vulnerability activity in chronological order
+         */
+        class TimelineWidget {
+          constructor(config = {}) {
+            this.config = config;
+            this.vulnerabilities = [];
+            this.previousData = [];
+            this.config = {
+              limit: 10,
+              showTypes: ["published", "modified", "kev-added"],
+              ...config,
+            };
+          }
+          /**
+           * Update widget with new vulnerability data
+           */
+          updateData(vulnerabilities, previousData) {
+            this.vulnerabilities = vulnerabilities ?? [];
+            this.previousData = previousData ?? [];
+          }
+          /**
+           * Generate timeline events from vulnerability data
+           */
+          getTimelineEvents() {
+            const events = [];
+            // Process current vulnerabilities for published events
+            this.vulnerabilities.forEach((vuln) => {
+              if (this.config.showTypes?.includes("published")) {
+                events.push({
+                  id: `${vuln.cveId}-published`,
+                  type: "published",
+                  title: `${vuln.cveId} Published`,
+                  description: this.truncateText(
+                    (vuln.title ?? vuln.description ?? "No description available").toString(),
+                    100
+                  ),
+                  date: vuln.publishedDate,
+                  cveId: vuln.cveId,
+                  severity: vuln.severity,
+                  metadata: {
+                    cvssScore: vuln.cvssScore,
+                    epssPercentile: vuln.epssPercentile,
+                    vendors: vuln.vendors?.slice(0, 3),
+                  },
+                });
+              }
+              // Add modified events if last modified is different from published
+              if (
+                this.config.showTypes?.includes("modified") &&
+                vuln.lastModifiedDate !== vuln.publishedDate
+              ) {
+                const modifiedDate = new Date(vuln.lastModifiedDate);
+                const publishedDate = new Date(vuln.publishedDate);
+                // Only include if modified more than 1 day after published
+                if (modifiedDate.getTime() - publishedDate.getTime() > 24 * 60 * 60 * 1000) {
+                  events.push({
+                    id: `${vuln.cveId}-modified`,
+                    type: "modified",
+                    title: `${vuln.cveId} Updated`,
+                    description: `CVE details updated: ${this.truncateText((vuln.title ?? "Information updated").toString(), 80)}`,
+                    date: vuln.lastModifiedDate,
+                    cveId: vuln.cveId,
+                    severity: vuln.severity,
+                    metadata: {
+                      cvssScore: vuln.cvssScore,
+                      epssPercentile: vuln.epssPercentile,
+                    },
+                  });
+                }
+              }
+              // Add KEV events
+              if (this.config.showTypes?.includes("kev-added") && vuln.tags?.includes("KEV")) {
+                events.push({
+                  id: `${vuln.cveId}-kev`,
+                  type: "kev-added",
+                  title: `${vuln.cveId} Added to KEV`,
+                  description: `Added to CISA Known Exploited Vulnerabilities catalog`,
+                  date: vuln.lastModifiedDate, // Use last modified as KEV date
+                  cveId: vuln.cveId,
+                  severity: vuln.severity,
+                  metadata: {
+                    cvssScore: vuln.cvssScore,
+                    epssPercentile: vuln.epssPercentile,
+                  },
+                });
+              }
+            });
+            // Add synthetic events for trends and patterns
+            if (this.config.showTypes?.includes("epss-updated")) {
+              this.addEpssUpdateEvents(events);
+            }
+            if (this.config.showTypes?.includes("severity-changed")) {
+              this.addSeverityChangeEvents(events);
+            }
+            // Sort events by date (newest first) and limit
+            return events
+              .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+              .slice(0, this.config.limit ?? 10);
+          }
+          /**
+           * Add EPSS update events (simulated based on high EPSS scores)
+           */
+          addEpssUpdateEvents(events) {
+            const highEpssVulns = this.vulnerabilities.filter((v) => v.epssPercentile >= 90);
+            highEpssVulns.slice(0, 3).forEach((vuln) => {
+              events.push({
+                id: `${vuln.cveId}-epss-high`,
+                type: "epss-updated",
+                title: `High EPSS Score Alert`,
+                description: `${vuln.cveId} now has ${vuln.epssPercentile}% exploitation probability`,
+                date: vuln.lastModifiedDate,
+                cveId: vuln.cveId,
+                severity: vuln.severity,
+                metadata: {
+                  epssPercentile: vuln.epssPercentile,
+                  cvssScore: vuln.cvssScore,
+                },
+              });
+            });
+          }
+          /**
+           * Add severity change events (detected by comparing with previous data)
+           */
+          addSeverityChangeEvents(events) {
+            if (!this.previousData) return;
+            const previousMap = new Map(this.previousData.map((v) => [v.cveId, v]));
+            this.vulnerabilities.forEach((vuln) => {
+              const previous = previousMap.get(vuln.cveId);
+              if (previous && previous.severity !== vuln.severity) {
+                events.push({
+                  id: `${vuln.cveId}-severity-change`,
+                  type: "severity-changed",
+                  title: `Severity Updated`,
+                  description:
+                    `${vuln.cveId} severity changed from ` +
+                    `${previous.severity} to ${vuln.severity}`,
+                  date: vuln.lastModifiedDate,
+                  cveId: vuln.cveId,
+                  severity: vuln.severity,
+                  metadata: {
+                    previousSeverity: previous.severity,
+                    newSeverity: vuln.severity,
+                    cvssScore: vuln.cvssScore,
+                  },
+                });
+              }
+            });
+          }
+          /**
+           * Get summary statistics for timeline
+           */
+          getTimelineSummary(days = 7) {
+            const cutoffDate = new Date();
+            cutoffDate.setDate(cutoffDate.getDate() - days);
+            const recentVulns = this.vulnerabilities.filter((v) => {
+              const pubDate = new Date(v.publishedDate);
+              return pubDate >= cutoffDate;
+            });
+            const modifiedVulns = this.vulnerabilities.filter((v) => {
+              const modDate = new Date(v.lastModifiedDate);
+              const pubDate = new Date(v.publishedDate);
+              return modDate >= cutoffDate && modDate.getTime() !== pubDate.getTime();
+            });
+            const kevVulns = this.vulnerabilities.filter((v) => {
+              return v.tags?.includes("KEV") && new Date(v.lastModifiedDate) >= cutoffDate;
+            });
+            const totalEvents = recentVulns.length + modifiedVulns.length + kevVulns.length;
+            return {
+              totalEvents,
+              newCves: recentVulns.length,
+              modifiedCves: modifiedVulns.length,
+              kevAdditions: kevVulns.length,
+              averagePerDay: Math.round((totalEvents / days) * 10) / 10,
+            };
+          }
+          /**
+           * Get activity by day for the last N days
+           */
+          getActivityByDay(days = 30) {
+            const activity = [];
+            const endDate = new Date();
+            for (let i = days - 1; i >= 0; i--) {
+              const date = new Date(endDate);
+              date.setDate(date.getDate() - i);
+              const dateStr = date.toISOString().split("T")[0] ?? "";
+              const published = this.vulnerabilities.filter((v) => {
+                const pubDate = new Date(v.publishedDate).toISOString().split("T")[0];
+                return pubDate === dateStr;
+              }).length;
+              const modified = this.vulnerabilities.filter((v) => {
+                const modDate = new Date(v.lastModifiedDate).toISOString().split("T")[0];
+                const pubDate = new Date(v.publishedDate).toISOString().split("T")[0];
+                return modDate === dateStr && pubDate !== dateStr;
+              }).length;
+              activity.push({
+                date: dateStr,
+                published,
+                modified,
+                total: published + modified,
+              });
+            }
+            return activity;
+          }
+          /**
+           * Get most active vendors in timeline
+           */
+          getMostActiveVendors(days = 7) {
+            const cutoffDate = new Date();
+            cutoffDate.setDate(cutoffDate.getDate() - days);
+            const recentVulns = this.vulnerabilities.filter((v) => {
+              const pubDate = new Date(v.publishedDate);
+              return pubDate >= cutoffDate;
+            });
+            const vendorMap = new Map();
+            recentVulns.forEach((vuln) => {
+              const vendors = vuln.vendors;
+              if (vendors && Array.isArray(vendors)) {
+                vendors.forEach((vendor) => {
+                  if (vendor && typeof vendor === "string") {
+                    vendorMap.set(vendor, (vendorMap.get(vendor) ?? 0) + 1);
+                  }
+                });
+              }
+            });
+            return Array.from(vendorMap.entries())
+              .map(([vendor, count]) => ({ vendor, count }))
+              .sort((a, b) => b.count - a.count)
+              .slice(0, 5);
+          }
+          /**
+           * Truncate text to specified length
+           */
+          truncateText(text, maxLength) {
+            if (text.length <= maxLength) return text;
+            return text.substring(0, maxLength - 3).trim() + "...";
+          }
+          /**
+           * Format relative time
+           */
+          formatRelativeTime(dateString) {
+            const date = new Date(dateString);
+            const now = new Date();
+            const diffMs = now.getTime() - date.getTime();
+            const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+            const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+            const diffMinutes = Math.floor(diffMs / (1000 * 60));
+            if (diffDays > 0) {
+              return `${diffDays} day${diffDays === 1 ? "" : "s"} ago`;
+            } else if (diffHours > 0) {
+              return `${diffHours} hour${diffHours === 1 ? "" : "s"} ago`;
+            } else if (diffMinutes > 0) {
+              return `${diffMinutes} minute${diffMinutes === 1 ? "" : "s"} ago`;
+            } else {
+              return "Just now";
+            }
+          }
+        }
+        /**
+         * Create timeline widget for Alpine.js
+         */
+        function createTimelineWidget(config = {}) {
+          const widget = new TimelineWidget(config);
+          return {
+            widget,
+            events: [],
+            summary: null,
+            activityData: [],
+            activeVendors: [],
+            loading: false,
+            error: null,
+            selectedTimeRange: "7d",
+            // Initialize with data
+            init(vulnerabilities, previousData) {
+              this.updateData(vulnerabilities, previousData);
+            },
+            // Update widget data
+            updateData(vulnerabilities, previousData) {
+              this.loading = true;
+              this.error = null;
+              try {
+                widget.updateData(vulnerabilities, previousData);
+                this.refreshData();
+              } catch (error) {
+                this.error = "Failed to load timeline data";
+                console.error("Timeline widget error:", error);
+              } finally {
+                this.loading = false;
+              }
+            },
+            // Refresh all timeline data
+            refreshData() {
+              const days = this.getDaysFromRange(this.selectedTimeRange);
+              this.events = widget.getTimelineEvents();
+              this.summary = widget.getTimelineSummary(days);
+              this.activityData = widget.getActivityByDay(days);
+              this.activeVendors = widget.getMostActiveVendors(days);
+            },
+            // Change time range
+            changeTimeRange(range) {
+              this.selectedTimeRange = range;
+              this.refreshData();
+            },
+            // Get days from range string
+            getDaysFromRange(range) {
+              switch (range) {
+                case "1d":
+                  return 1;
+                case "7d":
+                  return 7;
+                case "30d":
+                  return 30;
+                case "90d":
+                  return 90;
+                default:
+                  return 7;
+              }
+            },
+            // Get event type icon
+            getEventIcon(type) {
+              const icons = {
+                published: "📄",
+                modified: "✏️",
+                "kev-added": "⚠️",
+                "epss-updated": "📈",
+                "severity-changed": "🔄",
+              };
+              return icons[type] ?? "📄";
+            },
+            // Get event type color class
+            getEventColorClass(type) {
+              const classes = {
+                published: "event-published",
+                modified: "event-modified",
+                "kev-added": "event-kev",
+                "epss-updated": "event-epss",
+                "severity-changed": "event-severity",
+              };
+              return classes[type] ?? "event-default";
+            },
+            // Get severity badge class
+            getSeverityClass(severity) {
+              if (!severity) return "";
+              return `severity-${severity.toLowerCase()}`;
+            },
+            // Format date for display
+            formatDate(dateString) {
+              const date = new Date(dateString);
+              return date.toLocaleDateString("en-US", {
+                month: "short",
+                day: "numeric",
+                hour: "2-digit",
+                minute: "2-digit",
+              });
+            },
+            // Format relative time
+            formatRelativeTime(dateString) {
+              return widget.formatRelativeTime(dateString);
+            },
+            // Open CVE modal (if available)
+            openCveDetails(cveId) {
+              // This would integrate with the main dashboard's modal
+              // Access through global Alpine context or event system
+              const event = new CustomEvent("open-cve-modal", { detail: { cveId } });
+              document.dispatchEvent(event);
+            },
+            // Get activity chart data
+            getChartData() {
+              return this.activityData.map((item) => ({
+                x: item.date,
+                y: item.total,
+                published: item.published,
+                modified: item.modified,
+              }));
+            },
+            // Get time range options
+            getTimeRangeOptions() {
+              return [
+                { value: "1d", label: "Last 24 hours" },
+                { value: "7d", label: "Last 7 days" },
+                { value: "30d", label: "Last 30 days" },
+                { value: "90d", label: "Last 90 days" },
+              ];
+            },
+          };
+        }
+
+        /***/
+      },
+
     /***/ "./src/assets/ts/types/alpine.ts":
       /*!***************************************!*\
   !*** ./src/assets/ts/types/alpine.ts ***!
@@ -2135,6 +3412,18 @@
     /* harmony import */ var _components_VirtualScroll__WEBPACK_IMPORTED_MODULE_5__ =
       __webpack_require__(
         /*! ./components/VirtualScroll */ "./src/assets/ts/components/VirtualScroll.ts"
+      );
+    /* harmony import */ var _components_WidgetManager__WEBPACK_IMPORTED_MODULE_6__ =
+      __webpack_require__(
+        /*! ./components/WidgetManager */ "./src/assets/ts/components/WidgetManager.ts"
+      );
+    /* harmony import */ var _components_widgets_StatsWidget__WEBPACK_IMPORTED_MODULE_7__ =
+      __webpack_require__(
+        /*! ./components/widgets/StatsWidget */ "./src/assets/ts/components/widgets/StatsWidget.ts"
+      );
+    /* harmony import */ var _components_widgets_TimelineWidget__WEBPACK_IMPORTED_MODULE_8__ =
+      __webpack_require__(
+        /*! ./components/widgets/TimelineWidget */ "./src/assets/ts/components/widgets/TimelineWidget.ts"
       );
     /**
      * Alpine.js Vulnerability Dashboard - TypeScript Version
@@ -2844,6 +4133,23 @@
         },
       }));
     });
+    // Make widget components available globally for Alpine.js
+    window.createWidgetManager =
+      _components_WidgetManager__WEBPACK_IMPORTED_MODULE_6__.createWidgetManager;
+    window.createStatsWidget =
+      _components_widgets_StatsWidget__WEBPACK_IMPORTED_MODULE_7__.createStatsWidget;
+    window.createTimelineWidget =
+      _components_widgets_TimelineWidget__WEBPACK_IMPORTED_MODULE_8__.createTimelineWidget;
+    // Helper function to get widget component instance
+    window.getWidgetComponent = function (widget) {
+      return {
+        widget,
+        // Return empty data object - individual widgets will handle their own initialization
+        init() {
+          // Widget-specific initialization will happen in the widget components
+        },
+      };
+    };
   })();
 
   /******/

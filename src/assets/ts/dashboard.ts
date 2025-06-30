@@ -14,6 +14,9 @@ import { createCveModal, type CveModal } from "./components/CveModal";
 import { createSavedSearchComponent, SavedSearches } from "./components/SavedSearches";
 import { createSecurityComponent } from "./components/SecurityAlerts";
 import { createVirtualTableComponent } from "./components/VirtualScroll";
+import { createWidgetManager } from "./components/WidgetManager";
+import { createStatsWidget } from "./components/widgets/StatsWidget";
+import { createTimelineWidget } from "./components/widgets/TimelineWidget";
 
 type Fuse<T> = import("fuse.js").default<T>;
 
@@ -871,3 +874,19 @@ document.addEventListener("alpine:init", () => {
     })
   );
 });
+
+// Make widget components available globally for Alpine.js
+(window as any).createWidgetManager = createWidgetManager;
+(window as any).createStatsWidget = createStatsWidget;
+(window as any).createTimelineWidget = createTimelineWidget;
+
+// Helper function to get widget component instance
+(window as any).getWidgetComponent = function (widget: any) {
+  return {
+    widget,
+    // Return empty data object - individual widgets will handle their own initialization
+    init() {
+      // Widget-specific initialization will happen in the widget components
+    },
+  };
+};
