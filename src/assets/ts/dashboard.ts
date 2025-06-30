@@ -661,9 +661,7 @@ document.addEventListener("alpine:init", () => {
         };
         this.currentPage = 1;
 
-        // Re-apply default date ranges after reset
-        this.setDefaultDateRanges();
-
+        // Don't re-apply default date ranges after reset - show ALL data
         this.applyFilters();
       },
 
