@@ -99,8 +99,8 @@ class TestBaseAPIClientExtended:
             with pytest.raises(requests.exceptions.ConnectionError):
                 client_with_cache._make_request("GET", "/test")
 
-            # Should attempt max_retries times
-            assert mock_request.call_count == client_with_cache.max_retries
+            # The _make_request method uses tenacity retry which will attempt 3 times
+            assert mock_request.call_count == 3
 
     def test_get_with_cache_hit(self, client_with_cache):
         """Test GET request with cache hit."""
@@ -193,6 +193,7 @@ class TestBaseAPIClientExtended:
         with patch(
             "requests.Session.request", return_value=mock_response
         ), pytest.raises(requests.HTTPError):
+            # Since 404 is not in the retry status list, it should fail immediately with HTTPError
             client_with_cache._make_request("GET", "/notfound")
 
     def test_json_decode_error(self, client_with_cache):

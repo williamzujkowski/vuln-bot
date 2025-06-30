@@ -30,19 +30,19 @@ class TestCVEListClientAdditional:
             cache_dir=str(temp_repo_path / "cache"),
         )
 
-    def test_ensure_local_repo_clones(self, client):
+    def test_ensure_local_repo_clones(self, client, temp_repo_path):
         """Test _ensure_local_repo clones repository if not exists."""
-        # Mock Path.exists to simulate non-existing repo
-        with patch("pathlib.Path.exists", return_value=False), patch(
-            "scripts.harvest.cvelist_client.subprocess.run"
-        ) as mock_run:
-            mock_run.return_value = Mock(returncode=0)
+        # Remove the directory to simulate non-existing repo
+        import shutil
+
+        if temp_repo_path.exists():
+            shutil.rmtree(temp_repo_path)
+
+        with patch("scripts.harvest.cvelist_client.Repo.clone_from") as mock_clone:
             client._ensure_local_repo()
 
-            # Should call git clone
-            mock_run.assert_called()
-            assert "git" in mock_run.call_args[0][0][0]
-            assert "clone" in mock_run.call_args[0][0]
+            # Should call Repo.clone_from
+            mock_clone.assert_called_once_with(client.CLONE_URL, client.local_repo_path)
 
     def test_ensure_local_repo_pulls(self, client, temp_repo_path):
         """Test _ensure_local_repo pulls if repo exists."""
@@ -50,12 +50,19 @@ class TestCVEListClientAdditional:
         git_dir = temp_repo_path / ".git"
         git_dir.mkdir()
 
-        with patch("scripts.harvest.cvelist_client.subprocess.run") as mock_run:
-            mock_run.return_value = Mock(returncode=0)
+        # Mock the git operations
+        mock_repo = Mock()
+        mock_origin = Mock()
+        mock_repo.remotes.origin = mock_origin
+
+        with patch(
+            "scripts.harvest.cvelist_client.Repo", return_value=mock_repo
+        ) as mock_repo_class:
             client._ensure_local_repo()
 
-            # Should call git pull
-            assert mock_run.call_count == 2  # fetch and pull
+            # Should create Repo object and pull
+            mock_repo_class.assert_called_once_with(client.local_repo_path)
+            mock_origin.pull.assert_called_once()
 
     def test_fetch_cves_from_directory(self, client, temp_repo_path):
         """Test _fetch_cves_from_directory."""
@@ -89,43 +96,41 @@ class TestCVEListClientAdditional:
         (year_dir / "CVE-2024-1001.json").write_text(json.dumps(cve1))
         (year_dir / "CVE-2024-1002.json").write_text(json.dumps(cve2))
 
-        with patch.object(client, "parse_cve_v5_record") as mock_parse:
-            mock_parse.side_effect = [
-                Mock(spec=Vulnerability, severity=SeverityLevel.CRITICAL),
-                Mock(spec=Vulnerability, severity=SeverityLevel.HIGH),
-            ]
+        # _fetch_cves_from_directory returns raw CVE data, not parsed vulnerabilities
+        cve_records = client._fetch_cves_from_directory(
+            "cves/2024/1xxx", min_severity=SeverityLevel.HIGH, incremental=False
+        )
 
-            vulnerabilities = client._fetch_cves_from_directory(
-                str(year_dir), min_severity=SeverityLevel.HIGH, max_vulnerabilities=10
-            )
+        # Should return the raw CVE data that passed severity threshold
+        assert len(cve_records) == 2
 
-            assert len(vulnerabilities) == 2
-            assert mock_parse.call_count == 2
+    def test_fetch_cves_from_directory_local_repo(self, client, temp_repo_path):
+        """Test _fetch_cves_from_directory using local repository."""
+        # Set client to use local repo instead of API
+        client.use_github_api = False
 
-    def test_fetch_cves_from_directory_with_limit(self, client, temp_repo_path):
-        """Test _fetch_cves_from_directory respects limit."""
         year_dir = temp_repo_path / "cves" / "2024" / "1xxx"
         year_dir.mkdir(parents=True)
 
-        # Create 5 test CVE files
-        for i in range(5):
-            cve = {
-                "cveMetadata": {"cveId": f"CVE-2024-100{i}", "state": "PUBLISHED"},
-                "containers": {"cna": {}},
-            }
-            (year_dir / f"CVE-2024-100{i}.json").write_text(json.dumps(cve))
+        # Create test CVE files
+        cve1 = {
+            "cveMetadata": {"cveId": "CVE-2024-1001", "state": "PUBLISHED"},
+            "containers": {
+                "cna": {
+                    "metrics": [
+                        {"cvssV3_1": {"baseScore": 9.8, "baseSeverity": "CRITICAL"}}
+                    ]
+                }
+            },
+        }
+        (year_dir / "CVE-2024-1001.json").write_text(json.dumps(cve1))
 
-        with patch.object(client, "parse_cve_v5_record") as mock_parse:
-            mock_parse.return_value = Mock(
-                spec=Vulnerability, severity=SeverityLevel.HIGH
-            )
+        # This should use the local repo path
+        cve_records = client._fetch_cves_from_directory(
+            "cves/2024/1xxx", min_severity=SeverityLevel.HIGH, incremental=False
+        )
 
-            # Fetch with limit of 3
-            vulnerabilities = client._fetch_cves_from_directory(
-                str(year_dir), min_severity=SeverityLevel.LOW, max_vulnerabilities=3
-            )
-
-            assert len(vulnerabilities) == 3
+        assert len(cve_records) == 1
 
     def test_fetch_cve_file_success(self, client, temp_repo_path):
         """Test _fetch_cve_file successfully reads file."""

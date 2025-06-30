@@ -1,7 +1,8 @@
 """Tests for bump_version module."""
 
 import json
-from unittest.mock import patch
+import subprocess
+from unittest.mock import Mock, patch
 
 import pytest
 
@@ -130,9 +131,15 @@ class TestBumpVersion:
     def test_create_git_tag_failure(self):
         """Test handling git tag creation failure."""
         with patch("subprocess.run") as mock_run:
-            mock_run.return_value.returncode = 1
+            # First two calls succeed (add, commit), third call fails (tag)
+            mock_run.side_effect = [
+                Mock(returncode=0),  # git add
+                Mock(returncode=0),  # git commit
+                Mock(returncode=1),  # git tag (fails)
+            ]
 
-            with pytest.raises(RuntimeError, match="Failed to create git tag"):
+            # The function uses subprocess.run with check=True, so it raises CalledProcessError
+            with pytest.raises(subprocess.CalledProcessError):
                 create_git_tag("1.2.3", "Release version 1.2.3")
 
     @patch("scripts.bump_version.get_current_version")
