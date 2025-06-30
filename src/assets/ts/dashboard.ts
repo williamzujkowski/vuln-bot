@@ -2,12 +2,7 @@
  * Alpine.js Vulnerability Dashboard - TypeScript Version
  */
 
-import type {
-  Vulnerability,
-  VulnerabilityResponse,
-  SeverityLevel,
-  ExploitationStatus,
-} from "./types/vulnerability";
+import type { Vulnerability, VulnerabilityResponse, SeverityLevel } from "./types/vulnerability";
 import "./types/alpine";
 import { analytics } from "./analytics";
 import { createCveModal, type CveModal } from "./components/CveModal";
@@ -32,7 +27,6 @@ interface VulnDashboard {
     dateFrom: string;
     dateTo: string;
     vendor: string;
-    exploitationStatus: ExploitationStatus | "";
     tags: string[];
   };
 
@@ -105,12 +99,11 @@ document.addEventListener("alpine:init", () => {
         dateFrom: "",
         dateTo: "",
         vendor: "",
-        exploitationStatus: "",
         tags: [],
       },
 
       // Sort
-      sortField: "exploitationStatus",
+      sortField: "epssPercentile",
       sortDirection: "desc",
 
       // Pagination
@@ -276,13 +269,6 @@ document.addEventListener("alpine:init", () => {
           );
         }
 
-        // Apply exploitation status filter
-        if (this.filters.exploitationStatus) {
-          results = results.filter(
-            (vuln) => vuln.exploitationStatus === this.filters.exploitationStatus
-          );
-        }
-
         // Apply tag filter
         if (this.filters.tags.length > 0) {
           results = results.filter((vuln) =>
@@ -318,9 +304,6 @@ document.addEventListener("alpine:init", () => {
           activeFilters.push(`EPSS: ${this.filters.epssMin}%-${this.filters.epssMax}%`);
         }
         if (this.filters.vendor) activeFilters.push(`vendor: ${this.filters.vendor}`);
-        if (this.filters.exploitationStatus) {
-          activeFilters.push(`exploitation: ${this.filters.exploitationStatus}`);
-        }
         if (this.filters.tags.length > 0) {
           activeFilters.push(`tags: ${this.filters.tags.join(", ")}`);
         }
@@ -505,7 +488,6 @@ document.addEventListener("alpine:init", () => {
           dateFrom: this.filters.dateFrom,
           dateTo: this.filters.dateTo,
           vendor: this.filters.vendor,
-          exploitation: this.filters.exploitationStatus,
           tags: this.filters.tags.join(","),
           sort: this.sortField,
           dir: this.sortDirection,
@@ -525,7 +507,7 @@ document.addEventListener("alpine:init", () => {
             (key === "epssMax" && value === 100) ||
             (key === "page" && value === 1) ||
             (key === "size" && value === 20) ||
-            (key === "sort" && value === "exploitationStatus") ||
+            (key === "sort" && value === "epssPercentile") ||
             (key === "dir" && value === "desc")
           ) {
             delete state[key];
@@ -556,15 +538,12 @@ document.addEventListener("alpine:init", () => {
         this.filters.dateFrom = params.get("dateFrom") ?? "";
         this.filters.dateTo = params.get("dateTo") ?? "";
         this.filters.vendor = params.get("vendor") ?? "";
-        this.filters.exploitationStatus = (params.get("exploitation") ?? "") as
-          | ExploitationStatus
-          | "";
 
         const tags = params.get("tags");
         this.filters.tags = tags ? tags.split(",").filter((t) => t) : [];
 
         // Load sorting
-        this.sortField = (params.get("sort") ?? "exploitationStatus") as keyof Vulnerability;
+        this.sortField = (params.get("sort") ?? "epssPercentile") as keyof Vulnerability;
         this.sortDirection = (params.get("dir") ?? "desc") as "asc" | "desc";
 
         // Load pagination
@@ -600,7 +579,6 @@ document.addEventListener("alpine:init", () => {
           dateFrom: "",
           dateTo: "",
           vendor: "",
-          exploitationStatus: "",
           tags: [],
         };
         this.currentPage = 1;
@@ -612,19 +590,10 @@ document.addEventListener("alpine:init", () => {
         analytics.trackExport("csv", this.filteredVulns.length);
 
         // Create CSV content
-        const headers = [
-          "CVE ID",
-          "Title",
-          "Exploitation Status",
-          "Severity",
-          "CVSS Score",
-          "EPSS %",
-          "Published Date",
-        ];
+        const headers = ["CVE ID", "Title", "Severity", "CVSS Score", "EPSS %", "Published Date"];
         const rows = this.filteredVulns.map((vuln) => [
           vuln.cveId,
           `"${vuln.title.replace(/"/g, '""')}"`,
-          vuln.exploitationStatus,
           vuln.severity,
           vuln.cvssScore?.toString() || "",
           vuln.epssPercentile?.toString() || "",

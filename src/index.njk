@@ -223,22 +223,6 @@ title: High-Risk CVE Intelligence Dashboard
                 </th>
                 <th 
                   role="columnheader" 
-                  @click="sort('exploitationStatus')" 
-                  tabindex="0"
-                  @keydown.enter="sort('exploitationStatus')"
-                  @keydown.space.prevent="sort('exploitationStatus')"
-                  :aria-sort="sortField === 'exploitationStatus' ? (sortDirection === 'asc' ? 'ascending' : 'descending') : 'none'"
-                  class="sortable-header"
-                  aria-describedby="exploitation-status-help"
-                >
-                  Exploitation Status
-                  <span class="sort-indicator" aria-hidden="true" x-show="sortField === 'exploitationStatus'">
-                    <span x-show="sortDirection === 'asc'">↑</span>
-                    <span x-show="sortDirection === 'desc'">↓</span>
-                  </span>
-                </th>
-                <th 
-                  role="columnheader" 
                   @click="sort('publishedDate')" 
                   tabindex="0"
                   @keydown.enter="sort('publishedDate')"
@@ -283,14 +267,6 @@ title: High-Risk CVE Intelligence Dashboard
                     ></span>
                   </td>
                   <td role="cell">
-                    <span 
-                      class="exploitation-status" 
-                      :class="'status-' + vuln.exploitationStatus.toLowerCase()" 
-                      x-text="vuln.exploitationStatus"
-                      :aria-label="'Exploitation status: ' + vuln.exploitationStatus"
-                    ></span>
-                  </td>
-                  <td role="cell">
                     <time 
                       :datetime="vuln.publishedDate"
                       x-text="formatDate(vuln.publishedDate)"
@@ -308,7 +284,6 @@ title: High-Risk CVE Intelligence Dashboard
           <div id="cve-id-help">CVE identifier - click to sort by CVE ID</div>
           <div id="cvss-help">Common Vulnerability Scoring System score from 0 to 10 - click to sort by CVSS score</div>
           <div id="epss-help">Exploit Prediction Scoring System percentage - click to sort by EPSS score</div>
-          <div id="exploitation-status-help">Known exploitation status - ACTIVE: known active exploitation, POC: proof of concept available, UNPROVEN: no known exploitation - click to sort by exploitation status</div>
         </div>
       </section>
 

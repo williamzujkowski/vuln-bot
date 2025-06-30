@@ -400,43 +400,6 @@
   color: var(--color-low);
 }
 
-/* Exploitation Status */
-.status-indicator {
-  display: inline-flex;
-  align-items: center;
-  padding: calc(var(--spacing-unit) * 1) calc(var(--spacing-unit) * 2);
-  border-radius: calc(var(--radius-sm) * 2);
-  font-size: var(--text-sm);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.status-active {
-  background: rgba(220, 38, 38, 0.1);
-  color: var(--status-active);
-  border: 1px solid rgba(220, 38, 38, 0.2);
-}
-
-.status-poc {
-  background: rgba(234, 88, 12, 0.1);
-  color: var(--status-poc);
-  border: 1px solid rgba(234, 88, 12, 0.2);
-}
-
-.status-unproven {
-  background: rgba(22, 163, 74, 0.1);
-  color: var(--status-unproven);
-  border: 1px solid rgba(22, 163, 74, 0.2);
-}
-
-.status-description {
-  margin: calc(var(--spacing-unit) * 1.5) 0 0 0;
-  font-size: var(--text-sm);
-  color: var(--color-text-secondary);
-  line-height: 1.5;
-}
-
 /* Details Grid */
 .details-grid {
   display: grid;
