@@ -186,12 +186,12 @@ export function createCveModal(): CveModal {
       if (event.shiftKey) {
         if (document.activeElement === firstFocusable) {
           event.preventDefault();
-          lastFocusable?.focus();
+          (lastFocusable as HTMLElement)?.focus();
         }
       } else {
         if (document.activeElement === lastFocusable) {
           event.preventDefault();
-          firstFocusable?.focus();
+          (firstFocusable as HTMLElement)?.focus();
         }
       }
     },

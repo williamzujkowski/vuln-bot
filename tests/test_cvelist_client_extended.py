@@ -48,11 +48,30 @@ class TestCVEListClientExtended:
         client3 = CVEListClient(local_repo_path=temp_repo_path)
         assert client3.local_repo_path == temp_repo_path
 
-    @pytest.mark.skip(reason="fetch_cve_from_api method not implemented")
     def test_fetch_cve_from_api(self, client):
-        """Test fetching CVE from API."""
-        # This test is for a method that doesn't exist in the implementation
-        pass
+        """Test fetching CVE from API via _fetch_cve_file method."""
+        with patch("requests.get") as mock_get:
+            cve_data = {
+                "cveMetadata": {
+                    "cveId": "CVE-2024-1234",
+                    "datePublished": "2024-01-01T00:00:00Z",
+                },
+                "containers": {
+                    "cna": {
+                        "title": "Test vulnerability",
+                        "descriptions": [{"lang": "en", "value": "Test description"}],
+                    }
+                },
+            }
+
+            mock_response = Mock()
+            mock_response.json.return_value = cve_data
+            mock_response.raise_for_status = Mock()
+            mock_get.return_value = mock_response
+
+            result = client._fetch_cve_file("cves/2024/0xxx/CVE-2024-1234.json")
+            assert result == cve_data
+            mock_get.assert_called_once()
 
     def test_parse_cve_v5_record(self, client):
         """Test parsing CVE v5 record."""
@@ -142,23 +161,104 @@ class TestCVEListClientExtended:
         result = client._parse_cvss_metric({})
         assert result is None
 
-    @pytest.mark.skip(reason="extract_affected_vendors method not implemented")
     def test_extract_affected_products(self, client):
-        """Test extracting affected products."""
-        # This test is for a method that doesn't exist in the implementation
-        pass
+        """Test extracting affected products from CVE record."""
+        record = {
+            "cveMetadata": {
+                "cveId": "CVE-2024-1234",
+                "datePublished": "2024-01-01T00:00:00Z",
+            },
+            "containers": {
+                "cna": {
+                    "title": "Test vulnerability",
+                    "descriptions": [{"lang": "en", "value": "Test description"}],
+                    "affected": [
+                        {"vendor": "TestVendor1", "product": "TestProduct1"},
+                        {"vendor": "TestVendor2", "product": "TestProduct2"},
+                        {
+                            "vendor": "TestVendor1",
+                            "product": "TestProduct3",
+                        },  # Duplicate vendor
+                    ],
+                }
+            },
+        }
 
-    @pytest.mark.skip(reason="parse_references method not implemented")
+        vuln = client.parse_cve_v5_record(record)
+        assert vuln is not None
+
+        # Check that vendors and products are extracted correctly
+        assert "testvendor1" in vuln.affected_vendors
+        assert "testvendor2" in vuln.affected_vendors
+        assert len(vuln.affected_vendors) == 2  # No duplicates
+
+        assert "testproduct1" in vuln.affected_products
+        assert "testproduct2" in vuln.affected_products
+        assert "testproduct3" in vuln.affected_products
+        assert len(vuln.affected_products) == 3
+
     def test_parse_references(self, client):
-        """Test parsing references."""
-        # This test is for a method that doesn't exist in the implementation
-        pass
+        """Test parsing references from CVE record."""
+        record = {
+            "cveMetadata": {
+                "cveId": "CVE-2024-1234",
+                "datePublished": "2024-01-01T00:00:00Z",
+            },
+            "containers": {
+                "cna": {
+                    "title": "Test vulnerability",
+                    "descriptions": [{"lang": "en", "value": "Test description"}],
+                    "references": [
+                        {
+                            "url": "https://example.com/advisory",
+                            "name": "Advisory Source",
+                            "tags": ["vendor-advisory", "security-bulletin"],
+                        },
+                        {
+                            "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-1234",
+                            "name": "NVD",
+                            "tags": ["third-party-advisory"],
+                        },
+                    ],
+                }
+            },
+        }
 
-    @pytest.mark.skip(reason="harvest_date_range method not implemented")
+        vuln = client.parse_cve_v5_record(record)
+        assert vuln is not None
+
+        # Check that references are parsed correctly
+        assert len(vuln.references) == 2
+
+        ref1 = vuln.references[0]
+        assert ref1.url == "https://example.com/advisory"
+        assert ref1.source == "Advisory Source"
+        assert "vendor-advisory" in ref1.tags
+        assert "security-bulletin" in ref1.tags
+
+        ref2 = vuln.references[1]
+        assert ref2.url == "https://nvd.nist.gov/vuln/detail/CVE-2024-1234"
+        assert ref2.source == "NVD"
+        assert "third-party-advisory" in ref2.tags
+
     def test_harvest_date_range(self, client):
-        """Test harvesting by date range."""
-        # This test is for a method that doesn't exist in the implementation
-        pass
+        """Test harvesting by date range using existing harvest method."""
+
+        with patch.object(client, "fetch_cves_for_year") as mock_fetch:
+            mock_fetch.return_value = []
+
+            # Test harvest method with date range filtering
+            result = client.harvest(
+                years=[2024],
+                min_severity=SeverityLevel.HIGH,
+                max_vulnerabilities=100,
+                incremental=False,
+            )
+
+            # Verify that the method was called correctly
+            # The harvest method calls fetch_cves_for_year with (year, min_severity, incremental)
+            mock_fetch.assert_called_once_with(2024, SeverityLevel.HIGH, False)
+            assert result == []
 
     def test_handle_cisa_adp_container(self, client):
         """Test handling CISA ADP container."""
