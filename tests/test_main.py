@@ -41,7 +41,9 @@ def mock_orchestrator():
 @pytest.fixture
 def mock_briefing_generator():
     """Create mock briefing generator."""
-    with patch("scripts.processing.briefing_generator.BriefingGenerator") as mock_class:
+    with patch(
+        "scripts.processing.optimized_briefing_generator.OptimizedBriefingGenerator"
+    ) as mock_class:
         mock_instance = MagicMock()
         mock_class.return_value = mock_instance
 
@@ -49,7 +51,8 @@ def mock_briefing_generator():
         mock_instance.generate_all.return_value = {
             "briefing": "src/_posts/2025-06-29-vuln-brief.md",
             "index": "src/api/vulns/index.json",
-            "vulnerabilities": [],
+            "chunks": [],
+            "chunk_index": None,
         }
 
         yield mock_instance
@@ -158,7 +161,7 @@ class TestCLI:
         output_dir = tmp_path / "output"
 
         with patch("scripts.main.CacheManager") as mock_cache_manager_class, patch(
-            "scripts.processing.briefing_generator.BriefingGenerator"
+            "scripts.processing.optimized_briefing_generator.OptimizedBriefingGenerator"
         ) as mock_bg_class:
             # Configure cache manager mock
             mock_cache_instance = MagicMock()
@@ -171,7 +174,8 @@ class TestCLI:
             mock_bg_instance.generate_all.return_value = {
                 "briefing": "src/_posts/2025-06-29-vuln-brief.md",
                 "index": "src/api/vulns/index.json",
-                "vulnerabilities": [],
+                "chunks": [],
+                "chunk_index": None,
             }
 
             result = cli_runner.invoke(
@@ -201,7 +205,7 @@ class TestCLI:
         from scripts.models import Vulnerability
 
         with patch("scripts.main.CacheManager") as mock_cache_manager_class, patch(
-            "scripts.processing.briefing_generator.BriefingGenerator"
+            "scripts.processing.optimized_briefing_generator.OptimizedBriefingGenerator"
         ) as mock_bg_class:
             # Configure cache manager mock with vulnerabilities
             mock_cache_instance = MagicMock()
@@ -230,7 +234,8 @@ class TestCLI:
             mock_bg_instance.generate_all.return_value = {
                 "briefing": "src/_posts/2025-06-29-vuln-brief.md",
                 "index": "src/api/vulns/index.json",
-                "vulnerabilities": ["src/api/vulns/CVE-2025-1234.json"],
+                "chunks": ["src/api/vulns/vulns-2025-HIGH.json"],
+                "chunk_index": "src/api/vulns/chunk-index.json",
             }
 
             result = cli_runner.invoke(
@@ -246,14 +251,43 @@ class TestCLI:
 
             assert result.exit_code == 0
             assert "Briefing generated successfully" in result.output
-            assert "1 files" in result.output
+            assert "Data chunks: 1 files" in result.output
 
-    def test_update_badge_command(self, cli_runner):
+    def test_update_badge_command(self, cli_runner, tmp_path):
         """Test update-badge command."""
-        result = cli_runner.invoke(app, ["update-badge"])
+        # Create test files
+        coverage_file = tmp_path / "coverage.xml"
+        readme_file = tmp_path / "README.md"
+
+        # Write test coverage.xml with 85% coverage
+        coverage_content = """<?xml version="1.0" ?>
+<coverage version="7.0" timestamp="1234567890" lines-valid="100" lines-covered="85" line-rate="0.85">
+</coverage>"""
+        coverage_file.write_text(coverage_content)
+
+        # Write test README with old badge (80%)
+        readme_content = """# Test Project
+![Coverage](https://img.shields.io/badge/coverage-80%25-green)
+Some content here"""
+        readme_file.write_text(readme_content)
+
+        result = cli_runner.invoke(
+            app,
+            [
+                "update-badge",
+                "--coverage-file",
+                str(coverage_file),
+                "--readme-file",
+                str(readme_file),
+            ],
+        )
 
         assert result.exit_code == 0
-        assert "Coverage badge updated" in result.output
+        assert "Coverage badge updated to 85%" in result.output
+
+        # Verify the file was updated
+        updated_readme = readme_file.read_text()
+        assert "coverage-85%25" in updated_readme
 
     @patch("scripts.main.CacheManager")
     def test_send_alerts_command_dry_run(self, mock_cache_class, cli_runner):
