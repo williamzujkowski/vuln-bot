@@ -14,6 +14,8 @@
 - 💾 **Optimized Storage**: Chunked data storage by severity-year reducing 33,000+ individual files to ~7 chunks
 - 🚀 **Static Site Generation**: Uses 11ty to generate fast, SEO-friendly briefings
 - 🔎 **Advanced Filtering**: Client-side dashboard with instant search, CVSS/EPSS sliders, keyboard shortcuts, and shareable views
+- 📈 **Data Visualization Dashboard**: Interactive Canvas-based charts showing severity distribution, risk trends, EPSS ranges, and vendor analysis with accessibility support
+- 📱 **Mobile-First Design**: Touch gestures, responsive layouts, and collapsible interfaces optimized for all devices
 - 📋 **Interactive CVE Details**: Click any CVE ID to view detailed information in an accessible modal with technical details, timeline, and references
 - 📡 **RSS/Atom Feeds**: Subscribe to vulnerability briefings via RSS or Atom feeds
 - 🤖 **Fully Automated**: Harvesting every 4 hours with zero manual intervention required
@@ -83,6 +85,12 @@ The dashboard supports keyboard shortcuts for improved productivity:
 When viewing CVE details:
 - `Alt+1` through `Alt+4` - Switch between tabs (Overview, Technical, Timeline, References)
 - `Tab` - Navigate through interactive elements (focus trapped within modal)
+
+When viewing data visualization charts:
+- `←` `→` - Navigate between chart types (Overview, Trend, EPSS, Vendor)
+- `Home` - Jump to Overview chart
+- `End` - Jump to Vendor Risk chart
+- Charts include screen reader announcements and descriptions
 
 ## Configuration
 
@@ -157,7 +165,14 @@ vuln-bot/
 ├── src/                 # 11ty source files
 │   ├── _posts/         # Generated vulnerability briefings
 │   ├── api/            # JSON API endpoints
-│   └── assets/         # CSS, JS, and static files
+│   └── assets/         # Frontend assets and components
+│       ├── ts/         # TypeScript components and types
+│       │   ├── components/ # UI components (CveModal, DataVisualization)
+│       │   ├── types/     # TypeScript type definitions
+│       │   ├── analytics.ts # Frontend analytics
+│       │   └── dashboard.ts # Main dashboard component
+│       ├── css/        # Stylesheets with design tokens
+│       └── js/         # Compiled JavaScript output
 ├── tests/              # Python test suite
 └── .github/workflows/  # CI/CD pipelines
 ```

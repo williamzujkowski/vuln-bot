@@ -93,15 +93,40 @@ chmod +x .husky/pre-commit .husky/commit-msg
    - Real-time search/filter on: CVE ID, severity, CVSS/EPSS scores, date ranges, vendors, exploitation status
    - URL hash-based state for shareable filtered views
    - Paginated results (10/20/50/100 rows, default 50)
+   - **Data Visualization Dashboard** (Canvas-based for performance):
+     - Severity distribution pie chart
+     - Risk trend line chart (30-day vulnerability patterns)
+     - EPSS score distribution bar chart
+     - Top vendor risk horizontal bar chart
+     - Keyboard accessible chart navigation (Arrow keys, Home/End)
+     - Screen reader descriptions and announcements
+     - Chart export functionality for security reports
+   - **Mobile-First Responsive Design**:
+     - Touch gesture support (swipe for pagination)
+     - Collapsible filter sections
+     - Auto-hide filters on mobile after use
+     - Optimized layouts for all screen sizes
    - Interactive CVE detail modal with:
      - Overview, Technical Details, Timeline, and References tabs
      - WCAG 2.1 AA accessibility compliance
      - Keyboard navigation (Esc to close, Alt+1-4 for tabs)
      - Focus management and screen reader support
+   - **Enhanced Accessibility & UX**:
+     - Comprehensive keyboard shortcuts (/, r, e, ←/→, 1-4, ?, Esc)
+     - Screen reader announcements for filter results
+     - High contrast mode support
+     - Reduced motion preferences respected
+     - CSV export functionality with analytics tracking
 
 ### Key Directories
 - `scripts/` - Python vulnerability harvesting and processing scripts
 - `src/` - 11ty source files (templates, posts, API generation)
+- `src/assets/ts/` - TypeScript components and types
+  - `components/` - Reusable UI components (CveModal, DataVisualization)
+  - `types/` - TypeScript type definitions
+  - `analytics.ts` - Frontend analytics and tracking
+  - `dashboard.ts` - Main vulnerability dashboard Alpine.js component
+- `src/assets/css/` - Stylesheets with design tokens and component styles
 - `public/` - Built static site (deployed to gh-pages)
 - `tests/` - Python test suite
 - `.github/workflows/` - CI/CD pipelines
