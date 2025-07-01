@@ -1,11 +1,11 @@
 ---
 title: Morning Vulnerability Briefing - 2025-07-01
-date: 2025-07-01T12:10:58.156450
+date: 2025-07-01T16:08:10.146349
 layout: layouts/post.njk
 tags: [vulnerability, briefing, security]
 vulnerabilityCount: 33067
 criticalCount: 0
-highCount: 0
+highCount: 1
 ---
 
 # Morning Vulnerability Briefing - 2025-07-01
@@ -15,25 +15,25 @@ Today's briefing covers **33067 vulnerabilities** from 0 sources.
 ## Risk Distribution
 
 - 🔴 **Critical Risk**: 0 vulnerabilities
-- 🟠 **High Risk**: 0 vulnerabilities
-- 🟡 **Medium Risk**: 11372 vulnerabilities
-- 🟢 **Low Risk**: 21695 vulnerabilities
+- 🟠 **High Risk**: 1 vulnerabilities
+- 🟡 **Medium Risk**: 11361 vulnerabilities
+- 🟢 **Low Risk**: 21705 vulnerabilities
 
 ## Top Vulnerabilities
 
 ### 1. [CVE-2025-49113](/api/vulns/CVE-2025-49113.json)
 
-**Risk Score**: 69/100 | 
+**Risk Score**: 70/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.9 | 
-**EPSS**: 76.3%
+**EPSS**: 81.3%
 
 **Summary**: Roundcube Webmail before 1.5.10 and 1.6.x before 1.6.11 allows remote code execution by authenticated users because the _from parameter in a URL is not validated in program/actions/settings/upload.php, leading to PHP Object Deserialization.
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 76.28% exploit probability
+- 81.3% exploit probability
 - Published within last month
 
 **Affected Vendors**: roundcube
@@ -78,14 +78,14 @@ Today's briefing covers **33067 vulnerabilities** from 0 sources.
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.8 | 
-**EPSS**: 93.7%
+**EPSS**: 93.6%
 
 **Summary**: Microsoft Outlook Remote Code Execution Vulnerability
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 93.68% exploit probability
+- 93.56% exploit probability
 - Affects critical infrastructure: microsoft
 
 **Affected Vendors**: microsoft
@@ -112,7 +112,7 @@ code.
 **Risk Factors**:
 
 - CRITICAL severity
-- 92.36% exploit probability
+- 92.39% exploit probability
 
 **Affected Vendors**: langflow-ai
 
@@ -326,7 +326,7 @@ critical systems.
 - CRITICAL severity
 - 93.63% exploit probability
 
-**Affected Vendors**: rogierlankhorst, really simple plugins
+**Affected Vendors**: really simple plugins, rogierlankhorst
 
 **Tags**: `CWE-288`
 
@@ -338,7 +338,32 @@ critical systems.
 
 ---
 
-### 13. [CVE-2025-24893](/api/vulns/CVE-2025-24893.json)
+### 13. [CVE-2024-21762](/api/vulns/CVE-2024-21762.json)
+
+**Risk Score**: 66/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 9.6 | 
+**EPSS**: 92.5%
+
+**Summary**: A out-of-bounds write in Fortinet FortiOS versions 7.4.0 through 7.4.2, 7.2.0 through 7.2.6, 7.0.0 through 7.0.13, 6.4.0 through 6.4.14, 6.2.0 through 6.2.15, 6.0.0 through 6.0.17, FortiProxy versions 7.4.0 through 7.4.2, 7.2.0 through 7.2.8, 7.0.0 through 7.0.14, 2.0.0 through 2.0.13, 1.2.0 through 1.2.13, 1.1.0 through 1.1.6, 1.0.0 through 1.0.7 allows attacker to execute unauthorized code or commands via specifically crafted requests
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 92.52% exploit probability
+- Affects critical infrastructure: fortinet
+
+**Affected Vendors**: fortinet
+
+**Tags**: `CWE-787`
+
+**References**:
+
+- [https://fortiguard.com/psirt/FG-IR-24-015](https://fortiguard.com/psirt/FG-IR-24-015)
+
+---
+
+### 14. [CVE-2025-24893](/api/vulns/CVE-2025-24893.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
@@ -361,31 +386,6 @@ critical systems.
 - [https://github.com/xwiki/xwiki-platform/security/advisories/GHSA-rr6p-3pfg-562j](https://github.com/xwiki/xwiki-platform/security/advisories/GHSA-rr6p-3pfg-562j)
 - [https://github.com/xwiki/xwiki-platform/commit/67021db9b8ed26c2236a653269302a86bf01ef40](https://github.com/xwiki/xwiki-platform/commit/67021db9b8ed26c2236a653269302a86bf01ef40)
 - [https://github.com/xwiki/xwiki-platform/blob/568447cad5172d97d6bbcfda9f6183689c2cf086/xwiki-platform-core/xwiki-platform-search/xwiki-platform-search-solr/xwiki-platform-search-solr-ui/src/main/resources/Main/SolrSearchMacros.xml#L955](https://github.com/xwiki/xwiki-platform/blob/568447cad5172d97d6bbcfda9f6183689c2cf086/xwiki-platform-core/xwiki-platform-search/xwiki-platform-search-solr/xwiki-platform-search-solr-ui/src/main/resources/Main/SolrSearchMacros.xml#L955)
-
----
-
-### 14. [CVE-2024-21762](/api/vulns/CVE-2024-21762.json)
-
-**Risk Score**: 66/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.6 | 
-**EPSS**: 92.2%
-
-**Summary**: A out-of-bounds write in Fortinet FortiOS versions 7.4.0 through 7.4.2, 7.2.0 through 7.2.6, 7.0.0 through 7.0.13, 6.4.0 through 6.4.14, 6.2.0 through 6.2.15, 6.0.0 through 6.0.17, FortiProxy versions 7.4.0 through 7.4.2, 7.2.0 through 7.2.8, 7.0.0 through 7.0.14, 2.0.0 through 2.0.13, 1.2.0 through 1.2.13, 1.1.0 through 1.1.6, 1.0.0 through 1.0.7 allows attacker to execute unauthorized code or commands via specifically crafted requests
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 92.25% exploit probability
-- Affects critical infrastructure: fortinet
-
-**Affected Vendors**: fortinet
-
-**Tags**: `CWE-787`
-
-**References**:
-
-- [https://fortiguard.com/psirt/FG-IR-24-015](https://fortiguard.com/psirt/FG-IR-24-015)
 
 ---
 
@@ -699,33 +699,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 27. [CVE-2025-29927](/api/vulns/CVE-2025-29927.json)
-
-**Risk Score**: 65/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.1 | 
-**EPSS**: 93.6%
-
-**Summary**: Next.js is a React framework for building full-stack web applications. Starting in version 1.11.4 and prior to versions 12.3.5, 13.5.9, 14.2.25, and 15.2.3, it is possible to bypass authorization checks within a Next.js application, if the authorization check occurs in middleware. If patching to a safe version is infeasible, it is recommend that you prevent external user requests which contain the x-middleware-subrequest header from reaching your Next.js application. This vulnerability is fixed ...
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 93.64% exploit probability
-
-**Affected Vendors**: vercel
-
-**Tags**: `CWE-285`
-
-**References**:
-
-- [https://github.com/vercel/next.js/security/advisories/GHSA-f82v-jwr5-mffw](https://github.com/vercel/next.js/security/advisories/GHSA-f82v-jwr5-mffw)
-- [https://github.com/vercel/next.js/commit/52a078da3884efe6501613c7834a3d02a91676d2](https://github.com/vercel/next.js/commit/52a078da3884efe6501613c7834a3d02a91676d2)
-- [https://github.com/vercel/next.js/commit/5fd3ae8f8542677c6294f32d18022731eab6fe48](https://github.com/vercel/next.js/commit/5fd3ae8f8542677c6294f32d18022731eab6fe48)
-
----
-
-### 28. [CVE-2024-11680](/api/vulns/CVE-2024-11680.json)
+### 27. [CVE-2024-11680](/api/vulns/CVE-2024-11680.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -748,6 +722,32 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 - [https://github.com/projectsend/projectsend/commit/193367d937b1a59ed5b68dd4e60bd53317473744](https://github.com/projectsend/projectsend/commit/193367d937b1a59ed5b68dd4e60bd53317473744)
 - [https://www.synacktiv.com/sites/default/files/2024-07/synacktiv-projectsend-multiple-vulnerabilities.pdf](https://www.synacktiv.com/sites/default/files/2024-07/synacktiv-projectsend-multiple-vulnerabilities.pdf)
 - [https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/linux/http/projectsend_unauth_rce.rb](https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/linux/http/projectsend_unauth_rce.rb)
+
+---
+
+### 28. [CVE-2025-29927](/api/vulns/CVE-2025-29927.json)
+
+**Risk Score**: 65/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 9.1 | 
+**EPSS**: 93.6%
+
+**Summary**: Next.js is a React framework for building full-stack web applications. Starting in version 1.11.4 and prior to versions 12.3.5, 13.5.9, 14.2.25, and 15.2.3, it is possible to bypass authorization checks within a Next.js application, if the authorization check occurs in middleware. If patching to a safe version is infeasible, it is recommend that you prevent external user requests which contain the x-middleware-subrequest header from reaching your Next.js application. This vulnerability is fixed ...
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 93.58% exploit probability
+
+**Affected Vendors**: vercel
+
+**Tags**: `CWE-285`
+
+**References**:
+
+- [https://github.com/vercel/next.js/security/advisories/GHSA-f82v-jwr5-mffw](https://github.com/vercel/next.js/security/advisories/GHSA-f82v-jwr5-mffw)
+- [https://github.com/vercel/next.js/commit/52a078da3884efe6501613c7834a3d02a91676d2](https://github.com/vercel/next.js/commit/52a078da3884efe6501613c7834a3d02a91676d2)
+- [https://github.com/vercel/next.js/commit/5fd3ae8f8542677c6294f32d18022731eab6fe48](https://github.com/vercel/next.js/commit/5fd3ae8f8542677c6294f32d18022731eab6fe48)
 
 ---
 
@@ -802,7 +802,59 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 31. [CVE-2024-38063](/api/vulns/CVE-2024-38063.json)
+### 31. [CVE-2025-1661](/api/vulns/CVE-2025-1661.json)
+
+**Risk Score**: 65/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 9.8 | 
+**EPSS**: 87.6%
+
+**Summary**: The HUSKY – Products Filter Professional for WooCommerce plugin for WordPress is vulnerable to Local File Inclusion in all versions up to, and including, 1.3.6.5 via the 'template' parameter of the woof_text_search AJAX action. This makes it possible for unauthenticated attackers to include and execute arbitrary files on the server, allowing the execution of any PHP code in those files. This can be used to bypass access controls, obtain sensitive data, or achieve code execution in cases where im...
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 87.62% exploit probability
+
+**Affected Vendors**: realmag777
+
+**Tags**: `CWE-22`
+
+**References**:
+
+- [https://www.wordfence.com/threat-intel/vulnerabilities/id/9ae7b6fc-2120-4573-8b1b-d5422d435fa5?source=cve](https://www.wordfence.com/threat-intel/vulnerabilities/id/9ae7b6fc-2120-4573-8b1b-d5422d435fa5?source=cve)
+- [https://plugins.trac.wordpress.org/browser/woocommerce-products-filter/trunk/ext/by_text/index.php](https://plugins.trac.wordpress.org/browser/woocommerce-products-filter/trunk/ext/by_text/index.php)
+- [https://plugins.trac.wordpress.org/changeset?sfp_email=&sfph_mail=&reponame=&old=3253169%40woocommerce-products-filter&new=3253169%40woocommerce-products-filter&sfp_email=&sfph_mail=](https://plugins.trac.wordpress.org/changeset?sfp_email=&sfph_mail=&reponame=&old=3253169%40woocommerce-products-filter&new=3253169%40woocommerce-products-filter&sfp_email=&sfph_mail=)
+
+---
+
+### 32. [CVE-2024-36404](/api/vulns/CVE-2024-36404.json)
+
+**Risk Score**: 65/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 9.8 | 
+**EPSS**: 87.5%
+
+**Summary**: GeoTools is an open source Java library that provides tools for geospatial data. Prior to versions 31.2, 30.4, and 29.6, Remote Code Execution (RCE) is possible if an application uses certain GeoTools functionality to evaluate XPath expressions supplied by user input. Versions 31.2, 30.4, and 29.6 contain a fix for this issue. As a workaround, GeoTools can operate with reduced functionality by removing the `gt-complex` jar from one's application. As an example of the impact, application schema `...
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 87.51% exploit probability
+
+**Affected Vendors**: geotools
+
+**Tags**: `CWE-95`
+
+**References**:
+
+- [https://github.com/geotools/geotools/security/advisories/GHSA-w3pj-wh35-fq8w](https://github.com/geotools/geotools/security/advisories/GHSA-w3pj-wh35-fq8w)
+- [https://github.com/geotools/geotools/pull/4797](https://github.com/geotools/geotools/pull/4797)
+- [https://github.com/geotools/geotools/commit/f0c9961dc4d40c5acfce2169fab92805738de5ea](https://github.com/geotools/geotools/commit/f0c9961dc4d40c5acfce2169fab92805738de5ea)
+
+---
+
+### 33. [CVE-2024-38063](/api/vulns/CVE-2024-38063.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -827,45 +879,19 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 32. [CVE-2025-1661](/api/vulns/CVE-2025-1661.json)
+### 34. [CVE-2024-49112](/api/vulns/CVE-2024-49112.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.8 | 
-**EPSS**: 87.3%
-
-**Summary**: The HUSKY – Products Filter Professional for WooCommerce plugin for WordPress is vulnerable to Local File Inclusion in all versions up to, and including, 1.3.6.5 via the 'template' parameter of the woof_text_search AJAX action. This makes it possible for unauthenticated attackers to include and execute arbitrary files on the server, allowing the execution of any PHP code in those files. This can be used to bypass access controls, obtain sensitive data, or achieve code execution in cases where im...
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 87.31% exploit probability
-
-**Affected Vendors**: realmag777
-
-**Tags**: `CWE-22`
-
-**References**:
-
-- [https://www.wordfence.com/threat-intel/vulnerabilities/id/9ae7b6fc-2120-4573-8b1b-d5422d435fa5?source=cve](https://www.wordfence.com/threat-intel/vulnerabilities/id/9ae7b6fc-2120-4573-8b1b-d5422d435fa5?source=cve)
-- [https://plugins.trac.wordpress.org/browser/woocommerce-products-filter/trunk/ext/by_text/index.php](https://plugins.trac.wordpress.org/browser/woocommerce-products-filter/trunk/ext/by_text/index.php)
-- [https://plugins.trac.wordpress.org/changeset?sfp_email=&sfph_mail=&reponame=&old=3253169%40woocommerce-products-filter&new=3253169%40woocommerce-products-filter&sfp_email=&sfph_mail=](https://plugins.trac.wordpress.org/changeset?sfp_email=&sfph_mail=&reponame=&old=3253169%40woocommerce-products-filter&new=3253169%40woocommerce-products-filter&sfp_email=&sfph_mail=)
-
----
-
-### 33. [CVE-2024-49112](/api/vulns/CVE-2024-49112.json)
-
-**Risk Score**: 65/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 87.1%
+**EPSS**: 84.9%
 
 **Summary**: Windows Lightweight Directory Access Protocol (LDAP) Remote Code Execution Vulnerability
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 87.12% exploit probability
+- 84.88% exploit probability
 - Affects critical infrastructure: microsoft
 
 **Affected Vendors**: microsoft
@@ -878,7 +904,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 34. [CVE-2024-38077](/api/vulns/CVE-2024-38077.json)
+### 35. [CVE-2024-38077](/api/vulns/CVE-2024-38077.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -903,7 +929,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 35. [CVE-2024-3272](/api/vulns/CVE-2024-3272.json)
+### 36. [CVE-2024-3272](/api/vulns/CVE-2024-3272.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -929,7 +955,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 36. [CVE-2024-13159](/api/vulns/CVE-2024-13159.json)
+### 37. [CVE-2024-13159](/api/vulns/CVE-2024-13159.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -953,7 +979,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 37. [CVE-2024-13160](/api/vulns/CVE-2024-13160.json)
+### 38. [CVE-2024-13160](/api/vulns/CVE-2024-13160.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -977,7 +1003,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 38. [CVE-2024-21650](/api/vulns/CVE-2024-21650.json)
+### 39. [CVE-2024-21650](/api/vulns/CVE-2024-21650.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -989,7 +1015,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 **Risk Factors**:
 
 - CRITICAL severity
-- 93.4% exploit probability
+- 93.44% exploit probability
 
 **Affected Vendors**: xwiki
 
@@ -1003,7 +1029,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 39. [CVE-2024-3495](/api/vulns/CVE-2024-3495.json)
+### 40. [CVE-2024-3495](/api/vulns/CVE-2024-3495.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1027,7 +1053,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 40. [CVE-2024-0204](/api/vulns/CVE-2024-0204.json)
+### 41. [CVE-2024-0204](/api/vulns/CVE-2024-0204.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1053,7 +1079,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 41. [CVE-2024-29895](/api/vulns/CVE-2024-29895.json)
+### 42. [CVE-2024-29895](/api/vulns/CVE-2024-29895.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1079,7 +1105,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 42. [CVE-2024-32651](/api/vulns/CVE-2024-32651.json)
+### 43. [CVE-2024-32651](/api/vulns/CVE-2024-32651.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1105,7 +1131,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 43. [CVE-2024-9234](/api/vulns/CVE-2024-9234.json)
+### 44. [CVE-2024-9234](/api/vulns/CVE-2024-9234.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1131,7 +1157,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 44. [CVE-2025-24016](/api/vulns/CVE-2025-24016.json)
+### 45. [CVE-2025-24016](/api/vulns/CVE-2025-24016.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1155,7 +1181,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 45. [CVE-2024-1071](/api/vulns/CVE-2024-1071.json)
+### 46. [CVE-2024-1071](/api/vulns/CVE-2024-1071.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1179,7 +1205,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 46. [CVE-2024-8856](/api/vulns/CVE-2024-8856.json)
+### 47. [CVE-2024-8856](/api/vulns/CVE-2024-8856.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1205,7 +1231,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 47. [CVE-2024-46986](/api/vulns/CVE-2024-46986.json)
+### 48. [CVE-2024-46986](/api/vulns/CVE-2024-46986.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1228,32 +1254,6 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 - [https://github.com/owen2345/camaleon-cms/security/advisories/GHSA-wmjg-vqhv-q5p5](https://github.com/owen2345/camaleon-cms/security/advisories/GHSA-wmjg-vqhv-q5p5)
 - [https://codeql.github.com/codeql-query-help/ruby/rb-path-injection](https://codeql.github.com/codeql-query-help/ruby/rb-path-injection)
 - [https://owasp.org/www-community/attacks/Path_Traversal](https://owasp.org/www-community/attacks/Path_Traversal)
-
----
-
-### 48. [CVE-2024-36404](/api/vulns/CVE-2024-36404.json)
-
-**Risk Score**: 64/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 85.5%
-
-**Summary**: GeoTools is an open source Java library that provides tools for geospatial data. Prior to versions 31.2, 30.4, and 29.6, Remote Code Execution (RCE) is possible if an application uses certain GeoTools functionality to evaluate XPath expressions supplied by user input. Versions 31.2, 30.4, and 29.6 contain a fix for this issue. As a workaround, GeoTools can operate with reduced functionality by removing the `gt-complex` jar from one's application. As an example of the impact, application schema `...
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 85.45% exploit probability
-
-**Affected Vendors**: geotools
-
-**Tags**: `CWE-95`
-
-**References**:
-
-- [https://github.com/geotools/geotools/security/advisories/GHSA-w3pj-wh35-fq8w](https://github.com/geotools/geotools/security/advisories/GHSA-w3pj-wh35-fq8w)
-- [https://github.com/geotools/geotools/pull/4797](https://github.com/geotools/geotools/pull/4797)
-- [https://github.com/geotools/geotools/commit/f0c9961dc4d40c5acfce2169fab92805738de5ea](https://github.com/geotools/geotools/commit/f0c9961dc4d40c5acfce2169fab92805738de5ea)
 
 ---
 
