@@ -1,23 +1,23 @@
 ---
 title: Morning Vulnerability Briefing - 2025-07-01
-date: 2025-07-01T00:26:15.656351
+date: 2025-07-01T04:20:32.249005
 layout: layouts/post.njk
 tags: [vulnerability, briefing, security]
-vulnerabilityCount: 33030
+vulnerabilityCount: 33067
 criticalCount: 0
 highCount: 0
 ---
 
 # Morning Vulnerability Briefing - 2025-07-01
 
-Today's briefing covers **33030 vulnerabilities** from 0 sources.
+Today's briefing covers **33067 vulnerabilities** from 0 sources.
 
 ## Risk Distribution
 
 - 🔴 **Critical Risk**: 0 vulnerabilities
 - 🟠 **High Risk**: 0 vulnerabilities
-- 🟡 **Medium Risk**: 11367 vulnerabilities
-- 🟢 **Low Risk**: 21663 vulnerabilities
+- 🟡 **Medium Risk**: 11402 vulnerabilities
+- 🟢 **Low Risk**: 21665 vulnerabilities
 
 ## Top Vulnerabilities
 
@@ -112,7 +112,7 @@ code.
 **Risk Factors**:
 
 - CRITICAL severity
-- 92.39% exploit probability
+- 92.36% exploit probability
 
 **Affected Vendors**: langflow-ai
 
@@ -369,14 +369,14 @@ critical systems.
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.6 | 
-**EPSS**: 91.6%
+**EPSS**: 92.2%
 
 **Summary**: A out-of-bounds write in Fortinet FortiOS versions 7.4.0 through 7.4.2, 7.2.0 through 7.2.6, 7.0.0 through 7.0.13, 6.4.0 through 6.4.14, 6.2.0 through 6.2.15, 6.0.0 through 6.0.17, FortiProxy versions 7.4.0 through 7.4.2, 7.2.0 through 7.2.8, 7.0.0 through 7.0.14, 2.0.0 through 2.0.13, 1.2.0 through 1.2.13, 1.1.0 through 1.1.6, 1.0.0 through 1.0.7 allows attacker to execute unauthorized code or commands via specifically crafted requests
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 91.6% exploit probability
+- 92.25% exploit probability
 - Affects critical infrastructure: fortinet
 
 **Affected Vendors**: fortinet
@@ -1003,7 +1003,31 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 39. [CVE-2024-0204](/api/vulns/CVE-2024-0204.json)
+### 39. [CVE-2024-3495](/api/vulns/CVE-2024-3495.json)
+
+**Risk Score**: 64/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 9.8 | 
+**EPSS**: 93.4%
+
+**Summary**: The Country State City Dropdown CF7 plugin for WordPress is vulnerable to SQL Injection via the ‘cnt’ and 'sid' parameters in versions up to, and including, 2.7.2 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 93.36% exploit probability
+
+**Affected Vendors**: trustyplugins
+
+**References**:
+
+- [https://www.wordfence.com/threat-intel/vulnerabilities/id/17dcacaf-0e2a-4bef-b944-fb7e43d25777?source=cve](https://www.wordfence.com/threat-intel/vulnerabilities/id/17dcacaf-0e2a-4bef-b944-fb7e43d25777?source=cve)
+- [https://plugins.trac.wordpress.org/browser/country-state-city-auto-dropdown/trunk/includes/ajax-actions.php#L8](https://plugins.trac.wordpress.org/browser/country-state-city-auto-dropdown/trunk/includes/ajax-actions.php#L8)
+- [https://plugins.trac.wordpress.org/browser/country-state-city-auto-dropdown/trunk/includes/ajax-actions.php#L22](https://plugins.trac.wordpress.org/browser/country-state-city-auto-dropdown/trunk/includes/ajax-actions.php#L22)
+
+---
+
+### 40. [CVE-2024-0204](/api/vulns/CVE-2024-0204.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1026,30 +1050,6 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 - [https://www.fortra.com/security/advisory/fi-2024-001](https://www.fortra.com/security/advisory/fi-2024-001)
 - [https://my.goanywhere.com/webclient/ViewSecurityAdvisories.xhtml](https://my.goanywhere.com/webclient/ViewSecurityAdvisories.xhtml)
 - [http://packetstormsecurity.com/files/176683/GoAnywhere-MFT-Authentication-Bypass.html](http://packetstormsecurity.com/files/176683/GoAnywhere-MFT-Authentication-Bypass.html)
-
----
-
-### 40. [CVE-2024-3495](/api/vulns/CVE-2024-3495.json)
-
-**Risk Score**: 64/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 93.3%
-
-**Summary**: The Country State City Dropdown CF7 plugin for WordPress is vulnerable to SQL Injection via the ‘cnt’ and 'sid' parameters in versions up to, and including, 2.7.2 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 93.3% exploit probability
-
-**Affected Vendors**: trustyplugins
-
-**References**:
-
-- [https://www.wordfence.com/threat-intel/vulnerabilities/id/17dcacaf-0e2a-4bef-b944-fb7e43d25777?source=cve](https://www.wordfence.com/threat-intel/vulnerabilities/id/17dcacaf-0e2a-4bef-b944-fb7e43d25777?source=cve)
-- [https://plugins.trac.wordpress.org/browser/country-state-city-auto-dropdown/trunk/includes/ajax-actions.php#L8](https://plugins.trac.wordpress.org/browser/country-state-city-auto-dropdown/trunk/includes/ajax-actions.php#L8)
-- [https://plugins.trac.wordpress.org/browser/country-state-city-auto-dropdown/trunk/includes/ajax-actions.php#L22](https://plugins.trac.wordpress.org/browser/country-state-city-auto-dropdown/trunk/includes/ajax-actions.php#L22)
 
 ---
 
@@ -1131,7 +1131,31 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 44. [CVE-2024-1071](/api/vulns/CVE-2024-1071.json)
+### 44. [CVE-2025-24016](/api/vulns/CVE-2025-24016.json)
+
+**Risk Score**: 64/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 9.9 | 
+**EPSS**: 92.3%
+
+**Summary**: Wazuh is a free and open source platform used for threat prevention, detection, and response. Starting in version 4.4.0 and prior to version 4.9.1, an unsafe deserialization vulnerability allows for remote code execution on Wazuh servers. DistributedAPI parameters are a serialized as JSON and deserialized using `as_wazuh_object` (in `framework/wazuh/core/cluster/common.py`). If an attacker manages to inject an unsanitized dictionary in DAPI request/response, they can forge an unhandled exception...
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 92.28% exploit probability
+
+**Affected Vendors**: wazuh
+
+**Tags**: `CWE-502`
+
+**References**:
+
+- [https://github.com/wazuh/wazuh/security/advisories/GHSA-hcrc-79hj-m3qh](https://github.com/wazuh/wazuh/security/advisories/GHSA-hcrc-79hj-m3qh)
+
+---
+
+### 45. [CVE-2024-1071](/api/vulns/CVE-2024-1071.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1155,7 +1179,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 45. [CVE-2024-8856](/api/vulns/CVE-2024-8856.json)
+### 46. [CVE-2024-8856](/api/vulns/CVE-2024-8856.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1181,7 +1205,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 46. [CVE-2024-46986](/api/vulns/CVE-2024-46986.json)
+### 47. [CVE-2024-46986](/api/vulns/CVE-2024-46986.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1207,7 +1231,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 47. [CVE-2024-36404](/api/vulns/CVE-2024-36404.json)
+### 48. [CVE-2024-36404](/api/vulns/CVE-2024-36404.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1233,7 +1257,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 48. [CVE-2025-31161](/api/vulns/CVE-2025-31161.json)
+### 49. [CVE-2025-31161](/api/vulns/CVE-2025-31161.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1258,7 +1282,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 49. [CVE-2025-27007](/api/vulns/CVE-2025-27007.json)
+### 50. [CVE-2025-27007](/api/vulns/CVE-2025-27007.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1280,32 +1304,6 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 - [https://patchstack.com/database/wordpress/plugin/suretriggers/vulnerability/wordpress-suretriggers-1-0-82-privilege-escalation-vulnerability?_s_id=cve](https://patchstack.com/database/wordpress/plugin/suretriggers/vulnerability/wordpress-suretriggers-1-0-82-privilege-escalation-vulnerability?_s_id=cve)
 - [https://patchstack.com/articles/additional-critical-ottokit-formerly-suretriggers-vulnerability-patched?_s_id=cve](https://patchstack.com/articles/additional-critical-ottokit-formerly-suretriggers-vulnerability-patched?_s_id=cve)
-
----
-
-### 50. [CVE-2024-24576](/api/vulns/CVE-2024-24576.json)
-
-**Risk Score**: 64/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 10.0 | 
-**EPSS**: 81.4%
-
-**Summary**: Rust is a programming language. The Rust Security Response WG was notified that the Rust standard library prior to version 1.77.2 did not properly escape arguments when invoking batch files (with the `bat` and `cmd` extensions) on Windows using the `Command`. An attacker able to control the arguments passed to the spawned process could execute arbitrary shell commands by bypassing the escaping. The severity of this vulnerability is critical for those who invoke batch files on Windows with untrus...
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 81.37% exploit probability
-
-**Affected Vendors**: rust-lang
-
-**Tags**: `CWE-78`, `CWE-88`
-
-**References**:
-
-- [https://github.com/rust-lang/rust/security/advisories/GHSA-q455-m56c-85mh](https://github.com/rust-lang/rust/security/advisories/GHSA-q455-m56c-85mh)
-- [https://doc.rust-lang.org/std/io/enum.ErrorKind.html#variant.InvalidInput](https://doc.rust-lang.org/std/io/enum.ErrorKind.html#variant.InvalidInput)
-- [https://doc.rust-lang.org/std/os/windows/process/trait.CommandExt.html#tymethod.raw_arg](https://doc.rust-lang.org/std/os/windows/process/trait.CommandExt.html#tymethod.raw_arg)
 
 ---
 
