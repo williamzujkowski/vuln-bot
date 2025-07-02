@@ -1,7 +1,7 @@
 {
   "chunk": "2024-CRITICAL",
   "count": 1458,
-  "generated": "2025-07-02T00:23:47.474305",
+  "generated": "2025-07-02T04:13:58.709287",
   "vulnerabilities": [
     {
       "cveId": "CVE-2024-21413",
@@ -28,9 +28,9 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
+          "microsoft office 2016",
           "microsoft 365 apps for enterprise",
           "microsoft office ltsc 2021",
-          "microsoft office 2016",
           "microsoft office 2019"
         ]
       },
@@ -283,9 +283,9 @@
         "cpeMatches": [],
         "vendors": ["really simple plugins", "rogierlankhorst"],
         "products": [
+          "really simple security pro",
           "really simple security – simple and performant security (formerly really simple ssl)",
-          "really simple security pro multisite",
-          "really simple security pro"
+          "really simple security pro multisite"
         ]
       },
       "references": [
@@ -400,7 +400,7 @@
       ],
       "epss": {
         "score": 0.9434,
-        "percentile": 99.945
+        "percentile": 99.946
       },
       "riskScore": 66,
       "exploitationStatus": "UNKNOWN",
@@ -1257,7 +1257,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["palo alto networks"],
-        "products": ["prisma access", "cloud ngfw", "pan-os"]
+        "products": ["pan-os", "prisma access", "cloud ngfw"]
       },
       "references": [
         {
@@ -1321,32 +1321,32 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          "windows server 2012 r2",
-          "windows server 2022, 23h2 edition (server core installation)",
-          "windows server 2019",
-          "windows 11 version 23h2",
-          "windows server 2008 service pack 2 (server core installation)",
-          "windows server 2008 r2 service pack 1 (server core installation)",
+          "windows 10 version 1809",
           "windows server 2012 r2 (server core installation)",
+          "windows server 2019 (server core installation)",
+          "windows 10 version 22h2",
+          "windows 10 version 21h2",
+          "windows server 2019",
+          "windows server 2008 service pack 2",
           "windows server 2025",
+          "windows 10 version 1607",
+          "windows 11 version 24h2",
           "windows server 2008  service pack 2",
           "windows server 2008 r2 service pack 1",
-          "windows server 2016",
+          "windows server 2008 r2 service pack 1 (server core installation)",
           "windows server 2022",
-          "windows 11 version 22h3",
+          "windows server 2012 r2",
+          "windows server 2022, 23h2 edition (server core installation)",
           "windows server 2025 (server core installation)",
-          "windows 11 version 22h2",
-          "windows 11 version 24h2",
-          "windows 10 version 22h2",
-          "windows server 2016 (server core installation)",
-          "windows 10 version 1607",
-          "windows server 2008 service pack 2",
-          "windows server 2019 (server core installation)",
+          "windows server 2016",
+          "windows 11 version 23h2",
           "windows server 2012 (server core installation)",
-          "windows 10 version 1507",
-          "windows 10 version 21h2",
-          "windows 10 version 1809",
-          "windows server 2012"
+          "windows 11 version 22h3",
+          "windows server 2012",
+          "windows server 2008 service pack 2 (server core installation)",
+          "windows server 2016 (server core installation)",
+          "windows 11 version 22h2",
+          "windows 10 version 1507"
         ]
       },
       "references": [
@@ -1461,7 +1461,7 @@
       ],
       "epss": {
         "score": 0.9361,
-        "percentile": 99.828
+        "percentile": 99.833
       },
       "riskScore": 65,
       "exploitationStatus": "UNKNOWN",
@@ -1529,7 +1529,7 @@
       ],
       "epss": {
         "score": 0.9436,
-        "percentile": 99.954
+        "percentile": 99.955
       },
       "riskScore": 65,
       "exploitationStatus": "UNKNOWN",
@@ -1592,7 +1592,7 @@
       ],
       "epss": {
         "score": 0.8355,
-        "percentile": 99.219
+        "percentile": 99.232
       },
       "riskScore": 65,
       "exploitationStatus": "UNKNOWN",
@@ -1600,21 +1600,21 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          "windows server 2012 r2 (server core installation)",
-          "windows server 2008 r2 service pack 1",
-          "windows server 2016",
           "windows server 2012 r2",
-          "windows server 2022",
-          "windows server 2008 service pack 2",
           "windows server 2022, 23h2 edition (server core installation)",
-          "windows server 2008  service pack 2",
-          "windows server 2019 (server core installation)",
-          "windows server 2019",
-          "windows server 2012 (server core installation)",
+          "windows server 2008 service pack 2",
+          "windows server 2016",
+          "windows server 2016 (server core installation)",
           "windows server 2008 service pack 2 (server core installation)",
+          "windows server 2012 r2 (server core installation)",
+          "windows server 2019 (server core installation)",
+          "windows server 2012 (server core installation)",
+          "windows server 2008  service pack 2",
+          "windows server 2008 r2 service pack 1",
+          "windows server 2019",
           "windows server 2008 r2 service pack 1 (server core installation)",
           "windows server 2012",
-          "windows server 2016 (server core installation)"
+          "windows server 2022"
         ]
       },
       "references": [
@@ -1656,7 +1656,7 @@
       ],
       "epss": {
         "score": 0.8737,
-        "percentile": 99.402
+        "percentile": 99.419
       },
       "riskScore": 65,
       "exploitationStatus": "UNKNOWN",
@@ -1664,31 +1664,31 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
+          "windows 10 version 1809",
+          "windows server 2012 r2 (server core installation)",
+          "windows server 2019 (server core installation)",
+          "windows 10 version 22h2",
+          "windows 11 version 21h2",
+          "windows 10 version 21h2",
+          "windows server 2019",
+          "windows server 2008 service pack 2",
+          "windows 10 version 1607",
+          "windows 11 version 24h2",
+          "windows server 2008  service pack 2",
+          "windows server 2008 r2 service pack 1",
+          "windows server 2008 r2 service pack 1 (server core installation)",
+          "windows server 2022",
           "windows server 2012 r2",
           "windows server 2022, 23h2 edition (server core installation)",
-          "windows server 2019",
-          "windows 11 version 23h2",
-          "windows server 2008 service pack 2 (server core installation)",
-          "windows server 2008 r2 service pack 1 (server core installation)",
-          "windows server 2012 r2 (server core installation)",
-          "windows server 2008  service pack 2",
-          "windows 11 version 21h2",
-          "windows server 2008 r2 service pack 1",
           "windows server 2016",
-          "windows server 2022",
-          "windows 11 version 22h3",
-          "windows 11 version 22h2",
-          "windows 11 version 24h2",
-          "windows 10 version 22h2",
-          "windows server 2016 (server core installation)",
-          "windows 10 version 1607",
-          "windows server 2008 service pack 2",
-          "windows server 2019 (server core installation)",
+          "windows 11 version 23h2",
           "windows server 2012 (server core installation)",
-          "windows 10 version 1507",
-          "windows 10 version 21h2",
-          "windows 10 version 1809",
-          "windows server 2012"
+          "windows 11 version 22h3",
+          "windows server 2012",
+          "windows server 2008 service pack 2 (server core installation)",
+          "windows server 2016 (server core installation)",
+          "windows 11 version 22h2",
+          "windows 10 version 1507"
         ]
       },
       "references": [
@@ -2186,7 +2186,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["d-link"],
-        "products": ["dns-340l", "dns-327l", "dns-325", "dns-320l"]
+        "products": ["dns-325", "dns-327l", "dns-320l", "dns-340l"]
       },
       "references": [
         {
@@ -2408,7 +2408,7 @@
       ],
       "epss": {
         "score": 0.9199,
-        "percentile": 99.679
+        "percentile": 99.689
       },
       "riskScore": 64,
       "exploitationStatus": "UNKNOWN",
@@ -2482,8 +2482,8 @@
         }
       ],
       "epss": {
-        "score": 0.9252,
-        "percentile": 99.726
+        "score": 0.9249,
+        "percentile": 99.73
       },
       "riskScore": 64,
       "exploitationStatus": "UNKNOWN",
@@ -2546,7 +2546,7 @@
       ],
       "epss": {
         "score": 0.8821,
-        "percentile": 99.441
+        "percentile": 99.458
       },
       "riskScore": 64,
       "exploitationStatus": "UNKNOWN",
@@ -3219,11 +3219,11 @@
         "cpeMatches": [],
         "vendors": ["red hat"],
         "products": [
-          "red hat jboss enterprise application platform 8",
           "red hat enterprise linux 7",
-          "red hat enterprise linux 9",
+          "red hat enterprise linux 8",
+          "red hat jboss enterprise application platform 8",
           "red hat enterprise linux 6",
-          "red hat enterprise linux 8"
+          "red hat enterprise linux 9"
         ]
       },
       "references": [
@@ -3338,7 +3338,7 @@
       ],
       "epss": {
         "score": 0.9388,
-        "percentile": 99.859
+        "percentile": 99.865
       },
       "riskScore": 63,
       "exploitationStatus": "UNKNOWN",
@@ -3816,7 +3816,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["zyxel"],
-        "products": ["nas326 firmware", "nas542 firmware"]
+        "products": ["nas542 firmware", "nas326 firmware"]
       },
       "references": [
         {
@@ -3869,7 +3869,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["zyxel"],
-        "products": ["nas326 firmware", "nas542 firmware"]
+        "products": ["nas542 firmware", "nas326 firmware"]
       },
       "references": [
         {
@@ -4778,7 +4778,7 @@
       ],
       "epss": {
         "score": 0.9257,
-        "percentile": 99.729
+        "percentile": 99.736
       },
       "riskScore": 62,
       "exploitationStatus": "UNKNOWN",
@@ -4826,7 +4826,7 @@
       ],
       "epss": {
         "score": 0.9391,
-        "percentile": 99.864
+        "percentile": 99.869
       },
       "riskScore": 62,
       "exploitationStatus": "UNKNOWN",
@@ -5974,7 +5974,7 @@
       ],
       "epss": {
         "score": 0.778,
-        "percentile": 98.939
+        "percentile": 98.946
       },
       "riskScore": 60,
       "exploitationStatus": "UNKNOWN",
@@ -6026,8 +6026,8 @@
         }
       ],
       "epss": {
-        "score": 0.8235,
-        "percentile": 99.16
+        "score": 0.8179,
+        "percentile": 99.141
       },
       "riskScore": 60,
       "exploitationStatus": "UNKNOWN",
@@ -6080,7 +6080,7 @@
       ],
       "epss": {
         "score": 0.8019,
-        "percentile": 99.053
+        "percentile": 99.061
       },
       "riskScore": 60,
       "exploitationStatus": "UNKNOWN",
@@ -6442,7 +6442,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["ptzoptics"],
-        "products": ["pt30x-ndi", "pt30x-sdi"]
+        "products": ["pt30x-sdi", "pt30x-ndi"]
       },
       "references": [
         {
@@ -6632,26 +6632,26 @@
         "cpeMatches": [],
         "vendors": ["geovision"],
         "products": [
-          "gv_ipcamd_gv_fd3400",
-          "gvlx 4 v2",
+          "gv_vs2410",
           "gv_ipcamd_gv_cb220",
-          "gv_ipcamd_gv_fe3401",
-          "gv vs04h",
-          "gv-vs14_vs14",
-          "gvlx 4 v3",
-          "gv vs04a",
-          "gv_ipcamd_gv_bx1500",
-          "gv_ipcamd_gv_ebl1100",
-          "gv_vs216xx",
           "gv_ipcamd_gv_fe420",
+          "gv_ipcamd_gv_fe3401",
+          "gv_dsp_lpr_v2",
+          "gv_ipcamd_gv_fd3400",
+          "gv vs04a",
+          "gv_ipcamd_gv_efd1100",
           "gv_ipcamd_gv_fd2410",
           "gv_ipcamd_gv_bx130",
           "gv_gm8186_vs14",
+          "gv_ipcamd_gv_bx1500",
+          "gv-vs14_vs14",
+          "gv_ipcamd_gv_ebl1100",
+          "gvlx 4 v3",
           "gv_vs28xx",
-          "gv_dsp_lpr_v2",
           "gv_vs03",
-          "gv_ipcamd_gv_efd1100",
-          "gv_vs2410"
+          "gvlx 4 v2",
+          "gv vs04h",
+          "gv_vs216xx"
         ]
       },
       "references": [
@@ -6706,13 +6706,13 @@
         "cpeMatches": [],
         "vendors": ["asus"],
         "products": [
-          "zenwifi xt8 v2",
-          "rt-ac86u",
-          "rt-ax58u",
+          "rt-ax57",
           "zenwifi xt8",
           "rt-ac68u",
-          "rt-ax88u",
-          "rt-ax57"
+          "rt-ac86u",
+          "zenwifi xt8 v2",
+          "rt-ax58u",
+          "rt-ax88u"
         ]
       },
       "references": [
@@ -6896,7 +6896,7 @@
       ],
       "epss": {
         "score": 0.7558,
-        "percentile": 98.827
+        "percentile": 98.837
       },
       "riskScore": 59,
       "exploitationStatus": "UNKNOWN",
@@ -6949,7 +6949,7 @@
       ],
       "epss": {
         "score": 0.8905,
-        "percentile": 99.49
+        "percentile": 99.507
       },
       "riskScore": 59,
       "exploitationStatus": "UNKNOWN",
@@ -7206,7 +7206,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["synology"],
-        "products": ["synology photos", "beephotos"]
+        "products": ["beephotos", "synology photos"]
       },
       "references": [
         {
@@ -7408,7 +7408,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["fortinet"],
-        "products": ["fortiproxy", "fortios", "fortiswitchmanager", "fortipam"]
+        "products": ["fortipam", "fortiswitchmanager", "fortiproxy", "fortios"]
       },
       "references": [
         {
@@ -8089,7 +8089,7 @@
       ],
       "epss": {
         "score": 0.5461,
-        "percentile": 97.873
+        "percentile": 97.894
       },
       "riskScore": 56,
       "exploitationStatus": "UNKNOWN",
@@ -8162,7 +8162,7 @@
       ],
       "epss": {
         "score": 0.5995,
-        "percentile": 98.134
+        "percentile": 98.156
       },
       "riskScore": 56,
       "exploitationStatus": "UNKNOWN",
@@ -8215,7 +8215,7 @@
       ],
       "epss": {
         "score": 0.5614,
-        "percentile": 97.949
+        "percentile": 97.967
       },
       "riskScore": 56,
       "exploitationStatus": "UNKNOWN",
@@ -8252,6 +8252,54 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/55xxx/CVE-2024-55877.json",
             "lastModified": "2024-12-13T14:54:49.185000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2024-32700",
+      "title": "WordPress Kognetiks Chatbot for WordPress plugin <= 2.0.0 - Arbitrary File Upload vulnerability",
+      "description": "Unrestricted Upload of File with Dangerous Type vulnerability in Kognetiks Kognetiks Chatbot for WordPress.This issue affects Kognetiks Chatbot for WordPress: from n/a through 2.0.0.",
+      "publishedDate": "2024-05-13T07:06:08.498000+00:00",
+      "lastModifiedDate": "2024-08-02T02:20:34.484000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+          "baseScore": 10.0,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.5813,
+        "percentile": 98.069
+      },
+      "riskScore": 55,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": ["kognetiks"],
+        "products": ["kognetiks chatbot for wordpress"]
+      },
+      "references": [
+        {
+          "url": "https://patchstack.com/database/vulnerability/chatbot-chatgpt/wordpress-kognetiks-chatbot-for-wordpress-plugin-2-0-0-arbitrary-file-upload-vulnerability?_s_id=cve",
+          "source": "",
+          "tags": ["vdb-entry"]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": ["CWE-434"],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": null,
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/32xxx/CVE-2024-32700.json",
+            "lastModified": "2024-08-02T02:20:34.484000+00:00"
           }
         ]
       }
@@ -8654,14 +8702,14 @@
       ],
       "epss": {
         "score": 0.5455,
-        "percentile": 97.871
+        "percentile": 97.892
       },
       "riskScore": 55,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["geovision"],
-        "products": ["gvlx 4 v2", "gv-vs11", "gv-dsp_lpr_v3", "gv-vs12", "gvlx 4 v3"]
+        "products": ["gvlx 4 v2", "gv-dsp_lpr_v3", "gv-vs12", "gvlx 4 v3", "gv-vs11"]
       },
       "references": [
         {
@@ -9123,7 +9171,7 @@
       ],
       "epss": {
         "score": 0.5801,
-        "percentile": 98.045
+        "percentile": 98.062
       },
       "riskScore": 54,
       "exploitationStatus": "UNKNOWN",
@@ -9150,54 +9198,6 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/38xxx/CVE-2024-38812.json",
             "lastModified": "2025-06-10T16:31:30.590000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2024-32700",
-      "title": "WordPress Kognetiks Chatbot for WordPress plugin <= 2.0.0 - Arbitrary File Upload vulnerability",
-      "description": "Unrestricted Upload of File with Dangerous Type vulnerability in Kognetiks Kognetiks Chatbot for WordPress.This issue affects Kognetiks Chatbot for WordPress: from n/a through 2.0.0.",
-      "publishedDate": "2024-05-13T07:06:08.498000+00:00",
-      "lastModifiedDate": "2024-08-02T02:20:34.484000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
-          "baseScore": 10.0,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.5573,
-        "percentile": 97.929
-      },
-      "riskScore": 54,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": ["kognetiks"],
-        "products": ["kognetiks chatbot for wordpress"]
-      },
-      "references": [
-        {
-          "url": "https://patchstack.com/database/vulnerability/chatbot-chatgpt/wordpress-kognetiks-chatbot-for-wordpress-plugin-2-0-0-arbitrary-file-upload-vulnerability?_s_id=cve",
-          "source": "",
-          "tags": ["vdb-entry"]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": ["CWE-434"],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": null,
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/32xxx/CVE-2024-32700.json",
-            "lastModified": "2024-08-02T02:20:34.484000+00:00"
           }
         ]
       }
@@ -9742,13 +9742,13 @@
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": ["warfareplugins", "pedrogusmao02", "blazeretail", "themerex", "stuartobrien"],
+        "vendors": ["themerex", "pedrogusmao02", "blazeretail", "stuartobrien", "warfareplugins"],
         "products": [
-          "wrapper link elementor",
-          "simply show hooks",
-          "social sharing plugin – social warfare",
+          "contact form 7 multi-step addon",
           "blaze retail widget",
-          "contact form 7 multi-step addon"
+          "simply show hooks",
+          "wrapper link elementor",
+          "social sharing plugin – social warfare"
         ]
       },
       "references": [
@@ -9841,7 +9841,7 @@
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": ["sharp corporation", "toshiba tec corporation"],
+        "vendors": ["toshiba tec corporation", "sharp corporation"],
         "products": ["multiple mfps (multifunction printers)"]
       },
       "references": [
@@ -10448,30 +10448,30 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
+          "windows 10 version 1809",
+          "windows server 2012 r2 (server core installation)",
+          "windows server 2019 (server core installation)",
+          "windows 10 version 22h2",
+          "windows 11 version 21h2",
+          "windows 10 version 21h2",
+          "windows server 2019",
+          "windows server 2008 service pack 2",
+          "windows 10 version 1607",
+          "windows server 2008  service pack 2",
+          "windows server 2008 r2 service pack 1",
+          "windows server 2008 r2 service pack 1 (server core installation)",
+          "windows server 2022",
           "windows server 2012 r2",
           "windows server 2022, 23h2 edition (server core installation)",
-          "windows server 2019",
-          "windows 11 version 23h2",
-          "windows server 2008 service pack 2 (server core installation)",
-          "windows server 2008 r2 service pack 1 (server core installation)",
-          "windows server 2012 r2 (server core installation)",
-          "windows server 2008  service pack 2",
-          "windows 11 version 21h2",
-          "windows server 2008 r2 service pack 1",
           "windows server 2016",
-          "windows server 2022",
-          "windows 11 version 22h3",
-          "windows 11 version 22h2",
-          "windows 10 version 22h2",
-          "windows server 2016 (server core installation)",
-          "windows 10 version 1607",
-          "windows server 2008 service pack 2",
-          "windows server 2019 (server core installation)",
+          "windows 11 version 23h2",
           "windows server 2012 (server core installation)",
-          "windows 10 version 1507",
-          "windows 10 version 21h2",
-          "windows 10 version 1809",
-          "windows server 2012"
+          "windows 11 version 22h3",
+          "windows server 2012",
+          "windows server 2008 service pack 2 (server core installation)",
+          "windows server 2016 (server core installation)",
+          "windows 11 version 22h2",
+          "windows 10 version 1507"
         ]
       },
       "references": [
@@ -10715,7 +10715,7 @@
       ],
       "epss": {
         "score": 0.4118,
-        "percentile": 97.227
+        "percentile": 97.251
       },
       "riskScore": 51,
       "exploitationStatus": "UNKNOWN",
@@ -10763,7 +10763,7 @@
       ],
       "epss": {
         "score": 0.4534,
-        "percentile": 97.448
+        "percentile": 97.47
       },
       "riskScore": 51,
       "exploitationStatus": "UNKNOWN",
@@ -10811,7 +10811,7 @@
       ],
       "epss": {
         "score": 0.3246,
-        "percentile": 96.632
+        "percentile": 96.669
       },
       "riskScore": 51,
       "exploitationStatus": "UNKNOWN",
@@ -10869,7 +10869,7 @@
       ],
       "epss": {
         "score": 0.3084,
-        "percentile": 96.491
+        "percentile": 96.53
       },
       "riskScore": 51,
       "exploitationStatus": "UNKNOWN",
@@ -10988,9 +10988,9 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          "system center operations manager (scom) 2019",
+          "open management infrastructure",
           "system center operations manager (scom) 2022",
-          "open management infrastructure"
+          "system center operations manager (scom) 2019"
         ]
       },
       "references": [
@@ -11253,7 +11253,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["myscada"],
-        "products": ["mypro manager", "mypro runtime"]
+        "products": ["mypro runtime", "mypro manager"]
       },
       "references": [
         {
@@ -11627,7 +11627,7 @@
       ],
       "epss": {
         "score": 0.3415,
-        "percentile": 96.767
+        "percentile": 96.8
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -11675,7 +11675,7 @@
       ],
       "epss": {
         "score": 0.0878,
-        "percentile": 92.063
+        "percentile": 92.124
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -11683,12 +11683,12 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          "windows server 2016",
-          "windows server 2022",
           "windows server 2022, 23h2 edition (server core installation)",
+          "windows server 2016",
+          "windows server 2016 (server core installation)",
           "windows server 2019 (server core installation)",
           "windows server 2019",
-          "windows server 2016 (server core installation)"
+          "windows server 2022"
         ]
       },
       "references": [
@@ -11730,7 +11730,7 @@
       ],
       "epss": {
         "score": 0.1137,
-        "percentile": 93.209
+        "percentile": 93.268
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -11738,31 +11738,31 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
+          "windows 10 version 1809",
+          "windows server 2012 r2 (server core installation)",
+          "windows server 2019 (server core installation)",
+          "windows 10 version 22h2",
+          "windows 11 version 21h2",
+          "windows 10 version 21h2",
+          "windows server 2019",
+          "windows server 2008 service pack 2",
+          "windows 10 version 1607",
+          "windows 11 version 24h2",
+          "windows server 2008  service pack 2",
+          "windows server 2008 r2 service pack 1",
+          "windows server 2008 r2 service pack 1 (server core installation)",
+          "windows server 2022",
           "windows server 2012 r2",
           "windows server 2022, 23h2 edition (server core installation)",
-          "windows server 2019",
-          "windows 11 version 23h2",
-          "windows server 2008 service pack 2 (server core installation)",
-          "windows server 2008 r2 service pack 1 (server core installation)",
-          "windows server 2012 r2 (server core installation)",
-          "windows server 2008  service pack 2",
-          "windows 11 version 21h2",
-          "windows server 2008 r2 service pack 1",
           "windows server 2016",
-          "windows server 2022",
-          "windows 11 version 22h3",
-          "windows 11 version 22h2",
-          "windows 11 version 24h2",
-          "windows 10 version 22h2",
-          "windows server 2016 (server core installation)",
-          "windows 10 version 1607",
-          "windows server 2008 service pack 2",
-          "windows server 2019 (server core installation)",
+          "windows 11 version 23h2",
           "windows server 2012 (server core installation)",
-          "windows 10 version 1507",
-          "windows 10 version 21h2",
-          "windows 10 version 1809",
-          "windows server 2012"
+          "windows 11 version 22h3",
+          "windows server 2012",
+          "windows server 2008 service pack 2 (server core installation)",
+          "windows server 2016 (server core installation)",
+          "windows 11 version 22h2",
+          "windows 10 version 1507"
         ]
       },
       "references": [
@@ -11804,7 +11804,7 @@
       ],
       "epss": {
         "score": 0.1113,
-        "percentile": 93.127
+        "percentile": 93.184
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -11812,31 +11812,31 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
+          "windows 10 version 1809",
+          "windows server 2012 r2 (server core installation)",
+          "windows server 2019 (server core installation)",
+          "windows 10 version 22h2",
+          "windows 11 version 21h2",
+          "windows 10 version 21h2",
+          "windows server 2019",
+          "windows server 2008 service pack 2",
+          "windows 10 version 1607",
+          "windows 11 version 24h2",
+          "windows server 2008  service pack 2",
+          "windows server 2008 r2 service pack 1",
+          "windows server 2008 r2 service pack 1 (server core installation)",
+          "windows server 2022",
           "windows server 2012 r2",
           "windows server 2022, 23h2 edition (server core installation)",
-          "windows server 2019",
-          "windows 11 version 23h2",
-          "windows server 2008 service pack 2 (server core installation)",
-          "windows server 2008 r2 service pack 1 (server core installation)",
-          "windows server 2012 r2 (server core installation)",
-          "windows server 2008  service pack 2",
-          "windows 11 version 21h2",
-          "windows server 2008 r2 service pack 1",
           "windows server 2016",
-          "windows server 2022",
-          "windows 11 version 22h3",
-          "windows 11 version 22h2",
-          "windows 11 version 24h2",
-          "windows 10 version 22h2",
-          "windows server 2016 (server core installation)",
-          "windows 10 version 1607",
-          "windows server 2008 service pack 2",
-          "windows server 2019 (server core installation)",
+          "windows 11 version 23h2",
           "windows server 2012 (server core installation)",
-          "windows 10 version 1507",
-          "windows 10 version 21h2",
-          "windows 10 version 1809",
-          "windows server 2012"
+          "windows 11 version 22h3",
+          "windows server 2012",
+          "windows server 2008 service pack 2 (server core installation)",
+          "windows server 2016 (server core installation)",
+          "windows 11 version 22h2",
+          "windows 10 version 1507"
         ]
       },
       "references": [
@@ -12330,18 +12330,18 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          "windows server 2012 r2 (server core installation)",
-          "windows server 2016",
           "windows server 2012 r2",
-          "windows server 2022",
-          "windows server 2025",
           "windows server 2022, 23h2 edition (server core installation)",
+          "windows server 2025",
           "windows server 2025 (server core installation)",
+          "windows server 2016",
+          "windows server 2016 (server core installation)",
+          "windows server 2012 r2 (server core installation)",
           "windows server 2019 (server core installation)",
-          "windows server 2019",
           "windows server 2012 (server core installation)",
+          "windows server 2019",
           "windows server 2012",
-          "windows server 2016 (server core installation)"
+          "windows server 2022"
         ]
       },
       "references": [
@@ -13155,7 +13155,7 @@
       ],
       "epss": {
         "score": 0.2991,
-        "percentile": 96.403
+        "percentile": 96.442
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -13203,7 +13203,7 @@
       ],
       "epss": {
         "score": 0.2991,
-        "percentile": 96.403
+        "percentile": 96.442
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -13251,7 +13251,7 @@
       ],
       "epss": {
         "score": 0.2991,
-        "percentile": 96.403
+        "percentile": 96.442
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -13299,7 +13299,7 @@
       ],
       "epss": {
         "score": 0.2988,
-        "percentile": 96.398
+        "percentile": 96.438
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -13347,7 +13347,7 @@
       ],
       "epss": {
         "score": 0.3091,
-        "percentile": 96.498
+        "percentile": 96.535
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -13379,132 +13379,6 @@
       }
     },
     {
-      "cveId": "CVE-2024-1359",
-      "title": "Command injection vulnerability was identified in GitHub Enterprise Server that allowed privilege escalation in the Mangement Console",
-      "description": "A command injection vulnerability was identified in GitHub Enterprise Server that allowed an attacker with an editor role in the Management Console to gain admin SSH access to the appliance when setting up an HTTP proxy. Exploitation of this vulnerability required access to the GitHub Enterprise Server instance and access to the Management Console with the editor role. This vulnerability affected all versions of GitHub Enterprise Server prior to 3.12 and was fixed in versions 3.11.5, 3.10.7, 3.9.10, and 3.8.15. This vulnerability was reported via the  GitHub Bug Bounty program https://bounty.github.com .\n",
-      "publishedDate": "2024-02-13T18:52:27.176000+00:00",
-      "lastModifiedDate": "2025-05-09T18:17:48.415000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H",
-          "baseScore": 9.1,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0043,
-        "percentile": 61.662
-      },
-      "riskScore": 49,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": ["github"],
-        "products": ["enterprise server"]
-      },
-      "references": [
-        {
-          "url": "https://docs.github.com/en/enterprise-server@3.8/admin/release-notes#3.8.15",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://docs.github.com/en/enterprise-server@3.9/admin/release-notes#3.9.10",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://docs.github.com/en/enterprise-server@3.10/admin/release-notes#3.10.7",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://docs.github.com/en/enterprise-server@3.11/admin/release-notes#3.11.5",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": ["CWE-20"],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": null,
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/1xxx/CVE-2024-1359.json",
-            "lastModified": "2025-05-09T18:17:48.415000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2024-1369",
-      "title": "Command injection vulnerability was identified in GitHub Enterprise Server that allowed privilege escalation in the Mangement Console",
-      "description": "A command injection vulnerability was identified in GitHub Enterprise Server that allowed an attacker with an editor role in the Management Console to gain admin SSH access to the appliance when setting the username and password for collectd configurations. Exploitation of this vulnerability required access to the GitHub Enterprise Server instance and access to the Management Console with the editor role. This vulnerability affected all versions of GitHub Enterprise Server prior to 3.12 and was fixed in versions 3.11.5, 3.10.7, 3.9.10, and 3.8.15. This vulnerability was reported via the  GitHub Bug Bounty program https://bounty.github.com .\n",
-      "publishedDate": "2024-02-13T18:53:29.406000+00:00",
-      "lastModifiedDate": "2024-08-27T19:10:24.405000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H",
-          "baseScore": 9.1,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0043,
-        "percentile": 61.662
-      },
-      "riskScore": 49,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": ["github"],
-        "products": ["enterprise server"]
-      },
-      "references": [
-        {
-          "url": "https://docs.github.com/en/enterprise-server@3.8/admin/release-notes#3.8.15",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://docs.github.com/en/enterprise-server@3.9/admin/release-notes#3.9.10",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://docs.github.com/en/enterprise-server@3.10/admin/release-notes#3.10.7",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://docs.github.com/en/enterprise-server@3.11/admin/release-notes#3.11.5",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": ["CWE-20"],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": null,
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/1xxx/CVE-2024-1369.json",
-            "lastModified": "2024-08-27T19:10:24.405000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2024-1374",
       "title": "Command injection vulnerability was identified in GitHub Enterprise Server that allowed privilege escalation in the Mangement Console",
       "description": "A command injection vulnerability was identified in GitHub Enterprise Server that allowed an attacker with an editor role in the Management Console to gain admin SSH access to the appliance via nomad templates when configuring audit log forwarding. Exploitation of this vulnerability required access to the GitHub Enterprise Server instance and access to the Management Console with the editor role. This vulnerability affected all versions of GitHub Enterprise Server prior to 3.12 and was fixed in versions 3.11.5, 3.10.7, 3.9.10, and 3.8.15. This vulnerability was reported via the  GitHub Bug Bounty program https://bounty.github.com .\n",
@@ -13520,8 +13394,8 @@
         }
       ],
       "epss": {
-        "score": 0.0208,
-        "percentile": 83.169
+        "score": 0.0105,
+        "percentile": 76.667
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -13568,69 +13442,6 @@
       }
     },
     {
-      "cveId": "CVE-2024-1355",
-      "title": "Command injection vulnerability was identified in GitHub Enterprise Server that allowed privilege escalation in the Mangement Console",
-      "description": "A command injection vulnerability was identified in GitHub Enterprise Server that allowed an attacker with an editor role in the Management Console to gain admin SSH access to the appliance via the actions-console docker container while setting a service URL. Exploitation of this vulnerability required access to the GitHub Enterprise Server instance and access to the Management Console with the editor role. This vulnerability affected all versions of GitHub Enterprise Server prior to 3.12 and was fixed in versions 3.11.5, 3.10.7, 3.9.10, and 3.8.15. This vulnerability was reported via the GitHub Bug Bounty program.\n",
-      "publishedDate": "2024-02-13T18:51:14.254000+00:00",
-      "lastModifiedDate": "2025-03-24T19:19:35.984000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H",
-          "baseScore": 9.1,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0036,
-        "percentile": 57.274
-      },
-      "riskScore": 49,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": ["github"],
-        "products": ["enterprise server"]
-      },
-      "references": [
-        {
-          "url": "https://docs.github.com/en/enterprise-server@3.8/admin/release-notes#3.8.15",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://docs.github.com/en/enterprise-server@3.9/admin/release-notes#3.9.10",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://docs.github.com/en/enterprise-server@3.10/admin/release-notes#3.10.7",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://docs.github.com/en/enterprise-server@3.11/admin/release-notes#3.11.5",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": ["CWE-20"],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": null,
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/1xxx/CVE-2024-1355.json",
-            "lastModified": "2025-03-24T19:19:35.984000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2024-1378",
       "title": "Command injection vulnerability was identified in GitHub Enterprise Server that allowed privilege escalation in the Mangement Console",
       "description": "A command injection vulnerability was identified in GitHub Enterprise Server that allowed an attacker with an editor role in the Management Console to gain admin SSH access to the appliance via nomad templates when configuring SMTP options. Exploitation of this vulnerability required access to the GitHub Enterprise Server instance and access to the Management Console with the editor role. This vulnerability affected all versions of GitHub Enterprise Server prior to 3.12 and was fixed in versions 3.11.5, 3.10.7, 3.9.10, and 3.8.15. This vulnerability was reported via the  GitHub Bug Bounty program https://bounty.github.com .\n",
@@ -13646,8 +13457,8 @@
         }
       ],
       "epss": {
-        "score": 0.0084,
-        "percentile": 73.639
+        "score": 0.0031,
+        "percentile": 53.688
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -13694,69 +13505,6 @@
       }
     },
     {
-      "cveId": "CVE-2024-1372",
-      "title": "Command injection vulnerability was identified in GitHub Enterprise Server that allowed privilege escalation in the Mangement Console",
-      "description": "A command injection vulnerability was identified in GitHub Enterprise Server that allowed an attacker with an editor role in the Management Console to gain admin SSH access to the appliance when configuring SAML settings. Exploitation of this vulnerability required access to the GitHub Enterprise Server instance and access to the Management Console with the editor role. This vulnerability affected all versions of GitHub Enterprise Server prior to 3.12 and was fixed in versions 3.11.5, 3.10.7, 3.9.10, and 3.8.15. This vulnerability was reported via the  GitHub Bug Bounty program https://bounty.github.com .\n",
-      "publishedDate": "2024-02-13T18:54:03.413000+00:00",
-      "lastModifiedDate": "2025-05-09T18:18:10.070000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H",
-          "baseScore": 9.1,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0036,
-        "percentile": 57.274
-      },
-      "riskScore": 49,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": ["github"],
-        "products": ["enterprise server"]
-      },
-      "references": [
-        {
-          "url": "https://docs.github.com/en/enterprise-server@3.8/admin/release-notes#3.8.15",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://docs.github.com/en/enterprise-server@3.9/admin/release-notes#3.9.10",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://docs.github.com/en/enterprise-server@3.10/admin/release-notes#3.10.7",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://docs.github.com/en/enterprise-server@3.11/admin/release-notes#3.11.5",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": ["CWE-20"],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": null,
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/1xxx/CVE-2024-1372.json",
-            "lastModified": "2025-05-09T18:18:10.070000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2024-38183",
       "title": "GroupMe Elevation of Privilege Vulnerability",
       "description": "An improper access control vulnerability in GroupMe allows an a unauthenticated attacker to elevate privileges over a network.",
@@ -13773,7 +13521,7 @@
       ],
       "epss": {
         "score": 0.0385,
-        "percentile": 87.698
+        "percentile": 87.763
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -13821,7 +13569,7 @@
       ],
       "epss": {
         "score": 0.0713,
-        "percentile": 91.082
+        "percentile": 91.133
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -13829,18 +13577,18 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          "windows server 2012 r2 (server core installation)",
-          "windows server 2008 r2 service pack 1",
-          "windows server 2016",
           "windows server 2012 r2",
-          "windows server 2022",
           "windows server 2022, 23h2 edition (server core installation)",
+          "windows server 2016",
+          "windows server 2016 (server core installation)",
+          "windows server 2012 r2 (server core installation)",
           "windows server 2019 (server core installation)",
-          "windows server 2019",
           "windows server 2012 (server core installation)",
+          "windows server 2008 r2 service pack 1",
+          "windows server 2019",
           "windows server 2008 r2 service pack 1 (server core installation)",
           "windows server 2012",
-          "windows server 2016 (server core installation)"
+          "windows server 2022"
         ]
       },
       "references": [
@@ -13882,7 +13630,7 @@
       ],
       "epss": {
         "score": 0.3347,
-        "percentile": 96.713
+        "percentile": 96.747
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -13949,8 +13697,8 @@
         "vendors": ["microsoft"],
         "products": [
           "microsoft exchange server 2016 cumulative update 23",
-          "microsoft exchange server 2019 cumulative update 14",
-          "microsoft exchange server 2019 cumulative update 13"
+          "microsoft exchange server 2019 cumulative update 13",
+          "microsoft exchange server 2019 cumulative update 14"
         ]
       },
       "references": [
@@ -14381,21 +14129,21 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          "azure cyclecloud 8.0.1",
-          "azure cyclecloud 8.3.0",
-          "azure cyclecloud 8.2.2",
           "azure cyclecloud 8.6.0",
-          "azure cyclecloud 8.5.0",
-          "azure cyclecloud 8.0.2",
-          "azure cyclecloud 8.4.2",
-          "azure cyclecloud 8.2.1",
-          "azure cyclecloud 8.4.0",
-          "azure cyclecloud 8.2.0",
           "azure cyclecloud",
+          "azure cyclecloud 8.0.0",
+          "azure cyclecloud 8.4.0",
+          "azure cyclecloud 8.4.2",
+          "azure cyclecloud 8.5.0",
+          "azure cyclecloud 8.3.0",
           "azure cyclecloud 8.1.0",
-          "azure cyclecloud 8.4.1",
+          "azure cyclecloud 8.0.2",
+          "azure cyclecloud 8.2.1",
           "azure cyclecloud 8.1.1",
-          "azure cyclecloud 8.0.0"
+          "azure cyclecloud 8.0.1",
+          "azure cyclecloud 8.2.0",
+          "azure cyclecloud 8.2.2",
+          "azure cyclecloud 8.4.1"
         ]
       },
       "references": [
@@ -14445,11 +14193,11 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
+          ".net 9.0",
           "microsoft visual studio 2022 version 17.10",
-          "microsoft visual studio 2022 version 17.6",
           "microsoft visual studio 2022 version 17.8",
           "powershell 7.5",
-          ".net 9.0",
+          "microsoft visual studio 2022 version 17.6",
           "microsoft visual studio 2022 version 17.11"
         ]
       },
@@ -15668,14 +15416,14 @@
         "cpeMatches": [],
         "vendors": ["cisco"],
         "products": [
-          "cisco unity connection",
-          "cisco virtualized voice browser",
           "cisco unified communications manager im and presence service",
-          "cisco unified communications manager / cisco unity connection",
-          "cisco packaged contact center enterprise",
           "cisco unified contact center enterprise",
-          "cisco unified contact center express",
-          "cisco unified communications manager"
+          "cisco unified communications manager",
+          "cisco unified communications manager / cisco unity connection",
+          "cisco virtualized voice browser",
+          "cisco unity connection",
+          "cisco packaged contact center enterprise",
+          "cisco unified contact center express"
         ]
       },
       "references": [
@@ -15785,7 +15533,7 @@
       ],
       "epss": {
         "score": 0.2817,
-        "percentile": 96.249
+        "percentile": 96.285
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -15833,7 +15581,7 @@
       ],
       "epss": {
         "score": 0.0219,
-        "percentile": 83.658
+        "percentile": 83.73
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -15936,7 +15684,7 @@
       ],
       "epss": {
         "score": 0.0017,
-        "percentile": 39.507
+        "percentile": 39.633
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -15984,7 +15732,7 @@
       ],
       "epss": {
         "score": 0.0461,
-        "percentile": 88.768
+        "percentile": 88.835
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -16032,7 +15780,7 @@
       ],
       "epss": {
         "score": 0.043,
-        "percentile": 88.356
+        "percentile": 88.425
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -16080,7 +15828,7 @@
       ],
       "epss": {
         "score": 0.0979,
-        "percentile": 92.572
+        "percentile": 92.629
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -16137,6 +15885,258 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/32xxx/CVE-2024-32962.json",
             "lastModified": "2025-02-13T17:52:18.895000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2024-1359",
+      "title": "Command injection vulnerability was identified in GitHub Enterprise Server that allowed privilege escalation in the Mangement Console",
+      "description": "A command injection vulnerability was identified in GitHub Enterprise Server that allowed an attacker with an editor role in the Management Console to gain admin SSH access to the appliance when setting up an HTTP proxy. Exploitation of this vulnerability required access to the GitHub Enterprise Server instance and access to the Management Console with the editor role. This vulnerability affected all versions of GitHub Enterprise Server prior to 3.12 and was fixed in versions 3.11.5, 3.10.7, 3.9.10, and 3.8.15. This vulnerability was reported via the  GitHub Bug Bounty program https://bounty.github.com .\n",
+      "publishedDate": "2024-02-13T18:52:27.176000+00:00",
+      "lastModifiedDate": "2025-05-09T18:17:48.415000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H",
+          "baseScore": 9.1,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0019,
+        "percentile": 41.757
+      },
+      "riskScore": 48,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": ["github"],
+        "products": ["enterprise server"]
+      },
+      "references": [
+        {
+          "url": "https://docs.github.com/en/enterprise-server@3.8/admin/release-notes#3.8.15",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://docs.github.com/en/enterprise-server@3.9/admin/release-notes#3.9.10",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://docs.github.com/en/enterprise-server@3.10/admin/release-notes#3.10.7",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://docs.github.com/en/enterprise-server@3.11/admin/release-notes#3.11.5",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": ["CWE-20"],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": null,
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/1xxx/CVE-2024-1359.json",
+            "lastModified": "2025-05-09T18:17:48.415000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2024-1369",
+      "title": "Command injection vulnerability was identified in GitHub Enterprise Server that allowed privilege escalation in the Mangement Console",
+      "description": "A command injection vulnerability was identified in GitHub Enterprise Server that allowed an attacker with an editor role in the Management Console to gain admin SSH access to the appliance when setting the username and password for collectd configurations. Exploitation of this vulnerability required access to the GitHub Enterprise Server instance and access to the Management Console with the editor role. This vulnerability affected all versions of GitHub Enterprise Server prior to 3.12 and was fixed in versions 3.11.5, 3.10.7, 3.9.10, and 3.8.15. This vulnerability was reported via the  GitHub Bug Bounty program https://bounty.github.com .\n",
+      "publishedDate": "2024-02-13T18:53:29.406000+00:00",
+      "lastModifiedDate": "2024-08-27T19:10:24.405000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H",
+          "baseScore": 9.1,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0019,
+        "percentile": 41.757
+      },
+      "riskScore": 48,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": ["github"],
+        "products": ["enterprise server"]
+      },
+      "references": [
+        {
+          "url": "https://docs.github.com/en/enterprise-server@3.8/admin/release-notes#3.8.15",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://docs.github.com/en/enterprise-server@3.9/admin/release-notes#3.9.10",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://docs.github.com/en/enterprise-server@3.10/admin/release-notes#3.10.7",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://docs.github.com/en/enterprise-server@3.11/admin/release-notes#3.11.5",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": ["CWE-20"],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": null,
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/1xxx/CVE-2024-1369.json",
+            "lastModified": "2024-08-27T19:10:24.405000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2024-1355",
+      "title": "Command injection vulnerability was identified in GitHub Enterprise Server that allowed privilege escalation in the Mangement Console",
+      "description": "A command injection vulnerability was identified in GitHub Enterprise Server that allowed an attacker with an editor role in the Management Console to gain admin SSH access to the appliance via the actions-console docker container while setting a service URL. Exploitation of this vulnerability required access to the GitHub Enterprise Server instance and access to the Management Console with the editor role. This vulnerability affected all versions of GitHub Enterprise Server prior to 3.12 and was fixed in versions 3.11.5, 3.10.7, 3.9.10, and 3.8.15. This vulnerability was reported via the GitHub Bug Bounty program.\n",
+      "publishedDate": "2024-02-13T18:51:14.254000+00:00",
+      "lastModifiedDate": "2025-03-24T19:19:35.984000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H",
+          "baseScore": 9.1,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0016,
+        "percentile": 37.924
+      },
+      "riskScore": 48,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": ["github"],
+        "products": ["enterprise server"]
+      },
+      "references": [
+        {
+          "url": "https://docs.github.com/en/enterprise-server@3.8/admin/release-notes#3.8.15",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://docs.github.com/en/enterprise-server@3.9/admin/release-notes#3.9.10",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://docs.github.com/en/enterprise-server@3.10/admin/release-notes#3.10.7",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://docs.github.com/en/enterprise-server@3.11/admin/release-notes#3.11.5",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": ["CWE-20"],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": null,
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/1xxx/CVE-2024-1355.json",
+            "lastModified": "2025-03-24T19:19:35.984000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2024-1372",
+      "title": "Command injection vulnerability was identified in GitHub Enterprise Server that allowed privilege escalation in the Mangement Console",
+      "description": "A command injection vulnerability was identified in GitHub Enterprise Server that allowed an attacker with an editor role in the Management Console to gain admin SSH access to the appliance when configuring SAML settings. Exploitation of this vulnerability required access to the GitHub Enterprise Server instance and access to the Management Console with the editor role. This vulnerability affected all versions of GitHub Enterprise Server prior to 3.12 and was fixed in versions 3.11.5, 3.10.7, 3.9.10, and 3.8.15. This vulnerability was reported via the  GitHub Bug Bounty program https://bounty.github.com .\n",
+      "publishedDate": "2024-02-13T18:54:03.413000+00:00",
+      "lastModifiedDate": "2025-05-09T18:18:10.070000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H",
+          "baseScore": 9.1,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0016,
+        "percentile": 37.924
+      },
+      "riskScore": 48,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": ["github"],
+        "products": ["enterprise server"]
+      },
+      "references": [
+        {
+          "url": "https://docs.github.com/en/enterprise-server@3.8/admin/release-notes#3.8.15",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://docs.github.com/en/enterprise-server@3.9/admin/release-notes#3.9.10",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://docs.github.com/en/enterprise-server@3.10/admin/release-notes#3.10.7",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://docs.github.com/en/enterprise-server@3.11/admin/release-notes#3.11.5",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": ["CWE-20"],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": null,
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/1xxx/CVE-2024-1372.json",
+            "lastModified": "2025-05-09T18:18:10.070000+00:00"
           }
         ]
       }
@@ -16329,7 +16329,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["zyxel"],
-        "products": ["nas326 firmware", "nas542 firmware"]
+        "products": ["nas542 firmware", "nas326 firmware"]
       },
       "references": [
         {
@@ -17084,28 +17084,28 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          ".net 8.0",
-          "microsoft .net framework 3.5 and 4.8.1",
-          "microsoft .net framework 2.0 service pack 2",
-          "microsoft .net framework 3.0 service pack 2",
+          "microsoft visual studio 2022 version 17.8",
+          "microsoft .net framework 4.6.2/4.7/4.7.1/4.7.2",
           "nuget 5.11.0",
           "powershell 7.4",
-          "microsoft visual studio 2019 version 16.11 (includes 16.0 - 16.10)",
-          "microsoft visual studio 2022 version 17.6",
+          "microsoft .net framework 3.5 and 4.8",
           "microsoft visual studio 2022 version 17.4",
-          "nuget 17.6.0",
-          "nuget 17.4.0",
           "microsoft .net framework 3.5 and 4.7.2",
-          "nuget 17.8.0",
-          "microsoft visual studio 2022 version 17.2",
           ".net 6.0",
-          "powershell 7.3",
+          "microsoft .net framework 3.0 service pack 2",
           "microsoft .net framework 4.8",
           ".net 7.0",
-          "microsoft .net framework 4.6.2/4.7/4.7.1/4.7.2",
-          "microsoft visual studio 2022 version 17.8",
-          "microsoft .net framework 3.5 and 4.8",
-          "powershell 7.2"
+          ".net 8.0",
+          "microsoft visual studio 2022 version 17.6",
+          "microsoft .net framework 2.0 service pack 2",
+          "microsoft visual studio 2022 version 17.2",
+          "microsoft .net framework 3.5 and 4.8.1",
+          "powershell 7.3",
+          "powershell 7.2",
+          "microsoft visual studio 2019 version 16.11 (includes 16.0 - 16.10)",
+          "nuget 17.6.0",
+          "nuget 17.8.0",
+          "nuget 17.4.0"
         ]
       },
       "references": [
@@ -17508,7 +17508,7 @@
       ],
       "epss": {
         "score": 0.0507,
-        "percentile": 89.295
+        "percentile": 89.359
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -17576,7 +17576,7 @@
       ],
       "epss": {
         "score": 0.2151,
-        "percentile": 95.413
+        "percentile": 95.448
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -17624,7 +17624,7 @@
       ],
       "epss": {
         "score": 0.1949,
-        "percentile": 95.102
+        "percentile": 95.144
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -17672,7 +17672,7 @@
       ],
       "epss": {
         "score": 0.2164,
-        "percentile": 95.429
+        "percentile": 95.464
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -17719,8 +17719,8 @@
         }
       ],
       "epss": {
-        "score": 0.0021,
-        "percentile": 43.042
+        "score": 0.002,
+        "percentile": 43.056
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -17798,7 +17798,7 @@
       ],
       "epss": {
         "score": 0.0278,
-        "percentile": 85.417
+        "percentile": 85.483
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -17806,8 +17806,8 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          "windows 10 version 1607",
           "windows server 2016 (server core installation)",
+          "windows 10 version 1607",
           "windows server 2016"
         ]
       },
@@ -17850,7 +17850,7 @@
       ],
       "epss": {
         "score": 0.0564,
-        "percentile": 89.892
+        "percentile": 89.952
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -17898,7 +17898,7 @@
       ],
       "epss": {
         "score": 0.0278,
-        "percentile": 85.417
+        "percentile": 85.483
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -17906,8 +17906,8 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          "windows 10 version 1607",
           "windows server 2016 (server core installation)",
+          "windows 10 version 1607",
           "windows server 2016"
         ]
       },
@@ -17950,7 +17950,7 @@
       ],
       "epss": {
         "score": 0.0054,
-        "percentile": 66.747
+        "percentile": 66.903
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -17998,7 +17998,7 @@
       ],
       "epss": {
         "score": 0.028,
-        "percentile": 85.478
+        "percentile": 85.544
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -18081,7 +18081,7 @@
       ],
       "epss": {
         "score": 0.0028,
-        "percentile": 50.678
+        "percentile": 50.842
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -18971,11 +18971,11 @@
         "vendors": ["red hat"],
         "products": [
           "red hat openshift container platform 4.14",
-          "red hat openshift container platform 4.15",
-          "red hat openshift container platform 4.16",
           "red hat openshift container platform 4.12",
+          "red hat openshift container platform 4.17",
+          "red hat openshift container platform 4.15",
           "red hat openshift container platform 4.13",
-          "red hat openshift container platform 4.17"
+          "red hat openshift container platform 4.16"
         ]
       },
       "references": [
@@ -20235,13 +20235,13 @@
         "cpeMatches": [],
         "vendors": ["xiongmai"],
         "products": [
-          "ahb7004t-gs-v3",
-          "ahb8008t-gl",
-          "xm530_r80x30-pq_8m",
-          "ahb7004t-mhv2",
-          "ahb8004t-gl",
           "ahb7804r-mh-v2",
-          "ahb8032f-lme"
+          "ahb7004t-gs-v3",
+          "xm530_r80x30-pq_8m",
+          "ahb8004t-gl",
+          "ahb7004t-mhv2",
+          "ahb8032f-lme",
+          "ahb8008t-gl"
         ]
       },
       "references": [
@@ -20437,11 +20437,11 @@
         "cpeMatches": [],
         "vendors": ["red hat"],
         "products": [
-          "red hat satellite 6.14 for rhel 8",
           "red hat satellite 6.13 for rhel 8",
           "red hat satellite 6.15 for rhel 8",
-          "red hat satellite 6.16 for rhel 8",
-          "red hat satellite 6.16 for rhel 9"
+          "red hat satellite 6.16 for rhel 9",
+          "red hat satellite 6.14 for rhel 8",
+          "red hat satellite 6.16 for rhel 8"
         ]
       },
       "references": [
@@ -20593,7 +20593,7 @@
       ],
       "epss": {
         "score": 0.0973,
-        "percentile": 92.543
+        "percentile": 92.601
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -20646,7 +20646,7 @@
       ],
       "epss": {
         "score": 0.15,
-        "percentile": 94.214
+        "percentile": 94.269
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -20694,7 +20694,7 @@
       ],
       "epss": {
         "score": 0.1652,
-        "percentile": 94.571
+        "percentile": 94.626
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -20742,7 +20742,7 @@
       ],
       "epss": {
         "score": 0.1484,
-        "percentile": 94.182
+        "percentile": 94.236
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -20790,7 +20790,7 @@
       ],
       "epss": {
         "score": 0.0086,
-        "percentile": 74.002
+        "percentile": 74.111
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -20858,7 +20858,7 @@
       ],
       "epss": {
         "score": 0.0283,
-        "percentile": 85.552
+        "percentile": 85.619
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -20921,7 +20921,7 @@
       ],
       "epss": {
         "score": 0.0283,
-        "percentile": 85.552
+        "percentile": 85.619
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -20984,7 +20984,7 @@
       ],
       "epss": {
         "score": 0.0201,
-        "percentile": 82.869
+        "percentile": 82.945
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -21032,7 +21032,7 @@
       ],
       "epss": {
         "score": 0.0103,
-        "percentile": 76.269
+        "percentile": 76.371
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -21080,7 +21080,7 @@
       ],
       "epss": {
         "score": 0.0083,
-        "percentile": 73.535
+        "percentile": 73.645
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -21088,21 +21088,21 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          "windows server 2012 r2 (server core installation)",
-          "windows server 2008 r2 service pack 1",
-          "windows server 2016",
           "windows server 2012 r2",
-          "windows server 2022",
-          "windows server 2008 service pack 2",
           "windows server 2022, 23h2 edition (server core installation)",
-          "windows server 2008  service pack 2",
-          "windows server 2019 (server core installation)",
-          "windows server 2019",
-          "windows server 2012 (server core installation)",
+          "windows server 2008 service pack 2",
+          "windows server 2016",
+          "windows server 2016 (server core installation)",
           "windows server 2008 service pack 2 (server core installation)",
+          "windows server 2012 r2 (server core installation)",
+          "windows server 2019 (server core installation)",
+          "windows server 2012 (server core installation)",
+          "windows server 2008  service pack 2",
+          "windows server 2008 r2 service pack 1",
+          "windows server 2019",
           "windows server 2008 r2 service pack 1 (server core installation)",
           "windows server 2012",
-          "windows server 2016 (server core installation)"
+          "windows server 2022"
         ]
       },
       "references": [
@@ -21144,7 +21144,7 @@
       ],
       "epss": {
         "score": 0.0216,
-        "percentile": 83.525
+        "percentile": 83.597
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -21192,7 +21192,7 @@
       ],
       "epss": {
         "score": 0.0032,
-        "percentile": 54.491
+        "percentile": 54.654
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -21275,7 +21275,7 @@
       ],
       "epss": {
         "score": 0.0043,
-        "percentile": 61.784
+        "percentile": 61.935
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -21358,7 +21358,7 @@
       ],
       "epss": {
         "score": 0.0019,
-        "percentile": 41.056
+        "percentile": 41.177
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -21426,7 +21426,7 @@
       ],
       "epss": {
         "score": 0.0034,
-        "percentile": 55.86
+        "percentile": 56.022
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -21508,8 +21508,8 @@
         }
       ],
       "epss": {
-        "score": 0.2447,
-        "percentile": 95.833
+        "score": 0.2392,
+        "percentile": 95.782
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -21562,7 +21562,7 @@
       ],
       "epss": {
         "score": 0.003,
-        "percentile": 52.825
+        "percentile": 52.987
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -21640,7 +21640,7 @@
       ],
       "epss": {
         "score": 0.0034,
-        "percentile": 55.86
+        "percentile": 56.022
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -22109,32 +22109,32 @@
         "cpeMatches": [],
         "vendors": ["mitsubishi electric corporation"],
         "products": [
-          "melsec-l series l26cpu-p",
-          "melsec-q series q10udehcpu",
-          "melsec-q series q20udehcpu",
-          "melsec-q series q03udecpu",
-          "melsec-l series l26cpu-bt",
-          "melsec-q series q06udehcpu",
-          "melsec-l series l26cpu-pbt",
-          "melsec-q series q13udehcpu",
           "melsec-q series q03udvcpu",
-          "melsec-q series q26udvcpu",
-          "melsec-q series q04udpvcpu",
-          "melsec-l series l06cpu-p",
-          "melsec-l series l02cpu-p",
-          "melsec-l series l26cpu",
-          "melsec-q series q50udehcpu",
-          "melsec-q series q13udpvcpu",
-          "melsec-l series l02cpu",
-          "melsec-q series q06udpvcpu",
-          "melsec-q series q04udvcpu",
-          "melsec-q series q06udvcpu",
-          "melsec-q series q04udehcpu",
+          "melsec-l series l26cpu-bt",
           "melsec-l series l06cpu",
+          "melsec-l series l06cpu-p",
+          "melsec-q series q04udpvcpu",
+          "melsec-q series q50udehcpu",
+          "melsec-q series q04udehcpu",
+          "melsec-q series q06udehcpu",
+          "melsec-q series q26udvcpu",
+          "melsec-q series q06udvcpu",
+          "melsec-q series q26udehcpu",
+          "melsec-q series q13udehcpu",
+          "melsec-q series q03udecpu",
+          "melsec-l series l26cpu",
+          "melsec-q series q06udpvcpu",
           "melsec-q series q26udpvcpu",
-          "melsec-q series q13udvcpu",
+          "melsec-q series q20udehcpu",
+          "melsec-l series l26cpu-pbt",
           "melsec-q series q100udehcpu",
-          "melsec-q series q26udehcpu"
+          "melsec-q series q13udvcpu",
+          "melsec-l series l26cpu-p",
+          "melsec-l series l02cpu",
+          "melsec-q series q13udpvcpu",
+          "melsec-q series q10udehcpu",
+          "melsec-l series l02cpu-p",
+          "melsec-q series q04udvcpu"
         ]
       },
       "references": [
@@ -22194,32 +22194,32 @@
         "cpeMatches": [],
         "vendors": ["mitsubishi electric corporation"],
         "products": [
-          "melsec-l series l26cpu-p",
-          "melsec-q series q10udehcpu",
-          "melsec-q series q20udehcpu",
-          "melsec-q series q03udecpu",
-          "melsec-l series l26cpu-bt",
-          "melsec-q series q06udehcpu",
-          "melsec-l series l26cpu-pbt",
-          "melsec-q series q13udehcpu",
           "melsec-q series q03udvcpu",
-          "melsec-q series q26udvcpu",
-          "melsec-q series q04udpvcpu",
-          "melsec-l series l06cpu-p",
-          "melsec-l series l02cpu-p",
-          "melsec-l series l26cpu",
-          "melsec-q series q50udehcpu",
-          "melsec-q series q13udpvcpu",
-          "melsec-l series l02cpu",
-          "melsec-q series q06udpvcpu",
-          "melsec-q series q04udvcpu",
-          "melsec-q series q06udvcpu",
-          "melsec-q series q04udehcpu",
+          "melsec-l series l26cpu-bt",
           "melsec-l series l06cpu",
+          "melsec-l series l06cpu-p",
+          "melsec-q series q04udpvcpu",
+          "melsec-q series q50udehcpu",
+          "melsec-q series q04udehcpu",
+          "melsec-q series q06udehcpu",
+          "melsec-q series q26udvcpu",
+          "melsec-q series q06udvcpu",
+          "melsec-q series q26udehcpu",
+          "melsec-q series q13udehcpu",
+          "melsec-q series q03udecpu",
+          "melsec-l series l26cpu",
+          "melsec-q series q06udpvcpu",
           "melsec-q series q26udpvcpu",
-          "melsec-q series q13udvcpu",
+          "melsec-q series q20udehcpu",
+          "melsec-l series l26cpu-pbt",
           "melsec-q series q100udehcpu",
-          "melsec-q series q26udehcpu"
+          "melsec-q series q13udvcpu",
+          "melsec-l series l26cpu-p",
+          "melsec-l series l02cpu",
+          "melsec-q series q13udpvcpu",
+          "melsec-q series q10udehcpu",
+          "melsec-l series l02cpu-p",
+          "melsec-q series q04udvcpu"
         ]
       },
       "references": [
@@ -22250,6 +22250,261 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/0xxx/CVE-2024-0802.json",
             "lastModified": "2024-08-01T18:18:18.584000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2024-1917",
+      "title": "CVE-2024-1917: Integer Overflow or Wraparound vulnerability in Mitsubishi Electric Corporation MELSEC-Q Series and ...",
+      "description": "Integer Overflow or Wraparound vulnerability in Mitsubishi Electric Corporation MELSEC-Q Series and MELSEC-L Series CPU modules allows a remote unauthenticated attacker to execute malicious code on a target product by sending a specially crafted packet.",
+      "publishedDate": "2024-03-15T00:02:39.351000+00:00",
+      "lastModifiedDate": "2024-08-27T19:58:12.567000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 9.8,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0061,
+        "percentile": 68.935
+      },
+      "riskScore": 45,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": ["mitsubishi electric corporation"],
+        "products": [
+          "melsec-q series q03udvcpu",
+          "melsec-l series l26cpu-bt",
+          "melsec-l series l06cpu",
+          "melsec-l series l06cpu-p",
+          "melsec-q series q04udpvcpu",
+          "melsec-q series q50udehcpu",
+          "melsec-q series q04udehcpu",
+          "melsec-q series q06udehcpu",
+          "melsec-q series q26udvcpu",
+          "melsec-q series q06udvcpu",
+          "melsec-q series q26udehcpu",
+          "melsec-q series q13udehcpu",
+          "melsec-q series q03udecpu",
+          "melsec-l series l26cpu",
+          "melsec-q series q06udpvcpu",
+          "melsec-q series q26udpvcpu",
+          "melsec-q series q20udehcpu",
+          "melsec-l series l26cpu-pbt",
+          "melsec-q series q100udehcpu",
+          "melsec-q series q13udvcpu",
+          "melsec-l series l26cpu-p",
+          "melsec-l series l02cpu",
+          "melsec-q series q13udpvcpu",
+          "melsec-q series q10udehcpu",
+          "melsec-l series l02cpu-p",
+          "melsec-q series q04udvcpu"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.mitsubishielectric.com/en/psirt/vulnerability/pdf/2023-024_en.pdf",
+          "source": "",
+          "tags": ["vendor-advisory"]
+        },
+        {
+          "url": "https://jvn.jp/vu/JVNVU99690199/",
+          "source": "",
+          "tags": ["government-resource"]
+        },
+        {
+          "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-24-074-14",
+          "source": "",
+          "tags": ["government-resource"]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": ["CWE-190"],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": null,
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/1xxx/CVE-2024-1917.json",
+            "lastModified": "2024-08-27T19:58:12.567000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2024-1915",
+      "title": "CVE-2024-1915: Incorrect Pointer Scaling vulnerability in Mitsubishi Electric Corporation MELSEC-Q Series and MELSE...",
+      "description": "Incorrect Pointer Scaling vulnerability in Mitsubishi Electric Corporation MELSEC-Q Series and MELSEC-L Series CPU modules allows a remote unauthenticated attacker to execute malicious code on a target product by sending a specially crafted packet.",
+      "publishedDate": "2024-03-15T00:00:46.607000+00:00",
+      "lastModifiedDate": "2024-08-27T19:56:54.512000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 9.8,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0061,
+        "percentile": 68.935
+      },
+      "riskScore": 45,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": ["mitsubishi electric corporation"],
+        "products": [
+          "melsec-q series q03udvcpu",
+          "melsec-l series l26cpu-bt",
+          "melsec-l series l06cpu",
+          "melsec-l series l06cpu-p",
+          "melsec-q series q04udpvcpu",
+          "melsec-q series q50udehcpu",
+          "melsec-q series q04udehcpu",
+          "melsec-q series q06udehcpu",
+          "melsec-q series q26udvcpu",
+          "melsec-q series q06udvcpu",
+          "melsec-q series q26udehcpu",
+          "melsec-q series q13udehcpu",
+          "melsec-q series q03udecpu",
+          "melsec-l series l26cpu",
+          "melsec-q series q06udpvcpu",
+          "melsec-q series q26udpvcpu",
+          "melsec-q series q20udehcpu",
+          "melsec-l series l26cpu-pbt",
+          "melsec-q series q100udehcpu",
+          "melsec-q series q13udvcpu",
+          "melsec-l series l26cpu-p",
+          "melsec-l series l02cpu",
+          "melsec-q series q13udpvcpu",
+          "melsec-q series q10udehcpu",
+          "melsec-l series l02cpu-p",
+          "melsec-q series q04udvcpu"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.mitsubishielectric.com/en/psirt/vulnerability/pdf/2023-024_en.pdf",
+          "source": "",
+          "tags": ["vendor-advisory"]
+        },
+        {
+          "url": "https://jvn.jp/vu/JVNVU99690199/",
+          "source": "",
+          "tags": ["government-resource"]
+        },
+        {
+          "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-24-074-14",
+          "source": "",
+          "tags": ["government-resource"]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": ["CWE-468"],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": null,
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/1xxx/CVE-2024-1915.json",
+            "lastModified": "2024-08-27T19:56:54.512000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2024-1916",
+      "title": "CVE-2024-1916: Integer Overflow or Wraparound vulnerability in Mitsubishi Electric Corporation MELSEC-Q Series and ...",
+      "description": "Integer Overflow or Wraparound vulnerability in Mitsubishi Electric Corporation MELSEC-Q Series and MELSEC-L Series CPU modules allows a remote unauthenticated attacker to execute malicious code on a target product by sending a specially crafted packet.",
+      "publishedDate": "2024-03-15T00:01:39.440000+00:00",
+      "lastModifiedDate": "2024-08-27T19:57:29.350000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 9.8,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0061,
+        "percentile": 68.935
+      },
+      "riskScore": 45,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": ["mitsubishi electric corporation"],
+        "products": [
+          "melsec-q series q03udvcpu",
+          "melsec-l series l26cpu-bt",
+          "melsec-l series l06cpu",
+          "melsec-l series l06cpu-p",
+          "melsec-q series q04udpvcpu",
+          "melsec-q series q50udehcpu",
+          "melsec-q series q04udehcpu",
+          "melsec-q series q06udehcpu",
+          "melsec-q series q26udvcpu",
+          "melsec-q series q06udvcpu",
+          "melsec-q series q26udehcpu",
+          "melsec-q series q13udehcpu",
+          "melsec-q series q03udecpu",
+          "melsec-l series l26cpu",
+          "melsec-q series q06udpvcpu",
+          "melsec-q series q26udpvcpu",
+          "melsec-q series q20udehcpu",
+          "melsec-l series l26cpu-pbt",
+          "melsec-q series q100udehcpu",
+          "melsec-q series q13udvcpu",
+          "melsec-l series l26cpu-p",
+          "melsec-l series l02cpu",
+          "melsec-q series q13udpvcpu",
+          "melsec-q series q10udehcpu",
+          "melsec-l series l02cpu-p",
+          "melsec-q series q04udvcpu"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.mitsubishielectric.com/en/psirt/vulnerability/pdf/2023-024_en.pdf",
+          "source": "",
+          "tags": ["vendor-advisory"]
+        },
+        {
+          "url": "https://jvn.jp/vu/JVNVU99690199/",
+          "source": "",
+          "tags": ["government-resource"]
+        },
+        {
+          "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-24-074-14",
+          "source": "",
+          "tags": ["government-resource"]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": ["CWE-190"],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": null,
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/1xxx/CVE-2024-1916.json",
+            "lastModified": "2024-08-27T19:57:29.350000+00:00"
           }
         ]
       }
@@ -22399,7 +22654,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["qnap systems inc."],
-        "products": ["qts", "quts hero", "qutscloud"]
+        "products": ["qutscloud", "quts hero", "qts"]
       },
       "references": [
         {
@@ -22446,7 +22701,7 @@
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": ["sharp corporation", "toshiba tec corporation"],
+        "vendors": ["toshiba tec corporation", "sharp corporation"],
         "products": ["multiple mfps (multifunction printers)"]
       },
       "references": [
@@ -24677,7 +24932,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["yokogawa rental & lease corporation"],
-        "products": ["unifier", "unifier cast"]
+        "products": ["unifier cast", "unifier"]
       },
       "references": [
         {
@@ -24739,7 +24994,7 @@
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": ["sharp corporation", "toshiba tec corporation"],
+        "vendors": ["toshiba tec corporation", "sharp corporation"],
         "products": ["multiple mfps (multifunction printers)"]
       },
       "references": [
@@ -24872,27 +25127,27 @@
         "cpeMatches": [],
         "vendors": ["siemens"],
         "products": [
-          "cerberus pro en x200 cloud distribution ip7",
-          "desigo fire safety ul x300 cloud distribution",
-          "cerberus pro en x300 cloud distribution ip8",
+          "desigo fire safety ul compact panel fc2025/2050",
           "cerberus pro en fire panel fc72x ip6",
-          "cerberus pro ul engineering tool",
-          "sinteso fs20 en x200 cloud distribution mp8",
+          "sinteso fs20 en engineering tool",
+          "sinteso fs20 en fire panel fc20 mp7",
           "sinteso fs20 en x200 cloud distribution mp7",
+          "sinteso fs20 en fire panel fc20 mp6",
+          "cerberus pro en engineering tool",
+          "cerberus pro en x200 cloud distribution ip8",
+          "cerberus pro en fire panel fc72x ip7",
+          "cerberus pro en x300 cloud distribution ip8",
+          "desigo fire safety ul engineering tool",
+          "sinteso mobile",
+          "sinteso fs20 en x300 cloud distribution mp8",
           "sinteso fs20 en x300 cloud distribution mp7",
           "cerberus pro ul x300 cloud distribution",
-          "desigo fire safety ul engineering tool",
-          "cerberus pro en engineering tool",
+          "sinteso fs20 en x200 cloud distribution mp8",
+          "cerberus pro en x200 cloud distribution ip7",
           "cerberus pro en x300 cloud distribution ip7",
-          "sinteso fs20 en engineering tool",
-          "desigo fire safety ul compact panel fc2025/2050",
           "cerberus pro ul compact panel fc922/924",
-          "sinteso fs20 en fire panel fc20 mp7",
-          "cerberus pro en x200 cloud distribution ip8",
-          "sinteso fs20 en x300 cloud distribution mp8",
-          "sinteso fs20 en fire panel fc20 mp6",
-          "cerberus pro en fire panel fc72x ip7",
-          "sinteso mobile"
+          "desigo fire safety ul x300 cloud distribution",
+          "cerberus pro ul engineering tool"
         ]
       },
       "references": [
@@ -25222,11 +25477,11 @@
         "cpeMatches": [],
         "vendors": ["canon inc."],
         "products": [
-          "i-sensys mf754cdw",
-          "color imageclass mf750c series",
-          "satera mf750c series",
           "color imageclass x mf1333c",
-          "c1333if"
+          "i-sensys mf754cdw",
+          "satera mf750c series",
+          "c1333if",
+          "color imageclass mf750c series"
         ]
       },
       "references": [
@@ -25849,7 +26104,7 @@
       ],
       "epss": {
         "score": 0.0547,
-        "percentile": 89.713
+        "percentile": 89.778
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -25902,7 +26157,7 @@
       ],
       "epss": {
         "score": 0.0016,
-        "percentile": 37.531
+        "percentile": 37.648
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -25967,7 +26222,7 @@
       ],
       "epss": {
         "score": 0.0065,
-        "percentile": 69.715
+        "percentile": 69.856
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -26030,7 +26285,7 @@
       ],
       "epss": {
         "score": 0.0907,
-        "percentile": 92.237
+        "percentile": 92.298
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -26078,7 +26333,7 @@
       ],
       "epss": {
         "score": 0.1879,
-        "percentile": 94.972
+        "percentile": 95.017
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -26126,7 +26381,7 @@
       ],
       "epss": {
         "score": 0.0035,
-        "percentile": 56.594
+        "percentile": 56.757
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -26189,13 +26444,13 @@
       ],
       "epss": {
         "score": 0.0013,
-        "percentile": 33.398
+        "percentile": 33.494
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": ["sharp corporation", "toshiba tec corporation"],
+        "vendors": ["toshiba tec corporation", "sharp corporation"],
         "products": ["multiple mfps (multifunction printers)"]
       },
       "references": [
@@ -26262,7 +26517,7 @@
       ],
       "epss": {
         "score": 0.009,
-        "percentile": 74.627
+        "percentile": 74.735
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -26325,7 +26580,7 @@
       ],
       "epss": {
         "score": 0.0012,
-        "percentile": 32.558
+        "percentile": 32.651
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -26388,7 +26643,7 @@
       ],
       "epss": {
         "score": 0.009,
-        "percentile": 74.627
+        "percentile": 74.735
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -26451,7 +26706,7 @@
       ],
       "epss": {
         "score": 0.0066,
-        "percentile": 70.209
+        "percentile": 70.343
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -26514,7 +26769,7 @@
       ],
       "epss": {
         "score": 0.009,
-        "percentile": 74.627
+        "percentile": 74.735
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -26577,7 +26832,7 @@
       ],
       "epss": {
         "score": 0.1056,
-        "percentile": 92.897
+        "percentile": 92.951
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -26625,7 +26880,7 @@
       ],
       "epss": {
         "score": 0.0132,
-        "percentile": 78.915
+        "percentile": 79.0
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -26683,7 +26938,7 @@
       ],
       "epss": {
         "score": 0.066,
-        "percentile": 90.712
+        "percentile": 90.763
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -26736,7 +26991,7 @@
       ],
       "epss": {
         "score": 0.0605,
-        "percentile": 90.281
+        "percentile": 90.339
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -26789,7 +27044,7 @@
       ],
       "epss": {
         "score": 0.0042,
-        "percentile": 61.265
+        "percentile": 61.413
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -26857,7 +27112,7 @@
       ],
       "epss": {
         "score": 0.1821,
-        "percentile": 94.885
+        "percentile": 94.932
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -26905,7 +27160,7 @@
       ],
       "epss": {
         "score": 0.0089,
-        "percentile": 74.401
+        "percentile": 74.51
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -26963,7 +27218,7 @@
       ],
       "epss": {
         "score": 0.1821,
-        "percentile": 94.885
+        "percentile": 94.932
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -27011,7 +27266,7 @@
       ],
       "epss": {
         "score": 0.0166,
-        "percentile": 81.214
+        "percentile": 81.286
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -27707,7 +27962,7 @@
       ],
       "epss": {
         "score": 0.0137,
-        "percentile": 79.335
+        "percentile": 79.417
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -29028,7 +29283,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["d-link"],
-        "products": ["dir-x4860 a1", "dir-x5460 a1"]
+        "products": ["dir-x5460 a1", "dir-x4860 a1"]
       },
       "references": [
         {
@@ -29477,7 +29732,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["siemens"],
-        "products": ["intermesh 7707 fire subscriber", "intermesh 7177 hybrid 2.0 subscriber"]
+        "products": ["intermesh 7177 hybrid 2.0 subscriber", "intermesh 7707 fire subscriber"]
       },
       "references": [
         {
@@ -29645,12 +29900,12 @@
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": ["sharp corporation", "toshiba tec corporation"],
+        "vendors": ["toshiba tec corporation", "sharp corporation"],
         "products": [
-          "e-studio 1208",
-          "e-studio 1058",
           "sharp digital full-color mfps and monochrome mfps",
-          "e-studio 908"
+          "e-studio 908",
+          "e-studio 1208",
+          "e-studio 1058"
         ]
       },
       "references": [
@@ -31472,7 +31727,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["juniper networks"],
-        "products": ["wan assurance router", "session smart router", "session smart conductor"]
+        "products": ["session smart router", "wan assurance router", "session smart conductor"]
       },
       "references": [
         {
@@ -31577,11 +31832,11 @@
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": ["schneider electric", "schneider electric "],
+        "vendors": ["schneider electric ", "schneider electric"],
         "products": [
-          "easergy t200 (iec104) models: t200i, t200e, t200p, t200s, t200h",
           "easergy t200 (modbus) models: t200i, t200e, t200p, t200s, t200h ",
-          "easergy t200 (dnp3) models: t200i, t200e, t200p, t200s, t200h"
+          "easergy t200 (dnp3) models: t200i, t200e, t200p, t200s, t200h",
+          "easergy t200 (iec104) models: t200i, t200e, t200p, t200s, t200h"
         ]
       },
       "references": [
@@ -31630,7 +31885,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["pearlbells"],
-        "products": ["post title (typewriter)", "flash news / post (responsive)"]
+        "products": ["flash news / post (responsive)", "post title (typewriter)"]
       },
       "references": [
         {
@@ -32367,7 +32622,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["zyxel"],
-        "products": ["nas326 firmware", "nas542 firmware"]
+        "products": ["nas542 firmware", "nas326 firmware"]
       },
       "references": [
         {
@@ -32680,7 +32935,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["openfind"],
-        "products": ["mailgates 5.0", "mailaudit 5.0", "mailgates 6.0", "mailaudit 6.0"]
+        "products": ["mailaudit 6.0", "mailaudit 5.0", "mailgates 5.0", "mailgates 6.0"]
       },
       "references": [
         {
@@ -32782,19 +33037,19 @@
         "cpeMatches": [],
         "vendors": ["siemens"],
         "products": [
-          "telecontrol server basic serv upgr",
-          "telecontrol server basic 5000 v3.1",
           "pp telecontrol server basic 1000 to 5000 v3.1",
-          "telecontrol server basic 64 v3.1",
-          "pp telecontrol server basic 32 to 64 v3.1",
-          "telecontrol server basic 32 v3.1",
-          "telecontrol server basic 1000 v3.1",
-          "telecontrol server basic 256 v3.1",
-          "pp telecontrol server basic 8 to 32 v3.1",
-          "pp telecontrol server basic 64 to 256 v3.1",
-          "telecontrol server basic upgr v3.1",
           "pp telecontrol server basic 256 to 1000 v3.1",
-          "telecontrol server basic 8 v3.1"
+          "telecontrol server basic 64 v3.1",
+          "telecontrol server basic upgr v3.1",
+          "pp telecontrol server basic 32 to 64 v3.1",
+          "pp telecontrol server basic 64 to 256 v3.1",
+          "telecontrol server basic serv upgr",
+          "telecontrol server basic 1000 v3.1",
+          "pp telecontrol server basic 8 to 32 v3.1",
+          "telecontrol server basic 5000 v3.1",
+          "telecontrol server basic 256 v3.1",
+          "telecontrol server basic 8 v3.1",
+          "telecontrol server basic 32 v3.1"
         ]
       },
       "references": [
@@ -32896,7 +33151,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["softnext"],
-        "products": ["sn os 10.3", "sn os 12.3", "sn os 12.1"]
+        "products": ["sn os 12.3", "sn os 10.3", "sn os 12.1"]
       },
       "references": [
         {
@@ -33547,7 +33802,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["sick ag"],
-        "products": ["sick inspectorp62x", "sick inspectorp61x", "tim3xx"]
+        "products": ["tim3xx", "sick inspectorp61x", "sick inspectorp62x"]
       },
       "references": [
         {
@@ -34220,7 +34475,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["phoenix contact"],
-        "products": ["charx sec-3100", "charx sec-3050", "charx sec-3000", "charx sec-3150"]
+        "products": ["charx sec-3100", "charx sec-3050", "charx sec-3150", "charx sec-3000"]
       },
       "references": [
         {
@@ -35321,28 +35576,28 @@
         "cpeMatches": [],
         "vendors": ["asus"],
         "products": [
-          "dsl-n10p_c1",
-          "dsl-ac55",
           "dsl-n12u_d1",
+          "dsl-n17u",
+          "dsl-n10p_c1",
+          "dsl-ac51",
           "dsl-n16u",
-          "dsl-n14u_b1",
-          "dsl-n10_d1",
-          "dsl-n14u",
-          "dsl-n16",
           "dsl-ac55u",
           "dsl-n10_c1",
-          "dsl-ac51",
-          "dsl-n17u",
-          "dsl-n55u_c1",
-          "dsl-n55u_d1",
-          "dsl-n12u_c1",
-          "dsl-ac52",
-          "dsl-ac750",
-          "dsl-n12e_c1",
-          "dsl-ac56u",
+          "dsl-n14u",
           "dsl-ac52u",
+          "dsl-n10_d1",
+          "dsl-ac56u",
+          "dsl-n55u_d1",
           "dsl-n16p",
-          "dsl-n66u"
+          "dsl-ac52",
+          "dsl-n12u_c1",
+          "dsl-ac55",
+          "dsl-n12e_c1",
+          "dsl-n66u",
+          "dsl-n14u_b1",
+          "dsl-n55u_c1",
+          "dsl-ac750",
+          "dsl-n16"
         ]
       },
       "references": [
@@ -36584,11 +36839,11 @@
         "vendors": ["red hat"],
         "products": [
           "red hat openshift container platform 4.14",
-          "red hat openshift container platform 4.15",
-          "red hat openshift container platform 4.16",
           "red hat openshift container platform 4.12",
+          "red hat openshift container platform 4.17",
+          "red hat openshift container platform 4.15",
           "red hat openshift container platform 4.13",
-          "red hat openshift container platform 4.17"
+          "red hat openshift container platform 4.16"
         ]
       },
       "references": [
@@ -37359,7 +37614,7 @@
       ],
       "epss": {
         "score": 0.1433,
-        "percentile": 94.058
+        "percentile": 94.116
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -37407,7 +37662,7 @@
       ],
       "epss": {
         "score": 0.0031,
-        "percentile": 53.438
+        "percentile": 53.599
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -37460,7 +37715,7 @@
       ],
       "epss": {
         "score": 0.0008,
-        "percentile": 23.784
+        "percentile": 23.844
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -37513,7 +37768,7 @@
       ],
       "epss": {
         "score": 0.001,
-        "percentile": 29.274
+        "percentile": 29.366
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -37566,7 +37821,7 @@
       ],
       "epss": {
         "score": 0.1433,
-        "percentile": 94.058
+        "percentile": 94.116
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -37614,7 +37869,7 @@
       ],
       "epss": {
         "score": 0.0228,
-        "percentile": 83.976
+        "percentile": 84.05
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -37667,7 +37922,7 @@
       ],
       "epss": {
         "score": 0.0131,
-        "percentile": 78.836
+        "percentile": 78.922
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -37720,7 +37975,7 @@
       ],
       "epss": {
         "score": 0.0091,
-        "percentile": 74.818
+        "percentile": 74.924
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -37773,7 +38028,7 @@
       ],
       "epss": {
         "score": 0.02,
-        "percentile": 82.843
+        "percentile": 82.92
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -37826,7 +38081,7 @@
       ],
       "epss": {
         "score": 0.0032,
-        "percentile": 54.852
+        "percentile": 55.014
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -37879,7 +38134,7 @@
       ],
       "epss": {
         "score": 0.0228,
-        "percentile": 83.976
+        "percentile": 84.05
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -37932,7 +38187,7 @@
       ],
       "epss": {
         "score": 0.0156,
-        "percentile": 80.633
+        "percentile": 80.704
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -37985,7 +38240,7 @@
       ],
       "epss": {
         "score": 0.0228,
-        "percentile": 83.976
+        "percentile": 84.05
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -38038,7 +38293,7 @@
       ],
       "epss": {
         "score": 0.0228,
-        "percentile": 83.976
+        "percentile": 84.05
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -38091,7 +38346,7 @@
       ],
       "epss": {
         "score": 0.0228,
-        "percentile": 83.976
+        "percentile": 84.05
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -38144,7 +38399,7 @@
       ],
       "epss": {
         "score": 0.0011,
-        "percentile": 29.73
+        "percentile": 29.824
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -38197,7 +38452,7 @@
       ],
       "epss": {
         "score": 0.1433,
-        "percentile": 94.058
+        "percentile": 94.116
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -38245,7 +38500,7 @@
       ],
       "epss": {
         "score": 0.0015,
-        "percentile": 36.498
+        "percentile": 36.607
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -38298,7 +38553,7 @@
       ],
       "epss": {
         "score": 0.0013,
-        "percentile": 33.236
+        "percentile": 33.332
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -38356,7 +38611,7 @@
       ],
       "epss": {
         "score": 0.0184,
-        "percentile": 82.116
+        "percentile": 82.198
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -38419,7 +38674,7 @@
       ],
       "epss": {
         "score": 0.0063,
-        "percentile": 69.214
+        "percentile": 69.36
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -38427,16 +38682,16 @@
         "cpeMatches": [],
         "vendors": ["kieback&peter", "kieback & peter"],
         "products": [
-          "ddc4020e",
-          "ddc4040e",
           "ddc4200",
-          "ddc4400e",
-          "ddc4200-l",
+          "ddc4200e",
+          "ddc4040e",
           "ddc4002e",
-          "ddc4400",
-          "ddc4100",
           "ddc4002",
-          "ddc4200e"
+          "ddc4400e",
+          "ddc4020e",
+          "ddc4100",
+          "ddc4400",
+          "ddc4200-l"
         ]
       },
       "references": [
@@ -38477,8 +38732,8 @@
         }
       ],
       "epss": {
-        "score": 0.0134,
-        "percentile": 79.049
+        "score": 0.0052,
+        "percentile": 66.002
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -38537,7 +38792,7 @@
       ],
       "epss": {
         "score": 0.0031,
-        "percentile": 53.45
+        "percentile": 53.612
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -38579,91 +38834,6 @@
       }
     },
     {
-      "cveId": "CVE-2024-1917",
-      "title": "CVE-2024-1917: Integer Overflow or Wraparound vulnerability in Mitsubishi Electric Corporation MELSEC-Q Series and ...",
-      "description": "Integer Overflow or Wraparound vulnerability in Mitsubishi Electric Corporation MELSEC-Q Series and MELSEC-L Series CPU modules allows a remote unauthenticated attacker to execute malicious code on a target product by sending a specially crafted packet.",
-      "publishedDate": "2024-03-15T00:02:39.351000+00:00",
-      "lastModifiedDate": "2024-08-27T19:58:12.567000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 9.8,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0044,
-        "percentile": 62.21
-      },
-      "riskScore": 44,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": ["mitsubishi electric corporation"],
-        "products": [
-          "melsec-l series l26cpu-p",
-          "melsec-q series q10udehcpu",
-          "melsec-q series q20udehcpu",
-          "melsec-q series q03udecpu",
-          "melsec-l series l26cpu-bt",
-          "melsec-q series q06udehcpu",
-          "melsec-l series l26cpu-pbt",
-          "melsec-q series q13udehcpu",
-          "melsec-q series q03udvcpu",
-          "melsec-q series q26udvcpu",
-          "melsec-q series q04udpvcpu",
-          "melsec-l series l06cpu-p",
-          "melsec-l series l02cpu-p",
-          "melsec-l series l26cpu",
-          "melsec-q series q50udehcpu",
-          "melsec-q series q13udpvcpu",
-          "melsec-l series l02cpu",
-          "melsec-q series q06udpvcpu",
-          "melsec-q series q04udvcpu",
-          "melsec-q series q06udvcpu",
-          "melsec-q series q04udehcpu",
-          "melsec-l series l06cpu",
-          "melsec-q series q26udpvcpu",
-          "melsec-q series q13udvcpu",
-          "melsec-q series q100udehcpu",
-          "melsec-q series q26udehcpu"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://www.mitsubishielectric.com/en/psirt/vulnerability/pdf/2023-024_en.pdf",
-          "source": "",
-          "tags": ["vendor-advisory"]
-        },
-        {
-          "url": "https://jvn.jp/vu/JVNVU99690199/",
-          "source": "",
-          "tags": ["government-resource"]
-        },
-        {
-          "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-24-074-14",
-          "source": "",
-          "tags": ["government-resource"]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": ["CWE-190"],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": null,
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/1xxx/CVE-2024-1917.json",
-            "lastModified": "2024-08-27T19:58:12.567000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2024-1711",
       "title": "CVE-2024-1711: The Create by Mediavine plugin for WordPress is vulnerable to SQL Injection via the 'id' parameter i...",
       "description": "The Create by Mediavine plugin for WordPress is vulnerable to SQL Injection via the 'id' parameter in all versions up to, and including, 1.9.4 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
@@ -38680,7 +38850,7 @@
       ],
       "epss": {
         "score": 0.0046,
-        "percentile": 62.992
+        "percentile": 63.145
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -38733,7 +38903,7 @@
       ],
       "epss": {
         "score": 0.021,
-        "percentile": 83.263
+        "percentile": 83.333
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -38770,91 +38940,6 @@
       }
     },
     {
-      "cveId": "CVE-2024-1915",
-      "title": "CVE-2024-1915: Incorrect Pointer Scaling vulnerability in Mitsubishi Electric Corporation MELSEC-Q Series and MELSE...",
-      "description": "Incorrect Pointer Scaling vulnerability in Mitsubishi Electric Corporation MELSEC-Q Series and MELSEC-L Series CPU modules allows a remote unauthenticated attacker to execute malicious code on a target product by sending a specially crafted packet.",
-      "publishedDate": "2024-03-15T00:00:46.607000+00:00",
-      "lastModifiedDate": "2024-08-27T19:56:54.512000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 9.8,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0044,
-        "percentile": 62.21
-      },
-      "riskScore": 44,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": ["mitsubishi electric corporation"],
-        "products": [
-          "melsec-l series l26cpu-p",
-          "melsec-q series q10udehcpu",
-          "melsec-q series q20udehcpu",
-          "melsec-q series q03udecpu",
-          "melsec-l series l26cpu-bt",
-          "melsec-q series q06udehcpu",
-          "melsec-l series l26cpu-pbt",
-          "melsec-q series q13udehcpu",
-          "melsec-q series q03udvcpu",
-          "melsec-q series q26udvcpu",
-          "melsec-q series q04udpvcpu",
-          "melsec-l series l06cpu-p",
-          "melsec-l series l02cpu-p",
-          "melsec-l series l26cpu",
-          "melsec-q series q50udehcpu",
-          "melsec-q series q13udpvcpu",
-          "melsec-l series l02cpu",
-          "melsec-q series q06udpvcpu",
-          "melsec-q series q04udvcpu",
-          "melsec-q series q06udvcpu",
-          "melsec-q series q04udehcpu",
-          "melsec-l series l06cpu",
-          "melsec-q series q26udpvcpu",
-          "melsec-q series q13udvcpu",
-          "melsec-q series q100udehcpu",
-          "melsec-q series q26udehcpu"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://www.mitsubishielectric.com/en/psirt/vulnerability/pdf/2023-024_en.pdf",
-          "source": "",
-          "tags": ["vendor-advisory"]
-        },
-        {
-          "url": "https://jvn.jp/vu/JVNVU99690199/",
-          "source": "",
-          "tags": ["government-resource"]
-        },
-        {
-          "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-24-074-14",
-          "source": "",
-          "tags": ["government-resource"]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": ["CWE-468"],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": null,
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/1xxx/CVE-2024-1915.json",
-            "lastModified": "2024-08-27T19:56:54.512000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2024-1514",
       "title": "CVE-2024-1514: The WP eCommerce plugin for WordPress is vulnerable to time-based blind SQL Injection via the 'cart_...",
       "description": "The WP eCommerce plugin for WordPress is vulnerable to time-based blind SQL Injection via the 'cart_contents' parameter in all versions up to, and including, 3.15.1 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
@@ -38871,7 +38956,7 @@
       ],
       "epss": {
         "score": 0.0041,
-        "percentile": 60.208
+        "percentile": 60.36
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -38924,7 +39009,7 @@
       ],
       "epss": {
         "score": 0.0023,
-        "percentile": 45.772
+        "percentile": 45.93
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -38961,91 +39046,6 @@
       }
     },
     {
-      "cveId": "CVE-2024-1916",
-      "title": "CVE-2024-1916: Integer Overflow or Wraparound vulnerability in Mitsubishi Electric Corporation MELSEC-Q Series and ...",
-      "description": "Integer Overflow or Wraparound vulnerability in Mitsubishi Electric Corporation MELSEC-Q Series and MELSEC-L Series CPU modules allows a remote unauthenticated attacker to execute malicious code on a target product by sending a specially crafted packet.",
-      "publishedDate": "2024-03-15T00:01:39.440000+00:00",
-      "lastModifiedDate": "2024-08-27T19:57:29.350000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 9.8,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0044,
-        "percentile": 62.21
-      },
-      "riskScore": 44,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": ["mitsubishi electric corporation"],
-        "products": [
-          "melsec-l series l26cpu-p",
-          "melsec-q series q10udehcpu",
-          "melsec-q series q20udehcpu",
-          "melsec-q series q03udecpu",
-          "melsec-l series l26cpu-bt",
-          "melsec-q series q06udehcpu",
-          "melsec-l series l26cpu-pbt",
-          "melsec-q series q13udehcpu",
-          "melsec-q series q03udvcpu",
-          "melsec-q series q26udvcpu",
-          "melsec-q series q04udpvcpu",
-          "melsec-l series l06cpu-p",
-          "melsec-l series l02cpu-p",
-          "melsec-l series l26cpu",
-          "melsec-q series q50udehcpu",
-          "melsec-q series q13udpvcpu",
-          "melsec-l series l02cpu",
-          "melsec-q series q06udpvcpu",
-          "melsec-q series q04udvcpu",
-          "melsec-q series q06udvcpu",
-          "melsec-q series q04udehcpu",
-          "melsec-l series l06cpu",
-          "melsec-q series q26udpvcpu",
-          "melsec-q series q13udvcpu",
-          "melsec-q series q100udehcpu",
-          "melsec-q series q26udehcpu"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://www.mitsubishielectric.com/en/psirt/vulnerability/pdf/2023-024_en.pdf",
-          "source": "",
-          "tags": ["vendor-advisory"]
-        },
-        {
-          "url": "https://jvn.jp/vu/JVNVU99690199/",
-          "source": "",
-          "tags": ["government-resource"]
-        },
-        {
-          "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-24-074-14",
-          "source": "",
-          "tags": ["government-resource"]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": ["CWE-190"],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": null,
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/1xxx/CVE-2024-1916.json",
-            "lastModified": "2024-08-27T19:57:29.350000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2024-1631",
       "title": "agent-js: Insecure Key Generation in `Ed25519KeyIdentity.generate`",
       "description": "Impact: The library offers a function to generate an ed25519 key pair via Ed25519KeyIdentity.generate with an optional param to provide a 32 byte seed value, which will then be used as the secret key. When no seed value is provided, it is expected that the library generates the secret key using secure randomness. However, a recent change broke this guarantee and uses an insecure seed for key pair generation. Since the private key of this identity (535yc-uxytb-gfk7h-tny7p-vjkoe-i4krp-3qmcl-uqfgr-cpgej-yqtjq-rqe) is compromised, one could lose funds associated with the principal on ledgers or lose access to a canister where this principal is the controller. \n",
@@ -39062,7 +39062,7 @@
       ],
       "epss": {
         "score": 0.0007,
-        "percentile": 22.311
+        "percentile": 22.371
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -39130,7 +39130,7 @@
       ],
       "epss": {
         "score": 0.0129,
-        "percentile": 78.711
+        "percentile": 78.798
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -39183,7 +39183,7 @@
       ],
       "epss": {
         "score": 0.0059,
-        "percentile": 68.177
+        "percentile": 68.324
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -39236,7 +39236,7 @@
       ],
       "epss": {
         "score": 0.0171,
-        "percentile": 81.517
+        "percentile": 81.592
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -39284,7 +39284,7 @@
       ],
       "epss": {
         "score": 0.0034,
-        "percentile": 55.955
+        "percentile": 56.12
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -39337,7 +39337,7 @@
       ],
       "epss": {
         "score": 0.001,
-        "percentile": 28.632
+        "percentile": 28.721
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -39395,7 +39395,7 @@
       ],
       "epss": {
         "score": 0.0117,
-        "percentile": 77.706
+        "percentile": 77.799
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -39443,7 +39443,7 @@
       ],
       "epss": {
         "score": 0.0009,
-        "percentile": 27.08
+        "percentile": 27.175
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -39501,7 +39501,7 @@
       ],
       "epss": {
         "score": 0.0022,
-        "percentile": 44.176
+        "percentile": 44.319
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -39554,7 +39554,7 @@
       ],
       "epss": {
         "score": 0.0022,
-        "percentile": 44.701
+        "percentile": 44.839
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -39607,7 +39607,7 @@
       ],
       "epss": {
         "score": 0.1157,
-        "percentile": 93.282
+        "percentile": 93.344
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -39655,7 +39655,7 @@
       ],
       "epss": {
         "score": 0.1157,
-        "percentile": 93.282
+        "percentile": 93.344
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -42132,8 +42132,8 @@
         "cpeMatches": [],
         "vendors": ["schneider electric"],
         "products": [
-          "system monitor application in harmony industrial pc hmibmo/hmibmi/hmipso/hmibmp/hmibmu/hmipsp/hmipep series",
-          "system monitor application in pro-face industrial pc ps5000 series"
+          "system monitor application in pro-face industrial pc ps5000 series",
+          "system monitor application in harmony industrial pc hmibmo/hmibmi/hmipso/hmibmp/hmibmu/hmipsp/hmipep series"
         ]
       },
       "references": [
@@ -42768,7 +42768,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["dover fueling solutions (dfs)"],
-        "products": ["progauge maglink lx4 console", "progauge maglink lx console"]
+        "products": ["progauge maglink lx console", "progauge maglink lx4 console"]
       },
       "references": [
         {
@@ -42864,7 +42864,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["siemens"],
-        "products": ["industrial edge management pro", "industrial edge management virtual"]
+        "products": ["industrial edge management virtual", "industrial edge management pro"]
       },
       "references": [
         {
@@ -43057,19 +43057,19 @@
         "cpeMatches": [],
         "vendors": ["jetbrains"],
         "products": [
-          "datagrip",
-          "dataspell",
-          "phpstorm",
-          "rubymine",
+          "goland",
           "clion",
-          "aqua",
-          "intellij idea",
           "rustrover",
+          "webstorm",
           "mps",
           "pycharm",
+          "phpstorm",
+          "datagrip",
+          "dataspell",
+          "aqua",
           "rider",
-          "goland",
-          "webstorm"
+          "intellij idea",
+          "rubymine"
         ]
       },
       "references": [
@@ -43268,12 +43268,12 @@
         "cpeMatches": [],
         "vendors": ["schneider electric"],
         "products": [
-          "sage 4400",
-          "sage 1410",
           "sage 1430",
+          "sage 4400",
+          "sage 3030 magnum",
           "sage 1450",
           "sage 2400",
-          "sage 3030 magnum"
+          "sage 1410"
         ]
       },
       "references": [
@@ -43515,11 +43515,11 @@
         "cpeMatches": [],
         "vendors": ["dell"],
         "products": [
+          "dell powerflex rack",
           "dell insightiq",
           "dell powerflex custom node",
-          "dell data lakehouse",
           "dell powerflex appliance",
-          "dell powerflex rack"
+          "dell data lakehouse"
         ]
       },
       "references": [
@@ -44874,7 +44874,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["myscada"],
-        "products": ["mypro manager", "mypro runtime"]
+        "products": ["mypro runtime", "mypro manager"]
       },
       "references": [
         {
@@ -44971,66 +44971,66 @@
         "cpeMatches": [],
         "vendors": ["moxa"],
         "products": [
-          "ics-g7528a series",
-          "sds-3016 series",
-          "eds-518a series",
-          "sds-g3010 series",
-          "edr-8010 series",
-          "eds-p510a series",
-          "sds-3010 series",
-          "eds-p506e series",
-          "eds-g509 series",
-          "eds-508a series",
-          "eds-g516e series",
-          "eds-408a series",
-          "eds-510e series",
-          "edr-g9004 series",
           "pt-g503 series",
-          "tn-g4500 series",
-          "eds-616 series",
-          "eds-528e series",
-          "ics-g7850a series",
-          "ics-g7852a series",
-          "iks-6728a series",
-          "pt-g7728 series",
-          "eds-516a series",
-          "sds-g3008 series",
-          "eds-505a series",
-          "pt-g510 series",
-          "eds-518e series",
-          "eds-p510 series",
-          "ics-g7826a series",
-          "ics-g7750a series",
-          "iks-g6824a series",
-          "ics-g7828a series",
-          "sds-g3006 series",
-          "ics-g7848a series",
-          "sds-3006 series",
-          "nat-102 series",
-          "iks-g6524a series",
-          "pt-7728 series",
-          "eds-g512e series",
-          "eds-405a series",
           "ics-g7748a series",
-          "oncell g4302-lte4 series",
-          "eds-608 series",
-          "iks-6726a series",
-          "tn-5500a series",
-          "pt-7828 series",
-          "eds-510a series",
-          "tn-4500a series",
-          "ics-g7526a series",
-          "ics-g7752a series",
-          "sds-3008 series",
-          "eds-611 series",
-          "eds-g508e series",
-          "edr-g9010 series",
-          "sds-g3016 series",
+          "tn-g4500 series",
+          "eds-405a series",
           "tn-4900 series",
-          "edf-g1002-bp series",
-          "eds-619 series",
+          "eds-510a series",
+          "sds-3006 series",
           "tn-g6500 series",
-          "pt-g7828 series"
+          "edr-g9004 series",
+          "oncell g4302-lte4 series",
+          "eds-p510 series",
+          "tn-5500a series",
+          "ics-g7828a series",
+          "ics-g7852a series",
+          "sds-3010 series",
+          "eds-505a series",
+          "ics-g7528a series",
+          "pt-g7728 series",
+          "eds-408a series",
+          "iks-g6524a series",
+          "eds-p506e series",
+          "iks-6728a series",
+          "pt-7728 series",
+          "tn-4500a series",
+          "edf-g1002-bp series",
+          "eds-g512e series",
+          "eds-g516e series",
+          "ics-g7752a series",
+          "eds-518e series",
+          "eds-508a series",
+          "iks-g6824a series",
+          "sds-g3008 series",
+          "eds-619 series",
+          "eds-510e series",
+          "eds-p510a series",
+          "eds-608 series",
+          "eds-518a series",
+          "ics-g7826a series",
+          "sds-g3010 series",
+          "eds-528e series",
+          "ics-g7750a series",
+          "sds-3008 series",
+          "iks-6726a series",
+          "pt-g7828 series",
+          "eds-516a series",
+          "eds-611 series",
+          "ics-g7526a series",
+          "edr-8010 series",
+          "ics-g7848a series",
+          "sds-g3006 series",
+          "eds-g508e series",
+          "sds-3016 series",
+          "nat-102 series",
+          "sds-g3016 series",
+          "eds-616 series",
+          "pt-g510 series",
+          "ics-g7850a series",
+          "edr-g9010 series",
+          "pt-7828 series",
+          "eds-g509 series"
         ]
       },
       "references": [
@@ -45575,13 +45575,13 @@
         "cpeMatches": [],
         "vendors": ["siemens"],
         "products": [
-          "location intelligence sus small",
-          "location intelligence sus non-prod",
-          "location intelligence perpetual medium",
           "location intelligence sus large",
-          "location intelligence sus medium",
+          "location intelligence sus non-prod",
           "location intelligence perpetual large",
+          "location intelligence sus medium",
+          "location intelligence sus small",
           "location intelligence perpetual small",
+          "location intelligence perpetual medium",
           "location intelligence perpetual non-prod"
         ]
       },
@@ -45775,7 +45775,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["dover fueling solutions (dfs)"],
-        "products": ["progauge maglink lx4 console", "progauge maglink lx console"]
+        "products": ["progauge maglink lx console", "progauge maglink lx4 console"]
       },
       "references": [
         {
@@ -45871,7 +45871,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["dover fueling solutions (dfs)"],
-        "products": ["progauge maglink lx4 console", "progauge maglink lx console"]
+        "products": ["progauge maglink lx console", "progauge maglink lx4 console"]
       },
       "references": [
         {
@@ -45919,7 +45919,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["dover fueling solutions (dfs)"],
-        "products": ["progauge maglink lx4 console", "progauge maglink lx console"]
+        "products": ["progauge maglink lx console", "progauge maglink lx4 console"]
       },
       "references": [
         {
@@ -46218,16 +46218,16 @@
         "cpeMatches": [],
         "vendors": ["kieback&peter"],
         "products": [
-          "ddc4020e",
-          "ddc4040e",
           "ddc4200",
-          "ddc4400e",
-          "ddc4200-l",
+          "ddc4200e",
+          "ddc4040e",
           "ddc4002e",
-          "ddc4400",
-          "ddc4100",
           "ddc4002",
-          "ddc4200e"
+          "ddc4400e",
+          "ddc4020e",
+          "ddc4100",
+          "ddc4400",
+          "ddc4200-l"
         ]
       },
       "references": [
@@ -46729,32 +46729,32 @@
         "cpeMatches": [],
         "vendors": ["canon inc."],
         "products": [
-          "satera mf640c series",
-          "satera lbp670c series",
-          "color imageclass x mf1333c",
-          "c1127i series",
-          "satera lbp660c series",
-          "color imageclass mf750c series",
-          "c1333p",
-          "i-sensys mf740c series",
-          "i-sensys lbp660c series",
-          "i-sensys mf640c series",
-          "c1333i series",
-          "color imageclass x mf1127c",
-          "i-sensys lbp620c series",
           "satera lbp620c series",
-          "satera mf740c series",
-          "color imageclass mf640c series",
-          "i-sensys lbp673cdw",
-          "color imageclass lbp622cdw",
+          "i-sensys lbp620c series",
+          "satera lbp660c series",
           "c1127p",
-          "color imageclass mf740c series",
-          "color imageclass lbp674cdw",
           "color imageclass x lbp1333c",
-          "color imageclass lbp664cdw",
-          "color imageclass x lbp1127c",
+          "color imageclass mf740c series",
+          "c1333p",
+          "satera mf740c series",
+          "i-sensys mf740c series",
           "satera mf750c series",
-          "i-sensys mf750c series"
+          "satera mf640c series",
+          "color imageclass lbp622cdw",
+          "i-sensys lbp660c series",
+          "color imageclass x mf1333c",
+          "c1333i series",
+          "i-sensys mf640c series",
+          "color imageclass mf750c series",
+          "i-sensys lbp673cdw",
+          "color imageclass x mf1127c",
+          "color imageclass lbp664cdw",
+          "color imageclass lbp674cdw",
+          "color imageclass mf640c series",
+          "i-sensys mf750c series",
+          "satera lbp670c series",
+          "color imageclass x lbp1127c",
+          "c1127i series"
         ]
       },
       "references": [
@@ -47716,20 +47716,20 @@
         "cpeMatches": [],
         "vendors": ["vonets"],
         "products": [
-          "vap11ac",
-          "var11n-300",
-          "vap11g",
           "var1200-l",
-          "vap11s-5g",
-          "vap11g-300",
-          "vap11g-500",
           "vap11g-500s",
-          "vap11s",
-          "vap11n-300",
-          "var1200-h",
           "var600-h",
+          "vap11g",
           "vbg1200",
-          "vga-1000"
+          "vap11s",
+          "var11n-300",
+          "vap11g-300",
+          "vap11ac",
+          "vap11g-500",
+          "vap11s-5g",
+          "var1200-h",
+          "vga-1000",
+          "vap11n-300"
         ]
       },
       "references": [
@@ -47875,10 +47875,10 @@
         "cpeMatches": [],
         "vendors": ["pepperl+fuchs"],
         "products": [
-          "oit500-f113-b12-cb",
           "oit1500-f113-b12-cb",
-          "oit200-f113-b12-cb",
-          "oit700-f113-b12-cb"
+          "oit500-f113-b12-cb",
+          "oit700-f113-b12-cb",
+          "oit200-f113-b12-cb"
         ]
       },
       "references": [
@@ -48264,13 +48264,13 @@
         "cpeMatches": [],
         "vendors": ["endress+hauser"],
         "products": [
-          "fieldcare sfe500 package web-package",
-          "fieldcare sfe500 package usb",
-          "echo curve viewer",
-          "field xpert smt79",
-          "field xpert smt77",
           "field xpert smt70",
-          "field xpert smt50"
+          "field xpert smt77",
+          "field xpert smt50",
+          "echo curve viewer",
+          "fieldcare sfe500 package usb",
+          "fieldcare sfe500 package web-package",
+          "field xpert smt79"
         ]
       },
       "references": [
@@ -49148,8 +49148,8 @@
         "products": [
           "moneo for micosoft windows",
           "moneo appliance qha300",
-          "moneo appliance qva200",
-          "moneo appliance qha210"
+          "moneo appliance qha210",
+          "moneo appliance qva200"
         ]
       },
       "references": [
@@ -50509,7 +50509,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["myscada"],
-        "products": ["mypro manager", "mypro runtime"]
+        "products": ["mypro runtime", "mypro manager"]
       },
       "references": [
         {
@@ -52794,8 +52794,8 @@
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": ["n/a", "na"],
-        "products": ["vmware fusion", "vmware workstation"]
+        "vendors": ["na", "n/a"],
+        "products": ["vmware workstation", "vmware fusion"]
       },
       "references": [
         {
@@ -53146,7 +53146,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["janobe"],
-        "products": ["janobe credit card", "janobe paypal", "janobe debit card payment"]
+        "products": ["janobe debit card payment", "janobe credit card", "janobe paypal"]
       },
       "references": [
         {
@@ -53194,7 +53194,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["janobe"],
-        "products": ["janobe credit card", "janobe paypal", "janobe debit card payment"]
+        "products": ["janobe debit card payment", "janobe credit card", "janobe paypal"]
       },
       "references": [
         {
@@ -53578,7 +53578,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["janobe"],
-        "products": ["janobe credit card", "janobe paypal", "janobe debit card payment"]
+        "products": ["janobe debit card payment", "janobe credit card", "janobe paypal"]
       },
       "references": [
         {
@@ -53626,7 +53626,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["janobe"],
-        "products": ["janobe credit card", "janobe paypal", "janobe debit card payment"]
+        "products": ["janobe debit card payment", "janobe credit card", "janobe paypal"]
       },
       "references": [
         {
@@ -53674,7 +53674,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["janobe"],
-        "products": ["janobe credit card", "janobe paypal", "janobe debit card payment"]
+        "products": ["janobe debit card payment", "janobe credit card", "janobe paypal"]
       },
       "references": [
         {
@@ -53723,18 +53723,18 @@
         "cpeMatches": [],
         "vendors": ["siemens"],
         "products": [
-          "simatic pcs neo v4.0",
           "opcenter execution foundation",
-          "totally integrated automation portal (tia portal) v19",
-          "totally integrated automation portal (tia portal) v16",
+          "sinema remote connect client",
+          "simatic pcs neo v4.0",
+          "opcenter rdl",
+          "opcenter quality",
           "simatic pcs neo v4.1",
+          "totally integrated automation portal (tia portal) v16",
+          "totally integrated automation portal (tia portal) v18",
           "simatic pcs neo v5.0",
           "totally integrated automation portal (tia portal) v17",
-          "opcenter rdl",
           "sinec nms",
-          "sinema remote connect client",
-          "opcenter quality",
-          "totally integrated automation portal (tia portal) v18"
+          "totally integrated automation portal (tia portal) v19"
         ]
       },
       "references": [
@@ -53783,7 +53783,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["janobe"],
-        "products": ["janobe paypal", "janove credit card", "janobe debit card payment"]
+        "products": ["janobe debit card payment", "janove credit card", "janobe paypal"]
       },
       "references": [
         {
@@ -53831,7 +53831,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["janobe"],
-        "products": ["janobe credit card", "janobe paypal", "janobe debit card payment"]
+        "products": ["janobe debit card payment", "janobe credit card", "janobe paypal"]
       },
       "references": [
         {
@@ -54076,7 +54076,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["janobe"],
-        "products": ["janobe credit card", "janobe paypal", "janobe debit card payment"]
+        "products": ["janobe debit card payment", "janobe credit card", "janobe paypal"]
       },
       "references": [
         {
@@ -54763,7 +54763,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["spotfire"],
-        "products": ["spotfire for aws marketplace", "spotfire server", "spotfire analyst"]
+        "products": ["spotfire analyst", "spotfire for aws marketplace", "spotfire server"]
       },
       "references": [
         {
@@ -56508,18 +56508,18 @@
         "cpeMatches": [],
         "vendors": ["siemens"],
         "products": [
-          "simatic pcs neo v4.0",
           "opcenter execution foundation",
-          "totally integrated automation portal (tia portal) v19",
-          "totally integrated automation portal (tia portal) v16",
+          "simatic pcs neo v4.0",
+          "opcenter rdl",
+          "opcenter quality",
           "simatic pcs neo v4.1",
+          "totally integrated automation portal (tia portal) v16",
+          "totally integrated automation portal (tia portal) v18",
+          "opcenter intelligence",
           "simatic pcs neo v5.0",
           "totally integrated automation portal (tia portal) v17",
-          "opcenter rdl",
           "sinec nms",
-          "opcenter intelligence",
-          "opcenter quality",
-          "totally integrated automation portal (tia portal) v18"
+          "totally integrated automation portal (tia portal) v19"
         ]
       },
       "references": [
@@ -58360,11 +58360,11 @@
         "cpeMatches": [],
         "vendors": ["zyxel"],
         "products": [
-          "wax655e firmware",
-          "nwa1123acv3 firmware",
-          "wac500 firmware",
           "usg lite 60ax firmware",
-          "wbe530 firmware"
+          "wac500 firmware",
+          "nwa1123acv3 firmware",
+          "wbe530 firmware",
+          "wax655e firmware"
         ]
       },
       "references": [
@@ -58944,7 +58944,7 @@
       ],
       "epss": {
         "score": 0.0019,
-        "percentile": 41.981
+        "percentile": 42.107
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -58991,8 +58991,8 @@
         }
       ],
       "epss": {
-        "score": 0.0122,
-        "percentile": 78.094
+        "score": 0.0173,
+        "percentile": 81.659
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -59039,8 +59039,8 @@
         }
       ],
       "epss": {
-        "score": 0.0122,
-        "percentile": 78.094
+        "score": 0.0173,
+        "percentile": 81.659
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -59087,8 +59087,8 @@
         }
       ],
       "epss": {
-        "score": 0.0122,
-        "percentile": 78.094
+        "score": 0.0173,
+        "percentile": 81.659
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -59136,14 +59136,14 @@
       ],
       "epss": {
         "score": 0.0021,
-        "percentile": 43.949
+        "percentile": 44.093
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["schneider electric"],
-        "products": ["modicon controllers m258 / lmc058", "modicon controllers m241 / m251"]
+        "products": ["modicon controllers m241 / m251", "modicon controllers m258 / lmc058"]
       },
       "references": [
         {
@@ -59183,8 +59183,8 @@
         }
       ],
       "epss": {
-        "score": 0.0037,
-        "percentile": 58.123
+        "score": 0.0035,
+        "percentile": 57.062
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -59232,7 +59232,7 @@
       ],
       "epss": {
         "score": 0.0132,
-        "percentile": 78.895
+        "percentile": 78.981
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -59279,8 +59279,8 @@
         }
       ],
       "epss": {
-        "score": 0.0007,
-        "percentile": 21.685
+        "score": 0.0008,
+        "percentile": 24.12
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -59328,14 +59328,14 @@
       ],
       "epss": {
         "score": 0.013,
-        "percentile": 78.797
+        "percentile": 78.884
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["advantech"],
-        "products": ["eki-6333ac-1gpo", "eki-6333ac-2gd", "eki-6333ac-2g"]
+        "products": ["eki-6333ac-2gd", "eki-6333ac-2g", "eki-6333ac-1gpo"]
       },
       "references": [
         {
@@ -59376,14 +59376,14 @@
       ],
       "epss": {
         "score": 0.013,
-        "percentile": 78.797
+        "percentile": 78.884
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["advantech"],
-        "products": ["eki-6333ac-1gpo", "eki-6333ac-2gd", "eki-6333ac-2g"]
+        "products": ["eki-6333ac-2gd", "eki-6333ac-2g", "eki-6333ac-1gpo"]
       },
       "references": [
         {
@@ -59424,7 +59424,7 @@
       ],
       "epss": {
         "score": 0.0027,
-        "percentile": 50.239
+        "percentile": 50.406
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -59472,7 +59472,7 @@
       ],
       "epss": {
         "score": 0.0027,
-        "percentile": 50.47
+        "percentile": 50.636
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -59520,14 +59520,14 @@
       ],
       "epss": {
         "score": 0.0075,
-        "percentile": 72.046
+        "percentile": 72.165
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["advantech"],
-        "products": ["eki-6333ac-1gpo", "eki-6333ac-2gd", "eki-6333ac-2g"]
+        "products": ["eki-6333ac-2gd", "eki-6333ac-2g", "eki-6333ac-1gpo"]
       },
       "references": [
         {
@@ -59568,7 +59568,7 @@
       ],
       "epss": {
         "score": 0.0024,
-        "percentile": 47.313
+        "percentile": 47.474
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -59616,14 +59616,14 @@
       ],
       "epss": {
         "score": 0.013,
-        "percentile": 78.797
+        "percentile": 78.884
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["advantech"],
-        "products": ["eki-6333ac-1gpo", "eki-6333ac-2gd", "eki-6333ac-2g"]
+        "products": ["eki-6333ac-2gd", "eki-6333ac-2g", "eki-6333ac-1gpo"]
       },
       "references": [
         {
@@ -59664,7 +59664,7 @@
       ],
       "epss": {
         "score": 0.0025,
-        "percentile": 47.933
+        "percentile": 48.101
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -59712,7 +59712,7 @@
       ],
       "epss": {
         "score": 0.0058,
-        "percentile": 67.932
+        "percentile": 68.082
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -59760,14 +59760,14 @@
       ],
       "epss": {
         "score": 0.013,
-        "percentile": 78.797
+        "percentile": 78.884
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["advantech"],
-        "products": ["eki-6333ac-1gpo", "eki-6333ac-2gd", "eki-6333ac-2g"]
+        "products": ["eki-6333ac-2gd", "eki-6333ac-2g", "eki-6333ac-1gpo"]
       },
       "references": [
         {
@@ -59808,7 +59808,7 @@
       ],
       "epss": {
         "score": 0.0027,
-        "percentile": 50.239
+        "percentile": 50.406
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -59856,7 +59856,7 @@
       ],
       "epss": {
         "score": 0.0025,
-        "percentile": 47.933
+        "percentile": 48.101
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -59904,7 +59904,7 @@
       ],
       "epss": {
         "score": 0.0026,
-        "percentile": 49.553
+        "percentile": 49.722
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -59952,7 +59952,7 @@
       ],
       "epss": {
         "score": 0.0034,
-        "percentile": 56.317
+        "percentile": 56.479
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -60002,7 +60002,7 @@
       ],
       "epss": {
         "score": 0.0024,
-        "percentile": 47.313
+        "percentile": 47.474
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -60050,7 +60050,7 @@
       ],
       "epss": {
         "score": 0.0052,
-        "percentile": 65.679
+        "percentile": 65.831
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -60098,14 +60098,14 @@
       ],
       "epss": {
         "score": 0.013,
-        "percentile": 78.797
+        "percentile": 78.884
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["advantech"],
-        "products": ["eki-6333ac-1gpo", "eki-6333ac-2gd", "eki-6333ac-2g"]
+        "products": ["eki-6333ac-2gd", "eki-6333ac-2g", "eki-6333ac-1gpo"]
       },
       "references": [
         {
@@ -60146,7 +60146,7 @@
       ],
       "epss": {
         "score": 0.0024,
-        "percentile": 47.313
+        "percentile": 47.474
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -60194,7 +60194,7 @@
       ],
       "epss": {
         "score": 0.0027,
-        "percentile": 50.239
+        "percentile": 50.406
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -60242,7 +60242,7 @@
       ],
       "epss": {
         "score": 0.0051,
-        "percentile": 65.378
+        "percentile": 65.532
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -60290,7 +60290,7 @@
       ],
       "epss": {
         "score": 0.0034,
-        "percentile": 56.317
+        "percentile": 56.479
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -60338,7 +60338,7 @@
       ],
       "epss": {
         "score": 0.0013,
-        "percentile": 33.282
+        "percentile": 33.378
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -60386,7 +60386,7 @@
       ],
       "epss": {
         "score": 0.0025,
-        "percentile": 47.933
+        "percentile": 48.101
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -60434,7 +60434,7 @@
       ],
       "epss": {
         "score": 0.0025,
-        "percentile": 48.19
+        "percentile": 48.355
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -60481,8 +60481,8 @@
         }
       ],
       "epss": {
-        "score": 0.0015,
-        "percentile": 36.993
+        "score": 0.0018,
+        "percentile": 40.3
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -60530,7 +60530,7 @@
       ],
       "epss": {
         "score": 0.0046,
-        "percentile": 63.089
+        "percentile": 63.237
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -60578,7 +60578,7 @@
       ],
       "epss": {
         "score": 0.0018,
-        "percentile": 40.49
+        "percentile": 40.611
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -60626,7 +60626,7 @@
       ],
       "epss": {
         "score": 0.0027,
-        "percentile": 50.609
+        "percentile": 50.774
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -60684,7 +60684,7 @@
       ],
       "epss": {
         "score": 0.0012,
-        "percentile": 32.483
+        "percentile": 32.574
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -60732,7 +60732,7 @@
       ],
       "epss": {
         "score": 0.0015,
-        "percentile": 36.73
+        "percentile": 36.839
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -60780,7 +60780,7 @@
       ],
       "epss": {
         "score": 0.0009,
-        "percentile": 25.895
+        "percentile": 25.982
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -60828,7 +60828,7 @@
       ],
       "epss": {
         "score": 0.0007,
-        "percentile": 22.695
+        "percentile": 22.758
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -60876,7 +60876,7 @@
       ],
       "epss": {
         "score": 0.0033,
-        "percentile": 54.975
+        "percentile": 55.135
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -60924,7 +60924,7 @@
       ],
       "epss": {
         "score": 0.0007,
-        "percentile": 21.302
+        "percentile": 21.354
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -60972,7 +60972,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 11.973
+        "percentile": 12.012
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -61020,7 +61020,7 @@
       ],
       "epss": {
         "score": 0.0005,
-        "percentile": 16.051
+        "percentile": 16.116
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -61068,7 +61068,7 @@
       ],
       "epss": {
         "score": 0.0012,
-        "percentile": 31.959
+        "percentile": 32.055
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -61116,7 +61116,7 @@
       ],
       "epss": {
         "score": 0.0007,
-        "percentile": 21.302
+        "percentile": 21.354
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -61164,7 +61164,7 @@
       ],
       "epss": {
         "score": 0.0071,
-        "percentile": 71.237
+        "percentile": 71.363
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -61212,7 +61212,7 @@
       ],
       "epss": {
         "score": 0.0049,
-        "percentile": 64.68
+        "percentile": 64.834
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -61265,7 +61265,7 @@
       ],
       "epss": {
         "score": 0.1058,
-        "percentile": 92.903
+        "percentile": 92.957
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -61313,7 +61313,7 @@
       ],
       "epss": {
         "score": 0.0061,
-        "percentile": 68.679
+        "percentile": 68.819
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -61361,7 +61361,7 @@
       ],
       "epss": {
         "score": 0.003,
-        "percentile": 53.151
+        "percentile": 53.314
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -61409,7 +61409,7 @@
       ],
       "epss": {
         "score": 0.0053,
-        "percentile": 66.294
+        "percentile": 66.452
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -61457,7 +61457,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 19.054
+        "percentile": 19.109
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -61505,7 +61505,7 @@
       ],
       "epss": {
         "score": 0.0057,
-        "percentile": 67.689
+        "percentile": 67.846
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -61553,7 +61553,7 @@
       ],
       "epss": {
         "score": 0.0074,
-        "percentile": 71.821
+        "percentile": 71.943
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -61611,7 +61611,7 @@
       ],
       "epss": {
         "score": 0.0016,
-        "percentile": 37.344
+        "percentile": 37.461
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -61674,7 +61674,7 @@
       ],
       "epss": {
         "score": 0.0081,
-        "percentile": 73.181
+        "percentile": 73.295
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -61732,7 +61732,7 @@
       ],
       "epss": {
         "score": 0.0023,
-        "percentile": 46.201
+        "percentile": 46.364
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -61780,7 +61780,7 @@
       ],
       "epss": {
         "score": 0.0041,
-        "percentile": 60.361
+        "percentile": 60.509
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -61838,14 +61838,14 @@
       ],
       "epss": {
         "score": 0.0034,
-        "percentile": 55.936
+        "percentile": 56.102
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["qnap systems inc."],
-        "products": ["qts", "quts hero", "qutscloud"]
+        "products": ["qutscloud", "quts hero", "qts"]
       },
       "references": [
         {
@@ -61886,7 +61886,7 @@
       ],
       "epss": {
         "score": 0.005,
-        "percentile": 64.914
+        "percentile": 65.067
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -61934,7 +61934,7 @@
       ],
       "epss": {
         "score": 0.0027,
-        "percentile": 50.336
+        "percentile": 50.502
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -61982,7 +61982,7 @@
       ],
       "epss": {
         "score": 0.0074,
-        "percentile": 71.821
+        "percentile": 71.943
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -62040,7 +62040,7 @@
       ],
       "epss": {
         "score": 0.0074,
-        "percentile": 71.821
+        "percentile": 71.943
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -62098,7 +62098,7 @@
       ],
       "epss": {
         "score": 0.0063,
-        "percentile": 69.317
+        "percentile": 69.46
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -62146,7 +62146,7 @@
       ],
       "epss": {
         "score": 0.0487,
-        "percentile": 89.073
+        "percentile": 89.14
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -62194,7 +62194,7 @@
       ],
       "epss": {
         "score": 0.0013,
-        "percentile": 32.918
+        "percentile": 33.01
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -62242,7 +62242,7 @@
       ],
       "epss": {
         "score": 0.0161,
-        "percentile": 80.927
+        "percentile": 80.996
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -62290,7 +62290,7 @@
       ],
       "epss": {
         "score": 0.0127,
-        "percentile": 78.544
+        "percentile": 78.631
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -64197,7 +64197,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["liferay"],
-        "products": ["dxp", "portal"]
+        "products": ["portal", "dxp"]
       },
       "references": [
         {
@@ -66897,7 +66897,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["huawei"],
-        "products": ["emui", "harmonyos"]
+        "products": ["harmonyos", "emui"]
       },
       "references": [
         {
@@ -67915,7 +67915,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["hitachi"],
-        "products": ["hitachi ops center analyzer", "hitachi infrastructure analytics advisor"]
+        "products": ["hitachi infrastructure analytics advisor", "hitachi ops center analyzer"]
       },
       "references": [
         {
@@ -67963,7 +67963,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["liferay"],
-        "products": ["dxp", "portal"]
+        "products": ["portal", "dxp"]
       },
       "references": [
         {
@@ -68059,7 +68059,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["liferay"],
-        "products": ["dxp", "portal"]
+        "products": ["portal", "dxp"]
       },
       "references": [
         {
@@ -68449,10 +68449,10 @@
         "cpeMatches": [],
         "vendors": ["n/a"],
         "products": [
-          "vmware fusion",
           "vmware esxi",
-          "vmware cloud foundation",
-          "vmware workstation"
+          "vmware workstation",
+          "vmware fusion",
+          "vmware cloud foundation"
         ]
       },
       "references": [
@@ -68502,10 +68502,10 @@
         "cpeMatches": [],
         "vendors": ["n/a"],
         "products": [
-          "vmware fusion",
           "vmware esxi",
-          "vmware cloud foundation",
-          "vmware workstation"
+          "vmware workstation",
+          "vmware fusion",
+          "vmware cloud foundation"
         ]
       },
       "references": [
@@ -69049,7 +69049,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["huawei"],
-        "products": ["emui", "harmonyos"]
+        "products": ["harmonyos", "emui"]
       },
       "references": [
         {
@@ -70034,7 +70034,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["liferay"],
-        "products": ["dxp", "portal"]
+        "products": ["portal", "dxp"]
       },
       "references": [
         {
@@ -70279,7 +70279,7 @@
       ],
       "epss": {
         "score": 0.0583,
-        "percentile": 90.08
+        "percentile": 90.141
       },
       "riskScore": 42,
       "exploitationStatus": "UNKNOWN",
@@ -70326,8 +70326,8 @@
         }
       ],
       "epss": {
-        "score": 0.0664,
-        "percentile": 90.739
+        "score": 0.042,
+        "percentile": 88.299
       },
       "riskScore": 42,
       "exploitationStatus": "UNKNOWN",
@@ -70375,7 +70375,7 @@
       ],
       "epss": {
         "score": 0.0003,
-        "percentile": 6.718
+        "percentile": 6.773
       },
       "riskScore": 42,
       "exploitationStatus": "UNKNOWN",
@@ -70423,7 +70423,7 @@
       ],
       "epss": {
         "score": 0.0027,
-        "percentile": 50.479
+        "percentile": 50.645
       },
       "riskScore": 42,
       "exploitationStatus": "UNKNOWN",
@@ -70471,7 +70471,7 @@
       ],
       "epss": {
         "score": 0.0476,
-        "percentile": 88.955
+        "percentile": 89.021
       },
       "riskScore": 42,
       "exploitationStatus": "UNKNOWN",
@@ -70519,7 +70519,7 @@
       ],
       "epss": {
         "score": 0.0021,
-        "percentile": 44.144
+        "percentile": 44.286
       },
       "riskScore": 42,
       "exploitationStatus": "UNKNOWN",
@@ -70567,7 +70567,7 @@
       ],
       "epss": {
         "score": 0.0069,
-        "percentile": 70.878
+        "percentile": 71.009
       },
       "riskScore": 42,
       "exploitationStatus": "UNKNOWN",
@@ -70615,7 +70615,7 @@
       ],
       "epss": {
         "score": 0.0027,
-        "percentile": 49.787
+        "percentile": 49.956
       },
       "riskScore": 42,
       "exploitationStatus": "UNKNOWN",
@@ -70663,7 +70663,7 @@
       ],
       "epss": {
         "score": 0.0028,
-        "percentile": 51.138
+        "percentile": 51.303
       },
       "riskScore": 42,
       "exploitationStatus": "UNKNOWN",
@@ -70711,7 +70711,7 @@
       ],
       "epss": {
         "score": 0.0583,
-        "percentile": 90.086
+        "percentile": 90.147
       },
       "riskScore": 42,
       "exploitationStatus": "UNKNOWN",
@@ -70759,7 +70759,7 @@
       ],
       "epss": {
         "score": 0.0026,
-        "percentile": 48.779
+        "percentile": 48.94
       },
       "riskScore": 42,
       "exploitationStatus": "UNKNOWN",
@@ -70807,7 +70807,7 @@
       ],
       "epss": {
         "score": 0.0044,
-        "percentile": 62.053
+        "percentile": 62.209
       },
       "riskScore": 42,
       "exploitationStatus": "UNKNOWN",
@@ -70860,7 +70860,7 @@
       ],
       "epss": {
         "score": 0.0057,
-        "percentile": 67.611
+        "percentile": 67.769
       },
       "riskScore": 42,
       "exploitationStatus": "UNKNOWN",
@@ -70908,7 +70908,7 @@
       ],
       "epss": {
         "score": 0.0022,
-        "percentile": 45.068
+        "percentile": 45.209
       },
       "riskScore": 42,
       "exploitationStatus": "UNKNOWN",
@@ -70961,7 +70961,7 @@
       ],
       "epss": {
         "score": 0.0017,
-        "percentile": 39.396
+        "percentile": 39.518
       },
       "riskScore": 42,
       "exploitationStatus": "UNKNOWN",
@@ -71009,7 +71009,7 @@
       ],
       "epss": {
         "score": 0.0014,
-        "percentile": 34.804
+        "percentile": 34.913
       },
       "riskScore": 42,
       "exploitationStatus": "UNKNOWN",
@@ -71062,7 +71062,7 @@
       ],
       "epss": {
         "score": 0.0017,
-        "percentile": 38.987
+        "percentile": 39.109
       },
       "riskScore": 42,
       "exploitationStatus": "UNKNOWN",
@@ -71120,7 +71120,7 @@
       ],
       "epss": {
         "score": 0.0185,
-        "percentile": 82.172
+        "percentile": 82.253
       },
       "riskScore": 42,
       "exploitationStatus": "UNKNOWN",
@@ -71168,7 +71168,7 @@
       ],
       "epss": {
         "score": 0.0011,
-        "percentile": 30.571
+        "percentile": 30.669
       },
       "riskScore": 42,
       "exploitationStatus": "UNKNOWN",
@@ -71216,7 +71216,7 @@
       ],
       "epss": {
         "score": 0.0185,
-        "percentile": 82.172
+        "percentile": 82.253
       },
       "riskScore": 42,
       "exploitationStatus": "UNKNOWN",
@@ -71272,18 +71272,18 @@
         "cpeMatches": [],
         "vendors": ["abb, busch-jaeger"],
         "products": [
-          "2.4! display 55, sd/u12.55.11-825",
           "2.4! display 55, sd/sd/u12.55.1-825",
-          "2,4'' display 70, sd-u12-70-1-4015",
-          "roomtouch 4\", rt/u12.86.1-825",
-          "roomtouch 4\", rt/u12.86.11-811",
-          "roomtouch 4\", rt-u12-86-1-811",
-          "2,4'' display 70, sd/u12.70.11-4015",
-          "bcu knx, ba-u1.0.11",
           "2.4! display 63, sd/u12.63.11-825",
-          "bcu knx, ba-u1.0.21",
           "bcu knx, ba-u1.0.1",
-          "roomtouch 4\", rt/u12.86.11-825"
+          "roomtouch 4\", rt/u12.86.1-825",
+          "roomtouch 4\", rt/u12.86.11-825",
+          "roomtouch 4\", rt/u12.86.11-811",
+          "bcu knx, ba-u1.0.21",
+          "2,4'' display 70, sd-u12-70-1-4015",
+          "bcu knx, ba-u1.0.11",
+          "roomtouch 4\", rt-u12-86-1-811",
+          "2.4! display 55, sd/u12.55.11-825",
+          "2,4'' display 70, sd/u12.70.11-4015"
         ]
       },
       "references": [
@@ -71332,7 +71332,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["ge healthcare"],
-        "products": ["echopac turnkey", "echopac software only", "imagevault"]
+        "products": ["echopac software only", "imagevault", "echopac turnkey"]
       },
       "references": [
         {
@@ -72298,20 +72298,20 @@
         "cpeMatches": [],
         "vendors": ["vonets"],
         "products": [
-          "vap11ac",
-          "var11n-300",
-          "vap11g",
           "var1200-l",
-          "vap11s-5g",
-          "vap11g-300",
-          "vap11g-500",
           "vap11g-500s",
-          "vap11s",
-          "vap11n-300",
-          "var1200-h",
           "var600-h",
+          "vap11g",
           "vbg1200",
-          "vga-1000"
+          "vap11s",
+          "var11n-300",
+          "vap11g-300",
+          "vap11ac",
+          "vap11g-500",
+          "vap11s-5g",
+          "var1200-h",
+          "vga-1000",
+          "vap11n-300"
         ]
       },
       "references": [
@@ -73226,9 +73226,9 @@
         "vendors": ["blue planet"],
         "products": [
           "inventory (bpi)",
+          "orchestration (bpo)",
           "route optimization and analysis (roa)",
-          "unified assurance and analytics (uaa) ",
-          "orchestration (bpo)"
+          "unified assurance and analytics (uaa) "
         ]
       },
       "references": [
@@ -73518,20 +73518,20 @@
         "cpeMatches": [],
         "vendors": ["vonets"],
         "products": [
-          "vap11ac",
-          "var11n-300",
-          "vap11g",
           "var1200-l",
-          "vap11s-5g",
-          "vap11g-300",
-          "vap11g-500",
           "vap11g-500s",
-          "vap11s",
-          "vap11n-300",
-          "var1200-h",
           "var600-h",
+          "vap11g",
           "vbg1200",
-          "vga-1000"
+          "vap11s",
+          "var11n-300",
+          "vap11g-300",
+          "vap11ac",
+          "vap11g-500",
+          "vap11s-5g",
+          "var1200-h",
+          "vga-1000",
+          "vap11n-300"
         ]
       },
       "references": [
@@ -73580,7 +73580,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["watchguard"],
-        "products": ["authentication gateway", "single sign-on client"]
+        "products": ["single sign-on client", "authentication gateway"]
       },
       "references": [
         {
@@ -74540,7 +74540,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["liferay"],
-        "products": ["dxp", "portal"]
+        "products": ["portal", "dxp"]
       },
       "references": [
         {
@@ -74588,7 +74588,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["liferay"],
-        "products": ["dxp", "portal"]
+        "products": ["portal", "dxp"]
       },
       "references": [
         {
@@ -74636,7 +74636,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["liferay"],
-        "products": ["dxp", "portal"]
+        "products": ["portal", "dxp"]
       },
       "references": [
         {
@@ -74684,7 +74684,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["liferay"],
-        "products": ["dxp", "portal"]
+        "products": ["portal", "dxp"]
       },
       "references": [
         {
@@ -74732,7 +74732,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["liferay"],
-        "products": ["dxp", "portal"]
+        "products": ["portal", "dxp"]
       },
       "references": [
         {
@@ -76172,7 +76172,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["liferay"],
-        "products": ["dxp", "portal"]
+        "products": ["portal", "dxp"]
       },
       "references": [
         {
@@ -76261,7 +76261,7 @@
       ],
       "epss": {
         "score": 0.0029,
-        "percentile": 51.825
+        "percentile": 51.99
       },
       "riskScore": 41,
       "exploitationStatus": "UNKNOWN",
@@ -76308,8 +76308,8 @@
         }
       ],
       "epss": {
-        "score": 0.0029,
-        "percentile": 52.022
+        "score": 0.0032,
+        "percentile": 55.009
       },
       "riskScore": 41,
       "exploitationStatus": "UNKNOWN",
@@ -76357,7 +76357,7 @@
       ],
       "epss": {
         "score": 0.0094,
-        "percentile": 75.24
+        "percentile": 75.343
       },
       "riskScore": 41,
       "exploitationStatus": "UNKNOWN",
@@ -76405,7 +76405,7 @@
       ],
       "epss": {
         "score": 0.0055,
-        "percentile": 66.813
+        "percentile": 66.971
       },
       "riskScore": 41,
       "exploitationStatus": "UNKNOWN",
@@ -76453,7 +76453,7 @@
       ],
       "epss": {
         "score": 0.0036,
-        "percentile": 57.684
+        "percentile": 57.846
       },
       "riskScore": 41,
       "exploitationStatus": "UNKNOWN",
@@ -76501,7 +76501,7 @@
       ],
       "epss": {
         "score": 0.0024,
-        "percentile": 46.503
+        "percentile": 46.666
       },
       "riskScore": 41,
       "exploitationStatus": "UNKNOWN",
@@ -76509,17 +76509,17 @@
         "cpeMatches": [],
         "vendors": ["siemens"],
         "products": [
+          "simatic wincc v7.5",
+          "simatic wincc v7.4",
           "simatic wincc v8.0",
           "simatic information server 2022",
-          "simatic process historian 2020",
-          "simatic wincc runtime professional v18",
-          "simatic pcs 7 v9.1",
-          "simatic wincc runtime professional v19",
-          "simatic process historian 2022",
-          "simatic batch v9.1",
-          "simatic wincc v7.5",
           "simatic information server 2020",
-          "simatic wincc v7.4"
+          "simatic process historian 2020",
+          "simatic pcs 7 v9.1",
+          "simatic batch v9.1",
+          "simatic wincc runtime professional v19",
+          "simatic wincc runtime professional v18",
+          "simatic process historian 2022"
         ]
       },
       "references": [
@@ -76561,7 +76561,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 18.758
+        "percentile": 18.806
       },
       "riskScore": 41,
       "exploitationStatus": "UNKNOWN",
@@ -76609,7 +76609,7 @@
       ],
       "epss": {
         "score": 0.0043,
-        "percentile": 61.956
+        "percentile": 62.109
       },
       "riskScore": 41,
       "exploitationStatus": "UNKNOWN",
@@ -76657,7 +76657,7 @@
       ],
       "epss": {
         "score": 0.0027,
-        "percentile": 50.045
+        "percentile": 50.214
       },
       "riskScore": 41,
       "exploitationStatus": "UNKNOWN",
@@ -76705,7 +76705,7 @@
       ],
       "epss": {
         "score": 0.0031,
-        "percentile": 53.951
+        "percentile": 54.113
       },
       "riskScore": 41,
       "exploitationStatus": "UNKNOWN",
@@ -76753,7 +76753,7 @@
       ],
       "epss": {
         "score": 0.0008,
-        "percentile": 24.967
+        "percentile": 25.054
       },
       "riskScore": 41,
       "exploitationStatus": "UNKNOWN",
@@ -76801,7 +76801,7 @@
       ],
       "epss": {
         "score": 0.0018,
-        "percentile": 39.765
+        "percentile": 39.891
       },
       "riskScore": 41,
       "exploitationStatus": "UNKNOWN",
@@ -76849,14 +76849,14 @@
       ],
       "epss": {
         "score": 0.0033,
-        "percentile": 55.029
+        "percentile": 55.188
       },
       "riskScore": 41,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["liferay"],
-        "products": ["dxp", "portal"]
+        "products": ["portal", "dxp"]
       },
       "references": [
         {
@@ -76897,7 +76897,7 @@
       ],
       "epss": {
         "score": 0.0075,
-        "percentile": 72.157
+        "percentile": 72.275
       },
       "riskScore": 41,
       "exploitationStatus": "UNKNOWN",
@@ -76945,7 +76945,7 @@
       ],
       "epss": {
         "score": 0.0069,
-        "percentile": 70.8
+        "percentile": 70.931
       },
       "riskScore": 41,
       "exploitationStatus": "UNKNOWN",
@@ -76993,7 +76993,7 @@
       ],
       "epss": {
         "score": 0.01,
-        "percentile": 75.919
+        "percentile": 76.022
       },
       "riskScore": 41,
       "exploitationStatus": "UNKNOWN",
@@ -77041,7 +77041,7 @@
       ],
       "epss": {
         "score": 0.0014,
-        "percentile": 35.026
+        "percentile": 35.132
       },
       "riskScore": 41,
       "exploitationStatus": "UNKNOWN",
@@ -77089,7 +77089,7 @@
       ],
       "epss": {
         "score": 0.0029,
-        "percentile": 51.931
+        "percentile": 52.094
       },
       "riskScore": 41,
       "exploitationStatus": "UNKNOWN",
@@ -77137,7 +77137,7 @@
       ],
       "epss": {
         "score": 0.0016,
-        "percentile": 37.817
+        "percentile": 37.935
       },
       "riskScore": 41,
       "exploitationStatus": "UNKNOWN",
@@ -77241,18 +77241,18 @@
         "cpeMatches": [],
         "vendors": ["abb, busch-jaeger"],
         "products": [
-          "2.4! display 55, sd/u12.55.11-825",
           "2.4! display 55, sd/sd/u12.55.1-825",
-          "2,4'' display 70, sd-u12-70-1-4015",
-          "roomtouch 4\", rt/u12.86.1-825",
-          "roomtouch 4\", rt/u12.86.11-811",
-          "roomtouch 4\", rt-u12-86-1-811",
-          "2,4'' display 70, sd/u12.70.11-4015",
-          "bcu knx, ba-u1.0.11",
           "2.4! display 63, sd/u12.63.11-825",
-          "bcu knx, ba-u1.0.21",
           "bcu knx, ba-u1.0.1",
-          "roomtouch 4\", rt/u12.86.11-825"
+          "roomtouch 4\", rt/u12.86.1-825",
+          "roomtouch 4\", rt/u12.86.11-825",
+          "roomtouch 4\", rt/u12.86.11-811",
+          "bcu knx, ba-u1.0.21",
+          "2,4'' display 70, sd-u12-70-1-4015",
+          "bcu knx, ba-u1.0.11",
+          "roomtouch 4\", rt-u12-86-1-811",
+          "2.4! display 55, sd/u12.55.11-825",
+          "2,4'' display 70, sd/u12.70.11-4015"
         ]
       },
       "references": [

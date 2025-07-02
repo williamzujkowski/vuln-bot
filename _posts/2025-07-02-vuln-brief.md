@@ -1,23 +1,23 @@
 ---
 title: Morning Vulnerability Briefing - 2025-07-02
-date: 2025-07-02T00:23:47.474305
+date: 2025-07-02T04:13:58.709287
 layout: layouts/post.njk
 tags: [vulnerability, briefing, security]
-vulnerabilityCount: 33067
+vulnerabilityCount: 33093
 criticalCount: 0
 highCount: 1
 ---
 
 # Morning Vulnerability Briefing - 2025-07-02
 
-Today's briefing covers **33067 vulnerabilities** from 0 sources.
+Today's briefing covers **33093 vulnerabilities** from 0 sources.
 
 ## Risk Distribution
 
 - 🔴 **Critical Risk**: 0 vulnerabilities
 - 🟠 **High Risk**: 1 vulnerabilities
-- 🟡 **Medium Risk**: 11330 vulnerabilities
-- 🟢 **Low Risk**: 21736 vulnerabilities
+- 🟡 **Medium Risk**: 11358 vulnerabilities
+- 🟢 **Low Risk**: 21734 vulnerabilities
 
 ## Top Vulnerabilities
 
@@ -1105,33 +1105,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 43. [CVE-2024-32651](/api/vulns/CVE-2024-32651.json)
-
-**Risk Score**: 64/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 10.0 | 
-**EPSS**: 92.5%
-
-**Summary**: changedetection.io is an open source web page change detection, website watcher, restock monitor and notification service. There is a Server Side Template Injection (SSTI) in Jinja2 that allows Remote Command Execution on the server host. Attackers can run any system command without any restriction and they could use a reverse shell. The impact is critical as the attacker can completely takeover the server machine. This can be reduced if changedetection is behind a login page, but this isn't req...
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 92.52% exploit probability
-
-**Affected Vendors**: dgtlmoon
-
-**Tags**: `CWE-1336`
-
-**References**:
-
-- [https://github.com/dgtlmoon/changedetection.io/security/advisories/GHSA-4r7v-whpg-8rx3](https://github.com/dgtlmoon/changedetection.io/security/advisories/GHSA-4r7v-whpg-8rx3)
-- [https://github.com/dgtlmoon/changedetection.io/releases/tag/0.45.21](https://github.com/dgtlmoon/changedetection.io/releases/tag/0.45.21)
-- [https://www.onsecurity.io/blog/server-side-template-injection-with-jinja2](https://www.onsecurity.io/blog/server-side-template-injection-with-jinja2)
-
----
-
-### 44. [CVE-2024-9234](/api/vulns/CVE-2024-9234.json)
+### 43. [CVE-2024-9234](/api/vulns/CVE-2024-9234.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1154,6 +1128,32 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 - [https://www.wordfence.com/threat-intel/vulnerabilities/id/e44c5dc0-6bf6-417a-9383-b345ff57ac32?source=cve](https://www.wordfence.com/threat-intel/vulnerabilities/id/e44c5dc0-6bf6-417a-9383-b345ff57ac32?source=cve)
 - [https://github.com/WordPressBugBounty/plugins-gutenkit-blocks-addon/blob/dc3738bb821cf1d93a11379b8695793fa5e1b9e6/gutenkit-blocks-addon/includes/Admin/Api/ActivePluginData.php#L76](https://github.com/WordPressBugBounty/plugins-gutenkit-blocks-addon/blob/dc3738bb821cf1d93a11379b8695793fa5e1b9e6/gutenkit-blocks-addon/includes/Admin/Api/ActivePluginData.php#L76)
 - [https://plugins.trac.wordpress.org/browser/gutenkit-blocks-addon/tags/2.1.0/includes/Admin/Api/ActivePluginData.php?rev=3159783#L76](https://plugins.trac.wordpress.org/browser/gutenkit-blocks-addon/tags/2.1.0/includes/Admin/Api/ActivePluginData.php?rev=3159783#L76)
+
+---
+
+### 44. [CVE-2024-32651](/api/vulns/CVE-2024-32651.json)
+
+**Risk Score**: 64/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 10.0 | 
+**EPSS**: 92.5%
+
+**Summary**: changedetection.io is an open source web page change detection, website watcher, restock monitor and notification service. There is a Server Side Template Injection (SSTI) in Jinja2 that allows Remote Command Execution on the server host. Attackers can run any system command without any restriction and they could use a reverse shell. The impact is critical as the attacker can completely takeover the server machine. This can be reduced if changedetection is behind a login page, but this isn't req...
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 92.49% exploit probability
+
+**Affected Vendors**: dgtlmoon
+
+**Tags**: `CWE-1336`
+
+**References**:
+
+- [https://github.com/dgtlmoon/changedetection.io/security/advisories/GHSA-4r7v-whpg-8rx3](https://github.com/dgtlmoon/changedetection.io/security/advisories/GHSA-4r7v-whpg-8rx3)
+- [https://github.com/dgtlmoon/changedetection.io/releases/tag/0.45.21](https://github.com/dgtlmoon/changedetection.io/releases/tag/0.45.21)
+- [https://www.onsecurity.io/blog/server-side-template-injection-with-jinja2](https://www.onsecurity.io/blog/server-side-template-injection-with-jinja2)
 
 ---
 
