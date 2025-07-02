@@ -1,6 +1,6 @@
 ---
 title: Morning Vulnerability Briefing - 2025-07-02
-date: 2025-07-02T12:10:48.349539
+date: 2025-07-02T16:08:16.965467
 layout: layouts/post.njk
 tags: [vulnerability, briefing, security]
 vulnerabilityCount: 33093
@@ -98,7 +98,33 @@ Today's briefing covers **33093 vulnerabilities** from 0 sources.
 
 ---
 
-### 4. [CVE-2025-3248](/api/vulns/CVE-2025-3248.json)
+### 4. [CVE-2025-24893](/api/vulns/CVE-2025-24893.json)
+
+**Risk Score**: 67/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 9.8 | 
+**EPSS**: 92.6%
+
+**Summary**: XWiki Platform is a generic wiki platform offering runtime services for applications built on top of it. Any guest can perform arbitrary remote code execution through a request to `SolrSearch`. This impacts the confidentiality, integrity and availability of the whole XWiki installation. To reproduce on an instance, without being logged in, go to `<host>/xwiki/bin/get/Main/SolrSearch?media=rss&text=%7D%7D%7D%7B%7Basync%20async%3Dfalse%7D%7D%7B%7Bgroovy%7D%7Dprintln%28"Hello%20from"%20%2B%20"%20se...
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 92.64% exploit probability
+
+**Affected Vendors**: xwiki
+
+**Tags**: `CWE-95`
+
+**References**:
+
+- [https://github.com/xwiki/xwiki-platform/security/advisories/GHSA-rr6p-3pfg-562j](https://github.com/xwiki/xwiki-platform/security/advisories/GHSA-rr6p-3pfg-562j)
+- [https://github.com/xwiki/xwiki-platform/commit/67021db9b8ed26c2236a653269302a86bf01ef40](https://github.com/xwiki/xwiki-platform/commit/67021db9b8ed26c2236a653269302a86bf01ef40)
+- [https://github.com/xwiki/xwiki-platform/blob/568447cad5172d97d6bbcfda9f6183689c2cf086/xwiki-platform-core/xwiki-platform-search/xwiki-platform-search-solr/xwiki-platform-search-solr-ui/src/main/resources/Main/SolrSearchMacros.xml#L955](https://github.com/xwiki/xwiki-platform/blob/568447cad5172d97d6bbcfda9f6183689c2cf086/xwiki-platform-core/xwiki-platform-search/xwiki-platform-search-solr/xwiki-platform-search-solr-ui/src/main/resources/Main/SolrSearchMacros.xml#L955)
+
+---
+
+### 5. [CVE-2025-3248](/api/vulns/CVE-2025-3248.json)
 
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
@@ -126,7 +152,7 @@ code.
 
 ---
 
-### 5. [CVE-2024-22320](/api/vulns/CVE-2024-22320.json)
+### 6. [CVE-2024-22320](/api/vulns/CVE-2024-22320.json)
 
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
@@ -152,7 +178,7 @@ code.
 
 ---
 
-### 6. [CVE-2024-20419](/api/vulns/CVE-2024-20419.json)
+### 7. [CVE-2024-20419](/api/vulns/CVE-2024-20419.json)
 
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
@@ -177,7 +203,7 @@ code.
 
 ---
 
-### 7. [CVE-2025-1974](/api/vulns/CVE-2025-1974.json)
+### 8. [CVE-2025-1974](/api/vulns/CVE-2025-1974.json)
 
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
@@ -202,19 +228,19 @@ code.
 
 ---
 
-### 8. [CVE-2025-32432](/api/vulns/CVE-2025-32432.json)
+### 9. [CVE-2025-32432](/api/vulns/CVE-2025-32432.json)
 
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 10.0 | 
-**EPSS**: 82.7%
+**EPSS**: 83.1%
 
 **Summary**: Craft is a flexible, user-friendly CMS for creating custom digital experiences on the web and beyond. Starting from version 3.0.0-RC1 to before 3.9.15, 4.0.0-RC1 to before 4.14.15, and 5.0.0-RC1 to before 5.6.17, Craft is vulnerable to remote code execution. This is a high-impact, low-complexity attack vector. This issue has been patched in versions 3.9.15, 4.14.15, and 5.6.17, and is an additional fix for CVE-2023-41892.
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 82.72% exploit probability
+- 83.07% exploit probability
 
 **Affected Vendors**: craftcms
 
@@ -228,7 +254,7 @@ code.
 
 ---
 
-### 9. [CVE-2024-4577](/api/vulns/CVE-2024-4577.json)
+### 10. [CVE-2024-4577](/api/vulns/CVE-2024-4577.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
@@ -254,7 +280,7 @@ code.
 
 ---
 
-### 10. [CVE-2024-50603](/api/vulns/CVE-2024-50603.json)
+### 11. [CVE-2024-50603](/api/vulns/CVE-2024-50603.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
@@ -280,7 +306,7 @@ code.
 
 ---
 
-### 11. [CVE-2024-1709](/api/vulns/CVE-2024-1709.json)
+### 12. [CVE-2024-1709](/api/vulns/CVE-2024-1709.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
@@ -312,7 +338,7 @@ critical systems.
 
 ---
 
-### 12. [CVE-2024-10924](/api/vulns/CVE-2024-10924.json)
+### 13. [CVE-2024-10924](/api/vulns/CVE-2024-10924.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
@@ -338,7 +364,7 @@ critical systems.
 
 ---
 
-### 13. [CVE-2024-21762](/api/vulns/CVE-2024-21762.json)
+### 14. [CVE-2024-21762](/api/vulns/CVE-2024-21762.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
@@ -363,45 +389,19 @@ critical systems.
 
 ---
 
-### 14. [CVE-2025-24893](/api/vulns/CVE-2025-24893.json)
-
-**Risk Score**: 66/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 92.4%
-
-**Summary**: XWiki Platform is a generic wiki platform offering runtime services for applications built on top of it. Any guest can perform arbitrary remote code execution through a request to `SolrSearch`. This impacts the confidentiality, integrity and availability of the whole XWiki installation. To reproduce on an instance, without being logged in, go to `<host>/xwiki/bin/get/Main/SolrSearch?media=rss&text=%7D%7D%7D%7B%7Basync%20async%3Dfalse%7D%7D%7B%7Bgroovy%7D%7Dprintln%28"Hello%20from"%20%2B%20"%20se...
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 92.39% exploit probability
-
-**Affected Vendors**: xwiki
-
-**Tags**: `CWE-95`
-
-**References**:
-
-- [https://github.com/xwiki/xwiki-platform/security/advisories/GHSA-rr6p-3pfg-562j](https://github.com/xwiki/xwiki-platform/security/advisories/GHSA-rr6p-3pfg-562j)
-- [https://github.com/xwiki/xwiki-platform/commit/67021db9b8ed26c2236a653269302a86bf01ef40](https://github.com/xwiki/xwiki-platform/commit/67021db9b8ed26c2236a653269302a86bf01ef40)
-- [https://github.com/xwiki/xwiki-platform/blob/568447cad5172d97d6bbcfda9f6183689c2cf086/xwiki-platform-core/xwiki-platform-search/xwiki-platform-search-solr/xwiki-platform-search-solr-ui/src/main/resources/Main/SolrSearchMacros.xml#L955](https://github.com/xwiki/xwiki-platform/blob/568447cad5172d97d6bbcfda9f6183689c2cf086/xwiki-platform-core/xwiki-platform-search/xwiki-platform-search-solr/xwiki-platform-search-solr-ui/src/main/resources/Main/SolrSearchMacros.xml#L955)
-
----
-
 ### 15. [CVE-2024-47575](/api/vulns/CVE-2024-47575.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.8 | 
-**EPSS**: 90.3%
+**EPSS**: 90.6%
 
 **Summary**: A missing authentication for critical function in FortiManager 7.6.0, FortiManager 7.4.0 through 7.4.4, FortiManager 7.2.0 through 7.2.7, FortiManager 7.0.0 through 7.0.12, FortiManager 6.4.0 through 6.4.14, FortiManager 6.2.0 through 6.2.12, Fortinet FortiManager Cloud 7.4.1 through 7.4.4, FortiManager Cloud 7.2.1 through 7.2.7, FortiManager Cloud 7.0.1 through 7.0.12, FortiManager Cloud 6.4.1 through 6.4.7 allows attacker to execute arbitrary code or commands via specially crafted requests.
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 90.31% exploit probability
+- 90.64% exploit probability
 - Affects critical infrastructure: fortinet
 
 **Affected Vendors**: fortinet
@@ -802,7 +802,32 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 31. [CVE-2025-1661](/api/vulns/CVE-2025-1661.json)
+### 31. [CVE-2024-38063](/api/vulns/CVE-2024-38063.json)
+
+**Risk Score**: 65/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 9.8 | 
+**EPSS**: 88.1%
+
+**Summary**: Windows TCP/IP Remote Code Execution Vulnerability
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 88.1% exploit probability
+- Affects critical infrastructure: microsoft
+
+**Affected Vendors**: microsoft
+
+**Tags**: `CWE-191`
+
+**References**:
+
+- [https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-38063](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-38063)
+
+---
+
+### 32. [CVE-2025-1661](/api/vulns/CVE-2025-1661.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -828,7 +853,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 32. [CVE-2024-36404](/api/vulns/CVE-2024-36404.json)
+### 33. [CVE-2024-36404](/api/vulns/CVE-2024-36404.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -851,31 +876,6 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 - [https://github.com/geotools/geotools/security/advisories/GHSA-w3pj-wh35-fq8w](https://github.com/geotools/geotools/security/advisories/GHSA-w3pj-wh35-fq8w)
 - [https://github.com/geotools/geotools/pull/4797](https://github.com/geotools/geotools/pull/4797)
 - [https://github.com/geotools/geotools/commit/f0c9961dc4d40c5acfce2169fab92805738de5ea](https://github.com/geotools/geotools/commit/f0c9961dc4d40c5acfce2169fab92805738de5ea)
-
----
-
-### 33. [CVE-2024-38063](/api/vulns/CVE-2024-38063.json)
-
-**Risk Score**: 65/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 87.4%
-
-**Summary**: Windows TCP/IP Remote Code Execution Vulnerability
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 87.37% exploit probability
-- Affects critical infrastructure: microsoft
-
-**Affected Vendors**: microsoft
-
-**Tags**: `CWE-191`
-
-**References**:
-
-- [https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-38063](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-38063)
 
 ---
 
