@@ -1,6 +1,6 @@
 ---
 title: Morning Vulnerability Briefing - 2025-07-04
-date: 2025-07-04T16:07:50.588191
+date: 2025-07-04T20:07:58.366684
 layout: layouts/post.njk
 tags: [vulnerability, briefing, security]
 vulnerabilityCount: 33131
