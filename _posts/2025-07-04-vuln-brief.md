@@ -1,6 +1,6 @@
 ---
 title: Morning Vulnerability Briefing - 2025-07-04
-date: 2025-07-04T12:10:39.689251
+date: 2025-07-04T16:07:50.588191
 layout: layouts/post.njk
 tags: [vulnerability, briefing, security]
 vulnerabilityCount: 33131
@@ -16,8 +16,8 @@ Today's briefing covers **33131 vulnerabilities** from 0 sources.
 
 - 🔴 **Critical Risk**: 0 vulnerabilities
 - 🟠 **High Risk**: 0 vulnerabilities
-- 🟡 **Medium Risk**: 11375 vulnerabilities
-- 🟢 **Low Risk**: 21756 vulnerabilities
+- 🟡 **Medium Risk**: 11356 vulnerabilities
+- 🟢 **Low Risk**: 21775 vulnerabilities
 
 ## Top Vulnerabilities
 
@@ -33,7 +33,7 @@ Today's briefing covers **33131 vulnerabilities** from 0 sources.
 **Risk Factors**:
 
 - CRITICAL severity
-- 94.18% exploit probability
+- 94.25% exploit probability
 - Affects critical infrastructure: fortinet
 
 **Affected Vendors**: fortinet
@@ -51,14 +51,14 @@ Today's briefing covers **33131 vulnerabilities** from 0 sources.
 **Risk Score**: 68/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.9 | 
-**EPSS**: 81.3%
+**EPSS**: 82.6%
 
 **Summary**: Roundcube Webmail before 1.5.10 and 1.6.x before 1.6.11 allows remote code execution by authenticated users because the _from parameter in a URL is not validated in program/actions/settings/upload.php, leading to PHP Object Deserialization.
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 81.3% exploit probability
+- 82.62% exploit probability
 
 **Affected Vendors**: roundcube
 
@@ -77,14 +77,14 @@ Today's briefing covers **33131 vulnerabilities** from 0 sources.
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.8 | 
-**EPSS**: 93.6%
+**EPSS**: 93.7%
 
 **Summary**: Microsoft Outlook Remote Code Execution Vulnerability
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 93.56% exploit probability
+- 93.68% exploit probability
 - Affects critical infrastructure: microsoft
 
 **Affected Vendors**: microsoft
@@ -137,7 +137,7 @@ code.
 **Risk Factors**:
 
 - CRITICAL severity
-- 92.39% exploit probability
+- 92.36% exploit probability
 
 **Affected Vendors**: langflow-ai
 
@@ -368,14 +368,14 @@ critical systems.
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.6 | 
-**EPSS**: 92.5%
+**EPSS**: 92.7%
 
 **Summary**: A out-of-bounds write in Fortinet FortiOS versions 7.4.0 through 7.4.2, 7.2.0 through 7.2.6, 7.0.0 through 7.0.13, 6.4.0 through 6.4.14, 6.2.0 through 6.2.15, 6.0.0 through 6.0.17, FortiProxy versions 7.4.0 through 7.4.2, 7.2.0 through 7.2.8, 7.0.0 through 7.0.14, 2.0.0 through 2.0.13, 1.2.0 through 1.2.13, 1.1.0 through 1.1.6, 1.0.0 through 1.0.7 allows attacker to execute unauthorized code or commands via specifically crafted requests
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 92.52% exploit probability
+- 92.66% exploit probability
 - Affects critical infrastructure: fortinet
 
 **Affected Vendors**: fortinet
@@ -698,7 +698,33 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 27. [CVE-2024-11680](/api/vulns/CVE-2024-11680.json)
+### 27. [CVE-2025-29927](/api/vulns/CVE-2025-29927.json)
+
+**Risk Score**: 65/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 9.1 | 
+**EPSS**: 93.6%
+
+**Summary**: Next.js is a React framework for building full-stack web applications. Starting in version 1.11.4 and prior to versions 12.3.5, 13.5.9, 14.2.25, and 15.2.3, it is possible to bypass authorization checks within a Next.js application, if the authorization check occurs in middleware. If patching to a safe version is infeasible, it is recommend that you prevent external user requests which contain the x-middleware-subrequest header from reaching your Next.js application. This vulnerability is fixed ...
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 93.64% exploit probability
+
+**Affected Vendors**: vercel
+
+**Tags**: `CWE-285`
+
+**References**:
+
+- [https://github.com/vercel/next.js/security/advisories/GHSA-f82v-jwr5-mffw](https://github.com/vercel/next.js/security/advisories/GHSA-f82v-jwr5-mffw)
+- [https://github.com/vercel/next.js/commit/52a078da3884efe6501613c7834a3d02a91676d2](https://github.com/vercel/next.js/commit/52a078da3884efe6501613c7834a3d02a91676d2)
+- [https://github.com/vercel/next.js/commit/5fd3ae8f8542677c6294f32d18022731eab6fe48](https://github.com/vercel/next.js/commit/5fd3ae8f8542677c6294f32d18022731eab6fe48)
+
+---
+
+### 28. [CVE-2024-11680](/api/vulns/CVE-2024-11680.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -721,32 +747,6 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 - [https://github.com/projectsend/projectsend/commit/193367d937b1a59ed5b68dd4e60bd53317473744](https://github.com/projectsend/projectsend/commit/193367d937b1a59ed5b68dd4e60bd53317473744)
 - [https://www.synacktiv.com/sites/default/files/2024-07/synacktiv-projectsend-multiple-vulnerabilities.pdf](https://www.synacktiv.com/sites/default/files/2024-07/synacktiv-projectsend-multiple-vulnerabilities.pdf)
 - [https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/linux/http/projectsend_unauth_rce.rb](https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/linux/http/projectsend_unauth_rce.rb)
-
----
-
-### 28. [CVE-2025-29927](/api/vulns/CVE-2025-29927.json)
-
-**Risk Score**: 65/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.1 | 
-**EPSS**: 93.6%
-
-**Summary**: Next.js is a React framework for building full-stack web applications. Starting in version 1.11.4 and prior to versions 12.3.5, 13.5.9, 14.2.25, and 15.2.3, it is possible to bypass authorization checks within a Next.js application, if the authorization check occurs in middleware. If patching to a safe version is infeasible, it is recommend that you prevent external user requests which contain the x-middleware-subrequest header from reaching your Next.js application. This vulnerability is fixed ...
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 93.58% exploit probability
-
-**Affected Vendors**: vercel
-
-**Tags**: `CWE-285`
-
-**References**:
-
-- [https://github.com/vercel/next.js/security/advisories/GHSA-f82v-jwr5-mffw](https://github.com/vercel/next.js/security/advisories/GHSA-f82v-jwr5-mffw)
-- [https://github.com/vercel/next.js/commit/52a078da3884efe6501613c7834a3d02a91676d2](https://github.com/vercel/next.js/commit/52a078da3884efe6501613c7834a3d02a91676d2)
-- [https://github.com/vercel/next.js/commit/5fd3ae8f8542677c6294f32d18022731eab6fe48](https://github.com/vercel/next.js/commit/5fd3ae8f8542677c6294f32d18022731eab6fe48)
 
 ---
 
@@ -883,14 +883,14 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.8 | 
-**EPSS**: 84.9%
+**EPSS**: 87.1%
 
 **Summary**: Windows Lightweight Directory Access Protocol (LDAP) Remote Code Execution Vulnerability
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 84.88% exploit probability
+- 87.12% exploit probability
 - Affects critical infrastructure: microsoft
 
 **Affected Vendors**: microsoft
@@ -1002,7 +1002,31 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 39. [CVE-2024-21650](/api/vulns/CVE-2024-21650.json)
+### 39. [CVE-2024-3495](/api/vulns/CVE-2024-3495.json)
+
+**Risk Score**: 64/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 9.8 | 
+**EPSS**: 93.5%
+
+**Summary**: The Country State City Dropdown CF7 plugin for WordPress is vulnerable to SQL Injection via the ‘cnt’ and 'sid' parameters in versions up to, and including, 2.7.2 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 93.49% exploit probability
+
+**Affected Vendors**: trustyplugins
+
+**References**:
+
+- [https://www.wordfence.com/threat-intel/vulnerabilities/id/17dcacaf-0e2a-4bef-b944-fb7e43d25777?source=cve](https://www.wordfence.com/threat-intel/vulnerabilities/id/17dcacaf-0e2a-4bef-b944-fb7e43d25777?source=cve)
+- [https://plugins.trac.wordpress.org/browser/country-state-city-auto-dropdown/trunk/includes/ajax-actions.php#L8](https://plugins.trac.wordpress.org/browser/country-state-city-auto-dropdown/trunk/includes/ajax-actions.php#L8)
+- [https://plugins.trac.wordpress.org/browser/country-state-city-auto-dropdown/trunk/includes/ajax-actions.php#L22](https://plugins.trac.wordpress.org/browser/country-state-city-auto-dropdown/trunk/includes/ajax-actions.php#L22)
+
+---
+
+### 40. [CVE-2024-21650](/api/vulns/CVE-2024-21650.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1025,30 +1049,6 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 - [https://github.com/xwiki/xwiki-platform/security/advisories/GHSA-rj7p-xjv7-7229](https://github.com/xwiki/xwiki-platform/security/advisories/GHSA-rj7p-xjv7-7229)
 - [https://github.com/xwiki/xwiki-platform/commit/b290bfd573c6f7db6cc15a88dd4111d9fcad0d31](https://github.com/xwiki/xwiki-platform/commit/b290bfd573c6f7db6cc15a88dd4111d9fcad0d31)
 - [https://jira.xwiki.org/browse/XWIKI-21173](https://jira.xwiki.org/browse/XWIKI-21173)
-
----
-
-### 40. [CVE-2024-3495](/api/vulns/CVE-2024-3495.json)
-
-**Risk Score**: 64/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 93.4%
-
-**Summary**: The Country State City Dropdown CF7 plugin for WordPress is vulnerable to SQL Injection via the ‘cnt’ and 'sid' parameters in versions up to, and including, 2.7.2 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 93.36% exploit probability
-
-**Affected Vendors**: trustyplugins
-
-**References**:
-
-- [https://www.wordfence.com/threat-intel/vulnerabilities/id/17dcacaf-0e2a-4bef-b944-fb7e43d25777?source=cve](https://www.wordfence.com/threat-intel/vulnerabilities/id/17dcacaf-0e2a-4bef-b944-fb7e43d25777?source=cve)
-- [https://plugins.trac.wordpress.org/browser/country-state-city-auto-dropdown/trunk/includes/ajax-actions.php#L8](https://plugins.trac.wordpress.org/browser/country-state-city-auto-dropdown/trunk/includes/ajax-actions.php#L8)
-- [https://plugins.trac.wordpress.org/browser/country-state-city-auto-dropdown/trunk/includes/ajax-actions.php#L22](https://plugins.trac.wordpress.org/browser/country-state-city-auto-dropdown/trunk/includes/ajax-actions.php#L22)
 
 ---
 
@@ -1256,7 +1256,33 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 49. [CVE-2025-27007](/api/vulns/CVE-2025-27007.json)
+### 49. [CVE-2024-24576](/api/vulns/CVE-2024-24576.json)
+
+**Risk Score**: 64/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 10.0 | 
+**EPSS**: 81.4%
+
+**Summary**: Rust is a programming language. The Rust Security Response WG was notified that the Rust standard library prior to version 1.77.2 did not properly escape arguments when invoking batch files (with the `bat` and `cmd` extensions) on Windows using the `Command`. An attacker able to control the arguments passed to the spawned process could execute arbitrary shell commands by bypassing the escaping. The severity of this vulnerability is critical for those who invoke batch files on Windows with untrus...
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 81.37% exploit probability
+
+**Affected Vendors**: rust-lang
+
+**Tags**: `CWE-78`, `CWE-88`
+
+**References**:
+
+- [https://github.com/rust-lang/rust/security/advisories/GHSA-q455-m56c-85mh](https://github.com/rust-lang/rust/security/advisories/GHSA-q455-m56c-85mh)
+- [https://doc.rust-lang.org/std/io/enum.ErrorKind.html#variant.InvalidInput](https://doc.rust-lang.org/std/io/enum.ErrorKind.html#variant.InvalidInput)
+- [https://doc.rust-lang.org/std/os/windows/process/trait.CommandExt.html#tymethod.raw_arg](https://doc.rust-lang.org/std/os/windows/process/trait.CommandExt.html#tymethod.raw_arg)
+
+---
+
+### 50. [CVE-2025-27007](/api/vulns/CVE-2025-27007.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1278,32 +1304,6 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 - [https://patchstack.com/database/wordpress/plugin/suretriggers/vulnerability/wordpress-suretriggers-1-0-82-privilege-escalation-vulnerability?_s_id=cve](https://patchstack.com/database/wordpress/plugin/suretriggers/vulnerability/wordpress-suretriggers-1-0-82-privilege-escalation-vulnerability?_s_id=cve)
 - [https://patchstack.com/articles/additional-critical-ottokit-formerly-suretriggers-vulnerability-patched?_s_id=cve](https://patchstack.com/articles/additional-critical-ottokit-formerly-suretriggers-vulnerability-patched?_s_id=cve)
-
----
-
-### 50. [CVE-2024-24576](/api/vulns/CVE-2024-24576.json)
-
-**Risk Score**: 64/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 10.0 | 
-**EPSS**: 80.8%
-
-**Summary**: Rust is a programming language. The Rust Security Response WG was notified that the Rust standard library prior to version 1.77.2 did not properly escape arguments when invoking batch files (with the `bat` and `cmd` extensions) on Windows using the `Command`. An attacker able to control the arguments passed to the spawned process could execute arbitrary shell commands by bypassing the escaping. The severity of this vulnerability is critical for those who invoke batch files on Windows with untrus...
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 80.84% exploit probability
-
-**Affected Vendors**: rust-lang
-
-**Tags**: `CWE-78`, `CWE-88`
-
-**References**:
-
-- [https://github.com/rust-lang/rust/security/advisories/GHSA-q455-m56c-85mh](https://github.com/rust-lang/rust/security/advisories/GHSA-q455-m56c-85mh)
-- [https://doc.rust-lang.org/std/io/enum.ErrorKind.html#variant.InvalidInput](https://doc.rust-lang.org/std/io/enum.ErrorKind.html#variant.InvalidInput)
-- [https://doc.rust-lang.org/std/os/windows/process/trait.CommandExt.html#tymethod.raw_arg](https://doc.rust-lang.org/std/os/windows/process/trait.CommandExt.html#tymethod.raw_arg)
 
 ---
 
