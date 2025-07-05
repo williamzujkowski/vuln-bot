@@ -1,6 +1,6 @@
 ---
 title: Morning Vulnerability Briefing - 2025-07-05
-date: 2025-07-05T12:09:46.263696
+date: 2025-07-05T16:08:14.967530
 layout: layouts/post.njk
 tags: [vulnerability, briefing, security]
 vulnerabilityCount: 33188
@@ -16,8 +16,8 @@ Today's briefing covers **33188 vulnerabilities** from 0 sources.
 
 - 🔴 **Critical Risk**: 0 vulnerabilities
 - 🟠 **High Risk**: 0 vulnerabilities
-- 🟡 **Medium Risk**: 11413 vulnerabilities
-- 🟢 **Low Risk**: 21775 vulnerabilities
+- 🟡 **Medium Risk**: 11415 vulnerabilities
+- 🟢 **Low Risk**: 21773 vulnerabilities
 
 ## Top Vulnerabilities
 
@@ -351,7 +351,7 @@ critical systems.
 - CRITICAL severity
 - 93.63% exploit probability
 
-**Affected Vendors**: really simple plugins, rogierlankhorst
+**Affected Vendors**: rogierlankhorst, really simple plugins
 
 **Tags**: `CWE-288`
 
@@ -1038,7 +1038,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 **Risk Factors**:
 
 - CRITICAL severity
-- 93.44% exploit probability
+- 93.4% exploit probability
 
 **Affected Vendors**: xwiki
 
