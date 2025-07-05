@@ -1,7 +1,7 @@
 {
   "chunk": "2025-CRITICAL",
   "count": 930,
-  "generated": "2025-07-05T08:08:19.391372",
+  "generated": "2025-07-05T12:09:46.263696",
   "vulnerabilities": [
     {
       "cveId": "CVE-2024-55591",
@@ -701,32 +701,32 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          "windows 10 version 1809",
-          "windows 10 version 21h2",
-          "windows 11 version 22h2",
-          "windows server 2012 r2 (server core installation)",
-          "windows server 2025",
-          "windows server 2019",
-          "windows server 2022",
-          "windows 10 version 1507",
-          "windows server 2012",
-          "windows server 2016 (server core installation)",
-          "windows server 2016",
-          "windows server 2008 r2 service pack 1",
-          "windows server 2012 r2",
-          "windows server 2008 service pack 2",
-          "windows server 2008  service pack 2",
-          "windows server 2019 (server core installation)",
-          "windows 11 version 24h2",
-          "windows 11 version 23h2",
-          "windows 10 version 22h2",
-          "windows server 2025 (server core installation)",
-          "windows server 2012 (server core installation)",
-          "windows 11 version 22h3",
-          "windows server 2008 service pack 2 (server core installation)",
-          "windows 10 version 1607",
           "windows server 2008 r2 service pack 1 (server core installation)",
-          "windows server 2022, 23h2 edition (server core installation)"
+          "windows 10 version 22h2",
+          "windows server 2012 r2 (server core installation)",
+          "windows 11 version 22h2",
+          "windows server 2008  service pack 2",
+          "windows server 2012",
+          "windows server 2022",
+          "windows server 2008 service pack 2",
+          "windows server 2025",
+          "windows 11 version 24h2",
+          "windows server 2012 (server core installation)",
+          "windows server 2012 r2",
+          "windows 10 version 21h2",
+          "windows 11 version 22h3",
+          "windows 10 version 1607",
+          "windows server 2016 (server core installation)",
+          "windows server 2008 r2 service pack 1",
+          "windows server 2019",
+          "windows 11 version 23h2",
+          "windows server 2019 (server core installation)",
+          "windows server 2008 service pack 2 (server core installation)",
+          "windows server 2022, 23h2 edition (server core installation)",
+          "windows 10 version 1507",
+          "windows server 2016",
+          "windows server 2025 (server core installation)",
+          "windows 10 version 1809"
         ]
       },
       "references": [
@@ -1083,7 +1083,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["ivanti"],
-        "products": ["neurons for zta gateways", "policy secure", "connect secure"]
+        "products": ["policy secure", "connect secure", "neurons for zta gateways"]
       },
       "references": [
         {
@@ -1778,11 +1778,11 @@
         "cpeMatches": [],
         "vendors": ["vmware"],
         "products": [
+          "esxi",
           "telco cloud platform",
-          "telco cloud infrastructure",
-          "vmware cloud foundation",
           "workstation",
-          "esxi"
+          "vmware cloud foundation",
+          "telco cloud infrastructure"
         ]
       },
       "references": [
@@ -2174,703 +2174,703 @@
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": ["toshiba tec", "brother industries, ltd", "konica minolta, inc."],
+        "vendors": ["konica minolta, inc.", "brother industries, ltd", "toshiba tec"],
         "products": [
-          "hl-l2400dw",
-          "hl-l9430cdn",
-          "dcp-l3555cdw",
-          "hl-l3210cw",
-          "mfc-j497dw",
-          "hl-l2370dwxl",
-          "hl-j6000dw",
-          "mfc-l5715dn",
-          "dcp-l2508dw",
-          "hl-l5210dn",
-          "mfc-j995dw xl",
-          "hl-l2405w",
-          "dcp-t236",
-          "td-4750tnwbr",
-          "mfc-t925dw",
-          "dcp-j973n-w/b",
-          "mfc-l8395cdw",
-          "mfc-l2770dw",
-          "dcp-j4543n",
-          "mfc-j6999cdw",
-          "hl-b2100db",
-          "dcp-j1050dw",
-          "mfc-l2760dw",
-          "td-4520dn",
-          "hl-l3220cwe",
-          "mfc-l2700dw(asa)",
-          "mfc-l2740dw",
-          "mfc-b7800dn",
-          "mfc-l6710dw",
-          "hl-l6300dw",
-          "mfc-j6555dw",
-          "dcp-t735dw",
-          "sp-1 (for japan)",
-          "dcp-j528n",
-          "mfc-l2730dwr",
-          "mfc-l3780cdw",
-          "dcp-1616nw",
-          "dcp-l2627dw",
-          "dcp-j774dw",
-          "mfc-l8900cdw",
-          "hl-l1230w",
-          "hl-l2370dw",
-          "mfc-l5900dw",
-          "mfc-8540dn",
-          "mfc-l2703dw",
-          "mfc-l2835dw",
-          "dcp-b7578dw",
-          "dcp-l3568cdw",
-          "mfc-l2685dw",
-          "dcp-j1800n",
-          "mfc-l8690cdw",
-          "mfc-l6950dw",
-          "dcp-j772dw",
-          "tj-4520tn",
-          "dcp-t439w",
-          "dcp-l2640dn",
-          "mfc-l2922dw",
-          "hl-b2050dn",
-          "hl-l5202dw",
-          "mfc-l6902dw",
-          "hl-l2372dn",
-          "mfc-l5715dw",
-          "mfc-j3940dw",
-          "ql-820nwbc",
+          "hl-l3288cdw",
+          "dcp-l2605dw",
+          "pt-e850tkw (for thailand)",
+          "hl-l2371dn",
+          "mfc-j998dn",
+          "tj-4420tn",
           "mfc-l6915dw",
+          "mfc-l2732dw",
+          "mfc-l2730dwr",
+          "hl-3190cdw",
+          "dcp-l3520cdw",
+          "rj-3050",
+          "td-2120n",
+          "mfc-l6915dn",
+          "hl-l3290cdw",
+          "mfc-b7720dn",
+          "hl-l5215dn",
+          "mfc-7890dn",
+          "hl-l6415dwt",
+          "hl-l2370dwxl",
+          "mfc-l5715dw",
+          "dcp-l2531dw",
+          "mfc-l2713dw",
+          "mfc-l9570cdw",
+          "dcp-j978n-w/b",
+          "hl-l3270cdw",
+          "dcp-l6600dw",
+          "mfc-l6720dw",
+          "mfc-j7600cdw",
+          "hl-l2400dw",
+          "mfc-l3745cdw",
+          "mfc-l5710dw",
+          "mfc-j1300dw",
+          "mfc-j5845dw(xl)",
+          "dcp-7190dw",
+          "dcp-j973n-w/b",
+          "ads-1250w",
+          "hl-l2370dw",
+          "mfc-l2886dw",
+          "mfc-j4540dw(xl)",
+          "hl-l6217dw",
           "dcp-l2622dw",
+          "mfc-j5730dw",
+          "mfc-b7800dn",
+          "mfc-j939dwn",
+          "mfc-j5855dw xl",
+          "mfc-t4500dw",
+          "dcp-t530dw",
+          "mfc-l2900dwxl",
+          "hl-l2445dw",
+          "mfc-7880dn",
+          "mfc-j4443n",
+          "hl-l2400dwe",
+          "hl-l2375dwr",
+          "hl-l8260cdw",
+          "hl-l3280cdw",
+          "mfc-j998dwn",
+          "bizhub 5020i",
+          "dcp-1610wr",
+          "mfc-l6912dw",
+          "mfc-l2770dw",
+          "hl-l6250dw",
+          "hl-l2461dn",
+          "mfc-l2960dw",
+          "dcp-b7535dw",
+          "hl-j6100dw",
+          "hl-l2390dw",
+          "dcp-1617nw",
+          "dcp-j1203n",
+          "td-4650tnwb",
+          "mfc-l2750dw",
+          "mfc-l5710dn",
+          "hl-l1230w",
+          "hl-l5050dn",
+          "dcp-l1630w",
+          "mfc-l2751dw",
+          "dcp-t430w",
+          "hl-b2100db",
+          "mfc-j6983cdw",
+          "hl-l2464dw",
+          "dcp-t510w",
+          "hl-b2180dw",
+          "hl-l2386dw",
+          "dcp-t710w",
+          "dcp-t220",
+          "rj-2035b",
+          "hl-l2465dw",
+          "dcp-l2551dn",
+          "dcp-t820dw",
+          "mfc-j893n",
+          "dcp-7180dn",
+          "td-4750tnwbr",
+          "bizhub 4000i",
+          "dcp-l2535dw",
+          "dcp-l2540dw",
+          "dcp-l2532dw",
+          "hl-l6415dn csp",
+          "dcp-l2640dw",
+          "ql-1110nwbc",
+          "dcp-j982n-w/b",
+          "hl-l3300cdw",
+          "dcp-l2537dw",
+          "mfc-l2807dw",
+          "mfc-l5702dw",
+          "mfc-b7811dw",
+          "ads-4900w",
+          "hl-5595dn",
+          "mfc-l2703dw",
+          "dcp-j987n-w",
+          "mfc-j7100cdw",
+          "dcp-t735dw",
+          "hl-1222we",
+          "mfc-l2707dw",
+          "dcp-t830dw",
+          "pt-p750w",
+          "mfc-l6700dw",
+          "dcp-j577n",
+          "mfc-l2802dw",
+          "mfc-ex915dw",
+          "dcp-b7640dwb",
+          "hl-l3220cdw",
+          "dcp-l3517cdw",
+          "fax-l2710dn",
+          "mfc-j738dwn",
+          "dcp-l2627dw",
+          "mfc-j4340dw(xl)",
+          "dcp-l2625dw",
+          "hl-l2360dn",
+          "dcp-l2550dw",
+          "dcp-j774dw",
+          "dcp-l2648dw",
+          "pt-e850tkw (for china)",
+          "td-2350df",
+          "hl-j6000dw",
+          "mfc-l3768cdw",
+          "dcp-l2647dw",
+          "ds-740d",
+          "dcp-j987n-b",
+          "dcp-j915n",
+          "hl-l2395dw",
+          "dcp-j1800dw",
+          "mfc-l2730dn",
+          "dcp-l2550dn",
+          "hl-l2365dwr",
+          "ads-2700we",
+          "pt-e550w (for us, eu)",
+          "hl-l3220cw",
+          "dcp-l3520cdwe",
+          "mfc-l3710cdw",
+          "mfc-l5900dw",
+          "hl-1212we",
+          "hl-l2460dwxl",
+          "mfc-j905n",
+          "dcp-j4543n",
+          "hl-l5212dw",
+          "mfc-j5345dw",
+          "mfc-l2827dwxl",
+          "dcp-t225",
+          "mfc-l2716dw",
+          "td-2350dsa",
+          "hl-l5102dw",
+          "hl-l5210dw",
+          "mfc-l3730cdn",
+          "td-2130n",
+          "dcp-l1632w",
+          "mfc-l5715dn",
+          "mfc-l5717dw",
+          "mfc-j738dn",
+          "pt-e850tkw (for asia pacific, eu, us)",
+          "dcp-b7628dw",
+          "hl-5595dnh",
+          "rj-2150",
+          "td-4420dn",
+          "dcp-1615nw",
+          "mfc-b7715dw",
+          "mfc-l2760dw",
+          "mfc-j6580cdw",
+          "mfc-l2862dw",
+          "hl-1223we",
+          "hl-l2370dn",
+          "mfc-l9577cdw",
+          "rj-3150",
+          "mfc-l9635cdn",
+          "hl-l6310dw",
+          "hl-l8245cdw",
+          "hl-b2158w",
+          "mfc-l5800dw",
+          "mfc-l5750dw",
+          "mfc-j6959dw",
+          "hl-l6200dw",
+          "td-4520tn",
+          "bizhub 4020i",
+          "hl-l5218dn",
+          "mfc-l6910dn",
+          "mfc-j1170dw",
+          "hl-l3295cdw",
+          "rj-3035b",
+          "hl-l2352dw",
+          "dcp-1610w",
+          "mfc-j2740dw",
+          "dcp-j981n",
+          "dcp-t420w",
+          "dcp-t238",
+          "mfc-j6940dw",
+          "hl-l5215dw",
+          "mfc-t920dw",
+          "nfc-j903n",
+          "ads-1350w",
+          "vc-500w",
+          "dcp-l5650dn",
+          "mfc-j6740dw",
+          "hl-l5200dw",
+          "mfc-b7810dw",
+          "mfc-l6750dw",
+          "mfc-l2700dw(asa)",
+          "dcp-j928n-wb",
+          "dcp-l2620dw",
+          "mfc-j5830dw",
+          "mfc-1910w",
+          "td-2135n",
+          "ads-2800w",
+          "mfc-j497dw",
+          "dcp-l3550cdw",
+          "dcp-j572n",
+          "dcp-l5502dn",
+          "td-2310d",
+          "mfc-l2820dw",
+          "dcp-l5662dn",
+          "dcp-1622we",
           "hl-jf1",
+          "mfc-j6980cdw",
+          "hl-1218w",
+          "mfc-j1800dw",
+          "hl-l2447dw",
+          "dcp-1610we",
+          "mfc-l2750dwr",
+          "mfc-l2860dw",
+          "mfc-j5335dw",
+          "dcp-j1140dw",
+          "mfc-9150cdn",
+          "mfc-l5700dw",
+          "hl-l2475dw",
+          "dcp-l8410cdw",
+          "mfc-j5930dw",
+          "mfc-j4440n",
+          "dcp-b7520dw",
+          "dcp-b7650dw",
+          "mfc-j6555dw xl",
+          "pt-p900wc",
+          "ds/mds-940dw",
+          "mfc-l8900cdw",
+          "dcp-l2552dn",
+          "mfc-j6930dw",
+          "dcp-l2600d",
+          "dcp-j1700dw",
+          "hl-b2180dwb",
+          "tj-4021tnr",
+          "mfc-l2715dw",
+          "tj-4120tn",
+          "tj-4422tn",
+          "hl-l3228cdw",
+          "dcp-9030cdn",
+          "ql-820nwb",
+          "mfc-l2710dw",
+          "pt-p950nw",
+          "mfc-j926n-wb",
+          "hl-l6400dw",
+          "hl-l8230cdw",
+          "mfc-l2827dw",
+          "dcp-l5602dn",
+          "dcp-l2540dn",
+          "ql-820nwbc",
+          "dcp-1623we",
+          "mfc-l6950dw",
+          "mfc-t930dw",
+          "mfc-j690dw",
+          "hl-j6010dw",
+          "hl-b2181dw",
+          "dcp-l2530dw",
+          "dcp-b7638dn",
+          "mfc-l2885dw",
+          "mfc-8530dn",
+          "hl-1212wr",
+          "tj-4010tn",
+          "mfc-1919nw",
+          "hl-l2325dw",
+          "hl-l2460dn",
+          "dcp-t230",
+          "mfc-l2700dwr",
+          "mfc-1911nw",
+          "dcp-j1200n",
+          "mfc-j6540dwe",
+          "mfc-l6970dw",
+          "mfc-j4535dw(xl)",
+          "dcp-l3528cdw",
+          "td-4650tnwbr",
+          "dcp-l2600dw",
+          "td-2350dfsa",
+          "dcp-1612we",
+          "mfc-l9570cdw(for japan)",
+          "dcp-j1800n",
+          "dcp-t435w",
+          "hl-3160cdw",
+          "mfc-1912wr",
+          "hl-l2340dw",
+          "hl-l9310cdw",
+          "dcp-t710w(for china)",
+          "mfc-l2835dw",
+          "dcp-t730dw",
+          "dcp-t426w",
+          "hl-b2188dw",
+          "pt-e550w (for china)",
+          "pt-e550w (for tiwan, hongkong)",
+          "mfc-l2715dw(for tiwan, koria)",
+          "hl-b2080dw",
+          "dcp-t825dw",
+          "hl-l1808w",
+          "hl-l8260cdn",
+          "mfc-j815dw xl",
+          "mfc-l5718dn",
+          "e-studio301dn",
+          "pt-e850tkw (for tiwan)",
+          "pt-e550w (for russia)",
+          "dcp-7195dw",
+          "dcp-b7600db",
+          "dcp-j1050dw",
+          "dcp-l3510cdw",
+          "mfc-j6583cdw",
+          "mfc-l6900dwg",
+          "hl-l2305w",
+          "mfc-l2730dw",
+          "dcp-l3555cdw",
+          "hl-l5228dw",
+          "dcp-7189dw",
+          "dcp-c421w",
+          "hl-l2467dw",
+          "ads-4700w",
+          "mfc-l2861dw",
+          "hl-l2315dw",
+          "mfc-l2800dw",
+          "hl-l6200dwt",
+          "mfc-t910dw",
+          "hl-l5100dn",
+          "mfc-ex910",
+          "hl-l5100dnt",
+          "hl-l2380dw",
+          "ads-3300w",
+          "hl-l2357dw",
+          "mfc-l2712dn",
+          "mfc-l2806dw",
+          "hl-l2360dw",
+          "mfc-l2690dw",
+          "dcp-l2560dwr",
+          "hl-t4000dw",
+          "mfc-j739dwn",
+          "mfc-l2880dw",
+          "mfc-j895dw",
+          "ads-4300n",
+          "dcp-b7648dw",
+          "mfc-j7500cdw",
+          "mfc-j1500n",
+          "ads-2400n",
+          "mfc-7895dw",
+          "fax-l2700dn",
+          "ql-1115nwb",
+          "mfc-j3530dw",
+          "rj-4250wb",
+          "dcp-l2548dw",
+          "rj-2140",
+          "mfc-j1010dw",
+          "dcp-t425w",
+          "hl-l5212dn",
+          "pt-e800w",
+          "mfc-l8395cdw",
+          "mfc-l5850dw",
+          "pt-e550w (for vietnum)",
+          "hl-l2340dwr",
+          "dcp-j582n",
+          "mfc-j6935dw",
+          "hl-l8360cdw",
+          "pt-d800w",
+          "dcp-j526n",
+          "hl-l3210cw",
+          "dcp-1616nw",
+          "mfc-l3780cdw",
+          "dcp-j914n",
+          "ql-810wc",
+          "mfc-j1012dw",
+          "ads-1800w",
+          "td-4750tnwb",
+          "dcp-b7620dw",
+          "dcp-l5518dn",
+          "mfc-j805dw",
+          "mfc-j7700cdw",
+          "td-2350d",
+          "hl-2590dn",
+          "hl-l6250dn",
+          "mfc-l6702dw",
+          "mfc-j6945dw",
+          "mfc-7889dw",
+          "dcp-l5600dn",
+          "mfc-l2980dw",
+          "hl-2595dw",
+          "mfc-j5955dw",
+          "mfc-l2765dw",
+          "mfc-l3720cdw",
+          "dcp-t725dw",
+          "sp-1 (for japan)",
+          "dcp-b7558w",
+          "hl-1211w",
+          "dcp-l3568cdw",
+          "dcp-l2627dwxl",
+          "dcp-j528n",
+          "dcp-l5500dn",
+          "hl-l2365dw",
+          "pt-e850tkw (for vietnum)",
+          "dcp-j1200we",
+          "hl-l8360cdwt",
+          "dcp-b7530dn",
+          "hl-l3220cwe",
+          "mfc-t810w",
+          "mfc-l2710dnr",
+          "ads-3000n",
+          "mfc-j5340dw",
+          "hl-j7010cdw",
+          "dcp-b7640dw",
+          "mfc-l3740cdwe",
+          "fax-l2800dw",
+          "dcp-t226",
+          "mfc-l9670cdn",
+          "hl-l1232w",
+          "tj-4620tn",
+          "mfc-j5945dw",
+          "dcp-l2550dw(twn)",
+          "mfc-1910we",
+          "mfc-l6820dw",
+          "td-4550dnwb",
+          "dcp-l2530dwr",
+          "mfc-j890dw",
+          "hl-ex470w",
+          "mfc-j6730dw",
+          "mfc-l2700dw",
+          "hl-5590dn",
+          "mfc-j3940dw",
+          "hl-l2865dw",
+          "dcp-l3515cdw",
+          "mfc-j6947dw",
+          "mfc-l2705dw",
+          "dcp-j4140n",
+          "ads-1700w",
+          "dcp-j1200w(xl)",
+          "hl-l2420dw",
+          "mfc-j1205w(xl)",
+          "dcp-j1100dw",
+          "mfc-l2900dw",
+          "dcp-t236",
+          "hl-b2150w",
+          "hl-l2350dwr",
+          "mfc-l2720dn",
+          "rj-3050ai",
+          "hl-l5202dw",
+          "mfc-l2701dw",
+          "mfc-l6915dn csp",
+          "dcp-l2520dw",
+          "hl-l6400dwt",
+          "hl-2569dw",
+          "hl-b2100d",
+          "hl-l6210dwt",
+          "mfc-1916nw",
+          "dcp-7090dw",
+          "dcp-l2540dnr",
+          "mfc-l5728dw",
+          "rj-3250wb",
+          "dcp-l5510dw",
+          "dcp-l5660dn",
+          "dcp-l5610dn",
+          "mfc-j5800cdw",
+          "mfc-l9610cdn",
+          "hl-l3240cdw",
+          "dcp-j4143n",
+          "mfc-l2771dw",
+          "dcp-1618w",
+          "mfc-j739dn",
+          "mfc-b7810dwb",
+          "mfc-l8610cdw",
+          "mfc-l2880dwxl",
+          "mfc-j6555dw",
+          "dcp-l5512dn",
+          "hl-l6402dw",
+          "pj-883",
+          "mfc-j4440dw",
+          "dcp-t720dw",
           "mfc-l3755cdw",
+          "dcp-l2550dnr",
+          "hl-l3230cdn",
+          "mfc-l6800dw",
+          "hl-l6415dw",
+          "hl-l2376dw",
+          "dcp-1612wr",
+          "mfc-l5912dw",
+          "mfc-j6535dw",
+          "td-2320df",
+          "mfc-t925dw",
+          "hl-l6415dn",
+          "hl-l1238w",
+          "pt-e550w (for koria)",
+          "td-4420dnz",
+          "dcp-l2508dw",
+          "mfc-j6957dw",
           "mfc-l5802dw",
           "hl-l6202dw",
-          "dcp-1617nw",
-          "mfc-l2707dw",
-          "pt-p900w",
-          "dcp-b7548w",
-          "hl-l6415dwt",
-          "hl-l6250dn",
-          "mfc-j7600cdw",
-          "hl-l3270cdw",
-          "mfc-t920dw",
-          "mfc-j905n",
-          "rj-3150ai",
-          "hl-l2445dw",
-          "dcp-j987n-b",
-          "dcp-b7638dn",
-          "dcp-j914n",
-          "dcp-t820dw",
-          "mfc-j6995cdw",
-          "mfc-j6947dw",
-          "mfc-l2710dw",
-          "mfc-l2861dw",
-          "dcp-j915n",
-          "mfc-l2860dwe",
-          "pt-p950nw",
-          "mfc-l2862dw",
-          "mfc-j926n-wb",
-          "mfc-l3740cdwe",
-          "dcp-l2627dwxl",
-          "hl-l2352dw",
-          "mfc-l5700dn",
-          "ads-2700w",
-          "dcp-b7600d",
-          "dcp-l1630w",
-          "tj-4005dn",
-          "mfc-l2817dw",
-          "pt-e550w (for china)",
-          "mfc-j895dw",
-          "mfc-j5945dw",
-          "hl-l3215cw",
-          "dcp-b7558w",
-          "dcp-b7658dw",
-          "mfc-j995dw",
-          "hl-l1238w",
-          "mfc-l3740cdw",
-          "mfc-j998dn",
-          "dcp-l2540dw",
-          "mfc-b7720dn",
-          "mfc-l2860dw",
-          "hl-l6200dwt",
-          "hl-l6400dw",
-          "mfc-j4540n",
-          "mfc-j1500n",
-          "hl-j6010dw",
-          "mfc-j7500cdw",
-          "tj-4021tn",
-          "dcp-l1632w",
-          "ads-2400n",
-          "mfc-j3530dw",
-          "dcp-j582n",
-          "hl-l5212dw",
-          "dcp-t435w",
-          "dcp-l3515cdw",
-          "mfc-l6720dw",
-          "dcp-l6600dw",
-          "mfc-j1300dw",
-          "dcp-b7600db",
-          "mfc-l5710dn",
-          "mfc-l5800dw",
-          "mfc-l2751dw",
-          "mfc-j6945dw",
-          "hl-j6100dw",
-          "dcp-7190dw",
-          "hl-1210we",
-          "hl-2560dn",
-          "hl-b2150w",
-          "hl-l2325dw",
-          "mfc-j6540dw",
-          "dcp-c421w",
-          "dcp-l1638w",
-          "mfc-j904n",
-          "hl-t4000dw",
-          "mfc-l6910dn",
-          "mfc-j5340dw",
-          "rj-4250wb",
-          "hl-l6415dn csp",
-          "pt-e850tkw (for china)",
-          "dcp-j978n-w/b",
-          "mfc-j6959dw",
-          "hl-l2340dwr",
-          "dcp-l3551cdw",
-          "mfc-l2715dw",
-          "pt-e850tkw (for thailand)",
-          "mfc-l2715dw(for tiwan, koria)",
-          "td-4420tn",
-          "hl-l2460dw",
-          "hl-l6402dw",
-          "hl-l6217dw",
-          "mfc-l3745cdw",
-          "hl-l6400dwg",
-          "mfc-j5335dw",
-          "dcp-7195dw",
-          "hl-l2385dw",
-          "hl-l5200dwt",
-          "hl-l2350dw",
-          "hl-l6300dwt",
-          "hl-l2366dw",
-          "dcp-t428w",
-          "mfc-j4335dw(xl)",
-          "mfc-l2720dw",
-          "pt-e850tkw (for vietnum)",
-          "tj-4420tn",
-          "mfc-j6930dw",
-          "dcp-l3560cdw",
-          "mfc-l2806dw",
-          "dcp-t710w(for china)",
-          "hl-l3220cdw",
-          "mfc-l2700dn",
-          "dcp-t520w",
-          "dcp-j1200n",
-          "mfc-l3735cdn",
-          "hl-l5210dwt",
-          "dcp-l2520dwr",
-          "mfc-j6980cdw",
-          "mfc-j4940dn",
-          "pt-p900wc",
-          "mfc-l9570cdw",
-          "mfc-l2827dwxl",
-          "hl-l6412dw",
-          "dcp-l2560dwr",
-          "mfc-l3720cdw",
-          "hl-l5215dw",
-          "hl-l2350dwr",
-          "rj-3050ai",
-          "td-2350df",
-          "hl-l2370dn",
-          "ads-1250w",
-          "hl-l3230cdn",
-          "mfc-l2771dw",
-          "dcp-l1848w",
-          "hl-5590dn",
-          "dcp-t525w",
-          "td-4520tn",
-          "hl-1222we",
-          "mfc-j4443n",
-          "td-4550dnwb",
-          "hl-l5212dn",
-          "dcp-7190dn",
-          "hl-l2375dwr",
-          "dcp-7090dw",
-          "mfc-l2712dn",
-          "dcp-t220",
-          "mfc-j998dwn",
-          "td-4650tnwbr",
-          "mfc-j5930dw",
-          "dcp-1612w",
-          "dcp-t835dw",
-          "dcp-t710w",
-          "mfc-j5345dw",
-          "mfc-l2700dwr",
-          "ql-1110nwbc",
-          "dcp-b7648dw",
-          "mfc-j805dw xl",
-          "bizhub 4020i",
-          "dcp-b7650dw",
-          "mfc-j2340dw",
-          "mfc-l2880dw",
-          "mfc-j7700cdw",
-          "mfc-l2960dw",
-          "mfc-j738dwn",
-          "dcp-1618w",
-          "td-4420dnz",
-          "hl-l9310cdw",
-          "mfc-l2900dw",
-          "ads-3600w",
-          "mfc-l2750dw",
-          "mfc-4340dwe",
-          "dcp-t825dw",
-          "mfc-j5330dw",
-          "mfc-j1205w(xl)",
-          "mfc-j6555dw xl",
-          "hl-ex415dw",
-          "mfc-ex910",
-          "hl-l2375dw",
-          "hl-5595dnh",
-          "hl-5595dn",
-          "mfc-j1215w",
-          "hl-1212w",
-          "dcp-l5652dn",
-          "mfc-l2802dn",
-          "ql-810wc",
-          "mfc-j5740dw",
-          "mfc-j6583cdw",
-          "hl-l2386dw",
-          "dcp-j972n",
-          "hl-l2380dw",
-          "mfc-l2820dw",
-          "mfc-l2802dw",
-          "mfc-j6983cdw",
-          "hl-l5228dw",
-          "ads-4900w",
-          "hl-l8245cdw",
-          "pt-e800w",
-          "td-2130n",
-          "mfc-l6915dn",
-          "hl-l2460dwxl",
-          "hl-b2158w",
-          "tj-4121tnr",
-          "hl-l2465dw",
-          "mfc-l2732dw",
-          "dcp-l2551dw",
-          "rj-3035b",
-          "hl-l2360dn",
-          "mfc-l6900dw",
-          "ads-4300n",
-          "mfc-l2827dw",
-          "mfc-j6580cdw",
-          "dcp-l2535dw",
-          "dcp-j1140dw",
-          "bizhub 5000i",
-          "mfc-j7300cdw",
-          "ds-740d",
-          "rj-2150",
-          "dcp-l5602dn",
-          "dcp-b7620dw",
-          "hl-l2370dnr",
-          "pt-e550w (for thailand)",
-          "mfc-ex670w",
-          "ql-810w",
-          "pt-e550w (for us, eu)",
-          "dcp-t426w",
-          "mfc-l6800dw",
-          "dcp-t225",
-          "mfc-l8610cdw(for japan)",
-          "dcp-j1200we",
-          "ads-3300w",
-          "dcp-l2540dnr",
-          "dcp-l2530dwr",
-          "mfc-l2730dn",
-          "td-2135n",
-          "dcp-t226",
-          "hl-3160cdw",
-          "hl-j6000cdw",
-          "mfc-l2980dw",
-          "mfc-l2710dn",
-          "dcp-j526n",
-          "dcp-l2520dw",
-          "mfc-1911nw",
-          "dcp-j4140n",
-          "mfc-j890dw",
-          "mfc-j6957dw",
-          "mfc-j4540dw(xl)",
-          "dcp-t530dw",
-          "dcp-j1200w(xl)",
-          "mfc-l2880dwxl",
-          "mfc-j4535dw(xl)",
-          "mfc-j2740dw",
-          "mfc-j6740dw",
-          "hl-b2180dwb",
-          "td-4650tnwb",
-          "dcp-l2625dw",
-          "mfc-l6915dn csp",
-          "hl-2590dn",
-          "hl-l2360dnr",
-          "td-4420dn",
-          "dcp-l2620dw",
-          "mfc-l2805dw",
           "dcp-l2518dw",
-          "mfc-j5845dw(xl)",
-          "td-2125n",
-          "hl-l2400dwe",
-          "hl-1223we",
-          "mfc-l3710cdw",
-          "mfc-j5830dw",
-          "mfc-7890dn",
-          "ds/mds-940dw",
-          "td-2350dsa",
-          "mfc-l5750dw",
-          "hl-l6250dw",
-          "dcp-j1700dw",
-          "mfc-l9670cdn",
-          "dcp-l2540dn",
-          "pj-773",
-          "ads-3000n",
-          "hl-l8260cdw",
-          "mfc-t935dw",
-          "pj-883",
-          "hl-b2181dw",
-          "mfc-j5340dwe",
-          "mfc-j2330dw",
-          "ads-1700w",
-          "hl-l2315dw",
-          "rj-3250wb",
-          "hl-l6210dw",
-          "mfc-b7810dwb",
-          "hl-b2180dw",
-          "hl-l3240cdw",
-          "mfc-j5730dw",
-          "dcp-t238",
-          "mfc-j1012dw",
-          "hl-l8360cdw",
-          "mfc-l2730dw",
-          "dcp-1610we",
-          "dcp-1623we",
-          "mfc-l5755dw",
-          "mfc-j4345dw xl",
-          "dcp-l5502dn",
-          "mfc-j939dwn",
-          "mfc-l5728dw",
-          "mfc-8530dn",
-          "hl-l9410cdn",
-          "mfc-l3730cdn",
-          "mfc-b7715dw",
-          "hl-l5100dn",
-          "tj-4021tnr",
-          "dcp-l2680dw",
-          "hl-l5218dn",
-          "hl-1210w",
-          "mfc-t930dw",
-          "dcp-j1100dw",
-          "td-2320dsa",
-          "hl-l2365dw",
-          "e-studio302dnf",
-          "mfc-l8390cdw",
-          "pt-e550w (for vietnum)",
-          "dcp-l5600dn",
-          "hl-l5100dnt",
-          "hl-l6400dwt",
-          "dcp-1615nw",
-          "mfc-j3540dw",
-          "mfc-l2710dwr",
-          "dcp-l2648dw",
-          "mfc-j5630cdw",
-          "tj-4620tn",
-          "mfc-t810w",
-          "hl-l2440dw",
-          "dcp-l5500dn",
-          "mfc-t910dw",
-          "mfc-l5702dw",
-          "hl-1223wr",
-          "hl-l6450dw",
-          "dcp-l2530dw",
-          "dcp-1610wr",
-          "dcp-l2600dw",
-          "mfc-l2765dw",
-          "dcp-l2550dw(twn)",
-          "mfc-j739dn",
-          "hl-l2376dw",
-          "hl-b2100d",
-          "mfc-b7811dw",
-          "tj-4121tn",
-          "mfc-l2713dw",
-          "mfc-l2750dwxl",
-          "dcp-l3550cdw",
-          "dcp-j928n-wb",
-          "mfc-j738dn",
-          "dcp-l3528cdw",
-          "hl-l6415dn",
-          "mfc-7895dw",
-          "hl-l1808w",
-          "mfc-l8610cdw",
-          "mfc-j4340dw(xl)",
-          "dcp-l2531dw",
-          "dcp-l2548dw",
-          "mfc-j898n",
-          "mfc-1916nw",
-          "dcp-t536dw",
-          "mfc-1910we",
-          "td-2120n",
-          "rj-3050",
-          "mfc-l3765cdw",
-          "dcp-j1800dw",
-          "mfc-j2730dw",
-          "dcp-b7640dw",
-          "dcp-t830dw",
-          "fax-l2700dn",
-          "mfc-l6820dw",
-          "mfc-1910w",
-          "hl-l3290cdw",
-          "td-2350dfsa",
-          "td-4750tnwb",
-          "td-2310d",
-          "dcp-1612we",
-          "mfc-l2712dw",
-          "mfc-l3760cdw",
-          "mfc-l6900dwg",
-          "hl-l3288cdw",
-          "dcp-j988n",
-          "hl-l6410dn",
-          "hl-l2425dw",
-          "dcp-9030cdn",
-          "mfc-l2700dw",
-          "hl-3190cdw",
-          "hl-l3228cdw",
-          "dcp-l3510cdw",
-          "hl-l2395dw",
-          "dcp-l5650dn",
-          "mfc-j6530dw",
-          "bizhub 5020i",
-          "mfc-l2720dwr",
-          "hl-l5210dw",
-          "hl-l2480dw",
-          "hl-1212we",
-          "mfc-l9630cdn",
-          "dcp-l2560dw",
-          "mfc-j6540dwe",
-          "mfc-l6810dw",
-          "mfc-l6970dw",
-          "hl-l2420dw",
-          "mfc-j5855dw",
-          "dcp-j577n",
-          "dcp-t510w",
-          "ads-4700w",
-          "dcp-l2550dw",
-          "rj-2035b",
-          "hl-l2390dw",
-          "dcp-b7530dn",
-          "mfc-j6935dw",
-          "dcp-l3517cdw",
-          "dcp-t436w",
-          "hl-1210wr",
-          "hl-l2467dw",
-          "fax-l2710dn",
-          "mfc-j6730dw",
-          "mfc-j739dwn",
-          "mfc-j939dn",
-          "hl-l8240cdw",
-          "hl-l8230cdw",
-          "dcp-l2660dw",
-          "dcp-t510w(for china)",
-          "mfc-l2740dwr",
-          "dcp-l2627dwe",
-          "mfc-j1010dw",
-          "mfc-l5912dw",
-          "dcp-c1210n",
-          "mfc-9150cdn",
-          "dcp-t430w",
-          "mfc-l2705dw",
-          "td-2320d",
-          "hl-l6418dw",
-          "dcp-l2551dn",
-          "tj-4020tn",
-          "hl-l1232w",
-          "pt-e850tkw (for asia pacific, eu, us)",
-          "mfc-j4440n",
-          "mfc-7889dw",
-          "hl-l2340dw",
-          "rj-2050",
-          "mfc-l2820dwxl",
-          "hl-l8360cdwt",
-          "dcp-l2550dn",
-          "dcp-j982n-w/b",
-          "ads-2700we",
-          "dcp-b7608w",
-          "pt-e550w (for russia)",
-          "tj-4422tn",
-          "mfc-l3770cdw",
-          "hl-l2371dn",
-          "pt-e850tkw (for koria)",
-          "hl-l3230cdw",
-          "tj-tj-4522tn",
-          "mfc-j690dw",
-          "td-2350d",
-          "mfc-l2750dwr",
-          "rj-3150",
-          "dcp-b7620dwb",
-          "mfc-l8340cdw",
-          "hl-l2351dw",
-          "hl-l5200dw",
-          "hl-l6210dwt",
-          "mfc-l3750cdw",
-          "mfc-j6535dw",
-          "pt-e550w (for koria)",
-          "ql-820nwb",
-          "mfc-j6940dw",
-          "sp-1",
-          "hl-l2461dn",
-          "mfc-1911w",
-          "dcp-l8410cdw",
-          "mfc-j5855dw xl",
-          "mfc-l2900dwxl",
+          "hl-l5210dn",
+          "dcp-7190dn",
+          "bizhub 5000i",
+          "mfc-ex670w",
           "dcp-l2628dw",
-          "dcp-l2537dw",
-          "dcp-1610w",
-          "hl-j7010cdw",
-          "dcp-l2665dw",
-          "dcp-l2605dw",
-          "mfc-l5850dw",
-          "mfc-l2800dw",
-          "dcp-t730dw",
-          "dcp-b7640dwb",
-          "dcp-l5510dw",
-          "mfc-t4500dw",
-          "dcp-1622we",
-          "mfc-j1605dn",
-          "mfc-l2710dnr",
-          "hl-l6310dw",
-          "ads-2800w",
-          "dcp-l5610dn",
-          "dcp-l2532dw",
-          "mfc-t810w(for china)",
-          "hl-b2080dw",
-          "dcp-b7520dw",
-          "dcp-l5510dn",
-          "mfc-l2920dw",
+          "hl-l2375dw",
+          "hl-l2425dw",
+          "dcp-l5652dn",
+          "mfc-1911w",
+          "dcp-t520w",
+          "hl-l6418dw",
+          "dcp-l2520dwr",
+          "hl-l2370dnr",
           "mfc-j3930dw",
-          "pt-e850tkw (for uae)",
-          "mfc-j1800dw",
-          "hl-1218w",
-          "dcp-t720dw",
-          "hl-l2447dw",
-          "mfc-l2886dw",
-          "mfc-l9577cdw",
-          "pt-e850tkw (for tiwan)",
-          "mfc-j805dw",
-          "mfc-9350cdw",
-          "hl-l8260cdn",
-          "hl-1212wr",
-          "nfc-ex670",
-          "mfc-1915w",
-          "e-studio301dn",
-          "hl-l3280cdw",
-          "hl-l2357dw",
+          "mfc-l2817dw",
+          "mfc-j2340dw",
           "dcp-j587n",
-          "hl-l3300cdw",
-          "mfc-l9570cdw(for japan)",
-          "hl-2569dw",
-          "rj-2140",
-          "dcp-1623wr",
-          "mfc-l9635cdn",
-          "mfc-j4440dw",
-          "dcp-j572n",
-          "dcp-7180dn",
-          "ql-1110nwb",
-          "mfc-1919nw",
-          "mfc-l2807dw",
-          "hl-l3220cw",
-          "fax-l2800dw",
-          "mfc-l2716dw",
-          "mfc-j1170dw",
-          "mfc-l2680w",
-          "pt-p750w",
-          "hl-1211w",
-          "dcp-b7535dw",
-          "mfc-j893n",
-          "mfc-l6912dw",
-          "hl-l5050dn",
-          "mfc-j491dw",
-          "mfc-l5718dn",
-          "mfc-l5902dw",
-          "td-2320df",
-          "mfc-l5710dw",
-          "mfc-j6997cdw",
-          "tj-4120tn",
-          "hl-l2305w",
-          "hl-l2865dw",
-          "pt-d800w",
-          "mfc-l5700dw",
-          "dcp-b7628dw",
-          "dcp-t535dw",
-          "hl-l2365dwr",
-          "dcp-j1203n",
-          "dcp-l3520cdw",
-          "dcp-l3520cdwe",
-          "dcp-j4143n",
-          "mfc-j815dw xl",
-          "dcp-j987n-w",
-          "hl-l5102dw",
-          "dcp-1612wr",
-          "mfc-l6702dw",
-          "hl-l2475dw",
-          "mfc-j6955dw",
-          "mfc-l5717dw",
-          "dcp-7189dw",
-          "dcp-l2552dn",
-          "mfc-l2690dw",
-          "mfc-l6700dw",
-          "hl-l2360dw",
-          "dcp-l5660dn",
-          "dcp-l2647dw",
+          "dcp-l3560cdw",
+          "mfc-l2720dw",
+          "pt-e850tkw (for koria)",
+          "mfc-j939dn",
+          "mfc-j5740dw",
+          "tj-4005dn",
+          "tj-4021tn",
+          "mfc-l2740dw",
+          "ql-810w",
+          "mfc-j6530dw",
           "mfc-l2717dw",
-          "ads-1800w",
-          "mfc-b7810dw",
-          "tj-4010tn",
-          "dcp-l2600d",
-          "ads-4500w",
-          "mfc-l9610cdn",
-          "hl-b2188dw",
-          "mfc-l2720dn",
-          "mfc-l6750dw",
-          "mfc-l3768cdw",
-          "dcp-l5512dn",
-          "hl-ex470w",
-          "bizhub 4000i",
-          "dcp-t420w",
-          "pt-e550w (for tiwan, hongkong)",
-          "dcp-t425w",
-          "hl-l3295cdw",
-          "mfc-7880dn",
-          "mfc-j5800cdw",
-          "mfc-j5955dw",
-          "hl-l6415dw",
-          "mfc-l5915dw",
-          "dcp-l5518dn",
-          "dcp-l2541dw",
-          "dcp-t230",
-          "hl-2595dw",
-          "ads-1350w",
-          "ql-1115nwb",
+          "mfc-l5902dw",
+          "hl-j6000cdw",
+          "mfc-1915w",
+          "hl-l2405w",
+          "mfc-l2920dw",
+          "mfc-l3760cdw",
+          "hl-l6300dwt",
+          "td-4520dn",
+          "dcp-t439w",
+          "mfc-l6810dw",
+          "mfc-l3735cdn",
+          "mfc-4340dwe",
+          "dcp-b7620dwb",
+          "mfc-l5700dn",
+          "mfc-j2730dw",
+          "hl-2560dn",
+          "dcp-j772dw",
+          "mfc-l2820dwxl",
+          "mfc-8540dn",
+          "tj-tj-4522tn",
+          "td-2320dsa",
+          "dcp-1623wr",
+          "dcp-t835dw",
+          "dcp-l2680dw",
+          "td-2320d",
+          "mfc-j1215w",
+          "dcp-l2665dw",
+          "pt-p900w",
+          "dcp-t536dw",
+          "dcp-b7548w",
+          "mfc-l5755dw",
+          "mfc-l2805dw",
+          "hl-l6412dw",
+          "hl-l3215cw",
+          "dcp-l5510dn",
+          "dcp-b7600d",
+          "mfc-l2922dw",
+          "mfc-l2685dw",
+          "dcp-1612w",
+          "mfc-j4335dw(xl)",
+          "mfc-l6902dw",
+          "dcp-j988n",
+          "mfc-j904n",
+          "hl-l2372dn",
+          "dcp-l2640dn",
+          "td-4420tn",
+          "mfc-l2802dn",
+          "mfc-j4540n",
+          "hl-l2360dnr",
+          "hl-l5200dwt",
+          "hl-l2460dw",
+          "mfc-j805dw xl",
+          "hl-l2350dw",
+          "hl-l6410dn",
+          "hl-1210wr",
+          "mfc-l2710dwr",
+          "mfc-j3540dw",
+          "pj-773",
+          "hl-l8240cdw",
+          "mfc-l2710dn",
+          "dcp-t428w",
+          "dcp-l1848w",
+          "mfc-j6955dw",
+          "mfc-j995dw",
+          "mfc-j2330dw",
           "dcp-j572dw",
-          "mfc-j7100cdw",
-          "hl-l2460dn",
-          "dcp-l2640dw",
-          "dcp-l2550dnr",
-          "nfc-j903n",
-          "mfc-l2701dw",
-          "mfc-l2885dw",
-          "hl-l5215dn",
-          "dcp-l5662dn",
-          "dcp-t725dw",
-          "mfc-ex915dw",
-          "vc-500w",
-          "hl-l6200dw",
-          "dcp-j981n",
+          "e-studio302dnf",
+          "mfc-j6995cdw",
+          "mfc-j898n",
+          "mfc-j6997cdw",
+          "mfc-l2720dwr",
+          "dcp-l2660dw",
+          "mfc-l8690cdw",
+          "dcp-t436w",
+          "hl-l2366dw",
+          "ads-2700w",
+          "mfc-l8340cdw",
+          "mfc-j4345dw xl",
+          "mfc-j6999cdw",
+          "rj-2050",
+          "hl-l2480dw",
+          "tj-4020tn",
+          "tj-4520tn",
+          "mfc-l3740cdw",
+          "ql-1110nwb",
+          "hl-1210we",
+          "mfc-l2680w",
+          "dcp-b7608w",
+          "mfc-j5340dwe",
           "hl-l9470cdn",
-          "mfc-1912wr",
-          "hl-l2464dw"
+          "dcp-l2541dw",
+          "mfc-l2750dwxl",
+          "hl-l3230cdw",
+          "mfc-t810w(for china)",
+          "mfc-l3765cdw",
+          "mfc-j4940dn",
+          "dcp-l1638w",
+          "mfc-j995dw xl",
+          "hl-l2440dw",
+          "mfc-l2860dwe",
+          "hl-l6300dw",
+          "ads-3600w",
+          "hl-b2050dn",
+          "mfc-j5855dw",
+          "mfc-t935dw",
+          "mfc-l8610cdw(for japan)",
+          "hl-l2351dw",
+          "hl-l9410cdn",
+          "dcp-j972n",
+          "hl-l9430cdn",
+          "mfc-l9630cdn",
+          "sp-1",
+          "dcp-b7658dw",
+          "dcp-b7578dw",
+          "mfc-l2700dn",
+          "hl-l6210dw",
+          "mfc-l3750cdw",
+          "mfc-l5915dw",
+          "dcp-l2551dw",
+          "mfc-l2712dw",
+          "mfc-l2740dwr",
+          "dcp-t525w",
+          "pt-e850tkw (for uae)",
+          "dcp-l2560dw",
+          "td-2125n",
+          "hl-l6450dw",
+          "dcp-t510w(for china)",
+          "dcp-t535dw",
+          "dcp-l2627dwe",
+          "mfc-j491dw",
+          "hl-1212w",
+          "dcp-c1210n",
+          "hl-ex415dw",
+          "mfc-l6710dw",
+          "nfc-ex670",
+          "ads-4500w",
+          "hl-l2385dw",
+          "rj-3150ai",
+          "tj-4121tn",
+          "mfc-l6900dw",
+          "tj-4121tnr",
+          "hl-1223wr",
+          "mfc-j7300cdw",
+          "hl-l6400dwg",
+          "mfc-j5330dw",
+          "pt-e550w (for thailand)",
+          "mfc-j1605dn",
+          "hl-1210w",
+          "dcp-l3551cdw",
+          "hl-l5210dwt",
+          "mfc-l8390cdw",
+          "mfc-l3770cdw",
+          "mfc-9350cdw",
+          "mfc-j6540dw",
+          "mfc-j5630cdw"
         ]
       },
       "references": [
@@ -3841,7 +3841,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["fortinet"],
-        "products": ["fortimail", "fortivoice", "fortirecorder", "forticamera", "fortindr"]
+        "products": ["forticamera", "fortindr", "fortivoice", "fortirecorder", "fortimail"]
       },
       "references": [
         {
@@ -4660,8 +4660,8 @@
         "cpeMatches": [],
         "vendors": ["dover fueling solutions"],
         "products": [
-          "progauge maglink lx plus",
           "progauge maglink lx 4",
+          "progauge maglink lx plus",
           "progauge maglink lx ultimate"
         ]
       },
@@ -5402,59 +5402,6 @@
       }
     },
     {
-      "cveId": "CVE-2024-12827",
-      "title": "DWT - Directory & Listing WordPress Theme <= 3.3.6 - Unauthenticated Arbitrary User Password Reset",
-      "description": "The DWT - Directory & Listing WordPress Theme theme for WordPress is vulnerable to privilege escalation via account takeover in all versions up to, and including, 3.3.6. This is due to the plugin not properly checking for an empty token value prior to resetting a user's password through the dwt_listing_reset_password() function. This makes it possible for unauthenticated attackers to change arbitrary user's passwords, including administrators, and leverage that to gain access to their account.",
-      "publishedDate": "2025-06-27T08:23:57.966000+00:00",
-      "lastModifiedDate": "2025-06-27T13:31:54.772000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 9.8,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0007,
-        "percentile": 23.051
-      },
-      "riskScore": 52,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": ["scriptsbundle"],
-        "products": ["dwt - directory & listing wordpress theme"]
-      },
-      "references": [
-        {
-          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/51fc7d47-2a0f-4713-9859-120321aa32dc?source=cve",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://themeforest.net/item/dwt-listing-directory-listing-wordpress-theme/21976132",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": ["CWE-620"],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": null,
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/12xxx/CVE-2024-12827.json",
-            "lastModified": "2025-06-27T13:31:54.772000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2025-36038",
       "title": "IBM WebSphere Application Server code execution",
       "description": "IBM WebSphere Application Server 8.5 and 9.0 could allow a remote attacker to execute arbitrary code on the system with a specially crafted sequence of serialized objects.",
@@ -6013,9 +5960,9 @@
         "vendors": ["microsoft"],
         "products": [
           "windows server 2025 (server core installation)",
-          "windows 11 version 24h2",
           "windows server 2022, 23h2 edition (server core installation)",
-          "windows server 2025"
+          "windows server 2025",
+          "windows 11 version 24h2"
         ]
       },
       "references": [
@@ -6065,32 +6012,32 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          "windows 10 version 1809",
-          "windows 10 version 21h2",
-          "windows 11 version 22h2",
-          "windows server 2012 r2 (server core installation)",
-          "windows server 2025",
-          "windows server 2019",
-          "windows server 2022",
-          "windows 10 version 1507",
-          "windows server 2012",
-          "windows server 2016 (server core installation)",
-          "windows server 2016",
-          "windows server 2008 r2 service pack 1",
-          "windows server 2012 r2",
-          "windows server 2008 service pack 2",
-          "windows server 2008  service pack 2",
-          "windows server 2019 (server core installation)",
-          "windows 11 version 24h2",
-          "windows 11 version 23h2",
-          "windows 10 version 22h2",
-          "windows server 2025 (server core installation)",
-          "windows server 2012 (server core installation)",
-          "windows 11 version 22h3",
-          "windows server 2008 service pack 2 (server core installation)",
-          "windows 10 version 1607",
           "windows server 2008 r2 service pack 1 (server core installation)",
-          "windows server 2022, 23h2 edition (server core installation)"
+          "windows 10 version 22h2",
+          "windows server 2012 r2 (server core installation)",
+          "windows 11 version 22h2",
+          "windows server 2008  service pack 2",
+          "windows server 2012",
+          "windows server 2022",
+          "windows server 2008 service pack 2",
+          "windows server 2025",
+          "windows 11 version 24h2",
+          "windows server 2012 (server core installation)",
+          "windows server 2012 r2",
+          "windows 10 version 21h2",
+          "windows 11 version 22h3",
+          "windows 10 version 1607",
+          "windows server 2016 (server core installation)",
+          "windows server 2008 r2 service pack 1",
+          "windows server 2019",
+          "windows 11 version 23h2",
+          "windows server 2019 (server core installation)",
+          "windows server 2008 service pack 2 (server core installation)",
+          "windows server 2022, 23h2 edition (server core installation)",
+          "windows 10 version 1507",
+          "windows server 2016",
+          "windows server 2025 (server core installation)",
+          "windows 10 version 1809"
         ]
       },
       "references": [
@@ -6111,54 +6058,6 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/21xxx/CVE-2025-21307.json",
             "lastModified": "2025-04-02T13:24:14.261000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-28970",
-      "title": "WordPress WP Optimize By xTraffic plugin <= 5.1.6 - PHP Object Injection Vulnerability",
-      "description": "Deserialization of Untrusted Data vulnerability in pep.vn WP Optimize By xTraffic allows Object Injection. This issue affects WP Optimize By xTraffic: from n/a through 5.1.6.",
-      "publishedDate": "2025-06-27T11:52:42.396000+00:00",
-      "lastModifiedDate": "2025-06-27T13:04:58.357000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 9.8,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0005,
-        "percentile": 16.916
-      },
-      "riskScore": 51,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": ["pep.vn"],
-        "products": ["wp optimize by xtraffic"]
-      },
-      "references": [
-        {
-          "url": "https://patchstack.com/database/wordpress/plugin/wp-optimize-by-xtraffic/vulnerability/wordpress-wp-optimize-by-xtraffic-5-1-6-php-object-injection-vulnerability?_s_id=cve",
-          "source": "",
-          "tags": ["vdb-entry"]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": ["CWE-502"],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": null,
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/28xxx/CVE-2025-28970.json",
-            "lastModified": "2025-06-27T13:04:58.357000+00:00"
           }
         ]
       }
@@ -6217,198 +6116,6 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/2xxx/CVE-2025-2636.json",
             "lastModified": "2025-04-11T16:01:36.011000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-52709",
-      "title": "WordPress Everest Forms plugin <= 3.2.2 - PHP Object Injection Vulnerability",
-      "description": "Deserialization of Untrusted Data vulnerability in wpeverest Everest Forms allows Object Injection. This issue affects Everest Forms: from n/a through 3.2.2.",
-      "publishedDate": "2025-06-27T11:52:29.065000+00:00",
-      "lastModifiedDate": "2025-06-27T14:47:20.647000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 9.8,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0005,
-        "percentile": 16.916
-      },
-      "riskScore": 51,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": ["wpeverest"],
-        "products": ["everest forms"]
-      },
-      "references": [
-        {
-          "url": "https://patchstack.com/database/wordpress/plugin/everest-forms/vulnerability/wordpress-everest-forms-3-2-2-php-object-injection-vulnerability?_s_id=cve",
-          "source": "",
-          "tags": ["vdb-entry"]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": ["CWE-502"],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": null,
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/52xxx/CVE-2025-52709.json",
-            "lastModified": "2025-06-27T14:47:20.647000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-52725",
-      "title": "WordPress CouponXxL theme <= 3.0.0 - PHP Object Injection Vulnerability",
-      "description": "Deserialization of Untrusted Data vulnerability in pebas CouponXxL allows Object Injection. This issue affects CouponXxL: from n/a through 3.0.0.",
-      "publishedDate": "2025-06-27T11:52:26.104000+00:00",
-      "lastModifiedDate": "2025-06-27T13:09:03.530000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 9.8,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0005,
-        "percentile": 16.916
-      },
-      "riskScore": 51,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": ["pebas"],
-        "products": ["couponxxl"]
-      },
-      "references": [
-        {
-          "url": "https://patchstack.com/database/wordpress/theme/couponxxl/vulnerability/wordpress-couponxxl-3-0-0-php-object-injection-vulnerability?_s_id=cve",
-          "source": "",
-          "tags": ["vdb-entry"]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": ["CWE-502"],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": null,
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/52xxx/CVE-2025-52725.json",
-            "lastModified": "2025-06-27T13:09:03.530000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-52724",
-      "title": "WordPress Amwerk theme <= 1.2.0 - PHP Object Injection Vulnerability",
-      "description": "Deserialization of Untrusted Data vulnerability in BoldThemes Amwerk allows Object Injection. This issue affects Amwerk: from n/a through 1.2.0.",
-      "publishedDate": "2025-06-27T11:52:26.703000+00:00",
-      "lastModifiedDate": "2025-06-27T13:08:43.396000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 9.8,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0005,
-        "percentile": 16.916
-      },
-      "riskScore": 51,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": ["boldthemes"],
-        "products": ["amwerk"]
-      },
-      "references": [
-        {
-          "url": "https://patchstack.com/database/wordpress/theme/amwerk/vulnerability/wordpress-amwerk-1-2-0-php-object-injection-vulnerability?_s_id=cve",
-          "source": "",
-          "tags": ["vdb-entry"]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": ["CWE-502"],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": null,
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/52xxx/CVE-2025-52724.json",
-            "lastModified": "2025-06-27T13:08:43.396000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-49885",
-      "title": "WordPress Drag and Drop Multiple File Upload (Pro) - WooCommerce plugin <= 5.0.6 - Arbitrary File Upload Vulnerability",
-      "description": "Unrestricted Upload of File with Dangerous Type vulnerability in HaruTheme Drag and Drop Multiple File Upload (Pro) - WooCommerce allows Upload a Web Shell to a Web Server. This issue affects Drag and Drop Multiple File Upload (Pro) - WooCommerce: from n/a through 5.0.6.",
-      "publishedDate": "2025-06-27T11:52:30.847000+00:00",
-      "lastModifiedDate": "2025-06-27T13:42:41.874000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
-          "baseScore": 10.0,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0006,
-        "percentile": 17.588
-      },
-      "riskScore": 51,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": ["harutheme"],
-        "products": ["drag and drop multiple file upload (pro) - woocommerce"]
-      },
-      "references": [
-        {
-          "url": "https://patchstack.com/database/wordpress/plugin/drag-and-drop-file-upload-wc-pro/vulnerability/wordpress-drag-and-drop-multiple-file-upload-pro-woocommerce-5-0-6-arbitrary-file-upload-vulnerability?_s_id=cve",
-          "source": "",
-          "tags": ["vdb-entry"]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": ["CWE-434"],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": null,
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/49xxx/CVE-2025-49885.json",
-            "lastModified": "2025-06-27T13:42:41.874000+00:00"
           }
         ]
       }
@@ -6520,54 +6227,6 @@
       }
     },
     {
-      "cveId": "CVE-2025-32281",
-      "title": "WordPress WPKit For Elementor plugin <= 1.1.0 - Arbitrary Option Update to Privilege Escalation vulnerability",
-      "description": "Missing Authorization vulnerability in FocuxTheme WPKit For Elementor allows Privilege Escalation. This issue affects WPKit For Elementor: from n/a through 1.1.0.",
-      "publishedDate": "2025-06-27T11:52:36.905000+00:00",
-      "lastModifiedDate": "2025-06-27T13:42:35.259000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 9.8,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0005,
-        "percentile": 17.093
-      },
-      "riskScore": 51,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": ["focuxtheme"],
-        "products": ["wpkit for elementor"]
-      },
-      "references": [
-        {
-          "url": "https://patchstack.com/database/wordpress/plugin/wpkit-elementor/vulnerability/wordpress-wpkit-for-elementor-plugin-1-1-0-arbitrary-option-update-to-privilege-escalation-vulnerability?_s_id=cve",
-          "source": "",
-          "tags": ["vdb-entry"]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": ["CWE-862"],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": null,
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/32xxx/CVE-2025-32281.json",
-            "lastModified": "2025-06-27T13:42:35.259000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2025-4404",
       "title": "Freeipa: idm: privilege escalation from host to domain admin in freeipa",
       "description": "A privilege escalation from host to domain vulnerability was found in the FreeIPA project. The FreeIPA package fails to validate the uniqueness of the `krbCanonicalName` for the admin account by default, allowing users to create services with the same canonical name as the REALM admin. When a successful attack happens, the user can retrieve a Kerberos ticket in the name of this service, containing the admin@REALM credential. This flaw allows an attacker to perform administrative tasks over the REALM, leading to access to sensitive data and sensitive data exfiltration.",
@@ -6592,21 +6251,21 @@
         "cpeMatches": [],
         "vendors": ["red hat"],
         "products": [
-          "red hat enterprise linux 8",
-          "red hat enterprise linux 9",
-          "red hat enterprise linux 8.8 update services for sap solutions",
-          "red hat enterprise linux 7 extended lifecycle support",
-          "red hat enterprise linux 9.2 update services for sap solutions",
-          "red hat enterprise linux 8.6 advanced mission critical update support",
-          "red hat enterprise linux 8.8 telecommunications update service",
-          "red hat enterprise linux 9.4 extended update support",
-          "red hat enterprise linux 8.2 advanced update support",
           "red hat enterprise linux 8.4 advanced mission critical update support",
-          "red hat enterprise linux 9.0 update services for sap solutions",
-          "red hat enterprise linux 8.6 telecommunications update service",
+          "red hat enterprise linux 8.2 advanced update support",
+          "red hat enterprise linux 7 extended lifecycle support",
+          "red hat enterprise linux 8.8 update services for sap solutions",
+          "red hat enterprise linux 8.6 advanced mission critical update support",
+          "red hat enterprise linux 8",
           "red hat enterprise linux 8.6 update services for sap solutions",
+          "red hat enterprise linux 6",
+          "red hat enterprise linux 9",
+          "red hat enterprise linux 9.0 update services for sap solutions",
           "red hat enterprise linux 10",
-          "red hat enterprise linux 6"
+          "red hat enterprise linux 9.4 extended update support",
+          "red hat enterprise linux 8.8 telecommunications update service",
+          "red hat enterprise linux 9.2 update services for sap solutions",
+          "red hat enterprise linux 8.6 telecommunications update service"
         ]
       },
       "references": [
@@ -7056,7 +6715,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["ibm"],
-        "products": ["qradar suite software", "cloud pak for security"]
+        "products": ["cloud pak for security", "qradar suite software"]
       },
       "references": [
         {
@@ -7787,54 +7446,6 @@
       }
     },
     {
-      "cveId": "CVE-2025-23967",
-      "title": "WordPress GG Bought Together for WooCommerce plugin <= 1.0.2 - SQL Injection Vulnerability",
-      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in wpopal GG Bought Together for WooCommerce allows SQL Injection. This issue affects GG Bought Together for WooCommerce: from n/a through 1.0.2.",
-      "publishedDate": "2025-06-27T11:52:11.964000+00:00",
-      "lastModifiedDate": "2025-06-27T13:43:09.529000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:L",
-          "baseScore": 9.3,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0004,
-        "percentile": 10.937
-      },
-      "riskScore": 50,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": ["wpopal"],
-        "products": ["gg bought together for woocommerce"]
-      },
-      "references": [
-        {
-          "url": "https://patchstack.com/database/wordpress/plugin/gg-bought-together/vulnerability/wordpress-gg-bought-together-for-woocommerce-1-0-2-sql-injection-vulnerability?_s_id=cve",
-          "source": "",
-          "tags": ["vdb-entry"]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": ["CWE-89"],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": null,
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/23xxx/CVE-2025-23967.json",
-            "lastModified": "2025-06-27T13:43:09.529000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2025-2776",
       "title": "SysAid On-Prem <= 23.3.40 serverurl Proceessing XML External Entity Injection",
       "description": "SysAid On-Prem versions <= 23.3.40 are vulnerable to an unauthenticated XML External Entity (XXE) vulnerability in the Server URL processing functionality, allowing for administrator account takeover and file read primitives.",
@@ -8037,54 +7648,6 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/2xxx/CVE-2025-2777.json",
             "lastModified": "2025-05-08T03:56:15.105000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-39474",
-      "title": "WordPress Amely theme <= 3.1.4 - SQL Injection vulnerability",
-      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in ThemeMove Amely allows SQL Injection. This issue affects Amely: from n/a through 3.1.4.",
-      "publishedDate": "2025-06-27T11:52:35.674000+00:00",
-      "lastModifiedDate": "2025-06-27T13:05:18.710000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:L",
-          "baseScore": 9.3,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0004,
-        "percentile": 10.937
-      },
-      "riskScore": 50,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": ["thememove"],
-        "products": ["amely"]
-      },
-      "references": [
-        {
-          "url": "https://patchstack.com/database/wordpress/theme/amely/vulnerability/wordpress-amely-theme-3-1-4-sql-injection-vulnerability?_s_id=cve",
-          "source": "",
-          "tags": ["vdb-entry"]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": ["CWE-89"],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": null,
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/39xxx/CVE-2025-39474.json",
-            "lastModified": "2025-06-27T13:05:18.710000+00:00"
           }
         ]
       }
@@ -8428,198 +7991,6 @@
       }
     },
     {
-      "cveId": "CVE-2025-52829",
-      "title": "WordPress DirectIQ Email Marketing plugin <= 2.0 - SQL Injection Vulnerability",
-      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in DirectIQ DirectIQ Email Marketing allows SQL Injection. This issue affects DirectIQ Email Marketing: from n/a through 2.0.",
-      "publishedDate": "2025-06-27T11:52:13.952000+00:00",
-      "lastModifiedDate": "2025-06-27T13:42:54.971000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:L",
-          "baseScore": 9.3,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0004,
-        "percentile": 10.937
-      },
-      "riskScore": 50,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": ["directiq"],
-        "products": ["directiq email marketing"]
-      },
-      "references": [
-        {
-          "url": "https://patchstack.com/database/wordpress/plugin/directiq-wp/vulnerability/wordpress-directiq-email-marketing-2-0-sql-injection-vulnerability?_s_id=cve",
-          "source": "",
-          "tags": ["vdb-entry"]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": ["CWE-89"],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": null,
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/52xxx/CVE-2025-52829.json",
-            "lastModified": "2025-06-27T13:42:54.971000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-52717",
-      "title": "WordPress LifterLMS plugin <= 8.0.6 - SQL Injection Vulnerability",
-      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in chrisbadgett LifterLMS allows SQL Injection. This issue affects LifterLMS: from n/a through 8.0.6.",
-      "publishedDate": "2025-06-27T11:52:28.496000+00:00",
-      "lastModifiedDate": "2025-06-27T14:47:28.749000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:L",
-          "baseScore": 9.3,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0004,
-        "percentile": 10.937
-      },
-      "riskScore": 50,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": ["chrisbadgett"],
-        "products": ["lifterlms"]
-      },
-      "references": [
-        {
-          "url": "https://patchstack.com/database/wordpress/plugin/lifterlms/vulnerability/wordpress-lifterlms-8-0-6-sql-injection-vulnerability?_s_id=cve",
-          "source": "",
-          "tags": ["vdb-entry"]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": ["CWE-89"],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": null,
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/52xxx/CVE-2025-52717.json",
-            "lastModified": "2025-06-27T14:47:28.749000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-52722",
-      "title": "WordPress Classiera theme <= 4.0.34 - SQL Injection Vulnerability",
-      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in JoinWebs Classiera allows SQL Injection. This issue affects Classiera: from n/a through 4.0.34.",
-      "publishedDate": "2025-06-27T11:52:27.828000+00:00",
-      "lastModifiedDate": "2025-06-27T14:47:39.983000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:L",
-          "baseScore": 9.3,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0004,
-        "percentile": 10.937
-      },
-      "riskScore": 50,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": ["joinwebs"],
-        "products": ["classiera"]
-      },
-      "references": [
-        {
-          "url": "https://patchstack.com/database/wordpress/theme/classiera/vulnerability/wordpress-classiera-4-0-34-sql-injection-vulnerability?_s_id=cve",
-          "source": "",
-          "tags": ["vdb-entry"]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": ["CWE-89"],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": null,
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/52xxx/CVE-2025-52722.json",
-            "lastModified": "2025-06-27T14:47:39.983000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-52834",
-      "title": "WordPress Homey theme <= 2.4.5 - SQL Injection Vulnerability",
-      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in favethemes Homey allows SQL Injection. This issue affects Homey: from n/a through 2.4.5.",
-      "publishedDate": "2025-06-27T11:52:13.285000+00:00",
-      "lastModifiedDate": "2025-06-27T13:43:01.079000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:L",
-          "baseScore": 9.3,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0004,
-        "percentile": 10.937
-      },
-      "riskScore": 50,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": ["favethemes"],
-        "products": ["homey"]
-      },
-      "references": [
-        {
-          "url": "https://patchstack.com/database/wordpress/theme/homey/vulnerability/wordpress-homey-2-4-5-sql-injection-vulnerability?_s_id=cve",
-          "source": "",
-          "tags": ["vdb-entry"]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": ["CWE-89"],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": null,
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/52xxx/CVE-2025-52834.json",
-            "lastModified": "2025-06-27T13:43:01.079000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2025-22252",
       "title": "CVE-2025-22252: A missing authentication for critical function in Fortinet FortiProxy versions 7.6.0 through 7.6.1, ...",
       "description": "A missing authentication for critical function in Fortinet FortiProxy versions 7.6.0 through 7.6.1, FortiSwitchManager version 7.2.5, and FortiOS versions 7.4.4 through 7.4.6 and version 7.6.0 may allow an attacker with knowledge of an existing admin account to access the device as a valid admin via an authentication bypass.",
@@ -8643,7 +8014,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["fortinet"],
-        "products": ["fortiproxy", "fortios", "fortiswitchmanager"]
+        "products": ["fortiproxy", "fortiswitchmanager", "fortios"]
       },
       "references": [
         {
@@ -9884,18 +9255,18 @@
         "cpeMatches": [],
         "vendors": ["sapido"],
         "products": [
-          "brd70n",
           "bre71n",
-          "brf61c",
-          "br261c",
-          "brc70n",
-          "br071n",
-          "br270n",
+          "brf71n",
           "br476n",
+          "bre70n",
+          "br270n",
+          "brd70n",
+          "br071n",
           "brc76n",
           "brc70x",
-          "bre70n",
-          "brf71n"
+          "brc70n",
+          "brf61c",
+          "br261c"
         ]
       },
       "references": [
@@ -10003,18 +9374,18 @@
         "cpeMatches": [],
         "vendors": ["sapido"],
         "products": [
-          "brd70n",
           "bre71n",
-          "brf61c",
-          "br261c",
-          "brc70n",
-          "br071n",
-          "br270n",
+          "brf71n",
           "br476n",
+          "bre70n",
+          "br270n",
+          "brd70n",
+          "br071n",
           "brc76n",
           "brc70x",
-          "bre70n",
-          "brf71n"
+          "brc70n",
+          "brf61c",
+          "br261c"
         ]
       },
       "references": [
@@ -10281,33 +9652,33 @@
         "cpeMatches": [],
         "vendors": ["mitsubishi electric corporation"],
         "products": [
-          "gb-24a",
-          "ae-200e",
-          "tw-50a",
-          "g-50",
+          "eb-50gu-a",
           "ae-200j",
-          "eb-50gu-j",
-          "ew-50e",
-          "ew-50j",
-          "ae-50e",
-          "gb-50",
-          "ae-50a",
-          "gb-50a",
-          "gb-50ad",
-          "te-200a",
-          "gb-50ada-a",
-          "ag-150a-j",
-          "g-50a",
-          "ag-150a-a",
-          "g-150ad",
-          "cms-rmd-j",
-          "ew-50a",
           "ae-50j",
-          "g-50-w",
-          "te-50a",
-          "ae-200a",
           "gb-50ada-j",
-          "eb-50gu-a"
+          "g-150ad",
+          "eb-50gu-j",
+          "g-50-w",
+          "ae-200a",
+          "g-50a",
+          "cms-rmd-j",
+          "gb-50a",
+          "gb-50ada-a",
+          "ae-200e",
+          "ew-50a",
+          "te-50a",
+          "tw-50a",
+          "ae-50e",
+          "ew-50j",
+          "ae-50a",
+          "gb-50ad",
+          "ew-50e",
+          "ag-150a-a",
+          "te-200a",
+          "gb-24a",
+          "gb-50",
+          "g-50",
+          "ag-150a-j"
         ]
       },
       "references": [
@@ -10690,6 +10061,59 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/4xxx/CVE-2025-4334.json",
             "lastModified": "2025-06-27T14:51:55.539000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2024-12827",
+      "title": "DWT - Directory & Listing WordPress Theme <= 3.3.6 - Unauthenticated Arbitrary User Password Reset",
+      "description": "The DWT - Directory & Listing WordPress Theme theme for WordPress is vulnerable to privilege escalation via account takeover in all versions up to, and including, 3.3.6. This is due to the plugin not properly checking for an empty token value prior to resetting a user's password through the dwt_listing_reset_password() function. This makes it possible for unauthenticated attackers to change arbitrary user's passwords, including administrators, and leverage that to gain access to their account.",
+      "publishedDate": "2025-06-27T08:23:57.966000+00:00",
+      "lastModifiedDate": "2025-06-27T13:31:54.772000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 9.8,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0007,
+        "percentile": 23.051
+      },
+      "riskScore": 50,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": ["scriptsbundle"],
+        "products": ["dwt - directory & listing wordpress theme"]
+      },
+      "references": [
+        {
+          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/51fc7d47-2a0f-4713-9859-120321aa32dc?source=cve",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://themeforest.net/item/dwt-listing-directory-listing-wordpress-theme/21976132",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": ["CWE-620"],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": null,
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/12xxx/CVE-2024-12827.json",
+            "lastModified": "2025-06-27T13:31:54.772000+00:00"
           }
         ]
       }
@@ -11166,43 +10590,43 @@
         "cpeMatches": [],
         "vendors": ["canon inc."],
         "products": [
-          "imageclass lbp237dw",
-          "imageclass x mf1643if ii",
-          "imageclass mf455dw",
-          "i-sensys lbp236dw",
-          "color imageclass mf656cdw",
-          "i-sensys x 1238pr ii",
-          "i-sensys x 1238i ii",
-          "i-sensys mf655cdw",
-          "satera mf551dw",
-          "i-sensys lbp631cdw",
-          "color imageclass mf654cdw",
-          "i-sensys lbp633cdw",
-          "i-sensys mf453dw",
-          "imagerunner 1643if ii",
-          "imageclass x lbp1238 ii",
-          "satera mf457dw",
-          "color imageclass lbp633cdw",
-          "i-sensys mf651cdw",
-          "imagerunner 1643i ii",
-          "imageclass lbp236dw",
-          "imageclass mf451dw",
-          "satera mf656cdw",
-          "color imageclass lbp632cdw",
-          "imageclass x mf1643i ii",
-          "i-sensys lbp233dw",
-          "satera mf654cdw",
-          "i-sensys mf455dw",
-          "i-sensys x 1238p ii",
-          "imageclass mf452dw",
-          "i-sensys mf657cdw",
-          "color imageclass mf652cdw",
-          "imageclass mf453dw",
-          "i-sensys mf552dw",
-          "i-sensys mf553dw",
-          "i-sensys x 1238if ii",
           "color imageclass mf653cdw",
-          "imageclass x mf1238 ii"
+          "satera mf457dw",
+          "i-sensys lbp631cdw",
+          "i-sensys mf553dw",
+          "i-sensys x 1238i ii",
+          "imageclass mf452dw",
+          "imageclass lbp237dw",
+          "i-sensys mf453dw",
+          "i-sensys x 1238p ii",
+          "color imageclass lbp633cdw",
+          "imageclass x mf1238 ii",
+          "color imageclass mf656cdw",
+          "satera mf656cdw",
+          "i-sensys x 1238pr ii",
+          "color imageclass mf652cdw",
+          "imageclass x mf1643i ii",
+          "imagerunner 1643if ii",
+          "i-sensys mf455dw",
+          "imageclass lbp236dw",
+          "i-sensys mf655cdw",
+          "i-sensys x 1238if ii",
+          "i-sensys lbp633cdw",
+          "imageclass mf453dw",
+          "i-sensys lbp236dw",
+          "i-sensys mf657cdw",
+          "color imageclass mf654cdw",
+          "imageclass mf451dw",
+          "color imageclass lbp632cdw",
+          "imageclass mf455dw",
+          "satera mf654cdw",
+          "i-sensys mf552dw",
+          "imageclass x lbp1238 ii",
+          "imagerunner 1643i ii",
+          "satera mf551dw",
+          "i-sensys lbp233dw",
+          "imageclass x mf1643if ii",
+          "i-sensys mf651cdw"
         ]
       },
       "references": [
@@ -13057,22 +12481,22 @@
         "cpeMatches": [],
         "vendors": ["red hat"],
         "products": [
-          "red hat enterprise linux 8",
-          "red hat enterprise linux 9",
-          "red hat enterprise linux 9.2 extended update support",
-          "red hat enterprise linux 7 extended lifecycle support",
-          "red hat enterprise linux 8.8 extended update support",
-          "red hat enterprise linux 8.6 advanced mission critical update support",
-          "red hat enterprise linux 8.2 advanced update support",
-          "red hat enterprise linux 8.4 update services for sap solutions",
           "red hat enterprise linux 8.4 advanced mission critical update support",
-          "red hat enterprise linux 8.4 telecommunications update service",
-          "red hat enterprise linux 8.6 telecommunications update service",
-          "red hat enterprise linux 9.0 update services for sap solutions",
+          "red hat enterprise linux 8.2 advanced update support",
+          "red hat enterprise linux 7 extended lifecycle support",
+          "red hat enterprise linux 6",
+          "red hat enterprise linux 8.6 advanced mission critical update support",
+          "red hat enterprise linux 8",
           "red hat enterprise linux 8.6 update services for sap solutions",
+          "red hat enterprise linux 8.4 telecommunications update service",
+          "red hat enterprise linux 9",
+          "red hat enterprise linux 9.0 update services for sap solutions",
           "red hat enterprise linux 10",
           "red hat enterprise linux 9.4 extended update support",
-          "red hat enterprise linux 6"
+          "red hat enterprise linux 8.4 update services for sap solutions",
+          "red hat enterprise linux 8.8 extended update support",
+          "red hat enterprise linux 9.2 extended update support",
+          "red hat enterprise linux 8.6 telecommunications update service"
         ]
       },
       "references": [
@@ -13721,7 +13145,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["ivanti"],
-        "products": ["neurons for zta gateways", "policy secure", "connect secure"]
+        "products": ["policy secure", "connect secure", "neurons for zta gateways"]
       },
       "references": [
         {
@@ -13741,6 +13165,54 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/22xxx/CVE-2025-22457.json",
             "lastModified": "2025-04-24T03:55:16.988000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-28970",
+      "title": "WordPress WP Optimize By xTraffic plugin <= 5.1.6 - PHP Object Injection Vulnerability",
+      "description": "Deserialization of Untrusted Data vulnerability in pep.vn WP Optimize By xTraffic allows Object Injection. This issue affects WP Optimize By xTraffic: from n/a through 5.1.6.",
+      "publishedDate": "2025-06-27T11:52:42.396000+00:00",
+      "lastModifiedDate": "2025-06-27T13:04:58.357000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 9.8,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0005,
+        "percentile": 16.916
+      },
+      "riskScore": 49,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": ["pep.vn"],
+        "products": ["wp optimize by xtraffic"]
+      },
+      "references": [
+        {
+          "url": "https://patchstack.com/database/wordpress/plugin/wp-optimize-by-xtraffic/vulnerability/wordpress-wp-optimize-by-xtraffic-5-1-6-php-object-injection-vulnerability?_s_id=cve",
+          "source": "",
+          "tags": ["vdb-entry"]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": ["CWE-502"],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": null,
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/28xxx/CVE-2025-28970.json",
+            "lastModified": "2025-06-27T13:04:58.357000+00:00"
           }
         ]
       }
@@ -13824,12 +13296,12 @@
         "cpeMatches": [],
         "vendors": ["wavlink"],
         "products": [
-          "quantum d3g",
-          "quantum d2g",
-          "wl-wn530hg3",
-          "wl-wn576k1",
+          "wl-wn530g3a",
           "wl-wn532a3",
-          "wl-wn530g3a"
+          "wl-wn576k1",
+          "wl-wn530hg3",
+          "quantum d2g",
+          "quantum d3g"
         ]
       },
       "references": [
@@ -13918,6 +13390,54 @@
       }
     },
     {
+      "cveId": "CVE-2025-52709",
+      "title": "WordPress Everest Forms plugin <= 3.2.2 - PHP Object Injection Vulnerability",
+      "description": "Deserialization of Untrusted Data vulnerability in wpeverest Everest Forms allows Object Injection. This issue affects Everest Forms: from n/a through 3.2.2.",
+      "publishedDate": "2025-06-27T11:52:29.065000+00:00",
+      "lastModifiedDate": "2025-06-27T14:47:20.647000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 9.8,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0005,
+        "percentile": 16.916
+      },
+      "riskScore": 49,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": ["wpeverest"],
+        "products": ["everest forms"]
+      },
+      "references": [
+        {
+          "url": "https://patchstack.com/database/wordpress/plugin/everest-forms/vulnerability/wordpress-everest-forms-3-2-2-php-object-injection-vulnerability?_s_id=cve",
+          "source": "",
+          "tags": ["vdb-entry"]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": ["CWE-502"],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": null,
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/52xxx/CVE-2025-52709.json",
+            "lastModified": "2025-06-27T14:47:20.647000+00:00"
+          }
+        ]
+      }
+    },
+    {
       "cveId": "CVE-2025-52571",
       "title": "Hikka vulnerable to RCE through edits in a channel",
       "description": "Hikka is a Telegram userbot. A vulnerability affects all users of versions below 1.6.2, including most of the forks. It allows an unauthenticated attacker to gain access to Telegram account of a victim, as well as full access to the server. The issue is patched in version 1.6.2. No known workarounds are available.",
@@ -13971,6 +13491,102 @@
       }
     },
     {
+      "cveId": "CVE-2025-52725",
+      "title": "WordPress CouponXxL theme <= 3.0.0 - PHP Object Injection Vulnerability",
+      "description": "Deserialization of Untrusted Data vulnerability in pebas CouponXxL allows Object Injection. This issue affects CouponXxL: from n/a through 3.0.0.",
+      "publishedDate": "2025-06-27T11:52:26.104000+00:00",
+      "lastModifiedDate": "2025-06-27T13:09:03.530000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 9.8,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0005,
+        "percentile": 16.916
+      },
+      "riskScore": 49,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": ["pebas"],
+        "products": ["couponxxl"]
+      },
+      "references": [
+        {
+          "url": "https://patchstack.com/database/wordpress/theme/couponxxl/vulnerability/wordpress-couponxxl-3-0-0-php-object-injection-vulnerability?_s_id=cve",
+          "source": "",
+          "tags": ["vdb-entry"]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": ["CWE-502"],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": null,
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/52xxx/CVE-2025-52725.json",
+            "lastModified": "2025-06-27T13:09:03.530000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-52724",
+      "title": "WordPress Amwerk theme <= 1.2.0 - PHP Object Injection Vulnerability",
+      "description": "Deserialization of Untrusted Data vulnerability in BoldThemes Amwerk allows Object Injection. This issue affects Amwerk: from n/a through 1.2.0.",
+      "publishedDate": "2025-06-27T11:52:26.703000+00:00",
+      "lastModifiedDate": "2025-06-27T13:08:43.396000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 9.8,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0005,
+        "percentile": 16.916
+      },
+      "riskScore": 49,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": ["boldthemes"],
+        "products": ["amwerk"]
+      },
+      "references": [
+        {
+          "url": "https://patchstack.com/database/wordpress/theme/amwerk/vulnerability/wordpress-amwerk-1-2-0-php-object-injection-vulnerability?_s_id=cve",
+          "source": "",
+          "tags": ["vdb-entry"]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": ["CWE-502"],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": null,
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/52xxx/CVE-2025-52724.json",
+            "lastModified": "2025-06-27T13:08:43.396000+00:00"
+          }
+        ]
+      }
+    },
+    {
       "cveId": "CVE-2025-0674",
       "title": "Elber Communications Equipment Authentication Bypass Using an Alternate Path or Channel",
       "description": "Multiple Elber products are affected by an authentication bypass \nvulnerability which allows unauthorized access to the password \nmanagement functionality. Attackers can exploit this issue by \nmanipulating the endpoint to overwrite any user's password within the \nsystem. This grants them unauthorized administrative access to protected\n areas of the application, compromising the device's system security.",
@@ -13995,11 +13611,11 @@
         "cpeMatches": [],
         "vendors": ["elber"],
         "products": [
-          "ese dvb-s/s2 satellite receiver",
+          "reble610 m/odu xpic ip-asi-sdh",
           "cleber/3 broadcast multi-purpose platform",
+          "ese dvb-s/s2 satellite receiver",
           "signum dvb-s/s2 ird",
-          "wayber analog/digital audio stl",
-          "reble610 m/odu xpic ip-asi-sdh"
+          "wayber analog/digital audio stl"
         ]
       },
       "references": [
@@ -14020,6 +13636,54 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/0xxx/CVE-2025-0674.json",
             "lastModified": "2025-02-12T19:41:07.823000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-49885",
+      "title": "WordPress Drag and Drop Multiple File Upload (Pro) - WooCommerce plugin <= 5.0.6 - Arbitrary File Upload Vulnerability",
+      "description": "Unrestricted Upload of File with Dangerous Type vulnerability in HaruTheme Drag and Drop Multiple File Upload (Pro) - WooCommerce allows Upload a Web Shell to a Web Server. This issue affects Drag and Drop Multiple File Upload (Pro) - WooCommerce: from n/a through 5.0.6.",
+      "publishedDate": "2025-06-27T11:52:30.847000+00:00",
+      "lastModifiedDate": "2025-06-27T13:42:41.874000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+          "baseScore": 10.0,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0006,
+        "percentile": 17.588
+      },
+      "riskScore": 49,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": ["harutheme"],
+        "products": ["drag and drop multiple file upload (pro) - woocommerce"]
+      },
+      "references": [
+        {
+          "url": "https://patchstack.com/database/wordpress/plugin/drag-and-drop-file-upload-wc-pro/vulnerability/wordpress-drag-and-drop-multiple-file-upload-pro-woocommerce-5-0-6-arbitrary-file-upload-vulnerability?_s_id=cve",
+          "source": "",
+          "tags": ["vdb-entry"]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": ["CWE-434"],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": null,
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/49xxx/CVE-2025-49885.json",
+            "lastModified": "2025-06-27T13:42:41.874000+00:00"
           }
         ]
       }
@@ -14141,6 +13805,54 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/48xxx/CVE-2025-48757.json",
             "lastModified": "2025-06-25T14:55:23.469000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-32281",
+      "title": "WordPress WPKit For Elementor plugin <= 1.1.0 - Arbitrary Option Update to Privilege Escalation vulnerability",
+      "description": "Missing Authorization vulnerability in FocuxTheme WPKit For Elementor allows Privilege Escalation. This issue affects WPKit For Elementor: from n/a through 1.1.0.",
+      "publishedDate": "2025-06-27T11:52:36.905000+00:00",
+      "lastModifiedDate": "2025-06-27T13:42:35.259000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 9.8,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0005,
+        "percentile": 17.093
+      },
+      "riskScore": 49,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": ["focuxtheme"],
+        "products": ["wpkit for elementor"]
+      },
+      "references": [
+        {
+          "url": "https://patchstack.com/database/wordpress/plugin/wpkit-elementor/vulnerability/wordpress-wpkit-for-elementor-plugin-1-1-0-arbitrary-option-update-to-privilege-escalation-vulnerability?_s_id=cve",
+          "source": "",
+          "tags": ["vdb-entry"]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": ["CWE-862"],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": null,
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/32xxx/CVE-2025-32281.json",
+            "lastModified": "2025-06-27T13:42:35.259000+00:00"
           }
         ]
       }
@@ -14270,7 +13982,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["microsoft"],
-        "products": ["microsoft hpc pack 2019", "microsoft hpc pack 2016"]
+        "products": ["microsoft hpc pack 2016", "microsoft hpc pack 2019"]
       },
       "references": [
         {
@@ -16511,12 +16223,12 @@
         "cpeMatches": [],
         "vendors": ["red hat"],
         "products": [
+          "red hat jboss core services",
+          "red hat enterprise linux 6",
           "red hat enterprise linux 8",
           "red hat enterprise linux 9",
-          "red hat enterprise linux 7",
-          "red hat jboss core services",
           "red hat enterprise linux 10",
-          "red hat enterprise linux 6"
+          "red hat enterprise linux 7"
         ]
       },
       "references": [
@@ -16571,12 +16283,12 @@
         "cpeMatches": [],
         "vendors": ["red hat"],
         "products": [
+          "red hat jboss core services",
+          "red hat enterprise linux 6",
           "red hat enterprise linux 8",
           "red hat enterprise linux 9",
-          "red hat enterprise linux 7",
-          "red hat jboss core services",
           "red hat enterprise linux 10",
-          "red hat enterprise linux 6"
+          "red hat enterprise linux 7"
         ]
       },
       "references": [
@@ -17507,14 +17219,14 @@
         "cpeMatches": [],
         "vendors": ["i-o data device, inc."],
         "products": [
-          "hdl-tc500",
-          "hdl-t1wh",
           "hdl-t2wh",
-          "hdl-t3nv",
           "hdl-t2nv",
+          "hdl-t1wh",
+          "hdl-tc500",
+          "hdl-t3wh",
+          "hdl-t3nv",
           "hdl-tc1",
-          "hdl-t1nv",
-          "hdl-t3wh"
+          "hdl-t1nv"
         ]
       },
       "references": [
@@ -18515,12 +18227,12 @@
         "cpeMatches": [],
         "vendors": ["inaba denki sangyo co., ltd."],
         "products": [
-          "ac-wps-11ac",
           "ac-wpsm-11ac",
+          "ac-pd-wps-11ac",
           "ac-pd-wps-11ac-p",
+          "ac-wps-11ac",
           "ac-wps-11ac-p",
-          "ac-wpsm-11ac-p",
-          "ac-pd-wps-11ac"
+          "ac-wpsm-11ac-p"
         ]
       },
       "references": [
@@ -18575,25 +18287,25 @@
         "cpeMatches": [],
         "vendors": ["siemens"],
         "products": [
-          "industrial edge device kit - arm64 v1.20",
-          "industrial edge device kit - x86-64 v1.20",
-          "simatic ipc847e industrial edge device",
-          "industrial edge device kit - arm64 v1.17",
-          "simatic ipc127e industrial edge device",
+          "industrial edge device kit - x86-64 v1.19",
           "industrial edge device kit - x86-64 v1.17",
-          "simatic ipc bx-59a industrial edge device",
-          "scalance lpe9413",
-          "industrial edge device kit - arm64 v1.19",
-          "simatic ipc227e industrial edge device",
-          "industrial edge virtual device",
-          "industrial edge own device (ieod)",
-          "industrial edge device kit - arm64 v1.18",
-          "industrial edge device kit - arm64 v1.21",
-          "simatic ipc427e industrial edge device",
-          "simatic ipc bx-39a industrial edge device",
-          "industrial edge device kit - x86-64 v1.21",
+          "simatic ipc847e industrial edge device",
           "industrial edge device kit - x86-64 v1.18",
-          "industrial edge device kit - x86-64 v1.19"
+          "industrial edge device kit - arm64 v1.20",
+          "industrial edge own device (ieod)",
+          "industrial edge device kit - arm64 v1.19",
+          "industrial edge virtual device",
+          "scalance lpe9413",
+          "simatic ipc bx-59a industrial edge device",
+          "industrial edge device kit - x86-64 v1.20",
+          "simatic ipc227e industrial edge device",
+          "industrial edge device kit - x86-64 v1.21",
+          "industrial edge device kit - arm64 v1.21",
+          "industrial edge device kit - arm64 v1.18",
+          "simatic ipc127e industrial edge device",
+          "simatic ipc bx-39a industrial edge device",
+          "simatic ipc427e industrial edge device",
+          "industrial edge device kit - arm64 v1.17"
         ]
       },
       "references": [
@@ -18654,15 +18366,15 @@
         "cpeMatches": [],
         "vendors": ["wso2"],
         "products": [
-          "wso2 carbon identity management",
-          "wso2 identity server as key manager",
-          "wso2 api manager",
-          "wso2 identity server",
-          "wso2 open banking km",
           "wso2 open banking iam",
-          "wso2 governance registry",
+          "wso2 identity server as key manager",
+          "wso2 iot",
+          "wso2 api manager",
           "wso2 open banking am",
-          "wso2 iot"
+          "wso2 open banking km",
+          "wso2 identity server",
+          "wso2 carbon identity management",
+          "wso2 governance registry"
         ]
       },
       "references": [
@@ -18770,17 +18482,17 @@
         "cpeMatches": [],
         "vendors": ["ecovacs"],
         "products": [
-          "goat g1-800",
           "deebot t30 omni",
-          "deebot x5 pro ultra",
-          "deebot x2s",
-          "deebot x2  omni",
-          "goat g1-2000",
           "goat gx-600",
-          "deebot x2 combo",
-          "deebot x5 pro",
           "deebot t30s",
+          "deebot x2s",
+          "deebot x2 combo",
+          "deebot x5 pro ultra",
           "goat g1",
+          "goat g1-800",
+          "deebot x2  omni",
+          "deebot x5 pro",
+          "goat g1-2000",
           "deebot x5 pro plus"
         ]
       },
@@ -19019,6 +18731,102 @@
       }
     },
     {
+      "cveId": "CVE-2025-23967",
+      "title": "WordPress GG Bought Together for WooCommerce plugin <= 1.0.2 - SQL Injection Vulnerability",
+      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in wpopal GG Bought Together for WooCommerce allows SQL Injection. This issue affects GG Bought Together for WooCommerce: from n/a through 1.0.2.",
+      "publishedDate": "2025-06-27T11:52:11.964000+00:00",
+      "lastModifiedDate": "2025-06-27T13:43:09.529000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:L",
+          "baseScore": 9.3,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0004,
+        "percentile": 10.937
+      },
+      "riskScore": 48,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": ["wpopal"],
+        "products": ["gg bought together for woocommerce"]
+      },
+      "references": [
+        {
+          "url": "https://patchstack.com/database/wordpress/plugin/gg-bought-together/vulnerability/wordpress-gg-bought-together-for-woocommerce-1-0-2-sql-injection-vulnerability?_s_id=cve",
+          "source": "",
+          "tags": ["vdb-entry"]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": ["CWE-89"],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": null,
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/23xxx/CVE-2025-23967.json",
+            "lastModified": "2025-06-27T13:43:09.529000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-39474",
+      "title": "WordPress Amely theme <= 3.1.4 - SQL Injection vulnerability",
+      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in ThemeMove Amely allows SQL Injection. This issue affects Amely: from n/a through 3.1.4.",
+      "publishedDate": "2025-06-27T11:52:35.674000+00:00",
+      "lastModifiedDate": "2025-06-27T13:05:18.710000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:L",
+          "baseScore": 9.3,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0004,
+        "percentile": 10.937
+      },
+      "riskScore": 48,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": ["thememove"],
+        "products": ["amely"]
+      },
+      "references": [
+        {
+          "url": "https://patchstack.com/database/wordpress/theme/amely/vulnerability/wordpress-amely-theme-3-1-4-sql-injection-vulnerability?_s_id=cve",
+          "source": "",
+          "tags": ["vdb-entry"]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": ["CWE-89"],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": null,
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/39xxx/CVE-2025-39474.json",
+            "lastModified": "2025-06-27T13:05:18.710000+00:00"
+          }
+        ]
+      }
+    },
+    {
       "cveId": "CVE-2025-6513",
       "title": "BRAIN2 Configuration file for database access not sufficiently secured",
       "description": "Standard Windows users can access the configuration file for database access of the BRAIN2 application and decrypt it.",
@@ -19062,6 +18870,198 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/6xxx/CVE-2025-6513.json",
             "lastModified": "2025-06-23T13:25:56.804000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-52829",
+      "title": "WordPress DirectIQ Email Marketing plugin <= 2.0 - SQL Injection Vulnerability",
+      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in DirectIQ DirectIQ Email Marketing allows SQL Injection. This issue affects DirectIQ Email Marketing: from n/a through 2.0.",
+      "publishedDate": "2025-06-27T11:52:13.952000+00:00",
+      "lastModifiedDate": "2025-06-27T13:42:54.971000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:L",
+          "baseScore": 9.3,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0004,
+        "percentile": 10.937
+      },
+      "riskScore": 48,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": ["directiq"],
+        "products": ["directiq email marketing"]
+      },
+      "references": [
+        {
+          "url": "https://patchstack.com/database/wordpress/plugin/directiq-wp/vulnerability/wordpress-directiq-email-marketing-2-0-sql-injection-vulnerability?_s_id=cve",
+          "source": "",
+          "tags": ["vdb-entry"]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": ["CWE-89"],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": null,
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/52xxx/CVE-2025-52829.json",
+            "lastModified": "2025-06-27T13:42:54.971000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-52717",
+      "title": "WordPress LifterLMS plugin <= 8.0.6 - SQL Injection Vulnerability",
+      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in chrisbadgett LifterLMS allows SQL Injection. This issue affects LifterLMS: from n/a through 8.0.6.",
+      "publishedDate": "2025-06-27T11:52:28.496000+00:00",
+      "lastModifiedDate": "2025-06-27T14:47:28.749000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:L",
+          "baseScore": 9.3,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0004,
+        "percentile": 10.937
+      },
+      "riskScore": 48,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": ["chrisbadgett"],
+        "products": ["lifterlms"]
+      },
+      "references": [
+        {
+          "url": "https://patchstack.com/database/wordpress/plugin/lifterlms/vulnerability/wordpress-lifterlms-8-0-6-sql-injection-vulnerability?_s_id=cve",
+          "source": "",
+          "tags": ["vdb-entry"]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": ["CWE-89"],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": null,
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/52xxx/CVE-2025-52717.json",
+            "lastModified": "2025-06-27T14:47:28.749000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-52722",
+      "title": "WordPress Classiera theme <= 4.0.34 - SQL Injection Vulnerability",
+      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in JoinWebs Classiera allows SQL Injection. This issue affects Classiera: from n/a through 4.0.34.",
+      "publishedDate": "2025-06-27T11:52:27.828000+00:00",
+      "lastModifiedDate": "2025-06-27T14:47:39.983000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:L",
+          "baseScore": 9.3,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0004,
+        "percentile": 10.937
+      },
+      "riskScore": 48,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": ["joinwebs"],
+        "products": ["classiera"]
+      },
+      "references": [
+        {
+          "url": "https://patchstack.com/database/wordpress/theme/classiera/vulnerability/wordpress-classiera-4-0-34-sql-injection-vulnerability?_s_id=cve",
+          "source": "",
+          "tags": ["vdb-entry"]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": ["CWE-89"],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": null,
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/52xxx/CVE-2025-52722.json",
+            "lastModified": "2025-06-27T14:47:39.983000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-52834",
+      "title": "WordPress Homey theme <= 2.4.5 - SQL Injection Vulnerability",
+      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in favethemes Homey allows SQL Injection. This issue affects Homey: from n/a through 2.4.5.",
+      "publishedDate": "2025-06-27T11:52:13.285000+00:00",
+      "lastModifiedDate": "2025-06-27T13:43:01.079000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:L",
+          "baseScore": 9.3,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0004,
+        "percentile": 10.937
+      },
+      "riskScore": 48,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": ["favethemes"],
+        "products": ["homey"]
+      },
+      "references": [
+        {
+          "url": "https://patchstack.com/database/wordpress/theme/homey/vulnerability/wordpress-homey-2-4-5-sql-injection-vulnerability?_s_id=cve",
+          "source": "",
+          "tags": ["vdb-entry"]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": ["CWE-89"],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": null,
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/52xxx/CVE-2025-52834.json",
+            "lastModified": "2025-06-27T13:43:01.079000+00:00"
           }
         ]
       }
@@ -20616,7 +20616,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["iroad"],
-        "products": ["dash cam x5", "dash cam x6"]
+        "products": ["dash cam x6", "dash cam x5"]
       },
       "references": [
         {
@@ -22087,17 +22087,17 @@
         "cpeMatches": [],
         "vendors": ["siemens"],
         "products": [
-          "ruggedcom rox rx1511",
-          "ruggedcom rox rx1536",
           "ruggedcom rox rx1400",
-          "ruggedcom rox rx1512",
-          "ruggedcom rox rx1510",
-          "ruggedcom rox rx1500",
-          "ruggedcom rox rx5000",
-          "ruggedcom rox mx5000",
-          "ruggedcom rox rx1501",
           "ruggedcom rox rx1524",
-          "ruggedcom rox mx5000re"
+          "ruggedcom rox rx1536",
+          "ruggedcom rox rx1511",
+          "ruggedcom rox rx1501",
+          "ruggedcom rox rx1500",
+          "ruggedcom rox mx5000re",
+          "ruggedcom rox rx1510",
+          "ruggedcom rox rx1512",
+          "ruggedcom rox mx5000",
+          "ruggedcom rox rx5000"
         ]
       },
       "references": [
@@ -22147,17 +22147,17 @@
         "cpeMatches": [],
         "vendors": ["siemens"],
         "products": [
-          "ruggedcom rox rx1511",
-          "ruggedcom rox rx1536",
           "ruggedcom rox rx1400",
-          "ruggedcom rox rx1512",
-          "ruggedcom rox rx1510",
-          "ruggedcom rox rx1500",
-          "ruggedcom rox rx5000",
-          "ruggedcom rox mx5000",
-          "ruggedcom rox rx1501",
           "ruggedcom rox rx1524",
-          "ruggedcom rox mx5000re"
+          "ruggedcom rox rx1536",
+          "ruggedcom rox rx1511",
+          "ruggedcom rox rx1501",
+          "ruggedcom rox rx1500",
+          "ruggedcom rox mx5000re",
+          "ruggedcom rox rx1510",
+          "ruggedcom rox rx1512",
+          "ruggedcom rox mx5000",
+          "ruggedcom rox rx5000"
         ]
       },
       "references": [
@@ -23442,19 +23442,19 @@
         "cpeMatches": [],
         "vendors": ["weidmueller"],
         "products": [
-          "ie-sw-vl05mt-5tx",
-          "ie-sw-pl18mt-2gc-16tx",
-          "ie-sw-vl08mt-8tx",
-          "ie-sw-pl10m-3gt-7tx",
-          "ie-sw-vl08mt-6tx-2st",
-          "ie-sw-pl10mt-3gt-7tx",
-          "ie-sw-vl08mt-6tx-2scs",
-          "ie-sw-vl05m-5tx",
-          "ie-sw-pl18m-2gc-16tx",
-          "ie-sw-pl16m-16tx",
-          "ie-sw-vl08mt-5tx-1sc-2scs",
           "ie-sw-pl16mt-16tx",
-          "ie-sw-vl08mt-6tx-2sc"
+          "ie-sw-vl05m-5tx",
+          "ie-sw-vl08mt-8tx",
+          "ie-sw-vl08mt-6tx-2scs",
+          "ie-sw-pl18m-2gc-16tx",
+          "ie-sw-vl08mt-6tx-2sc",
+          "ie-sw-pl18mt-2gc-16tx",
+          "ie-sw-pl16m-16tx",
+          "ie-sw-pl10m-3gt-7tx",
+          "ie-sw-vl05mt-5tx",
+          "ie-sw-vl08mt-6tx-2st",
+          "ie-sw-vl08mt-5tx-1sc-2scs",
+          "ie-sw-pl10mt-3gt-7tx"
         ]
       },
       "references": [
@@ -23504,19 +23504,19 @@
         "cpeMatches": [],
         "vendors": ["weidmueller"],
         "products": [
-          "ie-sw-vl05mt-5tx",
-          "ie-sw-pl18mt-2gc-16tx",
-          "ie-sw-vl08mt-8tx",
-          "ie-sw-pl10m-3gt-7tx",
-          "ie-sw-vl08mt-6tx-2st",
-          "ie-sw-pl10mt-3gt-7tx",
-          "ie-sw-vl08mt-6tx-2scs",
-          "ie-sw-vl05m-5tx",
-          "ie-sw-pl18m-2gc-16tx",
-          "ie-sw-pl16m-16tx",
-          "ie-sw-vl08mt-5tx-1sc-2scs",
           "ie-sw-pl16mt-16tx",
-          "ie-sw-vl08mt-6tx-2sc"
+          "ie-sw-vl05m-5tx",
+          "ie-sw-vl08mt-8tx",
+          "ie-sw-vl08mt-6tx-2scs",
+          "ie-sw-pl18m-2gc-16tx",
+          "ie-sw-vl08mt-6tx-2sc",
+          "ie-sw-pl18mt-2gc-16tx",
+          "ie-sw-pl16m-16tx",
+          "ie-sw-pl10m-3gt-7tx",
+          "ie-sw-vl05mt-5tx",
+          "ie-sw-vl08mt-6tx-2st",
+          "ie-sw-vl08mt-5tx-1sc-2scs",
+          "ie-sw-pl10mt-3gt-7tx"
         ]
       },
       "references": [
@@ -23566,14 +23566,14 @@
         "cpeMatches": [],
         "vendors": ["yokogawa electric corporation"],
         "products": [
-          "dx1000 / dx2000 / dx1000n paperless recorders",
-          "gm data acquisition system",
-          "mw100 data acquisition units",
-          "dx1000t / dx2000t paperless recorders",
-          "fx1000 paperless recorders",
           "cx1000 / cx2000 paperless recorders",
           "μr10000 / μr20000 chart recorders",
-          "gx10 / gx20 / gp10 / gp20 paperless recorders"
+          "mw100 data acquisition units",
+          "gm data acquisition system",
+          "gx10 / gx20 / gp10 / gp20 paperless recorders",
+          "fx1000 paperless recorders",
+          "dx1000 / dx2000 / dx1000n paperless recorders",
+          "dx1000t / dx2000t paperless recorders"
         ]
       },
       "references": [
@@ -24411,17 +24411,17 @@
         "cpeMatches": [],
         "vendors": ["siemens"],
         "products": [
-          "ruggedcom rox rx1511",
-          "ruggedcom rox rx1536",
           "ruggedcom rox rx1400",
-          "ruggedcom rox rx1512",
-          "ruggedcom rox rx1510",
-          "ruggedcom rox rx1500",
-          "ruggedcom rox rx5000",
-          "ruggedcom rox mx5000",
-          "ruggedcom rox rx1501",
           "ruggedcom rox rx1524",
-          "ruggedcom rox mx5000re"
+          "ruggedcom rox rx1536",
+          "ruggedcom rox rx1511",
+          "ruggedcom rox rx1501",
+          "ruggedcom rox rx1500",
+          "ruggedcom rox mx5000re",
+          "ruggedcom rox rx1510",
+          "ruggedcom rox rx1512",
+          "ruggedcom rox mx5000",
+          "ruggedcom rox rx5000"
         ]
       },
       "references": [
@@ -25162,7 +25162,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["planet technology"],
-        "products": ["wgs-804hpt-v2", "wgs-4215-8t2s"]
+        "products": ["wgs-4215-8t2s", "wgs-804hpt-v2"]
       },
       "references": [
         {
@@ -26286,19 +26286,19 @@
         "cpeMatches": [],
         "vendors": ["canon inc."],
         "products": [
-          "i-sensys lbp633cdw",
-          "i-sensys mf657cdw",
-          "color imageclass mf652cdw",
-          "color imageclass mf656cdw",
+          "color imageclass mf653cdw",
           "color imageclass lbp633cdw",
-          "satera mf654cdw",
-          "i-sensys mf651cdw",
-          "i-sensys mf655cdw",
+          "color imageclass mf656cdw",
           "satera mf656cdw",
           "color imageclass lbp632cdw",
+          "satera mf654cdw",
+          "i-sensys lbp633cdw",
           "i-sensys lbp631cdw",
-          "color imageclass mf654cdw",
-          "color imageclass mf653cdw"
+          "color imageclass mf652cdw",
+          "i-sensys mf655cdw",
+          "i-sensys mf651cdw",
+          "i-sensys mf657cdw",
+          "color imageclass mf654cdw"
         ]
       },
       "references": [
@@ -26363,12 +26363,12 @@
         "cpeMatches": [],
         "vendors": ["red hat"],
         "products": [
+          "red hat enterprise linux 6",
           "red hat enterprise linux 8",
           "red hat enterprise linux 9",
-          "red hat enterprise linux 7",
-          "red hat openshift container platform 4",
           "red hat enterprise linux 10",
-          "red hat enterprise linux 6"
+          "red hat enterprise linux 7",
+          "red hat openshift container platform 4"
         ]
       },
       "references": [
@@ -26428,19 +26428,19 @@
         "cpeMatches": [],
         "vendors": ["canon inc."],
         "products": [
-          "i-sensys lbp633cdw",
-          "i-sensys mf657cdw",
-          "color imageclass mf652cdw",
-          "color imageclass mf656cdw",
+          "color imageclass mf653cdw",
           "color imageclass lbp633cdw",
-          "satera mf654cdw",
-          "i-sensys mf651cdw",
-          "i-sensys mf655cdw",
+          "color imageclass mf656cdw",
           "satera mf656cdw",
           "color imageclass lbp632cdw",
+          "satera mf654cdw",
+          "i-sensys lbp633cdw",
           "i-sensys lbp631cdw",
-          "color imageclass mf654cdw",
-          "color imageclass mf653cdw"
+          "color imageclass mf652cdw",
+          "i-sensys mf655cdw",
+          "i-sensys mf651cdw",
+          "i-sensys mf657cdw",
+          "color imageclass mf654cdw"
         ]
       },
       "references": [
@@ -26568,19 +26568,19 @@
         "cpeMatches": [],
         "vendors": ["canon inc."],
         "products": [
-          "i-sensys lbp633cdw",
-          "i-sensys mf657cdw",
-          "color imageclass mf652cdw",
-          "color imageclass mf656cdw",
+          "color imageclass mf653cdw",
           "color imageclass lbp633cdw",
-          "satera mf654cdw",
-          "i-sensys mf651cdw",
-          "i-sensys mf655cdw",
+          "color imageclass mf656cdw",
           "satera mf656cdw",
           "color imageclass lbp632cdw",
+          "satera mf654cdw",
+          "i-sensys lbp633cdw",
           "i-sensys lbp631cdw",
-          "color imageclass mf654cdw",
-          "color imageclass mf653cdw"
+          "color imageclass mf652cdw",
+          "i-sensys mf655cdw",
+          "i-sensys mf651cdw",
+          "i-sensys mf657cdw",
+          "color imageclass mf654cdw"
         ]
       },
       "references": [
@@ -29252,78 +29252,78 @@
         "cpeMatches": [],
         "vendors": ["mitsubishi electric corporation"],
         "products": [
-          "melsec iq-f series fx5u-80mt/dss",
-          "melsec iq-f series fx5uj-60mr/ds",
-          "melsec iq-f series fx5uj-24mt/es-a",
-          "melsec iq-f series fx5u-64mt/ds",
-          "melsec iq-f series fx5uj-40mt/es-a",
-          "melsec iq-f series fx5u-64mr/ds",
-          "melsec iq-f series fx5uj-40mr/ds",
-          "melsec iq-f series fx5uj-40mr/es-a",
-          "melsec iq-f series fx5uj-24mt/dss",
-          "melsec iq-f series fx5uj-40mr/es",
-          "melsec iq-f series fx5s-40mt/ds",
-          "melsec iq-f series fx5uj-24mr/es-a",
-          "melsec iq-f series fx5uj-60mt/dss",
-          "melsec iq-f series fx5uj-60mt/ess",
-          "melsec iq-f series fx5s-60mr/es",
-          "melsec iq-f series fx5s-80mt/ess",
-          "melsec iq-f series fx5uc-32mr/ds-ts",
-          "melsec iq-f series fx5u-64mt/ess",
-          "melsec iq-f series fx5uj-60mt/es-a",
-          "melsec iq-f series fx5u-80mt/ds",
-          "melsec iq-f series fx5uj-40mt/es",
-          "melsec iq-f series fx5uj-24mt/ds",
-          "melsec iq-f series fx5s-30mt/ds",
-          "melsec iq-f series fx5uj-40mt/ess",
-          "melsec iq-f series fx5s-30mt/es",
-          "melsec iq-f series fx5s-40mr/ds",
-          "melsec iq-f series fx5uj-24mr/ds",
-          "melsec iq-f series fx5uj-40mt/dss",
-          "melsec iq-f series fx5s-60mt/dss",
-          "melsec iq-f series fx5s-40mt/dss",
-          "melsec iq-f series fx5u-64mt/es",
-          "melsec iq-f series fx5uc-32mt/dss-ts",
-          "melsec iq-f series fx5s-60mt/es",
-          "melsec iq-f series fx5uj-24mr/es",
-          "melsec iq-f series fx5uj-60mt/es",
-          "melsec iq-f series fx5u-32mt/ess",
-          "melsec iq-f series fx5s-30mt/ess",
-          "melsec iq-f series fx5u-32mr/ds",
-          "melsec iq-f series fx5uc-32mt/ds-ts",
-          "melsec iq-f series fx5uj-60mr/es-a",
-          "melsec iq-f series fx5s-80mr/es",
-          "melsec iq-f series fx5u-64mt/dss",
-          "melsec iq-f series fx5u-64mr/es",
-          "melsec iq-f series fx5u-32mt/ds",
-          "melsec iq-f series fx5uc-32mt/d",
-          "melsec iq-f series fx5s-40mt/es",
-          "melsec iq-f series fx5uj-40mt/ds",
-          "melsec iq-f series fx5uc-64mt/d",
-          "melsec iq-f series fx5s-40mr/es",
-          "melsec iq-f series fx5u-80mt/es",
-          "melsec iq-f series fx5s-30mt/dss",
-          "melsec iq-f series fx5u-32mt/es",
-          "melsec iq-f series fx5u-80mr/es",
-          "melsec iq-f series fx5uc-32mt/dss",
-          "melsec iq-f series fx5s-30mr/ds",
-          "melsec iq-f series fx5u-32mr/es",
-          "melsec iq-f series fx5uj-24mt/ess",
-          "melsec iq-f series fx5s-60mt/ds",
-          "melsec iq-f series fx5s-60mr/ds",
-          "melsec iq-f series fx5uc-96mt/dss",
-          "melsec iq-f series fx5uj-60mr/es",
-          "melsec iq-f series fx5s-40mt/ess",
-          "melsec iq-f series fx5u-80mr/ds",
-          "melsec iq-f series fx5uc-96mt/d",
-          "melsec iq-f series fx5uj-60mt/ds",
-          "melsec iq-f series fx5uj-24mt/es",
-          "melsec iq-f series fx5s-60mt/ess",
-          "melsec iq-f series fx5uc-64mt/dss",
-          "melsec iq-f series fx5u-80mt/ess",
           "melsec iq-f series fx5u-32mt/dss",
+          "melsec iq-f series fx5u-32mr/ds",
+          "melsec iq-f series fx5uc-32mt/dss",
+          "melsec iq-f series fx5s-40mt/es",
+          "melsec iq-f series fx5uj-24mt/es",
+          "melsec iq-f series fx5uc-32mt/d",
+          "melsec iq-f series fx5uj-60mt/dss",
+          "melsec iq-f series fx5u-80mt/ds",
+          "melsec iq-f series fx5s-30mt/es",
+          "melsec iq-f series fx5u-32mt/ds",
           "melsec iq-f series fx5s-30mr/es",
-          "melsec iq-f series fx5s-80mt/es"
+          "melsec iq-f series fx5uc-32mt/ds-ts",
+          "melsec iq-f series fx5s-80mt/es",
+          "melsec iq-f series fx5u-80mr/ds",
+          "melsec iq-f series fx5uj-24mt/ess",
+          "melsec iq-f series fx5uj-40mt/ds",
+          "melsec iq-f series fx5uj-60mt/es",
+          "melsec iq-f series fx5u-64mt/dss",
+          "melsec iq-f series fx5uj-24mt/es-a",
+          "melsec iq-f series fx5uj-40mt/es-a",
+          "melsec iq-f series fx5s-80mr/es",
+          "melsec iq-f series fx5s-60mt/ess",
+          "melsec iq-f series fx5s-60mt/ds",
+          "melsec iq-f series fx5s-30mt/dss",
+          "melsec iq-f series fx5s-60mt/es",
+          "melsec iq-f series fx5uj-24mt/ds",
+          "melsec iq-f series fx5u-80mt/dss",
+          "melsec iq-f series fx5uj-24mr/ds",
+          "melsec iq-f series fx5s-30mt/ds",
+          "melsec iq-f series fx5u-32mt/ess",
+          "melsec iq-f series fx5u-32mt/es",
+          "melsec iq-f series fx5u-64mt/es",
+          "melsec iq-f series fx5u-80mt/es",
+          "melsec iq-f series fx5uj-40mr/es",
+          "melsec iq-f series fx5uj-60mt/ess",
+          "melsec iq-f series fx5uj-60mr/es",
+          "melsec iq-f series fx5uj-40mr/es-a",
+          "melsec iq-f series fx5s-80mt/ess",
+          "melsec iq-f series fx5uj-60mt/ds",
+          "melsec iq-f series fx5u-64mr/es",
+          "melsec iq-f series fx5uj-40mt/ess",
+          "melsec iq-f series fx5uj-40mr/ds",
+          "melsec iq-f series fx5s-40mt/ess",
+          "melsec iq-f series fx5uj-24mt/dss",
+          "melsec iq-f series fx5u-32mr/es",
+          "melsec iq-f series fx5uc-64mt/dss",
+          "melsec iq-f series fx5u-64mt/ds",
+          "melsec iq-f series fx5uc-96mt/d",
+          "melsec iq-f series fx5uj-24mr/es",
+          "melsec iq-f series fx5uj-60mr/es-a",
+          "melsec iq-f series fx5s-60mr/es",
+          "melsec iq-f series fx5s-60mr/ds",
+          "melsec iq-f series fx5u-64mt/ess",
+          "melsec iq-f series fx5s-30mr/ds",
+          "melsec iq-f series fx5u-80mr/es",
+          "melsec iq-f series fx5s-60mt/dss",
+          "melsec iq-f series fx5uc-32mr/ds-ts",
+          "melsec iq-f series fx5s-30mt/ess",
+          "melsec iq-f series fx5uc-96mt/dss",
+          "melsec iq-f series fx5uj-24mr/es-a",
+          "melsec iq-f series fx5uj-60mt/es-a",
+          "melsec iq-f series fx5u-64mr/ds",
+          "melsec iq-f series fx5s-40mt/dss",
+          "melsec iq-f series fx5uj-60mr/ds",
+          "melsec iq-f series fx5u-80mt/ess",
+          "melsec iq-f series fx5uc-64mt/d",
+          "melsec iq-f series fx5s-40mr/ds",
+          "melsec iq-f series fx5uc-32mt/dss-ts",
+          "melsec iq-f series fx5s-40mr/es",
+          "melsec iq-f series fx5s-40mt/ds",
+          "melsec iq-f series fx5uj-40mt/dss",
+          "melsec iq-f series fx5uj-40mt/es"
         ]
       },
       "references": [
@@ -29479,16 +29479,16 @@
         "cpeMatches": [],
         "vendors": ["automationdirect"],
         "products": [
+          "c-more ea9 hmi ea9-t6cl",
+          "c-more ea9 hmi ea9-t15cl-r",
           "c-more ea9 hmi ea9-t10wcl",
-          "c-more ea9 hmi ea9-t7cl",
-          "c-more ea9 hmi ea9-t12cl",
-          "c-more ea9 hmi ea9-t15cl",
           "c-more ea9 hmi ea9-t7cl-r",
           "c-more ea9 hmi ea9-rhmi",
-          "c-more ea9 hmi ea9-t8cl",
-          "c-more ea9 hmi ea9-t15cl-r",
           "c-more ea9 hmi ea9-t10cl",
-          "c-more ea9 hmi ea9-t6cl"
+          "c-more ea9 hmi ea9-t15cl",
+          "c-more ea9 hmi ea9-t8cl",
+          "c-more ea9 hmi ea9-t12cl",
+          "c-more ea9 hmi ea9-t7cl"
         ]
       },
       "references": [
@@ -30077,7 +30077,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["new rock technologies"],
-        "products": ["mx8g voip gateway", "nrp1302/p desktop ip phone", "om500 ip-pbx"]
+        "products": ["mx8g voip gateway", "om500 ip-pbx", "nrp1302/p desktop ip phone"]
       },
       "references": [
         {
@@ -31429,7 +31429,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["dingtian"],
-        "products": ["dt-r032", "dt-r008", "dt-r002", "dt-r016"]
+        "products": ["dt-r008", "dt-r032", "dt-r016", "dt-r002"]
       },
       "references": [
         {
@@ -32159,7 +32159,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["planet technology"],
-        "products": ["wgs-804hpt-v2", "wgs-4215-8t2s"]
+        "products": ["wgs-4215-8t2s", "wgs-804hpt-v2"]
       },
       "references": [
         {
@@ -34065,8 +34065,8 @@
         "cpeMatches": [],
         "vendors": ["loftocean"],
         "products": [
-          "tinysalt - personal food blog wordpress theme",
-          "cozystay - hotel booking wordpress theme"
+          "cozystay - hotel booking wordpress theme",
+          "tinysalt - personal food blog wordpress theme"
         ]
       },
       "references": [
@@ -35372,15 +35372,15 @@
         "cpeMatches": [],
         "vendors": ["canon inc."],
         "products": [
-          "generic plus pcl6 printer driver",
-          "generic plus lipslx printer driver",
-          "carps2 printer driver",
-          "generic plus ps printer driver",
-          "generic plus ufr ii printer driver",
-          "ufrii lt printer driver",
-          "generic plus lips4 printer driver",
           "generic fax printer driver",
-          "pdf driver"
+          "pdf driver",
+          "generic plus ufr ii printer driver",
+          "generic plus ps printer driver",
+          "carps2 printer driver",
+          "generic plus lips4 printer driver",
+          "generic plus lipslx printer driver",
+          "ufrii lt printer driver",
+          "generic plus pcl6 printer driver"
         ]
       },
       "references": [
@@ -37564,11 +37564,11 @@
         "cpeMatches": [],
         "vendors": ["wiesemann & theis"],
         "products": [
+          "com-server++",
           "com-server oem",
-          "com-server poe 3x isolated",
           "com-server 20ma",
-          "com-server ul",
-          "com-server++"
+          "com-server poe 3x isolated",
+          "com-server ul"
         ]
       },
       "references": [
@@ -38049,7 +38049,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["myscada"],
-        "products": ["mypro runtime", "mypro manager"]
+        "products": ["mypro manager", "mypro runtime"]
       },
       "references": [
         {
@@ -38145,7 +38145,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["myscada"],
-        "products": ["mypro runtime", "mypro manager"]
+        "products": ["mypro manager", "mypro runtime"]
       },
       "references": [
         {
@@ -40264,7 +40264,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["hitachi vantara"],
-        "products": ["pentaho data integration & analytics", "pentaho business analytics server"]
+        "products": ["pentaho business analytics server", "pentaho data integration & analytics"]
       },
       "references": [
         {
@@ -46551,7 +46551,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["mb connect line"],
-        "products": ["mymbconnect24", "mbnet.rokey", "mbnet", "mbconnect24"]
+        "products": ["mbnet", "mymbconnect24", "mbconnect24", "mbnet.rokey"]
       },
       "references": [
         {
@@ -49298,13 +49298,13 @@
         "cpeMatches": [],
         "vendors": ["moxa"],
         "products": [
-          "edr-g9010 series",
-          "edf-g1002-bp series",
+          "edr-8010 series",
+          "oncell g4302-lte4 series",
           "nat-102 series",
           "tn-4900 series",
-          "oncell g4302-lte4 series",
           "edr-g9004 series",
-          "edr-8010 series"
+          "edf-g1002-bp series",
+          "edr-g9010 series"
         ]
       },
       "references": [
