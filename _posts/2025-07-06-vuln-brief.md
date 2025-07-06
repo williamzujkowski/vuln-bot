@@ -1,6 +1,6 @@
 ---
 title: Morning Vulnerability Briefing - 2025-07-06
-date: 2025-07-06T12:09:36.928364
+date: 2025-07-06T16:07:56.742093
 layout: layouts/post.njk
 tags: [vulnerability, briefing, security]
 vulnerabilityCount: 33189
@@ -16,8 +16,8 @@ Today's briefing covers **33189 vulnerabilities** from 0 sources.
 
 - 🔴 **Critical Risk**: 0 vulnerabilities
 - 🟠 **High Risk**: 0 vulnerabilities
-- 🟡 **Medium Risk**: 11404 vulnerabilities
-- 🟢 **Low Risk**: 21785 vulnerabilities
+- 🟡 **Medium Risk**: 11406 vulnerabilities
+- 🟢 **Low Risk**: 21783 vulnerabilities
 
 ## Top Vulnerabilities
 
@@ -51,14 +51,14 @@ Today's briefing covers **33189 vulnerabilities** from 0 sources.
 **Risk Score**: 68/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.9 | 
-**EPSS**: 82.6%
+**EPSS**: 81.3%
 
 **Summary**: Roundcube Webmail before 1.5.10 and 1.6.x before 1.6.11 allows remote code execution by authenticated users because the _from parameter in a URL is not validated in program/actions/settings/upload.php, leading to PHP Object Deserialization.
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 82.62% exploit probability
+- 81.3% exploit probability
 
 **Affected Vendors**: roundcube
 
@@ -77,14 +77,14 @@ Today's briefing covers **33189 vulnerabilities** from 0 sources.
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.8 | 
-**EPSS**: 93.7%
+**EPSS**: 93.8%
 
 **Summary**: Microsoft Outlook Remote Code Execution Vulnerability
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 93.68% exploit probability
+- 93.77% exploit probability
 - Affects critical infrastructure: microsoft
 
 **Affected Vendors**: microsoft
@@ -560,7 +560,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 **Risk Factors**:
 
 - CRITICAL severity
-- 94.32% exploit probability
+- 94.35% exploit probability
 
 **Affected Vendors**: palo alto networks
 
@@ -826,33 +826,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 32. [CVE-2024-36404](/api/vulns/CVE-2024-36404.json)
-
-**Risk Score**: 65/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 87.5%
-
-**Summary**: GeoTools is an open source Java library that provides tools for geospatial data. Prior to versions 31.2, 30.4, and 29.6, Remote Code Execution (RCE) is possible if an application uses certain GeoTools functionality to evaluate XPath expressions supplied by user input. Versions 31.2, 30.4, and 29.6 contain a fix for this issue. As a workaround, GeoTools can operate with reduced functionality by removing the `gt-complex` jar from one's application. As an example of the impact, application schema `...
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 87.51% exploit probability
-
-**Affected Vendors**: geotools
-
-**Tags**: `CWE-95`
-
-**References**:
-
-- [https://github.com/geotools/geotools/security/advisories/GHSA-w3pj-wh35-fq8w](https://github.com/geotools/geotools/security/advisories/GHSA-w3pj-wh35-fq8w)
-- [https://github.com/geotools/geotools/pull/4797](https://github.com/geotools/geotools/pull/4797)
-- [https://github.com/geotools/geotools/commit/f0c9961dc4d40c5acfce2169fab92805738de5ea](https://github.com/geotools/geotools/commit/f0c9961dc4d40c5acfce2169fab92805738de5ea)
-
----
-
-### 33. [CVE-2025-1661](/api/vulns/CVE-2025-1661.json)
+### 32. [CVE-2025-1661](/api/vulns/CVE-2025-1661.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -878,7 +852,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 34. [CVE-2024-49112](/api/vulns/CVE-2024-49112.json)
+### 33. [CVE-2024-49112](/api/vulns/CVE-2024-49112.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -903,7 +877,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 35. [CVE-2024-38077](/api/vulns/CVE-2024-38077.json)
+### 34. [CVE-2024-38077](/api/vulns/CVE-2024-38077.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -928,7 +902,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 36. [CVE-2024-3272](/api/vulns/CVE-2024-3272.json)
+### 35. [CVE-2024-3272](/api/vulns/CVE-2024-3272.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -954,7 +928,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 37. [CVE-2024-13159](/api/vulns/CVE-2024-13159.json)
+### 36. [CVE-2024-13159](/api/vulns/CVE-2024-13159.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -978,7 +952,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 38. [CVE-2024-13160](/api/vulns/CVE-2024-13160.json)
+### 37. [CVE-2024-13160](/api/vulns/CVE-2024-13160.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1002,7 +976,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 39. [CVE-2024-3495](/api/vulns/CVE-2024-3495.json)
+### 38. [CVE-2024-3495](/api/vulns/CVE-2024-3495.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1026,7 +1000,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 40. [CVE-2024-21650](/api/vulns/CVE-2024-21650.json)
+### 39. [CVE-2024-21650](/api/vulns/CVE-2024-21650.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1052,7 +1026,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 41. [CVE-2024-0204](/api/vulns/CVE-2024-0204.json)
+### 40. [CVE-2024-0204](/api/vulns/CVE-2024-0204.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1078,7 +1052,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 42. [CVE-2024-29895](/api/vulns/CVE-2024-29895.json)
+### 41. [CVE-2024-29895](/api/vulns/CVE-2024-29895.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1104,7 +1078,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 43. [CVE-2024-9234](/api/vulns/CVE-2024-9234.json)
+### 42. [CVE-2024-9234](/api/vulns/CVE-2024-9234.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1130,7 +1104,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 44. [CVE-2024-32651](/api/vulns/CVE-2024-32651.json)
+### 43. [CVE-2024-32651](/api/vulns/CVE-2024-32651.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1156,7 +1130,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 45. [CVE-2025-24016](/api/vulns/CVE-2025-24016.json)
+### 44. [CVE-2025-24016](/api/vulns/CVE-2025-24016.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1180,7 +1154,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 46. [CVE-2024-1071](/api/vulns/CVE-2024-1071.json)
+### 45. [CVE-2024-1071](/api/vulns/CVE-2024-1071.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1204,7 +1178,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 47. [CVE-2024-8856](/api/vulns/CVE-2024-8856.json)
+### 46. [CVE-2024-8856](/api/vulns/CVE-2024-8856.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1230,7 +1204,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 48. [CVE-2024-46986](/api/vulns/CVE-2024-46986.json)
+### 47. [CVE-2024-46986](/api/vulns/CVE-2024-46986.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1253,6 +1227,32 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 - [https://github.com/owen2345/camaleon-cms/security/advisories/GHSA-wmjg-vqhv-q5p5](https://github.com/owen2345/camaleon-cms/security/advisories/GHSA-wmjg-vqhv-q5p5)
 - [https://codeql.github.com/codeql-query-help/ruby/rb-path-injection](https://codeql.github.com/codeql-query-help/ruby/rb-path-injection)
 - [https://owasp.org/www-community/attacks/Path_Traversal](https://owasp.org/www-community/attacks/Path_Traversal)
+
+---
+
+### 48. [CVE-2024-36404](/api/vulns/CVE-2024-36404.json)
+
+**Risk Score**: 64/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 9.8 | 
+**EPSS**: 86.1%
+
+**Summary**: GeoTools is an open source Java library that provides tools for geospatial data. Prior to versions 31.2, 30.4, and 29.6, Remote Code Execution (RCE) is possible if an application uses certain GeoTools functionality to evaluate XPath expressions supplied by user input. Versions 31.2, 30.4, and 29.6 contain a fix for this issue. As a workaround, GeoTools can operate with reduced functionality by removing the `gt-complex` jar from one's application. As an example of the impact, application schema `...
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 86.12% exploit probability
+
+**Affected Vendors**: geotools
+
+**Tags**: `CWE-95`
+
+**References**:
+
+- [https://github.com/geotools/geotools/security/advisories/GHSA-w3pj-wh35-fq8w](https://github.com/geotools/geotools/security/advisories/GHSA-w3pj-wh35-fq8w)
+- [https://github.com/geotools/geotools/pull/4797](https://github.com/geotools/geotools/pull/4797)
+- [https://github.com/geotools/geotools/commit/f0c9961dc4d40c5acfce2169fab92805738de5ea](https://github.com/geotools/geotools/commit/f0c9961dc4d40c5acfce2169fab92805738de5ea)
 
 ---
 
@@ -1282,28 +1282,28 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 50. [CVE-2025-27007](/api/vulns/CVE-2025-27007.json)
+### 50. [CVE-2024-43468](/api/vulns/CVE-2024-43468.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.8 | 
-**EPSS**: 80.8%
+**EPSS**: 80.0%
 
-**Summary**: Incorrect Privilege Assignment vulnerability in Brainstorm Force SureTriggers allows Privilege Escalation.This issue affects SureTriggers: from n/a through 1.0.82.
+**Summary**: Microsoft Configuration Manager Remote Code Execution Vulnerability
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 80.84% exploit probability
+- 80.03% exploit probability
+- Affects critical infrastructure: microsoft
 
-**Affected Vendors**: brainstorm force
+**Affected Vendors**: microsoft
 
-**Tags**: `CWE-266`
+**Tags**: `CWE-89`
 
 **References**:
 
-- [https://patchstack.com/database/wordpress/plugin/suretriggers/vulnerability/wordpress-suretriggers-1-0-82-privilege-escalation-vulnerability?_s_id=cve](https://patchstack.com/database/wordpress/plugin/suretriggers/vulnerability/wordpress-suretriggers-1-0-82-privilege-escalation-vulnerability?_s_id=cve)
-- [https://patchstack.com/articles/additional-critical-ottokit-formerly-suretriggers-vulnerability-patched?_s_id=cve](https://patchstack.com/articles/additional-critical-ottokit-formerly-suretriggers-vulnerability-patched?_s_id=cve)
+- [https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-43468](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-43468)
 
 ---
 
