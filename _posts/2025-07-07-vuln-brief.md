@@ -1,6 +1,6 @@
 ---
 title: Morning Vulnerability Briefing - 2025-07-07
-date: 2025-07-07T12:10:40.771664
+date: 2025-07-07T16:08:21.049545
 layout: layouts/post.njk
 tags: [vulnerability, briefing, security]
 vulnerabilityCount: 33203
@@ -16,8 +16,8 @@ Today's briefing covers **33203 vulnerabilities** from 0 sources.
 
 - 🔴 **Critical Risk**: 0 vulnerabilities
 - 🟠 **High Risk**: 0 vulnerabilities
-- 🟡 **Medium Risk**: 11398 vulnerabilities
-- 🟢 **Low Risk**: 21805 vulnerabilities
+- 🟡 **Medium Risk**: 11395 vulnerabilities
+- 🟢 **Low Risk**: 21808 vulnerabilities
 
 ## Top Vulnerabilities
 
@@ -84,7 +84,7 @@ Today's briefing covers **33203 vulnerabilities** from 0 sources.
 **Risk Factors**:
 
 - CRITICAL severity
-- 93.77% exploit probability
+- 93.75% exploit probability
 - Affects critical infrastructure: microsoft
 
 **Affected Vendors**: microsoft
@@ -123,35 +123,7 @@ Today's briefing covers **33203 vulnerabilities** from 0 sources.
 
 ---
 
-### 5. [CVE-2025-3248](/api/vulns/CVE-2025-3248.json)
-
-**Risk Score**: 67/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 92.4%
-
-**Summary**: Langflow versions prior to 1.3.0 are susceptible to code injection in 
-the /api/v1/validate/code endpoint. A remote and unauthenticated attacker can send crafted HTTP requests to execute arbitrary
-code.
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 92.36% exploit probability
-
-**Affected Vendors**: langflow-ai
-
-**Tags**: `CWE-306`
-
-**References**:
-
-- [https://github.com/langflow-ai/langflow/pull/6911](https://github.com/langflow-ai/langflow/pull/6911)
-- [https://github.com/langflow-ai/langflow/releases/tag/1.3.0](https://github.com/langflow-ai/langflow/releases/tag/1.3.0)
-- [https://www.horizon3.ai/attack-research/disclosures/unsafe-at-any-speed-abusing-python-exec-for-unauth-rce-in-langflow-ai/](https://www.horizon3.ai/attack-research/disclosures/unsafe-at-any-speed-abusing-python-exec-for-unauth-rce-in-langflow-ai/)
-
----
-
-### 6. [CVE-2024-22320](/api/vulns/CVE-2024-22320.json)
+### 5. [CVE-2024-22320](/api/vulns/CVE-2024-22320.json)
 
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
@@ -177,7 +149,7 @@ code.
 
 ---
 
-### 7. [CVE-2024-20419](/api/vulns/CVE-2024-20419.json)
+### 6. [CVE-2024-20419](/api/vulns/CVE-2024-20419.json)
 
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
@@ -202,7 +174,7 @@ code.
 
 ---
 
-### 8. [CVE-2025-1974](/api/vulns/CVE-2025-1974.json)
+### 7. [CVE-2025-1974](/api/vulns/CVE-2025-1974.json)
 
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
@@ -227,33 +199,7 @@ code.
 
 ---
 
-### 9. [CVE-2025-32432](/api/vulns/CVE-2025-32432.json)
-
-**Risk Score**: 67/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 10.0 | 
-**EPSS**: 83.1%
-
-**Summary**: Craft is a flexible, user-friendly CMS for creating custom digital experiences on the web and beyond. Starting from version 3.0.0-RC1 to before 3.9.15, 4.0.0-RC1 to before 4.14.15, and 5.0.0-RC1 to before 5.6.17, Craft is vulnerable to remote code execution. This is a high-impact, low-complexity attack vector. This issue has been patched in versions 3.9.15, 4.14.15, and 5.6.17, and is an additional fix for CVE-2023-41892.
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 83.07% exploit probability
-
-**Affected Vendors**: craftcms
-
-**Tags**: `CWE-94`
-
-**References**:
-
-- [https://github.com/craftcms/cms/security/advisories/GHSA-f3gw-9ww9-jmc3](https://github.com/craftcms/cms/security/advisories/GHSA-f3gw-9ww9-jmc3)
-- [https://github.com/craftcms/cms/commit/e1c85441fa47eeb7c688c2053f25419bc0547b47](https://github.com/craftcms/cms/commit/e1c85441fa47eeb7c688c2053f25419bc0547b47)
-- [https://github.com/craftcms/cms/blob/3.x/CHANGELOG.md#3915---2025-04-10-critical](https://github.com/craftcms/cms/blob/3.x/CHANGELOG.md#3915---2025-04-10-critical)
-
----
-
-### 10. [CVE-2024-4577](/api/vulns/CVE-2024-4577.json)
+### 8. [CVE-2024-4577](/api/vulns/CVE-2024-4577.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
@@ -279,7 +225,7 @@ code.
 
 ---
 
-### 11. [CVE-2024-50603](/api/vulns/CVE-2024-50603.json)
+### 9. [CVE-2024-50603](/api/vulns/CVE-2024-50603.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
@@ -305,7 +251,7 @@ code.
 
 ---
 
-### 12. [CVE-2024-1709](/api/vulns/CVE-2024-1709.json)
+### 10. [CVE-2024-1709](/api/vulns/CVE-2024-1709.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
@@ -337,7 +283,7 @@ critical systems.
 
 ---
 
-### 13. [CVE-2024-10924](/api/vulns/CVE-2024-10924.json)
+### 11. [CVE-2024-10924](/api/vulns/CVE-2024-10924.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
@@ -351,7 +297,7 @@ critical systems.
 - CRITICAL severity
 - 93.63% exploit probability
 
-**Affected Vendors**: really simple plugins, rogierlankhorst
+**Affected Vendors**: rogierlankhorst, really simple plugins
 
 **Tags**: `CWE-288`
 
@@ -363,7 +309,7 @@ critical systems.
 
 ---
 
-### 14. [CVE-2024-21762](/api/vulns/CVE-2024-21762.json)
+### 12. [CVE-2024-21762](/api/vulns/CVE-2024-21762.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
@@ -388,19 +334,19 @@ critical systems.
 
 ---
 
-### 15. [CVE-2024-47575](/api/vulns/CVE-2024-47575.json)
+### 13. [CVE-2024-47575](/api/vulns/CVE-2024-47575.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.8 | 
-**EPSS**: 90.6%
+**EPSS**: 90.3%
 
 **Summary**: A missing authentication for critical function in FortiManager 7.6.0, FortiManager 7.4.0 through 7.4.4, FortiManager 7.2.0 through 7.2.7, FortiManager 7.0.0 through 7.0.12, FortiManager 6.4.0 through 6.4.14, FortiManager 6.2.0 through 6.2.12, Fortinet FortiManager Cloud 7.4.1 through 7.4.4, FortiManager Cloud 7.2.1 through 7.2.7, FortiManager Cloud 7.0.1 through 7.0.12, FortiManager Cloud 6.4.1 through 6.4.7 allows attacker to execute arbitrary code or commands via specially crafted requests.
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 90.64% exploit probability
+- 90.31% exploit probability
 - Affects critical infrastructure: fortinet
 
 **Affected Vendors**: fortinet
@@ -413,7 +359,7 @@ critical systems.
 
 ---
 
-### 16. [CVE-2024-20439](/api/vulns/CVE-2024-20439.json)
+### 14. [CVE-2024-20439](/api/vulns/CVE-2024-20439.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
@@ -437,7 +383,7 @@ critical systems.
 
 ---
 
-### 17. [CVE-2025-47916](/api/vulns/CVE-2025-47916.json)
+### 15. [CVE-2025-47916](/api/vulns/CVE-2025-47916.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
@@ -462,7 +408,33 @@ critical systems.
 
 ---
 
-### 18. [CVE-2024-4040](/api/vulns/CVE-2024-4040.json)
+### 16. [CVE-2025-32432](/api/vulns/CVE-2025-32432.json)
+
+**Risk Score**: 66/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 10.0 | 
+**EPSS**: 77.9%
+
+**Summary**: Craft is a flexible, user-friendly CMS for creating custom digital experiences on the web and beyond. Starting from version 3.0.0-RC1 to before 3.9.15, 4.0.0-RC1 to before 4.14.15, and 5.0.0-RC1 to before 5.6.17, Craft is vulnerable to remote code execution. This is a high-impact, low-complexity attack vector. This issue has been patched in versions 3.9.15, 4.14.15, and 5.6.17, and is an additional fix for CVE-2023-41892.
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 77.92% exploit probability
+
+**Affected Vendors**: craftcms
+
+**Tags**: `CWE-94`
+
+**References**:
+
+- [https://github.com/craftcms/cms/security/advisories/GHSA-f3gw-9ww9-jmc3](https://github.com/craftcms/cms/security/advisories/GHSA-f3gw-9ww9-jmc3)
+- [https://github.com/craftcms/cms/commit/e1c85441fa47eeb7c688c2053f25419bc0547b47](https://github.com/craftcms/cms/commit/e1c85441fa47eeb7c688c2053f25419bc0547b47)
+- [https://github.com/craftcms/cms/blob/3.x/CHANGELOG.md#3915---2025-04-10-critical](https://github.com/craftcms/cms/blob/3.x/CHANGELOG.md#3915---2025-04-10-critical)
+
+---
+
+### 17. [CVE-2024-4040](/api/vulns/CVE-2024-4040.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -489,7 +461,7 @@ critical systems.
 
 ---
 
-### 19. [CVE-2024-36401](/api/vulns/CVE-2024-36401.json)
+### 18. [CVE-2024-36401](/api/vulns/CVE-2024-36401.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -517,7 +489,7 @@ The GeoTools library API that GeoServer calls evaluates property/attribute names
 
 ---
 
-### 20. [CVE-2024-1212](/api/vulns/CVE-2024-1212.json)
+### 19. [CVE-2024-1212](/api/vulns/CVE-2024-1212.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -546,7 +518,7 @@ The GeoTools library API that GeoServer calls evaluates property/attribute names
 
 ---
 
-### 21. [CVE-2024-3400](/api/vulns/CVE-2024-3400.json)
+### 20. [CVE-2024-3400](/api/vulns/CVE-2024-3400.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -574,7 +546,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 22. [CVE-2024-51567](/api/vulns/CVE-2024-51567.json)
+### 21. [CVE-2024-51567](/api/vulns/CVE-2024-51567.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -598,7 +570,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 23. [CVE-2024-31982](/api/vulns/CVE-2024-31982.json)
+### 22. [CVE-2024-31982](/api/vulns/CVE-2024-31982.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -624,7 +596,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 24. [CVE-2024-45519](/api/vulns/CVE-2024-45519.json)
+### 23. [CVE-2024-45519](/api/vulns/CVE-2024-45519.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -648,7 +620,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 25. [CVE-2024-5932](/api/vulns/CVE-2024-5932.json)
+### 24. [CVE-2024-5932](/api/vulns/CVE-2024-5932.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -674,7 +646,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 26. [CVE-2024-51378](/api/vulns/CVE-2024-51378.json)
+### 25. [CVE-2024-51378](/api/vulns/CVE-2024-51378.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -698,7 +670,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 27. [CVE-2025-29927](/api/vulns/CVE-2025-29927.json)
+### 26. [CVE-2025-29927](/api/vulns/CVE-2025-29927.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -724,7 +696,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 28. [CVE-2024-11680](/api/vulns/CVE-2024-11680.json)
+### 27. [CVE-2024-11680](/api/vulns/CVE-2024-11680.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -750,7 +722,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 29. [CVE-2024-25600](/api/vulns/CVE-2024-25600.json)
+### 28. [CVE-2024-25600](/api/vulns/CVE-2024-25600.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -773,6 +745,34 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 - [https://patchstack.com/database/vulnerability/bricks/wordpress-bricks-theme-1-9-6-unauthenticated-remote-code-execution-rce-vulnerability?_s_id=cve](https://patchstack.com/database/vulnerability/bricks/wordpress-bricks-theme-1-9-6-unauthenticated-remote-code-execution-rce-vulnerability?_s_id=cve)
 - [https://snicco.io/vulnerability-disclosure/bricks/unauthenticated-rce-in-bricks-1-9-6](https://snicco.io/vulnerability-disclosure/bricks/unauthenticated-rce-in-bricks-1-9-6)
 - [https://patchstack.com/articles/critical-rce-patched-in-bricks-builder-theme?_s_id=cve](https://patchstack.com/articles/critical-rce-patched-in-bricks-builder-theme?_s_id=cve)
+
+---
+
+### 29. [CVE-2025-3248](/api/vulns/CVE-2025-3248.json)
+
+**Risk Score**: 65/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 9.8 | 
+**EPSS**: 92.4%
+
+**Summary**: Langflow versions prior to 1.3.0 are susceptible to code injection in 
+the /api/v1/validate/code endpoint. A remote and unauthenticated attacker can send crafted HTTP requests to execute arbitrary
+code.
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 92.36% exploit probability
+
+**Affected Vendors**: langflow-ai
+
+**Tags**: `CWE-306`
+
+**References**:
+
+- [https://github.com/langflow-ai/langflow/pull/6911](https://github.com/langflow-ai/langflow/pull/6911)
+- [https://github.com/langflow-ai/langflow/releases/tag/1.3.0](https://github.com/langflow-ai/langflow/releases/tag/1.3.0)
+- [https://www.horizon3.ai/attack-research/disclosures/unsafe-at-any-speed-abusing-python-exec-for-unauth-rce-in-langflow-ai/](https://www.horizon3.ai/attack-research/disclosures/unsafe-at-any-speed-abusing-python-exec-for-unauth-rce-in-langflow-ai/)
 
 ---
 
@@ -933,14 +933,14 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.8 | 
-**EPSS**: 94.1%
+**EPSS**: 93.9%
 
 **Summary**: Absolute path traversal in Ivanti EPM before the 2024 January-2025 Security Update and 2022 SU6 January-2025 Security Update allows a remote unauthenticated attacker to leak sensitive information.
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 94.12% exploit probability
+- 93.88% exploit probability
 
 **Affected Vendors**: ivanti
 
@@ -952,31 +952,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 37. [CVE-2024-13160](/api/vulns/CVE-2024-13160.json)
-
-**Risk Score**: 64/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 93.5%
-
-**Summary**: Absolute path traversal in Ivanti EPM before the 2024 January-2025 Security Update and 2022 SU6 January-2025 Security Update allows a remote unauthenticated attacker to leak sensitive information.
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 93.51% exploit probability
-
-**Affected Vendors**: ivanti
-
-**Tags**: `CWE-36`
-
-**References**:
-
-- [https://forums.ivanti.com/s/article/Security-Advisory-EPM-January-2025-for-EPM-2024-and-EPM-2022-SU6](https://forums.ivanti.com/s/article/Security-Advisory-EPM-January-2025-for-EPM-2024-and-EPM-2022-SU6)
-
----
-
-### 38. [CVE-2024-3495](/api/vulns/CVE-2024-3495.json)
+### 37. [CVE-2024-3495](/api/vulns/CVE-2024-3495.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1000,7 +976,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 39. [CVE-2024-21650](/api/vulns/CVE-2024-21650.json)
+### 38. [CVE-2024-21650](/api/vulns/CVE-2024-21650.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1026,7 +1002,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 40. [CVE-2024-0204](/api/vulns/CVE-2024-0204.json)
+### 39. [CVE-2024-0204](/api/vulns/CVE-2024-0204.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1052,7 +1028,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 41. [CVE-2024-29895](/api/vulns/CVE-2024-29895.json)
+### 40. [CVE-2024-29895](/api/vulns/CVE-2024-29895.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1078,7 +1054,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 42. [CVE-2024-9234](/api/vulns/CVE-2024-9234.json)
+### 41. [CVE-2024-9234](/api/vulns/CVE-2024-9234.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1104,7 +1080,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 43. [CVE-2024-32651](/api/vulns/CVE-2024-32651.json)
+### 42. [CVE-2024-32651](/api/vulns/CVE-2024-32651.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1130,7 +1106,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 44. [CVE-2025-24016](/api/vulns/CVE-2025-24016.json)
+### 43. [CVE-2025-24016](/api/vulns/CVE-2025-24016.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1154,7 +1130,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 45. [CVE-2024-1071](/api/vulns/CVE-2024-1071.json)
+### 44. [CVE-2024-1071](/api/vulns/CVE-2024-1071.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1178,7 +1154,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 46. [CVE-2024-8856](/api/vulns/CVE-2024-8856.json)
+### 45. [CVE-2024-8856](/api/vulns/CVE-2024-8856.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1204,7 +1180,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 47. [CVE-2024-46986](/api/vulns/CVE-2024-46986.json)
+### 46. [CVE-2024-46986](/api/vulns/CVE-2024-46986.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1230,7 +1206,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 48. [CVE-2024-36404](/api/vulns/CVE-2024-36404.json)
+### 47. [CVE-2024-36404](/api/vulns/CVE-2024-36404.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1256,7 +1232,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 49. [CVE-2024-24576](/api/vulns/CVE-2024-24576.json)
+### 48. [CVE-2024-24576](/api/vulns/CVE-2024-24576.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1282,7 +1258,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 50. [CVE-2024-43468](/api/vulns/CVE-2024-43468.json)
+### 49. [CVE-2024-43468](/api/vulns/CVE-2024-43468.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1304,6 +1280,31 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 **References**:
 
 - [https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-43468](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-43468)
+
+---
+
+### 50. [CVE-2025-21298](/api/vulns/CVE-2025-21298.json)
+
+**Risk Score**: 64/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 9.8 | 
+**EPSS**: 70.6%
+
+**Summary**: Windows OLE Remote Code Execution Vulnerability
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 70.56% exploit probability
+- Affects critical infrastructure: microsoft
+
+**Affected Vendors**: microsoft
+
+**Tags**: `CWE-416`
+
+**References**:
+
+- [https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-21298](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-21298)
 
 ---
 
