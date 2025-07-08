@@ -1,6 +1,6 @@
 ---
 title: Morning Vulnerability Briefing - 2025-07-08
-date: 2025-07-08T12:11:09.798575
+date: 2025-07-08T16:08:12.017784
 layout: layouts/post.njk
 tags: [vulnerability, briefing, security]
 vulnerabilityCount: 33233
@@ -16,8 +16,8 @@ Today's briefing covers **33233 vulnerabilities** from 0 sources.
 
 - 🔴 **Critical Risk**: 0 vulnerabilities
 - 🟠 **High Risk**: 0 vulnerabilities
-- 🟡 **Medium Risk**: 11420 vulnerabilities
-- 🟢 **Low Risk**: 21813 vulnerabilities
+- 🟡 **Medium Risk**: 11418 vulnerabilities
+- 🟢 **Low Risk**: 21815 vulnerabilities
 
 ## Top Vulnerabilities
 
@@ -51,14 +51,14 @@ Today's briefing covers **33233 vulnerabilities** from 0 sources.
 **Risk Score**: 68/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.9 | 
-**EPSS**: 81.3%
+**EPSS**: 84.7%
 
 **Summary**: Roundcube Webmail before 1.5.10 and 1.6.x before 1.6.11 allows remote code execution by authenticated users because the _from parameter in a URL is not validated in program/actions/settings/upload.php, leading to PHP Object Deserialization.
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 81.3% exploit probability
+- 84.73% exploit probability
 
 **Affected Vendors**: roundcube
 
@@ -271,7 +271,7 @@ critical systems.
 - CRITICAL severity
 - 93.63% exploit probability
 
-**Affected Vendors**: really simple plugins, rogierlankhorst
+**Affected Vendors**: rogierlankhorst, really simple plugins
 
 **Tags**: `CWE-288`
 
@@ -387,14 +387,14 @@ critical systems.
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 10.0 | 
-**EPSS**: 77.9%
+**EPSS**: 76.1%
 
 **Summary**: Craft is a flexible, user-friendly CMS for creating custom digital experiences on the web and beyond. Starting from version 3.0.0-RC1 to before 3.9.15, 4.0.0-RC1 to before 4.14.15, and 5.0.0-RC1 to before 5.6.17, Craft is vulnerable to remote code execution. This is a high-impact, low-complexity attack vector. This issue has been patched in versions 3.9.15, 4.14.15, and 5.6.17, and is an additional fix for CVE-2023-41892.
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 77.92% exploit probability
+- 76.13% exploit probability
 
 **Affected Vendors**: craftcms
 
@@ -1211,14 +1211,14 @@ code.
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.8 | 
-**EPSS**: 86.1%
+**EPSS**: 85.5%
 
 **Summary**: GeoTools is an open source Java library that provides tools for geospatial data. Prior to versions 31.2, 30.4, and 29.6, Remote Code Execution (RCE) is possible if an application uses certain GeoTools functionality to evaluate XPath expressions supplied by user input. Versions 31.2, 30.4, and 29.6 contain a fix for this issue. As a workaround, GeoTools can operate with reduced functionality by removing the `gt-complex` jar from one's application. As an example of the impact, application schema `...
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 86.12% exploit probability
+- 85.45% exploit probability
 
 **Affected Vendors**: geotools
 
