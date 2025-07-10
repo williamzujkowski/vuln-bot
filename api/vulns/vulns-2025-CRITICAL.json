@@ -1,7 +1,7 @@
 {
   "chunk": "2025-CRITICAL",
   "count": 950,
-  "generated": "2025-07-09T20:07:48.026547",
+  "generated": "2025-07-10T00:25:16.357466",
   "vulnerabilities": [
     {
       "cveId": "CVE-2024-55591",
@@ -27,7 +27,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["fortinet"],
-        "products": ["fortios", "fortiproxy"]
+        "products": ["fortiproxy", "fortios"]
       },
       "references": [
         {
@@ -595,32 +595,32 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          "windows server 2016",
-          "windows server 2019 (server core installation)",
-          "windows server 2012 r2 (server core installation)",
-          "windows server 2008 service pack 2 (server core installation)",
-          "windows server 2008 r2 service pack 1 (server core installation)",
-          "windows 11 version 24h2",
-          "windows server 2012 (server core installation)",
-          "windows 11 version 23h2",
           "windows server 2019",
-          "windows server 2008 service pack 2",
-          "windows server 2012",
           "windows 11 version 22h2",
-          "windows server 2022",
-          "windows 10 version 1507",
-          "windows 11 version 22h3",
-          "windows 10 version 22h2",
-          "windows server 2016 (server core installation)",
-          "windows server 2025",
-          "windows 10 version 1809",
-          "windows server 2025 (server core installation)",
-          "windows 10 version 21h2",
+          "windows server 2012 (server core installation)",
           "windows 10 version 1607",
-          "windows server 2022, 23h2 edition (server core installation)",
+          "windows 10 version 1809",
+          "windows server 2016 (server core installation)",
+          "windows server 2008  service pack 2",
+          "windows server 2019 (server core installation)",
+          "windows 10 version 21h2",
+          "windows server 2022",
           "windows server 2008 r2 service pack 1",
+          "windows server 2025",
+          "windows server 2008 service pack 2",
+          "windows server 2025 (server core installation)",
+          "windows 11 version 24h2",
+          "windows server 2008 r2 service pack 1 (server core installation)",
           "windows server 2012 r2",
-          "windows server 2008  service pack 2"
+          "windows server 2022, 23h2 edition (server core installation)",
+          "windows 10 version 1507",
+          "windows 10 version 22h2",
+          "windows 11 version 22h3",
+          "windows server 2008 service pack 2 (server core installation)",
+          "windows server 2012 r2 (server core installation)",
+          "windows server 2016",
+          "windows server 2012",
+          "windows 11 version 23h2"
         ]
       },
       "references": [
@@ -1411,7 +1411,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["ivanti"],
-        "products": ["connect secure", "neurons for zta gateways", "policy secure"]
+        "products": ["policy secure", "connect secure", "neurons for zta gateways"]
       },
       "references": [
         {
@@ -1663,8 +1663,8 @@
         }
       ],
       "epss": {
-        "score": 0.5817,
-        "percentile": 98.054
+        "score": 0.5807,
+        "percentile": 98.056
       },
       "riskScore": 57,
       "exploitationStatus": "UNKNOWN",
@@ -1778,29 +1778,29 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          "windows server 2016",
-          "windows server 2019 (server core installation)",
-          "windows server 2012 r2 (server core installation)",
-          "windows server 2008 r2 service pack 1 (server core installation)",
-          "windows 11 version 24h2",
-          "windows server 2012 (server core installation)",
-          "windows 11 version 23h2",
           "windows server 2019",
-          "windows server 2012",
           "windows 11 version 22h2",
-          "windows server 2022",
-          "windows 10 version 1507",
-          "windows 11 version 22h3",
-          "windows 10 version 22h2",
-          "windows server 2016 (server core installation)",
-          "windows server 2025",
-          "windows 10 version 1809",
-          "windows server 2025 (server core installation)",
-          "windows 10 version 21h2",
+          "windows server 2012 (server core installation)",
           "windows 10 version 1607",
-          "windows server 2022, 23h2 edition (server core installation)",
+          "windows 10 version 1809",
+          "windows server 2016 (server core installation)",
+          "windows server 2019 (server core installation)",
+          "windows 10 version 21h2",
+          "windows server 2022",
           "windows server 2008 r2 service pack 1",
-          "windows server 2012 r2"
+          "windows server 2025",
+          "windows server 2025 (server core installation)",
+          "windows 11 version 24h2",
+          "windows server 2008 r2 service pack 1 (server core installation)",
+          "windows server 2012 r2",
+          "windows server 2022, 23h2 edition (server core installation)",
+          "windows 10 version 1507",
+          "windows 10 version 22h2",
+          "windows 11 version 22h3",
+          "windows server 2012 r2 (server core installation)",
+          "windows server 2016",
+          "windows server 2012",
+          "windows 11 version 23h2"
         ]
       },
       "references": [
@@ -1898,11 +1898,11 @@
         "cpeMatches": [],
         "vendors": ["vmware"],
         "products": [
-          "vmware cloud foundation",
-          "telco cloud infrastructure",
           "telco cloud platform",
+          "vmware cloud foundation",
+          "workstation",
           "esxi",
-          "workstation"
+          "telco cloud infrastructure"
         ]
       },
       "references": [
@@ -2108,74 +2108,6 @@
       }
     },
     {
-      "cveId": "CVE-2024-58136",
-      "title": "CVE-2024-58136: Yii 2 before 2.0.52 mishandles the attaching of behavior that is defined by an __class array key, a ...",
-      "description": "Yii 2 before 2.0.52 mishandles the attaching of behavior that is defined by an __class array key, a CVE-2024-4990 regression, as exploited in the wild in February through April 2025.",
-      "publishedDate": "2025-04-10T00:00:00+00:00",
-      "lastModifiedDate": "2025-05-02T22:20:23.136000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:H/I:H/A:H",
-          "baseScore": 9.0,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.359,
-        "percentile": 96.895
-      },
-      "riskScore": 55,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": ["yiiframework"],
-        "products": ["yii"]
-      },
-      "references": [
-        {
-          "url": "https://github.com/yiisoft/yii2/pull/20232",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://github.com/yiisoft/yii2/pull/20232#issuecomment-2252459709",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://github.com/yiisoft/yii2/commit/40fe496eda529fd1d933b56a1022ec32d3cd0b12",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://github.com/yiisoft/yii2/compare/2.0.51...2.0.52",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://www.yiiframework.com/news/709/please-upgrade-to-yii-2-0-52",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": ["CWE-424"],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": null,
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/58xxx/CVE-2024-58136.json",
-            "lastModified": "2025-05-02T22:20:23.136000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2024-51978",
       "title": "Authentication bypass via default password generation affecting multiple models from Brother Industries, Ltd, Toshiba Tec, and Konica Minolta, Inc.",
       "description": "An unauthenticated attacker who knows the target device's serial number, can generate the default administrator password for the device. An unauthenticated attacker can first discover the target device's serial number via CVE-2024-51977 over HTTP/HTTPS/IPP, or via a PJL request, or via an SNMP request.",
@@ -2198,703 +2130,703 @@
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": ["konica minolta, inc.", "brother industries, ltd", "toshiba tec"],
+        "vendors": ["toshiba tec", "brother industries, ltd", "konica minolta, inc."],
         "products": [
-          "mfc-l2732dw",
-          "hl-l2400dw",
-          "mfc-l2880dw",
-          "tj-4120tn",
-          "mfc-j4345dw xl",
-          "td-2125n",
-          "hl-l6217dw",
-          "dcp-l2531dw",
-          "mfc-l2750dwxl",
-          "td-2135n",
-          "hl-l2425dw",
-          "td-2320df",
-          "ads-3000n",
-          "ads-1700w",
-          "mfc-l2716dw",
-          "dcp-j1203n",
-          "hl-l1808w",
-          "dcp-1618w",
-          "dcp-l2551dw",
-          "hl-l6250dn",
-          "hl-l2370dwxl",
-          "mfc-l5915dw",
-          "mfc-j2330dw",
-          "hl-1222we",
-          "mfc-l2710dnr",
-          "mfc-j2740dw",
-          "hl-l2447dw",
-          "dcp-l2530dwr",
-          "pt-e850tkw (for china)",
           "hl-ex470w",
-          "dcp-9030cdn",
-          "mfc-l5700dw",
-          "mfc-j6540dwe",
-          "hl-l2350dw",
-          "mfc-l8610cdw",
-          "hl-ex415dw",
-          "hl-l2460dw",
-          "rj-3250wb",
-          "dcp-l2560dwr",
-          "td-4650tnwb",
-          "hl-l2372dn",
-          "tj-4021tn",
-          "hl-l3270cdw",
-          "ql-810w",
-          "hl-l6400dwg",
-          "dcp-t236",
-          "mfc-l2740dw",
-          "hl-l2865dw",
-          "dcp-1617nw",
-          "dcp-l5650dn",
-          "dcp-l2550dw",
-          "mfc-l2701dw",
-          "mfc-j3940dw",
-          "ads-2700we",
-          "mfc-l3740cdwe",
-          "dcp-1615nw",
-          "mfc-j898n",
-          "mfc-l3768cdw",
-          "dcp-c421w",
-          "dcp-l2660dw",
-          "dcp-l2550dn",
-          "mfc-b7800dn",
-          "dcp-7189dw",
-          "dcp-t825dw",
-          "dcp-l5662dn",
-          "mfc-j7600cdw",
-          "dcp-1610wr",
-          "ql-1115nwb",
-          "dcp-j1700dw",
-          "hl-1210w",
-          "hl-b2080dw",
-          "mfc-l2740dwr",
-          "hl-1212we",
-          "rj-2150",
-          "mfc-l2717dw",
-          "dcp-1612we",
-          "mfc-1916nw",
-          "hl-j7010cdw",
-          "hl-l6200dwt",
-          "pt-p750w",
-          "dcp-l5500dn",
-          "mfc-j6955dw",
-          "dcp-l5600dn",
-          "dcp-1610w",
-          "dcp-l5602dn",
-          "hl-l2325dw",
-          "mfc-j939dn",
-          "dcp-j915n",
-          "mfc-l2860dwe",
-          "tj-4010tn",
-          "mfc-t920dw",
-          "dcp-7190dn",
-          "dcp-t525w",
-          "mfc-b7810dwb",
-          "hl-l6410dn",
-          "mfc-l3730cdn",
-          "dcp-l5610dn",
-          "mfc-1912wr",
-          "dcp-l2560dw",
-          "mfc-l2700dn",
-          "hl-l2360dw",
-          "fax-l2700dn",
-          "mfc-l2802dw",
-          "dcp-l2622dw",
-          "mfc-7889dw",
-          "dcp-l2600dw",
-          "dcp-l2540dnr",
-          "mfc-j5340dw",
-          "mfc-1919nw",
-          "mfc-t4500dw",
-          "hl-l3228cdw",
-          "hl-l5228dw",
-          "mfc-l2750dw",
-          "mfc-j1500n",
-          "hl-l6202dw",
-          "td-2350df",
-          "dcp-l2628dw",
-          "hl-b2180dwb",
-          "mfc-j6930dw",
-          "dcp-l8410cdw",
-          "mfc-l6910dn",
-          "hl-l2380dw",
-          "rj-2035b",
-          "dcp-t425w",
-          "dcp-b7640dwb",
-          "mfc-l2700dwr",
-          "dcp-t530dw",
-          "rj-2050",
-          "dcp-j1140dw",
-          "hl-l2464dw",
-          "mfc-l6702dw",
-          "mfc-l2885dw",
-          "mfc-j1605dn",
-          "mfc-j3530dw",
-          "ads-2400n",
-          "hl-l5102dw",
-          "mfc-j893n",
-          "mfc-l6900dw",
-          "mfc-l9570cdw(for japan)",
-          "mfc-j5740dw",
-          "tj-tj-4522tn",
-          "mfc-l6810dw",
-          "hl-l2352dw",
-          "mfc-j926n-wb",
-          "hl-l6400dw",
-          "rj-3050ai",
-          "hl-1211w",
-          "hl-l2375dw",
-          "hl-l5210dn",
-          "mfc-j7300cdw",
-          "mfc-l6970dw",
-          "mfc-j4940dn",
-          "sp-1",
-          "dcp-j981n",
-          "dcp-t520w",
-          "hl-l2395dw",
-          "mfc-j6935dw",
-          "mfc-l2720dw",
-          "mfc-j6530dw",
-          "mfc-l8390cdw",
-          "mfc-l2703dw",
-          "mfc-l2807dw",
-          "mfc-l2730dwr",
-          "mfc-l6710dw",
-          "hl-l3300cdw",
-          "mfc-l2710dn",
-          "hl-l2360dnr",
-          "mfc-j1300dw",
-          "hl-l6210dwt",
-          "dcp-1612wr",
-          "hl-l5200dw",
-          "mfc-l3735cdn",
-          "pt-e850tkw (for tiwan)",
-          "hl-l8360cdwt",
-          "hl-3160cdw",
-          "dcp-l5510dw",
-          "dcp-t238",
-          "tj-4020tn",
-          "td-4750tnwb",
-          "hl-l6402dw",
-          "mfc-j6980cdw",
-          "mfc-j1010dw",
-          "mfc-l6902dw",
-          "dcp-l2540dn",
-          "dcp-t535dw",
-          "mfc-j5800cdw",
-          "mfc-l2700dw",
-          "dcp-t536dw",
-          "dcp-t426w",
-          "hl-l6310dw",
-          "dcp-l2620dw",
-          "mfc-l2730dw",
-          "mfc-l2900dwxl",
-          "hl-l5215dw",
-          "hl-l9470cdn",
-          "hl-l3288cdw",
-          "mfc-j4443n",
-          "hl-1210we",
-          "mfc-j6730dw",
-          "dcp-j587n",
-          "mfc-j690dw",
-          "mfc-l2827dw",
-          "dcp-l2537dw",
-          "vc-500w",
-          "pt-e550w (for thailand)",
-          "dcp-l2535dw",
-          "hl-l8240cdw",
-          "mfc-l2820dw",
-          "hl-l2351dw",
-          "dcp-l2508dw",
-          "hl-l2371dn",
-          "hl-l6415dn",
-          "bizhub 4020i",
-          "hl-l2340dw",
-          "hl-2590dn",
-          "mfc-l2710dw",
-          "mfc-l2765dw",
-          "hl-l5210dw",
-          "mfc-l5700dn",
-          "dcp-j528n",
-          "hl-5590dn",
-          "mfc-1910we",
-          "hl-l1232w",
-          "hl-l2360dn",
-          "hl-l8245cdw",
-          "hl-l2475dw",
-          "td-2130n",
-          "dcp-l3550cdw",
-          "mfc-j497dw",
-          "mfc-l2922dw",
-          "pt-e550w (for vietnum)",
-          "dcp-l2627dw",
-          "dcp-l2640dw",
-          "dcp-b7640dw",
-          "hl-l2350dwr",
-          "pt-e850tkw (for uae)",
-          "dcp-l3510cdw",
-          "dcp-b7600d",
-          "dcp-l2640dn",
-          "mfc-l6700dw",
-          "dcp-b7548w",
-          "fax-l2710dn",
-          "mfc-j4540n",
-          "hl-j6000cdw",
-          "nfc-ex670",
-          "hl-l2366dw",
-          "pj-883",
-          "mfc-l2710dwr",
-          "mfc-j895dw",
-          "mfc-l2705dw",
-          "hl-l2405w",
-          "dcp-1622we",
-          "hl-l5212dw",
-          "hl-l6418dw",
-          "dcp-l2627dwxl",
-          "dcp-l5518dn",
-          "dcp-t830dw",
-          "mfc-l8340cdw",
-          "ads-1350w",
-          "hl-1212w",
-          "ads-3300w",
-          "ql-820nwbc",
-          "hl-2595dw",
-          "dcp-l2627dwe",
-          "hl-t4000dw",
-          "dcp-t510w(for china)",
-          "mfc-l3710cdw",
-          "mfc-j6555dw",
-          "mfc-j1170dw",
-          "dcp-1623we",
-          "mfc-l2712dn",
-          "rj-2140",
-          "hl-l2385dw",
-          "td-4420dnz",
-          "mfc-j890dw",
-          "dcp-1612w",
-          "tj-4422tn",
-          "mfc-l2720dn",
-          "hl-l2480dw",
-          "mfc-l2771dw",
-          "hl-l3240cdw",
-          "dcp-l3515cdw",
-          "hl-b2100db",
-          "mfc-j904n",
-          "mfc-j5845dw(xl)",
-          "td-4650tnwbr",
-          "ads-2700w",
-          "dcp-l2665dw",
-          "mfc-j491dw",
-          "mfc-l3780cdw",
-          "dcp-j4140n",
-          "dcp-l3528cdw",
-          "dcp-l2530dw",
-          "mfc-l6720dw",
-          "mfc-1911w",
-          "hl-l8230cdw",
-          "dcp-l1630w",
-          "mfc-l5710dw",
-          "hl-5595dn",
-          "mfc-j995dw",
-          "mfc-8540dn",
-          "hl-l5215dn",
-          "dcp-l2600d",
-          "dcp-j774dw",
-          "dcp-b7535dw",
-          "dcp-j1050dw",
-          "mfc-l2720dwr",
-          "hl-l5050dn",
-          "mfc-4340dwe",
-          "mfc-j5855dw xl",
-          "hl-b2158w",
-          "dcp-t230",
-          "mfc-j5930dw",
-          "hl-b2150w",
-          "dcp-l2605dw",
-          "dcp-t725dw",
-          "hl-l6200dw",
-          "mfc-j995dw xl",
-          "dcp-j987n-w",
-          "bizhub 5020i",
-          "hl-1218w",
-          "mfc-j6995cdw",
-          "dcp-b7648dw",
-          "dcp-j1800dw",
-          "dcp-b7628dw",
-          "hl-l2440dw",
-          "td-2350dfsa",
-          "mfc-b7811dw",
-          "mfc-l9570cdw",
-          "ql-1110nwbc",
-          "hl-l3290cdw",
-          "mfc-ex910",
-          "mfc-l3760cdw",
-          "dcp-l2548dw",
-          "mfc-l2980dw",
-          "mfc-j6535dw",
-          "dcp-l3517cdw",
-          "mfc-j5945dw",
-          "mfc-t810w",
-          "tj-4121tnr",
-          "bizhub 5000i",
-          "hl-l6415dwt",
-          "dcp-l2520dwr",
-          "hl-l1230w",
-          "pt-e850tkw (for vietnum)",
-          "dcp-l1638w",
-          "hl-5595dnh",
-          "hl-l5202dw",
-          "mfc-j739dwn",
-          "ds-740d",
-          "hl-l2420dw",
-          "mfc-l2880dwxl",
-          "dcp-l5660dn",
-          "dcp-b7638dn",
-          "dcp-l2540dw",
-          "mfc-j2730dw",
-          "pt-p950nw",
-          "dcp-b7658dw",
-          "mfc-j6555dw xl",
-          "mfc-j5335dw",
-          "hl-l2465dw",
-          "dcp-j914n",
-          "mfc-j4440n",
-          "dcp-1610we",
-          "hl-l2315dw",
-          "mfc-7880dn",
-          "dcp-t510w",
-          "dcp-b7558w",
-          "hl-l2305w",
-          "mfc-l2802dn",
-          "mfc-j6540dw",
-          "ads-4900w",
-          "pt-e850tkw (for thailand)",
-          "mfc-j3930dw",
-          "mfc-ex670w",
-          "hl-b2181dw",
-          "td-4550dnwb",
-          "td-4750tnwbr",
-          "dcp-j582n",
-          "pt-p900w",
-          "td-2120n",
-          "mfc-j4335dw(xl)",
-          "td-2320d",
-          "mfc-1915w",
-          "ql-810wc",
-          "hl-l2365dw",
-          "dcp-j973n-w/b",
-          "mfc-7890dn",
-          "mfc-1911nw",
-          "hl-b2180dw",
-          "hl-3190cdw",
-          "mfc-l2715dw(for tiwan, koria)",
-          "td-4520dn",
-          "dcp-b7620dwb",
-          "hl-b2100d",
-          "dcp-l2625dw",
-          "dcp-7195dw",
-          "pt-e550w (for china)",
-          "hl-l3210cw",
-          "mfc-l2805dw",
-          "rj-3050",
-          "pt-e850tkw (for asia pacific, eu, us)",
-          "dcp-7190dw",
-          "dcp-t225",
-          "dcp-b7650dw",
-          "dcp-l5512dn",
-          "mfc-l3740cdw",
-          "hl-l6400dwt",
-          "dcp-j972n",
-          "hl-1212wr",
-          "dcp-l3520cdw",
-          "hl-l2370dw",
-          "hl-l5212dn",
-          "mfc-l3755cdw",
-          "dcp-j1200w(xl)",
-          "dcp-t439w",
-          "hl-l2445dw",
-          "mfc-l6800dw",
-          "mfc-l5702dw",
-          "dcp-l2532dw",
-          "hl-l6415dw",
-          "dcp-j928n-wb",
-          "nfc-j903n",
-          "hl-l9430cdn",
-          "mfc-l2707dw",
-          "mfc-l5718dn",
-          "mfc-l3720cdw",
-          "hl-l3220cw",
-          "mfc-j5730dw",
-          "dcp-j1200n",
-          "dcp-7180dn",
-          "mfc-l2700dw(asa)",
-          "pt-p900wc",
-          "mfc-l6820dw",
-          "dcp-t835dw",
-          "hl-l8260cdw",
-          "mfc-l3745cdw",
-          "dcp-b7608w",
-          "mfc-l5750dw",
-          "tj-4520tn",
-          "mfc-j805dw",
-          "ql-820nwb",
-          "mfc-t810w(for china)",
-          "hl-j6010dw",
-          "dcp-t435w",
-          "mfc-l6915dn csp",
-          "dcp-l1848w",
-          "mfc-j998dwn",
-          "mfc-j5345dw",
-          "ds/mds-940dw",
-          "mfc-l6750dw",
-          "dcp-1616nw",
-          "dcp-j4543n",
-          "dcp-t735dw",
-          "mfc-8530dn",
-          "mfc-j1800dw",
-          "dcp-b7620dw",
-          "td-2310d",
-          "hl-l5100dn",
-          "dcp-l3560cdw",
-          "dcp-l3551cdw",
-          "hl-l3220cwe",
-          "dcp-l6600dw",
-          "dcp-b7600db",
-          "mfc-l2680w",
-          "mfc-l5728dw",
-          "dcp-l2648dw",
-          "mfc-j739dn",
-          "hl-l2365dwr",
-          "ads-4500w",
-          "mfc-1910w",
-          "hl-l6210dw",
-          "mfc-l6912dw",
-          "hl-l2375dwr",
-          "hl-l9310cdw",
-          "mfc-j6940dw",
-          "dcp-l2520dw",
-          "mfc-j7500cdw",
-          "hl-l3215cw",
-          "rj-4250wb",
-          "pt-e800w",
-          "ads-4700w",
-          "td-2350d",
-          "dcp-t730dw",
-          "hl-l2400dwe",
-          "e-studio302dnf",
-          "mfc-l2730dn",
-          "mfc-l5715dw",
-          "hl-jf1",
-          "mfc-j3540dw",
-          "mfc-j1215w",
-          "mfc-l6950dw",
-          "mfc-j5955dw",
           "mfc-j5855dw",
-          "mfc-l3750cdw",
-          "mfc-l5710dn",
-          "mfc-l2827dwxl",
-          "hl-1210wr",
-          "mfc-j6999cdw",
-          "ads-3600w",
-          "dcp-l3555cdw",
-          "mfc-l5717dw",
-          "hl-l5218dn",
-          "dcp-t720dw",
-          "mfc-l2860dw",
-          "dcp-b7520dw",
-          "mfc-l5755dw",
-          "pt-e850tkw (for koria)",
-          "mfc-l2751dw",
-          "mfc-l2770dw",
+          "hl-l1232w",
+          "mfc-l2730dn",
+          "dcp-l2627dwxl",
+          "dcp-j1800dw",
           "tj-4005dn",
-          "mfc-ex915dw",
-          "mfc-l9670cdn",
-          "hl-l2386dw",
-          "dcp-j1200we",
-          "dcp-j978n-w/b",
-          "dcp-j988n",
-          "tj-4620tn",
-          "hl-l2460dn",
-          "hl-l3220cdw",
-          "mfc-l5912dw",
-          "hl-l2370dnr",
-          "hl-l5210dwt",
-          "mfc-l2750dwr",
-          "hl-l2390dw",
-          "sp-1 (for japan)",
-          "mfc-j939dwn",
-          "td-4520tn",
-          "dcp-j4143n",
-          "ads-1250w",
-          "mfc-j6997cdw",
-          "dcp-l5510dn",
-          "mfc-j7100cdw",
-          "dcp-b7530dn",
-          "mfc-j2340dw",
-          "rj-3150",
-          "mfc-9350cdw",
-          "mfc-l9630cdn",
-          "dcp-j577n",
-          "mfc-l8610cdw(for japan)",
-          "ads-1800w",
-          "mfc-j6983cdw",
-          "mfc-l2835dw",
-          "td-2350dsa",
-          "mfc-j6959dw",
-          "dcp-t226",
-          "pt-e550w (for us, eu)",
-          "rj-3150ai",
-          "hl-l2467dw",
-          "mfc-l9635cdn",
-          "mfc-l5900dw",
-          "mfc-j4535dw(xl)",
-          "hl-l6300dwt",
-          "hl-l6412dw",
-          "dcp-t430w",
-          "mfc-l5850dw",
-          "pt-e550w (for russia)",
-          "hl-j6000dw",
-          "mfc-l5902dw",
-          "pt-e550w (for tiwan, hongkong)",
-          "dcp-t420w",
-          "mfc-j5330dw",
-          "mfc-j805dw xl",
-          "e-studio301dn",
-          "ads-2800w",
-          "dcp-j987n-b",
-          "mfc-j4340dw(xl)",
-          "dcp-j772dw",
-          "hl-l3230cdn",
-          "mfc-l8690cdw",
-          "hl-j6100dw",
-          "fax-l2800dw",
-          "dcp-j572dw",
-          "dcp-l2518dw",
-          "hl-l2340dwr",
-          "hl-1223we",
-          "mfc-l6915dn",
-          "dcp-1623wr",
-          "td-2320dsa",
-          "mfc-l2820dwxl",
-          "mfc-l2900dw",
-          "dcp-l2551dn",
-          "td-4420dn",
+          "dcp-l5512dn",
+          "dcp-j981n",
+          "hl-l3240cdw",
+          "hl-l5210dn",
           "pt-e550w (for koria)",
-          "mfc-l5802dw",
-          "mfc-l3770cdw",
-          "dcp-l1632w",
-          "mfc-l6900dwg",
-          "mfc-j4540dw(xl)",
-          "hl-b2050dn",
-          "mfc-l2800dw",
-          "mfc-l2713dw",
-          "dcp-t710w(for china)",
-          "mfc-l2862dw",
-          "dcp-l2552dn",
-          "mfc-l2685dw",
-          "bizhub 4000i",
-          "hl-l6450dw",
-          "mfc-j6583cdw",
-          "dcp-j1800n",
-          "mfc-b7715dw",
-          "mfc-j1205w(xl)",
-          "mfc-l2690dw",
-          "dcp-7090dw",
-          "mfc-l5715dn",
-          "hl-l1238w",
-          "mfc-7895dw",
-          "hl-l9410cdn",
-          "tj-4121tn",
+          "dcp-1610we",
+          "dcp-t530dw",
+          "mfc-j890dw",
+          "dcp-j978n-w/b",
+          "dcp-l2540dn",
+          "hl-l2350dw",
+          "td-2135n",
+          "pt-e550w (for vietnum)",
+          "rj-2150",
+          "hl-j6000cdw",
+          "dcp-t725dw",
+          "mfc-j5730dw",
+          "hl-l5100dn",
+          "rj-2140",
+          "dcp-l5662dn",
+          "hl-l2375dwr",
+          "mfc-j5740dw",
+          "mfc-l5700dn",
+          "mfc-l2700dw(asa)",
+          "hl-l2390dw",
+          "mfc-l8390cdw",
           "dcp-l2647dw",
-          "mfc-j6740dw",
-          "dcp-j526n",
-          "mfc-j738dwn",
-          "hl-l2370dn",
-          "hl-l6250dw",
-          "hl-l3280cdw",
-          "dcp-l2541dw",
-          "pt-d800w",
-          "mfc-l2920dw",
-          "mfc-l2861dw",
-          "hl-l3230cdw",
-          "hl-l6415dn csp",
-          "dcp-t436w",
-          "mfc-j905n",
-          "dcp-j572n",
-          "mfc-l2960dw",
-          "dcp-j1100dw",
-          "mfc-t925dw",
-          "hl-l8260cdn",
-          "ads-4300n",
-          "mfc-j4440dw",
-          "pj-773",
-          "mfc-l2715dw",
-          "mfc-l6915dw",
-          "dcp-l5652dn",
-          "mfc-j738dn",
-          "hl-l2460dwxl",
-          "mfc-j6957dw",
-          "hl-l5100dnt",
-          "hl-l6300dw",
-          "mfc-l2817dw",
-          "mfc-j815dw xl",
-          "mfc-b7810dw",
-          "mfc-l2760dw",
-          "td-4420tn",
-          "dcp-t710w",
-          "hl-2569dw",
-          "mfc-l3765cdw",
-          "mfc-t910dw",
-          "hl-l2376dw",
-          "dcp-l5502dn",
-          "mfc-b7720dn",
-          "dcp-l2680dw",
-          "mfc-j998dn",
-          "mfc-t935dw",
-          "mfc-j5630cdw",
-          "hl-b2188dw",
-          "dcp-l2550dw(twn)",
-          "mfc-j6945dw",
-          "mfc-j5340dwe",
-          "mfc-l2712dw",
-          "mfc-j5830dw",
-          "dcp-l3568cdw",
-          "mfc-j6580cdw",
-          "ql-1110nwb",
-          "dcp-c1210n",
-          "mfc-l8395cdw",
-          "mfc-l2806dw",
-          "tj-4021tnr",
-          "hl-l2461dn",
-          "mfc-j6947dw",
-          "mfc-j7700cdw",
-          "dcp-t220",
           "rj-3035b",
-          "hl-1223wr",
-          "hl-l2357dw",
-          "mfc-l9610cdn",
-          "dcp-t820dw",
-          "dcp-b7578dw",
-          "mfc-t930dw",
-          "mfc-l9577cdw",
-          "dcp-t428w",
-          "hl-l3295cdw",
-          "dcp-l2550dnr",
-          "mfc-l8900cdw",
+          "mfc-8530dn",
+          "mfc-j7100cdw",
+          "hl-l2400dw",
+          "dcp-9030cdn",
+          "mfc-j1010dw",
+          "hl-l6210dwt",
+          "mfc-l2922dw",
+          "mfc-l2712dw",
+          "mfc-l2900dwxl",
+          "hl-5590dn",
+          "dcp-1623we",
+          "hl-l2365dw",
+          "mfc-j1205w(xl)",
+          "mfc-l2707dw",
+          "td-4650tnwbr",
+          "dcp-l5610dn",
+          "mfc-l2715dw",
+          "hl-l2360dw",
+          "mfc-j926n-wb",
+          "hl-l6400dwg",
+          "hl-l6410dn",
+          "mfc-9150cdn",
+          "mfc-t920dw",
+          "mfc-j4440dw",
+          "mfc-l2700dn",
+          "mfc-l3750cdw",
+          "mfc-l6800dw",
+          "dcp-1616nw",
+          "mfc-l6750dw",
+          "tj-4422tn",
+          "mfc-j4335dw(xl)",
+          "mfc-l2705dw",
+          "ql-820nwb",
+          "dcp-j1050dw",
+          "ads-1350w",
+          "hl-1222we",
+          "hl-l8260cdn",
+          "td-2320d",
+          "hl-1212we",
+          "pt-p950nw",
+          "dcp-j577n",
+          "hl-l1238w",
+          "mfc-j1605dn",
+          "tj-4520tn",
+          "tj-4020tn",
+          "mfc-l2860dwe",
+          "mfc-j995dw xl",
+          "dcp-b7608w",
+          "dcp-j972n",
+          "hl-l2325dw",
+          "mfc-l2765dw",
+          "mfc-l2861dw",
+          "hl-l2440dw",
+          "sp-1 (for japan)",
+          "mfc-l5715dw",
+          "hl-b2188dw",
+          "mfc-j5845dw(xl)",
+          "hl-j6000dw",
+          "dcp-l2620dw",
+          "mfc-l6902dw",
+          "dcp-7195dw",
+          "mfc-j5340dwe",
+          "ads-2400n",
+          "ads-1250w",
+          "hl-1212wr",
+          "tj-4010tn",
+          "dcp-l2541dw",
+          "hl-l3220cdw",
+          "hl-l5200dw",
+          "hl-l2340dwr",
+          "mfc-l3745cdw",
+          "dcp-j587n",
+          "mfc-ex670w",
+          "mfc-j3930dw",
+          "pt-e850tkw (for thailand)",
+          "dcp-t825dw",
+          "hl-l5218dn",
+          "hl-1210w",
+          "mfc-l3765cdw",
+          "mfc-b7810dwb",
+          "mfc-l8690cdw",
           "dcp-j982n-w/b",
-          "hl-l5200dwt",
+          "td-4750tnwb",
+          "dcp-j1700dw",
+          "mfc-j895dw",
+          "dcp-j4140n",
+          "mfc-l3740cdw",
+          "ql-810wc",
+          "dcp-b7548w",
+          "hl-l2370dwxl",
+          "mfc-j5800cdw",
+          "dcp-l1632w",
+          "mfc-j2340dw",
+          "mfc-l2862dw",
+          "dcp-l2530dwr",
+          "dcp-t426w",
+          "mfc-j2330dw",
+          "hl-l2467dw",
+          "hl-l2386dw",
+          "mfc-l2703dw",
+          "mfc-j739dn",
+          "dcp-l3520cdw",
+          "ql-1115nwb",
+          "dcp-l3568cdw",
+          "dcp-b7600db",
+          "dcp-7180dn",
+          "hl-3190cdw",
+          "dcp-b7638dn",
+          "mfc-j738dn",
+          "hl-1211w",
+          "mfc-l6915dn csp",
+          "hl-b2050dn",
+          "dcp-l2660dw",
+          "hl-l2400dwe",
+          "mfc-l6900dw",
+          "dcp-t226",
+          "mfc-j7500cdw",
+          "hl-j6100dw",
+          "hl-l3290cdw",
+          "hl-l2375dw",
+          "dcp-1612we",
+          "hl-l2360dn",
+          "mfc-l8900cdw",
+          "mfc-j5345dw",
+          "mfc-l6710dw",
+          "td-4420dn",
+          "mfc-j6555dw",
+          "hl-b2158w",
+          "dcp-j928n-wb",
+          "mfc-j6540dwe",
+          "fax-l2700dn",
+          "mfc-l6700dw",
+          "hl-l6200dwt",
+          "hl-l2340dw",
+          "mfc-l9670cdn",
+          "hl-l2370dw",
+          "mfc-j5335dw",
+          "mfc-l2820dwxl",
+          "hl-2595dw",
+          "td-2130n",
+          "hl-l3210cw",
+          "mfc-l5750dw",
+          "ads-1700w",
+          "mfc-7880dn",
+          "dcp-b7640dwb",
+          "mfc-j2730dw",
+          "mfc-l5728dw",
+          "mfc-l2710dw",
+          "mfc-1912wr",
+          "hl-l2385dw",
+          "mfc-j6540dw",
+          "mfc-l2817dw",
+          "dcp-l3555cdw",
+          "hl-l2480dw",
+          "dcp-j1800n",
+          "dcp-l2520dw",
+          "dcp-l2551dn",
+          "hl-3160cdw",
+          "ql-820nwbc",
+          "mfc-l5700dw",
+          "mfc-l2835dw",
+          "mfc-l2750dwxl",
+          "mfc-l2685dw",
+          "mfc-1919nw",
+          "dcp-l1848w",
+          "rj-3250wb",
+          "rj-2050",
+          "dcp-t435w",
+          "mfc-l5850dw",
+          "bizhub 4020i",
+          "td-2350dfsa",
+          "dcp-l2627dwe",
+          "mfc-j3940dw",
+          "pt-e550w (for china)",
+          "dcp-j572n",
+          "mfc-9350cdw",
+          "hl-l2305w",
+          "dcp-1622we",
+          "td-2125n",
+          "hl-l2445dw",
+          "mfc-j6945dw",
+          "mfc-j893n",
+          "dcp-t830dw",
+          "mfc-l2720dw",
+          "hl-l2465dw",
+          "dcp-l5510dw",
+          "hl-l6402dw",
+          "mfc-j7600cdw",
+          "dcp-j1203n",
+          "ql-1110nwbc",
+          "dcp-t735dw",
+          "dcp-l2628dw",
+          "hl-l2371dn",
+          "mfc-l5717dw",
+          "mfc-l5900dw",
+          "mfc-l2730dwr",
+          "mfc-j998dn",
           "mfc-j1012dw",
+          "mfc-j6995cdw",
+          "mfc-l2827dwxl",
+          "mfc-j995dw",
+          "mfc-l8340cdw",
+          "hl-5595dnh",
+          "hl-l2351dw",
+          "mfc-l5912dw",
+          "hl-l3295cdw",
+          "mfc-l2800dw",
+          "dcp-l2540dw",
+          "mfc-l2802dn",
+          "dcp-l6600dw",
+          "mfc-l2740dwr",
+          "hl-j7010cdw",
+          "mfc-l2732dw",
+          "hl-l3270cdw",
+          "dcp-l2550dw(twn)",
+          "dcp-l2540dnr",
+          "mfc-j4440n",
+          "ads-1800w",
+          "dcp-l2600d",
+          "pj-773",
+          "hl-l6418dw",
+          "hl-l9410cdn",
+          "hl-2569dw",
+          "dcp-1623wr",
+          "pt-e850tkw (for koria)",
+          "mfc-l3735cdn",
+          "hl-l6202dw",
+          "hl-l5215dn",
+          "pt-e550w (for russia)",
+          "dcp-b7600d",
+          "rj-2035b",
+          "mfc-j1215w",
+          "dcp-l2627dw",
+          "mfc-l9570cdw(for japan)",
+          "ql-810w",
+          "dcp-c1210n",
+          "hl-l3300cdw",
+          "hl-l2460dw",
+          "dcp-l2605dw",
+          "mfc-l2712dn",
+          "dcp-l2640dn",
+          "ads-2700we",
+          "mfc-j6935dw",
+          "dcp-l3560cdw",
+          "mfc-l6915dw",
+          "dcp-t520w",
+          "pt-e550w (for thailand)",
+          "hl-l6415dn csp",
+          "hl-l6300dwt",
+          "hl-l3215cw",
+          "dcp-j1200n",
+          "mfc-l2715dw(for tiwan, koria)",
+          "nfc-j903n",
+          "dcp-1612wr",
+          "mfc-l2710dn",
+          "mfc-l2713dw",
+          "tj-4121tnr",
+          "dcp-1612w",
+          "dcp-t225",
+          "dcp-t430w",
+          "rj-3150",
+          "dcp-b7530dn",
+          "dcp-b7640dw",
+          "dcp-l2550dw",
+          "dcp-l3517cdw",
+          "dcp-j1200we",
+          "mfc-j4535dw(xl)",
+          "hl-l2357dw",
+          "mfc-l3768cdw",
           "hl-2560dn",
-          "hl-l8360cdw",
-          "dcp-l3520cdwe",
-          "tj-4420tn",
+          "mfc-j4540dw(xl)",
+          "hl-l1808w",
+          "mfc-l8610cdw(for japan)",
+          "mfc-l6910dn",
+          "dcp-l5602dn",
+          "hl-l6415dwt",
+          "mfc-j1170dw",
+          "pt-p900w",
+          "mfc-l6702dw",
+          "mfc-j1500n",
+          "hl-l2380dw",
+          "dcp-j1140dw",
+          "hl-l5212dw",
+          "dcp-7189dw",
+          "fax-l2710dn",
+          "mfc-l2805dw",
+          "hl-1210wr",
+          "mfc-1910we",
+          "dcp-l3528cdw",
+          "pt-e850tkw (for asia pacific, eu, us)",
+          "hl-l5100dnt",
+          "mfc-l3760cdw",
+          "hl-l8260cdw",
+          "mfc-l2716dw",
+          "mfc-b7715dw",
+          "dcp-l5502dn",
+          "mfc-t4500dw",
+          "mfc-t810w(for china)",
+          "pt-e850tkw (for china)",
+          "hl-b2100db",
+          "hl-l2315dw",
+          "hl-l6400dwt",
+          "dcp-l2518dw",
+          "td-2350df",
+          "hl-jf1",
+          "hl-l9310cdw",
+          "dcp-t510w(for china)",
+          "hl-1210we",
+          "td-4520tn",
+          "mfc-l2860dw",
+          "mfc-l2880dwxl",
+          "bizhub 5000i",
+          "hl-l2425dw",
+          "mfc-l2806dw",
+          "mfc-l6912dw",
+          "mfc-l2885dw",
+          "mfc-j4340dw(xl)",
+          "dcp-1610w",
+          "mfc-l2771dw",
+          "dcp-l2532dw",
+          "hl-l2366dw",
+          "dcp-l2535dw",
+          "pj-883",
+          "dcp-t230",
           "mfc-l2886dw",
+          "mfc-l2720dn",
+          "dcp-t525w",
+          "mfc-j5830dw",
+          "hl-l2447dw",
+          "mfc-j5930dw",
+          "mfc-j5945dw",
+          "mfc-l3730cdn",
+          "hl-l2461dn",
+          "mfc-l2802dw",
+          "mfc-j6959dw",
+          "hl-l6400dw",
+          "mfc-l2920dw",
+          "td-4650tnwb",
+          "sp-1",
+          "pt-e850tkw (for vietnum)",
+          "hl-l3220cw",
+          "bizhub 5020i",
+          "hl-l5212dn",
+          "tj-4021tnr",
+          "hl-l2352dw",
+          "mfc-l2720dwr",
+          "mfc-t930dw",
+          "dcp-t536dw",
+          "dcp-b7520dw",
+          "mfc-l2700dwr",
+          "hl-1218w",
+          "hl-b2180dwb",
+          "hl-l6415dn",
+          "mfc-l5710dn",
+          "mfc-l3755cdw",
+          "dcp-b7620dwb",
+          "mfc-t935dw",
           "mfc-l5800dw",
-          "mfc-9150cdn"
+          "mfc-l2750dwr",
+          "dcp-l3520cdwe",
+          "ads-4300n",
+          "dcp-b7658dw",
+          "dcp-7090dw",
+          "mfc-l2740dw",
+          "mfc-l6950dw",
+          "dcp-t510w",
+          "hl-1223wr",
+          "mfc-l2690dw",
+          "dcp-j973n-w/b",
+          "mfc-l2701dw",
+          "mfc-b7811dw",
+          "hl-j6010dw",
+          "ads-2800w",
+          "dcp-1610wr",
+          "mfc-j497dw",
+          "dcp-t420w",
+          "mfc-j898n",
+          "td-4750tnwbr",
+          "mfc-l9630cdn",
+          "td-4550dnwb",
+          "mfc-j4940dn",
+          "dcp-j526n",
+          "mfc-j939dwn",
+          "mfc-l9610cdn",
+          "mfc-l2717dw",
+          "mfc-l6900dwg",
+          "hl-l2372dn",
+          "mfc-j7300cdw",
+          "hl-b2180dw",
+          "mfc-j6583cdw",
+          "mfc-j491dw",
+          "dcp-1617nw",
+          "mfc-j738dwn",
+          "dcp-7190dn",
+          "ds-740d",
+          "dcp-l2600dw",
+          "hl-l6217dw",
+          "dcp-l3510cdw",
+          "mfc-1915w",
+          "mfc-j5955dw",
+          "hl-l5215dw",
+          "mfc-l2980dw",
+          "dcp-t535dw",
+          "dcp-t220",
+          "mfc-j7700cdw",
+          "dcp-j914n",
+          "dcp-t730dw",
+          "td-2320df",
+          "mfc-b7720dn",
+          "hl-t4000dw",
+          "dcp-b7650dw",
+          "dcp-j987n-b",
+          "hl-l6450dw",
+          "pt-e550w (for tiwan, hongkong)",
+          "mfc-l9570cdw",
+          "hl-l5202dw",
+          "pt-e850tkw (for tiwan)",
+          "ads-4500w",
+          "mfc-j6940dw",
+          "dcp-l1638w",
+          "dcp-l2560dw",
+          "hl-l3230cdw",
+          "dcp-l2551dw",
+          "dcp-l2552dn",
+          "mfc-l3780cdw",
+          "dcp-l5650dn",
+          "hl-l3220cwe",
+          "mfc-l5802dw",
+          "dcp-b7628dw",
+          "pt-e850tkw (for uae)",
+          "dcp-t436w",
+          "bizhub 4000i",
+          "mfc-j5855dw xl",
+          "nfc-ex670",
+          "mfc-l9577cdw",
+          "hl-l9470cdn",
+          "mfc-l6970dw",
+          "hl-l5210dw",
+          "vc-500w",
+          "pt-d800w",
+          "hl-l6250dw",
+          "mfc-8540dn",
+          "mfc-l2900dw",
+          "hl-l2420dw",
+          "dcp-t820dw",
+          "hl-l3230cdn",
+          "mfc-7890dn",
+          "rj-3150ai",
+          "dcp-l2537dw",
+          "dcp-l5510dn",
+          "hl-l6300dw",
+          "rj-3050ai",
+          "dcp-b7535dw",
+          "dcp-l2625dw",
+          "hl-l6210dw",
+          "mfc-l2960dw",
+          "dcp-l3515cdw",
+          "dcp-j528n",
+          "dcp-l2665dw",
+          "ads-3000n",
+          "hl-l2405w",
+          "mfc-l2760dw",
+          "ads-4900w",
+          "mfc-l2751dw",
+          "dcp-j1100dw",
+          "hl-l5102dw",
+          "ds/mds-940dw",
+          "hl-l2460dwxl",
+          "hl-l2464dw",
+          "mfc-l2710dwr",
+          "hl-l2360dnr",
+          "mfc-j6740dw",
+          "hl-l5200dwt",
+          "dcp-l5500dn",
+          "ql-1110nwb",
+          "dcp-j582n",
+          "mfc-1911w",
+          "mfc-j6999cdw",
+          "hl-l5210dwt",
+          "dcp-l1630w",
+          "mfc-j6555dw xl",
+          "mfc-l8395cdw",
+          "td-2310d",
+          "dcp-l2648dw",
+          "mfc-l5902dw",
+          "mfc-l6820dw",
+          "hl-l5228dw",
+          "dcp-l2530dw",
+          "mfc-j4540n",
+          "hl-l1230w",
+          "ads-3600w",
+          "mfc-7895dw",
+          "hl-ex415dw",
+          "pt-p750w",
+          "mfc-4340dwe",
+          "mfc-j4443n",
+          "pt-p900wc",
+          "hl-b2080dw",
+          "mfc-l5755dw",
+          "mfc-j904n",
+          "mfc-b7800dn",
+          "mfc-l3720cdw",
+          "dcp-j772dw",
+          "mfc-j998dwn",
+          "mfc-ex915dw",
+          "dcp-b7578dw",
+          "tj-4121tn",
+          "dcp-j987n-w",
+          "hl-b2181dw",
+          "mfc-j6930dw",
+          "dcp-j572dw",
+          "mfc-t925dw",
+          "mfc-j905n",
+          "hl-l6415dw",
+          "hl-1212w",
+          "mfc-j6957dw",
+          "dcp-l2550dn",
+          "mfc-j805dw xl",
+          "mfc-l2807dw",
+          "tj-tj-4522tn",
+          "tj-4120tn",
+          "mfc-l6810dw",
+          "mfc-j5630cdw",
+          "mfc-l3740cdwe",
+          "td-2320dsa",
+          "mfc-l2700dw",
+          "dcp-l2550dnr",
+          "mfc-b7810dw",
+          "mfc-l2820dw",
+          "mfc-j805dw",
+          "dcp-l5652dn",
+          "tj-4620tn",
+          "dcp-l2520dwr",
+          "hl-5595dn",
+          "hl-l8360cdw",
+          "mfc-l9635cdn",
+          "e-studio302dnf",
+          "dcp-j774dw",
+          "dcp-t236",
+          "td-2120n",
+          "hl-1223we",
+          "hl-l8245cdw",
+          "td-2350d",
+          "dcp-t425w",
+          "mfc-l5702dw",
+          "hl-l5050dn",
+          "hl-l2475dw",
+          "mfc-j5330dw",
+          "dcp-l2622dw",
+          "dcp-l2680dw",
+          "mfc-j6730dw",
+          "dcp-l2640dw",
+          "hl-l8360cdwt",
+          "mfc-j1300dw",
+          "ads-3300w",
+          "dcp-l3550cdw",
+          "hl-l2350dwr",
+          "dcp-j988n",
+          "e-studio301dn",
+          "hl-l2865dw",
+          "mfc-l6915dn",
+          "mfc-t910dw",
+          "mfc-l3710cdw",
+          "hl-l2370dn",
+          "mfc-l3770cdw",
+          "mfc-j6983cdw",
+          "dcp-l2508dw",
+          "mfc-ex910",
+          "dcp-l8410cdw",
+          "rj-3050",
+          "mfc-l8610cdw",
+          "dcp-t710w(for china)",
+          "hl-l2370dnr",
+          "mfc-l2750dw",
+          "hl-l9430cdn",
+          "dcp-l2531dw",
+          "dcp-7190dw",
+          "dcp-j915n",
+          "hl-l3280cdw",
+          "mfc-l6720dw",
+          "td-4420tn",
+          "hl-l8230cdw",
+          "mfc-7889dw",
+          "dcp-j4543n",
+          "mfc-j6530dw",
+          "dcp-t439w",
+          "dcp-t238",
+          "pt-e800w",
+          "pt-e550w (for us, eu)",
+          "mfc-j6580cdw",
+          "hl-b2150w",
+          "dcp-b7648dw",
+          "mfc-j1800dw",
+          "mfc-l2827dw",
+          "dcp-t835dw",
+          "hl-l3228cdw",
+          "dcp-l5600dn",
+          "hl-l2395dw",
+          "mfc-j6955dw",
+          "mfc-1910w",
+          "td-4420dnz",
+          "mfc-l5718dn",
+          "dcp-l2548dw",
+          "mfc-j815dw xl",
+          "hl-b2100d",
+          "dcp-b7558w",
+          "dcp-1615nw",
+          "dcp-t710w",
+          "hl-l6200dw",
+          "dcp-c421w",
+          "mfc-1916nw",
+          "mfc-l2730dw",
+          "dcp-l5660dn",
+          "dcp-l5518dn",
+          "dcp-l3551cdw",
+          "mfc-j2740dw",
+          "dcp-t720dw",
+          "mfc-j4345dw xl",
+          "mfc-j6980cdw",
+          "mfc-j6997cdw",
+          "ads-2700w",
+          "dcp-b7620dw",
+          "mfc-l2680w",
+          "hl-l2460dn",
+          "hl-l6250dn",
+          "hl-l3288cdw",
+          "tj-4021tn",
+          "hl-l8240cdw",
+          "dcp-j4143n",
+          "dcp-t428w",
+          "mfc-j939dn",
+          "dcp-j1200w(xl)",
+          "hl-l2365dwr",
+          "mfc-t810w",
+          "mfc-j6947dw",
+          "mfc-j739dwn",
+          "mfc-l2880dw",
+          "mfc-l2770dw",
+          "rj-4250wb",
+          "hl-l6310dw",
+          "mfc-j5340dw",
+          "tj-4420tn",
+          "td-2350dsa",
+          "mfc-1911nw",
+          "mfc-j3540dw",
+          "mfc-j690dw",
+          "mfc-l5715dn",
+          "mfc-l5915dw",
+          "fax-l2800dw",
+          "ads-4700w",
+          "mfc-j6535dw",
+          "hl-l6412dw",
+          "td-4520dn",
+          "dcp-1618w",
+          "mfc-j3530dw",
+          "mfc-l5710dw",
+          "hl-l2376dw",
+          "mfc-l2710dnr",
+          "dcp-l2560dwr",
+          "hl-2590dn"
         ]
       },
       "references": [
@@ -3057,7 +2989,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["fortinet"],
-        "products": ["fortimail", "fortivoice", "fortindr", "forticamera", "fortirecorder"]
+        "products": ["fortivoice", "fortindr", "forticamera", "fortirecorder", "fortimail"]
       },
       "references": [
         {
@@ -3781,6 +3713,74 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/2xxx/CVE-2025-2945.json",
             "lastModified": "2025-04-04T03:55:25.268000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2024-58136",
+      "title": "CVE-2024-58136: Yii 2 before 2.0.52 mishandles the attaching of behavior that is defined by an __class array key, a ...",
+      "description": "Yii 2 before 2.0.52 mishandles the attaching of behavior that is defined by an __class array key, a CVE-2024-4990 regression, as exploited in the wild in February through April 2025.",
+      "publishedDate": "2025-04-10T00:00:00+00:00",
+      "lastModifiedDate": "2025-05-02T22:20:23.136000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:H/I:H/A:H",
+          "baseScore": 9.0,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.359,
+        "percentile": 96.906
+      },
+      "riskScore": 53,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": ["yiiframework"],
+        "products": ["yii"]
+      },
+      "references": [
+        {
+          "url": "https://github.com/yiisoft/yii2/pull/20232",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://github.com/yiisoft/yii2/pull/20232#issuecomment-2252459709",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://github.com/yiisoft/yii2/commit/40fe496eda529fd1d933b56a1022ec32d3cd0b12",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://github.com/yiisoft/yii2/compare/2.0.51...2.0.52",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://www.yiiframework.com/news/709/please-upgrade-to-yii-2-0-52",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": ["CWE-424"],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": null,
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/58xxx/CVE-2024-58136.json",
+            "lastModified": "2025-05-02T22:20:23.136000+00:00"
           }
         ]
       }
@@ -5637,7 +5637,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["phoenix contact"],
-        "products": ["charx sec-3000", "charx sec-3150", "charx sec-3100", "charx sec-3050"]
+        "products": ["charx sec-3000", "charx sec-3150", "charx sec-3050", "charx sec-3100"]
       },
       "references": [
         {
@@ -5976,8 +5976,8 @@
         "products": [
           "windows server 2025",
           "windows 11 version 24h2",
-          "windows server 2025 (server core installation)",
-          "windows server 2022, 23h2 edition (server core installation)"
+          "windows server 2022, 23h2 edition (server core installation)",
+          "windows server 2025 (server core installation)"
         ]
       },
       "references": [
@@ -6027,32 +6027,32 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          "windows server 2016",
-          "windows server 2019 (server core installation)",
-          "windows server 2012 r2 (server core installation)",
-          "windows server 2008 service pack 2 (server core installation)",
-          "windows server 2008 r2 service pack 1 (server core installation)",
-          "windows 11 version 24h2",
-          "windows server 2012 (server core installation)",
-          "windows 11 version 23h2",
           "windows server 2019",
-          "windows server 2008 service pack 2",
-          "windows server 2012",
           "windows 11 version 22h2",
-          "windows server 2022",
-          "windows 10 version 1507",
-          "windows 11 version 22h3",
-          "windows 10 version 22h2",
-          "windows server 2016 (server core installation)",
-          "windows server 2025",
-          "windows 10 version 1809",
-          "windows server 2025 (server core installation)",
-          "windows 10 version 21h2",
+          "windows server 2012 (server core installation)",
           "windows 10 version 1607",
-          "windows server 2022, 23h2 edition (server core installation)",
+          "windows 10 version 1809",
+          "windows server 2016 (server core installation)",
+          "windows server 2008  service pack 2",
+          "windows server 2019 (server core installation)",
+          "windows 10 version 21h2",
+          "windows server 2022",
           "windows server 2008 r2 service pack 1",
+          "windows server 2025",
+          "windows server 2008 service pack 2",
+          "windows server 2025 (server core installation)",
+          "windows 11 version 24h2",
+          "windows server 2008 r2 service pack 1 (server core installation)",
           "windows server 2012 r2",
-          "windows server 2008  service pack 2"
+          "windows server 2022, 23h2 edition (server core installation)",
+          "windows 10 version 1507",
+          "windows 10 version 22h2",
+          "windows 11 version 22h3",
+          "windows server 2008 service pack 2 (server core installation)",
+          "windows server 2012 r2 (server core installation)",
+          "windows server 2016",
+          "windows server 2012",
+          "windows 11 version 23h2"
         ]
       },
       "references": [
@@ -6208,21 +6208,21 @@
         "cpeMatches": [],
         "vendors": ["red hat"],
         "products": [
-          "red hat enterprise linux 9.0 update services for sap solutions",
-          "red hat enterprise linux 8",
-          "red hat enterprise linux 8.2 advanced update support",
-          "red hat enterprise linux 10",
+          "red hat enterprise linux 7 extended lifecycle support",
           "red hat enterprise linux 8.6 advanced mission critical update support",
-          "red hat enterprise linux 8.6 update services for sap solutions",
+          "red hat enterprise linux 8.4 advanced mission critical update support",
           "red hat enterprise linux 8.8 update services for sap solutions",
           "red hat enterprise linux 8.8 telecommunications update service",
-          "red hat enterprise linux 7 extended lifecycle support",
-          "red hat enterprise linux 9.4 extended update support",
-          "red hat enterprise linux 6",
-          "red hat enterprise linux 9",
           "red hat enterprise linux 9.2 update services for sap solutions",
-          "red hat enterprise linux 8.4 advanced mission critical update support",
-          "red hat enterprise linux 8.6 telecommunications update service"
+          "red hat enterprise linux 9.4 extended update support",
+          "red hat enterprise linux 10",
+          "red hat enterprise linux 6",
+          "red hat enterprise linux 8.6 telecommunications update service",
+          "red hat enterprise linux 8",
+          "red hat enterprise linux 9",
+          "red hat enterprise linux 8.2 advanced update support",
+          "red hat enterprise linux 9.0 update services for sap solutions",
+          "red hat enterprise linux 8.6 update services for sap solutions"
         ]
       },
       "references": [
@@ -6507,7 +6507,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["ibm"],
-        "products": ["qradar suite software", "cloud pak for security"]
+        "products": ["cloud pak for security", "qradar suite software"]
       },
       "references": [
         {
@@ -7706,7 +7706,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["fortinet"],
-        "products": ["fortios", "fortiswitchmanager", "fortiproxy"]
+        "products": ["fortiproxy", "fortios", "fortiswitchmanager"]
       },
       "references": [
         {
@@ -8764,17 +8764,17 @@
         "vendors": ["sapido"],
         "products": [
           "brc76n",
-          "brc70x",
+          "brf61c",
           "br476n",
+          "br270n",
+          "bre71n",
+          "brc70x",
+          "bre70n",
           "brc70n",
           "brf71n",
-          "bre71n",
+          "br261c",
           "br071n",
-          "brd70n",
-          "bre70n",
-          "brf61c",
-          "br270n",
-          "br261c"
+          "brd70n"
         ]
       },
       "references": [
@@ -8883,17 +8883,17 @@
         "vendors": ["sapido"],
         "products": [
           "brc76n",
-          "brc70x",
+          "brf61c",
           "br476n",
+          "br270n",
+          "bre71n",
+          "brc70x",
+          "bre70n",
           "brc70n",
           "brf71n",
-          "bre71n",
+          "br261c",
           "br071n",
-          "brd70n",
-          "bre70n",
-          "brf61c",
-          "br270n",
-          "br261c"
+          "brd70n"
         ]
       },
       "references": [
@@ -9587,33 +9587,33 @@
         "cpeMatches": [],
         "vendors": ["mitsubishi electric corporation"],
         "products": [
-          "ae-50a",
-          "gb-24a",
-          "gb-50ad",
           "ag-150a-j",
-          "g-50",
-          "gb-50a",
-          "ew-50e",
-          "gb-50ada-j",
-          "ae-50j",
-          "ag-150a-a",
-          "gb-50",
-          "cms-rmd-j",
-          "g-50-w",
-          "eb-50gu-a",
-          "ew-50j",
-          "te-50a",
-          "gb-50ada-a",
-          "ew-50a",
-          "ae-50e",
-          "eb-50gu-j",
-          "te-200a",
-          "g-50a",
-          "g-150ad",
           "tw-50a",
+          "g-50",
+          "ew-50a",
+          "gb-50ad",
+          "ew-50e",
+          "ew-50j",
+          "gb-50ada-a",
+          "ae-200j",
+          "gb-50a",
+          "te-50a",
+          "ae-50e",
+          "te-200a",
+          "g-150ad",
+          "gb-24a",
           "ae-200a",
+          "ae-50a",
+          "g-50a",
+          "eb-50gu-j",
+          "ag-150a-a",
+          "ae-50j",
           "ae-200e",
-          "ae-200j"
+          "gb-50",
+          "g-50-w",
+          "gb-50ada-j",
+          "eb-50gu-a",
+          "cms-rmd-j"
         ]
       },
       "references": [
@@ -10017,7 +10017,7 @@
       ],
       "epss": {
         "score": 0.304,
-        "percentile": 96.455
+        "percentile": 96.476
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -10069,8 +10069,8 @@
         }
       ],
       "epss": {
-        "score": 0.0007,
-        "percentile": 23.051
+        "score": 0.001,
+        "percentile": 28.046
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -10727,43 +10727,43 @@
         "cpeMatches": [],
         "vendors": ["canon inc."],
         "products": [
+          "imagerunner 1643if ii",
           "imageclass mf455dw",
-          "imagerunner 1643i ii",
-          "color imageclass lbp633cdw",
+          "satera mf656cdw",
+          "imageclass mf453dw",
+          "imageclass x mf1238 ii",
           "i-sensys mf455dw",
-          "i-sensys mf552dw",
-          "i-sensys mf651cdw",
-          "imageclass x mf1643if ii",
-          "i-sensys mf453dw",
-          "imageclass lbp236dw",
-          "color imageclass mf653cdw",
-          "i-sensys x 1238i ii",
-          "color imageclass mf652cdw",
-          "i-sensys mf553dw",
-          "imageclass x lbp1238 ii",
+          "satera mf457dw",
+          "i-sensys lbp633cdw",
+          "i-sensys x 1238p ii",
+          "color imageclass lbp633cdw",
+          "satera mf654cdw",
+          "color imageclass lbp632cdw",
+          "i-sensys x 1238if ii",
           "satera mf551dw",
+          "imageclass lbp236dw",
+          "imageclass mf451dw",
+          "i-sensys x 1238pr ii",
+          "imageclass x mf1643i ii",
+          "color imageclass mf652cdw",
+          "color imageclass mf654cdw",
           "i-sensys lbp631cdw",
+          "i-sensys mf553dw",
+          "i-sensys x 1238i ii",
+          "i-sensys lbp233dw",
+          "imageclass lbp237dw",
           "color imageclass mf656cdw",
           "i-sensys mf657cdw",
-          "satera mf654cdw",
-          "i-sensys lbp633cdw",
-          "imageclass lbp237dw",
-          "imageclass mf452dw",
-          "i-sensys mf655cdw",
-          "i-sensys x 1238pr ii",
-          "imageclass mf453dw",
-          "i-sensys x 1238p ii",
-          "i-sensys x 1238if ii",
-          "imageclass mf451dw",
-          "imagerunner 1643if ii",
           "i-sensys lbp236dw",
-          "satera mf457dw",
-          "color imageclass lbp632cdw",
-          "satera mf656cdw",
-          "color imageclass mf654cdw",
-          "imageclass x mf1238 ii",
-          "imageclass x mf1643i ii",
-          "i-sensys lbp233dw"
+          "imageclass x lbp1238 ii",
+          "i-sensys mf651cdw",
+          "i-sensys mf655cdw",
+          "imagerunner 1643i ii",
+          "imageclass x mf1643if ii",
+          "i-sensys mf552dw",
+          "i-sensys mf453dw",
+          "color imageclass mf653cdw",
+          "imageclass mf452dw"
         ]
       },
       "references": [
@@ -12378,22 +12378,22 @@
         "cpeMatches": [],
         "vendors": ["red hat"],
         "products": [
-          "red hat enterprise linux 9.0 update services for sap solutions",
-          "red hat enterprise linux 8.4 update services for sap solutions",
-          "red hat enterprise linux 8",
-          "red hat enterprise linux 8.2 advanced update support",
-          "red hat enterprise linux 8.6 advanced mission critical update support",
-          "red hat enterprise linux 8.6 update services for sap solutions",
-          "red hat enterprise linux 8.8 extended update support",
-          "red hat enterprise linux 8.4 telecommunications update service",
-          "red hat enterprise linux 9.4 extended update support",
           "red hat enterprise linux 7 extended lifecycle support",
+          "red hat enterprise linux 8.6 advanced mission critical update support",
+          "red hat enterprise linux 8.4 advanced mission critical update support",
+          "red hat enterprise linux 8.8 extended update support",
+          "red hat enterprise linux 8.4 update services for sap solutions",
+          "red hat enterprise linux 9.4 extended update support",
           "red hat enterprise linux 10",
           "red hat enterprise linux 6",
+          "red hat enterprise linux 8.6 telecommunications update service",
+          "red hat enterprise linux 8",
           "red hat enterprise linux 9",
-          "red hat enterprise linux 8.4 advanced mission critical update support",
           "red hat enterprise linux 9.2 extended update support",
-          "red hat enterprise linux 8.6 telecommunications update service"
+          "red hat enterprise linux 8.4 telecommunications update service",
+          "red hat enterprise linux 8.2 advanced update support",
+          "red hat enterprise linux 9.0 update services for sap solutions",
+          "red hat enterprise linux 8.6 update services for sap solutions"
         ]
       },
       "references": [
@@ -12982,7 +12982,7 @@
       ],
       "epss": {
         "score": 0.1788,
-        "percentile": 94.819
+        "percentile": 94.826
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -13201,7 +13201,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["ivanti"],
-        "products": ["connect secure", "neurons for zta gateways", "policy secure"]
+        "products": ["policy secure", "connect secure", "neurons for zta gateways"]
       },
       "references": [
         {
@@ -13352,12 +13352,12 @@
         "cpeMatches": [],
         "vendors": ["wavlink"],
         "products": [
-          "wl-wn532a3",
-          "wl-wn530g3a",
-          "wl-wn530hg3",
+          "quantum d3g",
           "wl-wn576k1",
-          "quantum d2g",
-          "quantum d3g"
+          "wl-wn530g3a",
+          "wl-wn532a3",
+          "wl-wn530hg3",
+          "quantum d2g"
         ]
       },
       "references": [
@@ -13669,9 +13669,9 @@
         "products": [
           "ese dvb-s/s2 satellite receiver",
           "signum dvb-s/s2 ird",
-          "reble610 m/odu xpic ip-asi-sdh",
           "cleber/3 broadcast multi-purpose platform",
-          "wayber analog/digital audio stl"
+          "wayber analog/digital audio stl",
+          "reble610 m/odu xpic ip-asi-sdh"
         ]
       },
       "references": [
@@ -14232,8 +14232,8 @@
         }
       ],
       "epss": {
-        "score": 0.0003,
-        "percentile": 7.017
+        "score": 0.0004,
+        "percentile": 11.428
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -14280,8 +14280,8 @@
         }
       ],
       "epss": {
-        "score": 0.0003,
-        "percentile": 7.017
+        "score": 0.0004,
+        "percentile": 11.428
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -14328,8 +14328,8 @@
         }
       ],
       "epss": {
-        "score": 0.0003,
-        "percentile": 7.017
+        "score": 0.0004,
+        "percentile": 11.428
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -14483,7 +14483,7 @@
       ],
       "epss": {
         "score": 0.0291,
-        "percentile": 85.771
+        "percentile": 85.786
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -14491,12 +14491,12 @@
         "cpeMatches": [],
         "vendors": ["red hat"],
         "products": [
-          "red hat enterprise linux 8",
-          "red hat enterprise linux 6",
           "red hat enterprise linux 10",
-          "red hat enterprise linux 9",
           "red hat enterprise linux 7",
-          "red hat openshift container platform 4"
+          "red hat enterprise linux 6",
+          "red hat openshift container platform 4",
+          "red hat enterprise linux 9",
+          "red hat enterprise linux 8"
         ]
       },
       "references": [
@@ -14560,7 +14560,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["microsoft"],
-        "products": ["microsoft hpc pack 2016", "microsoft hpc pack 2019"]
+        "products": ["microsoft hpc pack 2019", "microsoft hpc pack 2016"]
       },
       "references": [
         {
@@ -16265,59 +16265,6 @@
       }
     },
     {
-      "cveId": "CVE-2025-3461",
-      "title": "ON Semiconductor Quantenna Telnet Missing Authentication",
-      "description": "The Quantenna Wi-Fi chips ship with an unauthenticated telnet interface by default. This is an instance of CWE-306, \"Missing Authentication for Critical Function,\" and is estimated as a CVSS 9.1 (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N).\nThis issue affects Quantenna Wi-Fi chipset through version 8.0.0.28 of the latest SDK, and appears to be unpatched at the time of this CVE record's first publishing, though the vendor has released a best practices guide for implementors of this chipset.",
-      "publishedDate": "2025-06-08T21:02:37.521000+00:00",
-      "lastModifiedDate": "2025-06-09T18:37:14.718000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N",
-          "baseScore": 9.1,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0007,
-        "percentile": 23.165
-      },
-      "riskScore": 48,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": ["on semiconductor"],
-        "products": ["quantenna wi-fi chipset"]
-      },
-      "references": [
-        {
-          "url": "https://takeonme.org/cves/cve-2025-3461/",
-          "source": "",
-          "tags": ["third-party-advisory"]
-        },
-        {
-          "url": "https://community.onsemi.com/s/article/QCS-Quantenna-Wi-Fi-product-support-and-security-best-practices",
-          "source": "",
-          "tags": ["vendor-advisory"]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": ["CWE-306"],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": null,
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/3xxx/CVE-2025-3461.json",
-            "lastModified": "2025-06-09T18:37:14.718000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2025-0912",
       "title": "GiveWP – Donation Plugin and Fundraising Platform <= 3.19.4 - Unauthenticated PHP Object Injection",
       "description": "The Donations Widget plugin for WordPress is vulnerable to PHP Object Injection in all versions up to, and including, 3.19.4 via deserialization of untrusted input from the Donation Form through the 'card_address' parameter. This makes it possible for unauthenticated attackers to inject a PHP Object. The additional presence of a POP chain allows attackers to achieve remote code execution.",
@@ -16590,11 +16537,11 @@
         "vendors": ["red hat"],
         "products": [
           "red hat jboss core services",
-          "red hat enterprise linux 8",
-          "red hat enterprise linux 6",
           "red hat enterprise linux 10",
+          "red hat enterprise linux 7",
+          "red hat enterprise linux 6",
           "red hat enterprise linux 9",
-          "red hat enterprise linux 7"
+          "red hat enterprise linux 8"
         ]
       },
       "references": [
@@ -16650,11 +16597,11 @@
         "vendors": ["red hat"],
         "products": [
           "red hat jboss core services",
-          "red hat enterprise linux 8",
-          "red hat enterprise linux 6",
           "red hat enterprise linux 10",
+          "red hat enterprise linux 7",
+          "red hat enterprise linux 6",
           "red hat enterprise linux 9",
-          "red hat enterprise linux 7"
+          "red hat enterprise linux 8"
         ]
       },
       "references": [
@@ -17244,7 +17191,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["vertiv"],
-        "products": ["liebert rdu101", "liebert is-unity"]
+        "products": ["liebert is-unity", "liebert rdu101"]
       },
       "references": [
         {
@@ -17532,14 +17479,14 @@
         "cpeMatches": [],
         "vendors": ["i-o data device, inc."],
         "products": [
+          "hdl-t3wh",
+          "hdl-t2wh",
+          "hdl-t1wh",
           "hdl-t1nv",
           "hdl-tc1",
           "hdl-tc500",
-          "hdl-t3wh",
           "hdl-t3nv",
-          "hdl-t1wh",
-          "hdl-t2nv",
-          "hdl-t2wh"
+          "hdl-t2nv"
         ]
       },
       "references": [
@@ -17858,7 +17805,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["vertiv"],
-        "products": ["liebert rdu101", "liebert is-unity"]
+        "products": ["liebert is-unity", "liebert rdu101"]
       },
       "references": [
         {
@@ -18586,15 +18533,15 @@
         "cpeMatches": [],
         "vendors": ["wso2"],
         "products": [
-          "wso2 api manager",
-          "wso2 open banking am",
           "wso2 carbon identity management",
-          "wso2 governance registry",
-          "wso2 identity server",
           "wso2 open banking iam",
-          "wso2 identity server as key manager",
           "wso2 iot",
-          "wso2 open banking km"
+          "wso2 identity server",
+          "wso2 open banking km",
+          "wso2 open banking am",
+          "wso2 api manager",
+          "wso2 identity server as key manager",
+          "wso2 governance registry"
         ]
       },
       "references": [
@@ -18703,17 +18650,17 @@
         "vendors": ["ecovacs"],
         "products": [
           "goat g1",
-          "deebot x5 pro ultra",
-          "deebot x2 combo",
-          "goat g1-2000",
-          "deebot t30 omni",
           "deebot x5 pro plus",
-          "goat g1-800",
-          "goat gx-600",
-          "deebot x5 pro",
-          "deebot x2s",
           "deebot t30s",
-          "deebot x2  omni"
+          "deebot x2 combo",
+          "deebot x5 pro ultra",
+          "deebot x2s",
+          "goat g1-800",
+          "deebot t30 omni",
+          "deebot x5 pro",
+          "deebot x2  omni",
+          "goat gx-600",
+          "goat g1-2000"
         ]
       },
       "references": [
@@ -22592,17 +22539,17 @@
         "cpeMatches": [],
         "vendors": ["siemens"],
         "products": [
-          "ruggedcom rox rx1536",
-          "ruggedcom rox mx5000re",
-          "ruggedcom rox mx5000",
-          "ruggedcom rox rx1500",
-          "ruggedcom rox rx1501",
           "ruggedcom rox rx1400",
-          "ruggedcom rox rx1524",
-          "ruggedcom rox rx5000",
-          "ruggedcom rox rx1510",
+          "ruggedcom rox rx1501",
           "ruggedcom rox rx1512",
-          "ruggedcom rox rx1511"
+          "ruggedcom rox rx5000",
+          "ruggedcom rox rx1511",
+          "ruggedcom rox rx1536",
+          "ruggedcom rox mx5000",
+          "ruggedcom rox rx1510",
+          "ruggedcom rox rx1524",
+          "ruggedcom rox rx1500",
+          "ruggedcom rox mx5000re"
         ]
       },
       "references": [
@@ -22652,17 +22599,17 @@
         "cpeMatches": [],
         "vendors": ["siemens"],
         "products": [
-          "ruggedcom rox rx1536",
-          "ruggedcom rox mx5000re",
-          "ruggedcom rox mx5000",
-          "ruggedcom rox rx1500",
-          "ruggedcom rox rx1501",
           "ruggedcom rox rx1400",
-          "ruggedcom rox rx1524",
-          "ruggedcom rox rx5000",
-          "ruggedcom rox rx1510",
+          "ruggedcom rox rx1501",
           "ruggedcom rox rx1512",
-          "ruggedcom rox rx1511"
+          "ruggedcom rox rx5000",
+          "ruggedcom rox rx1511",
+          "ruggedcom rox rx1536",
+          "ruggedcom rox mx5000",
+          "ruggedcom rox rx1510",
+          "ruggedcom rox rx1524",
+          "ruggedcom rox rx1500",
+          "ruggedcom rox mx5000re"
         ]
       },
       "references": [
@@ -23899,18 +23846,18 @@
         "cpeMatches": [],
         "vendors": ["weidmueller"],
         "products": [
-          "ie-sw-pl16m-16tx",
-          "ie-sw-vl05m-5tx",
-          "ie-sw-pl18mt-2gc-16tx",
+          "ie-sw-pl16mt-16tx",
           "ie-sw-pl10mt-3gt-7tx",
-          "ie-sw-vl08mt-8tx",
-          "ie-sw-pl18m-2gc-16tx",
+          "ie-sw-pl18mt-2gc-16tx",
           "ie-sw-vl08mt-5tx-1sc-2scs",
+          "ie-sw-vl05m-5tx",
+          "ie-sw-vl05mt-5tx",
+          "ie-sw-pl16m-16tx",
+          "ie-sw-vl08mt-6tx-2scs",
+          "ie-sw-pl18m-2gc-16tx",
           "ie-sw-pl10m-3gt-7tx",
           "ie-sw-vl08mt-6tx-2sc",
-          "ie-sw-vl08mt-6tx-2scs",
-          "ie-sw-vl05mt-5tx",
-          "ie-sw-pl16mt-16tx",
+          "ie-sw-vl08mt-8tx",
           "ie-sw-vl08mt-6tx-2st"
         ]
       },
@@ -23961,18 +23908,18 @@
         "cpeMatches": [],
         "vendors": ["weidmueller"],
         "products": [
-          "ie-sw-pl16m-16tx",
-          "ie-sw-vl05m-5tx",
-          "ie-sw-pl18mt-2gc-16tx",
+          "ie-sw-pl16mt-16tx",
           "ie-sw-pl10mt-3gt-7tx",
-          "ie-sw-vl08mt-8tx",
-          "ie-sw-pl18m-2gc-16tx",
+          "ie-sw-pl18mt-2gc-16tx",
           "ie-sw-vl08mt-5tx-1sc-2scs",
+          "ie-sw-vl05m-5tx",
+          "ie-sw-vl05mt-5tx",
+          "ie-sw-pl16m-16tx",
+          "ie-sw-vl08mt-6tx-2scs",
+          "ie-sw-pl18m-2gc-16tx",
           "ie-sw-pl10m-3gt-7tx",
           "ie-sw-vl08mt-6tx-2sc",
-          "ie-sw-vl08mt-6tx-2scs",
-          "ie-sw-vl05mt-5tx",
-          "ie-sw-pl16mt-16tx",
+          "ie-sw-vl08mt-8tx",
           "ie-sw-vl08mt-6tx-2st"
         ]
       },
@@ -24023,14 +23970,14 @@
         "cpeMatches": [],
         "vendors": ["yokogawa electric corporation"],
         "products": [
-          "gx10 / gx20 / gp10 / gp20 paperless recorders",
-          "fx1000 paperless recorders",
-          "dx1000t / dx2000t paperless recorders",
-          "dx1000 / dx2000 / dx1000n paperless recorders",
+          "μr10000 / μr20000 chart recorders",
           "cx1000 / cx2000 paperless recorders",
           "gm data acquisition system",
           "mw100 data acquisition units",
-          "μr10000 / μr20000 chart recorders"
+          "dx1000 / dx2000 / dx1000n paperless recorders",
+          "gx10 / gx20 / gp10 / gp20 paperless recorders",
+          "fx1000 paperless recorders",
+          "dx1000t / dx2000t paperless recorders"
         ]
       },
       "references": [
@@ -24724,17 +24671,17 @@
         "cpeMatches": [],
         "vendors": ["siemens"],
         "products": [
-          "ruggedcom rox rx1536",
-          "ruggedcom rox mx5000re",
-          "ruggedcom rox mx5000",
-          "ruggedcom rox rx1500",
-          "ruggedcom rox rx1501",
           "ruggedcom rox rx1400",
-          "ruggedcom rox rx1524",
-          "ruggedcom rox rx5000",
-          "ruggedcom rox rx1510",
+          "ruggedcom rox rx1501",
           "ruggedcom rox rx1512",
-          "ruggedcom rox rx1511"
+          "ruggedcom rox rx5000",
+          "ruggedcom rox rx1511",
+          "ruggedcom rox rx1536",
+          "ruggedcom rox mx5000",
+          "ruggedcom rox rx1510",
+          "ruggedcom rox rx1524",
+          "ruggedcom rox rx1500",
+          "ruggedcom rox mx5000re"
         ]
       },
       "references": [
@@ -25475,7 +25422,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["planet technology"],
-        "products": ["wgs-804hpt-v2", "wgs-4215-8t2s"]
+        "products": ["wgs-4215-8t2s", "wgs-804hpt-v2"]
       },
       "references": [
         {
@@ -26432,7 +26379,7 @@
       ],
       "epss": {
         "score": 0.0002,
-        "percentile": 3.751
+        "percentile": 3.772
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -26489,8 +26436,8 @@
         }
       ],
       "epss": {
-        "score": 0.0006,
-        "percentile": 20.647
+        "score": 0.001,
+        "percentile": 28.032
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -26498,19 +26445,19 @@
         "cpeMatches": [],
         "vendors": ["canon inc."],
         "products": [
-          "color imageclass mf653cdw",
-          "i-sensys lbp633cdw",
+          "i-sensys mf651cdw",
+          "satera mf654cdw",
+          "color imageclass mf654cdw",
           "color imageclass mf652cdw",
           "color imageclass lbp632cdw",
-          "i-sensys mf651cdw",
           "i-sensys mf655cdw",
-          "satera mf656cdw",
           "i-sensys lbp631cdw",
-          "color imageclass lbp633cdw",
-          "color imageclass mf654cdw",
+          "satera mf656cdw",
+          "i-sensys lbp633cdw",
           "color imageclass mf656cdw",
           "i-sensys mf657cdw",
-          "satera mf654cdw"
+          "color imageclass lbp633cdw",
+          "color imageclass mf653cdw"
         ]
       },
       "references": [
@@ -26566,8 +26513,8 @@
         }
       ],
       "epss": {
-        "score": 0.0006,
-        "percentile": 20.647
+        "score": 0.001,
+        "percentile": 28.032
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -26575,19 +26522,19 @@
         "cpeMatches": [],
         "vendors": ["canon inc."],
         "products": [
-          "color imageclass mf653cdw",
-          "i-sensys lbp633cdw",
+          "i-sensys mf651cdw",
+          "satera mf654cdw",
+          "color imageclass mf654cdw",
           "color imageclass mf652cdw",
           "color imageclass lbp632cdw",
-          "i-sensys mf651cdw",
           "i-sensys mf655cdw",
-          "satera mf656cdw",
           "i-sensys lbp631cdw",
-          "color imageclass lbp633cdw",
-          "color imageclass mf654cdw",
+          "satera mf656cdw",
+          "i-sensys lbp633cdw",
           "color imageclass mf656cdw",
           "i-sensys mf657cdw",
-          "satera mf654cdw"
+          "color imageclass lbp633cdw",
+          "color imageclass mf653cdw"
         ]
       },
       "references": [
@@ -26644,7 +26591,7 @@
       ],
       "epss": {
         "score": 0.0012,
-        "percentile": 31.594
+        "percentile": 31.603
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -26706,8 +26653,8 @@
         }
       ],
       "epss": {
-        "score": 0.0006,
-        "percentile": 20.647
+        "score": 0.001,
+        "percentile": 28.032
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -26715,19 +26662,19 @@
         "cpeMatches": [],
         "vendors": ["canon inc."],
         "products": [
-          "color imageclass mf653cdw",
-          "i-sensys lbp633cdw",
+          "i-sensys mf651cdw",
+          "satera mf654cdw",
+          "color imageclass mf654cdw",
           "color imageclass mf652cdw",
           "color imageclass lbp632cdw",
-          "i-sensys mf651cdw",
           "i-sensys mf655cdw",
-          "satera mf656cdw",
           "i-sensys lbp631cdw",
-          "color imageclass lbp633cdw",
-          "color imageclass mf654cdw",
+          "satera mf656cdw",
+          "i-sensys lbp633cdw",
           "color imageclass mf656cdw",
           "i-sensys mf657cdw",
-          "satera mf654cdw"
+          "color imageclass lbp633cdw",
+          "color imageclass mf653cdw"
         ]
       },
       "references": [
@@ -29382,78 +29329,78 @@
         "cpeMatches": [],
         "vendors": ["mitsubishi electric corporation"],
         "products": [
-          "melsec iq-f series fx5s-80mr/es",
-          "melsec iq-f series fx5s-30mt/ds",
+          "melsec iq-f series fx5uj-60mr/es",
           "melsec iq-f series fx5s-40mt/ds",
-          "melsec iq-f series fx5s-60mr/es",
-          "melsec iq-f series fx5uj-60mt/es",
-          "melsec iq-f series fx5s-60mr/ds",
-          "melsec iq-f series fx5uj-40mr/es",
+          "melsec iq-f series fx5u-80mt/dss",
+          "melsec iq-f series fx5uj-60mr/es-a",
+          "melsec iq-f series fx5s-40mt/es",
+          "melsec iq-f series fx5s-30mt/ess",
+          "melsec iq-f series fx5u-80mt/ess",
+          "melsec iq-f series fx5uj-60mt/dss",
+          "melsec iq-f series fx5u-64mt/ess",
+          "melsec iq-f series fx5uj-60mt/ds",
+          "melsec iq-f series fx5uj-40mt/es-a",
+          "melsec iq-f series fx5uc-32mt/d",
+          "melsec iq-f series fx5s-60mt/dss",
+          "melsec iq-f series fx5uj-24mt/es",
           "melsec iq-f series fx5u-64mt/es",
-          "melsec iq-f series fx5uj-40mt/ds",
-          "melsec iq-f series fx5uc-32mt/dss-ts",
+          "melsec iq-f series fx5uj-60mr/ds",
           "melsec iq-f series fx5uj-24mr/es-a",
           "melsec iq-f series fx5s-30mr/ds",
-          "melsec iq-f series fx5s-40mt/es",
-          "melsec iq-f series fx5u-32mt/es",
-          "melsec iq-f series fx5uj-60mt/es-a",
-          "melsec iq-f series fx5u-32mr/ds",
-          "melsec iq-f series fx5u-64mr/ds",
-          "melsec iq-f series fx5uc-64mt/dss",
-          "melsec iq-f series fx5s-30mt/dss",
-          "melsec iq-f series fx5uj-40mr/es-a",
-          "melsec iq-f series fx5uj-60mt/ess",
-          "melsec iq-f series fx5u-80mr/ds",
-          "melsec iq-f series fx5uc-64mt/d",
-          "melsec iq-f series fx5u-64mt/ds",
-          "melsec iq-f series fx5uj-60mt/dss",
-          "melsec iq-f series fx5uc-96mt/dss",
-          "melsec iq-f series fx5s-40mt/ess",
-          "melsec iq-f series fx5u-80mt/ds",
-          "melsec iq-f series fx5u-64mr/es",
-          "melsec iq-f series fx5u-32mt/dss",
-          "melsec iq-f series fx5u-32mt/ds",
-          "melsec iq-f series fx5s-60mt/dss",
-          "melsec iq-f series fx5uj-24mr/es",
-          "melsec iq-f series fx5uj-40mt/es-a",
-          "melsec iq-f series fx5u-32mt/ess",
-          "melsec iq-f series fx5uc-32mt/dss",
-          "melsec iq-f series fx5s-80mt/es",
-          "melsec iq-f series fx5uj-40mt/es",
-          "melsec iq-f series fx5uj-40mt/ess",
-          "melsec iq-f series fx5uj-40mt/dss",
-          "melsec iq-f series fx5u-64mt/dss",
-          "melsec iq-f series fx5u-64mt/ess",
-          "melsec iq-f series fx5s-60mt/es",
-          "melsec iq-f series fx5uc-96mt/d",
-          "melsec iq-f series fx5s-80mt/ess",
-          "melsec iq-f series fx5s-40mt/dss",
-          "melsec iq-f series fx5u-80mt/ess",
           "melsec iq-f series fx5u-32mr/es",
           "melsec iq-f series fx5u-80mt/es",
-          "melsec iq-f series fx5s-30mr/es",
-          "melsec iq-f series fx5s-40mr/es",
-          "melsec iq-f series fx5s-30mt/ess",
-          "melsec iq-f series fx5uj-60mr/ds",
-          "melsec iq-f series fx5u-80mt/dss",
-          "melsec iq-f series fx5uj-40mr/ds",
+          "melsec iq-f series fx5u-80mr/ds",
+          "melsec iq-f series fx5s-40mt/ess",
           "melsec iq-f series fx5uj-24mt/es-a",
-          "melsec iq-f series fx5uj-24mt/es",
-          "melsec iq-f series fx5uj-24mt/ess",
-          "melsec iq-f series fx5s-40mr/ds",
-          "melsec iq-f series fx5uj-24mr/ds",
-          "melsec iq-f series fx5uj-60mr/es",
-          "melsec iq-f series fx5s-60mt/ds",
-          "melsec iq-f series fx5uc-32mr/ds-ts",
-          "melsec iq-f series fx5s-30mt/es",
-          "melsec iq-f series fx5uc-32mt/ds-ts",
-          "melsec iq-f series fx5uj-24mt/ds",
-          "melsec iq-f series fx5uj-60mr/es-a",
-          "melsec iq-f series fx5uj-24mt/dss",
+          "melsec iq-f series fx5uj-40mr/es-a",
+          "melsec iq-f series fx5u-64mr/ds",
           "melsec iq-f series fx5s-60mt/ess",
-          "melsec iq-f series fx5uc-32mt/d",
-          "melsec iq-f series fx5uj-60mt/ds",
-          "melsec iq-f series fx5u-80mr/es"
+          "melsec iq-f series fx5s-60mr/es",
+          "melsec iq-f series fx5uj-40mr/es",
+          "melsec iq-f series fx5u-32mr/ds",
+          "melsec iq-f series fx5s-40mr/es",
+          "melsec iq-f series fx5uj-60mt/es-a",
+          "melsec iq-f series fx5s-60mt/ds",
+          "melsec iq-f series fx5uc-96mt/d",
+          "melsec iq-f series fx5uj-60mt/es",
+          "melsec iq-f series fx5uc-32mt/dss",
+          "melsec iq-f series fx5u-32mt/dss",
+          "melsec iq-f series fx5u-32mt/ess",
+          "melsec iq-f series fx5uj-40mt/es",
+          "melsec iq-f series fx5u-64mt/dss",
+          "melsec iq-f series fx5u-80mr/es",
+          "melsec iq-f series fx5uj-40mr/ds",
+          "melsec iq-f series fx5s-30mr/es",
+          "melsec iq-f series fx5s-80mr/es",
+          "melsec iq-f series fx5s-80mt/ess",
+          "melsec iq-f series fx5uc-32mt/ds-ts",
+          "melsec iq-f series fx5uj-60mt/ess",
+          "melsec iq-f series fx5u-64mr/es",
+          "melsec iq-f series fx5uj-40mt/ds",
+          "melsec iq-f series fx5uj-24mt/ess",
+          "melsec iq-f series fx5uc-32mt/dss-ts",
+          "melsec iq-f series fx5s-60mt/es",
+          "melsec iq-f series fx5u-64mt/ds",
+          "melsec iq-f series fx5uj-24mr/ds",
+          "melsec iq-f series fx5u-80mt/ds",
+          "melsec iq-f series fx5uj-24mt/ds",
+          "melsec iq-f series fx5s-30mt/es",
+          "melsec iq-f series fx5uj-24mr/es",
+          "melsec iq-f series fx5s-80mt/es",
+          "melsec iq-f series fx5s-40mt/dss",
+          "melsec iq-f series fx5s-40mr/ds",
+          "melsec iq-f series fx5uc-96mt/dss",
+          "melsec iq-f series fx5s-60mr/ds",
+          "melsec iq-f series fx5uj-40mt/dss",
+          "melsec iq-f series fx5u-32mt/es",
+          "melsec iq-f series fx5u-32mt/ds",
+          "melsec iq-f series fx5s-30mt/ds",
+          "melsec iq-f series fx5uc-32mr/ds-ts",
+          "melsec iq-f series fx5uj-24mt/dss",
+          "melsec iq-f series fx5uj-40mt/ess",
+          "melsec iq-f series fx5uc-64mt/d",
+          "melsec iq-f series fx5uc-64mt/dss",
+          "melsec iq-f series fx5s-30mt/dss"
         ]
       },
       "references": [
@@ -29609,16 +29556,16 @@
         "cpeMatches": [],
         "vendors": ["automationdirect"],
         "products": [
-          "c-more ea9 hmi ea9-t10wcl",
-          "c-more ea9 hmi ea9-t15cl-r",
+          "c-more ea9 hmi ea9-t7cl",
+          "c-more ea9 hmi ea9-t15cl",
           "c-more ea9 hmi ea9-t6cl",
+          "c-more ea9 hmi ea9-t15cl-r",
+          "c-more ea9 hmi ea9-t7cl-r",
           "c-more ea9 hmi ea9-rhmi",
           "c-more ea9 hmi ea9-t10cl",
-          "c-more ea9 hmi ea9-t7cl-r",
+          "c-more ea9 hmi ea9-t10wcl",
           "c-more ea9 hmi ea9-t8cl",
-          "c-more ea9 hmi ea9-t12cl",
-          "c-more ea9 hmi ea9-t15cl",
-          "c-more ea9 hmi ea9-t7cl"
+          "c-more ea9 hmi ea9-t12cl"
         ]
       },
       "references": [
@@ -30207,7 +30154,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["new rock technologies"],
-        "products": ["mx8g voip gateway", "om500 ip-pbx", "nrp1302/p desktop ip phone"]
+        "products": ["nrp1302/p desktop ip phone", "om500 ip-pbx", "mx8g voip gateway"]
       },
       "references": [
         {
@@ -30658,7 +30605,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["y's corporation"],
-        "products": ["stealthone d340", "stealthone d220"]
+        "products": ["stealthone d220", "stealthone d340"]
       },
       "references": [
         {
@@ -31453,7 +31400,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["dingtian"],
-        "products": ["dt-r002", "dt-r008", "dt-r032", "dt-r016"]
+        "products": ["dt-r032", "dt-r016", "dt-r008", "dt-r002"]
       },
       "references": [
         {
@@ -31478,59 +31425,6 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/1xxx/CVE-2025-1283.json",
             "lastModified": "2025-02-14T15:48:05.939000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-32743",
-      "title": "CVE-2025-32743: In ConnMan through 1.44, the lookup string in ns_resolv in dnsproxy.c can be NULL or an empty string...",
-      "description": "In ConnMan through 1.44, the lookup string in ns_resolv in dnsproxy.c can be NULL or an empty string when the TC (Truncated) bit is set in a DNS response. This allows attackers to cause a denial of service (application crash) or possibly execute arbitrary code, because those lookup values lead to incorrect length calculations and incorrect memcpy operations.",
-      "publishedDate": "2025-04-10T00:00:00+00:00",
-      "lastModifiedDate": "2025-04-10T14:30:27.850000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:H/I:H/A:H",
-          "baseScore": 9.0,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.001,
-        "percentile": 28.84
-      },
-      "riskScore": 46,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": ["connman"],
-        "products": ["connman"]
-      },
-      "references": [
-        {
-          "url": "https://web.git.kernel.org/pub/scm/network/connman/connman.git/tree/src/dnsproxy.c?h=1.44#n1688",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://lapis-sawfish-be3.notion.site/0-click-Vulnerability-in-Comman-1-43_v3-1cadc00d01d080b0b3b9c46a6da584cc",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": ["CWE-392"],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": null,
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/32xxx/CVE-2025-32743.json",
-            "lastModified": "2025-04-10T14:30:27.850000+00:00"
           }
         ]
       }
@@ -32039,7 +31933,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["planet technology"],
-        "products": ["wgs-804hpt-v2", "wgs-4215-8t2s"]
+        "products": ["wgs-4215-8t2s", "wgs-804hpt-v2"]
       },
       "references": [
         {
@@ -32559,7 +32453,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["synology"],
-        "products": ["beestation os (bsm)", "diskstation manager (dsm)"]
+        "products": ["diskstation manager (dsm)", "beestation os (bsm)"]
       },
       "references": [
         {
@@ -33889,8 +33783,8 @@
         }
       ],
       "epss": {
-        "score": 0.0007,
-        "percentile": 22.932
+        "score": 0.0011,
+        "percentile": 29.994
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -33943,7 +33837,7 @@
       ],
       "epss": {
         "score": 0.0017,
-        "percentile": 39.335
+        "percentile": 39.372
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -33998,7 +33892,7 @@
       ],
       "epss": {
         "score": 0.0011,
-        "percentile": 29.987
+        "percentile": 29.994
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -34050,8 +33944,8 @@
         }
       ],
       "epss": {
-        "score": 0.0007,
-        "percentile": 22.932
+        "score": 0.0011,
+        "percentile": 29.994
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -34104,7 +33998,7 @@
       ],
       "epss": {
         "score": 0.0011,
-        "percentile": 29.987
+        "percentile": 29.994
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -34157,7 +34051,7 @@
       ],
       "epss": {
         "score": 0.003,
-        "percentile": 52.722
+        "percentile": 52.814
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -34210,7 +34104,7 @@
       ],
       "epss": {
         "score": 0.0009,
-        "percentile": 27.331
+        "percentile": 27.361
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -34263,7 +34157,7 @@
       ],
       "epss": {
         "score": 0.0066,
-        "percentile": 70.065
+        "percentile": 70.148
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -34316,7 +34210,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 12.47
+        "percentile": 12.461
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -34368,8 +34262,8 @@
         }
       ],
       "epss": {
-        "score": 0.0029,
-        "percentile": 52.145
+        "score": 0.0032,
+        "percentile": 54.961
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -34422,7 +34316,7 @@
       ],
       "epss": {
         "score": 0.0011,
-        "percentile": 30.306
+        "percentile": 30.311
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -35019,6 +34913,59 @@
       }
     },
     {
+      "cveId": "CVE-2025-3461",
+      "title": "ON Semiconductor Quantenna Telnet Missing Authentication",
+      "description": "The Quantenna Wi-Fi chips ship with an unauthenticated telnet interface by default. This is an instance of CWE-306, \"Missing Authentication for Critical Function,\" and is estimated as a CVSS 9.1 (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N).\nThis issue affects Quantenna Wi-Fi chipset through version 8.0.0.28 of the latest SDK, and appears to be unpatched at the time of this CVE record's first publishing, though the vendor has released a best practices guide for implementors of this chipset.",
+      "publishedDate": "2025-06-08T21:02:37.521000+00:00",
+      "lastModifiedDate": "2025-06-09T18:37:14.718000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N",
+          "baseScore": 9.1,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0007,
+        "percentile": 23.165
+      },
+      "riskScore": 46,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": ["on semiconductor"],
+        "products": ["quantenna wi-fi chipset"]
+      },
+      "references": [
+        {
+          "url": "https://takeonme.org/cves/cve-2025-3461/",
+          "source": "",
+          "tags": ["third-party-advisory"]
+        },
+        {
+          "url": "https://community.onsemi.com/s/article/QCS-Quantenna-Wi-Fi-product-support-and-security-best-practices",
+          "source": "",
+          "tags": ["vendor-advisory"]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": ["CWE-306"],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": null,
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/3xxx/CVE-2025-3461.json",
+            "lastModified": "2025-06-09T18:37:14.718000+00:00"
+          }
+        ]
+      }
+    },
+    {
       "cveId": "CVE-2025-3361",
       "title": "HGiga iSherlock - OS Command Injection",
       "description": "The web service of iSherlock from HGiga has an OS Command Injection vulnerability, allowing unauthenticated remote attackers to inject arbitrary OS commands and execute them on the server.",
@@ -35197,15 +35144,15 @@
         "cpeMatches": [],
         "vendors": ["canon inc."],
         "products": [
-          "carps2 printer driver",
-          "generic plus ufr ii printer driver",
-          "generic plus pcl6 printer driver",
-          "generic plus lipslx printer driver",
-          "generic plus ps printer driver",
-          "ufrii lt printer driver",
-          "pdf driver",
           "generic plus lips4 printer driver",
-          "generic fax printer driver"
+          "carps2 printer driver",
+          "generic plus lipslx printer driver",
+          "generic plus ufr ii printer driver",
+          "generic fax printer driver",
+          "pdf driver",
+          "generic plus ps printer driver",
+          "generic plus pcl6 printer driver",
+          "ufrii lt printer driver"
         ]
       },
       "references": [
@@ -35323,12 +35270,12 @@
         "cpeMatches": [],
         "vendors": ["inaba denki sangyo co., ltd."],
         "products": [
+          "ac-pd-wps-11ac-p",
+          "ac-wps-11ac",
           "ac-wpsm-11ac-p",
           "ac-pd-wps-11ac",
-          "ac-wps-11ac",
-          "ac-pd-wps-11ac-p",
-          "ac-wps-11ac-p",
-          "ac-wpsm-11ac"
+          "ac-wpsm-11ac",
+          "ac-wps-11ac-p"
         ]
       },
       "references": [
@@ -35383,25 +35330,25 @@
         "cpeMatches": [],
         "vendors": ["siemens"],
         "products": [
-          "industrial edge device kit - x86-64 v1.18",
-          "industrial edge own device (ieod)",
-          "industrial edge device kit - x86-64 v1.21",
-          "simatic ipc227e industrial edge device",
+          "industrial edge device kit - arm64 v1.20",
           "industrial edge virtual device",
           "industrial edge device kit - x86-64 v1.19",
-          "industrial edge device kit - arm64 v1.18",
+          "scalance lpe9413",
+          "simatic ipc bx-59a industrial edge device",
           "simatic ipc127e industrial edge device",
+          "industrial edge device kit - arm64 v1.21",
           "simatic ipc427e industrial edge device",
           "industrial edge device kit - x86-64 v1.20",
-          "simatic ipc bx-59a industrial edge device",
-          "industrial edge device kit - arm64 v1.19",
+          "industrial edge own device (ieod)",
+          "simatic ipc227e industrial edge device",
+          "industrial edge device kit - x86-64 v1.21",
           "industrial edge device kit - arm64 v1.17",
-          "scalance lpe9413",
-          "industrial edge device kit - arm64 v1.20",
+          "industrial edge device kit - x86-64 v1.18",
           "simatic ipc847e industrial edge device",
-          "industrial edge device kit - arm64 v1.21",
           "simatic ipc bx-39a industrial edge device",
-          "industrial edge device kit - x86-64 v1.17"
+          "industrial edge device kit - x86-64 v1.17",
+          "industrial edge device kit - arm64 v1.18",
+          "industrial edge device kit - arm64 v1.19"
         ]
       },
       "references": [
@@ -36144,64 +36091,6 @@
       }
     },
     {
-      "cveId": "CVE-2025-23016",
-      "title": "CVE-2025-23016: FastCGI fcgi2 (aka fcgi) 2.x through 2.4.4 has an integer overflow (and resultant heap-based buffer ...",
-      "description": "FastCGI fcgi2 (aka fcgi) 2.x through 2.4.4 has an integer overflow (and resultant heap-based buffer overflow) via crafted nameLen or valueLen values in data to the IPC socket. This occurs in ReadParams in fcgiapp.c.",
-      "publishedDate": "2025-01-10T00:00:00+00:00",
-      "lastModifiedDate": "2025-04-24T15:01:53.855000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
-          "baseScore": 9.3,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0005,
-        "percentile": 15.077
-      },
-      "riskScore": 45,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": ["fastcgi"],
-        "products": ["fcgi"]
-      },
-      "references": [
-        {
-          "url": "https://github.com/FastCGI-Archives/fcgi2/issues/67",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://github.com/FastCGI-Archives/fcgi2/releases/tag/2.4.5",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://www.synacktiv.com/en/publications/cve-2025-23016-exploiting-the-fastcgi-library",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": ["CWE-190"],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": null,
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/23xxx/CVE-2025-23016.json",
-            "lastModified": "2025-04-24T15:01:53.855000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2025-23797",
       "title": "WordPress WP Options Editor plugin <= 1.1 - CSRF to Privilege Escalation vulnerability",
       "description": "Cross-Site Request Forgery (CSRF) vulnerability in Mike Selander WP Options Editor allows Privilege Escalation.This issue affects WP Options Editor: from n/a through 1.1.",
@@ -36513,7 +36402,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["abb"],
-        "products": ["nexus series", "aspect-enterprise", "matrix series"]
+        "products": ["nexus series", "matrix series", "aspect-enterprise"]
       },
       "references": [
         {
@@ -36609,7 +36498,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["abb"],
-        "products": ["nexus series", "aspect-enterprise", "matrix series"]
+        "products": ["nexus series", "matrix series", "aspect-enterprise"]
       },
       "references": [
         {
@@ -36849,7 +36738,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["abb"],
-        "products": ["nexus series", "aspect-enterprise", "matrix series"]
+        "products": ["nexus series", "matrix series", "aspect-enterprise"]
       },
       "references": [
         {
@@ -37431,11 +37320,11 @@
         "cpeMatches": [],
         "vendors": ["wiesemann & theis"],
         "products": [
-          "com-server oem",
-          "com-server poe 3x isolated",
           "com-server ul",
+          "com-server poe 3x isolated",
+          "com-server++",
           "com-server 20ma",
-          "com-server++"
+          "com-server oem"
         ]
       },
       "references": [
@@ -39954,64 +39843,6 @@
       }
     },
     {
-      "cveId": "CVE-2024-57823",
-      "title": "CVE-2024-57823: In Raptor RDF Syntax Library through 2.0.16, there is an integer underflow when normalizing a URI wi...",
-      "description": "In Raptor RDF Syntax Library through 2.0.16, there is an integer underflow when normalizing a URI with the turtle parser in raptor_uri_normalize_path().",
-      "publishedDate": "2025-01-10T00:00:00+00:00",
-      "lastModifiedDate": "2025-01-10T14:44:18.609000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
-          "baseScore": 9.3,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0004,
-        "percentile": 12.302
-      },
-      "riskScore": 45,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": ["librdf"],
-        "products": ["raptor rdf syntax library"]
-      },
-      "references": [
-        {
-          "url": "https://github.com/pedrib/PoC/blob/master/fuzzing/raptor-fuzz.md",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1067896",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://github.com/dajobe/raptor/issues/70",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": ["CWE-191"],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": null,
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/57xxx/CVE-2024-57823.json",
-            "lastModified": "2025-01-10T14:44:18.609000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2024-37361",
       "title": "Hitachi Vantara Pentaho Business Analytics Server - Deserialization of Untrusted Data",
       "description": "The application deserializes untrusted data without sufficiently verifying that the resulting data will be valid. (CWE-502)\n\n\n\n \n\n\n\nHitachi Vantara Pentaho Business Analytics Server versions before 10.2.0.0 and 9.3.0.9, including 8.3.x, deserialize untrusted JSON data without constraining the parser to approved classes and methods.\n\n\n\n \n\n\n\nWhen developers place no restrictions on \"gadget chains,\" or series of instances and method invocations that can self-execute during the deserialization process (i.e., before the object is returned to the caller), it is sometimes possible for attackers to leverage them to perform unauthorized actions.",
@@ -40035,7 +39866,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["hitachi vantara"],
-        "products": ["pentaho business analytics server", "pentaho data integration & analytics"]
+        "products": ["pentaho data integration & analytics", "pentaho business analytics server"]
       },
       "references": [
         {
@@ -40722,7 +40553,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["abb"],
-        "products": ["nexus series", "aspect-enterprise", "matrix series"]
+        "products": ["nexus series", "matrix series", "aspect-enterprise"]
       },
       "references": [
         {
@@ -40914,7 +40745,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["abb"],
-        "products": ["nexus series", "aspect-enterprise", "matrix series"]
+        "products": ["nexus series", "matrix series", "aspect-enterprise"]
       },
       "references": [
         {
@@ -41243,7 +41074,7 @@
       ],
       "epss": {
         "score": 0.0002,
-        "percentile": 3.095
+        "percentile": 3.094
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -41291,7 +41122,7 @@
       ],
       "epss": {
         "score": 0.0005,
-        "percentile": 13.963
+        "percentile": 14.036
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -41338,8 +41169,8 @@
         }
       ],
       "epss": {
-        "score": 0.0005,
-        "percentile": 13.963
+        "score": 0.0006,
+        "percentile": 19.975
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -41386,8 +41217,8 @@
         }
       ],
       "epss": {
-        "score": 0.0005,
-        "percentile": 13.963
+        "score": 0.0006,
+        "percentile": 19.975
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -42213,7 +42044,7 @@
       ],
       "epss": {
         "score": 0.016,
-        "percentile": 80.836
+        "percentile": 80.876
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -45508,6 +45339,59 @@
       }
     },
     {
+      "cveId": "CVE-2025-32743",
+      "title": "CVE-2025-32743: In ConnMan through 1.44, the lookup string in ns_resolv in dnsproxy.c can be NULL or an empty string...",
+      "description": "In ConnMan through 1.44, the lookup string in ns_resolv in dnsproxy.c can be NULL or an empty string when the TC (Truncated) bit is set in a DNS response. This allows attackers to cause a denial of service (application crash) or possibly execute arbitrary code, because those lookup values lead to incorrect length calculations and incorrect memcpy operations.",
+      "publishedDate": "2025-04-10T00:00:00+00:00",
+      "lastModifiedDate": "2025-04-10T14:30:27.850000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:H/I:H/A:H",
+          "baseScore": 9.0,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.001,
+        "percentile": 28.84
+      },
+      "riskScore": 44,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": ["connman"],
+        "products": ["connman"]
+      },
+      "references": [
+        {
+          "url": "https://web.git.kernel.org/pub/scm/network/connman/connman.git/tree/src/dnsproxy.c?h=1.44#n1688",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://lapis-sawfish-be3.notion.site/0-click-Vulnerability-in-Comman-1-43_v3-1cadc00d01d080b0b3b9c46a6da584cc",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": ["CWE-392"],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": null,
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/32xxx/CVE-2025-32743.json",
+            "lastModified": "2025-04-10T14:30:27.850000+00:00"
+          }
+        ]
+      }
+    },
+    {
       "cveId": "CVE-2025-32496",
       "title": "WordPress Ultra Demo Importer plugin <= 1.0.5 - CSRF to RCE vulnerability",
       "description": "Cross-Site Request Forgery (CSRF) vulnerability in Uncodethemes Ultra Demo Importer allows Upload a Web Shell to a Web Server. This issue affects Ultra Demo Importer: from n/a through 1.0.5.",
@@ -45733,7 +45617,7 @@
       ],
       "epss": {
         "score": 0.0009,
-        "percentile": 27.006
+        "percentile": 27.029
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -45786,7 +45670,7 @@
       ],
       "epss": {
         "score": 0.0009,
-        "percentile": 27.006
+        "percentile": 27.029
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -45839,7 +45723,7 @@
       ],
       "epss": {
         "score": 0.0009,
-        "percentile": 27.006
+        "percentile": 27.029
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -46859,7 +46743,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["mb connect line"],
-        "products": ["mbnet", "mymbconnect24", "mbconnect24", "mbnet.rokey"]
+        "products": ["mbconnect24", "mymbconnect24", "mbnet", "mbnet.rokey"]
       },
       "references": [
         {
@@ -49115,7 +48999,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["ivanti"],
-        "products": ["connect secure", "policy secure"]
+        "products": ["policy secure", "connect secure"]
       },
       "references": [
         {
@@ -49423,6 +49307,64 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/38xxx/CVE-2024-38666.json",
             "lastModified": "2025-01-15T20:20:14.889000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-23016",
+      "title": "CVE-2025-23016: FastCGI fcgi2 (aka fcgi) 2.x through 2.4.4 has an integer overflow (and resultant heap-based buffer ...",
+      "description": "FastCGI fcgi2 (aka fcgi) 2.x through 2.4.4 has an integer overflow (and resultant heap-based buffer overflow) via crafted nameLen or valueLen values in data to the IPC socket. This occurs in ReadParams in fcgiapp.c.",
+      "publishedDate": "2025-01-10T00:00:00+00:00",
+      "lastModifiedDate": "2025-04-24T15:01:53.855000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+          "baseScore": 9.3,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0005,
+        "percentile": 15.077
+      },
+      "riskScore": 43,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": ["fastcgi"],
+        "products": ["fcgi"]
+      },
+      "references": [
+        {
+          "url": "https://github.com/FastCGI-Archives/fcgi2/issues/67",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://github.com/FastCGI-Archives/fcgi2/releases/tag/2.4.5",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://www.synacktiv.com/en/publications/cve-2025-23016-exploiting-the-fastcgi-library",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": ["CWE-190"],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": null,
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/23xxx/CVE-2025-23016.json",
+            "lastModified": "2025-04-24T15:01:53.855000+00:00"
           }
         ]
       }
@@ -49822,6 +49764,64 @@
       }
     },
     {
+      "cveId": "CVE-2024-57823",
+      "title": "CVE-2024-57823: In Raptor RDF Syntax Library through 2.0.16, there is an integer underflow when normalizing a URI wi...",
+      "description": "In Raptor RDF Syntax Library through 2.0.16, there is an integer underflow when normalizing a URI with the turtle parser in raptor_uri_normalize_path().",
+      "publishedDate": "2025-01-10T00:00:00+00:00",
+      "lastModifiedDate": "2025-01-10T14:44:18.609000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+          "baseScore": 9.3,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0004,
+        "percentile": 12.302
+      },
+      "riskScore": 43,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": ["librdf"],
+        "products": ["raptor rdf syntax library"]
+      },
+      "references": [
+        {
+          "url": "https://github.com/pedrib/PoC/blob/master/fuzzing/raptor-fuzz.md",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1067896",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://github.com/dajobe/raptor/issues/70",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": ["CWE-191"],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": null,
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/57xxx/CVE-2024-57823.json",
+            "lastModified": "2025-01-10T14:44:18.609000+00:00"
+          }
+        ]
+      }
+    },
+    {
       "cveId": "CVE-2024-9140",
       "title": "CVE-2024-9140: Moxa’s cellular routers, secure routers, and network security appliances are affected by a critical ...",
       "description": "Moxa’s cellular routers, secure routers, and network security appliances are affected by a critical vulnerability, CVE-2024-9140. This vulnerability allows OS command injection due to improperly restricted commands, potentially enabling attackers to execute arbitrary code. This poses a significant risk to the system’s security and functionality.",
@@ -49846,13 +49846,13 @@
         "cpeMatches": [],
         "vendors": ["moxa"],
         "products": [
-          "oncell g4302-lte4 series",
           "edr-g9010 series",
+          "oncell g4302-lte4 series",
+          "edr-g9004 series",
           "edf-g1002-bp series",
           "nat-102 series",
-          "tn-4900 series",
-          "edr-g9004 series",
-          "edr-8010 series"
+          "edr-8010 series",
+          "tn-4900 series"
         ]
       },
       "references": [
