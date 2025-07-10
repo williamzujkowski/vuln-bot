@@ -1,6 +1,6 @@
 ---
 title: Morning Vulnerability Briefing - 2025-07-10
-date: 2025-07-10T12:11:36.905599
+date: 2025-07-10T16:08:20.768292
 layout: layouts/post.njk
 tags: [vulnerability, briefing, security]
 vulnerabilityCount: 15042
@@ -16,8 +16,8 @@ Today's briefing covers **15042 vulnerabilities** from 0 sources.
 
 - 🔴 **Critical Risk**: 0 vulnerabilities
 - 🟠 **High Risk**: 0 vulnerabilities
-- 🟡 **Medium Risk**: 9829 vulnerabilities
-- 🟢 **Low Risk**: 5213 vulnerabilities
+- 🟡 **Medium Risk**: 9827 vulnerabilities
+- 🟢 **Low Risk**: 5215 vulnerabilities
 
 ## Top Vulnerabilities
 
@@ -72,7 +72,34 @@ Today's briefing covers **15042 vulnerabilities** from 0 sources.
 
 ---
 
-### 3. [CVE-2024-21413](/api/vulns/CVE-2024-21413.json)
+### 3. [CVE-2024-51978](/api/vulns/CVE-2024-51978.json)
+
+**Risk Score**: 68/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 9.8 | 
+**EPSS**: 71.9%
+
+**Summary**: An unauthenticated attacker who knows the target device's serial number, can generate the default administrator password for the device. An unauthenticated attacker can first discover the target device's serial number via CVE-2024-51977 over HTTP/HTTPS/IPP, or via a PJL request, or via an SNMP request.
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 71.88% exploit probability
+- Published within last month
+
+**Affected Vendors**: brother industries, ltd, toshiba tec, konica minolta, inc.
+
+**Tags**: `CWE-1391`
+
+**References**:
+
+- [https://support.brother.com/g/b/link.aspx?prod=group2&faqid=faq00100846_000](https://support.brother.com/g/b/link.aspx?prod=group2&faqid=faq00100846_000)
+- [https://support.brother.com/g/b/link.aspx?prod=group2&faqid=faq00100848_000](https://support.brother.com/g/b/link.aspx?prod=group2&faqid=faq00100848_000)
+- [https://support.brother.com/g/b/link.aspx?prod=lmgroup1&faqid=faqp00100620_000](https://support.brother.com/g/b/link.aspx?prod=lmgroup1&faqid=faqp00100620_000)
+
+---
+
+### 4. [CVE-2024-21413](/api/vulns/CVE-2024-21413.json)
 
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
@@ -97,7 +124,7 @@ Today's briefing covers **15042 vulnerabilities** from 0 sources.
 
 ---
 
-### 4. [CVE-2025-24893](/api/vulns/CVE-2025-24893.json)
+### 5. [CVE-2025-24893](/api/vulns/CVE-2025-24893.json)
 
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
@@ -123,7 +150,7 @@ Today's briefing covers **15042 vulnerabilities** from 0 sources.
 
 ---
 
-### 5. [CVE-2024-22320](/api/vulns/CVE-2024-22320.json)
+### 6. [CVE-2024-22320](/api/vulns/CVE-2024-22320.json)
 
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
@@ -149,7 +176,7 @@ Today's briefing covers **15042 vulnerabilities** from 0 sources.
 
 ---
 
-### 6. [CVE-2024-20419](/api/vulns/CVE-2024-20419.json)
+### 7. [CVE-2024-20419](/api/vulns/CVE-2024-20419.json)
 
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
@@ -174,7 +201,7 @@ Today's briefing covers **15042 vulnerabilities** from 0 sources.
 
 ---
 
-### 7. [CVE-2025-1974](/api/vulns/CVE-2025-1974.json)
+### 8. [CVE-2025-1974](/api/vulns/CVE-2025-1974.json)
 
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
@@ -199,7 +226,7 @@ Today's briefing covers **15042 vulnerabilities** from 0 sources.
 
 ---
 
-### 8. [CVE-2024-4577](/api/vulns/CVE-2024-4577.json)
+### 9. [CVE-2024-4577](/api/vulns/CVE-2024-4577.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
@@ -225,7 +252,7 @@ Today's briefing covers **15042 vulnerabilities** from 0 sources.
 
 ---
 
-### 9. [CVE-2024-1709](/api/vulns/CVE-2024-1709.json)
+### 10. [CVE-2024-1709](/api/vulns/CVE-2024-1709.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
@@ -257,7 +284,7 @@ critical systems.
 
 ---
 
-### 10. [CVE-2024-10924](/api/vulns/CVE-2024-10924.json)
+### 11. [CVE-2024-10924](/api/vulns/CVE-2024-10924.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
@@ -271,7 +298,7 @@ critical systems.
 - CRITICAL severity
 - 93.63% exploit probability
 
-**Affected Vendors**: really simple plugins, rogierlankhorst
+**Affected Vendors**: rogierlankhorst, really simple plugins
 
 **Tags**: `CWE-288`
 
@@ -283,7 +310,7 @@ critical systems.
 
 ---
 
-### 11. [CVE-2024-21762](/api/vulns/CVE-2024-21762.json)
+### 12. [CVE-2024-21762](/api/vulns/CVE-2024-21762.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
@@ -308,7 +335,7 @@ critical systems.
 
 ---
 
-### 12. [CVE-2024-47575](/api/vulns/CVE-2024-47575.json)
+### 13. [CVE-2024-47575](/api/vulns/CVE-2024-47575.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
@@ -333,7 +360,7 @@ critical systems.
 
 ---
 
-### 13. [CVE-2024-20439](/api/vulns/CVE-2024-20439.json)
+### 14. [CVE-2024-20439](/api/vulns/CVE-2024-20439.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
@@ -357,7 +384,7 @@ critical systems.
 
 ---
 
-### 14. [CVE-2025-47916](/api/vulns/CVE-2025-47916.json)
+### 15. [CVE-2025-47916](/api/vulns/CVE-2025-47916.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
@@ -382,7 +409,7 @@ critical systems.
 
 ---
 
-### 15. [CVE-2024-4040](/api/vulns/CVE-2024-4040.json)
+### 16. [CVE-2024-4040](/api/vulns/CVE-2024-4040.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -409,7 +436,7 @@ critical systems.
 
 ---
 
-### 16. [CVE-2024-36401](/api/vulns/CVE-2024-36401.json)
+### 17. [CVE-2024-36401](/api/vulns/CVE-2024-36401.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -437,7 +464,7 @@ The GeoTools library API that GeoServer calls evaluates property/attribute names
 
 ---
 
-### 17. [CVE-2024-1212](/api/vulns/CVE-2024-1212.json)
+### 18. [CVE-2024-1212](/api/vulns/CVE-2024-1212.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -466,7 +493,7 @@ The GeoTools library API that GeoServer calls evaluates property/attribute names
 
 ---
 
-### 18. [CVE-2024-3400](/api/vulns/CVE-2024-3400.json)
+### 19. [CVE-2024-3400](/api/vulns/CVE-2024-3400.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -494,7 +521,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 19. [CVE-2024-51567](/api/vulns/CVE-2024-51567.json)
+### 20. [CVE-2024-51567](/api/vulns/CVE-2024-51567.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -518,7 +545,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 20. [CVE-2024-31982](/api/vulns/CVE-2024-31982.json)
+### 21. [CVE-2024-31982](/api/vulns/CVE-2024-31982.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -544,7 +571,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 21. [CVE-2024-45519](/api/vulns/CVE-2024-45519.json)
+### 22. [CVE-2024-45519](/api/vulns/CVE-2024-45519.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -568,7 +595,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 22. [CVE-2024-5932](/api/vulns/CVE-2024-5932.json)
+### 23. [CVE-2024-5932](/api/vulns/CVE-2024-5932.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -594,7 +621,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 23. [CVE-2024-51378](/api/vulns/CVE-2024-51378.json)
+### 24. [CVE-2024-51378](/api/vulns/CVE-2024-51378.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -618,7 +645,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 24. [CVE-2025-29927](/api/vulns/CVE-2025-29927.json)
+### 25. [CVE-2025-29927](/api/vulns/CVE-2025-29927.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -644,7 +671,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 25. [CVE-2024-11680](/api/vulns/CVE-2024-11680.json)
+### 26. [CVE-2024-11680](/api/vulns/CVE-2024-11680.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -670,7 +697,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 26. [CVE-2024-25600](/api/vulns/CVE-2024-25600.json)
+### 27. [CVE-2024-25600](/api/vulns/CVE-2024-25600.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -696,12 +723,12 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 27. [CVE-2025-3248](/api/vulns/CVE-2025-3248.json)
+### 28. [CVE-2025-3248](/api/vulns/CVE-2025-3248.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.8 | 
-**EPSS**: 92.4%
+**EPSS**: 92.7%
 
 **Summary**: Langflow versions prior to 1.3.0 are susceptible to code injection in 
 the /api/v1/validate/code endpoint. A remote and unauthenticated attacker can send crafted HTTP requests to execute arbitrary
@@ -710,7 +737,7 @@ code.
 **Risk Factors**:
 
 - CRITICAL severity
-- 92.36% exploit probability
+- 92.74% exploit probability
 
 **Affected Vendors**: langflow-ai
 
@@ -724,7 +751,7 @@ code.
 
 ---
 
-### 28. [CVE-2024-23108](/api/vulns/CVE-2024-23108.json)
+### 29. [CVE-2024-23108](/api/vulns/CVE-2024-23108.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -749,7 +776,7 @@ code.
 
 ---
 
-### 29. [CVE-2024-38063](/api/vulns/CVE-2024-38063.json)
+### 30. [CVE-2024-38063](/api/vulns/CVE-2024-38063.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -774,7 +801,7 @@ code.
 
 ---
 
-### 30. [CVE-2025-1661](/api/vulns/CVE-2025-1661.json)
+### 31. [CVE-2025-1661](/api/vulns/CVE-2025-1661.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -800,7 +827,7 @@ code.
 
 ---
 
-### 31. [CVE-2024-49112](/api/vulns/CVE-2024-49112.json)
+### 32. [CVE-2024-49112](/api/vulns/CVE-2024-49112.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -825,7 +852,7 @@ code.
 
 ---
 
-### 32. [CVE-2024-38077](/api/vulns/CVE-2024-38077.json)
+### 33. [CVE-2024-38077](/api/vulns/CVE-2024-38077.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -850,7 +877,7 @@ code.
 
 ---
 
-### 33. [CVE-2025-32432](/api/vulns/CVE-2025-32432.json)
+### 34. [CVE-2025-32432](/api/vulns/CVE-2025-32432.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -876,7 +903,7 @@ code.
 
 ---
 
-### 34. [CVE-2024-50603](/api/vulns/CVE-2024-50603.json)
+### 35. [CVE-2024-50603](/api/vulns/CVE-2024-50603.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -902,7 +929,7 @@ code.
 
 ---
 
-### 35. [CVE-2024-3272](/api/vulns/CVE-2024-3272.json)
+### 36. [CVE-2024-3272](/api/vulns/CVE-2024-3272.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -928,7 +955,7 @@ code.
 
 ---
 
-### 36. [CVE-2024-13159](/api/vulns/CVE-2024-13159.json)
+### 37. [CVE-2024-13159](/api/vulns/CVE-2024-13159.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -952,7 +979,7 @@ code.
 
 ---
 
-### 37. [CVE-2024-3495](/api/vulns/CVE-2024-3495.json)
+### 38. [CVE-2024-3495](/api/vulns/CVE-2024-3495.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -976,7 +1003,7 @@ code.
 
 ---
 
-### 38. [CVE-2024-21650](/api/vulns/CVE-2024-21650.json)
+### 39. [CVE-2024-21650](/api/vulns/CVE-2024-21650.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1002,7 +1029,7 @@ code.
 
 ---
 
-### 39. [CVE-2024-0204](/api/vulns/CVE-2024-0204.json)
+### 40. [CVE-2024-0204](/api/vulns/CVE-2024-0204.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1028,7 +1055,7 @@ code.
 
 ---
 
-### 40. [CVE-2024-29895](/api/vulns/CVE-2024-29895.json)
+### 41. [CVE-2024-29895](/api/vulns/CVE-2024-29895.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1054,7 +1081,7 @@ code.
 
 ---
 
-### 41. [CVE-2024-9234](/api/vulns/CVE-2024-9234.json)
+### 42. [CVE-2024-9234](/api/vulns/CVE-2024-9234.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1080,7 +1107,7 @@ code.
 
 ---
 
-### 42. [CVE-2024-32651](/api/vulns/CVE-2024-32651.json)
+### 43. [CVE-2024-32651](/api/vulns/CVE-2024-32651.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1106,7 +1133,7 @@ code.
 
 ---
 
-### 43. [CVE-2024-1071](/api/vulns/CVE-2024-1071.json)
+### 44. [CVE-2024-1071](/api/vulns/CVE-2024-1071.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1130,19 +1157,19 @@ code.
 
 ---
 
-### 44. [CVE-2024-8856](/api/vulns/CVE-2024-8856.json)
+### 45. [CVE-2024-8856](/api/vulns/CVE-2024-8856.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.8 | 
-**EPSS**: 91.9%
+**EPSS**: 92.0%
 
 **Summary**: The Backup and Staging by WP Time Capsule plugin for WordPress is vulnerable to arbitrary file uploads due to missing file type validation in the the UploadHandler.php file and no direct file access prevention in all versions up to, and including, 1.22.21. This makes it possible for unauthenticated attackers to upload arbitrary files on the affected site's server which may make remote code execution possible.
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 91.92% exploit probability
+- 91.95% exploit probability
 
 **Affected Vendors**: revmakx
 
@@ -1156,7 +1183,7 @@ code.
 
 ---
 
-### 45. [CVE-2024-46986](/api/vulns/CVE-2024-46986.json)
+### 46. [CVE-2024-46986](/api/vulns/CVE-2024-46986.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1182,7 +1209,7 @@ code.
 
 ---
 
-### 46. [CVE-2024-36404](/api/vulns/CVE-2024-36404.json)
+### 47. [CVE-2024-36404](/api/vulns/CVE-2024-36404.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1208,7 +1235,7 @@ code.
 
 ---
 
-### 47. [CVE-2024-24576](/api/vulns/CVE-2024-24576.json)
+### 48. [CVE-2024-24576](/api/vulns/CVE-2024-24576.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1234,7 +1261,7 @@ code.
 
 ---
 
-### 48. [CVE-2024-43468](/api/vulns/CVE-2024-43468.json)
+### 49. [CVE-2024-43468](/api/vulns/CVE-2024-43468.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1259,7 +1286,7 @@ code.
 
 ---
 
-### 49. [CVE-2025-21298](/api/vulns/CVE-2025-21298.json)
+### 50. [CVE-2025-21298](/api/vulns/CVE-2025-21298.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1281,29 +1308,6 @@ code.
 **References**:
 
 - [https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-21298](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-21298)
-
----
-
-### 50. [CVE-2024-27198](/api/vulns/CVE-2024-27198.json)
-
-**Risk Score**: 63/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 94.6%
-
-**Summary**: In JetBrains TeamCity before 2023.11.4 authentication bypass allowing to perform admin actions was possible
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 94.58% exploit probability
-
-**Affected Vendors**: jetbrains
-
-**References**:
-
-- [https://www.jetbrains.com/privacy-security/issues-fixed/](https://www.jetbrains.com/privacy-security/issues-fixed/)
-- [https://www.darkreading.com/cyberattacks-data-breaches/jetbrains-teamcity-mass-exploitation-underway-rogue-accounts-thrive](https://www.darkreading.com/cyberattacks-data-breaches/jetbrains-teamcity-mass-exploitation-underway-rogue-accounts-thrive)
 
 ---
 
