@@ -1,6 +1,6 @@
 ---
 title: Morning Vulnerability Briefing - 2025-07-11
-date: 2025-07-11T12:10:40.519951
+date: 2025-07-11T16:07:58.690233
 layout: layouts/post.njk
 tags: [vulnerability, briefing, security]
 vulnerabilityCount: 15083
@@ -87,7 +87,7 @@ Today's briefing covers **15083 vulnerabilities** from 0 sources.
 - 71.88% exploit probability
 - Published within last month
 
-**Affected Vendors**: toshiba tec, konica minolta, inc., brother industries, ltd
+**Affected Vendors**: toshiba tec, brother industries, ltd, konica minolta, inc.
 
 **Tags**: `CWE-1391`
 
@@ -298,7 +298,7 @@ critical systems.
 - CRITICAL severity
 - 93.63% exploit probability
 
-**Affected Vendors**: rogierlankhorst, really simple plugins
+**Affected Vendors**: really simple plugins, rogierlankhorst
 
 **Tags**: `CWE-288`
 
@@ -384,32 +384,7 @@ critical systems.
 
 ---
 
-### 15. [CVE-2025-47916](/api/vulns/CVE-2025-47916.json)
-
-**Risk Score**: 66/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 10.0 | 
-**EPSS**: 87.9%
-
-**Summary**: Invision Community 5.0.0 before 5.0.7 allows remote code execution via crafted template strings to themeeditor.php. The issue lies within the themeeditor controller (file: /applications/core/modules/front/system/themeeditor.php), where a protected method named customCss can be invoked by unauthenticated users. This method passes the value of the content parameter to the Theme::makeProcessFunction() method; hence it is evaluated by the template engine. Accordingly, this can be exploited by unauth...
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 87.91% exploit probability
-
-**Affected Vendors**: invisioncommunity
-
-**Tags**: `CWE-1336`
-
-**References**:
-
-- [https://invisioncommunity.com/release-notes-v5/507-r41/](https://invisioncommunity.com/release-notes-v5/507-r41/)
-- [https://karmainsecurity.com/KIS-2025-02](https://karmainsecurity.com/KIS-2025-02)
-
----
-
-### 16. [CVE-2024-4040](/api/vulns/CVE-2024-4040.json)
+### 15. [CVE-2024-4040](/api/vulns/CVE-2024-4040.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -436,7 +411,7 @@ critical systems.
 
 ---
 
-### 17. [CVE-2024-36401](/api/vulns/CVE-2024-36401.json)
+### 16. [CVE-2024-36401](/api/vulns/CVE-2024-36401.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -464,7 +439,7 @@ The GeoTools library API that GeoServer calls evaluates property/attribute names
 
 ---
 
-### 18. [CVE-2024-1212](/api/vulns/CVE-2024-1212.json)
+### 17. [CVE-2024-1212](/api/vulns/CVE-2024-1212.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -493,7 +468,7 @@ The GeoTools library API that GeoServer calls evaluates property/attribute names
 
 ---
 
-### 19. [CVE-2024-3400](/api/vulns/CVE-2024-3400.json)
+### 18. [CVE-2024-3400](/api/vulns/CVE-2024-3400.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -521,7 +496,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 20. [CVE-2024-51567](/api/vulns/CVE-2024-51567.json)
+### 19. [CVE-2024-51567](/api/vulns/CVE-2024-51567.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -545,7 +520,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 21. [CVE-2024-31982](/api/vulns/CVE-2024-31982.json)
+### 20. [CVE-2024-31982](/api/vulns/CVE-2024-31982.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -571,7 +546,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 22. [CVE-2024-45519](/api/vulns/CVE-2024-45519.json)
+### 21. [CVE-2024-45519](/api/vulns/CVE-2024-45519.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -595,7 +570,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 23. [CVE-2024-5932](/api/vulns/CVE-2024-5932.json)
+### 22. [CVE-2024-5932](/api/vulns/CVE-2024-5932.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -621,7 +596,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 24. [CVE-2024-51378](/api/vulns/CVE-2024-51378.json)
+### 23. [CVE-2024-51378](/api/vulns/CVE-2024-51378.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -645,7 +620,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 25. [CVE-2025-29927](/api/vulns/CVE-2025-29927.json)
+### 24. [CVE-2025-29927](/api/vulns/CVE-2025-29927.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -671,7 +646,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 26. [CVE-2024-11680](/api/vulns/CVE-2024-11680.json)
+### 25. [CVE-2024-11680](/api/vulns/CVE-2024-11680.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -697,7 +672,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 27. [CVE-2024-25600](/api/vulns/CVE-2024-25600.json)
+### 26. [CVE-2024-25600](/api/vulns/CVE-2024-25600.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -723,7 +698,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 28. [CVE-2025-3248](/api/vulns/CVE-2025-3248.json)
+### 27. [CVE-2025-3248](/api/vulns/CVE-2025-3248.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -751,7 +726,7 @@ code.
 
 ---
 
-### 29. [CVE-2024-23108](/api/vulns/CVE-2024-23108.json)
+### 28. [CVE-2024-23108](/api/vulns/CVE-2024-23108.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -776,7 +751,7 @@ code.
 
 ---
 
-### 30. [CVE-2024-38063](/api/vulns/CVE-2024-38063.json)
+### 29. [CVE-2024-38063](/api/vulns/CVE-2024-38063.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -801,7 +776,7 @@ code.
 
 ---
 
-### 31. [CVE-2025-1661](/api/vulns/CVE-2025-1661.json)
+### 30. [CVE-2025-1661](/api/vulns/CVE-2025-1661.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -827,7 +802,7 @@ code.
 
 ---
 
-### 32. [CVE-2024-49112](/api/vulns/CVE-2024-49112.json)
+### 31. [CVE-2024-49112](/api/vulns/CVE-2024-49112.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -849,6 +824,31 @@ code.
 **References**:
 
 - [https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-49112](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-49112)
+
+---
+
+### 32. [CVE-2025-47916](/api/vulns/CVE-2025-47916.json)
+
+**Risk Score**: 65/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 10.0 | 
+**EPSS**: 86.3%
+
+**Summary**: Invision Community 5.0.0 before 5.0.7 allows remote code execution via crafted template strings to themeeditor.php. The issue lies within the themeeditor controller (file: /applications/core/modules/front/system/themeeditor.php), where a protected method named customCss can be invoked by unauthenticated users. This method passes the value of the content parameter to the Theme::makeProcessFunction() method; hence it is evaluated by the template engine. Accordingly, this can be exploited by unauth...
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 86.33% exploit probability
+
+**Affected Vendors**: invisioncommunity
+
+**Tags**: `CWE-1336`
+
+**References**:
+
+- [https://invisioncommunity.com/release-notes-v5/507-r41/](https://invisioncommunity.com/release-notes-v5/507-r41/)
+- [https://karmainsecurity.com/KIS-2025-02](https://karmainsecurity.com/KIS-2025-02)
 
 ---
 
@@ -877,33 +877,7 @@ code.
 
 ---
 
-### 34. [CVE-2025-32432](/api/vulns/CVE-2025-32432.json)
-
-**Risk Score**: 65/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 10.0 | 
-**EPSS**: 74.2%
-
-**Summary**: Craft is a flexible, user-friendly CMS for creating custom digital experiences on the web and beyond. Starting from version 3.0.0-RC1 to before 3.9.15, 4.0.0-RC1 to before 4.14.15, and 5.0.0-RC1 to before 5.6.17, Craft is vulnerable to remote code execution. This is a high-impact, low-complexity attack vector. This issue has been patched in versions 3.9.15, 4.14.15, and 5.6.17, and is an additional fix for CVE-2023-41892.
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 74.19% exploit probability
-
-**Affected Vendors**: craftcms
-
-**Tags**: `CWE-94`
-
-**References**:
-
-- [https://github.com/craftcms/cms/security/advisories/GHSA-f3gw-9ww9-jmc3](https://github.com/craftcms/cms/security/advisories/GHSA-f3gw-9ww9-jmc3)
-- [https://github.com/craftcms/cms/commit/e1c85441fa47eeb7c688c2053f25419bc0547b47](https://github.com/craftcms/cms/commit/e1c85441fa47eeb7c688c2053f25419bc0547b47)
-- [https://github.com/craftcms/cms/blob/3.x/CHANGELOG.md#3915---2025-04-10-critical](https://github.com/craftcms/cms/blob/3.x/CHANGELOG.md#3915---2025-04-10-critical)
-
----
-
-### 35. [CVE-2024-50603](/api/vulns/CVE-2024-50603.json)
+### 34. [CVE-2024-50603](/api/vulns/CVE-2024-50603.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -929,7 +903,7 @@ code.
 
 ---
 
-### 36. [CVE-2024-3272](/api/vulns/CVE-2024-3272.json)
+### 35. [CVE-2024-3272](/api/vulns/CVE-2024-3272.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -955,7 +929,7 @@ code.
 
 ---
 
-### 37. [CVE-2024-13159](/api/vulns/CVE-2024-13159.json)
+### 36. [CVE-2024-13159](/api/vulns/CVE-2024-13159.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -979,7 +953,7 @@ code.
 
 ---
 
-### 38. [CVE-2024-3495](/api/vulns/CVE-2024-3495.json)
+### 37. [CVE-2024-3495](/api/vulns/CVE-2024-3495.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1003,7 +977,7 @@ code.
 
 ---
 
-### 39. [CVE-2024-21650](/api/vulns/CVE-2024-21650.json)
+### 38. [CVE-2024-21650](/api/vulns/CVE-2024-21650.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1029,7 +1003,7 @@ code.
 
 ---
 
-### 40. [CVE-2024-0204](/api/vulns/CVE-2024-0204.json)
+### 39. [CVE-2024-0204](/api/vulns/CVE-2024-0204.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1055,7 +1029,7 @@ code.
 
 ---
 
-### 41. [CVE-2024-29895](/api/vulns/CVE-2024-29895.json)
+### 40. [CVE-2024-29895](/api/vulns/CVE-2024-29895.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1081,7 +1055,7 @@ code.
 
 ---
 
-### 42. [CVE-2024-9234](/api/vulns/CVE-2024-9234.json)
+### 41. [CVE-2024-9234](/api/vulns/CVE-2024-9234.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1107,7 +1081,7 @@ code.
 
 ---
 
-### 43. [CVE-2024-32651](/api/vulns/CVE-2024-32651.json)
+### 42. [CVE-2024-32651](/api/vulns/CVE-2024-32651.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1133,7 +1107,7 @@ code.
 
 ---
 
-### 44. [CVE-2024-1071](/api/vulns/CVE-2024-1071.json)
+### 43. [CVE-2024-1071](/api/vulns/CVE-2024-1071.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1157,7 +1131,7 @@ code.
 
 ---
 
-### 45. [CVE-2024-8856](/api/vulns/CVE-2024-8856.json)
+### 44. [CVE-2024-8856](/api/vulns/CVE-2024-8856.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1183,7 +1157,7 @@ code.
 
 ---
 
-### 46. [CVE-2024-46986](/api/vulns/CVE-2024-46986.json)
+### 45. [CVE-2024-46986](/api/vulns/CVE-2024-46986.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1209,7 +1183,7 @@ code.
 
 ---
 
-### 47. [CVE-2024-36404](/api/vulns/CVE-2024-36404.json)
+### 46. [CVE-2024-36404](/api/vulns/CVE-2024-36404.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1235,7 +1209,7 @@ code.
 
 ---
 
-### 48. [CVE-2024-24576](/api/vulns/CVE-2024-24576.json)
+### 47. [CVE-2024-24576](/api/vulns/CVE-2024-24576.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1261,7 +1235,7 @@ code.
 
 ---
 
-### 49. [CVE-2024-43468](/api/vulns/CVE-2024-43468.json)
+### 48. [CVE-2024-43468](/api/vulns/CVE-2024-43468.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1286,7 +1260,7 @@ code.
 
 ---
 
-### 50. [CVE-2025-21298](/api/vulns/CVE-2025-21298.json)
+### 49. [CVE-2025-21298](/api/vulns/CVE-2025-21298.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1308,6 +1282,32 @@ code.
 **References**:
 
 - [https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-21298](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-21298)
+
+---
+
+### 50. [CVE-2025-32432](/api/vulns/CVE-2025-32432.json)
+
+**Risk Score**: 64/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 10.0 | 
+**EPSS**: 65.4%
+
+**Summary**: Craft is a flexible, user-friendly CMS for creating custom digital experiences on the web and beyond. Starting from version 3.0.0-RC1 to before 3.9.15, 4.0.0-RC1 to before 4.14.15, and 5.0.0-RC1 to before 5.6.17, Craft is vulnerable to remote code execution. This is a high-impact, low-complexity attack vector. This issue has been patched in versions 3.9.15, 4.14.15, and 5.6.17, and is an additional fix for CVE-2023-41892.
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 65.4% exploit probability
+
+**Affected Vendors**: craftcms
+
+**Tags**: `CWE-94`
+
+**References**:
+
+- [https://github.com/craftcms/cms/security/advisories/GHSA-f3gw-9ww9-jmc3](https://github.com/craftcms/cms/security/advisories/GHSA-f3gw-9ww9-jmc3)
+- [https://github.com/craftcms/cms/commit/e1c85441fa47eeb7c688c2053f25419bc0547b47](https://github.com/craftcms/cms/commit/e1c85441fa47eeb7c688c2053f25419bc0547b47)
+- [https://github.com/craftcms/cms/blob/3.x/CHANGELOG.md#3915---2025-04-10-critical](https://github.com/craftcms/cms/blob/3.x/CHANGELOG.md#3915---2025-04-10-critical)
 
 ---
 
