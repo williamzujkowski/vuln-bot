@@ -1,6 +1,6 @@
 ---
 title: Morning Vulnerability Briefing - 2025-07-11
-date: 2025-07-11T08:08:59.912027
+date: 2025-07-11T12:10:40.519951
 layout: layouts/post.njk
 tags: [vulnerability, briefing, security]
 vulnerabilityCount: 15083
@@ -16,8 +16,8 @@ Today's briefing covers **15083 vulnerabilities** from 0 sources.
 
 - 🔴 **Critical Risk**: 0 vulnerabilities
 - 🟠 **High Risk**: 0 vulnerabilities
-- 🟡 **Medium Risk**: 9864 vulnerabilities
-- 🟢 **Low Risk**: 5219 vulnerabilities
+- 🟡 **Medium Risk**: 9836 vulnerabilities
+- 🟢 **Low Risk**: 5247 vulnerabilities
 
 ## Top Vulnerabilities
 
@@ -87,7 +87,7 @@ Today's briefing covers **15083 vulnerabilities** from 0 sources.
 - 71.88% exploit probability
 - Published within last month
 
-**Affected Vendors**: konica minolta, inc., toshiba tec, brother industries, ltd
+**Affected Vendors**: toshiba tec, konica minolta, inc., brother industries, ltd
 
 **Tags**: `CWE-1391`
 
