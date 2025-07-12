@@ -1,6 +1,6 @@
 ---
 title: Morning Vulnerability Briefing - 2025-07-12
-date: 2025-07-12T12:10:23.685520
+date: 2025-07-12T16:07:36.554018
 layout: layouts/post.njk
 tags: [vulnerability, briefing, security]
 vulnerabilityCount: 15110
@@ -16,8 +16,8 @@ Today's briefing covers **15110 vulnerabilities** from 0 sources.
 
 - 🔴 **Critical Risk**: 0 vulnerabilities
 - 🟠 **High Risk**: 0 vulnerabilities
-- 🟡 **Medium Risk**: 9863 vulnerabilities
-- 🟢 **Low Risk**: 5247 vulnerabilities
+- 🟡 **Medium Risk**: 9867 vulnerabilities
+- 🟢 **Low Risk**: 5243 vulnerabilities
 
 ## Top Vulnerabilities
 
@@ -87,7 +87,7 @@ Today's briefing covers **15110 vulnerabilities** from 0 sources.
 - 71.88% exploit probability
 - Published within last month
 
-**Affected Vendors**: brother industries, ltd, toshiba tec, konica minolta, inc.
+**Affected Vendors**: toshiba tec, brother industries, ltd, konica minolta, inc.
 
 **Tags**: `CWE-1391`
 
@@ -238,7 +238,7 @@ Today's briefing covers **15110 vulnerabilities** from 0 sources.
 **Risk Factors**:
 
 - CRITICAL severity
-- 94.41% exploit probability
+- 94.39% exploit probability
 
 **Affected Vendors**: php group
 
@@ -482,7 +482,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 **Risk Factors**:
 
 - CRITICAL severity
-- 94.35% exploit probability
+- 94.32% exploit probability
 
 **Affected Vendors**: palo alto networks
 
