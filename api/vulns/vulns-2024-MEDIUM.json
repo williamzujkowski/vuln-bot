@@ -1,7 +1,7 @@
 {
   "chunk": "2024-MEDIUM",
   "count": 15,
-  "generated": "2025-07-12T00:24:12.806577",
+  "generated": "2025-07-12T04:15:14.223457",
   "vulnerabilities": [
     {
       "cveId": "CVE-2024-52531",
@@ -90,7 +90,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["elecom co.,ltd."],
-        "products": ["wrc-x3200gst3-b", "wrc-g01-w", "wrc-2533gst2", "wrc-1167gst2"]
+        "products": ["wrc-1167gst2", "wrc-g01-w", "wrc-2533gst2", "wrc-x3200gst3-b"]
       },
       "references": [
         {
@@ -216,198 +216,6 @@
       }
     },
     {
-      "cveId": "CVE-2024-29152",
-      "title": "CVE-2024-29152: An issue was discovered in Samsung Mobile Processor, Wearable Processor, and Modem Exynos 980, Exyno...",
-      "description": "An issue was discovered in Samsung Mobile Processor, Wearable Processor, and Modem Exynos 980, Exynos 990, Exynos 1080, Exynos 2100, Exynos 2200, Exynos 1280, Exynos 1380, Exynos 1330, Exynos 2400, Exynos Modem 5123, and Exynos Modem 5300. The baseband software does not properly check states specified by the RRC (Radio Resource Control) Reconfiguration message. This can lead to disclosure of sensitive information.",
-      "publishedDate": "2024-06-04T00:00:00+00:00",
-      "lastModifiedDate": "2024-10-27T21:58:00.166000+00:00",
-      "severity": "MEDIUM",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AC:H/AV:N/A:N/C:H/I:N/PR:N/S:U/UI:N",
-          "baseScore": 5.9,
-          "baseSeverity": "MEDIUM"
-        }
-      ],
-      "epss": {
-        "score": 0.0025,
-        "percentile": 48.13
-      },
-      "riskScore": 33,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": ["n/a"],
-        "products": ["n/a"]
-      },
-      "references": [
-        {
-          "url": "https://semiconductor.samsung.com/support/quality-support/product-security-updates/",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": null,
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/29xxx/CVE-2024-29152.json",
-            "lastModified": "2024-10-27T21:58:00.166000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2024-24452",
-      "title": "CVE-2024-24452: An invalid memory access when handling the ProtocolIE_ID field of E-RAB Release Indication messages ...",
-      "description": "An invalid memory access when handling the ProtocolIE_ID field of E-RAB Release Indication messages in Athonet vEPC MME v11.4.0 allows attackers to cause a Denial of Service (DoS) to the cellular network by repeatedly initiating connections and sending a crafted payload.",
-      "publishedDate": "2024-11-15T00:00:00+00:00",
-      "lastModifiedDate": "2025-03-31T20:27:14.430000+00:00",
-      "severity": "MEDIUM",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
-          "baseScore": 5.9,
-          "baseSeverity": "MEDIUM"
-        }
-      ],
-      "epss": {
-        "score": 0.0008,
-        "percentile": 24.288
-      },
-      "riskScore": 33,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": ["hewlett packard enterprise (hpe)"],
-        "products": ["hpe athonet core"]
-      },
-      "references": [
-        {
-          "url": "https://support.hpe.com/hpesc/public/docDisplay?docId=hpesbnw04780en_us&docLocale=en_US",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": null,
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/24xxx/CVE-2024-24452.json",
-            "lastModified": "2025-03-31T20:27:14.430000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2024-24459",
-      "title": "CVE-2024-24459: An invalid memory access when handling the ProtocolIE_ID field of S1Setup Request messages in Athone...",
-      "description": "An invalid memory access when handling the ProtocolIE_ID field of S1Setup Request messages in Athonet vEPC MME v11.4.0 allows attackers to cause a Denial of Service (DoS) to the cellular network by repeatedly initiating connections and sending a crafted payload.",
-      "publishedDate": "2024-11-15T00:00:00+00:00",
-      "lastModifiedDate": "2025-03-31T20:37:22.472000+00:00",
-      "severity": "MEDIUM",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
-          "baseScore": 5.9,
-          "baseSeverity": "MEDIUM"
-        }
-      ],
-      "epss": {
-        "score": 0.0008,
-        "percentile": 24.288
-      },
-      "riskScore": 33,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": ["hewlett packard enterprise (hpe)"],
-        "products": ["hpe athonet core"]
-      },
-      "references": [
-        {
-          "url": "https://support.hpe.com/hpesc/public/docDisplay?docId=hpesbnw04780en_us&docLocale=en_US",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": null,
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/24xxx/CVE-2024-24459.json",
-            "lastModified": "2025-03-31T20:37:22.472000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2024-24458",
-      "title": "CVE-2024-24458: An invalid memory access when handling the ENB Configuration Transfer messages containing invalid PL...",
-      "description": "An invalid memory access when handling the ENB Configuration Transfer messages containing invalid PLMN Identities in Athonet vEPC MME v11.4.0 allows attackers to cause a Denial of Service (DoS) to the cellular network by repeatedly initiating connections and sending a crafted payload.",
-      "publishedDate": "2024-11-15T00:00:00+00:00",
-      "lastModifiedDate": "2025-03-31T20:35:55.985000+00:00",
-      "severity": "MEDIUM",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
-          "baseScore": 5.9,
-          "baseSeverity": "MEDIUM"
-        }
-      ],
-      "epss": {
-        "score": 0.0008,
-        "percentile": 24.288
-      },
-      "riskScore": 33,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": ["hewlett packard enterprise (hpe)"],
-        "products": ["hpe athonet core"]
-      },
-      "references": [
-        {
-          "url": "https://support.hpe.com/hpesc/public/docDisplay?docId=hpesbnw04780en_us&docLocale=en_US",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": null,
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/24xxx/CVE-2024-24458.json",
-            "lastModified": "2025-03-31T20:35:55.985000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2024-24453",
       "title": "CVE-2024-24453: An invalid memory access when handling the ProtocolIE_ID field of E-RAB NotToBeModifiedBearerModInd ...",
       "description": "An invalid memory access when handling the ProtocolIE_ID field of E-RAB NotToBeModifiedBearerModInd information element in Athonet vEPC MME v11.4.0 allows attackers to cause a Denial of Service (DoS) to the cellular network by repeatedly initiating connections and sending a crafted payload.",
@@ -504,11 +312,11 @@
       }
     },
     {
-      "cveId": "CVE-2024-24455",
-      "title": "CVE-2024-24455: An invalid memory access when handling a UE Context Release message containing an invalid UE identif...",
-      "description": "An invalid memory access when handling a UE Context Release message containing an invalid UE identifier in Athonet vEPC MME v11.4.0 allows attackers to cause a Denial of Service (DoS) to the cellular network by repeatedly initiating connections and sending a crafted payload.",
+      "cveId": "CVE-2024-24458",
+      "title": "CVE-2024-24458: An invalid memory access when handling the ENB Configuration Transfer messages containing invalid PL...",
+      "description": "An invalid memory access when handling the ENB Configuration Transfer messages containing invalid PLMN Identities in Athonet vEPC MME v11.4.0 allows attackers to cause a Denial of Service (DoS) to the cellular network by repeatedly initiating connections and sending a crafted payload.",
       "publishedDate": "2024-11-15T00:00:00+00:00",
-      "lastModifiedDate": "2025-03-31T20:31:02.754000+00:00",
+      "lastModifiedDate": "2025-03-31T20:35:55.985000+00:00",
       "severity": "MEDIUM",
       "cvssMetrics": [
         {
@@ -545,8 +353,8 @@
         "sources": [
           {
             "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/24xxx/CVE-2024-24455.json",
-            "lastModified": "2025-03-31T20:31:02.754000+00:00"
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/24xxx/CVE-2024-24458.json",
+            "lastModified": "2025-03-31T20:35:55.985000+00:00"
           }
         ]
       }
@@ -600,49 +408,241 @@
       }
     },
     {
-      "cveId": "CVE-2024-29169",
-      "title": "CVE-2024-29169: Dell SCG, versions prior to 5.22.00.00, contain a SQL Injection Vulnerability in the SCG UI for an i...",
-      "description": "Dell SCG, versions prior to 5.22.00.00, contain a SQL Injection Vulnerability in the SCG UI for an internal audit REST API. A remote authenticated attacker could potentially exploit this vulnerability, leading to the execution of certain SQL commands on the application's backend database causing potential unauthorized access and modification of application data.",
-      "publishedDate": "2024-06-13T15:13:44.030000+00:00",
-      "lastModifiedDate": "2024-08-02T01:10:54.105000+00:00",
+      "cveId": "CVE-2024-24455",
+      "title": "CVE-2024-24455: An invalid memory access when handling a UE Context Release message containing an invalid UE identif...",
+      "description": "An invalid memory access when handling a UE Context Release message containing an invalid UE identifier in Athonet vEPC MME v11.4.0 allows attackers to cause a Denial of Service (DoS) to the cellular network by repeatedly initiating connections and sending a crafted payload.",
+      "publishedDate": "2024-11-15T00:00:00+00:00",
+      "lastModifiedDate": "2025-03-31T20:31:02.754000+00:00",
       "severity": "MEDIUM",
       "cvssMetrics": [
         {
           "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N",
-          "baseScore": 5.4,
+          "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "baseScore": 5.9,
           "baseSeverity": "MEDIUM"
         }
       ],
       "epss": {
-        "score": 0.0016,
-        "percentile": 37.227
+        "score": 0.0008,
+        "percentile": 24.288
       },
-      "riskScore": 32,
+      "riskScore": 33,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": ["dell"],
-        "products": ["secure connect gateway-appliance", "secure connect gateway-application"]
+        "vendors": ["hewlett packard enterprise (hpe)"],
+        "products": ["hpe athonet core"]
       },
       "references": [
         {
-          "url": "https://www.dell.com/support/kbdoc/en-us/000225910/dsa-2024-181-security-update-for-dell-secure-connect-gateway-application-and-appliance-vulnerabilities",
+          "url": "https://support.hpe.com/hpesc/public/docDisplay?docId=hpesbnw04780en_us&docLocale=en_US",
           "source": "",
-          "tags": ["vendor-advisory"]
+          "tags": []
         }
       ],
       "attackTechniques": [],
       "metadata": {
-        "tags": ["CWE-89"],
+        "tags": [],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
         "attackVector": null,
         "sources": [
           {
             "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/29xxx/CVE-2024-29169.json",
-            "lastModified": "2024-08-02T01:10:54.105000+00:00"
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/24xxx/CVE-2024-24455.json",
+            "lastModified": "2025-03-31T20:31:02.754000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2024-24459",
+      "title": "CVE-2024-24459: An invalid memory access when handling the ProtocolIE_ID field of S1Setup Request messages in Athone...",
+      "description": "An invalid memory access when handling the ProtocolIE_ID field of S1Setup Request messages in Athonet vEPC MME v11.4.0 allows attackers to cause a Denial of Service (DoS) to the cellular network by repeatedly initiating connections and sending a crafted payload.",
+      "publishedDate": "2024-11-15T00:00:00+00:00",
+      "lastModifiedDate": "2025-03-31T20:37:22.472000+00:00",
+      "severity": "MEDIUM",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "baseScore": 5.9,
+          "baseSeverity": "MEDIUM"
+        }
+      ],
+      "epss": {
+        "score": 0.0008,
+        "percentile": 24.288
+      },
+      "riskScore": 33,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": ["hewlett packard enterprise (hpe)"],
+        "products": ["hpe athonet core"]
+      },
+      "references": [
+        {
+          "url": "https://support.hpe.com/hpesc/public/docDisplay?docId=hpesbnw04780en_us&docLocale=en_US",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": null,
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/24xxx/CVE-2024-24459.json",
+            "lastModified": "2025-03-31T20:37:22.472000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2024-24452",
+      "title": "CVE-2024-24452: An invalid memory access when handling the ProtocolIE_ID field of E-RAB Release Indication messages ...",
+      "description": "An invalid memory access when handling the ProtocolIE_ID field of E-RAB Release Indication messages in Athonet vEPC MME v11.4.0 allows attackers to cause a Denial of Service (DoS) to the cellular network by repeatedly initiating connections and sending a crafted payload.",
+      "publishedDate": "2024-11-15T00:00:00+00:00",
+      "lastModifiedDate": "2025-03-31T20:27:14.430000+00:00",
+      "severity": "MEDIUM",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "baseScore": 5.9,
+          "baseSeverity": "MEDIUM"
+        }
+      ],
+      "epss": {
+        "score": 0.0008,
+        "percentile": 24.288
+      },
+      "riskScore": 33,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": ["hewlett packard enterprise (hpe)"],
+        "products": ["hpe athonet core"]
+      },
+      "references": [
+        {
+          "url": "https://support.hpe.com/hpesc/public/docDisplay?docId=hpesbnw04780en_us&docLocale=en_US",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": null,
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/24xxx/CVE-2024-24452.json",
+            "lastModified": "2025-03-31T20:27:14.430000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2024-29152",
+      "title": "CVE-2024-29152: An issue was discovered in Samsung Mobile Processor, Wearable Processor, and Modem Exynos 980, Exyno...",
+      "description": "An issue was discovered in Samsung Mobile Processor, Wearable Processor, and Modem Exynos 980, Exynos 990, Exynos 1080, Exynos 2100, Exynos 2200, Exynos 1280, Exynos 1380, Exynos 1330, Exynos 2400, Exynos Modem 5123, and Exynos Modem 5300. The baseband software does not properly check states specified by the RRC (Radio Resource Control) Reconfiguration message. This can lead to disclosure of sensitive information.",
+      "publishedDate": "2024-06-04T00:00:00+00:00",
+      "lastModifiedDate": "2024-10-27T21:58:00.166000+00:00",
+      "severity": "MEDIUM",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AC:H/AV:N/A:N/C:H/I:N/PR:N/S:U/UI:N",
+          "baseScore": 5.9,
+          "baseSeverity": "MEDIUM"
+        }
+      ],
+      "epss": {
+        "score": 0.0025,
+        "percentile": 48.13
+      },
+      "riskScore": 33,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": ["n/a"],
+        "products": ["n/a"]
+      },
+      "references": [
+        {
+          "url": "https://semiconductor.samsung.com/support/quality-support/product-security-updates/",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": null,
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/29xxx/CVE-2024-29152.json",
+            "lastModified": "2024-10-27T21:58:00.166000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2024-3746",
+      "title": "Measuresoft ScadaPro Improper Access Control",
+      "description": "The entire parent directory - C:\\ScadaPro and its sub-directories and \nfiles are configured by default to allow user, including unprivileged \nusers, to write or overwrite files.",
+      "publishedDate": "2024-04-30T19:45:21.951000+00:00",
+      "lastModifiedDate": "2024-08-01T20:20:01.065000+00:00",
+      "severity": "MEDIUM",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:N",
+          "baseScore": 5.5,
+          "baseSeverity": "MEDIUM"
+        }
+      ],
+      "epss": {
+        "score": 0.0006,
+        "percentile": 19.451
+      },
+      "riskScore": 32,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": ["measuresoft"],
+        "products": ["scadapro"]
+      },
+      "references": [
+        {
+          "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-24-107-01",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": ["CWE-284"],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": null,
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/3xxx/CVE-2024-3746.json",
+            "lastModified": "2024-08-01T20:20:01.065000+00:00"
           }
         ]
       }
@@ -696,49 +696,49 @@
       }
     },
     {
-      "cveId": "CVE-2024-3746",
-      "title": "Measuresoft ScadaPro Improper Access Control",
-      "description": "The entire parent directory - C:\\ScadaPro and its sub-directories and \nfiles are configured by default to allow user, including unprivileged \nusers, to write or overwrite files.",
-      "publishedDate": "2024-04-30T19:45:21.951000+00:00",
-      "lastModifiedDate": "2024-08-01T20:20:01.065000+00:00",
+      "cveId": "CVE-2024-29169",
+      "title": "CVE-2024-29169: Dell SCG, versions prior to 5.22.00.00, contain a SQL Injection Vulnerability in the SCG UI for an i...",
+      "description": "Dell SCG, versions prior to 5.22.00.00, contain a SQL Injection Vulnerability in the SCG UI for an internal audit REST API. A remote authenticated attacker could potentially exploit this vulnerability, leading to the execution of certain SQL commands on the application's backend database causing potential unauthorized access and modification of application data.",
+      "publishedDate": "2024-06-13T15:13:44.030000+00:00",
+      "lastModifiedDate": "2024-08-02T01:10:54.105000+00:00",
       "severity": "MEDIUM",
       "cvssMetrics": [
         {
           "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:N",
-          "baseScore": 5.5,
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N",
+          "baseScore": 5.4,
           "baseSeverity": "MEDIUM"
         }
       ],
       "epss": {
-        "score": 0.0006,
-        "percentile": 19.451
+        "score": 0.0016,
+        "percentile": 37.227
       },
       "riskScore": 32,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": ["measuresoft"],
-        "products": ["scadapro"]
+        "vendors": ["dell"],
+        "products": ["secure connect gateway-application", "secure connect gateway-appliance"]
       },
       "references": [
         {
-          "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-24-107-01",
+          "url": "https://www.dell.com/support/kbdoc/en-us/000225910/dsa-2024-181-security-update-for-dell-secure-connect-gateway-application-and-appliance-vulnerabilities",
           "source": "",
-          "tags": []
+          "tags": ["vendor-advisory"]
         }
       ],
       "attackTechniques": [],
       "metadata": {
-        "tags": ["CWE-284"],
+        "tags": ["CWE-89"],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
         "attackVector": null,
         "sources": [
           {
             "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/3xxx/CVE-2024-3746.json",
-            "lastModified": "2024-08-01T20:20:01.065000+00:00"
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/29xxx/CVE-2024-29169.json",
+            "lastModified": "2024-08-02T01:10:54.105000+00:00"
           }
         ]
       }
