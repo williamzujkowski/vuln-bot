@@ -1,6 +1,6 @@
 ---
 title: Morning Vulnerability Briefing - 2025-07-14
-date: 2025-07-14T12:10:52.607549
+date: 2025-07-14T16:08:46.914754
 layout: layouts/post.njk
 tags: [vulnerability, briefing, security]
 vulnerabilityCount: 15163
@@ -16,37 +16,12 @@ Today's briefing covers **15163 vulnerabilities** from 0 sources.
 
 - 🔴 **Critical Risk**: 0 vulnerabilities
 - 🟠 **High Risk**: 0 vulnerabilities
-- 🟡 **Medium Risk**: 9914 vulnerabilities
-- 🟢 **Low Risk**: 5249 vulnerabilities
+- 🟡 **Medium Risk**: 9912 vulnerabilities
+- 🟢 **Low Risk**: 5251 vulnerabilities
 
 ## Top Vulnerabilities
 
-### 1. [CVE-2024-55591](/api/vulns/CVE-2024-55591.json)
-
-**Risk Score**: 68/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.6 | 
-**EPSS**: 94.2%
-
-**Summary**: An Authentication Bypass Using an Alternate Path or Channel vulnerability [CWE-288] affecting FortiOS version 7.0.0 through 7.0.16 and FortiProxy version 7.0.0 through 7.0.19 and 7.2.0 through 7.2.12 allows a remote attacker to gain super-admin privileges via crafted requests to Node.js websocket module.
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 94.25% exploit probability
-- Affects critical infrastructure: fortinet
-
-**Affected Vendors**: fortinet
-
-**Tags**: `CWE-288`
-
-**References**:
-
-- [https://fortiguard.fortinet.com/psirt/FG-IR-24-535](https://fortiguard.fortinet.com/psirt/FG-IR-24-535)
-
----
-
-### 2. [CVE-2025-49113](/api/vulns/CVE-2025-49113.json)
+### 1. [CVE-2025-49113](/api/vulns/CVE-2025-49113.json)
 
 **Risk Score**: 68/100 | 
 **Severity**: CRITICAL | 
@@ -72,7 +47,7 @@ Today's briefing covers **15163 vulnerabilities** from 0 sources.
 
 ---
 
-### 3. [CVE-2024-51978](/api/vulns/CVE-2024-51978.json)
+### 2. [CVE-2024-51978](/api/vulns/CVE-2024-51978.json)
 
 **Risk Score**: 68/100 | 
 **Severity**: CRITICAL | 
@@ -87,7 +62,7 @@ Today's briefing covers **15163 vulnerabilities** from 0 sources.
 - 71.88% exploit probability
 - Published within last month
 
-**Affected Vendors**: brother industries, ltd, toshiba tec, konica minolta, inc.
+**Affected Vendors**: brother industries, ltd, konica minolta, inc., toshiba tec
 
 **Tags**: `CWE-1391`
 
@@ -99,7 +74,7 @@ Today's briefing covers **15163 vulnerabilities** from 0 sources.
 
 ---
 
-### 4. [CVE-2024-21413](/api/vulns/CVE-2024-21413.json)
+### 3. [CVE-2024-21413](/api/vulns/CVE-2024-21413.json)
 
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
@@ -124,7 +99,7 @@ Today's briefing covers **15163 vulnerabilities** from 0 sources.
 
 ---
 
-### 5. [CVE-2025-24893](/api/vulns/CVE-2025-24893.json)
+### 4. [CVE-2025-24893](/api/vulns/CVE-2025-24893.json)
 
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
@@ -150,7 +125,7 @@ Today's briefing covers **15163 vulnerabilities** from 0 sources.
 
 ---
 
-### 6. [CVE-2024-22320](/api/vulns/CVE-2024-22320.json)
+### 5. [CVE-2024-22320](/api/vulns/CVE-2024-22320.json)
 
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
@@ -176,7 +151,7 @@ Today's briefing covers **15163 vulnerabilities** from 0 sources.
 
 ---
 
-### 7. [CVE-2024-20419](/api/vulns/CVE-2024-20419.json)
+### 6. [CVE-2024-20419](/api/vulns/CVE-2024-20419.json)
 
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
@@ -201,7 +176,7 @@ Today's briefing covers **15163 vulnerabilities** from 0 sources.
 
 ---
 
-### 8. [CVE-2025-1974](/api/vulns/CVE-2025-1974.json)
+### 7. [CVE-2025-1974](/api/vulns/CVE-2025-1974.json)
 
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
@@ -226,7 +201,7 @@ Today's briefing covers **15163 vulnerabilities** from 0 sources.
 
 ---
 
-### 9. [CVE-2024-4577](/api/vulns/CVE-2024-4577.json)
+### 8. [CVE-2024-4577](/api/vulns/CVE-2024-4577.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
@@ -252,7 +227,7 @@ Today's briefing covers **15163 vulnerabilities** from 0 sources.
 
 ---
 
-### 10. [CVE-2024-1709](/api/vulns/CVE-2024-1709.json)
+### 9. [CVE-2024-1709](/api/vulns/CVE-2024-1709.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
@@ -284,6 +259,31 @@ critical systems.
 
 ---
 
+### 10. [CVE-2024-55591](/api/vulns/CVE-2024-55591.json)
+
+**Risk Score**: 66/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 9.6 | 
+**EPSS**: 94.2%
+
+**Summary**: An Authentication Bypass Using an Alternate Path or Channel vulnerability [CWE-288] affecting FortiOS version 7.0.0 through 7.0.16 and FortiProxy version 7.0.0 through 7.0.19 and 7.2.0 through 7.2.12 allows a remote attacker to gain super-admin privileges via crafted requests to Node.js websocket module.
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 94.25% exploit probability
+- Affects critical infrastructure: fortinet
+
+**Affected Vendors**: fortinet
+
+**Tags**: `CWE-288`
+
+**References**:
+
+- [https://fortiguard.fortinet.com/psirt/FG-IR-24-535](https://fortiguard.fortinet.com/psirt/FG-IR-24-535)
+
+---
+
 ### 11. [CVE-2024-10924](/api/vulns/CVE-2024-10924.json)
 
 **Risk Score**: 66/100 | 
@@ -298,7 +298,7 @@ critical systems.
 - CRITICAL severity
 - 93.63% exploit probability
 
-**Affected Vendors**: really simple plugins, rogierlankhorst
+**Affected Vendors**: rogierlankhorst, really simple plugins
 
 **Tags**: `CWE-288`
 
@@ -384,7 +384,32 @@ critical systems.
 
 ---
 
-### 15. [CVE-2024-4040](/api/vulns/CVE-2024-4040.json)
+### 15. [CVE-2025-47916](/api/vulns/CVE-2025-47916.json)
+
+**Risk Score**: 66/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 10.0 | 
+**EPSS**: 87.4%
+
+**Summary**: Invision Community 5.0.0 before 5.0.7 allows remote code execution via crafted template strings to themeeditor.php. The issue lies within the themeeditor controller (file: /applications/core/modules/front/system/themeeditor.php), where a protected method named customCss can be invoked by unauthenticated users. This method passes the value of the content parameter to the Theme::makeProcessFunction() method; hence it is evaluated by the template engine. Accordingly, this can be exploited by unauth...
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 87.44% exploit probability
+
+**Affected Vendors**: invisioncommunity
+
+**Tags**: `CWE-1336`
+
+**References**:
+
+- [https://invisioncommunity.com/release-notes-v5/507-r41/](https://invisioncommunity.com/release-notes-v5/507-r41/)
+- [https://karmainsecurity.com/KIS-2025-02](https://karmainsecurity.com/KIS-2025-02)
+
+---
+
+### 16. [CVE-2024-4040](/api/vulns/CVE-2024-4040.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -411,7 +436,7 @@ critical systems.
 
 ---
 
-### 16. [CVE-2024-36401](/api/vulns/CVE-2024-36401.json)
+### 17. [CVE-2024-36401](/api/vulns/CVE-2024-36401.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -439,7 +464,7 @@ The GeoTools library API that GeoServer calls evaluates property/attribute names
 
 ---
 
-### 17. [CVE-2024-1212](/api/vulns/CVE-2024-1212.json)
+### 18. [CVE-2024-1212](/api/vulns/CVE-2024-1212.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -468,7 +493,7 @@ The GeoTools library API that GeoServer calls evaluates property/attribute names
 
 ---
 
-### 18. [CVE-2024-3400](/api/vulns/CVE-2024-3400.json)
+### 19. [CVE-2024-3400](/api/vulns/CVE-2024-3400.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -496,7 +521,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 19. [CVE-2024-51567](/api/vulns/CVE-2024-51567.json)
+### 20. [CVE-2024-51567](/api/vulns/CVE-2024-51567.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -520,7 +545,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 20. [CVE-2024-31982](/api/vulns/CVE-2024-31982.json)
+### 21. [CVE-2024-31982](/api/vulns/CVE-2024-31982.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -546,7 +571,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 21. [CVE-2024-45519](/api/vulns/CVE-2024-45519.json)
+### 22. [CVE-2024-45519](/api/vulns/CVE-2024-45519.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -570,7 +595,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 22. [CVE-2024-5932](/api/vulns/CVE-2024-5932.json)
+### 23. [CVE-2024-5932](/api/vulns/CVE-2024-5932.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -596,7 +621,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 23. [CVE-2024-51378](/api/vulns/CVE-2024-51378.json)
+### 24. [CVE-2024-51378](/api/vulns/CVE-2024-51378.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -620,7 +645,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 24. [CVE-2025-29927](/api/vulns/CVE-2025-29927.json)
+### 25. [CVE-2025-29927](/api/vulns/CVE-2025-29927.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -646,7 +671,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 25. [CVE-2024-11680](/api/vulns/CVE-2024-11680.json)
+### 26. [CVE-2024-11680](/api/vulns/CVE-2024-11680.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -672,7 +697,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 26. [CVE-2024-25600](/api/vulns/CVE-2024-25600.json)
+### 27. [CVE-2024-25600](/api/vulns/CVE-2024-25600.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -698,7 +723,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 27. [CVE-2025-3248](/api/vulns/CVE-2025-3248.json)
+### 28. [CVE-2025-3248](/api/vulns/CVE-2025-3248.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -726,7 +751,7 @@ code.
 
 ---
 
-### 28. [CVE-2024-23108](/api/vulns/CVE-2024-23108.json)
+### 29. [CVE-2024-23108](/api/vulns/CVE-2024-23108.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -751,7 +776,7 @@ code.
 
 ---
 
-### 29. [CVE-2024-38063](/api/vulns/CVE-2024-38063.json)
+### 30. [CVE-2024-38063](/api/vulns/CVE-2024-38063.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -776,7 +801,7 @@ code.
 
 ---
 
-### 30. [CVE-2025-1661](/api/vulns/CVE-2025-1661.json)
+### 31. [CVE-2025-1661](/api/vulns/CVE-2025-1661.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -802,7 +827,7 @@ code.
 
 ---
 
-### 31. [CVE-2024-49112](/api/vulns/CVE-2024-49112.json)
+### 32. [CVE-2024-49112](/api/vulns/CVE-2024-49112.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -824,31 +849,6 @@ code.
 **References**:
 
 - [https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-49112](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-49112)
-
----
-
-### 32. [CVE-2025-47916](/api/vulns/CVE-2025-47916.json)
-
-**Risk Score**: 65/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 10.0 | 
-**EPSS**: 86.3%
-
-**Summary**: Invision Community 5.0.0 before 5.0.7 allows remote code execution via crafted template strings to themeeditor.php. The issue lies within the themeeditor controller (file: /applications/core/modules/front/system/themeeditor.php), where a protected method named customCss can be invoked by unauthenticated users. This method passes the value of the content parameter to the Theme::makeProcessFunction() method; hence it is evaluated by the template engine. Accordingly, this can be exploited by unauth...
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 86.33% exploit probability
-
-**Affected Vendors**: invisioncommunity
-
-**Tags**: `CWE-1336`
-
-**References**:
-
-- [https://invisioncommunity.com/release-notes-v5/507-r41/](https://invisioncommunity.com/release-notes-v5/507-r41/)
-- [https://karmainsecurity.com/KIS-2025-02](https://karmainsecurity.com/KIS-2025-02)
 
 ---
 
