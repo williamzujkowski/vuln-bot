@@ -1,6 +1,6 @@
 ---
 title: Morning Vulnerability Briefing - 2025-07-14
-date: 2025-07-14T16:08:46.914754
+date: 2025-07-14T20:08:33.688590
 layout: layouts/post.njk
 tags: [vulnerability, briefing, security]
 vulnerabilityCount: 15163
@@ -16,8 +16,8 @@ Today's briefing covers **15163 vulnerabilities** from 0 sources.
 
 - 🔴 **Critical Risk**: 0 vulnerabilities
 - 🟠 **High Risk**: 0 vulnerabilities
-- 🟡 **Medium Risk**: 9912 vulnerabilities
-- 🟢 **Low Risk**: 5251 vulnerabilities
+- 🟡 **Medium Risk**: 9883 vulnerabilities
+- 🟢 **Low Risk**: 5280 vulnerabilities
 
 ## Top Vulnerabilities
 
@@ -62,7 +62,7 @@ Today's briefing covers **15163 vulnerabilities** from 0 sources.
 - 71.88% exploit probability
 - Published within last month
 
-**Affected Vendors**: brother industries, ltd, konica minolta, inc., toshiba tec
+**Affected Vendors**: toshiba tec, brother industries, ltd, konica minolta, inc.
 
 **Tags**: `CWE-1391`
 
@@ -298,7 +298,7 @@ critical systems.
 - CRITICAL severity
 - 93.63% exploit probability
 
-**Affected Vendors**: rogierlankhorst, really simple plugins
+**Affected Vendors**: really simple plugins, rogierlankhorst
 
 **Tags**: `CWE-288`
 
@@ -929,31 +929,7 @@ code.
 
 ---
 
-### 36. [CVE-2024-13159](/api/vulns/CVE-2024-13159.json)
-
-**Risk Score**: 64/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 93.9%
-
-**Summary**: Absolute path traversal in Ivanti EPM before the 2024 January-2025 Security Update and 2022 SU6 January-2025 Security Update allows a remote unauthenticated attacker to leak sensitive information.
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 93.88% exploit probability
-
-**Affected Vendors**: ivanti
-
-**Tags**: `CWE-36`
-
-**References**:
-
-- [https://forums.ivanti.com/s/article/Security-Advisory-EPM-January-2025-for-EPM-2024-and-EPM-2022-SU6](https://forums.ivanti.com/s/article/Security-Advisory-EPM-January-2025-for-EPM-2024-and-EPM-2022-SU6)
-
----
-
-### 37. [CVE-2024-3495](/api/vulns/CVE-2024-3495.json)
+### 36. [CVE-2024-3495](/api/vulns/CVE-2024-3495.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -977,7 +953,7 @@ code.
 
 ---
 
-### 38. [CVE-2024-21650](/api/vulns/CVE-2024-21650.json)
+### 37. [CVE-2024-21650](/api/vulns/CVE-2024-21650.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1003,7 +979,7 @@ code.
 
 ---
 
-### 39. [CVE-2024-0204](/api/vulns/CVE-2024-0204.json)
+### 38. [CVE-2024-0204](/api/vulns/CVE-2024-0204.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1029,7 +1005,7 @@ code.
 
 ---
 
-### 40. [CVE-2024-29895](/api/vulns/CVE-2024-29895.json)
+### 39. [CVE-2024-29895](/api/vulns/CVE-2024-29895.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1055,7 +1031,7 @@ code.
 
 ---
 
-### 41. [CVE-2024-9234](/api/vulns/CVE-2024-9234.json)
+### 40. [CVE-2024-9234](/api/vulns/CVE-2024-9234.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1081,7 +1057,7 @@ code.
 
 ---
 
-### 42. [CVE-2024-32651](/api/vulns/CVE-2024-32651.json)
+### 41. [CVE-2024-32651](/api/vulns/CVE-2024-32651.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1107,7 +1083,7 @@ code.
 
 ---
 
-### 43. [CVE-2024-1071](/api/vulns/CVE-2024-1071.json)
+### 42. [CVE-2024-1071](/api/vulns/CVE-2024-1071.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1131,7 +1107,7 @@ code.
 
 ---
 
-### 44. [CVE-2024-8856](/api/vulns/CVE-2024-8856.json)
+### 43. [CVE-2024-8856](/api/vulns/CVE-2024-8856.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1157,7 +1133,7 @@ code.
 
 ---
 
-### 45. [CVE-2024-46986](/api/vulns/CVE-2024-46986.json)
+### 44. [CVE-2024-46986](/api/vulns/CVE-2024-46986.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1183,7 +1159,7 @@ code.
 
 ---
 
-### 46. [CVE-2024-36404](/api/vulns/CVE-2024-36404.json)
+### 45. [CVE-2024-36404](/api/vulns/CVE-2024-36404.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1209,7 +1185,7 @@ code.
 
 ---
 
-### 47. [CVE-2024-24576](/api/vulns/CVE-2024-24576.json)
+### 46. [CVE-2024-24576](/api/vulns/CVE-2024-24576.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1235,7 +1211,7 @@ code.
 
 ---
 
-### 48. [CVE-2024-43468](/api/vulns/CVE-2024-43468.json)
+### 47. [CVE-2024-43468](/api/vulns/CVE-2024-43468.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1260,32 +1236,7 @@ code.
 
 ---
 
-### 49. [CVE-2025-21298](/api/vulns/CVE-2025-21298.json)
-
-**Risk Score**: 64/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 70.6%
-
-**Summary**: Windows OLE Remote Code Execution Vulnerability
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 70.56% exploit probability
-- Affects critical infrastructure: microsoft
-
-**Affected Vendors**: microsoft
-
-**Tags**: `CWE-416`
-
-**References**:
-
-- [https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-21298](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-21298)
-
----
-
-### 50. [CVE-2025-32432](/api/vulns/CVE-2025-32432.json)
+### 48. [CVE-2025-32432](/api/vulns/CVE-2025-32432.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1308,6 +1259,55 @@ code.
 - [https://github.com/craftcms/cms/security/advisories/GHSA-f3gw-9ww9-jmc3](https://github.com/craftcms/cms/security/advisories/GHSA-f3gw-9ww9-jmc3)
 - [https://github.com/craftcms/cms/commit/e1c85441fa47eeb7c688c2053f25419bc0547b47](https://github.com/craftcms/cms/commit/e1c85441fa47eeb7c688c2053f25419bc0547b47)
 - [https://github.com/craftcms/cms/blob/3.x/CHANGELOG.md#3915---2025-04-10-critical](https://github.com/craftcms/cms/blob/3.x/CHANGELOG.md#3915---2025-04-10-critical)
+
+---
+
+### 49. [CVE-2025-47812](/api/vulns/CVE-2025-47812.json)
+
+**Risk Score**: 64/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 10.0 | 
+**EPSS**: 57.3%
+
+**Summary**: In Wing FTP Server before 7.4.4. the user and admin web interfaces mishandle '\0' bytes, ultimately allowing injection of arbitrary Lua code into user session files. This can be used to execute arbitrary system commands with the privileges of the FTP service (root or SYSTEM by default). This is thus a remote code execution vulnerability that guarantees a total server compromise. This is also exploitable via anonymous FTP accounts.
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 57.3% exploit probability
+- Published within last week
+
+**Affected Vendors**: wftpserver
+
+**Tags**: `CWE-158`
+
+**References**:
+
+- [https://www.wftpserver.com](https://www.wftpserver.com)
+- [https://www.rcesecurity.com/2025/06/what-the-null-wing-ftp-server-rce-cve-2025-47812/](https://www.rcesecurity.com/2025/06/what-the-null-wing-ftp-server-rce-cve-2025-47812/)
+
+---
+
+### 50. [CVE-2024-27198](/api/vulns/CVE-2024-27198.json)
+
+**Risk Score**: 63/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 9.8 | 
+**EPSS**: 94.6%
+
+**Summary**: In JetBrains TeamCity before 2023.11.4 authentication bypass allowing to perform admin actions was possible
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 94.58% exploit probability
+
+**Affected Vendors**: jetbrains
+
+**References**:
+
+- [https://www.jetbrains.com/privacy-security/issues-fixed/](https://www.jetbrains.com/privacy-security/issues-fixed/)
+- [https://www.darkreading.com/cyberattacks-data-breaches/jetbrains-teamcity-mass-exploitation-underway-rogue-accounts-thrive](https://www.darkreading.com/cyberattacks-data-breaches/jetbrains-teamcity-mass-exploitation-underway-rogue-accounts-thrive)
 
 ---
 
