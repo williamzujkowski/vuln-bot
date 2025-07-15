@@ -1,6 +1,6 @@
 ---
 title: Morning Vulnerability Briefing - 2025-07-15
-date: 2025-07-15T12:11:41.598803
+date: 2025-07-15T16:08:56.922735
 layout: layouts/post.njk
 tags: [vulnerability, briefing, security]
 vulnerabilityCount: 15199
@@ -16,12 +16,38 @@ Today's briefing covers **15199 vulnerabilities** from 0 sources.
 
 - 🔴 **Critical Risk**: 0 vulnerabilities
 - 🟠 **High Risk**: 0 vulnerabilities
-- 🟡 **Medium Risk**: 9907 vulnerabilities
-- 🟢 **Low Risk**: 5292 vulnerabilities
+- 🟡 **Medium Risk**: 9905 vulnerabilities
+- 🟢 **Low Risk**: 5294 vulnerabilities
 
 ## Top Vulnerabilities
 
-### 1. [CVE-2025-49113](/api/vulns/CVE-2025-49113.json)
+### 1. [CVE-2025-47812](/api/vulns/CVE-2025-47812.json)
+
+**Risk Score**: 69/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 10.0 | 
+**EPSS**: 83.4%
+
+**Summary**: In Wing FTP Server before 7.4.4. the user and admin web interfaces mishandle '\0' bytes, ultimately allowing injection of arbitrary Lua code into user session files. This can be used to execute arbitrary system commands with the privileges of the FTP service (root or SYSTEM by default). This is thus a remote code execution vulnerability that guarantees a total server compromise. This is also exploitable via anonymous FTP accounts.
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 83.43% exploit probability
+- Published within last week
+
+**Affected Vendors**: wftpserver
+
+**Tags**: `CWE-158`
+
+**References**:
+
+- [https://www.wftpserver.com](https://www.wftpserver.com)
+- [https://www.rcesecurity.com/2025/06/what-the-null-wing-ftp-server-rce-cve-2025-47812/](https://www.rcesecurity.com/2025/06/what-the-null-wing-ftp-server-rce-cve-2025-47812/)
+
+---
+
+### 2. [CVE-2025-49113](/api/vulns/CVE-2025-49113.json)
 
 **Risk Score**: 68/100 | 
 **Severity**: CRITICAL | 
@@ -47,7 +73,7 @@ Today's briefing covers **15199 vulnerabilities** from 0 sources.
 
 ---
 
-### 2. [CVE-2024-51978](/api/vulns/CVE-2024-51978.json)
+### 3. [CVE-2024-51978](/api/vulns/CVE-2024-51978.json)
 
 **Risk Score**: 68/100 | 
 **Severity**: CRITICAL | 
@@ -62,7 +88,7 @@ Today's briefing covers **15199 vulnerabilities** from 0 sources.
 - 71.88% exploit probability
 - Published within last month
 
-**Affected Vendors**: konica minolta, inc., toshiba tec, brother industries, ltd
+**Affected Vendors**: brother industries, ltd, konica minolta, inc., toshiba tec
 
 **Tags**: `CWE-1391`
 
@@ -74,7 +100,7 @@ Today's briefing covers **15199 vulnerabilities** from 0 sources.
 
 ---
 
-### 3. [CVE-2024-21413](/api/vulns/CVE-2024-21413.json)
+### 4. [CVE-2024-21413](/api/vulns/CVE-2024-21413.json)
 
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
@@ -99,7 +125,7 @@ Today's briefing covers **15199 vulnerabilities** from 0 sources.
 
 ---
 
-### 4. [CVE-2025-24893](/api/vulns/CVE-2025-24893.json)
+### 5. [CVE-2025-24893](/api/vulns/CVE-2025-24893.json)
 
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
@@ -125,7 +151,7 @@ Today's briefing covers **15199 vulnerabilities** from 0 sources.
 
 ---
 
-### 5. [CVE-2024-22320](/api/vulns/CVE-2024-22320.json)
+### 6. [CVE-2024-22320](/api/vulns/CVE-2024-22320.json)
 
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
@@ -151,7 +177,7 @@ Today's briefing covers **15199 vulnerabilities** from 0 sources.
 
 ---
 
-### 6. [CVE-2024-20419](/api/vulns/CVE-2024-20419.json)
+### 7. [CVE-2024-20419](/api/vulns/CVE-2024-20419.json)
 
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
@@ -176,7 +202,7 @@ Today's briefing covers **15199 vulnerabilities** from 0 sources.
 
 ---
 
-### 7. [CVE-2025-1974](/api/vulns/CVE-2025-1974.json)
+### 8. [CVE-2025-1974](/api/vulns/CVE-2025-1974.json)
 
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
@@ -201,7 +227,7 @@ Today's briefing covers **15199 vulnerabilities** from 0 sources.
 
 ---
 
-### 8. [CVE-2024-4577](/api/vulns/CVE-2024-4577.json)
+### 9. [CVE-2024-4577](/api/vulns/CVE-2024-4577.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
@@ -227,12 +253,12 @@ Today's briefing covers **15199 vulnerabilities** from 0 sources.
 
 ---
 
-### 9. [CVE-2024-1709](/api/vulns/CVE-2024-1709.json)
+### 10. [CVE-2024-1709](/api/vulns/CVE-2024-1709.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 10.0 | 
-**EPSS**: 94.3%
+**EPSS**: 94.4%
 
 **Summary**: ConnectWise ScreenConnect 23.9.7 and prior are affected by an Authentication Bypass Using an Alternate Path or Channel
 
@@ -245,7 +271,7 @@ critical systems.
 **Risk Factors**:
 
 - CRITICAL severity
-- 94.33% exploit probability
+- 94.36% exploit probability
 
 **Affected Vendors**: connectwise
 
@@ -259,7 +285,7 @@ critical systems.
 
 ---
 
-### 10. [CVE-2024-55591](/api/vulns/CVE-2024-55591.json)
+### 11. [CVE-2024-55591](/api/vulns/CVE-2024-55591.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
@@ -271,7 +297,7 @@ critical systems.
 **Risk Factors**:
 
 - CRITICAL severity
-- 94.25% exploit probability
+- 94.23% exploit probability
 - Affects critical infrastructure: fortinet
 
 **Affected Vendors**: fortinet
@@ -284,7 +310,7 @@ critical systems.
 
 ---
 
-### 11. [CVE-2024-10924](/api/vulns/CVE-2024-10924.json)
+### 12. [CVE-2024-10924](/api/vulns/CVE-2024-10924.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
@@ -310,7 +336,7 @@ critical systems.
 
 ---
 
-### 12. [CVE-2024-21762](/api/vulns/CVE-2024-21762.json)
+### 13. [CVE-2024-21762](/api/vulns/CVE-2024-21762.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
@@ -335,7 +361,7 @@ critical systems.
 
 ---
 
-### 13. [CVE-2024-47575](/api/vulns/CVE-2024-47575.json)
+### 14. [CVE-2024-47575](/api/vulns/CVE-2024-47575.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
@@ -360,7 +386,7 @@ critical systems.
 
 ---
 
-### 14. [CVE-2024-20439](/api/vulns/CVE-2024-20439.json)
+### 15. [CVE-2024-20439](/api/vulns/CVE-2024-20439.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
@@ -384,7 +410,7 @@ critical systems.
 
 ---
 
-### 15. [CVE-2025-47916](/api/vulns/CVE-2025-47916.json)
+### 16. [CVE-2025-47916](/api/vulns/CVE-2025-47916.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
@@ -409,7 +435,7 @@ critical systems.
 
 ---
 
-### 16. [CVE-2024-4040](/api/vulns/CVE-2024-4040.json)
+### 17. [CVE-2024-4040](/api/vulns/CVE-2024-4040.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -436,7 +462,7 @@ critical systems.
 
 ---
 
-### 17. [CVE-2024-36401](/api/vulns/CVE-2024-36401.json)
+### 18. [CVE-2024-36401](/api/vulns/CVE-2024-36401.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -464,7 +490,7 @@ The GeoTools library API that GeoServer calls evaluates property/attribute names
 
 ---
 
-### 18. [CVE-2024-1212](/api/vulns/CVE-2024-1212.json)
+### 19. [CVE-2024-1212](/api/vulns/CVE-2024-1212.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -493,7 +519,7 @@ The GeoTools library API that GeoServer calls evaluates property/attribute names
 
 ---
 
-### 19. [CVE-2024-3400](/api/vulns/CVE-2024-3400.json)
+### 20. [CVE-2024-3400](/api/vulns/CVE-2024-3400.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -507,7 +533,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 **Risk Factors**:
 
 - CRITICAL severity
-- 94.32% exploit probability
+- 94.3% exploit probability
 
 **Affected Vendors**: palo alto networks
 
@@ -521,7 +547,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 20. [CVE-2024-51567](/api/vulns/CVE-2024-51567.json)
+### 21. [CVE-2024-51567](/api/vulns/CVE-2024-51567.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -545,7 +571,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 21. [CVE-2024-31982](/api/vulns/CVE-2024-31982.json)
+### 22. [CVE-2024-31982](/api/vulns/CVE-2024-31982.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -571,7 +597,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 22. [CVE-2024-45519](/api/vulns/CVE-2024-45519.json)
+### 23. [CVE-2024-45519](/api/vulns/CVE-2024-45519.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -595,7 +621,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 23. [CVE-2024-5932](/api/vulns/CVE-2024-5932.json)
+### 24. [CVE-2024-5932](/api/vulns/CVE-2024-5932.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -621,7 +647,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 24. [CVE-2024-51378](/api/vulns/CVE-2024-51378.json)
+### 25. [CVE-2024-51378](/api/vulns/CVE-2024-51378.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -645,7 +671,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 25. [CVE-2025-29927](/api/vulns/CVE-2025-29927.json)
+### 26. [CVE-2025-29927](/api/vulns/CVE-2025-29927.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -668,32 +694,6 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 - [https://github.com/vercel/next.js/security/advisories/GHSA-f82v-jwr5-mffw](https://github.com/vercel/next.js/security/advisories/GHSA-f82v-jwr5-mffw)
 - [https://github.com/vercel/next.js/commit/52a078da3884efe6501613c7834a3d02a91676d2](https://github.com/vercel/next.js/commit/52a078da3884efe6501613c7834a3d02a91676d2)
 - [https://github.com/vercel/next.js/commit/5fd3ae8f8542677c6294f32d18022731eab6fe48](https://github.com/vercel/next.js/commit/5fd3ae8f8542677c6294f32d18022731eab6fe48)
-
----
-
-### 26. [CVE-2024-11680](/api/vulns/CVE-2024-11680.json)
-
-**Risk Score**: 65/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 93.6%
-
-**Summary**: ProjectSend versions prior to r1720 are affected by an improper authentication vulnerability. Remote, unauthenticated attackers can exploit this flaw by sending crafted HTTP requests to options.php, enabling unauthorized modification of the application's configuration. Successful exploitation allows attackers to create accounts, upload webshells, and embed malicious JavaScript.
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 93.61% exploit probability
-
-**Affected Vendors**: projectsend
-
-**Tags**: `CWE-287`
-
-**References**:
-
-- [https://github.com/projectsend/projectsend/commit/193367d937b1a59ed5b68dd4e60bd53317473744](https://github.com/projectsend/projectsend/commit/193367d937b1a59ed5b68dd4e60bd53317473744)
-- [https://www.synacktiv.com/sites/default/files/2024-07/synacktiv-projectsend-multiple-vulnerabilities.pdf](https://www.synacktiv.com/sites/default/files/2024-07/synacktiv-projectsend-multiple-vulnerabilities.pdf)
-- [https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/linux/http/projectsend_unauth_rce.rb](https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/linux/http/projectsend_unauth_rce.rb)
 
 ---
 
@@ -723,7 +723,33 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 28. [CVE-2025-3248](/api/vulns/CVE-2025-3248.json)
+### 28. [CVE-2024-11680](/api/vulns/CVE-2024-11680.json)
+
+**Risk Score**: 65/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 9.8 | 
+**EPSS**: 93.1%
+
+**Summary**: ProjectSend versions prior to r1720 are affected by an improper authentication vulnerability. Remote, unauthenticated attackers can exploit this flaw by sending crafted HTTP requests to options.php, enabling unauthorized modification of the application's configuration. Successful exploitation allows attackers to create accounts, upload webshells, and embed malicious JavaScript.
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 93.11% exploit probability
+
+**Affected Vendors**: projectsend
+
+**Tags**: `CWE-287`
+
+**References**:
+
+- [https://github.com/projectsend/projectsend/commit/193367d937b1a59ed5b68dd4e60bd53317473744](https://github.com/projectsend/projectsend/commit/193367d937b1a59ed5b68dd4e60bd53317473744)
+- [https://www.synacktiv.com/sites/default/files/2024-07/synacktiv-projectsend-multiple-vulnerabilities.pdf](https://www.synacktiv.com/sites/default/files/2024-07/synacktiv-projectsend-multiple-vulnerabilities.pdf)
+- [https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/linux/http/projectsend_unauth_rce.rb](https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/linux/http/projectsend_unauth_rce.rb)
+
+---
+
+### 29. [CVE-2025-3248](/api/vulns/CVE-2025-3248.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -751,7 +777,7 @@ code.
 
 ---
 
-### 29. [CVE-2024-23108](/api/vulns/CVE-2024-23108.json)
+### 30. [CVE-2024-23108](/api/vulns/CVE-2024-23108.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -776,7 +802,7 @@ code.
 
 ---
 
-### 30. [CVE-2024-38063](/api/vulns/CVE-2024-38063.json)
+### 31. [CVE-2024-38063](/api/vulns/CVE-2024-38063.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -801,7 +827,7 @@ code.
 
 ---
 
-### 31. [CVE-2025-1661](/api/vulns/CVE-2025-1661.json)
+### 32. [CVE-2025-1661](/api/vulns/CVE-2025-1661.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -827,7 +853,7 @@ code.
 
 ---
 
-### 32. [CVE-2024-49112](/api/vulns/CVE-2024-49112.json)
+### 33. [CVE-2024-49112](/api/vulns/CVE-2024-49112.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -852,7 +878,7 @@ code.
 
 ---
 
-### 33. [CVE-2024-38077](/api/vulns/CVE-2024-38077.json)
+### 34. [CVE-2024-38077](/api/vulns/CVE-2024-38077.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -877,7 +903,7 @@ code.
 
 ---
 
-### 34. [CVE-2024-50603](/api/vulns/CVE-2024-50603.json)
+### 35. [CVE-2024-50603](/api/vulns/CVE-2024-50603.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -903,7 +929,7 @@ code.
 
 ---
 
-### 35. [CVE-2024-3272](/api/vulns/CVE-2024-3272.json)
+### 36. [CVE-2024-3272](/api/vulns/CVE-2024-3272.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -915,7 +941,7 @@ code.
 **Risk Factors**:
 
 - CRITICAL severity
-- 94.22% exploit probability
+- 94.18% exploit probability
 
 **Affected Vendors**: d-link
 
@@ -929,19 +955,19 @@ code.
 
 ---
 
-### 36. [CVE-2024-3495](/api/vulns/CVE-2024-3495.json)
+### 37. [CVE-2024-3495](/api/vulns/CVE-2024-3495.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.8 | 
-**EPSS**: 93.5%
+**EPSS**: 93.6%
 
 **Summary**: The Country State City Dropdown CF7 plugin for WordPress is vulnerable to SQL Injection via the ‘cnt’ and 'sid' parameters in versions up to, and including, 2.7.2 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 93.49% exploit probability
+- 93.57% exploit probability
 
 **Affected Vendors**: trustyplugins
 
@@ -953,7 +979,7 @@ code.
 
 ---
 
-### 37. [CVE-2024-21650](/api/vulns/CVE-2024-21650.json)
+### 38. [CVE-2024-21650](/api/vulns/CVE-2024-21650.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -979,7 +1005,7 @@ code.
 
 ---
 
-### 38. [CVE-2024-0204](/api/vulns/CVE-2024-0204.json)
+### 39. [CVE-2024-0204](/api/vulns/CVE-2024-0204.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1005,7 +1031,7 @@ code.
 
 ---
 
-### 39. [CVE-2024-29895](/api/vulns/CVE-2024-29895.json)
+### 40. [CVE-2024-29895](/api/vulns/CVE-2024-29895.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1031,7 +1057,7 @@ code.
 
 ---
 
-### 40. [CVE-2024-9234](/api/vulns/CVE-2024-9234.json)
+### 41. [CVE-2024-9234](/api/vulns/CVE-2024-9234.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1057,7 +1083,7 @@ code.
 
 ---
 
-### 41. [CVE-2024-32651](/api/vulns/CVE-2024-32651.json)
+### 42. [CVE-2024-32651](/api/vulns/CVE-2024-32651.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1083,7 +1109,7 @@ code.
 
 ---
 
-### 42. [CVE-2024-1071](/api/vulns/CVE-2024-1071.json)
+### 43. [CVE-2024-1071](/api/vulns/CVE-2024-1071.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1107,7 +1133,7 @@ code.
 
 ---
 
-### 43. [CVE-2024-8856](/api/vulns/CVE-2024-8856.json)
+### 44. [CVE-2024-8856](/api/vulns/CVE-2024-8856.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1133,7 +1159,7 @@ code.
 
 ---
 
-### 44. [CVE-2024-46986](/api/vulns/CVE-2024-46986.json)
+### 45. [CVE-2024-46986](/api/vulns/CVE-2024-46986.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1159,7 +1185,7 @@ code.
 
 ---
 
-### 45. [CVE-2024-36404](/api/vulns/CVE-2024-36404.json)
+### 46. [CVE-2024-36404](/api/vulns/CVE-2024-36404.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1185,7 +1211,7 @@ code.
 
 ---
 
-### 46. [CVE-2024-24576](/api/vulns/CVE-2024-24576.json)
+### 47. [CVE-2024-24576](/api/vulns/CVE-2024-24576.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1211,7 +1237,7 @@ code.
 
 ---
 
-### 47. [CVE-2024-43468](/api/vulns/CVE-2024-43468.json)
+### 48. [CVE-2024-43468](/api/vulns/CVE-2024-43468.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1236,7 +1262,7 @@ code.
 
 ---
 
-### 48. [CVE-2025-32432](/api/vulns/CVE-2025-32432.json)
+### 49. [CVE-2025-32432](/api/vulns/CVE-2025-32432.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1259,32 +1285,6 @@ code.
 - [https://github.com/craftcms/cms/security/advisories/GHSA-f3gw-9ww9-jmc3](https://github.com/craftcms/cms/security/advisories/GHSA-f3gw-9ww9-jmc3)
 - [https://github.com/craftcms/cms/commit/e1c85441fa47eeb7c688c2053f25419bc0547b47](https://github.com/craftcms/cms/commit/e1c85441fa47eeb7c688c2053f25419bc0547b47)
 - [https://github.com/craftcms/cms/blob/3.x/CHANGELOG.md#3915---2025-04-10-critical](https://github.com/craftcms/cms/blob/3.x/CHANGELOG.md#3915---2025-04-10-critical)
-
----
-
-### 49. [CVE-2025-47812](/api/vulns/CVE-2025-47812.json)
-
-**Risk Score**: 64/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 10.0 | 
-**EPSS**: 57.3%
-
-**Summary**: In Wing FTP Server before 7.4.4. the user and admin web interfaces mishandle '\0' bytes, ultimately allowing injection of arbitrary Lua code into user session files. This can be used to execute arbitrary system commands with the privileges of the FTP service (root or SYSTEM by default). This is thus a remote code execution vulnerability that guarantees a total server compromise. This is also exploitable via anonymous FTP accounts.
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 57.3% exploit probability
-- Published within last week
-
-**Affected Vendors**: wftpserver
-
-**Tags**: `CWE-158`
-
-**References**:
-
-- [https://www.wftpserver.com](https://www.wftpserver.com)
-- [https://www.rcesecurity.com/2025/06/what-the-null-wing-ftp-server-rce-cve-2025-47812/](https://www.rcesecurity.com/2025/06/what-the-null-wing-ftp-server-rce-cve-2025-47812/)
 
 ---
 
