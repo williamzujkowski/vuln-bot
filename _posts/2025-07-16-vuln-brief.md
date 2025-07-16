@@ -1,6 +1,6 @@
 ---
 title: Morning Vulnerability Briefing - 2025-07-16
-date: 2025-07-16T12:11:55.299863
+date: 2025-07-16T16:08:37.600650
 layout: layouts/post.njk
 tags: [vulnerability, briefing, security]
 vulnerabilityCount: 15234
@@ -16,8 +16,8 @@ Today's briefing covers **15234 vulnerabilities** from 0 sources.
 
 - 🔴 **Critical Risk**: 0 vulnerabilities
 - 🟠 **High Risk**: 0 vulnerabilities
-- 🟡 **Medium Risk**: 9913 vulnerabilities
-- 🟢 **Low Risk**: 5321 vulnerabilities
+- 🟡 **Medium Risk**: 9907 vulnerabilities
+- 🟢 **Low Risk**: 5327 vulnerabilities
 
 ## Top Vulnerabilities
 
@@ -33,7 +33,7 @@ Today's briefing covers **15234 vulnerabilities** from 0 sources.
 **Risk Factors**:
 
 - CRITICAL severity
-- 83.43% exploit probability
+- 83.37% exploit probability
 - Published within last week
 
 **Affected Vendors**: wftpserver
@@ -73,34 +73,7 @@ Today's briefing covers **15234 vulnerabilities** from 0 sources.
 
 ---
 
-### 3. [CVE-2024-51978](/api/vulns/CVE-2024-51978.json)
-
-**Risk Score**: 68/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 71.9%
-
-**Summary**: An unauthenticated attacker who knows the target device's serial number, can generate the default administrator password for the device. An unauthenticated attacker can first discover the target device's serial number via CVE-2024-51977 over HTTP/HTTPS/IPP, or via a PJL request, or via an SNMP request.
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 71.88% exploit probability
-- Published within last month
-
-**Affected Vendors**: brother industries, ltd, konica minolta, inc., toshiba tec
-
-**Tags**: `CWE-1391`
-
-**References**:
-
-- [https://support.brother.com/g/b/link.aspx?prod=group2&faqid=faq00100846_000](https://support.brother.com/g/b/link.aspx?prod=group2&faqid=faq00100846_000)
-- [https://support.brother.com/g/b/link.aspx?prod=group2&faqid=faq00100848_000](https://support.brother.com/g/b/link.aspx?prod=group2&faqid=faq00100848_000)
-- [https://support.brother.com/g/b/link.aspx?prod=lmgroup1&faqid=faqp00100620_000](https://support.brother.com/g/b/link.aspx?prod=lmgroup1&faqid=faqp00100620_000)
-
----
-
-### 4. [CVE-2024-21413](/api/vulns/CVE-2024-21413.json)
+### 3. [CVE-2024-21413](/api/vulns/CVE-2024-21413.json)
 
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
@@ -125,7 +98,7 @@ Today's briefing covers **15234 vulnerabilities** from 0 sources.
 
 ---
 
-### 5. [CVE-2025-24893](/api/vulns/CVE-2025-24893.json)
+### 4. [CVE-2025-24893](/api/vulns/CVE-2025-24893.json)
 
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
@@ -151,7 +124,7 @@ Today's briefing covers **15234 vulnerabilities** from 0 sources.
 
 ---
 
-### 6. [CVE-2024-22320](/api/vulns/CVE-2024-22320.json)
+### 5. [CVE-2024-22320](/api/vulns/CVE-2024-22320.json)
 
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
@@ -177,7 +150,7 @@ Today's briefing covers **15234 vulnerabilities** from 0 sources.
 
 ---
 
-### 7. [CVE-2024-20419](/api/vulns/CVE-2024-20419.json)
+### 6. [CVE-2024-20419](/api/vulns/CVE-2024-20419.json)
 
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
@@ -202,19 +175,19 @@ Today's briefing covers **15234 vulnerabilities** from 0 sources.
 
 ---
 
-### 8. [CVE-2025-1974](/api/vulns/CVE-2025-1974.json)
+### 7. [CVE-2025-1974](/api/vulns/CVE-2025-1974.json)
 
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.8 | 
-**EPSS**: 87.0%
+**EPSS**: 87.1%
 
 **Summary**: A security issue was discovered in Kubernetes where under certain conditions, an unauthenticated attacker with access to the pod network can achieve arbitrary code execution in the context of the ingress-nginx controller. This can lead to disclosure of Secrets accessible to the controller. (Note that in the default installation, the controller can access all Secrets cluster-wide.)
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 87.05% exploit probability
+- 87.07% exploit probability
 - Affects critical infrastructure: kubernetes
 
 **Affected Vendors**: kubernetes
@@ -227,7 +200,7 @@ Today's briefing covers **15234 vulnerabilities** from 0 sources.
 
 ---
 
-### 9. [CVE-2024-4577](/api/vulns/CVE-2024-4577.json)
+### 8. [CVE-2024-4577](/api/vulns/CVE-2024-4577.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
@@ -239,7 +212,7 @@ Today's briefing covers **15234 vulnerabilities** from 0 sources.
 **Risk Factors**:
 
 - CRITICAL severity
-- 94.37% exploit probability
+- 94.39% exploit probability
 
 **Affected Vendors**: php group
 
@@ -253,7 +226,7 @@ Today's briefing covers **15234 vulnerabilities** from 0 sources.
 
 ---
 
-### 10. [CVE-2024-1709](/api/vulns/CVE-2024-1709.json)
+### 9. [CVE-2024-1709](/api/vulns/CVE-2024-1709.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
@@ -285,7 +258,7 @@ critical systems.
 
 ---
 
-### 11. [CVE-2024-55591](/api/vulns/CVE-2024-55591.json)
+### 10. [CVE-2024-55591](/api/vulns/CVE-2024-55591.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
@@ -297,7 +270,7 @@ critical systems.
 **Risk Factors**:
 
 - CRITICAL severity
-- 94.23% exploit probability
+- 94.25% exploit probability
 - Affects critical infrastructure: fortinet
 
 **Affected Vendors**: fortinet
@@ -310,7 +283,7 @@ critical systems.
 
 ---
 
-### 12. [CVE-2024-10924](/api/vulns/CVE-2024-10924.json)
+### 11. [CVE-2024-10924](/api/vulns/CVE-2024-10924.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
@@ -324,7 +297,7 @@ critical systems.
 - CRITICAL severity
 - 93.63% exploit probability
 
-**Affected Vendors**: rogierlankhorst, really simple plugins
+**Affected Vendors**: really simple plugins, rogierlankhorst
 
 **Tags**: `CWE-288`
 
@@ -336,19 +309,19 @@ critical systems.
 
 ---
 
-### 13. [CVE-2024-21762](/api/vulns/CVE-2024-21762.json)
+### 12. [CVE-2024-21762](/api/vulns/CVE-2024-21762.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.6 | 
-**EPSS**: 92.7%
+**EPSS**: 92.6%
 
 **Summary**: A out-of-bounds write in Fortinet FortiOS versions 7.4.0 through 7.4.2, 7.2.0 through 7.2.6, 7.0.0 through 7.0.13, 6.4.0 through 6.4.14, 6.2.0 through 6.2.15, 6.0.0 through 6.0.17, FortiProxy versions 7.4.0 through 7.4.2, 7.2.0 through 7.2.8, 7.0.0 through 7.0.14, 2.0.0 through 2.0.13, 1.2.0 through 1.2.13, 1.1.0 through 1.1.6, 1.0.0 through 1.0.7 allows attacker to execute unauthorized code or commands via specifically crafted requests
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 92.66% exploit probability
+- 92.61% exploit probability
 - Affects critical infrastructure: fortinet
 
 **Affected Vendors**: fortinet
@@ -361,7 +334,7 @@ critical systems.
 
 ---
 
-### 14. [CVE-2024-47575](/api/vulns/CVE-2024-47575.json)
+### 13. [CVE-2024-47575](/api/vulns/CVE-2024-47575.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
@@ -383,6 +356,31 @@ critical systems.
 **References**:
 
 - [https://fortiguard.fortinet.com/psirt/FG-IR-24-423](https://fortiguard.fortinet.com/psirt/FG-IR-24-423)
+
+---
+
+### 14. [CVE-2025-47916](/api/vulns/CVE-2025-47916.json)
+
+**Risk Score**: 66/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 10.0 | 
+**EPSS**: 89.9%
+
+**Summary**: Invision Community 5.0.0 before 5.0.7 allows remote code execution via crafted template strings to themeeditor.php. The issue lies within the themeeditor controller (file: /applications/core/modules/front/system/themeeditor.php), where a protected method named customCss can be invoked by unauthenticated users. This method passes the value of the content parameter to the Theme::makeProcessFunction() method; hence it is evaluated by the template engine. Accordingly, this can be exploited by unauth...
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 89.9% exploit probability
+
+**Affected Vendors**: invisioncommunity
+
+**Tags**: `CWE-1336`
+
+**References**:
+
+- [https://invisioncommunity.com/release-notes-v5/507-r41/](https://invisioncommunity.com/release-notes-v5/507-r41/)
+- [https://karmainsecurity.com/KIS-2025-02](https://karmainsecurity.com/KIS-2025-02)
 
 ---
 
@@ -410,32 +408,7 @@ critical systems.
 
 ---
 
-### 16. [CVE-2025-47916](/api/vulns/CVE-2025-47916.json)
-
-**Risk Score**: 66/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 10.0 | 
-**EPSS**: 87.4%
-
-**Summary**: Invision Community 5.0.0 before 5.0.7 allows remote code execution via crafted template strings to themeeditor.php. The issue lies within the themeeditor controller (file: /applications/core/modules/front/system/themeeditor.php), where a protected method named customCss can be invoked by unauthenticated users. This method passes the value of the content parameter to the Theme::makeProcessFunction() method; hence it is evaluated by the template engine. Accordingly, this can be exploited by unauth...
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 87.44% exploit probability
-
-**Affected Vendors**: invisioncommunity
-
-**Tags**: `CWE-1336`
-
-**References**:
-
-- [https://invisioncommunity.com/release-notes-v5/507-r41/](https://invisioncommunity.com/release-notes-v5/507-r41/)
-- [https://karmainsecurity.com/KIS-2025-02](https://karmainsecurity.com/KIS-2025-02)
-
----
-
-### 17. [CVE-2024-4040](/api/vulns/CVE-2024-4040.json)
+### 16. [CVE-2024-4040](/api/vulns/CVE-2024-4040.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -462,7 +435,7 @@ critical systems.
 
 ---
 
-### 18. [CVE-2024-36401](/api/vulns/CVE-2024-36401.json)
+### 17. [CVE-2024-36401](/api/vulns/CVE-2024-36401.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -490,7 +463,7 @@ The GeoTools library API that GeoServer calls evaluates property/attribute names
 
 ---
 
-### 19. [CVE-2024-1212](/api/vulns/CVE-2024-1212.json)
+### 18. [CVE-2024-1212](/api/vulns/CVE-2024-1212.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -519,7 +492,7 @@ The GeoTools library API that GeoServer calls evaluates property/attribute names
 
 ---
 
-### 20. [CVE-2024-3400](/api/vulns/CVE-2024-3400.json)
+### 19. [CVE-2024-3400](/api/vulns/CVE-2024-3400.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -533,7 +506,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 **Risk Factors**:
 
 - CRITICAL severity
-- 94.3% exploit probability
+- 94.35% exploit probability
 
 **Affected Vendors**: palo alto networks
 
@@ -547,7 +520,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 21. [CVE-2024-51567](/api/vulns/CVE-2024-51567.json)
+### 20. [CVE-2024-51567](/api/vulns/CVE-2024-51567.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -571,7 +544,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 22. [CVE-2024-31982](/api/vulns/CVE-2024-31982.json)
+### 21. [CVE-2024-31982](/api/vulns/CVE-2024-31982.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -597,7 +570,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 23. [CVE-2024-45519](/api/vulns/CVE-2024-45519.json)
+### 22. [CVE-2024-45519](/api/vulns/CVE-2024-45519.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -621,7 +594,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 24. [CVE-2024-5932](/api/vulns/CVE-2024-5932.json)
+### 23. [CVE-2024-5932](/api/vulns/CVE-2024-5932.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -647,7 +620,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 25. [CVE-2024-51378](/api/vulns/CVE-2024-51378.json)
+### 24. [CVE-2024-51378](/api/vulns/CVE-2024-51378.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -671,19 +644,19 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 26. [CVE-2025-29927](/api/vulns/CVE-2025-29927.json)
+### 25. [CVE-2025-29927](/api/vulns/CVE-2025-29927.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.1 | 
-**EPSS**: 93.6%
+**EPSS**: 93.7%
 
 **Summary**: Next.js is a React framework for building full-stack web applications. Starting in version 1.11.4 and prior to versions 12.3.5, 13.5.9, 14.2.25, and 15.2.3, it is possible to bypass authorization checks within a Next.js application, if the authorization check occurs in middleware. If patching to a safe version is infeasible, it is recommend that you prevent external user requests which contain the x-middleware-subrequest header from reaching your Next.js application. This vulnerability is fixed ...
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 93.64% exploit probability
+- 93.72% exploit probability
 
 **Affected Vendors**: vercel
 
@@ -697,7 +670,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 27. [CVE-2024-25600](/api/vulns/CVE-2024-25600.json)
+### 26. [CVE-2024-25600](/api/vulns/CVE-2024-25600.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -723,7 +696,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 28. [CVE-2024-11680](/api/vulns/CVE-2024-11680.json)
+### 27. [CVE-2024-11680](/api/vulns/CVE-2024-11680.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -749,12 +722,12 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 29. [CVE-2025-3248](/api/vulns/CVE-2025-3248.json)
+### 28. [CVE-2025-3248](/api/vulns/CVE-2025-3248.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.8 | 
-**EPSS**: 92.7%
+**EPSS**: 93.1%
 
 **Summary**: Langflow versions prior to 1.3.0 are susceptible to code injection in 
 the /api/v1/validate/code endpoint. A remote and unauthenticated attacker can send crafted HTTP requests to execute arbitrary
@@ -763,7 +736,7 @@ code.
 **Risk Factors**:
 
 - CRITICAL severity
-- 92.74% exploit probability
+- 93.08% exploit probability
 
 **Affected Vendors**: langflow-ai
 
@@ -777,7 +750,7 @@ code.
 
 ---
 
-### 30. [CVE-2024-23108](/api/vulns/CVE-2024-23108.json)
+### 29. [CVE-2024-23108](/api/vulns/CVE-2024-23108.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -802,7 +775,7 @@ code.
 
 ---
 
-### 31. [CVE-2024-38063](/api/vulns/CVE-2024-38063.json)
+### 30. [CVE-2024-38063](/api/vulns/CVE-2024-38063.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -827,7 +800,7 @@ code.
 
 ---
 
-### 32. [CVE-2025-1661](/api/vulns/CVE-2025-1661.json)
+### 31. [CVE-2025-1661](/api/vulns/CVE-2025-1661.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -853,19 +826,19 @@ code.
 
 ---
 
-### 33. [CVE-2024-49112](/api/vulns/CVE-2024-49112.json)
+### 32. [CVE-2024-49112](/api/vulns/CVE-2024-49112.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.8 | 
-**EPSS**: 87.1%
+**EPSS**: 86.7%
 
 **Summary**: Windows Lightweight Directory Access Protocol (LDAP) Remote Code Execution Vulnerability
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 87.12% exploit probability
+- 86.68% exploit probability
 - Affects critical infrastructure: microsoft
 
 **Affected Vendors**: microsoft
@@ -878,7 +851,7 @@ code.
 
 ---
 
-### 34. [CVE-2024-38077](/api/vulns/CVE-2024-38077.json)
+### 33. [CVE-2024-38077](/api/vulns/CVE-2024-38077.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -900,6 +873,32 @@ code.
 **References**:
 
 - [https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-38077](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-38077)
+
+---
+
+### 34. [CVE-2025-32432](/api/vulns/CVE-2025-32432.json)
+
+**Risk Score**: 65/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 10.0 | 
+**EPSS**: 72.6%
+
+**Summary**: Craft is a flexible, user-friendly CMS for creating custom digital experiences on the web and beyond. Starting from version 3.0.0-RC1 to before 3.9.15, 4.0.0-RC1 to before 4.14.15, and 5.0.0-RC1 to before 5.6.17, Craft is vulnerable to remote code execution. This is a high-impact, low-complexity attack vector. This issue has been patched in versions 3.9.15, 4.14.15, and 5.6.17, and is an additional fix for CVE-2023-41892.
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 72.63% exploit probability
+
+**Affected Vendors**: craftcms
+
+**Tags**: `CWE-94`
+
+**References**:
+
+- [https://github.com/craftcms/cms/security/advisories/GHSA-f3gw-9ww9-jmc3](https://github.com/craftcms/cms/security/advisories/GHSA-f3gw-9ww9-jmc3)
+- [https://github.com/craftcms/cms/commit/e1c85441fa47eeb7c688c2053f25419bc0547b47](https://github.com/craftcms/cms/commit/e1c85441fa47eeb7c688c2053f25419bc0547b47)
+- [https://github.com/craftcms/cms/blob/3.x/CHANGELOG.md#3915---2025-04-10-critical](https://github.com/craftcms/cms/blob/3.x/CHANGELOG.md#3915---2025-04-10-critical)
 
 ---
 
@@ -960,14 +959,14 @@ code.
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.8 | 
-**EPSS**: 93.6%
+**EPSS**: 93.5%
 
 **Summary**: The Country State City Dropdown CF7 plugin for WordPress is vulnerable to SQL Injection via the ‘cnt’ and 'sid' parameters in versions up to, and including, 2.7.2 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 93.57% exploit probability
+- 93.49% exploit probability
 
 **Affected Vendors**: trustyplugins
 
@@ -1262,33 +1261,7 @@ code.
 
 ---
 
-### 49. [CVE-2025-32432](/api/vulns/CVE-2025-32432.json)
-
-**Risk Score**: 64/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 10.0 | 
-**EPSS**: 65.4%
-
-**Summary**: Craft is a flexible, user-friendly CMS for creating custom digital experiences on the web and beyond. Starting from version 3.0.0-RC1 to before 3.9.15, 4.0.0-RC1 to before 4.14.15, and 5.0.0-RC1 to before 5.6.17, Craft is vulnerable to remote code execution. This is a high-impact, low-complexity attack vector. This issue has been patched in versions 3.9.15, 4.14.15, and 5.6.17, and is an additional fix for CVE-2023-41892.
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 65.4% exploit probability
-
-**Affected Vendors**: craftcms
-
-**Tags**: `CWE-94`
-
-**References**:
-
-- [https://github.com/craftcms/cms/security/advisories/GHSA-f3gw-9ww9-jmc3](https://github.com/craftcms/cms/security/advisories/GHSA-f3gw-9ww9-jmc3)
-- [https://github.com/craftcms/cms/commit/e1c85441fa47eeb7c688c2053f25419bc0547b47](https://github.com/craftcms/cms/commit/e1c85441fa47eeb7c688c2053f25419bc0547b47)
-- [https://github.com/craftcms/cms/blob/3.x/CHANGELOG.md#3915---2025-04-10-critical](https://github.com/craftcms/cms/blob/3.x/CHANGELOG.md#3915---2025-04-10-critical)
-
----
-
-### 50. [CVE-2024-27198](/api/vulns/CVE-2024-27198.json)
+### 49. [CVE-2024-27198](/api/vulns/CVE-2024-27198.json)
 
 **Risk Score**: 63/100 | 
 **Severity**: CRITICAL | 
@@ -1308,6 +1281,32 @@ code.
 
 - [https://www.jetbrains.com/privacy-security/issues-fixed/](https://www.jetbrains.com/privacy-security/issues-fixed/)
 - [https://www.darkreading.com/cyberattacks-data-breaches/jetbrains-teamcity-mass-exploitation-underway-rogue-accounts-thrive](https://www.darkreading.com/cyberattacks-data-breaches/jetbrains-teamcity-mass-exploitation-underway-rogue-accounts-thrive)
+
+---
+
+### 50. [CVE-2024-23692](/api/vulns/CVE-2024-23692.json)
+
+**Risk Score**: 63/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 9.8 | 
+**EPSS**: 94.4%
+
+**Summary**: Rejetto HTTP File Server, up to and including version 2.3m, is vulnerable to a template injection vulnerability. This vulnerability allows a remote, unauthenticated attacker to execute arbitrary commands on the affected system by sending a specially crafted HTTP request. As of the CVE assignment date, Rejetto HFS 2.3m is no longer supported.
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 94.36% exploit probability
+
+**Affected Vendors**: rejetto
+
+**Tags**: `CWE-1336`
+
+**References**:
+
+- [https://vulncheck.com/advisories/rejetto-unauth-rce](https://vulncheck.com/advisories/rejetto-unauth-rce)
+- [https://mohemiv.com/all/rejetto-http-file-server-2-3m-unauthenticated-rce/](https://mohemiv.com/all/rejetto-http-file-server-2-3m-unauthenticated-rce/)
+- [https://github.com/rapid7/metasploit-framework/pull/19240](https://github.com/rapid7/metasploit-framework/pull/19240)
 
 ---
 
