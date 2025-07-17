@@ -1,6 +1,6 @@
 ---
 title: Morning Vulnerability Briefing - 2025-07-17
-date: 2025-07-17T12:11:30.948189
+date: 2025-07-17T16:08:32.138505
 layout: layouts/post.njk
 tags: [vulnerability, briefing, security]
 vulnerabilityCount: 15298
@@ -16,8 +16,8 @@ Today's briefing covers **15298 vulnerabilities** from 0 sources.
 
 - 🔴 **Critical Risk**: 0 vulnerabilities
 - 🟠 **High Risk**: 0 vulnerabilities
-- 🟡 **Medium Risk**: 9967 vulnerabilities
-- 🟢 **Low Risk**: 5331 vulnerabilities
+- 🟡 **Medium Risk**: 9813 vulnerabilities
+- 🟢 **Low Risk**: 5485 vulnerabilities
 
 ## Top Vulnerabilities
 
@@ -129,14 +129,14 @@ Today's briefing covers **15298 vulnerabilities** from 0 sources.
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.8 | 
-**EPSS**: 92.0%
+**EPSS**: 92.2%
 
 **Summary**: IBM Operational Decision Manager 8.10.3 could allow a remote authenticated attacker to execute arbitrary code on the system, caused by an unsafe deserialization. By sending specially crafted request, an attacker could exploit this vulnerability to execute arbitrary code in the context of SYSTEM.  IBM X-Force ID:  279146.
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 92.01% exploit probability
+- 92.23% exploit probability
 - Affects critical infrastructure: ibm
 
 **Affected Vendors**: ibm
@@ -288,16 +288,16 @@ critical systems.
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.8 | 
-**EPSS**: 93.6%
+**EPSS**: 94.0%
 
 **Summary**: The Really Simple Security (Free, Pro, and Pro Multisite) plugins for WordPress are vulnerable to authentication bypass in versions 9.0.0 to 9.1.1.1. This is due to improper user check error handling in the two-factor REST API actions with the 'check_login_and_get_user' function. This makes it possible for unauthenticated attackers to log in as any existing user on the site, such as an administrator, when the "Two-Factor Authentication" setting is enabled (disabled by default).
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 93.63% exploit probability
+- 93.95% exploit probability
 
-**Affected Vendors**: really simple plugins, rogierlankhorst
+**Affected Vendors**: rogierlankhorst, really simple plugins
 
 **Tags**: `CWE-288`
 
@@ -649,14 +649,14 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.1 | 
-**EPSS**: 93.7%
+**EPSS**: 93.6%
 
 **Summary**: Next.js is a React framework for building full-stack web applications. Starting in version 1.11.4 and prior to versions 12.3.5, 13.5.9, 14.2.25, and 15.2.3, it is possible to bypass authorization checks within a Next.js application, if the authorization check occurs in middleware. If patching to a safe version is infeasible, it is recommend that you prevent external user requests which contain the x-middleware-subrequest header from reaching your Next.js application. This vulnerability is fixed ...
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 93.72% exploit probability
+- 93.64% exploit probability
 
 **Affected Vendors**: vercel
 
@@ -675,14 +675,14 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 10.0 | 
-**EPSS**: 93.5%
+**EPSS**: 93.6%
 
 **Summary**: Improper Control of Generation of Code ('Code Injection') vulnerability in Codeer Limited Bricks Builder allows Code Injection.This issue affects Bricks Builder: from n/a through 1.9.6.
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 93.45% exploit probability
+- 93.57% exploit probability
 
 **Affected Vendors**: codeer limited
 
