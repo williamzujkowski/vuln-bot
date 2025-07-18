@@ -1,6 +1,6 @@
 ---
 title: Morning Vulnerability Briefing - 2025-07-18
-date: 2025-07-18T12:11:11.594458
+date: 2025-07-18T16:09:55.141861
 layout: layouts/post.njk
 tags: [vulnerability, briefing, security]
 vulnerabilityCount: 15329
@@ -154,14 +154,14 @@ Today's briefing covers **15329 vulnerabilities** from 0 sources.
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.8 | 
-**EPSS**: 87.1%
+**EPSS**: 87.8%
 
 **Summary**: A security issue was discovered in Kubernetes where under certain conditions, an unauthenticated attacker with access to the pod network can achieve arbitrary code execution in the context of the ingress-nginx controller. This can lead to disclosure of Secrets accessible to the controller. (Note that in the default installation, the controller can access all Secrets cluster-wide.)
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 87.07% exploit probability
+- 87.83% exploit probability
 - Affects critical infrastructure: kubernetes
 
 **Affected Vendors**: kubernetes
@@ -212,7 +212,7 @@ Today's briefing covers **15329 vulnerabilities** from 0 sources.
 **Risk Factors**:
 
 - CRITICAL severity
-- 94.39% exploit probability
+- 94.41% exploit probability
 
 **Affected Vendors**: php group
 
@@ -297,7 +297,7 @@ critical systems.
 - CRITICAL severity
 - 93.95% exploit probability
 
-**Affected Vendors**: really simple plugins, rogierlankhorst
+**Affected Vendors**: rogierlankhorst, really simple plugins
 
 **Tags**: `CWE-288`
 
@@ -544,7 +544,31 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 21. [CVE-2024-31982](/api/vulns/CVE-2024-31982.json)
+### 21. [CVE-2024-51378](/api/vulns/CVE-2024-51378.json)
+
+**Risk Score**: 65/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 10.0 | 
+**EPSS**: 94.2%
+
+**Summary**: getresetstatus in dns/views.py and ftp/views.py in CyberPanel (aka Cyber Panel) before 1c0c6cb allows remote attackers to bypass authentication and execute arbitrary commands via /dns/getresetstatus or /ftp/getresetstatus by bypassing secMiddleware (which is only for a POST request) and using shell metacharacters in the statusfile property, as exploited in the wild in October 2024 by PSAUX. Versions through 2.3.6 and (unpatched) 2.3.7 are affected.
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 94.19% exploit probability
+
+**Affected Vendors**: n/a
+
+**References**:
+
+- [https://cwe.mitre.org/data/definitions/78.html](https://cwe.mitre.org/data/definitions/78.html)
+- [https://github.com/usmannasir/cyberpanel/commit/1c0c6cbcf71abe573da0b5fddfb9603e7477f683](https://github.com/usmannasir/cyberpanel/commit/1c0c6cbcf71abe573da0b5fddfb9603e7477f683)
+- [https://refr4g.github.io/posts/cyberpanel-command-injection-vulnerability/](https://refr4g.github.io/posts/cyberpanel-command-injection-vulnerability/)
+
+---
+
+### 22. [CVE-2024-31982](/api/vulns/CVE-2024-31982.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -570,7 +594,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 22. [CVE-2024-45519](/api/vulns/CVE-2024-45519.json)
+### 23. [CVE-2024-45519](/api/vulns/CVE-2024-45519.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -594,7 +618,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 23. [CVE-2024-5932](/api/vulns/CVE-2024-5932.json)
+### 24. [CVE-2024-5932](/api/vulns/CVE-2024-5932.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -617,30 +641,6 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 - [https://www.wordfence.com/threat-intel/vulnerabilities/id/93e2d007-8157-42c5-92ad-704dc80749a3?source=cve](https://www.wordfence.com/threat-intel/vulnerabilities/id/93e2d007-8157-42c5-92ad-704dc80749a3?source=cve)
 - [https://plugins.trac.wordpress.org/browser/give/tags/3.12.0/includes/login-register.php#L235](https://plugins.trac.wordpress.org/browser/give/tags/3.12.0/includes/login-register.php#L235)
 - [https://plugins.trac.wordpress.org/browser/give/tags/3.12.0/includes/process-donation.php#L420](https://plugins.trac.wordpress.org/browser/give/tags/3.12.0/includes/process-donation.php#L420)
-
----
-
-### 24. [CVE-2024-51378](/api/vulns/CVE-2024-51378.json)
-
-**Risk Score**: 65/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 10.0 | 
-**EPSS**: 94.1%
-
-**Summary**: getresetstatus in dns/views.py and ftp/views.py in CyberPanel (aka Cyber Panel) before 1c0c6cb allows remote attackers to bypass authentication and execute arbitrary commands via /dns/getresetstatus or /ftp/getresetstatus by bypassing secMiddleware (which is only for a POST request) and using shell metacharacters in the statusfile property, as exploited in the wild in October 2024 by PSAUX. Versions through 2.3.6 and (unpatched) 2.3.7 are affected.
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 94.09% exploit probability
-
-**Affected Vendors**: n/a
-
-**References**:
-
-- [https://cwe.mitre.org/data/definitions/78.html](https://cwe.mitre.org/data/definitions/78.html)
-- [https://github.com/usmannasir/cyberpanel/commit/1c0c6cbcf71abe573da0b5fddfb9603e7477f683](https://github.com/usmannasir/cyberpanel/commit/1c0c6cbcf71abe573da0b5fddfb9603e7477f683)
-- [https://refr4g.github.io/posts/cyberpanel-command-injection-vulnerability/](https://refr4g.github.io/posts/cyberpanel-command-injection-vulnerability/)
 
 ---
 
@@ -831,14 +831,14 @@ code.
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.8 | 
-**EPSS**: 86.7%
+**EPSS**: 87.1%
 
 **Summary**: Windows Lightweight Directory Access Protocol (LDAP) Remote Code Execution Vulnerability
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 86.68% exploit probability
+- 87.12% exploit probability
 - Affects critical infrastructure: microsoft
 
 **Affected Vendors**: microsoft
@@ -1087,14 +1087,14 @@ code.
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 10.0 | 
-**EPSS**: 92.5%
+**EPSS**: 92.3%
 
 **Summary**: changedetection.io is an open source web page change detection, website watcher, restock monitor and notification service. There is a Server Side Template Injection (SSTI) in Jinja2 that allows Remote Command Execution on the server host. Attackers can run any system command without any restriction and they could use a reverse shell. The impact is critical as the attacker can completely takeover the server machine. This can be reduced if changedetection is behind a login page, but this isn't req...
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 92.49% exploit probability
+- 92.33% exploit probability
 
 **Affected Vendors**: dgtlmoon
 
@@ -1284,29 +1284,30 @@ code.
 
 ---
 
-### 50. [CVE-2024-23692](/api/vulns/CVE-2024-23692.json)
+### 50. [CVE-2024-2389](/api/vulns/CVE-2024-2389.json)
 
 **Risk Score**: 63/100 | 
 **Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 94.4%
+**CVSS**: 10.0 | 
+**EPSS**: 94.3%
 
-**Summary**: Rejetto HTTP File Server, up to and including version 2.3m, is vulnerable to a template injection vulnerability. This vulnerability allows a remote, unauthenticated attacker to execute arbitrary commands on the affected system by sending a specially crafted HTTP request. As of the CVE assignment date, Rejetto HFS 2.3m is no longer supported.
+**Summary**: In Flowmon versions prior to 11.1.14 and 12.3.5, an operating system command injection vulnerability has been identified.  An unauthenticated user can gain entry to the system via the Flowmon management interface, allowing for the execution of arbitrary system commands.
+
+
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 94.36% exploit probability
+- 94.35% exploit probability
 
-**Affected Vendors**: rejetto
+**Affected Vendors**: progress software
 
-**Tags**: `CWE-1336`
+**Tags**: `CWE-78`
 
 **References**:
 
-- [https://vulncheck.com/advisories/rejetto-unauth-rce](https://vulncheck.com/advisories/rejetto-unauth-rce)
-- [https://mohemiv.com/all/rejetto-http-file-server-2-3m-unauthenticated-rce/](https://mohemiv.com/all/rejetto-http-file-server-2-3m-unauthenticated-rce/)
-- [https://github.com/rapid7/metasploit-framework/pull/19240](https://github.com/rapid7/metasploit-framework/pull/19240)
+- [https://www.flowmon.com](https://www.flowmon.com)
+- [https://support.kemptechnologies.com/hc/en-us/articles/24878235038733-CVE-2024-2389-Flowmon-critical-security-vulnerability](https://support.kemptechnologies.com/hc/en-us/articles/24878235038733-CVE-2024-2389-Flowmon-critical-security-vulnerability)
 
 ---
 
