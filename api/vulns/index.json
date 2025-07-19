@@ -1,5 +1,5 @@
 {
-  "generated": "2025-07-19T16:07:47.855784",
+  "generated": "2025-07-19T20:07:37.040247",
   "count": 15357,
   "vulnerabilities": [
     {
@@ -195,7 +195,7 @@
       "publishedDate": "2024-11-15T03:18:45.746000+00:00",
       "lastModifiedDate": "2024-11-19T13:37:03.351000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["really simple plugins", "rogierlankhorst"],
+      "vendors": ["rogierlankhorst", "really simple plugins"],
       "tags": ["CWE-288"]
     },
     {
@@ -909,7 +909,7 @@
       "publishedDate": "2025-06-25T07:17:32.423000+00:00",
       "lastModifiedDate": "2025-06-27T13:51:00.720000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec", "konica minolta, inc.", "brother industries, ltd"],
+      "vendors": ["konica minolta, inc.", "toshiba tec", "brother industries, ltd"],
       "tags": ["CWE-1391"]
     },
     {
@@ -3303,7 +3303,7 @@
       "publishedDate": "2024-10-18T17:32:30.648000+00:00",
       "lastModifiedDate": "2024-10-18T18:56:31.697000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["scottpaterson", "scott paterson"],
+      "vendors": ["scott paterson", "scottpaterson"],
       "tags": ["CWE-94"]
     },
     {
@@ -3932,20 +3932,6 @@
       "riskScore": 54,
       "publishedDate": "2025-07-02T16:39:40.392000+00:00",
       "lastModifiedDate": "2025-07-03T03:55:36.870000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["cisco"],
-      "tags": []
-    },
-    {
-      "cveId": "CVE-2025-20260",
-      "title": "ClamAV PDF Scanning Buffer Overflow Vulnerability",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 0.14,
-      "epssPercentile": 34.515,
-      "riskScore": 54,
-      "publishedDate": "2025-06-18T17:08:36.207000+00:00",
-      "lastModifiedDate": "2025-06-19T03:55:07.784000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["cisco"],
       "tags": []
@@ -5403,7 +5389,7 @@
       "publishedDate": "2025-05-13T03:21:29.625000+00:00",
       "lastModifiedDate": "2025-05-13T13:57:36.925000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["msaari", "relevanssi"],
+      "vendors": ["relevanssi", "msaari"],
       "tags": ["CWE-89"]
     },
     {
@@ -5444,6 +5430,20 @@
       "riskScore": 52,
       "publishedDate": "2025-06-04T16:18:30.929000+00:00",
       "lastModifiedDate": "2025-06-05T18:08:01.160000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["cisco"],
+      "tags": []
+    },
+    {
+      "cveId": "CVE-2025-20260",
+      "title": "ClamAV PDF Scanning Buffer Overflow Vulnerability",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.14,
+      "epssPercentile": 34.515,
+      "riskScore": 52,
+      "publishedDate": "2025-06-18T17:08:36.207000+00:00",
+      "lastModifiedDate": "2025-06-19T03:55:07.784000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["cisco"],
       "tags": []
@@ -5907,7 +5907,7 @@
       "publishedDate": "2024-06-25T03:30:37.970000+00:00",
       "lastModifiedDate": "2024-08-01T21:33:05.337000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["blazeretail", "themerex", "stuartobrien", "warfareplugins", "pedrogusmao02"],
+      "vendors": ["themerex", "pedrogusmao02", "warfareplugins", "blazeretail", "stuartobrien"],
       "tags": []
     },
     {
@@ -6595,20 +6595,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["ibm"],
       "tags": ["CWE-427"]
-    },
-    {
-      "cveId": "CVE-2025-20271",
-      "title": "Cisco Meraki MX and Z Series AnyConnect VPN with Client Certificate Authentication Denial of Service Vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 8.6,
-      "epssScore": 0.11,
-      "epssPercentile": 30.013,
-      "riskScore": 51,
-      "publishedDate": "2025-06-18T16:38:00.686000+00:00",
-      "lastModifiedDate": "2025-06-18T17:58:55.159000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["cisco"],
-      "tags": []
     },
     {
       "cveId": "CVE-2025-6057",
@@ -9576,10 +9562,10 @@
       "lastModifiedDate": "2025-06-25T14:15:31.576000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
+        "konica minolta, inc.",
+        "toshiba tec",
         "ricoh",
         "fujifilm business innovation",
-        "toshiba tec",
-        "konica minolta, inc.",
         "brother industries, ltd"
       ],
       "tags": ["CWE-1286"]
@@ -11153,6 +11139,20 @@
       "tags": []
     },
     {
+      "cveId": "CVE-2025-20271",
+      "title": "Cisco Meraki MX and Z Series AnyConnect VPN with Client Certificate Authentication Denial of Service Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 8.6,
+      "epssScore": 0.11,
+      "epssPercentile": 30.013,
+      "riskScore": 49,
+      "publishedDate": "2025-06-18T16:38:00.686000+00:00",
+      "lastModifiedDate": "2025-06-18T17:58:55.159000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["cisco"],
+      "tags": []
+    },
+    {
       "cveId": "CVE-2025-20182",
       "title": "Cisco Adaptive Security Appliance Software, Firepower Threat Defense Software and IOS XE Software IKEv2 Denial of Service Vulnerability",
       "severity": "HIGH",
@@ -12369,9 +12369,9 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": [
         "ricoh",
+        "konica minolta, inc.",
         "fujifilm business innovation",
-        "brother industries, ltd",
-        "konica minolta, inc."
+        "brother industries, ltd"
       ],
       "tags": ["CWE-121"]
     },
@@ -14406,20 +14406,6 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
-      "cveId": "CVE-2025-7456",
-      "title": "Campcodes Online Movie Theater Seat Reservation System reserve.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 11.43,
-      "riskScore": 48,
-      "publishedDate": "2025-07-11T20:02:05.824000+00:00",
-      "lastModifiedDate": "2025-07-11T20:20:13.568000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
       "cveId": "CVE-2025-7594",
       "title": "code-projects Job Diary view-emp.php sql injection",
       "severity": "HIGH",
@@ -14532,20 +14518,6 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
-      "cveId": "CVE-2025-7454",
-      "title": "Campcodes Online Movie Theater Seat Reservation System manage_theater.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 11.43,
-      "riskScore": 48,
-      "publishedDate": "2025-07-11T19:02:05.884000+00:00",
-      "lastModifiedDate": "2025-07-11T19:34:29.566000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
       "cveId": "CVE-2025-7611",
       "title": "code-projects Wedding Reservation global.php sql injection",
       "severity": "HIGH",
@@ -14585,20 +14557,6 @@
       "lastModifiedDate": "2025-07-14T14:46:36.526000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-7455",
-      "title": "Campcodes Online Movie Theater Seat Reservation System manage_reserve.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 11.43,
-      "riskScore": 48,
-      "publishedDate": "2025-07-11T19:32:05.247000+00:00",
-      "lastModifiedDate": "2025-07-11T19:50:32.259000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -17834,20 +17792,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["miraheze"],
       "tags": ["CWE-400", "CWE-918"]
-    },
-    {
-      "cveId": "CVE-2025-53641",
-      "title": "Postiz allows header mutation in middleware facilitates resulting in SSRF",
-      "severity": "HIGH",
-      "cvssScore": 8.2,
-      "epssScore": 0.04,
-      "epssPercentile": 10.867,
-      "riskScore": 48,
-      "publishedDate": "2025-07-11T17:28:20.001000+00:00",
-      "lastModifiedDate": "2025-07-11T17:56:30.605000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["gitroomhq"],
-      "tags": ["CWE-918"]
     },
     {
       "cveId": "CVE-2025-41438",
@@ -21402,7 +21346,7 @@
       "publishedDate": "2025-06-24T08:05:15.547000+00:00",
       "lastModifiedDate": "2025-06-24T14:18:57.831000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-306"]
     },
     {
@@ -26488,6 +26432,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-7456",
+      "title": "Campcodes Online Movie Theater Seat Reservation System reserve.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 11.43,
+      "riskScore": 46,
+      "publishedDate": "2025-07-11T20:02:05.824000+00:00",
+      "lastModifiedDate": "2025-07-11T20:20:13.568000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["campcodes"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-7119",
       "title": "Campcodes Complaint Management System index.php sql injection",
       "severity": "HIGH",
@@ -26558,6 +26516,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-7454",
+      "title": "Campcodes Online Movie Theater Seat Reservation System manage_theater.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 11.43,
+      "riskScore": 46,
+      "publishedDate": "2025-07-11T19:02:05.884000+00:00",
+      "lastModifiedDate": "2025-07-11T19:34:29.566000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["campcodes"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-7160",
       "title": "PHPGurukul Zoo Management System index.php sql injection",
       "severity": "HIGH",
@@ -26572,6 +26544,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-7455",
+      "title": "Campcodes Online Movie Theater Seat Reservation System manage_reserve.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 11.43,
+      "riskScore": 46,
+      "publishedDate": "2025-07-11T19:32:05.247000+00:00",
+      "lastModifiedDate": "2025-07-11T19:50:32.259000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["campcodes"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-7164",
       "title": "PHPGurukul/Campcodes Cyber Cafe Management System index.php sql injection",
       "severity": "HIGH",
@@ -26582,7 +26568,7 @@
       "publishedDate": "2025-07-08T05:32:05.678000+00:00",
       "lastModifiedDate": "2025-07-08T13:45:36.200000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -27016,7 +27002,7 @@
       "publishedDate": "2025-07-08T06:02:05.515000+00:00",
       "lastModifiedDate": "2025-07-08T13:44:30.198000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -31092,6 +31078,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["roocodeinc"],
       "tags": ["CWE-552"]
+    },
+    {
+      "cveId": "CVE-2025-53641",
+      "title": "Postiz allows header mutation in middleware facilitates resulting in SSRF",
+      "severity": "HIGH",
+      "cvssScore": 8.2,
+      "epssScore": 0.04,
+      "epssPercentile": 10.867,
+      "riskScore": 46,
+      "publishedDate": "2025-07-11T17:28:20.001000+00:00",
+      "lastModifiedDate": "2025-07-11T17:56:30.605000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["gitroomhq"],
+      "tags": ["CWE-918"]
     },
     {
       "cveId": "CVE-2025-53101",
@@ -38608,7 +38608,7 @@
       "publishedDate": "2025-06-13T21:03:18.087000+00:00",
       "lastModifiedDate": "2025-06-17T15:18:55.236000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["broadcom", "dell"],
+      "vendors": ["dell", "broadcom"],
       "tags": ["CWE-787"]
     },
     {
@@ -38622,7 +38622,7 @@
       "publishedDate": "2025-06-13T21:26:58.869000+00:00",
       "lastModifiedDate": "2025-06-17T18:13:30.525000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["broadcom", "dell"],
+      "vendors": ["dell", "broadcom"],
       "tags": ["CWE-763"]
     },
     {
@@ -39014,7 +39014,7 @@
       "publishedDate": "2025-06-24T08:10:29.717000+00:00",
       "lastModifiedDate": "2025-06-24T13:56:13.121000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-639"]
     },
     {
@@ -39084,7 +39084,7 @@
       "publishedDate": "2025-06-24T08:14:31.864000+00:00",
       "lastModifiedDate": "2025-06-24T13:55:34.477000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-204"]
     },
     {
@@ -40470,7 +40470,7 @@
       "publishedDate": "2025-06-13T20:51:33.392000+00:00",
       "lastModifiedDate": "2025-06-17T03:55:12.235000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["broadcom", "dell"],
+      "vendors": ["dell", "broadcom"],
       "tags": ["CWE-121"]
     },
     {
@@ -43550,7 +43550,7 @@
       "publishedDate": "2024-10-15T10:28:37.223000+00:00",
       "lastModifiedDate": "2024-10-16T17:39:58.106000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-798"]
     },
     {
@@ -43606,7 +43606,7 @@
       "publishedDate": "2024-10-15T10:28:16.384000+00:00",
       "lastModifiedDate": "2024-10-16T17:44:15.429000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-306"]
     },
     {
@@ -47736,7 +47736,7 @@
       "publishedDate": "2025-05-30T18:00:06.477000+00:00",
       "lastModifiedDate": "2025-05-30T18:15:18.480000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -52216,7 +52216,7 @@
       "publishedDate": "2025-05-03T11:00:09.135000+00:00",
       "lastModifiedDate": "2025-05-30T09:10:12.356000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -52930,7 +52930,7 @@
       "publishedDate": "2025-05-05T18:31:04.418000+00:00",
       "lastModifiedDate": "2025-05-05T18:48:57.123000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sourcecodester", "oretnom23"],
+      "vendors": ["oretnom23", "sourcecodester"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -53030,20 +53030,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["codename065"],
       "tags": ["CWE-22"]
-    },
-    {
-      "cveId": "CVE-2025-3819",
-      "title": "PHPGurukul Men Salon Management System search-appointment.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 10.609,
-      "riskScore": 44,
-      "publishedDate": "2025-04-19T20:00:12.212000+00:00",
-      "lastModifiedDate": "2025-04-21T02:20:13.318000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul"],
-      "tags": ["CWE-89", "CWE-74"]
     },
     {
       "cveId": "CVE-2025-3827",
@@ -54330,7 +54316,7 @@
       "publishedDate": "2025-06-13T21:48:29.351000+00:00",
       "lastModifiedDate": "2025-06-17T15:18:22.706000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["broadcom", "dell"],
+      "vendors": ["dell", "broadcom"],
       "tags": ["CWE-502"]
     },
     {
@@ -54470,7 +54456,7 @@
       "publishedDate": "2025-06-13T20:42:18.769000+00:00",
       "lastModifiedDate": "2025-06-16T15:21:53.325000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["broadcom", "dell"],
+      "vendors": ["dell", "broadcom"],
       "tags": ["CWE-125"]
     },
     {
@@ -56850,7 +56836,7 @@
       "publishedDate": "2024-07-09T05:34:17.609000+00:00",
       "lastModifiedDate": "2024-08-01T21:11:12.734000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["webnus/", "webnus"],
+      "vendors": ["webnus", "webnus/"],
       "tags": []
     },
     {
@@ -58068,7 +58054,7 @@
       "publishedDate": "2025-05-09T15:18:34.124000+00:00",
       "lastModifiedDate": "2025-05-09T19:09:17.086000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["avast", "avg", "norton"],
+      "vendors": ["avast", "norton", "avg"],
       "tags": ["CWE-367"]
     },
     {
@@ -62926,7 +62912,7 @@
       "publishedDate": "2024-10-22T21:13:37.183000+00:00",
       "lastModifiedDate": "2024-10-23T14:43:52.114000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["kieback & peter", "kieback&peter"],
+      "vendors": ["kieback&peter", "kieback & peter"],
       "tags": ["CWE-22"]
     },
     {
@@ -75120,7 +75106,7 @@
       "publishedDate": "2024-10-15T10:27:52.208000+00:00",
       "lastModifiedDate": "2024-10-16T17:47:04.737000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-261"]
     },
     {
@@ -78452,7 +78438,7 @@
       "publishedDate": "2025-01-08T11:09:24.799000+00:00",
       "lastModifiedDate": "2025-01-08T13:54:46.719000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["wp swings", "wpswings"],
+      "vendors": ["wpswings", "wp swings"],
       "tags": ["CWE-862"]
     },
     {
@@ -80062,7 +80048,7 @@
       "publishedDate": "2024-05-14T12:58:31.261000+00:00",
       "lastModifiedDate": "2025-03-14T14:56:10.154000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["na", "n/a"],
+      "vendors": ["n/a", "na"],
       "tags": []
     },
     {
@@ -80258,7 +80244,7 @@
       "publishedDate": "2024-08-07T11:00:06.508000+00:00",
       "lastModifiedDate": "2024-08-07T13:17:59.476000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["webnus/", "webnus"],
+      "vendors": ["webnus", "webnus/"],
       "tags": ["CWE-918"]
     },
     {
@@ -80664,7 +80650,7 @@
       "publishedDate": "2024-02-05T14:33:06.481000+00:00",
       "lastModifiedDate": "2025-05-09T16:32:50.015000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["encode", "tiangolo", "kludex"],
+      "vendors": ["tiangolo", "encode", "kludex"],
       "tags": ["CWE-400"]
     },
     {
@@ -88634,6 +88620,20 @@
       "tags": ["CWE-732"]
     },
     {
+      "cveId": "CVE-2025-3819",
+      "title": "PHPGurukul Men Salon Management System search-appointment.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 10.609,
+      "riskScore": 42,
+      "publishedDate": "2025-04-19T20:00:12.212000+00:00",
+      "lastModifiedDate": "2025-04-21T02:20:13.318000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["phpgurukul"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-3258",
       "title": "PHPGurukul Old Age Home Management System search.php sql injection",
       "severity": "HIGH",
@@ -95546,7 +95546,7 @@
       "publishedDate": "2024-07-02T13:47:36.399000+00:00",
       "lastModifiedDate": "2024-08-02T04:12:25.618000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["yt-dlp", "ytdl-org"],
+      "vendors": ["ytdl-org", "yt-dlp"],
       "tags": ["CWE-669"]
     },
     {
@@ -111940,7 +111940,7 @@
       "publishedDate": "2024-10-15T10:27:06.004000+00:00",
       "lastModifiedDate": "2024-10-16T17:49:30.446000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-20"]
     },
     {
@@ -142992,7 +142992,7 @@
       "publishedDate": "2024-07-03T12:26:44.599000+00:00",
       "lastModifiedDate": "2025-02-13T17:54:25.437000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["red lion europe", "helmholz"],
+      "vendors": ["helmholz", "red lion europe"],
       "tags": ["CWE-78"]
     },
     {
@@ -144938,7 +144938,7 @@
       "publishedDate": "2024-10-15T10:28:58.559000+00:00",
       "lastModifiedDate": "2025-01-24T06:32:08.237000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-306"]
     },
     {
@@ -144952,7 +144952,7 @@
       "publishedDate": "2024-10-15T10:27:32.688000+00:00",
       "lastModifiedDate": "2024-10-16T17:36:22.123000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-1391"]
     },
     {
@@ -188548,7 +188548,7 @@
       "publishedDate": "2024-07-08T15:25:38.672000+00:00",
       "lastModifiedDate": "2024-08-01T22:27:36.345000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["realtek", "levelone"],
+      "vendors": ["levelone", "realtek"],
       "tags": ["CWE-122"]
     },
     {
