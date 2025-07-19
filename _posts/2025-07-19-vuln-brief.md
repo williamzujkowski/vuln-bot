@@ -1,6 +1,6 @@
 ---
 title: Morning Vulnerability Briefing - 2025-07-19
-date: 2025-07-19T12:10:00.977351
+date: 2025-07-19T16:07:47.855784
 layout: layouts/post.njk
 tags: [vulnerability, briefing, security]
 vulnerabilityCount: 15357
@@ -77,14 +77,14 @@ Today's briefing covers **15357 vulnerabilities** from 0 sources.
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.8 | 
-**EPSS**: 92.6%
+**EPSS**: 93.3%
 
 **Summary**: XWiki Platform is a generic wiki platform offering runtime services for applications built on top of it. Any guest can perform arbitrary remote code execution through a request to `SolrSearch`. This impacts the confidentiality, integrity and availability of the whole XWiki installation. To reproduce on an instance, without being logged in, go to `<host>/xwiki/bin/get/Main/SolrSearch?media=rss&text=%7D%7D%7D%7B%7Basync%20async%3Dfalse%7D%7D%7B%7Bgroovy%7D%7Dprintln%28"Hello%20from"%20%2B%20"%20se...
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 92.64% exploit probability
+- 93.31% exploit probability
 
 **Affected Vendors**: xwiki
 
@@ -212,7 +212,7 @@ Today's briefing covers **15357 vulnerabilities** from 0 sources.
 **Risk Factors**:
 
 - CRITICAL severity
-- 94.41% exploit probability
+- 94.39% exploit probability
 
 **Affected Vendors**: php group
 
@@ -314,14 +314,14 @@ critical systems.
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.6 | 
-**EPSS**: 92.6%
+**EPSS**: 92.5%
 
 **Summary**: A out-of-bounds write in Fortinet FortiOS versions 7.4.0 through 7.4.2, 7.2.0 through 7.2.6, 7.0.0 through 7.0.13, 6.4.0 through 6.4.14, 6.2.0 through 6.2.15, 6.0.0 through 6.0.17, FortiProxy versions 7.4.0 through 7.4.2, 7.2.0 through 7.2.8, 7.0.0 through 7.0.14, 2.0.0 through 2.0.13, 1.2.0 through 1.2.13, 1.1.0 through 1.1.6, 1.0.0 through 1.0.7 allows attacker to execute unauthorized code or commands via specifically crafted requests
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 92.61% exploit probability
+- 92.51% exploit probability
 - Affects critical infrastructure: fortinet
 
 **Affected Vendors**: fortinet
@@ -959,14 +959,14 @@ code.
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.8 | 
-**EPSS**: 93.5%
+**EPSS**: 93.6%
 
 **Summary**: The Country State City Dropdown CF7 plugin for WordPress is vulnerable to SQL Injection via the ‘cnt’ and 'sid' parameters in versions up to, and including, 2.7.2 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 93.49% exploit probability
+- 93.57% exploit probability
 
 **Affected Vendors**: trustyplugins
 
