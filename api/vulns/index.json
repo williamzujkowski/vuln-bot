@@ -1,6 +1,6 @@
 {
-  "generated": "2025-07-20T00:27:42.367735",
-  "count": 15357,
+  "generated": "2025-07-20T04:22:41.999289",
+  "count": 15372,
   "vulnerabilities": [
     {
       "cveId": "CVE-2025-49113",
@@ -2439,20 +2439,6 @@
       "tags": ["CWE-78"]
     },
     {
-      "cveId": "CVE-2025-50201",
-      "title": "WeGIA OS Command Injection in debug_info.php parameter 'branch'",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 40.89,
-      "epssPercentile": 97.23,
-      "riskScore": 58,
-      "publishedDate": "2025-06-19T03:34:29.859000+00:00",
-      "lastModifiedDate": "2025-06-23T17:00:13.496000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["labredescefetrj"],
-      "tags": ["CWE-78"]
-    },
-    {
       "cveId": "CVE-2024-38094",
       "title": "Microsoft SharePoint Remote Code Execution Vulnerability",
       "severity": "HIGH",
@@ -3081,6 +3067,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["cisco"],
       "tags": []
+    },
+    {
+      "cveId": "CVE-2025-50201",
+      "title": "WeGIA OS Command Injection in debug_info.php parameter 'branch'",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 40.89,
+      "epssPercentile": 97.23,
+      "riskScore": 56,
+      "publishedDate": "2025-06-19T03:34:29.859000+00:00",
+      "lastModifiedDate": "2025-06-23T17:00:13.496000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["labredescefetrj"],
+      "tags": ["CWE-78"]
     },
     {
       "cveId": "CVE-2025-22224",
@@ -4315,6 +4315,34 @@
       "tags": ["CWE-1336"]
     },
     {
+      "cveId": "CVE-2025-7697",
+      "title": "Integration for Google Sheets and Contact Form 7, WPForms, Elementor, Ninja Forms <= 1.1.1 - Unauthenticated PHP Object Injection via verify_field_val Function",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.6,
+      "epssPercentile": 68.446,
+      "riskScore": 53,
+      "publishedDate": "2025-07-19T04:23:02.719000+00:00",
+      "lastModifiedDate": "2025-07-19T04:23:02.719000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["crmperks"],
+      "tags": ["CWE-502"]
+    },
+    {
+      "cveId": "CVE-2025-7696",
+      "title": "Integration for Pipedrive and Contact Form 7, WPForms, Elementor, Ninja Forms <= 1.2.3 - Unauthenticated PHP Object Injection via verify_field_val Function",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.6,
+      "epssPercentile": 68.446,
+      "riskScore": 53,
+      "publishedDate": "2025-07-19T04:23:02.149000+00:00",
+      "lastModifiedDate": "2025-07-19T04:23:02.149000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["crmperks"],
+      "tags": ["CWE-502"]
+    },
+    {
       "cveId": "CVE-2025-27920",
       "title": "CVE-2025-27920: Output Messenger before 2.0.63 was vulnerable to a directory traversal attack through improper file ...",
       "severity": "HIGH",
@@ -4931,6 +4959,20 @@
       "tags": ["CWE-121", "CWE-119"]
     },
     {
+      "cveId": "CVE-2025-7854",
+      "title": "Tenda FH451 VirtualSer fromVirtualSer stack-based overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": null,
+      "epssPercentile": 0,
+      "riskScore": 52,
+      "publishedDate": "2025-07-19T20:32:06.936000+00:00",
+      "lastModifiedDate": "2025-07-19T20:32:06.936000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["tenda"],
+      "tags": ["CWE-121", "CWE-119"]
+    },
+    {
       "cveId": "CVE-2025-7532",
       "title": "Tenda FH1202 webExcptypemanFilter fromwebExcptypemanFilter stack-based overflow",
       "severity": "HIGH",
@@ -5052,6 +5094,20 @@
       "riskScore": 52,
       "publishedDate": "2025-07-14T10:44:06.851000+00:00",
       "lastModifiedDate": "2025-07-14T12:46:49.239000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["tenda"],
+      "tags": ["CWE-121", "CWE-119"]
+    },
+    {
+      "cveId": "CVE-2025-7855",
+      "title": "Tenda FH451 qossetting fromqossetting stack-based overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": null,
+      "epssPercentile": 0,
+      "riskScore": 52,
+      "publishedDate": "2025-07-19T21:02:09.313000+00:00",
+      "lastModifiedDate": "2025-07-19T21:02:09.313000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["tenda"],
       "tags": ["CWE-121", "CWE-119"]
@@ -5225,6 +5281,20 @@
       "tags": ["CWE-120", "CWE-119"]
     },
     {
+      "cveId": "CVE-2025-7853",
+      "title": "Tenda FH451 SetIpBind fromSetIpBind stack-based overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": null,
+      "epssPercentile": 0,
+      "riskScore": 52,
+      "publishedDate": "2025-07-19T19:44:07.248000+00:00",
+      "lastModifiedDate": "2025-07-19T19:44:07.248000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["tenda"],
+      "tags": ["CWE-121", "CWE-119"]
+    },
+    {
       "cveId": "CVE-2025-7468",
       "title": "Tenda FH1201 HTTP POST Request fromSafeUrlFilter buffer overflow",
       "severity": "HIGH",
@@ -5293,6 +5363,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["tenda"],
       "tags": ["CWE-121", "CWE-119"]
+    },
+    {
+      "cveId": "CVE-2025-7837",
+      "title": "TOTOLINK T6 MQTT Service recvSlaveStaInfo buffer overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": null,
+      "epssPercentile": 0,
+      "riskScore": 52,
+      "publishedDate": "2025-07-19T17:02:08.694000+00:00",
+      "lastModifiedDate": "2025-07-19T17:02:08.694000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["totolink"],
+      "tags": ["CWE-120", "CWE-119"]
     },
     {
       "cveId": "CVE-2025-7465",
@@ -5611,7 +5695,7 @@
       "epssPercentile": 48.598,
       "riskScore": 52,
       "publishedDate": "2025-06-30T00:00:00+00:00",
-      "lastModifiedDate": "2025-07-18T16:19:25.793000+00:00",
+      "lastModifiedDate": "2025-07-19T03:55:14.696000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["sudo project"],
       "tags": ["CWE-829"]
@@ -5879,7 +5963,7 @@
       "publishedDate": "2024-06-25T03:30:37.970000+00:00",
       "lastModifiedDate": "2024-08-01T21:33:05.337000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["warfareplugins", "pedrogusmao02", "themerex", "blazeretail", "stuartobrien"],
+      "vendors": ["themerex", "pedrogusmao02", "warfareplugins", "stuartobrien", "blazeretail"],
       "tags": []
     },
     {
@@ -6507,7 +6591,7 @@
       "epssPercentile": 71.741,
       "riskScore": 51,
       "publishedDate": "2025-07-16T07:11:02.974000+00:00",
-      "lastModifiedDate": "2025-07-16T14:40:24.329000+00:00",
+      "lastModifiedDate": "2025-07-19T03:55:18.953000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["zyxel"],
       "tags": ["CWE-120"]
@@ -7463,6 +7547,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["shahjahan jewel"],
       "tags": ["CWE-352"]
+    },
+    {
+      "cveId": "CVE-2025-54309",
+      "title": "CVE-2025-54309: CrushFTP 10 before 10.8.5 and 11 before 11.3.4_23, when the DMZ proxy feature is not used, mishandle...",
+      "severity": "CRITICAL",
+      "cvssScore": 9.0,
+      "epssScore": 0.1,
+      "epssPercentile": 28.781,
+      "riskScore": 50,
+      "publishedDate": "2025-07-18T00:00:00+00:00",
+      "lastModifiedDate": "2025-07-19T00:27:15.264000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["crushftp"],
+      "tags": ["CWE-420"]
     },
     {
       "cveId": "CVE-2025-7417",
@@ -9548,11 +9646,11 @@
       "lastModifiedDate": "2025-06-25T14:15:31.576000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "toshiba tec",
         "ricoh",
         "fujifilm business innovation",
-        "konica minolta, inc.",
-        "brother industries, ltd"
+        "toshiba tec",
+        "brother industries, ltd",
+        "konica minolta, inc."
       ],
       "tags": ["CWE-1286"]
     },
@@ -9761,7 +9859,7 @@
       "epssPercentile": 54.971,
       "riskScore": 49,
       "publishedDate": "2025-06-10T17:02:35.874000+00:00",
-      "lastModifiedDate": "2025-07-11T16:36:42.704000+00:00",
+      "lastModifiedDate": "2025-07-19T03:55:12.293000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-284"]
@@ -10535,20 +10633,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-416"]
-    },
-    {
-      "cveId": "CVE-2025-54309",
-      "title": "CVE-2025-54309: CrushFTP 10 before 10.8.5 and 11 before 11.3.4_23, when the DMZ proxy feature is not used, mishandle...",
-      "severity": "CRITICAL",
-      "cvssScore": 9.0,
-      "epssScore": 0.1,
-      "epssPercentile": 28.781,
-      "riskScore": 49,
-      "publishedDate": "2025-07-18T00:00:00+00:00",
-      "lastModifiedDate": "2025-07-18T18:41:17.629000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["crushftp"],
-      "tags": ["CWE-420"]
     },
     {
       "cveId": "CVE-2025-7077",
@@ -11503,20 +11587,6 @@
       "tags": ["CWE-502"]
     },
     {
-      "cveId": "CVE-2025-52467",
-      "title": "pgai secrets exfiltration via `pull_request_target`",
-      "severity": "CRITICAL",
-      "cvssScore": 9.1,
-      "epssScore": 0.04,
-      "epssPercentile": 10.873,
-      "riskScore": 49,
-      "publishedDate": "2025-06-19T02:50:51.240000+00:00",
-      "lastModifiedDate": "2025-06-23T16:58:52.667000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["timescale"],
-      "tags": ["CWE-200"]
-    },
-    {
       "cveId": "CVE-2025-52709",
       "title": "WordPress Everest Forms plugin <= 3.2.2 - PHP Object Injection Vulnerability",
       "severity": "CRITICAL",
@@ -12354,10 +12424,10 @@
       "lastModifiedDate": "2025-06-25T14:08:48.280000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "fujifilm business innovation",
-        "ricoh",
+        "konica minolta, inc.",
         "brother industries, ltd",
-        "konica minolta, inc."
+        "fujifilm business innovation",
+        "ricoh"
       ],
       "tags": ["CWE-121"]
     },
@@ -14168,6 +14238,20 @@
       "tags": ["CWE-697"]
     },
     {
+      "cveId": "CVE-2025-54313",
+      "title": "CVE-2025-54313: eslint-config-prettier 8.10.1, 9.1.1, 10.1.6, and 10.1.7 has embedded malicious code for a supply ch...",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": null,
+      "epssPercentile": 0,
+      "riskScore": 48,
+      "publishedDate": "2025-07-19T00:00:00+00:00",
+      "lastModifiedDate": "2025-07-19T16:43:13.088000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["prettier"],
+      "tags": ["CWE-506"]
+    },
+    {
       "cveId": "CVE-2025-54026",
       "title": "WordPress GymBase Theme Classes plugin <= 1.4 - SQL Injection Vulnerability",
       "severity": "HIGH",
@@ -14784,6 +14868,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-7829",
+      "title": "code-projects Church Donation System login.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": null,
+      "epssPercentile": 0,
+      "riskScore": 48,
+      "publishedDate": "2025-07-19T13:14:05.666000+00:00",
+      "lastModifiedDate": "2025-07-19T13:14:05.666000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-7814",
       "title": "code-projects Food Ordering Review System signup_function.php sql injection",
       "severity": "HIGH",
@@ -14793,6 +14891,20 @@
       "riskScore": 48,
       "publishedDate": "2025-07-18T21:44:05.160000+00:00",
       "lastModifiedDate": "2025-07-18T21:44:05.160000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-7830",
+      "title": "code-projects Church Donation System reg.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": null,
+      "epssPercentile": 0,
+      "riskScore": 48,
+      "publishedDate": "2025-07-19T14:32:05.487000+00:00",
+      "lastModifiedDate": "2025-07-19T14:32:05.487000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
@@ -14809,6 +14921,20 @@
       "lastModifiedDate": "2025-07-14T20:11:40.469000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["campcodes"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-7831",
+      "title": "code-projects Church Donation System Tithes.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": null,
+      "epssPercentile": 0,
+      "riskScore": 48,
+      "publishedDate": "2025-07-19T15:02:05.277000+00:00",
+      "lastModifiedDate": "2025-07-19T15:02:05.277000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -15050,6 +15176,34 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-7833",
+      "title": "code-projects Church Donation System giving.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": null,
+      "epssPercentile": 0,
+      "riskScore": 48,
+      "publishedDate": "2025-07-19T15:44:05.546000+00:00",
+      "lastModifiedDate": "2025-07-19T15:44:05.546000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-7838",
+      "title": "Campcodes Online Movie Theater Seat Reservation System manage_seat.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": null,
+      "epssPercentile": 0,
+      "riskScore": 48,
+      "publishedDate": "2025-07-19T17:14:06.080000+00:00",
+      "lastModifiedDate": "2025-07-19T17:14:06.080000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["campcodes"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-7480",
       "title": "PHPGurukul Vehicle Parking Management System signup.php sql injection",
       "severity": "HIGH",
@@ -15061,6 +15215,20 @@
       "lastModifiedDate": "2025-07-15T13:19:30.338000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["phpgurukul"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-7832",
+      "title": "code-projects Church Donation System offering.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": null,
+      "epssPercentile": 0,
+      "riskScore": 48,
+      "publishedDate": "2025-07-19T15:14:05.661000+00:00",
+      "lastModifiedDate": "2025-07-19T15:14:05.661000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -19106,7 +19274,7 @@
       "publishedDate": "2025-06-25T07:25:00.402000+00:00",
       "lastModifiedDate": "2025-06-25T14:13:40.189000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["fujifilm business innovation", "ricoh", "brother industries, ltd"],
+      "vendors": ["brother industries, ltd", "fujifilm business innovation", "ricoh"],
       "tags": ["CWE-1286"]
     },
     {
@@ -20496,6 +20664,20 @@
       "tags": ["CWE-98"]
     },
     {
+      "cveId": "CVE-2025-7823",
+      "title": "Jinher OA ProjectScheduleDelete.aspx xml external entity reference",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": null,
+      "epssPercentile": 0,
+      "riskScore": 47,
+      "publishedDate": "2025-07-19T12:44:06.138000+00:00",
+      "lastModifiedDate": "2025-07-19T12:44:06.138000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["jinher"],
+      "tags": ["CWE-611", "CWE-610"]
+    },
+    {
       "cveId": "CVE-2025-7096",
       "title": "Comodo Internet Security Premium Manifest File cis_update_x64.xml integrity check",
       "severity": "HIGH",
@@ -20550,6 +20732,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["bosssoft"],
       "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-7824",
+      "title": "Jinher OA XmlHttp.aspx xml external entity reference",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": null,
+      "epssPercentile": 0,
+      "riskScore": 47,
+      "publishedDate": "2025-07-19T13:02:05.434000+00:00",
+      "lastModifiedDate": "2025-07-19T13:02:05.434000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["jinher"],
+      "tags": ["CWE-611", "CWE-610"]
     },
     {
       "cveId": "CVE-2025-7667",
@@ -21722,7 +21918,7 @@
       "epssPercentile": 6.104,
       "riskScore": 47,
       "publishedDate": "2025-07-15T19:27:34.993000+00:00",
-      "lastModifiedDate": "2025-07-16T15:42:41.255000+00:00",
+      "lastModifiedDate": "2025-07-19T03:55:17.882000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["oracle corporation"],
       "tags": []
@@ -21736,7 +21932,7 @@
       "epssPercentile": 6.104,
       "riskScore": 47,
       "publishedDate": "2025-07-15T19:27:34.167000+00:00",
-      "lastModifiedDate": "2025-07-16T14:41:43.313000+00:00",
+      "lastModifiedDate": "2025-07-19T03:55:16.840000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["oracle corporation"],
       "tags": []
@@ -22244,6 +22440,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["filebrowser"],
       "tags": ["CWE-77"]
+    },
+    {
+      "cveId": "CVE-2025-52467",
+      "title": "pgai secrets exfiltration via `pull_request_target`",
+      "severity": "CRITICAL",
+      "cvssScore": 9.1,
+      "epssScore": 0.04,
+      "epssPercentile": 10.873,
+      "riskScore": 47,
+      "publishedDate": "2025-06-19T02:50:51.240000+00:00",
+      "lastModifiedDate": "2025-06-23T16:58:52.667000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["timescale"],
+      "tags": ["CWE-200"]
     },
     {
       "cveId": "CVE-2025-52904",
@@ -32186,20 +32396,6 @@
       "tags": ["CWE-285"]
     },
     {
-      "cveId": "CVE-2025-0585",
-      "title": "aEnrich Technology a+HRD - SQL Injection",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 0.05,
-      "epssPercentile": 15.465,
-      "riskScore": 46,
-      "publishedDate": "2025-01-20T02:17:29.155000+00:00",
-      "lastModifiedDate": "2025-01-21T14:39:00.962000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["aenrich technology"],
-      "tags": ["CWE-89"]
-    },
-    {
       "cveId": "CVE-2024-5150",
       "title": "Login with phone number <= 1.7.26 - Authentication Bypass due to Missing Empty Value Check",
       "severity": "CRITICAL",
@@ -39028,7 +39224,7 @@
       "publishedDate": "2025-06-24T08:14:31.864000+00:00",
       "lastModifiedDate": "2025-06-24T13:55:34.477000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-204"]
     },
     {
@@ -52874,7 +53070,7 @@
       "publishedDate": "2025-05-05T18:31:04.418000+00:00",
       "lastModifiedDate": "2025-05-05T18:48:57.123000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sourcecodester", "oretnom23"],
+      "vendors": ["oretnom23", "sourcecodester"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -53992,7 +54188,7 @@
       "epssPercentile": 24.644,
       "riskScore": 44,
       "publishedDate": "2025-07-15T01:32:10.377000+00:00",
-      "lastModifiedDate": "2025-07-15T19:48:36.188000+00:00",
+      "lastModifiedDate": "2025-07-19T03:55:15.778000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["zyxel"],
       "tags": ["CWE-22"]
@@ -56686,6 +56882,20 @@
       "tags": ["CWE-121", "CWE-119"]
     },
     {
+      "cveId": "CVE-2025-0585",
+      "title": "aEnrich Technology a+HRD - SQL Injection",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.05,
+      "epssPercentile": 15.465,
+      "riskScore": 44,
+      "publishedDate": "2025-01-20T02:17:29.155000+00:00",
+      "lastModifiedDate": "2025-01-21T14:39:00.962000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["aenrich technology"],
+      "tags": ["CWE-89"]
+    },
+    {
       "cveId": "CVE-2025-0070",
       "title": "Improper Authentication in SAP NetWeaver ABAP Server and ABAP Platform",
       "severity": "CRITICAL",
@@ -58040,7 +58250,7 @@
       "publishedDate": "2025-05-09T15:18:34.124000+00:00",
       "lastModifiedDate": "2025-05-09T19:09:17.086000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["norton", "avg", "avast"],
+      "vendors": ["avg", "norton", "avast"],
       "tags": ["CWE-367"]
     },
     {
@@ -62898,7 +63108,7 @@
       "publishedDate": "2024-10-22T21:13:37.183000+00:00",
       "lastModifiedDate": "2024-10-23T14:43:52.114000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["kieback&peter", "kieback & peter"],
+      "vendors": ["kieback & peter", "kieback&peter"],
       "tags": ["CWE-22"]
     },
     {
@@ -78424,7 +78634,7 @@
       "publishedDate": "2025-01-08T11:09:24.799000+00:00",
       "lastModifiedDate": "2025-01-08T13:54:46.719000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["wp swings", "wpswings"],
+      "vendors": ["wpswings", "wp swings"],
       "tags": ["CWE-862"]
     },
     {
@@ -80034,7 +80244,7 @@
       "publishedDate": "2024-05-14T12:58:31.261000+00:00",
       "lastModifiedDate": "2025-03-14T14:56:10.154000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["n/a", "na"],
+      "vendors": ["na", "n/a"],
       "tags": []
     },
     {
@@ -80636,7 +80846,7 @@
       "publishedDate": "2024-02-05T14:33:06.481000+00:00",
       "lastModifiedDate": "2025-05-09T16:32:50.015000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["tiangolo", "encode", "kludex"],
+      "vendors": ["encode", "kludex", "tiangolo"],
       "tags": ["CWE-400"]
     },
     {
@@ -95518,7 +95728,7 @@
       "publishedDate": "2024-07-02T13:47:36.399000+00:00",
       "lastModifiedDate": "2024-08-02T04:12:25.618000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["ytdl-org", "yt-dlp"],
+      "vendors": ["yt-dlp", "ytdl-org"],
       "tags": ["CWE-669"]
     },
     {
@@ -110136,20 +110346,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["red hat"],
       "tags": ["CWE-190"]
-    },
-    {
-      "cveId": "CVE-2025-0579",
-      "title": "Shiprocket Module REST API Module restapi sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 12.327,
-      "riskScore": 41,
-      "publishedDate": "2025-01-20T02:31:04.543000+00:00",
-      "lastModifiedDate": "2025-02-12T20:41:20.302000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["n/a"],
-      "tags": ["CWE-89", "CWE-74"]
     },
     {
       "cveId": "CVE-2025-0061",
@@ -128530,7 +128726,7 @@
       "publishedDate": "2024-10-22T22:19:20.646000+00:00",
       "lastModifiedDate": "2024-11-06T15:50:04.628000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-276"]
     },
     {
@@ -131218,7 +131414,7 @@
       "publishedDate": "2024-11-28T22:16:31.396000+00:00",
       "lastModifiedDate": "2024-12-06T05:18:03.652000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-427"]
     },
     {
@@ -133920,7 +134116,7 @@
       "publishedDate": "2024-11-28T22:20:28.303000+00:00",
       "lastModifiedDate": "2024-12-06T05:23:50.441000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-427"]
     },
     {
@@ -141890,20 +142086,6 @@
       "tags": ["CWE-59"]
     },
     {
-      "cveId": "CVE-2025-0586",
-      "title": "aEnrich Technology a+HRD - Insecure Deserialization",
-      "severity": "HIGH",
-      "cvssScore": 7.2,
-      "epssScore": 0.98,
-      "epssPercentile": 75.815,
-      "riskScore": 39,
-      "publishedDate": "2025-01-20T02:28:02.503000+00:00",
-      "lastModifiedDate": "2025-02-12T20:41:20.485000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["aenrich technology"],
-      "tags": ["CWE-502"]
-    },
-    {
       "cveId": "CVE-2025-0460",
       "title": "Blog Botz for Journal Theme blog_add unrestricted upload",
       "severity": "HIGH",
@@ -142028,6 +142210,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["sap_se"],
       "tags": ["CWE-427"]
+    },
+    {
+      "cveId": "CVE-2025-0579",
+      "title": "Shiprocket Module REST API Module restapi sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 12.327,
+      "riskScore": 39,
+      "publishedDate": "2025-01-20T02:31:04.543000+00:00",
+      "lastModifiedDate": "2025-02-12T20:41:20.302000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["n/a"],
+      "tags": ["CWE-89", "CWE-74"]
     },
     {
       "cveId": "CVE-2025-0521",
@@ -142992,7 +143188,7 @@
       "publishedDate": "2024-07-03T12:26:44.599000+00:00",
       "lastModifiedDate": "2025-02-13T17:54:25.437000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "red lion europe"],
+      "vendors": ["red lion europe", "helmholz"],
       "tags": ["CWE-78"]
     },
     {
@@ -177544,7 +177740,7 @@
       "publishedDate": "2024-11-28T22:18:28.358000+00:00",
       "lastModifiedDate": "2024-12-06T05:21:38.917000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-561"]
     },
     {
@@ -182388,7 +182584,7 @@
       "publishedDate": "2024-07-04T08:53:41.217000+00:00",
       "lastModifiedDate": "2024-08-19T15:25:49.496000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-427"]
     },
     {
@@ -186284,6 +186480,20 @@
       "tags": ["CWE-306"]
     },
     {
+      "cveId": "CVE-2025-0586",
+      "title": "aEnrich Technology a+HRD - Insecure Deserialization",
+      "severity": "HIGH",
+      "cvssScore": 7.2,
+      "epssScore": 0.98,
+      "epssPercentile": 75.815,
+      "riskScore": 37,
+      "publishedDate": "2025-01-20T02:28:02.503000+00:00",
+      "lastModifiedDate": "2025-02-12T20:41:20.485000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["aenrich technology"],
+      "tags": ["CWE-502"]
+    },
+    {
       "cveId": "CVE-2025-0430",
       "title": "Belledonne Communications Linphone-Desktop NULL Pointer Dereference",
       "severity": "HIGH",
@@ -188548,7 +188758,7 @@
       "publishedDate": "2024-07-08T15:25:38.672000+00:00",
       "lastModifiedDate": "2024-08-01T22:27:36.345000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["realtek", "levelone"],
+      "vendors": ["levelone", "realtek"],
       "tags": ["CWE-122"]
     },
     {
