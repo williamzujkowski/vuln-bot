@@ -1,6 +1,6 @@
 ---
 title: Morning Vulnerability Briefing - 2025-07-20
-date: 2025-07-20T12:10:37.733971
+date: 2025-07-20T16:07:53.630774
 layout: layouts/post.njk
 tags: [vulnerability, briefing, security]
 vulnerabilityCount: 15372
@@ -16,8 +16,8 @@ Today's briefing covers **15372 vulnerabilities** from 0 sources.
 
 - 🔴 **Critical Risk**: 0 vulnerabilities
 - 🟠 **High Risk**: 0 vulnerabilities
-- 🟡 **Medium Risk**: 9881 vulnerabilities
-- 🟢 **Low Risk**: 5491 vulnerabilities
+- 🟡 **Medium Risk**: 9882 vulnerabilities
+- 🟢 **Low Risk**: 5490 vulnerabilities
 
 ## Top Vulnerabilities
 
@@ -314,14 +314,14 @@ critical systems.
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.6 | 
-**EPSS**: 92.5%
+**EPSS**: 92.2%
 
 **Summary**: A out-of-bounds write in Fortinet FortiOS versions 7.4.0 through 7.4.2, 7.2.0 through 7.2.6, 7.0.0 through 7.0.13, 6.4.0 through 6.4.14, 6.2.0 through 6.2.15, 6.0.0 through 6.0.17, FortiProxy versions 7.4.0 through 7.4.2, 7.2.0 through 7.2.8, 7.0.0 through 7.0.14, 2.0.0 through 2.0.13, 1.2.0 through 1.2.13, 1.1.0 through 1.1.6, 1.0.0 through 1.0.7 allows attacker to execute unauthorized code or commands via specifically crafted requests
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 92.51% exploit probability
+- 92.17% exploit probability
 - Affects critical infrastructure: fortinet
 
 **Affected Vendors**: fortinet
@@ -463,36 +463,7 @@ The GeoTools library API that GeoServer calls evaluates property/attribute names
 
 ---
 
-### 18. [CVE-2024-1212](/api/vulns/CVE-2024-1212.json)
-
-**Risk Score**: 65/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 10.0 | 
-**EPSS**: 94.4%
-
-**Summary**: Unauthenticated remote attackers can access the system through the LoadMaster management interface, enabling arbitrary system command execution.
-
-
-
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 94.36% exploit probability
-
-**Affected Vendors**: progress software
-
-**Tags**: `CWE-78`
-
-**References**:
-
-- [https://kemptechnologies.com/](https://kemptechnologies.com/)
-- [https://freeloadbalancer.com/](https://freeloadbalancer.com/)
-- [https://support.kemptechnologies.com/hc/en-us/articles/24325072850573-Release-Notice-LMOS-7-2-59-2-7-2-54-8-7-2-48-10-CVE-2024-1212](https://support.kemptechnologies.com/hc/en-us/articles/24325072850573-Release-Notice-LMOS-7-2-59-2-7-2-54-8-7-2-48-10-CVE-2024-1212)
-
----
-
-### 19. [CVE-2024-3400](/api/vulns/CVE-2024-3400.json)
+### 18. [CVE-2024-3400](/api/vulns/CVE-2024-3400.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -520,6 +491,35 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
+### 19. [CVE-2024-1212](/api/vulns/CVE-2024-1212.json)
+
+**Risk Score**: 65/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 10.0 | 
+**EPSS**: 94.3%
+
+**Summary**: Unauthenticated remote attackers can access the system through the LoadMaster management interface, enabling arbitrary system command execution.
+
+
+
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 94.33% exploit probability
+
+**Affected Vendors**: progress software
+
+**Tags**: `CWE-78`
+
+**References**:
+
+- [https://kemptechnologies.com/](https://kemptechnologies.com/)
+- [https://freeloadbalancer.com/](https://freeloadbalancer.com/)
+- [https://support.kemptechnologies.com/hc/en-us/articles/24325072850573-Release-Notice-LMOS-7-2-59-2-7-2-54-8-7-2-48-10-CVE-2024-1212](https://support.kemptechnologies.com/hc/en-us/articles/24325072850573-Release-Notice-LMOS-7-2-59-2-7-2-54-8-7-2-48-10-CVE-2024-1212)
+
+---
+
 ### 20. [CVE-2024-51567](/api/vulns/CVE-2024-51567.json)
 
 **Risk Score**: 65/100 | 
@@ -544,31 +544,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 21. [CVE-2024-51378](/api/vulns/CVE-2024-51378.json)
-
-**Risk Score**: 65/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 10.0 | 
-**EPSS**: 94.2%
-
-**Summary**: getresetstatus in dns/views.py and ftp/views.py in CyberPanel (aka Cyber Panel) before 1c0c6cb allows remote attackers to bypass authentication and execute arbitrary commands via /dns/getresetstatus or /ftp/getresetstatus by bypassing secMiddleware (which is only for a POST request) and using shell metacharacters in the statusfile property, as exploited in the wild in October 2024 by PSAUX. Versions through 2.3.6 and (unpatched) 2.3.7 are affected.
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 94.19% exploit probability
-
-**Affected Vendors**: n/a
-
-**References**:
-
-- [https://cwe.mitre.org/data/definitions/78.html](https://cwe.mitre.org/data/definitions/78.html)
-- [https://github.com/usmannasir/cyberpanel/commit/1c0c6cbcf71abe573da0b5fddfb9603e7477f683](https://github.com/usmannasir/cyberpanel/commit/1c0c6cbcf71abe573da0b5fddfb9603e7477f683)
-- [https://refr4g.github.io/posts/cyberpanel-command-injection-vulnerability/](https://refr4g.github.io/posts/cyberpanel-command-injection-vulnerability/)
-
----
-
-### 22. [CVE-2024-31982](/api/vulns/CVE-2024-31982.json)
+### 21. [CVE-2024-31982](/api/vulns/CVE-2024-31982.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -594,7 +570,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 23. [CVE-2024-45519](/api/vulns/CVE-2024-45519.json)
+### 22. [CVE-2024-45519](/api/vulns/CVE-2024-45519.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -618,7 +594,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 24. [CVE-2024-5932](/api/vulns/CVE-2024-5932.json)
+### 23. [CVE-2024-5932](/api/vulns/CVE-2024-5932.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -641,6 +617,30 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 - [https://www.wordfence.com/threat-intel/vulnerabilities/id/93e2d007-8157-42c5-92ad-704dc80749a3?source=cve](https://www.wordfence.com/threat-intel/vulnerabilities/id/93e2d007-8157-42c5-92ad-704dc80749a3?source=cve)
 - [https://plugins.trac.wordpress.org/browser/give/tags/3.12.0/includes/login-register.php#L235](https://plugins.trac.wordpress.org/browser/give/tags/3.12.0/includes/login-register.php#L235)
 - [https://plugins.trac.wordpress.org/browser/give/tags/3.12.0/includes/process-donation.php#L420](https://plugins.trac.wordpress.org/browser/give/tags/3.12.0/includes/process-donation.php#L420)
+
+---
+
+### 24. [CVE-2024-51378](/api/vulns/CVE-2024-51378.json)
+
+**Risk Score**: 65/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 10.0 | 
+**EPSS**: 94.1%
+
+**Summary**: getresetstatus in dns/views.py and ftp/views.py in CyberPanel (aka Cyber Panel) before 1c0c6cb allows remote attackers to bypass authentication and execute arbitrary commands via /dns/getresetstatus or /ftp/getresetstatus by bypassing secMiddleware (which is only for a POST request) and using shell metacharacters in the statusfile property, as exploited in the wild in October 2024 by PSAUX. Versions through 2.3.6 and (unpatched) 2.3.7 are affected.
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 94.09% exploit probability
+
+**Affected Vendors**: n/a
+
+**References**:
+
+- [https://cwe.mitre.org/data/definitions/78.html](https://cwe.mitre.org/data/definitions/78.html)
+- [https://github.com/usmannasir/cyberpanel/commit/1c0c6cbcf71abe573da0b5fddfb9603e7477f683](https://github.com/usmannasir/cyberpanel/commit/1c0c6cbcf71abe573da0b5fddfb9603e7477f683)
+- [https://refr4g.github.io/posts/cyberpanel-command-injection-vulnerability/](https://refr4g.github.io/posts/cyberpanel-command-injection-vulnerability/)
 
 ---
 
