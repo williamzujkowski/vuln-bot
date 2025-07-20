@@ -1,5 +1,5 @@
 {
-  "generated": "2025-07-20T04:22:41.999289",
+  "generated": "2025-07-20T08:08:48.618832",
   "count": 15372,
   "vulnerabilities": [
     {
@@ -909,7 +909,7 @@
       "publishedDate": "2025-06-25T07:17:32.423000+00:00",
       "lastModifiedDate": "2025-06-27T13:51:00.720000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec", "brother industries, ltd", "konica minolta, inc."],
+      "vendors": ["brother industries, ltd", "toshiba tec", "konica minolta, inc."],
       "tags": ["CWE-1391"]
     },
     {
@@ -1077,7 +1077,7 @@
       "publishedDate": "2024-11-26T07:37:44.549000+00:00",
       "lastModifiedDate": "2024-12-10T14:58:18.708000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-288"]
     },
     {
@@ -4437,7 +4437,7 @@
       "publishedDate": "2024-11-26T07:37:38.329000+00:00",
       "lastModifiedDate": "2024-12-10T15:43:57.213000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-22"]
     },
     {
@@ -5379,20 +5379,6 @@
       "tags": ["CWE-120", "CWE-119"]
     },
     {
-      "cveId": "CVE-2025-7465",
-      "title": "Tenda FH1201 HTTP POST Request fromRouteStatic buffer overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.08,
-      "epssPercentile": 24.38,
-      "riskScore": 52,
-      "publishedDate": "2025-07-12T07:02:07.562000+00:00",
-      "lastModifiedDate": "2025-07-14T20:12:32.863000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["tenda"],
-      "tags": ["CWE-120", "CWE-119"]
-    },
-    {
       "cveId": "CVE-2025-7794",
       "title": "Tenda FH451 NatStaticSetting fromNatStaticSetting stack-based overflow",
       "severity": "HIGH",
@@ -5405,20 +5391,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["tenda"],
       "tags": ["CWE-121", "CWE-119"]
-    },
-    {
-      "cveId": "CVE-2025-7463",
-      "title": "Tenda FH1201 HTTP POST Request AdvSetWrlsafeset formWrlsafeset buffer overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.08,
-      "epssPercentile": 24.38,
-      "riskScore": 52,
-      "publishedDate": "2025-07-12T06:02:06.537000+00:00",
-      "lastModifiedDate": "2025-07-14T20:12:45.377000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["tenda"],
-      "tags": ["CWE-120", "CWE-119"]
     },
     {
       "cveId": "CVE-2025-47966",
@@ -5559,20 +5531,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["cacti"],
       "tags": ["CWE-78"]
-    },
-    {
-      "cveId": "CVE-2025-6058",
-      "title": "WPBookit <= 1.0.4 - Unauthenticated Arbitrary File Upload",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 0.09,
-      "epssPercentile": 26.046,
-      "riskScore": 52,
-      "publishedDate": "2025-07-12T04:22:21.429000+00:00",
-      "lastModifiedDate": "2025-07-14T16:01:17.241000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["iqonicdesign"],
-      "tags": ["CWE-434"]
     },
     {
       "cveId": "CVE-2025-6222",
@@ -5963,7 +5921,7 @@
       "publishedDate": "2024-06-25T03:30:37.970000+00:00",
       "lastModifiedDate": "2024-08-01T21:33:05.337000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["themerex", "pedrogusmao02", "warfareplugins", "stuartobrien", "blazeretail"],
+      "vendors": ["themerex", "pedrogusmao02", "stuartobrien", "warfareplugins", "blazeretail"],
       "tags": []
     },
     {
@@ -6651,20 +6609,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["ibm"],
       "tags": ["CWE-427"]
-    },
-    {
-      "cveId": "CVE-2025-6057",
-      "title": "WPBookit <= 1.0.4 - Authenticated (Subscriber+) Arbitrary File Upload",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.41,
-      "epssPercentile": 60.327,
-      "riskScore": 51,
-      "publishedDate": "2025-07-12T04:22:22.035000+00:00",
-      "lastModifiedDate": "2025-07-14T15:51:25.806000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["iqonicdesign"],
-      "tags": ["CWE-434"]
     },
     {
       "cveId": "CVE-2025-6934",
@@ -7899,6 +7843,20 @@
       "tags": ["CWE-120", "CWE-119"]
     },
     {
+      "cveId": "CVE-2025-7465",
+      "title": "Tenda FH1201 HTTP POST Request fromRouteStatic buffer overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.08,
+      "epssPercentile": 24.38,
+      "riskScore": 50,
+      "publishedDate": "2025-07-12T07:02:07.562000+00:00",
+      "lastModifiedDate": "2025-07-14T20:12:32.863000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["tenda"],
+      "tags": ["CWE-120", "CWE-119"]
+    },
+    {
       "cveId": "CVE-2025-7084",
       "title": "Belkin F9K1122 webs formWpsStart stack-based overflow",
       "severity": "HIGH",
@@ -7939,6 +7897,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["tenda"],
       "tags": ["CWE-121", "CWE-119"]
+    },
+    {
+      "cveId": "CVE-2025-7463",
+      "title": "Tenda FH1201 HTTP POST Request AdvSetWrlsafeset formWrlsafeset buffer overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.08,
+      "epssPercentile": 24.38,
+      "riskScore": 50,
+      "publishedDate": "2025-07-12T06:02:06.537000+00:00",
+      "lastModifiedDate": "2025-07-14T20:12:45.377000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["tenda"],
+      "tags": ["CWE-120", "CWE-119"]
     },
     {
       "cveId": "CVE-2025-7420",
@@ -8345,6 +8317,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["d-link"],
       "tags": ["CWE-121", "CWE-119"]
+    },
+    {
+      "cveId": "CVE-2025-6058",
+      "title": "WPBookit <= 1.0.4 - Unauthenticated Arbitrary File Upload",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.09,
+      "epssPercentile": 26.046,
+      "riskScore": 50,
+      "publishedDate": "2025-07-12T04:22:21.429000+00:00",
+      "lastModifiedDate": "2025-07-14T16:01:17.241000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["iqonicdesign"],
+      "tags": ["CWE-434"]
     },
     {
       "cveId": "CVE-2025-6813",
@@ -9646,11 +9632,11 @@
       "lastModifiedDate": "2025-06-25T14:15:31.576000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "ricoh",
-        "fujifilm business innovation",
-        "toshiba tec",
         "brother industries, ltd",
-        "konica minolta, inc."
+        "fujifilm business innovation",
+        "konica minolta, inc.",
+        "toshiba tec",
+        "ricoh"
       ],
       "tags": ["CWE-1286"]
     },
@@ -11307,6 +11293,20 @@
       "tags": ["CWE-121"]
     },
     {
+      "cveId": "CVE-2025-6057",
+      "title": "WPBookit <= 1.0.4 - Authenticated (Subscriber+) Arbitrary File Upload",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.41,
+      "epssPercentile": 60.327,
+      "riskScore": 49,
+      "publishedDate": "2025-07-12T04:22:22.035000+00:00",
+      "lastModifiedDate": "2025-07-14T15:51:25.806000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["iqonicdesign"],
+      "tags": ["CWE-434"]
+    },
+    {
       "cveId": "CVE-2025-6032",
       "title": "Podman: podman missing tls verification",
       "severity": "HIGH",
@@ -11333,20 +11333,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["70mai"],
       "tags": ["CWE-1392"]
-    },
-    {
-      "cveId": "CVE-2025-6423",
-      "title": "BeeTeam368 Extensions <= 2.3.5 - Authenticated (Subscriber+) Arbitrary File Upload",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.26,
-      "epssPercentile": 49.781,
-      "riskScore": 49,
-      "publishedDate": "2025-07-12T07:24:24.664000+00:00",
-      "lastModifiedDate": "2025-07-14T20:12:26.577000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["beeteam368"],
-      "tags": ["CWE-434"]
     },
     {
       "cveId": "CVE-2025-6718",
@@ -11753,20 +11739,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["kubernetes"],
       "tags": ["CWE-20"]
-    },
-    {
-      "cveId": "CVE-2025-1313",
-      "title": "Nokri - Job Board WordPress Theme <= 1.6.3 - Authenticated (Subscriber+) Privilege Escalation via Account Takeover",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.04,
-      "epssPercentile": 12.691,
-      "riskScore": 49,
-      "publishedDate": "2025-07-12T05:30:11.949000+00:00",
-      "lastModifiedDate": "2025-07-14T15:49:38.210000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["scriptsbundle"],
-      "tags": ["CWE-288"]
     },
     {
       "cveId": "CVE-2025-1708",
@@ -12424,10 +12396,10 @@
       "lastModifiedDate": "2025-06-25T14:08:48.280000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "konica minolta, inc.",
         "brother industries, ltd",
         "fujifilm business innovation",
-        "ricoh"
+        "ricoh",
+        "konica minolta, inc."
       ],
       "tags": ["CWE-121"]
     },
@@ -14639,20 +14611,6 @@
       "riskScore": 48,
       "publishedDate": "2025-07-17T19:44:06.206000+00:00",
       "lastModifiedDate": "2025-07-17T20:08:56.917000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-7461",
-      "title": "code-projects Modern Bag action.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 11.43,
-      "riskScore": 48,
-      "publishedDate": "2025-07-12T04:32:06.241000+00:00",
-      "lastModifiedDate": "2025-07-15T13:48:58.171000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
@@ -17650,7 +17608,7 @@
       "publishedDate": "2025-06-13T09:23:49.631000+00:00",
       "lastModifiedDate": "2025-06-13T12:22:47.798000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["rts", "telex"],
+      "vendors": ["telex", "rts"],
       "tags": []
     },
     {
@@ -20762,20 +20720,6 @@
       "tags": ["CWE-352"]
     },
     {
-      "cveId": "CVE-2025-7466",
-      "title": "1000projects ABC Courier Management add_dealerrequest.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 11.43,
-      "riskScore": 47,
-      "publishedDate": "2025-07-12T08:02:05.310000+00:00",
-      "lastModifiedDate": "2025-07-14T20:12:20.601000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["1000projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
       "cveId": "CVE-2025-26689",
       "title": "CVE-2025-26689: Direct request ('Forced Browsing') issue exists in CHOCO TEI WATCHER mini (IB-MCT001) all versions. ...",
       "severity": "CRITICAL",
@@ -22050,6 +21994,20 @@
       "tags": ["CWE-78", "CWE-77"]
     },
     {
+      "cveId": "CVE-2025-6423",
+      "title": "BeeTeam368 Extensions <= 2.3.5 - Authenticated (Subscriber+) Arbitrary File Upload",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.26,
+      "epssPercentile": 49.781,
+      "riskScore": 47,
+      "publishedDate": "2025-07-12T07:24:24.664000+00:00",
+      "lastModifiedDate": "2025-07-14T20:12:26.577000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["beeteam368"],
+      "tags": ["CWE-434"]
+    },
+    {
       "cveId": "CVE-2025-6993",
       "title": "Ultimate WP Mail 1.0.17 - 1.3.6 - Missing Authorization to Authenticated (Contributor+) Privilege Escalation via get_email_log_details Function",
       "severity": "HIGH",
@@ -23000,6 +22958,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["ibm"],
       "tags": ["CWE-119"]
+    },
+    {
+      "cveId": "CVE-2025-1313",
+      "title": "Nokri - Job Board WordPress Theme <= 1.6.3 - Authenticated (Subscriber+) Privilege Escalation via Account Takeover",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.04,
+      "epssPercentile": 12.691,
+      "riskScore": 47,
+      "publishedDate": "2025-07-12T05:30:11.949000+00:00",
+      "lastModifiedDate": "2025-07-14T15:49:38.210000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["scriptsbundle"],
+      "tags": ["CWE-288"]
     },
     {
       "cveId": "CVE-2025-1475",
@@ -26723,6 +26695,20 @@
       "lastModifiedDate": "2025-07-11T19:50:32.259000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["campcodes"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-7461",
+      "title": "code-projects Modern Bag action.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 11.43,
+      "riskScore": 46,
+      "publishedDate": "2025-07-12T04:32:06.241000+00:00",
+      "lastModifiedDate": "2025-07-15T13:48:58.171000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -38276,6 +38262,20 @@
       "tags": ["CWE-843"]
     },
     {
+      "cveId": "CVE-2025-7466",
+      "title": "1000projects ABC Courier Management add_dealerrequest.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 11.43,
+      "riskScore": 45,
+      "publishedDate": "2025-07-12T08:02:05.310000+00:00",
+      "lastModifiedDate": "2025-07-14T20:12:20.601000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["1000projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-7216",
       "title": "lty628 Aidigu PHP Object common.php checkUserCookie deserialization",
       "severity": "HIGH",
@@ -44054,7 +44054,7 @@
       "publishedDate": "2024-11-26T07:38:12.712000+00:00",
       "lastModifiedDate": "2025-01-27T17:45:48.564000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-798"]
     },
     {
@@ -46210,7 +46210,7 @@
       "publishedDate": "2024-11-26T07:37:06.324000+00:00",
       "lastModifiedDate": "2024-12-10T14:57:54.916000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-121"]
     },
     {
@@ -46476,7 +46476,7 @@
       "publishedDate": "2024-11-26T07:38:06.435000+00:00",
       "lastModifiedDate": "2025-01-27T17:46:45.224000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-798"]
     },
     {
@@ -47736,7 +47736,7 @@
       "publishedDate": "2025-06-05T02:31:05.107000+00:00",
       "lastModifiedDate": "2025-06-05T14:09:25.990000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["anirbandutta9", "code-projects"],
+      "vendors": ["code-projects", "anirbandutta9"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -53070,7 +53070,7 @@
       "publishedDate": "2025-05-05T18:31:04.418000+00:00",
       "lastModifiedDate": "2025-05-05T18:48:57.123000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["oretnom23", "sourcecodester"],
+      "vendors": ["sourcecodester", "oretnom23"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -58250,7 +58250,7 @@
       "publishedDate": "2025-05-09T15:18:34.124000+00:00",
       "lastModifiedDate": "2025-05-09T19:09:17.086000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["avg", "norton", "avast"],
+      "vendors": ["avg", "avast", "norton"],
       "tags": ["CWE-367"]
     },
     {
@@ -58852,7 +58852,7 @@
       "publishedDate": "2024-10-25T06:18:36.274000+00:00",
       "lastModifiedDate": "2024-10-25T18:38:24.503000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-288"]
     },
     {
@@ -113396,7 +113396,7 @@
       "publishedDate": "2024-10-25T06:18:30.415000+00:00",
       "lastModifiedDate": "2024-10-25T18:38:02.777000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-749"]
     },
     {
@@ -113676,7 +113676,7 @@
       "publishedDate": "2024-11-26T07:38:24.464000+00:00",
       "lastModifiedDate": "2024-11-26T16:28:15.625000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -113690,7 +113690,7 @@
       "publishedDate": "2024-11-26T07:38:30.408000+00:00",
       "lastModifiedDate": "2024-11-26T14:48:35.480000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -113746,7 +113746,7 @@
       "publishedDate": "2024-11-26T07:38:18.359000+00:00",
       "lastModifiedDate": "2024-11-26T14:09:24.516000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-79"]
     },
     {
@@ -132366,7 +132366,7 @@
       "publishedDate": "2024-10-25T06:18:00.481000+00:00",
       "lastModifiedDate": "2024-10-25T18:37:13.542000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -134858,7 +134858,7 @@
       "publishedDate": "2024-11-04T03:31:04.265000+00:00",
       "lastModifiedDate": "2024-11-04T17:01:46.227000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["anirbandutta9", "code-projects"],
+      "vendors": ["code-projects", "anirbandutta9"],
       "tags": ["CWE-89"]
     },
     {
@@ -136146,7 +136146,7 @@
       "publishedDate": "2024-10-25T06:18:10.875000+00:00",
       "lastModifiedDate": "2024-10-25T17:16:12.736000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -146604,7 +146604,7 @@
       "publishedDate": "2024-10-25T06:18:42.287000+00:00",
       "lastModifiedDate": "2024-10-25T18:32:25.798000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-644"]
     },
     {
@@ -146758,7 +146758,7 @@
       "publishedDate": "2024-10-25T06:18:50.793000+00:00",
       "lastModifiedDate": "2024-10-25T14:16:46.537000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-79"]
     },
     {
@@ -182584,7 +182584,7 @@
       "publishedDate": "2024-07-04T08:53:41.217000+00:00",
       "lastModifiedDate": "2024-08-19T15:25:49.496000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-427"]
     },
     {
@@ -188758,7 +188758,7 @@
       "publishedDate": "2024-07-08T15:25:38.672000+00:00",
       "lastModifiedDate": "2024-08-01T22:27:36.345000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["levelone", "realtek"],
+      "vendors": ["realtek", "levelone"],
       "tags": ["CWE-122"]
     },
     {
