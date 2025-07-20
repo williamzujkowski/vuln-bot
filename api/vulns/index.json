@@ -1,5 +1,5 @@
 {
-  "generated": "2025-07-20T08:08:48.618832",
+  "generated": "2025-07-20T12:10:37.733971",
   "count": 15372,
   "vulnerabilities": [
     {
@@ -909,7 +909,7 @@
       "publishedDate": "2025-06-25T07:17:32.423000+00:00",
       "lastModifiedDate": "2025-06-27T13:51:00.720000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["brother industries, ltd", "toshiba tec", "konica minolta, inc."],
+      "vendors": ["toshiba tec", "konica minolta, inc.", "brother industries, ltd"],
       "tags": ["CWE-1391"]
     },
     {
@@ -5295,20 +5295,6 @@
       "tags": ["CWE-121", "CWE-119"]
     },
     {
-      "cveId": "CVE-2025-7468",
-      "title": "Tenda FH1201 HTTP POST Request fromSafeUrlFilter buffer overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.08,
-      "epssPercentile": 24.38,
-      "riskScore": 52,
-      "publishedDate": "2025-07-12T09:02:06.642000+00:00",
-      "lastModifiedDate": "2025-07-14T20:12:00.447000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["tenda"],
-      "tags": ["CWE-120", "CWE-119"]
-    },
-    {
       "cveId": "CVE-2025-7505",
       "title": "Tenda FH451 HTTP POST Request L7Prot frmL7ProtForm stack-based overflow",
       "severity": "HIGH",
@@ -5431,7 +5417,7 @@
       "publishedDate": "2025-05-13T03:21:29.625000+00:00",
       "lastModifiedDate": "2025-05-13T13:57:36.925000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["msaari", "relevanssi"],
+      "vendors": ["relevanssi", "msaari"],
       "tags": ["CWE-89"]
     },
     {
@@ -5921,7 +5907,7 @@
       "publishedDate": "2024-06-25T03:30:37.970000+00:00",
       "lastModifiedDate": "2024-08-01T21:33:05.337000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["themerex", "pedrogusmao02", "stuartobrien", "warfareplugins", "blazeretail"],
+      "vendors": ["themerex", "blazeretail", "warfareplugins", "pedrogusmao02", "stuartobrien"],
       "tags": []
     },
     {
@@ -7815,6 +7801,20 @@
       "tags": ["CWE-121", "CWE-119"]
     },
     {
+      "cveId": "CVE-2025-7468",
+      "title": "Tenda FH1201 HTTP POST Request fromSafeUrlFilter buffer overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.08,
+      "epssPercentile": 24.38,
+      "riskScore": 50,
+      "publishedDate": "2025-07-12T09:02:06.642000+00:00",
+      "lastModifiedDate": "2025-07-14T20:12:00.447000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["tenda"],
+      "tags": ["CWE-120", "CWE-119"]
+    },
+    {
       "cveId": "CVE-2025-7194",
       "title": "D-Link DI-500WF jhttpd ip_position.asp sprintf stack-based overflow",
       "severity": "HIGH",
@@ -9632,11 +9632,11 @@
       "lastModifiedDate": "2025-06-25T14:15:31.576000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "brother industries, ltd",
         "fujifilm business innovation",
-        "konica minolta, inc.",
         "toshiba tec",
-        "ricoh"
+        "ricoh",
+        "konica minolta, inc.",
+        "brother industries, ltd"
       ],
       "tags": ["CWE-1286"]
     },
@@ -12396,10 +12396,10 @@
       "lastModifiedDate": "2025-06-25T14:08:48.280000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "brother industries, ltd",
         "fujifilm business innovation",
+        "konica minolta, inc.",
         "ricoh",
-        "konica minolta, inc."
+        "brother industries, ltd"
       ],
       "tags": ["CWE-121"]
     },
@@ -13242,20 +13242,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["tenda"],
       "tags": ["CWE-121", "CWE-119"]
-    },
-    {
-      "cveId": "CVE-2025-5071",
-      "title": "AI Engine 2.8.0 - 2.8.3 - Authenticated (Subscriber+) Insufficient Authorization to Privilege Escalation via MCP",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.04,
-      "epssPercentile": 11.756,
-      "riskScore": 48,
-      "publishedDate": "2025-06-19T09:23:47.875000+00:00",
-      "lastModifiedDate": "2025-06-20T13:11:34.092000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["tigroumeow"],
-      "tags": ["CWE-863"]
     },
     {
       "cveId": "CVE-2025-5793",
@@ -14266,20 +14252,6 @@
       "tags": ["CWE-77"]
     },
     {
-      "cveId": "CVE-2025-7471",
-      "title": "code-projects Modern Bag login-back.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.716,
-      "riskScore": 48,
-      "publishedDate": "2025-07-12T11:32:05.843000+00:00",
-      "lastModifiedDate": "2025-07-15T13:48:12.962000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
       "cveId": "CVE-2025-7576",
       "title": "Teledyne FLIR FB-Series O/FLIR FH-Series ID Production Tools production.html access control",
       "severity": "HIGH",
@@ -14630,20 +14602,6 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
-      "cveId": "CVE-2025-7470",
-      "title": "Campcodes Sales and Inventory System product_add.php unrestricted upload",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 11.381,
-      "riskScore": 48,
-      "publishedDate": "2025-07-12T11:02:05.895000+00:00",
-      "lastModifiedDate": "2025-07-14T20:11:34.016000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes"],
-      "tags": ["CWE-434", "CWE-284"]
-    },
-    {
       "cveId": "CVE-2025-7609",
       "title": "code-projects Simple Shopping Cart register.php sql injection",
       "severity": "HIGH",
@@ -14695,20 +14653,6 @@
       "riskScore": 48,
       "publishedDate": "2025-07-17T22:44:06.555000+00:00",
       "lastModifiedDate": "2025-07-18T13:56:29.965000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-7474",
-      "title": "code-projects Job Diary search.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 11.43,
-      "riskScore": 48,
-      "publishedDate": "2025-07-12T12:02:05.906000+00:00",
-      "lastModifiedDate": "2025-07-15T13:47:11.075000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
@@ -14768,20 +14712,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-1390"]
-    },
-    {
-      "cveId": "CVE-2025-7504",
-      "title": "Friends 3.5.1 - Authenticated (Subscriber+) PHP Object Injection",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.08,
-      "epssPercentile": 25.606,
-      "riskScore": 48,
-      "publishedDate": "2025-07-12T08:23:42.188000+00:00",
-      "lastModifiedDate": "2025-07-14T20:12:14.186000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["akirk"],
-      "tags": ["CWE-502"]
     },
     {
       "cveId": "CVE-2025-7508",
@@ -14865,20 +14795,6 @@
       "lastModifiedDate": "2025-07-19T14:32:05.487000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-7469",
-      "title": "Campcodes Sales and Inventory System product_add.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.716,
-      "riskScore": 48,
-      "publishedDate": "2025-07-12T10:32:06.422000+00:00",
-      "lastModifiedDate": "2025-07-14T20:11:40.469000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -15073,20 +14989,6 @@
       "riskScore": 48,
       "publishedDate": "2025-07-13T20:32:05.671000+00:00",
       "lastModifiedDate": "2025-07-15T19:53:28.629000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-7467",
-      "title": "code-projects Modern Bag product-detail.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.716,
-      "riskScore": 48,
-      "publishedDate": "2025-07-12T08:32:06.032000+00:00",
-      "lastModifiedDate": "2025-07-14T20:12:07.809000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
@@ -17608,7 +17510,7 @@
       "publishedDate": "2025-06-13T09:23:49.631000+00:00",
       "lastModifiedDate": "2025-06-13T12:22:47.798000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["telex", "rts"],
+      "vendors": ["rts", "telex"],
       "tags": []
     },
     {
@@ -19232,7 +19134,7 @@
       "publishedDate": "2025-06-25T07:25:00.402000+00:00",
       "lastModifiedDate": "2025-06-25T14:13:40.189000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["brother industries, ltd", "fujifilm business innovation", "ricoh"],
+      "vendors": ["fujifilm business innovation", "ricoh", "brother industries, ltd"],
       "tags": ["CWE-1286"]
     },
     {
@@ -21444,7 +21346,7 @@
       "publishedDate": "2025-06-24T08:05:15.547000+00:00",
       "lastModifiedDate": "2025-06-24T14:18:57.831000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-306"]
     },
     {
@@ -25802,6 +25704,20 @@
       "tags": ["CWE-288"]
     },
     {
+      "cveId": "CVE-2025-5071",
+      "title": "AI Engine 2.8.0 - 2.8.3 - Authenticated (Subscriber+) Insufficient Authorization to Privilege Escalation via MCP",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.04,
+      "epssPercentile": 11.756,
+      "riskScore": 46,
+      "publishedDate": "2025-06-19T09:23:47.875000+00:00",
+      "lastModifiedDate": "2025-06-20T13:11:34.092000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["tigroumeow"],
+      "tags": ["CWE-863"]
+    },
+    {
       "cveId": "CVE-2025-5961",
       "title": "Migration, Backup, Staging – WPvivid Backup & Migration <= 0.9.116 - Authenticated (Administrator+) Arbitrary File Upload",
       "severity": "HIGH",
@@ -26488,6 +26404,20 @@
       "tags": ["CWE-89"]
     },
     {
+      "cveId": "CVE-2025-7471",
+      "title": "code-projects Modern Bag login-back.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.716,
+      "riskScore": 46,
+      "publishedDate": "2025-07-12T11:32:05.843000+00:00",
+      "lastModifiedDate": "2025-07-15T13:48:12.962000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-7136",
       "title": "Campcodes Online Recruitment Management System view_vacancy.php sql injection",
       "severity": "HIGH",
@@ -26726,6 +26656,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-7470",
+      "title": "Campcodes Sales and Inventory System product_add.php unrestricted upload",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 11.381,
+      "riskScore": 46,
+      "publishedDate": "2025-07-12T11:02:05.895000+00:00",
+      "lastModifiedDate": "2025-07-14T20:11:34.016000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["campcodes"],
+      "tags": ["CWE-434", "CWE-284"]
+    },
+    {
       "cveId": "CVE-2025-7173",
       "title": "code-projects Library System add-student.php sql injection",
       "severity": "HIGH",
@@ -26849,6 +26793,20 @@
       "lastModifiedDate": "2025-07-09T14:15:07.682000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["campcodes"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-7474",
+      "title": "code-projects Job Diary search.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 11.43,
+      "riskScore": 46,
+      "publishedDate": "2025-07-12T12:02:05.906000+00:00",
+      "lastModifiedDate": "2025-07-15T13:47:11.075000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -26978,6 +26936,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-7504",
+      "title": "Friends 3.5.1 - Authenticated (Subscriber+) PHP Object Injection",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.08,
+      "epssPercentile": 25.606,
+      "riskScore": 46,
+      "publishedDate": "2025-07-12T08:23:42.188000+00:00",
+      "lastModifiedDate": "2025-07-14T20:12:14.186000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["akirk"],
+      "tags": ["CWE-502"]
+    },
+    {
       "cveId": "CVE-2025-7170",
       "title": "code-projects Crime Reporting System registration.php sql injection",
       "severity": "HIGH",
@@ -27059,6 +27031,20 @@
       "lastModifiedDate": "2025-07-10T17:48:25.965000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-7469",
+      "title": "Campcodes Sales and Inventory System product_add.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.716,
+      "riskScore": 46,
+      "publishedDate": "2025-07-12T10:32:06.422000+00:00",
+      "lastModifiedDate": "2025-07-14T20:11:40.469000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -27197,6 +27183,20 @@
       "riskScore": 46,
       "publishedDate": "2025-07-08T12:32:05.719000+00:00",
       "lastModifiedDate": "2025-07-08T15:28:48.857000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-7467",
+      "title": "code-projects Modern Bag product-detail.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.716,
+      "riskScore": 46,
+      "publishedDate": "2025-07-12T08:32:06.032000+00:00",
+      "lastModifiedDate": "2025-07-14T20:12:07.809000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
@@ -29566,20 +29566,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-6019",
-      "title": "Libblockdev: lpe from allow_active to root in libblockdev via udisks",
-      "severity": "HIGH",
-      "cvssScore": 7.0,
-      "epssScore": 0.02,
-      "epssPercentile": 2.071,
-      "riskScore": 46,
-      "publishedDate": "2025-06-19T11:55:57.380000+00:00",
-      "lastModifiedDate": "2025-07-10T14:01:06.677000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["red hat"],
-      "tags": ["CWE-250"]
     },
     {
       "cveId": "CVE-2025-6312",
@@ -39154,7 +39140,7 @@
       "publishedDate": "2025-06-24T08:10:29.717000+00:00",
       "lastModifiedDate": "2025-06-24T13:56:13.121000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-639"]
     },
     {
@@ -39224,7 +39210,7 @@
       "publishedDate": "2025-06-24T08:14:31.864000+00:00",
       "lastModifiedDate": "2025-06-24T13:55:34.477000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-204"]
     },
     {
@@ -43690,7 +43676,7 @@
       "publishedDate": "2024-10-15T10:28:37.223000+00:00",
       "lastModifiedDate": "2024-10-16T17:39:58.106000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-798"]
     },
     {
@@ -43746,7 +43732,7 @@
       "publishedDate": "2024-10-15T10:28:16.384000+00:00",
       "lastModifiedDate": "2024-10-16T17:44:15.429000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-306"]
     },
     {
@@ -54194,6 +54180,20 @@
       "tags": ["CWE-22"]
     },
     {
+      "cveId": "CVE-2025-6019",
+      "title": "Libblockdev: lpe from allow_active to root in libblockdev via udisks",
+      "severity": "HIGH",
+      "cvssScore": 7.0,
+      "epssScore": 0.02,
+      "epssPercentile": 2.071,
+      "riskScore": 44,
+      "publishedDate": "2025-06-19T11:55:57.380000+00:00",
+      "lastModifiedDate": "2025-07-10T14:01:06.677000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["red hat"],
+      "tags": ["CWE-250"]
+    },
+    {
       "cveId": "CVE-2025-6123",
       "title": "code-projects Restaurant Order System payment.php sql injection",
       "severity": "HIGH",
@@ -57032,7 +57032,7 @@
       "publishedDate": "2024-07-09T05:34:17.609000+00:00",
       "lastModifiedDate": "2024-08-01T21:11:12.734000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["webnus/", "webnus"],
+      "vendors": ["webnus", "webnus/"],
       "tags": []
     },
     {
@@ -57508,7 +57508,7 @@
       "publishedDate": "2024-03-18T16:03:44.987000+00:00",
       "lastModifiedDate": "2024-08-28T15:04:28.061000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric ", "schneider electric"],
+      "vendors": ["schneider electric", "schneider electric "],
       "tags": ["CWE-307"]
     },
     {
@@ -58250,7 +58250,7 @@
       "publishedDate": "2025-05-09T15:18:34.124000+00:00",
       "lastModifiedDate": "2025-05-09T19:09:17.086000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["avg", "avast", "norton"],
+      "vendors": ["avg", "norton", "avast"],
       "tags": ["CWE-367"]
     },
     {
@@ -63108,7 +63108,7 @@
       "publishedDate": "2024-10-22T21:13:37.183000+00:00",
       "lastModifiedDate": "2024-10-23T14:43:52.114000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["kieback & peter", "kieback&peter"],
+      "vendors": ["kieback&peter", "kieback & peter"],
       "tags": ["CWE-22"]
     },
     {
@@ -75302,7 +75302,7 @@
       "publishedDate": "2024-10-15T10:27:52.208000+00:00",
       "lastModifiedDate": "2024-10-16T17:47:04.737000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-261"]
     },
     {
@@ -78634,7 +78634,7 @@
       "publishedDate": "2025-01-08T11:09:24.799000+00:00",
       "lastModifiedDate": "2025-01-08T13:54:46.719000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["wpswings", "wp swings"],
+      "vendors": ["wp swings", "wpswings"],
       "tags": ["CWE-862"]
     },
     {
@@ -80440,7 +80440,7 @@
       "publishedDate": "2024-08-07T11:00:06.508000+00:00",
       "lastModifiedDate": "2024-08-07T13:17:59.476000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["webnus/", "webnus"],
+      "vendors": ["webnus", "webnus/"],
       "tags": ["CWE-918"]
     },
     {
@@ -80846,7 +80846,7 @@
       "publishedDate": "2024-02-05T14:33:06.481000+00:00",
       "lastModifiedDate": "2025-05-09T16:32:50.015000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["encode", "kludex", "tiangolo"],
+      "vendors": ["kludex", "encode", "tiangolo"],
       "tags": ["CWE-400"]
     },
     {
@@ -112122,7 +112122,7 @@
       "publishedDate": "2024-10-15T10:27:06.004000+00:00",
       "lastModifiedDate": "2024-10-16T17:49:30.446000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-20"]
     },
     {
@@ -126472,7 +126472,7 @@
       "publishedDate": "2024-03-18T16:04:57.375000+00:00",
       "lastModifiedDate": "2024-08-01T19:03:37.851000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric ", "schneider electric"],
+      "vendors": ["schneider electric", "schneider electric "],
       "tags": ["CWE-79"]
     },
     {
@@ -143188,7 +143188,7 @@
       "publishedDate": "2024-07-03T12:26:44.599000+00:00",
       "lastModifiedDate": "2025-02-13T17:54:25.437000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["red lion europe", "helmholz"],
+      "vendors": ["helmholz", "red lion europe"],
       "tags": ["CWE-78"]
     },
     {
@@ -145134,7 +145134,7 @@
       "publishedDate": "2024-10-15T10:28:58.559000+00:00",
       "lastModifiedDate": "2025-01-24T06:32:08.237000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-306"]
     },
     {
@@ -145148,7 +145148,7 @@
       "publishedDate": "2024-10-15T10:27:32.688000+00:00",
       "lastModifiedDate": "2024-10-16T17:36:22.123000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-1391"]
     },
     {
@@ -172182,7 +172182,7 @@
       "publishedDate": "2024-03-18T16:05:47.722000+00:00",
       "lastModifiedDate": "2024-08-15T16:23:48.504000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric ", "schneider electric"],
+      "vendors": ["schneider electric", "schneider electric "],
       "tags": ["CWE-552"]
     },
     {
@@ -182584,7 +182584,7 @@
       "publishedDate": "2024-07-04T08:53:41.217000+00:00",
       "lastModifiedDate": "2024-08-19T15:25:49.496000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-427"]
     },
     {
