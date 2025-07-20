@@ -1,5 +1,5 @@
 {
-  "generated": "2025-07-19T20:07:37.040247",
+  "generated": "2025-07-20T00:27:42.367735",
   "count": 15357,
   "vulnerabilities": [
     {
@@ -909,7 +909,7 @@
       "publishedDate": "2025-06-25T07:17:32.423000+00:00",
       "lastModifiedDate": "2025-06-27T13:51:00.720000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["konica minolta, inc.", "toshiba tec", "brother industries, ltd"],
+      "vendors": ["toshiba tec", "brother industries, ltd", "konica minolta, inc."],
       "tags": ["CWE-1391"]
     },
     {
@@ -3303,7 +3303,7 @@
       "publishedDate": "2024-10-18T17:32:30.648000+00:00",
       "lastModifiedDate": "2024-10-18T18:56:31.697000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["scott paterson", "scottpaterson"],
+      "vendors": ["scottpaterson", "scott paterson"],
       "tags": ["CWE-94"]
     },
     {
@@ -5295,20 +5295,6 @@
       "tags": ["CWE-121", "CWE-119"]
     },
     {
-      "cveId": "CVE-2025-7460",
-      "title": "TOTOLINK T6 HTTP POST Request cstecgi.cgi setWiFiAclRules buffer overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.17,
-      "epssPercentile": 38.418,
-      "riskScore": 52,
-      "publishedDate": "2025-07-11T21:32:07.852000+00:00",
-      "lastModifiedDate": "2025-07-14T20:13:07.116000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["totolink"],
-      "tags": ["CWE-120", "CWE-119"]
-    },
-    {
       "cveId": "CVE-2025-7465",
       "title": "Tenda FH1201 HTTP POST Request fromRouteStatic buffer overflow",
       "severity": "HIGH",
@@ -5389,7 +5375,7 @@
       "publishedDate": "2025-05-13T03:21:29.625000+00:00",
       "lastModifiedDate": "2025-05-13T13:57:36.925000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["relevanssi", "msaari"],
+      "vendors": ["msaari", "relevanssi"],
       "tags": ["CWE-89"]
     },
     {
@@ -5757,20 +5743,6 @@
       "tags": ["CWE-288"]
     },
     {
-      "cveId": "CVE-2024-45208",
-      "title": "CVE-2024-45208: The Versa Director SD-WAN orchestration platform which makes use of Cisco NCS application service. A...",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 0.52,
-      "epssPercentile": 65.926,
-      "riskScore": 52,
-      "publishedDate": "2025-06-18T23:30:53.998000+00:00",
-      "lastModifiedDate": "2025-06-23T16:04:55.377000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["versa"],
-      "tags": []
-    },
-    {
       "cveId": "CVE-2024-7591",
       "title": "Improper Input Validation vulnerability in Progress LoadMaster allows OS Command Injection",
       "severity": "CRITICAL",
@@ -5907,7 +5879,7 @@
       "publishedDate": "2024-06-25T03:30:37.970000+00:00",
       "lastModifiedDate": "2024-08-01T21:33:05.337000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["themerex", "pedrogusmao02", "warfareplugins", "blazeretail", "stuartobrien"],
+      "vendors": ["warfareplugins", "pedrogusmao02", "themerex", "blazeretail", "stuartobrien"],
       "tags": []
     },
     {
@@ -7815,6 +7787,20 @@
       "tags": ["CWE-121", "CWE-119"]
     },
     {
+      "cveId": "CVE-2025-7460",
+      "title": "TOTOLINK T6 HTTP POST Request cstecgi.cgi setWiFiAclRules buffer overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.17,
+      "epssPercentile": 38.418,
+      "riskScore": 50,
+      "publishedDate": "2025-07-11T21:32:07.852000+00:00",
+      "lastModifiedDate": "2025-07-14T20:13:07.116000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["totolink"],
+      "tags": ["CWE-120", "CWE-119"]
+    },
+    {
       "cveId": "CVE-2025-7084",
       "title": "Belkin F9K1122 webs formWpsStart stack-based overflow",
       "severity": "HIGH",
@@ -8977,20 +8963,6 @@
       "tags": ["CWE-89"]
     },
     {
-      "cveId": "CVE-2025-24288",
-      "title": "CVE-2025-24288: The Versa Director software exposes a number of services by default and allow attackers an easy foot...",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 0.1,
-      "epssPercentile": 28.342,
-      "riskScore": 50,
-      "publishedDate": "2025-06-18T23:30:55.344000+00:00",
-      "lastModifiedDate": "2025-06-23T16:04:43.712000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["versa"],
-      "tags": []
-    },
-    {
       "cveId": "CVE-2025-29814",
       "title": "Microsoft Partner Center Elevation of Privilege Vulnerability",
       "severity": "CRITICAL",
@@ -9369,6 +9341,20 @@
       "tags": ["CWE-416"]
     },
     {
+      "cveId": "CVE-2024-45208",
+      "title": "CVE-2024-45208: The Versa Director SD-WAN orchestration platform which makes use of Cisco NCS application service. A...",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.52,
+      "epssPercentile": 65.926,
+      "riskScore": 50,
+      "publishedDate": "2025-06-18T23:30:53.998000+00:00",
+      "lastModifiedDate": "2025-06-23T16:04:55.377000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["versa"],
+      "tags": []
+    },
+    {
       "cveId": "CVE-2024-13786",
       "title": "Education Center | LMS & Online Courses WordPress Theme <= 3.6.10 - PHP Object Injection",
       "severity": "CRITICAL",
@@ -9562,10 +9548,10 @@
       "lastModifiedDate": "2025-06-25T14:15:31.576000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "konica minolta, inc.",
         "toshiba tec",
         "ricoh",
         "fujifilm business innovation",
+        "konica minolta, inc.",
         "brother industries, ltd"
       ],
       "tags": ["CWE-1286"]
@@ -12368,10 +12354,10 @@
       "lastModifiedDate": "2025-06-25T14:08:48.280000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "ricoh",
-        "konica minolta, inc.",
         "fujifilm business innovation",
-        "brother industries, ltd"
+        "ricoh",
+        "brother industries, ltd",
+        "konica minolta, inc."
       ],
       "tags": ["CWE-121"]
     },
@@ -14826,20 +14812,6 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
-      "cveId": "CVE-2025-7459",
-      "title": "code-projects Mobile Shop EditMobile.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 11.43,
-      "riskScore": 48,
-      "publishedDate": "2025-07-11T21:02:05.895000+00:00",
-      "lastModifiedDate": "2025-07-14T20:13:20.776000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
       "cveId": "CVE-2025-7514",
       "title": "code-projects Modern Bag contact-list.php sql injection",
       "severity": "HIGH",
@@ -14964,20 +14936,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["sophos"],
       "tags": ["CWE-502"]
-    },
-    {
-      "cveId": "CVE-2025-7457",
-      "title": "Campcodes Online Movie Theater Seat Reservation System manage_movie.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 11.43,
-      "riskScore": 48,
-      "publishedDate": "2025-07-11T20:32:06.234000+00:00",
-      "lastModifiedDate": "2025-07-11T20:39:02.946000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes"],
-      "tags": ["CWE-89", "CWE-74"]
     },
     {
       "cveId": "CVE-2025-7478",
@@ -16702,20 +16660,6 @@
       "tags": ["CWE-120", "CWE-119"]
     },
     {
-      "cveId": "CVE-2025-3820",
-      "title": "Tenda W12/i24 httpd cgiSysUplinkCheckSet stack-based overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.06,
-      "epssPercentile": 20.521,
-      "riskScore": 48,
-      "publishedDate": "2025-04-19T20:31:06.957000+00:00",
-      "lastModifiedDate": "2025-04-21T14:41:40.160000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["tenda"],
-      "tags": ["CWE-121", "CWE-119"]
-    },
-    {
       "cveId": "CVE-2025-3844",
       "title": "PeproDev Ultimate Profile Solutions 1.9.1 - 7.5.2 - Authentication Bypass to Account Takeover",
       "severity": "CRITICAL",
@@ -17486,6 +17430,20 @@
       "tags": ["CWE-305"]
     },
     {
+      "cveId": "CVE-2025-24288",
+      "title": "CVE-2025-24288: The Versa Director software exposes a number of services by default and allow attackers an easy foot...",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.1,
+      "epssPercentile": 28.342,
+      "riskScore": 48,
+      "publishedDate": "2025-06-18T23:30:55.344000+00:00",
+      "lastModifiedDate": "2025-06-23T16:04:43.712000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["versa"],
+      "tags": []
+    },
+    {
       "cveId": "CVE-2025-24779",
       "title": "WordPress Yogi theme <= 2.9.0 - PHP Object Injection Vulnerability",
       "severity": "HIGH",
@@ -17524,7 +17482,7 @@
       "publishedDate": "2025-06-13T09:23:49.631000+00:00",
       "lastModifiedDate": "2025-06-13T12:22:47.798000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["telex", "rts"],
+      "vendors": ["rts", "telex"],
       "tags": []
     },
     {
@@ -19148,7 +19106,7 @@
       "publishedDate": "2025-06-25T07:25:00.402000+00:00",
       "lastModifiedDate": "2025-06-25T14:13:40.189000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["ricoh", "fujifilm business innovation", "brother industries, ltd"],
+      "vendors": ["fujifilm business innovation", "ricoh", "brother industries, ltd"],
       "tags": ["CWE-1286"]
     },
     {
@@ -26922,6 +26880,20 @@
       "tags": ["CWE-434"]
     },
     {
+      "cveId": "CVE-2025-7459",
+      "title": "code-projects Mobile Shop EditMobile.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 11.43,
+      "riskScore": 46,
+      "publishedDate": "2025-07-11T21:02:05.895000+00:00",
+      "lastModifiedDate": "2025-07-14T20:13:20.776000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-7183",
       "title": "Campcodes Sales and Inventory System customer_account.php sql injection",
       "severity": "HIGH",
@@ -27003,6 +26975,20 @@
       "lastModifiedDate": "2025-07-08T13:44:30.198000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["campcodes", "phpgurukul"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-7457",
+      "title": "Campcodes Online Movie Theater Seat Reservation System manage_movie.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 11.43,
+      "riskScore": 46,
+      "publishedDate": "2025-07-11T20:32:06.234000+00:00",
+      "lastModifiedDate": "2025-07-11T20:39:02.946000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -27928,6 +27914,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["on semiconductor"],
       "tags": ["CWE-306"]
+    },
+    {
+      "cveId": "CVE-2025-3820",
+      "title": "Tenda W12/i24 httpd cgiSysUplinkCheckSet stack-based overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.06,
+      "epssPercentile": 20.521,
+      "riskScore": 46,
+      "publishedDate": "2025-04-19T20:31:06.957000+00:00",
+      "lastModifiedDate": "2025-04-21T14:41:40.160000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["tenda"],
+      "tags": ["CWE-121", "CWE-119"]
     },
     {
       "cveId": "CVE-2025-3278",
@@ -31582,48 +31582,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["adobe"],
       "tags": ["CWE-79"]
-    },
-    {
-      "cveId": "CVE-2025-23171",
-      "title": "CVE-2025-23171: The Versa Director SD-WAN orchestration platform provides an option to upload various types of files...",
-      "severity": "HIGH",
-      "cvssScore": 7.2,
-      "epssScore": 0.06,
-      "epssPercentile": 17.805,
-      "riskScore": 46,
-      "publishedDate": "2025-06-18T23:30:53.336000+00:00",
-      "lastModifiedDate": "2025-06-23T16:05:01.399000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["versa"],
-      "tags": []
-    },
-    {
-      "cveId": "CVE-2025-23173",
-      "title": "CVE-2025-23173: The Versa Director SD-WAN orchestration platform provides direct web-based access to uCPE virtual ma...",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.1,
-      "epssPercentile": 28.224,
-      "riskScore": 46,
-      "publishedDate": "2025-06-18T23:30:50.570000+00:00",
-      "lastModifiedDate": "2025-06-23T16:05:30.786000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["versa"],
-      "tags": []
-    },
-    {
-      "cveId": "CVE-2025-23172",
-      "title": "CVE-2025-23172: The Versa Director SD-WAN orchestration platform includes a Webhook feature for sending notification...",
-      "severity": "HIGH",
-      "cvssScore": 7.2,
-      "epssScore": 0.29,
-      "epssPercentile": 52.087,
-      "riskScore": 46,
-      "publishedDate": "2025-06-18T23:30:51.224000+00:00",
-      "lastModifiedDate": "2025-06-23T16:05:24.756000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["versa"],
-      "tags": []
     },
     {
       "cveId": "CVE-2025-28915",
@@ -36680,20 +36638,6 @@
       "tags": ["CWE-862"]
     },
     {
-      "cveId": "CVE-2025-5199",
-      "title": "LPE on Multipass for macOS",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.01,
-      "epssPercentile": 0.784,
-      "riskScore": 45,
-      "publishedDate": "2025-07-11T23:21:30.996000+00:00",
-      "lastModifiedDate": "2025-07-14T20:12:58.921000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["canonical"],
-      "tags": ["CWE-276"]
-    },
-    {
       "cveId": "CVE-2025-5012",
       "title": "Workreap <= 3.3.2 - Authenticated (Subscriber+) Arbitrary File Upload via 'workreap_temp_upload_to_media'",
       "severity": "HIGH",
@@ -39084,7 +39028,7 @@
       "publishedDate": "2025-06-24T08:14:31.864000+00:00",
       "lastModifiedDate": "2025-06-24T13:55:34.477000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-204"]
     },
     {
@@ -47596,7 +47540,7 @@
       "publishedDate": "2025-06-05T02:31:05.107000+00:00",
       "lastModifiedDate": "2025-06-05T14:09:25.990000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects", "anirbandutta9"],
+      "vendors": ["anirbandutta9", "code-projects"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -52930,7 +52874,7 @@
       "publishedDate": "2025-05-05T18:31:04.418000+00:00",
       "lastModifiedDate": "2025-05-05T18:48:57.123000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["oretnom23", "sourcecodester"],
+      "vendors": ["sourcecodester", "oretnom23"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -55482,6 +55426,20 @@
       "tags": ["CWE-89"]
     },
     {
+      "cveId": "CVE-2025-23171",
+      "title": "CVE-2025-23171: The Versa Director SD-WAN orchestration platform provides an option to upload various types of files...",
+      "severity": "HIGH",
+      "cvssScore": 7.2,
+      "epssScore": 0.06,
+      "epssPercentile": 17.805,
+      "riskScore": 44,
+      "publishedDate": "2025-06-18T23:30:53.336000+00:00",
+      "lastModifiedDate": "2025-06-23T16:05:01.399000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["versa"],
+      "tags": []
+    },
+    {
       "cveId": "CVE-2025-23922",
       "title": "WordPress iSpring Embedder plugin <= 1.0 - CSRF to Arbitrary File Upload vulnerability",
       "severity": "CRITICAL",
@@ -55538,6 +55496,20 @@
       "tags": ["CWE-23"]
     },
     {
+      "cveId": "CVE-2025-23173",
+      "title": "CVE-2025-23173: The Versa Director SD-WAN orchestration platform provides direct web-based access to uCPE virtual ma...",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.1,
+      "epssPercentile": 28.224,
+      "riskScore": 44,
+      "publishedDate": "2025-06-18T23:30:50.570000+00:00",
+      "lastModifiedDate": "2025-06-23T16:05:30.786000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["versa"],
+      "tags": []
+    },
+    {
       "cveId": "CVE-2025-23365",
       "title": "CVE-2025-23365: A vulnerability has been identified in TIA Administrator (All versions < V3.0.6). The affected appli...",
       "severity": "HIGH",
@@ -55578,6 +55550,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["sap_se"],
       "tags": ["CWE-79"]
+    },
+    {
+      "cveId": "CVE-2025-23172",
+      "title": "CVE-2025-23172: The Versa Director SD-WAN orchestration platform includes a Webhook feature for sending notification...",
+      "severity": "HIGH",
+      "cvssScore": 7.2,
+      "epssScore": 0.29,
+      "epssPercentile": 52.087,
+      "riskScore": 44,
+      "publishedDate": "2025-06-18T23:30:51.224000+00:00",
+      "lastModifiedDate": "2025-06-23T16:05:24.756000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["versa"],
+      "tags": []
     },
     {
       "cveId": "CVE-2025-28898",
@@ -56836,7 +56822,7 @@
       "publishedDate": "2024-07-09T05:34:17.609000+00:00",
       "lastModifiedDate": "2024-08-01T21:11:12.734000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["webnus", "webnus/"],
+      "vendors": ["webnus/", "webnus"],
       "tags": []
     },
     {
@@ -57312,7 +57298,7 @@
       "publishedDate": "2024-03-18T16:03:44.987000+00:00",
       "lastModifiedDate": "2024-08-28T15:04:28.061000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric", "schneider electric "],
+      "vendors": ["schneider electric ", "schneider electric"],
       "tags": ["CWE-307"]
     },
     {
@@ -58054,7 +58040,7 @@
       "publishedDate": "2025-05-09T15:18:34.124000+00:00",
       "lastModifiedDate": "2025-05-09T19:09:17.086000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["avast", "norton", "avg"],
+      "vendors": ["norton", "avg", "avast"],
       "tags": ["CWE-367"]
     },
     {
@@ -64148,6 +64134,20 @@
       "tags": ["CWE-120", "CWE-119"]
     },
     {
+      "cveId": "CVE-2025-5199",
+      "title": "LPE on Multipass for macOS",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.01,
+      "epssPercentile": 0.784,
+      "riskScore": 43,
+      "publishedDate": "2025-07-11T23:21:30.996000+00:00",
+      "lastModifiedDate": "2025-07-14T20:12:58.921000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["canonical"],
+      "tags": ["CWE-276"]
+    },
+    {
       "cveId": "CVE-2025-5110",
       "title": "FreeFloat FTP Server VERBOSE Command buffer overflow",
       "severity": "HIGH",
@@ -69074,20 +69074,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["snstheme"],
       "tags": ["CWE-98"]
-    },
-    {
-      "cveId": "CVE-2025-24337",
-      "title": "CVE-2025-24337: WriteFreely through 0.15.1, when MySQL is used, allows local users to discover credentials by readin...",
-      "severity": "HIGH",
-      "cvssScore": 8.4,
-      "epssScore": 0.03,
-      "epssPercentile": 7.221,
-      "riskScore": 43,
-      "publishedDate": "2025-01-20T00:00:00+00:00",
-      "lastModifiedDate": "2025-01-21T20:25:39.697000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["musing studio"],
-      "tags": ["CWE-281"]
     },
     {
       "cveId": "CVE-2025-24894",
@@ -78438,7 +78424,7 @@
       "publishedDate": "2025-01-08T11:09:24.799000+00:00",
       "lastModifiedDate": "2025-01-08T13:54:46.719000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["wpswings", "wp swings"],
+      "vendors": ["wp swings", "wpswings"],
       "tags": ["CWE-862"]
     },
     {
@@ -80244,7 +80230,7 @@
       "publishedDate": "2024-08-07T11:00:06.508000+00:00",
       "lastModifiedDate": "2024-08-07T13:17:59.476000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["webnus", "webnus/"],
+      "vendors": ["webnus/", "webnus"],
       "tags": ["CWE-918"]
     },
     {
@@ -90340,20 +90326,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["adobe"],
       "tags": ["CWE-79"]
-    },
-    {
-      "cveId": "CVE-2025-24286",
-      "title": "CVE-2025-24286: A vulnerability allowing an authenticated user with the Backup Operator role to modify backup jobs, ...",
-      "severity": "HIGH",
-      "cvssScore": 7.2,
-      "epssScore": 0.05,
-      "epssPercentile": 16.938,
-      "riskScore": 42,
-      "publishedDate": "2025-06-18T23:30:51.882000+00:00",
-      "lastModifiedDate": "2025-06-23T16:05:15.947000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["veeam"],
-      "tags": []
     },
     {
       "cveId": "CVE-2025-24381",
@@ -107394,6 +107366,20 @@
       "tags": []
     },
     {
+      "cveId": "CVE-2025-24337",
+      "title": "CVE-2025-24337: WriteFreely through 0.15.1, when MySQL is used, allows local users to discover credentials by readin...",
+      "severity": "HIGH",
+      "cvssScore": 8.4,
+      "epssScore": 0.03,
+      "epssPercentile": 7.221,
+      "riskScore": 41,
+      "publishedDate": "2025-01-20T00:00:00+00:00",
+      "lastModifiedDate": "2025-01-21T20:25:39.697000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["musing studio"],
+      "tags": ["CWE-281"]
+    },
+    {
       "cveId": "CVE-2025-24928",
       "title": "CVE-2025-24928: libxml2 before 2.12.10 and 2.13.x before 2.13.6 has a stack-based buffer overflow in xmlSnprintfElem...",
       "severity": "HIGH",
@@ -123256,6 +123242,20 @@
       "tags": ["CWE-78"]
     },
     {
+      "cveId": "CVE-2025-24286",
+      "title": "CVE-2025-24286: A vulnerability allowing an authenticated user with the Backup Operator role to modify backup jobs, ...",
+      "severity": "HIGH",
+      "cvssScore": 7.2,
+      "epssScore": 0.05,
+      "epssPercentile": 16.938,
+      "riskScore": 40,
+      "publishedDate": "2025-06-18T23:30:51.882000+00:00",
+      "lastModifiedDate": "2025-06-23T16:05:15.947000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["veeam"],
+      "tags": []
+    },
+    {
       "cveId": "CVE-2025-24916",
       "title": "Improper Access Control leads to Local Priviledge Escalation",
       "severity": "HIGH",
@@ -126276,7 +126276,7 @@
       "publishedDate": "2024-03-18T16:04:57.375000+00:00",
       "lastModifiedDate": "2024-08-01T19:03:37.851000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric", "schneider electric "],
+      "vendors": ["schneider electric ", "schneider electric"],
       "tags": ["CWE-79"]
     },
     {
@@ -128530,7 +128530,7 @@
       "publishedDate": "2024-10-22T22:19:20.646000+00:00",
       "lastModifiedDate": "2024-11-06T15:50:04.628000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-276"]
     },
     {
@@ -131218,7 +131218,7 @@
       "publishedDate": "2024-11-28T22:16:31.396000+00:00",
       "lastModifiedDate": "2024-12-06T05:18:03.652000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-427"]
     },
     {
@@ -133920,7 +133920,7 @@
       "publishedDate": "2024-11-28T22:20:28.303000+00:00",
       "lastModifiedDate": "2024-12-06T05:23:50.441000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-427"]
     },
     {
@@ -134662,7 +134662,7 @@
       "publishedDate": "2024-11-04T03:31:04.265000+00:00",
       "lastModifiedDate": "2024-11-04T17:01:46.227000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects", "anirbandutta9"],
+      "vendors": ["anirbandutta9", "code-projects"],
       "tags": ["CWE-89"]
     },
     {
@@ -171986,7 +171986,7 @@
       "publishedDate": "2024-03-18T16:05:47.722000+00:00",
       "lastModifiedDate": "2024-08-15T16:23:48.504000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric", "schneider electric "],
+      "vendors": ["schneider electric ", "schneider electric"],
       "tags": ["CWE-552"]
     },
     {
@@ -177544,7 +177544,7 @@
       "publishedDate": "2024-11-28T22:18:28.358000+00:00",
       "lastModifiedDate": "2024-12-06T05:21:38.917000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-561"]
     },
     {
@@ -182388,7 +182388,7 @@
       "publishedDate": "2024-07-04T08:53:41.217000+00:00",
       "lastModifiedDate": "2024-08-19T15:25:49.496000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-427"]
     },
     {
@@ -188548,7 +188548,7 @@
       "publishedDate": "2024-07-08T15:25:38.672000+00:00",
       "lastModifiedDate": "2024-08-01T22:27:36.345000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["levelone", "realtek"],
+      "vendors": ["realtek", "levelone"],
       "tags": ["CWE-122"]
     },
     {
