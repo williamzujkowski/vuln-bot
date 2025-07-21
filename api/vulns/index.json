@@ -1,5 +1,5 @@
 {
-  "generated": "2025-07-20T20:07:40.312139",
+  "generated": "2025-07-21T00:27:04.230822",
   "count": 15372,
   "vulnerabilities": [
     {
@@ -5099,20 +5099,6 @@
       "tags": ["CWE-121", "CWE-119"]
     },
     {
-      "cveId": "CVE-2025-7506",
-      "title": "Tenda FH451 HTTP POST Request Natlimit fromNatlimit stack-based overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.08,
-      "epssPercentile": 25.251,
-      "riskScore": 52,
-      "publishedDate": "2025-07-12T23:02:09.735000+00:00",
-      "lastModifiedDate": "2025-07-15T13:15:13.320000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["tenda"],
-      "tags": ["CWE-121", "CWE-119"]
-    },
-    {
       "cveId": "CVE-2025-7451",
       "title": "Hgiga｜iSherlock - OS Command Injection",
       "severity": "CRITICAL",
@@ -5262,20 +5248,6 @@
       "riskScore": 52,
       "publishedDate": "2025-07-19T19:44:07.248000+00:00",
       "lastModifiedDate": "2025-07-19T19:44:07.248000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["tenda"],
-      "tags": ["CWE-121", "CWE-119"]
-    },
-    {
-      "cveId": "CVE-2025-7505",
-      "title": "Tenda FH451 HTTP POST Request L7Prot frmL7ProtForm stack-based overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.08,
-      "epssPercentile": 25.251,
-      "riskScore": 52,
-      "publishedDate": "2025-07-12T22:32:07.315000+00:00",
-      "lastModifiedDate": "2025-07-15T13:16:09.970000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["tenda"],
       "tags": ["CWE-121", "CWE-119"]
@@ -5865,7 +5837,7 @@
       "publishedDate": "2024-06-25T03:30:37.970000+00:00",
       "lastModifiedDate": "2024-08-01T21:33:05.337000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["blazeretail", "pedrogusmao02", "stuartobrien", "warfareplugins", "themerex"],
+      "vendors": ["blazeretail", "stuartobrien", "warfareplugins", "pedrogusmao02", "themerex"],
       "tags": []
     },
     {
@@ -7661,6 +7633,20 @@
       "tags": ["CWE-121", "CWE-119"]
     },
     {
+      "cveId": "CVE-2025-7506",
+      "title": "Tenda FH451 HTTP POST Request Natlimit fromNatlimit stack-based overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.08,
+      "epssPercentile": 25.251,
+      "riskScore": 50,
+      "publishedDate": "2025-07-12T23:02:09.735000+00:00",
+      "lastModifiedDate": "2025-07-15T13:15:13.320000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["tenda"],
+      "tags": ["CWE-121", "CWE-119"]
+    },
+    {
       "cveId": "CVE-2025-7091",
       "title": "Belkin F9K1122 webs formWlanMP stack-based overflow",
       "severity": "HIGH",
@@ -7798,6 +7784,20 @@
       "lastModifiedDate": "2025-07-08T20:49:58.352000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["d-link"],
+      "tags": ["CWE-121", "CWE-119"]
+    },
+    {
+      "cveId": "CVE-2025-7505",
+      "title": "Tenda FH451 HTTP POST Request L7Prot frmL7ProtForm stack-based overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.08,
+      "epssPercentile": 25.251,
+      "riskScore": 50,
+      "publishedDate": "2025-07-12T22:32:07.315000+00:00",
+      "lastModifiedDate": "2025-07-15T13:16:09.970000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["tenda"],
       "tags": ["CWE-121", "CWE-119"]
     },
     {
@@ -8725,20 +8725,6 @@
       "tags": ["CWE-121", "CWE-119"]
     },
     {
-      "cveId": "CVE-2025-6291",
-      "title": "D-Link DIR-825 HTTP POST Request do_file stack-based overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.07,
-      "epssPercentile": 20.736,
-      "riskScore": 50,
-      "publishedDate": "2025-06-20T00:00:22.878000+00:00",
-      "lastModifiedDate": "2025-06-23T19:29:11.039000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["d-link"],
-      "tags": ["CWE-121", "CWE-119"]
-    },
-    {
       "cveId": "CVE-2025-6688",
       "title": "Simple Payment 1.3.6 - 2.3.8 - Authentication Bypass to Admin",
       "severity": "CRITICAL",
@@ -9618,10 +9604,10 @@
       "lastModifiedDate": "2025-06-25T14:15:31.576000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "fujifilm business innovation",
-        "konica minolta, inc.",
         "brother industries, ltd",
+        "fujifilm business innovation",
         "ricoh",
+        "konica minolta, inc.",
         "toshiba tec"
       ],
       "tags": ["CWE-1286"]
@@ -12396,10 +12382,10 @@
       "lastModifiedDate": "2025-06-25T14:08:48.280000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "ricoh",
         "konica minolta, inc.",
+        "fujifilm business innovation",
         "brother industries, ltd",
-        "fujifilm business innovation"
+        "ricoh"
       ],
       "tags": ["CWE-121"]
     },
@@ -14630,20 +14616,6 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
-      "cveId": "CVE-2025-7509",
-      "title": "code-projects Modern Bag slide.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 11.416,
-      "riskScore": 48,
-      "publishedDate": "2025-07-13T00:02:05.664000+00:00",
-      "lastModifiedDate": "2025-07-14T16:09:12.357000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
       "cveId": "CVE-2025-7539",
       "title": "code-projects Online Appointment Booking System getdoctordaybooking.php sql injection",
       "severity": "HIGH",
@@ -14684,20 +14656,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-1390"]
-    },
-    {
-      "cveId": "CVE-2025-7508",
-      "title": "code-projects Modern Bag product-update.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 11.416,
-      "riskScore": 48,
-      "publishedDate": "2025-07-12T23:32:05.694000+00:00",
-      "lastModifiedDate": "2025-07-14T16:23:16.775000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
     },
     {
       "cveId": "CVE-2025-7604",
@@ -17220,6 +17178,20 @@
       "tags": ["CWE-22"]
     },
     {
+      "cveId": "CVE-2025-6291",
+      "title": "D-Link DIR-825 HTTP POST Request do_file stack-based overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.07,
+      "epssPercentile": 20.736,
+      "riskScore": 48,
+      "publishedDate": "2025-06-20T00:00:22.878000+00:00",
+      "lastModifiedDate": "2025-06-23T19:29:11.039000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["d-link"],
+      "tags": ["CWE-121", "CWE-119"]
+    },
+    {
       "cveId": "CVE-2025-6163",
       "title": "TOTOLINK A3002RU HTTP POST Request formMultiAP buffer overflow",
       "severity": "HIGH",
@@ -17426,7 +17398,7 @@
       "publishedDate": "2025-06-13T09:23:49.631000+00:00",
       "lastModifiedDate": "2025-06-13T12:22:47.798000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["rts", "telex"],
+      "vendors": ["telex", "rts"],
       "tags": []
     },
     {
@@ -19050,7 +19022,7 @@
       "publishedDate": "2025-06-25T07:25:00.402000+00:00",
       "lastModifiedDate": "2025-06-25T14:13:40.189000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["ricoh", "brother industries, ltd", "fujifilm business innovation"],
+      "vendors": ["fujifilm business innovation", "brother industries, ltd", "ricoh"],
       "tags": ["CWE-1286"]
     },
     {
@@ -26582,7 +26554,7 @@
       "publishedDate": "2025-07-08T05:32:05.678000+00:00",
       "lastModifiedDate": "2025-07-08T13:45:36.200000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -26796,6 +26768,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-7509",
+      "title": "code-projects Modern Bag slide.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 11.416,
+      "riskScore": 46,
+      "publishedDate": "2025-07-13T00:02:05.664000+00:00",
+      "lastModifiedDate": "2025-07-14T16:09:12.357000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-7436",
       "title": "Campcodes Online Recruitment Management System ajax.php sql injection",
       "severity": "HIGH",
@@ -26878,6 +26864,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["akirk"],
       "tags": ["CWE-502"]
+    },
+    {
+      "cveId": "CVE-2025-7508",
+      "title": "code-projects Modern Bag product-update.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 11.416,
+      "riskScore": 46,
+      "publishedDate": "2025-07-12T23:32:05.694000+00:00",
+      "lastModifiedDate": "2025-07-14T16:23:16.775000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
     },
     {
       "cveId": "CVE-2025-7170",
@@ -27086,7 +27086,7 @@
       "publishedDate": "2025-07-08T06:02:05.515000+00:00",
       "lastModifiedDate": "2025-07-08T13:44:30.198000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -38720,7 +38720,7 @@
       "publishedDate": "2025-06-13T21:03:18.087000+00:00",
       "lastModifiedDate": "2025-06-17T15:18:55.236000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["broadcom", "dell"],
+      "vendors": ["dell", "broadcom"],
       "tags": ["CWE-787"]
     },
     {
@@ -38734,7 +38734,7 @@
       "publishedDate": "2025-06-13T21:26:58.869000+00:00",
       "lastModifiedDate": "2025-06-17T18:13:30.525000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["broadcom", "dell"],
+      "vendors": ["dell", "broadcom"],
       "tags": ["CWE-763"]
     },
     {
@@ -40582,7 +40582,7 @@
       "publishedDate": "2025-06-13T20:51:33.392000+00:00",
       "lastModifiedDate": "2025-06-17T03:55:12.235000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["broadcom", "dell"],
+      "vendors": ["dell", "broadcom"],
       "tags": ["CWE-121"]
     },
     {
@@ -41886,20 +41886,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["adobe"],
       "tags": ["CWE-20"]
-    },
-    {
-      "cveId": "CVE-2025-43971",
-      "title": "CVE-2025-43971: An issue was discovered in GoBGP before 3.35.0. pkg/packet/bgp/bgp.go allows attackers to cause a pa...",
-      "severity": "HIGH",
-      "cvssScore": 8.6,
-      "epssScore": 0.02,
-      "epssPercentile": 3.221,
-      "riskScore": 45,
-      "publishedDate": "2025-04-21T00:00:00+00:00",
-      "lastModifiedDate": "2025-04-21T01:55:21.073000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["gobgp"],
-      "tags": ["CWE-193"]
     },
     {
       "cveId": "CVE-2025-43559",
@@ -44280,20 +44266,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["the r project"],
       "tags": ["CWE-502"]
-    },
-    {
-      "cveId": "CVE-2024-58258",
-      "title": "CVE-2024-58258: SugarCRM before 13.0.4 and 14.x before 14.0.1 allows SSRF in the API module because a limited type o...",
-      "severity": "HIGH",
-      "cvssScore": 7.2,
-      "epssScore": 1.29,
-      "epssPercentile": 78.789,
-      "riskScore": 45,
-      "publishedDate": "2025-07-13T00:00:00+00:00",
-      "lastModifiedDate": "2025-07-14T16:09:50.289000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["sugarcrm"],
-      "tags": ["CWE-94"]
     },
     {
       "cveId": "CVE-2024-11028",
@@ -47694,7 +47666,7 @@
       "publishedDate": "2025-06-05T02:31:05.107000+00:00",
       "lastModifiedDate": "2025-06-05T14:09:25.990000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["anirbandutta9", "code-projects"],
+      "vendors": ["code-projects", "anirbandutta9"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -47834,7 +47806,7 @@
       "publishedDate": "2025-05-30T18:00:06.477000+00:00",
       "lastModifiedDate": "2025-05-30T18:15:18.480000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -52314,7 +52286,7 @@
       "publishedDate": "2025-05-03T11:00:09.135000+00:00",
       "lastModifiedDate": "2025-05-30T09:10:12.356000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -54386,7 +54358,7 @@
       "publishedDate": "2025-06-13T21:48:29.351000+00:00",
       "lastModifiedDate": "2025-06-17T15:18:22.706000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["broadcom", "dell"],
+      "vendors": ["dell", "broadcom"],
       "tags": ["CWE-502"]
     },
     {
@@ -54526,7 +54498,7 @@
       "publishedDate": "2025-06-13T20:42:18.769000+00:00",
       "lastModifiedDate": "2025-06-16T15:21:53.325000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["broadcom", "dell"],
+      "vendors": ["dell", "broadcom"],
       "tags": ["CWE-125"]
     },
     {
@@ -56962,7 +56934,7 @@
       "publishedDate": "2024-07-09T05:34:17.609000+00:00",
       "lastModifiedDate": "2024-08-01T21:11:12.734000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["webnus/", "webnus"],
+      "vendors": ["webnus", "webnus/"],
       "tags": []
     },
     {
@@ -58180,7 +58152,7 @@
       "publishedDate": "2025-05-09T15:18:34.124000+00:00",
       "lastModifiedDate": "2025-05-09T19:09:17.086000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["norton", "avg", "avast"],
+      "vendors": ["avast", "norton", "avg"],
       "tags": ["CWE-367"]
     },
     {
@@ -63024,7 +62996,7 @@
       "publishedDate": "2024-10-22T21:13:37.183000+00:00",
       "lastModifiedDate": "2024-10-23T14:43:52.114000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["kieback & peter", "kieback&peter"],
+      "vendors": ["kieback&peter", "kieback & peter"],
       "tags": ["CWE-22"]
     },
     {
@@ -70000,6 +69972,20 @@
       "tags": ["CWE-269"]
     },
     {
+      "cveId": "CVE-2025-43971",
+      "title": "CVE-2025-43971: An issue was discovered in GoBGP before 3.35.0. pkg/packet/bgp/bgp.go allows attackers to cause a pa...",
+      "severity": "HIGH",
+      "cvssScore": 8.6,
+      "epssScore": 0.02,
+      "epssPercentile": 3.221,
+      "riskScore": 43,
+      "publishedDate": "2025-04-21T00:00:00+00:00",
+      "lastModifiedDate": "2025-04-21T01:55:21.073000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["gobgp"],
+      "tags": ["CWE-193"]
+    },
+    {
       "cveId": "CVE-2025-43565",
       "title": "ColdFusion | Incorrect Authorization (CWE-863)",
       "severity": "HIGH",
@@ -70054,20 +70040,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["remix-run"],
       "tags": ["CWE-755"]
-    },
-    {
-      "cveId": "CVE-2025-43922",
-      "title": "CVE-2025-43922: The FileWave Windows client before 16.0.0, in some non-default configurations, allows an unprivilege...",
-      "severity": "HIGH",
-      "cvssScore": 8.1,
-      "epssScore": 0.02,
-      "epssPercentile": 3.131,
-      "riskScore": 43,
-      "publishedDate": "2025-04-21T00:00:00+00:00",
-      "lastModifiedDate": "2025-04-21T16:16:33.259000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["filewave"],
-      "tags": ["CWE-863"]
     },
     {
       "cveId": "CVE-2025-43586",
@@ -78456,6 +78428,20 @@
       "tags": ["CWE-434"]
     },
     {
+      "cveId": "CVE-2024-58258",
+      "title": "CVE-2024-58258: SugarCRM before 13.0.4 and 14.x before 14.0.1 allows SSRF in the API module because a limited type o...",
+      "severity": "HIGH",
+      "cvssScore": 7.2,
+      "epssScore": 1.29,
+      "epssPercentile": 78.789,
+      "riskScore": 43,
+      "publishedDate": "2025-07-13T00:00:00+00:00",
+      "lastModifiedDate": "2025-07-14T16:09:50.289000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["sugarcrm"],
+      "tags": ["CWE-94"]
+    },
+    {
       "cveId": "CVE-2024-11641",
       "title": "VikBooking Hotel Booking Engine & PMS <= 1.7.2 - Cross-Site Request Forgery to Authenticated (Subscriber+) Arbitrary File Upload",
       "severity": "HIGH",
@@ -80132,7 +80118,7 @@
       "publishedDate": "2024-05-14T12:58:31.261000+00:00",
       "lastModifiedDate": "2025-03-14T14:56:10.154000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["n/a", "na"],
+      "vendors": ["na", "n/a"],
       "tags": []
     },
     {
@@ -80328,7 +80314,7 @@
       "publishedDate": "2024-08-07T11:00:06.508000+00:00",
       "lastModifiedDate": "2024-08-07T13:17:59.476000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["webnus/", "webnus"],
+      "vendors": ["webnus", "webnus/"],
       "tags": ["CWE-918"]
     },
     {
@@ -95686,7 +95672,7 @@
       "publishedDate": "2024-07-02T13:47:36.399000+00:00",
       "lastModifiedDate": "2024-08-02T04:12:25.618000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["yt-dlp", "ytdl-org"],
+      "vendors": ["ytdl-org", "yt-dlp"],
       "tags": ["CWE-669"]
     },
     {
@@ -108806,6 +108792,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["jetbrains"],
       "tags": []
+    },
+    {
+      "cveId": "CVE-2025-43922",
+      "title": "CVE-2025-43922: The FileWave Windows client before 16.0.0, in some non-default configurations, allows an unprivilege...",
+      "severity": "HIGH",
+      "cvssScore": 8.1,
+      "epssScore": 0.02,
+      "epssPercentile": 3.131,
+      "riskScore": 41,
+      "publishedDate": "2025-04-21T00:00:00+00:00",
+      "lastModifiedDate": "2025-04-21T16:16:33.259000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["filewave"],
+      "tags": ["CWE-863"]
     },
     {
       "cveId": "CVE-2025-43715",
@@ -128726,7 +128726,7 @@
       "publishedDate": "2024-10-22T22:19:20.646000+00:00",
       "lastModifiedDate": "2024-11-06T15:50:04.628000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-276"]
     },
     {
@@ -131414,7 +131414,7 @@
       "publishedDate": "2024-11-28T22:16:31.396000+00:00",
       "lastModifiedDate": "2024-12-06T05:18:03.652000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-427"]
     },
     {
@@ -134116,7 +134116,7 @@
       "publishedDate": "2024-11-28T22:20:28.303000+00:00",
       "lastModifiedDate": "2024-12-06T05:23:50.441000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-427"]
     },
     {
@@ -134858,7 +134858,7 @@
       "publishedDate": "2024-11-04T03:31:04.265000+00:00",
       "lastModifiedDate": "2024-11-04T17:01:46.227000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["anirbandutta9", "code-projects"],
+      "vendors": ["code-projects", "anirbandutta9"],
       "tags": ["CWE-89"]
     },
     {
@@ -143202,7 +143202,7 @@
       "publishedDate": "2024-07-03T12:26:44.599000+00:00",
       "lastModifiedDate": "2025-02-13T17:54:25.437000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["red lion europe", "helmholz"],
+      "vendors": ["helmholz", "red lion europe"],
       "tags": ["CWE-78"]
     },
     {
@@ -177740,7 +177740,7 @@
       "publishedDate": "2024-11-28T22:18:28.358000+00:00",
       "lastModifiedDate": "2024-12-06T05:21:38.917000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-561"]
     },
     {
@@ -182584,7 +182584,7 @@
       "publishedDate": "2024-07-04T08:53:41.217000+00:00",
       "lastModifiedDate": "2024-08-19T15:25:49.496000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-427"]
     },
     {
