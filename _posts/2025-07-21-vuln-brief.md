@@ -1,6 +1,6 @@
 ---
 title: Morning Vulnerability Briefing - 2025-07-21
-date: 2025-07-21T12:11:59.545474
+date: 2025-07-21T16:08:20.538223
 layout: layouts/post.njk
 tags: [vulnerability, briefing, security]
 vulnerabilityCount: 15391
@@ -16,8 +16,8 @@ Today's briefing covers **15391 vulnerabilities** from 0 sources.
 
 - 🔴 **Critical Risk**: 0 vulnerabilities
 - 🟠 **High Risk**: 0 vulnerabilities
-- 🟡 **Medium Risk**: 9901 vulnerabilities
-- 🟢 **Low Risk**: 5490 vulnerabilities
+- 🟡 **Medium Risk**: 9899 vulnerabilities
+- 🟢 **Low Risk**: 5492 vulnerabilities
 
 ## Top Vulnerabilities
 
@@ -59,7 +59,7 @@ Today's briefing covers **15391 vulnerabilities** from 0 sources.
 **Risk Factors**:
 
 - CRITICAL severity
-- 93.75% exploit probability
+- 93.77% exploit probability
 - Affects critical infrastructure: microsoft
 
 **Affected Vendors**: microsoft
@@ -297,7 +297,7 @@ critical systems.
 - CRITICAL severity
 - 93.95% exploit probability
 
-**Affected Vendors**: rogierlankhorst, really simple plugins
+**Affected Vendors**: really simple plugins, rogierlankhorst
 
 **Tags**: `CWE-288`
 
@@ -314,14 +314,14 @@ critical systems.
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.6 | 
-**EPSS**: 92.2%
+**EPSS**: 92.6%
 
 **Summary**: A out-of-bounds write in Fortinet FortiOS versions 7.4.0 through 7.4.2, 7.2.0 through 7.2.6, 7.0.0 through 7.0.13, 6.4.0 through 6.4.14, 6.2.0 through 6.2.15, 6.0.0 through 6.0.17, FortiProxy versions 7.4.0 through 7.4.2, 7.2.0 through 7.2.8, 7.0.0 through 7.0.14, 2.0.0 through 2.0.13, 1.2.0 through 1.2.13, 1.1.0 through 1.1.6, 1.0.0 through 1.0.7 allows attacker to execute unauthorized code or commands via specifically crafted requests
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 92.17% exploit probability
+- 92.58% exploit probability
 - Affects critical infrastructure: fortinet
 
 **Affected Vendors**: fortinet
@@ -384,31 +384,7 @@ critical systems.
 
 ---
 
-### 15. [CVE-2024-20439](/api/vulns/CVE-2024-20439.json)
-
-**Risk Score**: 66/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 88.9%
-
-**Summary**: A vulnerability in Cisco Smart Licensing Utility (CSLU) could allow an unauthenticated, remote attacker to log into an affected system by using a static administrative credential.
- This vulnerability is due to an undocumented static user credential for an administrative account. An attacker could exploit this vulnerability by using the static credentials to login to the affected system. A successful exploit could allow the attacker to login to the affected system with administrative rights ove...
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 88.88% exploit probability
-- Affects critical infrastructure: cisco
-
-**Affected Vendors**: cisco
-
-**References**:
-
-- [https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-cslu-7gHMzWmw](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-cslu-7gHMzWmw)
-
----
-
-### 16. [CVE-2024-4040](/api/vulns/CVE-2024-4040.json)
+### 15. [CVE-2024-4040](/api/vulns/CVE-2024-4040.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -435,7 +411,7 @@ critical systems.
 
 ---
 
-### 17. [CVE-2024-36401](/api/vulns/CVE-2024-36401.json)
+### 16. [CVE-2024-36401](/api/vulns/CVE-2024-36401.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -463,7 +439,7 @@ The GeoTools library API that GeoServer calls evaluates property/attribute names
 
 ---
 
-### 18. [CVE-2024-3400](/api/vulns/CVE-2024-3400.json)
+### 17. [CVE-2024-3400](/api/vulns/CVE-2024-3400.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -491,7 +467,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 19. [CVE-2024-1212](/api/vulns/CVE-2024-1212.json)
+### 18. [CVE-2024-1212](/api/vulns/CVE-2024-1212.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -520,7 +496,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 20. [CVE-2024-51567](/api/vulns/CVE-2024-51567.json)
+### 19. [CVE-2024-51567](/api/vulns/CVE-2024-51567.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -544,7 +520,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 21. [CVE-2024-31982](/api/vulns/CVE-2024-31982.json)
+### 20. [CVE-2024-31982](/api/vulns/CVE-2024-31982.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -570,7 +546,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 22. [CVE-2024-45519](/api/vulns/CVE-2024-45519.json)
+### 21. [CVE-2024-45519](/api/vulns/CVE-2024-45519.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -594,7 +570,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 23. [CVE-2024-5932](/api/vulns/CVE-2024-5932.json)
+### 22. [CVE-2024-5932](/api/vulns/CVE-2024-5932.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -620,7 +596,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 24. [CVE-2024-51378](/api/vulns/CVE-2024-51378.json)
+### 23. [CVE-2024-51378](/api/vulns/CVE-2024-51378.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -644,7 +620,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 25. [CVE-2025-29927](/api/vulns/CVE-2025-29927.json)
+### 24. [CVE-2025-29927](/api/vulns/CVE-2025-29927.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -656,7 +632,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 **Risk Factors**:
 
 - CRITICAL severity
-- 93.64% exploit probability
+- 93.6% exploit probability
 
 **Affected Vendors**: vercel
 
@@ -670,7 +646,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 26. [CVE-2024-25600](/api/vulns/CVE-2024-25600.json)
+### 25. [CVE-2024-25600](/api/vulns/CVE-2024-25600.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -696,7 +672,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 27. [CVE-2024-11680](/api/vulns/CVE-2024-11680.json)
+### 26. [CVE-2024-11680](/api/vulns/CVE-2024-11680.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -722,12 +698,12 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 28. [CVE-2025-3248](/api/vulns/CVE-2025-3248.json)
+### 27. [CVE-2025-3248](/api/vulns/CVE-2025-3248.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.8 | 
-**EPSS**: 93.1%
+**EPSS**: 92.5%
 
 **Summary**: Langflow versions prior to 1.3.0 are susceptible to code injection in 
 the /api/v1/validate/code endpoint. A remote and unauthenticated attacker can send crafted HTTP requests to execute arbitrary
@@ -736,7 +712,7 @@ code.
 **Risk Factors**:
 
 - CRITICAL severity
-- 93.08% exploit probability
+- 92.53% exploit probability
 
 **Affected Vendors**: langflow-ai
 
@@ -750,7 +726,7 @@ code.
 
 ---
 
-### 29. [CVE-2024-23108](/api/vulns/CVE-2024-23108.json)
+### 28. [CVE-2024-23108](/api/vulns/CVE-2024-23108.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -775,7 +751,7 @@ code.
 
 ---
 
-### 30. [CVE-2024-38063](/api/vulns/CVE-2024-38063.json)
+### 29. [CVE-2024-38063](/api/vulns/CVE-2024-38063.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -800,19 +776,43 @@ code.
 
 ---
 
+### 30. [CVE-2024-20439](/api/vulns/CVE-2024-20439.json)
+
+**Risk Score**: 65/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 9.8 | 
+**EPSS**: 87.5%
+
+**Summary**: A vulnerability in Cisco Smart Licensing Utility (CSLU) could allow an unauthenticated, remote attacker to log into an affected system by using a static administrative credential.
+ This vulnerability is due to an undocumented static user credential for an administrative account. An attacker could exploit this vulnerability by using the static credentials to login to the affected system. A successful exploit could allow the attacker to login to the affected system with administrative rights ove...
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 87.53% exploit probability
+- Affects critical infrastructure: cisco
+
+**Affected Vendors**: cisco
+
+**References**:
+
+- [https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-cslu-7gHMzWmw](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-cslu-7gHMzWmw)
+
+---
+
 ### 31. [CVE-2025-1661](/api/vulns/CVE-2025-1661.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.8 | 
-**EPSS**: 87.2%
+**EPSS**: 87.4%
 
 **Summary**: The HUSKY – Products Filter Professional for WooCommerce plugin for WordPress is vulnerable to Local File Inclusion in all versions up to, and including, 1.3.6.5 via the 'template' parameter of the woof_text_search AJAX action. This makes it possible for unauthenticated attackers to include and execute arbitrary files on the server, allowing the execution of any PHP code in those files. This can be used to bypass access controls, obtain sensitive data, or achieve code execution in cases where im...
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 87.18% exploit probability
+- 87.38% exploit probability
 
 **Affected Vendors**: realmag777
 
