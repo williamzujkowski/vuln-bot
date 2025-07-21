@@ -1,5 +1,5 @@
 {
-  "generated": "2025-07-21T08:10:25.167306",
+  "generated": "2025-07-21T12:11:59.545474",
   "count": 15391,
   "vulnerabilities": [
     {
@@ -195,7 +195,7 @@
       "publishedDate": "2024-11-15T03:18:45.746000+00:00",
       "lastModifiedDate": "2024-11-19T13:37:03.351000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["really simple plugins", "rogierlankhorst"],
+      "vendors": ["rogierlankhorst", "really simple plugins"],
       "tags": ["CWE-288"]
     },
     {
@@ -909,7 +909,7 @@
       "publishedDate": "2025-06-25T07:17:32.423000+00:00",
       "lastModifiedDate": "2025-06-27T13:51:00.720000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec", "brother industries, ltd", "konica minolta, inc."],
+      "vendors": ["brother industries, ltd", "toshiba tec", "konica minolta, inc."],
       "tags": ["CWE-1391"]
     },
     {
@@ -5253,48 +5253,6 @@
       "tags": ["CWE-121", "CWE-119"]
     },
     {
-      "cveId": "CVE-2025-7529",
-      "title": "Tenda FH1202 Natlimit fromNatlimit stack-based overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.08,
-      "epssPercentile": 24.341,
-      "riskScore": 52,
-      "publishedDate": "2025-07-13T12:02:06.294000+00:00",
-      "lastModifiedDate": "2025-07-14T16:06:51.087000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["tenda"],
-      "tags": ["CWE-121", "CWE-119"]
-    },
-    {
-      "cveId": "CVE-2025-7528",
-      "title": "Tenda FH1202 GstDhcpSetSer fromGstDhcpSetSer stack-based overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.08,
-      "epssPercentile": 24.341,
-      "riskScore": 52,
-      "publishedDate": "2025-07-13T11:32:06.765000+00:00",
-      "lastModifiedDate": "2025-07-15T19:53:48.069000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["tenda"],
-      "tags": ["CWE-121", "CWE-119"]
-    },
-    {
-      "cveId": "CVE-2025-7527",
-      "title": "Tenda FH1202 AdvSetWan fromAdvSetWan stack-based overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.08,
-      "epssPercentile": 24.341,
-      "riskScore": 52,
-      "publishedDate": "2025-07-13T10:32:07.306000+00:00",
-      "lastModifiedDate": "2025-07-15T19:53:55.891000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["tenda"],
-      "tags": ["CWE-121", "CWE-119"]
-    },
-    {
       "cveId": "CVE-2025-7908",
       "title": "D-Link DI-8100 jhttpd ddns.asp sprintf stack-based overflow",
       "severity": "HIGH",
@@ -5487,7 +5445,7 @@
       "publishedDate": "2025-05-13T03:21:29.625000+00:00",
       "lastModifiedDate": "2025-05-13T13:57:36.925000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["relevanssi", "msaari"],
+      "vendors": ["msaari", "relevanssi"],
       "tags": ["CWE-89"]
     },
     {
@@ -5963,7 +5921,7 @@
       "publishedDate": "2024-06-25T03:30:37.970000+00:00",
       "lastModifiedDate": "2024-08-01T21:33:05.337000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["warfareplugins", "stuartobrien", "themerex", "pedrogusmao02", "blazeretail"],
+      "vendors": ["blazeretail", "stuartobrien", "pedrogusmao02", "warfareplugins", "themerex"],
       "tags": []
     },
     {
@@ -7829,6 +7787,34 @@
       "tags": ["CWE-121", "CWE-119"]
     },
     {
+      "cveId": "CVE-2025-7529",
+      "title": "Tenda FH1202 Natlimit fromNatlimit stack-based overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.08,
+      "epssPercentile": 24.341,
+      "riskScore": 50,
+      "publishedDate": "2025-07-13T12:02:06.294000+00:00",
+      "lastModifiedDate": "2025-07-14T16:06:51.087000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["tenda"],
+      "tags": ["CWE-121", "CWE-119"]
+    },
+    {
+      "cveId": "CVE-2025-7528",
+      "title": "Tenda FH1202 GstDhcpSetSer fromGstDhcpSetSer stack-based overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.08,
+      "epssPercentile": 24.341,
+      "riskScore": 50,
+      "publishedDate": "2025-07-13T11:32:06.765000+00:00",
+      "lastModifiedDate": "2025-07-15T19:53:48.069000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["tenda"],
+      "tags": ["CWE-121", "CWE-119"]
+    },
+    {
       "cveId": "CVE-2025-7093",
       "title": "Belkin F9K1122 webs formSetLanguage stack-based overflow",
       "severity": "HIGH",
@@ -7840,6 +7826,20 @@
       "lastModifiedDate": "2025-07-07T15:57:38.459000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["belkin"],
+      "tags": ["CWE-121", "CWE-119"]
+    },
+    {
+      "cveId": "CVE-2025-7527",
+      "title": "Tenda FH1202 AdvSetWan fromAdvSetWan stack-based overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.08,
+      "epssPercentile": 24.341,
+      "riskScore": 50,
+      "publishedDate": "2025-07-13T10:32:07.306000+00:00",
+      "lastModifiedDate": "2025-07-15T19:53:55.891000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["tenda"],
       "tags": ["CWE-121", "CWE-119"]
     },
     {
@@ -8683,20 +8683,6 @@
       "tags": ["CWE-121", "CWE-119"]
     },
     {
-      "cveId": "CVE-2025-6337",
-      "title": "TOTOLINK A3002R/A3002RU HTTP POST Request formTmultiAP buffer overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.16,
-      "epssPercentile": 37.863,
-      "riskScore": 50,
-      "publishedDate": "2025-06-20T12:00:18.533000+00:00",
-      "lastModifiedDate": "2025-06-23T20:26:09.429000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["totolink"],
-      "tags": ["CWE-120", "CWE-119"]
-    },
-    {
       "cveId": "CVE-2025-6369",
       "title": "D-Link DIR-619L formdumpeasysetup stack-based overflow",
       "severity": "HIGH",
@@ -8907,20 +8893,6 @@
       "tags": ["CWE-120", "CWE-119"]
     },
     {
-      "cveId": "CVE-2025-6328",
-      "title": "D-Link DIR-815 hedwig.cgi sub_403794 stack-based overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.03,
-      "epssPercentile": 7.679,
-      "riskScore": 50,
-      "publishedDate": "2025-06-20T09:31:05.441000+00:00",
-      "lastModifiedDate": "2025-06-20T18:31:01.371000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["d-link"],
-      "tags": ["CWE-121", "CWE-119"]
-    },
-    {
       "cveId": "CVE-2025-6561",
       "title": "Hunt Electronic Hybrid DVR - Exposure of Sensitive System Information",
       "severity": "CRITICAL",
@@ -8935,20 +8907,6 @@
       "tags": ["CWE-497", "CWE-256"]
     },
     {
-      "cveId": "CVE-2025-6334",
-      "title": "D-Link DIR-867 Query String strncpy stack-based overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.05,
-      "epssPercentile": 14.163,
-      "riskScore": 50,
-      "publishedDate": "2025-06-20T11:00:17.259000+00:00",
-      "lastModifiedDate": "2025-06-20T12:48:58.377000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["d-link"],
-      "tags": ["CWE-121", "CWE-119"]
-    },
-    {
       "cveId": "CVE-2025-6568",
       "title": "TOTOLINK EX1200T HTTP POST Request formIpv6Setup buffer overflow",
       "severity": "HIGH",
@@ -8958,20 +8916,6 @@
       "riskScore": 50,
       "publishedDate": "2025-06-24T14:31:08.340000+00:00",
       "lastModifiedDate": "2025-06-24T14:44:37.719000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["totolink"],
-      "tags": ["CWE-120", "CWE-119"]
-    },
-    {
-      "cveId": "CVE-2025-6336",
-      "title": "TOTOLINK EX1200T HTTP POST Request formTmultiAP buffer overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.17,
-      "epssPercentile": 38.373,
-      "riskScore": 50,
-      "publishedDate": "2025-06-20T11:31:06.875000+00:00",
-      "lastModifiedDate": "2025-06-20T12:21:16.451000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["totolink"],
       "tags": ["CWE-120", "CWE-119"]
@@ -9702,10 +9646,10 @@
       "lastModifiedDate": "2025-06-25T14:15:31.576000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "toshiba tec",
-        "brother industries, ltd",
         "konica minolta, inc.",
+        "toshiba tec",
         "ricoh",
+        "brother industries, ltd",
         "fujifilm business innovation"
       ],
       "tags": ["CWE-1286"]
@@ -11081,20 +11025,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["ibm"],
       "tags": ["CWE-611"]
-    },
-    {
-      "cveId": "CVE-2025-4981",
-      "title": "Path Traversal Leading to RCE by Any Authenticated Mattermost User",
-      "severity": "CRITICAL",
-      "cvssScore": 9.9,
-      "epssScore": 0.23,
-      "epssPercentile": 45.677,
-      "riskScore": 49,
-      "publishedDate": "2025-06-20T10:27:13.471000+00:00",
-      "lastModifiedDate": "2025-06-20T13:10:32.981000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["mattermost"],
-      "tags": ["CWE-427"]
     },
     {
       "cveId": "CVE-2025-4404",
@@ -12495,9 +12425,9 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": [
         "brother industries, ltd",
+        "ricoh",
         "fujifilm business innovation",
-        "konica minolta, inc.",
-        "ricoh"
+        "konica minolta, inc."
       ],
       "tags": ["CWE-121"]
     },
@@ -17108,6 +17038,20 @@
       "tags": ["CWE-121", "CWE-119"]
     },
     {
+      "cveId": "CVE-2025-6337",
+      "title": "TOTOLINK A3002R/A3002RU HTTP POST Request formTmultiAP buffer overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.16,
+      "epssPercentile": 37.863,
+      "riskScore": 48,
+      "publishedDate": "2025-06-20T12:00:18.533000+00:00",
+      "lastModifiedDate": "2025-06-23T20:26:09.429000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["totolink"],
+      "tags": ["CWE-120", "CWE-119"]
+    },
+    {
       "cveId": "CVE-2025-6130",
       "title": "TOTOLINK EX1200T HTTP POST Request formStats buffer overflow",
       "severity": "HIGH",
@@ -17304,6 +17248,20 @@
       "tags": ["CWE-120", "CWE-119"]
     },
     {
+      "cveId": "CVE-2025-6328",
+      "title": "D-Link DIR-815 hedwig.cgi sub_403794 stack-based overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.03,
+      "epssPercentile": 7.679,
+      "riskScore": 48,
+      "publishedDate": "2025-06-20T09:31:05.441000+00:00",
+      "lastModifiedDate": "2025-06-20T18:31:01.371000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["d-link"],
+      "tags": ["CWE-121", "CWE-119"]
+    },
+    {
       "cveId": "CVE-2025-6114",
       "title": "D-Link DIR-619L form_portforwarding stack-based overflow",
       "severity": "HIGH",
@@ -17316,6 +17274,34 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["d-link"],
       "tags": ["CWE-121", "CWE-119"]
+    },
+    {
+      "cveId": "CVE-2025-6334",
+      "title": "D-Link DIR-867 Query String strncpy stack-based overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.05,
+      "epssPercentile": 14.163,
+      "riskScore": 48,
+      "publishedDate": "2025-06-20T11:00:17.259000+00:00",
+      "lastModifiedDate": "2025-06-20T12:48:58.377000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["d-link"],
+      "tags": ["CWE-121", "CWE-119"]
+    },
+    {
+      "cveId": "CVE-2025-6336",
+      "title": "TOTOLINK EX1200T HTTP POST Request formTmultiAP buffer overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.17,
+      "epssPercentile": 38.373,
+      "riskScore": 48,
+      "publishedDate": "2025-06-20T11:31:06.875000+00:00",
+      "lastModifiedDate": "2025-06-20T12:21:16.451000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["totolink"],
+      "tags": ["CWE-120", "CWE-119"]
     },
     {
       "cveId": "CVE-2025-6463",
@@ -19092,7 +19078,7 @@
       "publishedDate": "2025-06-25T07:25:00.402000+00:00",
       "lastModifiedDate": "2025-06-25T14:13:40.189000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["brother industries, ltd", "fujifilm business innovation", "ricoh"],
+      "vendors": ["brother industries, ltd", "ricoh", "fujifilm business innovation"],
       "tags": ["CWE-1286"]
     },
     {
@@ -21196,6 +21182,20 @@
       "tags": ["CWE-285"]
     },
     {
+      "cveId": "CVE-2025-4981",
+      "title": "Path Traversal Leading to RCE by Any Authenticated Mattermost User",
+      "severity": "CRITICAL",
+      "cvssScore": 9.9,
+      "epssScore": 0.23,
+      "epssPercentile": 45.677,
+      "riskScore": 47,
+      "publishedDate": "2025-06-20T10:27:13.471000+00:00",
+      "lastModifiedDate": "2025-06-20T13:10:32.981000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["mattermost"],
+      "tags": ["CWE-427"]
+    },
+    {
       "cveId": "CVE-2025-4800",
       "title": "MasterStudy LMS Pro <= 4.7.0 - Authenticated (Subscriber+) Arbitrary File Upload",
       "severity": "HIGH",
@@ -21332,7 +21332,7 @@
       "publishedDate": "2025-06-24T08:05:15.547000+00:00",
       "lastModifiedDate": "2025-06-24T14:18:57.831000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-306"]
     },
     {
@@ -26736,7 +26736,7 @@
       "publishedDate": "2025-07-08T05:32:05.678000+00:00",
       "lastModifiedDate": "2025-07-08T13:45:36.200000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes", "phpgurukul"],
+      "vendors": ["phpgurukul", "campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -27324,7 +27324,7 @@
       "publishedDate": "2025-07-08T06:02:05.515000+00:00",
       "lastModifiedDate": "2025-07-08T13:44:30.198000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes", "phpgurukul"],
+      "vendors": ["phpgurukul", "campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -29988,20 +29988,6 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
-      "cveId": "CVE-2025-6330",
-      "title": "PHPGurukul Directory Management System searchdata.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.713,
-      "riskScore": 46,
-      "publishedDate": "2025-06-20T10:00:11.793000+00:00",
-      "lastModifiedDate": "2025-06-20T13:50:12.910000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
       "cveId": "CVE-2025-6834",
       "title": "code-projects Inventory Management System editPayment.php sql injection",
       "severity": "HIGH",
@@ -30167,20 +30153,6 @@
       "lastModifiedDate": "2025-07-01T15:32:19.693000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["campcodes"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-6322",
-      "title": "PHPGurukul Pre-School Enrollment System visit.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.713,
-      "riskScore": 46,
-      "publishedDate": "2025-06-20T09:00:16.419000+00:00",
-      "lastModifiedDate": "2025-06-20T18:44:13.094000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -30419,20 +30391,6 @@
       "lastModifiedDate": "2025-06-23T12:54:37.053000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-6323",
-      "title": "PHPGurukul Pre-School Enrollment System enrollment.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.713,
-      "riskScore": 46,
-      "publishedDate": "2025-06-20T09:00:19.240000+00:00",
-      "lastModifiedDate": "2025-06-20T18:40:45.277000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -35532,20 +35490,6 @@
       "tags": ["CWE-22"]
     },
     {
-      "cveId": "CVE-2024-10936",
-      "title": "String Locator <= 2.6.6 - Unauthenticated PHP Object Injection",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 10.89,
-      "epssPercentile": 93.059,
-      "riskScore": 46,
-      "publishedDate": "2025-01-21T08:21:51.041000+00:00",
-      "lastModifiedDate": "2025-01-21T16:38:00.501000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["instawp"],
-      "tags": ["CWE-502"]
-    },
-    {
       "cveId": "CVE-2024-10508",
       "title": "RegistrationMagic – User Registration Plugin with Custom Registration Forms <= 6.0.2.6 - Unauthenticated Privilege Escalation via Password Recovery",
       "severity": "CRITICAL",
@@ -39126,7 +39070,7 @@
       "publishedDate": "2025-06-24T08:10:29.717000+00:00",
       "lastModifiedDate": "2025-06-24T13:56:13.121000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-639"]
     },
     {
@@ -39196,7 +39140,7 @@
       "publishedDate": "2025-06-24T08:14:31.864000+00:00",
       "lastModifiedDate": "2025-06-24T13:55:34.477000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-204"]
     },
     {
@@ -40360,20 +40304,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["ivanti"],
       "tags": ["CWE-257"]
-    },
-    {
-      "cveId": "CVE-2025-6339",
-      "title": "ponaravindb Hospital Management System func3.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 9.741,
-      "riskScore": 45,
-      "publishedDate": "2025-06-20T12:00:19.885000+00:00",
-      "lastModifiedDate": "2025-06-20T13:37:04.304000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["ponaravindb"],
-      "tags": ["CWE-89", "CWE-74"]
     },
     {
       "cveId": "CVE-2025-42982",
@@ -43648,7 +43578,7 @@
       "publishedDate": "2024-10-15T10:28:37.223000+00:00",
       "lastModifiedDate": "2024-10-16T17:39:58.106000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-798"]
     },
     {
@@ -43704,7 +43634,7 @@
       "publishedDate": "2024-10-15T10:28:16.384000+00:00",
       "lastModifiedDate": "2024-10-16T17:44:15.429000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-306"]
     },
     {
@@ -47666,7 +47596,7 @@
       "publishedDate": "2025-06-05T02:31:05.107000+00:00",
       "lastModifiedDate": "2025-06-05T14:09:25.990000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects", "anirbandutta9"],
+      "vendors": ["anirbandutta9", "code-projects"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -47806,7 +47736,7 @@
       "publishedDate": "2025-05-30T18:00:06.477000+00:00",
       "lastModifiedDate": "2025-05-30T18:15:18.480000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes", "phpgurukul"],
+      "vendors": ["phpgurukul", "campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -52286,7 +52216,7 @@
       "publishedDate": "2025-05-03T11:00:09.135000+00:00",
       "lastModifiedDate": "2025-05-30T09:10:12.356000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes", "phpgurukul"],
+      "vendors": ["phpgurukul", "campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -54334,6 +54264,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-6330",
+      "title": "PHPGurukul Directory Management System searchdata.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.713,
+      "riskScore": 44,
+      "publishedDate": "2025-06-20T10:00:11.793000+00:00",
+      "lastModifiedDate": "2025-06-20T13:50:12.910000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["phpgurukul"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-6157",
       "title": "PHPGurukul Nipah Virus Testing Management System registered-user-testing.php sql injection",
       "severity": "HIGH",
@@ -54374,6 +54318,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["optinlyhq"],
       "tags": ["CWE-89"]
+    },
+    {
+      "cveId": "CVE-2025-6322",
+      "title": "PHPGurukul Pre-School Enrollment System visit.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.713,
+      "riskScore": 44,
+      "publishedDate": "2025-06-20T09:00:16.419000+00:00",
+      "lastModifiedDate": "2025-06-20T18:44:13.094000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["phpgurukul"],
+      "tags": ["CWE-89", "CWE-74"]
     },
     {
       "cveId": "CVE-2025-6295",
@@ -54469,6 +54427,20 @@
       "riskScore": 44,
       "publishedDate": "2025-06-20T05:00:20.840000+00:00",
       "lastModifiedDate": "2025-06-20T19:30:14.165000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["phpgurukul"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-6323",
+      "title": "PHPGurukul Pre-School Enrollment System enrollment.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.713,
+      "riskScore": 44,
+      "publishedDate": "2025-06-20T09:00:19.240000+00:00",
+      "lastModifiedDate": "2025-06-20T18:40:45.277000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
@@ -57676,7 +57648,7 @@
       "publishedDate": "2024-03-18T16:03:44.987000+00:00",
       "lastModifiedDate": "2024-08-28T15:04:28.061000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric ", "schneider electric"],
+      "vendors": ["schneider electric", "schneider electric "],
       "tags": ["CWE-307"]
     },
     {
@@ -58418,7 +58390,7 @@
       "publishedDate": "2025-05-09T15:18:34.124000+00:00",
       "lastModifiedDate": "2025-05-09T19:09:17.086000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["avg", "norton", "avast"],
+      "vendors": ["norton", "avast", "avg"],
       "tags": ["CWE-367"]
     },
     {
@@ -63098,6 +63070,20 @@
       "tags": ["CWE-121"]
     },
     {
+      "cveId": "CVE-2024-10936",
+      "title": "String Locator <= 2.6.6 - Unauthenticated PHP Object Injection",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 10.89,
+      "epssPercentile": 93.059,
+      "riskScore": 44,
+      "publishedDate": "2025-01-21T08:21:51.041000+00:00",
+      "lastModifiedDate": "2025-01-21T16:38:00.501000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["instawp"],
+      "tags": ["CWE-502"]
+    },
+    {
       "cveId": "CVE-2024-10285",
       "title": "CE21 Suite <= 2.2.0 - JWT Token Disclosure",
       "severity": "CRITICAL",
@@ -67774,20 +67760,6 @@
       "tags": ["CWE-120", "CWE-119"]
     },
     {
-      "cveId": "CVE-2025-4102",
-      "title": "Beaver Builder Plugin (Starter Version) <= 2.9.1 - Authenticated (Administrator+) Arbitrary File Upload",
-      "severity": "HIGH",
-      "cvssScore": 7.2,
-      "epssScore": 0.32,
-      "epssPercentile": 54.004,
-      "riskScore": 43,
-      "publishedDate": "2025-06-20T11:16:39.690000+00:00",
-      "lastModifiedDate": "2025-06-20T13:10:25.103000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["the beaver builder team"],
-      "tags": ["CWE-434"]
-    },
-    {
       "cveId": "CVE-2025-4848",
       "title": "FreeFloat FTP Server RECV Command buffer overflow",
       "severity": "HIGH",
@@ -69199,6 +69171,20 @@
       "lastModifiedDate": "2025-06-16T18:58:03.858000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["chanjet"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-6339",
+      "title": "ponaravindb Hospital Management System func3.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 9.741,
+      "riskScore": 43,
+      "publishedDate": "2025-06-20T12:00:19.885000+00:00",
+      "lastModifiedDate": "2025-06-20T13:37:04.304000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["ponaravindb"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -75428,7 +75414,7 @@
       "publishedDate": "2024-10-15T10:27:52.208000+00:00",
       "lastModifiedDate": "2024-10-16T17:47:04.737000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-261"]
     },
     {
@@ -80384,7 +80370,7 @@
       "publishedDate": "2024-05-14T12:58:31.261000+00:00",
       "lastModifiedDate": "2025-03-14T14:56:10.154000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["na", "n/a"],
+      "vendors": ["n/a", "na"],
       "tags": []
     },
     {
@@ -80986,7 +80972,7 @@
       "publishedDate": "2024-02-05T14:33:06.481000+00:00",
       "lastModifiedDate": "2025-05-09T16:32:50.015000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["tiangolo", "kludex", "encode"],
+      "vendors": ["tiangolo", "encode", "kludex"],
       "tags": ["CWE-400"]
     },
     {
@@ -95938,7 +95924,7 @@
       "publishedDate": "2024-07-02T13:47:36.399000+00:00",
       "lastModifiedDate": "2024-08-02T04:12:25.618000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["ytdl-org", "yt-dlp"],
+      "vendors": ["yt-dlp", "ytdl-org"],
       "tags": ["CWE-669"]
     },
     {
@@ -106008,6 +105994,20 @@
       "tags": ["CWE-552"]
     },
     {
+      "cveId": "CVE-2025-4102",
+      "title": "Beaver Builder Plugin (Starter Version) <= 2.9.1 - Authenticated (Administrator+) Arbitrary File Upload",
+      "severity": "HIGH",
+      "cvssScore": 7.2,
+      "epssScore": 0.32,
+      "epssPercentile": 54.004,
+      "riskScore": 41,
+      "publishedDate": "2025-06-20T11:16:39.690000+00:00",
+      "lastModifiedDate": "2025-06-20T13:10:25.103000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["the beaver builder team"],
+      "tags": ["CWE-434"]
+    },
+    {
       "cveId": "CVE-2025-4821",
       "title": "Incorrect congestion window growth by invalid ACK ranges",
       "severity": "HIGH",
@@ -112388,7 +112388,7 @@
       "publishedDate": "2024-10-15T10:27:06.004000+00:00",
       "lastModifiedDate": "2024-10-16T17:49:30.446000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-20"]
     },
     {
@@ -126738,7 +126738,7 @@
       "publishedDate": "2024-03-18T16:04:57.375000+00:00",
       "lastModifiedDate": "2024-08-01T19:03:37.851000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric ", "schneider electric"],
+      "vendors": ["schneider electric", "schneider electric "],
       "tags": ["CWE-79"]
     },
     {
@@ -135124,7 +135124,7 @@
       "publishedDate": "2024-11-04T03:31:04.265000+00:00",
       "lastModifiedDate": "2024-11-04T17:01:46.227000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects", "anirbandutta9"],
+      "vendors": ["anirbandutta9", "code-projects"],
       "tags": ["CWE-89"]
     },
     {
@@ -143468,7 +143468,7 @@
       "publishedDate": "2024-07-03T12:26:44.599000+00:00",
       "lastModifiedDate": "2025-02-13T17:54:25.437000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "red lion europe"],
+      "vendors": ["red lion europe", "helmholz"],
       "tags": ["CWE-78"]
     },
     {
@@ -145414,7 +145414,7 @@
       "publishedDate": "2024-10-15T10:28:58.559000+00:00",
       "lastModifiedDate": "2025-01-24T06:32:08.237000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-306"]
     },
     {
@@ -145428,7 +145428,7 @@
       "publishedDate": "2024-10-15T10:27:32.688000+00:00",
       "lastModifiedDate": "2024-10-16T17:36:22.123000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-1391"]
     },
     {
@@ -172448,7 +172448,7 @@
       "publishedDate": "2024-03-18T16:05:47.722000+00:00",
       "lastModifiedDate": "2024-08-15T16:23:48.504000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric ", "schneider electric"],
+      "vendors": ["schneider electric", "schneider electric "],
       "tags": ["CWE-552"]
     },
     {
@@ -182850,7 +182850,7 @@
       "publishedDate": "2024-07-04T08:53:41.217000+00:00",
       "lastModifiedDate": "2024-08-19T15:25:49.496000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-427"]
     },
     {
@@ -189024,7 +189024,7 @@
       "publishedDate": "2024-07-08T15:25:38.672000+00:00",
       "lastModifiedDate": "2024-08-01T22:27:36.345000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["levelone", "realtek"],
+      "vendors": ["realtek", "levelone"],
       "tags": ["CWE-122"]
     },
     {
