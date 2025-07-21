@@ -1,5 +1,5 @@
 {
-  "generated": "2025-07-21T04:23:04.941884",
+  "generated": "2025-07-21T08:10:25.167306",
   "count": 15391,
   "vulnerabilities": [
     {
@@ -195,7 +195,7 @@
       "publishedDate": "2024-11-15T03:18:45.746000+00:00",
       "lastModifiedDate": "2024-11-19T13:37:03.351000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["rogierlankhorst", "really simple plugins"],
+      "vendors": ["really simple plugins", "rogierlankhorst"],
       "tags": ["CWE-288"]
     },
     {
@@ -3331,7 +3331,7 @@
       "publishedDate": "2024-10-18T17:32:30.648000+00:00",
       "lastModifiedDate": "2024-10-18T18:56:31.697000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["scottpaterson", "scott paterson"],
+      "vendors": ["scott paterson", "scottpaterson"],
       "tags": ["CWE-94"]
     },
     {
@@ -5963,7 +5963,7 @@
       "publishedDate": "2024-06-25T03:30:37.970000+00:00",
       "lastModifiedDate": "2024-08-01T21:33:05.337000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["stuartobrien", "pedrogusmao02", "themerex", "warfareplugins", "blazeretail"],
+      "vendors": ["warfareplugins", "stuartobrien", "themerex", "pedrogusmao02", "blazeretail"],
       "tags": []
     },
     {
@@ -9702,11 +9702,11 @@
       "lastModifiedDate": "2025-06-25T14:15:31.576000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "ricoh",
-        "konica minolta, inc.",
-        "fujifilm business innovation",
+        "toshiba tec",
         "brother industries, ltd",
-        "toshiba tec"
+        "konica minolta, inc.",
+        "ricoh",
+        "fujifilm business innovation"
       ],
       "tags": ["CWE-1286"]
     },
@@ -12494,10 +12494,10 @@
       "lastModifiedDate": "2025-06-25T14:08:48.280000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "ricoh",
-        "fujifilm business innovation",
         "brother industries, ltd",
-        "konica minolta, inc."
+        "fujifilm business innovation",
+        "konica minolta, inc.",
+        "ricoh"
       ],
       "tags": ["CWE-121"]
     },
@@ -14392,20 +14392,6 @@
       "tags": ["CWE-121", "CWE-119"]
     },
     {
-      "cveId": "CVE-2025-7517",
-      "title": "code-projects Online Appointment Booking System getDay.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 11.416,
-      "riskScore": 48,
-      "publishedDate": "2025-07-13T04:32:05.213000+00:00",
-      "lastModifiedDate": "2025-07-14T16:07:29.114000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
       "cveId": "CVE-2025-7593",
       "title": "code-projects Job Diary view-all.php sql injection",
       "severity": "HIGH",
@@ -14613,20 +14599,6 @@
       "lastModifiedDate": "2025-07-14T14:51:33.033000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-7521",
-      "title": "PHPGurukul Vehicle Parking Management System index.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 11.416,
-      "riskScore": 48,
-      "publishedDate": "2025-07-13T06:02:06.748000+00:00",
-      "lastModifiedDate": "2025-07-15T19:54:31.406000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -14992,20 +14964,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-7523",
-      "title": "Jinher OA DelTemp.aspx xml external entity reference",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.06,
-      "epssPercentile": 19.69,
-      "riskScore": 48,
-      "publishedDate": "2025-07-13T07:02:05.374000+00:00",
-      "lastModifiedDate": "2025-07-15T19:54:19.426000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["jinher"],
-      "tags": ["CWE-611", "CWE-610"]
     },
     {
       "cveId": "CVE-2025-7833",
@@ -19134,7 +19092,7 @@
       "publishedDate": "2025-06-25T07:25:00.402000+00:00",
       "lastModifiedDate": "2025-06-25T14:13:40.189000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["ricoh", "fujifilm business innovation", "brother industries, ltd"],
+      "vendors": ["brother industries, ltd", "fujifilm business innovation", "ricoh"],
       "tags": ["CWE-1286"]
     },
     {
@@ -21374,7 +21332,7 @@
       "publishedDate": "2025-06-24T08:05:15.547000+00:00",
       "lastModifiedDate": "2025-06-24T14:18:57.831000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-306"]
     },
     {
@@ -26488,6 +26446,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-7517",
+      "title": "code-projects Online Appointment Booking System getDay.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 11.416,
+      "riskScore": 46,
+      "publishedDate": "2025-07-13T04:32:05.213000+00:00",
+      "lastModifiedDate": "2025-07-14T16:07:29.114000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-7510",
       "title": "code-projects Modern Bag productadd_back.php sql injection",
       "severity": "HIGH",
@@ -26712,6 +26684,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-7521",
+      "title": "PHPGurukul Vehicle Parking Management System index.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 11.416,
+      "riskScore": 46,
+      "publishedDate": "2025-07-13T06:02:06.748000+00:00",
+      "lastModifiedDate": "2025-07-15T19:54:31.406000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["phpgurukul"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-7455",
       "title": "Campcodes Online Movie Theater Seat Reservation System manage_reserve.php sql injection",
       "severity": "HIGH",
@@ -26750,7 +26736,7 @@
       "publishedDate": "2025-07-08T05:32:05.678000+00:00",
       "lastModifiedDate": "2025-07-08T13:45:36.200000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -27338,7 +27324,7 @@
       "publishedDate": "2025-07-08T06:02:05.515000+00:00",
       "lastModifiedDate": "2025-07-08T13:44:30.198000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -27410,6 +27396,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-7523",
+      "title": "Jinher OA DelTemp.aspx xml external entity reference",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.06,
+      "epssPercentile": 19.69,
+      "riskScore": 46,
+      "publishedDate": "2025-07-13T07:02:05.374000+00:00",
+      "lastModifiedDate": "2025-07-15T19:54:19.426000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["jinher"],
+      "tags": ["CWE-611", "CWE-610"]
     },
     {
       "cveId": "CVE-2025-7483",
@@ -29050,20 +29050,6 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
-      "cveId": "CVE-2025-6311",
-      "title": "Campcodes Sales and Inventory System account_add.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 12.241,
-      "riskScore": 46,
-      "publishedDate": "2025-06-20T05:31:05.958000+00:00",
-      "lastModifiedDate": "2025-06-20T19:25:57.530000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
       "cveId": "CVE-2025-6578",
       "title": "code-projects Simple Online Hotel Reservation System delete_account.php sql injection",
       "severity": "HIGH",
@@ -29498,20 +29484,6 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
-      "cveId": "CVE-2025-6314",
-      "title": "Campcodes Sales and Inventory System cat_update.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.256,
-      "riskScore": 46,
-      "publishedDate": "2025-06-20T06:31:08.375000+00:00",
-      "lastModifiedDate": "2025-06-20T14:55:08.414000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
       "cveId": "CVE-2025-6023",
       "title": "CVE-2025-6023: An open redirect vulnerability has been identified in Grafana OSS that can be exploited to achieve X...",
       "severity": "HIGH",
@@ -29535,20 +29507,6 @@
       "riskScore": 46,
       "publishedDate": "2025-06-21T21:31:06.860000+00:00",
       "lastModifiedDate": "2025-06-23T14:58:58.945000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-6307",
-      "title": "code-projects Online Shoe Store edit_customer.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.713,
-      "riskScore": 46,
-      "publishedDate": "2025-06-20T04:31:05.819000+00:00",
-      "lastModifiedDate": "2025-06-20T15:36:05.437000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
@@ -29736,20 +29694,6 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
-      "cveId": "CVE-2025-6312",
-      "title": "Campcodes Sales and Inventory System cash_transaction.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.256,
-      "riskScore": 46,
-      "publishedDate": "2025-06-20T06:00:15.672000+00:00",
-      "lastModifiedDate": "2025-06-20T19:23:53.332000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
       "cveId": "CVE-2025-6917",
       "title": "code-projects Online Hotel Booking registration.php sql injection",
       "severity": "HIGH",
@@ -29806,20 +29750,6 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
-      "cveId": "CVE-2025-6315",
-      "title": "code-projects Online Shoe Store cart2.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.713,
-      "riskScore": 46,
-      "publishedDate": "2025-06-20T07:00:12.940000+00:00",
-      "lastModifiedDate": "2025-06-20T19:22:52.784000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
       "cveId": "CVE-2025-6471",
       "title": "code-projects Online Bidding System administrator sql injection",
       "severity": "HIGH",
@@ -29871,20 +29801,6 @@
       "riskScore": 46,
       "publishedDate": "2025-06-20T19:31:06.636000+00:00",
       "lastModifiedDate": "2025-06-20T19:57:33.904000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-6316",
-      "title": "code-projects Online Shoe Store admin_running.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.713,
-      "riskScore": 46,
-      "publishedDate": "2025-06-20T07:00:14.778000+00:00",
-      "lastModifiedDate": "2025-06-20T19:18:38.551000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
@@ -30072,20 +29988,6 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
-      "cveId": "CVE-2025-6317",
-      "title": "code-projects Online Shoe Store confirm.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.713,
-      "riskScore": 46,
-      "publishedDate": "2025-06-20T07:31:05.418000+00:00",
-      "lastModifiedDate": "2025-06-23T20:21:23.844000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
       "cveId": "CVE-2025-6330",
       "title": "PHPGurukul Directory Management System searchdata.php sql injection",
       "severity": "HIGH",
@@ -30168,20 +30070,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["dassault systèmes"],
       "tags": ["CWE-416"]
-    },
-    {
-      "cveId": "CVE-2025-6313",
-      "title": "Campcodes Sales and Inventory System cat_add.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.256,
-      "riskScore": 46,
-      "publishedDate": "2025-06-20T06:31:06.401000+00:00",
-      "lastModifiedDate": "2025-06-26T17:45:16.621000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes"],
-      "tags": ["CWE-89", "CWE-74"]
     },
     {
       "cveId": "CVE-2025-6624",
@@ -30520,20 +30408,6 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
-      "cveId": "CVE-2025-6310",
-      "title": "PHPGurukul Emergency Ambulance Hiring Portal index.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.713,
-      "riskScore": 46,
-      "publishedDate": "2025-06-20T05:00:20.840000+00:00",
-      "lastModifiedDate": "2025-06-20T19:30:14.165000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
       "cveId": "CVE-2025-6502",
       "title": "code-projects Inventory Management System changePassword.php sql injection",
       "severity": "HIGH",
@@ -30657,20 +30531,6 @@
       "lastModifiedDate": "2025-06-23T13:27:50.412000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-6318",
-      "title": "PHPGurukul Pre-School Enrollment System check_availability.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.713,
-      "riskScore": 46,
-      "publishedDate": "2025-06-20T07:31:08.337000+00:00",
-      "lastModifiedDate": "2025-06-23T20:22:27.357000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -38860,7 +38720,7 @@
       "publishedDate": "2025-06-13T21:03:18.087000+00:00",
       "lastModifiedDate": "2025-06-17T15:18:55.236000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["dell", "broadcom"],
+      "vendors": ["broadcom", "dell"],
       "tags": ["CWE-787"]
     },
     {
@@ -38874,7 +38734,7 @@
       "publishedDate": "2025-06-13T21:26:58.869000+00:00",
       "lastModifiedDate": "2025-06-17T18:13:30.525000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["dell", "broadcom"],
+      "vendors": ["broadcom", "dell"],
       "tags": ["CWE-763"]
     },
     {
@@ -39266,7 +39126,7 @@
       "publishedDate": "2025-06-24T08:10:29.717000+00:00",
       "lastModifiedDate": "2025-06-24T13:56:13.121000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-639"]
     },
     {
@@ -39336,7 +39196,7 @@
       "publishedDate": "2025-06-24T08:14:31.864000+00:00",
       "lastModifiedDate": "2025-06-24T13:55:34.477000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-204"]
     },
     {
@@ -40722,7 +40582,7 @@
       "publishedDate": "2025-06-13T20:51:33.392000+00:00",
       "lastModifiedDate": "2025-06-17T03:55:12.235000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["dell", "broadcom"],
+      "vendors": ["broadcom", "dell"],
       "tags": ["CWE-121"]
     },
     {
@@ -43788,7 +43648,7 @@
       "publishedDate": "2024-10-15T10:28:37.223000+00:00",
       "lastModifiedDate": "2024-10-16T17:39:58.106000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-798"]
     },
     {
@@ -43844,7 +43704,7 @@
       "publishedDate": "2024-10-15T10:28:16.384000+00:00",
       "lastModifiedDate": "2024-10-16T17:44:15.429000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-306"]
     },
     {
@@ -47946,7 +47806,7 @@
       "publishedDate": "2025-05-30T18:00:06.477000+00:00",
       "lastModifiedDate": "2025-05-30T18:15:18.480000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -52426,7 +52286,7 @@
       "publishedDate": "2025-05-03T11:00:09.135000+00:00",
       "lastModifiedDate": "2025-05-30T09:10:12.356000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -53140,7 +53000,7 @@
       "publishedDate": "2025-05-05T18:31:04.418000+00:00",
       "lastModifiedDate": "2025-05-05T18:48:57.123000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sourcecodester", "oretnom23"],
+      "vendors": ["oretnom23", "sourcecodester"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -54110,6 +53970,20 @@
       "tags": ["CWE-89"]
     },
     {
+      "cveId": "CVE-2025-6311",
+      "title": "Campcodes Sales and Inventory System account_add.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 12.241,
+      "riskScore": 44,
+      "publishedDate": "2025-06-20T05:31:05.958000+00:00",
+      "lastModifiedDate": "2025-06-20T19:25:57.530000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["campcodes"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-6304",
       "title": "code-projects Online Shoe Store cart.php sql injection",
       "severity": "HIGH",
@@ -54250,6 +54124,34 @@
       "tags": ["CWE-434"]
     },
     {
+      "cveId": "CVE-2025-6314",
+      "title": "Campcodes Sales and Inventory System cat_update.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.256,
+      "riskScore": 44,
+      "publishedDate": "2025-06-20T06:31:08.375000+00:00",
+      "lastModifiedDate": "2025-06-20T14:55:08.414000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["campcodes"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-6307",
+      "title": "code-projects Online Shoe Store edit_customer.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.713,
+      "riskScore": 44,
+      "publishedDate": "2025-06-20T04:31:05.819000+00:00",
+      "lastModifiedDate": "2025-06-20T15:36:05.437000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-6303",
       "title": "code-projects Online Shoe Store contactus1.php sql injection",
       "severity": "HIGH",
@@ -54320,6 +54222,20 @@
       "tags": ["CWE-250"]
     },
     {
+      "cveId": "CVE-2025-6312",
+      "title": "Campcodes Sales and Inventory System cash_transaction.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.256,
+      "riskScore": 44,
+      "publishedDate": "2025-06-20T06:00:15.672000+00:00",
+      "lastModifiedDate": "2025-06-20T19:23:53.332000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["campcodes"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-6293",
       "title": "code-projects Hostel Management System contact_manager.php sql injection",
       "severity": "HIGH",
@@ -54329,6 +54245,34 @@
       "riskScore": 44,
       "publishedDate": "2025-06-20T00:31:07.923000+00:00",
       "lastModifiedDate": "2025-06-23T19:28:59.635000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-6315",
+      "title": "code-projects Online Shoe Store cart2.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.713,
+      "riskScore": 44,
+      "publishedDate": "2025-06-20T07:00:12.940000+00:00",
+      "lastModifiedDate": "2025-06-20T19:22:52.784000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-6316",
+      "title": "code-projects Online Shoe Store admin_running.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.713,
+      "riskScore": 44,
+      "publishedDate": "2025-06-20T07:00:14.778000+00:00",
+      "lastModifiedDate": "2025-06-20T19:18:38.551000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
@@ -54376,6 +54320,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-6317",
+      "title": "code-projects Online Shoe Store confirm.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.713,
+      "riskScore": 44,
+      "publishedDate": "2025-06-20T07:31:05.418000+00:00",
+      "lastModifiedDate": "2025-06-23T20:21:23.844000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-6157",
       "title": "PHPGurukul Nipah Virus Testing Management System registered-user-testing.php sql injection",
       "severity": "HIGH",
@@ -54387,6 +54345,20 @@
       "lastModifiedDate": "2025-06-17T19:51:48.624000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["phpgurukul"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-6313",
+      "title": "Campcodes Sales and Inventory System cat_add.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.256,
+      "riskScore": 44,
+      "publishedDate": "2025-06-20T06:31:06.401000+00:00",
+      "lastModifiedDate": "2025-06-26T17:45:16.621000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -54488,6 +54460,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-6310",
+      "title": "PHPGurukul Emergency Ambulance Hiring Portal index.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.713,
+      "riskScore": 44,
+      "publishedDate": "2025-06-20T05:00:20.840000+00:00",
+      "lastModifiedDate": "2025-06-20T19:30:14.165000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["phpgurukul"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-6153",
       "title": "PHPGurukul Hostel Management System students.php sql injection",
       "severity": "HIGH",
@@ -54514,6 +54500,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["trendmakers"],
       "tags": ["CWE-327"]
+    },
+    {
+      "cveId": "CVE-2025-6318",
+      "title": "PHPGurukul Pre-School Enrollment System check_availability.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.713,
+      "riskScore": 44,
+      "publishedDate": "2025-06-20T07:31:08.337000+00:00",
+      "lastModifiedDate": "2025-06-23T20:22:27.357000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["phpgurukul"],
+      "tags": ["CWE-89", "CWE-74"]
     },
     {
       "cveId": "CVE-2025-42983",
@@ -54624,7 +54624,7 @@
       "publishedDate": "2025-06-13T21:48:29.351000+00:00",
       "lastModifiedDate": "2025-06-17T15:18:22.706000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["dell", "broadcom"],
+      "vendors": ["broadcom", "dell"],
       "tags": ["CWE-502"]
     },
     {
@@ -54764,7 +54764,7 @@
       "publishedDate": "2025-06-13T20:42:18.769000+00:00",
       "lastModifiedDate": "2025-06-16T15:21:53.325000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["dell", "broadcom"],
+      "vendors": ["broadcom", "dell"],
       "tags": ["CWE-125"]
     },
     {
@@ -57676,7 +57676,7 @@
       "publishedDate": "2024-03-18T16:03:44.987000+00:00",
       "lastModifiedDate": "2024-08-28T15:04:28.061000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric", "schneider electric "],
+      "vendors": ["schneider electric ", "schneider electric"],
       "tags": ["CWE-307"]
     },
     {
@@ -58418,7 +58418,7 @@
       "publishedDate": "2025-05-09T15:18:34.124000+00:00",
       "lastModifiedDate": "2025-05-09T19:09:17.086000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["avg", "avast", "norton"],
+      "vendors": ["avg", "norton", "avast"],
       "tags": ["CWE-367"]
     },
     {
@@ -63262,7 +63262,7 @@
       "publishedDate": "2024-10-22T21:13:37.183000+00:00",
       "lastModifiedDate": "2024-10-23T14:43:52.114000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["kieback&peter", "kieback & peter"],
+      "vendors": ["kieback & peter", "kieback&peter"],
       "tags": ["CWE-22"]
     },
     {
@@ -75428,7 +75428,7 @@
       "publishedDate": "2024-10-15T10:27:52.208000+00:00",
       "lastModifiedDate": "2024-10-16T17:47:04.737000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-261"]
     },
     {
@@ -78774,7 +78774,7 @@
       "publishedDate": "2025-01-08T11:09:24.799000+00:00",
       "lastModifiedDate": "2025-01-08T13:54:46.719000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["wpswings", "wp swings"],
+      "vendors": ["wp swings", "wpswings"],
       "tags": ["CWE-862"]
     },
     {
@@ -80384,7 +80384,7 @@
       "publishedDate": "2024-05-14T12:58:31.261000+00:00",
       "lastModifiedDate": "2025-03-14T14:56:10.154000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["n/a", "na"],
+      "vendors": ["na", "n/a"],
       "tags": []
     },
     {
@@ -80986,7 +80986,7 @@
       "publishedDate": "2024-02-05T14:33:06.481000+00:00",
       "lastModifiedDate": "2025-05-09T16:32:50.015000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["tiangolo", "encode", "kludex"],
+      "vendors": ["tiangolo", "kludex", "encode"],
       "tags": ["CWE-400"]
     },
     {
@@ -112388,7 +112388,7 @@
       "publishedDate": "2024-10-15T10:27:06.004000+00:00",
       "lastModifiedDate": "2024-10-16T17:49:30.446000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-20"]
     },
     {
@@ -126738,7 +126738,7 @@
       "publishedDate": "2024-03-18T16:04:57.375000+00:00",
       "lastModifiedDate": "2024-08-01T19:03:37.851000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric", "schneider electric "],
+      "vendors": ["schneider electric ", "schneider electric"],
       "tags": ["CWE-79"]
     },
     {
@@ -128992,7 +128992,7 @@
       "publishedDate": "2024-10-22T22:19:20.646000+00:00",
       "lastModifiedDate": "2024-11-06T15:50:04.628000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-276"]
     },
     {
@@ -131680,7 +131680,7 @@
       "publishedDate": "2024-11-28T22:16:31.396000+00:00",
       "lastModifiedDate": "2024-12-06T05:18:03.652000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-427"]
     },
     {
@@ -134382,7 +134382,7 @@
       "publishedDate": "2024-11-28T22:20:28.303000+00:00",
       "lastModifiedDate": "2024-12-06T05:23:50.441000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-427"]
     },
     {
@@ -145414,7 +145414,7 @@
       "publishedDate": "2024-10-15T10:28:58.559000+00:00",
       "lastModifiedDate": "2025-01-24T06:32:08.237000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-306"]
     },
     {
@@ -145428,7 +145428,7 @@
       "publishedDate": "2024-10-15T10:27:32.688000+00:00",
       "lastModifiedDate": "2024-10-16T17:36:22.123000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-1391"]
     },
     {
@@ -172448,7 +172448,7 @@
       "publishedDate": "2024-03-18T16:05:47.722000+00:00",
       "lastModifiedDate": "2024-08-15T16:23:48.504000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric", "schneider electric "],
+      "vendors": ["schneider electric ", "schneider electric"],
       "tags": ["CWE-552"]
     },
     {
@@ -178006,7 +178006,7 @@
       "publishedDate": "2024-11-28T22:18:28.358000+00:00",
       "lastModifiedDate": "2024-12-06T05:21:38.917000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-561"]
     },
     {
