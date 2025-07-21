@@ -1,5 +1,5 @@
 {
-  "generated": "2025-07-21T16:08:20.538223",
+  "generated": "2025-07-21T20:08:00.086432",
   "count": 15391,
   "vulnerabilities": [
     {
@@ -181,7 +181,7 @@
       "publishedDate": "2024-11-15T03:18:45.746000+00:00",
       "lastModifiedDate": "2024-11-19T13:37:03.351000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["really simple plugins", "rogierlankhorst"],
+      "vendors": ["rogierlankhorst", "really simple plugins"],
       "tags": ["CWE-288"]
     },
     {
@@ -909,7 +909,7 @@
       "publishedDate": "2025-06-25T07:17:32.423000+00:00",
       "lastModifiedDate": "2025-06-27T13:51:00.720000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["konica minolta, inc.", "toshiba tec", "brother industries, ltd"],
+      "vendors": ["konica minolta, inc.", "brother industries, ltd", "toshiba tec"],
       "tags": ["CWE-1391"]
     },
     {
@@ -1077,7 +1077,7 @@
       "publishedDate": "2024-11-26T07:37:44.549000+00:00",
       "lastModifiedDate": "2024-12-10T14:58:18.708000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sharp corporation", "toshiba tec corporation"],
+      "vendors": ["toshiba tec corporation", "sharp corporation"],
       "tags": ["CWE-288"]
     },
     {
@@ -2411,20 +2411,6 @@
       "tags": ["CWE-89"]
     },
     {
-      "cveId": "CVE-2025-49132",
-      "title": "Pterodactyl Panel Allows Unauthenticated Arbitrary Remote Code Execution",
-      "severity": "CRITICAL",
-      "cvssScore": 10.0,
-      "epssScore": 33.56,
-      "epssPercentile": 96.736,
-      "riskScore": 58,
-      "publishedDate": "2025-06-20T16:56:41.403000+00:00",
-      "lastModifiedDate": "2025-06-20T17:34:24.439000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["pterodactyl"],
-      "tags": ["CWE-94"]
-    },
-    {
       "cveId": "CVE-2025-4632",
       "title": "CVE-2025-4632: Improper limitation of a pathname to a restricted directory vulnerability in Samsung MagicINFO 9 Ser...",
       "severity": "CRITICAL",
@@ -3055,6 +3041,20 @@
       "tags": ["CWE-285"]
     },
     {
+      "cveId": "CVE-2025-49132",
+      "title": "Pterodactyl Panel Allows Unauthenticated Arbitrary Remote Code Execution",
+      "severity": "CRITICAL",
+      "cvssScore": 10.0,
+      "epssScore": 33.56,
+      "epssPercentile": 96.736,
+      "riskScore": 56,
+      "publishedDate": "2025-06-20T16:56:41.403000+00:00",
+      "lastModifiedDate": "2025-06-20T17:34:24.439000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["pterodactyl"],
+      "tags": ["CWE-94"]
+    },
+    {
       "cveId": "CVE-2025-25257",
       "title": "CVE-2025-25257: An improper neutralization of special elements used in an SQL command ('SQL Injection') vulnerabilit...",
       "severity": "CRITICAL",
@@ -3331,7 +3331,7 @@
       "publishedDate": "2024-10-18T17:32:30.648000+00:00",
       "lastModifiedDate": "2024-10-18T18:56:31.697000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["scott paterson", "scottpaterson"],
+      "vendors": ["scottpaterson", "scott paterson"],
       "tags": ["CWE-94"]
     },
     {
@@ -4451,7 +4451,7 @@
       "publishedDate": "2024-11-26T07:37:38.329000+00:00",
       "lastModifiedDate": "2024-12-10T15:43:57.213000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sharp corporation", "toshiba tec corporation"],
+      "vendors": ["toshiba tec corporation", "sharp corporation"],
       "tags": ["CWE-22"]
     },
     {
@@ -4831,20 +4831,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["bearsthemes"],
       "tags": ["CWE-94"]
-    },
-    {
-      "cveId": "CVE-2025-2443",
-      "title": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') in GitLab",
-      "severity": "HIGH",
-      "cvssScore": 8.7,
-      "epssScore": 0.02,
-      "epssPercentile": 2.775,
-      "riskScore": 52,
-      "publishedDate": "2025-06-20T17:12:54.738000+00:00",
-      "lastModifiedDate": "2025-06-20T17:27:26.650000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["gitlab"],
-      "tags": ["CWE-79"]
     },
     {
       "cveId": "CVE-2025-7758",
@@ -5879,7 +5865,7 @@
       "publishedDate": "2024-06-25T03:30:37.970000+00:00",
       "lastModifiedDate": "2024-08-01T21:33:05.337000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["stuartobrien", "warfareplugins", "pedrogusmao02", "themerex", "blazeretail"],
+      "vendors": ["blazeretail", "warfareplugins", "themerex", "pedrogusmao02", "stuartobrien"],
       "tags": []
     },
     {
@@ -6049,20 +6035,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["gb-plugins"],
       "tags": ["CWE-94"]
-    },
-    {
-      "cveId": "CVE-2025-5121",
-      "title": "Missing Authorization in GitLab",
-      "severity": "HIGH",
-      "cvssScore": 8.5,
-      "epssScore": 0.02,
-      "epssPercentile": 3.743,
-      "riskScore": 51,
-      "publishedDate": "2025-06-20T17:12:39.860000+00:00",
-      "lastModifiedDate": "2025-06-20T17:29:37.340000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["gitlab"],
-      "tags": ["CWE-862"]
     },
     {
       "cveId": "CVE-2025-5304",
@@ -7348,6 +7320,20 @@
       "riskScore": 50,
       "publishedDate": "2025-06-12T10:02:40.003000+00:00",
       "lastModifiedDate": "2025-06-12T13:42:30.110000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["gitlab"],
+      "tags": ["CWE-79"]
+    },
+    {
+      "cveId": "CVE-2025-2443",
+      "title": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') in GitLab",
+      "severity": "HIGH",
+      "cvssScore": 8.7,
+      "epssScore": 0.02,
+      "epssPercentile": 2.775,
+      "riskScore": 50,
+      "publishedDate": "2025-06-20T17:12:54.738000+00:00",
+      "lastModifiedDate": "2025-06-20T17:27:26.650000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["gitlab"],
       "tags": ["CWE-79"]
@@ -9481,20 +9467,6 @@
       "tags": ["CWE-78"]
     },
     {
-      "cveId": "CVE-2024-4994",
-      "title": "Cross-Site Request Forgery (CSRF) in GitLab",
-      "severity": "HIGH",
-      "cvssScore": 8.1,
-      "epssScore": 0.01,
-      "epssPercentile": 0.206,
-      "riskScore": 50,
-      "publishedDate": "2025-06-20T18:14:37.887000+00:00",
-      "lastModifiedDate": "2025-06-23T15:22:37.297000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["gitlab"],
-      "tags": ["CWE-352"]
-    },
-    {
       "cveId": "CVE-2024-11639",
       "title": "CVE-2024-11639: An authentication bypass in the admin web console of Ivanti CSA before 5.0.3 allows a remote unauthe...",
       "severity": "CRITICAL",
@@ -9632,11 +9604,11 @@
       "lastModifiedDate": "2025-06-25T14:15:31.576000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "brother industries, ltd",
-        "toshiba tec",
-        "ricoh",
         "fujifilm business innovation",
-        "konica minolta, inc."
+        "ricoh",
+        "konica minolta, inc.",
+        "brother industries, ltd",
+        "toshiba tec"
       ],
       "tags": ["CWE-1286"]
     },
@@ -9891,6 +9863,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-122"]
+    },
+    {
+      "cveId": "CVE-2025-5121",
+      "title": "Missing Authorization in GitLab",
+      "severity": "HIGH",
+      "cvssScore": 8.5,
+      "epssScore": 0.02,
+      "epssPercentile": 3.743,
+      "riskScore": 49,
+      "publishedDate": "2025-06-20T17:12:39.860000+00:00",
+      "lastModifiedDate": "2025-06-20T17:29:37.340000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["gitlab"],
+      "tags": ["CWE-862"]
     },
     {
       "cveId": "CVE-2025-5692",
@@ -12439,9 +12425,9 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": [
         "konica minolta, inc.",
+        "brother industries, ltd",
         "fujifilm business innovation",
-        "ricoh",
-        "brother industries, ltd"
+        "ricoh"
       ],
       "tags": ["CWE-121"]
     },
@@ -14280,20 +14266,6 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
-      "cveId": "CVE-2025-7538",
-      "title": "Campcodes Sales and Inventory System product_update.php unrestricted upload",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.06,
-      "epssPercentile": 17.137,
-      "riskScore": 48,
-      "publishedDate": "2025-07-13T19:02:05.882000+00:00",
-      "lastModifiedDate": "2025-07-14T16:01:35.020000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes"],
-      "tags": ["CWE-434", "CWE-284"]
-    },
-    {
       "cveId": "CVE-2025-7610",
       "title": "code-projects Electricity Billing System change_password.php sql injection",
       "severity": "HIGH",
@@ -14434,48 +14406,6 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
-      "cveId": "CVE-2025-7536",
-      "title": "Campcodes Sales and Inventory System receipt_credit.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 11.378,
-      "riskScore": 48,
-      "publishedDate": "2025-07-13T18:02:05.401000+00:00",
-      "lastModifiedDate": "2025-07-14T16:03:26.676000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-7534",
-      "title": "PHPGurukul Student Result Management System GET Parameter notice-details.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 11.378,
-      "riskScore": 48,
-      "publishedDate": "2025-07-13T17:02:07.051000+00:00",
-      "lastModifiedDate": "2025-07-14T16:04:37.432000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-7537",
-      "title": "Campcodes Sales and Inventory System product_update.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 11.378,
-      "riskScore": 48,
-      "publishedDate": "2025-07-13T18:32:06.069000+00:00",
-      "lastModifiedDate": "2025-07-14T16:02:08.617000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
       "cveId": "CVE-2025-7883",
       "title": "Eluktronics Control Center Powershell Script Command command injection",
       "severity": "HIGH",
@@ -14588,20 +14518,6 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
-      "cveId": "CVE-2025-7540",
-      "title": "code-projects Online Appointment Booking System getclinic.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 11.378,
-      "riskScore": 48,
-      "publishedDate": "2025-07-13T20:02:05.537000+00:00",
-      "lastModifiedDate": "2025-07-15T19:53:35.074000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
       "cveId": "CVE-2025-7750",
       "title": "code-projects Online Appointment Booking System adddoctorclinic.php sql injection",
       "severity": "HIGH",
@@ -14625,20 +14541,6 @@
       "riskScore": 48,
       "publishedDate": "2025-07-17T22:44:06.555000+00:00",
       "lastModifiedDate": "2025-07-18T13:56:29.965000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-7539",
-      "title": "code-projects Online Appointment Booking System getdoctordaybooking.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 11.378,
-      "riskScore": 48,
-      "publishedDate": "2025-07-13T19:32:05.511000+00:00",
-      "lastModifiedDate": "2025-07-15T19:53:41.527000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
@@ -14768,34 +14670,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["campcodes"],
       "tags": ["CWE-434", "CWE-284"]
-    },
-    {
-      "cveId": "CVE-2025-7535",
-      "title": "Campcodes Sales and Inventory System reprint_cash.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 11.378,
-      "riskScore": 48,
-      "publishedDate": "2025-07-13T17:32:06.479000+00:00",
-      "lastModifiedDate": "2025-07-14T16:04:00.529000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-7533",
-      "title": "code-projects Job Diary view-details.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 11.378,
-      "riskScore": 48,
-      "publishedDate": "2025-07-13T16:32:05.087000+00:00",
-      "lastModifiedDate": "2025-07-14T16:05:12.175000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
     },
     {
       "cveId": "CVE-2025-7757",
@@ -17468,7 +17342,7 @@
       "publishedDate": "2025-06-13T09:23:49.631000+00:00",
       "lastModifiedDate": "2025-06-13T12:22:47.798000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["rts", "telex"],
+      "vendors": ["telex", "rts"],
       "tags": []
     },
     {
@@ -18718,6 +18592,20 @@
       "tags": ["CWE-269"]
     },
     {
+      "cveId": "CVE-2024-4994",
+      "title": "Cross-Site Request Forgery (CSRF) in GitLab",
+      "severity": "HIGH",
+      "cvssScore": 8.1,
+      "epssScore": 0.01,
+      "epssPercentile": 0.206,
+      "riskScore": 48,
+      "publishedDate": "2025-06-20T18:14:37.887000+00:00",
+      "lastModifiedDate": "2025-06-23T15:22:37.297000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["gitlab"],
+      "tags": ["CWE-352"]
+    },
+    {
       "cveId": "CVE-2024-4442",
       "title": "Salon booking system <= 9.8 - Unauthenticated Arbitrary File Deletion",
       "severity": "CRITICAL",
@@ -19064,7 +18952,7 @@
       "publishedDate": "2025-06-25T07:25:00.402000+00:00",
       "lastModifiedDate": "2025-06-25T14:13:40.189000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["fujifilm business innovation", "ricoh", "brother industries, ltd"],
+      "vendors": ["brother industries, ltd", "fujifilm business innovation", "ricoh"],
       "tags": ["CWE-1286"]
     },
     {
@@ -26404,6 +26292,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-7538",
+      "title": "Campcodes Sales and Inventory System product_update.php unrestricted upload",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.06,
+      "epssPercentile": 17.137,
+      "riskScore": 46,
+      "publishedDate": "2025-07-13T19:02:05.882000+00:00",
+      "lastModifiedDate": "2025-07-14T16:01:35.020000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["campcodes"],
+      "tags": ["CWE-434", "CWE-284"]
+    },
+    {
       "cveId": "CVE-2025-7136",
       "title": "Campcodes Online Recruitment Management System view_vacancy.php sql injection",
       "severity": "HIGH",
@@ -26614,6 +26516,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-7536",
+      "title": "Campcodes Sales and Inventory System receipt_credit.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 11.378,
+      "riskScore": 46,
+      "publishedDate": "2025-07-13T18:02:05.401000+00:00",
+      "lastModifiedDate": "2025-07-14T16:03:26.676000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["campcodes"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-7157",
       "title": "code-projects Online Note Sharing login.php sql injection",
       "severity": "HIGH",
@@ -26639,6 +26555,34 @@
       "lastModifiedDate": "2025-07-14T16:08:05.360000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-7534",
+      "title": "PHPGurukul Student Result Management System GET Parameter notice-details.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 11.378,
+      "riskScore": 46,
+      "publishedDate": "2025-07-13T17:02:07.051000+00:00",
+      "lastModifiedDate": "2025-07-14T16:04:37.432000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["phpgurukul"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-7537",
+      "title": "Campcodes Sales and Inventory System product_update.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 11.378,
+      "riskScore": 46,
+      "publishedDate": "2025-07-13T18:32:06.069000+00:00",
+      "lastModifiedDate": "2025-07-14T16:02:08.617000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -26763,6 +26707,20 @@
       "riskScore": 46,
       "publishedDate": "2025-07-08T09:02:15.918000+00:00",
       "lastModifiedDate": "2025-07-08T13:36:51.710000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-7540",
+      "title": "code-projects Online Appointment Booking System getclinic.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 11.378,
+      "riskScore": 46,
+      "publishedDate": "2025-07-13T20:02:05.537000+00:00",
+      "lastModifiedDate": "2025-07-15T19:53:35.074000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
@@ -26961,6 +26919,20 @@
       "lastModifiedDate": "2025-07-11T13:24:30.269000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["campcodes"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-7539",
+      "title": "code-projects Online Appointment Booking System getdoctordaybooking.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 11.378,
+      "riskScore": 46,
+      "publishedDate": "2025-07-13T19:32:05.511000+00:00",
+      "lastModifiedDate": "2025-07-15T19:53:41.527000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -27216,6 +27188,20 @@
       "tags": ["CWE-287"]
     },
     {
+      "cveId": "CVE-2025-7535",
+      "title": "Campcodes Sales and Inventory System reprint_cash.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 11.378,
+      "riskScore": 46,
+      "publishedDate": "2025-07-13T17:32:06.479000+00:00",
+      "lastModifiedDate": "2025-07-14T16:04:00.529000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["campcodes"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-7409",
       "title": "code-projects Mobile Shop LoginAsAdmin.php sql injection",
       "severity": "HIGH",
@@ -27225,6 +27211,20 @@
       "riskScore": 46,
       "publishedDate": "2025-07-10T16:32:06.073000+00:00",
       "lastModifiedDate": "2025-07-10T18:49:50.913000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-7533",
+      "title": "code-projects Job Diary view-details.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 11.378,
+      "riskScore": 46,
+      "publishedDate": "2025-07-13T16:32:05.087000+00:00",
+      "lastModifiedDate": "2025-07-14T16:05:12.175000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
@@ -29078,20 +29078,6 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
-      "cveId": "CVE-2025-6361",
-      "title": "code-projects Simple Pizza Ordering System adds.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.692,
-      "riskScore": 46,
-      "publishedDate": "2025-06-20T19:31:04.970000+00:00",
-      "lastModifiedDate": "2025-06-20T20:01:09.397000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
       "cveId": "CVE-2025-6467",
       "title": "code-projects Online Bidding System login.php sql injection",
       "severity": "HIGH",
@@ -29257,34 +29243,6 @@
       "lastModifiedDate": "2025-07-01T13:53:24.905000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["campcodes"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-6354",
-      "title": "code-projects Online Shoe Store customer_signup.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.692,
-      "riskScore": 46,
-      "publishedDate": "2025-06-20T16:31:07.092000+00:00",
-      "lastModifiedDate": "2025-06-23T15:29:51.297000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-6360",
-      "title": "code-projects Simple Pizza Ordering System portal.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.692,
-      "riskScore": 46,
-      "publishedDate": "2025-06-20T19:00:14.786000+00:00",
-      "lastModifiedDate": "2025-06-20T20:12:34.976000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -29750,20 +29708,6 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
-      "cveId": "CVE-2025-6362",
-      "title": "code-projects Simple Pizza Ordering System editpro.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.692,
-      "riskScore": 46,
-      "publishedDate": "2025-06-20T19:31:06.636000+00:00",
-      "lastModifiedDate": "2025-06-20T19:57:33.904000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
       "cveId": "CVE-2025-6031",
       "title": "Insecure device pairing in end of life Amazon Cloud Cam",
       "severity": "HIGH",
@@ -29862,20 +29806,6 @@
       "tags": ["CWE-79"]
     },
     {
-      "cveId": "CVE-2025-6363",
-      "title": "code-projects Simple Pizza Ordering System adding-exec.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.692,
-      "riskScore": 46,
-      "publishedDate": "2025-06-20T20:00:14.259000+00:00",
-      "lastModifiedDate": "2025-06-23T15:19:13.363000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
       "cveId": "CVE-2025-6405",
       "title": "Campcodes Online Teacher Record Management System edit-teacher-detail.php sql injection",
       "severity": "HIGH",
@@ -29915,20 +29845,6 @@
       "lastModifiedDate": "2025-06-30T20:13:05.481000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-6355",
-      "title": "SourceCodester Online Hotel Reservation System execeditroom.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 9.882,
-      "riskScore": 46,
-      "publishedDate": "2025-06-20T17:00:10.035000+00:00",
-      "lastModifiedDate": "2025-06-23T15:29:20.836000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["sourcecodester"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -29983,20 +29899,6 @@
       "riskScore": 46,
       "publishedDate": "2025-06-28T17:31:05.378000+00:00",
       "lastModifiedDate": "2025-06-30T20:17:59.647000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-6359",
-      "title": "code-projects Simple Pizza Ordering System cashconfirm.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.692,
-      "riskScore": 46,
-      "publishedDate": "2025-06-20T18:31:04.986000+00:00",
-      "lastModifiedDate": "2025-06-23T15:21:58.604000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
@@ -30067,20 +29969,6 @@
       "riskScore": 46,
       "publishedDate": "2025-06-21T23:31:06.691000+00:00",
       "lastModifiedDate": "2025-06-23T19:27:07.386000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-6358",
-      "title": "code-projects Simple Pizza Ordering System saveorder.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.692,
-      "riskScore": 46,
-      "publishedDate": "2025-06-20T18:00:15.624000+00:00",
-      "lastModifiedDate": "2025-06-23T15:23:31.972000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
@@ -30377,34 +30265,6 @@
       "lastModifiedDate": "2025-06-24T14:46:53.501000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["campcodes"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-6356",
-      "title": "code-projects Simple Pizza Ordering System addmem.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.692,
-      "riskScore": 46,
-      "publishedDate": "2025-06-20T17:31:05.591000+00:00",
-      "lastModifiedDate": "2025-06-23T15:24:34.333000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-6357",
-      "title": "code-projects Simple Pizza Ordering System paymentportal.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.692,
-      "riskScore": 46,
-      "publishedDate": "2025-06-20T17:31:07.289000+00:00",
-      "lastModifiedDate": "2025-06-20T17:50:38.840000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -40502,20 +40362,6 @@
       "tags": ["CWE-122", "CWE-125"]
     },
     {
-      "cveId": "CVE-2025-24024",
-      "title": "Mjolnir v1.9.0 accepts commands from any room",
-      "severity": "CRITICAL",
-      "cvssScore": 9.1,
-      "epssScore": 0.1,
-      "epssPercentile": 27.837,
-      "riskScore": 45,
-      "publishedDate": "2025-01-21T19:21:56.038000+00:00",
-      "lastModifiedDate": "2025-01-21T19:32:21.204000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["matrix-org"],
-      "tags": ["CWE-671"]
-    },
-    {
       "cveId": "CVE-2025-24891",
       "title": "Dumb Drop has an arbitrary file overwrite and path traversal for root shell",
       "severity": "CRITICAL",
@@ -43844,7 +43690,7 @@
       "publishedDate": "2024-11-26T07:38:12.712000+00:00",
       "lastModifiedDate": "2025-01-27T17:45:48.564000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sharp corporation", "toshiba tec corporation"],
+      "vendors": ["toshiba tec corporation", "sharp corporation"],
       "tags": ["CWE-798"]
     },
     {
@@ -45986,7 +45832,7 @@
       "publishedDate": "2024-11-26T07:37:06.324000+00:00",
       "lastModifiedDate": "2024-12-10T14:57:54.916000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sharp corporation", "toshiba tec corporation"],
+      "vendors": ["toshiba tec corporation", "sharp corporation"],
       "tags": ["CWE-121"]
     },
     {
@@ -46210,7 +46056,7 @@
       "publishedDate": "2024-11-26T07:38:06.435000+00:00",
       "lastModifiedDate": "2025-01-27T17:46:45.224000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sharp corporation", "toshiba tec corporation"],
+      "vendors": ["toshiba tec corporation", "sharp corporation"],
       "tags": ["CWE-798"]
     },
     {
@@ -52790,7 +52636,7 @@
       "publishedDate": "2025-05-05T18:31:04.418000+00:00",
       "lastModifiedDate": "2025-05-05T18:48:57.123000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["oretnom23", "sourcecodester"],
+      "vendors": ["sourcecodester", "oretnom23"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -53802,6 +53648,20 @@
       "tags": ["CWE-89"]
     },
     {
+      "cveId": "CVE-2025-6361",
+      "title": "code-projects Simple Pizza Ordering System adds.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.692,
+      "riskScore": 44,
+      "publishedDate": "2025-06-20T19:31:04.970000+00:00",
+      "lastModifiedDate": "2025-06-20T20:01:09.397000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-6206",
       "title": "Aiomatic - AI Content Writer, Editor, ChatBot & AI Toolkit <= 2.5.0 - Authenticated (Subscriber+) Arbitrary File Upload",
       "severity": "HIGH",
@@ -53872,6 +53732,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-6354",
+      "title": "code-projects Online Shoe Store customer_signup.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.692,
+      "riskScore": 44,
+      "publishedDate": "2025-06-20T16:31:07.092000+00:00",
+      "lastModifiedDate": "2025-06-23T15:29:51.297000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-6300",
       "title": "PHPGurukul Employee Record Management System editempeducation.php sql injection",
       "severity": "HIGH",
@@ -53883,6 +53757,20 @@
       "lastModifiedDate": "2025-06-20T19:26:44.826000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["phpgurukul"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-6360",
+      "title": "code-projects Simple Pizza Ordering System portal.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.692,
+      "riskScore": 44,
+      "publishedDate": "2025-06-20T19:00:14.786000+00:00",
+      "lastModifiedDate": "2025-06-20T20:12:34.976000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -54068,6 +53956,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-6362",
+      "title": "code-projects Simple Pizza Ordering System editpro.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.692,
+      "riskScore": 44,
+      "publishedDate": "2025-06-20T19:31:06.636000+00:00",
+      "lastModifiedDate": "2025-06-20T19:57:33.904000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-6316",
       "title": "code-projects Online Shoe Store admin_running.php sql injection",
       "severity": "HIGH",
@@ -54107,6 +54009,34 @@
       "lastModifiedDate": "2025-06-17T19:38:45.970000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-6363",
+      "title": "code-projects Simple Pizza Ordering System adding-exec.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.692,
+      "riskScore": 44,
+      "publishedDate": "2025-06-20T20:00:14.259000+00:00",
+      "lastModifiedDate": "2025-06-23T15:19:13.363000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-6355",
+      "title": "SourceCodester Online Hotel Reservation System execeditroom.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 9.882,
+      "riskScore": 44,
+      "publishedDate": "2025-06-20T17:00:10.035000+00:00",
+      "lastModifiedDate": "2025-06-23T15:29:20.836000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["sourcecodester"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -54152,6 +54082,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-6359",
+      "title": "code-projects Simple Pizza Ordering System cashconfirm.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.692,
+      "riskScore": 44,
+      "publishedDate": "2025-06-20T18:31:04.986000+00:00",
+      "lastModifiedDate": "2025-06-23T15:21:58.604000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-6157",
       "title": "PHPGurukul Nipah Virus Testing Management System registered-user-testing.php sql injection",
       "severity": "HIGH",
@@ -54177,6 +54121,20 @@
       "lastModifiedDate": "2025-06-26T17:45:16.621000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["campcodes"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-6358",
+      "title": "code-projects Simple Pizza Ordering System saveorder.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.692,
+      "riskScore": 44,
+      "publishedDate": "2025-06-20T18:00:15.624000+00:00",
+      "lastModifiedDate": "2025-06-23T15:23:31.972000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -54320,6 +54278,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-6356",
+      "title": "code-projects Simple Pizza Ordering System addmem.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.692,
+      "riskScore": 44,
+      "publishedDate": "2025-06-20T17:31:05.591000+00:00",
+      "lastModifiedDate": "2025-06-23T15:24:34.333000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-6344",
       "title": "code-projects Online Shoe Store contactus.php sql injection",
       "severity": "HIGH",
@@ -54329,6 +54301,20 @@
       "riskScore": 44,
       "publishedDate": "2025-06-20T14:00:15.853000+00:00",
       "lastModifiedDate": "2025-06-20T14:29:56.862000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-6357",
+      "title": "code-projects Simple Pizza Ordering System paymentportal.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.692,
+      "riskScore": 44,
+      "publishedDate": "2025-06-20T17:31:07.289000+00:00",
+      "lastModifiedDate": "2025-06-20T17:50:38.840000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
@@ -57102,7 +57088,7 @@
       "publishedDate": "2024-07-09T05:34:17.609000+00:00",
       "lastModifiedDate": "2024-08-01T21:11:12.734000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["webnus", "webnus/"],
+      "vendors": ["webnus/", "webnus"],
       "tags": []
     },
     {
@@ -58306,7 +58292,7 @@
       "publishedDate": "2025-05-09T15:18:34.124000+00:00",
       "lastModifiedDate": "2025-05-09T19:09:17.086000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["avast", "avg", "norton"],
+      "vendors": ["avast", "norton", "avg"],
       "tags": ["CWE-367"]
     },
     {
@@ -58894,7 +58880,7 @@
       "publishedDate": "2024-10-25T06:18:36.274000+00:00",
       "lastModifiedDate": "2024-10-25T18:38:24.503000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sharp corporation", "toshiba tec corporation"],
+      "vendors": ["toshiba tec corporation", "sharp corporation"],
       "tags": ["CWE-288"]
     },
     {
@@ -69314,6 +69300,20 @@
       "tags": ["CWE-98"]
     },
     {
+      "cveId": "CVE-2025-24024",
+      "title": "Mjolnir v1.9.0 accepts commands from any room",
+      "severity": "CRITICAL",
+      "cvssScore": 9.1,
+      "epssScore": 0.1,
+      "epssPercentile": 27.837,
+      "riskScore": 43,
+      "publishedDate": "2025-01-21T19:21:56.038000+00:00",
+      "lastModifiedDate": "2025-01-21T19:32:21.204000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["matrix-org"],
+      "tags": ["CWE-671"]
+    },
+    {
       "cveId": "CVE-2025-24894",
       "title": "SAML Response Signature Verification Bypass in SPID.AspNetCore.Authentication",
       "severity": "CRITICAL",
@@ -78648,7 +78648,7 @@
       "publishedDate": "2025-01-08T11:09:24.799000+00:00",
       "lastModifiedDate": "2025-01-08T13:54:46.719000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["wpswings", "wp swings"],
+      "vendors": ["wp swings", "wpswings"],
       "tags": ["CWE-862"]
     },
     {
@@ -80272,7 +80272,7 @@
       "publishedDate": "2024-05-14T12:58:31.261000+00:00",
       "lastModifiedDate": "2025-03-14T14:56:10.154000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["n/a", "na"],
+      "vendors": ["na", "n/a"],
       "tags": []
     },
     {
@@ -80468,7 +80468,7 @@
       "publishedDate": "2024-08-07T11:00:06.508000+00:00",
       "lastModifiedDate": "2024-08-07T13:17:59.476000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["webnus", "webnus/"],
+      "vendors": ["webnus/", "webnus"],
       "tags": ["CWE-918"]
     },
     {
@@ -80874,7 +80874,7 @@
       "publishedDate": "2024-02-05T14:33:06.481000+00:00",
       "lastModifiedDate": "2025-05-09T16:32:50.015000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["encode", "tiangolo", "kludex"],
+      "vendors": ["encode", "kludex", "tiangolo"],
       "tags": ["CWE-400"]
     },
     {
@@ -107562,20 +107562,6 @@
       "tags": ["CWE-863"]
     },
     {
-      "cveId": "CVE-2025-24018",
-      "title": "YesWiki Vulnerable to Authenticated Stored XSS",
-      "severity": "HIGH",
-      "cvssScore": 7.6,
-      "epssScore": 0.03,
-      "epssPercentile": 5.463,
-      "riskScore": 41,
-      "publishedDate": "2025-01-21T17:02:04.924000+00:00",
-      "lastModifiedDate": "2025-01-21T17:15:37.955000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["yeswiki"],
-      "tags": ["CWE-79"]
-    },
-    {
       "cveId": "CVE-2025-24308",
       "title": "CVE-2025-24308: Improper input validation in the UEFI firmware error handler for the Intel(R) Server D50DNP and M50F...",
       "severity": "HIGH",
@@ -108850,20 +108836,6 @@
       "tags": ["CWE-502"]
     },
     {
-      "cveId": "CVE-2025-23174",
-      "title": "Yoel Geva - CWE-200: Exposure of Sensitive Information to an Unauthorized Actor",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.05,
-      "epssPercentile": 13.997,
-      "riskScore": 41,
-      "publishedDate": "2025-04-21T16:53:08.584000+00:00",
-      "lastModifiedDate": "2025-04-21T17:09:00.394000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["yoel geva"],
-      "tags": ["CWE-200"]
-    },
-    {
       "cveId": "CVE-2025-23359",
       "title": "CVE-2025-23359: NVIDIA Container Toolkit for Linux contains a Time-of-Check Time-of-Use (TOCTOU) vulnerability when ...",
       "severity": "HIGH",
@@ -108876,20 +108848,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["nvidia"],
       "tags": ["CWE-367"]
-    },
-    {
-      "cveId": "CVE-2025-23477",
-      "title": "WordPress Realty Workstation plugin <= 1.0.45 - Broken Access Control vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 8.2,
-      "epssScore": 0.08,
-      "epssPercentile": 25.077,
-      "riskScore": 41,
-      "publishedDate": "2025-01-21T17:21:50.023000+00:00",
-      "lastModifiedDate": "2025-01-21T18:43:25.453000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["realty workstation"],
-      "tags": ["CWE-862"]
     },
     {
       "cveId": "CVE-2025-23250",
@@ -113396,7 +113354,7 @@
       "publishedDate": "2024-10-25T06:18:30.415000+00:00",
       "lastModifiedDate": "2024-10-25T18:38:02.777000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sharp corporation", "toshiba tec corporation"],
+      "vendors": ["toshiba tec corporation", "sharp corporation"],
       "tags": ["CWE-749"]
     },
     {
@@ -113690,7 +113648,7 @@
       "publishedDate": "2024-11-26T07:38:24.464000+00:00",
       "lastModifiedDate": "2024-11-26T16:28:15.625000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sharp corporation", "toshiba tec corporation"],
+      "vendors": ["toshiba tec corporation", "sharp corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -113704,7 +113662,7 @@
       "publishedDate": "2024-11-26T07:38:30.408000+00:00",
       "lastModifiedDate": "2024-11-26T14:48:35.480000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sharp corporation", "toshiba tec corporation"],
+      "vendors": ["toshiba tec corporation", "sharp corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -113760,7 +113718,7 @@
       "publishedDate": "2024-11-26T07:38:18.359000+00:00",
       "lastModifiedDate": "2024-11-26T14:09:24.516000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sharp corporation", "toshiba tec corporation"],
+      "vendors": ["toshiba tec corporation", "sharp corporation"],
       "tags": ["CWE-79"]
     },
     {
@@ -128978,7 +128936,7 @@
       "publishedDate": "2024-10-22T22:19:20.646000+00:00",
       "lastModifiedDate": "2024-11-06T15:50:04.628000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-276"]
     },
     {
@@ -131652,7 +131610,7 @@
       "publishedDate": "2024-11-28T22:16:31.396000+00:00",
       "lastModifiedDate": "2024-12-06T05:18:03.652000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-427"]
     },
     {
@@ -132604,7 +132562,7 @@
       "publishedDate": "2024-10-25T06:18:00.481000+00:00",
       "lastModifiedDate": "2024-10-25T18:37:13.542000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sharp corporation", "toshiba tec corporation"],
+      "vendors": ["toshiba tec corporation", "sharp corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -134354,7 +134312,7 @@
       "publishedDate": "2024-11-28T22:20:28.303000+00:00",
       "lastModifiedDate": "2024-12-06T05:23:50.441000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-427"]
     },
     {
@@ -136398,7 +136356,7 @@
       "publishedDate": "2024-10-25T06:18:10.875000+00:00",
       "lastModifiedDate": "2024-10-25T17:16:12.736000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sharp corporation", "toshiba tec corporation"],
+      "vendors": ["toshiba tec corporation", "sharp corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -140014,20 +139972,6 @@
       "tags": ["CWE-78"]
     },
     {
-      "cveId": "CVE-2025-24019",
-      "title": "YesWiki vulnerable to authenticated arbitrary file deletion",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.16,
-      "epssPercentile": 38.154,
-      "riskScore": 39,
-      "publishedDate": "2025-01-21T17:36:10.367000+00:00",
-      "lastModifiedDate": "2025-02-12T20:41:22.176000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["yeswiki"],
-      "tags": ["CWE-22"]
-    },
-    {
       "cveId": "CVE-2025-24885",
       "title": "pwn.college has a XSS on dojo pages",
       "severity": "HIGH",
@@ -140152,6 +140096,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["tips and tricks hq, ruhul amin, josh lobe"],
       "tags": ["CWE-89"]
+    },
+    {
+      "cveId": "CVE-2025-24018",
+      "title": "YesWiki Vulnerable to Authenticated Stored XSS",
+      "severity": "HIGH",
+      "cvssScore": 7.6,
+      "epssScore": 0.03,
+      "epssPercentile": 5.463,
+      "riskScore": 39,
+      "publishedDate": "2025-01-21T17:02:04.924000+00:00",
+      "lastModifiedDate": "2025-01-21T17:15:37.955000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["yeswiki"],
+      "tags": ["CWE-79"]
     },
     {
       "cveId": "CVE-2025-24849",
@@ -140602,6 +140560,20 @@
       "tags": ["CWE-601"]
     },
     {
+      "cveId": "CVE-2025-23174",
+      "title": "Yoel Geva - CWE-200: Exposure of Sensitive Information to an Unauthorized Actor",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.05,
+      "epssPercentile": 13.997,
+      "riskScore": 39,
+      "publishedDate": "2025-04-21T16:53:08.584000+00:00",
+      "lastModifiedDate": "2025-04-21T17:09:00.394000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["yoel geva"],
+      "tags": ["CWE-200"]
+    },
+    {
       "cveId": "CVE-2025-23819",
       "title": "WordPress WP Cloud plugin <= 1.4.3 - Arbitrary File Deletion vulnerability",
       "severity": "HIGH",
@@ -140628,6 +140600,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["notfound"],
       "tags": ["CWE-98"]
+    },
+    {
+      "cveId": "CVE-2025-23477",
+      "title": "WordPress Realty Workstation plugin <= 1.0.45 - Broken Access Control vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 8.2,
+      "epssScore": 0.08,
+      "epssPercentile": 25.077,
+      "riskScore": 39,
+      "publishedDate": "2025-01-21T17:21:50.023000+00:00",
+      "lastModifiedDate": "2025-01-21T18:43:25.453000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["realty workstation"],
+      "tags": ["CWE-862"]
     },
     {
       "cveId": "CVE-2025-23512",
@@ -143384,7 +143370,7 @@
       "publishedDate": "2024-07-03T12:26:44.599000+00:00",
       "lastModifiedDate": "2025-02-13T17:54:25.437000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["red lion europe", "helmholz"],
+      "vendors": ["helmholz", "red lion europe"],
       "tags": ["CWE-78"]
     },
     {
@@ -146800,7 +146786,7 @@
       "publishedDate": "2024-10-25T06:18:42.287000+00:00",
       "lastModifiedDate": "2024-10-25T18:32:25.798000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sharp corporation", "toshiba tec corporation"],
+      "vendors": ["toshiba tec corporation", "sharp corporation"],
       "tags": ["CWE-644"]
     },
     {
@@ -146954,7 +146940,7 @@
       "publishedDate": "2024-10-25T06:18:50.793000+00:00",
       "lastModifiedDate": "2024-10-25T14:16:46.537000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sharp corporation", "toshiba tec corporation"],
+      "vendors": ["toshiba tec corporation", "sharp corporation"],
       "tags": ["CWE-79"]
     },
     {
@@ -160902,20 +160888,6 @@
       "tags": ["CWE-79"]
     },
     {
-      "cveId": "CVE-2025-24458",
-      "title": "CVE-2025-24458: In JetBrains YouTrack before 2024.3.55417 account takeover was possible via spoofed email and Helpde...",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.0,
-      "epssPercentile": 0.014,
-      "riskScore": 38,
-      "publishedDate": "2025-01-21T17:23:18.934000+00:00",
-      "lastModifiedDate": "2025-01-21T18:41:51.242000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["jetbrains"],
-      "tags": []
-    },
-    {
       "cveId": "CVE-2025-24553",
       "title": "WordPress Shipping with Venipak for WooCommerce plugin <= 1.22.3 - Reflected Cross Site Scripting (XSS) vulnerability",
       "severity": "HIGH",
@@ -161840,20 +161812,6 @@
       "tags": ["CWE-79"]
     },
     {
-      "cveId": "CVE-2025-23454",
-      "title": "WordPress Nature FlipBook WordPress Plugin plugin <= 1.7 - Reflected Cross Site Scripting (XSS) vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.04,
-      "epssPercentile": 13.359,
-      "riskScore": 38,
-      "publishedDate": "2025-01-21T17:21:49.720000+00:00",
-      "lastModifiedDate": "2025-01-21T18:43:43.967000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["flashmaniac"],
-      "tags": ["CWE-79"]
-    },
-    {
       "cveId": "CVE-2025-23611",
       "title": "WordPress WH Cache & Security plugin <= 1.1.2 - Reflected Cross Site Scripting (XSS) vulnerability",
       "severity": "HIGH",
@@ -162201,20 +162159,6 @@
       "lastModifiedDate": "2025-01-22T19:49:51.802000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["notfound"],
-      "tags": ["CWE-79"]
-    },
-    {
-      "cveId": "CVE-2025-23551",
-      "title": "WordPress SexBundle plugin <= 1.4 - Reflected Cross Site Scripting (XSS) vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.04,
-      "epssPercentile": 13.359,
-      "riskScore": 38,
-      "publishedDate": "2025-01-21T17:21:50.363000+00:00",
-      "lastModifiedDate": "2025-01-21T18:43:09.636000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["p. razvan"],
       "tags": ["CWE-79"]
     },
     {
@@ -163632,20 +163576,6 @@
       "tags": ["CWE-79"]
     },
     {
-      "cveId": "CVE-2025-23461",
-      "title": "WordPress Social2Blog plugin <= 0.2.990 - Reflected Cross Site Scripting (XSS) vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.04,
-      "epssPercentile": 13.359,
-      "riskScore": 38,
-      "publishedDate": "2025-01-21T17:21:49.882000+00:00",
-      "lastModifiedDate": "2025-01-21T18:43:34.173000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["andrea dotta, jacopo campani, di xkoll.com"],
-      "tags": ["CWE-79"]
-    },
-    {
       "cveId": "CVE-2025-23446",
       "title": "WordPress WP SpaceContent plugin <= 0.4.5 -  CSRF to Stored Cross Site Scripting (XSS) vulnerability",
       "severity": "HIGH",
@@ -163814,20 +163744,6 @@
       "tags": ["CWE-79"]
     },
     {
-      "cveId": "CVE-2025-23489",
-      "title": "WordPress WP-Announcements plugin <= 1.8 - Reflected Cross Site Scripting (XSS) vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.04,
-      "epssPercentile": 13.359,
-      "riskScore": 38,
-      "publishedDate": "2025-01-21T17:21:50.160000+00:00",
-      "lastModifiedDate": "2025-01-21T18:43:19.844000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["brian messenlehner of webdevstudios"],
-      "tags": ["CWE-79"]
-    },
-    {
       "cveId": "CVE-2025-23468",
       "title": "WordPress Essay Wizard (wpCRES) plugin <= 1.0.6.4 - Reflected Cross Site Scripting (XSS) vulnerability",
       "severity": "HIGH",
@@ -163853,20 +163769,6 @@
       "lastModifiedDate": "2025-01-22T19:45:22.537000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["notfound"],
-      "tags": ["CWE-79"]
-    },
-    {
-      "cveId": "CVE-2025-23994",
-      "title": "WordPress Estatebud – Properties & Listings plugin <= 5.5.0 - CSRF to Stored XSS vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.04,
-      "epssPercentile": 13.359,
-      "riskScore": 38,
-      "publishedDate": "2025-01-21T17:21:52.174000+00:00",
-      "lastModifiedDate": "2025-01-21T18:42:18.792000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["estatebud"],
       "tags": ["CWE-79"]
     },
     {
@@ -165001,20 +164903,6 @@
       "lastModifiedDate": "2025-01-27T15:19:02.710000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["notfound"],
-      "tags": ["CWE-79"]
-    },
-    {
-      "cveId": "CVE-2025-23580",
-      "title": "WordPress BizLibrary plugin <= 1.1 - Reflected Cross Site Scripting (XSS) vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.04,
-      "epssPercentile": 13.359,
-      "riskScore": 38,
-      "publishedDate": "2025-01-21T17:21:50.545000+00:00",
-      "lastModifiedDate": "2025-01-21T18:43:02.380000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["matthew garvin"],
       "tags": ["CWE-79"]
     },
     {
@@ -177782,7 +177670,7 @@
       "publishedDate": "2024-11-28T22:18:28.358000+00:00",
       "lastModifiedDate": "2024-12-06T05:21:38.917000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-561"]
     },
     {
@@ -182626,7 +182514,7 @@
       "publishedDate": "2024-07-04T08:53:41.217000+00:00",
       "lastModifiedDate": "2024-08-19T15:25:49.496000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-427"]
     },
     {
@@ -186506,6 +186394,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["wpindeed"],
       "tags": ["CWE-89"]
+    },
+    {
+      "cveId": "CVE-2025-24019",
+      "title": "YesWiki vulnerable to authenticated arbitrary file deletion",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.16,
+      "epssPercentile": 38.154,
+      "riskScore": 37,
+      "publishedDate": "2025-01-21T17:36:10.367000+00:00",
+      "lastModifiedDate": "2025-02-12T20:41:22.176000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["yeswiki"],
+      "tags": ["CWE-22"]
     },
     {
       "cveId": "CVE-2025-23915",
@@ -199836,6 +199738,20 @@
       "tags": ["CWE-352"]
     },
     {
+      "cveId": "CVE-2025-24458",
+      "title": "CVE-2025-24458: In JetBrains YouTrack before 2024.3.55417 account takeover was possible via spoofed email and Helpde...",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.0,
+      "epssPercentile": 0.014,
+      "riskScore": 36,
+      "publishedDate": "2025-01-21T17:23:18.934000+00:00",
+      "lastModifiedDate": "2025-01-21T18:41:51.242000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["jetbrains"],
+      "tags": []
+    },
+    {
       "cveId": "CVE-2025-23694",
       "title": "WordPress Shabbos and Yom Tov plugin <= 1.9 - CSRF to Stored XSS vulnerability",
       "severity": "HIGH",
@@ -199904,6 +199820,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["igor sazonov"],
       "tags": ["CWE-352"]
+    },
+    {
+      "cveId": "CVE-2025-23454",
+      "title": "WordPress Nature FlipBook WordPress Plugin plugin <= 1.7 - Reflected Cross Site Scripting (XSS) vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.04,
+      "epssPercentile": 13.359,
+      "riskScore": 36,
+      "publishedDate": "2025-01-21T17:21:49.720000+00:00",
+      "lastModifiedDate": "2025-01-21T18:43:43.967000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["flashmaniac"],
+      "tags": ["CWE-79"]
     },
     {
       "cveId": "CVE-2025-23828",
@@ -200015,6 +199945,20 @@
       "lastModifiedDate": "2025-01-17T19:28:48.405000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["alti5"],
+      "tags": ["CWE-79"]
+    },
+    {
+      "cveId": "CVE-2025-23551",
+      "title": "WordPress SexBundle plugin <= 1.4 - Reflected Cross Site Scripting (XSS) vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.04,
+      "epssPercentile": 13.359,
+      "riskScore": 36,
+      "publishedDate": "2025-01-21T17:21:50.363000+00:00",
+      "lastModifiedDate": "2025-01-21T18:43:09.636000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["p. razvan"],
       "tags": ["CWE-79"]
     },
     {
@@ -200704,6 +200648,20 @@
       "tags": ["CWE-352"]
     },
     {
+      "cveId": "CVE-2025-23461",
+      "title": "WordPress Social2Blog plugin <= 0.2.990 - Reflected Cross Site Scripting (XSS) vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.04,
+      "epssPercentile": 13.359,
+      "riskScore": 36,
+      "publishedDate": "2025-01-21T17:21:49.882000+00:00",
+      "lastModifiedDate": "2025-01-21T18:43:34.173000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["andrea dotta, jacopo campani, di xkoll.com"],
+      "tags": ["CWE-79"]
+    },
+    {
       "cveId": "CVE-2025-23513",
       "title": "WordPress Bible Embed plugin <= 0.0.4 - CSRF to Stored Cross Site Scripting (XSS) vulnerability",
       "severity": "HIGH",
@@ -200802,6 +200760,20 @@
       "tags": ["CWE-352"]
     },
     {
+      "cveId": "CVE-2025-23489",
+      "title": "WordPress WP-Announcements plugin <= 1.8 - Reflected Cross Site Scripting (XSS) vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.04,
+      "epssPercentile": 13.359,
+      "riskScore": 36,
+      "publishedDate": "2025-01-21T17:21:50.160000+00:00",
+      "lastModifiedDate": "2025-01-21T18:43:19.844000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["brian messenlehner of webdevstudios"],
+      "tags": ["CWE-79"]
+    },
+    {
       "cveId": "CVE-2025-23560",
       "title": "WordPress Web Testimonials plugin <= 1.2 - CSRF to Stored XSS vulnerability",
       "severity": "HIGH",
@@ -200814,6 +200786,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["elke hinze, plumeria web design"],
       "tags": ["CWE-352"]
+    },
+    {
+      "cveId": "CVE-2025-23994",
+      "title": "WordPress Estatebud – Properties & Listings plugin <= 5.5.0 - CSRF to Stored XSS vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.04,
+      "epssPercentile": 13.359,
+      "riskScore": 36,
+      "publishedDate": "2025-01-21T17:21:52.174000+00:00",
+      "lastModifiedDate": "2025-01-21T18:42:18.792000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["estatebud"],
+      "tags": ["CWE-79"]
     },
     {
       "cveId": "CVE-2025-23430",
@@ -201205,6 +201191,20 @@
       "lastModifiedDate": "2025-01-17T17:37:22.214000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["alex volkov"],
+      "tags": ["CWE-79"]
+    },
+    {
+      "cveId": "CVE-2025-23580",
+      "title": "WordPress BizLibrary plugin <= 1.1 - Reflected Cross Site Scripting (XSS) vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.04,
+      "epssPercentile": 13.359,
+      "riskScore": 36,
+      "publishedDate": "2025-01-21T17:21:50.545000+00:00",
+      "lastModifiedDate": "2025-01-21T18:43:02.380000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["matthew garvin"],
       "tags": ["CWE-79"]
     },
     {
