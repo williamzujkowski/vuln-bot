@@ -1,5 +1,5 @@
 {
-  "generated": "2025-07-21T20:08:00.086432",
+  "generated": "2025-07-22T00:27:11.133661",
   "count": 15391,
   "vulnerabilities": [
     {
@@ -4875,20 +4875,6 @@
       "tags": ["CWE-121", "CWE-119"]
     },
     {
-      "cveId": "CVE-2025-7551",
-      "title": "Tenda FH1201 PPTPDClient fromPptpUserAdd stack-based overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.08,
-      "epssPercentile": 25.234,
-      "riskScore": 52,
-      "publishedDate": "2025-07-13T23:14:07.247000+00:00",
-      "lastModifiedDate": "2025-07-14T13:46:07.393000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["tenda"],
-      "tags": ["CWE-121", "CWE-119"]
-    },
-    {
       "cveId": "CVE-2025-7790",
       "title": "D-Link DI-8100 HTTP Request menu_nat.asp stack-based overflow",
       "severity": "HIGH",
@@ -4945,20 +4931,6 @@
       "tags": ["CWE-121", "CWE-119"]
     },
     {
-      "cveId": "CVE-2025-7550",
-      "title": "Tenda FH1201 GstDhcpSetSer fromGstDhcpSetSer stack-based overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.08,
-      "epssPercentile": 25.234,
-      "riskScore": 52,
-      "publishedDate": "2025-07-13T23:02:07.618000+00:00",
-      "lastModifiedDate": "2025-07-14T13:52:25.344000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["tenda"],
-      "tags": ["CWE-121", "CWE-119"]
-    },
-    {
       "cveId": "CVE-2025-7762",
       "title": "D-Link DI-8100 HTTP Request menu_nat_more.asp stack-based overflow",
       "severity": "HIGH",
@@ -5010,20 +4982,6 @@
       "riskScore": 52,
       "publishedDate": "2025-07-18T16:32:06.924000+00:00",
       "lastModifiedDate": "2025-07-18T16:32:06.924000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["tenda"],
-      "tags": ["CWE-121", "CWE-119"]
-    },
-    {
-      "cveId": "CVE-2025-7549",
-      "title": "Tenda FH1201 L7Prot frmL7ProtForm stack-based overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.08,
-      "epssPercentile": 25.234,
-      "riskScore": 52,
-      "publishedDate": "2025-07-13T22:44:06.676000+00:00",
-      "lastModifiedDate": "2025-07-14T13:55:07.574000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["tenda"],
       "tags": ["CWE-121", "CWE-119"]
@@ -5155,20 +5113,6 @@
       "tags": ["CWE-78"]
     },
     {
-      "cveId": "CVE-2025-7548",
-      "title": "Tenda FH1201 SafeEmailFilter formSafeEmailFilter stack-based overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.08,
-      "epssPercentile": 25.234,
-      "riskScore": 52,
-      "publishedDate": "2025-07-13T22:32:07.492000+00:00",
-      "lastModifiedDate": "2025-07-14T15:56:48.926000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["tenda"],
-      "tags": ["CWE-121", "CWE-119"]
-    },
-    {
       "cveId": "CVE-2025-7806",
       "title": "Tenda FH451 SafeClientFilter fromSafeClientFilter stack-based overflow",
       "severity": "HIGH",
@@ -5192,20 +5136,6 @@
       "riskScore": 52,
       "publishedDate": "2025-07-14T08:02:06.975000+00:00",
       "lastModifiedDate": "2025-07-14T15:22:29.586000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["tenda"],
-      "tags": ["CWE-121", "CWE-119"]
-    },
-    {
-      "cveId": "CVE-2025-7544",
-      "title": "Tenda AC1206 setMacFilterCfg formSetMacFilterCfg stack-based overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.08,
-      "epssPercentile": 25.234,
-      "riskScore": 52,
-      "publishedDate": "2025-07-13T21:32:07.187000+00:00",
-      "lastModifiedDate": "2025-07-15T19:53:10.386000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["tenda"],
       "tags": ["CWE-121", "CWE-119"]
@@ -5389,7 +5319,7 @@
       "publishedDate": "2025-05-13T03:21:29.625000+00:00",
       "lastModifiedDate": "2025-05-13T13:57:36.925000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["relevanssi", "msaari"],
+      "vendors": ["msaari", "relevanssi"],
       "tags": ["CWE-89"]
     },
     {
@@ -5865,7 +5795,7 @@
       "publishedDate": "2024-06-25T03:30:37.970000+00:00",
       "lastModifiedDate": "2024-08-01T21:33:05.337000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["blazeretail", "warfareplugins", "themerex", "pedrogusmao02", "stuartobrien"],
+      "vendors": ["blazeretail", "warfareplugins", "stuartobrien", "themerex", "pedrogusmao02"],
       "tags": []
     },
     {
@@ -7507,6 +7437,20 @@
       "tags": ["CWE-120", "CWE-119"]
     },
     {
+      "cveId": "CVE-2025-7551",
+      "title": "Tenda FH1201 PPTPDClient fromPptpUserAdd stack-based overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.08,
+      "epssPercentile": 25.234,
+      "riskScore": 50,
+      "publishedDate": "2025-07-13T23:14:07.247000+00:00",
+      "lastModifiedDate": "2025-07-14T13:46:07.393000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["tenda"],
+      "tags": ["CWE-121", "CWE-119"]
+    },
+    {
       "cveId": "CVE-2025-7116",
       "title": "UTT 进取 750W Fast_wireless_conf buffer overflow",
       "severity": "HIGH",
@@ -7563,6 +7507,20 @@
       "tags": ["CWE-121", "CWE-119"]
     },
     {
+      "cveId": "CVE-2025-7550",
+      "title": "Tenda FH1201 GstDhcpSetSer fromGstDhcpSetSer stack-based overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.08,
+      "epssPercentile": 25.234,
+      "riskScore": 50,
+      "publishedDate": "2025-07-13T23:02:07.618000+00:00",
+      "lastModifiedDate": "2025-07-14T13:52:25.344000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["tenda"],
+      "tags": ["CWE-121", "CWE-119"]
+    },
+    {
       "cveId": "CVE-2025-7532",
       "title": "Tenda FH1202 webExcptypemanFilter fromwebExcptypemanFilter stack-based overflow",
       "severity": "HIGH",
@@ -7586,6 +7544,20 @@
       "riskScore": 50,
       "publishedDate": "2025-07-11T00:02:06.586000+00:00",
       "lastModifiedDate": "2025-07-11T13:35:03.633000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["tenda"],
+      "tags": ["CWE-121", "CWE-119"]
+    },
+    {
+      "cveId": "CVE-2025-7549",
+      "title": "Tenda FH1201 L7Prot frmL7ProtForm stack-based overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.08,
+      "epssPercentile": 25.234,
+      "riskScore": 50,
+      "publishedDate": "2025-07-13T22:44:06.676000+00:00",
+      "lastModifiedDate": "2025-07-14T13:55:07.574000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["tenda"],
       "tags": ["CWE-121", "CWE-119"]
@@ -7731,6 +7703,20 @@
       "tags": ["CWE-120", "CWE-119"]
     },
     {
+      "cveId": "CVE-2025-7548",
+      "title": "Tenda FH1201 SafeEmailFilter formSafeEmailFilter stack-based overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.08,
+      "epssPercentile": 25.234,
+      "riskScore": 50,
+      "publishedDate": "2025-07-13T22:32:07.492000+00:00",
+      "lastModifiedDate": "2025-07-14T15:56:48.926000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["tenda"],
+      "tags": ["CWE-121", "CWE-119"]
+    },
+    {
       "cveId": "CVE-2025-7419",
       "title": "Tenda O3V2 httpd setRateTest fromSpeedTestSet stack-based overflow",
       "severity": "HIGH",
@@ -7740,6 +7726,20 @@
       "riskScore": 50,
       "publishedDate": "2025-07-10T23:02:07.821000+00:00",
       "lastModifiedDate": "2025-07-11T14:06:07.885000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["tenda"],
+      "tags": ["CWE-121", "CWE-119"]
+    },
+    {
+      "cveId": "CVE-2025-7544",
+      "title": "Tenda AC1206 setMacFilterCfg formSetMacFilterCfg stack-based overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.08,
+      "epssPercentile": 25.234,
+      "riskScore": 50,
+      "publishedDate": "2025-07-13T21:32:07.187000+00:00",
+      "lastModifiedDate": "2025-07-15T19:53:10.386000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["tenda"],
       "tags": ["CWE-121", "CWE-119"]
@@ -8431,20 +8431,6 @@
       "tags": ["CWE-121", "CWE-119"]
     },
     {
-      "cveId": "CVE-2025-6370",
-      "title": "D-Link DIR-619L formWlanGuestSetup stack-based overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.05,
-      "epssPercentile": 14.108,
-      "riskScore": 50,
-      "publishedDate": "2025-06-20T22:00:15.539000+00:00",
-      "lastModifiedDate": "2025-06-23T15:01:24.958000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["d-link"],
-      "tags": ["CWE-121", "CWE-119"]
-    },
-    {
       "cveId": "CVE-2025-6615",
       "title": "D-Link DIR-619L formAutoDetecWAN_wizard4 stack-based overflow",
       "severity": "HIGH",
@@ -8454,20 +8440,6 @@
       "riskScore": 50,
       "publishedDate": "2025-06-25T16:00:18.252000+00:00",
       "lastModifiedDate": "2025-06-26T19:50:49.809000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["d-link"],
-      "tags": ["CWE-121", "CWE-119"]
-    },
-    {
-      "cveId": "CVE-2025-6374",
-      "title": "D-Link DIR-619L formSetACLFilter stack-based overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.03,
-      "epssPercentile": 8.275,
-      "riskScore": 50,
-      "publishedDate": "2025-06-21T00:00:14.766000+00:00",
-      "lastModifiedDate": "2025-06-23T19:28:04.581000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["d-link"],
       "tags": ["CWE-121", "CWE-119"]
@@ -8485,34 +8457,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["totolink"],
       "tags": ["CWE-120", "CWE-119"]
-    },
-    {
-      "cveId": "CVE-2025-6373",
-      "title": "D-Link DIR-619L formWlSiteSurvey formSetWizard1 stack-based overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.03,
-      "epssPercentile": 5.922,
-      "riskScore": 50,
-      "publishedDate": "2025-06-20T23:31:05.091000+00:00",
-      "lastModifiedDate": "2025-06-23T19:28:09.999000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["d-link"],
-      "tags": ["CWE-121", "CWE-119"]
-    },
-    {
-      "cveId": "CVE-2025-6367",
-      "title": "D-Link DIR-619L formSetDomainFilter stack-based overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.05,
-      "epssPercentile": 14.108,
-      "riskScore": 50,
-      "publishedDate": "2025-06-20T21:00:15.159000+00:00",
-      "lastModifiedDate": "2025-06-23T15:17:30.820000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["d-link"],
-      "tags": ["CWE-121", "CWE-119"]
     },
     {
       "cveId": "CVE-2025-6916",
@@ -8636,34 +8580,6 @@
       "riskScore": 50,
       "publishedDate": "2025-06-25T16:31:05.816000+00:00",
       "lastModifiedDate": "2025-06-25T20:12:08.789000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["d-link"],
-      "tags": ["CWE-121", "CWE-119"]
-    },
-    {
-      "cveId": "CVE-2025-6369",
-      "title": "D-Link DIR-619L formdumpeasysetup stack-based overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.03,
-      "epssPercentile": 8.275,
-      "riskScore": 50,
-      "publishedDate": "2025-06-20T21:31:07.219000+00:00",
-      "lastModifiedDate": "2025-06-23T15:01:56.138000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["d-link"],
-      "tags": ["CWE-121", "CWE-119"]
-    },
-    {
-      "cveId": "CVE-2025-6372",
-      "title": "D-Link DIR-619L formSetWizard1 stack-based overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.03,
-      "epssPercentile": 8.275,
-      "riskScore": 50,
-      "publishedDate": "2025-06-20T23:00:11.146000+00:00",
-      "lastModifiedDate": "2025-06-23T15:15:18.408000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["d-link"],
       "tags": ["CWE-121", "CWE-119"]
@@ -8809,20 +8725,6 @@
       "tags": ["CWE-121", "CWE-119"]
     },
     {
-      "cveId": "CVE-2025-6368",
-      "title": "D-Link DIR-619L formSetEmail stack-based overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.05,
-      "epssPercentile": 14.108,
-      "riskScore": 50,
-      "publishedDate": "2025-06-20T21:31:05.469000+00:00",
-      "lastModifiedDate": "2025-06-23T15:02:25.365000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["d-link"],
-      "tags": ["CWE-121", "CWE-119"]
-    },
-    {
       "cveId": "CVE-2025-6393",
       "title": "TOTOLINK A702R/A3002R/A3002RU/EX1200T HTTP POST Request formIPv6Addr buffer overflow",
       "severity": "HIGH",
@@ -8947,20 +8849,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["utt"],
       "tags": ["CWE-120", "CWE-119"]
-    },
-    {
-      "cveId": "CVE-2025-6371",
-      "title": "D-Link DIR-619L formSetEnableWizard stack-based overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.06,
-      "epssPercentile": 19.775,
-      "riskScore": 50,
-      "publishedDate": "2025-06-20T22:31:05.983000+00:00",
-      "lastModifiedDate": "2025-06-23T15:00:54.558000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["d-link"],
-      "tags": ["CWE-121", "CWE-119"]
     },
     {
       "cveId": "CVE-2025-42999",
@@ -9604,11 +9492,11 @@
       "lastModifiedDate": "2025-06-25T14:15:31.576000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "fujifilm business innovation",
         "ricoh",
-        "konica minolta, inc.",
         "brother industries, ltd",
-        "toshiba tec"
+        "toshiba tec",
+        "konica minolta, inc.",
+        "fujifilm business innovation"
       ],
       "tags": ["CWE-1286"]
     },
@@ -12424,10 +12312,10 @@
       "lastModifiedDate": "2025-06-25T14:08:48.280000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "konica minolta, inc.",
         "brother industries, ltd",
+        "ricoh",
         "fujifilm business innovation",
-        "ricoh"
+        "konica minolta, inc."
       ],
       "tags": ["CWE-121"]
     },
@@ -14658,20 +14546,6 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
-      "cveId": "CVE-2025-7547",
-      "title": "Campcodes Online Movie Theater Seat Reservation System admin_class.php save_movie unrestricted upload",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 10.575,
-      "riskScore": 48,
-      "publishedDate": "2025-07-13T22:14:06.140000+00:00",
-      "lastModifiedDate": "2025-07-14T15:59:24.427000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes"],
-      "tags": ["CWE-434", "CWE-284"]
-    },
-    {
       "cveId": "CVE-2025-7757",
       "title": "PHPGurukul Land Record System edit-property.php sql injection",
       "severity": "HIGH",
@@ -14700,20 +14574,6 @@
       "tags": ["CWE-22"]
     },
     {
-      "cveId": "CVE-2025-7542",
-      "title": "PHPGurukul User Registration & Login and User Management System user-profile.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.692,
-      "riskScore": 48,
-      "publishedDate": "2025-07-13T21:02:06.618000+00:00",
-      "lastModifiedDate": "2025-07-15T19:53:22.741000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
       "cveId": "CVE-2025-7433",
       "title": "CVE-2025-7433: A local privilege escalation vulnerability in Sophos Intercept X for Windows with Central Device Enc...",
       "severity": "HIGH",
@@ -14737,20 +14597,6 @@
       "riskScore": 48,
       "publishedDate": "2025-07-14T13:02:05.245000+00:00",
       "lastModifiedDate": "2025-07-14T13:33:08.742000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-7541",
-      "title": "code-projects Online Appointment Booking System get_town.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 11.378,
-      "riskScore": 48,
-      "publishedDate": "2025-07-13T20:32:05.671000+00:00",
-      "lastModifiedDate": "2025-07-15T19:53:28.629000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
@@ -16814,6 +16660,48 @@
       "tags": ["CWE-120", "CWE-119"]
     },
     {
+      "cveId": "CVE-2025-6370",
+      "title": "D-Link DIR-619L formWlanGuestSetup stack-based overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.05,
+      "epssPercentile": 14.108,
+      "riskScore": 48,
+      "publishedDate": "2025-06-20T22:00:15.539000+00:00",
+      "lastModifiedDate": "2025-06-23T15:01:24.958000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["d-link"],
+      "tags": ["CWE-121", "CWE-119"]
+    },
+    {
+      "cveId": "CVE-2025-6374",
+      "title": "D-Link DIR-619L formSetACLFilter stack-based overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.03,
+      "epssPercentile": 8.275,
+      "riskScore": 48,
+      "publishedDate": "2025-06-21T00:00:14.766000+00:00",
+      "lastModifiedDate": "2025-06-23T19:28:04.581000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["d-link"],
+      "tags": ["CWE-121", "CWE-119"]
+    },
+    {
+      "cveId": "CVE-2025-6373",
+      "title": "D-Link DIR-619L formWlSiteSurvey formSetWizard1 stack-based overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.03,
+      "epssPercentile": 5.922,
+      "riskScore": 48,
+      "publishedDate": "2025-06-20T23:31:05.091000+00:00",
+      "lastModifiedDate": "2025-06-23T19:28:09.999000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["d-link"],
+      "tags": ["CWE-121", "CWE-119"]
+    },
+    {
       "cveId": "CVE-2025-6115",
       "title": "D-Link DIR-619L form_macfilter stack-based overflow",
       "severity": "HIGH",
@@ -16823,6 +16711,20 @@
       "riskScore": 48,
       "publishedDate": "2025-06-16T09:00:10.288000+00:00",
       "lastModifiedDate": "2025-06-16T18:30:13.933000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["d-link"],
+      "tags": ["CWE-121", "CWE-119"]
+    },
+    {
+      "cveId": "CVE-2025-6367",
+      "title": "D-Link DIR-619L formSetDomainFilter stack-based overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.05,
+      "epssPercentile": 14.108,
+      "riskScore": 48,
+      "publishedDate": "2025-06-20T21:00:15.159000+00:00",
+      "lastModifiedDate": "2025-06-23T15:17:30.820000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["d-link"],
       "tags": ["CWE-121", "CWE-119"]
@@ -16940,6 +16842,20 @@
       "tags": ["CWE-120", "CWE-119"]
     },
     {
+      "cveId": "CVE-2025-6369",
+      "title": "D-Link DIR-619L formdumpeasysetup stack-based overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.03,
+      "epssPercentile": 8.275,
+      "riskScore": 48,
+      "publishedDate": "2025-06-20T21:31:07.219000+00:00",
+      "lastModifiedDate": "2025-06-23T15:01:56.138000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["d-link"],
+      "tags": ["CWE-121", "CWE-119"]
+    },
+    {
       "cveId": "CVE-2025-6130",
       "title": "TOTOLINK EX1200T HTTP POST Request formStats buffer overflow",
       "severity": "HIGH",
@@ -16952,6 +16868,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["totolink"],
       "tags": ["CWE-120", "CWE-119"]
+    },
+    {
+      "cveId": "CVE-2025-6372",
+      "title": "D-Link DIR-619L formSetWizard1 stack-based overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.03,
+      "epssPercentile": 8.275,
+      "riskScore": 48,
+      "publishedDate": "2025-06-20T23:00:11.146000+00:00",
+      "lastModifiedDate": "2025-06-23T15:15:18.408000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["d-link"],
+      "tags": ["CWE-121", "CWE-119"]
     },
     {
       "cveId": "CVE-2025-6513",
@@ -17108,6 +17038,20 @@
       "tags": ["CWE-120", "CWE-119"]
     },
     {
+      "cveId": "CVE-2025-6368",
+      "title": "D-Link DIR-619L formSetEmail stack-based overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.05,
+      "epssPercentile": 14.108,
+      "riskScore": 48,
+      "publishedDate": "2025-06-20T21:31:05.469000+00:00",
+      "lastModifiedDate": "2025-06-23T15:02:25.365000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["d-link"],
+      "tags": ["CWE-121", "CWE-119"]
+    },
+    {
       "cveId": "CVE-2025-6129",
       "title": "TOTOLINK EX1200T HTTP POST Request formSaveConfig buffer overflow",
       "severity": "HIGH",
@@ -17204,6 +17148,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["wpmudev"],
       "tags": ["CWE-73"]
+    },
+    {
+      "cveId": "CVE-2025-6371",
+      "title": "D-Link DIR-619L formSetEnableWizard stack-based overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.06,
+      "epssPercentile": 19.775,
+      "riskScore": 48,
+      "publishedDate": "2025-06-20T22:31:05.983000+00:00",
+      "lastModifiedDate": "2025-06-23T15:00:54.558000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["d-link"],
+      "tags": ["CWE-121", "CWE-119"]
     },
     {
       "cveId": "CVE-2025-42966",
@@ -17342,7 +17300,7 @@
       "publishedDate": "2025-06-13T09:23:49.631000+00:00",
       "lastModifiedDate": "2025-06-13T12:22:47.798000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["telex", "rts"],
+      "vendors": ["rts", "telex"],
       "tags": []
     },
     {
@@ -17862,20 +17820,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-416"]
-    },
-    {
-      "cveId": "CVE-2025-32958",
-      "title": "Adept exposed the GITHUB_TOKEN in workflow run artifact",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 0.06,
-      "epssPercentile": 20.162,
-      "riskScore": 48,
-      "publishedDate": "2025-04-21T20:45:40.082000+00:00",
-      "lastModifiedDate": "2025-04-22T02:21:33.165000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["adeptlanguage"],
-      "tags": ["CWE-200"]
     },
     {
       "cveId": "CVE-2025-32704",
@@ -18952,7 +18896,7 @@
       "publishedDate": "2025-06-25T07:25:00.402000+00:00",
       "lastModifiedDate": "2025-06-25T14:13:40.189000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["brother industries, ltd", "fujifilm business innovation", "ricoh"],
+      "vendors": ["brother industries, ltd", "ricoh", "fujifilm business innovation"],
       "tags": ["CWE-1286"]
     },
     {
@@ -24360,20 +24304,6 @@
       "tags": ["CWE-89"]
     },
     {
-      "cveId": "CVE-2024-58250",
-      "title": "CVE-2024-58250: The passprompt plugin in pppd in ppp before 2.5.2 mishandles privileges....",
-      "severity": "CRITICAL",
-      "cvssScore": 9.3,
-      "epssScore": 0.02,
-      "epssPercentile": 3.687,
-      "riskScore": 47,
-      "publishedDate": "2025-04-22T00:00:00+00:00",
-      "lastModifiedDate": "2025-04-22T02:08:05.615000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["samba"],
-      "tags": ["CWE-426"]
-    },
-    {
       "cveId": "CVE-2024-11667",
       "title": "CVE-2024-11667: A directory traversal vulnerability in the web management interface of Zyxel ATP series firmware ver...",
       "severity": "HIGH",
@@ -26666,7 +26596,7 @@
       "publishedDate": "2025-07-08T05:32:05.678000+00:00",
       "lastModifiedDate": "2025-07-08T13:45:36.200000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes", "phpgurukul"],
+      "vendors": ["phpgurukul", "campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -27160,6 +27090,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-7547",
+      "title": "Campcodes Online Movie Theater Seat Reservation System admin_class.php save_movie unrestricted upload",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 10.575,
+      "riskScore": 46,
+      "publishedDate": "2025-07-13T22:14:06.140000+00:00",
+      "lastModifiedDate": "2025-07-14T15:59:24.427000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["campcodes"],
+      "tags": ["CWE-434", "CWE-284"]
+    },
+    {
       "cveId": "CVE-2025-7183",
       "title": "Campcodes Sales and Inventory System customer_account.php sql injection",
       "severity": "HIGH",
@@ -27310,7 +27254,21 @@
       "publishedDate": "2025-07-08T06:02:05.515000+00:00",
       "lastModifiedDate": "2025-07-08T13:44:30.198000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes", "phpgurukul"],
+      "vendors": ["phpgurukul", "campcodes"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-7542",
+      "title": "PHPGurukul User Registration & Login and User Management System user-profile.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.692,
+      "riskScore": 46,
+      "publishedDate": "2025-07-13T21:02:06.618000+00:00",
+      "lastModifiedDate": "2025-07-15T19:53:22.741000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -27365,6 +27323,20 @@
       "riskScore": 46,
       "publishedDate": "2025-07-12T13:32:04.987000+00:00",
       "lastModifiedDate": "2025-07-15T13:41:07.399000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-7541",
+      "title": "code-projects Online Appointment Booking System get_town.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 11.378,
+      "riskScore": 46,
+      "publishedDate": "2025-07-13T20:32:05.671000+00:00",
+      "lastModifiedDate": "2025-07-15T19:53:28.629000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
@@ -29652,20 +29624,6 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
-      "cveId": "CVE-2025-6364",
-      "title": "code-projects Simple Pizza Ordering System adduser-exec.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.692,
-      "riskScore": 46,
-      "publishedDate": "2025-06-20T20:31:04.996000+00:00",
-      "lastModifiedDate": "2025-06-23T15:18:36.890000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
       "cveId": "CVE-2025-6471",
       "title": "code-projects Online Bidding System administrator sql injection",
       "severity": "HIGH",
@@ -31682,6 +31640,20 @@
       "tags": ["CWE-693"]
     },
     {
+      "cveId": "CVE-2025-32958",
+      "title": "Adept exposed the GITHUB_TOKEN in workflow run artifact",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.06,
+      "epssPercentile": 20.162,
+      "riskScore": 46,
+      "publishedDate": "2025-04-21T20:45:40.082000+00:00",
+      "lastModifiedDate": "2025-04-22T02:21:33.165000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["adeptlanguage"],
+      "tags": ["CWE-200"]
+    },
+    {
       "cveId": "CVE-2025-32297",
       "title": "WordPress Simple Link Directory Pro plugin <= 14.7.3 - SQL Injection Vulnerability",
       "severity": "HIGH",
@@ -33640,20 +33612,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["tagdiv"],
       "tags": ["CWE-94"]
-    },
-    {
-      "cveId": "CVE-2024-13091",
-      "title": "WPBot Pro Wordpress Chatbot <= 13.5.4 - Unauthenticated Arbitrary File Upload",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 2.02,
-      "epssPercentile": 82.967,
-      "riskScore": 46,
-      "publishedDate": "2025-01-21T23:20:51.231000+00:00",
-      "lastModifiedDate": "2025-01-22T18:41:37.557000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["quantumcloud"],
-      "tags": ["CWE-434"]
     },
     {
       "cveId": "CVE-2024-13442",
@@ -36904,20 +36862,6 @@
       "tags": ["CWE-122", "CWE-125"]
     },
     {
-      "cveId": "CVE-2025-21535",
-      "title": "CVE-2025-21535: Vulnerability in the Oracle WebLogic Server product of Oracle Fusion Middleware (component: Core).  ...",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 0.47,
-      "epssPercentile": 63.89,
-      "riskScore": 45,
-      "publishedDate": "2025-01-21T20:53:10.239000+00:00",
-      "lastModifiedDate": "2025-02-06T04:55:27.264000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["oracle corporation"],
-      "tags": []
-    },
-    {
       "cveId": "CVE-2025-21302",
       "title": "Windows Telephony Service Remote Code Execution Vulnerability",
       "severity": "HIGH",
@@ -37476,34 +37420,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-122"]
-    },
-    {
-      "cveId": "CVE-2025-21524",
-      "title": "CVE-2025-21524: Vulnerability in the JD Edwards EnterpriseOne Tools product of Oracle JD Edwards (component: Monitor...",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 0.24,
-      "epssPercentile": 47.607,
-      "riskScore": 45,
-      "publishedDate": "2025-01-21T20:53:05.881000+00:00",
-      "lastModifiedDate": "2025-02-25T04:55:08.527000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["oracle corporation"],
-      "tags": []
-    },
-    {
-      "cveId": "CVE-2025-21556",
-      "title": "CVE-2025-21556: Vulnerability in the Oracle Agile PLM Framework product of Oracle Supply Chain (component: Agile Int...",
-      "severity": "CRITICAL",
-      "cvssScore": 9.9,
-      "epssScore": 0.2,
-      "epssPercentile": 42.441,
-      "riskScore": 45,
-      "publishedDate": "2025-01-21T20:53:18.494000+00:00",
-      "lastModifiedDate": "2025-02-04T16:04:28.978000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["oracle corporation"],
-      "tags": []
     },
     {
       "cveId": "CVE-2025-21373",
@@ -38426,7 +38342,7 @@
       "publishedDate": "2025-06-13T21:03:18.087000+00:00",
       "lastModifiedDate": "2025-06-17T15:18:55.236000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["dell", "broadcom"],
+      "vendors": ["broadcom", "dell"],
       "tags": ["CWE-787"]
     },
     {
@@ -38440,7 +38356,7 @@
       "publishedDate": "2025-06-13T21:26:58.869000+00:00",
       "lastModifiedDate": "2025-06-17T18:13:30.525000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["dell", "broadcom"],
+      "vendors": ["broadcom", "dell"],
       "tags": ["CWE-763"]
     },
     {
@@ -39338,20 +39254,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["rockgod100"],
       "tags": ["CWE-434"]
-    },
-    {
-      "cveId": "CVE-2025-27582",
-      "title": "CVE-2025-27582: The Secure Password extension in One Identity Password Manager before 5.14.4 allows local privilege ...",
-      "severity": "HIGH",
-      "cvssScore": 7.6,
-      "epssScore": 0.02,
-      "epssPercentile": 4.871,
-      "riskScore": 45,
-      "publishedDate": "2025-07-14T00:00:00+00:00",
-      "lastModifiedDate": "2025-07-14T20:11:00.348000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["one identity"],
-      "tags": ["CWE-829"]
     },
     {
       "cveId": "CVE-2025-27467",
@@ -40288,7 +40190,7 @@
       "publishedDate": "2025-06-13T20:51:33.392000+00:00",
       "lastModifiedDate": "2025-06-17T03:55:12.235000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["dell", "broadcom"],
+      "vendors": ["broadcom", "dell"],
       "tags": ["CWE-121"]
     },
     {
@@ -41382,20 +41284,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["n/a"],
       "tags": []
-    },
-    {
-      "cveId": "CVE-2025-1384",
-      "title": "Least Privilege Violation Vulnerability in the communications functions of NJ/NX-series Machine Automation Controllers",
-      "severity": "HIGH",
-      "cvssScore": 7.0,
-      "epssScore": 0.06,
-      "epssPercentile": 18.177,
-      "riskScore": 45,
-      "publishedDate": "2025-07-13T23:42:09.953000+00:00",
-      "lastModifiedDate": "2025-07-14T14:15:23.939000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["omron corporation"],
-      "tags": ["CWE-272"]
     },
     {
       "cveId": "CVE-2025-1770",
@@ -43944,6 +43832,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["the r project"],
       "tags": ["CWE-502"]
+    },
+    {
+      "cveId": "CVE-2024-58250",
+      "title": "CVE-2024-58250: The passprompt plugin in pppd in ppp before 2.5.2 mishandles privileges....",
+      "severity": "CRITICAL",
+      "cvssScore": 9.3,
+      "epssScore": 0.02,
+      "epssPercentile": 3.687,
+      "riskScore": 45,
+      "publishedDate": "2025-04-22T00:00:00+00:00",
+      "lastModifiedDate": "2025-04-22T02:08:05.615000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["samba"],
+      "tags": ["CWE-426"]
     },
     {
       "cveId": "CVE-2024-11028",
@@ -47456,7 +47358,7 @@
       "publishedDate": "2025-05-30T18:00:06.477000+00:00",
       "lastModifiedDate": "2025-05-30T18:15:18.480000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes", "phpgurukul"],
+      "vendors": ["phpgurukul", "campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -51922,7 +51824,7 @@
       "publishedDate": "2025-05-03T11:00:09.135000+00:00",
       "lastModifiedDate": "2025-05-30T09:10:12.356000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes", "phpgurukul"],
+      "vendors": ["phpgurukul", "campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -52636,7 +52538,7 @@
       "publishedDate": "2025-05-05T18:31:04.418000+00:00",
       "lastModifiedDate": "2025-05-05T18:48:57.123000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sourcecodester", "oretnom23"],
+      "vendors": ["oretnom23", "sourcecodester"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -52736,20 +52638,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["codename065"],
       "tags": ["CWE-22"]
-    },
-    {
-      "cveId": "CVE-2025-3846",
-      "title": "markparticle WebServer Registration httprequest.cpp sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 13.239,
-      "riskScore": 44,
-      "publishedDate": "2025-04-21T22:31:05.189000+00:00",
-      "lastModifiedDate": "2025-04-22T02:15:18.560000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["markparticle"],
-      "tags": ["CWE-89", "CWE-74"]
     },
     {
       "cveId": "CVE-2025-3541",
@@ -53942,6 +53830,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-6364",
+      "title": "code-projects Simple Pizza Ordering System adduser-exec.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.692,
+      "riskScore": 44,
+      "publishedDate": "2025-06-20T20:31:04.996000+00:00",
+      "lastModifiedDate": "2025-06-23T15:18:36.890000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-6315",
       "title": "code-projects Online Shoe Store cart2.php sql injection",
       "severity": "HIGH",
@@ -54470,7 +54372,7 @@
       "publishedDate": "2025-06-13T21:48:29.351000+00:00",
       "lastModifiedDate": "2025-06-17T15:18:22.706000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["dell", "broadcom"],
+      "vendors": ["broadcom", "dell"],
       "tags": ["CWE-502"]
     },
     {
@@ -54610,7 +54512,7 @@
       "publishedDate": "2025-06-13T20:42:18.769000+00:00",
       "lastModifiedDate": "2025-06-16T15:21:53.325000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["dell", "broadcom"],
+      "vendors": ["broadcom", "dell"],
       "tags": ["CWE-125"]
     },
     {
@@ -58292,7 +58194,7 @@
       "publishedDate": "2025-05-09T15:18:34.124000+00:00",
       "lastModifiedDate": "2025-05-09T19:09:17.086000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["avast", "norton", "avg"],
+      "vendors": ["norton", "avg", "avast"],
       "tags": ["CWE-367"]
     },
     {
@@ -58378,6 +58280,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["n/a"],
       "tags": ["CWE-78", "CWE-77"]
+    },
+    {
+      "cveId": "CVE-2024-13091",
+      "title": "WPBot Pro Wordpress Chatbot <= 13.5.4 - Unauthenticated Arbitrary File Upload",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 2.02,
+      "epssPercentile": 82.967,
+      "riskScore": 44,
+      "publishedDate": "2025-01-21T23:20:51.231000+00:00",
+      "lastModifiedDate": "2025-01-22T18:41:37.557000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["quantumcloud"],
+      "tags": ["CWE-434"]
     },
     {
       "cveId": "CVE-2024-13315",
@@ -65590,6 +65506,20 @@
       "tags": ["CWE-126"]
     },
     {
+      "cveId": "CVE-2025-21535",
+      "title": "CVE-2025-21535: Vulnerability in the Oracle WebLogic Server product of Oracle Fusion Middleware (component: Core).  ...",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.47,
+      "epssPercentile": 63.89,
+      "riskScore": 43,
+      "publishedDate": "2025-01-21T20:53:10.239000+00:00",
+      "lastModifiedDate": "2025-02-06T04:55:27.264000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["oracle corporation"],
+      "tags": []
+    },
+    {
       "cveId": "CVE-2025-21361",
       "title": "Microsoft Outlook Remote Code Execution Vulnerability",
       "severity": "HIGH",
@@ -65856,20 +65786,6 @@
       "tags": ["CWE-416"]
     },
     {
-      "cveId": "CVE-2025-21547",
-      "title": "CVE-2025-21547: Vulnerability in the Oracle Hospitality OPERA 5 product of Oracle Hospitality Applications (componen...",
-      "severity": "CRITICAL",
-      "cvssScore": 9.1,
-      "epssScore": 0.14,
-      "epssPercentile": 34.761,
-      "riskScore": 43,
-      "publishedDate": "2025-01-21T20:53:15.077000+00:00",
-      "lastModifiedDate": "2025-03-18T19:02:25.974000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["oracle corporation"],
-      "tags": []
-    },
-    {
       "cveId": "CVE-2025-21277",
       "title": "Microsoft Message Queuing (MSMQ) Denial of Service Vulnerability",
       "severity": "HIGH",
@@ -66036,6 +65952,34 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-126"]
+    },
+    {
+      "cveId": "CVE-2025-21524",
+      "title": "CVE-2025-21524: Vulnerability in the JD Edwards EnterpriseOne Tools product of Oracle JD Edwards (component: Monitor...",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.24,
+      "epssPercentile": 47.607,
+      "riskScore": 43,
+      "publishedDate": "2025-01-21T20:53:05.881000+00:00",
+      "lastModifiedDate": "2025-02-25T04:55:08.527000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["oracle corporation"],
+      "tags": []
+    },
+    {
+      "cveId": "CVE-2025-21556",
+      "title": "CVE-2025-21556: Vulnerability in the Oracle Agile PLM Framework product of Oracle Supply Chain (component: Agile Int...",
+      "severity": "CRITICAL",
+      "cvssScore": 9.9,
+      "epssScore": 0.2,
+      "epssPercentile": 42.441,
+      "riskScore": 43,
+      "publishedDate": "2025-01-21T20:53:18.494000+00:00",
+      "lastModifiedDate": "2025-02-04T16:04:28.978000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["oracle corporation"],
+      "tags": []
     },
     {
       "cveId": "CVE-2025-21325",
@@ -68222,20 +68166,6 @@
       "tags": ["CWE-280"]
     },
     {
-      "cveId": "CVE-2025-3845",
-      "title": "markparticle WebServer buffer.cpp HasWritten buffer overflow",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.06,
-      "epssPercentile": 18.414,
-      "riskScore": 43,
-      "publishedDate": "2025-04-21T22:00:11.230000+00:00",
-      "lastModifiedDate": "2025-04-22T02:16:16.536000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["markparticle"],
-      "tags": ["CWE-120", "CWE-119"]
-    },
-    {
       "cveId": "CVE-2025-3055",
       "title": "WP User Frontend Pro <= 4.1.3 - Authenticated (Subscriber+) Arbitrary File Deletion",
       "severity": "HIGH",
@@ -68390,20 +68320,6 @@
       "tags": ["CWE-862", "CWE-863"]
     },
     {
-      "cveId": "CVE-2025-3847",
-      "title": "markparticle WebServer Login httprequest.cpp sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 11.969,
-      "riskScore": 43,
-      "publishedDate": "2025-04-21T23:00:11.981000+00:00",
-      "lastModifiedDate": "2025-04-22T02:13:03.716000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["markparticle"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
       "cveId": "CVE-2025-3925",
       "title": "BrightSign Players Execution with Unnecessary Privileges",
       "severity": "HIGH",
@@ -68514,6 +68430,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-591"]
+    },
+    {
+      "cveId": "CVE-2025-27582",
+      "title": "CVE-2025-27582: The Secure Password extension in One Identity Password Manager before 5.14.4 allows local privilege ...",
+      "severity": "HIGH",
+      "cvssScore": 7.6,
+      "epssScore": 0.02,
+      "epssPercentile": 4.871,
+      "riskScore": 43,
+      "publishedDate": "2025-07-14T00:00:00+00:00",
+      "lastModifiedDate": "2025-07-14T20:11:00.348000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["one identity"],
+      "tags": ["CWE-829"]
     },
     {
       "cveId": "CVE-2025-27434",
@@ -69958,6 +69888,20 @@
       "tags": ["CWE-284"]
     },
     {
+      "cveId": "CVE-2025-1384",
+      "title": "Least Privilege Violation Vulnerability in the communications functions of NJ/NX-series Machine Automation Controllers",
+      "severity": "HIGH",
+      "cvssScore": 7.0,
+      "epssScore": 0.06,
+      "epssPercentile": 18.177,
+      "riskScore": 43,
+      "publishedDate": "2025-07-13T23:42:09.953000+00:00",
+      "lastModifiedDate": "2025-07-14T14:15:23.939000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["omron corporation"],
+      "tags": ["CWE-272"]
+    },
+    {
       "cveId": "CVE-2025-1282",
       "title": "Car Dealer Automotive WordPress Theme – Responsive <= 1.6.3 - Authenticated (Subscriber+) Arbitrary File Deletion and Read",
       "severity": "HIGH",
@@ -70502,20 +70446,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["red hat"],
       "tags": ["CWE-125"]
-    },
-    {
-      "cveId": "CVE-2025-32956",
-      "title": "ManageWiki has SQL injection vulnerability in NamespaceMigrationJob",
-      "severity": "HIGH",
-      "cvssScore": 8.0,
-      "epssScore": 0.04,
-      "epssPercentile": 10.98,
-      "riskScore": 43,
-      "publishedDate": "2025-04-21T20:45:49.523000+00:00",
-      "lastModifiedDate": "2025-05-12T15:40:28.138000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["miraheze"],
-      "tags": ["CWE-89"]
     },
     {
       "cveId": "CVE-2025-32118",
@@ -80272,7 +80202,7 @@
       "publishedDate": "2024-05-14T12:58:31.261000+00:00",
       "lastModifiedDate": "2025-03-14T14:56:10.154000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["na", "n/a"],
+      "vendors": ["n/a", "na"],
       "tags": []
     },
     {
@@ -80874,7 +80804,7 @@
       "publishedDate": "2024-02-05T14:33:06.481000+00:00",
       "lastModifiedDate": "2025-05-09T16:32:50.015000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["encode", "kludex", "tiangolo"],
+      "vendors": ["tiangolo", "encode", "kludex"],
       "tags": ["CWE-400"]
     },
     {
@@ -87192,20 +87122,6 @@
       "tags": ["CWE-400"]
     },
     {
-      "cveId": "CVE-2025-21515",
-      "title": "CVE-2025-21515: Vulnerability in the JD Edwards EnterpriseOne Tools product of Oracle JD Edwards (component: Web Run...",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.2,
-      "epssPercentile": 42.441,
-      "riskScore": 42,
-      "publishedDate": "2025-01-21T20:53:01.910000+00:00",
-      "lastModifiedDate": "2025-02-25T04:55:10.137000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["oracle corporation"],
-      "tags": []
-    },
-    {
       "cveId": "CVE-2025-21467",
       "title": "Out-of-bounds Write in Computer Vision",
       "severity": "HIGH",
@@ -88925,6 +88841,20 @@
       "lastModifiedDate": "2025-04-21T01:59:41.047000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["phpgurukul"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-3846",
+      "title": "markparticle WebServer Registration httprequest.cpp sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 13.239,
+      "riskScore": 42,
+      "publishedDate": "2025-04-21T22:31:05.189000+00:00",
+      "lastModifiedDate": "2025-04-22T02:15:18.560000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["markparticle"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -104342,20 +104272,6 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
-      "cveId": "CVE-2025-21516",
-      "title": "CVE-2025-21516: Vulnerability in the Oracle Customer Care product of Oracle E-Business Suite (component: Service Req...",
-      "severity": "HIGH",
-      "cvssScore": 8.1,
-      "epssScore": 0.08,
-      "epssPercentile": 25.569,
-      "riskScore": 41,
-      "publishedDate": "2025-01-21T20:53:02.395000+00:00",
-      "lastModifiedDate": "2025-01-22T18:32:05.932000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["oracle corporation"],
-      "tags": []
-    },
-    {
       "cveId": "CVE-2025-21094",
       "title": "CVE-2025-21094: Improper input validation in the UEFI firmware DXE module for the Intel(R) Server D50DNP and M50FCP ...",
       "severity": "HIGH",
@@ -104412,15 +104328,15 @@
       "tags": ["CWE-126"]
     },
     {
-      "cveId": "CVE-2025-21506",
-      "title": "CVE-2025-21506: Vulnerability in the Oracle Project Foundation product of Oracle E-Business Suite (component: Techno...",
-      "severity": "HIGH",
-      "cvssScore": 8.1,
-      "epssScore": 0.08,
-      "epssPercentile": 25.569,
+      "cveId": "CVE-2025-21547",
+      "title": "CVE-2025-21547: Vulnerability in the Oracle Hospitality OPERA 5 product of Oracle Hospitality Applications (componen...",
+      "severity": "CRITICAL",
+      "cvssScore": 9.1,
+      "epssScore": 0.14,
+      "epssPercentile": 34.761,
       "riskScore": 41,
-      "publishedDate": "2025-01-21T20:52:58.034000+00:00",
-      "lastModifiedDate": "2025-01-22T18:41:39.872000+00:00",
+      "publishedDate": "2025-01-21T20:53:15.077000+00:00",
+      "lastModifiedDate": "2025-03-18T19:02:25.974000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["oracle corporation"],
       "tags": []
@@ -104438,20 +104354,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-693"]
-    },
-    {
-      "cveId": "CVE-2025-21564",
-      "title": "CVE-2025-21564: Vulnerability in the Oracle Agile PLM Framework product of Oracle Supply Chain (component: Agile Int...",
-      "severity": "HIGH",
-      "cvssScore": 8.1,
-      "epssScore": 0.11,
-      "epssPercentile": 30.356,
-      "riskScore": 41,
-      "publishedDate": "2025-01-21T20:53:21.675000+00:00",
-      "lastModifiedDate": "2025-02-04T16:10:44.515000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["oracle corporation"],
-      "tags": []
     },
     {
       "cveId": "CVE-2025-21463",
@@ -105812,6 +105714,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-3845",
+      "title": "markparticle WebServer buffer.cpp HasWritten buffer overflow",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.06,
+      "epssPercentile": 18.414,
+      "riskScore": 41,
+      "publishedDate": "2025-04-21T22:00:11.230000+00:00",
+      "lastModifiedDate": "2025-04-22T02:16:16.536000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["markparticle"],
+      "tags": ["CWE-120", "CWE-119"]
+    },
+    {
       "cveId": "CVE-2025-3349",
       "title": "PCMan FTP Server SYST Command buffer overflow",
       "severity": "HIGH",
@@ -106691,6 +106607,20 @@
       "lastModifiedDate": "2025-04-07T19:38:19.625000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["codeprojects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-3847",
+      "title": "markparticle WebServer Login httprequest.cpp sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 11.969,
+      "riskScore": 41,
+      "publishedDate": "2025-04-21T23:00:11.981000+00:00",
+      "lastModifiedDate": "2025-04-22T02:13:03.716000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["markparticle"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -109226,6 +109156,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["apollographql"],
       "tags": ["CWE-770"]
+    },
+    {
+      "cveId": "CVE-2025-32956",
+      "title": "ManageWiki has SQL injection vulnerability in NamespaceMigrationJob",
+      "severity": "HIGH",
+      "cvssScore": 8.0,
+      "epssScore": 0.04,
+      "epssPercentile": 10.98,
+      "riskScore": 41,
+      "publishedDate": "2025-04-21T20:45:49.523000+00:00",
+      "lastModifiedDate": "2025-05-12T15:40:28.138000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["miraheze"],
+      "tags": ["CWE-89"]
     },
     {
       "cveId": "CVE-2025-32887",
@@ -120344,6 +120288,20 @@
       "tags": ["CWE-122"]
     },
     {
+      "cveId": "CVE-2025-21515",
+      "title": "CVE-2025-21515: Vulnerability in the JD Edwards EnterpriseOne Tools product of Oracle JD Edwards (component: Web Run...",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.2,
+      "epssPercentile": 42.441,
+      "riskScore": 40,
+      "publishedDate": "2025-01-21T20:53:01.910000+00:00",
+      "lastModifiedDate": "2025-02-25T04:55:10.137000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["oracle corporation"],
+      "tags": []
+    },
+    {
       "cveId": "CVE-2025-21156",
       "title": "InCopy | Integer Underflow (Wrap or Wraparound) (CWE-191)",
       "severity": "HIGH",
@@ -120412,20 +120370,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["qualcomm, inc."],
       "tags": ["CWE-120"]
-    },
-    {
-      "cveId": "CVE-2025-21532",
-      "title": "CVE-2025-21532: Vulnerability in the Oracle Analytics Desktop product of Oracle Analytics (component: Install).  Sup...",
-      "severity": "HIGH",
-      "cvssScore": 7.8,
-      "epssScore": 0.04,
-      "epssPercentile": 12.061,
-      "riskScore": 40,
-      "publishedDate": "2025-01-21T20:53:09.111000+00:00",
-      "lastModifiedDate": "2025-03-18T19:36:23.849000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["oracle corporation"],
-      "tags": []
     },
     {
       "cveId": "CVE-2025-21158",
@@ -128936,7 +128880,7 @@
       "publishedDate": "2024-10-22T22:19:20.646000+00:00",
       "lastModifiedDate": "2024-11-06T15:50:04.628000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-276"]
     },
     {
@@ -131610,7 +131554,7 @@
       "publishedDate": "2024-11-28T22:16:31.396000+00:00",
       "lastModifiedDate": "2024-12-06T05:18:03.652000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-427"]
     },
     {
@@ -134312,7 +134256,7 @@
       "publishedDate": "2024-11-28T22:20:28.303000+00:00",
       "lastModifiedDate": "2024-12-06T05:23:50.441000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-427"]
     },
     {
@@ -138642,43 +138586,15 @@
       "tags": ["CWE-22", "CWE-434"]
     },
     {
-      "cveId": "CVE-2025-21511",
-      "title": "CVE-2025-21511: Vulnerability in the JD Edwards EnterpriseOne Tools product of Oracle JD Edwards (component: Web Run...",
+      "cveId": "CVE-2025-21516",
+      "title": "CVE-2025-21516: Vulnerability in the Oracle Customer Care product of Oracle E-Business Suite (component: Service Req...",
       "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.04,
-      "epssPercentile": 11.152,
-      "riskScore": 39,
-      "publishedDate": "2025-01-21T20:53:00.184000+00:00",
-      "lastModifiedDate": "2025-01-23T21:16:23.868000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["oracle corporation"],
-      "tags": []
-    },
-    {
-      "cveId": "CVE-2025-21510",
-      "title": "CVE-2025-21510: Vulnerability in the JD Edwards EnterpriseOne Tools product of Oracle JD Edwards (component: Web Run...",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
+      "cvssScore": 8.1,
       "epssScore": 0.08,
-      "epssPercentile": 24.482,
+      "epssPercentile": 25.569,
       "riskScore": 39,
-      "publishedDate": "2025-01-21T20:52:59.628000+00:00",
-      "lastModifiedDate": "2025-01-23T15:58:32.436000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["oracle corporation"],
-      "tags": []
-    },
-    {
-      "cveId": "CVE-2025-21565",
-      "title": "CVE-2025-21565: Vulnerability in the Oracle Agile PLM Framework product of Oracle Supply Chain (component: Install)....",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.08,
-      "epssPercentile": 24.905,
-      "riskScore": 39,
-      "publishedDate": "2025-01-21T20:53:22.045000+00:00",
-      "lastModifiedDate": "2025-02-04T16:11:06.474000+00:00",
+      "publishedDate": "2025-01-21T20:53:02.395000+00:00",
+      "lastModifiedDate": "2025-01-22T18:32:05.932000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["oracle corporation"],
       "tags": []
@@ -138710,20 +138626,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["qualcomm, inc."],
       "tags": ["CWE-126"]
-    },
-    {
-      "cveId": "CVE-2025-21545",
-      "title": "CVE-2025-21545: Vulnerability in the PeopleSoft Enterprise PeopleTools product of Oracle PeopleSoft (component: Open...",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.09,
-      "epssPercentile": 27.269,
-      "riskScore": 39,
-      "publishedDate": "2025-01-21T20:53:14.338000+00:00",
-      "lastModifiedDate": "2025-03-13T20:35:09.719000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["oracle corporation"],
-      "tags": []
     },
     {
       "cveId": "CVE-2025-21428",
@@ -138796,34 +138698,6 @@
       "tags": ["CWE-805"]
     },
     {
-      "cveId": "CVE-2025-21571",
-      "title": "CVE-2025-21571: Vulnerability in the Oracle VM VirtualBox product of Oracle Virtualization (component: Core).  Suppo...",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.02,
-      "epssPercentile": 3.558,
-      "riskScore": 39,
-      "publishedDate": "2025-01-21T20:53:24.368000+00:00",
-      "lastModifiedDate": "2025-02-04T18:33:46.103000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["oracle corporation"],
-      "tags": []
-    },
-    {
-      "cveId": "CVE-2025-21521",
-      "title": "CVE-2025-21521: Vulnerability in the MySQL Server product of Oracle MySQL (component: Server: Thread Pooling).  Supp...",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.11,
-      "epssPercentile": 29.587,
-      "riskScore": 39,
-      "publishedDate": "2025-01-21T20:53:04.705000+00:00",
-      "lastModifiedDate": "2025-01-22T18:34:41.832000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["oracle corporation"],
-      "tags": []
-    },
-    {
       "cveId": "CVE-2025-21587",
       "title": "CVE-2025-21587: Vulnerability in the Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition produ...",
       "severity": "HIGH",
@@ -138838,15 +138712,29 @@
       "tags": []
     },
     {
-      "cveId": "CVE-2025-21549",
-      "title": "CVE-2025-21549: Vulnerability in the Oracle WebLogic Server product of Oracle Fusion Middleware (component: Core).  ...",
+      "cveId": "CVE-2025-21506",
+      "title": "CVE-2025-21506: Vulnerability in the Oracle Project Foundation product of Oracle E-Business Suite (component: Techno...",
       "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.09,
-      "epssPercentile": 27.269,
+      "cvssScore": 8.1,
+      "epssScore": 0.08,
+      "epssPercentile": 25.569,
       "riskScore": 39,
-      "publishedDate": "2025-01-21T20:53:15.813000+00:00",
-      "lastModifiedDate": "2025-03-13T18:23:48.633000+00:00",
+      "publishedDate": "2025-01-21T20:52:58.034000+00:00",
+      "lastModifiedDate": "2025-01-22T18:41:39.872000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["oracle corporation"],
+      "tags": []
+    },
+    {
+      "cveId": "CVE-2025-21564",
+      "title": "CVE-2025-21564: Vulnerability in the Oracle Agile PLM Framework product of Oracle Supply Chain (component: Agile Int...",
+      "severity": "HIGH",
+      "cvssScore": 8.1,
+      "epssScore": 0.11,
+      "epssPercentile": 30.356,
+      "riskScore": 39,
+      "publishedDate": "2025-01-21T20:53:21.675000+00:00",
+      "lastModifiedDate": "2025-02-04T16:10:44.515000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["oracle corporation"],
       "tags": []
@@ -156756,6 +156644,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["adobe"],
       "tags": ["CWE-122"]
+    },
+    {
+      "cveId": "CVE-2025-21532",
+      "title": "CVE-2025-21532: Vulnerability in the Oracle Analytics Desktop product of Oracle Analytics (component: Install).  Sup...",
+      "severity": "HIGH",
+      "cvssScore": 7.8,
+      "epssScore": 0.04,
+      "epssPercentile": 12.061,
+      "riskScore": 38,
+      "publishedDate": "2025-01-21T20:53:09.111000+00:00",
+      "lastModifiedDate": "2025-03-18T19:36:23.849000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["oracle corporation"],
+      "tags": []
     },
     {
       "cveId": "CVE-2025-21131",
@@ -177670,7 +177572,7 @@
       "publishedDate": "2024-11-28T22:18:28.358000+00:00",
       "lastModifiedDate": "2024-12-06T05:21:38.917000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-561"]
     },
     {
@@ -182514,7 +182416,7 @@
       "publishedDate": "2024-07-04T08:53:41.217000+00:00",
       "lastModifiedDate": "2024-08-19T15:25:49.496000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-427"]
     },
     {
@@ -186116,6 +186018,48 @@
       "tags": ["CWE-78"]
     },
     {
+      "cveId": "CVE-2025-21511",
+      "title": "CVE-2025-21511: Vulnerability in the JD Edwards EnterpriseOne Tools product of Oracle JD Edwards (component: Web Run...",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.04,
+      "epssPercentile": 11.152,
+      "riskScore": 37,
+      "publishedDate": "2025-01-21T20:53:00.184000+00:00",
+      "lastModifiedDate": "2025-01-23T21:16:23.868000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["oracle corporation"],
+      "tags": []
+    },
+    {
+      "cveId": "CVE-2025-21510",
+      "title": "CVE-2025-21510: Vulnerability in the JD Edwards EnterpriseOne Tools product of Oracle JD Edwards (component: Web Run...",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.08,
+      "epssPercentile": 24.482,
+      "riskScore": 37,
+      "publishedDate": "2025-01-21T20:52:59.628000+00:00",
+      "lastModifiedDate": "2025-01-23T15:58:32.436000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["oracle corporation"],
+      "tags": []
+    },
+    {
+      "cveId": "CVE-2025-21565",
+      "title": "CVE-2025-21565: Vulnerability in the Oracle Agile PLM Framework product of Oracle Supply Chain (component: Install)....",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.08,
+      "epssPercentile": 24.905,
+      "riskScore": 37,
+      "publishedDate": "2025-01-21T20:53:22.045000+00:00",
+      "lastModifiedDate": "2025-02-04T16:11:06.474000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["oracle corporation"],
+      "tags": []
+    },
+    {
       "cveId": "CVE-2025-21111",
       "title": "CVE-2025-21111: Dell VxRail, versions 8.0.000 through 8.0.311, contain(s) a Plaintext Storage of a Password vulnerab...",
       "severity": "HIGH",
@@ -186158,6 +186102,20 @@
       "tags": ["CWE-401"]
     },
     {
+      "cveId": "CVE-2025-21545",
+      "title": "CVE-2025-21545: Vulnerability in the PeopleSoft Enterprise PeopleTools product of Oracle PeopleSoft (component: Open...",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.09,
+      "epssPercentile": 27.269,
+      "riskScore": 37,
+      "publishedDate": "2025-01-21T20:53:14.338000+00:00",
+      "lastModifiedDate": "2025-03-13T20:35:09.719000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["oracle corporation"],
+      "tags": []
+    },
+    {
       "cveId": "CVE-2025-21102",
       "title": "CVE-2025-21102: Dell VxRail, versions 7.0.000 through 7.0.532, contain(s) a Plaintext Storage of a Password vulnerab...",
       "severity": "HIGH",
@@ -186172,6 +186130,34 @@
       "tags": ["CWE-256"]
     },
     {
+      "cveId": "CVE-2025-21571",
+      "title": "CVE-2025-21571: Vulnerability in the Oracle VM VirtualBox product of Oracle Virtualization (component: Core).  Suppo...",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.02,
+      "epssPercentile": 3.558,
+      "riskScore": 37,
+      "publishedDate": "2025-01-21T20:53:24.368000+00:00",
+      "lastModifiedDate": "2025-02-04T18:33:46.103000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["oracle corporation"],
+      "tags": []
+    },
+    {
+      "cveId": "CVE-2025-21521",
+      "title": "CVE-2025-21521: Vulnerability in the MySQL Server product of Oracle MySQL (component: Server: Thread Pooling).  Supp...",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.11,
+      "epssPercentile": 29.587,
+      "riskScore": 37,
+      "publishedDate": "2025-01-21T20:53:04.705000+00:00",
+      "lastModifiedDate": "2025-01-22T18:34:41.832000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["oracle corporation"],
+      "tags": []
+    },
+    {
       "cveId": "CVE-2025-21620",
       "title": "Deno's authorization headers not dropped when redirecting cross-origin",
       "severity": "HIGH",
@@ -186184,6 +186170,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["denoland"],
       "tags": ["CWE-200"]
+    },
+    {
+      "cveId": "CVE-2025-21549",
+      "title": "CVE-2025-21549: Vulnerability in the Oracle WebLogic Server product of Oracle Fusion Middleware (component: Core).  ...",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.09,
+      "epssPercentile": 27.269,
+      "riskScore": 37,
+      "publishedDate": "2025-01-21T20:53:15.813000+00:00",
+      "lastModifiedDate": "2025-03-13T18:23:48.633000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["oracle corporation"],
+      "tags": []
     },
     {
       "cveId": "CVE-2025-20016",
@@ -188758,7 +188758,7 @@
       "publishedDate": "2024-07-08T15:25:38.672000+00:00",
       "lastModifiedDate": "2024-08-01T22:27:36.345000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["realtek", "levelone"],
+      "vendors": ["levelone", "realtek"],
       "tags": ["CWE-122"]
     },
     {
