@@ -1,5 +1,5 @@
 {
-  "generated": "2025-07-22T08:09:29.017822",
+  "generated": "2025-07-22T12:11:33.466964",
   "count": 15424,
   "vulnerabilities": [
     {
@@ -181,7 +181,7 @@
       "publishedDate": "2024-11-15T03:18:45.746000+00:00",
       "lastModifiedDate": "2024-11-19T13:37:03.351000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["rogierlankhorst", "really simple plugins"],
+      "vendors": ["really simple plugins", "rogierlankhorst"],
       "tags": ["CWE-288"]
     },
     {
@@ -909,7 +909,7 @@
       "publishedDate": "2025-06-25T07:17:32.423000+00:00",
       "lastModifiedDate": "2025-06-27T13:51:00.720000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["brother industries, ltd", "toshiba tec", "konica minolta, inc."],
+      "vendors": ["toshiba tec", "konica minolta, inc.", "brother industries, ltd"],
       "tags": ["CWE-1391"]
     },
     {
@@ -1077,7 +1077,7 @@
       "publishedDate": "2024-11-26T07:37:44.549000+00:00",
       "lastModifiedDate": "2024-12-10T14:58:18.708000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-288"]
     },
     {
@@ -3331,7 +3331,7 @@
       "publishedDate": "2024-10-18T17:32:30.648000+00:00",
       "lastModifiedDate": "2024-10-18T18:56:31.697000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["scott paterson", "scottpaterson"],
+      "vendors": ["scottpaterson", "scott paterson"],
       "tags": ["CWE-94"]
     },
     {
@@ -4437,7 +4437,7 @@
       "publishedDate": "2024-11-26T07:37:38.329000+00:00",
       "lastModifiedDate": "2024-12-10T15:43:57.213000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-22"]
     },
     {
@@ -4847,20 +4847,6 @@
       "tags": ["CWE-121", "CWE-119"]
     },
     {
-      "cveId": "CVE-2025-7596",
-      "title": "Tenda FH1205 WifiExtraSet formWifiExtraSet stack-based overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.08,
-      "epssPercentile": 25.234,
-      "riskScore": 52,
-      "publishedDate": "2025-07-14T10:32:07.099000+00:00",
-      "lastModifiedDate": "2025-07-14T10:57:15.809000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["tenda"],
-      "tags": ["CWE-121", "CWE-119"]
-    },
-    {
       "cveId": "CVE-2025-7790",
       "title": "D-Link DI-8100 HTTP Request menu_nat.asp stack-based overflow",
       "severity": "HIGH",
@@ -5001,20 +4987,6 @@
       "tags": ["CWE-121", "CWE-119"]
     },
     {
-      "cveId": "CVE-2025-7598",
-      "title": "Tenda AX1803 setWifiFilterCfg formSetWifiMacFilterCfg stack-based overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.08,
-      "epssPercentile": 25.234,
-      "riskScore": 52,
-      "publishedDate": "2025-07-14T11:02:07.422000+00:00",
-      "lastModifiedDate": "2025-07-14T12:43:01.808000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["tenda"],
-      "tags": ["CWE-121", "CWE-119"]
-    },
-    {
       "cveId": "CVE-2025-7945",
       "title": "D-Link DIR-513 formSetWanDhcpplus buffer overflow",
       "severity": "HIGH",
@@ -5069,20 +5041,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["loginpress"],
       "tags": ["CWE-288"]
-    },
-    {
-      "cveId": "CVE-2025-7597",
-      "title": "Tenda AX1803 setMacFilterCfg formSetMacFilterCfg stack-based overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.08,
-      "epssPercentile": 25.234,
-      "riskScore": 52,
-      "publishedDate": "2025-07-14T10:44:06.851000+00:00",
-      "lastModifiedDate": "2025-07-14T12:46:49.239000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["tenda"],
-      "tags": ["CWE-121", "CWE-119"]
     },
     {
       "cveId": "CVE-2025-7855",
@@ -5823,7 +5781,7 @@
       "publishedDate": "2024-06-25T03:30:37.970000+00:00",
       "lastModifiedDate": "2024-08-01T21:33:05.337000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["stuartobrien", "pedrogusmao02", "blazeretail", "themerex", "warfareplugins"],
+      "vendors": ["stuartobrien", "pedrogusmao02", "blazeretail", "warfareplugins", "themerex"],
       "tags": []
     },
     {
@@ -7479,6 +7437,20 @@
       "tags": ["CWE-121", "CWE-119"]
     },
     {
+      "cveId": "CVE-2025-7596",
+      "title": "Tenda FH1205 WifiExtraSet formWifiExtraSet stack-based overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.08,
+      "epssPercentile": 25.234,
+      "riskScore": 50,
+      "publishedDate": "2025-07-14T10:32:07.099000+00:00",
+      "lastModifiedDate": "2025-07-14T10:57:15.809000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["tenda"],
+      "tags": ["CWE-121", "CWE-119"]
+    },
+    {
       "cveId": "CVE-2025-7401",
       "title": "Premium Age Verification / Restriction for WordPress <= 3.0.2 - Unauthenticated Arbitrary File Read and Write via remote_tunnel.php",
       "severity": "CRITICAL",
@@ -7675,6 +7647,20 @@
       "tags": ["CWE-121", "CWE-119"]
     },
     {
+      "cveId": "CVE-2025-7598",
+      "title": "Tenda AX1803 setWifiFilterCfg formSetWifiMacFilterCfg stack-based overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.08,
+      "epssPercentile": 25.234,
+      "riskScore": 50,
+      "publishedDate": "2025-07-14T11:02:07.422000+00:00",
+      "lastModifiedDate": "2025-07-14T12:43:01.808000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["tenda"],
+      "tags": ["CWE-121", "CWE-119"]
+    },
+    {
       "cveId": "CVE-2025-7530",
       "title": "Tenda FH1202 PPTPDClient fromPptpUserAdd stack-based overflow",
       "severity": "HIGH",
@@ -7700,6 +7686,20 @@
       "lastModifiedDate": "2025-07-07T16:03:05.839000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["belkin"],
+      "tags": ["CWE-121", "CWE-119"]
+    },
+    {
+      "cveId": "CVE-2025-7597",
+      "title": "Tenda AX1803 setMacFilterCfg formSetMacFilterCfg stack-based overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.08,
+      "epssPercentile": 25.234,
+      "riskScore": 50,
+      "publishedDate": "2025-07-14T10:44:06.851000+00:00",
+      "lastModifiedDate": "2025-07-14T12:46:49.239000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["tenda"],
       "tags": ["CWE-121", "CWE-119"]
     },
     {
@@ -8723,20 +8723,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["linksys"],
       "tags": ["CWE-121", "CWE-119"]
-    },
-    {
-      "cveId": "CVE-2025-6402",
-      "title": "TOTOLINK X15 HTTP POST Request formIpv6Setup buffer overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.16,
-      "epssPercentile": 37.38,
-      "riskScore": 50,
-      "publishedDate": "2025-06-21T08:31:06.990000+00:00",
-      "lastModifiedDate": "2025-06-23T19:27:42.964000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["totolink"],
-      "tags": ["CWE-120", "CWE-119"]
     },
     {
       "cveId": "CVE-2025-6824",
@@ -12382,10 +12368,10 @@
       "lastModifiedDate": "2025-06-25T14:08:48.280000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "brother industries, ltd",
+        "ricoh",
         "fujifilm business innovation",
         "konica minolta, inc.",
-        "ricoh"
+        "brother industries, ltd"
       ],
       "tags": ["CWE-121"]
     },
@@ -14210,20 +14196,6 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
-      "cveId": "CVE-2025-7595",
-      "title": "code-projects Job Diary view-cad.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.23,
-      "riskScore": 48,
-      "publishedDate": "2025-07-14T10:14:05.297000+00:00",
-      "lastModifiedDate": "2025-07-14T13:36:51.420000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
       "cveId": "CVE-2025-7610",
       "title": "code-projects Electricity Billing System change_password.php sql injection",
       "severity": "HIGH",
@@ -14250,20 +14222,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["d-link"],
       "tags": ["CWE-121", "CWE-119"]
-    },
-    {
-      "cveId": "CVE-2025-7593",
-      "title": "code-projects Job Diary view-all.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.23,
-      "riskScore": 48,
-      "publishedDate": "2025-07-14T09:44:10.688000+00:00",
-      "lastModifiedDate": "2025-07-15T19:51:58.307000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
     },
     {
       "cveId": "CVE-2025-7605",
@@ -14322,20 +14280,6 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
-      "cveId": "CVE-2025-7594",
-      "title": "code-projects Job Diary view-emp.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.23,
-      "riskScore": 48,
-      "publishedDate": "2025-07-14T10:02:05.789000+00:00",
-      "lastModifiedDate": "2025-07-15T19:51:52.440000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
       "cveId": "CVE-2025-7752",
       "title": "code-projects Online Appointment Booking System deletedoctor.php sql injection",
       "severity": "HIGH",
@@ -14345,20 +14289,6 @@
       "riskScore": 48,
       "publishedDate": "2025-07-17T19:32:05.716000+00:00",
       "lastModifiedDate": "2025-07-17T20:11:51.341000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-7587",
-      "title": "code-projects Online Appointment Booking System cover.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 12.202,
-      "riskScore": 48,
-      "publishedDate": "2025-07-14T08:14:05.663000+00:00",
-      "lastModifiedDate": "2025-07-14T15:02:01.961000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
@@ -14796,20 +14726,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["campcodes"],
       "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-7602",
-      "title": "D-Link DI-8100 HTTP Request arp_sys.asp stack-based overflow",
-      "severity": "HIGH",
-      "cvssScore": 7.2,
-      "epssScore": 0.06,
-      "epssPercentile": 18.643,
-      "riskScore": 48,
-      "publishedDate": "2025-07-14T12:02:06.530000+00:00",
-      "lastModifiedDate": "2025-07-14T13:35:40.003000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["d-link"],
-      "tags": ["CWE-121", "CWE-119"]
     },
     {
       "cveId": "CVE-2025-26850",
@@ -17080,6 +16996,20 @@
       "tags": ["CWE-120", "CWE-119"]
     },
     {
+      "cveId": "CVE-2025-6402",
+      "title": "TOTOLINK X15 HTTP POST Request formIpv6Setup buffer overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.16,
+      "epssPercentile": 37.38,
+      "riskScore": 48,
+      "publishedDate": "2025-06-21T08:31:06.990000+00:00",
+      "lastModifiedDate": "2025-06-23T19:27:42.964000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["totolink"],
+      "tags": ["CWE-120", "CWE-119"]
+    },
+    {
       "cveId": "CVE-2025-6158",
       "title": "D-Link DIR-665 HTTP POST Request sub_AC78 stack-based overflow",
       "severity": "HIGH",
@@ -17468,7 +17398,7 @@
       "publishedDate": "2025-06-13T09:23:49.631000+00:00",
       "lastModifiedDate": "2025-06-13T12:22:47.798000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["rts", "telex"],
+      "vendors": ["telex", "rts"],
       "tags": []
     },
     {
@@ -18620,20 +18550,6 @@
       "tags": ["CWE-287"]
     },
     {
-      "cveId": "CVE-2024-13496",
-      "title": "GamiPress <= 7.3.1 - Unauthenticated SQL Injection via orderby Parameter",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 28.85,
-      "epssPercentile": 96.339,
-      "riskScore": 48,
-      "publishedDate": "2025-01-22T11:07:58.693000+00:00",
-      "lastModifiedDate": "2025-03-24T15:50:39.128000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["rubengc"],
-      "tags": ["CWE-89"]
-    },
-    {
       "cveId": "CVE-2024-13972",
       "title": "CVE-2024-13972: A vulnerability related to registry permissions in the Intercept X for Windows updater prior to vers...",
       "severity": "HIGH",
@@ -19064,7 +18980,7 @@
       "publishedDate": "2025-06-25T07:25:00.402000+00:00",
       "lastModifiedDate": "2025-06-25T14:13:40.189000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["brother industries, ltd", "fujifilm business innovation", "ricoh"],
+      "vendors": ["ricoh", "fujifilm business innovation", "brother industries, ltd"],
       "tags": ["CWE-1286"]
     },
     {
@@ -21388,7 +21304,7 @@
       "publishedDate": "2025-06-24T08:05:15.547000+00:00",
       "lastModifiedDate": "2025-06-24T14:18:57.831000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-306"]
     },
     {
@@ -26502,6 +26418,20 @@
       "tags": ["CWE-284", "CWE-266"]
     },
     {
+      "cveId": "CVE-2025-7595",
+      "title": "code-projects Job Diary view-cad.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.23,
+      "riskScore": 46,
+      "publishedDate": "2025-07-14T10:14:05.297000+00:00",
+      "lastModifiedDate": "2025-07-14T13:36:51.420000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-7538",
       "title": "Campcodes Sales and Inventory System product_update.php unrestricted upload",
       "severity": "HIGH",
@@ -26553,6 +26483,20 @@
       "riskScore": 46,
       "publishedDate": "2025-07-13T04:32:05.213000+00:00",
       "lastModifiedDate": "2025-07-14T16:07:29.114000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-7593",
+      "title": "code-projects Job Diary view-all.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.23,
+      "riskScore": 46,
+      "publishedDate": "2025-07-14T09:44:10.688000+00:00",
+      "lastModifiedDate": "2025-07-15T19:51:58.307000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
@@ -26726,6 +26670,34 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-7594",
+      "title": "code-projects Job Diary view-emp.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.23,
+      "riskScore": 46,
+      "publishedDate": "2025-07-14T10:02:05.789000+00:00",
+      "lastModifiedDate": "2025-07-15T19:51:52.440000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-7587",
+      "title": "code-projects Online Appointment Booking System cover.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 12.202,
+      "riskScore": 46,
+      "publishedDate": "2025-07-14T08:14:05.663000+00:00",
+      "lastModifiedDate": "2025-07-14T15:02:01.961000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-7536",
       "title": "Campcodes Sales and Inventory System receipt_credit.php sql injection",
       "severity": "HIGH",
@@ -26876,7 +26848,7 @@
       "publishedDate": "2025-07-08T05:32:05.678000+00:00",
       "lastModifiedDate": "2025-07-08T13:45:36.200000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -27534,7 +27506,7 @@
       "publishedDate": "2025-07-08T06:02:05.515000+00:00",
       "lastModifiedDate": "2025-07-08T13:44:30.198000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -27732,6 +27704,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["campcodes"],
       "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-7602",
+      "title": "D-Link DI-8100 HTTP Request arp_sys.asp stack-based overflow",
+      "severity": "HIGH",
+      "cvssScore": 7.2,
+      "epssScore": 0.06,
+      "epssPercentile": 18.643,
+      "riskScore": 46,
+      "publishedDate": "2025-07-14T12:02:06.530000+00:00",
+      "lastModifiedDate": "2025-07-14T13:35:40.003000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["d-link"],
+      "tags": ["CWE-121", "CWE-119"]
     },
     {
       "cveId": "CVE-2025-7168",
@@ -29960,20 +29946,6 @@
       "tags": ["CWE-672"]
     },
     {
-      "cveId": "CVE-2025-6403",
-      "title": "code-projects School Fees Payment System student.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.692,
-      "riskScore": 46,
-      "publishedDate": "2025-06-21T10:00:13.244000+00:00",
-      "lastModifiedDate": "2025-06-23T15:04:17.748000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
       "cveId": "CVE-2025-6407",
       "title": "Campcodes Online Hospital Management System user-login.php sql injection",
       "severity": "HIGH",
@@ -30307,20 +30279,6 @@
       "lastModifiedDate": "2025-06-30T16:02:23.851000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-6404",
-      "title": "Campcodes Online Teacher Record Management System search.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.692,
-      "riskScore": 46,
-      "publishedDate": "2025-06-21T12:00:13.366000+00:00",
-      "lastModifiedDate": "2025-06-23T15:02:56.196000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -33780,6 +33738,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["cyberchimps"],
       "tags": ["CWE-98"]
+    },
+    {
+      "cveId": "CVE-2024-13496",
+      "title": "GamiPress <= 7.3.1 - Unauthenticated SQL Injection via orderby Parameter",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 28.85,
+      "epssPercentile": 96.339,
+      "riskScore": 46,
+      "publishedDate": "2025-01-22T11:07:58.693000+00:00",
+      "lastModifiedDate": "2025-03-24T15:50:39.128000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["rubengc"],
+      "tags": ["CWE-89"]
     },
     {
       "cveId": "CVE-2024-13446",
@@ -39084,7 +39056,7 @@
       "publishedDate": "2025-06-24T08:10:29.717000+00:00",
       "lastModifiedDate": "2025-06-24T13:56:13.121000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-639"]
     },
     {
@@ -39154,7 +39126,7 @@
       "publishedDate": "2025-06-24T08:14:31.864000+00:00",
       "lastModifiedDate": "2025-06-24T13:55:34.477000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-204"]
     },
     {
@@ -41590,7 +41562,7 @@
       "publishedDate": "2025-07-21T09:29:57.024000+00:00",
       "lastModifiedDate": "2025-07-21T20:36:45.460000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-78"]
     },
     {
@@ -41632,7 +41604,7 @@
       "publishedDate": "2025-07-21T09:29:32.129000+00:00",
       "lastModifiedDate": "2025-07-21T17:06:11.768000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-78"]
     },
     {
@@ -41646,7 +41618,7 @@
       "publishedDate": "2025-07-21T09:29:43.181000+00:00",
       "lastModifiedDate": "2025-07-21T17:05:33.656000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-78"]
     },
     {
@@ -43620,7 +43592,7 @@
       "publishedDate": "2024-10-15T10:28:37.223000+00:00",
       "lastModifiedDate": "2024-10-16T17:39:58.106000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-798"]
     },
     {
@@ -43676,7 +43648,7 @@
       "publishedDate": "2024-10-15T10:28:16.384000+00:00",
       "lastModifiedDate": "2024-10-16T17:44:15.429000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-306"]
     },
     {
@@ -43984,7 +43956,7 @@
       "publishedDate": "2024-11-26T07:38:12.712000+00:00",
       "lastModifiedDate": "2025-01-27T17:45:48.564000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-798"]
     },
     {
@@ -46140,7 +46112,7 @@
       "publishedDate": "2024-11-26T07:37:06.324000+00:00",
       "lastModifiedDate": "2024-12-10T14:57:54.916000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-121"]
     },
     {
@@ -46364,7 +46336,7 @@
       "publishedDate": "2024-11-26T07:38:06.435000+00:00",
       "lastModifiedDate": "2025-01-27T17:46:45.224000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-798"]
     },
     {
@@ -47750,7 +47722,7 @@
       "publishedDate": "2025-05-30T18:00:06.477000+00:00",
       "lastModifiedDate": "2025-05-30T18:15:18.480000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -52216,7 +52188,7 @@
       "publishedDate": "2025-05-03T11:00:09.135000+00:00",
       "lastModifiedDate": "2025-05-30T09:10:12.356000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -52944,7 +52916,7 @@
       "publishedDate": "2025-05-05T18:31:04.418000+00:00",
       "lastModifiedDate": "2025-05-05T18:48:57.123000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["oretnom23", "sourcecodester"],
+      "vendors": ["sourcecodester", "oretnom23"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -54320,6 +54292,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-6403",
+      "title": "code-projects School Fees Payment System student.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.692,
+      "riskScore": 44,
+      "publishedDate": "2025-06-21T10:00:13.244000+00:00",
+      "lastModifiedDate": "2025-06-23T15:04:17.748000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-6159",
       "title": "code-projects Hostel Management System allocate_room.php sql injection",
       "severity": "HIGH",
@@ -54499,6 +54485,20 @@
       "lastModifiedDate": "2025-06-23T19:28:54.575000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-6404",
+      "title": "Campcodes Online Teacher Record Management System search.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.692,
+      "riskScore": 44,
+      "publishedDate": "2025-06-21T12:00:13.366000+00:00",
+      "lastModifiedDate": "2025-06-23T15:02:56.196000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -57424,7 +57424,7 @@
       "publishedDate": "2024-07-09T05:34:17.609000+00:00",
       "lastModifiedDate": "2024-08-01T21:11:12.734000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["webnus/", "webnus"],
+      "vendors": ["webnus", "webnus/"],
       "tags": []
     },
     {
@@ -58628,7 +58628,7 @@
       "publishedDate": "2025-05-09T15:18:34.124000+00:00",
       "lastModifiedDate": "2025-05-09T19:09:17.086000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["norton", "avast", "avg"],
+      "vendors": ["norton", "avg", "avast"],
       "tags": ["CWE-367"]
     },
     {
@@ -59230,7 +59230,7 @@
       "publishedDate": "2024-10-25T06:18:36.274000+00:00",
       "lastModifiedDate": "2024-10-25T18:38:24.503000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-288"]
     },
     {
@@ -63528,7 +63528,7 @@
       "publishedDate": "2024-10-22T21:13:37.183000+00:00",
       "lastModifiedDate": "2024-10-23T14:43:52.114000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["kieback & peter", "kieback&peter"],
+      "vendors": ["kieback&peter", "kieback & peter"],
       "tags": ["CWE-22"]
     },
     {
@@ -69101,20 +69101,6 @@
       "lastModifiedDate": "2025-05-23T14:49:24.829000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["x000x"],
-      "tags": ["CWE-352"]
-    },
-    {
-      "cveId": "CVE-2025-46241",
-      "title": "WordPress Appointment Booking Calendar plugin <= 1.3.92 - CSRF to SQL Injection vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 8.2,
-      "epssScore": 0.02,
-      "epssPercentile": 4.052,
-      "riskScore": 43,
-      "publishedDate": "2025-04-22T09:53:28.272000+00:00",
-      "lastModifiedDate": "2025-04-22T16:52:09.206000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["codepeople"],
       "tags": ["CWE-352"]
     },
     {
@@ -75680,7 +75666,7 @@
       "publishedDate": "2024-10-15T10:27:52.208000+00:00",
       "lastModifiedDate": "2024-10-16T17:47:04.737000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-261"]
     },
     {
@@ -80664,7 +80650,7 @@
       "publishedDate": "2024-05-14T12:58:31.261000+00:00",
       "lastModifiedDate": "2025-03-14T14:56:10.154000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["n/a", "na"],
+      "vendors": ["na", "n/a"],
       "tags": []
     },
     {
@@ -80860,7 +80846,7 @@
       "publishedDate": "2024-08-07T11:00:06.508000+00:00",
       "lastModifiedDate": "2024-08-07T13:17:59.476000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["webnus/", "webnus"],
+      "vendors": ["webnus", "webnus/"],
       "tags": ["CWE-918"]
     },
     {
@@ -81266,7 +81252,7 @@
       "publishedDate": "2024-02-05T14:33:06.481000+00:00",
       "lastModifiedDate": "2025-05-09T16:32:50.015000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["encode", "kludex", "tiangolo"],
+      "vendors": ["kludex", "encode", "tiangolo"],
       "tags": ["CWE-400"]
     },
     {
@@ -98210,20 +98196,6 @@
       "tags": ["CWE-89"]
     },
     {
-      "cveId": "CVE-2024-13499",
-      "title": "GamiPress <= 7.2.1 - Unauthenticated Arbitrary Shortcode Execution via gamipress_do_shortcode() Function",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.21,
-      "epssPercentile": 43.285,
-      "riskScore": 42,
-      "publishedDate": "2025-01-22T11:07:57.919000+00:00",
-      "lastModifiedDate": "2025-01-22T14:11:58.151000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["rubengc"],
-      "tags": ["CWE-94"]
-    },
-    {
       "cveId": "CVE-2024-13959",
       "title": "Link Following Local Privilege Escalation Vulnerability in AVG TuneUp 24.2.16593.9844",
       "severity": "HIGH",
@@ -107380,6 +107352,20 @@
       "tags": ["CWE-20", "CWE-116"]
     },
     {
+      "cveId": "CVE-2025-46241",
+      "title": "WordPress Appointment Booking Calendar plugin <= 1.3.92 - CSRF to SQL Injection vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 8.2,
+      "epssScore": 0.02,
+      "epssPercentile": 4.052,
+      "riskScore": 41,
+      "publishedDate": "2025-04-22T09:53:28.272000+00:00",
+      "lastModifiedDate": "2025-04-22T16:52:09.206000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["codepeople"],
+      "tags": ["CWE-352"]
+    },
+    {
       "cveId": "CVE-2025-46820",
       "title": "phpgt/Dom exposes the GITHUB_TOKEN in Dom workflow run artifact",
       "severity": "HIGH",
@@ -107392,20 +107378,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["phpgt"],
       "tags": ["CWE-200", "CWE-312", "CWE-522", "CWE-538"]
-    },
-    {
-      "cveId": "CVE-2025-46242",
-      "title": "WordPress Watu Quiz <= 3.4.3 - SQL Injection Vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.6,
-      "epssScore": 0.04,
-      "epssPercentile": 8.767,
-      "riskScore": 41,
-      "publishedDate": "2025-04-22T09:53:28.836000+00:00",
-      "lastModifiedDate": "2025-04-22T16:51:38.447000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["bob"],
-      "tags": ["CWE-89"]
     },
     {
       "cveId": "CVE-2025-46740",
@@ -107476,20 +107448,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["huawei"],
       "tags": ["CWE-787"]
-    },
-    {
-      "cveId": "CVE-2025-46252",
-      "title": "WordPress Message Filter for Contact Form 7 plugin <= 1.6.3.2 - SQL Injection vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.6,
-      "epssScore": 0.04,
-      "epssPercentile": 11.984,
-      "riskScore": 41,
-      "publishedDate": "2025-04-22T09:53:34.550000+00:00",
-      "lastModifiedDate": "2025-04-22T13:39:23.124000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["kofimokome"],
-      "tags": ["CWE-89"]
     },
     {
       "cveId": "CVE-2025-20006",
@@ -112472,7 +112430,7 @@
       "publishedDate": "2024-10-15T10:27:06.004000+00:00",
       "lastModifiedDate": "2024-10-16T17:49:30.446000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-20"]
     },
     {
@@ -113048,20 +113006,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["abb"],
       "tags": ["CWE-918"]
-    },
-    {
-      "cveId": "CVE-2024-13495",
-      "title": "GamiPress <= 7.2.1 - Unauthenticated Arbitrary Shortcode Execution via gamipress_ajax_get_logs Function",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.27,
-      "epssPercentile": 49.772,
-      "riskScore": 41,
-      "publishedDate": "2025-01-22T11:07:57.323000+00:00",
-      "lastModifiedDate": "2025-01-22T14:20:45.183000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["rubengc"],
-      "tags": ["CWE-94"]
     },
     {
       "cveId": "CVE-2024-13622",
@@ -113746,7 +113690,7 @@
       "publishedDate": "2024-10-25T06:18:30.415000+00:00",
       "lastModifiedDate": "2024-10-25T18:38:02.777000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-749"]
     },
     {
@@ -114040,7 +113984,7 @@
       "publishedDate": "2024-11-26T07:38:24.464000+00:00",
       "lastModifiedDate": "2024-11-26T16:28:15.625000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -114054,7 +113998,7 @@
       "publishedDate": "2024-11-26T07:38:30.408000+00:00",
       "lastModifiedDate": "2024-11-26T14:48:35.480000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -114110,7 +114054,7 @@
       "publishedDate": "2024-11-26T07:38:18.359000+00:00",
       "lastModifiedDate": "2024-11-26T14:09:24.516000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-79"]
     },
     {
@@ -122640,20 +122584,6 @@
       "tags": ["CWE-352"]
     },
     {
-      "cveId": "CVE-2025-46251",
-      "title": "WordPress VikRestaurants Table Reservations and Take-Away plugin <= 1.3.3 - CSRF to Stored XSS vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.02,
-      "epssPercentile": 4.314,
-      "riskScore": 40,
-      "publishedDate": "2025-04-22T09:53:33.910000+00:00",
-      "lastModifiedDate": "2025-04-22T13:40:45.588000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["e4jvikwp"],
-      "tags": ["CWE-352"]
-    },
-    {
       "cveId": "CVE-2025-46512",
       "title": "WordPress Custom Functions Plugin plugin <= 1.1 - CSRF to Stored XSS vulnerability",
       "severity": "HIGH",
@@ -129024,6 +128954,20 @@
       "tags": ["CWE-89"]
     },
     {
+      "cveId": "CVE-2024-13499",
+      "title": "GamiPress <= 7.2.1 - Unauthenticated Arbitrary Shortcode Execution via gamipress_do_shortcode() Function",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.21,
+      "epssPercentile": 43.285,
+      "riskScore": 40,
+      "publishedDate": "2025-01-22T11:07:57.919000+00:00",
+      "lastModifiedDate": "2025-01-22T14:11:58.151000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["rubengc"],
+      "tags": ["CWE-94"]
+    },
+    {
       "cveId": "CVE-2024-13200",
       "title": "wander-chu SpringBoot-Blog HTTP POST Request BaseInterceptor.java preHandle access control",
       "severity": "HIGH",
@@ -129342,7 +129286,7 @@
       "publishedDate": "2024-10-22T22:19:20.646000+00:00",
       "lastModifiedDate": "2024-11-06T15:50:04.628000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-276"]
     },
     {
@@ -132016,7 +131960,7 @@
       "publishedDate": "2024-11-28T22:16:31.396000+00:00",
       "lastModifiedDate": "2024-12-06T05:18:03.652000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-427"]
     },
     {
@@ -132954,7 +132898,7 @@
       "publishedDate": "2024-10-25T06:18:00.481000+00:00",
       "lastModifiedDate": "2024-10-25T18:37:13.542000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -134704,7 +134648,7 @@
       "publishedDate": "2024-11-28T22:20:28.303000+00:00",
       "lastModifiedDate": "2024-12-06T05:23:50.441000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-427"]
     },
     {
@@ -136748,7 +136692,7 @@
       "publishedDate": "2024-10-25T06:18:10.875000+00:00",
       "lastModifiedDate": "2024-10-25T17:16:12.736000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -139984,6 +139928,34 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["backdropcms"],
       "tags": ["CWE-863"]
+    },
+    {
+      "cveId": "CVE-2025-46242",
+      "title": "WordPress Watu Quiz <= 3.4.3 - SQL Injection Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.6,
+      "epssScore": 0.04,
+      "epssPercentile": 8.767,
+      "riskScore": 39,
+      "publishedDate": "2025-04-22T09:53:28.836000+00:00",
+      "lastModifiedDate": "2025-04-22T16:51:38.447000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["bob"],
+      "tags": ["CWE-89"]
+    },
+    {
+      "cveId": "CVE-2025-46252",
+      "title": "WordPress Message Filter for Contact Form 7 plugin <= 1.6.3.2 - SQL Injection vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.6,
+      "epssScore": 0.04,
+      "epssPercentile": 11.984,
+      "riskScore": 39,
+      "publishedDate": "2025-04-22T09:53:34.550000+00:00",
+      "lastModifiedDate": "2025-04-22T13:39:23.124000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["kofimokome"],
+      "tags": ["CWE-89"]
     },
     {
       "cveId": "CVE-2025-20929",
@@ -143678,7 +143650,7 @@
       "publishedDate": "2024-07-03T12:26:44.599000+00:00",
       "lastModifiedDate": "2025-02-13T17:54:25.437000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "red lion europe"],
+      "vendors": ["red lion europe", "helmholz"],
       "tags": ["CWE-78"]
     },
     {
@@ -145624,7 +145596,7 @@
       "publishedDate": "2024-10-15T10:28:58.559000+00:00",
       "lastModifiedDate": "2025-01-24T06:32:08.237000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-306"]
     },
     {
@@ -145638,7 +145610,7 @@
       "publishedDate": "2024-10-15T10:27:32.688000+00:00",
       "lastModifiedDate": "2024-10-16T17:36:22.123000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-1391"]
     },
     {
@@ -146088,6 +146060,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["awordpresslife"],
       "tags": ["CWE-502"]
+    },
+    {
+      "cveId": "CVE-2024-13495",
+      "title": "GamiPress <= 7.2.1 - Unauthenticated Arbitrary Shortcode Execution via gamipress_ajax_get_logs Function",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.27,
+      "epssPercentile": 49.772,
+      "riskScore": 39,
+      "publishedDate": "2025-01-22T11:07:57.323000+00:00",
+      "lastModifiedDate": "2025-01-22T14:20:45.183000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["rubengc"],
+      "tags": ["CWE-94"]
     },
     {
       "cveId": "CVE-2024-13345",
@@ -147094,7 +147080,7 @@
       "publishedDate": "2024-10-25T06:18:42.287000+00:00",
       "lastModifiedDate": "2024-10-25T18:32:25.798000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-644"]
     },
     {
@@ -147248,7 +147234,7 @@
       "publishedDate": "2024-10-25T06:18:50.793000+00:00",
       "lastModifiedDate": "2024-10-25T14:16:46.537000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-79"]
     },
     {
@@ -159752,6 +159738,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["gerrygooner"],
       "tags": ["CWE-79"]
+    },
+    {
+      "cveId": "CVE-2025-46251",
+      "title": "WordPress VikRestaurants Table Reservations and Take-Away plugin <= 1.3.3 - CSRF to Stored XSS vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.02,
+      "epssPercentile": 4.314,
+      "riskScore": 38,
+      "publishedDate": "2025-04-22T09:53:33.910000+00:00",
+      "lastModifiedDate": "2025-04-22T13:40:45.588000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["e4jvikwp"],
+      "tags": ["CWE-352"]
     },
     {
       "cveId": "CVE-2025-20620",
@@ -177992,7 +177992,7 @@
       "publishedDate": "2024-11-28T22:18:28.358000+00:00",
       "lastModifiedDate": "2024-12-06T05:21:38.917000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-561"]
     },
     {
@@ -182850,7 +182850,7 @@
       "publishedDate": "2024-07-04T08:53:41.217000+00:00",
       "lastModifiedDate": "2024-08-19T15:25:49.496000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-427"]
     },
     {
@@ -189220,7 +189220,7 @@
       "publishedDate": "2024-07-08T15:25:38.672000+00:00",
       "lastModifiedDate": "2024-08-01T22:27:36.345000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["realtek", "levelone"],
+      "vendors": ["levelone", "realtek"],
       "tags": ["CWE-122"]
     },
     {
