@@ -1,7 +1,7 @@
 {
   "chunk": "2024-CRITICAL",
   "count": 1458,
-  "generated": "2025-07-22T00:27:11.133661",
+  "generated": "2025-07-22T04:21:08.665924",
   "vulnerabilities": [
     {
       "cveId": "CVE-2024-21413",
@@ -28,10 +28,10 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
+          "microsoft office 2019",
           "microsoft office 2016",
           "microsoft 365 apps for enterprise",
-          "microsoft office ltsc 2021",
-          "microsoft office 2019"
+          "microsoft office ltsc 2021"
         ]
       },
       "references": [
@@ -186,7 +186,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["fortinet"],
-        "products": ["fortios", "fortiproxy"]
+        "products": ["fortiproxy", "fortios"]
       },
       "references": [
         {
@@ -421,9 +421,9 @@
         "cpeMatches": [],
         "vendors": ["rogierlankhorst", "really simple plugins"],
         "products": [
-          "really simple security – simple and performant security (formerly really simple ssl)",
           "really simple security pro multisite",
-          "really simple security pro"
+          "really simple security pro",
+          "really simple security – simple and performant security (formerly really simple ssl)"
         ]
       },
       "references": [
@@ -674,31 +674,31 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          "windows server 2012",
-          "windows 10 version 22h2",
-          "windows 10 version 1507",
-          "windows 11 version 23h2",
-          "windows server 2019 (server core installation)",
-          "windows server 2008 r2 service pack 1",
-          "windows 10 version 21h2",
-          "windows server 2012 (server core installation)",
           "windows 11 version 22h3",
-          "windows 11 version 21h2",
-          "windows server 2008 service pack 2 (server core installation)",
-          "windows 10 version 1809",
-          "windows server 2016 (server core installation)",
           "windows server 2012 r2",
-          "windows server 2012 r2 (server core installation)",
-          "windows server 2008  service pack 2",
-          "windows server 2008 service pack 2",
-          "windows server 2019",
-          "windows server 2022",
+          "windows server 2008 r2 service pack 1",
+          "windows server 2016 (server core installation)",
+          "windows 11 version 22h2",
+          "windows 10 version 1507",
           "windows 10 version 1607",
-          "windows server 2016",
+          "windows 11 version 23h2",
+          "windows server 2012 (server core installation)",
+          "windows server 2008 service pack 2 (server core installation)",
+          "windows server 2022",
           "windows server 2022, 23h2 edition (server core installation)",
           "windows 11 version 24h2",
           "windows server 2008 r2 service pack 1 (server core installation)",
-          "windows 11 version 22h2"
+          "windows 10 version 22h2",
+          "windows server 2008  service pack 2",
+          "windows server 2012 r2 (server core installation)",
+          "windows server 2019 (server core installation)",
+          "windows 10 version 21h2",
+          "windows server 2016",
+          "windows 11 version 21h2",
+          "windows server 2019",
+          "windows server 2012",
+          "windows server 2008 service pack 2",
+          "windows 10 version 1809"
         ]
       },
       "references": [
@@ -748,21 +748,21 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          "windows server 2012",
-          "windows server 2022",
-          "windows server 2012 r2",
-          "windows server 2008  service pack 2",
-          "windows server 2016",
-          "windows server 2012 (server core installation)",
           "windows server 2012 r2 (server core installation)",
-          "windows server 2022, 23h2 edition (server core installation)",
+          "windows server 2012 r2",
           "windows server 2019 (server core installation)",
           "windows server 2019",
-          "windows server 2008 service pack 2",
+          "windows server 2016 (server core installation)",
           "windows server 2008 service pack 2 (server core installation)",
           "windows server 2008 r2 service pack 1",
-          "windows server 2016 (server core installation)",
-          "windows server 2008 r2 service pack 1 (server core installation)"
+          "windows server 2012",
+          "windows server 2022",
+          "windows server 2022, 23h2 edition (server core installation)",
+          "windows server 2008 service pack 2",
+          "windows server 2012 (server core installation)",
+          "windows server 2008 r2 service pack 1 (server core installation)",
+          "windows server 2016",
+          "windows server 2008  service pack 2"
         ]
       },
       "references": [
@@ -812,32 +812,32 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          "windows server 2012",
-          "windows 10 version 22h2",
-          "windows 10 version 1507",
-          "windows 11 version 23h2",
-          "windows server 2019 (server core installation)",
-          "windows server 2008 r2 service pack 1",
-          "windows 10 version 21h2",
-          "windows server 2025 (server core installation)",
-          "windows server 2012 (server core installation)",
           "windows 11 version 22h3",
-          "windows server 2008 service pack 2 (server core installation)",
-          "windows 10 version 1809",
-          "windows server 2016 (server core installation)",
           "windows server 2012 r2",
-          "windows server 2012 r2 (server core installation)",
-          "windows server 2008  service pack 2",
-          "windows server 2008 service pack 2",
-          "windows server 2019",
-          "windows server 2025",
-          "windows server 2022",
+          "windows server 2008 r2 service pack 1",
+          "windows server 2016 (server core installation)",
+          "windows 11 version 22h2",
+          "windows 10 version 1507",
           "windows 10 version 1607",
-          "windows server 2016",
+          "windows 11 version 23h2",
+          "windows server 2012 (server core installation)",
+          "windows server 2008 service pack 2 (server core installation)",
+          "windows server 2025 (server core installation)",
+          "windows server 2022",
           "windows server 2022, 23h2 edition (server core installation)",
           "windows 11 version 24h2",
           "windows server 2008 r2 service pack 1 (server core installation)",
-          "windows 11 version 22h2"
+          "windows 10 version 22h2",
+          "windows server 2008  service pack 2",
+          "windows server 2012 r2 (server core installation)",
+          "windows server 2019 (server core installation)",
+          "windows server 2025",
+          "windows 10 version 21h2",
+          "windows server 2016",
+          "windows server 2019",
+          "windows server 2012",
+          "windows server 2008 service pack 2",
+          "windows 10 version 1809"
         ]
       },
       "references": [
@@ -1173,7 +1173,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["palo alto networks"],
-        "products": ["cloud ngfw", "prisma access", "pan-os"]
+        "products": ["cloud ngfw", "pan-os", "prisma access"]
       },
       "references": [
         {
@@ -1942,7 +1942,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["d-link"],
-        "products": ["dns-325", "dns-327l", "dns-340l", "dns-320l"]
+        "products": ["dns-340l", "dns-320l", "dns-325", "dns-327l"]
       },
       "references": [
         {
@@ -3098,12 +3098,12 @@
         "cpeMatches": [],
         "vendors": ["red hat"],
         "products": [
-          "red hat jboss enterprise application platform 8",
-          "red hat enterprise linux 9",
+          "red hat enterprise linux 8",
           "red hat enterprise linux 6",
-          "red hat enterprise linux 10",
+          "red hat enterprise linux 9",
           "red hat enterprise linux 7",
-          "red hat enterprise linux 8"
+          "red hat jboss enterprise application platform 8",
+          "red hat enterprise linux 10"
         ]
       },
       "references": [
@@ -3753,7 +3753,7 @@
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": ["toshiba tec corporation", "sharp corporation"],
+        "vendors": ["sharp corporation", "toshiba tec corporation"],
         "products": ["multiple mfps (multifunction printers)"]
       },
       "references": [
@@ -6475,10 +6475,10 @@
         "cpeMatches": [],
         "vendors": ["asus"],
         "products": [
+          "rt-ax88u",
+          "rt-ac86u",
           "zenwifi xt8 v2",
           "zenwifi xt8",
-          "rt-ac86u",
-          "rt-ax88u",
           "rt-ac68u",
           "rt-ax58u",
           "rt-ax57"
@@ -6535,7 +6535,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["ptzoptics"],
-        "products": ["pt30x-sdi", "pt30x-ndi"]
+        "products": ["pt30x-ndi", "pt30x-sdi"]
       },
       "references": [
         {
@@ -6725,26 +6725,26 @@
         "cpeMatches": [],
         "vendors": ["geovision"],
         "products": [
-          "gv vs04a",
-          "gv_dsp_lpr_v2",
-          "gv_ipcamd_gv_fe420",
-          "gv_vs2410",
-          "gvlx 4 v2",
-          "gv_ipcamd_gv_fd3400",
-          "gv_gm8186_vs14",
-          "gv_ipcamd_gv_ebl1100",
-          "gv_vs216xx",
           "gv_ipcamd_gv_cb220",
-          "gv vs04h",
           "gv_ipcamd_gv_fe3401",
-          "gv_vs28xx",
-          "gv_ipcamd_gv_bx1500",
-          "gv_ipcamd_gv_bx130",
-          "gv_ipcamd_gv_fd2410",
+          "gvlx 4 v2",
+          "gv_vs216xx",
+          "gv_ipcamd_gv_fd3400",
           "gv_ipcamd_gv_efd1100",
-          "gv-vs14_vs14",
+          "gvlx 4 v3",
+          "gv_ipcamd_gv_bx130",
+          "gv_gm8186_vs14",
+          "gv_dsp_lpr_v2",
           "gv_vs03",
-          "gvlx 4 v3"
+          "gv vs04h",
+          "gv_ipcamd_gv_bx1500",
+          "gv_ipcamd_gv_fd2410",
+          "gv_vs2410",
+          "gv_vs28xx",
+          "gv_ipcamd_gv_fe420",
+          "gv vs04a",
+          "gv_ipcamd_gv_ebl1100",
+          "gv-vs14_vs14"
         ]
       },
       "references": [
@@ -7746,7 +7746,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["synology"],
-        "products": ["beephotos", "synology photos"]
+        "products": ["synology photos", "beephotos"]
       },
       "references": [
         {
@@ -7847,7 +7847,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["fortinet"],
-        "products": ["fortios", "fortiproxy", "fortipam", "fortiswitchmanager"]
+        "products": ["fortipam", "fortiswitchmanager", "fortiproxy", "fortios"]
       },
       "references": [
         {
@@ -8735,7 +8735,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["geovision"],
-        "products": ["gv-dsp_lpr_v3", "gvlx 4 v3", "gv-vs11", "gvlx 4 v2", "gv-vs12"]
+        "products": ["gvlx 4 v3", "gv-vs11", "gv-vs12", "gv-dsp_lpr_v3", "gvlx 4 v2"]
       },
       "references": [
         {
@@ -9285,7 +9285,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["n/a"],
-        "products": ["org.webjars.npm:jsonpath-plus", "jsonpath-plus"]
+        "products": ["jsonpath-plus", "org.webjars.npm:jsonpath-plus"]
       },
       "references": [
         {
@@ -10469,13 +10469,13 @@
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": ["blazeretail", "warfareplugins", "stuartobrien", "themerex", "pedrogusmao02"],
+        "vendors": ["blazeretail", "pedrogusmao02", "themerex", "warfareplugins", "stuartobrien"],
         "products": [
-          "simply show hooks",
           "contact form 7 multi-step addon",
           "social sharing plugin – social warfare",
           "wrapper link elementor",
-          "blaze retail widget"
+          "blaze retail widget",
+          "simply show hooks"
         ]
       },
       "references": [
@@ -11481,12 +11481,12 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          "windows server 2022",
-          "windows server 2016",
-          "windows server 2022, 23h2 edition (server core installation)",
           "windows server 2019 (server core installation)",
           "windows server 2019",
-          "windows server 2016 (server core installation)"
+          "windows server 2016 (server core installation)",
+          "windows server 2022",
+          "windows server 2022, 23h2 edition (server core installation)",
+          "windows server 2016"
         ]
       },
       "references": [
@@ -11536,31 +11536,31 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          "windows server 2012",
-          "windows 10 version 22h2",
-          "windows 10 version 1507",
-          "windows 11 version 23h2",
-          "windows server 2019 (server core installation)",
-          "windows server 2008 r2 service pack 1",
-          "windows 10 version 21h2",
-          "windows server 2012 (server core installation)",
           "windows 11 version 22h3",
-          "windows 11 version 21h2",
-          "windows server 2008 service pack 2 (server core installation)",
-          "windows 10 version 1809",
-          "windows server 2016 (server core installation)",
           "windows server 2012 r2",
-          "windows server 2012 r2 (server core installation)",
-          "windows server 2008  service pack 2",
-          "windows server 2008 service pack 2",
-          "windows server 2019",
-          "windows server 2022",
+          "windows server 2008 r2 service pack 1",
+          "windows server 2016 (server core installation)",
+          "windows 11 version 22h2",
+          "windows 10 version 1507",
           "windows 10 version 1607",
-          "windows server 2016",
+          "windows 11 version 23h2",
+          "windows server 2012 (server core installation)",
+          "windows server 2008 service pack 2 (server core installation)",
+          "windows server 2022",
           "windows server 2022, 23h2 edition (server core installation)",
           "windows 11 version 24h2",
           "windows server 2008 r2 service pack 1 (server core installation)",
-          "windows 11 version 22h2"
+          "windows 10 version 22h2",
+          "windows server 2008  service pack 2",
+          "windows server 2012 r2 (server core installation)",
+          "windows server 2019 (server core installation)",
+          "windows 10 version 21h2",
+          "windows server 2016",
+          "windows 11 version 21h2",
+          "windows server 2019",
+          "windows server 2012",
+          "windows server 2008 service pack 2",
+          "windows 10 version 1809"
         ]
       },
       "references": [
@@ -11610,31 +11610,31 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          "windows server 2012",
-          "windows 10 version 22h2",
-          "windows 10 version 1507",
-          "windows 11 version 23h2",
-          "windows server 2019 (server core installation)",
-          "windows server 2008 r2 service pack 1",
-          "windows 10 version 21h2",
-          "windows server 2012 (server core installation)",
           "windows 11 version 22h3",
-          "windows 11 version 21h2",
-          "windows server 2008 service pack 2 (server core installation)",
-          "windows 10 version 1809",
-          "windows server 2016 (server core installation)",
           "windows server 2012 r2",
-          "windows server 2012 r2 (server core installation)",
-          "windows server 2008  service pack 2",
-          "windows server 2008 service pack 2",
-          "windows server 2019",
-          "windows server 2022",
+          "windows server 2008 r2 service pack 1",
+          "windows server 2016 (server core installation)",
+          "windows 11 version 22h2",
+          "windows 10 version 1507",
           "windows 10 version 1607",
-          "windows server 2016",
+          "windows 11 version 23h2",
+          "windows server 2012 (server core installation)",
+          "windows server 2008 service pack 2 (server core installation)",
+          "windows server 2022",
           "windows server 2022, 23h2 edition (server core installation)",
           "windows 11 version 24h2",
           "windows server 2008 r2 service pack 1 (server core installation)",
-          "windows 11 version 22h2"
+          "windows 10 version 22h2",
+          "windows server 2008  service pack 2",
+          "windows server 2012 r2 (server core installation)",
+          "windows server 2019 (server core installation)",
+          "windows 10 version 21h2",
+          "windows server 2016",
+          "windows 11 version 21h2",
+          "windows server 2019",
+          "windows server 2012",
+          "windows server 2008 service pack 2",
+          "windows 10 version 1809"
         ]
       },
       "references": [
@@ -11733,8 +11733,8 @@
         "vendors": ["microsoft"],
         "products": [
           "open management infrastructure",
-          "system center operations manager (scom) 2022",
-          "system center operations manager (scom) 2019"
+          "system center operations manager (scom) 2019",
+          "system center operations manager (scom) 2022"
         ]
       },
       "references": [
@@ -11783,7 +11783,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["myscada"],
-        "products": ["mypro runtime", "mypro manager"]
+        "products": ["mypro manager", "mypro runtime"]
       },
       "references": [
         {
@@ -12468,30 +12468,30 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          "windows server 2012",
-          "windows 10 version 22h2",
-          "windows 10 version 1507",
-          "windows 11 version 23h2",
-          "windows server 2019 (server core installation)",
-          "windows server 2008 r2 service pack 1",
-          "windows 10 version 21h2",
-          "windows server 2012 (server core installation)",
           "windows 11 version 22h3",
-          "windows 11 version 21h2",
-          "windows server 2008 service pack 2 (server core installation)",
-          "windows 10 version 1809",
-          "windows server 2016 (server core installation)",
           "windows server 2012 r2",
-          "windows server 2012 r2 (server core installation)",
-          "windows server 2008  service pack 2",
-          "windows server 2008 service pack 2",
-          "windows server 2019",
-          "windows server 2022",
+          "windows server 2008 r2 service pack 1",
+          "windows server 2016 (server core installation)",
+          "windows 11 version 22h2",
+          "windows 10 version 1507",
           "windows 10 version 1607",
-          "windows server 2016",
+          "windows 11 version 23h2",
+          "windows server 2012 (server core installation)",
+          "windows server 2008 service pack 2 (server core installation)",
+          "windows server 2022",
           "windows server 2022, 23h2 edition (server core installation)",
           "windows server 2008 r2 service pack 1 (server core installation)",
-          "windows 11 version 22h2"
+          "windows 10 version 22h2",
+          "windows server 2008  service pack 2",
+          "windows server 2012 r2 (server core installation)",
+          "windows server 2019 (server core installation)",
+          "windows 10 version 21h2",
+          "windows server 2016",
+          "windows 11 version 21h2",
+          "windows server 2019",
+          "windows server 2012",
+          "windows server 2008 service pack 2",
+          "windows 10 version 1809"
         ]
       },
       "references": [
@@ -12749,18 +12749,18 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          "windows server 2012",
-          "windows server 2022",
-          "windows server 2012 r2",
           "windows server 2012 r2 (server core installation)",
-          "windows server 2016",
-          "windows server 2012 (server core installation)",
-          "windows server 2022, 23h2 edition (server core installation)",
+          "windows server 2012 r2",
           "windows server 2019 (server core installation)",
           "windows server 2019",
-          "windows server 2008 r2 service pack 1",
           "windows server 2016 (server core installation)",
-          "windows server 2008 r2 service pack 1 (server core installation)"
+          "windows server 2008 r2 service pack 1",
+          "windows server 2012",
+          "windows server 2022",
+          "windows server 2022, 23h2 edition (server core installation)",
+          "windows server 2012 (server core installation)",
+          "windows server 2008 r2 service pack 1 (server core installation)",
+          "windows server 2016"
         ]
       },
       "references": [
@@ -13453,14 +13453,14 @@
         "cpeMatches": [],
         "vendors": ["cisco"],
         "products": [
+          "cisco unity connection",
           "cisco unified communications manager",
+          "cisco unified communications manager / cisco unity connection",
+          "cisco unified contact center express",
           "cisco unified contact center enterprise",
           "cisco packaged contact center enterprise",
-          "cisco unified communications manager im and presence service",
-          "cisco unified communications manager / cisco unity connection",
           "cisco virtualized voice browser",
-          "cisco unity connection",
-          "cisco unified contact center express"
+          "cisco unified communications manager im and presence service"
         ]
       },
       "references": [
@@ -14234,18 +14234,18 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          "windows server 2025",
-          "windows server 2022",
-          "windows server 2012",
-          "windows server 2012 r2",
-          "windows server 2016",
-          "windows server 2012 (server core installation)",
           "windows server 2012 r2 (server core installation)",
-          "windows server 2022, 23h2 edition (server core installation)",
+          "windows server 2012 r2",
           "windows server 2019 (server core installation)",
           "windows server 2019",
+          "windows server 2025",
+          "windows server 2016 (server core installation)",
           "windows server 2025 (server core installation)",
-          "windows server 2016 (server core installation)"
+          "windows server 2012",
+          "windows server 2022",
+          "windows server 2022, 23h2 edition (server core installation)",
+          "windows server 2012 (server core installation)",
+          "windows server 2016"
         ]
       },
       "references": [
@@ -14618,9 +14618,9 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          "microsoft exchange server 2019 cumulative update 13",
+          "microsoft exchange server 2019 cumulative update 14",
           "microsoft exchange server 2016 cumulative update 23",
-          "microsoft exchange server 2019 cumulative update 14"
+          "microsoft exchange server 2019 cumulative update 13"
         ]
       },
       "references": [
@@ -15805,7 +15805,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["inspirelabs"],
-        "products": ["inpost pl", "inpost for woocommerce"]
+        "products": ["inpost for woocommerce", "inpost pl"]
       },
       "references": [
         {
@@ -16368,21 +16368,21 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          "azure cyclecloud 8.2.0",
-          "azure cyclecloud 8.0.1",
-          "azure cyclecloud 8.2.1",
-          "azure cyclecloud 8.6.0",
-          "azure cyclecloud 8.4.1",
-          "azure cyclecloud 8.4.2",
-          "azure cyclecloud",
-          "azure cyclecloud 8.0.2",
-          "azure cyclecloud 8.5.0",
           "azure cyclecloud 8.4.0",
-          "azure cyclecloud 8.0.0",
-          "azure cyclecloud 8.1.0",
-          "azure cyclecloud 8.3.0",
+          "azure cyclecloud 8.4.1",
+          "azure cyclecloud 8.0.1",
           "azure cyclecloud 8.1.1",
-          "azure cyclecloud 8.2.2"
+          "azure cyclecloud 8.0.0",
+          "azure cyclecloud",
+          "azure cyclecloud 8.2.1",
+          "azure cyclecloud 8.2.2",
+          "azure cyclecloud 8.4.2",
+          "azure cyclecloud 8.5.0",
+          "azure cyclecloud 8.2.0",
+          "azure cyclecloud 8.3.0",
+          "azure cyclecloud 8.1.0",
+          "azure cyclecloud 8.6.0",
+          "azure cyclecloud 8.0.2"
         ]
       },
       "references": [
@@ -16432,12 +16432,12 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          "microsoft visual studio 2022 version 17.8",
-          "microsoft visual studio 2022 version 17.6",
-          "powershell 7.5",
-          "microsoft visual studio 2022 version 17.10",
           "microsoft visual studio 2022 version 17.11",
-          ".net 9.0"
+          "microsoft visual studio 2022 version 17.8",
+          ".net 9.0",
+          "powershell 7.5",
+          "microsoft visual studio 2022 version 17.6",
+          "microsoft visual studio 2022 version 17.10"
         ]
       },
       "references": [
@@ -16676,8 +16676,8 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          "windows 10 version 1607",
           "windows server 2016",
+          "windows 10 version 1607",
           "windows server 2016 (server core installation)"
         ]
       },
@@ -16824,8 +16824,8 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          "windows 10 version 1607",
           "windows server 2016",
+          "windows 10 version 1607",
           "windows server 2016 (server core installation)"
         ]
       },
@@ -18501,28 +18501,28 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          "microsoft visual studio 2022 version 17.8",
+          "nuget 17.6.0",
           "powershell 7.2",
-          "powershell 7.3",
-          "microsoft .net framework 3.5 and 4.8.1",
-          "powershell 7.4",
+          ".net 7.0",
           "microsoft .net framework 4.8",
+          "microsoft .net framework 4.6.2/4.7/4.7.1/4.7.2",
+          "microsoft visual studio 2022 version 17.2",
           "microsoft .net framework 3.5 and 4.8",
-          "microsoft visual studio 2022 version 17.4",
-          "microsoft visual studio 2022 version 17.6",
+          "nuget 5.11.0",
           "nuget 17.4.0",
           "microsoft .net framework 2.0 service pack 2",
-          ".net 6.0",
-          "microsoft .net framework 3.5 and 4.7.2",
           "microsoft visual studio 2019 version 16.11 (includes 16.0 - 16.10)",
-          "microsoft visual studio 2022 version 17.2",
-          ".net 8.0",
-          "nuget 5.11.0",
-          "nuget 17.8.0",
+          ".net 6.0",
           "microsoft .net framework 3.0 service pack 2",
-          "microsoft .net framework 4.6.2/4.7/4.7.1/4.7.2",
-          "nuget 17.6.0",
-          ".net 7.0"
+          "powershell 7.3",
+          "microsoft visual studio 2022 version 17.8",
+          "microsoft visual studio 2022 version 17.4",
+          "microsoft .net framework 3.5 and 4.8.1",
+          "microsoft visual studio 2022 version 17.6",
+          ".net 8.0",
+          "microsoft .net framework 3.5 and 4.7.2",
+          "powershell 7.4",
+          "nuget 17.8.0"
         ]
       },
       "references": [
@@ -18746,21 +18746,21 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          "windows server 2012",
-          "windows server 2022",
-          "windows server 2012 r2",
-          "windows server 2008  service pack 2",
-          "windows server 2016",
-          "windows server 2012 (server core installation)",
           "windows server 2012 r2 (server core installation)",
-          "windows server 2022, 23h2 edition (server core installation)",
+          "windows server 2012 r2",
           "windows server 2019 (server core installation)",
           "windows server 2019",
-          "windows server 2008 service pack 2",
+          "windows server 2016 (server core installation)",
           "windows server 2008 service pack 2 (server core installation)",
           "windows server 2008 r2 service pack 1",
-          "windows server 2016 (server core installation)",
-          "windows server 2008 r2 service pack 1 (server core installation)"
+          "windows server 2012",
+          "windows server 2022",
+          "windows server 2022, 23h2 edition (server core installation)",
+          "windows server 2008 service pack 2",
+          "windows server 2012 (server core installation)",
+          "windows server 2008 r2 service pack 1 (server core installation)",
+          "windows server 2016",
+          "windows server 2008  service pack 2"
         ]
       },
       "references": [
@@ -19211,12 +19211,12 @@
         "cpeMatches": [],
         "vendors": ["red hat"],
         "products": [
-          "red hat openshift container platform 4.13",
-          "red hat openshift container platform 4.12",
-          "red hat openshift container platform 4.14",
           "red hat openshift container platform 4.17",
+          "red hat openshift container platform 4.15",
+          "red hat openshift container platform 4.13",
+          "red hat openshift container platform 4.14",
           "red hat openshift container platform 4.16",
-          "red hat openshift container platform 4.15"
+          "red hat openshift container platform 4.12"
         ]
       },
       "references": [
@@ -19444,11 +19444,11 @@
         "cpeMatches": [],
         "vendors": ["red hat"],
         "products": [
-          "red hat satellite 6.13 for rhel 8",
-          "red hat satellite 6.14 for rhel 8",
           "red hat satellite 6.15 for rhel 8",
+          "red hat satellite 6.13 for rhel 8",
+          "red hat satellite 6.16 for rhel 9",
           "red hat satellite 6.16 for rhel 8",
-          "red hat satellite 6.16 for rhel 9"
+          "red hat satellite 6.14 for rhel 8"
         ]
       },
       "references": [
@@ -19756,13 +19756,13 @@
         "cpeMatches": [],
         "vendors": ["xiongmai"],
         "products": [
-          "ahb7004t-mhv2",
-          "ahb8008t-gl",
-          "ahb8032f-lme",
           "ahb8004t-gl",
-          "xm530_r80x30-pq_8m",
+          "ahb8032f-lme",
+          "ahb8008t-gl",
+          "ahb7804r-mh-v2",
           "ahb7004t-gs-v3",
-          "ahb7804r-mh-v2"
+          "ahb7004t-mhv2",
+          "xm530_r80x30-pq_8m"
         ]
       },
       "references": [
@@ -22951,7 +22951,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["cyberlord92"],
-        "products": ["web application firewall – website security", "malware scanner"]
+        "products": ["malware scanner", "web application firewall – website security"]
       },
       "references": [
         {
@@ -23235,8 +23235,8 @@
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": ["helmholz", "mb connect line"],
-        "products": ["mbnet.mini", "rex100"]
+        "vendors": ["mb connect line", "helmholz"],
+        "products": ["rex100", "mbnet.mini"]
       },
       "references": [
         {
@@ -23346,8 +23346,8 @@
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": ["helmholz", "mb connect line"],
-        "products": ["mbnet.mini", "rex100"]
+        "vendors": ["mb connect line", "helmholz"],
+        "products": ["rex100", "mbnet.mini"]
       },
       "references": [
         {
@@ -23835,7 +23835,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["yokogawa rental & lease corporation"],
-        "products": ["unifier", "unifier cast"]
+        "products": ["unifier cast", "unifier"]
       },
       "references": [
         {
@@ -23897,7 +23897,7 @@
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": ["toshiba tec corporation", "sharp corporation"],
+        "vendors": ["sharp corporation", "toshiba tec corporation"],
         "products": ["multiple mfps (multifunction printers)"]
       },
       "references": [
@@ -25230,27 +25230,27 @@
         "cpeMatches": [],
         "vendors": ["siemens"],
         "products": [
-          "cerberus pro en x300 cloud distribution ip7",
-          "sinteso fs20 en x300 cloud distribution mp8",
-          "desigo fire safety ul compact panel fc2025/2050",
-          "cerberus pro ul compact panel fc922/924",
           "sinteso fs20 en x200 cloud distribution mp8",
-          "sinteso fs20 en fire panel fc20 mp7",
-          "cerberus pro en x300 cloud distribution ip8",
-          "cerberus pro en x200 cloud distribution ip8",
           "sinteso fs20 en x300 cloud distribution mp7",
           "sinteso fs20 en fire panel fc20 mp6",
-          "desigo fire safety ul engineering tool",
-          "cerberus pro ul engineering tool",
-          "cerberus pro en fire panel fc72x ip6",
           "cerberus pro en x200 cloud distribution ip7",
-          "desigo fire safety ul x300 cloud distribution",
-          "sinteso fs20 en engineering tool",
-          "cerberus pro en fire panel fc72x ip7",
-          "sinteso fs20 en x200 cloud distribution mp7",
           "cerberus pro ul x300 cloud distribution",
+          "sinteso fs20 en x300 cloud distribution mp8",
           "sinteso mobile",
-          "cerberus pro en engineering tool"
+          "sinteso fs20 en fire panel fc20 mp7",
+          "cerberus pro ul compact panel fc922/924",
+          "cerberus pro en x300 cloud distribution ip7",
+          "cerberus pro en fire panel fc72x ip6",
+          "sinteso fs20 en engineering tool",
+          "cerberus pro en x200 cloud distribution ip8",
+          "cerberus pro en fire panel fc72x ip7",
+          "desigo fire safety ul x300 cloud distribution",
+          "sinteso fs20 en x200 cloud distribution mp7",
+          "desigo fire safety ul compact panel fc2025/2050",
+          "cerberus pro en engineering tool",
+          "cerberus pro en x300 cloud distribution ip8",
+          "desigo fire safety ul engineering tool",
+          "cerberus pro ul engineering tool"
         ]
       },
       "references": [
@@ -27433,7 +27433,7 @@
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": ["toshiba tec corporation", "sharp corporation"],
+        "vendors": ["sharp corporation", "toshiba tec corporation"],
         "products": ["multiple mfps (multifunction printers)"]
       },
       "references": [
@@ -27778,7 +27778,7 @@
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": ["toshiba tec corporation", "sharp corporation"],
+        "vendors": ["sharp corporation", "toshiba tec corporation"],
         "products": ["multiple mfps (multifunction printers)"]
       },
       "references": [
@@ -28017,11 +28017,11 @@
         "cpeMatches": [],
         "vendors": ["canon inc."],
         "products": [
-          "c1333if",
-          "color imageclass mf750c series",
-          "i-sensys mf754cdw",
           "color imageclass x mf1333c",
-          "satera mf750c series"
+          "c1333if",
+          "satera mf750c series",
+          "i-sensys mf754cdw",
+          "color imageclass mf750c series"
         ]
       },
       "references": [
@@ -28191,7 +28191,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["softnext"],
-        "products": ["sn os 12.1", "sn os 12.3", "sn os 10.3"]
+        "products": ["sn os 12.1", "sn os 10.3", "sn os 12.3"]
       },
       "references": [
         {
@@ -29022,11 +29022,11 @@
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": ["schneider electric ", "schneider electric"],
+        "vendors": ["schneider electric", "schneider electric "],
         "products": [
-          "easergy t200 (modbus) models: t200i, t200e, t200p, t200s, t200h ",
           "easergy t200 (dnp3) models: t200i, t200e, t200p, t200s, t200h",
-          "easergy t200 (iec104) models: t200i, t200e, t200p, t200s, t200h"
+          "easergy t200 (iec104) models: t200i, t200e, t200p, t200s, t200h",
+          "easergy t200 (modbus) models: t200i, t200e, t200p, t200s, t200h "
         ]
       },
       "references": [
@@ -30067,7 +30067,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["d-link"],
-        "products": ["dir-x4860 a1", "dir-x5460 a1"]
+        "products": ["dir-x5460 a1", "dir-x4860 a1"]
       },
       "references": [
         {
@@ -30550,12 +30550,12 @@
         "cpeMatches": [],
         "vendors": ["red hat"],
         "products": [
-          "red hat openshift container platform 4.13",
-          "red hat openshift container platform 4.12",
-          "red hat openshift container platform 4.14",
           "red hat openshift container platform 4.17",
+          "red hat openshift container platform 4.15",
+          "red hat openshift container platform 4.13",
+          "red hat openshift container platform 4.14",
           "red hat openshift container platform 4.16",
-          "red hat openshift container platform 4.15"
+          "red hat openshift container platform 4.12"
         ]
       },
       "references": [
@@ -30850,12 +30850,12 @@
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": ["toshiba tec corporation", "sharp corporation"],
+        "vendors": ["sharp corporation", "toshiba tec corporation"],
         "products": [
           "e-studio 1058",
+          "e-studio 908",
           "e-studio 1208",
-          "sharp digital full-color mfps and monochrome mfps",
-          "e-studio 908"
+          "sharp digital full-color mfps and monochrome mfps"
         ]
       },
       "references": [
@@ -31136,7 +31136,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["phoenix contact"],
-        "products": ["charx sec-3050", "charx sec-3000", "charx sec-3150", "charx sec-3100"]
+        "products": ["charx sec-3000", "charx sec-3100", "charx sec-3150", "charx sec-3050"]
       },
       "references": [
         {
@@ -32358,28 +32358,28 @@
         "cpeMatches": [],
         "vendors": ["asus"],
         "products": [
-          "dsl-ac52",
-          "dsl-n12e_c1",
-          "dsl-n12u_c1",
-          "dsl-n10_c1",
-          "dsl-n16p",
-          "dsl-ac52u",
+          "dsl-n12u_d1",
+          "dsl-n55u_c1",
           "dsl-n14u_b1",
           "dsl-n10p_c1",
-          "dsl-ac750",
-          "dsl-n14u",
-          "dsl-n10_d1",
-          "dsl-ac55u",
-          "dsl-n66u",
-          "dsl-n55u_c1",
-          "dsl-ac56u",
-          "dsl-n55u_d1",
-          "dsl-ac55",
-          "dsl-n12u_d1",
-          "dsl-n17u",
-          "dsl-ac51",
           "dsl-n16u",
-          "dsl-n16"
+          "dsl-ac55",
+          "dsl-ac52u",
+          "dsl-n14u",
+          "dsl-ac52",
+          "dsl-ac56u",
+          "dsl-n12e_c1",
+          "dsl-ac51",
+          "dsl-ac55u",
+          "dsl-n55u_d1",
+          "dsl-ac750",
+          "dsl-n10_d1",
+          "dsl-n17u",
+          "dsl-n12u_c1",
+          "dsl-n10_c1",
+          "dsl-n16",
+          "dsl-n16p",
+          "dsl-n66u"
         ]
       },
       "references": [
@@ -32487,19 +32487,19 @@
         "cpeMatches": [],
         "vendors": ["siemens"],
         "products": [
+          "pp telecontrol server basic 32 to 64 v3.1",
           "pp telecontrol server basic 64 to 256 v3.1",
+          "telecontrol server basic 64 v3.1",
+          "telecontrol server basic 8 v3.1",
           "telecontrol server basic serv upgr",
           "telecontrol server basic upgr v3.1",
-          "telecontrol server basic 1000 v3.1",
           "telecontrol server basic 32 v3.1",
-          "pp telecontrol server basic 32 to 64 v3.1",
-          "pp telecontrol server basic 8 to 32 v3.1",
-          "pp telecontrol server basic 256 to 1000 v3.1",
-          "telecontrol server basic 64 v3.1",
-          "telecontrol server basic 256 v3.1",
           "pp telecontrol server basic 1000 to 5000 v3.1",
-          "telecontrol server basic 8 v3.1",
-          "telecontrol server basic 5000 v3.1"
+          "telecontrol server basic 256 v3.1",
+          "telecontrol server basic 1000 v3.1",
+          "telecontrol server basic 5000 v3.1",
+          "pp telecontrol server basic 8 to 32 v3.1",
+          "pp telecontrol server basic 256 to 1000 v3.1"
         ]
       },
       "references": [
@@ -34022,7 +34022,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["planet technology"],
-        "products": ["gs-4210-24p2s hardware 3.0", "gs-4210-24pl4c hardware 2.0"]
+        "products": ["gs-4210-24pl4c hardware 2.0", "gs-4210-24p2s hardware 3.0"]
       },
       "references": [
         {
@@ -35043,7 +35043,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["openfind"],
-        "products": ["mailaudit 6.0", "mailaudit 5.0", "mailgates 5.0", "mailgates 6.0"]
+        "products": ["mailaudit 5.0", "mailaudit 6.0", "mailgates 5.0", "mailgates 6.0"]
       },
       "references": [
         {
@@ -36172,11 +36172,11 @@
         "cpeMatches": [],
         "vendors": ["dell"],
         "products": [
+          "dell powerflex custom node",
           "dell powerflex appliance",
-          "dell powerflex rack",
           "dell insightiq",
-          "dell data lakehouse",
-          "dell powerflex custom node"
+          "dell powerflex rack",
+          "dell data lakehouse"
         ]
       },
       "references": [
@@ -37895,7 +37895,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["sick ag"],
-        "products": ["sick clv6xx", "sick rfx6xx", "sick lector6xx"]
+        "products": ["sick rfx6xx", "sick clv6xx", "sick lector6xx"]
       },
       "references": [
         {
@@ -38021,7 +38021,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["sick ag"],
-        "products": ["sick inspectorp61x", "tim3xx", "sick inspectorp62x"]
+        "products": ["tim3xx", "sick inspectorp62x", "sick inspectorp61x"]
       },
       "references": [
         {
@@ -38311,7 +38311,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["pearlbells"],
-        "products": ["flash news / post (responsive)", "post title (typewriter)"]
+        "products": ["post title (typewriter)", "flash news / post (responsive)"]
       },
       "references": [
         {
@@ -38464,18 +38464,18 @@
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": ["kieback & peter", "kieback&peter"],
+        "vendors": ["kieback&peter", "kieback & peter"],
         "products": [
-          "ddc4020e",
-          "ddc4200e",
-          "ddc4040e",
-          "ddc4400e",
           "ddc4400",
-          "ddc4200",
+          "ddc4020e",
           "ddc4200-l",
-          "ddc4002",
+          "ddc4040e",
           "ddc4100",
-          "ddc4002e"
+          "ddc4002e",
+          "ddc4400e",
+          "ddc4200e",
+          "ddc4200",
+          "ddc4002"
         ]
       },
       "references": [
@@ -38811,32 +38811,32 @@
         "cpeMatches": [],
         "vendors": ["mitsubishi electric corporation"],
         "products": [
-          "melsec-q series q04udpvcpu",
-          "melsec-q series q26udvcpu",
-          "melsec-q series q04udvcpu",
-          "melsec-q series q26udehcpu",
-          "melsec-l series l26cpu",
-          "melsec-q series q50udehcpu",
-          "melsec-q series q10udehcpu",
-          "melsec-l series l02cpu-p",
-          "melsec-q series q06udehcpu",
-          "melsec-l series l26cpu-p",
-          "melsec-q series q03udecpu",
-          "melsec-l series l26cpu-bt",
-          "melsec-l series l26cpu-pbt",
-          "melsec-q series q13udvcpu",
-          "melsec-q series q26udpvcpu",
-          "melsec-q series q03udvcpu",
-          "melsec-q series q13udpvcpu",
-          "melsec-q series q04udehcpu",
-          "melsec-q series q100udehcpu",
-          "melsec-l series l06cpu",
-          "melsec-q series q06udvcpu",
           "melsec-l series l06cpu-p",
-          "melsec-q series q20udehcpu",
           "melsec-q series q06udpvcpu",
+          "melsec-l series l26cpu-bt",
+          "melsec-q series q03udecpu",
+          "melsec-q series q04udpvcpu",
+          "melsec-q series q13udvcpu",
+          "melsec-l series l26cpu",
+          "melsec-l series l26cpu-pbt",
+          "melsec-q series q04udvcpu",
+          "melsec-q series q13udehcpu",
+          "melsec-q series q13udpvcpu",
+          "melsec-l series l26cpu-p",
+          "melsec-q series q26udehcpu",
+          "melsec-q series q100udehcpu",
           "melsec-l series l02cpu",
-          "melsec-q series q13udehcpu"
+          "melsec-q series q04udehcpu",
+          "melsec-l series l06cpu",
+          "melsec-q series q10udehcpu",
+          "melsec-q series q50udehcpu",
+          "melsec-q series q20udehcpu",
+          "melsec-l series l02cpu-p",
+          "melsec-q series q06udvcpu",
+          "melsec-q series q03udvcpu",
+          "melsec-q series q26udvcpu",
+          "melsec-q series q26udpvcpu",
+          "melsec-q series q06udehcpu"
         ]
       },
       "references": [
@@ -39070,32 +39070,32 @@
         "cpeMatches": [],
         "vendors": ["mitsubishi electric corporation"],
         "products": [
-          "melsec-q series q04udpvcpu",
-          "melsec-q series q26udvcpu",
-          "melsec-q series q04udvcpu",
-          "melsec-q series q26udehcpu",
-          "melsec-l series l26cpu",
-          "melsec-q series q50udehcpu",
-          "melsec-q series q10udehcpu",
-          "melsec-l series l02cpu-p",
-          "melsec-q series q06udehcpu",
-          "melsec-l series l26cpu-p",
-          "melsec-q series q03udecpu",
-          "melsec-l series l26cpu-bt",
-          "melsec-l series l26cpu-pbt",
-          "melsec-q series q13udvcpu",
-          "melsec-q series q26udpvcpu",
-          "melsec-q series q03udvcpu",
-          "melsec-q series q13udpvcpu",
-          "melsec-q series q04udehcpu",
-          "melsec-q series q100udehcpu",
-          "melsec-l series l06cpu",
-          "melsec-q series q06udvcpu",
           "melsec-l series l06cpu-p",
-          "melsec-q series q20udehcpu",
           "melsec-q series q06udpvcpu",
+          "melsec-l series l26cpu-bt",
+          "melsec-q series q03udecpu",
+          "melsec-q series q04udpvcpu",
+          "melsec-q series q13udvcpu",
+          "melsec-l series l26cpu",
+          "melsec-l series l26cpu-pbt",
+          "melsec-q series q04udvcpu",
+          "melsec-q series q13udehcpu",
+          "melsec-q series q13udpvcpu",
+          "melsec-l series l26cpu-p",
+          "melsec-q series q26udehcpu",
+          "melsec-q series q100udehcpu",
           "melsec-l series l02cpu",
-          "melsec-q series q13udehcpu"
+          "melsec-q series q04udehcpu",
+          "melsec-l series l06cpu",
+          "melsec-q series q10udehcpu",
+          "melsec-q series q50udehcpu",
+          "melsec-q series q20udehcpu",
+          "melsec-l series l02cpu-p",
+          "melsec-q series q06udvcpu",
+          "melsec-q series q03udvcpu",
+          "melsec-q series q26udvcpu",
+          "melsec-q series q26udpvcpu",
+          "melsec-q series q06udehcpu"
         ]
       },
       "references": [
@@ -39208,32 +39208,32 @@
         "cpeMatches": [],
         "vendors": ["mitsubishi electric corporation"],
         "products": [
-          "melsec-q series q04udpvcpu",
-          "melsec-q series q26udvcpu",
-          "melsec-q series q04udvcpu",
-          "melsec-q series q26udehcpu",
-          "melsec-l series l26cpu",
-          "melsec-q series q50udehcpu",
-          "melsec-q series q10udehcpu",
-          "melsec-l series l02cpu-p",
-          "melsec-q series q06udehcpu",
-          "melsec-l series l26cpu-p",
-          "melsec-q series q03udecpu",
-          "melsec-l series l26cpu-bt",
-          "melsec-l series l26cpu-pbt",
-          "melsec-q series q13udvcpu",
-          "melsec-q series q26udpvcpu",
-          "melsec-q series q03udvcpu",
-          "melsec-q series q13udpvcpu",
-          "melsec-q series q04udehcpu",
-          "melsec-q series q100udehcpu",
-          "melsec-l series l06cpu",
-          "melsec-q series q06udvcpu",
           "melsec-l series l06cpu-p",
-          "melsec-q series q20udehcpu",
           "melsec-q series q06udpvcpu",
+          "melsec-l series l26cpu-bt",
+          "melsec-q series q03udecpu",
+          "melsec-q series q04udpvcpu",
+          "melsec-q series q13udvcpu",
+          "melsec-l series l26cpu",
+          "melsec-l series l26cpu-pbt",
+          "melsec-q series q04udvcpu",
+          "melsec-q series q13udehcpu",
+          "melsec-q series q13udpvcpu",
+          "melsec-l series l26cpu-p",
+          "melsec-q series q26udehcpu",
+          "melsec-q series q100udehcpu",
           "melsec-l series l02cpu",
-          "melsec-q series q13udehcpu"
+          "melsec-q series q04udehcpu",
+          "melsec-l series l06cpu",
+          "melsec-q series q10udehcpu",
+          "melsec-q series q50udehcpu",
+          "melsec-q series q20udehcpu",
+          "melsec-l series l02cpu-p",
+          "melsec-q series q06udvcpu",
+          "melsec-q series q03udvcpu",
+          "melsec-q series q26udvcpu",
+          "melsec-q series q26udpvcpu",
+          "melsec-q series q06udehcpu"
         ]
       },
       "references": [
@@ -40802,32 +40802,32 @@
         "cpeMatches": [],
         "vendors": ["mitsubishi electric corporation"],
         "products": [
-          "melsec-q series q04udpvcpu",
-          "melsec-q series q26udvcpu",
-          "melsec-q series q04udvcpu",
-          "melsec-q series q26udehcpu",
-          "melsec-l series l26cpu",
-          "melsec-q series q50udehcpu",
-          "melsec-q series q10udehcpu",
-          "melsec-l series l02cpu-p",
-          "melsec-q series q06udehcpu",
-          "melsec-l series l26cpu-p",
-          "melsec-q series q03udecpu",
-          "melsec-l series l26cpu-bt",
-          "melsec-l series l26cpu-pbt",
-          "melsec-q series q13udvcpu",
-          "melsec-q series q26udpvcpu",
-          "melsec-q series q03udvcpu",
-          "melsec-q series q13udpvcpu",
-          "melsec-q series q04udehcpu",
-          "melsec-q series q100udehcpu",
-          "melsec-l series l06cpu",
-          "melsec-q series q06udvcpu",
           "melsec-l series l06cpu-p",
-          "melsec-q series q20udehcpu",
           "melsec-q series q06udpvcpu",
+          "melsec-l series l26cpu-bt",
+          "melsec-q series q03udecpu",
+          "melsec-q series q04udpvcpu",
+          "melsec-q series q13udvcpu",
+          "melsec-l series l26cpu",
+          "melsec-l series l26cpu-pbt",
+          "melsec-q series q04udvcpu",
+          "melsec-q series q13udehcpu",
+          "melsec-q series q13udpvcpu",
+          "melsec-l series l26cpu-p",
+          "melsec-q series q26udehcpu",
+          "melsec-q series q100udehcpu",
           "melsec-l series l02cpu",
-          "melsec-q series q13udehcpu"
+          "melsec-q series q04udehcpu",
+          "melsec-l series l06cpu",
+          "melsec-q series q10udehcpu",
+          "melsec-q series q50udehcpu",
+          "melsec-q series q20udehcpu",
+          "melsec-l series l02cpu-p",
+          "melsec-q series q06udvcpu",
+          "melsec-q series q03udvcpu",
+          "melsec-q series q26udvcpu",
+          "melsec-q series q26udpvcpu",
+          "melsec-q series q06udehcpu"
         ]
       },
       "references": [
@@ -40887,32 +40887,32 @@
         "cpeMatches": [],
         "vendors": ["mitsubishi electric corporation"],
         "products": [
-          "melsec-q series q04udpvcpu",
-          "melsec-q series q26udvcpu",
-          "melsec-q series q04udvcpu",
-          "melsec-q series q26udehcpu",
-          "melsec-l series l26cpu",
-          "melsec-q series q50udehcpu",
-          "melsec-q series q10udehcpu",
-          "melsec-l series l02cpu-p",
-          "melsec-q series q06udehcpu",
-          "melsec-l series l26cpu-p",
-          "melsec-q series q03udecpu",
-          "melsec-l series l26cpu-bt",
-          "melsec-l series l26cpu-pbt",
-          "melsec-q series q13udvcpu",
-          "melsec-q series q26udpvcpu",
-          "melsec-q series q03udvcpu",
-          "melsec-q series q13udpvcpu",
-          "melsec-q series q04udehcpu",
-          "melsec-q series q100udehcpu",
-          "melsec-l series l06cpu",
-          "melsec-q series q06udvcpu",
           "melsec-l series l06cpu-p",
-          "melsec-q series q20udehcpu",
           "melsec-q series q06udpvcpu",
+          "melsec-l series l26cpu-bt",
+          "melsec-q series q03udecpu",
+          "melsec-q series q04udpvcpu",
+          "melsec-q series q13udvcpu",
+          "melsec-l series l26cpu",
+          "melsec-l series l26cpu-pbt",
+          "melsec-q series q04udvcpu",
+          "melsec-q series q13udehcpu",
+          "melsec-q series q13udpvcpu",
+          "melsec-l series l26cpu-p",
+          "melsec-q series q26udehcpu",
+          "melsec-q series q100udehcpu",
           "melsec-l series l02cpu",
-          "melsec-q series q13udehcpu"
+          "melsec-q series q04udehcpu",
+          "melsec-l series l06cpu",
+          "melsec-q series q10udehcpu",
+          "melsec-q series q50udehcpu",
+          "melsec-q series q20udehcpu",
+          "melsec-l series l02cpu-p",
+          "melsec-q series q06udvcpu",
+          "melsec-q series q03udvcpu",
+          "melsec-q series q26udvcpu",
+          "melsec-q series q26udpvcpu",
+          "melsec-q series q06udehcpu"
         ]
       },
       "references": [
@@ -41120,7 +41120,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["janobe"],
-        "products": ["janobe credit card", "janobe debit card payment", "janobe paypal"]
+        "products": ["janobe debit card payment", "janobe credit card", "janobe paypal"]
       },
       "references": [
         {
@@ -41216,7 +41216,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["janobe"],
-        "products": ["janobe credit card", "janobe debit card payment", "janobe paypal"]
+        "products": ["janobe debit card payment", "janobe credit card", "janobe paypal"]
       },
       "references": [
         {
@@ -41600,7 +41600,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["janobe"],
-        "products": ["janobe credit card", "janobe debit card payment", "janobe paypal"]
+        "products": ["janobe debit card payment", "janobe credit card", "janobe paypal"]
       },
       "references": [
         {
@@ -41696,7 +41696,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["janobe"],
-        "products": ["janobe credit card", "janobe debit card payment", "janobe paypal"]
+        "products": ["janobe debit card payment", "janobe credit card", "janobe paypal"]
       },
       "references": [
         {
@@ -41745,18 +41745,18 @@
         "cpeMatches": [],
         "vendors": ["siemens"],
         "products": [
-          "totally integrated automation portal (tia portal) v18",
-          "totally integrated automation portal (tia portal) v16",
           "totally integrated automation portal (tia portal) v17",
+          "sinec nms",
+          "simatic pcs neo v4.0",
+          "totally integrated automation portal (tia portal) v18",
           "opcenter rdl",
+          "simatic pcs neo v4.1",
+          "totally integrated automation portal (tia portal) v16",
+          "totally integrated automation portal (tia portal) v19",
           "opcenter quality",
           "simatic pcs neo v5.0",
-          "totally integrated automation portal (tia portal) v19",
-          "opcenter execution foundation",
-          "sinec nms",
           "sinema remote connect client",
-          "simatic pcs neo v4.1",
-          "simatic pcs neo v4.0"
+          "opcenter execution foundation"
         ]
       },
       "references": [
@@ -41901,7 +41901,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["janobe"],
-        "products": ["janobe credit card", "janobe debit card payment", "janobe paypal"]
+        "products": ["janobe debit card payment", "janobe credit card", "janobe paypal"]
       },
       "references": [
         {
@@ -42093,7 +42093,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["janobe"],
-        "products": ["janobe credit card", "janobe debit card payment", "janobe paypal"]
+        "products": ["janobe debit card payment", "janobe credit card", "janobe paypal"]
       },
       "references": [
         {
@@ -42189,7 +42189,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["janobe"],
-        "products": ["janobe credit card", "janobe debit card payment", "janobe paypal"]
+        "products": ["janobe debit card payment", "janobe credit card", "janobe paypal"]
       },
       "references": [
         {
@@ -42238,9 +42238,9 @@
         "cpeMatches": [],
         "vendors": ["ifm"],
         "products": [
-          "moneo appliance qha210",
           "moneo for micosoft windows",
           "moneo appliance qva200",
+          "moneo appliance qha210",
           "moneo appliance qha300"
         ]
       },
@@ -43430,32 +43430,32 @@
         "cpeMatches": [],
         "vendors": ["canon inc."],
         "products": [
+          "c1127i series",
+          "i-sensys mf750c series",
+          "c1333i series",
+          "c1333p",
+          "color imageclass mf740c series",
           "c1127p",
-          "color imageclass mf750c series",
-          "i-sensys lbp620c series",
-          "i-sensys mf640c series",
-          "i-sensys mf740c series",
-          "satera lbp670c series",
+          "color imageclass x mf1127c",
           "i-sensys lbp673cdw",
-          "color imageclass x lbp1127c",
+          "color imageclass mf750c series",
+          "satera lbp670c series",
+          "color imageclass lbp674cdw",
+          "i-sensys mf640c series",
+          "color imageclass mf640c series",
+          "i-sensys lbp660c series",
+          "i-sensys mf740c series",
           "color imageclass x lbp1333c",
           "color imageclass lbp622cdw",
-          "i-sensys mf750c series",
-          "color imageclass x mf1127c",
-          "color imageclass lbp674cdw",
-          "c1127i series",
-          "i-sensys lbp660c series",
-          "c1333p",
-          "color imageclass x mf1333c",
+          "color imageclass x lbp1127c",
+          "i-sensys lbp620c series",
+          "satera mf740c series",
           "satera mf640c series",
           "satera lbp620c series",
-          "c1333i series",
+          "color imageclass x mf1333c",
           "color imageclass lbp664cdw",
           "satera lbp660c series",
-          "color imageclass mf640c series",
-          "satera mf750c series",
-          "color imageclass mf740c series",
-          "satera mf740c series"
+          "satera mf750c series"
         ]
       },
       "references": [
@@ -45066,17 +45066,17 @@
         "cpeMatches": [],
         "vendors": ["siemens"],
         "products": [
-          "totally integrated automation portal (tia portal) v18",
-          "totally integrated automation portal (tia portal) v16",
           "totally integrated automation portal (tia portal) v17",
-          "opcenter rdl",
-          "opcenter quality",
-          "simatic pcs neo v5.0",
-          "totally integrated automation portal (tia portal) v19",
-          "opcenter execution foundation",
           "sinec nms",
           "simatic pcs neo v4.0",
+          "totally integrated automation portal (tia portal) v18",
+          "opcenter rdl",
           "simatic pcs neo v4.1",
+          "totally integrated automation portal (tia portal) v16",
+          "totally integrated automation portal (tia portal) v19",
+          "opcenter quality",
+          "simatic pcs neo v5.0",
+          "opcenter execution foundation",
           "opcenter intelligence"
         ]
       },
@@ -47200,7 +47200,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["siemens"],
-        "products": ["industrial edge management pro", "industrial edge management virtual"]
+        "products": ["industrial edge management virtual", "industrial edge management pro"]
       },
       "references": [
         {
@@ -47249,11 +47249,11 @@
         "cpeMatches": [],
         "vendors": ["zyxel"],
         "products": [
-          "wax655e firmware",
-          "nwa1123acv3 firmware",
-          "wbe530 firmware",
           "wac500 firmware",
-          "usg lite 60ax firmware"
+          "wbe530 firmware",
+          "wax655e firmware",
+          "usg lite 60ax firmware",
+          "nwa1123acv3 firmware"
         ]
       },
       "references": [
@@ -47605,7 +47605,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["myscada"],
-        "products": ["mypro runtime", "mypro manager"]
+        "products": ["mypro manager", "mypro runtime"]
       },
       "references": [
         {
@@ -48864,7 +48864,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["hitachi energy"],
-        "products": ["microscada pro sys600", "microscada x sys600"]
+        "products": ["microscada x sys600", "microscada pro sys600"]
       },
       "references": [
         {
@@ -49271,7 +49271,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["hitachi energy"],
-        "products": ["microscada pro sys600", "microscada x sys600"]
+        "products": ["microscada x sys600", "microscada pro sys600"]
       },
       "references": [
         {
@@ -49468,7 +49468,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["spotfire"],
-        "products": ["spotfire analyst", "spotfire server", "spotfire for aws marketplace"]
+        "products": ["spotfire for aws marketplace", "spotfire server", "spotfire analyst"]
       },
       "references": [
         {
@@ -52100,7 +52100,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["advantech"],
-        "products": ["eki-6333ac-2g", "eki-6333ac-2gd", "eki-6333ac-1gpo"]
+        "products": ["eki-6333ac-2gd", "eki-6333ac-1gpo", "eki-6333ac-2g"]
       },
       "references": [
         {
@@ -52196,7 +52196,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["advantech"],
-        "products": ["eki-6333ac-2g", "eki-6333ac-2gd", "eki-6333ac-1gpo"]
+        "products": ["eki-6333ac-2gd", "eki-6333ac-1gpo", "eki-6333ac-2g"]
       },
       "references": [
         {
@@ -52292,7 +52292,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["advantech"],
-        "products": ["eki-6333ac-2g", "eki-6333ac-2gd", "eki-6333ac-1gpo"]
+        "products": ["eki-6333ac-2gd", "eki-6333ac-1gpo", "eki-6333ac-2g"]
       },
       "references": [
         {
@@ -52484,7 +52484,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["advantech"],
-        "products": ["eki-6333ac-2g", "eki-6333ac-2gd", "eki-6333ac-1gpo"]
+        "products": ["eki-6333ac-2gd", "eki-6333ac-1gpo", "eki-6333ac-2g"]
       },
       "references": [
         {
@@ -52532,7 +52532,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["advantech"],
-        "products": ["eki-6333ac-2g", "eki-6333ac-2gd", "eki-6333ac-1gpo"]
+        "products": ["eki-6333ac-2gd", "eki-6333ac-1gpo", "eki-6333ac-2g"]
       },
       "references": [
         {
@@ -52628,7 +52628,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["advantech"],
-        "products": ["eki-6333ac-2g", "eki-6333ac-2gd", "eki-6333ac-1gpo"]
+        "products": ["eki-6333ac-2gd", "eki-6333ac-1gpo", "eki-6333ac-2g"]
       },
       "references": [
         {
@@ -53485,13 +53485,13 @@
         "cpeMatches": [],
         "vendors": ["endress+hauser"],
         "products": [
-          "field xpert smt79",
+          "echo curve viewer",
           "field xpert smt70",
-          "field xpert smt77",
-          "fieldcare sfe500 package web-package",
           "field xpert smt50",
-          "fieldcare sfe500 package usb",
-          "echo curve viewer"
+          "field xpert smt79",
+          "fieldcare sfe500 package web-package",
+          "field xpert smt77",
+          "fieldcare sfe500 package usb"
         ]
       },
       "references": [
@@ -53589,10 +53589,10 @@
         "cpeMatches": [],
         "vendors": ["pepperl+fuchs"],
         "products": [
-          "oit500-f113-b12-cb",
           "oit700-f113-b12-cb",
           "oit1500-f113-b12-cb",
-          "oit200-f113-b12-cb"
+          "oit200-f113-b12-cb",
+          "oit500-f113-b12-cb"
         ]
       },
       "references": [
@@ -56915,7 +56915,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["myscada"],
-        "products": ["mypro runtime", "mypro manager"]
+        "products": ["mypro manager", "mypro runtime"]
       },
       "references": [
         {
@@ -57732,12 +57732,12 @@
         "cpeMatches": [],
         "vendors": ["schneider electric"],
         "products": [
-          "sage 4400",
-          "sage 1450",
-          "sage 3030 magnum",
-          "sage 2400",
           "sage 1430",
-          "sage 1410"
+          "sage 1450",
+          "sage 1410",
+          "sage 3030 magnum",
+          "sage 4400",
+          "sage 2400"
         ]
       },
       "references": [
@@ -57883,19 +57883,19 @@
         "cpeMatches": [],
         "vendors": ["jetbrains"],
         "products": [
-          "webstorm",
           "rider",
-          "mps",
           "rubymine",
-          "intellij idea",
           "dataspell",
-          "datagrip",
+          "aqua",
+          "mps",
           "pycharm",
           "rustrover",
+          "datagrip",
           "clion",
-          "aqua",
+          "intellij idea",
+          "goland",
           "phpstorm",
-          "goland"
+          "webstorm"
         ]
       },
       "references": [
@@ -58382,66 +58382,66 @@
         "cpeMatches": [],
         "vendors": ["moxa"],
         "products": [
-          "eds-619 series",
-          "ics-g7828a series",
-          "ics-g7852a series",
-          "pt-7828 series",
-          "tn-4500a series",
-          "nat-102 series",
-          "edr-g9004 series",
-          "sds-g3010 series",
-          "eds-g516e series",
-          "tn-4900 series",
-          "eds-p510 series",
-          "edr-g9010 series",
-          "sds-g3006 series",
-          "pt-g510 series",
-          "eds-516a series",
-          "eds-505a series",
-          "sds-3008 series",
-          "eds-p510a series",
-          "eds-g508e series",
-          "eds-405a series",
-          "eds-508a series",
-          "eds-616 series",
+          "eds-g509 series",
+          "ics-g7526a series",
+          "ics-g7752a series",
           "eds-528e series",
           "edf-g1002-bp series",
           "eds-408a series",
-          "eds-518a series",
-          "eds-g509 series",
-          "iks-6726a series",
-          "oncell g4302-lte4 series",
-          "eds-510e series",
-          "pt-7728 series",
-          "ics-g7748a series",
-          "ics-g7826a series",
+          "nat-102 series",
+          "eds-g516e series",
+          "sds-g3006 series",
+          "eds-508a series",
           "pt-g7728 series",
-          "eds-510a series",
-          "iks-6728a series",
-          "sds-g3008 series",
-          "eds-611 series",
+          "pt-g510 series",
+          "ics-g7750a series",
+          "ics-g7850a series",
+          "pt-7828 series",
+          "ics-g7748a series",
+          "eds-405a series",
+          "sds-3008 series",
           "pt-g503 series",
-          "pt-g7828 series",
-          "tn-5500a series",
-          "ics-g7528a series",
+          "eds-p510a series",
+          "iks-g6824a series",
+          "ics-g7826a series",
+          "sds-g3010 series",
+          "sds-3010 series",
           "sds-3016 series",
-          "ics-g7526a series",
-          "tn-g4500 series",
-          "iks-g6524a series",
-          "sds-g3016 series",
+          "pt-7728 series",
+          "pt-g7828 series",
+          "eds-518a series",
           "eds-608 series",
-          "eds-g512e series",
-          "edr-8010 series",
+          "tn-g4500 series",
           "eds-518e series",
           "eds-p506e series",
-          "ics-g7750a series",
-          "sds-3010 series",
-          "tn-g6500 series",
-          "ics-g7850a series",
-          "sds-3006 series",
           "ics-g7848a series",
-          "iks-g6824a series",
-          "ics-g7752a series"
+          "sds-g3008 series",
+          "eds-619 series",
+          "eds-g512e series",
+          "edr-g9004 series",
+          "edr-8010 series",
+          "iks-6728a series",
+          "eds-g508e series",
+          "eds-611 series",
+          "tn-g6500 series",
+          "sds-3006 series",
+          "iks-g6524a series",
+          "sds-g3016 series",
+          "eds-516a series",
+          "eds-510e series",
+          "eds-510a series",
+          "ics-g7528a series",
+          "tn-4500a series",
+          "iks-6726a series",
+          "edr-g9010 series",
+          "eds-616 series",
+          "eds-505a series",
+          "eds-p510 series",
+          "ics-g7852a series",
+          "tn-4900 series",
+          "oncell g4302-lte4 series",
+          "tn-5500a series",
+          "ics-g7828a series"
         ]
       },
       "references": [
@@ -58640,20 +58640,20 @@
         "cpeMatches": [],
         "vendors": ["vonets"],
         "products": [
-          "vap11s",
-          "vap11g-500",
-          "vap11g-500s",
-          "vap11ac",
-          "vap11s-5g",
-          "vap11g-300",
-          "vga-1000",
-          "vbg1200",
-          "var1200-l",
-          "vap11n-300",
-          "var600-h",
           "var1200-h",
+          "vap11g-500s",
+          "var11n-300",
+          "vbg1200",
+          "vap11n-300",
+          "vap11s-5g",
+          "vga-1000",
+          "vap11g-300",
+          "vap11g-500",
+          "var600-h",
           "vap11g",
-          "var11n-300"
+          "vap11ac",
+          "vap11s",
+          "var1200-l"
         ]
       },
       "references": [
@@ -61027,16 +61027,16 @@
         "cpeMatches": [],
         "vendors": ["kieback&peter"],
         "products": [
-          "ddc4020e",
-          "ddc4200e",
-          "ddc4040e",
-          "ddc4400e",
           "ddc4400",
-          "ddc4200",
+          "ddc4020e",
           "ddc4200-l",
-          "ddc4002",
+          "ddc4040e",
           "ddc4100",
-          "ddc4002e"
+          "ddc4002e",
+          "ddc4400e",
+          "ddc4200e",
+          "ddc4200",
+          "ddc4002"
         ]
       },
       "references": [
@@ -61528,14 +61528,14 @@
         "cpeMatches": [],
         "vendors": ["siemens"],
         "products": [
-          "location intelligence sus small",
-          "location intelligence perpetual large",
-          "location intelligence perpetual small",
-          "location intelligence sus large",
-          "location intelligence sus medium",
           "location intelligence perpetual medium",
+          "location intelligence sus non-prod",
+          "location intelligence sus medium",
+          "location intelligence perpetual large",
+          "location intelligence sus small",
+          "location intelligence sus large",
           "location intelligence perpetual non-prod",
-          "location intelligence sus non-prod"
+          "location intelligence perpetual small"
         ]
       },
       "references": [
@@ -66754,7 +66754,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["liferay"],
-        "products": ["dxp", "portal"]
+        "products": ["portal", "dxp"]
       },
       "references": [
         {
@@ -67254,7 +67254,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["liferay"],
-        "products": ["dxp", "portal"]
+        "products": ["portal", "dxp"]
       },
       "references": [
         {
@@ -67302,7 +67302,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["liferay"],
-        "products": ["dxp", "portal"]
+        "products": ["portal", "dxp"]
       },
       "references": [
         {
@@ -67639,18 +67639,18 @@
         "cpeMatches": [],
         "vendors": ["abb, busch-jaeger"],
         "products": [
-          "bcu knx, ba-u1.0.11",
+          "roomtouch 4\", rt/u12.86.11-825",
+          "2.4! display 55, sd/u12.55.11-825",
+          "roomtouch 4\", rt/u12.86.1-825",
+          "2,4'' display 70, sd/u12.70.11-4015",
           "bcu knx, ba-u1.0.1",
           "2,4'' display 70, sd-u12-70-1-4015",
           "2.4! display 55, sd/sd/u12.55.1-825",
-          "roomtouch 4\", rt/u12.86.11-811",
-          "2.4! display 55, sd/u12.55.11-825",
-          "roomtouch 4\", rt/u12.86.11-825",
-          "2.4! display 63, sd/u12.63.11-825",
-          "roomtouch 4\", rt/u12.86.1-825",
           "bcu knx, ba-u1.0.21",
-          "roomtouch 4\", rt-u12-86-1-811",
-          "2,4'' display 70, sd/u12.70.11-4015"
+          "2.4! display 63, sd/u12.63.11-825",
+          "roomtouch 4\", rt/u12.86.11-811",
+          "bcu knx, ba-u1.0.11",
+          "roomtouch 4\", rt-u12-86-1-811"
         ]
       },
       "references": [
@@ -68050,7 +68050,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["ge healthcare"],
-        "products": ["echopac turnkey", "echopac software only", "imagevault"]
+        "products": ["echopac software only", "echopac turnkey", "imagevault"]
       },
       "references": [
         {
@@ -68386,7 +68386,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["liferay"],
-        "products": ["dxp", "portal"]
+        "products": ["portal", "dxp"]
       },
       "references": [
         {
@@ -68531,10 +68531,10 @@
         "cpeMatches": [],
         "vendors": ["n/a"],
         "products": [
+          "vmware esxi",
           "vmware fusion",
           "vmware workstation",
-          "vmware cloud foundation",
-          "vmware esxi"
+          "vmware cloud foundation"
         ]
       },
       "references": [
@@ -68637,10 +68637,10 @@
         "cpeMatches": [],
         "vendors": ["n/a"],
         "products": [
+          "vmware esxi",
           "vmware fusion",
           "vmware workstation",
-          "vmware cloud foundation",
-          "vmware esxi"
+          "vmware cloud foundation"
         ]
       },
       "references": [
@@ -70156,7 +70156,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["hitachi"],
-        "products": ["hitachi infrastructure analytics advisor", "hitachi ops center analyzer"]
+        "products": ["hitachi ops center analyzer", "hitachi infrastructure analytics advisor"]
       },
       "references": [
         {
@@ -72394,7 +72394,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["liferay"],
-        "products": ["dxp", "portal"]
+        "products": ["portal", "dxp"]
       },
       "references": [
         {
@@ -72587,9 +72587,9 @@
         "cpeMatches": [],
         "vendors": ["blue planet"],
         "products": [
-          "orchestration (bpo)",
-          "route optimization and analysis (roa)",
           "unified assurance and analytics (uaa) ",
+          "route optimization and analysis (roa)",
+          "orchestration (bpo)",
           "inventory (bpi)"
         ]
       },
@@ -73167,7 +73167,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["liferay"],
-        "products": ["dxp", "portal"]
+        "products": ["portal", "dxp"]
       },
       "references": [
         {
@@ -73359,7 +73359,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["liferay"],
-        "products": ["dxp", "portal"]
+        "products": ["portal", "dxp"]
       },
       "references": [
         {
@@ -73455,7 +73455,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["liferay"],
-        "products": ["dxp", "portal"]
+        "products": ["portal", "dxp"]
       },
       "references": [
         {
@@ -73503,7 +73503,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["liferay"],
-        "products": ["dxp", "portal"]
+        "products": ["portal", "dxp"]
       },
       "references": [
         {
@@ -73551,7 +73551,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["liferay"],
-        "products": ["dxp", "portal"]
+        "products": ["portal", "dxp"]
       },
       "references": [
         {
@@ -73599,7 +73599,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["liferay"],
-        "products": ["dxp", "portal"]
+        "products": ["portal", "dxp"]
       },
       "references": [
         {
@@ -73792,18 +73792,18 @@
         "cpeMatches": [],
         "vendors": ["abb, busch-jaeger"],
         "products": [
-          "bcu knx, ba-u1.0.11",
+          "roomtouch 4\", rt/u12.86.11-825",
+          "2.4! display 55, sd/u12.55.11-825",
+          "roomtouch 4\", rt/u12.86.1-825",
+          "2,4'' display 70, sd/u12.70.11-4015",
           "bcu knx, ba-u1.0.1",
           "2,4'' display 70, sd-u12-70-1-4015",
           "2.4! display 55, sd/sd/u12.55.1-825",
-          "roomtouch 4\", rt/u12.86.11-811",
-          "2.4! display 55, sd/u12.55.11-825",
-          "roomtouch 4\", rt/u12.86.11-825",
-          "2.4! display 63, sd/u12.63.11-825",
-          "roomtouch 4\", rt/u12.86.1-825",
           "bcu knx, ba-u1.0.21",
-          "roomtouch 4\", rt-u12-86-1-811",
-          "2,4'' display 70, sd/u12.70.11-4015"
+          "2.4! display 63, sd/u12.63.11-825",
+          "roomtouch 4\", rt/u12.86.11-811",
+          "bcu knx, ba-u1.0.11",
+          "roomtouch 4\", rt-u12-86-1-811"
         ]
       },
       "references": [
@@ -75485,20 +75485,20 @@
         "cpeMatches": [],
         "vendors": ["vonets"],
         "products": [
-          "vap11s",
-          "vap11g-500",
-          "vap11g-500s",
-          "vap11ac",
-          "vap11s-5g",
-          "vap11g-300",
-          "vga-1000",
-          "vbg1200",
-          "var1200-l",
-          "vap11n-300",
-          "var600-h",
           "var1200-h",
+          "vap11g-500s",
+          "var11n-300",
+          "vbg1200",
+          "vap11n-300",
+          "vap11s-5g",
+          "vga-1000",
+          "vap11g-300",
+          "vap11g-500",
+          "var600-h",
           "vap11g",
-          "var11n-300"
+          "vap11ac",
+          "vap11s",
+          "var1200-l"
         ]
       },
       "references": [
@@ -75596,20 +75596,20 @@
         "cpeMatches": [],
         "vendors": ["vonets"],
         "products": [
-          "vap11s",
-          "vap11g-500",
-          "vap11g-500s",
-          "vap11ac",
-          "vap11s-5g",
-          "vap11g-300",
-          "vga-1000",
-          "vbg1200",
-          "var1200-l",
-          "vap11n-300",
-          "var600-h",
           "var1200-h",
+          "vap11g-500s",
+          "var11n-300",
+          "vbg1200",
+          "vap11n-300",
+          "vap11s-5g",
+          "vga-1000",
+          "vap11g-300",
+          "vap11g-500",
+          "var600-h",
           "vap11g",
-          "var11n-300"
+          "vap11ac",
+          "vap11s",
+          "var1200-l"
         ]
       },
       "references": [
@@ -77147,17 +77147,17 @@
         "cpeMatches": [],
         "vendors": ["siemens"],
         "products": [
-          "simatic information server 2020",
+          "simatic process historian 2020",
+          "simatic information server 2022",
+          "simatic process historian 2022",
           "simatic wincc runtime professional v19",
           "simatic wincc v7.4",
-          "simatic wincc v8.0",
-          "simatic wincc runtime professional v18",
-          "simatic information server 2022",
-          "simatic process historian 2020",
           "simatic batch v9.1",
-          "simatic process historian 2022",
+          "simatic wincc v7.5",
+          "simatic wincc v8.0",
           "simatic pcs 7 v9.1",
-          "simatic wincc v7.5"
+          "simatic wincc runtime professional v18",
+          "simatic information server 2020"
         ]
       },
       "references": [
@@ -77302,7 +77302,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["purestorage"],
-        "products": ["flashblade", "flasharray"]
+        "products": ["flasharray", "flashblade"]
       },
       "references": [
         {
