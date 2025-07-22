@@ -1,5 +1,5 @@
 {
-  "generated": "2025-07-22T16:08:38.016934",
+  "generated": "2025-07-22T20:08:48.587650",
   "count": 15424,
   "vulnerabilities": [
     {
@@ -181,7 +181,7 @@
       "publishedDate": "2024-11-15T03:18:45.746000+00:00",
       "lastModifiedDate": "2024-11-19T13:37:03.351000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["rogierlankhorst", "really simple plugins"],
+      "vendors": ["really simple plugins", "rogierlankhorst"],
       "tags": ["CWE-288"]
     },
     {
@@ -909,7 +909,7 @@
       "publishedDate": "2025-06-25T07:17:32.423000+00:00",
       "lastModifiedDate": "2025-06-27T13:51:00.720000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["konica minolta, inc.", "brother industries, ltd", "toshiba tec"],
+      "vendors": ["brother industries, ltd", "toshiba tec", "konica minolta, inc."],
       "tags": ["CWE-1391"]
     },
     {
@@ -997,20 +997,6 @@
       "tags": ["CWE-287"]
     },
     {
-      "cveId": "CVE-2025-34028",
-      "title": "Commvault Command Center Innovation Release Unathenticated Install Package Path Traversal",
-      "severity": "CRITICAL",
-      "cvssScore": 10.0,
-      "epssScore": 64.66,
-      "epssPercentile": 98.35,
-      "riskScore": 62,
-      "publishedDate": "2025-04-22T16:32:23.446000+00:00",
-      "lastModifiedDate": "2025-05-23T14:45:54.661000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["commvault"],
-      "tags": ["CWE-22", "CWE-306"]
-    },
-    {
       "cveId": "CVE-2025-21298",
       "title": "Windows OLE Remote Code Execution Vulnerability",
       "severity": "CRITICAL",
@@ -1077,7 +1063,7 @@
       "publishedDate": "2024-11-26T07:37:44.549000+00:00",
       "lastModifiedDate": "2024-12-10T14:58:18.708000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sharp corporation", "toshiba tec corporation"],
+      "vendors": ["toshiba tec corporation", "sharp corporation"],
       "tags": ["CWE-288"]
     },
     {
@@ -1695,6 +1681,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["cdata"],
       "tags": ["CWE-22"]
+    },
+    {
+      "cveId": "CVE-2025-34028",
+      "title": "Commvault Command Center Innovation Release Unathenticated Install Package Path Traversal",
+      "severity": "CRITICAL",
+      "cvssScore": 10.0,
+      "epssScore": 64.66,
+      "epssPercentile": 98.35,
+      "riskScore": 60,
+      "publishedDate": "2025-04-22T16:32:23.446000+00:00",
+      "lastModifiedDate": "2025-05-23T14:45:54.661000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["commvault"],
+      "tags": ["CWE-22", "CWE-306"]
     },
     {
       "cveId": "CVE-2025-21293",
@@ -3331,7 +3331,7 @@
       "publishedDate": "2024-10-18T17:32:30.648000+00:00",
       "lastModifiedDate": "2024-10-18T18:56:31.697000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["scottpaterson", "scott paterson"],
+      "vendors": ["scott paterson", "scottpaterson"],
       "tags": ["CWE-94"]
     },
     {
@@ -4437,7 +4437,7 @@
       "publishedDate": "2024-11-26T07:37:38.329000+00:00",
       "lastModifiedDate": "2024-12-10T15:43:57.213000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sharp corporation", "toshiba tec corporation"],
+      "vendors": ["toshiba tec corporation", "sharp corporation"],
       "tags": ["CWE-22"]
     },
     {
@@ -5319,7 +5319,7 @@
       "publishedDate": "2025-05-13T03:21:29.625000+00:00",
       "lastModifiedDate": "2025-05-13T13:57:36.925000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["msaari", "relevanssi"],
+      "vendors": ["relevanssi", "msaari"],
       "tags": ["CWE-89"]
     },
     {
@@ -5374,20 +5374,6 @@
       "riskScore": 52,
       "publishedDate": "2025-06-18T17:08:36.207000+00:00",
       "lastModifiedDate": "2025-06-19T03:55:07.784000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["cisco"],
-      "tags": []
-    },
-    {
-      "cveId": "CVE-2025-20156",
-      "title": "Cisco Meeting Management Client-Server Privilege Escalation Vulnerability",
-      "severity": "CRITICAL",
-      "cvssScore": 9.9,
-      "epssScore": 0.13,
-      "epssPercentile": 33.689,
-      "riskScore": 52,
-      "publishedDate": "2025-01-22T16:21:20.333000+00:00",
-      "lastModifiedDate": "2025-01-29T15:18:06.406000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["cisco"],
       "tags": []
@@ -5809,7 +5795,7 @@
       "publishedDate": "2024-06-25T03:30:37.970000+00:00",
       "lastModifiedDate": "2024-08-01T21:33:05.337000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["blazeretail", "stuartobrien", "themerex", "warfareplugins", "pedrogusmao02"],
+      "vendors": ["stuartobrien", "blazeretail", "themerex", "pedrogusmao02", "warfareplugins"],
       "tags": []
     },
     {
@@ -8431,6 +8417,20 @@
       "tags": []
     },
     {
+      "cveId": "CVE-2025-20156",
+      "title": "Cisco Meeting Management Client-Server Privilege Escalation Vulnerability",
+      "severity": "CRITICAL",
+      "cvssScore": 9.9,
+      "epssScore": 0.13,
+      "epssPercentile": 33.689,
+      "riskScore": 50,
+      "publishedDate": "2025-01-22T16:21:20.333000+00:00",
+      "lastModifiedDate": "2025-01-29T15:18:06.406000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["cisco"],
+      "tags": []
+    },
+    {
       "cveId": "CVE-2025-20124",
       "title": "Cisco Identity Services Engine Java Deserialization Vulnerability",
       "severity": "CRITICAL",
@@ -9590,11 +9590,11 @@
       "lastModifiedDate": "2025-06-25T14:15:31.576000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "konica minolta, inc.",
-        "brother industries, ltd",
         "toshiba tec",
+        "fujifilm business innovation",
+        "brother industries, ltd",
         "ricoh",
-        "fujifilm business innovation"
+        "konica minolta, inc."
       ],
       "tags": ["CWE-1286"]
     },
@@ -12326,10 +12326,10 @@
       "lastModifiedDate": "2025-06-25T14:08:48.280000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "fujifilm business innovation",
-        "ricoh",
+        "brother industries, ltd",
         "konica minolta, inc.",
-        "brother industries, ltd"
+        "ricoh",
+        "fujifilm business innovation"
       ],
       "tags": ["CWE-121"]
     },
@@ -18840,7 +18840,7 @@
       "publishedDate": "2025-06-25T07:25:00.402000+00:00",
       "lastModifiedDate": "2025-06-25T14:13:40.189000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["fujifilm business innovation", "ricoh", "brother industries, ltd"],
+      "vendors": ["brother industries, ltd", "ricoh", "fujifilm business innovation"],
       "tags": ["CWE-1286"]
     },
     {
@@ -21164,7 +21164,7 @@
       "publishedDate": "2025-06-24T08:05:15.547000+00:00",
       "lastModifiedDate": "2025-06-24T14:18:57.831000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-306"]
     },
     {
@@ -29022,20 +29022,6 @@
       "tags": ["CWE-89"]
     },
     {
-      "cveId": "CVE-2025-20165",
-      "title": "Cisco BroadWorks SIP Denial of Service Vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.2,
-      "epssPercentile": 42.262,
-      "riskScore": 46,
-      "publishedDate": "2025-01-22T16:21:30.377000+00:00",
-      "lastModifiedDate": "2025-02-18T19:39:12.992000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["cisco"],
-      "tags": []
-    },
-    {
       "cveId": "CVE-2025-20189",
       "title": "CVE-2025-20189: A vulnerability in the Cisco Express Forwarding functionality of Cisco IOS XE Software for Cisco ASR...",
       "severity": "HIGH",
@@ -31052,20 +31038,6 @@
       "tags": ["CWE-78", "CWE-88"]
     },
     {
-      "cveId": "CVE-2025-53015",
-      "title": "ImageMagick has XMP profile write that triggers hang due to unbounded loop",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.05,
-      "epssPercentile": 16.292,
-      "riskScore": 46,
-      "publishedDate": "2025-07-14T19:31:27.548000+00:00",
-      "lastModifiedDate": "2025-07-15T13:14:23.716000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["imagemagick"],
-      "tags": ["CWE-835"]
-    },
-    {
       "cveId": "CVE-2025-53277",
       "title": "WordPress IS-theme-companion plugin <= 1.57 - Cross Site Request Forgery (CSRF) Vulnerability",
       "severity": "HIGH",
@@ -31120,20 +31092,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["gitroomhq"],
       "tags": ["CWE-918"]
-    },
-    {
-      "cveId": "CVE-2025-53101",
-      "title": "ImageMagick has Stack Buffer Overflow in image.c",
-      "severity": "HIGH",
-      "cvssScore": 7.4,
-      "epssScore": 0.05,
-      "epssPercentile": 16.292,
-      "riskScore": 46,
-      "publishedDate": "2025-07-14T19:51:53.338000+00:00",
-      "lastModifiedDate": "2025-07-15T19:51:08.841000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["imagemagick"],
-      "tags": ["CWE-124"]
     },
     {
       "cveId": "CVE-2025-41230",
@@ -39014,7 +38972,7 @@
       "publishedDate": "2025-06-24T08:10:29.717000+00:00",
       "lastModifiedDate": "2025-06-24T13:56:13.121000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-639"]
     },
     {
@@ -39084,7 +39042,7 @@
       "publishedDate": "2025-06-24T08:14:31.864000+00:00",
       "lastModifiedDate": "2025-06-24T13:55:34.477000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-204"]
     },
     {
@@ -41520,7 +41478,7 @@
       "publishedDate": "2025-07-21T09:29:57.024000+00:00",
       "lastModifiedDate": "2025-07-21T20:36:45.460000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-78"]
     },
     {
@@ -41562,7 +41520,7 @@
       "publishedDate": "2025-07-21T09:29:32.129000+00:00",
       "lastModifiedDate": "2025-07-21T17:06:11.768000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-78"]
     },
     {
@@ -41576,7 +41534,7 @@
       "publishedDate": "2025-07-21T09:29:43.181000+00:00",
       "lastModifiedDate": "2025-07-21T17:05:33.656000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-78"]
     },
     {
@@ -43452,7 +43410,7 @@
       "publishedDate": "2024-10-15T10:28:37.223000+00:00",
       "lastModifiedDate": "2024-10-16T17:39:58.106000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-798"]
     },
     {
@@ -43508,7 +43466,7 @@
       "publishedDate": "2024-10-15T10:28:16.384000+00:00",
       "lastModifiedDate": "2024-10-16T17:44:15.429000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-306"]
     },
     {
@@ -43830,7 +43788,7 @@
       "publishedDate": "2024-11-26T07:38:12.712000+00:00",
       "lastModifiedDate": "2025-01-27T17:45:48.564000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sharp corporation", "toshiba tec corporation"],
+      "vendors": ["toshiba tec corporation", "sharp corporation"],
       "tags": ["CWE-798"]
     },
     {
@@ -45986,7 +45944,7 @@
       "publishedDate": "2024-11-26T07:37:06.324000+00:00",
       "lastModifiedDate": "2024-12-10T14:57:54.916000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sharp corporation", "toshiba tec corporation"],
+      "vendors": ["toshiba tec corporation", "sharp corporation"],
       "tags": ["CWE-121"]
     },
     {
@@ -46210,7 +46168,7 @@
       "publishedDate": "2024-11-26T07:38:06.435000+00:00",
       "lastModifiedDate": "2025-01-27T17:46:45.224000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sharp corporation", "toshiba tec corporation"],
+      "vendors": ["toshiba tec corporation", "sharp corporation"],
       "tags": ["CWE-798"]
     },
     {
@@ -47456,7 +47414,7 @@
       "publishedDate": "2025-06-05T02:31:05.107000+00:00",
       "lastModifiedDate": "2025-06-05T14:09:25.990000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["anirbandutta9", "code-projects"],
+      "vendors": ["code-projects", "anirbandutta9"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -52790,7 +52748,7 @@
       "publishedDate": "2025-05-05T18:31:04.418000+00:00",
       "lastModifiedDate": "2025-05-05T18:48:57.123000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sourcecodester", "oretnom23"],
+      "vendors": ["oretnom23", "sourcecodester"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -53573,6 +53531,20 @@
       "riskScore": 44,
       "publishedDate": "2025-02-26T16:11:07.388000+00:00",
       "lastModifiedDate": "2025-02-26T18:03:22.774000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["cisco"],
+      "tags": []
+    },
+    {
+      "cveId": "CVE-2025-20165",
+      "title": "Cisco BroadWorks SIP Denial of Service Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.2,
+      "epssPercentile": 42.262,
+      "riskScore": 44,
+      "publishedDate": "2025-01-22T16:21:30.377000+00:00",
+      "lastModifiedDate": "2025-02-18T19:39:12.992000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["cisco"],
       "tags": []
@@ -55566,6 +55538,20 @@
       "tags": ["CWE-502"]
     },
     {
+      "cveId": "CVE-2025-53015",
+      "title": "ImageMagick has XMP profile write that triggers hang due to unbounded loop",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.05,
+      "epssPercentile": 16.292,
+      "riskScore": 44,
+      "publishedDate": "2025-07-14T19:31:27.548000+00:00",
+      "lastModifiedDate": "2025-07-15T13:14:23.716000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["imagemagick"],
+      "tags": ["CWE-835"]
+    },
+    {
       "cveId": "CVE-2025-53372",
       "title": "node-code-sandbox-mcp has a Sandbox Escape via Command Injection",
       "severity": "HIGH",
@@ -55620,6 +55606,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["trend micro, inc."],
       "tags": ["CWE-64"]
+    },
+    {
+      "cveId": "CVE-2025-53101",
+      "title": "ImageMagick has Stack Buffer Overflow in image.c",
+      "severity": "HIGH",
+      "cvssScore": 7.4,
+      "epssScore": 0.05,
+      "epssPercentile": 16.292,
+      "riskScore": 44,
+      "publishedDate": "2025-07-14T19:51:53.338000+00:00",
+      "lastModifiedDate": "2025-07-15T19:51:08.841000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["imagemagick"],
+      "tags": ["CWE-124"]
     },
     {
       "cveId": "CVE-2025-41256",
@@ -57830,7 +57830,7 @@
       "publishedDate": "2024-03-18T16:03:44.987000+00:00",
       "lastModifiedDate": "2024-08-28T15:04:28.061000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric ", "schneider electric"],
+      "vendors": ["schneider electric", "schneider electric "],
       "tags": ["CWE-307"]
     },
     {
@@ -58558,7 +58558,7 @@
       "publishedDate": "2025-05-09T15:18:34.124000+00:00",
       "lastModifiedDate": "2025-05-09T19:09:17.086000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["avg", "avast", "norton"],
+      "vendors": ["avg", "norton", "avast"],
       "tags": ["CWE-367"]
     },
     {
@@ -59160,7 +59160,7 @@
       "publishedDate": "2024-10-25T06:18:36.274000+00:00",
       "lastModifiedDate": "2024-10-25T18:38:24.503000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sharp corporation", "toshiba tec corporation"],
+      "vendors": ["toshiba tec corporation", "sharp corporation"],
       "tags": ["CWE-288"]
     },
     {
@@ -63444,7 +63444,7 @@
       "publishedDate": "2024-10-22T21:13:37.183000+00:00",
       "lastModifiedDate": "2024-10-23T14:43:52.114000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["kieback&peter", "kieback & peter"],
+      "vendors": ["kieback & peter", "kieback&peter"],
       "tags": ["CWE-22"]
     },
     {
@@ -75638,7 +75638,7 @@
       "publishedDate": "2024-10-15T10:27:52.208000+00:00",
       "lastModifiedDate": "2024-10-16T17:47:04.737000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-261"]
     },
     {
@@ -80608,7 +80608,7 @@
       "publishedDate": "2024-05-14T12:58:31.261000+00:00",
       "lastModifiedDate": "2025-03-14T14:56:10.154000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["na", "n/a"],
+      "vendors": ["n/a", "na"],
       "tags": []
     },
     {
@@ -112332,7 +112332,7 @@
       "publishedDate": "2024-10-15T10:27:06.004000+00:00",
       "lastModifiedDate": "2024-10-16T17:49:30.446000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-20"]
     },
     {
@@ -113592,7 +113592,7 @@
       "publishedDate": "2024-10-25T06:18:30.415000+00:00",
       "lastModifiedDate": "2024-10-25T18:38:02.777000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sharp corporation", "toshiba tec corporation"],
+      "vendors": ["toshiba tec corporation", "sharp corporation"],
       "tags": ["CWE-749"]
     },
     {
@@ -113886,7 +113886,7 @@
       "publishedDate": "2024-11-26T07:38:24.464000+00:00",
       "lastModifiedDate": "2024-11-26T16:28:15.625000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sharp corporation", "toshiba tec corporation"],
+      "vendors": ["toshiba tec corporation", "sharp corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -113900,7 +113900,7 @@
       "publishedDate": "2024-11-26T07:38:30.408000+00:00",
       "lastModifiedDate": "2024-11-26T14:48:35.480000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sharp corporation", "toshiba tec corporation"],
+      "vendors": ["toshiba tec corporation", "sharp corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -113956,7 +113956,7 @@
       "publishedDate": "2024-11-26T07:38:18.359000+00:00",
       "lastModifiedDate": "2024-11-26T14:09:24.516000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sharp corporation", "toshiba tec corporation"],
+      "vendors": ["toshiba tec corporation", "sharp corporation"],
       "tags": ["CWE-79"]
     },
     {
@@ -126892,7 +126892,7 @@
       "publishedDate": "2024-03-18T16:04:57.375000+00:00",
       "lastModifiedDate": "2024-08-01T19:03:37.851000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric ", "schneider electric"],
+      "vendors": ["schneider electric", "schneider electric "],
       "tags": ["CWE-79"]
     },
     {
@@ -132828,7 +132828,7 @@
       "publishedDate": "2024-10-25T06:18:00.481000+00:00",
       "lastModifiedDate": "2024-10-25T18:37:13.542000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sharp corporation", "toshiba tec corporation"],
+      "vendors": ["toshiba tec corporation", "sharp corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -135334,7 +135334,7 @@
       "publishedDate": "2024-11-04T03:31:04.265000+00:00",
       "lastModifiedDate": "2024-11-04T17:01:46.227000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["anirbandutta9", "code-projects"],
+      "vendors": ["code-projects", "anirbandutta9"],
       "tags": ["CWE-89"]
     },
     {
@@ -136636,7 +136636,7 @@
       "publishedDate": "2024-10-25T06:18:10.875000+00:00",
       "lastModifiedDate": "2024-10-25T17:16:12.736000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sharp corporation", "toshiba tec corporation"],
+      "vendors": ["toshiba tec corporation", "sharp corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -143580,7 +143580,7 @@
       "publishedDate": "2024-07-03T12:26:44.599000+00:00",
       "lastModifiedDate": "2025-02-13T17:54:25.437000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "red lion europe"],
+      "vendors": ["red lion europe", "helmholz"],
       "tags": ["CWE-78"]
     },
     {
@@ -145512,7 +145512,7 @@
       "publishedDate": "2024-10-15T10:28:58.559000+00:00",
       "lastModifiedDate": "2025-01-24T06:32:08.237000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-306"]
     },
     {
@@ -145526,7 +145526,7 @@
       "publishedDate": "2024-10-15T10:27:32.688000+00:00",
       "lastModifiedDate": "2024-10-16T17:36:22.123000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-1391"]
     },
     {
@@ -146996,7 +146996,7 @@
       "publishedDate": "2024-10-25T06:18:42.287000+00:00",
       "lastModifiedDate": "2024-10-25T18:32:25.798000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sharp corporation", "toshiba tec corporation"],
+      "vendors": ["toshiba tec corporation", "sharp corporation"],
       "tags": ["CWE-644"]
     },
     {
@@ -147150,7 +147150,7 @@
       "publishedDate": "2024-10-25T06:18:50.793000+00:00",
       "lastModifiedDate": "2024-10-25T14:16:46.537000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sharp corporation", "toshiba tec corporation"],
+      "vendors": ["toshiba tec corporation", "sharp corporation"],
       "tags": ["CWE-79"]
     },
     {
@@ -171440,7 +171440,7 @@
       "publishedDate": "2024-03-18T16:05:47.722000+00:00",
       "lastModifiedDate": "2024-08-15T16:23:48.504000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric ", "schneider electric"],
+      "vendors": ["schneider electric", "schneider electric "],
       "tags": ["CWE-552"]
     },
     {
@@ -181842,7 +181842,7 @@
       "publishedDate": "2024-07-04T08:53:41.217000+00:00",
       "lastModifiedDate": "2024-08-19T15:25:49.496000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-427"]
     },
     {
@@ -188282,7 +188282,7 @@
       "publishedDate": "2024-07-08T15:25:38.672000+00:00",
       "lastModifiedDate": "2024-08-01T22:27:36.345000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["levelone", "realtek"],
+      "vendors": ["realtek", "levelone"],
       "tags": ["CWE-122"]
     },
     {
