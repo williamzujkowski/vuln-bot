@@ -1,6 +1,6 @@
 ---
 title: Morning Vulnerability Briefing - 2025-07-23
-date: 2025-07-23T12:11:00.378182
+date: 2025-07-23T16:09:01.685809
 layout: layouts/post.njk
 tags: [vulnerability, briefing, security]
 vulnerabilityCount: 15448
@@ -16,8 +16,8 @@ Today's briefing covers **15448 vulnerabilities** from 0 sources.
 
 - 🔴 **Critical Risk**: 0 vulnerabilities
 - 🟠 **High Risk**: 0 vulnerabilities
-- 🟡 **Medium Risk**: 9935 vulnerabilities
-- 🟢 **Low Risk**: 5513 vulnerabilities
+- 🟡 **Medium Risk**: 9947 vulnerabilities
+- 🟢 **Low Risk**: 5501 vulnerabilities
 
 ## Top Vulnerabilities
 
@@ -297,7 +297,7 @@ critical systems.
 - CRITICAL severity
 - 93.95% exploit probability
 
-**Affected Vendors**: really simple plugins, rogierlankhorst
+**Affected Vendors**: rogierlankhorst, really simple plugins
 
 **Tags**: `CWE-288`
 
@@ -364,14 +364,14 @@ critical systems.
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 10.0 | 
-**EPSS**: 89.9%
+**EPSS**: 90.0%
 
 **Summary**: Invision Community 5.0.0 before 5.0.7 allows remote code execution via crafted template strings to themeeditor.php. The issue lies within the themeeditor controller (file: /applications/core/modules/front/system/themeeditor.php), where a protected method named customCss can be invoked by unauthenticated users. This method passes the value of the content parameter to the Theme::makeProcessFunction() method; hence it is evaluated by the template engine. Accordingly, this can be exploited by unauth...
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 89.9% exploit probability
+- 90.04% exploit probability
 
 **Affected Vendors**: invisioncommunity
 
@@ -439,35 +439,7 @@ The GeoTools library API that GeoServer calls evaluates property/attribute names
 
 ---
 
-### 17. [CVE-2024-3400](/api/vulns/CVE-2024-3400.json)
-
-**Risk Score**: 65/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 10.0 | 
-**EPSS**: 94.3%
-
-**Summary**: A command injection as a result of arbitrary file creation vulnerability in the GlobalProtect feature of Palo Alto Networks PAN-OS software for specific PAN-OS versions and distinct feature configurations may enable an unauthenticated attacker to execute arbitrary code with root privileges on the firewall.
-
-Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vulnerability.
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 94.35% exploit probability
-
-**Affected Vendors**: palo alto networks
-
-**Tags**: `CWE-77`, `CWE-20`
-
-**References**:
-
-- [https://security.paloaltonetworks.com/CVE-2024-3400](https://security.paloaltonetworks.com/CVE-2024-3400)
-- [https://unit42.paloaltonetworks.com/cve-2024-3400/](https://unit42.paloaltonetworks.com/cve-2024-3400/)
-- [https://www.volexity.com/blog/2024/04/12/zero-day-exploitation-of-unauthenticated-remote-code-execution-vulnerability-in-globalprotect-cve-2024-3400/](https://www.volexity.com/blog/2024/04/12/zero-day-exploitation-of-unauthenticated-remote-code-execution-vulnerability-in-globalprotect-cve-2024-3400/)
-
----
-
-### 18. [CVE-2024-1212](/api/vulns/CVE-2024-1212.json)
+### 17. [CVE-2024-1212](/api/vulns/CVE-2024-1212.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -493,6 +465,34 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 - [https://kemptechnologies.com/](https://kemptechnologies.com/)
 - [https://freeloadbalancer.com/](https://freeloadbalancer.com/)
 - [https://support.kemptechnologies.com/hc/en-us/articles/24325072850573-Release-Notice-LMOS-7-2-59-2-7-2-54-8-7-2-48-10-CVE-2024-1212](https://support.kemptechnologies.com/hc/en-us/articles/24325072850573-Release-Notice-LMOS-7-2-59-2-7-2-54-8-7-2-48-10-CVE-2024-1212)
+
+---
+
+### 18. [CVE-2024-3400](/api/vulns/CVE-2024-3400.json)
+
+**Risk Score**: 65/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 10.0 | 
+**EPSS**: 94.3%
+
+**Summary**: A command injection as a result of arbitrary file creation vulnerability in the GlobalProtect feature of Palo Alto Networks PAN-OS software for specific PAN-OS versions and distinct feature configurations may enable an unauthenticated attacker to execute arbitrary code with root privileges on the firewall.
+
+Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vulnerability.
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 94.32% exploit probability
+
+**Affected Vendors**: palo alto networks
+
+**Tags**: `CWE-77`, `CWE-20`
+
+**References**:
+
+- [https://security.paloaltonetworks.com/CVE-2024-3400](https://security.paloaltonetworks.com/CVE-2024-3400)
+- [https://unit42.paloaltonetworks.com/cve-2024-3400/](https://unit42.paloaltonetworks.com/cve-2024-3400/)
+- [https://www.volexity.com/blog/2024/04/12/zero-day-exploitation-of-unauthenticated-remote-code-execution-vulnerability-in-globalprotect-cve-2024-3400/](https://www.volexity.com/blog/2024/04/12/zero-day-exploitation-of-unauthenticated-remote-code-execution-vulnerability-in-globalprotect-cve-2024-3400/)
 
 ---
 
@@ -881,14 +881,14 @@ code.
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 10.0 | 
-**EPSS**: 72.6%
+**EPSS**: 70.4%
 
 **Summary**: Craft is a flexible, user-friendly CMS for creating custom digital experiences on the web and beyond. Starting from version 3.0.0-RC1 to before 3.9.15, 4.0.0-RC1 to before 4.14.15, and 5.0.0-RC1 to before 5.6.17, Craft is vulnerable to remote code execution. This is a high-impact, low-complexity attack vector. This issue has been patched in versions 3.9.15, 4.14.15, and 5.6.17, and is an additional fix for CVE-2023-41892.
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 72.63% exploit probability
+- 70.39% exploit probability
 
 **Affected Vendors**: craftcms
 
