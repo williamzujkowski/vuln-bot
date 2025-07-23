@@ -1,6 +1,6 @@
 ---
 title: Morning Vulnerability Briefing - 2025-07-23
-date: 2025-07-23T08:09:26.826667
+date: 2025-07-23T12:11:00.378182
 layout: layouts/post.njk
 tags: [vulnerability, briefing, security]
 vulnerabilityCount: 15448
@@ -16,8 +16,8 @@ Today's briefing covers **15448 vulnerabilities** from 0 sources.
 
 - 🔴 **Critical Risk**: 0 vulnerabilities
 - 🟠 **High Risk**: 0 vulnerabilities
-- 🟡 **Medium Risk**: 9937 vulnerabilities
-- 🟢 **Low Risk**: 5511 vulnerabilities
+- 🟡 **Medium Risk**: 9935 vulnerabilities
+- 🟢 **Low Risk**: 5513 vulnerabilities
 
 ## Top Vulnerabilities
 
@@ -297,7 +297,7 @@ critical systems.
 - CRITICAL severity
 - 93.95% exploit probability
 
-**Affected Vendors**: rogierlankhorst, really simple plugins
+**Affected Vendors**: really simple plugins, rogierlankhorst
 
 **Tags**: `CWE-288`
 

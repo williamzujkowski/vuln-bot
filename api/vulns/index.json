@@ -1,5 +1,5 @@
 {
-  "generated": "2025-07-23T08:09:26.826667",
+  "generated": "2025-07-23T12:11:00.378182",
   "count": 15448,
   "vulnerabilities": [
     {
@@ -181,7 +181,7 @@
       "publishedDate": "2024-11-15T03:18:45.746000+00:00",
       "lastModifiedDate": "2024-11-19T13:37:03.351000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["rogierlankhorst", "really simple plugins"],
+      "vendors": ["really simple plugins", "rogierlankhorst"],
       "tags": ["CWE-288"]
     },
     {
@@ -909,7 +909,7 @@
       "publishedDate": "2025-06-25T07:17:32.423000+00:00",
       "lastModifiedDate": "2025-06-27T13:51:00.720000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["brother industries, ltd", "konica minolta, inc.", "toshiba tec"],
+      "vendors": ["konica minolta, inc.", "brother industries, ltd", "toshiba tec"],
       "tags": ["CWE-1391"]
     },
     {
@@ -5795,7 +5795,7 @@
       "publishedDate": "2024-06-25T03:30:37.970000+00:00",
       "lastModifiedDate": "2024-08-01T21:33:05.337000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["themerex", "blazeretail", "pedrogusmao02", "warfareplugins", "stuartobrien"],
+      "vendors": ["blazeretail", "warfareplugins", "themerex", "stuartobrien", "pedrogusmao02"],
       "tags": []
     },
     {
@@ -9562,11 +9562,11 @@
       "lastModifiedDate": "2025-06-25T14:15:31.576000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "toshiba tec",
         "ricoh",
+        "brother industries, ltd",
         "konica minolta, inc.",
-        "fujifilm business innovation",
-        "brother industries, ltd"
+        "toshiba tec",
+        "fujifilm business innovation"
       ],
       "tags": ["CWE-1286"]
     },
@@ -12340,10 +12340,10 @@
       "lastModifiedDate": "2025-06-25T14:08:48.280000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "brother industries, ltd",
-        "konica minolta, inc.",
         "fujifilm business innovation",
-        "ricoh"
+        "brother industries, ltd",
+        "ricoh",
+        "konica minolta, inc."
       ],
       "tags": ["CWE-121"]
     },
@@ -17300,7 +17300,7 @@
       "publishedDate": "2025-06-13T09:23:49.631000+00:00",
       "lastModifiedDate": "2025-06-13T12:22:47.798000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["rts", "telex"],
+      "vendors": ["telex", "rts"],
       "tags": []
     },
     {
@@ -18896,7 +18896,7 @@
       "publishedDate": "2025-06-25T07:25:00.402000+00:00",
       "lastModifiedDate": "2025-06-25T14:13:40.189000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["brother industries, ltd", "fujifilm business innovation", "ricoh"],
+      "vendors": ["fujifilm business innovation", "brother industries, ltd", "ricoh"],
       "tags": ["CWE-1286"]
     },
     {
@@ -20494,20 +20494,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["lantronix"],
       "tags": ["CWE-611"]
-    },
-    {
-      "cveId": "CVE-2025-7667",
-      "title": "Restrict File Access <= 1.1.2 - Cross-Site Request Forgery to Arbitrary File Deletion",
-      "severity": "HIGH",
-      "cvssScore": 8.1,
-      "epssScore": 0.09,
-      "epssPercentile": 26.208,
-      "riskScore": 47,
-      "publishedDate": "2025-07-15T11:20:04.307000+00:00",
-      "lastModifiedDate": "2025-07-15T13:14:26.317000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["josxha"],
-      "tags": ["CWE-352"]
     },
     {
       "cveId": "CVE-2025-7886",
@@ -27002,7 +26988,7 @@
       "publishedDate": "2025-07-08T05:32:05.678000+00:00",
       "lastModifiedDate": "2025-07-08T13:45:36.200000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -27702,7 +27688,7 @@
       "publishedDate": "2025-07-08T06:02:05.515000+00:00",
       "lastModifiedDate": "2025-07-08T13:44:30.198000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -29470,20 +29456,6 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
-      "cveId": "CVE-2025-6474",
-      "title": "code-projects Inventory Management System changeUsername.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.678,
-      "riskScore": 46,
-      "publishedDate": "2025-06-22T11:31:06.073000+00:00",
-      "lastModifiedDate": "2025-06-23T14:10:06.491000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
       "cveId": "CVE-2025-6828",
       "title": "code-projects Inventory Management System orders.php sql injection",
       "severity": "HIGH",
@@ -29820,20 +29792,6 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
-      "cveId": "CVE-2025-6472",
-      "title": "code-projects Online Bidding System showprod.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.678,
-      "riskScore": 46,
-      "publishedDate": "2025-06-22T10:00:15.166000+00:00",
-      "lastModifiedDate": "2025-06-23T16:55:28.331000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
       "cveId": "CVE-2025-6963",
       "title": "Campcodes Employee Management System myprofile.php sql injection",
       "severity": "HIGH",
@@ -29927,20 +29885,6 @@
       "riskScore": 46,
       "publishedDate": "2025-06-28T19:31:06.419000+00:00",
       "lastModifiedDate": "2025-06-30T15:58:47.762000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-6471",
-      "title": "code-projects Online Bidding System administrator sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.678,
-      "riskScore": 46,
-      "publishedDate": "2025-06-22T09:31:06.748000+00:00",
-      "lastModifiedDate": "2025-06-23T17:02:44.415000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
@@ -30167,20 +30111,6 @@
       "lastModifiedDate": "2025-07-01T15:32:19.693000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["campcodes"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-6470",
-      "title": "code-projects Online Bidding System bidlog.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.678,
-      "riskScore": 46,
-      "publishedDate": "2025-06-22T09:00:16.534000+00:00",
-      "lastModifiedDate": "2025-06-23T17:07:28.679000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -38064,6 +37994,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["red hat"],
       "tags": ["CWE-843"]
+    },
+    {
+      "cveId": "CVE-2025-7667",
+      "title": "Restrict File Access <= 1.1.2 - Cross-Site Request Forgery to Arbitrary File Deletion",
+      "severity": "HIGH",
+      "cvssScore": 8.1,
+      "epssScore": 0.09,
+      "epssPercentile": 26.208,
+      "riskScore": 45,
+      "publishedDate": "2025-07-15T11:20:04.307000+00:00",
+      "lastModifiedDate": "2025-07-15T13:14:26.317000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["josxha"],
+      "tags": ["CWE-352"]
     },
     {
       "cveId": "CVE-2025-7466",
@@ -47498,7 +47442,7 @@
       "publishedDate": "2025-06-05T02:31:05.107000+00:00",
       "lastModifiedDate": "2025-06-05T14:09:25.990000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects", "anirbandutta9"],
+      "vendors": ["anirbandutta9", "code-projects"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -47638,7 +47582,7 @@
       "publishedDate": "2025-05-30T18:00:06.477000+00:00",
       "lastModifiedDate": "2025-05-30T18:15:18.480000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -52118,7 +52062,7 @@
       "publishedDate": "2025-05-03T11:00:09.135000+00:00",
       "lastModifiedDate": "2025-05-30T09:10:12.356000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -52846,7 +52790,7 @@
       "publishedDate": "2025-05-05T18:31:04.418000+00:00",
       "lastModifiedDate": "2025-05-05T18:48:57.123000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sourcecodester", "oretnom23"],
+      "vendors": ["oretnom23", "sourcecodester"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -53844,6 +53788,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-6474",
+      "title": "code-projects Inventory Management System changeUsername.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.678,
+      "riskScore": 44,
+      "publishedDate": "2025-06-22T11:31:06.073000+00:00",
+      "lastModifiedDate": "2025-06-23T14:10:06.491000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-6305",
       "title": "code-projects Online Shoe Store admin_feature.php sql injection",
       "severity": "HIGH",
@@ -54208,6 +54166,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-6472",
+      "title": "code-projects Online Bidding System showprod.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.678,
+      "riskScore": 44,
+      "publishedDate": "2025-06-22T10:00:15.166000+00:00",
+      "lastModifiedDate": "2025-06-23T16:55:28.331000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-6294",
       "title": "code-projects Hostel Management System contact.php sql injection",
       "severity": "HIGH",
@@ -54315,6 +54287,20 @@
       "riskScore": 44,
       "publishedDate": "2025-06-20T07:00:12.940000+00:00",
       "lastModifiedDate": "2025-06-20T19:22:52.784000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-6471",
+      "title": "code-projects Online Bidding System administrator sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.678,
+      "riskScore": 44,
+      "publishedDate": "2025-06-22T09:31:06.748000+00:00",
+      "lastModifiedDate": "2025-06-23T17:02:44.415000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
@@ -54665,6 +54651,20 @@
       "riskScore": 44,
       "publishedDate": "2025-06-20T01:31:05.698000+00:00",
       "lastModifiedDate": "2025-06-23T19:28:54.575000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-6470",
+      "title": "code-projects Online Bidding System bidlog.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.678,
+      "riskScore": 44,
+      "publishedDate": "2025-06-22T09:00:16.534000+00:00",
+      "lastModifiedDate": "2025-06-23T17:07:28.679000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
@@ -58852,7 +58852,7 @@
       "publishedDate": "2025-05-09T15:18:34.124000+00:00",
       "lastModifiedDate": "2025-05-09T19:09:17.086000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["avg", "norton", "avast"],
+      "vendors": ["avg", "avast", "norton"],
       "tags": ["CWE-367"]
     },
     {
@@ -63724,7 +63724,7 @@
       "publishedDate": "2024-10-22T21:13:37.183000+00:00",
       "lastModifiedDate": "2024-10-23T14:43:52.114000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["kieback & peter", "kieback&peter"],
+      "vendors": ["kieback&peter", "kieback & peter"],
       "tags": ["CWE-22"]
     },
     {
@@ -80874,7 +80874,7 @@
       "publishedDate": "2024-05-14T12:58:31.261000+00:00",
       "lastModifiedDate": "2025-03-14T14:56:10.154000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["n/a", "na"],
+      "vendors": ["na", "n/a"],
       "tags": []
     },
     {
@@ -113134,20 +113134,6 @@
       "tags": ["CWE-200"]
     },
     {
-      "cveId": "CVE-2024-13593",
-      "title": "BMLT Meeting Map <= 2.6.0 - Authenticated (Contributor+) Local File Inclusion",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.13,
-      "epssPercentile": 33.095,
-      "riskScore": 41,
-      "publishedDate": "2025-01-23T09:21:09.348000+00:00",
-      "lastModifiedDate": "2025-01-23T14:44:15.202000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["otrok7"],
-      "tags": ["CWE-98"]
-    },
-    {
       "cveId": "CVE-2024-13951",
       "title": "One way hash with predictable salt",
       "severity": "HIGH",
@@ -129388,20 +129374,6 @@
       "tags": ["CWE-434"]
     },
     {
-      "cveId": "CVE-2024-13234",
-      "title": "Product Table by WBW <= 2.1.2 - Unuthenticated SQL Injection",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.16,
-      "epssPercentile": 37.551,
-      "riskScore": 40,
-      "publishedDate": "2025-01-23T11:13:27.688000+00:00",
-      "lastModifiedDate": "2025-01-23T14:40:38.246000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["woobewoo"],
-      "tags": ["CWE-89"]
-    },
-    {
       "cveId": "CVE-2024-13002",
       "title": "1000 Projects Bookstore Management System order_process.php sql injection",
       "severity": "HIGH",
@@ -129524,7 +129496,7 @@
       "publishedDate": "2024-10-22T22:19:20.646000+00:00",
       "lastModifiedDate": "2024-11-06T15:50:04.628000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-276"]
     },
     {
@@ -132198,7 +132170,7 @@
       "publishedDate": "2024-11-28T22:16:31.396000+00:00",
       "lastModifiedDate": "2024-12-06T05:18:03.652000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-427"]
     },
     {
@@ -134900,7 +134872,7 @@
       "publishedDate": "2024-11-28T22:20:28.303000+00:00",
       "lastModifiedDate": "2024-12-06T05:23:50.441000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-427"]
     },
     {
@@ -135642,7 +135614,7 @@
       "publishedDate": "2024-11-04T03:31:04.265000+00:00",
       "lastModifiedDate": "2024-11-04T17:01:46.227000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects", "anirbandutta9"],
+      "vendors": ["anirbandutta9", "code-projects"],
       "tags": ["CWE-89"]
     },
     {
@@ -146270,6 +146242,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["ivanti"],
       "tags": ["CWE-426", "CWE-22"]
+    },
+    {
+      "cveId": "CVE-2024-13593",
+      "title": "BMLT Meeting Map <= 2.6.0 - Authenticated (Contributor+) Local File Inclusion",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.13,
+      "epssPercentile": 33.095,
+      "riskScore": 39,
+      "publishedDate": "2025-01-23T09:21:09.348000+00:00",
+      "lastModifiedDate": "2025-01-23T14:44:15.202000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["otrok7"],
+      "tags": ["CWE-98"]
     },
     {
       "cveId": "CVE-2024-13833",
@@ -173642,6 +173628,20 @@
       "tags": ["CWE-434"]
     },
     {
+      "cveId": "CVE-2024-13234",
+      "title": "Product Table by WBW <= 2.1.2 - Unuthenticated SQL Injection",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.16,
+      "epssPercentile": 37.551,
+      "riskScore": 38,
+      "publishedDate": "2025-01-23T11:13:27.688000+00:00",
+      "lastModifiedDate": "2025-01-23T14:40:38.246000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["woobewoo"],
+      "tags": ["CWE-89"]
+    },
+    {
       "cveId": "CVE-2024-13169",
       "title": "CVE-2024-13169: An out-of-bounds read in Ivanti EPM before the 2024 January-2025 Security Update and 2022 SU6 Januar...",
       "severity": "HIGH",
@@ -177292,7 +177292,7 @@
       "publishedDate": "2024-11-28T22:18:28.358000+00:00",
       "lastModifiedDate": "2024-12-06T05:21:38.917000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-561"]
     },
     {
@@ -182164,7 +182164,7 @@
       "publishedDate": "2024-07-04T08:53:41.217000+00:00",
       "lastModifiedDate": "2024-08-19T15:25:49.496000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-427"]
     },
     {
