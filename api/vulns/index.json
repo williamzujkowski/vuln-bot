@@ -1,5 +1,5 @@
 {
-  "generated": "2025-07-23T16:09:01.685809",
+  "generated": "2025-07-23T20:08:30.310230",
   "count": 15448,
   "vulnerabilities": [
     {
@@ -181,7 +181,7 @@
       "publishedDate": "2024-11-15T03:18:45.746000+00:00",
       "lastModifiedDate": "2024-11-19T13:37:03.351000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["rogierlankhorst", "really simple plugins"],
+      "vendors": ["really simple plugins", "rogierlankhorst"],
       "tags": ["CWE-288"]
     },
     {
@@ -909,7 +909,7 @@
       "publishedDate": "2025-06-25T07:17:32.423000+00:00",
       "lastModifiedDate": "2025-06-27T13:51:00.720000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec", "konica minolta, inc.", "brother industries, ltd"],
+      "vendors": ["toshiba tec", "brother industries, ltd", "konica minolta, inc."],
       "tags": ["CWE-1391"]
     },
     {
@@ -3345,7 +3345,7 @@
       "publishedDate": "2024-10-18T17:32:30.648000+00:00",
       "lastModifiedDate": "2024-10-18T18:56:31.697000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["scottpaterson", "scott paterson"],
+      "vendors": ["scott paterson", "scottpaterson"],
       "tags": ["CWE-94"]
     },
     {
@@ -3557,48 +3557,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["freetype"],
       "tags": []
-    },
-    {
-      "cveId": "CVE-2025-41236",
-      "title": "VMXNET3 integer-overflow vulnerability",
-      "severity": "CRITICAL",
-      "cvssScore": 9.3,
-      "epssScore": 0.02,
-      "epssPercentile": 4.013,
-      "riskScore": 55,
-      "publishedDate": "2025-07-15T18:34:12.719000+00:00",
-      "lastModifiedDate": "2025-07-16T03:55:58.257000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["vmware"],
-      "tags": ["CWE-787"]
-    },
-    {
-      "cveId": "CVE-2025-41237",
-      "title": "VMCI integer-underflow vulnerability",
-      "severity": "CRITICAL",
-      "cvssScore": 9.3,
-      "epssScore": 0.02,
-      "epssPercentile": 4.013,
-      "riskScore": 55,
-      "publishedDate": "2025-07-15T18:34:21.083000+00:00",
-      "lastModifiedDate": "2025-07-16T03:55:59.690000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["vmware"],
-      "tags": ["CWE-787"]
-    },
-    {
-      "cveId": "CVE-2025-41238",
-      "title": "PVSCSI heap-overflow vulnerability",
-      "severity": "CRITICAL",
-      "cvssScore": 9.3,
-      "epssScore": 0.02,
-      "epssPercentile": 4.013,
-      "riskScore": 55,
-      "publishedDate": "2025-07-15T18:34:48.818000+00:00",
-      "lastModifiedDate": "2025-07-16T03:56:00.818000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["vmware"],
-      "tags": ["CWE-787"]
     },
     {
       "cveId": "CVE-2025-1098",
@@ -4467,6 +4425,48 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-183"]
+    },
+    {
+      "cveId": "CVE-2025-41236",
+      "title": "VMXNET3 integer-overflow vulnerability",
+      "severity": "CRITICAL",
+      "cvssScore": 9.3,
+      "epssScore": 0.02,
+      "epssPercentile": 4.013,
+      "riskScore": 53,
+      "publishedDate": "2025-07-15T18:34:12.719000+00:00",
+      "lastModifiedDate": "2025-07-16T03:55:58.257000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["vmware"],
+      "tags": ["CWE-787"]
+    },
+    {
+      "cveId": "CVE-2025-41237",
+      "title": "VMCI integer-underflow vulnerability",
+      "severity": "CRITICAL",
+      "cvssScore": 9.3,
+      "epssScore": 0.02,
+      "epssPercentile": 4.013,
+      "riskScore": 53,
+      "publishedDate": "2025-07-15T18:34:21.083000+00:00",
+      "lastModifiedDate": "2025-07-16T03:55:59.690000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["vmware"],
+      "tags": ["CWE-787"]
+    },
+    {
+      "cveId": "CVE-2025-41238",
+      "title": "PVSCSI heap-overflow vulnerability",
+      "severity": "CRITICAL",
+      "cvssScore": 9.3,
+      "epssScore": 0.02,
+      "epssPercentile": 4.013,
+      "riskScore": 53,
+      "publishedDate": "2025-07-15T18:34:48.818000+00:00",
+      "lastModifiedDate": "2025-07-16T03:56:00.818000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["vmware"],
+      "tags": ["CWE-787"]
     },
     {
       "cveId": "CVE-2025-32375",
@@ -5879,7 +5879,7 @@
       "publishedDate": "2024-06-25T03:30:37.970000+00:00",
       "lastModifiedDate": "2024-08-01T21:33:05.337000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["stuartobrien", "blazeretail", "warfareplugins", "pedrogusmao02", "themerex"],
+      "vendors": ["stuartobrien", "pedrogusmao02", "blazeretail", "themerex", "warfareplugins"],
       "tags": []
     },
     {
@@ -8781,20 +8781,6 @@
       "tags": ["CWE-256"]
     },
     {
-      "cveId": "CVE-2025-6486",
-      "title": "TOTOLINK A3002R formWlanMultipleAP stack-based overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.14,
-      "epssPercentile": 34.931,
-      "riskScore": 50,
-      "publishedDate": "2025-06-22T17:31:07.185000+00:00",
-      "lastModifiedDate": "2025-06-23T16:51:47.706000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["totolink"],
-      "tags": ["CWE-121", "CWE-119"]
-    },
-    {
       "cveId": "CVE-2025-6688",
       "title": "Simple Payment 1.3.6 - 2.3.8 - Authentication Bypass to Admin",
       "severity": "CRITICAL",
@@ -8918,20 +8904,6 @@
       "lastModifiedDate": "2025-06-26T19:49:17.217000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["d-link"],
-      "tags": ["CWE-121", "CWE-119"]
-    },
-    {
-      "cveId": "CVE-2025-6487",
-      "title": "TOTOLINK A3002R formRoute stack-based overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.14,
-      "epssPercentile": 34.931,
-      "riskScore": 50,
-      "publishedDate": "2025-06-22T18:00:15.051000+00:00",
-      "lastModifiedDate": "2025-06-23T16:50:06.003000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["totolink"],
       "tags": ["CWE-121", "CWE-119"]
     },
     {
@@ -9619,8 +9591,8 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": [
         "toshiba tec",
-        "ricoh",
         "brother industries, ltd",
+        "ricoh",
         "fujifilm business innovation",
         "konica minolta, inc."
       ],
@@ -11237,20 +11209,6 @@
       "tags": []
     },
     {
-      "cveId": "CVE-2025-50067",
-      "title": "CVE-2025-50067: Vulnerability in Oracle Application Express (component: Strategic Planner Starter App).  Supported v...",
-      "severity": "CRITICAL",
-      "cvssScore": 9.0,
-      "epssScore": 0.04,
-      "epssPercentile": 8.987,
-      "riskScore": 49,
-      "publishedDate": "2025-07-15T19:27:36.887000+00:00",
-      "lastModifiedDate": "2025-07-18T14:40:29.046000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["oracle corporation"],
-      "tags": []
-    },
-    {
       "cveId": "CVE-2025-6057",
       "title": "WPBookit <= 1.0.4 - Authenticated (Subscriber+) Arbitrary File Upload",
       "severity": "HIGH",
@@ -11669,20 +11627,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["pilz"],
       "tags": ["CWE-306"]
-    },
-    {
-      "cveId": "CVE-2025-41239",
-      "title": "vSockets information-disclosure vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.02,
-      "epssPercentile": 2.904,
-      "riskScore": 49,
-      "publishedDate": "2025-07-15T18:35:03.747000+00:00",
-      "lastModifiedDate": "2025-07-15T18:51:58.342000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["vmware"],
-      "tags": ["CWE-908"]
     },
     {
       "cveId": "CVE-2025-1097",
@@ -12355,9 +12299,9 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": [
         "fujifilm business innovation",
-        "konica minolta, inc.",
+        "brother industries, ltd",
         "ricoh",
-        "brother industries, ltd"
+        "konica minolta, inc."
       ],
       "tags": ["CWE-121"]
     },
@@ -16436,20 +16380,6 @@
       "tags": []
     },
     {
-      "cveId": "CVE-2025-50059",
-      "title": "CVE-2025-50059: Vulnerability in the Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition produ...",
-      "severity": "HIGH",
-      "cvssScore": 8.6,
-      "epssScore": 0.04,
-      "epssPercentile": 11.77,
-      "riskScore": 48,
-      "publishedDate": "2025-07-15T19:27:33.672000+00:00",
-      "lastModifiedDate": "2025-07-16T14:42:45.512000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["oracle corporation"],
-      "tags": []
-    },
-    {
       "cveId": "CVE-2025-22954",
       "title": "CVE-2025-22954: GetLateOrMissingIssues in C4/Serials.pm in Koha before 24.11.02 allows SQL Injection in /serials/lat...",
       "severity": "CRITICAL",
@@ -17010,6 +16940,20 @@
       "tags": ["CWE-22"]
     },
     {
+      "cveId": "CVE-2025-6486",
+      "title": "TOTOLINK A3002R formWlanMultipleAP stack-based overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.14,
+      "epssPercentile": 34.931,
+      "riskScore": 48,
+      "publishedDate": "2025-06-22T17:31:07.185000+00:00",
+      "lastModifiedDate": "2025-06-23T16:51:47.706000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["totolink"],
+      "tags": ["CWE-121", "CWE-119"]
+    },
+    {
       "cveId": "CVE-2025-6291",
       "title": "D-Link DIR-825 HTTP POST Request do_file stack-based overflow",
       "severity": "HIGH",
@@ -17164,6 +17108,20 @@
       "tags": ["CWE-73"]
     },
     {
+      "cveId": "CVE-2025-6487",
+      "title": "TOTOLINK A3002R formRoute stack-based overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.14,
+      "epssPercentile": 34.931,
+      "riskScore": 48,
+      "publishedDate": "2025-06-22T18:00:15.051000+00:00",
+      "lastModifiedDate": "2025-06-23T16:50:06.003000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["totolink"],
+      "tags": ["CWE-121", "CWE-119"]
+    },
+    {
       "cveId": "CVE-2025-6371",
       "title": "D-Link DIR-619L formSetEnableWizard stack-based overflow",
       "severity": "HIGH",
@@ -17314,7 +17272,7 @@
       "publishedDate": "2025-06-13T09:23:49.631000+00:00",
       "lastModifiedDate": "2025-06-13T12:22:47.798000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["telex", "rts"],
+      "vendors": ["rts", "telex"],
       "tags": []
     },
     {
@@ -17960,20 +17918,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-416"]
-    },
-    {
-      "cveId": "CVE-2025-30751",
-      "title": "CVE-2025-30751: Vulnerability in the Oracle Database component of Oracle Database Server.  Supported versions that a...",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.04,
-      "epssPercentile": 12.604,
-      "riskScore": 48,
-      "publishedDate": "2025-07-15T19:27:29.625000+00:00",
-      "lastModifiedDate": "2025-07-18T03:55:36.751000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["oracle corporation"],
-      "tags": []
     },
     {
       "cveId": "CVE-2025-30391",
@@ -18924,7 +18868,7 @@
       "publishedDate": "2025-06-25T07:25:00.402000+00:00",
       "lastModifiedDate": "2025-06-25T14:13:40.189000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["fujifilm business innovation", "ricoh", "brother industries, ltd"],
+      "vendors": ["fujifilm business innovation", "brother industries, ltd", "ricoh"],
       "tags": ["CWE-1286"]
     },
     {
@@ -21276,7 +21220,7 @@
       "publishedDate": "2025-06-24T08:05:15.547000+00:00",
       "lastModifiedDate": "2025-06-24T14:18:57.831000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-306"]
     },
     {
@@ -21644,57 +21588,15 @@
       "tags": []
     },
     {
-      "cveId": "CVE-2025-50105",
-      "title": "CVE-2025-50105: Vulnerability in the Oracle Universal Work Queue product of Oracle E-Business Suite (component: Work...",
-      "severity": "HIGH",
-      "cvssScore": 8.1,
-      "epssScore": 0.03,
-      "epssPercentile": 7.153,
+      "cveId": "CVE-2025-50067",
+      "title": "CVE-2025-50067: Vulnerability in Oracle Application Express (component: Strategic Planner Starter App).  Supported v...",
+      "severity": "CRITICAL",
+      "cvssScore": 9.0,
+      "epssScore": 0.04,
+      "epssPercentile": 8.987,
       "riskScore": 47,
-      "publishedDate": "2025-07-15T19:27:51.467000+00:00",
-      "lastModifiedDate": "2025-07-17T03:55:39.083000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["oracle corporation"],
-      "tags": []
-    },
-    {
-      "cveId": "CVE-2025-50106",
-      "title": "CVE-2025-50106: Vulnerability in the Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition produ...",
-      "severity": "HIGH",
-      "cvssScore": 8.1,
-      "epssScore": 0.06,
-      "epssPercentile": 17.603,
-      "riskScore": 47,
-      "publishedDate": "2025-07-15T19:27:51.820000+00:00",
-      "lastModifiedDate": "2025-07-16T03:56:14.402000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["oracle corporation"],
-      "tags": []
-    },
-    {
-      "cveId": "CVE-2025-50062",
-      "title": "CVE-2025-50062: Vulnerability in the PeopleSoft Enterprise HCM Global Payroll Core product of Oracle PeopleSoft (com...",
-      "severity": "HIGH",
-      "cvssScore": 8.1,
-      "epssScore": 0.03,
-      "epssPercentile": 7.153,
-      "riskScore": 47,
-      "publishedDate": "2025-07-15T19:27:34.993000+00:00",
-      "lastModifiedDate": "2025-07-19T03:55:17.882000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["oracle corporation"],
-      "tags": []
-    },
-    {
-      "cveId": "CVE-2025-50060",
-      "title": "CVE-2025-50060: Vulnerability in the Oracle BI Publisher product of Oracle Analytics (component: Web Server).  Suppo...",
-      "severity": "HIGH",
-      "cvssScore": 8.1,
-      "epssScore": 0.03,
-      "epssPercentile": 7.153,
-      "riskScore": 47,
-      "publishedDate": "2025-07-15T19:27:34.167000+00:00",
-      "lastModifiedDate": "2025-07-19T03:55:16.840000+00:00",
+      "publishedDate": "2025-07-15T19:27:36.887000+00:00",
+      "lastModifiedDate": "2025-07-18T14:40:29.046000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["oracle corporation"],
       "tags": []
@@ -22540,20 +22442,6 @@
       "tags": ["CWE-502"]
     },
     {
-      "cveId": "CVE-2025-53028",
-      "title": "CVE-2025-53028: Vulnerability in the Oracle VM VirtualBox product of Oracle Virtualization (component: Core).   The ...",
-      "severity": "HIGH",
-      "cvssScore": 8.2,
-      "epssScore": 0.03,
-      "epssPercentile": 7.307,
-      "riskScore": 47,
-      "publishedDate": "2025-07-15T19:27:54.787000+00:00",
-      "lastModifiedDate": "2025-07-16T03:56:07.730000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["oracle corporation"],
-      "tags": []
-    },
-    {
       "cveId": "CVE-2025-53515",
       "title": "Advantech iView SQL Injection",
       "severity": "HIGH",
@@ -22566,20 +22454,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["advantech"],
       "tags": ["CWE-89"]
-    },
-    {
-      "cveId": "CVE-2025-53027",
-      "title": "CVE-2025-53027: Vulnerability in the Oracle VM VirtualBox product of Oracle Virtualization (component: Core).   The ...",
-      "severity": "HIGH",
-      "cvssScore": 8.2,
-      "epssScore": 0.03,
-      "epssPercentile": 7.307,
-      "riskScore": 47,
-      "publishedDate": "2025-07-15T19:27:54.426000+00:00",
-      "lastModifiedDate": "2025-07-16T03:56:08.808000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["oracle corporation"],
-      "tags": []
     },
     {
       "cveId": "CVE-2025-53475",
@@ -22680,20 +22554,6 @@
       "tags": ["CWE-770", "CWE-400"]
     },
     {
-      "cveId": "CVE-2025-53024",
-      "title": "CVE-2025-53024: Vulnerability in the Oracle VM VirtualBox product of Oracle Virtualization (component: Core).   The ...",
-      "severity": "HIGH",
-      "cvssScore": 8.2,
-      "epssScore": 0.03,
-      "epssPercentile": 7.307,
-      "riskScore": 47,
-      "publishedDate": "2025-07-15T19:27:53.338000+00:00",
-      "lastModifiedDate": "2025-07-16T03:56:09.854000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["oracle corporation"],
-      "tags": []
-    },
-    {
       "cveId": "CVE-2025-53368",
       "title": "Citizen is vulnerable to stored XSS attack in the legacy search bar",
       "severity": "HIGH",
@@ -22762,6 +22622,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["weidmueller"],
       "tags": ["CWE-656"]
+    },
+    {
+      "cveId": "CVE-2025-41239",
+      "title": "vSockets information-disclosure vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.02,
+      "epssPercentile": 2.904,
+      "riskScore": 47,
+      "publishedDate": "2025-07-15T18:35:03.747000+00:00",
+      "lastModifiedDate": "2025-07-15T18:51:58.342000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["vmware"],
+      "tags": ["CWE-908"]
     },
     {
       "cveId": "CVE-2025-1403",
@@ -23492,20 +23366,6 @@
       "tags": ["CWE-502"]
     },
     {
-      "cveId": "CVE-2025-30749",
-      "title": "CVE-2025-30749: Vulnerability in the Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition produ...",
-      "severity": "HIGH",
-      "cvssScore": 8.1,
-      "epssScore": 0.06,
-      "epssPercentile": 17.603,
-      "riskScore": 47,
-      "publishedDate": "2025-07-15T19:27:28.680000+00:00",
-      "lastModifiedDate": "2025-07-16T03:56:13.237000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["oracle corporation"],
-      "tags": []
-    },
-    {
       "cveId": "CVE-2025-30184",
       "title": "CyberData 011209 SIP Emergency Intercom Authentication Bypass Using an Alternate Path or Channel",
       "severity": "CRITICAL",
@@ -23548,20 +23408,6 @@
       "tags": ["CWE-843"]
     },
     {
-      "cveId": "CVE-2025-30744",
-      "title": "CVE-2025-30744: Vulnerability in the Oracle Mobile Field Service product of Oracle E-Business Suite (component: Mult...",
-      "severity": "HIGH",
-      "cvssScore": 8.1,
-      "epssScore": 0.03,
-      "epssPercentile": 7.153,
-      "riskScore": 47,
-      "publishedDate": "2025-07-15T19:27:23.759000+00:00",
-      "lastModifiedDate": "2025-07-15T20:39:26.443000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["oracle corporation"],
-      "tags": []
-    },
-    {
       "cveId": "CVE-2025-30381",
       "title": "Microsoft Excel Remote Code Execution Vulnerability",
       "severity": "HIGH",
@@ -23588,20 +23434,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-416"]
-    },
-    {
-      "cveId": "CVE-2025-30743",
-      "title": "CVE-2025-30743: Vulnerability in the Oracle Lease and Finance Management product of Oracle E-Business Suite (compone...",
-      "severity": "HIGH",
-      "cvssScore": 8.1,
-      "epssScore": 0.03,
-      "epssPercentile": 7.153,
-      "riskScore": 47,
-      "publishedDate": "2025-07-15T19:27:19.213000+00:00",
-      "lastModifiedDate": "2025-07-17T20:35:24.657000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["oracle corporation"],
-      "tags": []
     },
     {
       "cveId": "CVE-2025-30393",
@@ -27016,7 +26848,7 @@
       "publishedDate": "2025-07-08T05:32:05.678000+00:00",
       "lastModifiedDate": "2025-07-08T13:45:36.200000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -27702,7 +27534,7 @@
       "publishedDate": "2025-07-08T06:02:05.515000+00:00",
       "lastModifiedDate": "2025-07-08T13:44:30.198000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -29302,15 +29134,15 @@
       "tags": []
     },
     {
-      "cveId": "CVE-2025-50069",
-      "title": "CVE-2025-50069: Vulnerability in the Java VM component of Oracle Database Server.  Supported versions that are affec...",
+      "cveId": "CVE-2025-50059",
+      "title": "CVE-2025-50059: Vulnerability in the Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition produ...",
       "severity": "HIGH",
-      "cvssScore": 7.7,
-      "epssScore": 0.03,
-      "epssPercentile": 7.153,
+      "cvssScore": 8.6,
+      "epssScore": 0.04,
+      "epssPercentile": 11.77,
       "riskScore": 46,
-      "publishedDate": "2025-07-15T19:27:37.717000+00:00",
-      "lastModifiedDate": "2025-07-17T03:55:46.573000+00:00",
+      "publishedDate": "2025-07-15T19:27:33.672000+00:00",
+      "lastModifiedDate": "2025-07-16T14:42:45.512000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["oracle corporation"],
       "tags": []
@@ -30293,20 +30125,6 @@
       "lastModifiedDate": "2025-06-30T15:55:04.688000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-6489",
-      "title": "itsourcecode Agri-Trading Online Shopping System transactionsave.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 11.34,
-      "riskScore": 46,
-      "publishedDate": "2025-06-22T18:31:05.987000+00:00",
-      "lastModifiedDate": "2025-06-23T16:41:10.173000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["itsourcecode"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -31708,6 +31526,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-426"]
+    },
+    {
+      "cveId": "CVE-2025-30751",
+      "title": "CVE-2025-30751: Vulnerability in the Oracle Database component of Oracle Database Server.  Supported versions that a...",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.04,
+      "epssPercentile": 12.604,
+      "riskScore": 46,
+      "publishedDate": "2025-07-15T19:27:29.625000+00:00",
+      "lastModifiedDate": "2025-07-18T03:55:36.751000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["oracle corporation"],
+      "tags": []
     },
     {
       "cveId": "CVE-2025-30969",
@@ -38818,7 +38650,7 @@
       "publishedDate": "2025-06-24T08:10:29.717000+00:00",
       "lastModifiedDate": "2025-06-24T13:56:13.121000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-639"]
     },
     {
@@ -38888,7 +38720,7 @@
       "publishedDate": "2025-06-24T08:14:31.864000+00:00",
       "lastModifiedDate": "2025-06-24T13:55:34.477000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-204"]
     },
     {
@@ -39830,15 +39662,57 @@
       "tags": ["CWE-316"]
     },
     {
-      "cveId": "CVE-2025-50063",
-      "title": "CVE-2025-50063: Vulnerability in Oracle Java SE (component: Install).   The supported version that is affected is Or...",
+      "cveId": "CVE-2025-50105",
+      "title": "CVE-2025-50105: Vulnerability in the Oracle Universal Work Queue product of Oracle E-Business Suite (component: Work...",
       "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.01,
-      "epssPercentile": 1.437,
+      "cvssScore": 8.1,
+      "epssScore": 0.03,
+      "epssPercentile": 7.153,
       "riskScore": 45,
-      "publishedDate": "2025-07-15T19:27:35.383000+00:00",
-      "lastModifiedDate": "2025-07-16T18:14:27.082000+00:00",
+      "publishedDate": "2025-07-15T19:27:51.467000+00:00",
+      "lastModifiedDate": "2025-07-17T03:55:39.083000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["oracle corporation"],
+      "tags": []
+    },
+    {
+      "cveId": "CVE-2025-50106",
+      "title": "CVE-2025-50106: Vulnerability in the Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition produ...",
+      "severity": "HIGH",
+      "cvssScore": 8.1,
+      "epssScore": 0.06,
+      "epssPercentile": 17.603,
+      "riskScore": 45,
+      "publishedDate": "2025-07-15T19:27:51.820000+00:00",
+      "lastModifiedDate": "2025-07-16T03:56:14.402000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["oracle corporation"],
+      "tags": []
+    },
+    {
+      "cveId": "CVE-2025-50062",
+      "title": "CVE-2025-50062: Vulnerability in the PeopleSoft Enterprise HCM Global Payroll Core product of Oracle PeopleSoft (com...",
+      "severity": "HIGH",
+      "cvssScore": 8.1,
+      "epssScore": 0.03,
+      "epssPercentile": 7.153,
+      "riskScore": 45,
+      "publishedDate": "2025-07-15T19:27:34.993000+00:00",
+      "lastModifiedDate": "2025-07-19T03:55:17.882000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["oracle corporation"],
+      "tags": []
+    },
+    {
+      "cveId": "CVE-2025-50060",
+      "title": "CVE-2025-50060: Vulnerability in the Oracle BI Publisher product of Oracle Analytics (component: Web Server).  Suppo...",
+      "severity": "HIGH",
+      "cvssScore": 8.1,
+      "epssScore": 0.03,
+      "epssPercentile": 7.153,
+      "riskScore": 45,
+      "publishedDate": "2025-07-15T19:27:34.167000+00:00",
+      "lastModifiedDate": "2025-07-19T03:55:16.840000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["oracle corporation"],
       "tags": []
@@ -41244,6 +41118,34 @@
       "tags": ["CWE-1390"]
     },
     {
+      "cveId": "CVE-2025-53028",
+      "title": "CVE-2025-53028: Vulnerability in the Oracle VM VirtualBox product of Oracle Virtualization (component: Core).   The ...",
+      "severity": "HIGH",
+      "cvssScore": 8.2,
+      "epssScore": 0.03,
+      "epssPercentile": 7.307,
+      "riskScore": 45,
+      "publishedDate": "2025-07-15T19:27:54.787000+00:00",
+      "lastModifiedDate": "2025-07-16T03:56:07.730000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["oracle corporation"],
+      "tags": []
+    },
+    {
+      "cveId": "CVE-2025-53027",
+      "title": "CVE-2025-53027: Vulnerability in the Oracle VM VirtualBox product of Oracle Virtualization (component: Core).   The ...",
+      "severity": "HIGH",
+      "cvssScore": 8.2,
+      "epssScore": 0.03,
+      "epssPercentile": 7.307,
+      "riskScore": 45,
+      "publishedDate": "2025-07-15T19:27:54.426000+00:00",
+      "lastModifiedDate": "2025-07-16T03:56:08.808000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["oracle corporation"],
+      "tags": []
+    },
+    {
       "cveId": "CVE-2025-53098",
       "title": "Roo Code Vulnerable to Potential Remote Code Execution via Model Context Protocol",
       "severity": "HIGH",
@@ -41314,6 +41216,20 @@
       "tags": ["CWE-78"]
     },
     {
+      "cveId": "CVE-2025-53024",
+      "title": "CVE-2025-53024: Vulnerability in the Oracle VM VirtualBox product of Oracle Virtualization (component: Core).   The ...",
+      "severity": "HIGH",
+      "cvssScore": 8.2,
+      "epssScore": 0.03,
+      "epssPercentile": 7.307,
+      "riskScore": 45,
+      "publishedDate": "2025-07-15T19:27:53.338000+00:00",
+      "lastModifiedDate": "2025-07-16T03:56:09.854000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["oracle corporation"],
+      "tags": []
+    },
+    {
       "cveId": "CVE-2025-53107",
       "title": "@cyanheads/git-mcp-server vulnerable to command injection in several tools",
       "severity": "HIGH",
@@ -41328,20 +41244,6 @@
       "tags": ["CWE-77"]
     },
     {
-      "cveId": "CVE-2025-53959",
-      "title": "CVE-2025-53959: In JetBrains YouTrack before 2025.2.86069, \n2024.3.85077, \n2025.1.86199 email spoofing via an admini...",
-      "severity": "HIGH",
-      "cvssScore": 7.6,
-      "epssScore": 0.0,
-      "epssPercentile": 0.034,
-      "riskScore": 45,
-      "publishedDate": "2025-07-15T16:26:57.469000+00:00",
-      "lastModifiedDate": "2025-07-15T17:21:45.428000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["jetbrains"],
-      "tags": []
-    },
-    {
       "cveId": "CVE-2025-41675",
       "title": "Remote Command Injection via GET in Cloud Server Communication Script Due to Improper Input Neutralization",
       "severity": "HIGH",
@@ -41352,7 +41254,7 @@
       "publishedDate": "2025-07-21T09:29:57.024000+00:00",
       "lastModifiedDate": "2025-07-21T20:36:45.460000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-78"]
     },
     {
@@ -41394,7 +41296,7 @@
       "publishedDate": "2025-07-21T09:29:32.129000+00:00",
       "lastModifiedDate": "2025-07-21T17:06:11.768000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-78"]
     },
     {
@@ -41408,7 +41310,7 @@
       "publishedDate": "2025-07-21T09:29:43.181000+00:00",
       "lastModifiedDate": "2025-07-21T17:05:33.656000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-78"]
     },
     {
@@ -42350,6 +42252,20 @@
       "tags": ["CWE-611"]
     },
     {
+      "cveId": "CVE-2025-30749",
+      "title": "CVE-2025-30749: Vulnerability in the Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition produ...",
+      "severity": "HIGH",
+      "cvssScore": 8.1,
+      "epssScore": 0.06,
+      "epssPercentile": 17.603,
+      "riskScore": 45,
+      "publishedDate": "2025-07-15T19:27:28.680000+00:00",
+      "lastModifiedDate": "2025-07-16T03:56:13.237000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["oracle corporation"],
+      "tags": []
+    },
+    {
       "cveId": "CVE-2025-30171",
       "title": "Admin Authorized System File Deletion",
       "severity": "CRITICAL",
@@ -42378,15 +42294,15 @@
       "tags": ["CWE-94"]
     },
     {
-      "cveId": "CVE-2025-30762",
-      "title": "CVE-2025-30762: Vulnerability in the Oracle WebLogic Server product of Oracle Fusion Middleware (component: Core).  ...",
+      "cveId": "CVE-2025-30744",
+      "title": "CVE-2025-30744: Vulnerability in the Oracle Mobile Field Service product of Oracle E-Business Suite (component: Mult...",
       "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.04,
-      "epssPercentile": 11.77,
+      "cvssScore": 8.1,
+      "epssScore": 0.03,
+      "epssPercentile": 7.153,
       "riskScore": 45,
-      "publishedDate": "2025-07-15T19:27:33.220000+00:00",
-      "lastModifiedDate": "2025-07-16T14:44:14.988000+00:00",
+      "publishedDate": "2025-07-15T19:27:23.759000+00:00",
+      "lastModifiedDate": "2025-07-15T20:39:26.443000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["oracle corporation"],
       "tags": []
@@ -42446,6 +42362,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["nats-io"],
       "tags": ["CWE-306", "CWE-287"]
+    },
+    {
+      "cveId": "CVE-2025-30743",
+      "title": "CVE-2025-30743: Vulnerability in the Oracle Lease and Finance Management product of Oracle E-Business Suite (compone...",
+      "severity": "HIGH",
+      "cvssScore": 8.1,
+      "epssScore": 0.03,
+      "epssPercentile": 7.153,
+      "riskScore": 45,
+      "publishedDate": "2025-07-15T19:27:19.213000+00:00",
+      "lastModifiedDate": "2025-07-17T20:35:24.657000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["oracle corporation"],
+      "tags": []
     },
     {
       "cveId": "CVE-2025-35036",
@@ -42516,20 +42446,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["ibm"],
       "tags": ["CWE-94"]
-    },
-    {
-      "cveId": "CVE-2025-0650",
-      "title": "Ovn: egress acls may be bypassed via specially crafted udp packet",
-      "severity": "HIGH",
-      "cvssScore": 8.1,
-      "epssScore": 0.38,
-      "epssPercentile": 58.842,
-      "riskScore": 45,
-      "publishedDate": "2025-01-23T16:34:31.390000+00:00",
-      "lastModifiedDate": "2025-03-19T10:58:47.225000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["red hat"],
-      "tags": ["CWE-284"]
     },
     {
       "cveId": "CVE-2025-0896",
@@ -43298,7 +43214,7 @@
       "publishedDate": "2024-10-15T10:28:37.223000+00:00",
       "lastModifiedDate": "2024-10-16T17:39:58.106000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-798"]
     },
     {
@@ -43354,7 +43270,7 @@
       "publishedDate": "2024-10-15T10:28:16.384000+00:00",
       "lastModifiedDate": "2024-10-16T17:44:15.429000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-306"]
     },
     {
@@ -47442,7 +47358,7 @@
       "publishedDate": "2025-05-30T18:00:06.477000+00:00",
       "lastModifiedDate": "2025-05-30T18:15:18.480000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -51936,7 +51852,7 @@
       "publishedDate": "2025-05-03T11:00:09.135000+00:00",
       "lastModifiedDate": "2025-05-30T09:10:12.356000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -53508,6 +53424,20 @@
       "tags": []
     },
     {
+      "cveId": "CVE-2025-50069",
+      "title": "CVE-2025-50069: Vulnerability in the Java VM component of Oracle Database Server.  Supported versions that are affec...",
+      "severity": "HIGH",
+      "cvssScore": 7.7,
+      "epssScore": 0.03,
+      "epssPercentile": 7.153,
+      "riskScore": 44,
+      "publishedDate": "2025-07-15T19:27:37.717000+00:00",
+      "lastModifiedDate": "2025-07-17T03:55:46.573000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["oracle corporation"],
+      "tags": []
+    },
+    {
       "cveId": "CVE-2025-22846",
       "title": "BIG-IP SIP Vulnerability",
       "severity": "HIGH",
@@ -54905,6 +54835,20 @@
       "lastModifiedDate": "2025-06-23T14:39:31.051000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["campcodes"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-6489",
+      "title": "itsourcecode Agri-Trading Online Shopping System transactionsave.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 11.34,
+      "riskScore": 44,
+      "publishedDate": "2025-06-22T18:31:05.987000+00:00",
+      "lastModifiedDate": "2025-06-23T16:41:10.173000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["itsourcecode"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -58124,7 +58068,7 @@
       "publishedDate": "2024-03-18T16:03:44.987000+00:00",
       "lastModifiedDate": "2024-08-28T15:04:28.061000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric", "schneider electric "],
+      "vendors": ["schneider electric ", "schneider electric"],
       "tags": ["CWE-307"]
     },
     {
@@ -58852,7 +58796,7 @@
       "publishedDate": "2025-05-09T15:18:34.124000+00:00",
       "lastModifiedDate": "2025-05-09T19:09:17.086000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["norton", "avast", "avg"],
+      "vendors": ["avast", "avg", "norton"],
       "tags": ["CWE-367"]
     },
     {
@@ -69370,6 +69314,20 @@
       "tags": []
     },
     {
+      "cveId": "CVE-2025-50063",
+      "title": "CVE-2025-50063: Vulnerability in Oracle Java SE (component: Install).   The supported version that is affected is Or...",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.01,
+      "epssPercentile": 1.437,
+      "riskScore": 43,
+      "publishedDate": "2025-07-15T19:27:35.383000+00:00",
+      "lastModifiedDate": "2025-07-16T18:14:27.082000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["oracle corporation"],
+      "tags": []
+    },
+    {
       "cveId": "CVE-2025-50202",
       "title": "Lychee Path Traversal Vulnerability",
       "severity": "HIGH",
@@ -70392,6 +70350,20 @@
       "tags": ["CWE-89"]
     },
     {
+      "cveId": "CVE-2025-53959",
+      "title": "CVE-2025-53959: In JetBrains YouTrack before 2025.2.86069, \n2024.3.85077, \n2025.1.86199 email spoofing via an admini...",
+      "severity": "HIGH",
+      "cvssScore": 7.6,
+      "epssScore": 0.0,
+      "epssPercentile": 0.034,
+      "riskScore": 43,
+      "publishedDate": "2025-07-15T16:26:57.469000+00:00",
+      "lastModifiedDate": "2025-07-15T17:21:45.428000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["jetbrains"],
+      "tags": []
+    },
+    {
       "cveId": "CVE-2025-41403",
       "title": "SQL Injection",
       "severity": "HIGH",
@@ -71372,6 +71344,20 @@
       "tags": ["CWE-269"]
     },
     {
+      "cveId": "CVE-2025-30762",
+      "title": "CVE-2025-30762: Vulnerability in the Oracle WebLogic Server product of Oracle Fusion Middleware (component: Core).  ...",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.04,
+      "epssPercentile": 11.77,
+      "riskScore": 43,
+      "publishedDate": "2025-07-15T19:27:33.220000+00:00",
+      "lastModifiedDate": "2025-07-16T14:44:14.988000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["oracle corporation"],
+      "tags": []
+    },
+    {
       "cveId": "CVE-2025-30641",
       "title": "CVE-2025-30641: A link following vulnerability in the anti-malware solution portion of Trend Micro Deep Security 20....",
       "severity": "HIGH",
@@ -71678,6 +71664,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["sap_se"],
       "tags": ["CWE-732"]
+    },
+    {
+      "cveId": "CVE-2025-0650",
+      "title": "Ovn: egress acls may be bypassed via specially crafted udp packet",
+      "severity": "HIGH",
+      "cvssScore": 8.1,
+      "epssScore": 0.38,
+      "epssPercentile": 58.842,
+      "riskScore": 43,
+      "publishedDate": "2025-01-23T16:34:31.390000+00:00",
+      "lastModifiedDate": "2025-03-19T10:58:47.225000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["red hat"],
+      "tags": ["CWE-284"]
     },
     {
       "cveId": "CVE-2024-33971",
@@ -75918,7 +75918,7 @@
       "publishedDate": "2024-10-15T10:27:52.208000+00:00",
       "lastModifiedDate": "2024-10-16T17:47:04.737000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-261"]
     },
     {
@@ -79264,7 +79264,7 @@
       "publishedDate": "2025-01-08T11:09:24.799000+00:00",
       "lastModifiedDate": "2025-01-08T13:54:46.719000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["wp swings", "wpswings"],
+      "vendors": ["wpswings", "wp swings"],
       "tags": ["CWE-862"]
     },
     {
@@ -80888,7 +80888,7 @@
       "publishedDate": "2024-05-14T12:58:31.261000+00:00",
       "lastModifiedDate": "2025-03-14T14:56:10.154000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["n/a", "na"],
+      "vendors": ["na", "n/a"],
       "tags": []
     },
     {
@@ -81490,7 +81490,7 @@
       "publishedDate": "2024-02-05T14:33:06.481000+00:00",
       "lastModifiedDate": "2025-05-09T16:32:50.015000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["tiangolo", "kludex", "encode"],
+      "vendors": ["tiangolo", "encode", "kludex"],
       "tags": ["CWE-400"]
     },
     {
@@ -107814,20 +107814,6 @@
       "tags": ["CWE-367"]
     },
     {
-      "cveId": "CVE-2025-22153",
-      "title": "try/except* clauses could allow bypass RestrictedPython via type confusion bug in the CPython interpreter",
-      "severity": "HIGH",
-      "cvssScore": 7.9,
-      "epssScore": 0.07,
-      "epssPercentile": 22.755,
-      "riskScore": 41,
-      "publishedDate": "2025-01-23T17:34:27.056000+00:00",
-      "lastModifiedDate": "2025-02-12T20:41:29.946000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["zopefoundation"],
-      "tags": ["CWE-843"]
-    },
-    {
       "cveId": "CVE-2025-22466",
       "title": "CVE-2025-22466: Reflected XSS in Ivanti Endpoint Manager before version 2024 SU1 or before version 2022 SU7 allows a...",
       "severity": "HIGH",
@@ -107924,20 +107910,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["scottyla"],
       "tags": ["CWE-434"]
-    },
-    {
-      "cveId": "CVE-2025-24033",
-      "title": "@fastify/multipart vulnerable to unlimited consumption of resources",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.14,
-      "epssPercentile": 35.711,
-      "riskScore": 41,
-      "publishedDate": "2025-01-23T17:40:56.228000+00:00",
-      "lastModifiedDate": "2025-02-12T20:41:29.689000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["fastify"],
-      "tags": ["CWE-770"]
     },
     {
       "cveId": "CVE-2025-24789",
@@ -112640,7 +112612,7 @@
       "publishedDate": "2024-10-15T10:27:06.004000+00:00",
       "lastModifiedDate": "2024-10-16T17:49:30.446000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-20"]
     },
     {
@@ -115302,20 +115274,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["techfyd"],
       "tags": ["CWE-862"]
-    },
-    {
-      "cveId": "CVE-2024-11147",
-      "title": "ECOVACS lawnmowers and vacuums deterministic root password",
-      "severity": "HIGH",
-      "cvssScore": 7.6,
-      "epssScore": 0.04,
-      "epssPercentile": 11.823,
-      "riskScore": 41,
-      "publishedDate": "2025-01-23T16:37:54.479000+00:00",
-      "lastModifiedDate": "2025-02-12T17:07:28.749000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["ecovacs"],
-      "tags": ["CWE-798"]
     },
     {
       "cveId": "CVE-2024-11992",
@@ -127242,7 +127200,7 @@
       "publishedDate": "2024-03-18T16:04:57.375000+00:00",
       "lastModifiedDate": "2024-08-01T19:03:37.851000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric", "schneider electric "],
+      "vendors": ["schneider electric ", "schneider electric"],
       "tags": ["CWE-79"]
     },
     {
@@ -134162,20 +134120,6 @@
       "tags": ["CWE-670"]
     },
     {
-      "cveId": "CVE-2024-52330",
-      "title": "ECOVACS lawnmowers and vacuums do not properly validate TLS certificates",
-      "severity": "HIGH",
-      "cvssScore": 7.4,
-      "epssScore": 0.06,
-      "epssPercentile": 17.75,
-      "riskScore": 40,
-      "publishedDate": "2025-01-23T16:36:50.128000+00:00",
-      "lastModifiedDate": "2025-02-12T20:41:28.969000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["ecovacs"],
-      "tags": ["CWE-295"]
-    },
-    {
       "cveId": "CVE-2024-52415",
       "title": "WordPress SK WP Settings Backup plugin <= 1.0 - CSRF to PHP Object Injection vulnerability",
       "severity": "HIGH",
@@ -134188,34 +134132,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["skpstorm"],
       "tags": ["CWE-352"]
-    },
-    {
-      "cveId": "CVE-2024-52331",
-      "title": "ECOVACS lawnmowers and vacuums deterministic firmware encryption key",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.03,
-      "epssPercentile": 6.963,
-      "riskScore": 40,
-      "publishedDate": "2025-01-23T16:37:31.290000+00:00",
-      "lastModifiedDate": "2025-02-12T20:41:28.822000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["ecovacs"],
-      "tags": ["CWE-494", "CWE-1391"]
-    },
-    {
-      "cveId": "CVE-2024-52329",
-      "title": "ECOVACS HOME mobile app plugins do not properly validate TLS certificates",
-      "severity": "HIGH",
-      "cvssScore": 7.4,
-      "epssScore": 0.09,
-      "epssPercentile": 26.367,
-      "riskScore": 40,
-      "publishedDate": "2025-01-23T16:36:06.533000+00:00",
-      "lastModifiedDate": "2025-02-12T20:41:29.110000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["ecovacs"],
-      "tags": ["CWE-295"]
     },
     {
       "cveId": "CVE-2024-52333",
@@ -140392,6 +140308,20 @@
       "tags": []
     },
     {
+      "cveId": "CVE-2025-22153",
+      "title": "try/except* clauses could allow bypass RestrictedPython via type confusion bug in the CPython interpreter",
+      "severity": "HIGH",
+      "cvssScore": 7.9,
+      "epssScore": 0.07,
+      "epssPercentile": 22.755,
+      "riskScore": 39,
+      "publishedDate": "2025-01-23T17:34:27.056000+00:00",
+      "lastModifiedDate": "2025-02-12T20:41:29.946000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["zopefoundation"],
+      "tags": ["CWE-843"]
+    },
+    {
       "cveId": "CVE-2025-22693",
       "title": "WordPress Contest Gallery plugin <= 25.1.0 - SQL Injection vulnerability",
       "severity": "HIGH",
@@ -140586,6 +140516,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["labredescefetrj"],
       "tags": ["CWE-79"]
+    },
+    {
+      "cveId": "CVE-2025-24033",
+      "title": "@fastify/multipart vulnerable to unlimited consumption of resources",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.14,
+      "epssPercentile": 35.711,
+      "riskScore": 39,
+      "publishedDate": "2025-01-23T17:40:56.228000+00:00",
+      "lastModifiedDate": "2025-02-12T20:41:29.689000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["fastify"],
+      "tags": ["CWE-770"]
     },
     {
       "cveId": "CVE-2025-24605",
@@ -143972,7 +143916,7 @@
       "publishedDate": "2024-07-03T12:26:44.599000+00:00",
       "lastModifiedDate": "2025-02-13T17:54:25.437000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["red lion europe", "helmholz"],
+      "vendors": ["helmholz", "red lion europe"],
       "tags": ["CWE-78"]
     },
     {
@@ -144340,20 +144284,6 @@
       "tags": ["CWE-79"]
     },
     {
-      "cveId": "CVE-2024-55925",
-      "title": "API Security bypass through header manipulation",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.07,
-      "epssPercentile": 22.04,
-      "riskScore": 39,
-      "publishedDate": "2025-01-23T17:03:33.187000+00:00",
-      "lastModifiedDate": "2025-02-24T17:09:59.029000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["xerox"],
-      "tags": ["CWE-287"]
-    },
-    {
       "cveId": "CVE-2024-55629",
       "title": "Suricata generic detection bypass using TCP urgent support",
       "severity": "HIGH",
@@ -144394,34 +144324,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["typo3"],
       "tags": ["CWE-352", "CWE-749"]
-    },
-    {
-      "cveId": "CVE-2024-55926",
-      "title": "Arbitrary file upload, deletion and read through header manipulation",
-      "severity": "HIGH",
-      "cvssScore": 7.6,
-      "epssScore": 0.16,
-      "epssPercentile": 37.15,
-      "riskScore": 39,
-      "publishedDate": "2025-01-23T17:12:21.371000+00:00",
-      "lastModifiedDate": "2025-02-24T17:11:02.567000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["xerox"],
-      "tags": ["CWE-434", "CWE-22"]
-    },
-    {
-      "cveId": "CVE-2024-55927",
-      "title": "Flawed token generation implementation & Hard-coded key implementation",
-      "severity": "HIGH",
-      "cvssScore": 7.6,
-      "epssScore": 0.09,
-      "epssPercentile": 27.155,
-      "riskScore": 39,
-      "publishedDate": "2025-01-23T17:20:29.974000+00:00",
-      "lastModifiedDate": "2025-02-24T17:12:10.831000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["xerox"],
-      "tags": ["CWE-798"]
     },
     {
       "cveId": "CVE-2024-2590",
@@ -145904,7 +145806,7 @@
       "publishedDate": "2024-10-15T10:28:58.559000+00:00",
       "lastModifiedDate": "2025-01-24T06:32:08.237000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-306"]
     },
     {
@@ -145918,7 +145820,7 @@
       "publishedDate": "2024-10-15T10:27:32.688000+00:00",
       "lastModifiedDate": "2024-10-16T17:36:22.123000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-1391"]
     },
     {
@@ -149602,6 +149504,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["mattermost"],
       "tags": ["CWE-754"]
+    },
+    {
+      "cveId": "CVE-2024-11147",
+      "title": "ECOVACS lawnmowers and vacuums deterministic root password",
+      "severity": "HIGH",
+      "cvssScore": 7.6,
+      "epssScore": 0.04,
+      "epssPercentile": 11.823,
+      "riskScore": 39,
+      "publishedDate": "2025-01-23T16:37:54.479000+00:00",
+      "lastModifiedDate": "2025-02-12T17:07:28.749000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["ecovacs"],
+      "tags": ["CWE-798"]
     },
     {
       "cveId": "CVE-2024-11345",
@@ -171398,7 +171314,7 @@
       "publishedDate": "2024-03-18T16:05:47.722000+00:00",
       "lastModifiedDate": "2024-08-15T16:23:48.504000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric", "schneider electric "],
+      "vendors": ["schneider electric ", "schneider electric"],
       "tags": ["CWE-552"]
     },
     {
@@ -178920,6 +178836,20 @@
       "tags": ["CWE-416"]
     },
     {
+      "cveId": "CVE-2024-52330",
+      "title": "ECOVACS lawnmowers and vacuums do not properly validate TLS certificates",
+      "severity": "HIGH",
+      "cvssScore": 7.4,
+      "epssScore": 0.06,
+      "epssPercentile": 17.75,
+      "riskScore": 38,
+      "publishedDate": "2025-01-23T16:36:50.128000+00:00",
+      "lastModifiedDate": "2025-02-12T20:41:28.969000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["ecovacs"],
+      "tags": ["CWE-295"]
+    },
+    {
       "cveId": "CVE-2024-52995",
       "title": "Substance3D - Sampler | Heap-based Buffer Overflow (CWE-122)",
       "severity": "HIGH",
@@ -178960,6 +178890,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["adobe"],
       "tags": ["CWE-787"]
+    },
+    {
+      "cveId": "CVE-2024-52331",
+      "title": "ECOVACS lawnmowers and vacuums deterministic firmware encryption key",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.03,
+      "epssPercentile": 6.963,
+      "riskScore": 38,
+      "publishedDate": "2025-01-23T16:37:31.290000+00:00",
+      "lastModifiedDate": "2025-02-12T20:41:28.822000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["ecovacs"],
+      "tags": ["CWE-494", "CWE-1391"]
     },
     {
       "cveId": "CVE-2024-52987",
@@ -179016,6 +178960,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["adobe"],
       "tags": ["CWE-190"]
+    },
+    {
+      "cveId": "CVE-2024-52329",
+      "title": "ECOVACS HOME mobile app plugins do not properly validate TLS certificates",
+      "severity": "HIGH",
+      "cvssScore": 7.4,
+      "epssScore": 0.09,
+      "epssPercentile": 26.367,
+      "riskScore": 38,
+      "publishedDate": "2025-01-23T16:36:06.533000+00:00",
+      "lastModifiedDate": "2025-02-12T20:41:29.110000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["ecovacs"],
+      "tags": ["CWE-295"]
     },
     {
       "cveId": "CVE-2024-52308",
@@ -187460,6 +187418,20 @@
       "tags": ["CWE-89"]
     },
     {
+      "cveId": "CVE-2024-55925",
+      "title": "API Security bypass through header manipulation",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.07,
+      "epssPercentile": 22.04,
+      "riskScore": 37,
+      "publishedDate": "2025-01-23T17:03:33.187000+00:00",
+      "lastModifiedDate": "2025-02-24T17:09:59.029000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["xerox"],
+      "tags": ["CWE-287"]
+    },
+    {
       "cveId": "CVE-2024-55989",
       "title": "WordPress WP Simple Pay Lite Manager Plugin <= 1.4 - SQL Injection vulnerability",
       "severity": "HIGH",
@@ -187500,6 +187472,34 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["n/a"],
       "tags": []
+    },
+    {
+      "cveId": "CVE-2024-55926",
+      "title": "Arbitrary file upload, deletion and read through header manipulation",
+      "severity": "HIGH",
+      "cvssScore": 7.6,
+      "epssScore": 0.16,
+      "epssPercentile": 37.15,
+      "riskScore": 37,
+      "publishedDate": "2025-01-23T17:12:21.371000+00:00",
+      "lastModifiedDate": "2025-02-24T17:11:02.567000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["xerox"],
+      "tags": ["CWE-434", "CWE-22"]
+    },
+    {
+      "cveId": "CVE-2024-55927",
+      "title": "Flawed token generation implementation & Hard-coded key implementation",
+      "severity": "HIGH",
+      "cvssScore": 7.6,
+      "epssScore": 0.09,
+      "epssPercentile": 27.155,
+      "riskScore": 37,
+      "publishedDate": "2025-01-23T17:20:29.974000+00:00",
+      "lastModifiedDate": "2025-02-24T17:12:10.831000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["xerox"],
+      "tags": ["CWE-798"]
     },
     {
       "cveId": "CVE-2024-2632",
@@ -188296,7 +188296,7 @@
       "publishedDate": "2024-07-08T15:25:38.672000+00:00",
       "lastModifiedDate": "2024-08-01T22:27:36.345000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["realtek", "levelone"],
+      "vendors": ["levelone", "realtek"],
       "tags": ["CWE-122"]
     },
     {
