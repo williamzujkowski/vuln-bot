@@ -1,5 +1,5 @@
 {
-  "generated": "2025-07-23T04:21:52.951435",
+  "generated": "2025-07-23T08:09:26.826667",
   "count": 15448,
   "vulnerabilities": [
     {
@@ -1063,7 +1063,7 @@
       "publishedDate": "2024-11-26T07:37:44.549000+00:00",
       "lastModifiedDate": "2024-12-10T14:58:18.708000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-288"]
     },
     {
@@ -3317,7 +3317,7 @@
       "publishedDate": "2024-10-18T17:32:30.648000+00:00",
       "lastModifiedDate": "2024-10-18T18:56:31.697000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["scottpaterson", "scott paterson"],
+      "vendors": ["scott paterson", "scottpaterson"],
       "tags": ["CWE-94"]
     },
     {
@@ -4437,7 +4437,7 @@
       "publishedDate": "2024-11-26T07:37:38.329000+00:00",
       "lastModifiedDate": "2024-12-10T15:43:57.213000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-22"]
     },
     {
@@ -5197,20 +5197,6 @@
       "tags": ["CWE-120", "CWE-119"]
     },
     {
-      "cveId": "CVE-2025-7340",
-      "title": "HT Contact Form Widget For Elementor Page Builder & Gutenberg Blocks & Form Builder. <= 2.2.1 - Unauthenticated Arbitrary File Upload",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 0.2,
-      "epssPercentile": 42.789,
-      "riskScore": 52,
-      "publishedDate": "2025-07-15T04:23:42.345000+00:00",
-      "lastModifiedDate": "2025-07-15T13:31:06.438000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["htplugins"],
-      "tags": ["CWE-434"]
-    },
-    {
       "cveId": "CVE-2025-7914",
       "title": "Tenda AC6 httpd setparentcontrolinfo buffer overflow",
       "severity": "HIGH",
@@ -5305,7 +5291,7 @@
       "publishedDate": "2025-05-13T03:21:29.625000+00:00",
       "lastModifiedDate": "2025-05-13T13:57:36.925000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["relevanssi", "msaari"],
+      "vendors": ["msaari", "relevanssi"],
       "tags": ["CWE-89"]
     },
     {
@@ -5809,7 +5795,7 @@
       "publishedDate": "2024-06-25T03:30:37.970000+00:00",
       "lastModifiedDate": "2024-08-01T21:33:05.337000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["themerex", "pedrogusmao02", "warfareplugins", "stuartobrien", "blazeretail"],
+      "vendors": ["themerex", "blazeretail", "pedrogusmao02", "warfareplugins", "stuartobrien"],
       "tags": []
     },
     {
@@ -6373,20 +6359,6 @@
       "tags": ["CWE-862"]
     },
     {
-      "cveId": "CVE-2025-7341",
-      "title": "HT Contact Form Widget For Elementor Page Builder & Gutenberg Blocks & Form Builder. <= 2.2.1 - Unauthenticated Arbitrary File Deletion",
-      "severity": "CRITICAL",
-      "cvssScore": 9.1,
-      "epssScore": 0.39,
-      "epssPercentile": 59.477,
-      "riskScore": 51,
-      "publishedDate": "2025-07-15T04:23:40.839000+00:00",
-      "lastModifiedDate": "2025-07-15T13:35:24.727000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["htplugins"],
-      "tags": ["CWE-269"]
-    },
-    {
       "cveId": "CVE-2025-7624",
       "title": "CVE-2025-7624: An SQL injection vulnerability in the legacy (transparent) SMTP proxy of Sophos Firewall versions ol...",
       "severity": "CRITICAL",
@@ -6399,20 +6371,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["sophos"],
       "tags": ["CWE-89"]
-    },
-    {
-      "cveId": "CVE-2025-7360",
-      "title": "HT Contact Form Widget For Elementor Page Builder & Gutenberg Blocks & Form Builder. <= 2.2.1 - Directory Traversal to Arbitrary File Move",
-      "severity": "CRITICAL",
-      "cvssScore": 9.1,
-      "epssScore": 0.37,
-      "epssPercentile": 57.733,
-      "riskScore": 51,
-      "publishedDate": "2025-07-15T04:23:41.923000+00:00",
-      "lastModifiedDate": "2025-07-15T13:32:00.345000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["htplugins"],
-      "tags": ["CWE-22"]
     },
     {
       "cveId": "CVE-2025-7673",
@@ -8011,6 +7969,20 @@
       "tags": ["CWE-120", "CWE-119"]
     },
     {
+      "cveId": "CVE-2025-7340",
+      "title": "HT Contact Form Widget For Elementor Page Builder & Gutenberg Blocks & Form Builder. <= 2.2.1 - Unauthenticated Arbitrary File Upload",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.2,
+      "epssPercentile": 42.789,
+      "riskScore": 50,
+      "publishedDate": "2025-07-15T04:23:42.345000+00:00",
+      "lastModifiedDate": "2025-07-15T13:31:06.438000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["htplugins"],
+      "tags": ["CWE-434"]
+    },
+    {
       "cveId": "CVE-2025-7531",
       "title": "Tenda FH1202 PPTPUserSetting fromPptpUserSetting stack-based overflow",
       "severity": "HIGH",
@@ -8387,20 +8359,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["mitsubishi electric corporation"],
       "tags": ["CWE-306"]
-    },
-    {
-      "cveId": "CVE-2025-3621",
-      "title": "Remote Code Execution in ProTNS ActADUR",
-      "severity": "CRITICAL",
-      "cvssScore": 9.6,
-      "epssScore": 0.58,
-      "epssPercentile": 67.877,
-      "riskScore": 50,
-      "publishedDate": "2025-07-15T07:22:49.897000+00:00",
-      "lastModifiedDate": "2025-07-15T13:30:22.159000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["protns"],
-      "tags": ["CWE-77", "CWE-798", "CWE-287", "CWE-1327"]
     },
     {
       "cveId": "CVE-2025-3928",
@@ -9606,9 +9564,9 @@
       "vendors": [
         "toshiba tec",
         "ricoh",
-        "brother industries, ltd",
         "konica minolta, inc.",
-        "fujifilm business innovation"
+        "fujifilm business innovation",
+        "brother industries, ltd"
       ],
       "tags": ["CWE-1286"]
     },
@@ -10621,6 +10579,20 @@
       "tags": ["CWE-416"]
     },
     {
+      "cveId": "CVE-2025-7341",
+      "title": "HT Contact Form Widget For Elementor Page Builder & Gutenberg Blocks & Form Builder. <= 2.2.1 - Unauthenticated Arbitrary File Deletion",
+      "severity": "CRITICAL",
+      "cvssScore": 9.1,
+      "epssScore": 0.39,
+      "epssPercentile": 59.477,
+      "riskScore": 49,
+      "publishedDate": "2025-07-15T04:23:40.839000+00:00",
+      "lastModifiedDate": "2025-07-15T13:35:24.727000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["htplugins"],
+      "tags": ["CWE-269"]
+    },
+    {
       "cveId": "CVE-2025-7077",
       "title": "Shenzhen Libituo Technology LBT-T300-T310 appy.cgi config_3g_para buffer overflow",
       "severity": "HIGH",
@@ -10633,6 +10605,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["shenzhen libituo technology"],
       "tags": ["CWE-120", "CWE-119"]
+    },
+    {
+      "cveId": "CVE-2025-7360",
+      "title": "HT Contact Form Widget For Elementor Page Builder & Gutenberg Blocks & Form Builder. <= 2.2.1 - Directory Traversal to Arbitrary File Move",
+      "severity": "CRITICAL",
+      "cvssScore": 9.1,
+      "epssScore": 0.37,
+      "epssPercentile": 57.733,
+      "riskScore": 49,
+      "publishedDate": "2025-07-15T04:23:41.923000+00:00",
+      "lastModifiedDate": "2025-07-15T13:32:00.345000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["htplugins"],
+      "tags": ["CWE-22"]
     },
     {
       "cveId": "CVE-2025-47181",
@@ -12355,9 +12341,9 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": [
         "brother industries, ltd",
-        "ricoh",
         "konica minolta, inc.",
-        "fujifilm business innovation"
+        "fujifilm business innovation",
+        "ricoh"
       ],
       "tags": ["CWE-121"]
     },
@@ -15974,6 +15960,20 @@
       "tags": ["CWE-639"]
     },
     {
+      "cveId": "CVE-2025-3621",
+      "title": "Remote Code Execution in ProTNS ActADUR",
+      "severity": "CRITICAL",
+      "cvssScore": 9.6,
+      "epssScore": 0.58,
+      "epssPercentile": 67.877,
+      "riskScore": 48,
+      "publishedDate": "2025-07-15T07:22:49.897000+00:00",
+      "lastModifiedDate": "2025-07-15T13:30:22.159000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["protns"],
+      "tags": ["CWE-77", "CWE-798", "CWE-287", "CWE-1327"]
+    },
+    {
       "cveId": "CVE-2025-3603",
       "title": "Flynax Bridge <= 2.2.0 - Unauthenticated Privilege Escalation via Password Update",
       "severity": "CRITICAL",
@@ -18896,7 +18896,7 @@
       "publishedDate": "2025-06-25T07:25:00.402000+00:00",
       "lastModifiedDate": "2025-06-25T14:13:40.189000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["brother industries, ltd", "ricoh", "fujifilm business innovation"],
+      "vendors": ["brother industries, ltd", "fujifilm business innovation", "ricoh"],
       "tags": ["CWE-1286"]
     },
     {
@@ -28728,20 +28728,6 @@
       "tags": ["CWE-121", "CWE-119"]
     },
     {
-      "cveId": "CVE-2025-3529",
-      "title": "WordPress Simple PayPal Shopping Cart <= 5.1.2 - Unauthenticated Information Exposure via file_url Parameter",
-      "severity": "HIGH",
-      "cvssScore": 8.2,
-      "epssScore": 0.1,
-      "epssPercentile": 29.336,
-      "riskScore": 46,
-      "publishedDate": "2025-04-23T07:06:49.072000+00:00",
-      "lastModifiedDate": "2025-04-23T18:22:39.548000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["mra13"],
-      "tags": ["CWE-201"]
-    },
-    {
       "cveId": "CVE-2025-3501",
       "title": "Org.keycloak.protocol.services: keycloak hostname verification",
       "severity": "HIGH",
@@ -29386,20 +29372,6 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
-      "cveId": "CVE-2025-6468",
-      "title": "code-projects Online Bidding System bidnow.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.678,
-      "riskScore": 46,
-      "publishedDate": "2025-06-22T07:31:05.058000+00:00",
-      "lastModifiedDate": "2025-06-23T17:26:45.855000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
       "cveId": "CVE-2025-6479",
       "title": "code-projects Simple Pizza Ordering System salesreport.php sql injection",
       "severity": "HIGH",
@@ -29521,20 +29493,6 @@
       "riskScore": 46,
       "publishedDate": "2025-06-28T22:31:05.926000+00:00",
       "lastModifiedDate": "2025-06-30T16:16:25.929000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-6467",
-      "title": "code-projects Online Bidding System login.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.678,
-      "riskScore": 46,
-      "publishedDate": "2025-06-22T05:31:06.961000+00:00",
-      "lastModifiedDate": "2025-06-23T14:00:22.271000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
@@ -29694,20 +29652,6 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
-      "cveId": "CVE-2025-6458",
-      "title": "code-projects Online Hotel Reservation System execedituser.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.678,
-      "riskScore": 46,
-      "publishedDate": "2025-06-22T04:31:06.736000+00:00",
-      "lastModifiedDate": "2025-06-23T14:32:42.762000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
       "cveId": "CVE-2025-6906",
       "title": "code-projects Car Rental System login.php sql injection",
       "severity": "HIGH",
@@ -29845,20 +29789,6 @@
       "lastModifiedDate": "2025-07-01T15:47:17.009000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["campcodes"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-6469",
-      "title": "code-projects Online Bidding System details.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.678,
-      "riskScore": 46,
-      "publishedDate": "2025-06-22T08:00:13.554000+00:00",
-      "lastModifiedDate": "2025-06-23T17:10:29.690000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -43942,7 +43872,7 @@
       "publishedDate": "2024-11-26T07:38:12.712000+00:00",
       "lastModifiedDate": "2025-01-27T17:45:48.564000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-798"]
     },
     {
@@ -46098,7 +46028,7 @@
       "publishedDate": "2024-11-26T07:37:06.324000+00:00",
       "lastModifiedDate": "2024-12-10T14:57:54.916000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-121"]
     },
     {
@@ -46322,7 +46252,7 @@
       "publishedDate": "2024-11-26T07:38:06.435000+00:00",
       "lastModifiedDate": "2025-01-27T17:46:45.224000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-798"]
     },
     {
@@ -47568,7 +47498,7 @@
       "publishedDate": "2025-06-05T02:31:05.107000+00:00",
       "lastModifiedDate": "2025-06-05T14:09:25.990000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["anirbandutta9", "code-projects"],
+      "vendors": ["code-projects", "anirbandutta9"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -53074,6 +53004,20 @@
       "tags": ["CWE-434"]
     },
     {
+      "cveId": "CVE-2025-3529",
+      "title": "WordPress Simple PayPal Shopping Cart <= 5.1.2 - Unauthenticated Information Exposure via file_url Parameter",
+      "severity": "HIGH",
+      "cvssScore": 8.2,
+      "epssScore": 0.1,
+      "epssPercentile": 29.336,
+      "riskScore": 44,
+      "publishedDate": "2025-04-23T07:06:49.072000+00:00",
+      "lastModifiedDate": "2025-04-23T18:22:39.548000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["mra13"],
+      "tags": ["CWE-201"]
+    },
+    {
       "cveId": "CVE-2025-3546",
       "title": "H3C Magic BE18000 HTTP POST Request getLanguage FCGI_CheckStringIfContainsSemicolon command injection",
       "severity": "HIGH",
@@ -53184,20 +53128,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["red hat"],
       "tags": ["CWE-276"]
-    },
-    {
-      "cveId": "CVE-2025-3530",
-      "title": "WordPress Simple PayPal Shopping Cart <= 5.1.2 - Unauthenticated Product Price Manipulation",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.15,
-      "epssPercentile": 36.655,
-      "riskScore": 44,
-      "publishedDate": "2025-04-23T07:06:49.749000+00:00",
-      "lastModifiedDate": "2025-04-23T16:31:12.480000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["mra13"],
-      "tags": ["CWE-472"]
     },
     {
       "cveId": "CVE-2025-3971",
@@ -53872,6 +53802,20 @@
       "tags": ["CWE-772"]
     },
     {
+      "cveId": "CVE-2025-6468",
+      "title": "code-projects Online Bidding System bidnow.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.678,
+      "riskScore": 44,
+      "publishedDate": "2025-06-22T07:31:05.058000+00:00",
+      "lastModifiedDate": "2025-06-23T17:26:45.855000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-6311",
       "title": "Campcodes Sales and Inventory System account_add.php sql injection",
       "severity": "HIGH",
@@ -53967,6 +53911,20 @@
       "lastModifiedDate": "2025-06-17T20:01:09.638000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["phpgurukul"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-6467",
+      "title": "code-projects Online Bidding System login.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.678,
+      "riskScore": 44,
+      "publishedDate": "2025-06-22T05:31:06.961000+00:00",
+      "lastModifiedDate": "2025-06-23T14:00:22.271000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -54110,6 +54068,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-6458",
+      "title": "code-projects Online Hotel Reservation System execedituser.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.678,
+      "riskScore": 44,
+      "publishedDate": "2025-06-22T04:31:06.736000+00:00",
+      "lastModifiedDate": "2025-06-23T14:32:42.762000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-6457",
       "title": "code-projects Online Hotel Reservation System demo.php sql injection",
       "severity": "HIGH",
@@ -54189,6 +54161,20 @@
       "riskScore": 44,
       "publishedDate": "2025-06-20T04:31:05.819000+00:00",
       "lastModifiedDate": "2025-06-20T15:36:05.437000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-6469",
+      "title": "code-projects Online Bidding System details.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.678,
+      "riskScore": 44,
+      "publishedDate": "2025-06-22T08:00:13.554000+00:00",
+      "lastModifiedDate": "2025-06-23T17:10:29.690000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
@@ -57676,7 +57662,7 @@
       "publishedDate": "2024-07-09T05:34:17.609000+00:00",
       "lastModifiedDate": "2024-08-01T21:11:12.734000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["webnus", "webnus/"],
+      "vendors": ["webnus/", "webnus"],
       "tags": []
     },
     {
@@ -58138,7 +58124,7 @@
       "publishedDate": "2024-03-18T16:03:44.987000+00:00",
       "lastModifiedDate": "2024-08-28T15:04:28.061000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric ", "schneider electric"],
+      "vendors": ["schneider electric", "schneider electric "],
       "tags": ["CWE-307"]
     },
     {
@@ -58866,7 +58852,7 @@
       "publishedDate": "2025-05-09T15:18:34.124000+00:00",
       "lastModifiedDate": "2025-05-09T19:09:17.086000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["avast", "norton", "avg"],
+      "vendors": ["avg", "norton", "avast"],
       "tags": ["CWE-367"]
     },
     {
@@ -59468,7 +59454,7 @@
       "publishedDate": "2024-10-25T06:18:36.274000+00:00",
       "lastModifiedDate": "2024-10-25T18:38:24.503000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-288"]
     },
     {
@@ -79264,7 +79250,7 @@
       "publishedDate": "2025-01-08T11:09:24.799000+00:00",
       "lastModifiedDate": "2025-01-08T13:54:46.719000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["wp swings", "wpswings"],
+      "vendors": ["wpswings", "wp swings"],
       "tags": ["CWE-862"]
     },
     {
@@ -80888,7 +80874,7 @@
       "publishedDate": "2024-05-14T12:58:31.261000+00:00",
       "lastModifiedDate": "2025-03-14T14:56:10.154000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["na", "n/a"],
+      "vendors": ["n/a", "na"],
       "tags": []
     },
     {
@@ -81084,7 +81070,7 @@
       "publishedDate": "2024-08-07T11:00:06.508000+00:00",
       "lastModifiedDate": "2024-08-07T13:17:59.476000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["webnus", "webnus/"],
+      "vendors": ["webnus/", "webnus"],
       "tags": ["CWE-918"]
     },
     {
@@ -82682,20 +82668,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["catdoc"],
       "tags": ["CWE-190"]
-    },
-    {
-      "cveId": "CVE-2024-52975",
-      "title": "Fleet Server sensitive information exposure via logs",
-      "severity": "CRITICAL",
-      "cvssScore": 9.0,
-      "epssScore": 0.05,
-      "epssPercentile": 14.745,
-      "riskScore": 43,
-      "publishedDate": "2025-01-23T07:19:39.170000+00:00",
-      "lastModifiedDate": "2025-01-23T14:45:48.260000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["elastic"],
-      "tags": ["CWE-200"]
     },
     {
       "cveId": "CVE-2024-37036",
@@ -89796,6 +89768,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-3530",
+      "title": "WordPress Simple PayPal Shopping Cart <= 5.1.2 - Unauthenticated Product Price Manipulation",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.15,
+      "epssPercentile": 36.655,
+      "riskScore": 42,
+      "publishedDate": "2025-04-23T07:06:49.749000+00:00",
+      "lastModifiedDate": "2025-04-23T16:31:12.480000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["mra13"],
+      "tags": ["CWE-472"]
+    },
+    {
       "cveId": "CVE-2025-3307",
       "title": "code-projects Blood Bank Management System reset.php sql injection",
       "severity": "HIGH",
@@ -96218,7 +96204,7 @@
       "publishedDate": "2024-07-02T13:47:36.399000+00:00",
       "lastModifiedDate": "2024-08-02T04:12:25.618000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["ytdl-org", "yt-dlp"],
+      "vendors": ["yt-dlp", "ytdl-org"],
       "tags": ["CWE-669"]
     },
     {
@@ -113914,7 +113900,7 @@
       "publishedDate": "2024-10-25T06:18:30.415000+00:00",
       "lastModifiedDate": "2024-10-25T18:38:02.777000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-749"]
     },
     {
@@ -114208,7 +114194,7 @@
       "publishedDate": "2024-11-26T07:38:24.464000+00:00",
       "lastModifiedDate": "2024-11-26T16:28:15.625000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -114222,7 +114208,7 @@
       "publishedDate": "2024-11-26T07:38:30.408000+00:00",
       "lastModifiedDate": "2024-11-26T14:48:35.480000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -114278,7 +114264,7 @@
       "publishedDate": "2024-11-26T07:38:18.359000+00:00",
       "lastModifiedDate": "2024-11-26T14:09:24.516000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-79"]
     },
     {
@@ -116968,6 +116954,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["xwikisas"],
       "tags": ["CWE-80"]
+    },
+    {
+      "cveId": "CVE-2024-52975",
+      "title": "Fleet Server sensitive information exposure via logs",
+      "severity": "CRITICAL",
+      "cvssScore": 9.0,
+      "epssScore": 0.05,
+      "epssPercentile": 14.745,
+      "riskScore": 41,
+      "publishedDate": "2025-01-23T07:19:39.170000+00:00",
+      "lastModifiedDate": "2025-01-23T14:45:48.260000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["elastic"],
+      "tags": ["CWE-200"]
     },
     {
       "cveId": "CVE-2024-37089",
@@ -127200,7 +127200,7 @@
       "publishedDate": "2024-03-18T16:04:57.375000+00:00",
       "lastModifiedDate": "2024-08-01T19:03:37.851000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric ", "schneider electric"],
+      "vendors": ["schneider electric", "schneider electric "],
       "tags": ["CWE-79"]
     },
     {
@@ -133136,7 +133136,7 @@
       "publishedDate": "2024-10-25T06:18:00.481000+00:00",
       "lastModifiedDate": "2024-10-25T18:37:13.542000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -135642,7 +135642,7 @@
       "publishedDate": "2024-11-04T03:31:04.265000+00:00",
       "lastModifiedDate": "2024-11-04T17:01:46.227000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["anirbandutta9", "code-projects"],
+      "vendors": ["code-projects", "anirbandutta9"],
       "tags": ["CWE-89"]
     },
     {
@@ -136906,20 +136906,6 @@
       "tags": ["CWE-862"]
     },
     {
-      "cveId": "CVE-2024-43707",
-      "title": "Kibana exposure of sensitive information to an unauthorized actor",
-      "severity": "HIGH",
-      "cvssScore": 7.7,
-      "epssScore": 0.06,
-      "epssPercentile": 19.623,
-      "riskScore": 40,
-      "publishedDate": "2025-01-23T06:08:10.724000+00:00",
-      "lastModifiedDate": "2025-01-23T14:47:46.730000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["elastic"],
-      "tags": ["CWE-200"]
-    },
-    {
       "cveId": "CVE-2024-43248",
       "title": "WordPress Bit Form Pro plugin <= 2.6.4 - Unauthenticated Arbitrary File Deletion vulnerability",
       "severity": "HIGH",
@@ -136944,7 +136930,7 @@
       "publishedDate": "2024-10-25T06:18:10.875000+00:00",
       "lastModifiedDate": "2024-10-25T17:16:12.736000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -147318,7 +147304,7 @@
       "publishedDate": "2024-10-25T06:18:42.287000+00:00",
       "lastModifiedDate": "2024-10-25T18:32:25.798000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-644"]
     },
     {
@@ -147472,7 +147458,7 @@
       "publishedDate": "2024-10-25T06:18:50.793000+00:00",
       "lastModifiedDate": "2024-10-25T14:16:46.537000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-79"]
     },
     {
@@ -171776,7 +171762,7 @@
       "publishedDate": "2024-03-18T16:05:47.722000+00:00",
       "lastModifiedDate": "2024-08-15T16:23:48.504000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric ", "schneider electric"],
+      "vendors": ["schneider electric", "schneider electric "],
       "tags": ["CWE-552"]
     },
     {
@@ -182796,6 +182782,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["adobe"],
       "tags": ["CWE-122"]
+    },
+    {
+      "cveId": "CVE-2024-43707",
+      "title": "Kibana exposure of sensitive information to an unauthorized actor",
+      "severity": "HIGH",
+      "cvssScore": 7.7,
+      "epssScore": 0.06,
+      "epssPercentile": 19.623,
+      "riskScore": 38,
+      "publishedDate": "2025-01-23T06:08:10.724000+00:00",
+      "lastModifiedDate": "2025-01-23T14:47:46.730000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["elastic"],
+      "tags": ["CWE-200"]
     },
     {
       "cveId": "CVE-2024-43760",
