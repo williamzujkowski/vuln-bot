@@ -1,5 +1,5 @@
 {
-  "generated": "2025-07-24T04:21:05.011499",
+  "generated": "2025-07-24T08:09:52.895228",
   "count": 15488,
   "vulnerabilities": [
     {
@@ -3345,7 +3345,7 @@
       "publishedDate": "2024-10-18T17:32:30.648000+00:00",
       "lastModifiedDate": "2024-10-18T18:56:31.697000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["scottpaterson", "scott paterson"],
+      "vendors": ["scott paterson", "scottpaterson"],
       "tags": ["CWE-94"]
     },
     {
@@ -5617,34 +5617,6 @@
       "tags": ["CWE-302"]
     },
     {
-      "cveId": "CVE-2025-52688",
-      "title": "Command Injection Vulnerability in the OmniAccess Stellar Web Management Interface",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 0.09,
-      "epssPercentile": 26.258,
-      "riskScore": 52,
-      "publishedDate": "2025-07-16T06:23:53.933000+00:00",
-      "lastModifiedDate": "2025-07-16T14:41:04.579000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["alcatel-lucent"],
-      "tags": ["CWE-77"]
-    },
-    {
-      "cveId": "CVE-2025-52689",
-      "title": "Weak Session ID Check in the OmniAccess Stellar Web Management Interface",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 0.1,
-      "epssPercentile": 28.418,
-      "riskScore": 52,
-      "publishedDate": "2025-07-16T06:30:11.161000+00:00",
-      "lastModifiedDate": "2025-07-16T14:40:58.689000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["alcatel-lucent"],
-      "tags": ["CWE-384"]
-    },
-    {
       "cveId": "CVE-2025-53836",
       "title": "XWiki Rendering is vulnerable to RCE attacks when processing nested macros",
       "severity": "CRITICAL",
@@ -5935,7 +5907,7 @@
       "publishedDate": "2024-06-25T03:30:37.970000+00:00",
       "lastModifiedDate": "2024-08-01T21:33:05.337000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["blazeretail", "stuartobrien", "warfareplugins", "pedrogusmao02", "themerex"],
+      "vendors": ["stuartobrien", "pedrogusmao02", "warfareplugins", "blazeretail", "themerex"],
       "tags": []
     },
     {
@@ -6637,20 +6609,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["sophos"],
       "tags": ["CWE-89"]
-    },
-    {
-      "cveId": "CVE-2025-7673",
-      "title": "CVE-2025-7673: A buffer overflow vulnerability in the URL parser of the zhttpd web server in Zyxel VMG8825-T50K fir...",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 0.96,
-      "epssPercentile": 75.447,
-      "riskScore": 51,
-      "publishedDate": "2025-07-16T07:11:02.974000+00:00",
-      "lastModifiedDate": "2025-07-19T03:55:18.953000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["zyxel"],
-      "tags": ["CWE-120"]
     },
     {
       "cveId": "CVE-2025-47986",
@@ -9215,6 +9173,20 @@
       "tags": ["CWE-89"]
     },
     {
+      "cveId": "CVE-2025-52688",
+      "title": "Command Injection Vulnerability in the OmniAccess Stellar Web Management Interface",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.09,
+      "epssPercentile": 26.258,
+      "riskScore": 50,
+      "publishedDate": "2025-07-16T06:23:53.933000+00:00",
+      "lastModifiedDate": "2025-07-16T14:41:04.579000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["alcatel-lucent"],
+      "tags": ["CWE-77"]
+    },
+    {
       "cveId": "CVE-2025-52562",
       "title": "Convey Panel Directory Traversal in LocaleController leading to Remote Code Execution",
       "severity": "CRITICAL",
@@ -9255,6 +9227,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["miko"],
       "tags": ["CWE-23"]
+    },
+    {
+      "cveId": "CVE-2025-52689",
+      "title": "Weak Session ID Check in the OmniAccess Stellar Web Management Interface",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.1,
+      "epssPercentile": 28.418,
+      "riskScore": 50,
+      "publishedDate": "2025-07-16T06:30:11.161000+00:00",
+      "lastModifiedDate": "2025-07-16T14:40:58.689000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["alcatel-lucent"],
+      "tags": ["CWE-384"]
     },
     {
       "cveId": "CVE-2025-53890",
@@ -9800,8 +9786,8 @@
       "lastModifiedDate": "2025-06-25T14:15:31.576000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "fujifilm business innovation",
         "toshiba tec",
+        "fujifilm business innovation",
         "ricoh",
         "brother industries, ltd",
         "konica minolta, inc."
@@ -10887,6 +10873,20 @@
       "tags": ["CWE-272"]
     },
     {
+      "cveId": "CVE-2025-7673",
+      "title": "CVE-2025-7673: A buffer overflow vulnerability in the URL parser of the zhttpd web server in Zyxel VMG8825-T50K fir...",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.96,
+      "epssPercentile": 75.447,
+      "riskScore": 49,
+      "publishedDate": "2025-07-16T07:11:02.974000+00:00",
+      "lastModifiedDate": "2025-07-19T03:55:18.953000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["zyxel"],
+      "tags": ["CWE-120"]
+    },
+    {
       "cveId": "CVE-2025-47181",
       "title": "Microsoft Edge (Chromium-based) Update Elevation of Privilege Vulnerability",
       "severity": "HIGH",
@@ -11585,20 +11585,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["bizerba se & co. kg"],
       "tags": ["CWE-94"]
-    },
-    {
-      "cveId": "CVE-2025-6043",
-      "title": "Malcure Malware Scanner — #1 Toolset for WordPress Malware Removal <= 16.8 - Authenticated (Subscriber+) Arbitrary File Deletion",
-      "severity": "HIGH",
-      "cvssScore": 8.1,
-      "epssScore": 0.23,
-      "epssPercentile": 45.719,
-      "riskScore": 49,
-      "publishedDate": "2025-07-16T06:40:42.687000+00:00",
-      "lastModifiedDate": "2025-07-16T14:40:34.095000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["malcure"],
-      "tags": ["CWE-862"]
     },
     {
       "cveId": "CVE-2025-29967",
@@ -12564,9 +12550,9 @@
       "lastModifiedDate": "2025-06-25T14:08:48.280000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "ricoh",
-        "fujifilm business innovation",
         "konica minolta, inc.",
+        "fujifilm business innovation",
+        "ricoh",
         "brother industries, ltd"
       ],
       "tags": ["CWE-121"]
@@ -14740,20 +14726,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-7359",
-      "title": "Counter live visitors for WooCommerce <= 1.3.6 - Unauthenticated Arbitrary File Deletion in wcvisitor_get_block",
-      "severity": "HIGH",
-      "cvssScore": 8.2,
-      "epssScore": 0.2,
-      "epssPercentile": 42.204,
-      "riskScore": 48,
-      "publishedDate": "2025-07-16T06:40:41.216000+00:00",
-      "lastModifiedDate": "2025-07-16T14:40:48.546000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["danielriera"],
-      "tags": ["CWE-22"]
     },
     {
       "cveId": "CVE-2025-7645",
@@ -17668,20 +17640,6 @@
       "tags": ["CWE-89"]
     },
     {
-      "cveId": "CVE-2025-52690",
-      "title": "Command Injection Vulnerability in the OmniAccess Stellar over UDP Service",
-      "severity": "HIGH",
-      "cvssScore": 8.1,
-      "epssScore": 0.08,
-      "epssPercentile": 23.442,
-      "riskScore": 48,
-      "publishedDate": "2025-07-16T06:34:02.704000+00:00",
-      "lastModifiedDate": "2025-07-16T14:40:53.098000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["alcatel-lucent"],
-      "tags": ["CWE-77"]
-    },
-    {
       "cveId": "CVE-2025-52834",
       "title": "WordPress Homey theme <= 2.4.5 - SQL Injection Vulnerability",
       "severity": "CRITICAL",
@@ -19232,7 +19190,7 @@
       "publishedDate": "2025-06-25T07:25:00.402000+00:00",
       "lastModifiedDate": "2025-06-25T14:13:40.189000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["ricoh", "fujifilm business innovation", "brother industries, ltd"],
+      "vendors": ["fujifilm business innovation", "ricoh", "brother industries, ltd"],
       "tags": ["CWE-1286"]
     },
     {
@@ -21626,7 +21584,7 @@
       "publishedDate": "2025-06-24T08:05:15.547000+00:00",
       "lastModifiedDate": "2025-06-24T14:18:57.831000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-306"]
     },
     {
@@ -22230,6 +22188,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["n/a"],
       "tags": ["CWE-119"]
+    },
+    {
+      "cveId": "CVE-2025-6043",
+      "title": "Malcure Malware Scanner — #1 Toolset for WordPress Malware Removal <= 16.8 - Authenticated (Subscriber+) Arbitrary File Deletion",
+      "severity": "HIGH",
+      "cvssScore": 8.1,
+      "epssScore": 0.23,
+      "epssPercentile": 45.719,
+      "riskScore": 47,
+      "publishedDate": "2025-07-16T06:40:42.687000+00:00",
+      "lastModifiedDate": "2025-07-16T14:40:34.095000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["malcure"],
+      "tags": ["CWE-862"]
     },
     {
       "cveId": "CVE-2025-6746",
@@ -23084,20 +23056,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["red hat"],
       "tags": ["CWE-78"]
-    },
-    {
-      "cveId": "CVE-2025-1908",
-      "title": "Business Logic Errors in GitLab",
-      "severity": "HIGH",
-      "cvssScore": 7.7,
-      "epssScore": 0.01,
-      "epssPercentile": 1.255,
-      "riskScore": 47,
-      "publishedDate": "2025-04-24T07:30:51.255000+00:00",
-      "lastModifiedDate": "2025-04-24T15:23:23.164000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["gitlab"],
-      "tags": ["CWE-840"]
     },
     {
       "cveId": "CVE-2025-1041",
@@ -27310,7 +27268,7 @@
       "publishedDate": "2025-07-08T05:32:05.678000+00:00",
       "lastModifiedDate": "2025-07-08T13:45:36.200000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -27996,8 +27954,22 @@
       "publishedDate": "2025-07-08T06:02:05.515000+00:00",
       "lastModifiedDate": "2025-07-08T13:44:30.198000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-7359",
+      "title": "Counter live visitors for WooCommerce <= 1.3.6 - Unauthenticated Arbitrary File Deletion in wcvisitor_get_block",
+      "severity": "HIGH",
+      "cvssScore": 8.2,
+      "epssScore": 0.2,
+      "epssPercentile": 42.204,
+      "riskScore": 46,
+      "publishedDate": "2025-07-16T06:40:41.216000+00:00",
+      "lastModifiedDate": "2025-07-16T14:40:48.546000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["danielriera"],
+      "tags": ["CWE-22"]
     },
     {
       "cveId": "CVE-2025-7542",
@@ -30840,6 +30812,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-125"]
+    },
+    {
+      "cveId": "CVE-2025-52690",
+      "title": "Command Injection Vulnerability in the OmniAccess Stellar over UDP Service",
+      "severity": "HIGH",
+      "cvssScore": 8.1,
+      "epssScore": 0.08,
+      "epssPercentile": 23.442,
+      "riskScore": 46,
+      "publishedDate": "2025-07-16T06:34:02.704000+00:00",
+      "lastModifiedDate": "2025-07-16T14:40:53.098000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["alcatel-lucent"],
+      "tags": ["CWE-77"]
     },
     {
       "cveId": "CVE-2025-52995",
@@ -36890,20 +36876,6 @@
       "tags": ["CWE-862"]
     },
     {
-      "cveId": "CVE-2025-2800",
-      "title": "WP Event Manager <= 3.1.50 - Unauthenticated Stored Cross-Site Scripting via 'organizer_name'",
-      "severity": "HIGH",
-      "cvssScore": 7.2,
-      "epssScore": 0.08,
-      "epssPercentile": 24.537,
-      "riskScore": 45,
-      "publishedDate": "2025-07-16T05:23:50.578000+00:00",
-      "lastModifiedDate": "2025-07-18T14:47:41.285000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["wpeventmanager"],
-      "tags": ["CWE-79"]
-    },
-    {
       "cveId": "CVE-2025-2238",
       "title": "Vikinger <= 1.9.30 - Authenticated (Subscriber+) Privilege Escalation via 'vikinger_user_meta_update_ajax'",
       "severity": "HIGH",
@@ -39140,22 +39112,8 @@
       "publishedDate": "2025-06-24T08:10:29.717000+00:00",
       "lastModifiedDate": "2025-06-24T13:56:13.121000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-639"]
-    },
-    {
-      "cveId": "CVE-2025-3761",
-      "title": "My Tickets – Accessible Event Ticketing <= 2.0.16 - Authenticated (Subscriber+) Privilege Escalation",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.06,
-      "epssPercentile": 18.438,
-      "riskScore": 45,
-      "publishedDate": "2025-04-24T06:57:06.438000+00:00",
-      "lastModifiedDate": "2025-04-24T13:06:47.777000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["joedolson"],
-      "tags": ["CWE-269"]
     },
     {
       "cveId": "CVE-2025-3200",
@@ -39210,7 +39168,7 @@
       "publishedDate": "2025-06-24T08:14:31.864000+00:00",
       "lastModifiedDate": "2025-06-24T13:55:34.477000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-204"]
     },
     {
@@ -41744,7 +41702,7 @@
       "publishedDate": "2025-07-21T09:29:57.024000+00:00",
       "lastModifiedDate": "2025-07-21T20:36:45.460000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-78"]
     },
     {
@@ -41786,7 +41744,7 @@
       "publishedDate": "2025-07-21T09:29:32.129000+00:00",
       "lastModifiedDate": "2025-07-21T17:06:11.768000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-78"]
     },
     {
@@ -41800,7 +41758,7 @@
       "publishedDate": "2025-07-21T09:29:43.181000+00:00",
       "lastModifiedDate": "2025-07-21T17:05:33.656000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-78"]
     },
     {
@@ -41830,6 +41788,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["themewinter"],
       "tags": ["CWE-22"]
+    },
+    {
+      "cveId": "CVE-2025-1908",
+      "title": "Business Logic Errors in GitLab",
+      "severity": "HIGH",
+      "cvssScore": 7.7,
+      "epssScore": 0.01,
+      "epssPercentile": 1.255,
+      "riskScore": 45,
+      "publishedDate": "2025-04-24T07:30:51.255000+00:00",
+      "lastModifiedDate": "2025-04-24T15:23:23.164000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["gitlab"],
+      "tags": ["CWE-840"]
     },
     {
       "cveId": "CVE-2025-1751",
@@ -43704,7 +43676,7 @@
       "publishedDate": "2024-10-15T10:28:37.223000+00:00",
       "lastModifiedDate": "2024-10-16T17:39:58.106000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-798"]
     },
     {
@@ -43760,7 +43732,7 @@
       "publishedDate": "2024-10-15T10:28:16.384000+00:00",
       "lastModifiedDate": "2024-10-16T17:44:15.429000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-306"]
     },
     {
@@ -47722,7 +47694,7 @@
       "publishedDate": "2025-06-05T02:31:05.107000+00:00",
       "lastModifiedDate": "2025-06-05T14:09:25.990000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects", "anirbandutta9"],
+      "vendors": ["anirbandutta9", "code-projects"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -47862,7 +47834,7 @@
       "publishedDate": "2025-05-30T18:00:06.477000+00:00",
       "lastModifiedDate": "2025-05-30T18:15:18.480000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -52370,7 +52342,7 @@
       "publishedDate": "2025-05-03T11:00:09.135000+00:00",
       "lastModifiedDate": "2025-05-30T09:10:12.356000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -53098,7 +53070,7 @@
       "publishedDate": "2025-05-05T18:31:04.418000+00:00",
       "lastModifiedDate": "2025-05-05T18:48:57.123000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["oretnom23", "sourcecodester"],
+      "vendors": ["sourcecodester", "oretnom23"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -58138,7 +58110,7 @@
       "publishedDate": "2024-07-09T05:34:17.609000+00:00",
       "lastModifiedDate": "2024-08-01T21:11:12.734000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["webnus", "webnus/"],
+      "vendors": ["webnus/", "webnus"],
       "tags": []
     },
     {
@@ -64200,7 +64172,7 @@
       "publishedDate": "2024-10-22T21:13:37.183000+00:00",
       "lastModifiedDate": "2024-10-23T14:43:52.114000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["kieback&peter", "kieback & peter"],
+      "vendors": ["kieback & peter", "kieback&peter"],
       "tags": ["CWE-22"]
     },
     {
@@ -66358,6 +66330,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["honeywell"],
       "tags": ["CWE-457"]
+    },
+    {
+      "cveId": "CVE-2025-2800",
+      "title": "WP Event Manager <= 3.1.50 - Unauthenticated Stored Cross-Site Scripting via 'organizer_name'",
+      "severity": "HIGH",
+      "cvssScore": 7.2,
+      "epssScore": 0.08,
+      "epssPercentile": 24.537,
+      "riskScore": 43,
+      "publishedDate": "2025-07-16T05:23:50.578000+00:00",
+      "lastModifiedDate": "2025-07-18T14:47:41.285000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["wpeventmanager"],
+      "tags": ["CWE-79"]
     },
     {
       "cveId": "CVE-2025-2815",
@@ -69326,6 +69312,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["quantumcloud"],
       "tags": ["CWE-73"]
+    },
+    {
+      "cveId": "CVE-2025-3761",
+      "title": "My Tickets – Accessible Event Ticketing <= 2.0.16 - Authenticated (Subscriber+) Privilege Escalation",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.06,
+      "epssPercentile": 18.438,
+      "riskScore": 43,
+      "publishedDate": "2025-04-24T06:57:06.438000+00:00",
+      "lastModifiedDate": "2025-04-24T13:06:47.777000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["joedolson"],
+      "tags": ["CWE-269"]
     },
     {
       "cveId": "CVE-2025-3834",
@@ -76436,7 +76436,7 @@
       "publishedDate": "2024-10-15T10:27:52.208000+00:00",
       "lastModifiedDate": "2024-10-16T17:47:04.737000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-261"]
     },
     {
@@ -81406,7 +81406,7 @@
       "publishedDate": "2024-05-14T12:58:31.261000+00:00",
       "lastModifiedDate": "2025-03-14T14:56:10.154000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["na", "n/a"],
+      "vendors": ["n/a", "na"],
       "tags": []
     },
     {
@@ -81602,7 +81602,7 @@
       "publishedDate": "2024-08-07T11:00:06.508000+00:00",
       "lastModifiedDate": "2024-08-07T13:17:59.476000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["webnus", "webnus/"],
+      "vendors": ["webnus/", "webnus"],
       "tags": ["CWE-918"]
     },
     {
@@ -82008,7 +82008,7 @@
       "publishedDate": "2024-02-05T14:33:06.481000+00:00",
       "lastModifiedDate": "2025-05-09T16:32:50.015000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["encode", "kludex", "tiangolo"],
+      "vendors": ["tiangolo", "encode", "kludex"],
       "tags": ["CWE-400"]
     },
     {
@@ -113158,7 +113158,7 @@
       "publishedDate": "2024-10-15T10:27:06.004000+00:00",
       "lastModifiedDate": "2024-10-16T17:49:30.446000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-20"]
     },
     {
@@ -130056,7 +130056,7 @@
       "publishedDate": "2024-10-22T22:19:20.646000+00:00",
       "lastModifiedDate": "2024-11-06T15:50:04.628000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-276"]
     },
     {
@@ -132842,7 +132842,7 @@
       "publishedDate": "2024-11-28T22:16:31.396000+00:00",
       "lastModifiedDate": "2024-12-06T05:18:03.652000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-427"]
     },
     {
@@ -135502,7 +135502,7 @@
       "publishedDate": "2024-11-28T22:20:28.303000+00:00",
       "lastModifiedDate": "2024-12-06T05:23:50.441000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-427"]
     },
     {
@@ -136244,7 +136244,7 @@
       "publishedDate": "2024-11-04T03:31:04.265000+00:00",
       "lastModifiedDate": "2024-11-04T17:01:46.227000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects", "anirbandutta9"],
+      "vendors": ["anirbandutta9", "code-projects"],
       "tags": ["CWE-89"]
     },
     {
@@ -144476,7 +144476,7 @@
       "publishedDate": "2024-07-03T12:26:44.599000+00:00",
       "lastModifiedDate": "2025-02-13T17:54:25.437000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["red lion europe", "helmholz"],
+      "vendors": ["helmholz", "red lion europe"],
       "tags": ["CWE-78"]
     },
     {
@@ -146366,7 +146366,7 @@
       "publishedDate": "2024-10-15T10:28:58.559000+00:00",
       "lastModifiedDate": "2025-01-24T06:32:08.237000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-306"]
     },
     {
@@ -146380,7 +146380,7 @@
       "publishedDate": "2024-10-15T10:27:32.688000+00:00",
       "lastModifiedDate": "2024-10-16T17:36:22.123000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-1391"]
     },
     {
@@ -177432,7 +177432,7 @@
       "publishedDate": "2024-11-28T22:18:28.358000+00:00",
       "lastModifiedDate": "2024-12-06T05:21:38.917000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-561"]
     },
     {
@@ -182346,7 +182346,7 @@
       "publishedDate": "2024-07-04T08:53:41.217000+00:00",
       "lastModifiedDate": "2024-08-19T15:25:49.496000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-427"]
     },
     {
@@ -188856,7 +188856,7 @@
       "publishedDate": "2024-07-08T15:25:38.672000+00:00",
       "lastModifiedDate": "2024-08-01T22:27:36.345000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["realtek", "levelone"],
+      "vendors": ["levelone", "realtek"],
       "tags": ["CWE-122"]
     },
     {
