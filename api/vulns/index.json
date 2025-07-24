@@ -1,6 +1,6 @@
 {
-  "generated": "2025-07-24T00:25:45.640839",
-  "count": 15448,
+  "generated": "2025-07-24T04:21:05.011499",
+  "count": 15488,
   "vulnerabilities": [
     {
       "cveId": "CVE-2025-49113",
@@ -909,7 +909,7 @@
       "publishedDate": "2025-06-25T07:17:32.423000+00:00",
       "lastModifiedDate": "2025-06-27T13:51:00.720000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["brother industries, ltd", "konica minolta, inc.", "toshiba tec"],
+      "vendors": ["toshiba tec", "konica minolta, inc.", "brother industries, ltd"],
       "tags": ["CWE-1391"]
     },
     {
@@ -1063,7 +1063,7 @@
       "publishedDate": "2024-11-26T07:37:44.549000+00:00",
       "lastModifiedDate": "2024-12-10T14:58:18.708000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-288"]
     },
     {
@@ -3049,7 +3049,7 @@
       "epssPercentile": 23.997,
       "riskScore": 56,
       "publishedDate": "2025-07-18T17:04:44.617000+00:00",
-      "lastModifiedDate": "2025-07-22T21:04:18.803000+00:00",
+      "lastModifiedDate": "2025-07-23T03:55:23.522000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-285"]
@@ -3133,7 +3133,7 @@
       "epssPercentile": 86.086,
       "riskScore": 56,
       "publishedDate": "2025-07-20T01:06:33.607000+00:00",
-      "lastModifiedDate": "2025-07-22T21:04:21.134000+00:00",
+      "lastModifiedDate": "2025-07-23T03:55:21.046000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-502"]
@@ -3345,7 +3345,7 @@
       "publishedDate": "2024-10-18T17:32:30.648000+00:00",
       "lastModifiedDate": "2024-10-18T18:56:31.697000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["scott paterson", "scottpaterson"],
+      "vendors": ["scottpaterson", "scott paterson"],
       "tags": ["CWE-94"]
     },
     {
@@ -3903,10 +3903,24 @@
       "epssPercentile": 24.729,
       "riskScore": 54,
       "publishedDate": "2025-07-18T17:04:45.914000+00:00",
-      "lastModifiedDate": "2025-07-22T21:04:20.088000+00:00",
+      "lastModifiedDate": "2025-07-23T03:55:25.712000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-302"]
+    },
+    {
+      "cveId": "CVE-2025-4700",
+      "title": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') in GitLab",
+      "severity": "HIGH",
+      "cvssScore": 8.7,
+      "epssScore": null,
+      "epssPercentile": 0,
+      "riskScore": 54,
+      "publishedDate": "2025-07-23T17:33:13.646000+00:00",
+      "lastModifiedDate": "2025-07-23T17:46:17.034000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["gitlab"],
+      "tags": ["CWE-79"]
     },
     {
       "cveId": "CVE-2025-20309",
@@ -4231,6 +4245,20 @@
       "tags": ["CWE-95"]
     },
     {
+      "cveId": "CVE-2025-33077",
+      "title": "IBM Engineering Systems Design Rhapsody code execution",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": null,
+      "epssPercentile": 0,
+      "riskScore": 53,
+      "publishedDate": "2025-07-23T14:49:24.439000+00:00",
+      "lastModifiedDate": "2025-07-23T15:11:08.364000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["ibm"],
+      "tags": ["CWE-119"]
+    },
+    {
       "cveId": "CVE-2025-33053",
       "title": "Internet Shortcut Files Remote Code Execution Vulnerability",
       "severity": "HIGH",
@@ -4243,6 +4271,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-73"]
+    },
+    {
+      "cveId": "CVE-2025-33076",
+      "title": "IBM Engineering Systems Design Rhapsody code execution",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": null,
+      "epssPercentile": 0,
+      "riskScore": 53,
+      "publishedDate": "2025-07-23T14:48:55.647000+00:00",
+      "lastModifiedDate": "2025-07-23T15:19:24.443000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["ibm"],
+      "tags": ["CWE-119"]
     },
     {
       "cveId": "CVE-2025-2945",
@@ -4421,7 +4463,7 @@
       "epssPercentile": 23.252,
       "riskScore": 53,
       "publishedDate": "2025-07-18T17:04:46.626000+00:00",
-      "lastModifiedDate": "2025-07-22T21:04:20.568000+00:00",
+      "lastModifiedDate": "2025-07-23T03:55:26.758000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-183"]
@@ -4507,7 +4549,7 @@
       "publishedDate": "2024-11-26T07:37:38.329000+00:00",
       "lastModifiedDate": "2024-12-10T15:43:57.213000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-22"]
     },
     {
@@ -5079,7 +5121,7 @@
       "epssPercentile": 13.092,
       "riskScore": 52,
       "publishedDate": "2025-07-21T23:32:06.071000+00:00",
-      "lastModifiedDate": "2025-07-21T23:32:06.071000+00:00",
+      "lastModifiedDate": "2025-07-23T16:08:04.393000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["d-link"],
       "tags": ["CWE-120", "CWE-119"]
@@ -5393,6 +5435,20 @@
       "tags": ["CWE-1285"]
     },
     {
+      "cveId": "CVE-2025-8060",
+      "title": "Tenda AC23 httpd setMacFilterCfg sub_46C940 stack-based overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.05,
+      "epssPercentile": 14.175,
+      "riskScore": 52,
+      "publishedDate": "2025-07-23T01:32:06.931000+00:00",
+      "lastModifiedDate": "2025-07-23T15:14:41.589000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["tenda"],
+      "tags": ["CWE-121", "CWE-119"]
+    },
+    {
       "cveId": "CVE-2025-8019",
       "title": "Shenzhen Libituo Technology LBT-T300-T310 appy.cgi sub_40B6F0 buffer overflow",
       "severity": "HIGH",
@@ -5401,7 +5457,7 @@
       "epssPercentile": 12.492,
       "riskScore": 52,
       "publishedDate": "2025-07-22T15:32:05.676000+00:00",
-      "lastModifiedDate": "2025-07-22T15:32:05.676000+00:00",
+      "lastModifiedDate": "2025-07-23T15:02:32.874000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["shenzhen libituo technology"],
       "tags": ["CWE-120", "CWE-119"]
@@ -5879,7 +5935,7 @@
       "publishedDate": "2024-06-25T03:30:37.970000+00:00",
       "lastModifiedDate": "2024-08-01T21:33:05.337000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["stuartobrien", "warfareplugins", "themerex", "pedrogusmao02", "blazeretail"],
+      "vendors": ["blazeretail", "stuartobrien", "warfareplugins", "pedrogusmao02", "themerex"],
       "tags": []
     },
     {
@@ -6415,6 +6471,48 @@
       "tags": ["CWE-770"]
     },
     {
+      "cveId": "CVE-2025-54451",
+      "title": "CVE-2025-54451: Improper Control of Generation of Code ('Code Injection') vulnerability in Samsung Electronics Magic...",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.05,
+      "epssPercentile": 14.639,
+      "riskScore": 51,
+      "publishedDate": "2025-07-23T05:29:06.803000+00:00",
+      "lastModifiedDate": "2025-07-23T13:15:15.555000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["samsung electronics"],
+      "tags": ["CWE-94"]
+    },
+    {
+      "cveId": "CVE-2025-54443",
+      "title": "CVE-2025-54443: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability in Sams...",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.05,
+      "epssPercentile": 14.333,
+      "riskScore": 51,
+      "publishedDate": "2025-07-23T05:34:30.265000+00:00",
+      "lastModifiedDate": "2025-07-23T14:26:57.382000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["samsung electronics"],
+      "tags": ["CWE-22"]
+    },
+    {
+      "cveId": "CVE-2025-54442",
+      "title": "CVE-2025-54442: Unrestricted Upload of File with Dangerous Type vulnerability in Samsung Electronics MagicINFO 9 Ser...",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.04,
+      "epssPercentile": 12.245,
+      "riskScore": 51,
+      "publishedDate": "2025-07-23T05:34:05.603000+00:00",
+      "lastModifiedDate": "2025-07-23T14:27:14.037000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["samsung electronics"],
+      "tags": ["CWE-434"]
+    },
+    {
       "cveId": "CVE-2025-54122",
       "title": "Manager-io/Manager allows unauthenticated full read server-side request forgery in \"proxy\" endpoint",
       "severity": "CRITICAL",
@@ -6427,6 +6525,90 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["manager-io"],
       "tags": ["CWE-918"]
+    },
+    {
+      "cveId": "CVE-2025-54448",
+      "title": "CVE-2025-54448: Unrestricted Upload of File with Dangerous Type vulnerability in Samsung Electronics MagicINFO 9 Ser...",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.04,
+      "epssPercentile": 12.245,
+      "riskScore": 51,
+      "publishedDate": "2025-07-23T05:31:03.535000+00:00",
+      "lastModifiedDate": "2025-07-23T14:46:07.736000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["samsung electronics"],
+      "tags": ["CWE-434"]
+    },
+    {
+      "cveId": "CVE-2025-54449",
+      "title": "CVE-2025-54449: Unrestricted Upload of File with Dangerous Type vulnerability in Samsung Electronics MagicINFO 9 Ser...",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.04,
+      "epssPercentile": 12.245,
+      "riskScore": 51,
+      "publishedDate": "2025-07-23T05:27:49.191000+00:00",
+      "lastModifiedDate": "2025-07-23T14:00:23.402000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["samsung electronics"],
+      "tags": ["CWE-434"]
+    },
+    {
+      "cveId": "CVE-2025-54440",
+      "title": "CVE-2025-54440: Unrestricted Upload of File with Dangerous Type vulnerability in Samsung Electronics MagicINFO 9 Ser...",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.04,
+      "epssPercentile": 12.245,
+      "riskScore": 51,
+      "publishedDate": "2025-07-23T05:33:16.593000+00:00",
+      "lastModifiedDate": "2025-07-23T14:28:40.631000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["samsung electronics"],
+      "tags": ["CWE-434"]
+    },
+    {
+      "cveId": "CVE-2025-54438",
+      "title": "CVE-2025-54438: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability in Sams...",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.05,
+      "epssPercentile": 14.333,
+      "riskScore": 51,
+      "publishedDate": "2025-07-23T05:36:04.749000+00:00",
+      "lastModifiedDate": "2025-07-23T14:26:02.352000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["samsung electronics"],
+      "tags": ["CWE-22"]
+    },
+    {
+      "cveId": "CVE-2025-54444",
+      "title": "CVE-2025-54444: Unrestricted Upload of File with Dangerous Type vulnerability in Samsung Electronics MagicINFO 9 Ser...",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.04,
+      "epssPercentile": 12.245,
+      "riskScore": 51,
+      "publishedDate": "2025-07-23T05:35:43.456000+00:00",
+      "lastModifiedDate": "2025-07-23T14:26:21.529000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["samsung electronics"],
+      "tags": ["CWE-434"]
+    },
+    {
+      "cveId": "CVE-2025-54446",
+      "title": "CVE-2025-54446: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability in Sams...",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.05,
+      "epssPercentile": 14.333,
+      "riskScore": 51,
+      "publishedDate": "2025-07-23T05:32:00.428000+00:00",
+      "lastModifiedDate": "2025-07-23T14:38:57.671000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["samsung electronics"],
+      "tags": ["CWE-22"]
     },
     {
       "cveId": "CVE-2025-45854",
@@ -6541,6 +6723,20 @@
       "tags": ["CWE-89"]
     },
     {
+      "cveId": "CVE-2025-4439",
+      "title": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') in GitLab",
+      "severity": "HIGH",
+      "cvssScore": 7.7,
+      "epssScore": null,
+      "epssPercentile": 0,
+      "riskScore": 51,
+      "publishedDate": "2025-07-23T18:09:17.968000+00:00",
+      "lastModifiedDate": "2025-07-23T18:23:23.254000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["gitlab"],
+      "tags": ["CWE-79"]
+    },
+    {
       "cveId": "CVE-2025-6934",
       "title": "Opal Estate Pro <= 1.7.5 - Unauthenticated Privilege Escalation via 'on_regiser_user'",
       "severity": "CRITICAL",
@@ -6623,6 +6819,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["webbertakken"],
       "tags": ["CWE-200"]
+    },
+    {
+      "cveId": "CVE-2025-41687",
+      "title": "Weidmueller: Unauthenticated Stack-Based Buffer Overflow in u-link Management API",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.08,
+      "epssPercentile": 24.351,
+      "riskScore": 51,
+      "publishedDate": "2025-07-23T08:23:52.447000+00:00",
+      "lastModifiedDate": "2025-07-23T14:03:59.533000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["weidmueller"],
+      "tags": ["CWE-121"]
     },
     {
       "cveId": "CVE-2025-41646",
@@ -8599,6 +8809,20 @@
       "tags": ["CWE-121", "CWE-119"]
     },
     {
+      "cveId": "CVE-2025-6190",
+      "title": "Realty Portal – Agent <= 0.3.9 - Missing Authorization to Authenticated (Subscriber+) Privilege Escalation via rp_user_profile() Function",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.04,
+      "epssPercentile": 9.684,
+      "riskScore": 50,
+      "publishedDate": "2025-07-23T02:24:38.989000+00:00",
+      "lastModifiedDate": "2025-07-23T18:28:55.839000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["nootheme"],
+      "tags": ["CWE-862"]
+    },
+    {
       "cveId": "CVE-2025-6627",
       "title": "TOTOLINK A702R HTTP POST Request formIpv6Setup buffer overflow",
       "severity": "HIGH",
@@ -9576,11 +9800,11 @@
       "lastModifiedDate": "2025-06-25T14:15:31.576000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "brother industries, ltd",
-        "konica minolta, inc.",
-        "toshiba tec",
         "fujifilm business innovation",
-        "ricoh"
+        "toshiba tec",
+        "ricoh",
+        "brother industries, ltd",
+        "konica minolta, inc."
       ],
       "tags": ["CWE-1286"]
     },
@@ -10579,6 +10803,34 @@
       "tags": ["CWE-416"]
     },
     {
+      "cveId": "CVE-2025-54455",
+      "title": "CVE-2025-54455: Use of Hard-coded Credentials vulnerability in Samsung Electronics MagicINFO 9 Server allows Authent...",
+      "severity": "CRITICAL",
+      "cvssScore": 9.1,
+      "epssScore": 0.04,
+      "epssPercentile": 11.755,
+      "riskScore": 49,
+      "publishedDate": "2025-07-23T05:27:10.678000+00:00",
+      "lastModifiedDate": "2025-07-23T14:06:55.080000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["samsung electronics"],
+      "tags": ["CWE-798"]
+    },
+    {
+      "cveId": "CVE-2025-54454",
+      "title": "CVE-2025-54454: Use of Hard-coded Credentials vulnerability in Samsung Electronics MagicINFO 9 Server allows Authent...",
+      "severity": "CRITICAL",
+      "cvssScore": 9.1,
+      "epssScore": 0.04,
+      "epssPercentile": 11.755,
+      "riskScore": 49,
+      "publishedDate": "2025-07-23T05:26:17.961000+00:00",
+      "lastModifiedDate": "2025-07-23T14:23:38.037000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["samsung electronics"],
+      "tags": ["CWE-798"]
+    },
+    {
       "cveId": "CVE-2025-7341",
       "title": "HT Contact Form Widget For Elementor Page Builder & Gutenberg Blocks & Form Builder. <= 2.2.1 - Unauthenticated Arbitrary File Deletion",
       "severity": "CRITICAL",
@@ -10619,6 +10871,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["htplugins"],
       "tags": ["CWE-22"]
+    },
+    {
+      "cveId": "CVE-2025-7722",
+      "title": "Social Streams <= 1.2.1 - Authenticated (Subscriber+) Privilege Escalation",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.04,
+      "epssPercentile": 10.659,
+      "riskScore": 49,
+      "publishedDate": "2025-07-23T02:24:40.269000+00:00",
+      "lastModifiedDate": "2025-07-23T17:55:35.289000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["steverio"],
+      "tags": ["CWE-272"]
     },
     {
       "cveId": "CVE-2025-47181",
@@ -11055,6 +11321,20 @@
       "tags": ["CWE-306"]
     },
     {
+      "cveId": "CVE-2025-8022",
+      "title": "CVE-2025-8022: All versions of the package bun are vulnerable to Improper Neutralization of Special Elements used i...",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.06,
+      "epssPercentile": 19.625,
+      "riskScore": 49,
+      "publishedDate": "2025-07-23T05:00:06.702000+00:00",
+      "lastModifiedDate": "2025-07-23T14:47:47.348000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["n/a"],
+      "tags": []
+    },
+    {
       "cveId": "CVE-2025-46337",
       "title": "SQL injection in ADOdb PostgreSQL driver pg_insert_id() method",
       "severity": "CRITICAL",
@@ -11217,7 +11497,7 @@
       "epssPercentile": 8.005,
       "riskScore": 49,
       "publishedDate": "2025-06-24T13:50:47.955000+00:00",
-      "lastModifiedDate": "2025-07-22T19:35:14.430000+00:00",
+      "lastModifiedDate": "2025-07-23T14:20:07.319000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["red hat"],
       "tags": ["CWE-295"]
@@ -12284,10 +12564,10 @@
       "lastModifiedDate": "2025-06-25T14:08:48.280000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "brother industries, ltd",
-        "konica minolta, inc.",
+        "ricoh",
         "fujifilm business innovation",
-        "ricoh"
+        "konica minolta, inc.",
+        "brother industries, ltd"
       ],
       "tags": ["CWE-121"]
     },
@@ -13882,7 +14162,7 @@
       "epssPercentile": 28.109,
       "riskScore": 48,
       "publishedDate": "2025-06-16T15:24:31.020000+00:00",
-      "lastModifiedDate": "2025-07-09T13:53:26.669000+00:00",
+      "lastModifiedDate": "2025-07-23T13:55:11.274000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["red hat"],
       "tags": ["CWE-825"]
@@ -14008,7 +14288,7 @@
       "epssPercentile": 27.306,
       "riskScore": 48,
       "publishedDate": "2025-06-16T15:14:28.251000+00:00",
-      "lastModifiedDate": "2025-07-09T13:53:32.858000+00:00",
+      "lastModifiedDate": "2025-07-23T13:55:12.105000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["red hat"],
       "tags": ["CWE-125"]
@@ -14064,7 +14344,7 @@
       "epssPercentile": 14.222,
       "riskScore": 48,
       "publishedDate": "2025-07-19T00:00:00+00:00",
-      "lastModifiedDate": "2025-07-21T16:09:03.150000+00:00",
+      "lastModifiedDate": "2025-07-23T15:16:25.225000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["prettier"],
       "tags": ["CWE-506"]
@@ -14084,6 +14364,34 @@
       "tags": ["CWE-89"]
     },
     {
+      "cveId": "CVE-2025-54439",
+      "title": "CVE-2025-54439: Unrestricted Upload of File with Dangerous Type vulnerability in Samsung Electronics MagicINFO 9 Ser...",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.04,
+      "epssPercentile": 12.108,
+      "riskScore": 48,
+      "publishedDate": "2025-07-23T05:36:29.975000+00:00",
+      "lastModifiedDate": "2025-07-23T14:25:38.214000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["samsung electronics"],
+      "tags": ["CWE-434"]
+    },
+    {
+      "cveId": "CVE-2025-54453",
+      "title": "CVE-2025-54453: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability in Sams...",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.05,
+      "epssPercentile": 14.186,
+      "riskScore": 48,
+      "publishedDate": "2025-07-23T05:30:35.796000+00:00",
+      "lastModifiedDate": "2025-07-23T14:46:27.940000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["samsung electronics"],
+      "tags": ["CWE-22"]
+    },
+    {
       "cveId": "CVE-2025-54075",
       "title": "mdc vulnerable to XSS in markdown rendering bypassing HTML filter. (N°4)",
       "severity": "HIGH",
@@ -14096,6 +14404,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["nuxt-modules"],
       "tags": ["CWE-79"]
+    },
+    {
+      "cveId": "CVE-2025-54441",
+      "title": "CVE-2025-54441: Unrestricted Upload of File with Dangerous Type vulnerability in Samsung Electronics MagicINFO 9 Ser...",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.04,
+      "epssPercentile": 12.108,
+      "riskScore": 48,
+      "publishedDate": "2025-07-23T05:33:40.398000+00:00",
+      "lastModifiedDate": "2025-07-23T14:27:49.671000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["samsung electronics"],
+      "tags": ["CWE-434"]
     },
     {
       "cveId": "CVE-2025-54073",
@@ -16212,6 +16534,20 @@
       "tags": ["CWE-349"]
     },
     {
+      "cveId": "CVE-2025-8020",
+      "title": "CVE-2025-8020: All versions of the package private-ip are vulnerable to Server-Side Request Forgery (SSRF) where an...",
+      "severity": "HIGH",
+      "cvssScore": 8.2,
+      "epssScore": 0.03,
+      "epssPercentile": 6.69,
+      "riskScore": 48,
+      "publishedDate": "2025-07-23T05:00:01.625000+00:00",
+      "lastModifiedDate": "2025-07-23T15:14:07.504000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["n/a"],
+      "tags": []
+    },
+    {
       "cveId": "CVE-2025-46352",
       "title": "Consilium Safety CS5000 Fire Panel Use of Hard-coded Credentials",
       "severity": "CRITICAL",
@@ -16798,6 +17134,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["totolink"],
       "tags": ["CWE-120", "CWE-119"]
+    },
+    {
+      "cveId": "CVE-2025-6018",
+      "title": "Pam-config: lpe from unprivileged to allow_active in pam",
+      "severity": "HIGH",
+      "cvssScore": 7.8,
+      "epssScore": null,
+      "epssPercentile": 0,
+      "riskScore": 48,
+      "publishedDate": "2025-07-23T14:58:59.750000+00:00",
+      "lastModifiedDate": "2025-07-23T15:13:32.871000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["red hat"],
+      "tags": ["CWE-863"]
     },
     {
       "cveId": "CVE-2025-6292",
@@ -17528,6 +17878,20 @@
       "tags": ["CWE-400", "CWE-918"]
     },
     {
+      "cveId": "CVE-2025-41683",
+      "title": "Weidmueller: Root Command Injection via Unsanitized Input in event_mail_test Endpoint",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.26,
+      "epssPercentile": 49.151,
+      "riskScore": 48,
+      "publishedDate": "2025-07-23T08:22:48.380000+00:00",
+      "lastModifiedDate": "2025-07-23T14:08:32.342000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["weidmueller"],
+      "tags": ["CWE-78"]
+    },
+    {
       "cveId": "CVE-2025-41438",
       "title": "Consilium Safety CS5000 Fire Panel Initialization of a Resource with an Insecure Default",
       "severity": "CRITICAL",
@@ -17540,6 +17904,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["consilium safety"],
       "tags": ["CWE-1188"]
+    },
+    {
+      "cveId": "CVE-2025-41684",
+      "title": "Weidmueller: Root Command Injection via Unsanitized Input in tls_iotgen_setting Endpoint",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.26,
+      "epssPercentile": 49.151,
+      "riskScore": 48,
+      "publishedDate": "2025-07-23T08:23:28.046000+00:00",
+      "lastModifiedDate": "2025-07-23T14:04:20.683000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["weidmueller"],
+      "tags": ["CWE-78"]
     },
     {
       "cveId": "CVE-2025-41426",
@@ -18030,20 +18408,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["potenza global solutions"],
       "tags": ["CWE-502"]
-    },
-    {
-      "cveId": "CVE-2025-0314",
-      "title": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') in GitLab",
-      "severity": "HIGH",
-      "cvssScore": 8.7,
-      "epssScore": 0.03,
-      "epssPercentile": 6.151,
-      "riskScore": 48,
-      "publishedDate": "2025-01-24T02:30:44.273000+00:00",
-      "lastModifiedDate": "2025-02-12T20:41:30.754000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["gitlab"],
-      "tags": ["CWE-79"]
     },
     {
       "cveId": "CVE-2025-0966",
@@ -18868,7 +19232,7 @@
       "publishedDate": "2025-06-25T07:25:00.402000+00:00",
       "lastModifiedDate": "2025-06-25T14:13:40.189000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["brother industries, ltd", "fujifilm business innovation", "ricoh"],
+      "vendors": ["ricoh", "fujifilm business innovation", "brother industries, ltd"],
       "tags": ["CWE-1286"]
     },
     {
@@ -20202,6 +20566,34 @@
       "tags": ["CWE-94"]
     },
     {
+      "cveId": "CVE-2025-54447",
+      "title": "CVE-2025-54447: Unrestricted Upload of File with Dangerous Type vulnerability in Samsung Electronics MagicINFO 9 Ser...",
+      "severity": "HIGH",
+      "cvssScore": 8.1,
+      "epssScore": 0.04,
+      "epssPercentile": 12.245,
+      "riskScore": 47,
+      "publishedDate": "2025-07-23T05:32:57.073000+00:00",
+      "lastModifiedDate": "2025-07-23T14:31:01.448000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["samsung electronics"],
+      "tags": ["CWE-434"]
+    },
+    {
+      "cveId": "CVE-2025-54445",
+      "title": "CVE-2025-54445: Improper Restriction of XML External Entity Reference vulnerability in Samsung Electronics MagicINFO...",
+      "severity": "HIGH",
+      "cvssScore": 8.2,
+      "epssScore": 0.04,
+      "epssPercentile": 8.694,
+      "riskScore": 47,
+      "publishedDate": "2025-07-23T05:31:35.364000+00:00",
+      "lastModifiedDate": "2025-07-23T14:43:02.427000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["samsung electronics"],
+      "tags": ["CWE-611"]
+    },
+    {
       "cveId": "CVE-2025-54140",
       "title": "pyLoad has Path Traversal Vulnerability in json/upload Endpoint that allows Arbitrary File Write",
       "severity": "HIGH",
@@ -20210,7 +20602,7 @@
       "epssPercentile": 40.68,
       "riskScore": 47,
       "publishedDate": "2025-07-22T21:34:30.750000+00:00",
-      "lastModifiedDate": "2025-07-22T21:34:30.750000+00:00",
+      "lastModifiedDate": "2025-07-23T18:28:44.036000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["pyload"],
       "tags": ["CWE-22"]
@@ -20224,7 +20616,7 @@
       "epssPercentile": 0.296,
       "riskScore": 47,
       "publishedDate": "2025-07-22T21:33:59.149000+00:00",
-      "lastModifiedDate": "2025-07-22T21:33:59.149000+00:00",
+      "lastModifiedDate": "2025-07-23T18:26:50.196000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["librenms"],
       "tags": ["CWE-98"]
@@ -20244,6 +20636,20 @@
       "tags": ["CWE-23"]
     },
     {
+      "cveId": "CVE-2025-54377",
+      "title": "Roo Code Lacks Line Break Validation in its Command Execution Tool",
+      "severity": "HIGH",
+      "cvssScore": 7.8,
+      "epssScore": null,
+      "epssPercentile": 0,
+      "riskScore": 47,
+      "publishedDate": "2025-07-23T20:36:01.878000+00:00",
+      "lastModifiedDate": "2025-07-23T20:48:31.557000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["roocodeinc"],
+      "tags": ["CWE-77"]
+    },
+    {
       "cveId": "CVE-2025-54141",
       "title": "ViewVC's standalone server exposes arbitrary server filesystem content",
       "severity": "HIGH",
@@ -20252,7 +20658,7 @@
       "epssPercentile": 37.612,
       "riskScore": 47,
       "publishedDate": "2025-07-22T21:35:47.844000+00:00",
-      "lastModifiedDate": "2025-07-22T21:35:47.844000+00:00",
+      "lastModifiedDate": "2025-07-23T18:31:31.496000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["viewvc"],
       "tags": ["CWE-22", "CWE-79"]
@@ -20266,7 +20672,7 @@
       "epssPercentile": 28.875,
       "riskScore": 47,
       "publishedDate": "2025-07-22T21:34:43.408000+00:00",
-      "lastModifiedDate": "2025-07-22T21:34:43.408000+00:00",
+      "lastModifiedDate": "2025-07-23T18:30:06.761000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["yt-dlp"],
       "tags": ["CWE-78"]
@@ -20434,7 +20840,7 @@
       "epssPercentile": 13.58,
       "riskScore": 47,
       "publishedDate": "2025-07-22T21:44:10.227000+00:00",
-      "lastModifiedDate": "2025-07-22T21:44:10.227000+00:00",
+      "lastModifiedDate": "2025-07-23T19:57:57.931000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["lantronix"],
       "tags": ["CWE-611"]
@@ -21220,7 +21626,7 @@
       "publishedDate": "2025-06-24T08:05:15.547000+00:00",
       "lastModifiedDate": "2025-06-24T14:18:57.831000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-306"]
     },
     {
@@ -21596,7 +22002,7 @@
       "epssPercentile": 8.987,
       "riskScore": 47,
       "publishedDate": "2025-07-15T19:27:36.887000+00:00",
-      "lastModifiedDate": "2025-07-18T14:40:29.046000+00:00",
+      "lastModifiedDate": "2025-07-23T03:55:28.921000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["oracle corporation"],
       "tags": []
@@ -22548,7 +22954,7 @@
       "epssPercentile": 10.109,
       "riskScore": 47,
       "publishedDate": "2025-07-22T21:36:03.976000+00:00",
-      "lastModifiedDate": "2025-07-22T21:36:03.976000+00:00",
+      "lastModifiedDate": "2025-07-23T18:32:21.856000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["oisf"],
       "tags": ["CWE-770", "CWE-400"]
@@ -22590,7 +22996,7 @@
       "epssPercentile": 12.919,
       "riskScore": 47,
       "publishedDate": "2025-07-22T21:38:45.479000+00:00",
-      "lastModifiedDate": "2025-07-22T21:38:45.479000+00:00",
+      "lastModifiedDate": "2025-07-23T19:57:18.417000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["duracomm corporation"],
       "tags": ["CWE-79"]
@@ -22622,6 +23028,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["weidmueller"],
       "tags": ["CWE-656"]
+    },
+    {
+      "cveId": "CVE-2025-41663",
+      "title": "Weidmueller: Security routers IE-SR-2TX are affected by Command Injection",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.14,
+      "epssPercentile": 34.254,
+      "riskScore": 47,
+      "publishedDate": "2025-06-11T08:15:55.357000+00:00",
+      "lastModifiedDate": "2025-07-23T08:22:16.504000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["weidmueller"],
+      "tags": ["CWE-78"]
     },
     {
       "cveId": "CVE-2025-41239",
@@ -22862,6 +23282,20 @@
       "tags": ["CWE-502"]
     },
     {
+      "cveId": "CVE-2025-31701",
+      "title": "CVE-2025-31701: A vulnerability has been found in Dahua products.\n\nAttackers could exploit a buffer overflow vulnera...",
+      "severity": "HIGH",
+      "cvssScore": 8.1,
+      "epssScore": 0.16,
+      "epssPercentile": 37.87,
+      "riskScore": 47,
+      "publishedDate": "2025-07-23T06:55:20.001000+00:00",
+      "lastModifiedDate": "2025-07-23T14:14:04.669000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["dahua"],
+      "tags": []
+    },
+    {
       "cveId": "CVE-2025-31631",
       "title": "WordPress Fish House <= 1.2.7 - PHP Object Injection Vulnerability",
       "severity": "CRITICAL",
@@ -22902,6 +23336,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["themeton"],
       "tags": ["CWE-502"]
+    },
+    {
+      "cveId": "CVE-2025-31700",
+      "title": "CVE-2025-31700: A vulnerability has been found in Dahua products.\n\nAttackers could exploit a buffer overflow vulnera...",
+      "severity": "HIGH",
+      "cvssScore": 8.1,
+      "epssScore": 0.16,
+      "epssPercentile": 37.87,
+      "riskScore": 47,
+      "publishedDate": "2025-07-23T06:54:37.996000+00:00",
+      "lastModifiedDate": "2025-07-23T14:19:19.313000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["dahua"],
+      "tags": []
     },
     {
       "cveId": "CVE-2025-31918",
@@ -25718,6 +26166,20 @@
       "tags": ["CWE-502"]
     },
     {
+      "cveId": "CVE-2025-2633",
+      "title": "Out of Bounds Read Vulnerability in NI LabVIEW when loading fonts",
+      "severity": "HIGH",
+      "cvssScore": 7.8,
+      "epssScore": null,
+      "epssPercentile": 0,
+      "riskScore": 46,
+      "publishedDate": "2025-07-23T15:49:06.836000+00:00",
+      "lastModifiedDate": "2025-07-23T17:23:55.255000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["ni"],
+      "tags": ["CWE-1285"]
+    },
+    {
       "cveId": "CVE-2025-2512",
       "title": "File Away <= 3.9.9.0.1 - Missing Authorization to Unauthenticated File Upload via upload Function",
       "severity": "CRITICAL",
@@ -25856,6 +26318,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["totolink"],
       "tags": ["CWE-121", "CWE-119"]
+    },
+    {
+      "cveId": "CVE-2025-2634",
+      "title": "Out of Bounds Read Vulnerability in NI LabVIEW when building font map",
+      "severity": "HIGH",
+      "cvssScore": 7.8,
+      "epssScore": null,
+      "epssPercentile": 0,
+      "riskScore": 46,
+      "publishedDate": "2025-07-23T15:53:25.130000+00:00",
+      "lastModifiedDate": "2025-07-23T20:10:00.301000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["ni"],
+      "tags": ["CWE-1285"]
     },
     {
       "cveId": "CVE-2025-2232",
@@ -26188,7 +26664,7 @@
       "epssPercentile": 18.596,
       "riskScore": 46,
       "publishedDate": "2025-07-22T21:35:52.983000+00:00",
-      "lastModifiedDate": "2025-07-22T21:35:52.983000+00:00",
+      "lastModifiedDate": "2025-07-23T19:56:55.222000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["duracomm corporation"],
       "tags": ["CWE-306"]
@@ -26286,7 +26762,7 @@
       "epssPercentile": 18.646,
       "riskScore": 46,
       "publishedDate": "2025-07-22T21:34:20.201000+00:00",
-      "lastModifiedDate": "2025-07-22T21:34:20.201000+00:00",
+      "lastModifiedDate": "2025-07-23T18:27:54.073000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["haxtheweb"],
       "tags": ["CWE-1392"]
@@ -26834,7 +27310,7 @@
       "publishedDate": "2025-07-08T05:32:05.678000+00:00",
       "lastModifiedDate": "2025-07-08T13:45:36.200000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes", "phpgurukul"],
+      "vendors": ["phpgurukul", "campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -27520,7 +27996,7 @@
       "publishedDate": "2025-07-08T06:02:05.515000+00:00",
       "lastModifiedDate": "2025-07-08T13:44:30.198000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes", "phpgurukul"],
+      "vendors": ["phpgurukul", "campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -28054,6 +28530,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["productive minds"],
       "tags": ["CWE-89"]
+    },
+    {
+      "cveId": "CVE-2025-47281",
+      "title": "Kyverno's Improper JMESPath Variable Evaluation Leads to Denial of Service",
+      "severity": "HIGH",
+      "cvssScore": 7.7,
+      "epssScore": null,
+      "epssPercentile": 0,
+      "riskScore": 46,
+      "publishedDate": "2025-07-23T20:35:21.199000+00:00",
+      "lastModifiedDate": "2025-07-23T20:49:31.882000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["kyverno"],
+      "tags": ["CWE-20", "CWE-248"]
     },
     {
       "cveId": "CVE-2025-47933",
@@ -28952,6 +29442,34 @@
       "tags": ["CWE-22"]
     },
     {
+      "cveId": "CVE-2025-8021",
+      "title": "CVE-2025-8021: All versions of the package files-bucket-server are vulnerable to Directory Traversal where an attac...",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.29,
+      "epssPercentile": 52.024,
+      "riskScore": 46,
+      "publishedDate": "2025-07-23T05:00:03.914000+00:00",
+      "lastModifiedDate": "2025-07-23T15:03:15.075000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["n/a"],
+      "tags": []
+    },
+    {
+      "cveId": "CVE-2025-8069",
+      "title": "Local Privilege Escalation Vulnerability in AWS Client VPN Windows Client",
+      "severity": "HIGH",
+      "cvssScore": 7.8,
+      "epssScore": null,
+      "epssPercentile": 0,
+      "riskScore": 46,
+      "publishedDate": "2025-07-23T15:41:40.310000+00:00",
+      "lastModifiedDate": "2025-07-23T16:21:48.305000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["aws"],
+      "tags": ["CWE-276"]
+    },
+    {
       "cveId": "CVE-2025-46815",
       "title": "ZITADEL Allows IdP Intent Token Reuse",
       "severity": "HIGH",
@@ -29400,20 +29918,6 @@
       "tags": ["CWE-1336", "CWE-791"]
     },
     {
-      "cveId": "CVE-2025-6503",
-      "title": "code-projects Inventory Management System fetchSelectedCategories.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.663,
-      "riskScore": 46,
-      "publishedDate": "2025-06-23T04:00:16.529000+00:00",
-      "lastModifiedDate": "2025-06-23T12:51:38.474000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
       "cveId": "CVE-2025-6954",
       "title": "Campcodes Employee Management System applyleave.php sql injection",
       "severity": "HIGH",
@@ -29493,20 +29997,6 @@
       "riskScore": 46,
       "publishedDate": "2025-06-25T15:31:05.727000+00:00",
       "lastModifiedDate": "2025-06-26T19:38:45.755000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-6500",
-      "title": "code-projects Inventory Management System editCategories.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.663,
-      "riskScore": 46,
-      "publishedDate": "2025-06-23T02:31:06.887000+00:00",
-      "lastModifiedDate": "2025-06-23T13:28:25.788000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
@@ -29988,20 +30478,6 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
-      "cveId": "CVE-2025-6502",
-      "title": "code-projects Inventory Management System changePassword.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.663,
-      "riskScore": 46,
-      "publishedDate": "2025-06-23T03:31:05.474000+00:00",
-      "lastModifiedDate": "2025-06-23T12:54:37.053000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
       "cveId": "CVE-2025-6776",
       "title": "xiaoyunjie openvpn-cms-flask File Upload controller.py upload path traversal",
       "severity": "HIGH",
@@ -30039,20 +30515,6 @@
       "riskScore": 46,
       "publishedDate": "2025-06-28T16:31:05.642000+00:00",
       "lastModifiedDate": "2025-06-30T20:18:37.551000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-6501",
-      "title": "code-projects Inventory Management System createCategories.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.663,
-      "riskScore": 46,
-      "publishedDate": "2025-06-23T03:00:15.916000+00:00",
-      "lastModifiedDate": "2025-06-23T13:27:50.412000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
@@ -30590,6 +31052,20 @@
       "tags": ["CWE-89"]
     },
     {
+      "cveId": "CVE-2025-53537",
+      "title": "LibHTP's memory leak with lzma can lead to resource starvation",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": null,
+      "epssPercentile": 0,
+      "riskScore": 46,
+      "publishedDate": "2025-07-23T20:35:30.824000+00:00",
+      "lastModifiedDate": "2025-07-23T20:48:59.864000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["oisf"],
+      "tags": ["CWE-401"]
+    },
+    {
       "cveId": "CVE-2025-53703",
       "title": "DuraComm DP-10iN-100-MU Cleartext Transmission of Sensitive Information",
       "severity": "HIGH",
@@ -30598,7 +31074,7 @@
       "epssPercentile": 1.235,
       "riskScore": 46,
       "publishedDate": "2025-07-22T21:31:22.451000+00:00",
-      "lastModifiedDate": "2025-07-22T21:31:22.451000+00:00",
+      "lastModifiedDate": "2025-07-23T15:15:01.356000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["duracomm corporation"],
       "tags": ["CWE-319"]
@@ -30696,7 +31172,7 @@
       "epssPercentile": 11.246,
       "riskScore": 46,
       "publishedDate": "2025-07-21T20:15:17.464000+00:00",
-      "lastModifiedDate": "2025-07-22T19:55:52.368000+00:00",
+      "lastModifiedDate": "2025-07-23T15:01:36.184000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["zmievsa"],
       "tags": ["CWE-79"]
@@ -31764,6 +32240,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["iqonic design"],
       "tags": ["CWE-434"]
+    },
+    {
+      "cveId": "CVE-2025-0314",
+      "title": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') in GitLab",
+      "severity": "HIGH",
+      "cvssScore": 8.7,
+      "epssScore": 0.03,
+      "epssPercentile": 6.151,
+      "riskScore": 46,
+      "publishedDate": "2025-01-24T02:30:44.273000+00:00",
+      "lastModifiedDate": "2025-02-12T20:41:30.754000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["gitlab"],
+      "tags": ["CWE-79"]
     },
     {
       "cveId": "CVE-2025-0493",
@@ -36240,7 +36730,7 @@
       "epssPercentile": 24.394,
       "riskScore": 45,
       "publishedDate": "2025-05-22T14:51:01.110000+00:00",
-      "lastModifiedDate": "2025-07-21T07:33:48.221000+00:00",
+      "lastModifiedDate": "2025-07-23T14:30:07.562000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["red hat"],
       "tags": ["CWE-400"]
@@ -37444,7 +37934,7 @@
       "epssPercentile": 11.126,
       "riskScore": 45,
       "publishedDate": "2025-07-22T15:26:31.314000+00:00",
-      "lastModifiedDate": "2025-07-22T15:26:31.314000+00:00",
+      "lastModifiedDate": "2025-07-23T15:08:14.347000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["bloomberg"],
       "tags": ["CWE-476"]
@@ -37574,6 +38064,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["advantech"],
       "tags": []
+    },
+    {
+      "cveId": "CVE-2025-54452",
+      "title": "CVE-2025-54452: Improper Authentication vulnerability in Samsung Electronics MagicINFO 9 Server allows Authenticatio...",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.05,
+      "epssPercentile": 14.74,
+      "riskScore": 45,
+      "publishedDate": "2025-07-23T05:29:34.600000+00:00",
+      "lastModifiedDate": "2025-07-23T14:52:49.381000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["samsung electronics"],
+      "tags": ["CWE-287"]
     },
     {
       "cveId": "CVE-2025-54043",
@@ -38270,7 +38774,7 @@
       "epssPercentile": 11.089,
       "riskScore": 45,
       "publishedDate": "2025-07-22T15:26:29.880000+00:00",
-      "lastModifiedDate": "2025-07-22T15:26:29.880000+00:00",
+      "lastModifiedDate": "2025-07-23T15:21:42.937000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["bloomberg"],
       "tags": ["CWE-617"]
@@ -38340,7 +38844,7 @@
       "epssPercentile": 11.126,
       "riskScore": 45,
       "publishedDate": "2025-07-22T15:26:34.557000+00:00",
-      "lastModifiedDate": "2025-07-22T15:26:34.557000+00:00",
+      "lastModifiedDate": "2025-07-23T15:03:21.850000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["bloomberg"],
       "tags": ["CWE-476"]
@@ -38636,7 +39140,7 @@
       "publishedDate": "2025-06-24T08:10:29.717000+00:00",
       "lastModifiedDate": "2025-06-24T13:56:13.121000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-639"]
     },
     {
@@ -38706,7 +39210,7 @@
       "publishedDate": "2025-06-24T08:14:31.864000+00:00",
       "lastModifiedDate": "2025-06-24T13:55:34.477000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-204"]
     },
     {
@@ -39362,7 +39866,7 @@
       "epssPercentile": 11.089,
       "riskScore": 45,
       "publishedDate": "2025-07-22T15:26:32.910000+00:00",
-      "lastModifiedDate": "2025-07-22T15:26:32.910000+00:00",
+      "lastModifiedDate": "2025-07-23T15:06:56.215000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["bloomberg"],
       "tags": ["CWE-617"]
@@ -41240,7 +41744,7 @@
       "publishedDate": "2025-07-21T09:29:57.024000+00:00",
       "lastModifiedDate": "2025-07-21T20:36:45.460000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-78"]
     },
     {
@@ -41282,7 +41786,7 @@
       "publishedDate": "2025-07-21T09:29:32.129000+00:00",
       "lastModifiedDate": "2025-07-21T17:06:11.768000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-78"]
     },
     {
@@ -41296,7 +41800,7 @@
       "publishedDate": "2025-07-21T09:29:43.181000+00:00",
       "lastModifiedDate": "2025-07-21T17:05:33.656000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-78"]
     },
     {
@@ -42386,7 +42890,7 @@
       "epssPercentile": 11.126,
       "riskScore": 45,
       "publishedDate": "2025-07-22T15:26:28.550000+00:00",
-      "lastModifiedDate": "2025-07-22T15:26:28.550000+00:00",
+      "lastModifiedDate": "2025-07-23T16:20:41.231000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["bloomberg"],
       "tags": ["CWE-476"]
@@ -43200,7 +43704,7 @@
       "publishedDate": "2024-10-15T10:28:37.223000+00:00",
       "lastModifiedDate": "2024-10-16T17:39:58.106000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-798"]
     },
     {
@@ -43256,7 +43760,7 @@
       "publishedDate": "2024-10-15T10:28:16.384000+00:00",
       "lastModifiedDate": "2024-10-16T17:44:15.429000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-306"]
     },
     {
@@ -43578,7 +44082,7 @@
       "publishedDate": "2024-11-26T07:38:12.712000+00:00",
       "lastModifiedDate": "2025-01-27T17:45:48.564000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-798"]
     },
     {
@@ -45748,7 +46252,7 @@
       "publishedDate": "2024-11-26T07:37:06.324000+00:00",
       "lastModifiedDate": "2024-12-10T14:57:54.916000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-121"]
     },
     {
@@ -45972,7 +46476,7 @@
       "publishedDate": "2024-11-26T07:38:06.435000+00:00",
       "lastModifiedDate": "2025-01-27T17:46:45.224000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-798"]
     },
     {
@@ -47218,7 +47722,7 @@
       "publishedDate": "2025-06-05T02:31:05.107000+00:00",
       "lastModifiedDate": "2025-06-05T14:09:25.990000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["anirbandutta9", "code-projects"],
+      "vendors": ["code-projects", "anirbandutta9"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -47358,7 +47862,7 @@
       "publishedDate": "2025-05-30T18:00:06.477000+00:00",
       "lastModifiedDate": "2025-05-30T18:15:18.480000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes", "phpgurukul"],
+      "vendors": ["phpgurukul", "campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -48662,6 +49166,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["bunny.net"],
       "tags": ["CWE-79"]
+    },
+    {
+      "cveId": "CVE-2025-54450",
+      "title": "CVE-2025-54450: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability in Sams...",
+      "severity": "HIGH",
+      "cvssScore": 7.2,
+      "epssScore": 0.04,
+      "epssPercentile": 12.368,
+      "riskScore": 44,
+      "publishedDate": "2025-07-23T05:28:25.686000+00:00",
+      "lastModifiedDate": "2025-07-23T13:46:26.981000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["samsung electronics"],
+      "tags": ["CWE-22"]
     },
     {
       "cveId": "CVE-2025-7146",
@@ -51852,7 +52370,7 @@
       "publishedDate": "2025-05-03T11:00:09.135000+00:00",
       "lastModifiedDate": "2025-05-30T09:10:12.356000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes", "phpgurukul"],
+      "vendors": ["phpgurukul", "campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -52580,7 +53098,7 @@
       "publishedDate": "2025-05-05T18:31:04.418000+00:00",
       "lastModifiedDate": "2025-05-05T18:48:57.123000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sourcecodester", "oretnom23"],
+      "vendors": ["oretnom23", "sourcecodester"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -53760,6 +54278,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-6503",
+      "title": "code-projects Inventory Management System fetchSelectedCategories.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.663,
+      "riskScore": 44,
+      "publishedDate": "2025-06-23T04:00:16.529000+00:00",
+      "lastModifiedDate": "2025-06-23T12:51:38.474000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-6354",
       "title": "code-projects Online Shoe Store customer_signup.php sql injection",
       "severity": "HIGH",
@@ -53909,6 +54441,20 @@
       "riskScore": 44,
       "publishedDate": "2025-06-21T20:31:06.728000+00:00",
       "lastModifiedDate": "2025-06-23T14:35:25.132000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-6500",
+      "title": "code-projects Inventory Management System editCategories.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.663,
+      "riskScore": 44,
+      "publishedDate": "2025-06-23T02:31:06.887000+00:00",
+      "lastModifiedDate": "2025-06-23T13:28:25.788000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
@@ -54594,7 +55140,7 @@
       "epssPercentile": 27.306,
       "riskScore": 44,
       "publishedDate": "2025-06-12T12:49:16.157000+00:00",
-      "lastModifiedDate": "2025-07-09T13:59:40.769000+00:00",
+      "lastModifiedDate": "2025-07-23T13:54:56.342000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["red hat"],
       "tags": ["CWE-121"]
@@ -54712,6 +55258,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-6502",
+      "title": "code-projects Inventory Management System changePassword.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.663,
+      "riskScore": 44,
+      "publishedDate": "2025-06-23T03:31:05.474000+00:00",
+      "lastModifiedDate": "2025-06-23T12:54:37.053000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-6323",
       "title": "PHPGurukul Pre-School Enrollment System enrollment.php sql injection",
       "severity": "HIGH",
@@ -54794,6 +55354,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["trendmakers"],
       "tags": ["CWE-327"]
+    },
+    {
+      "cveId": "CVE-2025-6501",
+      "title": "code-projects Inventory Management System createCategories.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.663,
+      "riskScore": 44,
+      "publishedDate": "2025-06-23T03:00:15.916000+00:00",
+      "lastModifiedDate": "2025-06-23T13:27:50.412000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
     },
     {
       "cveId": "CVE-2025-6318",
@@ -55882,7 +56456,7 @@
       "epssPercentile": 21.644,
       "riskScore": 44,
       "publishedDate": "2025-06-11T08:13:27.237000+00:00",
-      "lastModifiedDate": "2025-06-11T13:35:03.217000+00:00",
+      "lastModifiedDate": "2025-07-23T08:21:49.994000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["weidmueller"],
       "tags": ["CWE-352"]
@@ -55900,20 +56474,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["sma"],
       "tags": ["CWE-669"]
-    },
-    {
-      "cveId": "CVE-2025-41662",
-      "title": "Weidmueller: Security routers IE-SR-2TX are affected by Cross-Site Request Forgery",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": null,
-      "epssPercentile": 0,
-      "riskScore": 44,
-      "publishedDate": "2025-06-11T08:08:17.544000+00:00",
-      "lastModifiedDate": "2025-06-11T13:14:12.196000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["weidmueller"],
-      "tags": ["CWE-352"]
     },
     {
       "cveId": "CVE-2025-1707",
@@ -57578,7 +58138,7 @@
       "publishedDate": "2024-07-09T05:34:17.609000+00:00",
       "lastModifiedDate": "2024-08-01T21:11:12.734000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["webnus/", "webnus"],
+      "vendors": ["webnus", "webnus/"],
       "tags": []
     },
     {
@@ -58768,7 +59328,7 @@
       "publishedDate": "2025-05-09T15:18:34.124000+00:00",
       "lastModifiedDate": "2025-05-09T19:09:17.086000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["avg", "avast", "norton"],
+      "vendors": ["avast", "avg", "norton"],
       "tags": ["CWE-367"]
     },
     {
@@ -59370,7 +59930,7 @@
       "publishedDate": "2024-10-25T06:18:36.274000+00:00",
       "lastModifiedDate": "2024-10-25T18:38:24.503000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-288"]
     },
     {
@@ -63614,6 +64174,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["hewlett packard enterprise (hpe)"],
       "tags": ["CWE-552"]
+    },
+    {
+      "cveId": "CVE-2024-53286",
+      "title": "CVE-2024-53286: Improper neutralization of special elements used in an OS command ('OS Command Injection') vulnerabi...",
+      "severity": "HIGH",
+      "cvssScore": 7.2,
+      "epssScore": 0.29,
+      "epssPercentile": 52.164,
+      "riskScore": 44,
+      "publishedDate": "2025-07-23T04:11:30.757000+00:00",
+      "lastModifiedDate": "2025-07-23T15:14:26.179000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["synology"],
+      "tags": ["CWE-78"]
     },
     {
       "cveId": "CVE-2024-41717",
@@ -70378,20 +70952,6 @@
       "tags": ["CWE-89"]
     },
     {
-      "cveId": "CVE-2025-41663",
-      "title": "Weidmueller: Security routers IE-SR-2TX are affected by Command Injection",
-      "severity": "HIGH",
-      "cvssScore": 8.1,
-      "epssScore": 0.14,
-      "epssPercentile": 34.254,
-      "riskScore": 43,
-      "publishedDate": "2025-06-11T08:15:55.357000+00:00",
-      "lastModifiedDate": "2025-06-11T13:34:11.722000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["weidmueller"],
-      "tags": ["CWE-78"]
-    },
-    {
       "cveId": "CVE-2025-41444",
       "title": "SQL Injection",
       "severity": "HIGH",
@@ -75876,7 +76436,7 @@
       "publishedDate": "2024-10-15T10:27:52.208000+00:00",
       "lastModifiedDate": "2024-10-16T17:47:04.737000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-261"]
     },
     {
@@ -78646,7 +79206,7 @@
       "epssPercentile": 58.725,
       "riskScore": 43,
       "publishedDate": "2024-05-09T14:57:21.327000+00:00",
-      "lastModifiedDate": "2025-07-02T14:20:47.908000+00:00",
+      "lastModifiedDate": "2025-07-23T20:01:49.040000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["red hat"],
       "tags": ["CWE-354"]
@@ -79850,7 +80410,7 @@
       "epssPercentile": 72.117,
       "riskScore": 43,
       "publishedDate": "2025-03-14T08:19:48.962000+00:00",
-      "lastModifiedDate": "2025-07-04T10:21:46.313000+00:00",
+      "lastModifiedDate": "2025-07-23T21:05:35.464000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["red hat"],
       "tags": ["CWE-674"]
@@ -81042,7 +81602,7 @@
       "publishedDate": "2024-08-07T11:00:06.508000+00:00",
       "lastModifiedDate": "2024-08-07T13:17:59.476000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["webnus/", "webnus"],
+      "vendors": ["webnus", "webnus/"],
       "tags": ["CWE-918"]
     },
     {
@@ -81448,7 +82008,7 @@
       "publishedDate": "2024-02-05T14:33:06.481000+00:00",
       "lastModifiedDate": "2025-05-09T16:32:50.015000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["tiangolo", "encode", "kludex"],
+      "vendors": ["encode", "kludex", "tiangolo"],
       "tags": ["CWE-400"]
     },
     {
@@ -97112,7 +97672,7 @@
       "epssPercentile": 48.103,
       "riskScore": 42,
       "publishedDate": "2024-02-28T12:11:59.650000+00:00",
-      "lastModifiedDate": "2025-07-09T08:24:22.424000+00:00",
+      "lastModifiedDate": "2025-07-23T11:44:12.488000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["red hat"],
       "tags": ["CWE-122"]
@@ -97168,7 +97728,7 @@
       "epssPercentile": 56.639,
       "riskScore": 42,
       "publishedDate": "2024-02-28T12:13:12.555000+00:00",
-      "lastModifiedDate": "2025-07-09T08:28:43.140000+00:00",
+      "lastModifiedDate": "2025-07-23T11:44:16.388000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["red hat"],
       "tags": ["CWE-122"]
@@ -99100,7 +99660,7 @@
       "epssPercentile": 62.066,
       "riskScore": 42,
       "publishedDate": "2024-12-19T14:18:05.194000+00:00",
-      "lastModifiedDate": "2024-12-19T14:53:25.664000+00:00",
+      "lastModifiedDate": "2025-07-23T22:46:15.035000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [],
       "tags": ["CWE-20"]
@@ -101746,7 +102306,7 @@
       "epssPercentile": 24.533,
       "riskScore": 42,
       "publishedDate": "2024-10-09T14:32:11.922000+00:00",
-      "lastModifiedDate": "2025-06-09T06:32:30.290000+00:00",
+      "lastModifiedDate": "2025-07-23T18:13:54.114000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["red hat"],
       "tags": ["CWE-22"]
@@ -101788,7 +102348,7 @@
       "epssPercentile": 18.742,
       "riskScore": 42,
       "publishedDate": "2024-10-30T07:42:35.320000+00:00",
-      "lastModifiedDate": "2025-07-05T02:21:17.046000+00:00",
+      "lastModifiedDate": "2025-07-23T14:40:18.459000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["red hat"],
       "tags": ["CWE-122"]
@@ -103748,7 +104308,7 @@
       "epssPercentile": 32.842,
       "riskScore": 42,
       "publishedDate": "2024-04-05T12:04:49.414000+00:00",
-      "lastModifiedDate": "2025-07-09T08:49:34.024000+00:00",
+      "lastModifiedDate": "2025-07-23T14:40:57.713000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["red hat"],
       "tags": ["CWE-416"]
@@ -108060,7 +108620,7 @@
       "epssPercentile": 0.267,
       "riskScore": 41,
       "publishedDate": "2025-02-18T00:00:00+00:00",
-      "lastModifiedDate": "2025-03-21T18:03:53.384000+00:00",
+      "lastModifiedDate": "2025-07-23T03:55:31.090000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["xmlsoft"],
       "tags": ["CWE-121"]
@@ -112598,7 +113158,7 @@
       "publishedDate": "2024-10-15T10:27:06.004000+00:00",
       "lastModifiedDate": "2024-10-16T17:49:30.446000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-20"]
     },
     {
@@ -113844,7 +114404,7 @@
       "publishedDate": "2024-10-25T06:18:30.415000+00:00",
       "lastModifiedDate": "2024-10-25T18:38:02.777000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-749"]
     },
     {
@@ -114138,7 +114698,7 @@
       "publishedDate": "2024-11-26T07:38:24.464000+00:00",
       "lastModifiedDate": "2024-11-26T16:28:15.625000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -114152,7 +114712,7 @@
       "publishedDate": "2024-11-26T07:38:30.408000+00:00",
       "lastModifiedDate": "2024-11-26T14:48:35.480000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -114208,7 +114768,7 @@
       "publishedDate": "2024-11-26T07:38:18.359000+00:00",
       "lastModifiedDate": "2024-11-26T14:09:24.516000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-79"]
     },
     {
@@ -114738,7 +115298,7 @@
       "epssPercentile": 67.992,
       "riskScore": 41,
       "publishedDate": "2024-05-28T12:53:03.399000+00:00",
-      "lastModifiedDate": "2025-07-05T02:30:23.767000+00:00",
+      "lastModifiedDate": "2025-07-23T11:53:37.326000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["red hat"],
       "tags": ["CWE-20"]
@@ -118714,7 +119274,7 @@
       "epssPercentile": 75.322,
       "riskScore": 41,
       "publishedDate": "2024-03-21T12:16:38.790000+00:00",
-      "lastModifiedDate": "2025-07-10T20:10:31.520000+00:00",
+      "lastModifiedDate": "2025-07-23T18:13:19.604000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["red hat"],
       "tags": ["CWE-401"]
@@ -133220,7 +133780,7 @@
       "publishedDate": "2024-10-25T06:18:00.481000+00:00",
       "lastModifiedDate": "2024-10-25T18:37:13.542000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -135684,7 +136244,7 @@
       "publishedDate": "2024-11-04T03:31:04.265000+00:00",
       "lastModifiedDate": "2024-11-04T17:01:46.227000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["anirbandutta9", "code-projects"],
+      "vendors": ["code-projects", "anirbandutta9"],
       "tags": ["CWE-89"]
     },
     {
@@ -136972,7 +137532,7 @@
       "publishedDate": "2024-10-25T06:18:10.875000+00:00",
       "lastModifiedDate": "2024-10-25T17:16:12.736000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -145806,7 +146366,7 @@
       "publishedDate": "2024-10-15T10:28:58.559000+00:00",
       "lastModifiedDate": "2025-01-24T06:32:08.237000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-306"]
     },
     {
@@ -145820,7 +146380,7 @@
       "publishedDate": "2024-10-15T10:27:32.688000+00:00",
       "lastModifiedDate": "2024-10-16T17:36:22.123000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-1391"]
     },
     {
@@ -147304,7 +147864,7 @@
       "publishedDate": "2024-10-25T06:18:42.287000+00:00",
       "lastModifiedDate": "2024-10-25T18:32:25.798000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-644"]
     },
     {
@@ -147458,7 +148018,7 @@
       "publishedDate": "2024-10-25T06:18:50.793000+00:00",
       "lastModifiedDate": "2024-10-25T14:16:46.537000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-79"]
     },
     {
@@ -188296,7 +188856,7 @@
       "publishedDate": "2024-07-08T15:25:38.672000+00:00",
       "lastModifiedDate": "2024-08-01T22:27:36.345000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["levelone", "realtek"],
+      "vendors": ["realtek", "levelone"],
       "tags": ["CWE-122"]
     },
     {
@@ -207796,7 +208356,7 @@
       "epssPercentile": 48.535,
       "riskScore": 36,
       "publishedDate": "2024-11-29T08:03:07.458000+00:00",
-      "lastModifiedDate": "2024-11-29T13:40:11.027000+00:00",
+      "lastModifiedDate": "2025-07-23T07:21:57.134000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["nec corporation"],
       "tags": ["CWE-77"]
