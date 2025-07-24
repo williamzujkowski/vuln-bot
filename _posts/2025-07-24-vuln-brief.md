@@ -1,6 +1,6 @@
 ---
 title: Morning Vulnerability Briefing - 2025-07-24
-date: 2025-07-24T12:11:37.802557
+date: 2025-07-24T16:08:30.951731
 layout: layouts/post.njk
 tags: [vulnerability, briefing, security]
 vulnerabilityCount: 15488
@@ -161,7 +161,7 @@ Today's briefing covers **15488 vulnerabilities** from 0 sources.
 **Risk Factors**:
 
 - CRITICAL severity
-- 87.83% exploit probability
+- 87.81% exploit probability
 - Affects critical infrastructure: kubernetes
 
 **Affected Vendors**: kubernetes
@@ -297,7 +297,7 @@ critical systems.
 - CRITICAL severity
 - 93.95% exploit probability
 
-**Affected Vendors**: rogierlankhorst, really simple plugins
+**Affected Vendors**: really simple plugins, rogierlankhorst
 
 **Tags**: `CWE-288`
 
@@ -314,14 +314,14 @@ critical systems.
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.6 | 
-**EPSS**: 92.6%
+**EPSS**: 92.8%
 
 **Summary**: A out-of-bounds write in Fortinet FortiOS versions 7.4.0 through 7.4.2, 7.2.0 through 7.2.6, 7.0.0 through 7.0.13, 6.4.0 through 6.4.14, 6.2.0 through 6.2.15, 6.0.0 through 6.0.17, FortiProxy versions 7.4.0 through 7.4.2, 7.2.0 through 7.2.8, 7.0.0 through 7.0.14, 2.0.0 through 2.0.13, 1.2.0 through 1.2.13, 1.1.0 through 1.1.6, 1.0.0 through 1.0.7 allows attacker to execute unauthorized code or commands via specifically crafted requests
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 92.58% exploit probability
+- 92.78% exploit probability
 - Affects critical infrastructure: fortinet
 
 **Affected Vendors**: fortinet
@@ -776,31 +776,7 @@ code.
 
 ---
 
-### 30. [CVE-2024-20439](/api/vulns/CVE-2024-20439.json)
-
-**Risk Score**: 65/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 87.5%
-
-**Summary**: A vulnerability in Cisco Smart Licensing Utility (CSLU) could allow an unauthenticated, remote attacker to log into an affected system by using a static administrative credential.
- This vulnerability is due to an undocumented static user credential for an administrative account. An attacker could exploit this vulnerability by using the static credentials to login to the affected system. A successful exploit could allow the attacker to login to the affected system with administrative rights ove...
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 87.53% exploit probability
-- Affects critical infrastructure: cisco
-
-**Affected Vendors**: cisco
-
-**References**:
-
-- [https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-cslu-7gHMzWmw](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-cslu-7gHMzWmw)
-
----
-
-### 31. [CVE-2025-1661](/api/vulns/CVE-2025-1661.json)
+### 30. [CVE-2025-1661](/api/vulns/CVE-2025-1661.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -826,7 +802,7 @@ code.
 
 ---
 
-### 32. [CVE-2024-49112](/api/vulns/CVE-2024-49112.json)
+### 31. [CVE-2024-49112](/api/vulns/CVE-2024-49112.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -848,6 +824,30 @@ code.
 **References**:
 
 - [https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-49112](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-49112)
+
+---
+
+### 32. [CVE-2024-20439](/api/vulns/CVE-2024-20439.json)
+
+**Risk Score**: 65/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 9.8 | 
+**EPSS**: 86.5%
+
+**Summary**: A vulnerability in Cisco Smart Licensing Utility (CSLU) could allow an unauthenticated, remote attacker to log into an affected system by using a static administrative credential.
+ This vulnerability is due to an undocumented static user credential for an administrative account. An attacker could exploit this vulnerability by using the static credentials to login to the affected system. A successful exploit could allow the attacker to login to the affected system with administrative rights ove...
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 86.52% exploit probability
+- Affects critical infrastructure: cisco
+
+**Affected Vendors**: cisco
+
+**References**:
+
+- [https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-cslu-7gHMzWmw](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-cslu-7gHMzWmw)
 
 ---
 
