@@ -1,5 +1,5 @@
 {
-  "generated": "2025-07-23T20:08:30.310230",
+  "generated": "2025-07-24T00:25:45.640839",
   "count": 15448,
   "vulnerabilities": [
     {
@@ -909,7 +909,7 @@
       "publishedDate": "2025-06-25T07:17:32.423000+00:00",
       "lastModifiedDate": "2025-06-27T13:51:00.720000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec", "brother industries, ltd", "konica minolta, inc."],
+      "vendors": ["brother industries, ltd", "konica minolta, inc.", "toshiba tec"],
       "tags": ["CWE-1391"]
     },
     {
@@ -5361,7 +5361,7 @@
       "publishedDate": "2025-05-13T03:21:29.625000+00:00",
       "lastModifiedDate": "2025-05-13T13:57:36.925000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["msaari", "relevanssi"],
+      "vendors": ["relevanssi", "msaari"],
       "tags": ["CWE-89"]
     },
     {
@@ -5879,7 +5879,7 @@
       "publishedDate": "2024-06-25T03:30:37.970000+00:00",
       "lastModifiedDate": "2024-08-01T21:33:05.337000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["stuartobrien", "pedrogusmao02", "blazeretail", "themerex", "warfareplugins"],
+      "vendors": ["stuartobrien", "warfareplugins", "themerex", "pedrogusmao02", "blazeretail"],
       "tags": []
     },
     {
@@ -8991,20 +8991,6 @@
       "tags": ["CWE-89"]
     },
     {
-      "cveId": "CVE-2025-52921",
-      "title": "CVE-2025-52921: In Innoshop through 0.4.1, an authenticated attacker could exploit the File Manager functions in the...",
-      "severity": "CRITICAL",
-      "cvssScore": 9.9,
-      "epssScore": 0.06,
-      "epssPercentile": 19.978,
-      "riskScore": 50,
-      "publishedDate": "2025-06-23T00:00:00+00:00",
-      "lastModifiedDate": "2025-06-23T13:51:45.551000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["innoshop"],
-      "tags": ["CWE-420"]
-    },
-    {
       "cveId": "CVE-2025-52562",
       "title": "Convey Panel Directory Traversal in LocaleController leading to Remote Code Execution",
       "severity": "CRITICAL",
@@ -9590,11 +9576,11 @@
       "lastModifiedDate": "2025-06-25T14:15:31.576000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "toshiba tec",
         "brother industries, ltd",
-        "ricoh",
+        "konica minolta, inc.",
+        "toshiba tec",
         "fujifilm business innovation",
-        "konica minolta, inc."
+        "ricoh"
       ],
       "tags": ["CWE-1286"]
     },
@@ -12298,10 +12284,10 @@
       "lastModifiedDate": "2025-06-25T14:08:48.280000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "fujifilm business innovation",
         "brother industries, ltd",
-        "ricoh",
-        "konica minolta, inc."
+        "konica minolta, inc.",
+        "fujifilm business innovation",
+        "ricoh"
       ],
       "tags": ["CWE-121"]
     },
@@ -17272,7 +17258,7 @@
       "publishedDate": "2025-06-13T09:23:49.631000+00:00",
       "lastModifiedDate": "2025-06-13T12:22:47.798000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["rts", "telex"],
+      "vendors": ["telex", "rts"],
       "tags": []
     },
     {
@@ -17302,6 +17288,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["directiq"],
       "tags": ["CWE-89"]
+    },
+    {
+      "cveId": "CVE-2025-52921",
+      "title": "CVE-2025-52921: In Innoshop through 0.4.1, an authenticated attacker could exploit the File Manager functions in the...",
+      "severity": "CRITICAL",
+      "cvssScore": 9.9,
+      "epssScore": 0.06,
+      "epssPercentile": 19.978,
+      "riskScore": 48,
+      "publishedDate": "2025-06-23T00:00:00+00:00",
+      "lastModifiedDate": "2025-06-23T13:51:45.551000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["innoshop"],
+      "tags": ["CWE-420"]
     },
     {
       "cveId": "CVE-2025-52832",
@@ -18868,7 +18868,7 @@
       "publishedDate": "2025-06-25T07:25:00.402000+00:00",
       "lastModifiedDate": "2025-06-25T14:13:40.189000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["fujifilm business innovation", "brother industries, ltd", "ricoh"],
+      "vendors": ["brother industries, ltd", "fujifilm business innovation", "ricoh"],
       "tags": ["CWE-1286"]
     },
     {
@@ -25058,20 +25058,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["kubernetes"],
       "tags": ["CWE-22"]
-    },
-    {
-      "cveId": "CVE-2024-56404",
-      "title": "CVE-2024-56404: In One Identity Identity Manager 9.x before 9.3, an insecure direct object reference (IDOR) vulnerab...",
-      "severity": "CRITICAL",
-      "cvssScore": 9.9,
-      "epssScore": 0.09,
-      "epssPercentile": 26.245,
-      "riskScore": 47,
-      "publishedDate": "2025-01-24T00:00:00+00:00",
-      "lastModifiedDate": "2025-01-24T19:43:57.848000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["oneidentity"],
-      "tags": ["CWE-302"]
     },
     {
       "cveId": "CVE-2024-53298",
@@ -38188,7 +38174,7 @@
       "publishedDate": "2025-06-13T21:03:18.087000+00:00",
       "lastModifiedDate": "2025-06-17T15:18:55.236000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["broadcom", "dell"],
+      "vendors": ["dell", "broadcom"],
       "tags": ["CWE-787"]
     },
     {
@@ -38202,7 +38188,7 @@
       "publishedDate": "2025-06-13T21:26:58.869000+00:00",
       "lastModifiedDate": "2025-06-17T18:13:30.525000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["broadcom", "dell"],
+      "vendors": ["dell", "broadcom"],
       "tags": ["CWE-763"]
     },
     {
@@ -40148,7 +40134,7 @@
       "publishedDate": "2025-06-13T20:51:33.392000+00:00",
       "lastModifiedDate": "2025-06-17T03:55:12.235000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["broadcom", "dell"],
+      "vendors": ["dell", "broadcom"],
       "tags": ["CWE-121"]
     },
     {
@@ -45344,6 +45330,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["siemens"],
       "tags": ["CWE-287"]
+    },
+    {
+      "cveId": "CVE-2024-56404",
+      "title": "CVE-2024-56404: In One Identity Identity Manager 9.x before 9.3, an insecure direct object reference (IDOR) vulnerab...",
+      "severity": "CRITICAL",
+      "cvssScore": 9.9,
+      "epssScore": 0.09,
+      "epssPercentile": 26.245,
+      "riskScore": 45,
+      "publishedDate": "2025-01-24T00:00:00+00:00",
+      "lastModifiedDate": "2025-01-24T19:43:57.848000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["oneidentity"],
+      "tags": ["CWE-302"]
     },
     {
       "cveId": "CVE-2024-41115",
@@ -54974,7 +54974,7 @@
       "publishedDate": "2025-06-13T21:48:29.351000+00:00",
       "lastModifiedDate": "2025-06-17T15:18:22.706000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["broadcom", "dell"],
+      "vendors": ["dell", "broadcom"],
       "tags": ["CWE-502"]
     },
     {
@@ -55114,7 +55114,7 @@
       "publishedDate": "2025-06-13T20:42:18.769000+00:00",
       "lastModifiedDate": "2025-06-16T15:21:53.325000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["broadcom", "dell"],
+      "vendors": ["dell", "broadcom"],
       "tags": ["CWE-125"]
     },
     {
@@ -55578,20 +55578,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["bocaletto-luca"],
       "tags": ["CWE-22"]
-    },
-    {
-      "cveId": "CVE-2025-52922",
-      "title": "CVE-2025-52922: Innoshop through 0.4.1 allows directory traversal via FileManager API endpoints. An authenticated at...",
-      "severity": "HIGH",
-      "cvssScore": 7.4,
-      "epssScore": 0.12,
-      "epssPercentile": 31.643,
-      "riskScore": 44,
-      "publishedDate": "2025-06-23T00:00:00+00:00",
-      "lastModifiedDate": "2025-06-23T13:51:14.993000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["innoshop"],
-      "tags": ["CWE-23"]
     },
     {
       "cveId": "CVE-2025-37104",
@@ -56250,20 +56236,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["nvidia"],
       "tags": ["CWE-502"]
-    },
-    {
-      "cveId": "CVE-2025-23011",
-      "title": "Fedora Repository archive extraction path traversal",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.4,
-      "epssPercentile": 59.996,
-      "riskScore": 44,
-      "publishedDate": "2025-01-23T20:22:30.958000+00:00",
-      "lastModifiedDate": "2025-02-06T21:27:16.765000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["fedora repository"],
-      "tags": ["CWE-23"]
     },
     {
       "cveId": "CVE-2025-23173",
@@ -57606,7 +57578,7 @@
       "publishedDate": "2024-07-09T05:34:17.609000+00:00",
       "lastModifiedDate": "2024-08-01T21:11:12.734000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["webnus", "webnus/"],
+      "vendors": ["webnus/", "webnus"],
       "tags": []
     },
     {
@@ -58796,7 +58768,7 @@
       "publishedDate": "2025-05-09T15:18:34.124000+00:00",
       "lastModifiedDate": "2025-05-09T19:09:17.086000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["avast", "avg", "norton"],
+      "vendors": ["avg", "avast", "norton"],
       "tags": ["CWE-367"]
     },
     {
@@ -63654,7 +63626,7 @@
       "publishedDate": "2024-10-22T21:13:37.183000+00:00",
       "lastModifiedDate": "2024-10-23T14:43:52.114000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["kieback & peter", "kieback&peter"],
+      "vendors": ["kieback&peter", "kieback & peter"],
       "tags": ["CWE-22"]
     },
     {
@@ -70754,20 +70726,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["mongoosejs"],
       "tags": ["CWE-94"]
-    },
-    {
-      "cveId": "CVE-2025-23222",
-      "title": "CVE-2025-23222: An issue was discovered in Deepin dde-api-proxy through 1.0.19 in which unprivileged users can acces...",
-      "severity": "HIGH",
-      "cvssScore": 8.4,
-      "epssScore": 0.01,
-      "epssPercentile": 0.719,
-      "riskScore": 43,
-      "publishedDate": "2025-01-24T00:00:00+00:00",
-      "lastModifiedDate": "2025-02-12T20:41:30.901000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["deepin"],
-      "tags": ["CWE-940"]
     },
     {
       "cveId": "CVE-2025-23953",
@@ -81084,7 +81042,7 @@
       "publishedDate": "2024-08-07T11:00:06.508000+00:00",
       "lastModifiedDate": "2024-08-07T13:17:59.476000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["webnus", "webnus/"],
+      "vendors": ["webnus/", "webnus"],
       "tags": ["CWE-918"]
     },
     {
@@ -91462,6 +91420,20 @@
       "tags": ["CWE-79"]
     },
     {
+      "cveId": "CVE-2025-52922",
+      "title": "CVE-2025-52922: Innoshop through 0.4.1 allows directory traversal via FileManager API endpoints. An authenticated at...",
+      "severity": "HIGH",
+      "cvssScore": 7.4,
+      "epssScore": 0.12,
+      "epssPercentile": 31.643,
+      "riskScore": 42,
+      "publishedDate": "2025-06-23T00:00:00+00:00",
+      "lastModifiedDate": "2025-06-23T13:51:14.993000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["innoshop"],
+      "tags": ["CWE-23"]
+    },
+    {
       "cveId": "CVE-2025-37102",
       "title": "Authenticated Command Injection Vulnerability In Instant On Command Line Interface",
       "severity": "HIGH",
@@ -92804,6 +92776,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["dell"],
       "tags": ["CWE-648"]
+    },
+    {
+      "cveId": "CVE-2025-23011",
+      "title": "Fedora Repository archive extraction path traversal",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.4,
+      "epssPercentile": 59.996,
+      "riskScore": 42,
+      "publishedDate": "2025-01-23T20:22:30.958000+00:00",
+      "lastModifiedDate": "2025-02-06T21:27:16.765000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["fedora repository"],
+      "tags": ["CWE-23"]
     },
     {
       "cveId": "CVE-2025-23181",
@@ -96218,7 +96204,7 @@
       "publishedDate": "2024-07-02T13:47:36.399000+00:00",
       "lastModifiedDate": "2024-08-02T04:12:25.618000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["ytdl-org", "yt-dlp"],
+      "vendors": ["yt-dlp", "ytdl-org"],
       "tags": ["CWE-669"]
     },
     {
@@ -109396,6 +109382,20 @@
       "tags": ["CWE-367"]
     },
     {
+      "cveId": "CVE-2025-23222",
+      "title": "CVE-2025-23222: An issue was discovered in Deepin dde-api-proxy through 1.0.19 in which unprivileged users can acces...",
+      "severity": "HIGH",
+      "cvssScore": 8.4,
+      "epssScore": 0.01,
+      "epssPercentile": 0.719,
+      "riskScore": 41,
+      "publishedDate": "2025-01-24T00:00:00+00:00",
+      "lastModifiedDate": "2025-02-12T20:41:30.901000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["deepin"],
+      "tags": ["CWE-940"]
+    },
+    {
       "cveId": "CVE-2025-23952",
       "title": "WordPress Custom Field List Widget Plugin <= 1.5.1 - Local File Inclusion vulnerability",
       "severity": "HIGH",
@@ -109408,20 +109408,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["ntm"],
       "tags": ["CWE-98"]
-    },
-    {
-      "cveId": "CVE-2025-23012",
-      "title": "Fedora Repository fedoraIntCallUser default credentials",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.08,
-      "epssPercentile": 24.553,
-      "riskScore": 41,
-      "publishedDate": "2025-01-23T20:25:00.614000+00:00",
-      "lastModifiedDate": "2025-02-12T20:41:30.107000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["fedora repository"],
-      "tags": ["CWE-1392"]
     },
     {
       "cveId": "CVE-2025-23937",
@@ -141274,6 +141260,20 @@
       "tags": ["CWE-22"]
     },
     {
+      "cveId": "CVE-2025-23012",
+      "title": "Fedora Repository fedoraIntCallUser default credentials",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.08,
+      "epssPercentile": 24.553,
+      "riskScore": 39,
+      "publishedDate": "2025-01-23T20:25:00.614000+00:00",
+      "lastModifiedDate": "2025-02-12T20:41:30.107000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["fedora repository"],
+      "tags": ["CWE-1392"]
+    },
+    {
       "cveId": "CVE-2025-23422",
       "title": "WordPress Store Locator plugin <= 3.98.10 - Local File Inclusion vulnerability",
       "severity": "HIGH",
@@ -143916,7 +143916,7 @@
       "publishedDate": "2024-07-03T12:26:44.599000+00:00",
       "lastModifiedDate": "2025-02-13T17:54:25.437000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "red lion europe"],
+      "vendors": ["red lion europe", "helmholz"],
       "tags": ["CWE-78"]
     },
     {
