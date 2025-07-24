@@ -1,5 +1,5 @@
 {
-  "generated": "2025-07-24T08:09:52.895228",
+  "generated": "2025-07-24T12:11:37.802557",
   "count": 15488,
   "vulnerabilities": [
     {
@@ -181,7 +181,7 @@
       "publishedDate": "2024-11-15T03:18:45.746000+00:00",
       "lastModifiedDate": "2024-11-19T13:37:03.351000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["really simple plugins", "rogierlankhorst"],
+      "vendors": ["rogierlankhorst", "really simple plugins"],
       "tags": ["CWE-288"]
     },
     {
@@ -909,7 +909,7 @@
       "publishedDate": "2025-06-25T07:17:32.423000+00:00",
       "lastModifiedDate": "2025-06-27T13:51:00.720000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec", "konica minolta, inc.", "brother industries, ltd"],
+      "vendors": ["konica minolta, inc.", "toshiba tec", "brother industries, ltd"],
       "tags": ["CWE-1391"]
     },
     {
@@ -5403,7 +5403,7 @@
       "publishedDate": "2025-05-13T03:21:29.625000+00:00",
       "lastModifiedDate": "2025-05-13T13:57:36.925000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["relevanssi", "msaari"],
+      "vendors": ["msaari", "relevanssi"],
       "tags": ["CWE-89"]
     },
     {
@@ -5907,7 +5907,7 @@
       "publishedDate": "2024-06-25T03:30:37.970000+00:00",
       "lastModifiedDate": "2024-08-01T21:33:05.337000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["stuartobrien", "pedrogusmao02", "warfareplugins", "blazeretail", "themerex"],
+      "vendors": ["pedrogusmao02", "stuartobrien", "themerex", "blazeretail", "warfareplugins"],
       "tags": []
     },
     {
@@ -6737,34 +6737,6 @@
       "tags": ["CWE-89"]
     },
     {
-      "cveId": "CVE-2025-29009",
-      "title": "WordPress Medical Prescription Attachment Plugin for WooCommerce <= 1.2.3 - Arbitrary File Upload Vulnerability",
-      "severity": "CRITICAL",
-      "cvssScore": 10.0,
-      "epssScore": 0.06,
-      "epssPercentile": 17.603,
-      "riskScore": 51,
-      "publishedDate": "2025-07-16T11:28:10.176000+00:00",
-      "lastModifiedDate": "2025-07-16T13:44:52.390000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["webkul"],
-      "tags": ["CWE-434"]
-    },
-    {
-      "cveId": "CVE-2025-52836",
-      "title": "WordPress The E-Commerce ERP <= 2.1.1.3 - Privilege Escalation Vulnerability",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 0.05,
-      "epssPercentile": 17.112,
-      "riskScore": 51,
-      "publishedDate": "2025-07-16T11:27:52.763000+00:00",
-      "lastModifiedDate": "2025-07-16T18:50:01.835000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["unity business technology pty ltd"],
-      "tags": ["CWE-266"]
-    },
-    {
       "cveId": "CVE-2025-53624",
       "title": "docusaurus-plugin-content-gists Exposes GitHub Personal Access Token",
       "severity": "CRITICAL",
@@ -6807,20 +6779,6 @@
       "tags": ["CWE-704"]
     },
     {
-      "cveId": "CVE-2025-28961",
-      "title": "WordPress URL Shortener <= 3.0.7 - PHP Object Injection Vulnerability",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 0.05,
-      "epssPercentile": 16.944,
-      "riskScore": 51,
-      "publishedDate": "2025-07-16T11:28:12.145000+00:00",
-      "lastModifiedDate": "2025-07-16T13:19:58.705000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["md yeasin ul haider"],
-      "tags": ["CWE-502"]
-    },
-    {
       "cveId": "CVE-2025-32711",
       "title": "M365 Copilot Information Disclosure Vulnerability",
       "severity": "CRITICAL",
@@ -6833,34 +6791,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-77"]
-    },
-    {
-      "cveId": "CVE-2025-30973",
-      "title": "WordPress CoSchool LMS plugin <= 1.4.3 - PHP Object Injection Vulnerability",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 0.05,
-      "epssPercentile": 16.944,
-      "riskScore": 51,
-      "publishedDate": "2025-07-16T11:28:07.716000+00:00",
-      "lastModifiedDate": "2025-07-16T16:20:41.634000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["codexpert, inc"],
-      "tags": ["CWE-502"]
-    },
-    {
-      "cveId": "CVE-2025-30949",
-      "title": "WordPress Site Chat on Telegram plugin <= 1.0.4 - PHP Object Injection Vulnerability",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 0.05,
-      "epssPercentile": 16.944,
-      "riskScore": 51,
-      "publishedDate": "2025-07-16T11:28:09.137000+00:00",
-      "lastModifiedDate": "2025-07-16T13:47:31.300000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["guru team"],
-      "tags": ["CWE-502"]
     },
     {
       "cveId": "CVE-2024-38366",
@@ -7575,20 +7505,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-122"]
-    },
-    {
-      "cveId": "CVE-2025-54010",
-      "title": "WordPress FluentSnippets plugin <= 10.50 - Cross Site Request Forgery (CSRF) Vulnerability",
-      "severity": "CRITICAL",
-      "cvssScore": 9.6,
-      "epssScore": 0.02,
-      "epssPercentile": 3.185,
-      "riskScore": 50,
-      "publishedDate": "2025-07-16T10:36:41.326000+00:00",
-      "lastModifiedDate": "2025-07-18T14:55:23.650000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["shahjahan jewel"],
-      "tags": ["CWE-352"]
     },
     {
       "cveId": "CVE-2025-7417",
@@ -9131,20 +9047,6 @@
       "tags": ["CWE-94"]
     },
     {
-      "cveId": "CVE-2025-24759",
-      "title": "WordPress WP-BusinessDirectory <= 3.1.3 - SQL Injection Vulnerability",
-      "severity": "CRITICAL",
-      "cvssScore": 9.3,
-      "epssScore": 0.04,
-      "epssPercentile": 10.768,
-      "riskScore": 50,
-      "publishedDate": "2025-07-16T11:28:14.460000+00:00",
-      "lastModifiedDate": "2025-07-16T13:01:45.430000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["cmsjunkie - wordpress business directory plugins"],
-      "tags": ["CWE-89"]
-    },
-    {
       "cveId": "CVE-2025-29814",
       "title": "Microsoft Partner Center Elevation of Privilege Vulnerability",
       "severity": "CRITICAL",
@@ -9157,20 +9059,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-20"]
-    },
-    {
-      "cveId": "CVE-2025-52714",
-      "title": "WordPress Traveler < 3.2.2 - SQL Injection Vulnerability",
-      "severity": "CRITICAL",
-      "cvssScore": 9.3,
-      "epssScore": 0.04,
-      "epssPercentile": 10.768,
-      "riskScore": 50,
-      "publishedDate": "2025-07-16T11:27:56.743000+00:00",
-      "lastModifiedDate": "2025-07-16T20:21:55.951000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["shinetheme"],
-      "tags": ["CWE-89"]
     },
     {
       "cveId": "CVE-2025-52688",
@@ -9341,34 +9229,6 @@
       "tags": ["CWE-89"]
     },
     {
-      "cveId": "CVE-2025-28982",
-      "title": "WordPress WP Pipes plugin <= 1.4.3 - SQL Injection Vulnerability",
-      "severity": "CRITICAL",
-      "cvssScore": 9.3,
-      "epssScore": 0.04,
-      "epssPercentile": 10.768,
-      "riskScore": 50,
-      "publishedDate": "2025-07-16T11:28:11.175000+00:00",
-      "lastModifiedDate": "2025-07-16T13:41:38.839000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["thimpress"],
-      "tags": ["CWE-89"]
-    },
-    {
-      "cveId": "CVE-2025-28959",
-      "title": "WordPress URL Shortener <= 3.0.7 - SQL Injection Vulnerability",
-      "severity": "CRITICAL",
-      "cvssScore": 9.3,
-      "epssScore": 0.04,
-      "epssPercentile": 10.768,
-      "riskScore": 50,
-      "publishedDate": "2025-07-16T11:28:12.621000+00:00",
-      "lastModifiedDate": "2025-07-16T13:17:13.278000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["md yeasin ul haider"],
-      "tags": ["CWE-89"]
-    },
-    {
       "cveId": "CVE-2025-32706",
       "title": "Windows Common Log File System Driver Elevation of Privilege Vulnerability",
       "severity": "HIGH",
@@ -9409,20 +9269,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["vllm-project"],
       "tags": ["CWE-502"]
-    },
-    {
-      "cveId": "CVE-2025-30936",
-      "title": "WordPress Torod plugin <= 1.9 - SQL Injection Vulnerability",
-      "severity": "CRITICAL",
-      "cvssScore": 9.3,
-      "epssScore": 0.04,
-      "epssPercentile": 10.768,
-      "riskScore": 50,
-      "publishedDate": "2025-07-16T11:28:09.604000+00:00",
-      "lastModifiedDate": "2025-07-16T13:45:53.140000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["torod company for information technology"],
-      "tags": ["CWE-89"]
     },
     {
       "cveId": "CVE-2025-30397",
@@ -9786,11 +9632,11 @@
       "lastModifiedDate": "2025-06-25T14:15:31.576000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "toshiba tec",
+        "konica minolta, inc.",
         "fujifilm business innovation",
+        "toshiba tec",
         "ricoh",
-        "brother industries, ltd",
-        "konica minolta, inc."
+        "brother industries, ltd"
       ],
       "tags": ["CWE-1286"]
     },
@@ -10747,20 +10593,6 @@
       "tags": ["CWE-416", "CWE-362"]
     },
     {
-      "cveId": "CVE-2025-48300",
-      "title": "WordPress Groundhogg <= 4.2.1 - Arbitrary File Upload Vulnerability",
-      "severity": "CRITICAL",
-      "cvssScore": 9.1,
-      "epssScore": 0.05,
-      "epssPercentile": 15.952,
-      "riskScore": 49,
-      "publishedDate": "2025-07-16T11:28:01.803000+00:00",
-      "lastModifiedDate": "2025-07-16T14:10:01.749000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["adrian tobey"],
-      "tags": ["CWE-434"]
-    },
-    {
       "cveId": "CVE-2025-48815",
       "title": "Windows Simple Search and Discovery Protocol (SSDP) Service Elevation of Privilege Vulnerability",
       "severity": "HIGH",
@@ -11601,6 +11433,20 @@
       "tags": ["CWE-122"]
     },
     {
+      "cveId": "CVE-2025-29009",
+      "title": "WordPress Medical Prescription Attachment Plugin for WooCommerce <= 1.2.3 - Arbitrary File Upload Vulnerability",
+      "severity": "CRITICAL",
+      "cvssScore": 10.0,
+      "epssScore": 0.06,
+      "epssPercentile": 17.603,
+      "riskScore": 49,
+      "publishedDate": "2025-07-16T11:28:10.176000+00:00",
+      "lastModifiedDate": "2025-07-16T13:44:52.390000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["webkul"],
+      "tags": ["CWE-434"]
+    },
+    {
       "cveId": "CVE-2025-29963",
       "title": "Windows Media Remote Code Execution Vulnerability",
       "severity": "HIGH",
@@ -11739,6 +11585,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["hikariatama"],
       "tags": ["CWE-287"]
+    },
+    {
+      "cveId": "CVE-2025-52836",
+      "title": "WordPress The E-Commerce ERP <= 2.1.1.3 - Privilege Escalation Vulnerability",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.05,
+      "epssPercentile": 17.112,
+      "riskScore": 49,
+      "publishedDate": "2025-07-16T11:27:52.763000+00:00",
+      "lastModifiedDate": "2025-07-16T18:50:01.835000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["unity business technology pty ltd"],
+      "tags": ["CWE-266"]
     },
     {
       "cveId": "CVE-2025-37103",
@@ -11993,6 +11853,20 @@
       "tags": ["CWE-426"]
     },
     {
+      "cveId": "CVE-2025-28961",
+      "title": "WordPress URL Shortener <= 3.0.7 - PHP Object Injection Vulnerability",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.05,
+      "epssPercentile": 16.944,
+      "riskScore": 49,
+      "publishedDate": "2025-07-16T11:28:12.145000+00:00",
+      "lastModifiedDate": "2025-07-16T13:19:58.705000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["md yeasin ul haider"],
+      "tags": ["CWE-502"]
+    },
+    {
       "cveId": "CVE-2025-28970",
       "title": "WordPress WP Optimize By xTraffic plugin <= 5.1.6 - PHP Object Injection Vulnerability",
       "severity": "CRITICAL",
@@ -12049,6 +11923,20 @@
       "tags": ["CWE-862"]
     },
     {
+      "cveId": "CVE-2025-30973",
+      "title": "WordPress CoSchool LMS plugin <= 1.4.3 - PHP Object Injection Vulnerability",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.05,
+      "epssPercentile": 16.944,
+      "riskScore": 49,
+      "publishedDate": "2025-07-16T11:28:07.716000+00:00",
+      "lastModifiedDate": "2025-07-16T16:20:41.634000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["codexpert, inc"],
+      "tags": ["CWE-502"]
+    },
+    {
       "cveId": "CVE-2025-30933",
       "title": "WordPress LogisticsHub <= 1.1.6 - Arbitrary File Upload Vulnerability",
       "severity": "CRITICAL",
@@ -12061,6 +11949,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["liquidthemes"],
       "tags": ["CWE-434"]
+    },
+    {
+      "cveId": "CVE-2025-30949",
+      "title": "WordPress Site Chat on Telegram plugin <= 1.0.4 - PHP Object Injection Vulnerability",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.05,
+      "epssPercentile": 16.944,
+      "riskScore": 49,
+      "publishedDate": "2025-07-16T11:28:09.137000+00:00",
+      "lastModifiedDate": "2025-07-16T13:47:31.300000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["guru team"],
+      "tags": ["CWE-502"]
     },
     {
       "cveId": "CVE-2025-30389",
@@ -12550,9 +12452,9 @@
       "lastModifiedDate": "2025-06-25T14:08:48.280000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "konica minolta, inc.",
         "fujifilm business innovation",
         "ricoh",
+        "konica minolta, inc.",
         "brother industries, ltd"
       ],
       "tags": ["CWE-121"]
@@ -14028,20 +13930,6 @@
       "tags": ["CWE-268"]
     },
     {
-      "cveId": "CVE-2025-49876",
-      "title": "WordPress ProfileGrid  <= 5.9.5.2 - SQL Injection Vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 8.5,
-      "epssScore": 0.03,
-      "epssPercentile": 7.671,
-      "riskScore": 48,
-      "publishedDate": "2025-07-16T11:27:58.713000+00:00",
-      "lastModifiedDate": "2025-07-16T20:24:28.286000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["metagauss"],
-      "tags": ["CWE-89"]
-    },
-    {
       "cveId": "CVE-2025-49212",
       "title": "CVE-2025-49212: An insecure deserialization operation in the Trend Micro Endpoint Encryption PolicyServer could lead...",
       "severity": "CRITICAL",
@@ -14336,20 +14224,6 @@
       "tags": ["CWE-506"]
     },
     {
-      "cveId": "CVE-2025-54026",
-      "title": "WordPress GymBase Theme Classes plugin <= 1.4 - SQL Injection Vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 8.5,
-      "epssScore": 0.03,
-      "epssPercentile": 7.671,
-      "riskScore": 48,
-      "publishedDate": "2025-07-16T10:36:46.387000+00:00",
-      "lastModifiedDate": "2025-07-16T19:59:48.911000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["quanticalabs"],
-      "tags": ["CWE-89"]
-    },
-    {
       "cveId": "CVE-2025-54439",
       "title": "CVE-2025-54439: Unrestricted Upload of File with Dangerous Type vulnerability in Samsung Electronics MagicINFO 9 Ser...",
       "severity": "HIGH",
@@ -14362,6 +14236,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["samsung electronics"],
       "tags": ["CWE-434"]
+    },
+    {
+      "cveId": "CVE-2025-54010",
+      "title": "WordPress FluentSnippets plugin <= 10.50 - Cross Site Request Forgery (CSRF) Vulnerability",
+      "severity": "CRITICAL",
+      "cvssScore": 9.6,
+      "epssScore": 0.02,
+      "epssPercentile": 3.185,
+      "riskScore": 48,
+      "publishedDate": "2025-07-16T10:36:41.326000+00:00",
+      "lastModifiedDate": "2025-07-18T14:55:23.650000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["shahjahan jewel"],
+      "tags": ["CWE-352"]
     },
     {
       "cveId": "CVE-2025-54453",
@@ -14922,20 +14810,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-122"]
-    },
-    {
-      "cveId": "CVE-2025-47645",
-      "title": "WordPress ELEX WooCommerce Advanced Bulk Edit Products, Prices & Attributes plugin <= 1.4.9 - Subscriber+ SQL Injection vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 8.5,
-      "epssScore": 0.03,
-      "epssPercentile": 7.671,
-      "riskScore": 48,
-      "publishedDate": "2025-07-16T11:28:03.281000+00:00",
-      "lastModifiedDate": "2025-07-16T14:03:26.702000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["elextensions"],
-      "tags": ["CWE-89"]
     },
     {
       "cveId": "CVE-2025-47977",
@@ -16212,20 +16086,6 @@
       "tags": ["CWE-77", "CWE-798", "CWE-287", "CWE-1327"]
     },
     {
-      "cveId": "CVE-2025-3603",
-      "title": "Flynax Bridge <= 2.2.0 - Unauthenticated Privilege Escalation via Password Update",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 0.15,
-      "epssPercentile": 35.873,
-      "riskScore": 48,
-      "publishedDate": "2025-04-24T08:23:53.258000+00:00",
-      "lastModifiedDate": "2025-04-24T13:06:15.552000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["v1rustyle"],
-      "tags": ["CWE-620"]
-    },
-    {
       "cveId": "CVE-2025-3810",
       "title": "WPBookit <= 1.0.2 - Insecure Direct Object Reference to Unauthenticated Privilege Escalation via Account Takeover",
       "severity": "CRITICAL",
@@ -16280,20 +16140,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["totolink"],
       "tags": ["CWE-120", "CWE-119"]
-    },
-    {
-      "cveId": "CVE-2025-3604",
-      "title": "Flynax Bridge <= 2.2.0 - Unauthenticated Privilege Escalation via Account Takeover",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 0.15,
-      "epssPercentile": 35.873,
-      "riskScore": 48,
-      "publishedDate": "2025-04-24T08:23:49.297000+00:00",
-      "lastModifiedDate": "2025-04-24T13:56:54.288000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["v1rustyle"],
-      "tags": ["CWE-862"]
     },
     {
       "cveId": "CVE-2025-3992",
@@ -17500,18 +17346,18 @@
       "tags": ["CWE-502"]
     },
     {
-      "cveId": "CVE-2025-24777",
-      "title": "WordPress Hillter theme <= 3.0.7 - PHP Object Injection Vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.05,
-      "epssPercentile": 16.814,
+      "cveId": "CVE-2025-24759",
+      "title": "WordPress WP-BusinessDirectory <= 3.1.3 - SQL Injection Vulnerability",
+      "severity": "CRITICAL",
+      "cvssScore": 9.3,
+      "epssScore": 0.04,
+      "epssPercentile": 10.768,
       "riskScore": 48,
-      "publishedDate": "2025-07-16T11:28:13.994000+00:00",
-      "lastModifiedDate": "2025-07-16T13:22:58.141000+00:00",
+      "publishedDate": "2025-07-16T11:28:14.460000+00:00",
+      "lastModifiedDate": "2025-07-16T13:01:45.430000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["awethemes"],
-      "tags": ["CWE-502"]
+      "vendors": ["cmsjunkie - wordpress business directory plugins"],
+      "tags": ["CWE-89"]
     },
     {
       "cveId": "CVE-2025-24522",
@@ -17542,20 +17388,6 @@
       "tags": []
     },
     {
-      "cveId": "CVE-2025-24779",
-      "title": "WordPress Yogi theme <= 2.9.0 - PHP Object Injection Vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.05,
-      "epssPercentile": 16.814,
-      "riskScore": 48,
-      "publishedDate": "2025-07-16T11:28:13.539000+00:00",
-      "lastModifiedDate": "2025-07-16T13:23:17.309000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["nootheme"],
-      "tags": ["CWE-502"]
-    },
-    {
       "cveId": "CVE-2025-24989",
       "title": "Microsoft Power Pages Elevation of Privilege Vulnerability",
       "severity": "HIGH",
@@ -17580,7 +17412,7 @@
       "publishedDate": "2025-06-13T09:23:49.631000+00:00",
       "lastModifiedDate": "2025-06-13T12:22:47.798000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["telex", "rts"],
+      "vendors": ["rts", "telex"],
       "tags": []
     },
     {
@@ -17596,6 +17428,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-401"]
+    },
+    {
+      "cveId": "CVE-2025-52714",
+      "title": "WordPress Traveler < 3.2.2 - SQL Injection Vulnerability",
+      "severity": "CRITICAL",
+      "cvssScore": 9.3,
+      "epssScore": 0.04,
+      "epssPercentile": 10.768,
+      "riskScore": 48,
+      "publishedDate": "2025-07-16T11:27:56.743000+00:00",
+      "lastModifiedDate": "2025-07-16T20:21:55.951000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["shinetheme"],
+      "tags": ["CWE-89"]
     },
     {
       "cveId": "CVE-2025-52829",
@@ -17651,20 +17497,6 @@
       "lastModifiedDate": "2025-06-27T13:43:01.079000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["favethemes"],
-      "tags": ["CWE-89"]
-    },
-    {
-      "cveId": "CVE-2025-52819",
-      "title": "WordPress Pakke Envíos plugin <= 1.0.2 - SQL Injection Vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 8.5,
-      "epssScore": 0.03,
-      "epssPercentile": 7.671,
-      "riskScore": 48,
-      "publishedDate": "2025-07-16T11:27:53.288000+00:00",
-      "lastModifiedDate": "2025-07-16T14:24:55.119000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["pakkemx"],
       "tags": ["CWE-89"]
     },
     {
@@ -18032,32 +17864,32 @@
       "tags": ["CWE-89"]
     },
     {
-      "cveId": "CVE-2025-28965",
-      "title": "WordPress URL Shortener <= 3.0.7 - Broken Access Control Vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 8.6,
-      "epssScore": 0.05,
-      "epssPercentile": 14.483,
+      "cveId": "CVE-2025-28982",
+      "title": "WordPress WP Pipes plugin <= 1.4.3 - SQL Injection Vulnerability",
+      "severity": "CRITICAL",
+      "cvssScore": 9.3,
+      "epssScore": 0.04,
+      "epssPercentile": 10.768,
       "riskScore": 48,
-      "publishedDate": "2025-07-16T11:28:11.680000+00:00",
-      "lastModifiedDate": "2025-07-16T13:32:55.280000+00:00",
+      "publishedDate": "2025-07-16T11:28:11.175000+00:00",
+      "lastModifiedDate": "2025-07-16T13:41:38.839000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["md yeasin ul haider"],
-      "tags": ["CWE-862"]
+      "vendors": ["thimpress"],
+      "tags": ["CWE-89"]
     },
     {
-      "cveId": "CVE-2025-31422",
-      "title": "WordPress Visual Art | Gallery WordPress Theme <= 2.4 - PHP Object Injection Vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.05,
-      "epssPercentile": 16.814,
+      "cveId": "CVE-2025-28959",
+      "title": "WordPress URL Shortener <= 3.0.7 - SQL Injection Vulnerability",
+      "severity": "CRITICAL",
+      "cvssScore": 9.3,
+      "epssScore": 0.04,
+      "epssPercentile": 10.768,
       "riskScore": 48,
-      "publishedDate": "2025-07-16T11:28:05.668000+00:00",
-      "lastModifiedDate": "2025-07-16T18:47:56.100000+00:00",
+      "publishedDate": "2025-07-16T11:28:12.621000+00:00",
+      "lastModifiedDate": "2025-07-16T13:17:13.278000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["designthemes"],
-      "tags": ["CWE-502"]
+      "vendors": ["md yeasin ul haider"],
+      "tags": ["CWE-89"]
     },
     {
       "cveId": "CVE-2025-32461",
@@ -18114,20 +17946,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-126"]
-    },
-    {
-      "cveId": "CVE-2025-32574",
-      "title": "WordPress WPGYM plugin <= 65.0 - SQL Injection vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 8.5,
-      "epssScore": 0.03,
-      "epssPercentile": 7.671,
-      "riskScore": 48,
-      "publishedDate": "2025-07-16T11:28:04.716000+00:00",
-      "lastModifiedDate": "2025-07-16T18:48:21.423000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["mojoomla"],
-      "tags": ["CWE-89"]
     },
     {
       "cveId": "CVE-2025-32440",
@@ -18226,6 +18044,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-416"]
+    },
+    {
+      "cveId": "CVE-2025-30936",
+      "title": "WordPress Torod plugin <= 1.9 - SQL Injection Vulnerability",
+      "severity": "CRITICAL",
+      "cvssScore": 9.3,
+      "epssScore": 0.04,
+      "epssPercentile": 10.768,
+      "riskScore": 48,
+      "publishedDate": "2025-07-16T11:28:09.604000+00:00",
+      "lastModifiedDate": "2025-07-16T13:45:53.140000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["torod company for information technology"],
+      "tags": ["CWE-89"]
     },
     {
       "cveId": "CVE-2025-30377",
@@ -18702,20 +18534,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["ibm"],
       "tags": ["CWE-434"]
-    },
-    {
-      "cveId": "CVE-2024-45347",
-      "title": "Mi Connect Service APP protocol flaws lead to unauthorized access",
-      "severity": "CRITICAL",
-      "cvssScore": 9.6,
-      "epssScore": 0.05,
-      "epssPercentile": 13.894,
-      "riskScore": 48,
-      "publishedDate": "2025-06-23T09:34:38.676000+00:00",
-      "lastModifiedDate": "2025-06-23T12:03:52.156000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["xiaomi"],
-      "tags": ["CWE-287"]
     },
     {
       "cveId": "CVE-2024-13972",
@@ -20468,6 +20286,20 @@
       "tags": ["CWE-352"]
     },
     {
+      "cveId": "CVE-2025-48300",
+      "title": "WordPress Groundhogg <= 4.2.1 - Arbitrary File Upload Vulnerability",
+      "severity": "CRITICAL",
+      "cvssScore": 9.1,
+      "epssScore": 0.05,
+      "epssPercentile": 15.952,
+      "riskScore": 47,
+      "publishedDate": "2025-07-16T11:28:01.803000+00:00",
+      "lastModifiedDate": "2025-07-16T14:10:01.749000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["adrian tobey"],
+      "tags": ["CWE-434"]
+    },
+    {
       "cveId": "CVE-2025-48819",
       "title": "Windows Universal Plug and Play (UPnP) Device Host Elevation of Privilege Vulnerability",
       "severity": "HIGH",
@@ -21532,20 +21364,6 @@
       "tags": ["CWE-23"]
     },
     {
-      "cveId": "CVE-2025-3065",
-      "title": "Database Toolset <= 1.8.4 - Unauthenticated Arbitrary File Deletion",
-      "severity": "CRITICAL",
-      "cvssScore": 9.1,
-      "epssScore": 1.14,
-      "epssPercentile": 77.486,
-      "riskScore": 47,
-      "publishedDate": "2025-04-24T08:23:47.060000+00:00",
-      "lastModifiedDate": "2025-04-24T15:23:05.816000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["neoslab"],
-      "tags": ["CWE-22"]
-    },
-    {
       "cveId": "CVE-2025-3079",
       "title": "CVE-2025-3079: A passback vulnerability which relates to office/small office multifunction printers and laser print...",
       "severity": "HIGH",
@@ -21584,7 +21402,7 @@
       "publishedDate": "2025-06-24T08:05:15.547000+00:00",
       "lastModifiedDate": "2025-06-24T14:18:57.831000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-306"]
     },
     {
@@ -22104,20 +21922,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["beeteam368"],
       "tags": ["CWE-434"]
-    },
-    {
-      "cveId": "CVE-2025-6993",
-      "title": "Ultimate WP Mail 1.0.17 - 1.3.6 - Missing Authorization to Authenticated (Contributor+) Privilege Escalation via get_email_log_details Function",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.04,
-      "epssPercentile": 13.179,
-      "riskScore": 47,
-      "publishedDate": "2025-07-16T09:22:56.563000+00:00",
-      "lastModifiedDate": "2025-07-16T14:40:19.407000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["rustaurius"],
-      "tags": ["CWE-862"]
     },
     {
       "cveId": "CVE-2025-6238",
@@ -26544,6 +26348,20 @@
       "tags": ["CWE-798"]
     },
     {
+      "cveId": "CVE-2025-49876",
+      "title": "WordPress ProfileGrid  <= 5.9.5.2 - SQL Injection Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 8.5,
+      "epssScore": 0.03,
+      "epssPercentile": 7.671,
+      "riskScore": 46,
+      "publishedDate": "2025-07-16T11:27:58.713000+00:00",
+      "lastModifiedDate": "2025-07-16T20:24:28.286000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["metagauss"],
+      "tags": ["CWE-89"]
+    },
+    {
       "cveId": "CVE-2025-49715",
       "title": "Dynamics 365 FastTrack Implementation Assets Information Disclosure Vulnerability",
       "severity": "HIGH",
@@ -26709,6 +26527,20 @@
       "lastModifiedDate": "2025-06-17T18:37:55.642000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["wpjobportal"],
+      "tags": ["CWE-89"]
+    },
+    {
+      "cveId": "CVE-2025-54026",
+      "title": "WordPress GymBase Theme Classes plugin <= 1.4 - SQL Injection Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 8.5,
+      "epssScore": 0.03,
+      "epssPercentile": 7.671,
+      "riskScore": 46,
+      "publishedDate": "2025-07-16T10:36:46.387000+00:00",
+      "lastModifiedDate": "2025-07-16T19:59:48.911000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["quanticalabs"],
       "tags": ["CWE-89"]
     },
     {
@@ -27268,7 +27100,7 @@
       "publishedDate": "2025-07-08T05:32:05.678000+00:00",
       "lastModifiedDate": "2025-07-08T13:45:36.200000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes", "phpgurukul"],
+      "vendors": ["phpgurukul", "campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -27954,7 +27786,7 @@
       "publishedDate": "2025-07-08T06:02:05.515000+00:00",
       "lastModifiedDate": "2025-07-08T13:44:30.198000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes", "phpgurukul"],
+      "vendors": ["phpgurukul", "campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -28448,6 +28280,20 @@
       "tags": ["CWE-89"]
     },
     {
+      "cveId": "CVE-2025-47645",
+      "title": "WordPress ELEX WooCommerce Advanced Bulk Edit Products, Prices & Attributes plugin <= 1.4.9 - Subscriber+ SQL Injection vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 8.5,
+      "epssScore": 0.03,
+      "epssPercentile": 7.671,
+      "riskScore": 46,
+      "publishedDate": "2025-07-16T11:28:03.281000+00:00",
+      "lastModifiedDate": "2025-07-16T14:03:26.702000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["elextensions"],
+      "tags": ["CWE-89"]
+    },
+    {
       "cveId": "CVE-2025-47817",
       "title": "CVE-2025-47817: In BlueWave Checkmate through 2.0.2 before b387eba, a profile edit request can include a role parame...",
       "severity": "HIGH",
@@ -28910,6 +28756,20 @@
       "tags": ["CWE-352"]
     },
     {
+      "cveId": "CVE-2025-3603",
+      "title": "Flynax Bridge <= 2.2.0 - Unauthenticated Privilege Escalation via Password Update",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.15,
+      "epssPercentile": 35.873,
+      "riskScore": 46,
+      "publishedDate": "2025-04-24T08:23:53.258000+00:00",
+      "lastModifiedDate": "2025-04-24T13:06:15.552000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["v1rustyle"],
+      "tags": ["CWE-620"]
+    },
+    {
       "cveId": "CVE-2025-3161",
       "title": "Tenda AC10 ShutdownSetAdd stack-based overflow",
       "severity": "HIGH",
@@ -28978,6 +28838,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["tenda"],
       "tags": ["CWE-120", "CWE-119"]
+    },
+    {
+      "cveId": "CVE-2025-3604",
+      "title": "Flynax Bridge <= 2.2.0 - Unauthenticated Privilege Escalation via Account Takeover",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.15,
+      "epssPercentile": 35.873,
+      "riskScore": 46,
+      "publishedDate": "2025-04-24T08:23:49.297000+00:00",
+      "lastModifiedDate": "2025-04-24T13:56:54.288000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["v1rustyle"],
+      "tags": ["CWE-862"]
     },
     {
       "cveId": "CVE-2025-3802",
@@ -30548,6 +30422,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-24777",
+      "title": "WordPress Hillter theme <= 3.0.7 - PHP Object Injection Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.05,
+      "epssPercentile": 16.814,
+      "riskScore": 46,
+      "publishedDate": "2025-07-16T11:28:13.994000+00:00",
+      "lastModifiedDate": "2025-07-16T13:22:58.141000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["awethemes"],
+      "tags": ["CWE-502"]
+    },
+    {
       "cveId": "CVE-2025-24084",
       "title": "Windows Subsystem for Linux (WSL2) Kernel Remote Code Execution Vulnerability",
       "severity": "HIGH",
@@ -30560,6 +30448,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-822"]
+    },
+    {
+      "cveId": "CVE-2025-24779",
+      "title": "WordPress Yogi theme <= 2.9.0 - PHP Object Injection Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.05,
+      "epssPercentile": 16.814,
+      "riskScore": 46,
+      "publishedDate": "2025-07-16T11:28:13.539000+00:00",
+      "lastModifiedDate": "2025-07-16T13:23:17.309000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["nootheme"],
+      "tags": ["CWE-502"]
     },
     {
       "cveId": "CVE-2025-24035",
@@ -30854,6 +30756,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["uxper"],
       "tags": ["CWE-502"]
+    },
+    {
+      "cveId": "CVE-2025-52819",
+      "title": "WordPress Pakke Envíos plugin <= 1.0.2 - SQL Injection Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 8.5,
+      "epssScore": 0.03,
+      "epssPercentile": 7.671,
+      "riskScore": 46,
+      "publishedDate": "2025-07-16T11:27:53.288000+00:00",
+      "lastModifiedDate": "2025-07-16T14:24:55.119000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["pakkemx"],
+      "tags": ["CWE-89"]
     },
     {
       "cveId": "CVE-2025-52726",
@@ -31724,6 +31640,20 @@
       "tags": ["CWE-89"]
     },
     {
+      "cveId": "CVE-2025-28965",
+      "title": "WordPress URL Shortener <= 3.0.7 - Broken Access Control Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 8.6,
+      "epssScore": 0.05,
+      "epssPercentile": 14.483,
+      "riskScore": 46,
+      "publishedDate": "2025-07-16T11:28:11.680000+00:00",
+      "lastModifiedDate": "2025-07-16T13:32:55.280000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["md yeasin ul haider"],
+      "tags": ["CWE-862"]
+    },
+    {
       "cveId": "CVE-2025-28969",
       "title": "WordPress Gallery Widget plugin <= 1.2.1 - SQL Injection Vulnerability",
       "severity": "HIGH",
@@ -31806,6 +31736,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["sap_se"],
       "tags": ["CWE-94"]
+    },
+    {
+      "cveId": "CVE-2025-31422",
+      "title": "WordPress Visual Art | Gallery WordPress Theme <= 2.4 - PHP Object Injection Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.05,
+      "epssPercentile": 16.814,
+      "riskScore": 46,
+      "publishedDate": "2025-07-16T11:28:05.668000+00:00",
+      "lastModifiedDate": "2025-07-16T18:47:56.100000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["designthemes"],
+      "tags": ["CWE-502"]
     },
     {
       "cveId": "CVE-2025-31123",
@@ -31931,6 +31875,20 @@
       "lastModifiedDate": "2025-07-07T14:59:16.616000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["quantumcloud"],
+      "tags": ["CWE-89"]
+    },
+    {
+      "cveId": "CVE-2025-32574",
+      "title": "WordPress WPGYM plugin <= 65.0 - SQL Injection vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 8.5,
+      "epssScore": 0.03,
+      "epssPercentile": 7.671,
+      "riskScore": 46,
+      "publishedDate": "2025-07-16T11:28:04.716000+00:00",
+      "lastModifiedDate": "2025-07-16T18:48:21.423000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["mojoomla"],
       "tags": ["CWE-89"]
     },
     {
@@ -33754,6 +33712,20 @@
       "tags": ["CWE-269"]
     },
     {
+      "cveId": "CVE-2024-45347",
+      "title": "Mi Connect Service APP protocol flaws lead to unauthorized access",
+      "severity": "CRITICAL",
+      "cvssScore": 9.6,
+      "epssScore": 0.05,
+      "epssPercentile": 13.894,
+      "riskScore": 46,
+      "publishedDate": "2025-06-23T09:34:38.676000+00:00",
+      "lastModifiedDate": "2025-06-23T12:03:52.156000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["xiaomi"],
+      "tags": ["CWE-287"]
+    },
+    {
       "cveId": "CVE-2024-13353",
       "title": "Responsive Addons for Elementor – Free Elementor Addons Plugin and Elementor Templates <= 1.6.4 - Authenticated (Contributor+) Local File Inclusion",
       "severity": "HIGH",
@@ -33822,20 +33794,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["oliverpos"],
       "tags": ["CWE-862"]
-    },
-    {
-      "cveId": "CVE-2024-13545",
-      "title": "Bootstrap Ultimate <= 1.4.9 - Unauthenticated Limited Local File Inclusion",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 1.02,
-      "epssPercentile": 76.282,
-      "riskScore": 46,
-      "publishedDate": "2025-01-24T08:23:41.200000+00:00",
-      "lastModifiedDate": "2025-02-12T20:41:30.232000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["eminozlem"],
-      "tags": ["CWE-22"]
     },
     {
       "cveId": "CVE-2024-13421",
@@ -37702,20 +37660,6 @@
       "tags": ["CWE-122"]
     },
     {
-      "cveId": "CVE-2025-49034",
-      "title": "WordPress Funnel Builder by FunnelKit plugin <= 3.10.2 - SQL Injection vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.6,
-      "epssScore": 0.04,
-      "epssPercentile": 8.798,
-      "riskScore": 45,
-      "publishedDate": "2025-07-16T11:27:59.710000+00:00",
-      "lastModifiedDate": "2025-07-16T13:39:24.744000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["funnelkit"],
-      "tags": ["CWE-89"]
-    },
-    {
       "cveId": "CVE-2025-49809",
       "title": "CVE-2025-49809: mtr through 0.95, in certain privileged contexts, mishandles execution of a program specified by the...",
       "severity": "HIGH",
@@ -37926,20 +37870,6 @@
       "tags": ["CWE-79"]
     },
     {
-      "cveId": "CVE-2025-48161",
-      "title": "WordPress YaySMTP plugin <= 1.3 - SQL Injection Vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.6,
-      "epssScore": 0.04,
-      "epssPercentile": 8.798,
-      "riskScore": 45,
-      "publishedDate": "2025-07-16T10:36:56.225000+00:00",
-      "lastModifiedDate": "2025-07-16T19:00:41.869000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["yaycommerce"],
-      "tags": ["CWE-89"]
-    },
-    {
       "cveId": "CVE-2025-48797",
       "title": "Gimp: multiple heap buffer overflows in tga parser",
       "severity": "HIGH",
@@ -37966,20 +37896,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["schweitzer engineering laboratories"],
       "tags": ["CWE-22"]
-    },
-    {
-      "cveId": "CVE-2025-48301",
-      "title": "WordPress SMTP for SendGrid – YaySMTP plugin <= 1.5 - SQL Injection Vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.6,
-      "epssScore": 0.04,
-      "epssPercentile": 8.798,
-      "riskScore": 45,
-      "publishedDate": "2025-07-16T10:36:53.201000+00:00",
-      "lastModifiedDate": "2025-07-16T20:11:16.005000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["yaycommerce"],
-      "tags": ["CWE-89"]
     },
     {
       "cveId": "CVE-2025-48384",
@@ -38010,20 +37926,6 @@
       "tags": ["CWE-416"]
     },
     {
-      "cveId": "CVE-2025-48299",
-      "title": "WordPress YayExtra plugin <= 1.5.5 - SQL Injection Vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.6,
-      "epssScore": 0.04,
-      "epssPercentile": 8.798,
-      "riskScore": 45,
-      "publishedDate": "2025-07-16T10:36:53.680000+00:00",
-      "lastModifiedDate": "2025-07-16T20:15:52.663000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["yaycommerce"],
-      "tags": ["CWE-89"]
-    },
-    {
       "cveId": "CVE-2025-48466",
       "title": "Modbus Command Injection without Authentication",
       "severity": "HIGH",
@@ -38050,20 +37952,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["samsung electronics"],
       "tags": ["CWE-287"]
-    },
-    {
-      "cveId": "CVE-2025-54043",
-      "title": "WordPress SMTP for Amazon SES plugin <= 1.9 - SQL Injection Vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.6,
-      "epssScore": 0.04,
-      "epssPercentile": 8.798,
-      "riskScore": 45,
-      "publishedDate": "2025-07-16T10:36:51.266000+00:00",
-      "lastModifiedDate": "2025-07-16T20:06:55.130000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["yaycommerce"],
-      "tags": ["CWE-89"]
     },
     {
       "cveId": "CVE-2025-7472",
@@ -38650,7 +38538,7 @@
       "publishedDate": "2025-06-13T21:03:18.087000+00:00",
       "lastModifiedDate": "2025-06-17T15:18:55.236000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["dell", "broadcom"],
+      "vendors": ["broadcom", "dell"],
       "tags": ["CWE-787"]
     },
     {
@@ -38664,7 +38552,7 @@
       "publishedDate": "2025-06-13T21:26:58.869000+00:00",
       "lastModifiedDate": "2025-06-17T18:13:30.525000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["dell", "broadcom"],
+      "vendors": ["broadcom", "dell"],
       "tags": ["CWE-763"]
     },
     {
@@ -39112,7 +39000,7 @@
       "publishedDate": "2025-06-24T08:10:29.717000+00:00",
       "lastModifiedDate": "2025-06-24T13:56:13.121000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-639"]
     },
     {
@@ -39130,34 +39018,6 @@
       "tags": ["CWE-327"]
     },
     {
-      "cveId": "CVE-2025-3776",
-      "title": "Verification SMS with TargetSMS <= 1.5 - Unauthenticated Limited Remote Code Execution",
-      "severity": "HIGH",
-      "cvssScore": 8.3,
-      "epssScore": 0.17,
-      "epssPercentile": 38.393,
-      "riskScore": 45,
-      "publishedDate": "2025-04-24T08:23:52.626000+00:00",
-      "lastModifiedDate": "2025-04-24T13:06:21.124000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["cajka"],
-      "tags": ["CWE-94"]
-    },
-    {
-      "cveId": "CVE-2025-3607",
-      "title": "Frontend Login and Registration Blocks <= 1.0.7 - Authenticated (Subscriber+) Privilege Escalation via Password Reset",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.06,
-      "epssPercentile": 18.438,
-      "riskScore": 45,
-      "publishedDate": "2025-04-24T08:23:49.815000+00:00",
-      "lastModifiedDate": "2025-04-24T13:55:34.115000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["arkenon"],
-      "tags": ["CWE-620"]
-    },
-    {
       "cveId": "CVE-2025-3092",
       "title": "MB connect line: Observable response discrepancy in mbCONNECT24/mymbCONNECT24",
       "severity": "HIGH",
@@ -39168,7 +39028,7 @@
       "publishedDate": "2025-06-24T08:14:31.864000+00:00",
       "lastModifiedDate": "2025-06-24T13:55:34.477000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-204"]
     },
     {
@@ -39200,18 +39060,18 @@
       "tags": ["CWE-94"]
     },
     {
-      "cveId": "CVE-2025-3058",
-      "title": "Xelion Webchat <=  9.1.0 - Authenticated (Subscriber+) Arbitrary Options Update",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.06,
-      "epssPercentile": 18.438,
+      "cveId": "CVE-2025-3065",
+      "title": "Database Toolset <= 1.8.4 - Unauthenticated Arbitrary File Deletion",
+      "severity": "CRITICAL",
+      "cvssScore": 9.1,
+      "epssScore": 1.14,
+      "epssPercentile": 77.486,
       "riskScore": 45,
-      "publishedDate": "2025-04-24T08:23:47.679000+00:00",
-      "lastModifiedDate": "2025-04-24T15:22:57.254000+00:00",
+      "publishedDate": "2025-04-24T08:23:47.060000+00:00",
+      "lastModifiedDate": "2025-04-24T15:23:05.816000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["jauharixelion"],
-      "tags": ["CWE-862"]
+      "vendors": ["neoslab"],
+      "tags": ["CWE-22"]
     },
     {
       "cveId": "CVE-2025-3891",
@@ -39268,20 +39128,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": [],
       "tags": ["CWE-94"]
-    },
-    {
-      "cveId": "CVE-2025-3101",
-      "title": "Configurator Theme Core <= 1.4.7 - Authenticated (Subscriber+) Privilege Escalation",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.06,
-      "epssPercentile": 18.438,
-      "riskScore": 45,
-      "publishedDate": "2025-04-24T08:23:48.158000+00:00",
-      "lastModifiedDate": "2025-04-24T15:22:51.170000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["wp-configurator"],
-      "tags": ["CWE-269"]
     },
     {
       "cveId": "CVE-2025-3054",
@@ -40376,6 +40222,20 @@
       "tags": ["CWE-22"]
     },
     {
+      "cveId": "CVE-2025-6993",
+      "title": "Ultimate WP Mail 1.0.17 - 1.3.6 - Missing Authorization to Authenticated (Contributor+) Privilege Escalation via get_email_log_details Function",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.04,
+      "epssPercentile": 13.179,
+      "riskScore": 45,
+      "publishedDate": "2025-07-16T09:22:56.563000+00:00",
+      "lastModifiedDate": "2025-07-16T14:40:19.407000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["rustaurius"],
+      "tags": ["CWE-862"]
+    },
+    {
       "cveId": "CVE-2025-6995",
       "title": "Improper Encryption in Ivanti Endpoint Manager",
       "severity": "HIGH",
@@ -40596,7 +40456,7 @@
       "publishedDate": "2025-06-13T20:51:33.392000+00:00",
       "lastModifiedDate": "2025-06-17T03:55:12.235000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["dell", "broadcom"],
+      "vendors": ["broadcom", "dell"],
       "tags": ["CWE-121"]
     },
     {
@@ -41118,20 +40978,6 @@
       "tags": ["CWE-276"]
     },
     {
-      "cveId": "CVE-2025-29000",
-      "title": "WordPress Multi-language Responsive Contact Form plugin <= 2.8 - Broken Access Control Vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.04,
-      "epssPercentile": 11.77,
-      "riskScore": 45,
-      "publishedDate": "2025-07-16T11:28:10.658000+00:00",
-      "lastModifiedDate": "2025-07-16T13:42:43.757000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["august infotech"],
-      "tags": ["CWE-862"]
-    },
-    {
       "cveId": "CVE-2025-29812",
       "title": "DirectX Graphics Kernel Elevation of Privilege Vulnerability",
       "severity": "HIGH",
@@ -41200,20 +41046,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["trend micro, inc."],
       "tags": ["CWE-64"]
-    },
-    {
-      "cveId": "CVE-2025-52803",
-      "title": "WordPress Sala theme <= 1.1.3 - Broken Access Control Vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.04,
-      "epssPercentile": 9.649,
-      "riskScore": 45,
-      "publishedDate": "2025-07-16T11:27:54.296000+00:00",
-      "lastModifiedDate": "2025-07-16T14:17:41.650000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["uxper"],
-      "tags": ["CWE-862"]
     },
     {
       "cveId": "CVE-2025-52813",
@@ -41424,20 +41256,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["creanncy"],
       "tags": ["CWE-35"]
-    },
-    {
-      "cveId": "CVE-2025-52804",
-      "title": "WordPress Nuss theme <= 1.3.3 - Broken Access Control Vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.04,
-      "epssPercentile": 9.649,
-      "riskScore": 45,
-      "publishedDate": "2025-07-16T11:27:53.783000+00:00",
-      "lastModifiedDate": "2025-07-16T14:20:40.957000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["uxper"],
-      "tags": ["CWE-862"]
     },
     {
       "cveId": "CVE-2025-52560",
@@ -41702,7 +41520,7 @@
       "publishedDate": "2025-07-21T09:29:57.024000+00:00",
       "lastModifiedDate": "2025-07-21T20:36:45.460000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-78"]
     },
     {
@@ -41744,7 +41562,7 @@
       "publishedDate": "2025-07-21T09:29:32.129000+00:00",
       "lastModifiedDate": "2025-07-21T17:06:11.768000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-78"]
     },
     {
@@ -41758,7 +41576,7 @@
       "publishedDate": "2025-07-21T09:29:43.181000+00:00",
       "lastModifiedDate": "2025-07-21T17:05:33.656000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-78"]
     },
     {
@@ -42126,20 +41944,6 @@
       "tags": ["CWE-94"]
     },
     {
-      "cveId": "CVE-2025-28955",
-      "title": "WordPress Easy Video Player Wordpress & WooCommerce plugin <= 10.0 - Arbitrary File Download Vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.06,
-      "epssPercentile": 17.844,
-      "riskScore": 45,
-      "publishedDate": "2025-07-16T11:28:13.092000+00:00",
-      "lastModifiedDate": "2025-07-16T13:23:44.574000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["fwdesign"],
-      "tags": ["CWE-22"]
-    },
-    {
       "cveId": "CVE-2025-28947",
       "title": "WordPress MBStore - Digital WooCommerce WordPress Theme <= 2.3 - Local File Inclusion Vulnerability",
       "severity": "HIGH",
@@ -42264,20 +42068,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["joy2012bd"],
       "tags": ["CWE-434"]
-    },
-    {
-      "cveId": "CVE-2025-31070",
-      "title": "WordPress HTML5 Radio Player - WPBakery Page Builder Addon plugin <= 2.5 - Arbitrary File Download vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.06,
-      "epssPercentile": 17.844,
-      "riskScore": 45,
-      "publishedDate": "2025-07-16T11:28:06.767000+00:00",
-      "lastModifiedDate": "2025-07-16T16:22:15.377000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["lambertgroup"],
-      "tags": ["CWE-22"]
     },
     {
       "cveId": "CVE-2025-31033",
@@ -43676,7 +43466,7 @@
       "publishedDate": "2024-10-15T10:28:37.223000+00:00",
       "lastModifiedDate": "2024-10-16T17:39:58.106000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-798"]
     },
     {
@@ -43732,7 +43522,7 @@
       "publishedDate": "2024-10-15T10:28:16.384000+00:00",
       "lastModifiedDate": "2024-10-16T17:44:15.429000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-306"]
     },
     {
@@ -47834,7 +47624,7 @@
       "publishedDate": "2025-05-30T18:00:06.477000+00:00",
       "lastModifiedDate": "2025-05-30T18:15:18.480000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes", "phpgurukul"],
+      "vendors": ["phpgurukul", "campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -48762,20 +48552,6 @@
       "tags": ["CWE-78"]
     },
     {
-      "cveId": "CVE-2025-49031",
-      "title": "WordPress SMu Manual DoFollow plugin <= 1.8.1 - Reflected Cross Site Scripting (XSS) vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.04,
-      "epssPercentile": 8.91,
-      "riskScore": 44,
-      "publishedDate": "2025-07-16T11:28:00.228000+00:00",
-      "lastModifiedDate": "2025-07-16T20:26:35.688000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["stefan m."],
-      "tags": ["CWE-79"]
-    },
-    {
       "cveId": "CVE-2025-49184",
       "title": "Information disclosure to unauthorized user",
       "severity": "HIGH",
@@ -48830,20 +48606,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["haxtheweb"],
       "tags": ["CWE-79", "CWE-80", "CWE-87"]
-    },
-    {
-      "cveId": "CVE-2025-49888",
-      "title": "WordPress PW WooCommerce On Sale! plugin <= 1.39 - Broken Access Control Vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.04,
-      "epssPercentile": 11.447,
-      "riskScore": 44,
-      "publishedDate": "2025-07-16T11:27:57.729000+00:00",
-      "lastModifiedDate": "2025-07-16T20:23:09.553000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["pimwick"],
-      "tags": ["CWE-862"]
     },
     {
       "cveId": "CVE-2025-49146",
@@ -48972,20 +48734,6 @@
       "tags": ["CWE-89"]
     },
     {
-      "cveId": "CVE-2025-48291",
-      "title": "WordPress Contest Gallery <= 26.0.6 - Cross Site Scripting (XSS) Vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.04,
-      "epssPercentile": 8.91,
-      "riskScore": 44,
-      "publishedDate": "2025-07-16T11:28:02.305000+00:00",
-      "lastModifiedDate": "2025-07-16T14:08:07.461000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["wasiliy strecker / contestgallery developer"],
-      "tags": ["CWE-79"]
-    },
-    {
       "cveId": "CVE-2025-48881",
       "title": "Valtimo backend libraries allows objects in the object-api to be accessed and modified by unauthorized users",
       "severity": "HIGH",
@@ -49082,34 +48830,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["typo3"],
       "tags": ["CWE-425"]
-    },
-    {
-      "cveId": "CVE-2025-48153",
-      "title": "WordPress Import CDN-Remote Images plugin <= 2.1.2 - Cross Site Request Forgery (CSRF) Vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.01,
-      "epssPercentile": 2.019,
-      "riskScore": 44,
-      "publishedDate": "2025-07-16T10:36:57.831000+00:00",
-      "lastModifiedDate": "2025-07-16T20:18:52.742000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["atakan au"],
-      "tags": ["CWE-352"]
-    },
-    {
-      "cveId": "CVE-2025-48345",
-      "title": "WordPress Contact Form 7 Editor Button plugin <= 1.0.0 - Reflected Cross Site Scripting (XSS) vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.04,
-      "epssPercentile": 8.91,
-      "riskScore": 44,
-      "publishedDate": "2025-07-16T11:28:00.737000+00:00",
-      "lastModifiedDate": "2025-07-16T13:38:14.699000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["arisoft"],
-      "tags": ["CWE-79"]
     },
     {
       "cveId": "CVE-2025-48906",
@@ -49518,20 +49238,6 @@
       "tags": ["CWE-89"]
     },
     {
-      "cveId": "CVE-2025-47554",
-      "title": "WordPress CSS3 Compare Pricing Tables for WordPress plugin <= 11.6 - Reflected Cross Site Scripting (XSS) vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.04,
-      "epssPercentile": 8.91,
-      "riskScore": 44,
-      "publishedDate": "2025-07-16T11:28:03.786000+00:00",
-      "lastModifiedDate": "2025-07-16T13:54:41.379000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["quanticalabs"],
-      "tags": ["CWE-79"]
-    },
-    {
       "cveId": "CVE-2025-47584",
       "title": "WordPress Photography theme <= 7.5.2 - PHP Object Injection vulnerability",
       "severity": "HIGH",
@@ -49586,20 +49292,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["smackcoders"],
       "tags": ["CWE-862"]
-    },
-    {
-      "cveId": "CVE-2025-47652",
-      "title": "WordPress Infility Global plugin <= 2.13.4 - Reflected Cross Site Scripting (XSS) vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.04,
-      "epssPercentile": 8.91,
-      "riskScore": 44,
-      "publishedDate": "2025-07-16T11:28:02.774000+00:00",
-      "lastModifiedDate": "2025-07-16T14:05:16.552000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["infility"],
-      "tags": ["CWE-79"]
     },
     {
       "cveId": "CVE-2025-47103",
@@ -52342,7 +52034,7 @@
       "publishedDate": "2025-05-03T11:00:09.135000+00:00",
       "lastModifiedDate": "2025-05-30T09:10:12.356000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes", "phpgurukul"],
+      "vendors": ["phpgurukul", "campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -53758,20 +53450,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["siemens"],
       "tags": ["CWE-121"]
-    },
-    {
-      "cveId": "CVE-2025-46500",
-      "title": "WordPress Wordpress Auto Spinner plugin <= 3.25.0 - Reflected Cross Site Scripting (XSS) vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.04,
-      "epssPercentile": 8.91,
-      "riskScore": 44,
-      "publishedDate": "2025-07-16T11:28:04.238000+00:00",
-      "lastModifiedDate": "2025-07-16T18:49:27.713000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["valvepress"],
-      "tags": ["CWE-79"]
     },
     {
       "cveId": "CVE-2025-46463",
@@ -55520,7 +55198,7 @@
       "publishedDate": "2025-06-13T21:48:29.351000+00:00",
       "lastModifiedDate": "2025-06-17T15:18:22.706000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["dell", "broadcom"],
+      "vendors": ["broadcom", "dell"],
       "tags": ["CWE-502"]
     },
     {
@@ -55660,7 +55338,7 @@
       "publishedDate": "2025-06-13T20:42:18.769000+00:00",
       "lastModifiedDate": "2025-06-16T15:21:53.325000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["dell", "broadcom"],
+      "vendors": ["broadcom", "dell"],
       "tags": ["CWE-125"]
     },
     {
@@ -55986,20 +55664,6 @@
       "tags": ["CWE-862"]
     },
     {
-      "cveId": "CVE-2025-52786",
-      "title": "WordPress Media Folder plugin <= 1.0.0 - Cross Site Scripting (XSS) Vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.04,
-      "epssPercentile": 8.91,
-      "riskScore": 44,
-      "publishedDate": "2025-07-16T11:27:55.315000+00:00",
-      "lastModifiedDate": "2025-07-16T20:20:09.551000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["kingdom creation"],
-      "tags": ["CWE-79"]
-    },
-    {
       "cveId": "CVE-2025-52887",
       "title": "cpp-httplib has unlimited number of http header fields, which causes memory leak",
       "severity": "HIGH",
@@ -56012,34 +55676,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["yhirose"],
       "tags": ["CWE-400"]
-    },
-    {
-      "cveId": "CVE-2025-52777",
-      "title": "WordPress Pay with Contact Form 7 plugin <= 1.0.4 - Cross Site Scripting (XSS) Vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.04,
-      "epssPercentile": 8.91,
-      "riskScore": 44,
-      "publishedDate": "2025-07-16T11:27:56.274000+00:00",
-      "lastModifiedDate": "2025-07-16T20:21:13.281000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["cmsminds"],
-      "tags": ["CWE-79"]
-    },
-    {
-      "cveId": "CVE-2025-52787",
-      "title": "WordPress Tennis Court Bookings plugin <= 1.2.7 - Cross Site Scripting (XSS) Vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.04,
-      "epssPercentile": 8.91,
-      "riskScore": 44,
-      "publishedDate": "2025-07-16T11:27:54.842000+00:00",
-      "lastModifiedDate": "2025-07-16T14:15:23.239000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["ezihosting"],
-      "tags": ["CWE-79"]
     },
     {
       "cveId": "CVE-2025-52825",
@@ -56096,20 +55732,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["mbed"],
       "tags": ["CWE-733"]
-    },
-    {
-      "cveId": "CVE-2025-52779",
-      "title": "WordPress Dot html,php,xml etc pages plugin <= 1.0 - Cross Site Scripting (XSS) Vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.04,
-      "epssPercentile": 8.91,
-      "riskScore": 44,
-      "publishedDate": "2025-07-16T11:27:55.807000+00:00",
-      "lastModifiedDate": "2025-07-16T20:20:42.413000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["karimmughal"],
-      "tags": ["CWE-79"]
     },
     {
       "cveId": "CVE-2025-52574",
@@ -56306,20 +55928,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["wedevs"],
       "tags": ["CWE-89"]
-    },
-    {
-      "cveId": "CVE-2025-53990",
-      "title": "WordPress JetFormBuilder plugin <= 3.5.1.2 - PHP Object Injection Vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.2,
-      "epssScore": 0.06,
-      "epssPercentile": 18.391,
-      "riskScore": 44,
-      "publishedDate": "2025-07-16T10:36:37.220000+00:00",
-      "lastModifiedDate": "2025-07-18T14:53:48.316000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["jetmonsters"],
-      "tags": ["CWE-502"]
     },
     {
       "cveId": "CVE-2025-53015",
@@ -56910,20 +56518,6 @@
       "tags": ["CWE-89"]
     },
     {
-      "cveId": "CVE-2025-31055",
-      "title": "WordPress Electrician - Electrical Service WordPress theme <= 1.0 - Cross Site Scripting (XSS) Vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.04,
-      "epssPercentile": 8.91,
-      "riskScore": 44,
-      "publishedDate": "2025-07-16T11:28:07.238000+00:00",
-      "lastModifiedDate": "2025-07-16T16:21:32.236000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["vergatheme"],
-      "tags": ["CWE-79"]
-    },
-    {
       "cveId": "CVE-2025-31641",
       "title": "WordPress UberSlider <= 2.3 - SQL Injection Vulnerability",
       "severity": "HIGH",
@@ -56964,20 +56558,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["wpfactory"],
       "tags": ["CWE-89"]
-    },
-    {
-      "cveId": "CVE-2025-31427",
-      "title": "WordPress Invico - WordPress Consulting Business Theme <= 1.9 - Cross Site Scripting (XSS) Vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.04,
-      "epssPercentile": 8.91,
-      "riskScore": 44,
-      "publishedDate": "2025-07-16T11:28:05.193000+00:00",
-      "lastModifiedDate": "2025-07-16T20:27:06.934000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["designthemes"],
-      "tags": ["CWE-79"]
     },
     {
       "cveId": "CVE-2025-31565",
@@ -57188,20 +56768,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["click5"],
       "tags": ["CWE-89"]
-    },
-    {
-      "cveId": "CVE-2025-31072",
-      "title": "WordPress Ofiz - Business Consulting Theme plugin <= 2.0 - Cross Site Scripting (XSS) Vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.04,
-      "epssPercentile": 8.91,
-      "riskScore": 44,
-      "publishedDate": "2025-07-16T11:28:06.277000+00:00",
-      "lastModifiedDate": "2025-07-16T18:03:40.654000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["designthemes"],
-      "tags": ["CWE-79"]
     },
     {
       "cveId": "CVE-2025-31552",
@@ -57552,20 +57118,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["wpdistillery"],
       "tags": ["CWE-89"]
-    },
-    {
-      "cveId": "CVE-2025-30955",
-      "title": "WordPress ListingEasy theme <= 1.9.2 - Reflected Cross Site Scripting (XSS) vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.04,
-      "epssPercentile": 8.91,
-      "riskScore": 44,
-      "publishedDate": "2025-07-16T11:28:08.661000+00:00",
-      "lastModifiedDate": "2025-07-16T13:48:11.036000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["gt3themes"],
-      "tags": ["CWE-79"]
     },
     {
       "cveId": "CVE-2025-30622",
@@ -58110,7 +57662,7 @@
       "publishedDate": "2024-07-09T05:34:17.609000+00:00",
       "lastModifiedDate": "2024-08-01T21:11:12.734000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["webnus/", "webnus"],
+      "vendors": ["webnus", "webnus/"],
       "tags": []
     },
     {
@@ -59300,8 +58852,22 @@
       "publishedDate": "2025-05-09T15:18:34.124000+00:00",
       "lastModifiedDate": "2025-05-09T19:09:17.086000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["avast", "avg", "norton"],
+      "vendors": ["norton", "avg", "avast"],
       "tags": ["CWE-367"]
+    },
+    {
+      "cveId": "CVE-2024-13545",
+      "title": "Bootstrap Ultimate <= 1.4.9 - Unauthenticated Limited Local File Inclusion",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 1.02,
+      "epssPercentile": 76.282,
+      "riskScore": 44,
+      "publishedDate": "2025-01-24T08:23:41.200000+00:00",
+      "lastModifiedDate": "2025-02-12T20:41:30.232000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["eminozlem"],
+      "tags": ["CWE-22"]
     },
     {
       "cveId": "CVE-2024-13967",
@@ -67102,6 +66668,20 @@
       "tags": ["CWE-732"]
     },
     {
+      "cveId": "CVE-2025-49034",
+      "title": "WordPress Funnel Builder by FunnelKit plugin <= 3.10.2 - SQL Injection vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.6,
+      "epssScore": 0.04,
+      "epssPercentile": 8.798,
+      "riskScore": 43,
+      "publishedDate": "2025-07-16T11:27:59.710000+00:00",
+      "lastModifiedDate": "2025-07-16T13:39:24.744000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["funnelkit"],
+      "tags": ["CWE-89"]
+    },
+    {
       "cveId": "CVE-2025-49157",
       "title": "CVE-2025-49157: A link following vulnerability in the Trend Micro Apex One Damage Cleanup Engine could allow a local...",
       "severity": "HIGH",
@@ -67620,6 +67200,20 @@
       "tags": ["CWE-1068"]
     },
     {
+      "cveId": "CVE-2025-48161",
+      "title": "WordPress YaySMTP plugin <= 1.3 - SQL Injection Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.6,
+      "epssScore": 0.04,
+      "epssPercentile": 8.798,
+      "riskScore": 43,
+      "publishedDate": "2025-07-16T10:36:56.225000+00:00",
+      "lastModifiedDate": "2025-07-16T19:00:41.869000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["yaycommerce"],
+      "tags": ["CWE-89"]
+    },
+    {
       "cveId": "CVE-2025-48126",
       "title": "WordPress Essential Real Estate <= 5.2.1 - Local File Inclusion Vulnerability",
       "severity": "HIGH",
@@ -67690,6 +67284,20 @@
       "tags": ["CWE-98"]
     },
     {
+      "cveId": "CVE-2025-48301",
+      "title": "WordPress SMTP for SendGrid – YaySMTP plugin <= 1.5 - SQL Injection Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.6,
+      "epssScore": 0.04,
+      "epssPercentile": 8.798,
+      "riskScore": 43,
+      "publishedDate": "2025-07-16T10:36:53.201000+00:00",
+      "lastModifiedDate": "2025-07-16T20:11:16.005000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["yaycommerce"],
+      "tags": ["CWE-89"]
+    },
+    {
       "cveId": "CVE-2025-48292",
       "title": "WordPress Tourmaster plugin <= 5.3.8 - Local File Inclusion vulnerability",
       "severity": "HIGH",
@@ -67702,6 +67310,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["goodlayers"],
       "tags": ["CWE-98"]
+    },
+    {
+      "cveId": "CVE-2025-48299",
+      "title": "WordPress YayExtra plugin <= 1.5.5 - SQL Injection Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.6,
+      "epssScore": 0.04,
+      "epssPercentile": 8.798,
+      "riskScore": 43,
+      "publishedDate": "2025-07-16T10:36:53.680000+00:00",
+      "lastModifiedDate": "2025-07-16T20:15:52.663000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["yaycommerce"],
+      "tags": ["CWE-89"]
     },
     {
       "cveId": "CVE-2025-48957",
@@ -67730,6 +67352,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["owasp-modsecurity"],
       "tags": ["CWE-1050"]
+    },
+    {
+      "cveId": "CVE-2025-54043",
+      "title": "WordPress SMTP for Amazon SES plugin <= 1.9 - SQL Injection Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.6,
+      "epssScore": 0.04,
+      "epssPercentile": 8.798,
+      "riskScore": 43,
+      "publishedDate": "2025-07-16T10:36:51.266000+00:00",
+      "lastModifiedDate": "2025-07-16T20:06:55.130000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["yaycommerce"],
+      "tags": ["CWE-89"]
     },
     {
       "cveId": "CVE-2025-7145",
@@ -69356,6 +68992,34 @@
       "tags": ["CWE-269"]
     },
     {
+      "cveId": "CVE-2025-3776",
+      "title": "Verification SMS with TargetSMS <= 1.5 - Unauthenticated Limited Remote Code Execution",
+      "severity": "HIGH",
+      "cvssScore": 8.3,
+      "epssScore": 0.17,
+      "epssPercentile": 38.393,
+      "riskScore": 43,
+      "publishedDate": "2025-04-24T08:23:52.626000+00:00",
+      "lastModifiedDate": "2025-04-24T13:06:21.124000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["cajka"],
+      "tags": ["CWE-94"]
+    },
+    {
+      "cveId": "CVE-2025-3607",
+      "title": "Frontend Login and Registration Blocks <= 1.0.7 - Authenticated (Subscriber+) Privilege Escalation via Password Reset",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.06,
+      "epssPercentile": 18.438,
+      "riskScore": 43,
+      "publishedDate": "2025-04-24T08:23:49.815000+00:00",
+      "lastModifiedDate": "2025-04-24T13:55:34.115000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["arkenon"],
+      "tags": ["CWE-620"]
+    },
+    {
       "cveId": "CVE-2025-3063",
       "title": "Shopper Approved Reviews 2.0 - 2.1 - Missing Authorization to Authenticated (Subscriber+) Arbitrary Options Update",
       "severity": "HIGH",
@@ -69367,6 +69031,20 @@
       "lastModifiedDate": "2025-04-02T14:03:20.932000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["shopperapprovedapp"],
+      "tags": ["CWE-862"]
+    },
+    {
+      "cveId": "CVE-2025-3058",
+      "title": "Xelion Webchat <=  9.1.0 - Authenticated (Subscriber+) Arbitrary Options Update",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.06,
+      "epssPercentile": 18.438,
+      "riskScore": 43,
+      "publishedDate": "2025-04-24T08:23:47.679000+00:00",
+      "lastModifiedDate": "2025-04-24T15:22:57.254000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["jauharixelion"],
       "tags": ["CWE-862"]
     },
     {
@@ -69438,6 +69116,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["withstars"],
       "tags": ["CWE-862", "CWE-863"]
+    },
+    {
+      "cveId": "CVE-2025-3101",
+      "title": "Configurator Theme Core <= 1.4.7 - Authenticated (Subscriber+) Privilege Escalation",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.06,
+      "epssPercentile": 18.438,
+      "riskScore": 43,
+      "publishedDate": "2025-04-24T08:23:48.158000+00:00",
+      "lastModifiedDate": "2025-04-24T15:22:51.170000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["wp-configurator"],
+      "tags": ["CWE-269"]
     },
     {
       "cveId": "CVE-2025-3925",
@@ -69690,20 +69382,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["pixmeo"],
       "tags": ["CWE-416"]
-    },
-    {
-      "cveId": "CVE-2025-27387",
-      "title": "OPPPO Clone Phone uses weak WPA passphrase as only means of security",
-      "severity": "HIGH",
-      "cvssScore": 7.4,
-      "epssScore": 0.02,
-      "epssPercentile": 3.157,
-      "riskScore": 43,
-      "publishedDate": "2025-06-23T09:28:08.244000+00:00",
-      "lastModifiedDate": "2025-06-23T12:14:46.248000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["oppo"],
-      "tags": ["CWE-200"]
     },
     {
       "cveId": "CVE-2025-46474",
@@ -70490,6 +70168,20 @@
       "tags": ["CWE-922"]
     },
     {
+      "cveId": "CVE-2025-29000",
+      "title": "WordPress Multi-language Responsive Contact Form plugin <= 2.8 - Broken Access Control Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.04,
+      "epssPercentile": 11.77,
+      "riskScore": 43,
+      "publishedDate": "2025-07-16T11:28:10.658000+00:00",
+      "lastModifiedDate": "2025-07-16T13:42:43.757000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["august infotech"],
+      "tags": ["CWE-862"]
+    },
+    {
       "cveId": "CVE-2025-29785",
       "title": "quic-go Has Panic in Path Probe Loss Recovery Handling",
       "severity": "HIGH",
@@ -70502,6 +70194,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["quic-go"],
       "tags": ["CWE-248"]
+    },
+    {
+      "cveId": "CVE-2025-52803",
+      "title": "WordPress Sala theme <= 1.1.3 - Broken Access Control Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.04,
+      "epssPercentile": 9.649,
+      "riskScore": 43,
+      "publishedDate": "2025-07-16T11:27:54.296000+00:00",
+      "lastModifiedDate": "2025-07-16T14:17:41.650000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["uxper"],
+      "tags": ["CWE-862"]
     },
     {
       "cveId": "CVE-2025-52980",
@@ -70572,6 +70278,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["vaultdweller"],
       "tags": ["CWE-35"]
+    },
+    {
+      "cveId": "CVE-2025-52804",
+      "title": "WordPress Nuss theme <= 1.3.3 - Broken Access Control Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.04,
+      "epssPercentile": 9.649,
+      "riskScore": 43,
+      "publishedDate": "2025-07-16T11:27:53.783000+00:00",
+      "lastModifiedDate": "2025-07-16T14:20:40.957000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["uxper"],
+      "tags": ["CWE-862"]
     },
     {
       "cveId": "CVE-2025-39458",
@@ -71428,6 +71148,20 @@
       "tags": ["CWE-98"]
     },
     {
+      "cveId": "CVE-2025-28955",
+      "title": "WordPress Easy Video Player Wordpress & WooCommerce plugin <= 10.0 - Arbitrary File Download Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.06,
+      "epssPercentile": 17.844,
+      "riskScore": 43,
+      "publishedDate": "2025-07-16T11:28:13.092000+00:00",
+      "lastModifiedDate": "2025-07-16T13:23:44.574000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["fwdesign"],
+      "tags": ["CWE-22"]
+    },
+    {
       "cveId": "CVE-2025-28992",
       "title": "WordPress SNS Anton <= 4.1 - Local File Inclusion Vulnerability",
       "severity": "HIGH",
@@ -71538,6 +71272,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["gavias"],
       "tags": ["CWE-98"]
+    },
+    {
+      "cveId": "CVE-2025-31070",
+      "title": "WordPress HTML5 Radio Player - WPBakery Page Builder Addon plugin <= 2.5 - Arbitrary File Download vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.06,
+      "epssPercentile": 17.844,
+      "riskScore": 43,
+      "publishedDate": "2025-07-16T11:28:06.767000+00:00",
+      "lastModifiedDate": "2025-07-16T16:22:15.377000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["lambertgroup"],
+      "tags": ["CWE-22"]
     },
     {
       "cveId": "CVE-2025-31633",
@@ -76436,7 +76184,7 @@
       "publishedDate": "2024-10-15T10:27:52.208000+00:00",
       "lastModifiedDate": "2024-10-16T17:47:04.737000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-261"]
     },
     {
@@ -79782,7 +79530,7 @@
       "publishedDate": "2025-01-08T11:09:24.799000+00:00",
       "lastModifiedDate": "2025-01-08T13:54:46.719000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["wpswings", "wp swings"],
+      "vendors": ["wp swings", "wpswings"],
       "tags": ["CWE-862"]
     },
     {
@@ -81602,7 +81350,7 @@
       "publishedDate": "2024-08-07T11:00:06.508000+00:00",
       "lastModifiedDate": "2024-08-07T13:17:59.476000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["webnus/", "webnus"],
+      "vendors": ["webnus", "webnus/"],
       "tags": ["CWE-918"]
     },
     {
@@ -82008,7 +81756,7 @@
       "publishedDate": "2024-02-05T14:33:06.481000+00:00",
       "lastModifiedDate": "2025-05-09T16:32:50.015000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["tiangolo", "encode", "kludex"],
+      "vendors": ["encode", "tiangolo", "kludex"],
       "tags": ["CWE-400"]
     },
     {
@@ -88746,6 +88494,20 @@
       "tags": ["CWE-89"]
     },
     {
+      "cveId": "CVE-2025-49031",
+      "title": "WordPress SMu Manual DoFollow plugin <= 1.8.1 - Reflected Cross Site Scripting (XSS) vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.04,
+      "epssPercentile": 8.91,
+      "riskScore": 42,
+      "publishedDate": "2025-07-16T11:28:00.228000+00:00",
+      "lastModifiedDate": "2025-07-16T20:26:35.688000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["stefan m."],
+      "tags": ["CWE-79"]
+    },
+    {
       "cveId": "CVE-2025-49418",
       "title": "WordPress Allmart <= 1.0.0 - Server Side Request Forgery (SSRF) Vulnerability",
       "severity": "HIGH",
@@ -88772,6 +88534,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["lablup"],
       "tags": ["CWE-200"]
+    },
+    {
+      "cveId": "CVE-2025-49888",
+      "title": "WordPress PW WooCommerce On Sale! plugin <= 1.39 - Broken Access Control Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.04,
+      "epssPercentile": 11.447,
+      "riskScore": 42,
+      "publishedDate": "2025-07-16T11:27:57.729000+00:00",
+      "lastModifiedDate": "2025-07-16T20:23:09.553000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["pimwick"],
+      "tags": ["CWE-862"]
     },
     {
       "cveId": "CVE-2025-49274",
@@ -88858,6 +88634,20 @@
       "tags": ["CWE-22"]
     },
     {
+      "cveId": "CVE-2025-48291",
+      "title": "WordPress Contest Gallery <= 26.0.6 - Cross Site Scripting (XSS) Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.04,
+      "epssPercentile": 8.91,
+      "riskScore": 42,
+      "publishedDate": "2025-07-16T11:28:02.305000+00:00",
+      "lastModifiedDate": "2025-07-16T14:08:07.461000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["wasiliy strecker / contestgallery developer"],
+      "tags": ["CWE-79"]
+    },
+    {
       "cveId": "CVE-2025-48903",
       "title": "CVE-2025-48903: Permission bypass vulnerability in the media library module\nImpact: Successful exploitation of this ...",
       "severity": "HIGH",
@@ -88870,6 +88660,34 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["huawei"],
       "tags": ["CWE-264"]
+    },
+    {
+      "cveId": "CVE-2025-48153",
+      "title": "WordPress Import CDN-Remote Images plugin <= 2.1.2 - Cross Site Request Forgery (CSRF) Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.01,
+      "epssPercentile": 2.019,
+      "riskScore": 42,
+      "publishedDate": "2025-07-16T10:36:57.831000+00:00",
+      "lastModifiedDate": "2025-07-16T20:18:52.742000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["atakan au"],
+      "tags": ["CWE-352"]
+    },
+    {
+      "cveId": "CVE-2025-48345",
+      "title": "WordPress Contact Form 7 Editor Button plugin <= 1.0.0 - Reflected Cross Site Scripting (XSS) vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.04,
+      "epssPercentile": 8.91,
+      "riskScore": 42,
+      "publishedDate": "2025-07-16T11:28:00.737000+00:00",
+      "lastModifiedDate": "2025-07-16T13:38:14.699000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["arisoft"],
+      "tags": ["CWE-79"]
     },
     {
       "cveId": "CVE-2025-7037",
@@ -89222,6 +89040,20 @@
       "tags": ["CWE-862"]
     },
     {
+      "cveId": "CVE-2025-47554",
+      "title": "WordPress CSS3 Compare Pricing Tables for WordPress plugin <= 11.6 - Reflected Cross Site Scripting (XSS) vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.04,
+      "epssPercentile": 8.91,
+      "riskScore": 42,
+      "publishedDate": "2025-07-16T11:28:03.786000+00:00",
+      "lastModifiedDate": "2025-07-16T13:54:41.379000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["quanticalabs"],
+      "tags": ["CWE-79"]
+    },
+    {
       "cveId": "CVE-2025-47947",
       "title": "ModSecurity Has Possible DoS Vulnerability",
       "severity": "HIGH",
@@ -89247,6 +89079,20 @@
       "lastModifiedDate": "2025-06-27T13:06:50.554000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["mojoomla"],
+      "tags": ["CWE-79"]
+    },
+    {
+      "cveId": "CVE-2025-47652",
+      "title": "WordPress Infility Global plugin <= 2.13.4 - Reflected Cross Site Scripting (XSS) vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.04,
+      "epssPercentile": 8.91,
+      "riskScore": 42,
+      "publishedDate": "2025-07-16T11:28:02.774000+00:00",
+      "lastModifiedDate": "2025-07-16T14:05:16.552000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["infility"],
       "tags": ["CWE-79"]
     },
     {
@@ -90916,6 +90762,20 @@
       "tags": ["CWE-732"]
     },
     {
+      "cveId": "CVE-2025-46500",
+      "title": "WordPress Wordpress Auto Spinner plugin <= 3.25.0 - Reflected Cross Site Scripting (XSS) vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.04,
+      "epssPercentile": 8.91,
+      "riskScore": 42,
+      "publishedDate": "2025-07-16T11:28:04.238000+00:00",
+      "lastModifiedDate": "2025-07-16T18:49:27.713000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["valvepress"],
+      "tags": ["CWE-79"]
+    },
+    {
       "cveId": "CVE-2025-46827",
       "title": "Graylog Allows Session Takeover via Insufficient HTML Sanitization",
       "severity": "HIGH",
@@ -91896,6 +91756,20 @@
       "tags": ["CWE-79"]
     },
     {
+      "cveId": "CVE-2025-52786",
+      "title": "WordPress Media Folder plugin <= 1.0.0 - Cross Site Scripting (XSS) Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.04,
+      "epssPercentile": 8.91,
+      "riskScore": 42,
+      "publishedDate": "2025-07-16T11:27:55.315000+00:00",
+      "lastModifiedDate": "2025-07-16T20:20:09.551000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["kingdom creation"],
+      "tags": ["CWE-79"]
+    },
+    {
       "cveId": "CVE-2025-52799",
       "title": "WordPress LMS theme <= 9.1 - Cross Site Scripting (XSS) Vulnerability",
       "severity": "HIGH",
@@ -91907,6 +91781,20 @@
       "lastModifiedDate": "2025-06-27T13:08:20.551000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["designthemes"],
+      "tags": ["CWE-79"]
+    },
+    {
+      "cveId": "CVE-2025-52777",
+      "title": "WordPress Pay with Contact Form 7 plugin <= 1.0.4 - Cross Site Scripting (XSS) Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.04,
+      "epssPercentile": 8.91,
+      "riskScore": 42,
+      "publishedDate": "2025-07-16T11:27:56.274000+00:00",
+      "lastModifiedDate": "2025-07-16T20:21:13.281000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["cmsminds"],
       "tags": ["CWE-79"]
     },
     {
@@ -91922,6 +91810,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["bearsthemes"],
       "tags": ["CWE-94"]
+    },
+    {
+      "cveId": "CVE-2025-52787",
+      "title": "WordPress Tennis Court Bookings plugin <= 1.2.7 - Cross Site Scripting (XSS) Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.04,
+      "epssPercentile": 8.91,
+      "riskScore": 42,
+      "publishedDate": "2025-07-16T11:27:54.842000+00:00",
+      "lastModifiedDate": "2025-07-16T14:15:23.239000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["ezihosting"],
+      "tags": ["CWE-79"]
     },
     {
       "cveId": "CVE-2025-52778",
@@ -91963,6 +91865,20 @@
       "lastModifiedDate": "2025-07-07T16:25:56.466000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["thanhtungtnt"],
+      "tags": ["CWE-79"]
+    },
+    {
+      "cveId": "CVE-2025-52779",
+      "title": "WordPress Dot html,php,xml etc pages plugin <= 1.0 - Cross Site Scripting (XSS) Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.04,
+      "epssPercentile": 8.91,
+      "riskScore": 42,
+      "publishedDate": "2025-07-16T11:27:55.807000+00:00",
+      "lastModifiedDate": "2025-07-16T20:20:42.413000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["karimmughal"],
       "tags": ["CWE-79"]
     },
     {
@@ -92188,6 +92104,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["hossin asaadi"],
       "tags": ["CWE-352"]
+    },
+    {
+      "cveId": "CVE-2025-53990",
+      "title": "WordPress JetFormBuilder plugin <= 3.5.1.2 - PHP Object Injection Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.2,
+      "epssScore": 0.06,
+      "epssPercentile": 18.391,
+      "riskScore": 42,
+      "publishedDate": "2025-07-16T10:36:37.220000+00:00",
+      "lastModifiedDate": "2025-07-18T14:53:48.316000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["jetmonsters"],
+      "tags": ["CWE-502"]
     },
     {
       "cveId": "CVE-2025-53315",
@@ -93576,6 +93506,20 @@
       "tags": ["CWE-352"]
     },
     {
+      "cveId": "CVE-2025-31055",
+      "title": "WordPress Electrician - Electrical Service WordPress theme <= 1.0 - Cross Site Scripting (XSS) Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.04,
+      "epssPercentile": 8.91,
+      "riskScore": 42,
+      "publishedDate": "2025-07-16T11:28:07.238000+00:00",
+      "lastModifiedDate": "2025-07-16T16:21:32.236000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["vergatheme"],
+      "tags": ["CWE-79"]
+    },
+    {
       "cveId": "CVE-2025-31351",
       "title": "CVE-2025-31351: A vulnerability has been identified in TeleControl Server Basic (All versions < V3.1.2.2). The affec...",
       "severity": "HIGH",
@@ -93700,6 +93644,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["mdjm"],
       "tags": ["CWE-502"]
+    },
+    {
+      "cveId": "CVE-2025-31427",
+      "title": "WordPress Invico - WordPress Consulting Business Theme <= 1.9 - Cross Site Scripting (XSS) Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.04,
+      "epssPercentile": 8.91,
+      "riskScore": 42,
+      "publishedDate": "2025-07-16T11:28:05.193000+00:00",
+      "lastModifiedDate": "2025-07-16T20:27:06.934000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["designthemes"],
+      "tags": ["CWE-79"]
     },
     {
       "cveId": "CVE-2025-31466",
@@ -93840,6 +93798,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["wpsolr free"],
       "tags": ["CWE-352"]
+    },
+    {
+      "cveId": "CVE-2025-31072",
+      "title": "WordPress Ofiz - Business Consulting Theme plugin <= 2.0 - Cross Site Scripting (XSS) Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.04,
+      "epssPercentile": 8.91,
+      "riskScore": 42,
+      "publishedDate": "2025-07-16T11:28:06.277000+00:00",
+      "lastModifiedDate": "2025-07-16T18:03:40.654000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["designthemes"],
+      "tags": ["CWE-79"]
     },
     {
       "cveId": "CVE-2025-31619",
@@ -95142,6 +95114,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["adobe"],
       "tags": ["CWE-122"]
+    },
+    {
+      "cveId": "CVE-2025-30955",
+      "title": "WordPress ListingEasy theme <= 1.9.2 - Reflected Cross Site Scripting (XSS) vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.04,
+      "epssPercentile": 8.91,
+      "riskScore": 42,
+      "publishedDate": "2025-07-16T11:28:08.661000+00:00",
+      "lastModifiedDate": "2025-07-16T13:48:11.036000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["gt3themes"],
+      "tags": ["CWE-79"]
     },
     {
       "cveId": "CVE-2025-30421",
@@ -106918,20 +106904,6 @@
       "tags": ["CWE-120", "CWE-119"]
     },
     {
-      "cveId": "CVE-2025-3300",
-      "title": "WPMasterToolKit (WPMTK) – All in one plugin <= 2.5.2 - Authenticated (Administrator+) to Arbitrary File Read and Write",
-      "severity": "HIGH",
-      "cvssScore": 7.2,
-      "epssScore": 0.49,
-      "epssPercentile": 64.561,
-      "riskScore": 41,
-      "publishedDate": "2025-04-24T08:23:50.977000+00:00",
-      "lastModifiedDate": "2025-04-24T13:52:18.543000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["ludwigyou"],
-      "tags": ["CWE-22"]
-    },
-    {
       "cveId": "CVE-2025-3377",
       "title": "PCMan FTP Server ENC Command buffer overflow",
       "severity": "HIGH",
@@ -107912,20 +107884,6 @@
       "tags": ["CWE-120", "CWE-119"]
     },
     {
-      "cveId": "CVE-2025-3872",
-      "title": "Privilege escalation by altering payload in contact form",
-      "severity": "HIGH",
-      "cvssScore": 7.2,
-      "epssScore": 0.08,
-      "epssPercentile": 24.341,
-      "riskScore": 41,
-      "publishedDate": "2025-04-24T09:19:33.900000+00:00",
-      "lastModifiedDate": "2025-04-24T15:22:37.345000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["centreon"],
-      "tags": ["CWE-89"]
-    },
-    {
       "cveId": "CVE-2025-27298",
       "title": "WordPress WP Video Posts plugin <= 3.5.1 - CSRF to Remote Code Execution (RCE) vulnerability",
       "severity": "HIGH",
@@ -108092,6 +108050,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["icinga"],
       "tags": ["CWE-79"]
+    },
+    {
+      "cveId": "CVE-2025-27387",
+      "title": "OPPPO Clone Phone uses weak WPA passphrase as only means of security",
+      "severity": "HIGH",
+      "cvssScore": 7.4,
+      "epssScore": 0.02,
+      "epssPercentile": 3.157,
+      "riskScore": 41,
+      "publishedDate": "2025-06-23T09:28:08.244000+00:00",
+      "lastModifiedDate": "2025-06-23T12:14:46.248000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["oppo"],
+      "tags": ["CWE-200"]
     },
     {
       "cveId": "CVE-2025-40775",
@@ -113158,7 +113130,7 @@
       "publishedDate": "2024-10-15T10:27:06.004000+00:00",
       "lastModifiedDate": "2024-10-16T17:49:30.446000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-20"]
     },
     {
@@ -113902,20 +113874,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["xenioushk"],
       "tags": ["CWE-862"]
-    },
-    {
-      "cveId": "CVE-2024-13409",
-      "title": "Post Grid, Slider & Carousel Ultimate – with Shortcode, Gutenberg Block & Elementor Widget <= 1.6.10 - Authenticated (Contributor+) Local File Inclusion via post_type_ajax_handler()",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.13,
-      "epssPercentile": 32.712,
-      "riskScore": 41,
-      "publishedDate": "2025-01-24T11:07:30.708000+00:00",
-      "lastModifiedDate": "2025-01-27T14:56:00.346000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["wpwax"],
-      "tags": ["CWE-22"]
     },
     {
       "cveId": "CVE-2024-13770",
@@ -129668,20 +129626,6 @@
       "tags": ["CWE-276", "CWE-266"]
     },
     {
-      "cveId": "CVE-2024-13408",
-      "title": "Post Grid, Slider & Carousel Ultimate – with Shortcode, Gutenberg Block & Elementor Widget <= 1.6.10 - Authenticated (Contributor+) Local File Inclusion",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.13,
-      "epssPercentile": 33.321,
-      "riskScore": 40,
-      "publishedDate": "2025-01-24T11:07:33.334000+00:00",
-      "lastModifiedDate": "2025-01-27T14:55:13.516000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["wpwax"],
-      "tags": ["CWE-98"]
-    },
-    {
       "cveId": "CVE-2024-13681",
       "title": "Uncode <= 2.9.1.6 - Unauthenticated Arbitrary File Read in uncode_admin_get_oembed",
       "severity": "HIGH",
@@ -140574,6 +140518,20 @@
       "tags": []
     },
     {
+      "cveId": "CVE-2025-3300",
+      "title": "WPMasterToolKit (WPMTK) – All in one plugin <= 2.5.2 - Authenticated (Administrator+) to Arbitrary File Read and Write",
+      "severity": "HIGH",
+      "cvssScore": 7.2,
+      "epssScore": 0.49,
+      "epssPercentile": 64.561,
+      "riskScore": 39,
+      "publishedDate": "2025-04-24T08:23:50.977000+00:00",
+      "lastModifiedDate": "2025-04-24T13:52:18.543000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["ludwigyou"],
+      "tags": ["CWE-22"]
+    },
+    {
       "cveId": "CVE-2025-3083",
       "title": "Malformed MongoDB wire protocol messages may cause mongos to crash",
       "severity": "HIGH",
@@ -140628,6 +140586,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["benjaminprojas"],
       "tags": ["CWE-22"]
+    },
+    {
+      "cveId": "CVE-2025-3872",
+      "title": "Privilege escalation by altering payload in contact form",
+      "severity": "HIGH",
+      "cvssScore": 7.2,
+      "epssScore": 0.08,
+      "epssPercentile": 24.341,
+      "riskScore": 39,
+      "publishedDate": "2025-04-24T09:19:33.900000+00:00",
+      "lastModifiedDate": "2025-04-24T15:22:37.345000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["centreon"],
+      "tags": ["CWE-89"]
     },
     {
       "cveId": "CVE-2025-27008",
@@ -141832,20 +141804,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["fedora repository"],
       "tags": ["CWE-1392"]
-    },
-    {
-      "cveId": "CVE-2025-23422",
-      "title": "WordPress Store Locator plugin <= 3.98.10 - Local File Inclusion vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.05,
-      "epssPercentile": 14.279,
-      "riskScore": 39,
-      "publishedDate": "2025-01-24T10:52:54.714000+00:00",
-      "lastModifiedDate": "2025-02-12T20:01:21.260000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["notfound"],
-      "tags": ["CWE-22"]
     },
     {
       "cveId": "CVE-2025-23949",
@@ -144476,7 +144434,7 @@
       "publishedDate": "2024-07-03T12:26:44.599000+00:00",
       "lastModifiedDate": "2025-02-13T17:54:25.437000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "red lion europe"],
+      "vendors": ["red lion europe", "helmholz"],
       "tags": ["CWE-78"]
     },
     {
@@ -146366,7 +146324,7 @@
       "publishedDate": "2024-10-15T10:28:58.559000+00:00",
       "lastModifiedDate": "2025-01-24T06:32:08.237000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-306"]
     },
     {
@@ -146380,7 +146338,7 @@
       "publishedDate": "2024-10-15T10:27:32.688000+00:00",
       "lastModifiedDate": "2024-10-16T17:36:22.123000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-1391"]
     },
     {
@@ -146872,6 +146830,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["themefusion"],
       "tags": ["CWE-94"]
+    },
+    {
+      "cveId": "CVE-2024-13409",
+      "title": "Post Grid, Slider & Carousel Ultimate – with Shortcode, Gutenberg Block & Elementor Widget <= 1.6.10 - Authenticated (Contributor+) Local File Inclusion via post_type_ajax_handler()",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.13,
+      "epssPercentile": 32.712,
+      "riskScore": 39,
+      "publishedDate": "2025-01-24T11:07:30.708000+00:00",
+      "lastModifiedDate": "2025-01-27T14:56:00.346000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["wpwax"],
+      "tags": ["CWE-22"]
     },
     {
       "cveId": "CVE-2024-13333",
@@ -160552,20 +160524,6 @@
       "tags": ["CWE-79"]
     },
     {
-      "cveId": "CVE-2025-22714",
-      "title": "WordPress MDJM Event Management Plugin <= 1.7.5.5 - Reflected Cross Site Scripting (XSS) vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.04,
-      "epssPercentile": 13.327,
-      "riskScore": 38,
-      "publishedDate": "2025-01-24T10:52:57.854000+00:00",
-      "lastModifiedDate": "2025-02-12T20:01:20.766000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["mdjm"],
-      "tags": ["CWE-79"]
-    },
-    {
       "cveId": "CVE-2025-22332",
       "title": "WordPress CloudFlare(R) Cache Purge plugin <= 1.2 - Reflected Cross Site Scripting (XSS) vulnerability",
       "severity": "HIGH",
@@ -162918,20 +162876,6 @@
       "tags": ["CWE-79"]
     },
     {
-      "cveId": "CVE-2025-23838",
-      "title": "WordPress Bauernregeln Plugin <= 1.0.1 - Reflected Cross Site Scripting (XSS) vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.04,
-      "epssPercentile": 13.327,
-      "riskScore": 38,
-      "publishedDate": "2025-01-24T10:52:56.905000+00:00",
-      "lastModifiedDate": "2025-01-27T15:18:37.484000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["notfound"],
-      "tags": ["CWE-79"]
-    },
-    {
       "cveId": "CVE-2025-23903",
       "title": "WordPress Local Shipping Labels for WooCommerce Plugin <= 1.0.0 - Reflected Cross Site Scripting (XSS) vulnerability",
       "severity": "HIGH",
@@ -163055,20 +162999,6 @@
       "lastModifiedDate": "2025-03-31T12:09:52.867000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["ta2g"],
-      "tags": ["CWE-79"]
-    },
-    {
-      "cveId": "CVE-2025-23837",
-      "title": "WordPress One Backend Language Plugin <= 1.0 - Reflected Cross Site Scripting (XSS) vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.04,
-      "epssPercentile": 13.327,
-      "riskScore": 38,
-      "publishedDate": "2025-01-24T10:52:56.658000+00:00",
-      "lastModifiedDate": "2025-01-27T15:18:46.443000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["notfound"],
       "tags": ["CWE-79"]
     },
     {
@@ -163235,20 +163165,6 @@
       "riskScore": 38,
       "publishedDate": "2025-03-03T13:30:20.349000+00:00",
       "lastModifiedDate": "2025-05-12T15:28:23.191000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["notfound"],
-      "tags": ["CWE-79"]
-    },
-    {
-      "cveId": "CVE-2025-23711",
-      "title": "WordPress Quote me plugin <= 1.0 - Reflected Cross Site Scripting (XSS) vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.04,
-      "epssPercentile": 13.327,
-      "riskScore": 38,
-      "publishedDate": "2025-01-24T10:52:56.016000+00:00",
-      "lastModifiedDate": "2025-01-27T15:19:10.532000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["notfound"],
       "tags": ["CWE-79"]
@@ -164038,20 +163954,6 @@
       "tags": ["CWE-79"]
     },
     {
-      "cveId": "CVE-2025-23522",
-      "title": "WordPress HM Portfolio plugin <= 1.1.1 - Reflected Cross Site Scripting (XSS) vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.04,
-      "epssPercentile": 13.327,
-      "riskScore": 38,
-      "publishedDate": "2025-01-24T10:52:55.258000+00:00",
-      "lastModifiedDate": "2025-01-27T15:19:32.138000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["humanmade limited, joe hoyle, tom wilmott, matthew haines-young"],
-      "tags": ["CWE-79"]
-    },
-    {
       "cveId": "CVE-2025-23465",
       "title": "WordPress Vampire Character Manager plugin <= 2.13 - Reflected Cross Site Scripting (XSS) vulnerability",
       "severity": "HIGH",
@@ -164206,20 +164108,6 @@
       "tags": ["CWE-79"]
     },
     {
-      "cveId": "CVE-2025-23888",
-      "title": "WordPress Custom Page Extensions Plugin <= 0.6 - Cross Site Scripting (XSS) vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.04,
-      "epssPercentile": 13.327,
-      "riskScore": 38,
-      "publishedDate": "2025-01-24T10:52:57.422000+00:00",
-      "lastModifiedDate": "2025-02-12T20:01:21.023000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["notfound"],
-      "tags": ["CWE-79"]
-    },
-    {
       "cveId": "CVE-2025-23425",
       "title": "WordPress Marekkis Watermark plugin <= 0.9.4 - Reflected Cross Site Scripting (XSS) vulnerability",
       "severity": "HIGH",
@@ -164245,20 +164133,6 @@
       "lastModifiedDate": "2025-03-03T16:00:27.958000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["richestsoft"],
-      "tags": ["CWE-79"]
-    },
-    {
-      "cveId": "CVE-2025-23427",
-      "title": "WordPress Redux Converter plugin <= 1.1.3.1 - Reflected Cross Site Scripting (XSS) vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.04,
-      "epssPercentile": 13.327,
-      "riskScore": 38,
-      "publishedDate": "2025-01-24T10:52:55.067000+00:00",
-      "lastModifiedDate": "2025-02-12T20:01:21.147000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["dovy paukstys"],
       "tags": ["CWE-79"]
     },
     {
@@ -164302,20 +164176,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["jablonczay"],
       "tags": ["CWE-352"]
-    },
-    {
-      "cveId": "CVE-2025-23885",
-      "title": "WordPress MJ Contact us Plugin <= 5.2.3 - Reflected Cross Site Scripting (XSS) vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.04,
-      "epssPercentile": 13.327,
-      "riskScore": 38,
-      "publishedDate": "2025-01-24T10:52:57.250000+00:00",
-      "lastModifiedDate": "2025-01-27T15:18:22.386000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["notfound"],
-      "tags": ["CWE-79"]
     },
     {
       "cveId": "CVE-2025-23786",
@@ -164542,20 +164402,6 @@
       "tags": ["CWE-79"]
     },
     {
-      "cveId": "CVE-2025-23737",
-      "title": "WordPress Network-Favorites plugin <= 1.1 - Reflected Cross Site Scripting (XSS) vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.04,
-      "epssPercentile": 13.327,
-      "riskScore": 38,
-      "publishedDate": "2025-01-24T10:52:56.442000+00:00",
-      "lastModifiedDate": "2025-01-27T15:18:54.438000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["notfound"],
-      "tags": ["CWE-79"]
-    },
-    {
       "cveId": "CVE-2025-23782",
       "title": "WordPress TotalContest Lite Plugin <= 2.8.1 - Reflected Cross Site Scripting (XSS) vulnerability",
       "severity": "HIGH",
@@ -164649,20 +164495,6 @@
       "riskScore": 38,
       "publishedDate": "2025-03-03T13:30:09.258000+00:00",
       "lastModifiedDate": "2025-03-05T17:10:03.427000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["notfound"],
-      "tags": ["CWE-79"]
-    },
-    {
-      "cveId": "CVE-2025-23621",
-      "title": "WordPress Causes – Donation plugin <= 1.0.01 - Reflected Cross Site Scripting (XSS) vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.04,
-      "epssPercentile": 13.327,
-      "riskScore": 38,
-      "publishedDate": "2025-01-24T10:52:55.439000+00:00",
-      "lastModifiedDate": "2025-01-27T15:19:25.159000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["notfound"],
       "tags": ["CWE-79"]
@@ -164836,20 +164668,6 @@
       "tags": ["CWE-79"]
     },
     {
-      "cveId": "CVE-2025-23734",
-      "title": "WordPress Gigaom Sphinx plugin <= 0.1 - Reflected Cross Site Scripting (XSS) vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.04,
-      "epssPercentile": 13.327,
-      "riskScore": 38,
-      "publishedDate": "2025-01-24T10:52:56.254000+00:00",
-      "lastModifiedDate": "2025-01-27T15:19:02.710000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["notfound"],
-      "tags": ["CWE-79"]
-    },
-    {
       "cveId": "CVE-2025-23790",
       "title": "WordPress Easy Code Placement Plugin <= 18.11 - Reflected Cross Site Scripting (XSS) vulnerability",
       "severity": "HIGH",
@@ -164962,20 +164780,6 @@
       "tags": ["CWE-79"]
     },
     {
-      "cveId": "CVE-2025-23889",
-      "title": "WordPress FooGallery Captions Plugin <= 1.0.2 - Reflected Cross Site Scripting (XSS) vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.04,
-      "epssPercentile": 13.327,
-      "riskScore": 38,
-      "publishedDate": "2025-01-24T10:52:57.673000+00:00",
-      "lastModifiedDate": "2025-02-12T20:01:20.888000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["notfound"],
-      "tags": ["CWE-79"]
-    },
-    {
       "cveId": "CVE-2025-23539",
       "title": "WordPress Awesome Hooks plugin <= 1.0.1 - Cross Site Scripting (XSS) vulnerability",
       "severity": "HIGH",
@@ -165074,20 +164878,6 @@
       "tags": ["CWE-79"]
     },
     {
-      "cveId": "CVE-2025-23622",
-      "title": "WordPress CBX Accounting & Bookkeeping plugin <= 1.3.14 - Reflected Cross Site Scripting (XSS) vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.04,
-      "epssPercentile": 13.327,
-      "riskScore": 38,
-      "publishedDate": "2025-01-24T10:52:55.802000+00:00",
-      "lastModifiedDate": "2025-01-27T15:19:17.028000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["notfound"],
-      "tags": ["CWE-79"]
-    },
-    {
       "cveId": "CVE-2025-23648",
       "title": "WordPress AdsMiddle plugin <= 1.0 - Reflected Cross Site Scripting (XSS) vulnerability",
       "severity": "HIGH",
@@ -165113,20 +164903,6 @@
       "lastModifiedDate": "2025-03-05T16:13:03.352000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["mohsenshahbazi"],
-      "tags": ["CWE-79"]
-    },
-    {
-      "cveId": "CVE-2025-23839",
-      "title": "WordPress Sticky Button plugin <= 1.0 - Cross Site Scripting (XSS) vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.04,
-      "epssPercentile": 13.327,
-      "riskScore": 38,
-      "publishedDate": "2025-01-24T10:52:57.071000+00:00",
-      "lastModifiedDate": "2025-01-27T15:18:30.354000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["notfound"],
       "tags": ["CWE-79"]
     },
     {
@@ -173668,6 +173444,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["ivanti"],
       "tags": ["CWE-22", "CWE-288"]
+    },
+    {
+      "cveId": "CVE-2024-13408",
+      "title": "Post Grid, Slider & Carousel Ultimate – with Shortcode, Gutenberg Block & Elementor Widget <= 1.6.10 - Authenticated (Contributor+) Local File Inclusion",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.13,
+      "epssPercentile": 33.321,
+      "riskScore": 38,
+      "publishedDate": "2025-01-24T11:07:33.334000+00:00",
+      "lastModifiedDate": "2025-01-27T14:55:13.516000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["wpwax"],
+      "tags": ["CWE-98"]
     },
     {
       "cveId": "CVE-2024-13172",
@@ -186466,6 +186256,20 @@
       "tags": ["CWE-201"]
     },
     {
+      "cveId": "CVE-2025-23422",
+      "title": "WordPress Store Locator plugin <= 3.98.10 - Local File Inclusion vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.05,
+      "epssPercentile": 14.279,
+      "riskScore": 37,
+      "publishedDate": "2025-01-24T10:52:54.714000+00:00",
+      "lastModifiedDate": "2025-02-12T20:01:21.260000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["notfound"],
+      "tags": ["CWE-22"]
+    },
+    {
       "cveId": "CVE-2025-23779",
       "title": "WordPress ResAds Plugin <= 2.0.5 - SQL Injection vulnerability",
       "severity": "HIGH",
@@ -198744,6 +198548,20 @@
       "tags": ["CWE-79"]
     },
     {
+      "cveId": "CVE-2025-22714",
+      "title": "WordPress MDJM Event Management Plugin <= 1.7.5.5 - Reflected Cross Site Scripting (XSS) vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.04,
+      "epssPercentile": 13.327,
+      "riskScore": 36,
+      "publishedDate": "2025-01-24T10:52:57.854000+00:00",
+      "lastModifiedDate": "2025-02-12T20:01:20.766000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["mdjm"],
+      "tags": ["CWE-79"]
+    },
+    {
       "cveId": "CVE-2025-22709",
       "title": "WordPress Verge3D Publishing and E-Commerce Plugin <= 4.8.0 - Reflected Cross Site Scripting (XSS) vulnerability",
       "severity": "HIGH",
@@ -200046,6 +199864,20 @@
       "tags": ["CWE-79"]
     },
     {
+      "cveId": "CVE-2025-23838",
+      "title": "WordPress Bauernregeln Plugin <= 1.0.1 - Reflected Cross Site Scripting (XSS) vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.04,
+      "epssPercentile": 13.327,
+      "riskScore": 36,
+      "publishedDate": "2025-01-24T10:52:56.905000+00:00",
+      "lastModifiedDate": "2025-01-27T15:18:37.484000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["notfound"],
+      "tags": ["CWE-79"]
+    },
+    {
       "cveId": "CVE-2025-23697",
       "title": "WordPress Podčlánková inzerce plugin <= 2.4.0 - Reflected Cross Site Scripting (XSS) vulnerability",
       "severity": "HIGH",
@@ -200382,6 +200214,20 @@
       "tags": ["CWE-79"]
     },
     {
+      "cveId": "CVE-2025-23837",
+      "title": "WordPress One Backend Language Plugin <= 1.0 - Reflected Cross Site Scripting (XSS) vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.04,
+      "epssPercentile": 13.327,
+      "riskScore": 36,
+      "publishedDate": "2025-01-24T10:52:56.658000+00:00",
+      "lastModifiedDate": "2025-01-27T15:18:46.443000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["notfound"],
+      "tags": ["CWE-79"]
+    },
+    {
       "cveId": "CVE-2025-23649",
       "title": "WordPress Auphonic Importer plugin <= 1.5.1 - CSRF to Stored XSS vulnerability",
       "severity": "HIGH",
@@ -200660,6 +200506,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["taras dashkevych"],
       "tags": ["CWE-352"]
+    },
+    {
+      "cveId": "CVE-2025-23711",
+      "title": "WordPress Quote me plugin <= 1.0 - Reflected Cross Site Scripting (XSS) vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.04,
+      "epssPercentile": 13.327,
+      "riskScore": 36,
+      "publishedDate": "2025-01-24T10:52:56.016000+00:00",
+      "lastModifiedDate": "2025-01-27T15:19:10.532000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["notfound"],
+      "tags": ["CWE-79"]
     },
     {
       "cveId": "CVE-2025-23743",
@@ -201614,6 +201474,20 @@
       "tags": ["CWE-79"]
     },
     {
+      "cveId": "CVE-2025-23522",
+      "title": "WordPress HM Portfolio plugin <= 1.1.1 - Reflected Cross Site Scripting (XSS) vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.04,
+      "epssPercentile": 13.327,
+      "riskScore": 36,
+      "publishedDate": "2025-01-24T10:52:55.258000+00:00",
+      "lastModifiedDate": "2025-01-27T15:19:32.138000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["humanmade limited, joe hoyle, tom wilmott, matthew haines-young"],
+      "tags": ["CWE-79"]
+    },
+    {
       "cveId": "CVE-2025-23545",
       "title": "WordPress WP Social Broadcast plugin <= 1.0.0 - Reflected Cross Site Scripting (XSS) vulnerability",
       "severity": "HIGH",
@@ -201712,6 +201586,20 @@
       "tags": ["CWE-79"]
     },
     {
+      "cveId": "CVE-2025-23888",
+      "title": "WordPress Custom Page Extensions Plugin <= 0.6 - Cross Site Scripting (XSS) vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.04,
+      "epssPercentile": 13.327,
+      "riskScore": 36,
+      "publishedDate": "2025-01-24T10:52:57.422000+00:00",
+      "lastModifiedDate": "2025-02-12T20:01:21.023000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["notfound"],
+      "tags": ["CWE-79"]
+    },
+    {
       "cveId": "CVE-2025-23544",
       "title": "WordPress StatPressCN plugin <= 1.9.1 - Reflected Cross Site Scripting (XSS) vulnerability",
       "severity": "HIGH",
@@ -201752,6 +201640,34 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["chris roberts"],
       "tags": ["CWE-352"]
+    },
+    {
+      "cveId": "CVE-2025-23427",
+      "title": "WordPress Redux Converter plugin <= 1.1.3.1 - Reflected Cross Site Scripting (XSS) vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.04,
+      "epssPercentile": 13.327,
+      "riskScore": 36,
+      "publishedDate": "2025-01-24T10:52:55.067000+00:00",
+      "lastModifiedDate": "2025-02-12T20:01:21.147000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["dovy paukstys"],
+      "tags": ["CWE-79"]
+    },
+    {
+      "cveId": "CVE-2025-23885",
+      "title": "WordPress MJ Contact us Plugin <= 5.2.3 - Reflected Cross Site Scripting (XSS) vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.04,
+      "epssPercentile": 13.327,
+      "riskScore": 36,
+      "publishedDate": "2025-01-24T10:52:57.250000+00:00",
+      "lastModifiedDate": "2025-01-27T15:18:22.386000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["notfound"],
+      "tags": ["CWE-79"]
     },
     {
       "cveId": "CVE-2025-23678",
@@ -202062,6 +201978,20 @@
       "tags": ["CWE-79"]
     },
     {
+      "cveId": "CVE-2025-23737",
+      "title": "WordPress Network-Favorites plugin <= 1.1 - Reflected Cross Site Scripting (XSS) vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.04,
+      "epssPercentile": 13.327,
+      "riskScore": 36,
+      "publishedDate": "2025-01-24T10:52:56.442000+00:00",
+      "lastModifiedDate": "2025-01-27T15:18:54.438000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["notfound"],
+      "tags": ["CWE-79"]
+    },
+    {
       "cveId": "CVE-2025-23435",
       "title": "WordPress Password Protect Plugin for WordPress plugin <= 0.8.1.0 - CSRF to Stored XSS vulnerability",
       "severity": "HIGH",
@@ -202171,6 +202101,20 @@
       "lastModifiedDate": "2025-01-16T20:24:16.386000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["marvinlabs"],
+      "tags": ["CWE-79"]
+    },
+    {
+      "cveId": "CVE-2025-23621",
+      "title": "WordPress Causes – Donation plugin <= 1.0.01 - Reflected Cross Site Scripting (XSS) vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.04,
+      "epssPercentile": 13.327,
+      "riskScore": 36,
+      "publishedDate": "2025-01-24T10:52:55.439000+00:00",
+      "lastModifiedDate": "2025-01-27T15:19:25.159000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["notfound"],
       "tags": ["CWE-79"]
     },
     {
@@ -202314,6 +202258,20 @@
       "tags": ["CWE-352"]
     },
     {
+      "cveId": "CVE-2025-23734",
+      "title": "WordPress Gigaom Sphinx plugin <= 0.1 - Reflected Cross Site Scripting (XSS) vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.04,
+      "epssPercentile": 13.327,
+      "riskScore": 36,
+      "publishedDate": "2025-01-24T10:52:56.254000+00:00",
+      "lastModifiedDate": "2025-01-27T15:19:02.710000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["notfound"],
+      "tags": ["CWE-79"]
+    },
+    {
       "cveId": "CVE-2025-23760",
       "title": "WordPress Chatter plugin <= 1.0.1 - CSRF to Stored XSS vulnerability",
       "severity": "HIGH",
@@ -202412,6 +202370,20 @@
       "tags": ["CWE-79"]
     },
     {
+      "cveId": "CVE-2025-23889",
+      "title": "WordPress FooGallery Captions Plugin <= 1.0.2 - Reflected Cross Site Scripting (XSS) vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.04,
+      "epssPercentile": 13.327,
+      "riskScore": 36,
+      "publishedDate": "2025-01-24T10:52:57.673000+00:00",
+      "lastModifiedDate": "2025-02-12T20:01:20.888000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["notfound"],
+      "tags": ["CWE-79"]
+    },
+    {
       "cveId": "CVE-2025-23626",
       "title": "WordPress Kumihimo plugin <= 1.0.2 - Reflected Cross Site Scripting (XSS) vulnerability",
       "severity": "HIGH",
@@ -202468,6 +202440,20 @@
       "tags": ["CWE-79"]
     },
     {
+      "cveId": "CVE-2025-23622",
+      "title": "WordPress CBX Accounting & Bookkeeping plugin <= 1.3.14 - Reflected Cross Site Scripting (XSS) vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.04,
+      "epssPercentile": 13.327,
+      "riskScore": 36,
+      "publishedDate": "2025-01-24T10:52:55.802000+00:00",
+      "lastModifiedDate": "2025-01-27T15:19:17.028000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["notfound"],
+      "tags": ["CWE-79"]
+    },
+    {
       "cveId": "CVE-2025-23462",
       "title": "WordPress FWD Slider plugin <= 1.0 - Reflected Cross Site Scripting (XSS) vulnerability",
       "severity": "HIGH",
@@ -202508,6 +202494,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["mahadir ahmad"],
       "tags": ["CWE-352"]
+    },
+    {
+      "cveId": "CVE-2025-23839",
+      "title": "WordPress Sticky Button plugin <= 1.0 - Cross Site Scripting (XSS) vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.04,
+      "epssPercentile": 13.327,
+      "riskScore": 36,
+      "publishedDate": "2025-01-24T10:52:57.071000+00:00",
+      "lastModifiedDate": "2025-01-27T15:18:30.354000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["notfound"],
+      "tags": ["CWE-79"]
     },
     {
       "cveId": "CVE-2025-23672",
