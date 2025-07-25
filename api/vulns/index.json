@@ -1,6 +1,6 @@
 {
-  "generated": "2025-07-25T00:26:05.352847",
-  "count": 15488,
+  "generated": "2025-07-25T04:21:17.590615",
+  "count": 15511,
   "vulnerabilities": [
     {
       "cveId": "CVE-2025-49113",
@@ -909,7 +909,7 @@
       "publishedDate": "2025-06-25T07:17:32.423000+00:00",
       "lastModifiedDate": "2025-06-27T13:51:00.720000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["konica minolta, inc.", "brother industries, ltd", "toshiba tec"],
+      "vendors": ["toshiba tec", "konica minolta, inc.", "brother industries, ltd"],
       "tags": ["CWE-1391"]
     },
     {
@@ -3035,7 +3035,7 @@
       "epssPercentile": 20.292,
       "riskScore": 56,
       "publishedDate": "2025-07-18T17:04:44.003000+00:00",
-      "lastModifiedDate": "2025-07-22T21:04:18.181000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:59.821000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-862"]
@@ -3049,7 +3049,7 @@
       "epssPercentile": 20.292,
       "riskScore": 56,
       "publishedDate": "2025-07-18T17:04:44.617000+00:00",
-      "lastModifiedDate": "2025-07-23T03:55:23.522000+00:00",
+      "lastModifiedDate": "2025-07-24T18:58:00.500000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-285"]
@@ -3119,10 +3119,24 @@
       "epssPercentile": 84.644,
       "riskScore": 56,
       "publishedDate": "2025-07-20T01:06:33.607000+00:00",
-      "lastModifiedDate": "2025-07-23T03:55:21.046000+00:00",
+      "lastModifiedDate": "2025-07-24T18:58:02.923000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-502"]
+    },
+    {
+      "cveId": "CVE-2025-41240",
+      "title": "Mounted Kubernetes Secrets under a predictable path located within the web server document root",
+      "severity": "CRITICAL",
+      "cvssScore": 10.0,
+      "epssScore": 0.18,
+      "epssPercentile": 40.214,
+      "riskScore": 56,
+      "publishedDate": "2025-07-24T06:42:25.254000+00:00",
+      "lastModifiedDate": "2025-07-24T20:07:36.762000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["vmware"],
+      "tags": []
     },
     {
       "cveId": "CVE-2024-5246",
@@ -3331,7 +3345,7 @@
       "publishedDate": "2024-10-18T17:32:30.648000+00:00",
       "lastModifiedDate": "2024-10-18T18:56:31.697000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["scottpaterson", "scott paterson"],
+      "vendors": ["scott paterson", "scottpaterson"],
       "tags": ["CWE-94"]
     },
     {
@@ -3847,7 +3861,7 @@
       "epssPercentile": 93.803,
       "riskScore": 54,
       "publishedDate": "2025-07-08T16:58:05.908000+00:00",
-      "lastModifiedDate": "2025-07-22T21:04:05.006000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:47.998000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-94"]
@@ -3875,7 +3889,7 @@
       "epssPercentile": 33.303,
       "riskScore": 54,
       "publishedDate": "2025-07-08T16:57:31.364000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:30.256000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:11.941000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-122"]
@@ -3889,7 +3903,7 @@
       "epssPercentile": 23.885,
       "riskScore": 54,
       "publishedDate": "2025-07-18T17:04:45.914000+00:00",
-      "lastModifiedDate": "2025-07-23T03:55:25.712000+00:00",
+      "lastModifiedDate": "2025-07-24T18:58:01.692000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-302"]
@@ -3963,6 +3977,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["cisco"],
       "tags": []
+    },
+    {
+      "cveId": "CVE-2025-6441",
+      "title": "Webinar Solution: Create live/evergreen/automated/instant webinars, stream & Zoom Meetings | WebinarIgnition <= 4.03.31 - Unauthenticated Login Token Generation to Authentication Bypass",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.17,
+      "epssPercentile": 38.268,
+      "riskScore": 54,
+      "publishedDate": "2025-07-24T09:22:16.616000+00:00",
+      "lastModifiedDate": "2025-07-24T13:15:02.281000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["tobias_conrad"],
+      "tags": ["CWE-862"]
     },
     {
       "cveId": "CVE-2025-53833",
@@ -4371,6 +4399,20 @@
       "tags": ["CWE-502"]
     },
     {
+      "cveId": "CVE-2025-7852",
+      "title": "WPBookit <= 1.0.6 - Unauthenticated Arbitrary File Upload via image_upload_handle Function",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.14,
+      "epssPercentile": 34.333,
+      "riskScore": 53,
+      "publishedDate": "2025-07-24T04:24:12.852000+00:00",
+      "lastModifiedDate": "2025-07-24T13:36:47.798000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["iqonicdesign"],
+      "tags": ["CWE-434"]
+    },
+    {
       "cveId": "CVE-2025-7696",
       "title": "Integration for Pipedrive and Contact Form 7, WPForms, Elementor, Ninja Forms <= 1.2.3 - Unauthenticated PHP Object Injection via verify_field_val Function",
       "severity": "CRITICAL",
@@ -4455,6 +4497,20 @@
       "tags": ["CWE-862"]
     },
     {
+      "cveId": "CVE-2025-6380",
+      "title": "ONLYOFFICE Docs 1.1.0 - 2.2.0 - Missing Authorization to Unauthenticated Privilege Escalation via callback Function",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.06,
+      "epssPercentile": 18.328,
+      "riskScore": 53,
+      "publishedDate": "2025-07-24T09:22:17.749000+00:00",
+      "lastModifiedDate": "2025-07-24T13:44:39.011000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["onlyoffice"],
+      "tags": ["CWE-862"]
+    },
+    {
       "cveId": "CVE-2025-24514",
       "title": "ingress-nginx controller - configuration injection via unsanitized auth-url annotation",
       "severity": "HIGH",
@@ -4477,7 +4533,7 @@
       "epssPercentile": 22.361,
       "riskScore": 53,
       "publishedDate": "2025-07-18T17:04:46.626000+00:00",
-      "lastModifiedDate": "2025-07-23T03:55:26.758000+00:00",
+      "lastModifiedDate": "2025-07-24T18:58:02.279000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-183"]
@@ -4903,20 +4959,6 @@
       "tags": ["CWE-434"]
     },
     {
-      "cveId": "CVE-2025-5396",
-      "title": "Bears Backup <= 2.0.0 - Unauthenticated Remote Code Execution",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 0.34,
-      "epssPercentile": 55.634,
-      "riskScore": 52,
-      "publishedDate": "2025-07-17T01:44:54.566000+00:00",
-      "lastModifiedDate": "2025-07-17T14:38:22.622000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["bearsthemes"],
-      "tags": ["CWE-94"]
-    },
-    {
       "cveId": "CVE-2025-54309",
       "title": "CVE-2025-54309: CrushFTP 10 before 10.8.5 and 11 before 11.3.4_23, when the DMZ proxy feature is not used, mishandle...",
       "severity": "CRITICAL",
@@ -4999,6 +5041,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["d-link"],
       "tags": ["CWE-121", "CWE-119"]
+    },
+    {
+      "cveId": "CVE-2025-7695",
+      "title": "Dataverse Integration 2.77 - 2.81 - Missing Authorization to Authenticated (Subscriber+) Privilege Escalation via reset_password_link REST Route",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.05,
+      "epssPercentile": 13.793,
+      "riskScore": 52,
+      "publishedDate": "2025-07-24T09:22:21.270000+00:00",
+      "lastModifiedDate": "2025-07-24T13:13:39.837000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["alexacrm"],
+      "tags": ["CWE-862"]
     },
     {
       "cveId": "CVE-2025-7918",
@@ -5293,6 +5349,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["digiwin"],
       "tags": ["CWE-89"]
+    },
+    {
+      "cveId": "CVE-2025-7437",
+      "title": "Ebook Store <= 5.8012 - Unauthenticated Arbitrary File Upload",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.13,
+      "epssPercentile": 32.82,
+      "riskScore": 52,
+      "publishedDate": "2025-07-24T04:24:13.455000+00:00",
+      "lastModifiedDate": "2025-07-24T13:36:42.819000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["motovnet"],
+      "tags": ["CWE-434"]
     },
     {
       "cveId": "CVE-2025-7912",
@@ -5907,7 +5977,7 @@
       "publishedDate": "2024-06-25T03:30:37.970000+00:00",
       "lastModifiedDate": "2024-08-01T21:33:05.337000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["blazeretail", "themerex", "pedrogusmao02", "warfareplugins", "stuartobrien"],
+      "vendors": ["stuartobrien", "pedrogusmao02", "warfareplugins", "themerex", "blazeretail"],
       "tags": []
     },
     {
@@ -5919,7 +5989,7 @@
       "epssPercentile": 97.577,
       "riskScore": 52,
       "publishedDate": "2024-07-01T12:37:25.431000+00:00",
-      "lastModifiedDate": "2025-05-21T18:20:20.790000+00:00",
+      "lastModifiedDate": "2025-07-24T13:11:10.801000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["red hat"],
       "tags": ["CWE-364"]
@@ -6093,6 +6163,20 @@
       "tags": ["CWE-94"]
     },
     {
+      "cveId": "CVE-2025-5243",
+      "title": "Arbitrary File Upload in SMG Software's Information Portal",
+      "severity": "CRITICAL",
+      "cvssScore": 10.0,
+      "epssScore": null,
+      "epssPercentile": 0,
+      "riskScore": 51,
+      "publishedDate": "2025-07-24T12:45:22.450000+00:00",
+      "lastModifiedDate": "2025-07-24T13:36:01.931000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["smg software"],
+      "tags": ["CWE-434", "CWE-78"]
+    },
+    {
       "cveId": "CVE-2025-5304",
       "title": "PT Project Notebooks 1.0.0 - 1.1.3 - Missing Authorization to Unauthenticated Privilege Escalation via wpnb_pto_new_users_add Function",
       "severity": "CRITICAL",
@@ -6129,7 +6213,7 @@
       "epssPercentile": 20.567,
       "riskScore": 51,
       "publishedDate": "2025-07-08T16:57:08.154000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:08.071000+00:00",
+      "lastModifiedDate": "2025-07-24T18:56:47.026000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-122", "CWE-125"]
@@ -6143,7 +6227,7 @@
       "epssPercentile": 20.567,
       "riskScore": 51,
       "publishedDate": "2025-07-08T16:57:26.829000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:25.355000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:07.299000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-122"]
@@ -6157,7 +6241,7 @@
       "epssPercentile": 20.567,
       "riskScore": 51,
       "publishedDate": "2025-07-08T16:57:49.488000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:48.250000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:31.661000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-122"]
@@ -6171,7 +6255,7 @@
       "epssPercentile": 20.567,
       "riskScore": 51,
       "publishedDate": "2025-07-08T16:57:11.380000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:10.774000+00:00",
+      "lastModifiedDate": "2025-07-24T18:56:50.080000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-122"]
@@ -6185,7 +6269,7 @@
       "epssPercentile": 36.944,
       "riskScore": 51,
       "publishedDate": "2025-07-08T16:58:09.859000+00:00",
-      "lastModifiedDate": "2025-07-22T21:04:08.691000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:50.908000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-416"]
@@ -6199,7 +6283,7 @@
       "epssPercentile": 22.798,
       "riskScore": 51,
       "publishedDate": "2025-07-08T16:57:21.614000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:20.387000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:01.633000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-122"]
@@ -6213,7 +6297,7 @@
       "epssPercentile": 20.567,
       "riskScore": 51,
       "publishedDate": "2025-07-08T16:58:11.564000+00:00",
-      "lastModifiedDate": "2025-07-22T21:04:10.898000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:52.717000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-122"]
@@ -6227,7 +6311,7 @@
       "epssPercentile": 13.573,
       "riskScore": 51,
       "publishedDate": "2025-07-08T16:57:23.208000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:22.234000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:03.566000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-862"]
@@ -6241,7 +6325,7 @@
       "epssPercentile": 20.567,
       "riskScore": 51,
       "publishedDate": "2025-07-08T16:57:53.133000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:51.914000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:35.402000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-122"]
@@ -6255,7 +6339,7 @@
       "epssPercentile": 53.957,
       "riskScore": 51,
       "publishedDate": "2025-07-02T17:18:21.557000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:24.868000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:06.709000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-843"]
@@ -6269,7 +6353,7 @@
       "epssPercentile": 20.567,
       "riskScore": 51,
       "publishedDate": "2025-07-08T16:57:14.921000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:14.140000+00:00",
+      "lastModifiedDate": "2025-07-24T18:56:54.532000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-415"]
@@ -6283,7 +6367,7 @@
       "epssPercentile": 25.625,
       "riskScore": 51,
       "publishedDate": "2025-07-08T16:58:16.373000+00:00",
-      "lastModifiedDate": "2025-07-22T21:04:15.819000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:57.472000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-693"]
@@ -6297,7 +6381,7 @@
       "epssPercentile": 20.567,
       "riskScore": 51,
       "publishedDate": "2025-07-08T16:57:12.598000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:11.822000+00:00",
+      "lastModifiedDate": "2025-07-24T18:56:51.792000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-122"]
@@ -6311,7 +6395,7 @@
       "epssPercentile": 15.102,
       "riskScore": 51,
       "publishedDate": "2025-07-08T16:57:14.401000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:13.505000+00:00",
+      "lastModifiedDate": "2025-07-24T18:56:53.822000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-125"]
@@ -6339,7 +6423,7 @@
       "epssPercentile": 20.567,
       "riskScore": 51,
       "publishedDate": "2025-07-08T16:57:12.006000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:11.245000+00:00",
+      "lastModifiedDate": "2025-07-24T18:56:50.678000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-122"]
@@ -6353,7 +6437,7 @@
       "epssPercentile": 20.567,
       "riskScore": 51,
       "publishedDate": "2025-07-08T16:57:53.634000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:52.468000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:36.043000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-122"]
@@ -6367,7 +6451,7 @@
       "epssPercentile": 20.567,
       "riskScore": 51,
       "publishedDate": "2025-07-08T16:57:52.554000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:51.271000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:34.766000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-122"]
@@ -6381,7 +6465,7 @@
       "epssPercentile": 14.984,
       "riskScore": 51,
       "publishedDate": "2025-07-08T16:58:15.788000+00:00",
-      "lastModifiedDate": "2025-07-22T21:04:15.347000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:56.958000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-59"]
@@ -6395,7 +6479,7 @@
       "epssPercentile": 32.707,
       "riskScore": 51,
       "publishedDate": "2025-07-08T16:58:04.067000+00:00",
-      "lastModifiedDate": "2025-07-22T21:04:03.250000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:46.212000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-285"]
@@ -6409,7 +6493,7 @@
       "epssPercentile": 19.565,
       "riskScore": 51,
       "publishedDate": "2025-07-08T16:57:47.268000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:45.887000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:29.091000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-125"]
@@ -6423,7 +6507,7 @@
       "epssPercentile": 14.49,
       "riskScore": 51,
       "publishedDate": "2025-07-08T16:57:44.229000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:42.618000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:26.066000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-23", "CWE-284"]
@@ -6437,7 +6521,7 @@
       "epssPercentile": 20.567,
       "riskScore": 51,
       "publishedDate": "2025-07-08T16:57:07.553000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:07.435000+00:00",
+      "lastModifiedDate": "2025-07-24T18:56:46.441000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-122"]
@@ -6633,7 +6717,7 @@
       "epssPercentile": 15.102,
       "riskScore": 51,
       "publishedDate": "2025-07-08T16:57:06.287000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:06.291000+00:00",
+      "lastModifiedDate": "2025-07-24T18:56:45.291000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-416"]
@@ -6647,7 +6731,7 @@
       "epssPercentile": 22.277,
       "riskScore": 51,
       "publishedDate": "2025-07-08T16:57:33.221000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:31.932000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:14.388000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-122", "CWE-190"]
@@ -6681,6 +6765,20 @@
       "tags": ["CWE-427"]
     },
     {
+      "cveId": "CVE-2025-4784",
+      "title": "SQLi in Moderec's Tourtella",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": null,
+      "epssPercentile": 0,
+      "riskScore": 51,
+      "publishedDate": "2025-07-24T13:27:16.922000+00:00",
+      "lastModifiedDate": "2025-07-24T14:01:07.957000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["moderec"],
+      "tags": ["CWE-89"]
+    },
+    {
       "cveId": "CVE-2025-4285",
       "title": "SQLi in Rolantis Information Technologies' Agentis",
       "severity": "CRITICAL",
@@ -6709,6 +6807,20 @@
       "tags": ["CWE-79"]
     },
     {
+      "cveId": "CVE-2025-4822",
+      "title": "SQLi in Bayraktar Solar Energies' ScadaWatt Otopilot",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": null,
+      "epssPercentile": 0,
+      "riskScore": 51,
+      "publishedDate": "2025-07-24T12:56:42.961000+00:00",
+      "lastModifiedDate": "2025-07-24T13:35:56.639000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["bayraktar solar energies"],
+      "tags": ["CWE-89"]
+    },
+    {
       "cveId": "CVE-2025-6934",
       "title": "Opal Estate Pro <= 1.7.5 - Unauthenticated Privilege Escalation via 'on_regiser_user'",
       "severity": "CRITICAL",
@@ -6735,6 +6847,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["sophos"],
       "tags": ["CWE-78"]
+    },
+    {
+      "cveId": "CVE-2025-6260",
+      "title": "Network Thermostat X-Series WiFi Thermostats Missing Authentication for Critical Function",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": null,
+      "epssPercentile": 0,
+      "riskScore": 51,
+      "publishedDate": "2025-07-24T20:53:17.534000+00:00",
+      "lastModifiedDate": "2025-07-24T20:53:17.534000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["network thermostat"],
+      "tags": ["CWE-306"]
     },
     {
       "cveId": "CVE-2025-24799",
@@ -7045,20 +7171,6 @@
       "tags": ["CWE-502"]
     },
     {
-      "cveId": "CVE-2024-56731",
-      "title": "Gogs deletion of internal files allows remote command execution",
-      "severity": "CRITICAL",
-      "cvssScore": 10.0,
-      "epssScore": 0.33,
-      "epssPercentile": 55.278,
-      "riskScore": 51,
-      "publishedDate": "2025-06-24T03:37:42.327000+00:00",
-      "lastModifiedDate": "2025-06-25T12:43:04.424000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["gogs"],
-      "tags": ["CWE-552"]
-    },
-    {
       "cveId": "CVE-2024-1708",
       "title": "Improper limitation of a pathname to a restricted directory (“path traversal”)",
       "severity": "HIGH",
@@ -7235,10 +7347,24 @@
       "epssPercentile": 20.656,
       "riskScore": 50,
       "publishedDate": "2025-07-08T16:56:59.842000+00:00",
-      "lastModifiedDate": "2025-07-22T21:02:59.266000+00:00",
+      "lastModifiedDate": "2025-07-24T18:56:40.170000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-357"]
+    },
+    {
+      "cveId": "CVE-2025-33109",
+      "title": "IBM i privilege escalation",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": null,
+      "epssPercentile": 0,
+      "riskScore": 50,
+      "publishedDate": "2025-07-24T15:06:49.888000+00:00",
+      "lastModifiedDate": "2025-07-24T19:48:39.688000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["ibm"],
+      "tags": ["CWE-250"]
     },
     {
       "cveId": "CVE-2025-33117",
@@ -7337,6 +7463,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["d-link"],
       "tags": ["CWE-121", "CWE-119"]
+    },
+    {
+      "cveId": "CVE-2025-5396",
+      "title": "Bears Backup <= 2.0.0 - Unauthenticated Remote Code Execution",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.34,
+      "epssPercentile": 55.634,
+      "riskScore": 50,
+      "publishedDate": "2025-07-17T01:44:54.566000+00:00",
+      "lastModifiedDate": "2025-07-17T14:38:22.622000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["bearsthemes"],
+      "tags": ["CWE-94"]
     },
     {
       "cveId": "CVE-2025-5623",
@@ -7473,7 +7613,7 @@
       "epssPercentile": 23.196,
       "riskScore": 50,
       "publishedDate": "2025-07-08T16:58:00.316000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:59.572000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:42.827000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-416"]
@@ -7487,7 +7627,7 @@
       "epssPercentile": 35.636,
       "riskScore": 50,
       "publishedDate": "2025-07-08T16:57:25.143000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:23.824000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:05.437000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-416"]
@@ -7501,7 +7641,7 @@
       "epssPercentile": 23.196,
       "riskScore": 50,
       "publishedDate": "2025-07-08T16:58:01.025000+00:00",
-      "lastModifiedDate": "2025-07-22T21:04:00.434000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:43.411000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-125", "CWE-122"]
@@ -7515,7 +7655,7 @@
       "epssPercentile": 17.941,
       "riskScore": 50,
       "publishedDate": "2025-07-08T16:58:01.602000+00:00",
-      "lastModifiedDate": "2025-07-22T21:04:01.007000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:44.047000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-122"]
@@ -7617,20 +7757,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["tenda"],
       "tags": ["CWE-121", "CWE-119"]
-    },
-    {
-      "cveId": "CVE-2025-7712",
-      "title": "Madara - Core <= 2.2.3 - Unauthenticated Arbitrary File Deletion",
-      "severity": "CRITICAL",
-      "cvssScore": 9.1,
-      "epssScore": 1.29,
-      "epssPercentile": 78.783,
-      "riskScore": 50,
-      "publishedDate": "2025-07-17T02:24:33.749000+00:00",
-      "lastModifiedDate": "2025-07-17T14:20:30.340000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["mangabooth"],
-      "tags": ["CWE-22"]
     },
     {
       "cveId": "CVE-2025-7092",
@@ -8529,6 +8655,20 @@
       "tags": []
     },
     {
+      "cveId": "CVE-2025-46410",
+      "title": "CVE-2025-46410: A cross-site scripting (xss) vulnerability exists in the managerPlaylists PlaylistOwnerUsersId param...",
+      "severity": "CRITICAL",
+      "cvssScore": 9.6,
+      "epssScore": null,
+      "epssPercentile": 0,
+      "riskScore": 50,
+      "publishedDate": "2025-07-24T15:11:06.165000+00:00",
+      "lastModifiedDate": "2025-07-24T15:29:21.895000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["wwbn"],
+      "tags": ["CWE-79"]
+    },
+    {
       "cveId": "CVE-2025-20156",
       "title": "Cisco Meeting Management Client-Server Privilege Escalation Vulnerability",
       "severity": "CRITICAL",
@@ -8555,6 +8695,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["cisco"],
       "tags": []
+    },
+    {
+      "cveId": "CVE-2025-50128",
+      "title": "CVE-2025-50128: A cross-site scripting (xss) vulnerability exists in the videoNotFound 404ErrorMsg parameter functio...",
+      "severity": "CRITICAL",
+      "cvssScore": 9.6,
+      "epssScore": null,
+      "epssPercentile": 0,
+      "riskScore": 50,
+      "publishedDate": "2025-07-24T15:11:03.304000+00:00",
+      "lastModifiedDate": "2025-07-24T15:27:57.056000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["wwbn"],
+      "tags": ["CWE-79"]
     },
     {
       "cveId": "CVE-2025-22467",
@@ -8711,20 +8865,6 @@
       "tags": ["CWE-306", "CWE-287"]
     },
     {
-      "cveId": "CVE-2025-6559",
-      "title": "Sapido Wireless Router - OS Command Injection",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 0.62,
-      "epssPercentile": 69.124,
-      "riskScore": 50,
-      "publishedDate": "2025-06-24T01:47:25.776000+00:00",
-      "lastModifiedDate": "2025-06-24T15:32:51.258000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["sapido"],
-      "tags": ["CWE-78"]
-    },
-    {
       "cveId": "CVE-2025-6751",
       "title": "Linksys E8450 HTTP POST Request portal.cgi set_device_language buffer overflow",
       "severity": "HIGH",
@@ -8849,20 +8989,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["leviton"],
       "tags": ["CWE-79"]
-    },
-    {
-      "cveId": "CVE-2025-6560",
-      "title": "Sapido Wireless Router - Exposure of Sensitive Information",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 0.11,
-      "epssPercentile": 30.359,
-      "riskScore": 50,
-      "publishedDate": "2025-06-24T02:01:22.300000+00:00",
-      "lastModifiedDate": "2025-06-24T16:48:18.117000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["sapido"],
-      "tags": ["CWE-256"]
     },
     {
       "cveId": "CVE-2025-6688",
@@ -9143,6 +9269,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["wago"],
       "tags": ["CWE-1188"]
+    },
+    {
+      "cveId": "CVE-2025-41420",
+      "title": "CVE-2025-41420: A cross-site scripting (xss) vulnerability exists in the userLogin cancelUri parameter functionality...",
+      "severity": "CRITICAL",
+      "cvssScore": 9.6,
+      "epssScore": null,
+      "epssPercentile": 0,
+      "riskScore": 50,
+      "publishedDate": "2025-07-24T15:11:00.461000+00:00",
+      "lastModifiedDate": "2025-07-24T15:41:31.945000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["wwbn"],
+      "tags": ["CWE-79"]
     },
     {
       "cveId": "CVE-2025-1562",
@@ -9604,11 +9744,11 @@
       "lastModifiedDate": "2025-06-25T14:15:31.576000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "brother industries, ltd",
+        "ricoh",
         "toshiba tec",
-        "fujifilm business innovation",
         "konica minolta, inc.",
-        "ricoh"
+        "fujifilm business innovation",
+        "brother industries, ltd"
       ],
       "tags": ["CWE-1286"]
     },
@@ -10041,7 +10181,7 @@
       "epssPercentile": 21.253,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:58:17.619000+00:00",
-      "lastModifiedDate": "2025-07-22T21:04:16.945000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:58.652000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-190", "CWE-122"]
@@ -10055,7 +10195,7 @@
       "epssPercentile": 15.102,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:58:10.468000+00:00",
-      "lastModifiedDate": "2025-07-22T21:04:09.429000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:51.568000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-416"]
@@ -10069,7 +10209,7 @@
       "epssPercentile": 31.242,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:58:08.064000+00:00",
-      "lastModifiedDate": "2025-07-22T21:04:06.755000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:49.066000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-501"]
@@ -10083,7 +10223,7 @@
       "epssPercentile": 15.102,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:57:59.554000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:58.991000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:42.197000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-415"]
@@ -10097,7 +10237,7 @@
       "epssPercentile": 19.565,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:57:22.686000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:21.667000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:02.962000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-122"]
@@ -10111,7 +10251,7 @@
       "epssPercentile": 30.87,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:57:16.764000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:15.740000+00:00",
+      "lastModifiedDate": "2025-07-24T18:56:56.512000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-122"]
@@ -10125,7 +10265,7 @@
       "epssPercentile": 15.102,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:57:54.217000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:53.040000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:36.638000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-416"]
@@ -10139,7 +10279,7 @@
       "epssPercentile": 19.565,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:58:03.377000+00:00",
-      "lastModifiedDate": "2025-07-22T21:04:02.699000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:45.717000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-416"]
@@ -10153,7 +10293,7 @@
       "epssPercentile": 13.022,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:57:50.790000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:49.395000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:32.827000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-362", "CWE-416"]
@@ -10167,7 +10307,7 @@
       "epssPercentile": 15.102,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:57:23.885000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:22.708000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:04.162000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-416"]
@@ -10195,7 +10335,7 @@
       "epssPercentile": 13.022,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:58:12.139000+00:00",
-      "lastModifiedDate": "2025-07-22T21:04:11.605000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:53.295000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-367", "CWE-122"]
@@ -10209,7 +10349,7 @@
       "epssPercentile": 15.102,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:57:09.549000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:09.180000+00:00",
+      "lastModifiedDate": "2025-07-24T18:56:48.266000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-822"]
@@ -10223,7 +10363,7 @@
       "epssPercentile": 19.565,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:58:02.245000+00:00",
-      "lastModifiedDate": "2025-07-22T21:04:01.615000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:44.529000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-416"]
@@ -10237,7 +10377,7 @@
       "epssPercentile": 15.102,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:58:13.363000+00:00",
-      "lastModifiedDate": "2025-07-22T21:04:12.893000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:54.286000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-416"]
@@ -10251,7 +10391,7 @@
       "epssPercentile": 15.102,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:57:13.842000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:12.871000+00:00",
+      "lastModifiedDate": "2025-07-24T18:56:53.126000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-476"]
@@ -10265,7 +10405,7 @@
       "epssPercentile": 17.311,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:58:15.207000+00:00",
-      "lastModifiedDate": "2025-07-22T21:04:14.748000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:56.289000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-59"]
@@ -10279,7 +10419,7 @@
       "epssPercentile": 31.242,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:58:04.566000+00:00",
-      "lastModifiedDate": "2025-07-22T21:04:03.858000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:46.778000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-843"]
@@ -10307,7 +10447,7 @@
       "epssPercentile": 15.102,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:58:12.687000+00:00",
-      "lastModifiedDate": "2025-07-22T21:04:12.278000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:53.793000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-122"]
@@ -10321,7 +10461,7 @@
       "epssPercentile": 19.565,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:58:05.341000+00:00",
-      "lastModifiedDate": "2025-07-22T21:04:04.433000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:47.336000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-416"]
@@ -10335,7 +10475,7 @@
       "epssPercentile": 24.059,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:57:57.673000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:56.580000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:40.379000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-190", "CWE-122"]
@@ -10363,7 +10503,7 @@
       "epssPercentile": 24.059,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:57:15.512000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:14.691000+00:00",
+      "lastModifiedDate": "2025-07-24T18:56:55.109000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-190", "CWE-125", "CWE-822"]
@@ -10377,7 +10517,7 @@
       "epssPercentile": 32.196,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:57:55.356000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:54.236000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:37.794000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-197"]
@@ -10391,7 +10531,7 @@
       "epssPercentile": 19.565,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:57:20.533000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:19.171000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:00.324000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-416"]
@@ -10405,7 +10545,7 @@
       "epssPercentile": 15.102,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:57:17.263000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:16.392000+00:00",
+      "lastModifiedDate": "2025-07-24T18:56:57.177000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-476"]
@@ -10419,7 +10559,7 @@
       "epssPercentile": 15.102,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:57:48.483000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:46.993000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:30.396000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-126"]
@@ -10433,7 +10573,7 @@
       "epssPercentile": 19.565,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:58:06.601000+00:00",
-      "lastModifiedDate": "2025-07-22T21:04:05.591000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:48.508000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-122"]
@@ -10447,7 +10587,7 @@
       "epssPercentile": 15.102,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:57:48.980000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:47.626000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:30.996000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-416"]
@@ -10461,7 +10601,7 @@
       "epssPercentile": 15.102,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:57:52.064000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:50.630000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:34.009000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-415"]
@@ -10489,24 +10629,10 @@
       "epssPercentile": 4.317,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:57:36.120000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:34.750000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:17.372000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-59"]
-    },
-    {
-      "cveId": "CVE-2025-48469",
-      "title": "Unauthenticated Firmware Upload",
-      "severity": "CRITICAL",
-      "cvssScore": 9.6,
-      "epssScore": 0.05,
-      "epssPercentile": 15.642,
-      "riskScore": 49,
-      "publishedDate": "2025-06-24T02:17:41.939000+00:00",
-      "lastModifiedDate": "2025-06-25T12:57:05.750000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["advantech"],
-      "tags": []
     },
     {
       "cveId": "CVE-2025-48816",
@@ -10517,7 +10643,7 @@
       "epssPercentile": 21.253,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:57:43.741000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:42+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:25.359000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-190", "CWE-125"]
@@ -10531,7 +10657,7 @@
       "epssPercentile": 15.102,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:57:39.071000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:37.481000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:20.600000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-122"]
@@ -10545,7 +10671,7 @@
       "epssPercentile": 17.311,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:57:46.106000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:44.434000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:27.893000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-59"]
@@ -10559,7 +10685,7 @@
       "epssPercentile": 13.022,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:57:33.814000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:32.421000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:15.038000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-416", "CWE-362"]
@@ -10573,7 +10699,7 @@
       "epssPercentile": 32.196,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:57:43.250000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:41.432000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:24.860000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-843"]
@@ -10587,7 +10713,7 @@
       "epssPercentile": 15.102,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:57:39.720000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:37.975000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:21.220000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-416"]
@@ -10713,7 +10839,7 @@
       "epssPercentile": 13.573,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:57:18.481000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:17.574000+00:00",
+      "lastModifiedDate": "2025-07-24T18:56:58.464000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-284"]
@@ -10727,7 +10853,7 @@
       "epssPercentile": 13.537,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:57:17.909000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:17.020000+00:00",
+      "lastModifiedDate": "2025-07-24T18:56:57.879000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-416"]
@@ -10755,7 +10881,7 @@
       "epssPercentile": 15.102,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:57:05.471000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:05.544000+00:00",
+      "lastModifiedDate": "2025-07-24T18:56:44.557000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-822"]
@@ -10769,7 +10895,7 @@
       "epssPercentile": 20.377,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:57:00.754000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:00.562000+00:00",
+      "lastModifiedDate": "2025-07-24T18:56:40.783000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-693"]
@@ -10797,7 +10923,7 @@
       "epssPercentile": 34.228,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:57:19.136000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:18.131000+00:00",
+      "lastModifiedDate": "2025-07-24T18:56:59.110000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-502"]
@@ -10825,7 +10951,7 @@
       "epssPercentile": 15.797,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:57:03.232000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:02.908000+00:00",
+      "lastModifiedDate": "2025-07-24T18:56:42.721000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-362"]
@@ -10839,7 +10965,7 @@
       "epssPercentile": 19.565,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:57:02.439000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:02.277000+00:00",
+      "lastModifiedDate": "2025-07-24T18:56:42.052000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-126"]
@@ -10853,7 +10979,7 @@
       "epssPercentile": 19.565,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:57:28.952000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:27.810000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:09.281000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-126"]
@@ -10867,7 +10993,7 @@
       "epssPercentile": 21.253,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:57:32.556000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:31.375000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:13.733000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-191", "CWE-125"]
@@ -10895,7 +11021,7 @@
       "epssPercentile": 21.253,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:57:06.848000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:06.870000+00:00",
+      "lastModifiedDate": "2025-07-24T18:56:45.928000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-122", "CWE-190"]
@@ -10923,7 +11049,7 @@
       "epssPercentile": 23.254,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:57:31.899000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:30.888000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:12.856000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-20", "CWE-822"]
@@ -10937,7 +11063,7 @@
       "epssPercentile": 15.102,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:57:04.268000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:03.542000+00:00",
+      "lastModifiedDate": "2025-07-24T18:56:43.349000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-416"]
@@ -10951,7 +11077,7 @@
       "epssPercentile": 53.313,
       "riskScore": 49,
       "publishedDate": "2025-07-08T16:57:25.690000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:24.294000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:06.024000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-89"]
@@ -11126,14 +11252,14 @@
     },
     {
       "cveId": "CVE-2025-8022",
-      "title": "CVE-2025-8022: All versions of the package bun are vulnerable to Improper Neutralization of Special Elements used i...",
+      "title": "CVE-2025-8022: Versions of the package bun after 0.0.12 are vulnerable to Improper Neutralization of Special Elemen...",
       "severity": "HIGH",
       "cvssScore": 8.8,
       "epssScore": 0.06,
       "epssPercentile": 19.63,
       "riskScore": 49,
       "publishedDate": "2025-07-23T05:00:06.702000+00:00",
-      "lastModifiedDate": "2025-07-23T14:47:47.348000+00:00",
+      "lastModifiedDate": "2025-07-24T04:35:40.353000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["n/a"],
       "tags": []
@@ -11585,6 +11711,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["xwiki"],
       "tags": ["CWE-79", "CWE-80"]
+    },
+    {
+      "cveId": "CVE-2025-53084",
+      "title": "CVE-2025-53084: A cross-site scripting (xss) vulnerability exists in the videosList page parameter functionality of ...",
+      "severity": "CRITICAL",
+      "cvssScore": 9.0,
+      "epssScore": null,
+      "epssPercentile": 0,
+      "riskScore": 49,
+      "publishedDate": "2025-07-24T15:11:04.747000+00:00",
+      "lastModifiedDate": "2025-07-24T15:28:31.965000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["wwbn"],
+      "tags": ["CWE-79"]
     },
     {
       "cveId": "CVE-2025-53093",
@@ -12382,9 +12522,9 @@
       "lastModifiedDate": "2025-06-25T14:08:48.280000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "fujifilm business innovation",
         "konica minolta, inc.",
         "ricoh",
+        "fujifilm business innovation",
         "brother industries, ltd"
       ],
       "tags": ["CWE-121"]
@@ -12500,6 +12640,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["smackcoders"],
       "tags": ["CWE-94"]
+    },
+    {
+      "cveId": "CVE-2024-56731",
+      "title": "Gogs deletion of internal files allows remote command execution",
+      "severity": "CRITICAL",
+      "cvssScore": 10.0,
+      "epssScore": 0.33,
+      "epssPercentile": 55.278,
+      "riskScore": 49,
+      "publishedDate": "2025-06-24T03:37:42.327000+00:00",
+      "lastModifiedDate": "2025-06-25T12:43:04.424000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["gogs"],
+      "tags": ["CWE-552"]
     },
     {
       "cveId": "CVE-2024-56059",
@@ -13854,7 +14008,7 @@
       "epssPercentile": 20.161,
       "riskScore": 48,
       "publishedDate": "2025-07-01T22:22:07.595000+00:00",
-      "lastModifiedDate": "2025-07-22T21:04:16.322000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:58.079000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-268"]
@@ -13896,7 +14050,7 @@
       "epssPercentile": 81.315,
       "riskScore": 48,
       "publishedDate": "2025-07-08T16:57:21.032000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:19.724000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:00.844000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-400"]
@@ -13910,7 +14064,7 @@
       "epssPercentile": 59.249,
       "riskScore": 48,
       "publishedDate": "2025-07-08T16:58:08.668000+00:00",
-      "lastModifiedDate": "2025-07-22T21:04:07.424000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:49.704000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-908"]
@@ -13938,7 +14092,7 @@
       "epssPercentile": 50.606,
       "riskScore": 48,
       "publishedDate": "2025-07-08T16:57:22.103000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:21.022000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:02.360000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-20"]
@@ -14008,7 +14162,7 @@
       "epssPercentile": 14.549,
       "riskScore": 48,
       "publishedDate": "2025-07-08T16:57:16.185000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:15.255000+00:00",
+      "lastModifiedDate": "2025-07-24T18:56:55.859000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-362", "CWE-415"]
@@ -14036,7 +14190,7 @@
       "epssPercentile": 13.801,
       "riskScore": 48,
       "publishedDate": "2025-07-08T16:57:55.939000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:54.871000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:38.470000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-59"]
@@ -14106,7 +14260,7 @@
       "epssPercentile": 18.488,
       "riskScore": 48,
       "publishedDate": "2025-07-08T16:57:57.091000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:56.083000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:39.701000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-416"]
@@ -14120,7 +14274,7 @@
       "epssPercentile": 27.904,
       "riskScore": 48,
       "publishedDate": "2025-07-08T16:57:42.675000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:40.797000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:24.322000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-306"]
@@ -14294,6 +14448,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-7712",
+      "title": "Madara - Core <= 2.2.3 - Unauthenticated Arbitrary File Deletion",
+      "severity": "CRITICAL",
+      "cvssScore": 9.1,
+      "epssScore": 1.29,
+      "epssPercentile": 78.783,
+      "riskScore": 48,
+      "publishedDate": "2025-07-17T02:24:33.749000+00:00",
+      "lastModifiedDate": "2025-07-17T14:20:30.340000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["mangabooth"],
+      "tags": ["CWE-22"]
+    },
+    {
       "cveId": "CVE-2025-7752",
       "title": "code-projects Online Appointment Booking System deletedoctor.php sql injection",
       "severity": "HIGH",
@@ -14362,6 +14530,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-7640",
+      "title": "hiWeb Export Posts <= 0.9.0.0 - Cross-Site Request Forgery to Arbitrary File Deletion",
+      "severity": "HIGH",
+      "cvssScore": 8.1,
+      "epssScore": 0.14,
+      "epssPercentile": 34.645,
+      "riskScore": 48,
+      "publishedDate": "2025-07-24T09:22:15.857000+00:00",
+      "lastModifiedDate": "2025-07-24T13:15:30.942000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["den-media"],
+      "tags": ["CWE-22"]
     },
     {
       "cveId": "CVE-2025-7382",
@@ -14694,7 +14876,7 @@
       "epssPercentile": 27.299,
       "riskScore": 48,
       "publishedDate": "2025-07-08T16:58:18.860000+00:00",
-      "lastModifiedDate": "2025-07-22T21:04:21.861000+00:00",
+      "lastModifiedDate": "2025-07-24T18:58:03.567000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-94"]
@@ -14792,7 +14974,7 @@
       "epssPercentile": 32.137,
       "riskScore": 48,
       "publishedDate": "2025-07-08T16:57:04.900000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:04.200000+00:00",
+      "lastModifiedDate": "2025-07-24T18:56:43.957000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-693"]
@@ -14824,6 +15006,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["auth0"],
       "tags": ["CWE-287"]
+    },
+    {
+      "cveId": "CVE-2025-25214",
+      "title": "CVE-2025-25214: A race condition vulnerability exists in the aVideoEncoder.json.php unzip functionality of WWBN AVid...",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": null,
+      "epssPercentile": 0,
+      "riskScore": 48,
+      "publishedDate": "2025-07-24T15:10:58.938000+00:00",
+      "lastModifiedDate": "2025-07-24T15:32:53.555000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["wwbn"],
+      "tags": ["CWE-362"]
     },
     {
       "cveId": "CVE-2025-25279",
@@ -16744,6 +16940,20 @@
       "tags": ["CWE-120", "CWE-119"]
     },
     {
+      "cveId": "CVE-2025-6559",
+      "title": "Sapido Wireless Router - OS Command Injection",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.62,
+      "epssPercentile": 69.124,
+      "riskScore": 48,
+      "publishedDate": "2025-06-24T01:47:25.776000+00:00",
+      "lastModifiedDate": "2025-06-24T15:32:51.258000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["sapido"],
+      "tags": ["CWE-78"]
+    },
+    {
       "cveId": "CVE-2025-6149",
       "title": "TOTOLINK A3002R HTTP POST Request formSysLog buffer overflow",
       "severity": "HIGH",
@@ -17008,6 +17218,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["totolink"],
       "tags": ["CWE-120", "CWE-119"]
+    },
+    {
+      "cveId": "CVE-2025-6560",
+      "title": "Sapido Wireless Router - Exposure of Sensitive Information",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.11,
+      "epssPercentile": 30.359,
+      "riskScore": 48,
+      "publishedDate": "2025-06-24T02:01:22.300000+00:00",
+      "lastModifiedDate": "2025-06-24T16:48:18.117000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["sapido"],
+      "tags": ["CWE-256"]
     },
     {
       "cveId": "CVE-2025-6755",
@@ -18068,7 +18292,7 @@
       "epssPercentile": 39.666,
       "riskScore": 48,
       "publishedDate": "2025-05-13T00:14:21.258000+00:00",
-      "lastModifiedDate": "2025-07-07T15:07:25.438000+00:00",
+      "lastModifiedDate": "2025-07-24T15:59:18.619000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["sap_se"],
       "tags": ["CWE-502"]
@@ -18938,7 +19162,7 @@
       "publishedDate": "2025-06-25T07:25:00.402000+00:00",
       "lastModifiedDate": "2025-06-25T14:13:40.189000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["fujifilm business innovation", "ricoh", "brother industries, ltd"],
+      "vendors": ["ricoh", "fujifilm business innovation", "brother industries, ltd"],
       "tags": ["CWE-1286"]
     },
     {
@@ -19874,7 +20098,7 @@
       "epssPercentile": 11.444,
       "riskScore": 47,
       "publishedDate": "2025-07-08T16:58:14.537000+00:00",
-      "lastModifiedDate": "2025-07-22T21:04:14.143000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:55.620000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-362"]
@@ -19944,7 +20168,7 @@
       "epssPercentile": 28.02,
       "riskScore": 47,
       "publishedDate": "2025-07-08T16:57:51.436000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:49.958000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:33.474000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-122"]
@@ -19958,7 +20182,7 @@
       "epssPercentile": 81.575,
       "riskScore": 47,
       "publishedDate": "2025-07-08T16:57:13.262000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:12.308000+00:00",
+      "lastModifiedDate": "2025-07-24T18:56:52.412000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-416"]
@@ -19972,7 +20196,7 @@
       "epssPercentile": 13.537,
       "riskScore": 47,
       "publishedDate": "2025-07-08T16:58:10.984000+00:00",
-      "lastModifiedDate": "2025-07-22T21:04:10.316000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:52.068000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-122"]
@@ -19986,7 +20210,7 @@
       "epssPercentile": 13.537,
       "riskScore": 47,
       "publishedDate": "2025-07-08T16:57:58.835000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:57.844000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:41.629000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-416"]
@@ -20014,7 +20238,7 @@
       "epssPercentile": 17.747,
       "riskScore": 47,
       "publishedDate": "2025-07-08T16:58:02.775000+00:00",
-      "lastModifiedDate": "2025-07-22T21:04:02.167000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:45.209000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-416"]
@@ -20070,7 +20294,7 @@
       "epssPercentile": 11.444,
       "riskScore": 47,
       "publishedDate": "2025-07-08T16:57:54.784000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:53.666000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:37.221000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-476", "CWE-362"]
@@ -20084,7 +20308,7 @@
       "epssPercentile": 82.602,
       "riskScore": 47,
       "publishedDate": "2025-07-08T16:58:18.191000+00:00",
-      "lastModifiedDate": "2025-07-22T21:04:17.502000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:59.238000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-122", "CWE-191", "CWE-362"]
@@ -20202,6 +20426,20 @@
       "tags": ["CWE-352"]
     },
     {
+      "cveId": "CVE-2025-48469",
+      "title": "Unauthenticated Firmware Upload",
+      "severity": "CRITICAL",
+      "cvssScore": 9.6,
+      "epssScore": 0.05,
+      "epssPercentile": 15.642,
+      "riskScore": 47,
+      "publishedDate": "2025-06-24T02:17:41.939000+00:00",
+      "lastModifiedDate": "2025-06-25T12:57:05.750000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["advantech"],
+      "tags": []
+    },
+    {
       "cveId": "CVE-2025-48300",
       "title": "WordPress Groundhogg <= 4.2.1 - Arbitrary File Upload Vulnerability",
       "severity": "CRITICAL",
@@ -20224,7 +20462,7 @@
       "epssPercentile": 47.241,
       "riskScore": 47,
       "publishedDate": "2025-07-08T16:57:45.451000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:43.858000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:27.286000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-591"]
@@ -20238,7 +20476,7 @@
       "epssPercentile": 49.798,
       "riskScore": 47,
       "publishedDate": "2025-07-08T16:57:46.690000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:44.925000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:28.442000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-416"]
@@ -20620,6 +20858,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-20"]
+    },
+    {
+      "cveId": "CVE-2025-26397",
+      "title": "SolarWinds Observability Self-Hosted Deserialization of Untrusted Data Local Privilege Escalation Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.8,
+      "epssScore": 0.04,
+      "epssPercentile": 10.197,
+      "riskScore": 47,
+      "publishedDate": "2025-07-24T07:57:53.475000+00:00",
+      "lastModifiedDate": "2025-07-24T13:16:37.075000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["solarwinds"],
+      "tags": ["CWE-502"]
     },
     {
       "cveId": "CVE-2025-26645",
@@ -21050,7 +21302,7 @@
       "epssPercentile": 13.537,
       "riskScore": 47,
       "publishedDate": "2025-07-08T16:57:29.542000+00:00",
-      "lastModifiedDate": "2025-07-22T21:03:28.509000+00:00",
+      "lastModifiedDate": "2025-07-24T18:57:09.884000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-415"]
@@ -21182,6 +21434,20 @@
       "tags": ["CWE-78"]
     },
     {
+      "cveId": "CVE-2025-36548",
+      "title": "CVE-2025-36548: A cross-site scripting (xss) vulnerability exists in the LoginWordPress loginForm cancelUri paramete...",
+      "severity": "HIGH",
+      "cvssScore": 8.3,
+      "epssScore": null,
+      "epssPercentile": 0,
+      "riskScore": 47,
+      "publishedDate": "2025-07-24T15:11:01.847000+00:00",
+      "lastModifiedDate": "2025-07-24T16:04:44.640000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["wwbn"],
+      "tags": ["CWE-79"]
+    },
+    {
       "cveId": "CVE-2025-4672",
       "title": "Offsprout Page Builder 2.2.1 - 2.15.2 - Authenticated (Contributor+) Privilege Escalation via permission_callback Function",
       "severity": "HIGH",
@@ -21266,20 +21532,6 @@
       "tags": ["CWE-502"]
     },
     {
-      "cveId": "CVE-2025-3848",
-      "title": "Download Manager and Payment Form WordPress Plugin – WP SmartPay 1.1.0 - 2.7.13 - Authenticated (Subscriber+) Privilege Escalation via Account Takeover",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.04,
-      "epssPercentile": 12.589,
-      "riskScore": 47,
-      "publishedDate": "2025-07-02T03:47:25.725000+00:00",
-      "lastModifiedDate": "2025-07-02T13:14:54.022000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["themesgrove"],
-      "tags": ["CWE-639"]
-    },
-    {
       "cveId": "CVE-2025-3365",
       "title": "Relative Path Traversal in OnlineSuite",
       "severity": "CRITICAL",
@@ -21332,7 +21584,7 @@
       "publishedDate": "2025-06-24T08:05:15.547000+00:00",
       "lastModifiedDate": "2025-06-24T14:18:57.831000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-306"]
     },
     {
@@ -22246,20 +22498,6 @@
       "tags": ["CWE-77"]
     },
     {
-      "cveId": "CVE-2025-52566",
-      "title": "llama.cpp tokenizer signed vs. unsigned heap overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.6,
-      "epssScore": 0.01,
-      "epssPercentile": 1.643,
-      "riskScore": 47,
-      "publishedDate": "2025-06-24T03:21:19.009000+00:00",
-      "lastModifiedDate": "2025-06-24T21:49:53.200000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["ggml-org"],
-      "tags": ["CWE-119", "CWE-195"]
-    },
-    {
       "cveId": "CVE-2025-52577",
       "title": "Advantech iView SQL Injection",
       "severity": "HIGH",
@@ -22688,7 +22926,7 @@
       "epssPercentile": 34.25,
       "riskScore": 47,
       "publishedDate": "2025-06-11T08:15:55.357000+00:00",
-      "lastModifiedDate": "2025-07-23T08:22:16.504000+00:00",
+      "lastModifiedDate": "2025-07-24T14:32:41.460000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["weidmueller"],
       "tags": ["CWE-78"]
@@ -25642,10 +25880,24 @@
       "epssPercentile": 1.865,
       "riskScore": 46,
       "publishedDate": "2025-07-22T16:02:51.214000+00:00",
-      "lastModifiedDate": "2025-07-22T18:50:39.060000+00:00",
+      "lastModifiedDate": "2025-07-24T03:55:22.251000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["autodesk"],
       "tags": ["CWE-125"]
+    },
+    {
+      "cveId": "CVE-2025-5039",
+      "title": "Privilege Ecalation due to Untrusted Search Path Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.8,
+      "epssScore": null,
+      "epssPercentile": 0,
+      "riskScore": 46,
+      "publishedDate": "2025-07-24T17:11:14.714000+00:00",
+      "lastModifiedDate": "2025-07-24T19:22:39.326000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["autodesk"],
+      "tags": ["CWE-426"]
     },
     {
       "cveId": "CVE-2025-5015",
@@ -26960,7 +27212,7 @@
       "publishedDate": "2025-07-08T05:32:05.678000+00:00",
       "lastModifiedDate": "2025-07-08T13:45:36.200000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes", "phpgurukul"],
+      "vendors": ["phpgurukul", "campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -27646,7 +27898,7 @@
       "publishedDate": "2025-07-08T06:02:05.515000+00:00",
       "lastModifiedDate": "2025-07-08T13:44:30.198000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes", "phpgurukul"],
+      "vendors": ["phpgurukul", "campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -27816,20 +28068,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-7735",
-      "title": "UNIMAX｜Hospital Information System - SQL Injection",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.06,
-      "epssPercentile": 20.369,
-      "riskScore": 46,
-      "publishedDate": "2025-07-17T03:20:58.284000+00:00",
-      "lastModifiedDate": "2025-07-21T01:23:54.393000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["unimax"],
-      "tags": ["CWE-89"]
     },
     {
       "cveId": "CVE-2025-7480",
@@ -32002,20 +32240,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["javothemes"],
       "tags": ["CWE-269"]
-    },
-    {
-      "cveId": "CVE-2025-0357",
-      "title": "WPBookit <= 1.6.9 - Unauthenticated Arbitrary File Upload",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 0.25,
-      "epssPercentile": 48.137,
-      "riskScore": 46,
-      "publishedDate": "2025-01-25T01:44:36.912000+00:00",
-      "lastModifiedDate": "2025-01-27T15:34:55.093000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["iqonic design"],
-      "tags": ["CWE-434"]
     },
     {
       "cveId": "CVE-2025-0314",
@@ -37744,6 +37968,20 @@
       "tags": ["CWE-122"]
     },
     {
+      "cveId": "CVE-2025-48732",
+      "title": "CVE-2025-48732: An incomplete blacklist exists in the .htaccess sample of WWBN AVideo 14.4 and dev master commit 8a8...",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": null,
+      "epssPercentile": 0,
+      "riskScore": 45,
+      "publishedDate": "2025-07-24T15:10:56.720000+00:00",
+      "lastModifiedDate": "2025-07-24T15:31:06.971000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["wwbn"],
+      "tags": ["CWE-184"]
+    },
+    {
       "cveId": "CVE-2025-48017",
       "title": "Improper Limitation of a Pathname to a Restricted Directory",
       "severity": "CRITICAL",
@@ -37784,20 +38022,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["red hat"],
       "tags": ["CWE-416"]
-    },
-    {
-      "cveId": "CVE-2025-48466",
-      "title": "Modbus Command Injection without Authentication",
-      "severity": "HIGH",
-      "cvssScore": 8.1,
-      "epssScore": 0.03,
-      "epssPercentile": 8.16,
-      "riskScore": 45,
-      "publishedDate": "2025-06-24T02:12:41.743000+00:00",
-      "lastModifiedDate": "2025-06-25T12:59:38.016000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["advantech"],
-      "tags": []
     },
     {
       "cveId": "CVE-2025-54452",
@@ -37864,7 +38088,7 @@
       "epssPercentile": 25.157,
       "riskScore": 45,
       "publishedDate": "2025-07-08T13:39:07.949000+00:00",
-      "lastModifiedDate": "2025-07-09T07:44:04.378000+00:00",
+      "lastModifiedDate": "2025-07-24T22:18:55.193000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["red hat"],
       "tags": ["CWE-120"]
@@ -38398,7 +38622,7 @@
       "publishedDate": "2025-06-13T21:03:18.087000+00:00",
       "lastModifiedDate": "2025-06-17T15:18:55.236000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["dell", "broadcom"],
+      "vendors": ["broadcom", "dell"],
       "tags": ["CWE-787"]
     },
     {
@@ -38412,7 +38636,7 @@
       "publishedDate": "2025-06-13T21:26:58.869000+00:00",
       "lastModifiedDate": "2025-06-17T18:13:30.525000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["dell", "broadcom"],
+      "vendors": ["broadcom", "dell"],
       "tags": ["CWE-763"]
     },
     {
@@ -38874,7 +39098,7 @@
       "publishedDate": "2025-06-24T08:10:29.717000+00:00",
       "lastModifiedDate": "2025-06-24T13:56:13.121000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-639"]
     },
     {
@@ -38902,7 +39126,7 @@
       "publishedDate": "2025-06-24T08:14:31.864000+00:00",
       "lastModifiedDate": "2025-06-24T13:55:34.477000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-204"]
     },
     {
@@ -40330,7 +40554,7 @@
       "publishedDate": "2025-06-13T20:51:33.392000+00:00",
       "lastModifiedDate": "2025-06-17T03:55:12.235000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["dell", "broadcom"],
+      "vendors": ["broadcom", "dell"],
       "tags": ["CWE-121"]
     },
     {
@@ -41104,6 +41328,20 @@
       "tags": ["CWE-64"]
     },
     {
+      "cveId": "CVE-2025-52566",
+      "title": "llama.cpp tokenizer signed vs. unsigned heap overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.6,
+      "epssScore": 0.01,
+      "epssPercentile": 1.643,
+      "riskScore": 45,
+      "publishedDate": "2025-06-24T03:21:19.009000+00:00",
+      "lastModifiedDate": "2025-06-24T21:49:53.200000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["ggml-org"],
+      "tags": ["CWE-119", "CWE-195"]
+    },
+    {
       "cveId": "CVE-2025-52807",
       "title": "WordPress Kossy - Minimalist eCommerce WordPress Theme <= 1.45 - Local File Inclusion Vulnerability",
       "severity": "HIGH",
@@ -41130,20 +41368,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["creanncy"],
       "tags": ["CWE-35"]
-    },
-    {
-      "cveId": "CVE-2025-52560",
-      "title": "Kanboard Password Reset Poisoning via Host Header Injection",
-      "severity": "HIGH",
-      "cvssScore": 8.1,
-      "epssScore": 0.03,
-      "epssPercentile": 7.419,
-      "riskScore": 45,
-      "publishedDate": "2025-06-24T02:56:26.589000+00:00",
-      "lastModifiedDate": "2025-06-24T15:02:43.025000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["kanboard"],
-      "tags": ["CWE-640"]
     },
     {
       "cveId": "CVE-2025-52817",
@@ -41366,7 +41590,7 @@
       "publishedDate": "2025-07-21T09:29:57.024000+00:00",
       "lastModifiedDate": "2025-07-21T20:36:45.460000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-78"]
     },
     {
@@ -41408,7 +41632,7 @@
       "publishedDate": "2025-07-21T09:29:32.129000+00:00",
       "lastModifiedDate": "2025-07-21T17:06:11.768000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-78"]
     },
     {
@@ -41422,7 +41646,7 @@
       "publishedDate": "2025-07-21T09:29:43.181000+00:00",
       "lastModifiedDate": "2025-07-21T17:05:33.656000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-78"]
     },
     {
@@ -41756,7 +41980,7 @@
       "epssPercentile": 3.88,
       "riskScore": 45,
       "publishedDate": "2025-07-17T17:19:50.542000+00:00",
-      "lastModifiedDate": "2025-07-17T17:19:50.542000+00:00",
+      "lastModifiedDate": "2025-07-24T20:08:57.395000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["nvidia"],
       "tags": ["CWE-279"]
@@ -41956,6 +42180,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["fortinet"],
       "tags": ["CWE-78"]
+    },
+    {
+      "cveId": "CVE-2025-31955",
+      "title": "HCL iAutomate is affected by a sensitive data exposure vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.6,
+      "epssScore": null,
+      "epssPercentile": 0,
+      "riskScore": 45,
+      "publishedDate": "2025-07-24T20:59:34.692000+00:00",
+      "lastModifiedDate": "2025-07-24T20:59:34.692000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["hcl software"],
+      "tags": ["CWE-200"]
     },
     {
       "cveId": "CVE-2025-31087",
@@ -43326,7 +43564,7 @@
       "publishedDate": "2024-10-15T10:28:37.223000+00:00",
       "lastModifiedDate": "2024-10-16T17:39:58.106000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-798"]
     },
     {
@@ -43382,7 +43620,7 @@
       "publishedDate": "2024-10-15T10:28:16.384000+00:00",
       "lastModifiedDate": "2024-10-16T17:44:15.429000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-306"]
     },
     {
@@ -47316,7 +47554,7 @@
       "publishedDate": "2025-06-05T02:31:05.107000+00:00",
       "lastModifiedDate": "2025-06-05T14:09:25.990000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects", "anirbandutta9"],
+      "vendors": ["anirbandutta9", "code-projects"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -47456,7 +47694,7 @@
       "publishedDate": "2025-05-30T18:00:06.477000+00:00",
       "lastModifiedDate": "2025-05-30T18:15:18.480000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes", "phpgurukul"],
+      "vendors": ["phpgurukul", "campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -48732,6 +48970,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["dassault systèmes"],
       "tags": ["CWE-416"]
+    },
+    {
+      "cveId": "CVE-2025-7735",
+      "title": "UNIMAX｜Hospital Information System - SQL Injection",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.06,
+      "epssPercentile": 20.369,
+      "riskScore": 44,
+      "publishedDate": "2025-07-17T03:20:58.284000+00:00",
+      "lastModifiedDate": "2025-07-21T01:23:54.393000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["unimax"],
+      "tags": ["CWE-89"]
     },
     {
       "cveId": "CVE-2025-26598",
@@ -51838,7 +52090,7 @@
       "publishedDate": "2025-05-03T11:00:09.135000+00:00",
       "lastModifiedDate": "2025-05-30T09:10:12.356000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes", "phpgurukul"],
+      "vendors": ["phpgurukul", "campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -52566,7 +52818,7 @@
       "publishedDate": "2025-05-05T18:31:04.418000+00:00",
       "lastModifiedDate": "2025-05-05T18:48:57.123000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sourcecodester", "oretnom23"],
+      "vendors": ["oretnom23", "sourcecodester"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -55030,7 +55282,7 @@
       "publishedDate": "2025-06-13T21:48:29.351000+00:00",
       "lastModifiedDate": "2025-06-17T15:18:22.706000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["dell", "broadcom"],
+      "vendors": ["broadcom", "dell"],
       "tags": ["CWE-502"]
     },
     {
@@ -55170,7 +55422,7 @@
       "publishedDate": "2025-06-13T20:42:18.769000+00:00",
       "lastModifiedDate": "2025-06-16T15:21:53.325000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["dell", "broadcom"],
+      "vendors": ["broadcom", "dell"],
       "tags": ["CWE-125"]
     },
     {
@@ -55566,20 +55818,6 @@
       "tags": ["CWE-733"]
     },
     {
-      "cveId": "CVE-2025-52574",
-      "title": "SysmonElixir path traversal in /read endpoint allows arbitrary file read",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.06,
-      "epssPercentile": 17.836,
-      "riskScore": 44,
-      "publishedDate": "2025-06-24T02:52:11.889000+00:00",
-      "lastModifiedDate": "2025-06-24T15:11:46.873000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["bocaletto-luca"],
-      "tags": ["CWE-22"]
-    },
-    {
       "cveId": "CVE-2025-39595",
       "title": "WordPress Quentn WP <= 1.2.8 - SQL Injection Vulnerability",
       "severity": "CRITICAL",
@@ -55840,7 +56078,7 @@
       "epssPercentile": 21.647,
       "riskScore": 44,
       "publishedDate": "2025-06-11T08:13:27.237000+00:00",
-      "lastModifiedDate": "2025-07-23T08:21:49.994000+00:00",
+      "lastModifiedDate": "2025-07-24T14:33:16.906000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["weidmueller"],
       "tags": ["CWE-352"]
@@ -56322,6 +56560,20 @@
       "tags": ["CWE-89"]
     },
     {
+      "cveId": "CVE-2025-31953",
+      "title": "HCL iAutomate is affected by hardcoded credentials",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": null,
+      "epssPercentile": 0,
+      "riskScore": 44,
+      "publishedDate": "2025-07-24T20:40:43.677000+00:00",
+      "lastModifiedDate": "2025-07-24T20:45:04.295000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["hcl software"],
+      "tags": ["CWE-798"]
+    },
+    {
       "cveId": "CVE-2025-31641",
       "title": "WordPress UberSlider <= 2.3 - SQL Injection Vulnerability",
       "severity": "HIGH",
@@ -56418,6 +56670,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["notfound"],
       "tags": ["CWE-89"]
+    },
+    {
+      "cveId": "CVE-2025-31952",
+      "title": "HCL iAutomate is affected by an insufficient session expiration",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": null,
+      "epssPercentile": 0,
+      "riskScore": 44,
+      "publishedDate": "2025-07-24T21:01:57.524000+00:00",
+      "lastModifiedDate": "2025-07-24T21:01:57.524000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["hcl software"],
+      "tags": ["CWE-613"]
     },
     {
       "cveId": "CVE-2025-31359",
@@ -57204,6 +57470,20 @@
       "tags": ["CWE-434", "CWE-79"]
     },
     {
+      "cveId": "CVE-2025-0357",
+      "title": "WPBookit <= 1.6.9 - Unauthenticated Arbitrary File Upload",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.25,
+      "epssPercentile": 48.137,
+      "riskScore": 44,
+      "publishedDate": "2025-01-25T01:44:36.912000+00:00",
+      "lastModifiedDate": "2025-01-27T15:34:55.093000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["iqonic design"],
+      "tags": ["CWE-434"]
+    },
+    {
       "cveId": "CVE-2025-0602",
       "title": "Stored Cross-site Scripting (XSS) vulnerability affecting Compare in Collaborative Industry Innovator from Release 3DEXPERIENCE R2023x through Release 3DEXPERIENCE R2025x",
       "severity": "HIGH",
@@ -57466,7 +57746,7 @@
       "publishedDate": "2024-07-09T05:34:17.609000+00:00",
       "lastModifiedDate": "2024-08-01T21:11:12.734000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["webnus/", "webnus"],
+      "vendors": ["webnus", "webnus/"],
       "tags": []
     },
     {
@@ -58656,7 +58936,7 @@
       "publishedDate": "2025-05-09T15:18:34.124000+00:00",
       "lastModifiedDate": "2025-05-09T19:09:17.086000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["norton", "avg", "avast"],
+      "vendors": ["avast", "norton", "avg"],
       "tags": ["CWE-367"]
     },
     {
@@ -63542,7 +63822,7 @@
       "publishedDate": "2024-10-22T21:13:37.183000+00:00",
       "lastModifiedDate": "2024-10-23T14:43:52.114000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["kieback & peter", "kieback&peter"],
+      "vendors": ["kieback&peter", "kieback & peter"],
       "tags": ["CWE-22"]
     },
     {
@@ -66704,7 +66984,7 @@
       "epssPercentile": 16.855,
       "riskScore": 43,
       "publishedDate": "2025-06-16T15:19:29.871000+00:00",
-      "lastModifiedDate": "2025-07-09T01:56:38.314000+00:00",
+      "lastModifiedDate": "2025-07-24T12:07:32.124000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["red hat"],
       "tags": ["CWE-825"]
@@ -67142,6 +67422,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["owasp-modsecurity"],
       "tags": ["CWE-1050"]
+    },
+    {
+      "cveId": "CVE-2025-48466",
+      "title": "Modbus Command Injection without Authentication",
+      "severity": "HIGH",
+      "cvssScore": 8.1,
+      "epssScore": 0.03,
+      "epssPercentile": 8.16,
+      "riskScore": 43,
+      "publishedDate": "2025-06-24T02:12:41.743000+00:00",
+      "lastModifiedDate": "2025-06-25T12:59:38.016000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["advantech"],
+      "tags": []
     },
     {
       "cveId": "CVE-2025-54043",
@@ -70124,6 +70418,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["uxper"],
       "tags": ["CWE-862"]
+    },
+    {
+      "cveId": "CVE-2025-52560",
+      "title": "Kanboard Password Reset Poisoning via Host Header Injection",
+      "severity": "HIGH",
+      "cvssScore": 8.1,
+      "epssScore": 0.03,
+      "epssPercentile": 7.419,
+      "riskScore": 43,
+      "publishedDate": "2025-06-24T02:56:26.589000+00:00",
+      "lastModifiedDate": "2025-06-24T15:02:43.025000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["kanboard"],
+      "tags": ["CWE-640"]
     },
     {
       "cveId": "CVE-2025-37105",
@@ -74152,7 +74460,7 @@
       "epssPercentile": 80.835,
       "riskScore": 43,
       "publishedDate": "2024-12-10T05:00:01.546000+00:00",
-      "lastModifiedDate": "2025-02-10T22:17:16.155000+00:00",
+      "lastModifiedDate": "2025-07-24T13:07:39.995000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["n/a"],
       "tags": []
@@ -76044,7 +76352,7 @@
       "publishedDate": "2024-10-15T10:27:52.208000+00:00",
       "lastModifiedDate": "2024-10-16T17:47:04.737000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-261"]
     },
     {
@@ -81042,7 +81350,7 @@
       "publishedDate": "2024-05-14T12:58:31.261000+00:00",
       "lastModifiedDate": "2025-03-14T14:56:10.154000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["na", "n/a"],
+      "vendors": ["n/a", "na"],
       "tags": []
     },
     {
@@ -81238,7 +81546,7 @@
       "publishedDate": "2024-08-07T11:00:06.508000+00:00",
       "lastModifiedDate": "2024-08-07T13:17:59.476000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["webnus/", "webnus"],
+      "vendors": ["webnus", "webnus/"],
       "tags": ["CWE-918"]
     },
     {
@@ -81644,7 +81952,7 @@
       "publishedDate": "2024-02-05T14:33:06.481000+00:00",
       "lastModifiedDate": "2025-05-09T16:32:50.015000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["kludex", "encode", "tiangolo"],
+      "vendors": ["tiangolo", "kludex", "encode"],
       "tags": ["CWE-400"]
     },
     {
@@ -91714,6 +92022,20 @@
       "tags": ["CWE-79"]
     },
     {
+      "cveId": "CVE-2025-52574",
+      "title": "SysmonElixir path traversal in /read endpoint allows arbitrary file read",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.06,
+      "epssPercentile": 17.836,
+      "riskScore": 42,
+      "publishedDate": "2025-06-24T02:52:11.889000+00:00",
+      "lastModifiedDate": "2025-06-24T15:11:46.873000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["bocaletto-luca"],
+      "tags": ["CWE-22"]
+    },
+    {
       "cveId": "CVE-2025-52798",
       "title": "WordPress JobSearch <= 2.9.0 - Cross Site Scripting (XSS) Vulnerability",
       "severity": "HIGH",
@@ -96244,7 +96566,7 @@
       "epssPercentile": 75.134,
       "riskScore": 42,
       "publishedDate": "2024-06-12T08:51:43.565000+00:00",
-      "lastModifiedDate": "2025-06-23T13:53:22.265000+00:00",
+      "lastModifiedDate": "2025-07-24T13:10:52.876000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["red hat"],
       "tags": ["CWE-22"]
@@ -96610,7 +96932,7 @@
       "publishedDate": "2024-07-02T13:47:36.399000+00:00",
       "lastModifiedDate": "2024-08-02T04:12:25.618000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["ytdl-org", "yt-dlp"],
+      "vendors": ["yt-dlp", "ytdl-org"],
       "tags": ["CWE-669"]
     },
     {
@@ -112710,7 +113032,7 @@
       "publishedDate": "2024-10-15T10:27:06.004000+00:00",
       "lastModifiedDate": "2024-10-16T17:49:30.446000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-20"]
     },
     {
@@ -114108,7 +114430,7 @@
       "epssPercentile": 14.706,
       "riskScore": 41,
       "publishedDate": "2024-07-22T14:05:29.278000+00:00",
-      "lastModifiedDate": "2024-09-04T14:24:37.774000+00:00",
+      "lastModifiedDate": "2025-07-24T03:55:26.242000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["dnsjava"],
       "tags": ["CWE-345", "CWE-349"]
@@ -132196,7 +132518,7 @@
       "epssPercentile": 64.268,
       "riskScore": 40,
       "publishedDate": "2024-09-04T14:24:03.276000+00:00",
-      "lastModifiedDate": "2025-05-21T18:24:46.956000+00:00",
+      "lastModifiedDate": "2025-07-24T13:14:19.951000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["red hat"],
       "tags": ["CWE-400"]
@@ -135474,7 +135796,7 @@
       "publishedDate": "2024-11-04T03:31:04.265000+00:00",
       "lastModifiedDate": "2024-11-04T17:01:46.227000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects", "anirbandutta9"],
+      "vendors": ["anirbandutta9", "code-projects"],
       "tags": ["CWE-89"]
     },
     {
@@ -143902,7 +144224,7 @@
       "publishedDate": "2024-07-03T12:26:44.599000+00:00",
       "lastModifiedDate": "2025-02-13T17:54:25.437000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["red lion europe", "helmholz"],
+      "vendors": ["helmholz", "red lion europe"],
       "tags": ["CWE-78"]
     },
     {
@@ -144985,14 +145307,14 @@
     },
     {
       "cveId": "CVE-2024-21548",
-      "title": "CVE-2024-21548: Versions of the package bun before 1.1.30 are vulnerable to Prototype Pollution due to improper inpu...",
+      "title": "CVE-2024-21548: Versions of the package bun after 0.0.12 and before 1.1.30 are vulnerable to Prototype Pollution due...",
       "severity": "HIGH",
       "cvssScore": 7.5,
       "epssScore": 0.07,
       "epssPercentile": 22.594,
       "riskScore": 39,
       "publishedDate": "2024-12-18T06:06:03.597000+00:00",
-      "lastModifiedDate": "2024-12-18T15:03:33.929000+00:00",
+      "lastModifiedDate": "2025-07-24T04:34:32.456000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["n/a"],
       "tags": []
@@ -145792,7 +146114,7 @@
       "publishedDate": "2024-10-15T10:28:58.559000+00:00",
       "lastModifiedDate": "2025-01-24T06:32:08.237000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-306"]
     },
     {
@@ -145806,7 +146128,7 @@
       "publishedDate": "2024-10-15T10:27:32.688000+00:00",
       "lastModifiedDate": "2024-10-16T17:36:22.123000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-1391"]
     },
     {
@@ -170192,7 +170514,7 @@
       "epssPercentile": 18.628,
       "riskScore": 38,
       "publishedDate": "2024-05-30T19:53:30.195000+00:00",
-      "lastModifiedDate": "2025-07-18T17:45:36.547000+00:00",
+      "lastModifiedDate": "2025-07-24T14:42:21.260000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["fuji electric"],
       "tags": ["CWE-843"]
@@ -188576,7 +188898,7 @@
       "publishedDate": "2024-07-08T15:25:38.672000+00:00",
       "lastModifiedDate": "2024-08-01T22:27:36.345000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["realtek", "levelone"],
+      "vendors": ["levelone", "realtek"],
       "tags": ["CWE-122"]
     },
     {
@@ -208356,7 +208678,7 @@
       "epssPercentile": 48.538,
       "riskScore": 36,
       "publishedDate": "2024-11-29T08:03:07.458000+00:00",
-      "lastModifiedDate": "2025-07-23T07:21:57.134000+00:00",
+      "lastModifiedDate": "2025-07-24T14:40:37.401000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["nec corporation"],
       "tags": ["CWE-77"]
