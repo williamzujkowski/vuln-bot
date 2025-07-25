@@ -1,5 +1,5 @@
 {
-  "generated": "2025-07-25T08:09:52.172471",
+  "generated": "2025-07-25T12:11:06.125722",
   "count": 15511,
   "vulnerabilities": [
     {
@@ -909,7 +909,7 @@
       "publishedDate": "2025-06-25T07:17:32.423000+00:00",
       "lastModifiedDate": "2025-06-27T13:51:00.720000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec", "konica minolta, inc.", "brother industries, ltd"],
+      "vendors": ["brother industries, ltd", "konica minolta, inc.", "toshiba tec"],
       "tags": ["CWE-1391"]
     },
     {
@@ -1063,7 +1063,7 @@
       "publishedDate": "2024-11-26T07:37:44.549000+00:00",
       "lastModifiedDate": "2024-12-10T14:58:18.708000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sharp corporation", "toshiba tec corporation"],
+      "vendors": ["toshiba tec corporation", "sharp corporation"],
       "tags": ["CWE-288"]
     },
     {
@@ -4619,7 +4619,7 @@
       "publishedDate": "2024-11-26T07:37:38.329000+00:00",
       "lastModifiedDate": "2024-12-10T15:43:57.213000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sharp corporation", "toshiba tec corporation"],
+      "vendors": ["toshiba tec corporation", "sharp corporation"],
       "tags": ["CWE-22"]
     },
     {
@@ -5977,7 +5977,7 @@
       "publishedDate": "2024-06-25T03:30:37.970000+00:00",
       "lastModifiedDate": "2024-08-01T21:33:05.337000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["blazeretail", "pedrogusmao02", "stuartobrien", "themerex", "warfareplugins"],
+      "vendors": ["stuartobrien", "pedrogusmao02", "blazeretail", "warfareplugins", "themerex"],
       "tags": []
     },
     {
@@ -9744,11 +9744,11 @@
       "lastModifiedDate": "2025-06-25T14:15:31.576000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
+        "ricoh",
         "toshiba tec",
         "konica minolta, inc.",
         "brother industries, ltd",
-        "fujifilm business innovation",
-        "ricoh"
+        "fujifilm business innovation"
       ],
       "tags": ["CWE-1286"]
     },
@@ -12522,10 +12522,10 @@
       "lastModifiedDate": "2025-06-25T14:08:48.280000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "konica minolta, inc.",
-        "fujifilm business innovation",
         "brother industries, ltd",
-        "ricoh"
+        "fujifilm business innovation",
+        "ricoh",
+        "konica minolta, inc."
       ],
       "tags": ["CWE-121"]
     },
@@ -13956,20 +13956,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["mydata informatics"],
       "tags": ["CWE-89"]
-    },
-    {
-      "cveId": "CVE-2025-2470",
-      "title": "Service Finder Bookings <= 5.1 - Unauthenticated Privilege Escalation via 'nsl_registration_store_extra_input'",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 0.15,
-      "epssPercentile": 35.855,
-      "riskScore": 48,
-      "publishedDate": "2025-04-25T11:12:53.066000+00:00",
-      "lastModifiedDate": "2025-04-25T11:57:50.900000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["aonetheme"],
-      "tags": ["CWE-266"]
     },
     {
       "cveId": "CVE-2025-2619",
@@ -19162,7 +19148,7 @@
       "publishedDate": "2025-06-25T07:25:00.402000+00:00",
       "lastModifiedDate": "2025-06-25T14:13:40.189000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["fujifilm business innovation", "brother industries, ltd", "ricoh"],
+      "vendors": ["brother industries, ltd", "fujifilm business innovation", "ricoh"],
       "tags": ["CWE-1286"]
     },
     {
@@ -26250,6 +26236,20 @@
       "tags": ["CWE-22"]
     },
     {
+      "cveId": "CVE-2025-2470",
+      "title": "Service Finder Bookings <= 5.1 - Unauthenticated Privilege Escalation via 'nsl_registration_store_extra_input'",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.15,
+      "epssPercentile": 35.855,
+      "riskScore": 46,
+      "publishedDate": "2025-04-25T11:12:53.066000+00:00",
+      "lastModifiedDate": "2025-04-25T11:57:50.900000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["aonetheme"],
+      "tags": ["CWE-266"]
+    },
+    {
       "cveId": "CVE-2025-2005",
       "title": "Front-End-Only-Users <= 3.2.32 - Unauthenticated Arbitrary File Upload",
       "severity": "CRITICAL",
@@ -27198,7 +27198,7 @@
       "publishedDate": "2025-07-08T05:32:05.678000+00:00",
       "lastModifiedDate": "2025-07-08T13:45:36.200000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes", "phpgurukul"],
+      "vendors": ["phpgurukul", "campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -27884,7 +27884,7 @@
       "publishedDate": "2025-07-08T06:02:05.515000+00:00",
       "lastModifiedDate": "2025-07-08T13:44:30.198000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes", "phpgurukul"],
+      "vendors": ["phpgurukul", "campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -39046,20 +39046,6 @@
       "tags": ["CWE-639"]
     },
     {
-      "cveId": "CVE-2025-3091",
-      "title": "MB connect line: Authorization bypass in mbCONNECT24/mymbCONNECT24",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.11,
-      "epssPercentile": 31.062,
-      "riskScore": 45,
-      "publishedDate": "2025-06-24T08:10:29.717000+00:00",
-      "lastModifiedDate": "2025-06-24T13:56:13.121000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
-      "tags": ["CWE-639"]
-    },
-    {
       "cveId": "CVE-2025-3200",
       "title": "Com-Server Exposed via Weak TLS",
       "severity": "CRITICAL",
@@ -39072,20 +39058,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["wiesemann & theis"],
       "tags": ["CWE-327"]
-    },
-    {
-      "cveId": "CVE-2025-3092",
-      "title": "MB connect line: Observable response discrepancy in mbCONNECT24/mymbCONNECT24",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.04,
-      "epssPercentile": 12.296,
-      "riskScore": 45,
-      "publishedDate": "2025-06-24T08:14:31.864000+00:00",
-      "lastModifiedDate": "2025-06-24T13:55:34.477000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
-      "tags": ["CWE-204"]
     },
     {
       "cveId": "CVE-2025-3455",
@@ -39140,7 +39112,7 @@
       "publishedDate": "2025-06-24T08:05:15.547000+00:00",
       "lastModifiedDate": "2025-06-24T14:18:57.831000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-306"]
     },
     {
@@ -41562,7 +41534,7 @@
       "publishedDate": "2025-07-21T09:29:57.024000+00:00",
       "lastModifiedDate": "2025-07-21T20:36:45.460000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-78"]
     },
     {
@@ -41604,7 +41576,7 @@
       "publishedDate": "2025-07-21T09:29:32.129000+00:00",
       "lastModifiedDate": "2025-07-21T17:06:11.768000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-78"]
     },
     {
@@ -41618,7 +41590,7 @@
       "publishedDate": "2025-07-21T09:29:43.181000+00:00",
       "lastModifiedDate": "2025-07-21T17:05:33.656000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-78"]
     },
     {
@@ -41788,20 +41760,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["yokogawa electric corporation"],
       "tags": ["CWE-1188"]
-    },
-    {
-      "cveId": "CVE-2025-1279",
-      "title": "BM Content Builder <= 3.16.2.1 - Missing Authorization to Authenticated (Subscriber+) Arbitrary Options Update",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.06,
-      "epssPercentile": 18.435,
-      "riskScore": 45,
-      "publishedDate": "2025-04-25T08:22:13.773000+00:00",
-      "lastModifiedDate": "2025-04-25T16:01:35.908000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["seatheme"],
-      "tags": ["CWE-862"]
     },
     {
       "cveId": "CVE-2025-1107",
@@ -43536,7 +43494,7 @@
       "publishedDate": "2024-10-15T10:28:37.223000+00:00",
       "lastModifiedDate": "2024-10-16T17:39:58.106000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-798"]
     },
     {
@@ -43592,7 +43550,7 @@
       "publishedDate": "2024-10-15T10:28:16.384000+00:00",
       "lastModifiedDate": "2024-10-16T17:44:15.429000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-306"]
     },
     {
@@ -43900,7 +43858,7 @@
       "publishedDate": "2024-11-26T07:38:12.712000+00:00",
       "lastModifiedDate": "2025-01-27T17:45:48.564000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sharp corporation", "toshiba tec corporation"],
+      "vendors": ["toshiba tec corporation", "sharp corporation"],
       "tags": ["CWE-798"]
     },
     {
@@ -46056,7 +46014,7 @@
       "publishedDate": "2024-11-26T07:37:06.324000+00:00",
       "lastModifiedDate": "2024-12-10T14:57:54.916000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sharp corporation", "toshiba tec corporation"],
+      "vendors": ["toshiba tec corporation", "sharp corporation"],
       "tags": ["CWE-121"]
     },
     {
@@ -46280,7 +46238,7 @@
       "publishedDate": "2024-11-26T07:38:06.435000+00:00",
       "lastModifiedDate": "2025-01-27T17:46:45.224000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sharp corporation", "toshiba tec corporation"],
+      "vendors": ["toshiba tec corporation", "sharp corporation"],
       "tags": ["CWE-798"]
     },
     {
@@ -47526,7 +47484,7 @@
       "publishedDate": "2025-06-05T02:31:05.107000+00:00",
       "lastModifiedDate": "2025-06-05T14:09:25.990000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["anirbandutta9", "code-projects"],
+      "vendors": ["code-projects", "anirbandutta9"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -47666,7 +47624,7 @@
       "publishedDate": "2025-05-30T18:00:06.477000+00:00",
       "lastModifiedDate": "2025-05-30T18:15:18.480000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes", "phpgurukul"],
+      "vendors": ["phpgurukul", "campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -52062,7 +52020,7 @@
       "publishedDate": "2025-05-03T11:00:09.135000+00:00",
       "lastModifiedDate": "2025-05-30T09:10:12.356000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes", "phpgurukul"],
+      "vendors": ["phpgurukul", "campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -52790,7 +52748,7 @@
       "publishedDate": "2025-05-05T18:31:04.418000+00:00",
       "lastModifiedDate": "2025-05-05T18:48:57.123000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sourcecodester", "oretnom23"],
+      "vendors": ["oretnom23", "sourcecodester"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -53884,20 +53842,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-6206",
-      "title": "Aiomatic - AI Content Writer, Editor, ChatBot & AI Toolkit <= 2.5.0 - Authenticated (Subscriber+) Arbitrary File Upload",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.23,
-      "epssPercentile": 46.114,
-      "riskScore": 44,
-      "publishedDate": "2025-06-24T08:23:55.136000+00:00",
-      "lastModifiedDate": "2025-06-24T13:29:37.447000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["coderevolution"],
-      "tags": ["CWE-434"]
     },
     {
       "cveId": "CVE-2025-6155",
@@ -58180,7 +58124,7 @@
       "publishedDate": "2024-03-18T16:03:44.987000+00:00",
       "lastModifiedDate": "2024-08-28T15:04:28.061000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric ", "schneider electric"],
+      "vendors": ["schneider electric", "schneider electric "],
       "tags": ["CWE-307"]
     },
     {
@@ -58908,7 +58852,7 @@
       "publishedDate": "2025-05-09T15:18:34.124000+00:00",
       "lastModifiedDate": "2025-05-09T19:09:17.086000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["norton", "avg", "avast"],
+      "vendors": ["avg", "avast", "norton"],
       "tags": ["CWE-367"]
     },
     {
@@ -59524,7 +59468,7 @@
       "publishedDate": "2024-10-25T06:18:36.274000+00:00",
       "lastModifiedDate": "2024-10-25T18:38:24.503000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sharp corporation", "toshiba tec corporation"],
+      "vendors": ["toshiba tec corporation", "sharp corporation"],
       "tags": ["CWE-288"]
     },
     {
@@ -65996,20 +65940,6 @@
       "tags": ["CWE-269"]
     },
     {
-      "cveId": "CVE-2025-2403",
-      "title": "CVE-2025-2403: A denial-of-service vulnerability due to improper prioritization of network traffic over protection ...",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.05,
-      "epssPercentile": 16.279,
-      "riskScore": 43,
-      "publishedDate": "2025-06-24T11:33:10.236000+00:00",
-      "lastModifiedDate": "2025-06-25T12:42:35.650000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["hitachi energy"],
-      "tags": ["CWE-770"]
-    },
-    {
       "cveId": "CVE-2025-2962",
       "title": "Infinite loop in dns_copy_qname",
       "severity": "HIGH",
@@ -68992,6 +68922,20 @@
       "tags": ["CWE-280"]
     },
     {
+      "cveId": "CVE-2025-3091",
+      "title": "MB connect line: Authorization bypass in mbCONNECT24/mymbCONNECT24",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.11,
+      "epssPercentile": 31.062,
+      "riskScore": 43,
+      "publishedDate": "2025-06-24T08:10:29.717000+00:00",
+      "lastModifiedDate": "2025-06-24T13:56:13.121000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["mb connect line", "helmholz"],
+      "tags": ["CWE-639"]
+    },
+    {
       "cveId": "CVE-2025-3055",
       "title": "WP User Frontend Pro <= 4.1.3 - Authenticated (Subscriber+) Arbitrary File Deletion",
       "severity": "HIGH",
@@ -69102,6 +69046,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["arkenon"],
       "tags": ["CWE-620"]
+    },
+    {
+      "cveId": "CVE-2025-3092",
+      "title": "MB connect line: Observable response discrepancy in mbCONNECT24/mymbCONNECT24",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.04,
+      "epssPercentile": 12.296,
+      "riskScore": 43,
+      "publishedDate": "2025-06-24T08:14:31.864000+00:00",
+      "lastModifiedDate": "2025-06-24T13:55:34.477000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["mb connect line", "helmholz"],
+      "tags": ["CWE-204"]
     },
     {
       "cveId": "CVE-2025-3063",
@@ -70616,20 +70574,6 @@
       "tags": ["CWE-98"]
     },
     {
-      "cveId": "CVE-2025-39202",
-      "title": "CVE-2025-39202: A vulnerability exists in in the Monitor Pro interface of the MicroSCADA X SYS600 product. An authen...",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.01,
-      "epssPercentile": 1.319,
-      "riskScore": 43,
-      "publishedDate": "2025-06-24T11:51:58.576000+00:00",
-      "lastModifiedDate": "2025-06-25T12:42:25.143000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["hitachi energy"],
-      "tags": ["CWE-269"]
-    },
-    {
       "cveId": "CVE-2025-39475",
       "title": "WordPress Arlo <= 6.0.3 - Local File Inclusion Vulnerability",
       "severity": "HIGH",
@@ -71034,6 +70978,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["n/a"],
       "tags": []
+    },
+    {
+      "cveId": "CVE-2025-1279",
+      "title": "BM Content Builder <= 3.16.2.1 - Missing Authorization to Authenticated (Subscriber+) Arbitrary Options Update",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.06,
+      "epssPercentile": 18.435,
+      "riskScore": 43,
+      "publishedDate": "2025-04-25T08:22:13.773000+00:00",
+      "lastModifiedDate": "2025-04-25T16:01:35.908000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["seatheme"],
+      "tags": ["CWE-862"]
     },
     {
       "cveId": "CVE-2025-1657",
@@ -76338,7 +76296,7 @@
       "publishedDate": "2024-10-15T10:27:52.208000+00:00",
       "lastModifiedDate": "2024-10-16T17:47:04.737000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-261"]
     },
     {
@@ -79660,20 +79618,6 @@
       "tags": ["CWE-77"]
     },
     {
-      "cveId": "CVE-2024-11917",
-      "title": "JobSearch WP Job Board <= 2.9.2 - Authentication Bypass via Social Logins",
-      "severity": "HIGH",
-      "cvssScore": 8.1,
-      "epssScore": 0.27,
-      "epssPercentile": 49.869,
-      "riskScore": 43,
-      "publishedDate": "2025-04-25T11:12:52.609000+00:00",
-      "lastModifiedDate": "2025-06-17T18:07:30.948000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["eyecix"],
-      "tags": ["CWE-287"]
-    },
-    {
       "cveId": "CVE-2024-11236",
       "title": "Integer overflow in the firebird and dblib quoters causing OOB writes",
       "severity": "CRITICAL",
@@ -81938,7 +81882,7 @@
       "publishedDate": "2024-02-05T14:33:06.481000+00:00",
       "lastModifiedDate": "2025-05-09T16:32:50.015000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["tiangolo", "kludex", "encode"],
+      "vendors": ["kludex", "tiangolo", "encode"],
       "tags": ["CWE-400"]
     },
     {
@@ -91462,6 +91406,20 @@
       "tags": ["CWE-89"]
     },
     {
+      "cveId": "CVE-2025-6206",
+      "title": "Aiomatic - AI Content Writer, Editor, ChatBot & AI Toolkit <= 2.5.0 - Authenticated (Subscriber+) Arbitrary File Upload",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.23,
+      "epssPercentile": 46.114,
+      "riskScore": 42,
+      "publishedDate": "2025-06-24T08:23:55.136000+00:00",
+      "lastModifiedDate": "2025-06-24T13:29:37.447000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["coderevolution"],
+      "tags": ["CWE-434"]
+    },
+    {
       "cveId": "CVE-2025-6265",
       "title": "CVE-2025-6265: A path traversal vulnerability in the file_upload-cgi CGI program of Zyxel NWA50AX PRO firmware vers...",
       "severity": "HIGH",
@@ -92608,20 +92566,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["eclipse foundation"],
       "tags": ["CWE-400"]
-    },
-    {
-      "cveId": "CVE-2025-1565",
-      "title": "Mayosis Core <= 5.4.1 - Unauthenticated Arbitrary File Read",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.2,
-      "epssPercentile": 41.988,
-      "riskScore": 42,
-      "publishedDate": "2025-04-25T09:21:41.127000+00:00",
-      "lastModifiedDate": "2025-04-25T14:27:57.070000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["teconcetheme"],
-      "tags": ["CWE-22"]
     },
     {
       "cveId": "CVE-2025-1901",
@@ -105308,6 +105252,20 @@
       "tags": ["CWE-89"]
     },
     {
+      "cveId": "CVE-2025-2403",
+      "title": "CVE-2025-2403: A denial-of-service vulnerability due to improper prioritization of network traffic over protection ...",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.05,
+      "epssPercentile": 16.279,
+      "riskScore": 41,
+      "publishedDate": "2025-06-24T11:33:10.236000+00:00",
+      "lastModifiedDate": "2025-06-25T12:42:35.650000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["hitachi energy"],
+      "tags": ["CWE-770"]
+    },
+    {
       "cveId": "CVE-2025-2661",
       "title": "Project Worlds Online Time Table Generator index.php sql injection",
       "severity": "HIGH",
@@ -108988,6 +108946,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["indie_plugins"],
       "tags": ["CWE-98"]
+    },
+    {
+      "cveId": "CVE-2025-39202",
+      "title": "CVE-2025-39202: A vulnerability exists in in the Monitor Pro interface of the MicroSCADA X SYS600 product. An authen...",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.01,
+      "epssPercentile": 1.319,
+      "riskScore": 41,
+      "publishedDate": "2025-06-24T11:51:58.576000+00:00",
+      "lastModifiedDate": "2025-06-25T12:42:25.143000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["hitachi energy"],
+      "tags": ["CWE-269"]
     },
     {
       "cveId": "CVE-2025-41649",
@@ -113032,7 +113004,7 @@
       "publishedDate": "2024-10-15T10:27:06.004000+00:00",
       "lastModifiedDate": "2024-10-16T17:49:30.446000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-20"]
     },
     {
@@ -114264,7 +114236,7 @@
       "publishedDate": "2024-10-25T06:18:30.415000+00:00",
       "lastModifiedDate": "2024-10-25T18:38:02.777000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sharp corporation", "toshiba tec corporation"],
+      "vendors": ["toshiba tec corporation", "sharp corporation"],
       "tags": ["CWE-749"]
     },
     {
@@ -114558,7 +114530,7 @@
       "publishedDate": "2024-11-26T07:38:24.464000+00:00",
       "lastModifiedDate": "2024-11-26T16:28:15.625000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sharp corporation", "toshiba tec corporation"],
+      "vendors": ["toshiba tec corporation", "sharp corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -114572,7 +114544,7 @@
       "publishedDate": "2024-11-26T07:38:30.408000+00:00",
       "lastModifiedDate": "2024-11-26T14:48:35.480000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sharp corporation", "toshiba tec corporation"],
+      "vendors": ["toshiba tec corporation", "sharp corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -114628,7 +114600,7 @@
       "publishedDate": "2024-11-26T07:38:18.359000+00:00",
       "lastModifiedDate": "2024-11-26T14:09:24.516000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sharp corporation", "toshiba tec corporation"],
+      "vendors": ["toshiba tec corporation", "sharp corporation"],
       "tags": ["CWE-79"]
     },
     {
@@ -115525,6 +115497,20 @@
       "lastModifiedDate": "2025-03-11T16:08:20.531000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["cyberlord92"],
+      "tags": ["CWE-287"]
+    },
+    {
+      "cveId": "CVE-2024-11917",
+      "title": "JobSearch WP Job Board <= 2.9.2 - Authentication Bypass via Social Logins",
+      "severity": "HIGH",
+      "cvssScore": 8.1,
+      "epssScore": 0.27,
+      "epssPercentile": 49.869,
+      "riskScore": 41,
+      "publishedDate": "2025-04-25T11:12:52.609000+00:00",
+      "lastModifiedDate": "2025-06-17T18:07:30.948000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["eyecix"],
       "tags": ["CWE-287"]
     },
     {
@@ -124516,6 +124502,20 @@
       "tags": ["CWE-457"]
     },
     {
+      "cveId": "CVE-2025-1565",
+      "title": "Mayosis Core <= 5.4.1 - Unauthenticated Arbitrary File Read",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.2,
+      "epssPercentile": 41.988,
+      "riskScore": 40,
+      "publishedDate": "2025-04-25T09:21:41.127000+00:00",
+      "lastModifiedDate": "2025-04-25T14:27:57.070000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["teconcetheme"],
+      "tags": ["CWE-22"]
+    },
+    {
       "cveId": "CVE-2025-1277",
       "title": "PDF File Parsing Memory Corruption Vulnerability",
       "severity": "HIGH",
@@ -127172,7 +127172,7 @@
       "publishedDate": "2024-03-18T16:04:57.375000+00:00",
       "lastModifiedDate": "2024-08-01T19:03:37.851000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric ", "schneider electric"],
+      "vendors": ["schneider electric", "schneider electric "],
       "tags": ["CWE-79"]
     },
     {
@@ -129108,20 +129108,6 @@
       "tags": ["CWE-20"]
     },
     {
-      "cveId": "CVE-2024-13562",
-      "title": "Import WP – Export and Import CSV and XML files to WordPress <= 2.14.5 - Unauthenticated Sensitive Information Exposure Through Unprotected Directory",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.12,
-      "epssPercentile": 31.217,
-      "riskScore": 40,
-      "publishedDate": "2025-01-25T11:22:35.290000+00:00",
-      "lastModifiedDate": "2025-01-27T17:31:32.942000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["jcollings"],
-      "tags": ["CWE-200"]
-    },
-    {
       "cveId": "CVE-2024-13497",
       "title": "WordPress form builder plugin for contact forms, surveys and quizzes – Tripetto <= 8.0.9 - Unauthenticated Stored Cross-Site Scripting",
       "severity": "HIGH",
@@ -129468,7 +129454,7 @@
       "publishedDate": "2024-10-22T22:19:20.646000+00:00",
       "lastModifiedDate": "2024-11-06T15:50:04.628000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-276"]
     },
     {
@@ -132240,7 +132226,7 @@
       "publishedDate": "2024-11-28T22:16:31.396000+00:00",
       "lastModifiedDate": "2024-12-06T05:18:03.652000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-427"]
     },
     {
@@ -133178,7 +133164,7 @@
       "publishedDate": "2024-10-25T06:18:00.481000+00:00",
       "lastModifiedDate": "2024-10-25T18:37:13.542000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sharp corporation", "toshiba tec corporation"],
+      "vendors": ["toshiba tec corporation", "sharp corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -135026,7 +135012,7 @@
       "publishedDate": "2024-11-28T22:20:28.303000+00:00",
       "lastModifiedDate": "2024-12-06T05:23:50.441000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-427"]
     },
     {
@@ -135782,7 +135768,7 @@
       "publishedDate": "2024-11-04T03:31:04.265000+00:00",
       "lastModifiedDate": "2024-11-04T17:01:46.227000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["anirbandutta9", "code-projects"],
+      "vendors": ["code-projects", "anirbandutta9"],
       "tags": ["CWE-89"]
     },
     {
@@ -137070,7 +137056,7 @@
       "publishedDate": "2024-10-25T06:18:10.875000+00:00",
       "lastModifiedDate": "2024-10-25T17:16:12.736000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sharp corporation", "toshiba tec corporation"],
+      "vendors": ["toshiba tec corporation", "sharp corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -144210,7 +144196,7 @@
       "publishedDate": "2024-07-03T12:26:44.599000+00:00",
       "lastModifiedDate": "2025-02-13T17:54:25.437000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "red lion europe"],
+      "vendors": ["red lion europe", "helmholz"],
       "tags": ["CWE-78"]
     },
     {
@@ -146100,7 +146086,7 @@
       "publishedDate": "2024-10-15T10:28:58.559000+00:00",
       "lastModifiedDate": "2025-01-24T06:32:08.237000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-306"]
     },
     {
@@ -146114,7 +146100,7 @@
       "publishedDate": "2024-10-15T10:27:32.688000+00:00",
       "lastModifiedDate": "2024-10-16T17:36:22.123000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-1391"]
     },
     {
@@ -147612,7 +147598,7 @@
       "publishedDate": "2024-10-25T06:18:42.287000+00:00",
       "lastModifiedDate": "2024-10-25T18:32:25.798000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sharp corporation", "toshiba tec corporation"],
+      "vendors": ["toshiba tec corporation", "sharp corporation"],
       "tags": ["CWE-644"]
     },
     {
@@ -147766,7 +147752,7 @@
       "publishedDate": "2024-10-25T06:18:50.793000+00:00",
       "lastModifiedDate": "2024-10-25T14:16:46.537000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sharp corporation", "toshiba tec corporation"],
+      "vendors": ["toshiba tec corporation", "sharp corporation"],
       "tags": ["CWE-79"]
     },
     {
@@ -171860,7 +171846,7 @@
       "publishedDate": "2024-03-18T16:05:47.722000+00:00",
       "lastModifiedDate": "2024-08-15T16:23:48.504000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric ", "schneider electric"],
+      "vendors": ["schneider electric", "schneider electric "],
       "tags": ["CWE-552"]
     },
     {
@@ -173682,6 +173668,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["ivanti"],
       "tags": ["CWE-347"]
+    },
+    {
+      "cveId": "CVE-2024-13562",
+      "title": "Import WP – Export and Import CSV and XML files to WordPress <= 2.14.5 - Unauthenticated Sensitive Information Exposure Through Unprotected Directory",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.12,
+      "epssPercentile": 31.217,
+      "riskScore": 38,
+      "publishedDate": "2025-01-25T11:22:35.290000+00:00",
+      "lastModifiedDate": "2025-01-27T17:31:32.942000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["jcollings"],
+      "tags": ["CWE-200"]
     },
     {
       "cveId": "CVE-2024-13179",
@@ -177446,7 +177446,7 @@
       "publishedDate": "2024-11-28T22:18:28.358000+00:00",
       "lastModifiedDate": "2024-12-06T05:21:38.917000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-561"]
     },
     {
