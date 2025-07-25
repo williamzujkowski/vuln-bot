@@ -1,5 +1,5 @@
 {
-  "generated": "2025-07-24T20:07:11.777410",
+  "generated": "2025-07-25T00:26:05.352847",
   "count": 15488,
   "vulnerabilities": [
     {
@@ -909,7 +909,7 @@
       "publishedDate": "2025-06-25T07:17:32.423000+00:00",
       "lastModifiedDate": "2025-06-27T13:51:00.720000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["brother industries, ltd", "konica minolta, inc.", "toshiba tec"],
+      "vendors": ["konica minolta, inc.", "brother industries, ltd", "toshiba tec"],
       "tags": ["CWE-1391"]
     },
     {
@@ -3331,7 +3331,7 @@
       "publishedDate": "2024-10-18T17:32:30.648000+00:00",
       "lastModifiedDate": "2024-10-18T18:56:31.697000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["scott paterson", "scottpaterson"],
+      "vendors": ["scottpaterson", "scott paterson"],
       "tags": ["CWE-94"]
     },
     {
@@ -5907,7 +5907,7 @@
       "publishedDate": "2024-06-25T03:30:37.970000+00:00",
       "lastModifiedDate": "2024-08-01T21:33:05.337000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["stuartobrien", "warfareplugins", "themerex", "pedrogusmao02", "blazeretail"],
+      "vendors": ["blazeretail", "themerex", "pedrogusmao02", "warfareplugins", "stuartobrien"],
       "tags": []
     },
     {
@@ -9047,20 +9047,6 @@
       "tags": ["CWE-77"]
     },
     {
-      "cveId": "CVE-2025-52562",
-      "title": "Convey Panel Directory Traversal in LocaleController leading to Remote Code Execution",
-      "severity": "CRITICAL",
-      "cvssScore": 10.0,
-      "epssScore": 1.48,
-      "epssPercentile": 80.098,
-      "riskScore": 50,
-      "publishedDate": "2025-06-23T20:48:17.456000+00:00",
-      "lastModifiedDate": "2025-06-24T17:20:21.802000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["convoypanel"],
-      "tags": ["CWE-22", "CWE-98"]
-    },
-    {
       "cveId": "CVE-2025-52572",
       "title": "Hikka vulnerable to RCE through dangling web interface",
       "severity": "CRITICAL",
@@ -9618,11 +9604,11 @@
       "lastModifiedDate": "2025-06-25T14:15:31.576000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "ricoh",
-        "konica minolta, inc.",
         "brother industries, ltd",
+        "toshiba tec",
         "fujifilm business innovation",
-        "toshiba tec"
+        "konica minolta, inc.",
+        "ricoh"
       ],
       "tags": ["CWE-1286"]
     },
@@ -11321,20 +11307,6 @@
       "tags": ["CWE-295"]
     },
     {
-      "cveId": "CVE-2025-6529",
-      "title": "70mai M300 Telnet Service default credentials",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.03,
-      "epssPercentile": 5.59,
-      "riskScore": 49,
-      "publishedDate": "2025-06-23T23:00:16.076000+00:00",
-      "lastModifiedDate": "2025-06-24T16:11:53.492000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["70mai"],
-      "tags": ["CWE-1392"]
-    },
-    {
       "cveId": "CVE-2025-6718",
       "title": "B1.lt for WooCommerce <= 2.2.56 -  Missing Authorization to Authenticated (Subscriber+) Arbitrary SQL Injection",
       "severity": "HIGH",
@@ -12410,10 +12382,10 @@
       "lastModifiedDate": "2025-06-25T14:08:48.280000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "brother industries, ltd",
         "fujifilm business innovation",
+        "konica minolta, inc.",
         "ricoh",
-        "konica minolta, inc."
+        "brother industries, ltd"
       ],
       "tags": ["CWE-121"]
     },
@@ -17444,6 +17416,20 @@
       "tags": ["CWE-420"]
     },
     {
+      "cveId": "CVE-2025-52562",
+      "title": "Convey Panel Directory Traversal in LocaleController leading to Remote Code Execution",
+      "severity": "CRITICAL",
+      "cvssScore": 10.0,
+      "epssScore": 1.48,
+      "epssPercentile": 80.098,
+      "riskScore": 48,
+      "publishedDate": "2025-06-23T20:48:17.456000+00:00",
+      "lastModifiedDate": "2025-06-24T17:20:21.802000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["convoypanel"],
+      "tags": ["CWE-22", "CWE-98"]
+    },
+    {
       "cveId": "CVE-2025-52832",
       "title": "WordPress NGG Smart Image Search <= 3.4.1 - SQL Injection Vulnerability",
       "severity": "CRITICAL",
@@ -18952,7 +18938,7 @@
       "publishedDate": "2025-06-25T07:25:00.402000+00:00",
       "lastModifiedDate": "2025-06-25T14:13:40.189000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["brother industries, ltd", "fujifilm business innovation", "ricoh"],
+      "vendors": ["fujifilm business innovation", "ricoh", "brother industries, ltd"],
       "tags": ["CWE-1286"]
     },
     {
@@ -21346,7 +21332,7 @@
       "publishedDate": "2025-06-24T08:05:15.547000+00:00",
       "lastModifiedDate": "2025-06-24T14:18:57.831000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-306"]
     },
     {
@@ -21560,34 +21546,6 @@
       "tags": ["CWE-79"]
     },
     {
-      "cveId": "CVE-2025-46274",
-      "title": "Planet Technology Network Products Use of Hard-coded Credentials",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 0.15,
-      "epssPercentile": 35.855,
-      "riskScore": 47,
-      "publishedDate": "2025-04-24T22:57:55.619000+00:00",
-      "lastModifiedDate": "2025-04-25T15:24:43.875000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["planet technology"],
-      "tags": ["CWE-798"]
-    },
-    {
-      "cveId": "CVE-2025-46273",
-      "title": "Planet Technology Network Products Use of Hard-coded Credentials",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 0.15,
-      "epssPercentile": 35.855,
-      "riskScore": 47,
-      "publishedDate": "2025-04-24T22:57:21.868000+00:00",
-      "lastModifiedDate": "2025-04-25T15:57:47.239000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["planet technology"],
-      "tags": ["CWE-798"]
-    },
-    {
       "cveId": "CVE-2025-46334",
       "title": "Git GUI malicious command injection on Windows",
       "severity": "HIGH",
@@ -21602,20 +21560,6 @@
       "tags": ["CWE-78"]
     },
     {
-      "cveId": "CVE-2025-46616",
-      "title": "CVE-2025-46616: Quantum StorNext Web GUI API before 7.2.4 allows potential Arbitrary Remote Code Execution (RCE) via...",
-      "severity": "CRITICAL",
-      "cvssScore": 9.9,
-      "epssScore": 0.28,
-      "epssPercentile": 50.65,
-      "riskScore": 47,
-      "publishedDate": "2025-04-25T00:00:00+00:00",
-      "lastModifiedDate": "2025-04-25T15:21:30.937000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["quantum"],
-      "tags": ["CWE-434"]
-    },
-    {
       "cveId": "CVE-2025-46490",
       "title": "WordPress Crossword Compiler Puzzles <= 5.2 - Arbitrary File Upload Vulnerability",
       "severity": "CRITICAL",
@@ -21628,20 +21572,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["wordwebsoftware"],
       "tags": ["CWE-434"]
-    },
-    {
-      "cveId": "CVE-2025-46275",
-      "title": "Planet Technology Network Products Missing Authentication for Critical Function",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 0.09,
-      "epssPercentile": 26.81,
-      "riskScore": 47,
-      "publishedDate": "2025-04-24T22:58:52.561000+00:00",
-      "lastModifiedDate": "2025-04-25T16:02:47.621000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["planet technology"],
-      "tags": ["CWE-306"]
     },
     {
       "cveId": "CVE-2025-46468",
@@ -21810,6 +21740,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["beeteam368"],
       "tags": ["CWE-22"]
+    },
+    {
+      "cveId": "CVE-2025-6529",
+      "title": "70mai M300 Telnet Service default credentials",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.03,
+      "epssPercentile": 5.59,
+      "riskScore": 47,
+      "publishedDate": "2025-06-23T23:00:16.076000+00:00",
+      "lastModifiedDate": "2025-06-24T16:11:53.492000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["70mai"],
+      "tags": ["CWE-1392"]
     },
     {
       "cveId": "CVE-2025-6102",
@@ -27016,7 +26960,7 @@
       "publishedDate": "2025-07-08T05:32:05.678000+00:00",
       "lastModifiedDate": "2025-07-08T13:45:36.200000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -27702,7 +27646,7 @@
       "publishedDate": "2025-07-08T06:02:05.515000+00:00",
       "lastModifiedDate": "2025-07-08T13:44:30.198000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -29272,20 +29216,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["j6t"],
       "tags": ["CWE-88"]
-    },
-    {
-      "cveId": "CVE-2025-46272",
-      "title": "Planet Technology Network Products OS Command Injection",
-      "severity": "CRITICAL",
-      "cvssScore": 9.1,
-      "epssScore": 3.96,
-      "epssPercentile": 87.862,
-      "riskScore": 46,
-      "publishedDate": "2025-04-24T22:56:13.381000+00:00",
-      "lastModifiedDate": "2025-04-25T15:59:56.581000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["planet technology"],
-      "tags": ["CWE-78"]
     },
     {
       "cveId": "CVE-2025-46460",
@@ -38944,7 +38874,7 @@
       "publishedDate": "2025-06-24T08:10:29.717000+00:00",
       "lastModifiedDate": "2025-06-24T13:56:13.121000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-639"]
     },
     {
@@ -38972,7 +38902,7 @@
       "publishedDate": "2025-06-24T08:14:31.864000+00:00",
       "lastModifiedDate": "2025-06-24T13:55:34.477000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-204"]
     },
     {
@@ -39592,6 +39522,20 @@
       "tags": ["CWE-416"]
     },
     {
+      "cveId": "CVE-2025-46274",
+      "title": "Planet Technology Network Products Use of Hard-coded Credentials",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.15,
+      "epssPercentile": 35.855,
+      "riskScore": 45,
+      "publishedDate": "2025-04-24T22:57:55.619000+00:00",
+      "lastModifiedDate": "2025-04-25T15:24:43.875000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["planet technology"],
+      "tags": ["CWE-798"]
+    },
+    {
       "cveId": "CVE-2025-46354",
       "title": "CVE-2025-46354: A denial of service vulnerability exists in the Distributed Transaction Commit/Abort Operation funct...",
       "severity": "HIGH",
@@ -39604,6 +39548,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["bloomberg"],
       "tags": ["CWE-617"]
+    },
+    {
+      "cveId": "CVE-2025-46273",
+      "title": "Planet Technology Network Products Use of Hard-coded Credentials",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.15,
+      "epssPercentile": 35.855,
+      "riskScore": 45,
+      "publishedDate": "2025-04-24T22:57:21.868000+00:00",
+      "lastModifiedDate": "2025-04-25T15:57:47.239000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["planet technology"],
+      "tags": ["CWE-798"]
     },
     {
       "cveId": "CVE-2025-46342",
@@ -39648,18 +39606,18 @@
       "tags": ["CWE-755"]
     },
     {
-      "cveId": "CVE-2025-46271",
-      "title": "Planet Technology Network Products OS Command Injection",
+      "cveId": "CVE-2025-46616",
+      "title": "CVE-2025-46616: Quantum StorNext Web GUI API before 7.2.4 allows potential Arbitrary Remote Code Execution (RCE) via...",
       "severity": "CRITICAL",
-      "cvssScore": 9.1,
-      "epssScore": 1.0,
-      "epssPercentile": 76.066,
+      "cvssScore": 9.9,
+      "epssScore": 0.28,
+      "epssPercentile": 50.65,
       "riskScore": 45,
-      "publishedDate": "2025-04-24T22:53:51.447000+00:00",
-      "lastModifiedDate": "2025-04-25T16:02:24.642000+00:00",
+      "publishedDate": "2025-04-25T00:00:00+00:00",
+      "lastModifiedDate": "2025-04-25T15:21:30.937000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["planet technology"],
-      "tags": ["CWE-78"]
+      "vendors": ["quantum"],
+      "tags": ["CWE-434"]
     },
     {
       "cveId": "CVE-2025-46264",
@@ -39674,6 +39632,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["angelo mandato"],
       "tags": ["CWE-434"]
+    },
+    {
+      "cveId": "CVE-2025-46275",
+      "title": "Planet Technology Network Products Missing Authentication for Critical Function",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.09,
+      "epssPercentile": 26.81,
+      "riskScore": 45,
+      "publishedDate": "2025-04-24T22:58:52.561000+00:00",
+      "lastModifiedDate": "2025-04-25T16:02:47.621000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["planet technology"],
+      "tags": ["CWE-306"]
     },
     {
       "cveId": "CVE-2025-20175",
@@ -41394,7 +41366,7 @@
       "publishedDate": "2025-07-21T09:29:57.024000+00:00",
       "lastModifiedDate": "2025-07-21T20:36:45.460000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-78"]
     },
     {
@@ -41436,7 +41408,7 @@
       "publishedDate": "2025-07-21T09:29:32.129000+00:00",
       "lastModifiedDate": "2025-07-21T17:06:11.768000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-78"]
     },
     {
@@ -41450,7 +41422,7 @@
       "publishedDate": "2025-07-21T09:29:43.181000+00:00",
       "lastModifiedDate": "2025-07-21T17:05:33.656000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-78"]
     },
     {
@@ -43354,7 +43326,7 @@
       "publishedDate": "2024-10-15T10:28:37.223000+00:00",
       "lastModifiedDate": "2024-10-16T17:39:58.106000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-798"]
     },
     {
@@ -43410,7 +43382,7 @@
       "publishedDate": "2024-10-15T10:28:16.384000+00:00",
       "lastModifiedDate": "2024-10-16T17:44:15.429000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-306"]
     },
     {
@@ -47344,7 +47316,7 @@
       "publishedDate": "2025-06-05T02:31:05.107000+00:00",
       "lastModifiedDate": "2025-06-05T14:09:25.990000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["anirbandutta9", "code-projects"],
+      "vendors": ["code-projects", "anirbandutta9"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -47484,7 +47456,7 @@
       "publishedDate": "2025-05-30T18:00:06.477000+00:00",
       "lastModifiedDate": "2025-05-30T18:15:18.480000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -51866,7 +51838,7 @@
       "publishedDate": "2025-05-03T11:00:09.135000+00:00",
       "lastModifiedDate": "2025-05-30T09:10:12.356000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -53338,6 +53310,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["rack"],
       "tags": ["CWE-400", "CWE-770"]
+    },
+    {
+      "cveId": "CVE-2025-46272",
+      "title": "Planet Technology Network Products OS Command Injection",
+      "severity": "CRITICAL",
+      "cvssScore": 9.1,
+      "epssScore": 3.96,
+      "epssPercentile": 87.862,
+      "riskScore": 44,
+      "publishedDate": "2025-04-24T22:56:13.381000+00:00",
+      "lastModifiedDate": "2025-04-25T15:59:56.581000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["planet technology"],
+      "tags": ["CWE-78"]
     },
     {
       "cveId": "CVE-2025-46248",
@@ -56070,20 +56056,6 @@
       "tags": ["CWE-787"]
     },
     {
-      "cveId": "CVE-2025-43865",
-      "title": "React Router allows pre-render data spoofing on React-Router framework mode",
-      "severity": "HIGH",
-      "cvssScore": 8.2,
-      "epssScore": 0.04,
-      "epssPercentile": 8.84,
-      "riskScore": 44,
-      "publishedDate": "2025-04-25T00:18:53.222000+00:00",
-      "lastModifiedDate": "2025-04-25T15:16:00.202000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["remix-run"],
-      "tags": ["CWE-345"]
-    },
-    {
       "cveId": "CVE-2025-23264",
       "title": "CVE-2025-23264: NVIDIA Megatron-LM for all platforms contains a vulnerability in a python component where an attacke...",
       "severity": "HIGH",
@@ -57494,7 +57466,7 @@
       "publishedDate": "2024-07-09T05:34:17.609000+00:00",
       "lastModifiedDate": "2024-08-01T21:11:12.734000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["webnus", "webnus/"],
+      "vendors": ["webnus/", "webnus"],
       "tags": []
     },
     {
@@ -57956,7 +57928,7 @@
       "publishedDate": "2024-03-18T16:03:44.987000+00:00",
       "lastModifiedDate": "2024-08-28T15:04:28.061000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric", "schneider electric "],
+      "vendors": ["schneider electric ", "schneider electric"],
       "tags": ["CWE-307"]
     },
     {
@@ -58684,7 +58656,7 @@
       "publishedDate": "2025-05-09T15:18:34.124000+00:00",
       "lastModifiedDate": "2025-05-09T19:09:17.086000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["avast", "avg", "norton"],
+      "vendors": ["norton", "avg", "avast"],
       "tags": ["CWE-367"]
     },
     {
@@ -63570,7 +63542,7 @@
       "publishedDate": "2024-10-22T21:13:37.183000+00:00",
       "lastModifiedDate": "2024-10-23T14:43:52.114000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["kieback&peter", "kieback & peter"],
+      "vendors": ["kieback & peter", "kieback&peter"],
       "tags": ["CWE-22"]
     },
     {
@@ -65896,20 +65868,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["magnussolution"],
       "tags": ["CWE-79"]
-    },
-    {
-      "cveId": "CVE-2025-2185",
-      "title": "ALBEDO Telecom Net.Time - PTP/NTP Clock Insufficient Session Expiration",
-      "severity": "HIGH",
-      "cvssScore": 8.0,
-      "epssScore": 0.05,
-      "epssPercentile": 14.925,
-      "riskScore": 43,
-      "publishedDate": "2025-04-24T23:22:35.146000+00:00",
-      "lastModifiedDate": "2025-04-25T16:02:29.038000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["albedo telecom"],
-      "tags": ["CWE-613"]
     },
     {
       "cveId": "CVE-2025-21356",
@@ -69314,6 +69272,20 @@
       "tags": ["CWE-98"]
     },
     {
+      "cveId": "CVE-2025-46271",
+      "title": "Planet Technology Network Products OS Command Injection",
+      "severity": "CRITICAL",
+      "cvssScore": 9.1,
+      "epssScore": 1.0,
+      "epssPercentile": 76.066,
+      "riskScore": 43,
+      "publishedDate": "2025-04-24T22:53:51.447000+00:00",
+      "lastModifiedDate": "2025-04-25T16:02:24.642000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["planet technology"],
+      "tags": ["CWE-78"]
+    },
+    {
       "cveId": "CVE-2025-20003",
       "title": "CVE-2025-20003: Improper link resolution before file access ('Link Following') for some Intel(R) Graphics Driver sof...",
       "severity": "HIGH",
@@ -70838,20 +70810,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["sap_se"],
       "tags": ["CWE-862"]
-    },
-    {
-      "cveId": "CVE-2025-43864",
-      "title": "React Router allows a DoS via cache poisoning by forcing SPA mode",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.04,
-      "epssPercentile": 10.071,
-      "riskScore": 43,
-      "publishedDate": "2025-04-25T00:18:16.058000+00:00",
-      "lastModifiedDate": "2025-04-25T15:18:38.495000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["remix-run"],
-      "tags": ["CWE-755"]
     },
     {
       "cveId": "CVE-2025-43586",
@@ -76086,7 +76044,7 @@
       "publishedDate": "2024-10-15T10:27:52.208000+00:00",
       "lastModifiedDate": "2024-10-16T17:47:04.737000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-261"]
     },
     {
@@ -81084,7 +81042,7 @@
       "publishedDate": "2024-05-14T12:58:31.261000+00:00",
       "lastModifiedDate": "2025-03-14T14:56:10.154000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["n/a", "na"],
+      "vendors": ["na", "n/a"],
       "tags": []
     },
     {
@@ -81280,7 +81238,7 @@
       "publishedDate": "2024-08-07T11:00:06.508000+00:00",
       "lastModifiedDate": "2024-08-07T13:17:59.476000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["webnus", "webnus/"],
+      "vendors": ["webnus/", "webnus"],
       "tags": ["CWE-918"]
     },
     {
@@ -90202,20 +90160,6 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
-      "cveId": "CVE-2025-3606",
-      "title": "Vestel AC Charger Exposure of Sensitive System Information to an Unauthorized Control Sphere",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.05,
-      "epssPercentile": 13.94,
-      "riskScore": 42,
-      "publishedDate": "2025-04-24T23:15:52.975000+00:00",
-      "lastModifiedDate": "2025-04-25T16:02:38.056000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["vestel"],
-      "tags": ["CWE-497"]
-    },
-    {
       "cveId": "CVE-2025-3306",
       "title": "code-projects Blood Bank Management System don.php sql injection",
       "severity": "HIGH",
@@ -92498,20 +92442,6 @@
       "tags": ["CWE-77", "CWE-74"]
     },
     {
-      "cveId": "CVE-2025-1294",
-      "title": "eForm <= 4.18.0 - Unauthenticated Stored Cross-Site Scripting",
-      "severity": "HIGH",
-      "cvssScore": 7.2,
-      "epssScore": 0.16,
-      "epssPercentile": 37.956,
-      "riskScore": 42,
-      "publishedDate": "2025-04-24T22:22:14.575000+00:00",
-      "lastModifiedDate": "2025-04-25T16:05:22.062000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["wpquark"],
-      "tags": ["CWE-79"]
-    },
-    {
       "cveId": "CVE-2025-1801",
       "title": "Aap-gateway: aap-gateway privilege escalation",
       "severity": "HIGH",
@@ -93028,6 +92958,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["adobe"],
       "tags": ["CWE-416"]
+    },
+    {
+      "cveId": "CVE-2025-43865",
+      "title": "React Router allows pre-render data spoofing on React-Router framework mode",
+      "severity": "HIGH",
+      "cvssScore": 8.2,
+      "epssScore": 0.04,
+      "epssPercentile": 8.84,
+      "riskScore": 42,
+      "publishedDate": "2025-04-25T00:18:53.222000+00:00",
+      "lastModifiedDate": "2025-04-25T15:16:00.202000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["remix-run"],
+      "tags": ["CWE-345"]
     },
     {
       "cveId": "CVE-2025-43569",
@@ -105280,6 +105224,20 @@
       "tags": ["CWE-787"]
     },
     {
+      "cveId": "CVE-2025-2185",
+      "title": "ALBEDO Telecom Net.Time - PTP/NTP Clock Insufficient Session Expiration",
+      "severity": "HIGH",
+      "cvssScore": 8.0,
+      "epssScore": 0.05,
+      "epssPercentile": 14.925,
+      "riskScore": 41,
+      "publishedDate": "2025-04-24T23:22:35.146000+00:00",
+      "lastModifiedDate": "2025-04-25T16:02:29.038000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["albedo telecom"],
+      "tags": ["CWE-613"]
+    },
+    {
       "cveId": "CVE-2025-2657",
       "title": "projectworlds Apartment Visitors Management System front.php sql injection",
       "severity": "HIGH",
@@ -107884,20 +107842,6 @@
       "tags": ["CWE-346"]
     },
     {
-      "cveId": "CVE-2025-46613",
-      "title": "CVE-2025-46613: OpenPLC 3 through 64f9c11 has server.cpp Memory Corruption because a thread may access handleConnect...",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.05,
-      "epssPercentile": 13.994,
-      "riskScore": 41,
-      "publishedDate": "2025-04-25T00:00:00+00:00",
-      "lastModifiedDate": "2025-04-25T14:27:01.294000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["openplcproject"],
-      "tags": ["CWE-362"]
-    },
-    {
       "cveId": "CVE-2025-46340",
       "title": "Misskey CSS Style Injection Vulnerability In `MkUrlPreview`",
       "severity": "HIGH",
@@ -109492,6 +109436,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["jetbrains"],
       "tags": []
+    },
+    {
+      "cveId": "CVE-2025-43864",
+      "title": "React Router allows a DoS via cache poisoning by forcing SPA mode",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.04,
+      "epssPercentile": 10.071,
+      "riskScore": 41,
+      "publishedDate": "2025-04-25T00:18:16.058000+00:00",
+      "lastModifiedDate": "2025-04-25T15:18:38.495000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["remix-run"],
+      "tags": ["CWE-755"]
     },
     {
       "cveId": "CVE-2025-43922",
@@ -112752,7 +112710,7 @@
       "publishedDate": "2024-10-15T10:27:06.004000+00:00",
       "lastModifiedDate": "2024-10-16T17:49:30.446000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-20"]
     },
     {
@@ -122080,6 +122038,20 @@
       "tags": ["CWE-73"]
     },
     {
+      "cveId": "CVE-2025-3606",
+      "title": "Vestel AC Charger Exposure of Sensitive System Information to an Unauthorized Control Sphere",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.05,
+      "epssPercentile": 13.94,
+      "riskScore": 40,
+      "publishedDate": "2025-04-24T23:15:52.975000+00:00",
+      "lastModifiedDate": "2025-04-25T16:02:38.056000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["vestel"],
+      "tags": ["CWE-497"]
+    },
+    {
       "cveId": "CVE-2025-3625",
       "title": "Moodle: user dos and name disclosure via idor in moodle mfa email factor revoke action",
       "severity": "HIGH",
@@ -122708,20 +122680,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["dastan800"],
       "tags": ["CWE-862"]
-    },
-    {
-      "cveId": "CVE-2025-46617",
-      "title": "CVE-2025-46617: Quantum StorNext Web GUI API before 7.2.4 grants access to internal StorNext configuration and unaut...",
-      "severity": "HIGH",
-      "cvssScore": 7.2,
-      "epssScore": 0.04,
-      "epssPercentile": 11.109,
-      "riskScore": 40,
-      "publishedDate": "2025-04-25T00:00:00+00:00",
-      "lastModifiedDate": "2025-04-25T15:20:39.037000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["quantum"],
-      "tags": ["CWE-798"]
     },
     {
       "cveId": "CVE-2025-46446",
@@ -124262,6 +124220,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["autodesk"],
       "tags": ["CWE-122"]
+    },
+    {
+      "cveId": "CVE-2025-1294",
+      "title": "eForm <= 4.18.0 - Unauthenticated Stored Cross-Site Scripting",
+      "severity": "HIGH",
+      "cvssScore": 7.2,
+      "epssScore": 0.16,
+      "epssPercentile": 37.956,
+      "riskScore": 40,
+      "publishedDate": "2025-04-24T22:22:14.575000+00:00",
+      "lastModifiedDate": "2025-04-25T16:05:22.062000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["wpquark"],
+      "tags": ["CWE-79"]
     },
     {
       "cveId": "CVE-2025-1561",
@@ -126878,7 +126850,7 @@
       "publishedDate": "2024-03-18T16:04:57.375000+00:00",
       "lastModifiedDate": "2024-08-01T19:03:37.851000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric", "schneider electric "],
+      "vendors": ["schneider electric ", "schneider electric"],
       "tags": ["CWE-79"]
     },
     {
@@ -135502,7 +135474,7 @@
       "publishedDate": "2024-11-04T03:31:04.265000+00:00",
       "lastModifiedDate": "2024-11-04T17:01:46.227000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["anirbandutta9", "code-projects"],
+      "vendors": ["code-projects", "anirbandutta9"],
       "tags": ["CWE-89"]
     },
     {
@@ -140084,6 +140056,20 @@
       "tags": ["CWE-98"]
     },
     {
+      "cveId": "CVE-2025-46613",
+      "title": "CVE-2025-46613: OpenPLC 3 through 64f9c11 has server.cpp Memory Corruption because a thread may access handleConnect...",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.05,
+      "epssPercentile": 13.994,
+      "riskScore": 39,
+      "publishedDate": "2025-04-25T00:00:00+00:00",
+      "lastModifiedDate": "2025-04-25T14:27:01.294000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["openplcproject"],
+      "tags": ["CWE-362"]
+    },
+    {
       "cveId": "CVE-2025-46242",
       "title": "WordPress Watu Quiz <= 3.4.3 - SQL Injection Vulnerability",
       "severity": "HIGH",
@@ -143916,7 +143902,7 @@
       "publishedDate": "2024-07-03T12:26:44.599000+00:00",
       "lastModifiedDate": "2025-02-13T17:54:25.437000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "red lion europe"],
+      "vendors": ["red lion europe", "helmholz"],
       "tags": ["CWE-78"]
     },
     {
@@ -145806,7 +145792,7 @@
       "publishedDate": "2024-10-15T10:28:58.559000+00:00",
       "lastModifiedDate": "2025-01-24T06:32:08.237000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-306"]
     },
     {
@@ -145820,7 +145806,7 @@
       "publishedDate": "2024-10-15T10:27:32.688000+00:00",
       "lastModifiedDate": "2024-10-16T17:36:22.123000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-1391"]
     },
     {
@@ -160118,6 +160104,20 @@
       "tags": ["CWE-352"]
     },
     {
+      "cveId": "CVE-2025-46617",
+      "title": "CVE-2025-46617: Quantum StorNext Web GUI API before 7.2.4 grants access to internal StorNext configuration and unaut...",
+      "severity": "HIGH",
+      "cvssScore": 7.2,
+      "epssScore": 0.04,
+      "epssPercentile": 11.109,
+      "riskScore": 38,
+      "publishedDate": "2025-04-25T00:00:00+00:00",
+      "lastModifiedDate": "2025-04-25T15:20:39.037000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["quantum"],
+      "tags": ["CWE-798"]
+    },
+    {
       "cveId": "CVE-2025-46457",
       "title": "WordPress Wp Custom CMS Block plugin <= 2.1 - CSRF to Stored XSS vulnerability",
       "severity": "HIGH",
@@ -171552,7 +171552,7 @@
       "publishedDate": "2024-03-18T16:05:47.722000+00:00",
       "lastModifiedDate": "2024-08-15T16:23:48.504000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric", "schneider electric "],
+      "vendors": ["schneider electric ", "schneider electric"],
       "tags": ["CWE-552"]
     },
     {
