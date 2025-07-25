@@ -1,5 +1,5 @@
 {
-  "generated": "2025-07-25T16:08:18.074929",
+  "generated": "2025-07-25T20:08:26.364941",
   "count": 15511,
   "vulnerabilities": [
     {
@@ -181,7 +181,7 @@
       "publishedDate": "2024-11-15T03:18:45.746000+00:00",
       "lastModifiedDate": "2024-11-19T13:37:03.351000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["really simple plugins", "rogierlankhorst"],
+      "vendors": ["rogierlankhorst", "really simple plugins"],
       "tags": ["CWE-288"]
     },
     {
@@ -1063,7 +1063,7 @@
       "publishedDate": "2024-11-26T07:37:44.549000+00:00",
       "lastModifiedDate": "2024-12-10T14:58:18.708000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-288"]
     },
     {
@@ -4633,7 +4633,7 @@
       "publishedDate": "2024-11-26T07:37:38.329000+00:00",
       "lastModifiedDate": "2024-12-10T15:43:57.213000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-22"]
     },
     {
@@ -5085,20 +5085,6 @@
       "tags": ["CWE-89"]
     },
     {
-      "cveId": "CVE-2025-7747",
-      "title": "Tenda FH451 POST Request WizardHandle fromWizardHandle buffer overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.08,
-      "epssPercentile": 25.277,
-      "riskScore": 52,
-      "publishedDate": "2025-07-17T17:14:09.386000+00:00",
-      "lastModifiedDate": "2025-07-17T19:14:07.071000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["tenda"],
-      "tags": ["CWE-120", "CWE-119"]
-    },
-    {
       "cveId": "CVE-2025-7807",
       "title": "Tenda FH451 SafeUrlFilter fromSafeUrlFilter stack-based overflow",
       "severity": "HIGH",
@@ -5487,7 +5473,7 @@
       "publishedDate": "2025-05-13T03:21:29.625000+00:00",
       "lastModifiedDate": "2025-05-13T13:57:36.925000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["msaari", "relevanssi"],
+      "vendors": ["relevanssi", "msaari"],
       "tags": ["CWE-89"]
     },
     {
@@ -5963,7 +5949,7 @@
       "publishedDate": "2024-06-25T03:30:37.970000+00:00",
       "lastModifiedDate": "2024-08-01T21:33:05.337000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["stuartobrien", "pedrogusmao02", "themerex", "warfareplugins", "blazeretail"],
+      "vendors": ["themerex", "pedrogusmao02", "warfareplugins", "blazeretail", "stuartobrien"],
       "tags": []
     },
     {
@@ -7729,6 +7715,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["tenda"],
       "tags": ["CWE-121", "CWE-119"]
+    },
+    {
+      "cveId": "CVE-2025-7747",
+      "title": "Tenda FH451 POST Request WizardHandle fromWizardHandle buffer overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.08,
+      "epssPercentile": 25.277,
+      "riskScore": 50,
+      "publishedDate": "2025-07-17T17:14:09.386000+00:00",
+      "lastModifiedDate": "2025-07-17T19:14:07.071000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["tenda"],
+      "tags": ["CWE-120", "CWE-119"]
     },
     {
       "cveId": "CVE-2025-7092",
@@ -9674,11 +9674,11 @@
       "lastModifiedDate": "2025-06-25T14:15:31.576000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
+        "fujifilm business innovation",
         "ricoh",
         "toshiba tec",
-        "fujifilm business innovation",
-        "brother industries, ltd",
-        "konica minolta, inc."
+        "konica minolta, inc.",
+        "brother industries, ltd"
       ],
       "tags": ["CWE-1286"]
     },
@@ -11097,20 +11097,6 @@
       "tags": ["CWE-22"]
     },
     {
-      "cveId": "CVE-2025-4378",
-      "title": "Hardcoded Credentials in Ataturk University's ATA-AOF Mobile Application",
-      "severity": "CRITICAL",
-      "cvssScore": 10.0,
-      "epssScore": 0.03,
-      "epssPercentile": 6.167,
-      "riskScore": 49,
-      "publishedDate": "2025-06-24T16:27:02.988000+00:00",
-      "lastModifiedDate": "2025-06-25T13:40:57.665000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["ataturk university"],
-      "tags": ["CWE-319", "CWE-798"]
-    },
-    {
       "cveId": "CVE-2025-3499",
       "title": "Unauthenticated execution of arbitrary commands in Radiflow iSAP Smart Collector",
       "severity": "CRITICAL",
@@ -11587,20 +11573,6 @@
       "tags": ["CWE-502"]
     },
     {
-      "cveId": "CVE-2025-52571",
-      "title": "Hikka vulnerable to RCE through edits in a channel",
-      "severity": "CRITICAL",
-      "cvssScore": 9.7,
-      "epssScore": 0.07,
-      "epssPercentile": 22.865,
-      "riskScore": 49,
-      "publishedDate": "2025-06-24T20:07:24.328000+00:00",
-      "lastModifiedDate": "2025-06-24T20:44:45.441000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["hikariatama"],
-      "tags": ["CWE-287"]
-    },
-    {
       "cveId": "CVE-2025-52836",
       "title": "WordPress The E-Commerce ERP <= 2.1.1.3 - Privilege Escalation Vulnerability",
       "severity": "CRITICAL",
@@ -11865,20 +11837,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["aonetheme"],
       "tags": ["CWE-266"]
-    },
-    {
-      "cveId": "CVE-2025-23266",
-      "title": "CVE-2025-23266: NVIDIA Container Toolkit for all platforms contains a vulnerability in some hooks used to initialize...",
-      "severity": "CRITICAL",
-      "cvssScore": 9.0,
-      "epssScore": 0.03,
-      "epssPercentile": 5.891,
-      "riskScore": 49,
-      "publishedDate": "2025-07-17T19:08:21.352000+00:00",
-      "lastModifiedDate": "2025-07-18T03:55:34.629000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["nvidia"],
-      "tags": ["CWE-426"]
     },
     {
       "cveId": "CVE-2025-28961",
@@ -12481,8 +12439,8 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": [
         "ricoh",
-        "konica minolta, inc.",
         "fujifilm business innovation",
+        "konica minolta, inc.",
         "brother industries, ltd"
       ],
       "tags": ["CWE-121"]
@@ -14406,20 +14364,6 @@
       "tags": ["CWE-22"]
     },
     {
-      "cveId": "CVE-2025-7752",
-      "title": "code-projects Online Appointment Booking System deletedoctor.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.237,
-      "riskScore": 48,
-      "publishedDate": "2025-07-17T19:32:05.716000+00:00",
-      "lastModifiedDate": "2025-07-17T20:11:51.341000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
       "cveId": "CVE-2025-7883",
       "title": "Eluktronics Control Center Powershell Script Command command injection",
       "severity": "HIGH",
@@ -14446,34 +14390,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["totolink"],
       "tags": ["CWE-306", "CWE-287"]
-    },
-    {
-      "cveId": "CVE-2025-7753",
-      "title": "code-projects Online Appointment Booking System adddoctor.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.237,
-      "riskScore": 48,
-      "publishedDate": "2025-07-17T19:44:06.206000+00:00",
-      "lastModifiedDate": "2025-07-17T20:08:56.917000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-7751",
-      "title": "code-projects Online Appointment Booking System addclinic.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.237,
-      "riskScore": 48,
-      "publishedDate": "2025-07-17T19:14:06.320000+00:00",
-      "lastModifiedDate": "2025-07-17T20:37:57.534000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
     },
     {
       "cveId": "CVE-2025-7640",
@@ -14504,20 +14420,6 @@
       "tags": ["CWE-78"]
     },
     {
-      "cveId": "CVE-2025-7750",
-      "title": "code-projects Online Appointment Booking System adddoctorclinic.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.66,
-      "riskScore": 48,
-      "publishedDate": "2025-07-17T19:02:05.827000+00:00",
-      "lastModifiedDate": "2025-07-17T20:30:06.506000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
       "cveId": "CVE-2025-7765",
       "title": "code-projects Online Appointment Booking System addmanagerclinic.php sql injection",
       "severity": "HIGH",
@@ -14544,20 +14446,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-434", "CWE-284"]
-    },
-    {
-      "cveId": "CVE-2025-7749",
-      "title": "code-projects Online Appointment Booking System getmanagerregion.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.66,
-      "riskScore": 48,
-      "publishedDate": "2025-07-17T18:02:05.938000+00:00",
-      "lastModifiedDate": "2025-07-17T20:23:58.963000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
     },
     {
       "cveId": "CVE-2025-7326",
@@ -14684,20 +14572,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["htplugins"],
       "tags": ["CWE-22"]
-    },
-    {
-      "cveId": "CVE-2025-7433",
-      "title": "CVE-2025-7433: A local privilege escalation vulnerability in Sophos Intercept X for Windows with Central Device Enc...",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.01,
-      "epssPercentile": 1.844,
-      "riskScore": 48,
-      "publishedDate": "2025-07-17T19:10:27.251000+00:00",
-      "lastModifiedDate": "2025-07-17T20:35:32.913000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["sophos"],
-      "tags": ["CWE-502"]
     },
     {
       "cveId": "CVE-2025-7861",
@@ -18004,20 +17878,6 @@
       "tags": ["CWE-242"]
     },
     {
-      "cveId": "CVE-2025-23267",
-      "title": "CVE-2025-23267: NVIDIA Container Toolkit for all platforms contains a vulnerability in the update-ldcache hook, wher...",
-      "severity": "HIGH",
-      "cvssScore": 8.5,
-      "epssScore": 0.05,
-      "epssPercentile": 14.84,
-      "riskScore": 48,
-      "publishedDate": "2025-07-17T19:32:36.958000+00:00",
-      "lastModifiedDate": "2025-07-17T20:09:42.007000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["nvidia"],
-      "tags": ["CWE-59"]
-    },
-    {
       "cveId": "CVE-2025-23967",
       "title": "WordPress GG Bought Together for WooCommerce plugin <= 1.0.2 - SQL Injection Vulnerability",
       "severity": "CRITICAL",
@@ -18674,20 +18534,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["ibm"],
       "tags": ["CWE-434"]
-    },
-    {
-      "cveId": "CVE-2024-13972",
-      "title": "CVE-2024-13972: A vulnerability related to registry permissions in the Intercept X for Windows updater prior to vers...",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.01,
-      "epssPercentile": 0.256,
-      "riskScore": 48,
-      "publishedDate": "2025-07-17T19:02:36.400000+00:00",
-      "lastModifiedDate": "2025-07-17T20:30:35.514000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["sophos"],
-      "tags": ["CWE-276"]
     },
     {
       "cveId": "CVE-2024-7257",
@@ -20004,20 +19850,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["gravitational"],
       "tags": ["CWE-863"]
-    },
-    {
-      "cveId": "CVE-2025-49853",
-      "title": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') in ControlID iDSecure On-premises",
-      "severity": "CRITICAL",
-      "cvssScore": 9.1,
-      "epssScore": 0.04,
-      "epssPercentile": 11.824,
-      "riskScore": 47,
-      "publishedDate": "2025-06-24T19:23:19.181000+00:00",
-      "lastModifiedDate": "2025-06-27T17:13:55.451000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["controlid"],
-      "tags": ["CWE-89"]
     },
     {
       "cveId": "CVE-2025-49072",
@@ -21420,6 +21252,20 @@
       "tags": ["CWE-427"]
     },
     {
+      "cveId": "CVE-2025-4378",
+      "title": "Hardcoded Credentials in Ataturk University's ATA-AOF Mobile Application",
+      "severity": "CRITICAL",
+      "cvssScore": 10.0,
+      "epssScore": 0.03,
+      "epssPercentile": 6.167,
+      "riskScore": 47,
+      "publishedDate": "2025-06-24T16:27:02.988000+00:00",
+      "lastModifiedDate": "2025-06-25T13:40:57.665000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["ataturk university"],
+      "tags": ["CWE-319", "CWE-798"]
+    },
+    {
       "cveId": "CVE-2025-4800",
       "title": "MasterStudy LMS Pro <= 4.7.0 - Authenticated (Subscriber+) Arbitrary File Upload",
       "severity": "HIGH",
@@ -21544,20 +21390,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["canon inc."],
       "tags": ["CWE-522"]
-    },
-    {
-      "cveId": "CVE-2025-3935",
-      "title": "ScreenConnect Exposure to ASP.NET ViewState Code Injection",
-      "severity": "HIGH",
-      "cvssScore": 8.1,
-      "epssScore": 20.12,
-      "epssPercentile": 95.226,
-      "riskScore": 47,
-      "publishedDate": "2025-04-25T18:27:44.244000+00:00",
-      "lastModifiedDate": "2025-06-06T03:55:31.542000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["connectwise"],
-      "tags": ["CWE-287"]
     },
     {
       "cveId": "CVE-2025-27461",
@@ -22442,6 +22274,20 @@
       "tags": ["CWE-77"]
     },
     {
+      "cveId": "CVE-2025-52571",
+      "title": "Hikka vulnerable to RCE through edits in a channel",
+      "severity": "CRITICAL",
+      "cvssScore": 9.7,
+      "epssScore": 0.07,
+      "epssPercentile": 22.865,
+      "riskScore": 47,
+      "publishedDate": "2025-06-24T20:07:24.328000+00:00",
+      "lastModifiedDate": "2025-06-24T20:44:45.441000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["hikariatama"],
+      "tags": ["CWE-287"]
+    },
+    {
       "cveId": "CVE-2025-52577",
       "title": "Advantech iView SQL Injection",
       "severity": "HIGH",
@@ -23028,6 +22874,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["ngoccode"],
       "tags": ["CWE-434"]
+    },
+    {
+      "cveId": "CVE-2025-23266",
+      "title": "CVE-2025-23266: NVIDIA Container Toolkit for all platforms contains a vulnerability in some hooks used to initialize...",
+      "severity": "CRITICAL",
+      "cvssScore": 9.0,
+      "epssScore": 0.03,
+      "epssPercentile": 5.891,
+      "riskScore": 47,
+      "publishedDate": "2025-07-17T19:08:21.352000+00:00",
+      "lastModifiedDate": "2025-07-18T03:55:34.629000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["nvidia"],
+      "tags": ["CWE-426"]
     },
     {
       "cveId": "CVE-2025-23239",
@@ -26950,6 +26810,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-7752",
+      "title": "code-projects Online Appointment Booking System deletedoctor.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.237,
+      "riskScore": 46,
+      "publishedDate": "2025-07-17T19:32:05.716000+00:00",
+      "lastModifiedDate": "2025-07-17T20:11:51.341000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-7587",
       "title": "code-projects Online Appointment Booking System cover.php sql injection",
       "severity": "HIGH",
@@ -27132,6 +27006,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-7753",
+      "title": "code-projects Online Appointment Booking System adddoctor.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.237,
+      "riskScore": 46,
+      "publishedDate": "2025-07-17T19:44:06.206000+00:00",
+      "lastModifiedDate": "2025-07-17T20:08:56.917000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-7461",
       "title": "code-projects Modern Bag action.php sql injection",
       "severity": "HIGH",
@@ -27156,7 +27044,21 @@
       "publishedDate": "2025-07-08T05:32:05.678000+00:00",
       "lastModifiedDate": "2025-07-08T13:45:36.200000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-7751",
+      "title": "code-projects Online Appointment Booking System addclinic.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.237,
+      "riskScore": 46,
+      "publishedDate": "2025-07-17T19:14:06.320000+00:00",
+      "lastModifiedDate": "2025-07-17T20:37:57.534000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -27281,6 +27183,20 @@
       "riskScore": 46,
       "publishedDate": "2025-07-08T09:32:05.839000+00:00",
       "lastModifiedDate": "2025-07-08T13:35:54.400000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-7750",
+      "title": "code-projects Online Appointment Booking System adddoctorclinic.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.66,
+      "riskScore": 46,
+      "publishedDate": "2025-07-17T19:02:05.827000+00:00",
+      "lastModifiedDate": "2025-07-17T20:30:06.506000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
@@ -27435,6 +27351,20 @@
       "riskScore": 46,
       "publishedDate": "2025-07-13T19:32:05.511000+00:00",
       "lastModifiedDate": "2025-07-15T19:53:41.527000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-7749",
+      "title": "code-projects Online Appointment Booking System getmanagerregion.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.66,
+      "riskScore": 46,
+      "publishedDate": "2025-07-17T18:02:05.938000+00:00",
+      "lastModifiedDate": "2025-07-17T20:23:58.963000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
@@ -27842,7 +27772,7 @@
       "publishedDate": "2025-07-08T06:02:05.515000+00:00",
       "lastModifiedDate": "2025-07-08T13:44:30.198000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -27872,6 +27802,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-7433",
+      "title": "CVE-2025-7433: A local privilege escalation vulnerability in Sophos Intercept X for Windows with Central Device Enc...",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.01,
+      "epssPercentile": 1.844,
+      "riskScore": 46,
+      "publishedDate": "2025-07-17T19:10:27.251000+00:00",
+      "lastModifiedDate": "2025-07-17T20:35:32.913000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["sophos"],
+      "tags": ["CWE-502"]
     },
     {
       "cveId": "CVE-2025-7457",
@@ -29050,20 +28994,6 @@
       "tags": ["CWE-121", "CWE-119"]
     },
     {
-      "cveId": "CVE-2025-3753",
-      "title": "Unsafe use of eval() method in rosbag tool",
-      "severity": "HIGH",
-      "cvssScore": 7.8,
-      "epssScore": 0.03,
-      "epssPercentile": 5.122,
-      "riskScore": 46,
-      "publishedDate": "2025-07-17T19:14:20.486000+00:00",
-      "lastModifiedDate": "2025-07-18T08:05:27.171000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["open source robotics foundation"],
-      "tags": ["CWE-95", "CWE-94"]
-    },
-    {
       "cveId": "CVE-2025-3011",
       "title": "PiExtract SOOP-CLM - SQL Injection",
       "severity": "CRITICAL",
@@ -29596,20 +29526,6 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
-      "cveId": "CVE-2025-6579",
-      "title": "code-projects Car Rental System message_admin.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.66,
-      "riskScore": 46,
-      "publishedDate": "2025-06-24T20:00:14.893000+00:00",
-      "lastModifiedDate": "2025-06-24T20:42:47.366000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
       "cveId": "CVE-2025-6827",
       "title": "code-projects Inventory Management System editOrder.php sql injection",
       "severity": "HIGH",
@@ -29649,20 +29565,6 @@
       "lastModifiedDate": "2025-07-01T14:40:10.598000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["campcodes"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-6578",
-      "title": "code-projects Simple Online Hotel Reservation System delete_account.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.66,
-      "riskScore": 46,
-      "publishedDate": "2025-06-24T20:00:12.898000+00:00",
-      "lastModifiedDate": "2025-06-24T20:42:13.361000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -29848,20 +29750,6 @@
       "tags": ["CWE-306", "CWE-287"]
     },
     {
-      "cveId": "CVE-2025-6231",
-      "title": "CVE-2025-6231: An improper validation vulnerability was reported in Lenovo Vantage that under certain conditions co...",
-      "severity": "HIGH",
-      "cvssScore": 7.8,
-      "epssScore": 0.02,
-      "epssPercentile": 4.048,
-      "riskScore": 46,
-      "publishedDate": "2025-07-17T19:19:23.288000+00:00",
-      "lastModifiedDate": "2025-07-17T20:12:27.411000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["lenovo"],
-      "tags": ["CWE-88"]
-    },
-    {
       "cveId": "CVE-2025-6611",
       "title": "code-projects Inventory Management System createBrand.php sql injection",
       "severity": "HIGH",
@@ -29888,20 +29776,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["grafana"],
       "tags": ["CWE-601", "CWE-79"]
-    },
-    {
-      "cveId": "CVE-2025-6232",
-      "title": "CVE-2025-6232: An improper validation vulnerability was reported in Lenovo Vantage that under certain conditions co...",
-      "severity": "HIGH",
-      "cvssScore": 7.8,
-      "epssScore": 0.02,
-      "epssPercentile": 4.048,
-      "riskScore": 46,
-      "publishedDate": "2025-07-17T19:19:32.565000+00:00",
-      "lastModifiedDate": "2025-07-17T20:12:52.204000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["lenovo"],
-      "tags": ["CWE-88"]
     },
     {
       "cveId": "CVE-2025-6846",
@@ -31626,6 +31500,20 @@
       "tags": ["CWE-79"]
     },
     {
+      "cveId": "CVE-2025-23267",
+      "title": "CVE-2025-23267: NVIDIA Container Toolkit for all platforms contains a vulnerability in the update-ldcache hook, wher...",
+      "severity": "HIGH",
+      "cvssScore": 8.5,
+      "epssScore": 0.05,
+      "epssPercentile": 14.84,
+      "riskScore": 46,
+      "publishedDate": "2025-07-17T19:32:36.958000+00:00",
+      "lastModifiedDate": "2025-07-17T20:09:42.007000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["nvidia"],
+      "tags": ["CWE-59"]
+    },
+    {
       "cveId": "CVE-2025-28915",
       "title": "WordPress ThemeEgg ToolKit plugin <= 1.2.9 - Arbitrary File Upload vulnerability",
       "severity": "CRITICAL",
@@ -32142,20 +32030,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["chimpstudio"],
       "tags": ["CWE-288"]
-    },
-    {
-      "cveId": "CVE-2025-0886",
-      "title": "CVE-2025-0886: An incorrect permissions vulnerability was reported in Elliptic Labs Virtual Lock Sensor that could ...",
-      "severity": "HIGH",
-      "cvssScore": 7.8,
-      "epssScore": 0.01,
-      "epssPercentile": 0.972,
-      "riskScore": 46,
-      "publishedDate": "2025-07-17T19:16:16.273000+00:00",
-      "lastModifiedDate": "2025-07-17T20:09:10.929000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["lenovo"],
-      "tags": ["CWE-276"]
     },
     {
       "cveId": "CVE-2025-0181",
@@ -33880,6 +33754,20 @@
       "tags": ["CWE-94"]
     },
     {
+      "cveId": "CVE-2024-13972",
+      "title": "CVE-2024-13972: A vulnerability related to registry permissions in the Intercept X for Windows updater prior to vers...",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.01,
+      "epssPercentile": 0.256,
+      "riskScore": 46,
+      "publishedDate": "2025-07-17T19:02:36.400000+00:00",
+      "lastModifiedDate": "2025-07-17T20:30:35.514000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["sophos"],
+      "tags": ["CWE-276"]
+    },
+    {
       "cveId": "CVE-2024-13442",
       "title": "Service Finder Bookings <= 5.0 - Unauthenticated Privilege Escalation via Account Takeover",
       "severity": "CRITICAL",
@@ -35308,20 +35196,6 @@
       "tags": ["CWE-502"]
     },
     {
-      "cveId": "CVE-2024-39835",
-      "title": "Unsafe use of eval() method in roslaunch tool",
-      "severity": "HIGH",
-      "cvssScore": 7.8,
-      "epssScore": 0.02,
-      "epssPercentile": 4.097,
-      "riskScore": 46,
-      "publishedDate": "2025-07-17T19:12:08.177000+00:00",
-      "lastModifiedDate": "2025-07-18T08:04:28.875000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["open source robotics foundation"],
-      "tags": ["CWE-95", "CWE-94"]
-    },
-    {
       "cveId": "CVE-2024-39327",
       "title": "CVE-2024-39327: Incorrect Access Control vulnerability in Atos Eviden IDRA before 2.6.1 could allow the possibility ...",
       "severity": "CRITICAL",
@@ -35348,20 +35222,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["parse-community"],
       "tags": ["CWE-288", "CWE-89"]
-    },
-    {
-      "cveId": "CVE-2024-39289",
-      "title": "Unsafe use of eval() method in rosparam tool",
-      "severity": "HIGH",
-      "cvssScore": 7.8,
-      "epssScore": 0.03,
-      "epssPercentile": 5.122,
-      "riskScore": 46,
-      "publishedDate": "2025-07-17T19:11:07.080000+00:00",
-      "lastModifiedDate": "2025-07-18T08:04:04.631000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["open source robotics foundation"],
-      "tags": ["CWE-95", "CWE-94"]
     },
     {
       "cveId": "CVE-2024-10625",
@@ -35502,34 +35362,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["opengeos"],
       "tags": ["CWE-20"]
-    },
-    {
-      "cveId": "CVE-2024-41148",
-      "title": "Unsafe use of eval() method in rostopic hz tool",
-      "severity": "HIGH",
-      "cvssScore": 7.8,
-      "epssScore": 0.03,
-      "epssPercentile": 5.122,
-      "riskScore": 46,
-      "publishedDate": "2025-07-17T19:12:54.440000+00:00",
-      "lastModifiedDate": "2025-07-18T08:04:55.109000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["open source robotics foundation"],
-      "tags": ["CWE-95", "CWE-94"]
-    },
-    {
-      "cveId": "CVE-2024-41921",
-      "title": "Unsafe use of eval() method in rostopic echo tool",
-      "severity": "HIGH",
-      "cvssScore": 7.8,
-      "epssScore": 0.03,
-      "epssPercentile": 5.122,
-      "riskScore": 46,
-      "publishedDate": "2025-07-17T19:13:34.025000+00:00",
-      "lastModifiedDate": "2025-07-18T08:05:08.288000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["open source robotics foundation"],
-      "tags": ["CWE-95", "CWE-94"]
     },
     {
       "cveId": "CVE-2024-41117",
@@ -37688,6 +37520,20 @@
       "tags": ["CWE-78"]
     },
     {
+      "cveId": "CVE-2025-49853",
+      "title": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') in ControlID iDSecure On-premises",
+      "severity": "CRITICAL",
+      "cvssScore": 9.1,
+      "epssScore": 0.04,
+      "epssPercentile": 11.824,
+      "riskScore": 45,
+      "publishedDate": "2025-06-24T19:23:19.181000+00:00",
+      "lastModifiedDate": "2025-06-27T17:13:55.451000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["controlid"],
+      "tags": ["CWE-89"]
+    },
+    {
       "cveId": "CVE-2025-49154",
       "title": "CVE-2025-49154: An insecure access control vulnerability in Trend Micro Apex One and Trend Micro Worry-Free Business...",
       "severity": "HIGH",
@@ -37952,20 +37798,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["samsung electronics"],
       "tags": ["CWE-287"]
-    },
-    {
-      "cveId": "CVE-2025-7472",
-      "title": "CVE-2025-7472: A local privilege escalation vulnerability in the Intercept X for Windows installer prior version 1....",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.01,
-      "epssPercentile": 0.345,
-      "riskScore": 45,
-      "publishedDate": "2025-07-17T18:53:29.947000+00:00",
-      "lastModifiedDate": "2025-07-17T20:29:02.189000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["sophos"],
-      "tags": ["CWE-427"]
     },
     {
       "cveId": "CVE-2025-7114",
@@ -39070,7 +38902,7 @@
       "publishedDate": "2025-06-24T08:05:15.547000+00:00",
       "lastModifiedDate": "2025-06-24T14:18:57.831000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-306"]
     },
     {
@@ -39114,6 +38946,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["amazon"],
       "tags": ["CWE-835", "CWE-502"]
+    },
+    {
+      "cveId": "CVE-2025-3935",
+      "title": "ScreenConnect Exposure to ASP.NET ViewState Code Injection",
+      "severity": "HIGH",
+      "cvssScore": 8.1,
+      "epssScore": 20.12,
+      "epssPercentile": 95.226,
+      "riskScore": 45,
+      "publishedDate": "2025-04-25T18:27:44.244000+00:00",
+      "lastModifiedDate": "2025-06-06T03:55:31.542000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["connectwise"],
+      "tags": ["CWE-287"]
     },
     {
       "cveId": "CVE-2025-3054",
@@ -40164,20 +40010,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["brainstormforce"],
       "tags": ["CWE-502"]
-    },
-    {
-      "cveId": "CVE-2025-6248",
-      "title": "CVE-2025-6248: A cross-site scripting (XSS) vulnerability was reported in the Lenovo Browser that could allow an at...",
-      "severity": "HIGH",
-      "cvssScore": 7.4,
-      "epssScore": 0.03,
-      "epssPercentile": 8.586,
-      "riskScore": 45,
-      "publishedDate": "2025-07-17T19:19:52.864000+00:00",
-      "lastModifiedDate": "2025-07-17T20:08:01.388000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["lenovo"],
-      "tags": ["CWE-79"]
     },
     {
       "cveId": "CVE-2025-6996",
@@ -41478,7 +41310,7 @@
       "publishedDate": "2025-07-21T09:29:57.024000+00:00",
       "lastModifiedDate": "2025-07-21T20:36:45.460000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-78"]
     },
     {
@@ -41520,7 +41352,7 @@
       "publishedDate": "2025-07-21T09:29:32.129000+00:00",
       "lastModifiedDate": "2025-07-21T17:06:11.768000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-78"]
     },
     {
@@ -41534,7 +41366,7 @@
       "publishedDate": "2025-07-21T09:29:43.181000+00:00",
       "lastModifiedDate": "2025-07-21T17:05:33.656000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-78"]
     },
     {
@@ -41634,20 +41466,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["crowdytheme"],
       "tags": ["CWE-862"]
-    },
-    {
-      "cveId": "CVE-2025-1700",
-      "title": "CVE-2025-1700: A DLL hijacking vulnerability was reported in the Motorola Software Fix (Rescue and Smart Assistant)...",
-      "severity": "HIGH",
-      "cvssScore": 7.0,
-      "epssScore": 0.01,
-      "epssPercentile": 1.652,
-      "riskScore": 45,
-      "publishedDate": "2025-07-17T19:16:40.562000+00:00",
-      "lastModifiedDate": "2025-07-21T20:23:41.863000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["motorola"],
-      "tags": ["CWE-427"]
     },
     {
       "cveId": "CVE-2025-1100",
@@ -41844,20 +41662,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["gmod"],
       "tags": ["CWE-23"]
-    },
-    {
-      "cveId": "CVE-2025-23263",
-      "title": "CVE-2025-23263: NVIDIA DOCA-Host and Mellanox OFED contain a vulnerability in the VGT+ feature, where an attacker on...",
-      "severity": "HIGH",
-      "cvssScore": 7.6,
-      "epssScore": 0.02,
-      "epssPercentile": 3.951,
-      "riskScore": 45,
-      "publishedDate": "2025-07-17T17:19:50.542000+00:00",
-      "lastModifiedDate": "2025-07-24T20:08:57.395000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["nvidia"],
-      "tags": ["CWE-279"]
     },
     {
       "cveId": "CVE-2025-28998",
@@ -43438,7 +43242,7 @@
       "publishedDate": "2024-10-15T10:28:37.223000+00:00",
       "lastModifiedDate": "2024-10-16T17:39:58.106000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-798"]
     },
     {
@@ -43494,7 +43298,7 @@
       "publishedDate": "2024-10-15T10:28:16.384000+00:00",
       "lastModifiedDate": "2024-10-16T17:44:15.429000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-306"]
     },
     {
@@ -43802,7 +43606,7 @@
       "publishedDate": "2024-11-26T07:38:12.712000+00:00",
       "lastModifiedDate": "2025-01-27T17:45:48.564000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-798"]
     },
     {
@@ -45972,7 +45776,7 @@
       "publishedDate": "2024-11-26T07:37:06.324000+00:00",
       "lastModifiedDate": "2024-12-10T14:57:54.916000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-121"]
     },
     {
@@ -46196,7 +46000,7 @@
       "publishedDate": "2024-11-26T07:38:06.435000+00:00",
       "lastModifiedDate": "2025-01-27T17:46:45.224000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-798"]
     },
     {
@@ -47442,7 +47246,7 @@
       "publishedDate": "2025-06-05T02:31:05.107000+00:00",
       "lastModifiedDate": "2025-06-05T14:09:25.990000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["anirbandutta9", "code-projects"],
+      "vendors": ["code-projects", "anirbandutta9"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -47582,7 +47386,7 @@
       "publishedDate": "2025-05-30T18:00:06.477000+00:00",
       "lastModifiedDate": "2025-05-30T18:15:18.480000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -51978,7 +51782,7 @@
       "publishedDate": "2025-05-03T11:00:09.135000+00:00",
       "lastModifiedDate": "2025-05-30T09:10:12.356000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -52706,7 +52510,7 @@
       "publishedDate": "2025-05-05T18:31:04.418000+00:00",
       "lastModifiedDate": "2025-05-05T18:48:57.123000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["oretnom23", "sourcecodester"],
+      "vendors": ["sourcecodester", "oretnom23"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -53002,6 +52806,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-3753",
+      "title": "Unsafe use of eval() method in rosbag tool",
+      "severity": "HIGH",
+      "cvssScore": 7.8,
+      "epssScore": 0.03,
+      "epssPercentile": 5.122,
+      "riskScore": 44,
+      "publishedDate": "2025-07-17T19:14:20.486000+00:00",
+      "lastModifiedDate": "2025-07-18T08:05:27.171000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["open source robotics foundation"],
+      "tags": ["CWE-95", "CWE-94"]
     },
     {
       "cveId": "CVE-2025-3539",
@@ -53718,6 +53536,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-6579",
+      "title": "code-projects Car Rental System message_admin.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.66,
+      "riskScore": 44,
+      "publishedDate": "2025-06-24T20:00:14.893000+00:00",
+      "lastModifiedDate": "2025-06-24T20:42:47.366000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-6311",
       "title": "Campcodes Sales and Inventory System account_add.php sql injection",
       "severity": "HIGH",
@@ -53729,6 +53561,20 @@
       "lastModifiedDate": "2025-06-20T19:25:57.530000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["campcodes"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-6578",
+      "title": "code-projects Simple Online Hotel Reservation System delete_account.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.66,
+      "riskScore": 44,
+      "publishedDate": "2025-06-24T20:00:12.898000+00:00",
+      "lastModifiedDate": "2025-06-24T20:42:13.361000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -54026,6 +53872,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-6231",
+      "title": "CVE-2025-6231: An improper validation vulnerability was reported in Lenovo Vantage that under certain conditions co...",
+      "severity": "HIGH",
+      "cvssScore": 7.8,
+      "epssScore": 0.02,
+      "epssPercentile": 4.048,
+      "riskScore": 44,
+      "publishedDate": "2025-07-17T19:19:23.288000+00:00",
+      "lastModifiedDate": "2025-07-17T20:12:27.411000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["lenovo"],
+      "tags": ["CWE-88"]
+    },
+    {
       "cveId": "CVE-2025-6450",
       "title": "code-projects Simple Online Hotel Reservation System confirm_reserve.php sql injection",
       "severity": "HIGH",
@@ -54108,6 +53968,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-6232",
+      "title": "CVE-2025-6232: An improper validation vulnerability was reported in Lenovo Vantage that under certain conditions co...",
+      "severity": "HIGH",
+      "cvssScore": 7.8,
+      "epssScore": 0.02,
+      "epssPercentile": 4.048,
+      "riskScore": 44,
+      "publishedDate": "2025-07-17T19:19:32.565000+00:00",
+      "lastModifiedDate": "2025-07-17T20:12:52.204000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["lenovo"],
+      "tags": ["CWE-88"]
     },
     {
       "cveId": "CVE-2025-6469",
@@ -55664,20 +55538,6 @@
       "tags": ["CWE-352"]
     },
     {
-      "cveId": "CVE-2025-52888",
-      "title": "Allure 2's xunit-xml-plugin Vulnerable to Improper XXE Restriction",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.05,
-      "epssPercentile": 15.189,
-      "riskScore": 44,
-      "publishedDate": "2025-06-24T19:45:22.854000+00:00",
-      "lastModifiedDate": "2025-06-24T19:56:50.479000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["allure-framework"],
-      "tags": ["CWE-611"]
-    },
-    {
       "cveId": "CVE-2025-52821",
       "title": "WordPress Video List Manager plugin <= 1.7 - SQL Injection Vulnerability",
       "severity": "HIGH",
@@ -56208,20 +56068,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["xwiki"],
       "tags": ["CWE-862"]
-    },
-    {
-      "cveId": "CVE-2025-23270",
-      "title": "CVE-2025-23270: NVIDIA Jetson Linux contains a vulnerability in UEFI Management mode, where an unprivileged local at...",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.03,
-      "epssPercentile": 4.998,
-      "riskScore": 44,
-      "publishedDate": "2025-07-17T19:59:24.528000+00:00",
-      "lastModifiedDate": "2025-07-17T20:21:39.590000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["nvidia"],
-      "tags": ["CWE-392"]
     },
     {
       "cveId": "CVE-2025-23171",
@@ -57316,6 +57162,20 @@
       "tags": ["CWE-269"]
     },
     {
+      "cveId": "CVE-2025-0886",
+      "title": "CVE-2025-0886: An incorrect permissions vulnerability was reported in Elliptic Labs Virtual Lock Sensor that could ...",
+      "severity": "HIGH",
+      "cvssScore": 7.8,
+      "epssScore": 0.01,
+      "epssPercentile": 0.972,
+      "riskScore": 44,
+      "publishedDate": "2025-07-17T19:16:16.273000+00:00",
+      "lastModifiedDate": "2025-07-17T20:09:10.929000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["lenovo"],
+      "tags": ["CWE-276"]
+    },
+    {
       "cveId": "CVE-2025-0984",
       "title": "Arbitrary File Upload in Netoloji Software's E-Flow",
       "severity": "HIGH",
@@ -58068,7 +57928,7 @@
       "publishedDate": "2024-03-18T16:03:44.987000+00:00",
       "lastModifiedDate": "2024-08-28T15:04:28.061000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric ", "schneider electric"],
+      "vendors": ["schneider electric", "schneider electric "],
       "tags": ["CWE-307"]
     },
     {
@@ -58796,7 +58656,7 @@
       "publishedDate": "2025-05-09T15:18:34.124000+00:00",
       "lastModifiedDate": "2025-05-09T19:09:17.086000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["norton", "avg", "avast"],
+      "vendors": ["norton", "avast", "avg"],
       "tags": ["CWE-367"]
     },
     {
@@ -59412,7 +59272,7 @@
       "publishedDate": "2024-10-25T06:18:36.274000+00:00",
       "lastModifiedDate": "2024-10-25T18:38:24.503000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-288"]
     },
     {
@@ -63014,6 +62874,20 @@
       "tags": ["CWE-120"]
     },
     {
+      "cveId": "CVE-2024-39835",
+      "title": "Unsafe use of eval() method in roslaunch tool",
+      "severity": "HIGH",
+      "cvssScore": 7.8,
+      "epssScore": 0.02,
+      "epssPercentile": 4.097,
+      "riskScore": 44,
+      "publishedDate": "2025-07-17T19:12:08.177000+00:00",
+      "lastModifiedDate": "2025-07-18T08:04:28.875000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["open source robotics foundation"],
+      "tags": ["CWE-95", "CWE-94"]
+    },
+    {
       "cveId": "CVE-2024-39700",
       "title": "Remote Code Execution (RCE) vulnerability in jupyterlab extension template  `update-integration-tests` GitHub Action",
       "severity": "CRITICAL",
@@ -63068,6 +62942,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["ibm"],
       "tags": ["CWE-1392"]
+    },
+    {
+      "cveId": "CVE-2024-39289",
+      "title": "Unsafe use of eval() method in rosparam tool",
+      "severity": "HIGH",
+      "cvssScore": 7.8,
+      "epssScore": 0.03,
+      "epssPercentile": 5.122,
+      "riskScore": 44,
+      "publishedDate": "2025-07-17T19:11:07.080000+00:00",
+      "lastModifiedDate": "2025-07-18T08:04:04.631000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["open source robotics foundation"],
+      "tags": ["CWE-95", "CWE-94"]
     },
     {
       "cveId": "CVE-2024-39685",
@@ -63682,8 +63570,36 @@
       "publishedDate": "2024-10-22T21:13:37.183000+00:00",
       "lastModifiedDate": "2024-10-23T14:43:52.114000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["kieback&peter", "kieback & peter"],
+      "vendors": ["kieback & peter", "kieback&peter"],
       "tags": ["CWE-22"]
+    },
+    {
+      "cveId": "CVE-2024-41148",
+      "title": "Unsafe use of eval() method in rostopic hz tool",
+      "severity": "HIGH",
+      "cvssScore": 7.8,
+      "epssScore": 0.03,
+      "epssPercentile": 5.122,
+      "riskScore": 44,
+      "publishedDate": "2025-07-17T19:12:54.440000+00:00",
+      "lastModifiedDate": "2025-07-18T08:04:55.109000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["open source robotics foundation"],
+      "tags": ["CWE-95", "CWE-94"]
+    },
+    {
+      "cveId": "CVE-2024-41921",
+      "title": "Unsafe use of eval() method in rostopic echo tool",
+      "severity": "HIGH",
+      "cvssScore": 7.8,
+      "epssScore": 0.03,
+      "epssPercentile": 5.122,
+      "riskScore": 44,
+      "publishedDate": "2025-07-17T19:13:34.025000+00:00",
+      "lastModifiedDate": "2025-07-18T08:05:08.288000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["open source robotics foundation"],
+      "tags": ["CWE-95", "CWE-94"]
     },
     {
       "cveId": "CVE-2024-41771",
@@ -66710,20 +66626,6 @@
       "tags": ["CWE-98"]
     },
     {
-      "cveId": "CVE-2025-49852",
-      "title": "Server-Side Request Forgery (SSRF) in ControlID iDSecure On-premises",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.05,
-      "epssPercentile": 16.096,
-      "riskScore": 43,
-      "publishedDate": "2025-06-24T19:19:42.160000+00:00",
-      "lastModifiedDate": "2025-06-27T17:14:33.313000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["controlid"],
-      "tags": ["CWE-918"]
-    },
-    {
       "cveId": "CVE-2025-49253",
       "title": "WordPress Lasa <= 1.1 - Local File Inclusion Vulnerability",
       "severity": "HIGH",
@@ -67338,6 +67240,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["teamt5"],
       "tags": ["CWE-78"]
+    },
+    {
+      "cveId": "CVE-2025-7472",
+      "title": "CVE-2025-7472: A local privilege escalation vulnerability in the Intercept X for Windows installer prior version 1....",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.01,
+      "epssPercentile": 0.345,
+      "riskScore": 43,
+      "publishedDate": "2025-07-17T18:53:29.947000+00:00",
+      "lastModifiedDate": "2025-07-17T20:29:02.189000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["sophos"],
+      "tags": ["CWE-427"]
     },
     {
       "cveId": "CVE-2025-26649",
@@ -68876,7 +68792,7 @@
       "publishedDate": "2025-06-24T08:10:29.717000+00:00",
       "lastModifiedDate": "2025-06-24T13:56:13.121000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-639"]
     },
     {
@@ -69002,7 +68918,7 @@
       "publishedDate": "2025-06-24T08:14:31.864000+00:00",
       "lastModifiedDate": "2025-06-24T13:55:34.477000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-204"]
     },
     {
@@ -69816,6 +69732,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["das"],
       "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-6248",
+      "title": "CVE-2025-6248: A cross-site scripting (XSS) vulnerability was reported in the Lenovo Browser that could allow an at...",
+      "severity": "HIGH",
+      "cvssScore": 7.4,
+      "epssScore": 0.03,
+      "epssPercentile": 8.586,
+      "riskScore": 43,
+      "publishedDate": "2025-07-17T19:19:52.864000+00:00",
+      "lastModifiedDate": "2025-07-17T20:08:01.388000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["lenovo"],
+      "tags": ["CWE-79"]
     },
     {
       "cveId": "CVE-2025-6073",
@@ -70896,6 +70826,20 @@
       "tags": []
     },
     {
+      "cveId": "CVE-2025-1700",
+      "title": "CVE-2025-1700: A DLL hijacking vulnerability was reported in the Motorola Software Fix (Rescue and Smart Assistant)...",
+      "severity": "HIGH",
+      "cvssScore": 7.0,
+      "epssScore": 0.01,
+      "epssPercentile": 1.652,
+      "riskScore": 43,
+      "publishedDate": "2025-07-17T19:16:40.562000+00:00",
+      "lastModifiedDate": "2025-07-21T20:23:41.863000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["motorola"],
+      "tags": ["CWE-427"]
+    },
+    {
       "cveId": "CVE-2025-1388",
       "title": "Learning Digital Orca HCM - Arbitrary File Upload",
       "severity": "HIGH",
@@ -71188,6 +71132,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["ifkooo"],
       "tags": ["CWE-266"]
+    },
+    {
+      "cveId": "CVE-2025-23263",
+      "title": "CVE-2025-23263: NVIDIA DOCA-Host and Mellanox OFED contain a vulnerability in the VGT+ feature, where an attacker on...",
+      "severity": "HIGH",
+      "cvssScore": 7.6,
+      "epssScore": 0.02,
+      "epssPercentile": 3.951,
+      "riskScore": 43,
+      "publishedDate": "2025-07-17T17:19:50.542000+00:00",
+      "lastModifiedDate": "2025-07-24T20:08:57.395000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["nvidia"],
+      "tags": ["CWE-279"]
     },
     {
       "cveId": "CVE-2025-23797",
@@ -76268,7 +76226,7 @@
       "publishedDate": "2024-10-15T10:27:52.208000+00:00",
       "lastModifiedDate": "2024-10-16T17:47:04.737000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-261"]
     },
     {
@@ -79614,7 +79572,7 @@
       "publishedDate": "2025-01-08T11:09:24.799000+00:00",
       "lastModifiedDate": "2025-01-08T13:54:46.719000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["wpswings", "wp swings"],
+      "vendors": ["wp swings", "wpswings"],
       "tags": ["CWE-862"]
     },
     {
@@ -81854,7 +81812,7 @@
       "publishedDate": "2024-02-05T14:33:06.481000+00:00",
       "lastModifiedDate": "2025-05-09T16:32:50.015000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["kludex", "tiangolo", "encode"],
+      "vendors": ["kludex", "encode", "tiangolo"],
       "tags": ["CWE-400"]
     },
     {
@@ -91868,6 +91826,20 @@
       "tags": ["CWE-79"]
     },
     {
+      "cveId": "CVE-2025-52888",
+      "title": "Allure 2's xunit-xml-plugin Vulnerable to Improper XXE Restriction",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.05,
+      "epssPercentile": 15.189,
+      "riskScore": 42,
+      "publishedDate": "2025-06-24T19:45:22.854000+00:00",
+      "lastModifiedDate": "2025-06-24T19:56:50.479000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["allure-framework"],
+      "tags": ["CWE-611"]
+    },
+    {
       "cveId": "CVE-2025-52778",
       "title": "WordPress xili-dictionary plugin <= 2.12.5.2 - Cross Site Scripting (XSS) Vulnerability",
       "severity": "HIGH",
@@ -93280,6 +93252,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["ribbon communications"],
       "tags": ["CWE-250"]
+    },
+    {
+      "cveId": "CVE-2025-23270",
+      "title": "CVE-2025-23270: NVIDIA Jetson Linux contains a vulnerability in UEFI Management mode, where an unprivileged local at...",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.03,
+      "epssPercentile": 4.998,
+      "riskScore": 42,
+      "publishedDate": "2025-07-17T19:59:24.528000+00:00",
+      "lastModifiedDate": "2025-07-17T20:21:39.590000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["nvidia"],
+      "tags": ["CWE-392"]
     },
     {
       "cveId": "CVE-2025-23931",
@@ -105658,6 +105644,20 @@
       "tags": ["CWE-89"]
     },
     {
+      "cveId": "CVE-2025-49852",
+      "title": "Server-Side Request Forgery (SSRF) in ControlID iDSecure On-premises",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.05,
+      "epssPercentile": 16.096,
+      "riskScore": 41,
+      "publishedDate": "2025-06-24T19:19:42.160000+00:00",
+      "lastModifiedDate": "2025-06-27T17:14:33.313000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["controlid"],
+      "tags": ["CWE-918"]
+    },
+    {
       "cveId": "CVE-2025-49421",
       "title": "WordPress WP Text Expander <= 1.0.1 - SQL Injection Vulnerability",
       "severity": "HIGH",
@@ -112962,7 +112962,7 @@
       "publishedDate": "2024-10-15T10:27:06.004000+00:00",
       "lastModifiedDate": "2024-10-16T17:49:30.446000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-20"]
     },
     {
@@ -114194,7 +114194,7 @@
       "publishedDate": "2024-10-25T06:18:30.415000+00:00",
       "lastModifiedDate": "2024-10-25T18:38:02.777000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-749"]
     },
     {
@@ -114488,7 +114488,7 @@
       "publishedDate": "2024-11-26T07:38:24.464000+00:00",
       "lastModifiedDate": "2024-11-26T16:28:15.625000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -114502,7 +114502,7 @@
       "publishedDate": "2024-11-26T07:38:30.408000+00:00",
       "lastModifiedDate": "2024-11-26T14:48:35.480000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -114558,7 +114558,7 @@
       "publishedDate": "2024-11-26T07:38:18.359000+00:00",
       "lastModifiedDate": "2024-11-26T14:09:24.516000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-79"]
     },
     {
@@ -125762,20 +125762,6 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
-      "cveId": "CVE-2025-0543",
-      "title": "G DATA Security Client Local privilege escalation",
-      "severity": "HIGH",
-      "cvssScore": 7.8,
-      "epssScore": 0.02,
-      "epssPercentile": 3.922,
-      "riskScore": 40,
-      "publishedDate": "2025-01-25T16:17:46.634000+00:00",
-      "lastModifiedDate": "2025-02-05T18:23:40.680000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["g data cyberdefense ag"],
-      "tags": ["CWE-276"]
-    },
-    {
       "cveId": "CVE-2025-0893",
       "title": "CVE-2025-0893: Symantec Diagnostic Tool (SymDiag), prior to 3.0.79, may be susceptible to a Privilege Escalation vu...",
       "severity": "HIGH",
@@ -125844,20 +125830,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-0542",
-      "title": "G DATA Management Server Local privilege escalation",
-      "severity": "HIGH",
-      "cvssScore": 7.8,
-      "epssScore": 0.02,
-      "epssPercentile": 4.855,
-      "riskScore": 40,
-      "publishedDate": "2025-01-25T16:15:09.526000+00:00",
-      "lastModifiedDate": "2025-02-12T20:01:14.392000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["g data cyberdefense ag"],
-      "tags": ["CWE-276", "CWE-22"]
     },
     {
       "cveId": "CVE-2025-0482",
@@ -127158,7 +127130,7 @@
       "publishedDate": "2024-03-18T16:04:57.375000+00:00",
       "lastModifiedDate": "2024-08-01T19:03:37.851000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric ", "schneider electric"],
+      "vendors": ["schneider electric", "schneider electric "],
       "tags": ["CWE-79"]
     },
     {
@@ -133164,7 +133136,7 @@
       "publishedDate": "2024-10-25T06:18:00.481000+00:00",
       "lastModifiedDate": "2024-10-25T18:37:13.542000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -135768,7 +135740,7 @@
       "publishedDate": "2024-11-04T03:31:04.265000+00:00",
       "lastModifiedDate": "2024-11-04T17:01:46.227000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["anirbandutta9", "code-projects"],
+      "vendors": ["code-projects", "anirbandutta9"],
       "tags": ["CWE-89"]
     },
     {
@@ -137056,7 +137028,7 @@
       "publishedDate": "2024-10-25T06:18:10.875000+00:00",
       "lastModifiedDate": "2024-10-25T17:16:12.736000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -144210,7 +144182,7 @@
       "publishedDate": "2024-07-03T12:26:44.599000+00:00",
       "lastModifiedDate": "2025-02-13T17:54:25.437000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["red lion europe", "helmholz"],
+      "vendors": ["helmholz", "red lion europe"],
       "tags": ["CWE-78"]
     },
     {
@@ -146086,7 +146058,7 @@
       "publishedDate": "2024-10-15T10:28:58.559000+00:00",
       "lastModifiedDate": "2025-01-24T06:32:08.237000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-306"]
     },
     {
@@ -146100,7 +146072,7 @@
       "publishedDate": "2024-10-15T10:27:32.688000+00:00",
       "lastModifiedDate": "2024-10-16T17:36:22.123000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-1391"]
     },
     {
@@ -147584,7 +147556,7 @@
       "publishedDate": "2024-10-25T06:18:42.287000+00:00",
       "lastModifiedDate": "2024-10-25T18:32:25.798000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-644"]
     },
     {
@@ -147738,7 +147710,7 @@
       "publishedDate": "2024-10-25T06:18:50.793000+00:00",
       "lastModifiedDate": "2024-10-25T14:16:46.537000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-79"]
     },
     {
@@ -169946,6 +169918,20 @@
       "tags": ["CWE-79"]
     },
     {
+      "cveId": "CVE-2025-0543",
+      "title": "G DATA Security Client Local privilege escalation",
+      "severity": "HIGH",
+      "cvssScore": 7.8,
+      "epssScore": 0.02,
+      "epssPercentile": 3.922,
+      "riskScore": 38,
+      "publishedDate": "2025-01-25T16:17:46.634000+00:00",
+      "lastModifiedDate": "2025-02-05T18:23:40.680000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["g data cyberdefense ag"],
+      "tags": ["CWE-276"]
+    },
+    {
       "cveId": "CVE-2025-0306",
       "title": "Ruby: openssl: ruby marvin attack",
       "severity": "HIGH",
@@ -169958,6 +169944,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["red hat"],
       "tags": ["CWE-385"]
+    },
+    {
+      "cveId": "CVE-2025-0542",
+      "title": "G DATA Management Server Local privilege escalation",
+      "severity": "HIGH",
+      "cvssScore": 7.8,
+      "epssScore": 0.02,
+      "epssPercentile": 4.855,
+      "riskScore": 38,
+      "publishedDate": "2025-01-25T16:15:09.526000+00:00",
+      "lastModifiedDate": "2025-02-12T20:01:14.392000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["g data cyberdefense ag"],
+      "tags": ["CWE-276", "CWE-22"]
     },
     {
       "cveId": "CVE-2025-0255",
@@ -171846,7 +171846,7 @@
       "publishedDate": "2024-03-18T16:05:47.722000+00:00",
       "lastModifiedDate": "2024-08-15T16:23:48.504000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric ", "schneider electric"],
+      "vendors": ["schneider electric", "schneider electric "],
       "tags": ["CWE-552"]
     },
     {
