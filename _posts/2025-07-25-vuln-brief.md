@@ -1,6 +1,6 @@
 ---
 title: Morning Vulnerability Briefing - 2025-07-25
-date: 2025-07-25T12:11:06.125722
+date: 2025-07-25T16:08:18.074929
 layout: layouts/post.njk
 tags: [vulnerability, briefing, security]
 vulnerabilityCount: 15511
@@ -21,7 +21,33 @@ Today's briefing covers **15511 vulnerabilities** from 0 sources.
 
 ## Top Vulnerabilities
 
-### 1. [CVE-2025-49113](/api/vulns/CVE-2025-49113.json)
+### 1. [CVE-2025-47812](/api/vulns/CVE-2025-47812.json)
+
+**Risk Score**: 68/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 10.0 | 
+**EPSS**: 90.1%
+
+**Summary**: In Wing FTP Server before 7.4.4. the user and admin web interfaces mishandle '\0' bytes, ultimately allowing injection of arbitrary Lua code into user session files. This can be used to execute arbitrary system commands with the privileges of the FTP service (root or SYSTEM by default). This is thus a remote code execution vulnerability that guarantees a total server compromise. This is also exploitable via anonymous FTP accounts.
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 90.06% exploit probability
+- Published within last month
+
+**Affected Vendors**: wftpserver
+
+**Tags**: `CWE-158`
+
+**References**:
+
+- [https://www.wftpserver.com](https://www.wftpserver.com)
+- [https://www.rcesecurity.com/2025/06/what-the-null-wing-ftp-server-rce-cve-2025-47812/](https://www.rcesecurity.com/2025/06/what-the-null-wing-ftp-server-rce-cve-2025-47812/)
+
+---
+
+### 2. [CVE-2025-49113](/api/vulns/CVE-2025-49113.json)
 
 **Risk Score**: 68/100 | 
 **Severity**: CRITICAL | 
@@ -47,7 +73,7 @@ Today's briefing covers **15511 vulnerabilities** from 0 sources.
 
 ---
 
-### 2. [CVE-2024-21413](/api/vulns/CVE-2024-21413.json)
+### 3. [CVE-2024-21413](/api/vulns/CVE-2024-21413.json)
 
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
@@ -72,7 +98,7 @@ Today's briefing covers **15511 vulnerabilities** from 0 sources.
 
 ---
 
-### 3. [CVE-2025-24893](/api/vulns/CVE-2025-24893.json)
+### 4. [CVE-2025-24893](/api/vulns/CVE-2025-24893.json)
 
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
@@ -98,7 +124,7 @@ Today's briefing covers **15511 vulnerabilities** from 0 sources.
 
 ---
 
-### 4. [CVE-2024-22320](/api/vulns/CVE-2024-22320.json)
+### 5. [CVE-2024-22320](/api/vulns/CVE-2024-22320.json)
 
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
@@ -124,7 +150,7 @@ Today's briefing covers **15511 vulnerabilities** from 0 sources.
 
 ---
 
-### 5. [CVE-2024-20419](/api/vulns/CVE-2024-20419.json)
+### 6. [CVE-2024-20419](/api/vulns/CVE-2024-20419.json)
 
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
@@ -149,7 +175,7 @@ Today's briefing covers **15511 vulnerabilities** from 0 sources.
 
 ---
 
-### 6. [CVE-2025-1974](/api/vulns/CVE-2025-1974.json)
+### 7. [CVE-2025-1974](/api/vulns/CVE-2025-1974.json)
 
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
@@ -171,32 +197,6 @@ Today's briefing covers **15511 vulnerabilities** from 0 sources.
 **References**:
 
 - [https://https://github.com/kubernetes/kubernetes/issues/131009](https://https://github.com/kubernetes/kubernetes/issues/131009)
-
----
-
-### 7. [CVE-2025-47812](/api/vulns/CVE-2025-47812.json)
-
-**Risk Score**: 67/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 10.0 | 
-**EPSS**: 83.4%
-
-**Summary**: In Wing FTP Server before 7.4.4. the user and admin web interfaces mishandle '\0' bytes, ultimately allowing injection of arbitrary Lua code into user session files. This can be used to execute arbitrary system commands with the privileges of the FTP service (root or SYSTEM by default). This is thus a remote code execution vulnerability that guarantees a total server compromise. This is also exploitable via anonymous FTP accounts.
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 83.37% exploit probability
-- Published within last month
-
-**Affected Vendors**: wftpserver
-
-**Tags**: `CWE-158`
-
-**References**:
-
-- [https://www.wftpserver.com](https://www.wftpserver.com)
-- [https://www.rcesecurity.com/2025/06/what-the-null-wing-ftp-server-rce-cve-2025-47812/](https://www.rcesecurity.com/2025/06/what-the-null-wing-ftp-server-rce-cve-2025-47812/)
 
 ---
 
@@ -314,14 +314,14 @@ critical systems.
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.6 | 
-**EPSS**: 92.8%
+**EPSS**: 92.5%
 
 **Summary**: A out-of-bounds write in Fortinet FortiOS versions 7.4.0 through 7.4.2, 7.2.0 through 7.2.6, 7.0.0 through 7.0.13, 6.4.0 through 6.4.14, 6.2.0 through 6.2.15, 6.0.0 through 6.0.17, FortiProxy versions 7.4.0 through 7.4.2, 7.2.0 through 7.2.8, 7.0.0 through 7.0.14, 2.0.0 through 2.0.13, 1.2.0 through 1.2.13, 1.1.0 through 1.1.6, 1.0.0 through 1.0.7 allows attacker to execute unauthorized code or commands via specifically crafted requests
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 92.78% exploit probability
+- 92.55% exploit probability
 - Affects critical infrastructure: fortinet
 
 **Affected Vendors**: fortinet
@@ -876,33 +876,7 @@ code.
 
 ---
 
-### 34. [CVE-2025-32432](/api/vulns/CVE-2025-32432.json)
-
-**Risk Score**: 65/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 10.0 | 
-**EPSS**: 70.4%
-
-**Summary**: Craft is a flexible, user-friendly CMS for creating custom digital experiences on the web and beyond. Starting from version 3.0.0-RC1 to before 3.9.15, 4.0.0-RC1 to before 4.14.15, and 5.0.0-RC1 to before 5.6.17, Craft is vulnerable to remote code execution. This is a high-impact, low-complexity attack vector. This issue has been patched in versions 3.9.15, 4.14.15, and 5.6.17, and is an additional fix for CVE-2023-41892.
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 70.39% exploit probability
-
-**Affected Vendors**: craftcms
-
-**Tags**: `CWE-94`
-
-**References**:
-
-- [https://github.com/craftcms/cms/security/advisories/GHSA-f3gw-9ww9-jmc3](https://github.com/craftcms/cms/security/advisories/GHSA-f3gw-9ww9-jmc3)
-- [https://github.com/craftcms/cms/commit/e1c85441fa47eeb7c688c2053f25419bc0547b47](https://github.com/craftcms/cms/commit/e1c85441fa47eeb7c688c2053f25419bc0547b47)
-- [https://github.com/craftcms/cms/blob/3.x/CHANGELOG.md#3915---2025-04-10-critical](https://github.com/craftcms/cms/blob/3.x/CHANGELOG.md#3915---2025-04-10-critical)
-
----
-
-### 35. [CVE-2024-50603](/api/vulns/CVE-2024-50603.json)
+### 34. [CVE-2024-50603](/api/vulns/CVE-2024-50603.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -928,7 +902,7 @@ code.
 
 ---
 
-### 36. [CVE-2024-3272](/api/vulns/CVE-2024-3272.json)
+### 35. [CVE-2024-3272](/api/vulns/CVE-2024-3272.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -954,7 +928,7 @@ code.
 
 ---
 
-### 37. [CVE-2024-3495](/api/vulns/CVE-2024-3495.json)
+### 36. [CVE-2024-3495](/api/vulns/CVE-2024-3495.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -978,7 +952,7 @@ code.
 
 ---
 
-### 38. [CVE-2024-21650](/api/vulns/CVE-2024-21650.json)
+### 37. [CVE-2024-21650](/api/vulns/CVE-2024-21650.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1004,7 +978,7 @@ code.
 
 ---
 
-### 39. [CVE-2024-0204](/api/vulns/CVE-2024-0204.json)
+### 38. [CVE-2024-0204](/api/vulns/CVE-2024-0204.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1030,7 +1004,7 @@ code.
 
 ---
 
-### 40. [CVE-2024-29895](/api/vulns/CVE-2024-29895.json)
+### 39. [CVE-2024-29895](/api/vulns/CVE-2024-29895.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1056,7 +1030,7 @@ code.
 
 ---
 
-### 41. [CVE-2024-9234](/api/vulns/CVE-2024-9234.json)
+### 40. [CVE-2024-9234](/api/vulns/CVE-2024-9234.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1082,7 +1056,7 @@ code.
 
 ---
 
-### 42. [CVE-2024-32651](/api/vulns/CVE-2024-32651.json)
+### 41. [CVE-2024-32651](/api/vulns/CVE-2024-32651.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1108,7 +1082,7 @@ code.
 
 ---
 
-### 43. [CVE-2024-1071](/api/vulns/CVE-2024-1071.json)
+### 42. [CVE-2024-1071](/api/vulns/CVE-2024-1071.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1132,7 +1106,7 @@ code.
 
 ---
 
-### 44. [CVE-2024-8856](/api/vulns/CVE-2024-8856.json)
+### 43. [CVE-2024-8856](/api/vulns/CVE-2024-8856.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1158,7 +1132,7 @@ code.
 
 ---
 
-### 45. [CVE-2024-46986](/api/vulns/CVE-2024-46986.json)
+### 44. [CVE-2024-46986](/api/vulns/CVE-2024-46986.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1184,7 +1158,7 @@ code.
 
 ---
 
-### 46. [CVE-2024-36404](/api/vulns/CVE-2024-36404.json)
+### 45. [CVE-2024-36404](/api/vulns/CVE-2024-36404.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1210,7 +1184,7 @@ code.
 
 ---
 
-### 47. [CVE-2025-27007](/api/vulns/CVE-2025-27007.json)
+### 46. [CVE-2025-27007](/api/vulns/CVE-2025-27007.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1235,7 +1209,7 @@ code.
 
 ---
 
-### 48. [CVE-2024-24576](/api/vulns/CVE-2024-24576.json)
+### 47. [CVE-2024-24576](/api/vulns/CVE-2024-24576.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1261,7 +1235,7 @@ code.
 
 ---
 
-### 49. [CVE-2024-43468](/api/vulns/CVE-2024-43468.json)
+### 48. [CVE-2024-43468](/api/vulns/CVE-2024-43468.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1286,7 +1260,7 @@ code.
 
 ---
 
-### 50. [CVE-2024-27198](/api/vulns/CVE-2024-27198.json)
+### 49. [CVE-2024-27198](/api/vulns/CVE-2024-27198.json)
 
 **Risk Score**: 63/100 | 
 **Severity**: CRITICAL | 
@@ -1306,6 +1280,33 @@ code.
 
 - [https://www.jetbrains.com/privacy-security/issues-fixed/](https://www.jetbrains.com/privacy-security/issues-fixed/)
 - [https://www.darkreading.com/cyberattacks-data-breaches/jetbrains-teamcity-mass-exploitation-underway-rogue-accounts-thrive](https://www.darkreading.com/cyberattacks-data-breaches/jetbrains-teamcity-mass-exploitation-underway-rogue-accounts-thrive)
+
+---
+
+### 50. [CVE-2024-2389](/api/vulns/CVE-2024-2389.json)
+
+**Risk Score**: 63/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 10.0 | 
+**EPSS**: 94.3%
+
+**Summary**: In Flowmon versions prior to 11.1.14 and 12.3.5, an operating system command injection vulnerability has been identified.  An unauthenticated user can gain entry to the system via the Flowmon management interface, allowing for the execution of arbitrary system commands.
+
+
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 94.35% exploit probability
+
+**Affected Vendors**: progress software
+
+**Tags**: `CWE-78`
+
+**References**:
+
+- [https://www.flowmon.com](https://www.flowmon.com)
+- [https://support.kemptechnologies.com/hc/en-us/articles/24878235038733-CVE-2024-2389-Flowmon-critical-security-vulnerability](https://support.kemptechnologies.com/hc/en-us/articles/24878235038733-CVE-2024-2389-Flowmon-critical-security-vulnerability)
 
 ---
 
