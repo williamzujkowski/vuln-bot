@@ -1,5 +1,5 @@
 {
-  "generated": "2025-07-25T04:21:17.590615",
+  "generated": "2025-07-25T08:09:52.172471",
   "count": 15511,
   "vulnerabilities": [
     {
@@ -5473,7 +5473,7 @@
       "publishedDate": "2025-05-13T03:21:29.625000+00:00",
       "lastModifiedDate": "2025-05-13T13:57:36.925000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["relevanssi", "msaari"],
+      "vendors": ["msaari", "relevanssi"],
       "tags": ["CWE-89"]
     },
     {
@@ -5977,7 +5977,7 @@
       "publishedDate": "2024-06-25T03:30:37.970000+00:00",
       "lastModifiedDate": "2024-08-01T21:33:05.337000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["stuartobrien", "pedrogusmao02", "warfareplugins", "themerex", "blazeretail"],
+      "vendors": ["blazeretail", "pedrogusmao02", "stuartobrien", "themerex", "warfareplugins"],
       "tags": []
     },
     {
@@ -9744,11 +9744,11 @@
       "lastModifiedDate": "2025-06-25T14:15:31.576000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "ricoh",
         "toshiba tec",
         "konica minolta, inc.",
+        "brother industries, ltd",
         "fujifilm business innovation",
-        "brother industries, ltd"
+        "ricoh"
       ],
       "tags": ["CWE-1286"]
     },
@@ -12523,9 +12523,9 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": [
         "konica minolta, inc.",
-        "ricoh",
         "fujifilm business innovation",
-        "brother industries, ltd"
+        "brother industries, ltd",
+        "ricoh"
       ],
       "tags": ["CWE-121"]
     },
@@ -19162,7 +19162,7 @@
       "publishedDate": "2025-06-25T07:25:00.402000+00:00",
       "lastModifiedDate": "2025-06-25T14:13:40.189000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["ricoh", "fujifilm business innovation", "brother industries, ltd"],
+      "vendors": ["fujifilm business innovation", "brother industries, ltd", "ricoh"],
       "tags": ["CWE-1286"]
     },
     {
@@ -21572,20 +21572,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["felipe152"],
       "tags": ["CWE-862"]
-    },
-    {
-      "cveId": "CVE-2025-3090",
-      "title": "MB connect line: Missing Authentication in mbCONNECT24/mymbCONNECT24",
-      "severity": "HIGH",
-      "cvssScore": 8.2,
-      "epssScore": 0.18,
-      "epssPercentile": 39.724,
-      "riskScore": 47,
-      "publishedDate": "2025-06-24T08:05:15.547000+00:00",
-      "lastModifiedDate": "2025-06-24T14:18:57.831000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
-      "tags": ["CWE-306"]
     },
     {
       "cveId": "CVE-2025-3626",
@@ -27212,7 +27198,7 @@
       "publishedDate": "2025-07-08T05:32:05.678000+00:00",
       "lastModifiedDate": "2025-07-08T13:45:36.200000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -27898,7 +27884,7 @@
       "publishedDate": "2025-07-08T06:02:05.515000+00:00",
       "lastModifiedDate": "2025-07-08T13:44:30.198000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -36904,20 +36890,6 @@
       "tags": ["CWE-862"]
     },
     {
-      "cveId": "CVE-2025-2238",
-      "title": "Vikinger <= 1.9.30 - Authenticated (Subscriber+) Privilege Escalation via 'vikinger_user_meta_update_ajax'",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.06,
-      "epssPercentile": 18.435,
-      "riskScore": 45,
-      "publishedDate": "2025-04-25T06:45:28.836000+00:00",
-      "lastModifiedDate": "2025-04-25T16:01:45.691000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["odin_design"],
-      "tags": ["CWE-269"]
-    },
-    {
       "cveId": "CVE-2025-2010",
       "title": "JobWP – Job Board, Job Listing, Career Page and Recruitment Plugin <= 2.3.9 - Unauthenticated SQL Injection",
       "severity": "HIGH",
@@ -36944,20 +36916,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["abb"],
       "tags": ["CWE-73"]
-    },
-    {
-      "cveId": "CVE-2025-2962",
-      "title": "Infinite loop in dns_copy_qname",
-      "severity": "HIGH",
-      "cvssScore": 8.2,
-      "epssScore": 0.05,
-      "epssPercentile": 16.279,
-      "riskScore": 45,
-      "publishedDate": "2025-06-24T05:32:11.287000+00:00",
-      "lastModifiedDate": "2025-06-24T14:22:14.696000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["zephyrproject-rtos"],
-      "tags": ["CWE-835"]
     },
     {
       "cveId": "CVE-2025-2567",
@@ -38622,7 +38580,7 @@
       "publishedDate": "2025-06-13T21:03:18.087000+00:00",
       "lastModifiedDate": "2025-06-17T15:18:55.236000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["broadcom", "dell"],
+      "vendors": ["dell", "broadcom"],
       "tags": ["CWE-787"]
     },
     {
@@ -38636,7 +38594,7 @@
       "publishedDate": "2025-06-13T21:26:58.869000+00:00",
       "lastModifiedDate": "2025-06-17T18:13:30.525000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["broadcom", "dell"],
+      "vendors": ["dell", "broadcom"],
       "tags": ["CWE-763"]
     },
     {
@@ -39170,6 +39128,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["neoslab"],
       "tags": ["CWE-22"]
+    },
+    {
+      "cveId": "CVE-2025-3090",
+      "title": "MB connect line: Missing Authentication in mbCONNECT24/mymbCONNECT24",
+      "severity": "HIGH",
+      "cvssScore": 8.2,
+      "epssScore": 0.18,
+      "epssPercentile": 39.724,
+      "riskScore": 45,
+      "publishedDate": "2025-06-24T08:05:15.547000+00:00",
+      "lastModifiedDate": "2025-06-24T14:18:57.831000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["helmholz", "mb connect line"],
+      "tags": ["CWE-306"]
     },
     {
       "cveId": "CVE-2025-3891",
@@ -40554,7 +40526,7 @@
       "publishedDate": "2025-06-13T20:51:33.392000+00:00",
       "lastModifiedDate": "2025-06-17T03:55:12.235000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["broadcom", "dell"],
+      "vendors": ["dell", "broadcom"],
       "tags": ["CWE-121"]
     },
     {
@@ -47694,7 +47666,7 @@
       "publishedDate": "2025-05-30T18:00:06.477000+00:00",
       "lastModifiedDate": "2025-05-30T18:15:18.480000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -52090,7 +52062,7 @@
       "publishedDate": "2025-05-03T11:00:09.135000+00:00",
       "lastModifiedDate": "2025-05-30T09:10:12.356000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -52818,7 +52790,7 @@
       "publishedDate": "2025-05-05T18:31:04.418000+00:00",
       "lastModifiedDate": "2025-05-05T18:48:57.123000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["oretnom23", "sourcecodester"],
+      "vendors": ["sourcecodester", "oretnom23"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -55282,7 +55254,7 @@
       "publishedDate": "2025-06-13T21:48:29.351000+00:00",
       "lastModifiedDate": "2025-06-17T15:18:22.706000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["broadcom", "dell"],
+      "vendors": ["dell", "broadcom"],
       "tags": ["CWE-502"]
     },
     {
@@ -55422,7 +55394,7 @@
       "publishedDate": "2025-06-13T20:42:18.769000+00:00",
       "lastModifiedDate": "2025-06-16T15:21:53.325000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["broadcom", "dell"],
+      "vendors": ["dell", "broadcom"],
       "tags": ["CWE-125"]
     },
     {
@@ -58936,7 +58908,7 @@
       "publishedDate": "2025-05-09T15:18:34.124000+00:00",
       "lastModifiedDate": "2025-05-09T19:09:17.086000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["avast", "norton", "avg"],
+      "vendors": ["norton", "avg", "avast"],
       "tags": ["CWE-367"]
     },
     {
@@ -66010,6 +65982,20 @@
       "tags": ["CWE-862"]
     },
     {
+      "cveId": "CVE-2025-2238",
+      "title": "Vikinger <= 1.9.30 - Authenticated (Subscriber+) Privilege Escalation via 'vikinger_user_meta_update_ajax'",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.06,
+      "epssPercentile": 18.435,
+      "riskScore": 43,
+      "publishedDate": "2025-04-25T06:45:28.836000+00:00",
+      "lastModifiedDate": "2025-04-25T16:01:45.691000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["odin_design"],
+      "tags": ["CWE-269"]
+    },
+    {
       "cveId": "CVE-2025-2403",
       "title": "CVE-2025-2403: A denial-of-service vulnerability due to improper prioritization of network traffic over protection ...",
       "severity": "HIGH",
@@ -66022,6 +66008,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["hitachi energy"],
       "tags": ["CWE-770"]
+    },
+    {
+      "cveId": "CVE-2025-2962",
+      "title": "Infinite loop in dns_copy_qname",
+      "severity": "HIGH",
+      "cvssScore": 8.2,
+      "epssScore": 0.05,
+      "epssPercentile": 16.279,
+      "riskScore": 43,
+      "publishedDate": "2025-06-24T05:32:11.287000+00:00",
+      "lastModifiedDate": "2025-06-24T14:22:14.696000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["zephyrproject-rtos"],
+      "tags": ["CWE-835"]
     },
     {
       "cveId": "CVE-2025-2780",
@@ -71944,20 +71944,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["melapress"],
       "tags": ["CWE-79"]
-    },
-    {
-      "cveId": "CVE-2025-0682",
-      "title": "ThemeREX Addons <= 2.33.0 - Authenticated (Contributor+) Local File Inclusion via Shortcode",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.15,
-      "epssPercentile": 36.921,
-      "riskScore": 43,
-      "publishedDate": "2025-01-25T05:30:06.255000+00:00",
-      "lastModifiedDate": "2025-02-12T20:41:32.063000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["n/a"],
-      "tags": ["CWE-98"]
     },
     {
       "cveId": "CVE-2025-0637",
@@ -79712,7 +79698,7 @@
       "publishedDate": "2025-01-08T11:09:24.799000+00:00",
       "lastModifiedDate": "2025-01-08T13:54:46.719000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["wpswings", "wp swings"],
+      "vendors": ["wp swings", "wpswings"],
       "tags": ["CWE-862"]
     },
     {
@@ -96932,7 +96918,7 @@
       "publishedDate": "2024-07-02T13:47:36.399000+00:00",
       "lastModifiedDate": "2024-08-02T04:12:25.618000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["yt-dlp", "ytdl-org"],
+      "vendors": ["ytdl-org", "yt-dlp"],
       "tags": ["CWE-669"]
     },
     {
@@ -111060,6 +111046,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["conda-forge"],
       "tags": ["CWE-427"]
+    },
+    {
+      "cveId": "CVE-2025-0682",
+      "title": "ThemeREX Addons <= 2.33.0 - Authenticated (Contributor+) Local File Inclusion via Shortcode",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.15,
+      "epssPercentile": 36.921,
+      "riskScore": 41,
+      "publishedDate": "2025-01-25T05:30:06.255000+00:00",
+      "lastModifiedDate": "2025-02-12T20:41:32.063000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["n/a"],
+      "tags": ["CWE-98"]
     },
     {
       "cveId": "CVE-2025-0591",
@@ -131878,20 +131878,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["codeastro"],
       "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2024-12600",
-      "title": "Custom Product Tabs Lite for WooCommerce <= 1.9.0 - Authenticated (Shop Manager+) PHP Object Injection",
-      "severity": "HIGH",
-      "cvssScore": 7.2,
-      "epssScore": 0.66,
-      "epssPercentile": 70.138,
-      "riskScore": 40,
-      "publishedDate": "2025-01-25T06:40:38.874000+00:00",
-      "lastModifiedDate": "2025-01-27T14:54:30.627000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["skyverge"],
-      "tags": ["CWE-502"]
     },
     {
       "cveId": "CVE-2024-12962",
@@ -176834,6 +176820,20 @@
       "tags": ["CWE-122"]
     },
     {
+      "cveId": "CVE-2024-12600",
+      "title": "Custom Product Tabs Lite for WooCommerce <= 1.9.0 - Authenticated (Shop Manager+) PHP Object Injection",
+      "severity": "HIGH",
+      "cvssScore": 7.2,
+      "epssScore": 0.66,
+      "epssPercentile": 70.138,
+      "riskScore": 38,
+      "publishedDate": "2025-01-25T06:40:38.874000+00:00",
+      "lastModifiedDate": "2025-01-27T14:54:30.627000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["skyverge"],
+      "tags": ["CWE-502"]
+    },
+    {
       "cveId": "CVE-2024-12903",
       "title": "Incorrect default permissions in Biamp Evoko Home",
       "severity": "HIGH",
@@ -182360,7 +182360,7 @@
       "publishedDate": "2024-07-04T08:53:41.217000+00:00",
       "lastModifiedDate": "2024-08-19T15:25:49.496000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-427"]
     },
     {
