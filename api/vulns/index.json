@@ -1,5 +1,5 @@
 {
-  "generated": "2025-07-26T04:19:09.504633",
+  "generated": "2025-07-26T08:08:47.488825",
   "count": 15528,
   "vulnerabilities": [
     {
@@ -181,7 +181,7 @@
       "publishedDate": "2024-11-15T03:18:45.746000+00:00",
       "lastModifiedDate": "2024-11-19T13:37:03.351000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["really simple plugins", "rogierlankhorst"],
+      "vendors": ["rogierlankhorst", "really simple plugins"],
       "tags": ["CWE-288"]
     },
     {
@@ -589,20 +589,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["rust-lang"],
       "tags": ["CWE-78", "CWE-88"]
-    },
-    {
-      "cveId": "CVE-2024-51978",
-      "title": "Authentication bypass via default password generation affecting multiple models from Brother Industries, Ltd, Toshiba Tec, and Konica Minolta, Inc.",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 46.35,
-      "epssPercentile": 97.525,
-      "riskScore": 64,
-      "publishedDate": "2025-06-25T07:17:32.423000+00:00",
-      "lastModifiedDate": "2025-07-25T16:19:55.848000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["brother industries, ltd", "konica minolta, inc.", "toshiba tec"],
-      "tags": ["CWE-1391"]
     },
     {
       "cveId": "CVE-2024-29895",
@@ -1331,6 +1317,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["ays-pro"],
       "tags": []
+    },
+    {
+      "cveId": "CVE-2024-51978",
+      "title": "Authentication bypass via default password generation affecting multiple models from Brother Industries, Ltd, Toshiba Tec, and Konica Minolta, Inc.",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 46.35,
+      "epssPercentile": 97.525,
+      "riskScore": 62,
+      "publishedDate": "2025-06-25T07:17:32.423000+00:00",
+      "lastModifiedDate": "2025-07-25T16:19:55.848000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["brother industries, ltd", "toshiba tec", "konica minolta, inc."],
+      "tags": ["CWE-1391"]
     },
     {
       "cveId": "CVE-2024-29973",
@@ -5729,20 +5729,6 @@
       "tags": ["CWE-434"]
     },
     {
-      "cveId": "CVE-2025-6222",
-      "title": "WooCommerce Refund And Exchange with RMA - Warranty Management, Refund Policy, Manage User Wallet <= 3.2.6 - Unauthenticated Arbitrary File Upload",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 0.2,
-      "epssPercentile": 42.03,
-      "riskScore": 52,
-      "publishedDate": "2025-07-18T05:23:56.741000+00:00",
-      "lastModifiedDate": "2025-07-18T14:56:25.614000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["wp swings"],
-      "tags": ["CWE-434"]
-    },
-    {
       "cveId": "CVE-2025-6948",
       "title": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') in GitLab",
       "severity": "HIGH",
@@ -6061,7 +6047,7 @@
       "publishedDate": "2024-06-25T03:30:37.970000+00:00",
       "lastModifiedDate": "2024-08-01T21:33:05.337000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["themerex", "pedrogusmao02", "warfareplugins", "stuartobrien", "blazeretail"],
+      "vendors": ["themerex", "stuartobrien", "blazeretail", "warfareplugins", "pedrogusmao02"],
       "tags": []
     },
     {
@@ -8039,20 +8025,6 @@
       "tags": ["CWE-121", "CWE-119"]
     },
     {
-      "cveId": "CVE-2025-7643",
-      "title": "Attachment Manager <= 2.1.2 - Unauthenticated Arbitrary File Deletion",
-      "severity": "CRITICAL",
-      "cvssScore": 9.1,
-      "epssScore": 1.29,
-      "epssPercentile": 78.789,
-      "riskScore": 50,
-      "publishedDate": "2025-07-18T05:23:58.312000+00:00",
-      "lastModifiedDate": "2025-07-18T13:27:06.405000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["aaroncampbell"],
-      "tags": ["CWE-22"]
-    },
-    {
       "cveId": "CVE-2025-7434",
       "title": "Tenda FH451 POST Request addressNat fromAddressNat stack-based overflow",
       "severity": "HIGH",
@@ -8865,20 +8837,6 @@
       "tags": ["CWE-121", "CWE-119"]
     },
     {
-      "cveId": "CVE-2025-6813",
-      "title": "aapanel WP Toolkit 1.0 - 1.1 - Missing Authorization to Authenticated (Subscriber+) Privilege Escalation via auto_login() Function",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.04,
-      "epssPercentile": 11.651,
-      "riskScore": 50,
-      "publishedDate": "2025-07-18T04:23:00.831000+00:00",
-      "lastModifiedDate": "2025-07-18T13:47:18.545000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["aapanel"],
-      "tags": ["CWE-862"]
-    },
-    {
       "cveId": "CVE-2025-6940",
       "title": "TOTOLINK A702R HTTP POST Request formParentControl buffer overflow",
       "severity": "HIGH",
@@ -8947,6 +8905,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["totolink"],
       "tags": ["CWE-120", "CWE-119"]
+    },
+    {
+      "cveId": "CVE-2025-6222",
+      "title": "WooCommerce Refund And Exchange with RMA - Warranty Management, Refund Policy, Manage User Wallet <= 3.2.6 - Unauthenticated Arbitrary File Upload",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.2,
+      "epssPercentile": 42.03,
+      "riskScore": 50,
+      "publishedDate": "2025-07-18T05:23:56.741000+00:00",
+      "lastModifiedDate": "2025-07-18T14:56:25.614000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["wp swings"],
+      "tags": ["CWE-434"]
     },
     {
       "cveId": "CVE-2025-6916",
@@ -9773,26 +9745,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["canonical"],
       "tags": ["CWE-287"]
-    },
-    {
-      "cveId": "CVE-2024-51983",
-      "title": "Unauthenticated Denial of Service (DoS) via malformed WS-Scan request affecting multiple models from Brother Industries, Ltd, FUJIFILM Business Innovation, Ricoh, Toshiba Tec, and Konica Minolta, Inc.",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.29,
-      "epssPercentile": 52.251,
-      "riskScore": 50,
-      "publishedDate": "2025-06-25T07:26:56.570000+00:00",
-      "lastModifiedDate": "2025-06-25T14:15:31.576000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "brother industries, ltd",
-        "konica minolta, inc.",
-        "toshiba tec",
-        "fujifilm business innovation",
-        "ricoh"
-      ],
-      "tags": ["CWE-1286"]
     },
     {
       "cveId": "CVE-2024-9486",
@@ -11279,20 +11231,6 @@
       "tags": ["CWE-306"]
     },
     {
-      "cveId": "CVE-2025-3740",
-      "title": "School Management System for Wordpress <= 93.1.0 - Authenticated (Subscriber+) Local File Inclusion to Privilege Escalation via Password Update",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.12,
-      "epssPercentile": 31.564,
-      "riskScore": 49,
-      "publishedDate": "2025-07-18T04:23:00.426000+00:00",
-      "lastModifiedDate": "2025-07-18T13:48:44.003000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["dasinfomedia"],
-      "tags": ["CWE-22"]
-    },
-    {
       "cveId": "CVE-2025-27203",
       "title": "Adobe Connect | Deserialization of Untrusted Data (CWE-502)",
       "severity": "CRITICAL",
@@ -11515,20 +11453,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["iqonicdesign"],
       "tags": ["CWE-434"]
-    },
-    {
-      "cveId": "CVE-2025-6718",
-      "title": "B1.lt for WooCommerce <= 2.2.56 -  Missing Authorization to Authenticated (Subscriber+) Arbitrary SQL Injection",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.03,
-      "epssPercentile": 6.878,
-      "riskScore": 49,
-      "publishedDate": "2025-07-18T05:23:57.362000+00:00",
-      "lastModifiedDate": "2025-07-18T14:56:18.412000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["b1accounting"],
-      "tags": ["CWE-862"]
     },
     {
       "cveId": "CVE-2025-6881",
@@ -12579,25 +12503,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["apache"],
       "tags": ["CWE-502"]
-    },
-    {
-      "cveId": "CVE-2024-51979",
-      "title": "Authenticated stack based buffer overflow affecting multiple models from Brother Industries, Ltd, FUJIFILM Business Innovation, Ricoh, and Konica Minolta, Inc.",
-      "severity": "HIGH",
-      "cvssScore": 7.2,
-      "epssScore": 0.2,
-      "epssPercentile": 42.688,
-      "riskScore": 49,
-      "publishedDate": "2025-06-25T07:20:29.048000+00:00",
-      "lastModifiedDate": "2025-06-25T14:08:48.280000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "brother industries, ltd",
-        "konica minolta, inc.",
-        "fujifilm business innovation",
-        "ricoh"
-      ],
-      "tags": ["CWE-121"]
     },
     {
       "cveId": "CVE-2024-52429",
@@ -14574,6 +14479,20 @@
       "tags": ["CWE-434", "CWE-284"]
     },
     {
+      "cveId": "CVE-2025-7643",
+      "title": "Attachment Manager <= 2.1.2 - Unauthenticated Arbitrary File Deletion",
+      "severity": "CRITICAL",
+      "cvssScore": 9.1,
+      "epssScore": 1.29,
+      "epssPercentile": 78.789,
+      "riskScore": 48,
+      "publishedDate": "2025-07-18T05:23:58.312000+00:00",
+      "lastModifiedDate": "2025-07-18T13:27:06.405000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["aaroncampbell"],
+      "tags": ["CWE-22"]
+    },
+    {
       "cveId": "CVE-2025-7326",
       "title": "EOL ASP.NET Core Elevation of Privilege Vulnerability",
       "severity": "HIGH",
@@ -16072,20 +15991,6 @@
       "tags": ["CWE-120", "CWE-119"]
     },
     {
-      "cveId": "CVE-2025-3914",
-      "title": "Aeropage Sync for Airtable <= 3.2.0 - Authenticated (Subscriber+) Arbitrary File Upload",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.38,
-      "epssPercentile": 58.447,
-      "riskScore": 48,
-      "publishedDate": "2025-04-26T05:34:24.102000+00:00",
-      "lastModifiedDate": "2025-04-28T15:34:48.483000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["aeropage"],
-      "tags": ["CWE-434"]
-    },
-    {
       "cveId": "CVE-2025-3990",
       "title": "TOTOLINK N150RT formVlan buffer overflow",
       "severity": "HIGH",
@@ -16728,6 +16633,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["tenda"],
       "tags": ["CWE-120", "CWE-119"]
+    },
+    {
+      "cveId": "CVE-2025-6813",
+      "title": "aapanel WP Toolkit 1.0 - 1.1 - Missing Authorization to Authenticated (Subscriber+) Privilege Escalation via auto_login() Function",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.04,
+      "epssPercentile": 11.651,
+      "riskScore": 48,
+      "publishedDate": "2025-07-18T04:23:00.831000+00:00",
+      "lastModifiedDate": "2025-07-18T13:47:18.545000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["aapanel"],
+      "tags": ["CWE-862"]
     },
     {
       "cveId": "CVE-2025-6113",
@@ -19110,17 +19029,23 @@
       "tags": ["CWE-78"]
     },
     {
-      "cveId": "CVE-2024-51982",
-      "title": "Unauthenticated Denial of Service (DoS) via malformed PJL request affecting multiple models from Brother Industries, Ltd, FUJIFILM Business Innovation, and Ricoh.",
+      "cveId": "CVE-2024-51983",
+      "title": "Unauthenticated Denial of Service (DoS) via malformed WS-Scan request affecting multiple models from Brother Industries, Ltd, FUJIFILM Business Innovation, Ricoh, Toshiba Tec, and Konica Minolta, Inc.",
       "severity": "HIGH",
       "cvssScore": 7.5,
-      "epssScore": 0.17,
-      "epssPercentile": 39.312,
+      "epssScore": 0.29,
+      "epssPercentile": 52.251,
       "riskScore": 48,
-      "publishedDate": "2025-06-25T07:25:00.402000+00:00",
-      "lastModifiedDate": "2025-06-25T14:13:40.189000+00:00",
+      "publishedDate": "2025-06-25T07:26:56.570000+00:00",
+      "lastModifiedDate": "2025-06-25T14:15:31.576000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["brother industries, ltd", "fujifilm business innovation", "ricoh"],
+      "vendors": [
+        "konica minolta, inc.",
+        "brother industries, ltd",
+        "fujifilm business innovation",
+        "toshiba tec",
+        "ricoh"
+      ],
       "tags": ["CWE-1286"]
     },
     {
@@ -21518,20 +21443,6 @@
       "tags": ["CWE-522"]
     },
     {
-      "cveId": "CVE-2025-3906",
-      "title": "Integração entre Eduzz e Woocommerce 1.5.0 - 1.7.5 - Missing Authorization to Authenticated (Subscriber+) Privilege Escalation",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.06,
-      "epssPercentile": 18.934,
-      "riskScore": 47,
-      "publishedDate": "2025-04-26T05:34:24.565000+00:00",
-      "lastModifiedDate": "2025-04-28T15:34:41.450000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["felipe152"],
-      "tags": ["CWE-862"]
-    },
-    {
       "cveId": "CVE-2025-3626",
       "title": "OS Command Injection via Config Upload in WebUI",
       "severity": "CRITICAL",
@@ -21558,6 +21469,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["canon inc."],
       "tags": ["CWE-522"]
+    },
+    {
+      "cveId": "CVE-2025-3740",
+      "title": "School Management System for Wordpress <= 93.1.0 - Authenticated (Subscriber+) Local File Inclusion to Privilege Escalation via Password Update",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.12,
+      "epssPercentile": 31.564,
+      "riskScore": 47,
+      "publishedDate": "2025-07-18T04:23:00.426000+00:00",
+      "lastModifiedDate": "2025-07-18T13:48:44.003000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["dasinfomedia"],
+      "tags": ["CWE-22"]
     },
     {
       "cveId": "CVE-2025-27461",
@@ -21992,6 +21917,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["beeteam368"],
       "tags": ["CWE-434"]
+    },
+    {
+      "cveId": "CVE-2025-6718",
+      "title": "B1.lt for WooCommerce <= 2.2.56 -  Missing Authorization to Authenticated (Subscriber+) Arbitrary SQL Injection",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.03,
+      "epssPercentile": 6.878,
+      "riskScore": 47,
+      "publishedDate": "2025-07-18T05:23:57.362000+00:00",
+      "lastModifiedDate": "2025-07-18T14:56:18.412000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["b1accounting"],
+      "tags": ["CWE-862"]
     },
     {
       "cveId": "CVE-2025-6238",
@@ -24920,6 +24859,25 @@
       "tags": ["CWE-269"]
     },
     {
+      "cveId": "CVE-2024-51979",
+      "title": "Authenticated stack based buffer overflow affecting multiple models from Brother Industries, Ltd, FUJIFILM Business Innovation, Ricoh, and Konica Minolta, Inc.",
+      "severity": "HIGH",
+      "cvssScore": 7.2,
+      "epssScore": 0.2,
+      "epssPercentile": 42.688,
+      "riskScore": 47,
+      "publishedDate": "2025-06-25T07:20:29.048000+00:00",
+      "lastModifiedDate": "2025-06-25T14:08:48.280000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "fujifilm business innovation",
+        "brother industries, ltd",
+        "konica minolta, inc.",
+        "ricoh"
+      ],
+      "tags": ["CWE-121"]
+    },
+    {
       "cveId": "CVE-2024-29990",
       "title": "Microsoft Azure Kubernetes Service Confidential Container Elevation of Privilege Vulnerability",
       "severity": "CRITICAL",
@@ -27226,7 +27184,7 @@
       "publishedDate": "2025-07-08T05:32:05.678000+00:00",
       "lastModifiedDate": "2025-07-08T13:45:36.200000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes", "phpgurukul"],
+      "vendors": ["phpgurukul", "campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -27762,20 +27720,6 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
-      "cveId": "CVE-2025-7438",
-      "title": "MasterStudy LMS – Online Courses, eLearning PRO Plus <= 4.7.9 - Authenticated (Subscriber+) Arbitrary File Upload",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.23,
-      "epssPercentile": 46.117,
-      "riskScore": 46,
-      "publishedDate": "2025-07-18T06:45:33.113000+00:00",
-      "lastModifiedDate": "2025-07-18T13:03:14.604000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["stylemixthemes"],
-      "tags": ["CWE-434"]
-    },
-    {
       "cveId": "CVE-2025-7459",
       "title": "code-projects Mobile Shop EditMobile.php sql injection",
       "severity": "HIGH",
@@ -27982,7 +27926,7 @@
       "publishedDate": "2025-07-08T06:02:05.515000+00:00",
       "lastModifiedDate": "2025-07-08T13:44:30.198000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes", "phpgurukul"],
+      "vendors": ["phpgurukul", "campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -28880,6 +28824,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["ibm"],
       "tags": ["CWE-789"]
+    },
+    {
+      "cveId": "CVE-2025-3914",
+      "title": "Aeropage Sync for Airtable <= 3.2.0 - Authenticated (Subscriber+) Arbitrary File Upload",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.38,
+      "epssPercentile": 58.447,
+      "riskScore": 46,
+      "publishedDate": "2025-04-26T05:34:24.102000+00:00",
+      "lastModifiedDate": "2025-04-28T15:34:48.483000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["aeropage"],
+      "tags": ["CWE-434"]
     },
     {
       "cveId": "CVE-2025-3362",
@@ -29972,20 +29930,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-6023",
-      "title": "CVE-2025-6023: An open redirect vulnerability has been identified in Grafana OSS that can be exploited to achieve X...",
-      "severity": "HIGH",
-      "cvssScore": 7.6,
-      "epssScore": 0.01,
-      "epssPercentile": 1.926,
-      "riskScore": 46,
-      "publishedDate": "2025-07-18T07:48:15.972000+00:00",
-      "lastModifiedDate": "2025-07-18T13:46:45.354000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["grafana"],
-      "tags": ["CWE-601", "CWE-79"]
     },
     {
       "cveId": "CVE-2025-6846",
@@ -35154,6 +35098,20 @@
       "tags": ["CWE-200"]
     },
     {
+      "cveId": "CVE-2024-51982",
+      "title": "Unauthenticated Denial of Service (DoS) via malformed PJL request affecting multiple models from Brother Industries, Ltd, FUJIFILM Business Innovation, and Ricoh.",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.17,
+      "epssPercentile": 39.312,
+      "riskScore": 46,
+      "publishedDate": "2025-06-25T07:25:00.402000+00:00",
+      "lastModifiedDate": "2025-06-25T14:13:40.189000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["fujifilm business innovation", "brother industries, ltd", "ricoh"],
+      "tags": ["CWE-1286"]
+    },
+    {
       "cveId": "CVE-2024-29043",
       "title": "Microsoft ODBC Driver for SQL Server Remote Code Execution Vulnerability",
       "severity": "HIGH",
@@ -38594,7 +38552,7 @@
       "publishedDate": "2025-06-13T21:03:18.087000+00:00",
       "lastModifiedDate": "2025-06-17T15:18:55.236000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["broadcom", "dell"],
+      "vendors": ["dell", "broadcom"],
       "tags": ["CWE-787"]
     },
     {
@@ -38608,7 +38566,7 @@
       "publishedDate": "2025-06-13T21:26:58.869000+00:00",
       "lastModifiedDate": "2025-06-17T18:13:30.525000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["broadcom", "dell"],
+      "vendors": ["dell", "broadcom"],
       "tags": ["CWE-763"]
     },
     {
@@ -39100,6 +39058,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["neoslab"],
       "tags": ["CWE-22"]
+    },
+    {
+      "cveId": "CVE-2025-3906",
+      "title": "Integração entre Eduzz e Woocommerce 1.5.0 - 1.7.5 - Missing Authorization to Authenticated (Subscriber+) Privilege Escalation",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.06,
+      "epssPercentile": 18.934,
+      "riskScore": 45,
+      "publishedDate": "2025-04-26T05:34:24.565000+00:00",
+      "lastModifiedDate": "2025-04-28T15:34:41.450000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["felipe152"],
+      "tags": ["CWE-862"]
     },
     {
       "cveId": "CVE-2025-3090",
@@ -40498,7 +40470,7 @@
       "publishedDate": "2025-06-13T20:51:33.392000+00:00",
       "lastModifiedDate": "2025-06-17T03:55:12.235000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["broadcom", "dell"],
+      "vendors": ["dell", "broadcom"],
       "tags": ["CWE-121"]
     },
     {
@@ -43622,20 +43594,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["spoonthemes"],
       "tags": ["CWE-620"]
-    },
-    {
-      "cveId": "CVE-2024-13808",
-      "title": "Xpro Elementor Addons - Pro <= 1.4.9 - Authenticated (Contributor+) Remote Code Execution",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.39,
-      "epssPercentile": 59.175,
-      "riskScore": 45,
-      "publishedDate": "2025-04-26T04:22:36.503000+00:00",
-      "lastModifiedDate": "2025-04-28T21:55:53.986000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["wpxpro"],
-      "tags": ["CWE-94"]
     },
     {
       "cveId": "CVE-2024-13147",
@@ -47610,7 +47568,7 @@
       "publishedDate": "2025-05-30T18:00:06.477000+00:00",
       "lastModifiedDate": "2025-05-30T18:15:18.480000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes", "phpgurukul"],
+      "vendors": ["phpgurukul", "campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -47992,20 +47950,6 @@
       "tags": ["CWE-73"]
     },
     {
-      "cveId": "CVE-2025-2105",
-      "title": "Jupiter X Core <= 4.8.11 - Unauthenticated PHP Object Injection via PHAR",
-      "severity": "HIGH",
-      "cvssScore": 8.1,
-      "epssScore": 0.54,
-      "epssPercentile": 66.768,
-      "riskScore": 44,
-      "publishedDate": "2025-04-26T05:34:22.050000+00:00",
-      "lastModifiedDate": "2025-04-28T21:56:02.444000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["artbees"],
-      "tags": ["CWE-502"]
-    },
-    {
       "cveId": "CVE-2025-2731",
       "title": "H3C Magic BE18000 HTTP POST Request getDualbandSync command injection",
       "severity": "HIGH",
@@ -48060,20 +48004,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["h3c"],
       "tags": ["CWE-77", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-2851",
-      "title": "GL.iNet GL-A1300 Slate Plus RPC plugins.so buffer overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.0,
-      "epssScore": 0.05,
-      "epssPercentile": 15.137,
-      "riskScore": 44,
-      "publishedDate": "2025-04-26T08:00:08.117000+00:00",
-      "lastModifiedDate": "2025-04-28T18:09:44.918000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["gl.inet"],
-      "tags": ["CWE-120", "CWE-119"]
     },
     {
       "cveId": "CVE-2025-2725",
@@ -48886,6 +48816,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["dassault systèmes"],
       "tags": ["CWE-416"]
+    },
+    {
+      "cveId": "CVE-2025-7438",
+      "title": "MasterStudy LMS – Online Courses, eLearning PRO Plus <= 4.7.9 - Authenticated (Subscriber+) Arbitrary File Upload",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.23,
+      "epssPercentile": 46.117,
+      "riskScore": 44,
+      "publishedDate": "2025-07-18T06:45:33.113000+00:00",
+      "lastModifiedDate": "2025-07-18T13:03:14.604000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["stylemixthemes"],
+      "tags": ["CWE-434"]
     },
     {
       "cveId": "CVE-2025-7735",
@@ -52006,7 +51950,7 @@
       "publishedDate": "2025-05-03T11:00:09.135000+00:00",
       "lastModifiedDate": "2025-05-30T09:10:12.356000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes", "phpgurukul"],
+      "vendors": ["phpgurukul", "campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -52734,7 +52678,7 @@
       "publishedDate": "2025-05-05T18:31:04.418000+00:00",
       "lastModifiedDate": "2025-05-05T18:48:57.123000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sourcecodester", "oretnom23"],
+      "vendors": ["oretnom23", "sourcecodester"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -54180,6 +54124,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-6023",
+      "title": "CVE-2025-6023: An open redirect vulnerability has been identified in Grafana OSS that can be exploited to achieve X...",
+      "severity": "HIGH",
+      "cvssScore": 7.6,
+      "epssScore": 0.01,
+      "epssPercentile": 1.926,
+      "riskScore": 44,
+      "publishedDate": "2025-07-18T07:48:15.972000+00:00",
+      "lastModifiedDate": "2025-07-18T13:46:45.354000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["grafana"],
+      "tags": ["CWE-601", "CWE-79"]
+    },
+    {
       "cveId": "CVE-2025-6420",
       "title": "code-projects Simple Online Hotel Reservation System add_room.php sql injection",
       "severity": "HIGH",
@@ -55296,7 +55254,7 @@
       "publishedDate": "2025-06-13T21:48:29.351000+00:00",
       "lastModifiedDate": "2025-06-17T15:18:22.706000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["broadcom", "dell"],
+      "vendors": ["dell", "broadcom"],
       "tags": ["CWE-502"]
     },
     {
@@ -55436,7 +55394,7 @@
       "publishedDate": "2025-06-13T20:42:18.769000+00:00",
       "lastModifiedDate": "2025-06-16T15:21:53.325000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["broadcom", "dell"],
+      "vendors": ["dell", "broadcom"],
       "tags": ["CWE-125"]
     },
     {
@@ -57718,7 +57676,7 @@
       "publishedDate": "2024-07-09T05:34:17.609000+00:00",
       "lastModifiedDate": "2024-08-01T21:11:12.734000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["webnus", "webnus/"],
+      "vendors": ["webnus/", "webnus"],
       "tags": []
     },
     {
@@ -58180,7 +58138,7 @@
       "publishedDate": "2024-03-18T16:03:44.987000+00:00",
       "lastModifiedDate": "2024-08-28T15:04:28.061000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric", "schneider electric "],
+      "vendors": ["schneider electric ", "schneider electric"],
       "tags": ["CWE-307"]
     },
     {
@@ -58908,7 +58866,7 @@
       "publishedDate": "2025-05-09T15:18:34.124000+00:00",
       "lastModifiedDate": "2025-05-09T19:09:17.086000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["norton", "avg", "avast"],
+      "vendors": ["avast", "norton", "avg"],
       "tags": ["CWE-367"]
     },
     {
@@ -63822,7 +63780,7 @@
       "publishedDate": "2024-10-22T21:13:37.183000+00:00",
       "lastModifiedDate": "2024-10-23T14:43:52.114000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["kieback & peter", "kieback&peter"],
+      "vendors": ["kieback&peter", "kieback & peter"],
       "tags": ["CWE-22"]
     },
     {
@@ -76720,6 +76678,20 @@
       "tags": ["CWE-89"]
     },
     {
+      "cveId": "CVE-2024-13808",
+      "title": "Xpro Elementor Addons - Pro <= 1.4.9 - Authenticated (Contributor+) Remote Code Execution",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.39,
+      "epssPercentile": 59.175,
+      "riskScore": 43,
+      "publishedDate": "2025-04-26T04:22:36.503000+00:00",
+      "lastModifiedDate": "2025-04-28T21:55:53.986000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["wpxpro"],
+      "tags": ["CWE-94"]
+    },
+    {
       "cveId": "CVE-2024-7441",
       "title": "Vivotek SD9364 httpd read stack-based overflow",
       "severity": "HIGH",
@@ -79796,7 +79768,7 @@
       "publishedDate": "2025-01-08T11:09:24.799000+00:00",
       "lastModifiedDate": "2025-01-08T13:54:46.719000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["wpswings", "wp swings"],
+      "vendors": ["wp swings", "wpswings"],
       "tags": ["CWE-862"]
     },
     {
@@ -81630,7 +81602,7 @@
       "publishedDate": "2024-08-07T11:00:06.508000+00:00",
       "lastModifiedDate": "2024-08-07T13:17:59.476000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["webnus", "webnus/"],
+      "vendors": ["webnus/", "webnus"],
       "tags": ["CWE-918"]
     },
     {
@@ -82036,7 +82008,7 @@
       "publishedDate": "2024-02-05T14:33:06.481000+00:00",
       "lastModifiedDate": "2025-05-09T16:32:50.015000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["tiangolo", "kludex", "encode"],
+      "vendors": ["tiangolo", "encode", "kludex"],
       "tags": ["CWE-400"]
     },
     {
@@ -88018,6 +87990,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-2105",
+      "title": "Jupiter X Core <= 4.8.11 - Unauthenticated PHP Object Injection via PHAR",
+      "severity": "HIGH",
+      "cvssScore": 8.1,
+      "epssScore": 0.54,
+      "epssPercentile": 66.768,
+      "riskScore": 42,
+      "publishedDate": "2025-04-26T05:34:22.050000+00:00",
+      "lastModifiedDate": "2025-04-28T21:56:02.444000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["artbees"],
+      "tags": ["CWE-502"]
+    },
+    {
       "cveId": "CVE-2025-2679",
       "title": "PHPGurukul Bank Locker Management System contact-us.php sql injection",
       "severity": "HIGH",
@@ -88086,6 +88072,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["red hat"],
       "tags": ["CWE-125"]
+    },
+    {
+      "cveId": "CVE-2025-2851",
+      "title": "GL.iNet GL-A1300 Slate Plus RPC plugins.so buffer overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.0,
+      "epssScore": 0.05,
+      "epssPercentile": 15.137,
+      "riskScore": 42,
+      "publishedDate": "2025-04-26T08:00:08.117000+00:00",
+      "lastModifiedDate": "2025-04-28T18:09:44.918000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["gl.inet"],
+      "tags": ["CWE-120", "CWE-119"]
     },
     {
       "cveId": "CVE-2025-2642",
@@ -107086,20 +107086,6 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
-      "cveId": "CVE-2025-3491",
-      "title": "Add custom page template <= 2.0.1 - Authenticated (Administrator+) PHP Code Injection to Remote Code Execution",
-      "severity": "HIGH",
-      "cvssScore": 7.2,
-      "epssScore": 0.39,
-      "epssPercentile": 59.491,
-      "riskScore": 41,
-      "publishedDate": "2025-04-26T05:34:23.629000+00:00",
-      "lastModifiedDate": "2025-04-28T15:34:54.012000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["kiranpatil353"],
-      "tags": ["CWE-94"]
-    },
-    {
       "cveId": "CVE-2025-3744",
       "title": "Nomad Vulnerable To Violation Of Mandatory Sentinel Policies in Nomad Job Submissions via Policy Override",
       "severity": "HIGH",
@@ -118762,20 +118748,6 @@
       "tags": ["CWE-98"]
     },
     {
-      "cveId": "CVE-2024-10628",
-      "title": "Quiz Maker Business, Developer, and Agency <= (Multiple Versions) - Unauthenticated SQL Injection via id",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.14,
-      "epssPercentile": 34.854,
-      "riskScore": 41,
-      "publishedDate": "2025-01-26T05:24:14.930000+00:00",
-      "lastModifiedDate": "2025-04-03T18:38:50.562000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["ays pro plugins"],
-      "tags": ["CWE-89"]
-    },
-    {
       "cveId": "CVE-2024-10587",
       "title": "Funnelforms Free <= 3.7.4.1 - Authenticated (Contributor+) PHP Object Injection",
       "severity": "HIGH",
@@ -127368,7 +127340,7 @@
       "publishedDate": "2024-03-18T16:04:57.375000+00:00",
       "lastModifiedDate": "2024-08-01T19:03:37.851000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric", "schneider electric "],
+      "vendors": ["schneider electric ", "schneider electric"],
       "tags": ["CWE-79"]
     },
     {
@@ -129664,7 +129636,7 @@
       "publishedDate": "2024-10-22T22:19:20.646000+00:00",
       "lastModifiedDate": "2024-11-06T15:50:04.628000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-276"]
     },
     {
@@ -132436,7 +132408,7 @@
       "publishedDate": "2024-11-28T22:16:31.396000+00:00",
       "lastModifiedDate": "2024-12-06T05:18:03.652000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-427"]
     },
     {
@@ -135222,7 +135194,7 @@
       "publishedDate": "2024-11-28T22:20:28.303000+00:00",
       "lastModifiedDate": "2024-12-06T05:23:50.441000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-427"]
     },
     {
@@ -135800,20 +135772,6 @@
       "tags": ["CWE-89"]
     },
     {
-      "cveId": "CVE-2024-10574",
-      "title": "Quiz Maker Business, Developer, and Agency <= (Multiple Versions) - Missing Authorization to Google Sheets Integration Credentials Modification and Stored Cross-Site Scripting",
-      "severity": "HIGH",
-      "cvssScore": 7.2,
-      "epssScore": 0.16,
-      "epssPercentile": 37.963,
-      "riskScore": 40,
-      "publishedDate": "2025-01-26T05:24:15.325000+00:00",
-      "lastModifiedDate": "2025-01-27T15:03:49.062000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["ays pro plugins"],
-      "tags": ["CWE-862"]
-    },
-    {
       "cveId": "CVE-2024-10173",
       "title": "didi DDMQ Console Module improper authentication",
       "severity": "HIGH",
@@ -135980,20 +135938,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects", "anirbandutta9"],
       "tags": ["CWE-89"]
-    },
-    {
-      "cveId": "CVE-2024-10633",
-      "title": "Quiz Maker Business, Developer, and Agency <= (Multiple Versions) - Unauthenticated Arbitrary Shortcode Execution via content",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.26,
-      "epssPercentile": 48.721,
-      "riskScore": 40,
-      "publishedDate": "2025-01-26T05:24:15.723000+00:00",
-      "lastModifiedDate": "2025-01-27T15:02:49.886000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["ays pro plugins"],
-      "tags": ["CWE-95"]
     },
     {
       "cveId": "CVE-2024-10607",
@@ -140306,6 +140250,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["n/a"],
       "tags": []
+    },
+    {
+      "cveId": "CVE-2025-3491",
+      "title": "Add custom page template <= 2.0.1 - Authenticated (Administrator+) PHP Code Injection to Remote Code Execution",
+      "severity": "HIGH",
+      "cvssScore": 7.2,
+      "epssScore": 0.39,
+      "epssPercentile": 59.491,
+      "riskScore": 39,
+      "publishedDate": "2025-04-26T05:34:23.629000+00:00",
+      "lastModifiedDate": "2025-04-28T15:34:54.012000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["kiranpatil353"],
+      "tags": ["CWE-94"]
     },
     {
       "cveId": "CVE-2025-3300",
@@ -153675,6 +153633,20 @@
       "lastModifiedDate": "2024-11-04T20:20:17.861000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["codezips"],
+      "tags": ["CWE-89"]
+    },
+    {
+      "cveId": "CVE-2024-10628",
+      "title": "Quiz Maker Business, Developer, and Agency <= (Multiple Versions) - Unauthenticated SQL Injection via id",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.14,
+      "epssPercentile": 34.854,
+      "riskScore": 39,
+      "publishedDate": "2025-01-26T05:24:14.930000+00:00",
+      "lastModifiedDate": "2025-04-03T18:38:50.562000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["ays pro plugins"],
       "tags": ["CWE-89"]
     },
     {
@@ -172084,7 +172056,7 @@
       "publishedDate": "2024-03-18T16:05:47.722000+00:00",
       "lastModifiedDate": "2024-08-15T16:23:48.504000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric", "schneider electric "],
+      "vendors": ["schneider electric ", "schneider electric"],
       "tags": ["CWE-552"]
     },
     {
@@ -177684,7 +177656,7 @@
       "publishedDate": "2024-11-28T22:18:28.358000+00:00",
       "lastModifiedDate": "2024-12-06T05:21:38.917000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-561"]
     },
     {
@@ -181258,6 +181230,20 @@
       "tags": ["CWE-347", "CWE-345"]
     },
     {
+      "cveId": "CVE-2024-10574",
+      "title": "Quiz Maker Business, Developer, and Agency <= (Multiple Versions) - Missing Authorization to Google Sheets Integration Credentials Modification and Stored Cross-Site Scripting",
+      "severity": "HIGH",
+      "cvssScore": 7.2,
+      "epssScore": 0.16,
+      "epssPercentile": 37.963,
+      "riskScore": 38,
+      "publishedDate": "2025-01-26T05:24:15.325000+00:00",
+      "lastModifiedDate": "2025-01-27T15:03:49.062000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["ays pro plugins"],
+      "tags": ["CWE-862"]
+    },
+    {
       "cveId": "CVE-2024-10494",
       "title": "Out of bounds read in HeapObjMapImpl.cpp in NI LabVIEW",
       "severity": "HIGH",
@@ -181466,6 +181452,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["smci"],
       "tags": ["CWE-121"]
+    },
+    {
+      "cveId": "CVE-2024-10633",
+      "title": "Quiz Maker Business, Developer, and Agency <= (Multiple Versions) - Unauthenticated Arbitrary Shortcode Execution via content",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.26,
+      "epssPercentile": 48.721,
+      "riskScore": 38,
+      "publishedDate": "2025-01-26T05:24:15.723000+00:00",
+      "lastModifiedDate": "2025-01-27T15:02:49.886000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["ays pro plugins"],
+      "tags": ["CWE-95"]
     },
     {
       "cveId": "CVE-2024-10251",
@@ -182584,7 +182584,7 @@
       "publishedDate": "2024-07-04T08:53:41.217000+00:00",
       "lastModifiedDate": "2024-08-19T15:25:49.496000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-427"]
     },
     {
