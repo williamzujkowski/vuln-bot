@@ -1,22 +1,22 @@
 ---
 title: Morning Vulnerability Briefing - 2025-07-26
-date: 2025-07-26T00:24:22.201592
+date: 2025-07-26T04:19:09.504633
 layout: layouts/post.njk
 tags: [vulnerability, briefing, security]
-vulnerabilityCount: 15511
+vulnerabilityCount: 15528
 criticalCount: 0
 highCount: 0
 ---
 
 # Morning Vulnerability Briefing - 2025-07-26
 
-Today's briefing covers **15511 vulnerabilities** from 0 sources.
+Today's briefing covers **15528 vulnerabilities** from 0 sources.
 
 ## Risk Distribution
 
 - 🔴 **Critical Risk**: 0 vulnerabilities
 - 🟠 **High Risk**: 0 vulnerabilities
-- 🟡 **Medium Risk**: 9944 vulnerabilities
+- 🟡 **Medium Risk**: 9961 vulnerabilities
 - 🟢 **Low Risk**: 5567 vulnerabilities
 
 ## Top Vulnerabilities
@@ -1260,7 +1260,33 @@ code.
 
 ---
 
-### 49. [CVE-2024-27198](/api/vulns/CVE-2024-27198.json)
+### 49. [CVE-2024-51978](/api/vulns/CVE-2024-51978.json)
+
+**Risk Score**: 64/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 9.8 | 
+**EPSS**: 46.4%
+
+**Summary**: An unauthenticated attacker who knows the target device's serial number, can generate the default administrator password for the device. An unauthenticated attacker can first discover the target device's serial number via CVE-2024-51977 over HTTP/HTTPS/IPP, or via a PJL request, or via an SNMP request.
+
+**Risk Factors**:
+
+- CRITICAL severity
+- Published within last month
+
+**Affected Vendors**: brother industries, ltd, konica minolta, inc., toshiba tec
+
+**Tags**: `CWE-1391`
+
+**References**:
+
+- [https://www.rapid7.com/blog/post/multiple-brother-devices-multiple-vulnerabilities-fixed](https://www.rapid7.com/blog/post/multiple-brother-devices-multiple-vulnerabilities-fixed)
+- [https://assets.contentstack.io/v3/assets/blte4f029e766e6b253/blt6495b3c6adf2867f/685aa980a26c5e2b1026969c/vulnerability-disclosure-whitepaper.pdf](https://assets.contentstack.io/v3/assets/blte4f029e766e6b253/blt6495b3c6adf2867f/685aa980a26c5e2b1026969c/vulnerability-disclosure-whitepaper.pdf)
+- [https://github.com/rapid7/metasploit-framework/pull/20349](https://github.com/rapid7/metasploit-framework/pull/20349)
+
+---
+
+### 50. [CVE-2024-27198](/api/vulns/CVE-2024-27198.json)
 
 **Risk Score**: 63/100 | 
 **Severity**: CRITICAL | 
@@ -1280,33 +1306,6 @@ code.
 
 - [https://www.jetbrains.com/privacy-security/issues-fixed/](https://www.jetbrains.com/privacy-security/issues-fixed/)
 - [https://www.darkreading.com/cyberattacks-data-breaches/jetbrains-teamcity-mass-exploitation-underway-rogue-accounts-thrive](https://www.darkreading.com/cyberattacks-data-breaches/jetbrains-teamcity-mass-exploitation-underway-rogue-accounts-thrive)
-
----
-
-### 50. [CVE-2024-2389](/api/vulns/CVE-2024-2389.json)
-
-**Risk Score**: 63/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 10.0 | 
-**EPSS**: 94.3%
-
-**Summary**: In Flowmon versions prior to 11.1.14 and 12.3.5, an operating system command injection vulnerability has been identified.  An unauthenticated user can gain entry to the system via the Flowmon management interface, allowing for the execution of arbitrary system commands.
-
-
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 94.35% exploit probability
-
-**Affected Vendors**: progress software
-
-**Tags**: `CWE-78`
-
-**References**:
-
-- [https://www.flowmon.com](https://www.flowmon.com)
-- [https://support.kemptechnologies.com/hc/en-us/articles/24878235038733-CVE-2024-2389-Flowmon-critical-security-vulnerability](https://support.kemptechnologies.com/hc/en-us/articles/24878235038733-CVE-2024-2389-Flowmon-critical-security-vulnerability)
 
 ---
 
