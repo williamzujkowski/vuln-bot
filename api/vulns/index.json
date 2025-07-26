@@ -1,5 +1,5 @@
 {
-  "generated": "2025-07-25T20:08:26.364941",
+  "generated": "2025-07-26T00:24:22.201592",
   "count": 15511,
   "vulnerabilities": [
     {
@@ -181,7 +181,7 @@
       "publishedDate": "2024-11-15T03:18:45.746000+00:00",
       "lastModifiedDate": "2024-11-19T13:37:03.351000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["rogierlankhorst", "really simple plugins"],
+      "vendors": ["really simple plugins", "rogierlankhorst"],
       "tags": ["CWE-288"]
     },
     {
@@ -909,7 +909,7 @@
       "publishedDate": "2025-06-25T07:17:32.423000+00:00",
       "lastModifiedDate": "2025-06-27T13:51:00.720000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec", "konica minolta, inc.", "brother industries, ltd"],
+      "vendors": ["brother industries, ltd", "konica minolta, inc.", "toshiba tec"],
       "tags": ["CWE-1391"]
     },
     {
@@ -4973,34 +4973,6 @@
       "tags": ["CWE-434"]
     },
     {
-      "cveId": "CVE-2025-54309",
-      "title": "CVE-2025-54309: CrushFTP 10 before 10.8.5 and 11 before 11.3.4_23, when the DMZ proxy feature is not used, mishandle...",
-      "severity": "CRITICAL",
-      "cvssScore": 9.0,
-      "epssScore": 6.7,
-      "epssPercentile": 90.812,
-      "riskScore": 52,
-      "publishedDate": "2025-07-18T00:00:00+00:00",
-      "lastModifiedDate": "2025-07-22T03:55:33.260000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["crushftp"],
-      "tags": ["CWE-420"]
-    },
-    {
-      "cveId": "CVE-2025-7758",
-      "title": "TOTOLINK T6 HTTP POST Request cstecgi.cgi setDiagnosisCfg buffer overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.17,
-      "epssPercentile": 38.365,
-      "riskScore": 52,
-      "publishedDate": "2025-07-17T21:14:08.542000+00:00",
-      "lastModifiedDate": "2025-07-18T14:58:05.269000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["totolink"],
-      "tags": ["CWE-120", "CWE-119"]
-    },
-    {
       "cveId": "CVE-2025-7796",
       "title": "Tenda FH451 PPTPDClient fromPptpUserAdd stack-based overflow",
       "severity": "HIGH",
@@ -5096,20 +5068,6 @@
       "lastModifiedDate": "2025-07-21T15:15:44.725000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["tenda"],
-      "tags": ["CWE-121", "CWE-119"]
-    },
-    {
-      "cveId": "CVE-2025-7762",
-      "title": "D-Link DI-8100 HTTP Request menu_nat_more.asp stack-based overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.03,
-      "epssPercentile": 7.658,
-      "riskScore": 52,
-      "publishedDate": "2025-07-17T21:44:06.380000+00:00",
-      "lastModifiedDate": "2025-07-18T14:56:54.715000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["d-link"],
       "tags": ["CWE-121", "CWE-119"]
     },
     {
@@ -5949,7 +5907,7 @@
       "publishedDate": "2024-06-25T03:30:37.970000+00:00",
       "lastModifiedDate": "2024-08-01T21:33:05.337000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["themerex", "pedrogusmao02", "warfareplugins", "blazeretail", "stuartobrien"],
+      "vendors": ["themerex", "warfareplugins", "stuartobrien", "pedrogusmao02", "blazeretail"],
       "tags": []
     },
     {
@@ -7619,6 +7577,34 @@
       "tags": ["CWE-122"]
     },
     {
+      "cveId": "CVE-2025-54309",
+      "title": "CVE-2025-54309: CrushFTP 10 before 10.8.5 and 11 before 11.3.4_23, when the DMZ proxy feature is not used, mishandle...",
+      "severity": "CRITICAL",
+      "cvssScore": 9.0,
+      "epssScore": 6.7,
+      "epssPercentile": 90.812,
+      "riskScore": 50,
+      "publishedDate": "2025-07-18T00:00:00+00:00",
+      "lastModifiedDate": "2025-07-22T03:55:33.260000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["crushftp"],
+      "tags": ["CWE-420"]
+    },
+    {
+      "cveId": "CVE-2025-7758",
+      "title": "TOTOLINK T6 HTTP POST Request cstecgi.cgi setDiagnosisCfg buffer overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.17,
+      "epssPercentile": 38.365,
+      "riskScore": 50,
+      "publishedDate": "2025-07-17T21:14:08.542000+00:00",
+      "lastModifiedDate": "2025-07-18T14:58:05.269000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["totolink"],
+      "tags": ["CWE-120", "CWE-119"]
+    },
+    {
       "cveId": "CVE-2025-7417",
       "title": "Tenda O3V2 httpd setPingInfo fromNetToolGet stack-based overflow",
       "severity": "HIGH",
@@ -7756,6 +7742,20 @@
       "lastModifiedDate": "2025-07-14T13:52:25.344000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["tenda"],
+      "tags": ["CWE-121", "CWE-119"]
+    },
+    {
+      "cveId": "CVE-2025-7762",
+      "title": "D-Link DI-8100 HTTP Request menu_nat_more.asp stack-based overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.03,
+      "epssPercentile": 7.658,
+      "riskScore": 50,
+      "publishedDate": "2025-07-17T21:44:06.380000+00:00",
+      "lastModifiedDate": "2025-07-18T14:56:54.715000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["d-link"],
       "tags": ["CWE-121", "CWE-119"]
     },
     {
@@ -8935,20 +8935,6 @@
       "tags": ["CWE-120", "CWE-119"]
     },
     {
-      "cveId": "CVE-2025-6185",
-      "title": "Leviton AcquiSuite and Energy Monitoring Hub Cross-site Scripting",
-      "severity": "CRITICAL",
-      "cvssScore": 9.3,
-      "epssScore": 0.03,
-      "epssPercentile": 8.586,
-      "riskScore": 50,
-      "publishedDate": "2025-07-17T23:14:44.200000+00:00",
-      "lastModifiedDate": "2025-07-18T13:55:42.662000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["leviton"],
-      "tags": ["CWE-79"]
-    },
-    {
       "cveId": "CVE-2025-6688",
       "title": "Simple Payment 1.3.6 - 2.3.8 - Authentication Bypass to Admin",
       "severity": "CRITICAL",
@@ -9101,20 +9087,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["alcatel-lucent"],
       "tags": ["CWE-77"]
-    },
-    {
-      "cveId": "CVE-2025-52572",
-      "title": "Hikka vulnerable to RCE through dangling web interface",
-      "severity": "CRITICAL",
-      "cvssScore": 10.0,
-      "epssScore": 0.34,
-      "epssPercentile": 55.892,
-      "riskScore": 50,
-      "publishedDate": "2025-06-24T20:10:18.861000+00:00",
-      "lastModifiedDate": "2025-06-24T20:46:47.020000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["hikariatama"],
-      "tags": ["CWE-287"]
     },
     {
       "cveId": "CVE-2025-52207",
@@ -9674,11 +9646,11 @@
       "lastModifiedDate": "2025-06-25T14:15:31.576000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "fujifilm business innovation",
-        "ricoh",
-        "toshiba tec",
         "konica minolta, inc.",
-        "brother industries, ltd"
+        "fujifilm business innovation",
+        "toshiba tec",
+        "brother industries, ltd",
+        "ricoh"
       ],
       "tags": ["CWE-1286"]
     },
@@ -12438,10 +12410,10 @@
       "lastModifiedDate": "2025-06-25T14:08:48.280000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "ricoh",
-        "fujifilm business innovation",
+        "brother industries, ltd",
         "konica minolta, inc.",
-        "brother industries, ltd"
+        "ricoh",
+        "fujifilm business innovation"
       ],
       "tags": ["CWE-121"]
     },
@@ -14308,20 +14280,6 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
-      "cveId": "CVE-2025-7764",
-      "title": "code-projects Online Appointment Booking System deletedoctorclinic.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 10.865,
-      "riskScore": 48,
-      "publishedDate": "2025-07-17T22:32:06.081000+00:00",
-      "lastModifiedDate": "2025-07-18T13:57:16.782000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
       "cveId": "CVE-2025-7860",
       "title": "code-projects Church Donation System login_admin.php sql injection",
       "severity": "HIGH",
@@ -14420,20 +14378,6 @@
       "tags": ["CWE-78"]
     },
     {
-      "cveId": "CVE-2025-7765",
-      "title": "code-projects Online Appointment Booking System addmanagerclinic.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 10.865,
-      "riskScore": 48,
-      "publishedDate": "2025-07-17T22:44:06.555000+00:00",
-      "lastModifiedDate": "2025-07-18T13:56:29.965000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
       "cveId": "CVE-2025-7931",
       "title": "code-projects Church Donation System admin_pic.php unrestricted upload",
       "severity": "HIGH",
@@ -14529,20 +14473,6 @@
       "lastModifiedDate": "2025-07-21T15:52:36.599000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-7757",
-      "title": "PHPGurukul Land Record System edit-property.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 10.865,
-      "riskScore": 48,
-      "publishedDate": "2025-07-17T21:02:07.706000+00:00",
-      "lastModifiedDate": "2025-07-18T14:12:19.365000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -17010,6 +16940,20 @@
       "tags": ["CWE-120", "CWE-119"]
     },
     {
+      "cveId": "CVE-2025-6185",
+      "title": "Leviton AcquiSuite and Energy Monitoring Hub Cross-site Scripting",
+      "severity": "CRITICAL",
+      "cvssScore": 9.3,
+      "epssScore": 0.03,
+      "epssPercentile": 8.586,
+      "riskScore": 48,
+      "publishedDate": "2025-07-17T23:14:44.200000+00:00",
+      "lastModifiedDate": "2025-07-18T13:55:42.662000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["leviton"],
+      "tags": ["CWE-79"]
+    },
+    {
       "cveId": "CVE-2025-6144",
       "title": "TOTOLINK EX1200T HTTP POST Request formSysCmd buffer overflow",
       "severity": "HIGH",
@@ -17426,7 +17370,7 @@
       "publishedDate": "2025-06-13T09:23:49.631000+00:00",
       "lastModifiedDate": "2025-06-13T12:22:47.798000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["telex", "rts"],
+      "vendors": ["rts", "telex"],
       "tags": []
     },
     {
@@ -17540,6 +17484,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["designthemes"],
       "tags": ["CWE-89"]
+    },
+    {
+      "cveId": "CVE-2025-52572",
+      "title": "Hikka vulnerable to RCE through dangling web interface",
+      "severity": "CRITICAL",
+      "cvssScore": 10.0,
+      "epssScore": 0.34,
+      "epssPercentile": 55.892,
+      "riskScore": 48,
+      "publishedDate": "2025-06-24T20:10:18.861000+00:00",
+      "lastModifiedDate": "2025-06-24T20:46:47.020000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["hikariatama"],
+      "tags": ["CWE-287"]
     },
     {
       "cveId": "CVE-2025-52830",
@@ -18966,7 +18924,7 @@
       "publishedDate": "2025-06-25T07:25:00.402000+00:00",
       "lastModifiedDate": "2025-06-25T14:13:40.189000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["ricoh", "fujifilm business innovation", "brother industries, ltd"],
+      "vendors": ["brother industries, ltd", "ricoh", "fujifilm business innovation"],
       "tags": ["CWE-1286"]
     },
     {
@@ -26642,6 +26600,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-7764",
+      "title": "code-projects Online Appointment Booking System deletedoctorclinic.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 10.865,
+      "riskScore": 46,
+      "publishedDate": "2025-07-17T22:32:06.081000+00:00",
+      "lastModifiedDate": "2025-07-18T13:57:16.782000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-7515",
       "title": "code-projects Online Appointment Booking System ulocateus.php sql injection",
       "severity": "HIGH",
@@ -27044,7 +27016,7 @@
       "publishedDate": "2025-07-08T05:32:05.678000+00:00",
       "lastModifiedDate": "2025-07-08T13:45:36.200000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes", "phpgurukul"],
+      "vendors": ["phpgurukul", "campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -27211,6 +27183,20 @@
       "riskScore": 46,
       "publishedDate": "2025-07-08T22:32:05.849000+00:00",
       "lastModifiedDate": "2025-07-09T18:53:55.684000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-7765",
+      "title": "code-projects Online Appointment Booking System addmanagerclinic.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 10.865,
+      "riskScore": 46,
+      "publishedDate": "2025-07-17T22:44:06.555000+00:00",
+      "lastModifiedDate": "2025-07-18T13:56:29.965000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
@@ -27706,6 +27692,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-7757",
+      "title": "PHPGurukul Land Record System edit-property.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 10.865,
+      "riskScore": 46,
+      "publishedDate": "2025-07-17T21:02:07.706000+00:00",
+      "lastModifiedDate": "2025-07-18T14:12:19.365000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["phpgurukul"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-7180",
       "title": "code-projects Staff Audit System login.php sql injection",
       "severity": "HIGH",
@@ -27772,7 +27772,7 @@
       "publishedDate": "2025-07-08T06:02:05.515000+00:00",
       "lastModifiedDate": "2025-07-08T13:44:30.198000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes", "phpgurukul"],
+      "vendors": ["phpgurukul", "campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -30195,20 +30195,6 @@
       "lastModifiedDate": "2025-06-30T18:18:43.097000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-6580",
-      "title": "SourceCodester Best Salon Management System Login sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.66,
-      "riskScore": 46,
-      "publishedDate": "2025-06-24T21:31:06.699000+00:00",
-      "lastModifiedDate": "2025-06-25T14:26:17.988000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["sourcecodester"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -47386,7 +47372,7 @@
       "publishedDate": "2025-05-30T18:00:06.477000+00:00",
       "lastModifiedDate": "2025-05-30T18:15:18.480000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes", "phpgurukul"],
+      "vendors": ["phpgurukul", "campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -51782,7 +51768,7 @@
       "publishedDate": "2025-05-03T11:00:09.135000+00:00",
       "lastModifiedDate": "2025-05-30T09:10:12.356000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes", "phpgurukul"],
+      "vendors": ["phpgurukul", "campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -52510,7 +52496,7 @@
       "publishedDate": "2025-05-05T18:31:04.418000+00:00",
       "lastModifiedDate": "2025-05-05T18:48:57.123000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sourcecodester", "oretnom23"],
+      "vendors": ["oretnom23", "sourcecodester"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -54696,6 +54682,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["mongodb inc"],
       "tags": ["CWE-285"]
+    },
+    {
+      "cveId": "CVE-2025-6580",
+      "title": "SourceCodester Best Salon Management System Login sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.66,
+      "riskScore": 44,
+      "publishedDate": "2025-06-24T21:31:06.699000+00:00",
+      "lastModifiedDate": "2025-06-25T14:26:17.988000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["sourcecodester"],
+      "tags": ["CWE-89", "CWE-74"]
     },
     {
       "cveId": "CVE-2025-6419",
@@ -57928,7 +57928,7 @@
       "publishedDate": "2024-03-18T16:03:44.987000+00:00",
       "lastModifiedDate": "2024-08-28T15:04:28.061000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric", "schneider electric "],
+      "vendors": ["schneider electric ", "schneider electric"],
       "tags": ["CWE-307"]
     },
     {
@@ -58656,7 +58656,7 @@
       "publishedDate": "2025-05-09T15:18:34.124000+00:00",
       "lastModifiedDate": "2025-05-09T19:09:17.086000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["norton", "avast", "avg"],
+      "vendors": ["avg", "norton", "avast"],
       "tags": ["CWE-367"]
     },
     {
@@ -79572,7 +79572,7 @@
       "publishedDate": "2025-01-08T11:09:24.799000+00:00",
       "lastModifiedDate": "2025-01-08T13:54:46.719000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["wp swings", "wpswings"],
+      "vendors": ["wpswings", "wp swings"],
       "tags": ["CWE-862"]
     },
     {
@@ -81812,7 +81812,7 @@
       "publishedDate": "2024-02-05T14:33:06.481000+00:00",
       "lastModifiedDate": "2025-05-09T16:32:50.015000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["kludex", "encode", "tiangolo"],
+      "vendors": ["tiangolo", "encode", "kludex"],
       "tags": ["CWE-400"]
     },
     {
@@ -96820,7 +96820,7 @@
       "publishedDate": "2024-07-02T13:47:36.399000+00:00",
       "lastModifiedDate": "2024-08-02T04:12:25.618000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["yt-dlp", "ytdl-org"],
+      "vendors": ["ytdl-org", "yt-dlp"],
       "tags": ["CWE-669"]
     },
     {
@@ -127130,7 +127130,7 @@
       "publishedDate": "2024-03-18T16:04:57.375000+00:00",
       "lastModifiedDate": "2024-08-01T19:03:37.851000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric", "schneider electric "],
+      "vendors": ["schneider electric ", "schneider electric"],
       "tags": ["CWE-79"]
     },
     {
@@ -129426,7 +129426,7 @@
       "publishedDate": "2024-10-22T22:19:20.646000+00:00",
       "lastModifiedDate": "2024-11-06T15:50:04.628000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-276"]
     },
     {
@@ -132198,7 +132198,7 @@
       "publishedDate": "2024-11-28T22:16:31.396000+00:00",
       "lastModifiedDate": "2024-12-06T05:18:03.652000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-427"]
     },
     {
@@ -134984,7 +134984,7 @@
       "publishedDate": "2024-11-28T22:20:28.303000+00:00",
       "lastModifiedDate": "2024-12-06T05:23:50.441000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-427"]
     },
     {
@@ -171846,7 +171846,7 @@
       "publishedDate": "2024-03-18T16:05:47.722000+00:00",
       "lastModifiedDate": "2024-08-15T16:23:48.504000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric", "schneider electric "],
+      "vendors": ["schneider electric ", "schneider electric"],
       "tags": ["CWE-552"]
     },
     {
@@ -177446,7 +177446,7 @@
       "publishedDate": "2024-11-28T22:18:28.358000+00:00",
       "lastModifiedDate": "2024-12-06T05:21:38.917000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-561"]
     },
     {
@@ -177546,20 +177546,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["hitachi"],
       "tags": ["CWE-1392"]
-    },
-    {
-      "cveId": "CVE-2024-46881",
-      "title": "CVE-2024-46881: Develocity (formerly Gradle Enterprise) before 2024.1.8 has Incorrect Access Control. Project-level ...",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.02,
-      "epssPercentile": 4.261,
-      "riskScore": 38,
-      "publishedDate": "2025-01-26T00:00:00+00:00",
-      "lastModifiedDate": "2025-01-27T16:56:26.914000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["gradle"],
-      "tags": ["CWE-732"]
     },
     {
       "cveId": "CVE-2024-20782",
@@ -182360,7 +182346,7 @@
       "publishedDate": "2024-07-04T08:53:41.217000+00:00",
       "lastModifiedDate": "2024-08-19T15:25:49.496000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-427"]
     },
     {
@@ -208780,6 +208766,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["ivanti"],
       "tags": ["CWE-267"]
+    },
+    {
+      "cveId": "CVE-2024-46881",
+      "title": "CVE-2024-46881: Develocity (formerly Gradle Enterprise) before 2024.1.8 has Incorrect Access Control. Project-level ...",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.02,
+      "epssPercentile": 4.261,
+      "riskScore": 36,
+      "publishedDate": "2025-01-26T00:00:00+00:00",
+      "lastModifiedDate": "2025-01-27T16:56:26.914000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["gradle"],
+      "tags": ["CWE-732"]
     },
     {
       "cveId": "CVE-2024-20989",
