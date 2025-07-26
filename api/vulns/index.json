@@ -1,5 +1,5 @@
 {
-  "generated": "2025-07-26T08:08:47.488825",
+  "generated": "2025-07-26T12:10:03.844056",
   "count": 15528,
   "vulnerabilities": [
     {
@@ -181,7 +181,7 @@
       "publishedDate": "2024-11-15T03:18:45.746000+00:00",
       "lastModifiedDate": "2024-11-19T13:37:03.351000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["rogierlankhorst", "really simple plugins"],
+      "vendors": ["really simple plugins", "rogierlankhorst"],
       "tags": ["CWE-288"]
     },
     {
@@ -1049,7 +1049,7 @@
       "publishedDate": "2024-11-26T07:37:44.549000+00:00",
       "lastModifiedDate": "2024-12-10T14:58:18.708000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-288"]
     },
     {
@@ -3331,7 +3331,7 @@
       "publishedDate": "2024-10-18T17:32:30.648000+00:00",
       "lastModifiedDate": "2024-10-18T18:56:31.697000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["scottpaterson", "scott paterson"],
+      "vendors": ["scott paterson", "scottpaterson"],
       "tags": ["CWE-94"]
     },
     {
@@ -4633,7 +4633,7 @@
       "publishedDate": "2024-11-26T07:37:38.329000+00:00",
       "lastModifiedDate": "2024-12-10T15:43:57.213000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-22"]
     },
     {
@@ -5155,20 +5155,6 @@
       "tags": ["CWE-121", "CWE-119"]
     },
     {
-      "cveId": "CVE-2025-7444",
-      "title": "LoginPress Pro <= 5.0.1 - Authentication Bypass via WordPress.com OAuth provider",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 0.22,
-      "epssPercentile": 44.846,
-      "riskScore": 52,
-      "publishedDate": "2025-07-18T08:22:39.012000+00:00",
-      "lastModifiedDate": "2025-07-18T13:44:40.017000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["loginpress"],
-      "tags": ["CWE-288"]
-    },
-    {
       "cveId": "CVE-2025-7855",
       "title": "Tenda FH451 qossetting fromqossetting stack-based overflow",
       "severity": "HIGH",
@@ -5431,7 +5417,7 @@
       "publishedDate": "2025-05-13T03:21:29.625000+00:00",
       "lastModifiedDate": "2025-05-13T13:57:36.925000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["msaari", "relevanssi"],
+      "vendors": ["relevanssi", "msaari"],
       "tags": ["CWE-89"]
     },
     {
@@ -6047,7 +6033,7 @@
       "publishedDate": "2024-06-25T03:30:37.970000+00:00",
       "lastModifiedDate": "2024-08-01T21:33:05.337000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["themerex", "stuartobrien", "blazeretail", "warfareplugins", "pedrogusmao02"],
+      "vendors": ["themerex", "pedrogusmao02", "warfareplugins", "blazeretail", "stuartobrien"],
       "tags": []
     },
     {
@@ -7981,6 +7967,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["tenda"],
       "tags": ["CWE-121", "CWE-119"]
+    },
+    {
+      "cveId": "CVE-2025-7444",
+      "title": "LoginPress Pro <= 5.0.1 - Authentication Bypass via WordPress.com OAuth provider",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.22,
+      "epssPercentile": 44.846,
+      "riskScore": 50,
+      "publishedDate": "2025-07-18T08:22:39.012000+00:00",
+      "lastModifiedDate": "2025-07-18T13:44:40.017000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["loginpress"],
+      "tags": ["CWE-288"]
     },
     {
       "cveId": "CVE-2025-7530",
@@ -17499,7 +17499,7 @@
       "publishedDate": "2025-06-13T09:23:49.631000+00:00",
       "lastModifiedDate": "2025-06-13T12:22:47.798000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["telex", "rts"],
+      "vendors": ["rts", "telex"],
       "tags": []
     },
     {
@@ -19041,10 +19041,10 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": [
         "konica minolta, inc.",
-        "brother industries, ltd",
         "fujifilm business innovation",
+        "ricoh",
         "toshiba tec",
-        "ricoh"
+        "brother industries, ltd"
       ],
       "tags": ["CWE-1286"]
     },
@@ -24872,8 +24872,8 @@
       "vendors": [
         "fujifilm business innovation",
         "brother industries, ltd",
-        "konica minolta, inc.",
-        "ricoh"
+        "ricoh",
+        "konica minolta, inc."
       ],
       "tags": ["CWE-121"]
     },
@@ -27184,7 +27184,7 @@
       "publishedDate": "2025-07-08T05:32:05.678000+00:00",
       "lastModifiedDate": "2025-07-08T13:45:36.200000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -27926,7 +27926,7 @@
       "publishedDate": "2025-07-08T06:02:05.515000+00:00",
       "lastModifiedDate": "2025-07-08T13:44:30.198000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -36764,20 +36764,6 @@
       "tags": ["CWE-476", "CWE-404"]
     },
     {
-      "cveId": "CVE-2025-5927",
-      "title": "Everest Forms (Pro) <= 1.9.4 - Unauthenticated Path Traversal to Arbitrary File Deletion",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.47,
-      "epssPercentile": 63.609,
-      "riskScore": 45,
-      "publishedDate": "2025-06-25T09:21:40.614000+00:00",
-      "lastModifiedDate": "2025-06-25T13:37:37.158000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["wpeverest"],
-      "tags": ["CWE-36"]
-    },
-    {
       "cveId": "CVE-2025-5866",
       "title": "RT-Thread lwp_syscall.c sys_sigprocmask array index",
       "severity": "HIGH",
@@ -41510,20 +41496,6 @@
       "tags": ["CWE-78"]
     },
     {
-      "cveId": "CVE-2025-41255",
-      "title": "Cyberduck and Mountain Duck - Improper Certificate Store Handling",
-      "severity": "HIGH",
-      "cvssScore": 8.0,
-      "epssScore": 0.02,
-      "epssPercentile": 3.083,
-      "riskScore": 45,
-      "publishedDate": "2025-06-25T09:21:37.479000+00:00",
-      "lastModifiedDate": "2025-06-25T13:33:27.985000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["iterate gmbh"],
-      "tags": ["CWE-266"]
-    },
-    {
       "cveId": "CVE-2025-41232",
       "title": "CVE-2025-41232: Spring Security authorization bypass for method security annotations on private methods",
       "severity": "CRITICAL",
@@ -43788,7 +43760,7 @@
       "publishedDate": "2024-11-26T07:38:12.712000+00:00",
       "lastModifiedDate": "2025-01-27T17:45:48.564000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-798"]
     },
     {
@@ -45958,7 +45930,7 @@
       "publishedDate": "2024-11-26T07:37:06.324000+00:00",
       "lastModifiedDate": "2024-12-10T14:57:54.916000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-121"]
     },
     {
@@ -46182,7 +46154,7 @@
       "publishedDate": "2024-11-26T07:38:06.435000+00:00",
       "lastModifiedDate": "2025-01-27T17:46:45.224000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-798"]
     },
     {
@@ -47568,7 +47540,7 @@
       "publishedDate": "2025-05-30T18:00:06.477000+00:00",
       "lastModifiedDate": "2025-05-30T18:15:18.480000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -51950,7 +51922,7 @@
       "publishedDate": "2025-05-03T11:00:09.135000+00:00",
       "lastModifiedDate": "2025-05-30T09:10:12.356000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -52678,7 +52650,7 @@
       "publishedDate": "2025-05-05T18:31:04.418000+00:00",
       "lastModifiedDate": "2025-05-05T18:48:57.123000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["oretnom23", "sourcecodester"],
+      "vendors": ["sourcecodester", "oretnom23"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -56014,20 +55986,6 @@
       "tags": ["CWE-124"]
     },
     {
-      "cveId": "CVE-2025-41256",
-      "title": "Cyberduck and Mountain Duck - Weak Hash Algorithm for Certificate Fingerprint",
-      "severity": "HIGH",
-      "cvssScore": 7.4,
-      "epssScore": 0.01,
-      "epssPercentile": 0.758,
-      "riskScore": 44,
-      "publishedDate": "2025-06-25T09:16:58.586000+00:00",
-      "lastModifiedDate": "2025-06-25T13:34:07.242000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["iterate gmbh"],
-      "tags": ["CWE-328"]
-    },
-    {
       "cveId": "CVE-2025-41661",
       "title": "Weidmueller: Security routers IE-SR-2TX are affected by CSRF",
       "severity": "HIGH",
@@ -57676,7 +57634,7 @@
       "publishedDate": "2024-07-09T05:34:17.609000+00:00",
       "lastModifiedDate": "2024-08-01T21:11:12.734000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["webnus/", "webnus"],
+      "vendors": ["webnus", "webnus/"],
       "tags": []
     },
     {
@@ -58138,7 +58096,7 @@
       "publishedDate": "2024-03-18T16:03:44.987000+00:00",
       "lastModifiedDate": "2024-08-28T15:04:28.061000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric ", "schneider electric"],
+      "vendors": ["schneider electric", "schneider electric "],
       "tags": ["CWE-307"]
     },
     {
@@ -58866,7 +58824,7 @@
       "publishedDate": "2025-05-09T15:18:34.124000+00:00",
       "lastModifiedDate": "2025-05-09T19:09:17.086000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["avast", "norton", "avg"],
+      "vendors": ["avg", "avast", "norton"],
       "tags": ["CWE-367"]
     },
     {
@@ -59482,7 +59440,7 @@
       "publishedDate": "2024-10-25T06:18:36.274000+00:00",
       "lastModifiedDate": "2024-10-25T18:38:24.503000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-288"]
     },
     {
@@ -65520,6 +65478,20 @@
       "tags": ["CWE-120", "CWE-119"]
     },
     {
+      "cveId": "CVE-2025-5927",
+      "title": "Everest Forms (Pro) <= 1.9.4 - Unauthenticated Path Traversal to Arbitrary File Deletion",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.47,
+      "epssPercentile": 63.609,
+      "riskScore": 43,
+      "publishedDate": "2025-06-25T09:21:40.614000+00:00",
+      "lastModifiedDate": "2025-06-25T13:37:37.158000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["wpeverest"],
+      "tags": ["CWE-36"]
+    },
+    {
       "cveId": "CVE-2025-5004",
       "title": "projectworlds Online Time Table Generator add_course.php sql injection",
       "severity": "HIGH",
@@ -65840,20 +65812,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["gfi"],
       "tags": ["CWE-502"]
-    },
-    {
-      "cveId": "CVE-2025-2101",
-      "title": "Edumall <= 4.2.4 - Unauthenticated Local File Inclusion",
-      "severity": "HIGH",
-      "cvssScore": 8.1,
-      "epssScore": 0.35,
-      "epssPercentile": 56.556,
-      "riskScore": 43,
-      "publishedDate": "2025-04-26T08:23:20.508000+00:00",
-      "lastModifiedDate": "2025-04-28T15:34:23.704000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["thememove"],
-      "tags": ["CWE-98"]
     },
     {
       "cveId": "CVE-2025-2947",
@@ -70866,6 +70824,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["pepperl+fuchs"],
       "tags": ["CWE-200"]
+    },
+    {
+      "cveId": "CVE-2025-41255",
+      "title": "Cyberduck and Mountain Duck - Improper Certificate Store Handling",
+      "severity": "HIGH",
+      "cvssScore": 8.0,
+      "epssScore": 0.02,
+      "epssPercentile": 3.083,
+      "riskScore": 43,
+      "publishedDate": "2025-06-25T09:21:37.479000+00:00",
+      "lastModifiedDate": "2025-06-25T13:33:27.985000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["iterate gmbh"],
+      "tags": ["CWE-266"]
     },
     {
       "cveId": "CVE-2025-41407",
@@ -79716,20 +79688,6 @@
       "tags": ["CWE-94"]
     },
     {
-      "cveId": "CVE-2024-11641",
-      "title": "VikBooking Hotel Booking Engine & PMS <= 1.7.2 - Cross-Site Request Forgery to Authenticated (Subscriber+) Arbitrary File Upload",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.08,
-      "epssPercentile": 24.43,
-      "riskScore": 43,
-      "publishedDate": "2025-01-26T11:09:44.807000+00:00",
-      "lastModifiedDate": "2025-01-27T15:32:00.248000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["e4jvikwp"],
-      "tags": ["CWE-352"]
-    },
-    {
       "cveId": "CVE-2024-11772",
       "title": "CVE-2024-11772: Command injection in the admin web console of Ivanti CSA before version 5.0.3 allows a remote authen...",
       "severity": "CRITICAL",
@@ -79882,20 +79840,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["abb"],
       "tags": ["CWE-384"]
-    },
-    {
-      "cveId": "CVE-2024-11936",
-      "title": "Zox News <= 3.16.0 - Missing Authorization to Authenticated (Subscriber+) Arbitrary Options Update",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.09,
-      "epssPercentile": 25.862,
-      "riskScore": 43,
-      "publishedDate": "2025-01-26T11:09:44.181000+00:00",
-      "lastModifiedDate": "2025-01-27T15:32:18.356000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["mvpthemes"],
-      "tags": ["CWE-862"]
     },
     {
       "cveId": "CVE-2024-12296",
@@ -81406,7 +81350,7 @@
       "publishedDate": "2024-05-14T12:58:31.261000+00:00",
       "lastModifiedDate": "2025-03-14T14:56:10.154000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["na", "n/a"],
+      "vendors": ["n/a", "na"],
       "tags": []
     },
     {
@@ -81602,7 +81546,7 @@
       "publishedDate": "2024-08-07T11:00:06.508000+00:00",
       "lastModifiedDate": "2024-08-07T13:17:59.476000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["webnus/", "webnus"],
+      "vendors": ["webnus", "webnus/"],
       "tags": ["CWE-918"]
     },
     {
@@ -82008,7 +81952,7 @@
       "publishedDate": "2024-02-05T14:33:06.481000+00:00",
       "lastModifiedDate": "2025-05-09T16:32:50.015000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["tiangolo", "encode", "kludex"],
+      "vendors": ["kludex", "encode", "tiangolo"],
       "tags": ["CWE-400"]
     },
     {
@@ -92554,6 +92498,20 @@
       "tags": ["CWE-352"]
     },
     {
+      "cveId": "CVE-2025-41256",
+      "title": "Cyberduck and Mountain Duck - Weak Hash Algorithm for Certificate Fingerprint",
+      "severity": "HIGH",
+      "cvssScore": 7.4,
+      "epssScore": 0.01,
+      "epssPercentile": 0.758,
+      "riskScore": 42,
+      "publishedDate": "2025-06-25T09:16:58.586000+00:00",
+      "lastModifiedDate": "2025-06-25T13:34:07.242000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["iterate gmbh"],
+      "tags": ["CWE-328"]
+    },
+    {
       "cveId": "CVE-2025-41388",
       "title": "Fuji Electric Smart Editor Stack-based Buffer Overflow",
       "severity": "HIGH",
@@ -97044,7 +97002,7 @@
       "publishedDate": "2024-07-02T13:47:36.399000+00:00",
       "lastModifiedDate": "2024-08-02T04:12:25.618000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["yt-dlp", "ytdl-org"],
+      "vendors": ["ytdl-org", "yt-dlp"],
       "tags": ["CWE-669"]
     },
     {
@@ -105180,6 +105138,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["dorinabc"],
       "tags": ["CWE-94"]
+    },
+    {
+      "cveId": "CVE-2025-2101",
+      "title": "Edumall <= 4.2.4 - Unauthenticated Local File Inclusion",
+      "severity": "HIGH",
+      "cvssScore": 8.1,
+      "epssScore": 0.35,
+      "epssPercentile": 56.556,
+      "riskScore": 41,
+      "publishedDate": "2025-04-26T08:23:20.508000+00:00",
+      "lastModifiedDate": "2025-04-28T15:34:23.704000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["thememove"],
+      "tags": ["CWE-98"]
     },
     {
       "cveId": "CVE-2025-2320",
@@ -114418,7 +114390,7 @@
       "publishedDate": "2024-10-25T06:18:30.415000+00:00",
       "lastModifiedDate": "2024-10-25T18:38:02.777000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-749"]
     },
     {
@@ -114712,7 +114684,7 @@
       "publishedDate": "2024-11-26T07:38:24.464000+00:00",
       "lastModifiedDate": "2024-11-26T16:28:15.625000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -114726,7 +114698,7 @@
       "publishedDate": "2024-11-26T07:38:30.408000+00:00",
       "lastModifiedDate": "2024-11-26T14:48:35.480000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -114782,7 +114754,7 @@
       "publishedDate": "2024-11-26T07:38:18.359000+00:00",
       "lastModifiedDate": "2024-11-26T14:09:24.516000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-79"]
     },
     {
@@ -115668,6 +115640,20 @@
       "tags": ["CWE-20"]
     },
     {
+      "cveId": "CVE-2024-11641",
+      "title": "VikBooking Hotel Booking Engine & PMS <= 1.7.2 - Cross-Site Request Forgery to Authenticated (Subscriber+) Arbitrary File Upload",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.08,
+      "epssPercentile": 24.43,
+      "riskScore": 41,
+      "publishedDate": "2025-01-26T11:09:44.807000+00:00",
+      "lastModifiedDate": "2025-01-27T15:32:00.248000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["e4jvikwp"],
+      "tags": ["CWE-352"]
+    },
+    {
       "cveId": "CVE-2024-11087",
       "title": "miniOrange Social Login and Register (Discord, Google, Twitter, LinkedIn) Pro Addon <= 200.3.9 - Authentication Bypass",
       "severity": "HIGH",
@@ -115862,6 +115848,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["quick.cms"],
       "tags": ["CWE-22"]
+    },
+    {
+      "cveId": "CVE-2024-11936",
+      "title": "Zox News <= 3.16.0 - Missing Authorization to Authenticated (Subscriber+) Arbitrary Options Update",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.09,
+      "epssPercentile": 25.862,
+      "riskScore": 41,
+      "publishedDate": "2025-01-26T11:09:44.181000+00:00",
+      "lastModifiedDate": "2025-01-27T15:32:18.356000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["mvpthemes"],
+      "tags": ["CWE-862"]
     },
     {
       "cveId": "CVE-2024-11665",
@@ -127340,7 +127340,7 @@
       "publishedDate": "2024-03-18T16:04:57.375000+00:00",
       "lastModifiedDate": "2024-08-01T19:03:37.851000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric ", "schneider electric"],
+      "vendors": ["schneider electric", "schneider electric "],
       "tags": ["CWE-79"]
     },
     {
@@ -129636,7 +129636,7 @@
       "publishedDate": "2024-10-22T22:19:20.646000+00:00",
       "lastModifiedDate": "2024-11-06T15:50:04.628000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-276"]
     },
     {
@@ -132408,7 +132408,7 @@
       "publishedDate": "2024-11-28T22:16:31.396000+00:00",
       "lastModifiedDate": "2024-12-06T05:18:03.652000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-427"]
     },
     {
@@ -133346,7 +133346,7 @@
       "publishedDate": "2024-10-25T06:18:00.481000+00:00",
       "lastModifiedDate": "2024-10-25T18:37:13.542000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -135194,7 +135194,7 @@
       "publishedDate": "2024-11-28T22:20:28.303000+00:00",
       "lastModifiedDate": "2024-12-06T05:23:50.441000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-427"]
     },
     {
@@ -137210,7 +137210,7 @@
       "publishedDate": "2024-10-25T06:18:10.875000+00:00",
       "lastModifiedDate": "2024-10-25T17:16:12.736000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -147752,7 +147752,7 @@
       "publishedDate": "2024-10-25T06:18:42.287000+00:00",
       "lastModifiedDate": "2024-10-25T18:32:25.798000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-644"]
     },
     {
@@ -147906,7 +147906,7 @@
       "publishedDate": "2024-10-25T06:18:50.793000+00:00",
       "lastModifiedDate": "2024-10-25T14:16:46.537000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-79"]
     },
     {
@@ -172056,7 +172056,7 @@
       "publishedDate": "2024-03-18T16:05:47.722000+00:00",
       "lastModifiedDate": "2024-08-15T16:23:48.504000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric ", "schneider electric"],
+      "vendors": ["schneider electric", "schneider electric "],
       "tags": ["CWE-552"]
     },
     {
@@ -177656,7 +177656,7 @@
       "publishedDate": "2024-11-28T22:18:28.358000+00:00",
       "lastModifiedDate": "2024-12-06T05:21:38.917000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-561"]
     },
     {
@@ -182584,7 +182584,7 @@
       "publishedDate": "2024-07-04T08:53:41.217000+00:00",
       "lastModifiedDate": "2024-08-19T15:25:49.496000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-427"]
     },
     {
