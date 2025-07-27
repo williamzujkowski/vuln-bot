@@ -1,5 +1,5 @@
 {
-  "generated": "2025-07-27T04:23:32.167127",
+  "generated": "2025-07-27T08:08:41.619734",
   "count": 15541,
   "vulnerabilities": [
     {
@@ -181,7 +181,7 @@
       "publishedDate": "2024-11-15T03:18:45.746000+00:00",
       "lastModifiedDate": "2024-11-19T13:37:03.351000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["rogierlankhorst", "really simple plugins"],
+      "vendors": ["really simple plugins", "rogierlankhorst"],
       "tags": ["CWE-288"]
     },
     {
@@ -1329,7 +1329,7 @@
       "publishedDate": "2025-06-25T07:17:32.423000+00:00",
       "lastModifiedDate": "2025-07-25T16:19:55.848000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec", "brother industries, ltd", "konica minolta, inc."],
+      "vendors": ["konica minolta, inc.", "toshiba tec", "brother industries, ltd"],
       "tags": ["CWE-1391"]
     },
     {
@@ -4385,20 +4385,6 @@
       "tags": ["CWE-1336"]
     },
     {
-      "cveId": "CVE-2025-7697",
-      "title": "Integration for Google Sheets and Contact Form 7, WPForms, Elementor, Ninja Forms <= 1.1.1 - Unauthenticated PHP Object Injection via verify_field_val Function",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 0.78,
-      "epssPercentile": 72.814,
-      "riskScore": 53,
-      "publishedDate": "2025-07-19T04:23:02.719000+00:00",
-      "lastModifiedDate": "2025-07-21T17:42:46.723000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["crmperks"],
-      "tags": ["CWE-502"]
-    },
-    {
       "cveId": "CVE-2025-7852",
       "title": "WPBookit <= 1.0.6 - Unauthenticated Arbitrary File Upload via image_upload_handle Function",
       "severity": "CRITICAL",
@@ -4411,20 +4397,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["iqonicdesign"],
       "tags": ["CWE-434"]
-    },
-    {
-      "cveId": "CVE-2025-7696",
-      "title": "Integration for Pipedrive and Contact Form 7, WPForms, Elementor, Ninja Forms <= 1.2.3 - Unauthenticated PHP Object Injection via verify_field_val Function",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 0.78,
-      "epssPercentile": 72.814,
-      "riskScore": 53,
-      "publishedDate": "2025-07-19T04:23:02.149000+00:00",
-      "lastModifiedDate": "2025-07-21T16:54:12.690000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["crmperks"],
-      "tags": ["CWE-502"]
     },
     {
       "cveId": "CVE-2025-27920",
@@ -5263,7 +5235,7 @@
       "publishedDate": "2025-05-13T03:21:29.625000+00:00",
       "lastModifiedDate": "2025-05-13T13:57:36.925000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["msaari", "relevanssi"],
+      "vendors": ["relevanssi", "msaari"],
       "tags": ["CWE-89"]
     },
     {
@@ -5949,7 +5921,7 @@
       "publishedDate": "2024-06-25T03:30:37.970000+00:00",
       "lastModifiedDate": "2024-08-01T21:33:05.337000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["pedrogusmao02", "blazeretail", "themerex", "warfareplugins", "stuartobrien"],
+      "vendors": ["blazeretail", "pedrogusmao02", "stuartobrien", "warfareplugins", "themerex"],
       "tags": []
     },
     {
@@ -6667,6 +6639,20 @@
       "tags": ["CWE-862"]
     },
     {
+      "cveId": "CVE-2025-7697",
+      "title": "Integration for Google Sheets and Contact Form 7, WPForms, Elementor, Ninja Forms <= 1.1.1 - Unauthenticated PHP Object Injection via verify_field_val Function",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.78,
+      "epssPercentile": 72.814,
+      "riskScore": 51,
+      "publishedDate": "2025-07-19T04:23:02.719000+00:00",
+      "lastModifiedDate": "2025-07-21T17:42:46.723000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["crmperks"],
+      "tags": ["CWE-502"]
+    },
+    {
       "cveId": "CVE-2025-7624",
       "title": "CVE-2025-7624: An SQL injection vulnerability in the legacy (transparent) SMTP proxy of Sophos Firewall versions ol...",
       "severity": "CRITICAL",
@@ -6679,6 +6665,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["sophos"],
       "tags": ["CWE-89"]
+    },
+    {
+      "cveId": "CVE-2025-7696",
+      "title": "Integration for Pipedrive and Contact Form 7, WPForms, Elementor, Ninja Forms <= 1.2.3 - Unauthenticated PHP Object Injection via verify_field_val Function",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.78,
+      "epssPercentile": 72.814,
+      "riskScore": 51,
+      "publishedDate": "2025-07-19T04:23:02.149000+00:00",
+      "lastModifiedDate": "2025-07-21T16:54:12.690000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["crmperks"],
+      "tags": ["CWE-502"]
     },
     {
       "cveId": "CVE-2025-47986",
@@ -19082,11 +19082,11 @@
       "lastModifiedDate": "2025-06-25T14:15:31.576000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "konica minolta, inc.",
-        "ricoh",
         "brother industries, ltd",
-        "toshiba tec",
-        "fujifilm business innovation"
+        "fujifilm business innovation",
+        "ricoh",
+        "konica minolta, inc.",
+        "toshiba tec"
       ],
       "tags": ["CWE-1286"]
     },
@@ -24913,8 +24913,8 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": [
         "ricoh",
-        "brother industries, ltd",
         "konica minolta, inc.",
+        "brother industries, ltd",
         "fujifilm business innovation"
       ],
       "tags": ["CWE-121"]
@@ -30338,20 +30338,6 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
-      "cveId": "CVE-2025-6624",
-      "title": "CVE-2025-6624: Versions of the package snyk before 1.1297.3 are vulnerable to Insertion of Sensitive Information in...",
-      "severity": "HIGH",
-      "cvssScore": 7.2,
-      "epssScore": 0.01,
-      "epssPercentile": 1.841,
-      "riskScore": 46,
-      "publishedDate": "2025-06-26T05:00:09.954000+00:00",
-      "lastModifiedDate": "2025-06-26T13:32:06.648000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["n/a"],
-      "tags": []
-    },
-    {
       "cveId": "CVE-2025-6935",
       "title": "Campcodes Sales and Inventory System payment_add.php sql injection",
       "severity": "HIGH",
@@ -30966,20 +30952,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["designthemes"],
       "tags": ["CWE-502"]
-    },
-    {
-      "cveId": "CVE-2025-37101",
-      "title": "HPE OneView for VMware vCenter (OV4VC), Local Elevation of Privilege",
-      "severity": "HIGH",
-      "cvssScore": 8.7,
-      "epssScore": 0.03,
-      "epssPercentile": 7.215,
-      "riskScore": 46,
-      "publishedDate": "2025-06-26T05:19:02.298000+00:00",
-      "lastModifiedDate": "2025-06-27T03:55:24.243000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["hewlett packard enterprise"],
-      "tags": ["CWE-269"]
     },
     {
       "cveId": "CVE-2025-39479",
@@ -47512,7 +47484,7 @@
       "publishedDate": "2025-06-05T02:31:05.107000+00:00",
       "lastModifiedDate": "2025-06-05T14:09:25.990000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["anirbandutta9", "code-projects"],
+      "vendors": ["code-projects", "anirbandutta9"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -52776,7 +52748,7 @@
       "publishedDate": "2025-05-05T18:31:04.418000+00:00",
       "lastModifiedDate": "2025-05-05T18:48:57.123000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["sourcecodester", "oretnom23"],
+      "vendors": ["oretnom23", "sourcecodester"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -54796,6 +54768,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-6624",
+      "title": "CVE-2025-6624: Versions of the package snyk before 1.1297.3 are vulnerable to Insertion of Sensitive Information in...",
+      "severity": "HIGH",
+      "cvssScore": 7.2,
+      "epssScore": 0.01,
+      "epssPercentile": 1.841,
+      "riskScore": 44,
+      "publishedDate": "2025-06-26T05:00:09.954000+00:00",
+      "lastModifiedDate": "2025-06-26T13:32:06.648000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["n/a"],
+      "tags": []
+    },
+    {
       "cveId": "CVE-2025-6447",
       "title": "code-projects Simple Online Hotel Reservation System index.php sql injection",
       "severity": "HIGH",
@@ -55942,6 +55928,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["mbed"],
       "tags": ["CWE-733"]
+    },
+    {
+      "cveId": "CVE-2025-37101",
+      "title": "HPE OneView for VMware vCenter (OV4VC), Local Elevation of Privilege",
+      "severity": "HIGH",
+      "cvssScore": 8.7,
+      "epssScore": 0.03,
+      "epssPercentile": 7.215,
+      "riskScore": 44,
+      "publishedDate": "2025-06-26T05:19:02.298000+00:00",
+      "lastModifiedDate": "2025-06-27T03:55:24.243000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["hewlett packard enterprise"],
+      "tags": ["CWE-269"]
     },
     {
       "cveId": "CVE-2025-39595",
@@ -57830,7 +57830,7 @@
       "publishedDate": "2024-07-09T05:34:17.609000+00:00",
       "lastModifiedDate": "2024-08-01T21:11:12.734000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["webnus", "webnus/"],
+      "vendors": ["webnus/", "webnus"],
       "tags": []
     },
     {
@@ -58292,7 +58292,7 @@
       "publishedDate": "2024-03-18T16:03:44.987000+00:00",
       "lastModifiedDate": "2024-08-28T15:04:28.061000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric ", "schneider electric"],
+      "vendors": ["schneider electric", "schneider electric "],
       "tags": ["CWE-307"]
     },
     {
@@ -59020,7 +59020,7 @@
       "publishedDate": "2025-05-09T15:18:34.124000+00:00",
       "lastModifiedDate": "2025-05-09T19:09:17.086000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["norton", "avg", "avast"],
+      "vendors": ["avast", "avg", "norton"],
       "tags": ["CWE-367"]
     },
     {
@@ -63906,7 +63906,7 @@
       "publishedDate": "2024-10-22T21:13:37.183000+00:00",
       "lastModifiedDate": "2024-10-23T14:43:52.114000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["kieback & peter", "kieback&peter"],
+      "vendors": ["kieback&peter", "kieback & peter"],
       "tags": ["CWE-22"]
     },
     {
@@ -69118,20 +69118,6 @@
       "tags": ["CWE-639"]
     },
     {
-      "cveId": "CVE-2025-3960",
-      "title": "withstars Books-Management-System Background Interface allreaders.html authorization",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.06,
-      "epssPercentile": 20.362,
-      "riskScore": 43,
-      "publishedDate": "2025-04-27T06:00:06.236000+00:00",
-      "lastModifiedDate": "2025-04-28T14:27:42.022000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["withstars"],
-      "tags": ["CWE-862", "CWE-863"]
-    },
-    {
       "cveId": "CVE-2025-3812",
       "title": "WPBot Pro Wordpress Chatbot <= 13.6.2 - Authenticated (Subscriber+) Arbitrary File Deletion",
       "severity": "HIGH",
@@ -69326,20 +69312,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["manageengine"],
       "tags": ["CWE-89"]
-    },
-    {
-      "cveId": "CVE-2025-3963",
-      "title": "withstars Books-Management-System Background Interface list authorization",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.06,
-      "epssPercentile": 20.362,
-      "riskScore": 43,
-      "publishedDate": "2025-04-27T07:31:03.796000+00:00",
-      "lastModifiedDate": "2025-04-28T14:25:00.540000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["withstars"],
-      "tags": ["CWE-862", "CWE-863"]
     },
     {
       "cveId": "CVE-2025-3642",
@@ -81742,7 +81714,7 @@
       "publishedDate": "2024-08-07T11:00:06.508000+00:00",
       "lastModifiedDate": "2024-08-07T13:17:59.476000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["webnus", "webnus/"],
+      "vendors": ["webnus/", "webnus"],
       "tags": ["CWE-918"]
     },
     {
@@ -82148,7 +82120,7 @@
       "publishedDate": "2024-02-05T14:33:06.481000+00:00",
       "lastModifiedDate": "2025-05-09T16:32:50.015000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["kludex", "tiangolo", "encode"],
+      "vendors": ["encode", "tiangolo", "kludex"],
       "tags": ["CWE-400"]
     },
     {
@@ -107296,6 +107268,20 @@
       "tags": ["CWE-434", "CWE-284"]
     },
     {
+      "cveId": "CVE-2025-3960",
+      "title": "withstars Books-Management-System Background Interface allreaders.html authorization",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.06,
+      "epssPercentile": 20.362,
+      "riskScore": 41,
+      "publishedDate": "2025-04-27T06:00:06.236000+00:00",
+      "lastModifiedDate": "2025-04-28T14:27:42.022000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["withstars"],
+      "tags": ["CWE-862", "CWE-863"]
+    },
+    {
       "cveId": "CVE-2025-3944",
       "title": "Incorrect Permission Assignment for Critical Resource",
       "severity": "HIGH",
@@ -108050,6 +108036,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["codeprojects"],
       "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-3963",
+      "title": "withstars Books-Management-System Background Interface list authorization",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.06,
+      "epssPercentile": 20.362,
+      "riskScore": 41,
+      "publishedDate": "2025-04-27T07:31:03.796000+00:00",
+      "lastModifiedDate": "2025-04-28T14:25:00.540000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["withstars"],
+      "tags": ["CWE-862", "CWE-863"]
     },
     {
       "cveId": "CVE-2025-3681",
@@ -127508,7 +127508,7 @@
       "publishedDate": "2024-03-18T16:04:57.375000+00:00",
       "lastModifiedDate": "2024-08-01T19:03:37.851000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric ", "schneider electric"],
+      "vendors": ["schneider electric", "schneider electric "],
       "tags": ["CWE-79"]
     },
     {
@@ -129804,7 +129804,7 @@
       "publishedDate": "2024-10-22T22:19:20.646000+00:00",
       "lastModifiedDate": "2024-11-06T15:50:04.628000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-276"]
     },
     {
@@ -132576,7 +132576,7 @@
       "publishedDate": "2024-11-28T22:16:31.396000+00:00",
       "lastModifiedDate": "2024-12-06T05:18:03.652000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-427"]
     },
     {
@@ -135362,7 +135362,7 @@
       "publishedDate": "2024-11-28T22:20:28.303000+00:00",
       "lastModifiedDate": "2024-12-06T05:23:50.441000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-427"]
     },
     {
@@ -136104,7 +136104,7 @@
       "publishedDate": "2024-11-04T03:31:04.265000+00:00",
       "lastModifiedDate": "2024-11-04T17:01:46.227000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["anirbandutta9", "code-projects"],
+      "vendors": ["code-projects", "anirbandutta9"],
       "tags": ["CWE-89"]
     },
     {
@@ -172238,7 +172238,7 @@
       "publishedDate": "2024-03-18T16:05:47.722000+00:00",
       "lastModifiedDate": "2024-08-15T16:23:48.504000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric ", "schneider electric"],
+      "vendors": ["schneider electric", "schneider electric "],
       "tags": ["CWE-552"]
     },
     {
@@ -177838,7 +177838,7 @@
       "publishedDate": "2024-11-28T22:18:28.358000+00:00",
       "lastModifiedDate": "2024-12-06T05:21:38.917000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-561"]
     },
     {
@@ -182780,7 +182780,7 @@
       "publishedDate": "2024-07-04T08:53:41.217000+00:00",
       "lastModifiedDate": "2024-08-19T15:25:49.496000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-427"]
     },
     {
@@ -189318,7 +189318,7 @@
       "publishedDate": "2024-07-08T15:25:38.672000+00:00",
       "lastModifiedDate": "2024-08-01T22:27:36.345000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["levelone", "realtek"],
+      "vendors": ["realtek", "levelone"],
       "tags": ["CWE-122"]
     },
     {

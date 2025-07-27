@@ -1,6 +1,6 @@
 ---
 title: Morning Vulnerability Briefing - 2025-07-27
-date: 2025-07-27T04:23:32.167127
+date: 2025-07-27T08:08:41.619734
 layout: layouts/post.njk
 tags: [vulnerability, briefing, security]
 vulnerabilityCount: 15541
@@ -297,7 +297,7 @@ critical systems.
 - CRITICAL severity
 - 93.95% exploit probability
 
-**Affected Vendors**: rogierlankhorst, really simple plugins
+**Affected Vendors**: really simple plugins, rogierlankhorst
 
 **Tags**: `CWE-288`
 
