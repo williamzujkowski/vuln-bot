@@ -1,5 +1,5 @@
 {
-  "generated": "2025-07-26T20:07:37.179988",
+  "generated": "2025-07-27T00:27:43.090034",
   "count": 15528,
   "vulnerabilities": [
     {
@@ -181,7 +181,7 @@
       "publishedDate": "2024-11-15T03:18:45.746000+00:00",
       "lastModifiedDate": "2024-11-19T13:37:03.351000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["really simple plugins", "rogierlankhorst"],
+      "vendors": ["rogierlankhorst", "really simple plugins"],
       "tags": ["CWE-288"]
     },
     {
@@ -1049,7 +1049,7 @@
       "publishedDate": "2024-11-26T07:37:44.549000+00:00",
       "lastModifiedDate": "2024-12-10T14:58:18.708000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-288"]
     },
     {
@@ -1329,7 +1329,7 @@
       "publishedDate": "2025-06-25T07:17:32.423000+00:00",
       "lastModifiedDate": "2025-07-25T16:19:55.848000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["brother industries, ltd", "konica minolta, inc.", "toshiba tec"],
+      "vendors": ["toshiba tec", "brother industries, ltd", "konica minolta, inc."],
       "tags": ["CWE-1391"]
     },
     {
@@ -3317,7 +3317,7 @@
       "publishedDate": "2024-10-18T17:32:30.648000+00:00",
       "lastModifiedDate": "2024-10-18T18:56:31.697000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["scott paterson", "scottpaterson"],
+      "vendors": ["scottpaterson", "scott paterson"],
       "tags": ["CWE-94"]
     },
     {
@@ -4605,7 +4605,7 @@
       "publishedDate": "2024-11-26T07:37:38.329000+00:00",
       "lastModifiedDate": "2024-12-10T15:43:57.213000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-22"]
     },
     {
@@ -4987,20 +4987,6 @@
       "tags": ["CWE-89"]
     },
     {
-      "cveId": "CVE-2025-7807",
-      "title": "Tenda FH451 SafeUrlFilter fromSafeUrlFilter stack-based overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.08,
-      "epssPercentile": 25.31,
-      "riskScore": 52,
-      "publishedDate": "2025-07-18T20:44:07.510000+00:00",
-      "lastModifiedDate": "2025-07-21T15:15:44.725000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["tenda"],
-      "tags": ["CWE-121", "CWE-119"]
-    },
-    {
       "cveId": "CVE-2025-7854",
       "title": "Tenda FH451 VirtualSer fromVirtualSer stack-based overflow",
       "severity": "HIGH",
@@ -5083,20 +5069,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["totolink"],
       "tags": ["CWE-120", "CWE-119"]
-    },
-    {
-      "cveId": "CVE-2025-7806",
-      "title": "Tenda FH451 SafeClientFilter fromSafeClientFilter stack-based overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.08,
-      "epssPercentile": 25.31,
-      "riskScore": 52,
-      "publishedDate": "2025-07-18T20:32:07.733000+00:00",
-      "lastModifiedDate": "2025-07-21T15:15:04.681000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["tenda"],
-      "tags": ["CWE-121", "CWE-119"]
     },
     {
       "cveId": "CVE-2025-7908",
@@ -5265,20 +5237,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-302"]
-    },
-    {
-      "cveId": "CVE-2025-36038",
-      "title": "IBM WebSphere Application Server code execution",
-      "severity": "CRITICAL",
-      "cvssScore": 9.0,
-      "epssScore": 0.17,
-      "epssPercentile": 39.057,
-      "riskScore": 52,
-      "publishedDate": "2025-06-25T20:38:02.468000+00:00",
-      "lastModifiedDate": "2025-06-27T03:55:22.806000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["ibm"],
-      "tags": ["CWE-502"]
     },
     {
       "cveId": "CVE-2025-4396",
@@ -5935,7 +5893,7 @@
       "publishedDate": "2024-06-25T03:30:37.970000+00:00",
       "lastModifiedDate": "2024-08-01T21:33:05.337000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["pedrogusmao02", "themerex", "warfareplugins", "blazeretail", "stuartobrien"],
+      "vendors": ["themerex", "pedrogusmao02", "blazeretail", "stuartobrien", "warfareplugins"],
       "tags": []
     },
     {
@@ -7773,6 +7731,20 @@
       "tags": ["CWE-121", "CWE-119"]
     },
     {
+      "cveId": "CVE-2025-7807",
+      "title": "Tenda FH451 SafeUrlFilter fromSafeUrlFilter stack-based overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.08,
+      "epssPercentile": 25.31,
+      "riskScore": 50,
+      "publishedDate": "2025-07-18T20:44:07.510000+00:00",
+      "lastModifiedDate": "2025-07-21T15:15:44.725000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["tenda"],
+      "tags": ["CWE-121", "CWE-119"]
+    },
+    {
       "cveId": "CVE-2025-7550",
       "title": "Tenda FH1201 GstDhcpSetSer fromGstDhcpSetSer stack-based overflow",
       "severity": "HIGH",
@@ -8076,6 +8048,20 @@
       "riskScore": 50,
       "publishedDate": "2025-07-13T22:32:07.492000+00:00",
       "lastModifiedDate": "2025-07-14T15:56:48.926000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["tenda"],
+      "tags": ["CWE-121", "CWE-119"]
+    },
+    {
+      "cveId": "CVE-2025-7806",
+      "title": "Tenda FH451 SafeClientFilter fromSafeClientFilter stack-based overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.08,
+      "epssPercentile": 25.31,
+      "riskScore": 50,
+      "publishedDate": "2025-07-18T20:32:07.733000+00:00",
+      "lastModifiedDate": "2025-07-21T15:15:04.681000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["tenda"],
       "tags": ["CWE-121", "CWE-119"]
@@ -8541,6 +8527,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["ibm"],
       "tags": ["CWE-94"]
+    },
+    {
+      "cveId": "CVE-2025-36038",
+      "title": "IBM WebSphere Application Server code execution",
+      "severity": "CRITICAL",
+      "cvssScore": 9.0,
+      "epssScore": 0.17,
+      "epssPercentile": 39.057,
+      "riskScore": 50,
+      "publishedDate": "2025-06-25T20:38:02.468000+00:00",
+      "lastModifiedDate": "2025-06-27T03:55:22.806000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["ibm"],
+      "tags": ["CWE-502"]
     },
     {
       "cveId": "CVE-2025-4606",
@@ -12463,20 +12463,6 @@
       "tags": ["CWE-434"]
     },
     {
-      "cveId": "CVE-2024-52928",
-      "title": "CVE-2024-52928: Arc before 1.26.1 on Windows has a bypass issue in the site settings that allows websites (with prev...",
-      "severity": "CRITICAL",
-      "cvssScore": 9.6,
-      "epssScore": 0.04,
-      "epssPercentile": 8.929,
-      "riskScore": 49,
-      "publishedDate": "2025-06-26T00:00:00+00:00",
-      "lastModifiedDate": "2025-06-27T13:38:43.810000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["n/a"],
-      "tags": []
-    },
-    {
       "cveId": "CVE-2024-52430",
       "title": "WordPress Lis Video Gallery plugin <= 0.2.1 - PHP Object Injection vulnerability",
       "severity": "CRITICAL",
@@ -14185,20 +14171,6 @@
       "tags": ["CWE-697"]
     },
     {
-      "cveId": "CVE-2025-54313",
-      "title": "CVE-2025-54313: eslint-config-prettier 8.10.1, 9.1.1, 10.1.6, and 10.1.7 has embedded malicious code for a supply ch...",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.06,
-      "epssPercentile": 19.457,
-      "riskScore": 48,
-      "publishedDate": "2025-07-19T00:00:00+00:00",
-      "lastModifiedDate": "2025-07-23T15:16:25.225000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["prettier"],
-      "tags": ["CWE-506"]
-    },
-    {
       "cveId": "CVE-2025-54439",
       "title": "CVE-2025-54439: Unrestricted Upload of File with Dangerous Type vulnerability in Samsung Electronics MagicINFO 9 Ser...",
       "severity": "HIGH",
@@ -14432,20 +14404,6 @@
       "riskScore": 48,
       "publishedDate": "2025-07-19T13:14:05.666000+00:00",
       "lastModifiedDate": "2025-07-21T15:50:52.954000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-7814",
-      "title": "code-projects Food Ordering Review System signup_function.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 10.876,
-      "riskScore": 48,
-      "publishedDate": "2025-07-18T21:44:05.160000+00:00",
-      "lastModifiedDate": "2025-07-21T15:19:20.606000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
@@ -19012,11 +18970,11 @@
       "lastModifiedDate": "2025-06-25T14:15:31.576000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "brother industries, ltd",
         "toshiba tec",
-        "fujifilm business innovation",
+        "ricoh",
         "konica minolta, inc.",
-        "ricoh"
+        "fujifilm business innovation",
+        "brother industries, ltd"
       ],
       "tags": ["CWE-1286"]
     },
@@ -24814,10 +24772,10 @@
       "lastModifiedDate": "2025-06-25T14:08:48.280000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "brother industries, ltd",
-        "konica minolta, inc.",
         "fujifilm business innovation",
-        "ricoh"
+        "ricoh",
+        "brother industries, ltd",
+        "konica minolta, inc."
       ],
       "tags": ["CWE-121"]
     },
@@ -24848,6 +24806,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["glpi-project"],
       "tags": ["CWE-89"]
+    },
+    {
+      "cveId": "CVE-2024-52928",
+      "title": "CVE-2024-52928: Arc before 1.26.1 on Windows has a bypass issue in the site settings that allows websites (with prev...",
+      "severity": "CRITICAL",
+      "cvssScore": 9.6,
+      "epssScore": 0.04,
+      "epssPercentile": 8.929,
+      "riskScore": 47,
+      "publishedDate": "2025-06-26T00:00:00+00:00",
+      "lastModifiedDate": "2025-06-27T13:38:43.810000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["n/a"],
+      "tags": []
     },
     {
       "cveId": "CVE-2024-52902",
@@ -26516,6 +26488,20 @@
       "tags": ["CWE-89"]
     },
     {
+      "cveId": "CVE-2025-54313",
+      "title": "CVE-2025-54313: eslint-config-prettier 8.10.1, 9.1.1, 10.1.6, and 10.1.7 has embedded malicious code for a supply ch...",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.06,
+      "epssPercentile": 19.457,
+      "riskScore": 46,
+      "publishedDate": "2025-07-19T00:00:00+00:00",
+      "lastModifiedDate": "2025-07-23T15:16:25.225000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["prettier"],
+      "tags": ["CWE-506"]
+    },
+    {
       "cveId": "CVE-2025-54026",
       "title": "WordPress GymBase Theme Classes plugin <= 1.4 - SQL Injection Vulnerability",
       "severity": "HIGH",
@@ -27645,6 +27631,20 @@
       "riskScore": 46,
       "publishedDate": "2025-07-08T21:32:05.419000+00:00",
       "lastModifiedDate": "2025-07-09T13:17:48.270000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-7814",
+      "title": "code-projects Food Ordering Review System signup_function.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 10.876,
+      "riskScore": 46,
+      "publishedDate": "2025-07-18T21:44:05.160000+00:00",
+      "lastModifiedDate": "2025-07-21T15:19:20.606000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
@@ -29787,34 +29787,6 @@
       "riskScore": 46,
       "publishedDate": "2025-06-30T10:02:06.078000+00:00",
       "lastModifiedDate": "2025-06-30T14:57:01.785000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-6665",
-      "title": "code-projects Inventory Management System editBrand.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.667,
-      "riskScore": 46,
-      "publishedDate": "2025-06-25T20:31:08.262000+00:00",
-      "lastModifiedDate": "2025-06-26T14:44:34.396000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-6668",
-      "title": "code-projects Inventory Management System fetchSelectedBrand.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.667,
-      "riskScore": 46,
-      "publishedDate": "2025-06-25T22:00:17.561000+00:00",
-      "lastModifiedDate": "2025-06-26T13:33:53.524000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
@@ -35052,7 +35024,7 @@
       "publishedDate": "2025-06-25T07:25:00.402000+00:00",
       "lastModifiedDate": "2025-06-25T14:13:40.189000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["brother industries, ltd", "fujifilm business innovation", "ricoh"],
+      "vendors": ["fujifilm business innovation", "ricoh", "brother industries, ltd"],
       "tags": ["CWE-1286"]
     },
     {
@@ -38454,7 +38426,7 @@
       "publishedDate": "2025-06-13T21:03:18.087000+00:00",
       "lastModifiedDate": "2025-06-17T15:18:55.236000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["dell", "broadcom"],
+      "vendors": ["broadcom", "dell"],
       "tags": ["CWE-787"]
     },
     {
@@ -38468,7 +38440,7 @@
       "publishedDate": "2025-06-13T21:26:58.869000+00:00",
       "lastModifiedDate": "2025-06-17T18:13:30.525000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["dell", "broadcom"],
+      "vendors": ["broadcom", "dell"],
       "tags": ["CWE-763"]
     },
     {
@@ -40372,7 +40344,7 @@
       "publishedDate": "2025-06-13T20:51:33.392000+00:00",
       "lastModifiedDate": "2025-06-17T03:55:12.235000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["dell", "broadcom"],
+      "vendors": ["broadcom", "dell"],
       "tags": ["CWE-121"]
     },
     {
@@ -43676,7 +43648,7 @@
       "publishedDate": "2024-11-26T07:38:12.712000+00:00",
       "lastModifiedDate": "2025-01-27T17:45:48.564000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-798"]
     },
     {
@@ -45874,7 +45846,7 @@
       "publishedDate": "2024-11-26T07:37:06.324000+00:00",
       "lastModifiedDate": "2024-12-10T14:57:54.916000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-121"]
     },
     {
@@ -46098,7 +46070,7 @@
       "publishedDate": "2024-11-26T07:38:06.435000+00:00",
       "lastModifiedDate": "2025-01-27T17:46:45.224000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-798"]
     },
     {
@@ -47358,7 +47330,7 @@
       "publishedDate": "2025-06-05T02:31:05.107000+00:00",
       "lastModifiedDate": "2025-06-05T14:09:25.990000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects", "anirbandutta9"],
+      "vendors": ["anirbandutta9", "code-projects"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -53872,6 +53844,34 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-6665",
+      "title": "code-projects Inventory Management System editBrand.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.667,
+      "riskScore": 44,
+      "publishedDate": "2025-06-25T20:31:08.262000+00:00",
+      "lastModifiedDate": "2025-06-26T14:44:34.396000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-6668",
+      "title": "code-projects Inventory Management System fetchSelectedBrand.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.667,
+      "riskScore": 44,
+      "publishedDate": "2025-06-25T22:00:17.561000+00:00",
+      "lastModifiedDate": "2025-06-26T13:33:53.524000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-6503",
       "title": "code-projects Inventory Management System fetchSelectedCategories.php sql injection",
       "severity": "HIGH",
@@ -55240,7 +55240,7 @@
       "publishedDate": "2025-06-13T21:48:29.351000+00:00",
       "lastModifiedDate": "2025-06-17T15:18:22.706000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["dell", "broadcom"],
+      "vendors": ["broadcom", "dell"],
       "tags": ["CWE-502"]
     },
     {
@@ -55380,7 +55380,7 @@
       "publishedDate": "2025-06-13T20:42:18.769000+00:00",
       "lastModifiedDate": "2025-06-16T15:21:53.325000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["dell", "broadcom"],
+      "vendors": ["broadcom", "dell"],
       "tags": ["CWE-125"]
     },
     {
@@ -58110,7 +58110,7 @@
       "publishedDate": "2024-03-18T16:03:44.987000+00:00",
       "lastModifiedDate": "2024-08-28T15:04:28.061000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric", "schneider electric "],
+      "vendors": ["schneider electric ", "schneider electric"],
       "tags": ["CWE-307"]
     },
     {
@@ -59454,7 +59454,7 @@
       "publishedDate": "2024-10-25T06:18:36.274000+00:00",
       "lastModifiedDate": "2024-10-25T18:38:24.503000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-288"]
     },
     {
@@ -81980,7 +81980,7 @@
       "publishedDate": "2024-02-05T14:33:06.481000+00:00",
       "lastModifiedDate": "2025-05-09T16:32:50.015000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["tiangolo", "kludex", "encode"],
+      "vendors": ["tiangolo", "encode", "kludex"],
       "tags": ["CWE-400"]
     },
     {
@@ -114376,7 +114376,7 @@
       "publishedDate": "2024-10-25T06:18:30.415000+00:00",
       "lastModifiedDate": "2024-10-25T18:38:02.777000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-749"]
     },
     {
@@ -114670,7 +114670,7 @@
       "publishedDate": "2024-11-26T07:38:24.464000+00:00",
       "lastModifiedDate": "2024-11-26T16:28:15.625000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -114684,7 +114684,7 @@
       "publishedDate": "2024-11-26T07:38:30.408000+00:00",
       "lastModifiedDate": "2024-11-26T14:48:35.480000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -114740,7 +114740,7 @@
       "publishedDate": "2024-11-26T07:38:18.359000+00:00",
       "lastModifiedDate": "2024-11-26T14:09:24.516000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-79"]
     },
     {
@@ -123102,20 +123102,6 @@
       "tags": ["CWE-288"]
     },
     {
-      "cveId": "CVE-2025-46657",
-      "title": "CVE-2025-46657: Karaz Karazal through 2025-04-14 allows reflected XSS via the lang parameter to the default URI....",
-      "severity": "HIGH",
-      "cvssScore": 7.2,
-      "epssScore": 0.02,
-      "epssPercentile": 2.256,
-      "riskScore": 40,
-      "publishedDate": "2025-04-27T00:00:00+00:00",
-      "lastModifiedDate": "2025-04-28T16:19:40.784000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["karaz"],
-      "tags": ["CWE-79"]
-    },
-    {
       "cveId": "CVE-2025-46526",
       "title": "WordPress My Custom Widgets plugin <= 2.0.5 - Reflected Cross Site Scripting (XSS) vulnerability",
       "severity": "HIGH",
@@ -127340,7 +127326,7 @@
       "publishedDate": "2024-03-18T16:04:57.375000+00:00",
       "lastModifiedDate": "2024-08-01T19:03:37.851000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric", "schneider electric "],
+      "vendors": ["schneider electric ", "schneider electric"],
       "tags": ["CWE-79"]
     },
     {
@@ -129636,7 +129622,7 @@
       "publishedDate": "2024-10-22T22:19:20.646000+00:00",
       "lastModifiedDate": "2024-11-06T15:50:04.628000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-276"]
     },
     {
@@ -132408,7 +132394,7 @@
       "publishedDate": "2024-11-28T22:16:31.396000+00:00",
       "lastModifiedDate": "2024-12-06T05:18:03.652000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-427"]
     },
     {
@@ -133346,7 +133332,7 @@
       "publishedDate": "2024-10-25T06:18:00.481000+00:00",
       "lastModifiedDate": "2024-10-25T18:37:13.542000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -135194,7 +135180,7 @@
       "publishedDate": "2024-11-28T22:20:28.303000+00:00",
       "lastModifiedDate": "2024-12-06T05:23:50.441000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-427"]
     },
     {
@@ -135936,7 +135922,7 @@
       "publishedDate": "2024-11-04T03:31:04.265000+00:00",
       "lastModifiedDate": "2024-11-04T17:01:46.227000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects", "anirbandutta9"],
+      "vendors": ["anirbandutta9", "code-projects"],
       "tags": ["CWE-89"]
     },
     {
@@ -137210,7 +137196,7 @@
       "publishedDate": "2024-10-25T06:18:10.875000+00:00",
       "lastModifiedDate": "2024-10-25T17:16:12.736000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -144378,7 +144364,7 @@
       "publishedDate": "2024-07-03T12:26:44.599000+00:00",
       "lastModifiedDate": "2025-02-13T17:54:25.437000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "red lion europe"],
+      "vendors": ["red lion europe", "helmholz"],
       "tags": ["CWE-78"]
     },
     {
@@ -147752,7 +147738,7 @@
       "publishedDate": "2024-10-25T06:18:42.287000+00:00",
       "lastModifiedDate": "2024-10-25T18:32:25.798000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-644"]
     },
     {
@@ -147906,7 +147892,7 @@
       "publishedDate": "2024-10-25T06:18:50.793000+00:00",
       "lastModifiedDate": "2024-10-25T14:16:46.537000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-79"]
     },
     {
@@ -160468,6 +160454,20 @@
       "tags": ["CWE-352"]
     },
     {
+      "cveId": "CVE-2025-46657",
+      "title": "CVE-2025-46657: Karaz Karazal through 2025-04-14 allows reflected XSS via the lang parameter to the default URI....",
+      "severity": "HIGH",
+      "cvssScore": 7.2,
+      "epssScore": 0.02,
+      "epssPercentile": 2.256,
+      "riskScore": 38,
+      "publishedDate": "2025-04-27T00:00:00+00:00",
+      "lastModifiedDate": "2025-04-28T16:19:40.784000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["karaz"],
+      "tags": ["CWE-79"]
+    },
+    {
       "cveId": "CVE-2025-46502",
       "title": "WordPress LSD Custom taxonomy and category meta plugin <= 1.3.2 - CSRF to XSS vulnerability",
       "severity": "HIGH",
@@ -172056,7 +172056,7 @@
       "publishedDate": "2024-03-18T16:05:47.722000+00:00",
       "lastModifiedDate": "2024-08-15T16:23:48.504000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric", "schneider electric "],
+      "vendors": ["schneider electric ", "schneider electric"],
       "tags": ["CWE-552"]
     },
     {
@@ -177656,7 +177656,7 @@
       "publishedDate": "2024-11-28T22:18:28.358000+00:00",
       "lastModifiedDate": "2024-12-06T05:21:38.917000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-561"]
     },
     {
@@ -182598,7 +182598,7 @@
       "publishedDate": "2024-07-04T08:53:41.217000+00:00",
       "lastModifiedDate": "2024-08-19T15:25:49.496000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-427"]
     },
     {
