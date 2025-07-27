@@ -1,5 +1,5 @@
 {
-  "generated": "2025-07-27T16:07:53.051554",
+  "generated": "2025-07-27T20:07:49.753540",
   "count": 15541,
   "vulnerabilities": [
     {
@@ -419,7 +419,7 @@
       "publishedDate": "2025-06-25T07:17:32.423000+00:00",
       "lastModifiedDate": "2025-07-25T16:19:55.848000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["brother industries, ltd", "toshiba tec", "konica minolta, inc."],
+      "vendors": ["brother industries, ltd", "konica minolta, inc.", "toshiba tec"],
       "tags": ["CWE-1391"]
     },
     {
@@ -5099,20 +5099,6 @@
       "tags": ["CWE-287"]
     },
     {
-      "cveId": "CVE-2025-7853",
-      "title": "Tenda FH451 SetIpBind fromSetIpBind stack-based overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.08,
-      "epssPercentile": 25.273,
-      "riskScore": 52,
-      "publishedDate": "2025-07-19T19:44:07.248000+00:00",
-      "lastModifiedDate": "2025-07-21T15:55:21.669000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["tenda"],
-      "tags": ["CWE-121", "CWE-119"]
-    },
-    {
       "cveId": "CVE-2025-7343",
       "title": "Digiwin｜SFT - SQL Injection",
       "severity": "CRITICAL",
@@ -5166,20 +5152,6 @@
       "lastModifiedDate": "2025-07-21T18:17:40.558000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["tenda"],
-      "tags": ["CWE-120", "CWE-119"]
-    },
-    {
-      "cveId": "CVE-2025-7837",
-      "title": "TOTOLINK T6 MQTT Service recvSlaveStaInfo buffer overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.17,
-      "epssPercentile": 38.368,
-      "riskScore": 52,
-      "publishedDate": "2025-07-19T17:02:08.694000+00:00",
-      "lastModifiedDate": "2025-07-21T15:58:11.629000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["totolink"],
       "tags": ["CWE-120", "CWE-119"]
     },
     {
@@ -5575,20 +5547,6 @@
       "tags": ["CWE-312"]
     },
     {
-      "cveId": "CVE-2025-22604",
-      "title": "Cacti has Authenticated RCE via multi-line SNMP responses",
-      "severity": "CRITICAL",
-      "cvssScore": 9.1,
-      "epssScore": 40.57,
-      "epssPercentile": 97.213,
-      "riskScore": 52,
-      "publishedDate": "2025-01-27T17:06:58.215000+00:00",
-      "lastModifiedDate": "2025-01-27T18:46:27.145000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["cacti"],
-      "tags": ["CWE-78"]
-    },
-    {
       "cveId": "CVE-2025-6058",
       "title": "WPBookit <= 1.0.4 - Unauthenticated Arbitrary File Upload",
       "severity": "CRITICAL",
@@ -5921,7 +5879,7 @@
       "publishedDate": "2024-06-25T03:30:37.970000+00:00",
       "lastModifiedDate": "2024-08-01T21:33:05.337000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["warfareplugins", "stuartobrien", "blazeretail", "themerex", "pedrogusmao02"],
+      "vendors": ["warfareplugins", "pedrogusmao02", "themerex", "stuartobrien", "blazeretail"],
       "tags": []
     },
     {
@@ -8305,6 +8263,20 @@
       "tags": ["CWE-120", "CWE-119"]
     },
     {
+      "cveId": "CVE-2025-7853",
+      "title": "Tenda FH451 SetIpBind fromSetIpBind stack-based overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.08,
+      "epssPercentile": 25.273,
+      "riskScore": 50,
+      "publishedDate": "2025-07-19T19:44:07.248000+00:00",
+      "lastModifiedDate": "2025-07-21T15:55:21.669000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["tenda"],
+      "tags": ["CWE-121", "CWE-119"]
+    },
+    {
       "cveId": "CVE-2025-7344",
       "title": "Digiwin｜EAI - Privilege Escalation",
       "severity": "HIGH",
@@ -8429,6 +8401,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["tenda"],
       "tags": ["CWE-121", "CWE-119"]
+    },
+    {
+      "cveId": "CVE-2025-7837",
+      "title": "TOTOLINK T6 MQTT Service recvSlaveStaInfo buffer overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.17,
+      "epssPercentile": 38.368,
+      "riskScore": 50,
+      "publishedDate": "2025-07-19T17:02:08.694000+00:00",
+      "lastModifiedDate": "2025-07-21T15:58:11.629000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["totolink"],
+      "tags": ["CWE-120", "CWE-119"]
     },
     {
       "cveId": "CVE-2025-7460",
@@ -8877,6 +8863,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["fortinet"],
       "tags": ["CWE-306"]
+    },
+    {
+      "cveId": "CVE-2025-22604",
+      "title": "Cacti has Authenticated RCE via multi-line SNMP responses",
+      "severity": "CRITICAL",
+      "cvssScore": 9.1,
+      "epssScore": 40.57,
+      "epssPercentile": 97.213,
+      "riskScore": 50,
+      "publishedDate": "2025-01-27T17:06:58.215000+00:00",
+      "lastModifiedDate": "2025-01-27T18:46:27.145000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["cacti"],
+      "tags": ["CWE-78"]
     },
     {
       "cveId": "CVE-2025-6734",
@@ -14521,20 +14521,6 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
-      "cveId": "CVE-2025-7838",
-      "title": "Campcodes Online Movie Theater Seat Reservation System manage_seat.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 11.299,
-      "riskScore": 48,
-      "publishedDate": "2025-07-19T17:14:06.080000+00:00",
-      "lastModifiedDate": "2025-07-21T15:12:40.653000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
       "cveId": "CVE-2025-7933",
       "title": "Campcodes Sales and Inventory System Setting settings_update.php sql injection",
       "severity": "HIGH",
@@ -17499,7 +17485,7 @@
       "publishedDate": "2025-06-13T09:23:49.631000+00:00",
       "lastModifiedDate": "2025-06-13T12:22:47.798000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["rts", "telex"],
+      "vendors": ["telex", "rts"],
       "tags": []
     },
     {
@@ -17683,20 +17669,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["thanhtungtnt"],
       "tags": ["CWE-89"]
-    },
-    {
-      "cveId": "CVE-2025-52477",
-      "title": "Octo-STS Vulnerable to Unauthenticated SSRF with HTTP Response Reflection in OIDC Flow",
-      "severity": "HIGH",
-      "cvssScore": 8.6,
-      "epssScore": 0.04,
-      "epssPercentile": 10.763,
-      "riskScore": 48,
-      "publishedDate": "2025-06-26T16:46:09.380000+00:00",
-      "lastModifiedDate": "2025-06-27T13:16:43.418000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["octo-sts"],
-      "tags": ["CWE-918"]
     },
     {
       "cveId": "CVE-2025-52950",
@@ -19040,10 +19012,10 @@
       "lastModifiedDate": "2025-06-25T14:15:31.576000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "toshiba tec",
-        "fujifilm business innovation",
         "konica minolta, inc.",
+        "fujifilm business innovation",
         "brother industries, ltd",
+        "toshiba tec",
         "ricoh"
       ],
       "tags": ["CWE-1286"]
@@ -22283,20 +22255,6 @@
       "tags": ["CWE-59"]
     },
     {
-      "cveId": "CVE-2025-52903",
-      "title": "File Browser Allows Execution of Shell Commands That Can Spawn Other Commands",
-      "severity": "HIGH",
-      "cvssScore": 8.1,
-      "epssScore": 0.13,
-      "epssPercentile": 33.653,
-      "riskScore": 47,
-      "publishedDate": "2025-06-26T18:16:32.203000+00:00",
-      "lastModifiedDate": "2025-06-30T12:54:57.857000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["filebrowser"],
-      "tags": ["CWE-77"]
-    },
-    {
       "cveId": "CVE-2025-52488",
       "title": "DNN.PLATFORM leaks NTLM hash via SMB Share Interaction with malicious user input",
       "severity": "HIGH",
@@ -22323,20 +22281,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["timescale"],
       "tags": ["CWE-200"]
-    },
-    {
-      "cveId": "CVE-2025-52904",
-      "title": "File Browser: Command Execution not Limited to Scope",
-      "severity": "HIGH",
-      "cvssScore": 8.1,
-      "epssScore": 0.11,
-      "epssPercentile": 30.81,
-      "riskScore": 47,
-      "publishedDate": "2025-06-26T18:21:03.284000+00:00",
-      "lastModifiedDate": "2025-06-30T16:53:53.379000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["filebrowser"],
-      "tags": ["CWE-77"]
     },
     {
       "cveId": "CVE-2025-52571",
@@ -24814,10 +24758,10 @@
       "lastModifiedDate": "2025-06-25T14:08:48.280000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "ricoh",
+        "fujifilm business innovation",
         "brother industries, ltd",
         "konica minolta, inc.",
-        "fujifilm business innovation"
+        "ricoh"
       ],
       "tags": ["CWE-121"]
     },
@@ -27198,7 +27142,7 @@
       "publishedDate": "2025-07-08T05:32:05.678000+00:00",
       "lastModifiedDate": "2025-07-08T13:45:36.200000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -27996,7 +27940,7 @@
       "publishedDate": "2025-07-08T06:02:05.515000+00:00",
       "lastModifiedDate": "2025-07-08T13:44:30.198000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -28193,6 +28137,20 @@
       "lastModifiedDate": "2025-07-21T15:54:22.394000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-7838",
+      "title": "Campcodes Online Movie Theater Seat Reservation System manage_seat.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 11.299,
+      "riskScore": 46,
+      "publishedDate": "2025-07-19T17:14:06.080000+00:00",
+      "lastModifiedDate": "2025-07-21T15:12:40.653000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -30882,6 +30840,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["uxper"],
       "tags": ["CWE-502"]
+    },
+    {
+      "cveId": "CVE-2025-52477",
+      "title": "Octo-STS Vulnerable to Unauthenticated SSRF with HTTP Response Reflection in OIDC Flow",
+      "severity": "HIGH",
+      "cvssScore": 8.6,
+      "epssScore": 0.04,
+      "epssPercentile": 10.763,
+      "riskScore": 46,
+      "publishedDate": "2025-06-26T16:46:09.380000+00:00",
+      "lastModifiedDate": "2025-06-27T13:16:43.418000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["octo-sts"],
+      "tags": ["CWE-918"]
     },
     {
       "cveId": "CVE-2025-52824",
@@ -33628,20 +33600,6 @@
       "tags": ["CWE-269"]
     },
     {
-      "cveId": "CVE-2024-48841",
-      "title": "Remote Code Execution (RCE) Vulnerabilities",
-      "severity": "CRITICAL",
-      "cvssScore": 10.0,
-      "epssScore": 2.11,
-      "epssPercentile": 83.362,
-      "riskScore": 46,
-      "publishedDate": "2025-01-27T19:25:44.530000+00:00",
-      "lastModifiedDate": "2025-02-14T12:28:59.021000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["abb"],
-      "tags": ["CWE-77"]
-    },
-    {
       "cveId": "CVE-2024-48998",
       "title": "SQL Server Native Client Remote Code Execution Vulnerability",
       "severity": "HIGH",
@@ -35136,7 +35094,7 @@
       "publishedDate": "2025-06-25T07:25:00.402000+00:00",
       "lastModifiedDate": "2025-06-25T14:13:40.189000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["ricoh", "brother industries, ltd", "fujifilm business innovation"],
+      "vendors": ["fujifilm business innovation", "brother industries, ltd", "ricoh"],
       "tags": ["CWE-1286"]
     },
     {
@@ -38510,7 +38468,7 @@
       "publishedDate": "2025-06-13T21:03:18.087000+00:00",
       "lastModifiedDate": "2025-06-17T15:18:55.236000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["dell", "broadcom"],
+      "vendors": ["broadcom", "dell"],
       "tags": ["CWE-787"]
     },
     {
@@ -38524,7 +38482,7 @@
       "publishedDate": "2025-06-13T21:26:58.869000+00:00",
       "lastModifiedDate": "2025-06-17T18:13:30.525000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["dell", "broadcom"],
+      "vendors": ["broadcom", "dell"],
       "tags": ["CWE-763"]
     },
     {
@@ -39042,7 +39000,7 @@
       "publishedDate": "2025-06-24T08:05:15.547000+00:00",
       "lastModifiedDate": "2025-06-24T14:18:57.831000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-306"]
     },
     {
@@ -40442,7 +40400,7 @@
       "publishedDate": "2025-06-13T20:51:33.392000+00:00",
       "lastModifiedDate": "2025-06-17T03:55:12.235000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["dell", "broadcom"],
+      "vendors": ["broadcom", "dell"],
       "tags": ["CWE-121"]
     },
     {
@@ -41048,6 +41006,20 @@
       "tags": ["CWE-98"]
     },
     {
+      "cveId": "CVE-2025-52903",
+      "title": "File Browser Allows Execution of Shell Commands That Can Spawn Other Commands",
+      "severity": "HIGH",
+      "cvssScore": 8.1,
+      "epssScore": 0.13,
+      "epssPercentile": 33.653,
+      "riskScore": 45,
+      "publishedDate": "2025-06-26T18:16:32.203000+00:00",
+      "lastModifiedDate": "2025-06-30T12:54:57.857000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["filebrowser"],
+      "tags": ["CWE-77"]
+    },
+    {
       "cveId": "CVE-2025-52810",
       "title": "WordPress Katerio - Magazine theme <= 1.5.1 - Local File Inclusion Vulnerability",
       "severity": "HIGH",
@@ -41172,6 +41144,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["ancorathemes"],
       "tags": ["CWE-98"]
+    },
+    {
+      "cveId": "CVE-2025-52904",
+      "title": "File Browser: Command Execution not Limited to Scope",
+      "severity": "HIGH",
+      "cvssScore": 8.1,
+      "epssScore": 0.11,
+      "epssPercentile": 30.81,
+      "riskScore": 45,
+      "publishedDate": "2025-06-26T18:21:03.284000+00:00",
+      "lastModifiedDate": "2025-06-30T16:53:53.379000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["filebrowser"],
+      "tags": ["CWE-77"]
     },
     {
       "cveId": "CVE-2025-52521",
@@ -41478,7 +41464,7 @@
       "publishedDate": "2025-07-21T09:29:57.024000+00:00",
       "lastModifiedDate": "2025-07-21T20:36:45.460000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-78"]
     },
     {
@@ -41506,7 +41492,7 @@
       "publishedDate": "2025-07-21T09:29:32.129000+00:00",
       "lastModifiedDate": "2025-07-21T17:06:11.768000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-78"]
     },
     {
@@ -41520,7 +41506,7 @@
       "publishedDate": "2025-07-21T09:29:43.181000+00:00",
       "lastModifiedDate": "2025-07-21T17:05:33.656000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-78"]
     },
     {
@@ -43410,7 +43396,7 @@
       "publishedDate": "2024-10-15T10:28:37.223000+00:00",
       "lastModifiedDate": "2024-10-16T17:39:58.106000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-798"]
     },
     {
@@ -43466,7 +43452,7 @@
       "publishedDate": "2024-10-15T10:28:16.384000+00:00",
       "lastModifiedDate": "2024-10-16T17:44:15.429000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-306"]
     },
     {
@@ -47582,7 +47568,7 @@
       "publishedDate": "2025-05-30T18:00:06.477000+00:00",
       "lastModifiedDate": "2025-05-30T18:15:18.480000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -51992,7 +51978,7 @@
       "publishedDate": "2025-05-03T11:00:09.135000+00:00",
       "lastModifiedDate": "2025-05-30T09:10:12.356000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul", "campcodes"],
+      "vendors": ["campcodes", "phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -55324,7 +55310,7 @@
       "publishedDate": "2025-06-13T21:48:29.351000+00:00",
       "lastModifiedDate": "2025-06-17T15:18:22.706000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["dell", "broadcom"],
+      "vendors": ["broadcom", "dell"],
       "tags": ["CWE-502"]
     },
     {
@@ -55436,7 +55422,7 @@
       "publishedDate": "2025-06-13T20:42:18.769000+00:00",
       "lastModifiedDate": "2025-06-16T15:21:53.325000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["dell", "broadcom"],
+      "vendors": ["broadcom", "dell"],
       "tags": ["CWE-125"]
     },
     {
@@ -57648,7 +57634,7 @@
       "publishedDate": "2024-07-09T05:34:17.609000+00:00",
       "lastModifiedDate": "2024-08-01T21:11:12.734000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["webnus", "webnus/"],
+      "vendors": ["webnus/", "webnus"],
       "tags": []
     },
     {
@@ -58110,7 +58096,7 @@
       "publishedDate": "2024-03-18T16:03:44.987000+00:00",
       "lastModifiedDate": "2024-08-28T15:04:28.061000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric ", "schneider electric"],
+      "vendors": ["schneider electric", "schneider electric "],
       "tags": ["CWE-307"]
     },
     {
@@ -58604,6 +58590,20 @@
       "tags": ["CWE-416"]
     },
     {
+      "cveId": "CVE-2024-48841",
+      "title": "Remote Code Execution (RCE) Vulnerabilities",
+      "severity": "CRITICAL",
+      "cvssScore": 10.0,
+      "epssScore": 2.11,
+      "epssPercentile": 83.362,
+      "riskScore": 44,
+      "publishedDate": "2025-01-27T19:25:44.530000+00:00",
+      "lastModifiedDate": "2025-02-14T12:28:59.021000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["abb"],
+      "tags": ["CWE-77"]
+    },
+    {
       "cveId": "CVE-2024-48849",
       "title": "Authentication and Authorization Issues",
       "severity": "CRITICAL",
@@ -58838,7 +58838,7 @@
       "publishedDate": "2025-05-09T15:18:34.124000+00:00",
       "lastModifiedDate": "2025-05-09T19:09:17.086000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["avast", "norton", "avg"],
+      "vendors": ["avast", "avg", "norton"],
       "tags": ["CWE-367"]
     },
     {
@@ -63724,7 +63724,7 @@
       "publishedDate": "2024-10-22T21:13:37.183000+00:00",
       "lastModifiedDate": "2024-10-23T14:43:52.114000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["kieback & peter", "kieback&peter"],
+      "vendors": ["kieback&peter", "kieback & peter"],
       "tags": ["CWE-22"]
     },
     {
@@ -68946,7 +68946,7 @@
       "publishedDate": "2025-06-24T08:10:29.717000+00:00",
       "lastModifiedDate": "2025-06-24T13:56:13.121000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-639"]
     },
     {
@@ -69044,7 +69044,7 @@
       "publishedDate": "2025-06-24T08:14:31.864000+00:00",
       "lastModifiedDate": "2025-06-24T13:55:34.477000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-204"]
     },
     {
@@ -76352,7 +76352,7 @@
       "publishedDate": "2024-10-15T10:27:52.208000+00:00",
       "lastModifiedDate": "2024-10-16T17:47:04.737000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-261"]
     },
     {
@@ -81336,7 +81336,7 @@
       "publishedDate": "2024-05-14T12:58:31.261000+00:00",
       "lastModifiedDate": "2025-03-14T14:56:10.154000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["na", "n/a"],
+      "vendors": ["n/a", "na"],
       "tags": []
     },
     {
@@ -81546,7 +81546,7 @@
       "publishedDate": "2024-08-07T11:00:06.508000+00:00",
       "lastModifiedDate": "2024-08-07T13:17:59.476000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["webnus", "webnus/"],
+      "vendors": ["webnus/", "webnus"],
       "tags": ["CWE-918"]
     },
     {
@@ -81952,7 +81952,7 @@
       "publishedDate": "2024-02-05T14:33:06.481000+00:00",
       "lastModifiedDate": "2025-05-09T16:32:50.015000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["encode", "tiangolo", "kludex"],
+      "vendors": ["encode", "kludex", "tiangolo"],
       "tags": ["CWE-400"]
     },
     {
@@ -97100,7 +97100,7 @@
       "publishedDate": "2024-07-02T13:47:36.399000+00:00",
       "lastModifiedDate": "2024-08-02T04:12:25.618000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["ytdl-org", "yt-dlp"],
+      "vendors": ["yt-dlp", "ytdl-org"],
       "tags": ["CWE-669"]
     },
     {
@@ -108710,20 +108710,6 @@
       "tags": ["CWE-426"]
     },
     {
-      "cveId": "CVE-2025-24365",
-      "title": "vaultwarden allows escalation of privilege via variable confusion in OrgHeaders trait",
-      "severity": "HIGH",
-      "cvssScore": 8.1,
-      "epssScore": 0.05,
-      "epssPercentile": 17.027,
-      "riskScore": 41,
-      "publishedDate": "2025-01-27T17:49:57.796000+00:00",
-      "lastModifiedDate": "2025-02-12T20:41:36.070000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["dani-garcia"],
-      "tags": ["CWE-284"]
-    },
-    {
       "cveId": "CVE-2025-24359",
       "title": "ASTEVAL Vulnerable to Maliciously Crafted Format Strings Leading to Sandbox Escape",
       "severity": "HIGH",
@@ -108778,20 +108764,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["inaba denki sangyo co., ltd."],
       "tags": ["CWE-603"]
-    },
-    {
-      "cveId": "CVE-2025-24357",
-      "title": "vLLM allows a malicious model RCE by torch.load in hf_model_weights_iterator",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.08,
-      "epssPercentile": 24.205,
-      "riskScore": 41,
-      "publishedDate": "2025-01-27T17:38:20.070000+00:00",
-      "lastModifiedDate": "2025-02-12T20:41:36.324000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["vllm-project"],
-      "tags": ["CWE-502"]
     },
     {
       "cveId": "CVE-2025-24007",
@@ -113312,7 +113284,7 @@
       "publishedDate": "2024-10-15T10:27:06.004000+00:00",
       "lastModifiedDate": "2024-10-16T17:49:30.446000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-20"]
     },
     {
@@ -127480,7 +127452,7 @@
       "publishedDate": "2024-03-18T16:04:57.375000+00:00",
       "lastModifiedDate": "2024-08-01T19:03:37.851000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric ", "schneider electric"],
+      "vendors": ["schneider electric", "schneider electric "],
       "tags": ["CWE-79"]
     },
     {
@@ -128646,20 +128618,6 @@
       "tags": ["CWE-352"]
     },
     {
-      "cveId": "CVE-2024-54146",
-      "title": "Cacti has a SQL Injection vulnerability when view host template",
-      "severity": "HIGH",
-      "cvssScore": 7.6,
-      "epssScore": 0.17,
-      "epssPercentile": 38.935,
-      "riskScore": 40,
-      "publishedDate": "2025-01-27T17:04:16.569000+00:00",
-      "lastModifiedDate": "2025-01-27T18:47:49.445000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["cacti"],
-      "tags": ["CWE-89"]
-    },
-    {
       "cveId": "CVE-2024-54198",
       "title": "Information Disclosure vulnerability through Remote Function Call (RFC) in SAP NetWeaver Application Server ABAP",
       "severity": "HIGH",
@@ -129776,7 +129734,7 @@
       "publishedDate": "2024-10-22T22:19:20.646000+00:00",
       "lastModifiedDate": "2024-11-06T15:50:04.628000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-276"]
     },
     {
@@ -131796,20 +131754,6 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
-      "cveId": "CVE-2024-12740",
-      "title": "Dependency on Vulnerable Third-Party Component exposes Vulnerabilities in NI Vision Software",
-      "severity": "HIGH",
-      "cvssScore": 7.8,
-      "epssScore": 0.02,
-      "epssPercentile": 2.971,
-      "riskScore": 40,
-      "publishedDate": "2025-01-27T17:17:28.308000+00:00",
-      "lastModifiedDate": "2025-01-27T18:52:58.721000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["ni"],
-      "tags": ["CWE-1395"]
-    },
-    {
       "cveId": "CVE-2024-12902",
       "title": "Global Wisdom Software ANCHOR - Undocumented Privileged Account",
       "severity": "HIGH",
@@ -132548,7 +132492,7 @@
       "publishedDate": "2024-11-28T22:16:31.396000+00:00",
       "lastModifiedDate": "2024-12-06T05:18:03.652000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-427"]
     },
     {
@@ -135334,7 +135278,7 @@
       "publishedDate": "2024-11-28T22:20:28.303000+00:00",
       "lastModifiedDate": "2024-12-06T05:23:50.441000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-427"]
     },
     {
@@ -140994,6 +140938,20 @@
       "tags": ["CWE-770"]
     },
     {
+      "cveId": "CVE-2025-24365",
+      "title": "vaultwarden allows escalation of privilege via variable confusion in OrgHeaders trait",
+      "severity": "HIGH",
+      "cvssScore": 8.1,
+      "epssScore": 0.05,
+      "epssPercentile": 17.027,
+      "riskScore": 39,
+      "publishedDate": "2025-01-27T17:49:57.796000+00:00",
+      "lastModifiedDate": "2025-02-12T20:41:36.070000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["dani-garcia"],
+      "tags": ["CWE-284"]
+    },
+    {
       "cveId": "CVE-2025-24605",
       "title": "WordPress WOLF plugin <= 1.0.8.5 - Path Traversal vulnerability",
       "severity": "HIGH",
@@ -141078,6 +141036,20 @@
       "tags": ["CWE-89"]
     },
     {
+      "cveId": "CVE-2025-24357",
+      "title": "vLLM allows a malicious model RCE by torch.load in hf_model_weights_iterator",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.08,
+      "epssPercentile": 24.205,
+      "riskScore": 39,
+      "publishedDate": "2025-01-27T17:38:20.070000+00:00",
+      "lastModifiedDate": "2025-02-12T20:41:36.324000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["vllm-project"],
+      "tags": ["CWE-502"]
+    },
+    {
       "cveId": "CVE-2025-24382",
       "title": "CVE-2025-24382: Dell Unity, version(s) 5.4 and prior, contain(s) an Improper Neutralization of Special Elements used...",
       "severity": "HIGH",
@@ -141160,20 +141132,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["dualcube"],
       "tags": ["CWE-532"]
-    },
-    {
-      "cveId": "CVE-2025-24364",
-      "title": "vaultwarden allows RCE in the admin panel",
-      "severity": "HIGH",
-      "cvssScore": 7.2,
-      "epssScore": 0.16,
-      "epssPercentile": 37.628,
-      "riskScore": 39,
-      "publishedDate": "2025-01-27T17:46:15.260000+00:00",
-      "lastModifiedDate": "2025-02-12T20:41:36.200000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["dani-garcia"],
-      "tags": ["CWE-74"]
     },
     {
       "cveId": "CVE-2025-24648",
@@ -144546,7 +144504,7 @@
       "publishedDate": "2024-07-03T12:26:44.599000+00:00",
       "lastModifiedDate": "2025-02-13T17:54:25.437000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "red lion europe"],
+      "vendors": ["red lion europe", "helmholz"],
       "tags": ["CWE-78"]
     },
     {
@@ -146422,7 +146380,7 @@
       "publishedDate": "2024-10-15T10:28:58.559000+00:00",
       "lastModifiedDate": "2025-01-24T06:32:08.237000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-306"]
     },
     {
@@ -146436,7 +146394,7 @@
       "publishedDate": "2024-10-15T10:27:32.688000+00:00",
       "lastModifiedDate": "2024-10-16T17:36:22.123000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-1391"]
     },
     {
@@ -172056,7 +172014,7 @@
       "publishedDate": "2024-03-18T16:05:47.722000+00:00",
       "lastModifiedDate": "2024-08-15T16:23:48.504000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric ", "schneider electric"],
+      "vendors": ["schneider electric", "schneider electric "],
       "tags": ["CWE-552"]
     },
     {
@@ -173108,6 +173066,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["directus"],
       "tags": ["CWE-200"]
+    },
+    {
+      "cveId": "CVE-2024-54146",
+      "title": "Cacti has a SQL Injection vulnerability when view host template",
+      "severity": "HIGH",
+      "cvssScore": 7.6,
+      "epssScore": 0.17,
+      "epssPercentile": 38.935,
+      "riskScore": 38,
+      "publishedDate": "2025-01-27T17:04:16.569000+00:00",
+      "lastModifiedDate": "2025-01-27T18:47:49.445000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["cacti"],
+      "tags": ["CWE-89"]
     },
     {
       "cveId": "CVE-2024-54094",
@@ -176848,6 +176820,20 @@
       "tags": ["CWE-787"]
     },
     {
+      "cveId": "CVE-2024-12740",
+      "title": "Dependency on Vulnerable Third-Party Component exposes Vulnerabilities in NI Vision Software",
+      "severity": "HIGH",
+      "cvssScore": 7.8,
+      "epssScore": 0.02,
+      "epssPercentile": 2.971,
+      "riskScore": 38,
+      "publishedDate": "2025-01-27T17:17:28.308000+00:00",
+      "lastModifiedDate": "2025-01-27T18:52:58.721000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["ni"],
+      "tags": ["CWE-1395"]
+    },
+    {
       "cveId": "CVE-2024-12009",
       "title": "CVE-2024-12009: A post-authentication command injection vulnerability in the \"ZyEE\" function of the Zyxel EX5601-T1 ...",
       "severity": "HIGH",
@@ -177656,7 +177642,7 @@
       "publishedDate": "2024-11-28T22:18:28.358000+00:00",
       "lastModifiedDate": "2024-12-06T05:21:38.917000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-561"]
     },
     {
@@ -186620,6 +186606,20 @@
       "tags": ["CWE-89"]
     },
     {
+      "cveId": "CVE-2025-24364",
+      "title": "vaultwarden allows RCE in the admin panel",
+      "severity": "HIGH",
+      "cvssScore": 7.2,
+      "epssScore": 0.16,
+      "epssPercentile": 37.628,
+      "riskScore": 37,
+      "publishedDate": "2025-01-27T17:46:15.260000+00:00",
+      "lastModifiedDate": "2025-02-12T20:41:36.200000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["dani-garcia"],
+      "tags": ["CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-24663",
       "title": "WordPress Simple Download Monitor plugin <= 3.9.25 - SQL Injection vulnerability",
       "severity": "HIGH",
@@ -189150,7 +189150,7 @@
       "publishedDate": "2024-07-08T15:25:38.672000+00:00",
       "lastModifiedDate": "2024-08-01T22:27:36.345000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["levelone", "realtek"],
+      "vendors": ["realtek", "levelone"],
       "tags": ["CWE-122"]
     },
     {
