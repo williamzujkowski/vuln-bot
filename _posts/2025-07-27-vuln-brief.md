@@ -1,6 +1,6 @@
 ---
 title: Morning Vulnerability Briefing - 2025-07-27
-date: 2025-07-27T12:11:27.501002
+date: 2025-07-27T16:07:53.051554
 layout: layouts/post.njk
 tags: [vulnerability, briefing, security]
 vulnerabilityCount: 15541
@@ -16,8 +16,8 @@ Today's briefing covers **15541 vulnerabilities** from 0 sources.
 
 - 🔴 **Critical Risk**: 0 vulnerabilities
 - 🟠 **High Risk**: 0 vulnerabilities
-- 🟡 **Medium Risk**: 9969 vulnerabilities
-- 🟢 **Low Risk**: 5572 vulnerabilities
+- 🟡 **Medium Risk**: 9968 vulnerabilities
+- 🟢 **Low Risk**: 5573 vulnerabilities
 
 ## Top Vulnerabilities
 
@@ -52,14 +52,14 @@ Today's briefing covers **15541 vulnerabilities** from 0 sources.
 **Risk Score**: 68/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.9 | 
-**EPSS**: 84.7%
+**EPSS**: 84.2%
 
 **Summary**: Roundcube Webmail before 1.5.10 and 1.6.x before 1.6.11 allows remote code execution by authenticated users because the _from parameter in a URL is not validated in program/actions/settings/upload.php, leading to PHP Object Deserialization.
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 84.73% exploit probability
+- 84.24% exploit probability
 
 **Affected Vendors**: roundcube
 
@@ -726,7 +726,33 @@ code.
 
 ---
 
-### 28. [CVE-2024-23108](/api/vulns/CVE-2024-23108.json)
+### 28. [CVE-2024-36404](/api/vulns/CVE-2024-36404.json)
+
+**Risk Score**: 65/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 9.8 | 
+**EPSS**: 89.1%
+
+**Summary**: GeoTools is an open source Java library that provides tools for geospatial data. Prior to versions 31.2, 30.4, and 29.6, Remote Code Execution (RCE) is possible if an application uses certain GeoTools functionality to evaluate XPath expressions supplied by user input. Versions 31.2, 30.4, and 29.6 contain a fix for this issue. As a workaround, GeoTools can operate with reduced functionality by removing the `gt-complex` jar from one's application. As an example of the impact, application schema `...
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 89.09% exploit probability
+
+**Affected Vendors**: geotools
+
+**Tags**: `CWE-95`
+
+**References**:
+
+- [https://github.com/geotools/geotools/security/advisories/GHSA-w3pj-wh35-fq8w](https://github.com/geotools/geotools/security/advisories/GHSA-w3pj-wh35-fq8w)
+- [https://github.com/geotools/geotools/pull/4797](https://github.com/geotools/geotools/pull/4797)
+- [https://github.com/geotools/geotools/commit/f0c9961dc4d40c5acfce2169fab92805738de5ea](https://github.com/geotools/geotools/commit/f0c9961dc4d40c5acfce2169fab92805738de5ea)
+
+---
+
+### 29. [CVE-2024-23108](/api/vulns/CVE-2024-23108.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -751,7 +777,7 @@ code.
 
 ---
 
-### 29. [CVE-2024-38063](/api/vulns/CVE-2024-38063.json)
+### 30. [CVE-2024-38063](/api/vulns/CVE-2024-38063.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -776,7 +802,7 @@ code.
 
 ---
 
-### 30. [CVE-2025-1661](/api/vulns/CVE-2025-1661.json)
+### 31. [CVE-2025-1661](/api/vulns/CVE-2025-1661.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -802,7 +828,7 @@ code.
 
 ---
 
-### 31. [CVE-2024-49112](/api/vulns/CVE-2024-49112.json)
+### 32. [CVE-2024-49112](/api/vulns/CVE-2024-49112.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -827,7 +853,7 @@ code.
 
 ---
 
-### 32. [CVE-2024-20439](/api/vulns/CVE-2024-20439.json)
+### 33. [CVE-2024-20439](/api/vulns/CVE-2024-20439.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -851,7 +877,7 @@ code.
 
 ---
 
-### 33. [CVE-2024-38077](/api/vulns/CVE-2024-38077.json)
+### 34. [CVE-2024-38077](/api/vulns/CVE-2024-38077.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -876,7 +902,33 @@ code.
 
 ---
 
-### 34. [CVE-2024-50603](/api/vulns/CVE-2024-50603.json)
+### 35. [CVE-2024-51978](/api/vulns/CVE-2024-51978.json)
+
+**Risk Score**: 65/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 9.8 | 
+**EPSS**: 60.1%
+
+**Summary**: An unauthenticated attacker who knows the target device's serial number, can generate the default administrator password for the device. An unauthenticated attacker can first discover the target device's serial number via CVE-2024-51977 over HTTP/HTTPS/IPP, or via a PJL request, or via an SNMP request.
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 60.07% exploit probability
+
+**Affected Vendors**: brother industries, ltd, toshiba tec, konica minolta, inc.
+
+**Tags**: `CWE-1391`
+
+**References**:
+
+- [https://www.rapid7.com/blog/post/multiple-brother-devices-multiple-vulnerabilities-fixed](https://www.rapid7.com/blog/post/multiple-brother-devices-multiple-vulnerabilities-fixed)
+- [https://assets.contentstack.io/v3/assets/blte4f029e766e6b253/blt6495b3c6adf2867f/685aa980a26c5e2b1026969c/vulnerability-disclosure-whitepaper.pdf](https://assets.contentstack.io/v3/assets/blte4f029e766e6b253/blt6495b3c6adf2867f/685aa980a26c5e2b1026969c/vulnerability-disclosure-whitepaper.pdf)
+- [https://github.com/rapid7/metasploit-framework/pull/20349](https://github.com/rapid7/metasploit-framework/pull/20349)
+
+---
+
+### 36. [CVE-2024-50603](/api/vulns/CVE-2024-50603.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -902,7 +954,7 @@ code.
 
 ---
 
-### 35. [CVE-2024-3272](/api/vulns/CVE-2024-3272.json)
+### 37. [CVE-2024-3272](/api/vulns/CVE-2024-3272.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -928,7 +980,7 @@ code.
 
 ---
 
-### 36. [CVE-2024-3495](/api/vulns/CVE-2024-3495.json)
+### 38. [CVE-2024-3495](/api/vulns/CVE-2024-3495.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -952,7 +1004,7 @@ code.
 
 ---
 
-### 37. [CVE-2024-21650](/api/vulns/CVE-2024-21650.json)
+### 39. [CVE-2024-21650](/api/vulns/CVE-2024-21650.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -978,7 +1030,7 @@ code.
 
 ---
 
-### 38. [CVE-2024-0204](/api/vulns/CVE-2024-0204.json)
+### 40. [CVE-2024-0204](/api/vulns/CVE-2024-0204.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1004,7 +1056,7 @@ code.
 
 ---
 
-### 39. [CVE-2024-29895](/api/vulns/CVE-2024-29895.json)
+### 41. [CVE-2024-29895](/api/vulns/CVE-2024-29895.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1030,7 +1082,7 @@ code.
 
 ---
 
-### 40. [CVE-2024-9234](/api/vulns/CVE-2024-9234.json)
+### 42. [CVE-2024-9234](/api/vulns/CVE-2024-9234.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1056,7 +1108,7 @@ code.
 
 ---
 
-### 41. [CVE-2024-32651](/api/vulns/CVE-2024-32651.json)
+### 43. [CVE-2024-32651](/api/vulns/CVE-2024-32651.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1082,7 +1134,7 @@ code.
 
 ---
 
-### 42. [CVE-2024-1071](/api/vulns/CVE-2024-1071.json)
+### 44. [CVE-2024-1071](/api/vulns/CVE-2024-1071.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1106,7 +1158,7 @@ code.
 
 ---
 
-### 43. [CVE-2024-8856](/api/vulns/CVE-2024-8856.json)
+### 45. [CVE-2024-8856](/api/vulns/CVE-2024-8856.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1132,7 +1184,7 @@ code.
 
 ---
 
-### 44. [CVE-2024-46986](/api/vulns/CVE-2024-46986.json)
+### 46. [CVE-2024-46986](/api/vulns/CVE-2024-46986.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1158,33 +1210,7 @@ code.
 
 ---
 
-### 45. [CVE-2024-36404](/api/vulns/CVE-2024-36404.json)
-
-**Risk Score**: 64/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 85.5%
-
-**Summary**: GeoTools is an open source Java library that provides tools for geospatial data. Prior to versions 31.2, 30.4, and 29.6, Remote Code Execution (RCE) is possible if an application uses certain GeoTools functionality to evaluate XPath expressions supplied by user input. Versions 31.2, 30.4, and 29.6 contain a fix for this issue. As a workaround, GeoTools can operate with reduced functionality by removing the `gt-complex` jar from one's application. As an example of the impact, application schema `...
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 85.45% exploit probability
-
-**Affected Vendors**: geotools
-
-**Tags**: `CWE-95`
-
-**References**:
-
-- [https://github.com/geotools/geotools/security/advisories/GHSA-w3pj-wh35-fq8w](https://github.com/geotools/geotools/security/advisories/GHSA-w3pj-wh35-fq8w)
-- [https://github.com/geotools/geotools/pull/4797](https://github.com/geotools/geotools/pull/4797)
-- [https://github.com/geotools/geotools/commit/f0c9961dc4d40c5acfce2169fab92805738de5ea](https://github.com/geotools/geotools/commit/f0c9961dc4d40c5acfce2169fab92805738de5ea)
-
----
-
-### 46. [CVE-2025-27007](/api/vulns/CVE-2025-27007.json)
+### 47. [CVE-2025-27007](/api/vulns/CVE-2025-27007.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1209,7 +1235,7 @@ code.
 
 ---
 
-### 47. [CVE-2024-24576](/api/vulns/CVE-2024-24576.json)
+### 48. [CVE-2024-24576](/api/vulns/CVE-2024-24576.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1235,7 +1261,7 @@ code.
 
 ---
 
-### 48. [CVE-2024-43468](/api/vulns/CVE-2024-43468.json)
+### 49. [CVE-2024-43468](/api/vulns/CVE-2024-43468.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1260,7 +1286,7 @@ code.
 
 ---
 
-### 49. [CVE-2024-27198](/api/vulns/CVE-2024-27198.json)
+### 50. [CVE-2024-27198](/api/vulns/CVE-2024-27198.json)
 
 **Risk Score**: 63/100 | 
 **Severity**: CRITICAL | 
@@ -1280,33 +1306,6 @@ code.
 
 - [https://www.jetbrains.com/privacy-security/issues-fixed/](https://www.jetbrains.com/privacy-security/issues-fixed/)
 - [https://www.darkreading.com/cyberattacks-data-breaches/jetbrains-teamcity-mass-exploitation-underway-rogue-accounts-thrive](https://www.darkreading.com/cyberattacks-data-breaches/jetbrains-teamcity-mass-exploitation-underway-rogue-accounts-thrive)
-
----
-
-### 50. [CVE-2024-2389](/api/vulns/CVE-2024-2389.json)
-
-**Risk Score**: 63/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 10.0 | 
-**EPSS**: 94.3%
-
-**Summary**: In Flowmon versions prior to 11.1.14 and 12.3.5, an operating system command injection vulnerability has been identified.  An unauthenticated user can gain entry to the system via the Flowmon management interface, allowing for the execution of arbitrary system commands.
-
-
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 94.35% exploit probability
-
-**Affected Vendors**: progress software
-
-**Tags**: `CWE-78`
-
-**References**:
-
-- [https://www.flowmon.com](https://www.flowmon.com)
-- [https://support.kemptechnologies.com/hc/en-us/articles/24878235038733-CVE-2024-2389-Flowmon-critical-security-vulnerability](https://support.kemptechnologies.com/hc/en-us/articles/24878235038733-CVE-2024-2389-Flowmon-critical-security-vulnerability)
 
 ---
 
