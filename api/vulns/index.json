@@ -1,5 +1,5 @@
 {
-  "generated": "2025-07-27T08:08:41.619734",
+  "generated": "2025-07-27T12:11:27.501002",
   "count": 15541,
   "vulnerabilities": [
     {
@@ -181,7 +181,7 @@
       "publishedDate": "2024-11-15T03:18:45.746000+00:00",
       "lastModifiedDate": "2024-11-19T13:37:03.351000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["really simple plugins", "rogierlankhorst"],
+      "vendors": ["rogierlankhorst", "really simple plugins"],
       "tags": ["CWE-288"]
     },
     {
@@ -1049,7 +1049,7 @@
       "publishedDate": "2024-11-26T07:37:44.549000+00:00",
       "lastModifiedDate": "2024-12-10T14:58:18.708000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-288"]
     },
     {
@@ -1329,7 +1329,7 @@
       "publishedDate": "2025-06-25T07:17:32.423000+00:00",
       "lastModifiedDate": "2025-07-25T16:19:55.848000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["konica minolta, inc.", "toshiba tec", "brother industries, ltd"],
+      "vendors": ["brother industries, ltd", "toshiba tec", "konica minolta, inc."],
       "tags": ["CWE-1391"]
     },
     {
@@ -4591,7 +4591,7 @@
       "publishedDate": "2024-11-26T07:37:38.329000+00:00",
       "lastModifiedDate": "2024-12-10T15:43:57.213000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-22"]
     },
     {
@@ -5921,7 +5921,7 @@
       "publishedDate": "2024-06-25T03:30:37.970000+00:00",
       "lastModifiedDate": "2024-08-01T21:33:05.337000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["blazeretail", "pedrogusmao02", "stuartobrien", "warfareplugins", "themerex"],
+      "vendors": ["pedrogusmao02", "warfareplugins", "stuartobrien", "themerex", "blazeretail"],
       "tags": []
     },
     {
@@ -9087,20 +9087,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["utt"],
       "tags": ["CWE-120", "CWE-119"]
-    },
-    {
-      "cveId": "CVE-2025-6561",
-      "title": "Hunt Electronic Hybrid DVR - Exposure of Sensitive System Information",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 0.11,
-      "epssPercentile": 30.379,
-      "riskScore": 50,
-      "publishedDate": "2025-06-26T11:45:17.211000+00:00",
-      "lastModifiedDate": "2025-06-26T12:57:22.413000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["hunt electronic"],
-      "tags": ["CWE-497", "CWE-256"]
     },
     {
       "cveId": "CVE-2025-6939",
@@ -17307,6 +17293,20 @@
       "tags": ["CWE-121", "CWE-119"]
     },
     {
+      "cveId": "CVE-2025-6561",
+      "title": "Hunt Electronic Hybrid DVR - Exposure of Sensitive System Information",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.11,
+      "epssPercentile": 30.379,
+      "riskScore": 48,
+      "publishedDate": "2025-06-26T11:45:17.211000+00:00",
+      "lastModifiedDate": "2025-06-26T12:57:22.413000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["hunt electronic"],
+      "tags": ["CWE-497", "CWE-256"]
+    },
+    {
       "cveId": "CVE-2025-6334",
       "title": "D-Link DIR-867 Query String strncpy stack-based overflow",
       "severity": "HIGH",
@@ -19082,11 +19082,11 @@
       "lastModifiedDate": "2025-06-25T14:15:31.576000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "brother industries, ltd",
-        "fujifilm business innovation",
-        "ricoh",
         "konica minolta, inc.",
-        "toshiba tec"
+        "fujifilm business innovation",
+        "toshiba tec",
+        "brother industries, ltd",
+        "ricoh"
       ],
       "tags": ["CWE-1286"]
     },
@@ -24912,10 +24912,10 @@
       "lastModifiedDate": "2025-06-25T14:08:48.280000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "ricoh",
-        "konica minolta, inc.",
+        "fujifilm business innovation",
         "brother industries, ltd",
-        "fujifilm business innovation"
+        "ricoh",
+        "konica minolta, inc."
       ],
       "tags": ["CWE-121"]
     },
@@ -30268,20 +30268,6 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
-      "cveId": "CVE-2025-6212",
-      "title": "Ultra Addons for Contact Form 7 3.5.11 - 3.5.19 - Unauthenticated Stored Cross-Site Scripting via Database module",
-      "severity": "HIGH",
-      "cvssScore": 7.2,
-      "epssScore": 0.1,
-      "epssPercentile": 29.347,
-      "riskScore": 46,
-      "publishedDate": "2025-06-26T09:22:03.276000+00:00",
-      "lastModifiedDate": "2025-06-26T13:02:55.136000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["themefic"],
-      "tags": ["CWE-79"]
-    },
-    {
       "cveId": "CVE-2025-6840",
       "title": "code-projects Product Inventory System Login index.php sql injection",
       "severity": "HIGH",
@@ -35098,20 +35084,6 @@
       "tags": []
     },
     {
-      "cveId": "CVE-2024-6174",
-      "title": "CVE-2024-6174: When a non-x86 platform is detected, cloud-init grants root access to a hardcoded url with a local I...",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.02,
-      "epssPercentile": 4.233,
-      "riskScore": 46,
-      "publishedDate": "2025-06-26T09:15:25.462000+00:00",
-      "lastModifiedDate": "2025-06-26T17:38:50.843000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["canonical"],
-      "tags": []
-    },
-    {
       "cveId": "CVE-2024-6671",
       "title": "WhatsUp Gold GetStatisticalMonitorList SQL Injection Authentication Bypass Vulnerability",
       "severity": "CRITICAL",
@@ -35178,7 +35150,7 @@
       "publishedDate": "2025-06-25T07:25:00.402000+00:00",
       "lastModifiedDate": "2025-06-25T14:13:40.189000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["ricoh", "brother industries, ltd", "fujifilm business innovation"],
+      "vendors": ["fujifilm business innovation", "brother industries, ltd", "ricoh"],
       "tags": ["CWE-1286"]
     },
     {
@@ -38580,7 +38552,7 @@
       "publishedDate": "2025-06-13T21:03:18.087000+00:00",
       "lastModifiedDate": "2025-06-17T15:18:55.236000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["broadcom", "dell"],
+      "vendors": ["dell", "broadcom"],
       "tags": ["CWE-787"]
     },
     {
@@ -38594,7 +38566,7 @@
       "publishedDate": "2025-06-13T21:26:58.869000+00:00",
       "lastModifiedDate": "2025-06-17T18:13:30.525000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["broadcom", "dell"],
+      "vendors": ["dell", "broadcom"],
       "tags": ["CWE-763"]
     },
     {
@@ -39112,7 +39084,7 @@
       "publishedDate": "2025-06-24T08:05:15.547000+00:00",
       "lastModifiedDate": "2025-06-24T14:18:57.831000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-306"]
     },
     {
@@ -40498,7 +40470,7 @@
       "publishedDate": "2025-06-13T20:51:33.392000+00:00",
       "lastModifiedDate": "2025-06-17T03:55:12.235000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["broadcom", "dell"],
+      "vendors": ["dell", "broadcom"],
       "tags": ["CWE-121"]
     },
     {
@@ -41534,7 +41506,7 @@
       "publishedDate": "2025-07-21T09:29:57.024000+00:00",
       "lastModifiedDate": "2025-07-21T20:36:45.460000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-78"]
     },
     {
@@ -41562,7 +41534,7 @@
       "publishedDate": "2025-07-21T09:29:32.129000+00:00",
       "lastModifiedDate": "2025-07-21T17:06:11.768000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-78"]
     },
     {
@@ -41576,7 +41548,7 @@
       "publishedDate": "2025-07-21T09:29:43.181000+00:00",
       "lastModifiedDate": "2025-07-21T17:05:33.656000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-78"]
     },
     {
@@ -43452,7 +43424,7 @@
       "publishedDate": "2024-10-15T10:28:37.223000+00:00",
       "lastModifiedDate": "2024-10-16T17:39:58.106000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-798"]
     },
     {
@@ -43508,7 +43480,7 @@
       "publishedDate": "2024-10-15T10:28:16.384000+00:00",
       "lastModifiedDate": "2024-10-16T17:44:15.429000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-306"]
     },
     {
@@ -43802,7 +43774,7 @@
       "publishedDate": "2024-11-26T07:38:12.712000+00:00",
       "lastModifiedDate": "2025-01-27T17:45:48.564000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-798"]
     },
     {
@@ -46000,7 +45972,7 @@
       "publishedDate": "2024-11-26T07:37:06.324000+00:00",
       "lastModifiedDate": "2024-12-10T14:57:54.916000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-121"]
     },
     {
@@ -46224,7 +46196,7 @@
       "publishedDate": "2024-11-26T07:38:06.435000+00:00",
       "lastModifiedDate": "2025-01-27T17:46:45.224000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-798"]
     },
     {
@@ -52748,7 +52720,7 @@
       "publishedDate": "2025-05-05T18:31:04.418000+00:00",
       "lastModifiedDate": "2025-05-05T18:48:57.123000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["oretnom23", "sourcecodester"],
+      "vendors": ["sourcecodester", "oretnom23"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -54600,6 +54572,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-6212",
+      "title": "Ultra Addons for Contact Form 7 3.5.11 - 3.5.19 - Unauthenticated Stored Cross-Site Scripting via Database module",
+      "severity": "HIGH",
+      "cvssScore": 7.2,
+      "epssScore": 0.1,
+      "epssPercentile": 29.347,
+      "riskScore": 44,
+      "publishedDate": "2025-06-26T09:22:03.276000+00:00",
+      "lastModifiedDate": "2025-06-26T13:02:55.136000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["themefic"],
+      "tags": ["CWE-79"]
+    },
+    {
       "cveId": "CVE-2025-6363",
       "title": "code-projects Simple Pizza Ordering System adding-exec.php sql injection",
       "severity": "HIGH",
@@ -55408,7 +55394,7 @@
       "publishedDate": "2025-06-13T21:48:29.351000+00:00",
       "lastModifiedDate": "2025-06-17T15:18:22.706000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["broadcom", "dell"],
+      "vendors": ["dell", "broadcom"],
       "tags": ["CWE-502"]
     },
     {
@@ -55548,7 +55534,7 @@
       "publishedDate": "2025-06-13T20:42:18.769000+00:00",
       "lastModifiedDate": "2025-06-16T15:21:53.325000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["broadcom", "dell"],
+      "vendors": ["dell", "broadcom"],
       "tags": ["CWE-125"]
     },
     {
@@ -58292,7 +58278,7 @@
       "publishedDate": "2024-03-18T16:03:44.987000+00:00",
       "lastModifiedDate": "2024-08-28T15:04:28.061000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric", "schneider electric "],
+      "vendors": ["schneider electric ", "schneider electric"],
       "tags": ["CWE-307"]
     },
     {
@@ -59020,7 +59006,7 @@
       "publishedDate": "2025-05-09T15:18:34.124000+00:00",
       "lastModifiedDate": "2025-05-09T19:09:17.086000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["avast", "avg", "norton"],
+      "vendors": ["avast", "norton", "avg"],
       "tags": ["CWE-367"]
     },
     {
@@ -59636,7 +59622,7 @@
       "publishedDate": "2024-10-25T06:18:36.274000+00:00",
       "lastModifiedDate": "2024-10-25T18:38:24.503000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-288"]
     },
     {
@@ -61738,6 +61724,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["ptc"],
       "tags": ["CWE-862"]
+    },
+    {
+      "cveId": "CVE-2024-6174",
+      "title": "CVE-2024-6174: When a non-x86 platform is detected, cloud-init grants root access to a hardcoded url with a local I...",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.02,
+      "epssPercentile": 4.233,
+      "riskScore": 44,
+      "publishedDate": "2025-06-26T09:15:25.462000+00:00",
+      "lastModifiedDate": "2025-06-26T17:38:50.843000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["canonical"],
+      "tags": []
     },
     {
       "cveId": "CVE-2024-6744",
@@ -69114,7 +69114,7 @@
       "publishedDate": "2025-06-24T08:10:29.717000+00:00",
       "lastModifiedDate": "2025-06-24T13:56:13.121000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-639"]
     },
     {
@@ -69212,7 +69212,7 @@
       "publishedDate": "2025-06-24T08:14:31.864000+00:00",
       "lastModifiedDate": "2025-06-24T13:55:34.477000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-204"]
     },
     {
@@ -76520,7 +76520,7 @@
       "publishedDate": "2024-10-15T10:27:52.208000+00:00",
       "lastModifiedDate": "2024-10-16T17:47:04.737000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-261"]
     },
     {
@@ -82120,7 +82120,7 @@
       "publishedDate": "2024-02-05T14:33:06.481000+00:00",
       "lastModifiedDate": "2025-05-09T16:32:50.015000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["encode", "tiangolo", "kludex"],
+      "vendors": ["tiangolo", "kludex", "encode"],
       "tags": ["CWE-400"]
     },
     {
@@ -113312,7 +113312,7 @@
       "publishedDate": "2024-10-15T10:27:06.004000+00:00",
       "lastModifiedDate": "2024-10-16T17:49:30.446000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-20"]
     },
     {
@@ -114544,7 +114544,7 @@
       "publishedDate": "2024-10-25T06:18:30.415000+00:00",
       "lastModifiedDate": "2024-10-25T18:38:02.777000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-749"]
     },
     {
@@ -114838,7 +114838,7 @@
       "publishedDate": "2024-11-26T07:38:24.464000+00:00",
       "lastModifiedDate": "2024-11-26T16:28:15.625000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -114852,7 +114852,7 @@
       "publishedDate": "2024-11-26T07:38:30.408000+00:00",
       "lastModifiedDate": "2024-11-26T14:48:35.480000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -114908,7 +114908,7 @@
       "publishedDate": "2024-11-26T07:38:18.359000+00:00",
       "lastModifiedDate": "2024-11-26T14:09:24.516000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-79"]
     },
     {
@@ -127508,7 +127508,7 @@
       "publishedDate": "2024-03-18T16:04:57.375000+00:00",
       "lastModifiedDate": "2024-08-01T19:03:37.851000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric", "schneider electric "],
+      "vendors": ["schneider electric ", "schneider electric"],
       "tags": ["CWE-79"]
     },
     {
@@ -129804,7 +129804,7 @@
       "publishedDate": "2024-10-22T22:19:20.646000+00:00",
       "lastModifiedDate": "2024-11-06T15:50:04.628000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-276"]
     },
     {
@@ -132576,7 +132576,7 @@
       "publishedDate": "2024-11-28T22:16:31.396000+00:00",
       "lastModifiedDate": "2024-12-06T05:18:03.652000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-427"]
     },
     {
@@ -133514,7 +133514,7 @@
       "publishedDate": "2024-10-25T06:18:00.481000+00:00",
       "lastModifiedDate": "2024-10-25T18:37:13.542000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -135362,7 +135362,7 @@
       "publishedDate": "2024-11-28T22:20:28.303000+00:00",
       "lastModifiedDate": "2024-12-06T05:23:50.441000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-427"]
     },
     {
@@ -137378,7 +137378,7 @@
       "publishedDate": "2024-10-25T06:18:10.875000+00:00",
       "lastModifiedDate": "2024-10-25T17:16:12.736000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -146422,7 +146422,7 @@
       "publishedDate": "2024-10-15T10:28:58.559000+00:00",
       "lastModifiedDate": "2025-01-24T06:32:08.237000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-306"]
     },
     {
@@ -146436,7 +146436,7 @@
       "publishedDate": "2024-10-15T10:27:32.688000+00:00",
       "lastModifiedDate": "2024-10-16T17:36:22.123000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-1391"]
     },
     {
@@ -147920,7 +147920,7 @@
       "publishedDate": "2024-10-25T06:18:42.287000+00:00",
       "lastModifiedDate": "2024-10-25T18:32:25.798000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-644"]
     },
     {
@@ -148074,7 +148074,7 @@
       "publishedDate": "2024-10-25T06:18:50.793000+00:00",
       "lastModifiedDate": "2024-10-25T14:16:46.537000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-79"]
     },
     {
@@ -172238,7 +172238,7 @@
       "publishedDate": "2024-03-18T16:05:47.722000+00:00",
       "lastModifiedDate": "2024-08-15T16:23:48.504000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric", "schneider electric "],
+      "vendors": ["schneider electric ", "schneider electric"],
       "tags": ["CWE-552"]
     },
     {
@@ -177838,7 +177838,7 @@
       "publishedDate": "2024-11-28T22:18:28.358000+00:00",
       "lastModifiedDate": "2024-12-06T05:21:38.917000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-561"]
     },
     {
@@ -182780,7 +182780,7 @@
       "publishedDate": "2024-07-04T08:53:41.217000+00:00",
       "lastModifiedDate": "2024-08-19T15:25:49.496000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-427"]
     },
     {
@@ -189318,7 +189318,7 @@
       "publishedDate": "2024-07-08T15:25:38.672000+00:00",
       "lastModifiedDate": "2024-08-01T22:27:36.345000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["realtek", "levelone"],
+      "vendors": ["levelone", "realtek"],
       "tags": ["CWE-122"]
     },
     {
