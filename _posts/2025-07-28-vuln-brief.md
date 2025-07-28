@@ -1,6 +1,6 @@
 ---
 title: Morning Vulnerability Briefing - 2025-07-28
-date: 2025-07-28T12:11:41.563558
+date: 2025-07-28T16:08:29.260609
 layout: layouts/post.njk
 tags: [vulnerability, briefing, security]
 vulnerabilityCount: 15558
@@ -16,8 +16,8 @@ Today's briefing covers **15558 vulnerabilities** from 0 sources.
 
 - 🔴 **Critical Risk**: 0 vulnerabilities
 - 🟠 **High Risk**: 0 vulnerabilities
-- 🟡 **Medium Risk**: 9976 vulnerabilities
-- 🟢 **Low Risk**: 5582 vulnerabilities
+- 🟡 **Medium Risk**: 9975 vulnerabilities
+- 🟢 **Low Risk**: 5583 vulnerabilities
 
 ## Top Vulnerabilities
 
@@ -26,14 +26,14 @@ Today's briefing covers **15558 vulnerabilities** from 0 sources.
 **Risk Score**: 68/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 10.0 | 
-**EPSS**: 90.1%
+**EPSS**: 91.0%
 
 **Summary**: In Wing FTP Server before 7.4.4. the user and admin web interfaces mishandle '\0' bytes, ultimately allowing injection of arbitrary Lua code into user session files. This can be used to execute arbitrary system commands with the privileges of the FTP service (root or SYSTEM by default). This is thus a remote code execution vulnerability that guarantees a total server compromise. This is also exploitable via anonymous FTP accounts.
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 90.06% exploit probability
+- 90.99% exploit probability
 - Published within last month
 
 **Affected Vendors**: wftpserver
@@ -297,7 +297,7 @@ critical systems.
 - CRITICAL severity
 - 93.95% exploit probability
 
-**Affected Vendors**: rogierlankhorst, really simple plugins
+**Affected Vendors**: really simple plugins, rogierlankhorst
 
 **Tags**: `CWE-288`
 
@@ -384,7 +384,35 @@ critical systems.
 
 ---
 
-### 15. [CVE-2024-4040](/api/vulns/CVE-2024-4040.json)
+### 15. [CVE-2024-36401](/api/vulns/CVE-2024-36401.json)
+
+**Risk Score**: 65/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 9.8 | 
+**EPSS**: 94.4%
+
+**Summary**: GeoServer is an open source server that allows users to share and edit geospatial data. Prior to versions 2.22.6, 2.23.6, 2.24.4, and 2.25.2, multiple OGC request parameters allow Remote Code Execution (RCE) by unauthenticated users through specially crafted input against a default GeoServer installation due to unsafely evaluating property names as XPath expressions.
+
+The GeoTools library API that GeoServer calls evaluates property/attribute names for feature types in a way that unsafely passes ...
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 94.43% exploit probability
+
+**Affected Vendors**: geoserver
+
+**Tags**: `CWE-95`
+
+**References**:
+
+- [https://github.com/geoserver/geoserver/security/advisories/GHSA-6jj6-gm7p-fcvv](https://github.com/geoserver/geoserver/security/advisories/GHSA-6jj6-gm7p-fcvv)
+- [https://github.com/geotools/geotools/security/advisories/GHSA-w3pj-wh35-fq8w](https://github.com/geotools/geotools/security/advisories/GHSA-w3pj-wh35-fq8w)
+- [https://github.com/geotools/geotools/pull/4797](https://github.com/geotools/geotools/pull/4797)
+
+---
+
+### 16. [CVE-2024-4040](/api/vulns/CVE-2024-4040.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -408,34 +436,6 @@ critical systems.
 - [https://www.crushftp.com/crush11wiki/Wiki.jsp?page=Update](https://www.crushftp.com/crush11wiki/Wiki.jsp?page=Update)
 - [https://www.crushftp.com/crush10wiki/Wiki.jsp?page=Update](https://www.crushftp.com/crush10wiki/Wiki.jsp?page=Update)
 - [https://www.reddit.com/r/cybersecurity/comments/1c850i2/all_versions_of_crush_ftp_are_vulnerable/](https://www.reddit.com/r/cybersecurity/comments/1c850i2/all_versions_of_crush_ftp_are_vulnerable/)
-
----
-
-### 16. [CVE-2024-36401](/api/vulns/CVE-2024-36401.json)
-
-**Risk Score**: 65/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 94.4%
-
-**Summary**: GeoServer is an open source server that allows users to share and edit geospatial data. Prior to versions 2.22.6, 2.23.6, 2.24.4, and 2.25.2, multiple OGC request parameters allow Remote Code Execution (RCE) by unauthenticated users through specially crafted input against a default GeoServer installation due to unsafely evaluating property names as XPath expressions.
-
-The GeoTools library API that GeoServer calls evaluates property/attribute names for feature types in a way that unsafely passes ...
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 94.42% exploit probability
-
-**Affected Vendors**: geoserver
-
-**Tags**: `CWE-95`
-
-**References**:
-
-- [https://github.com/geoserver/geoserver/security/advisories/GHSA-6jj6-gm7p-fcvv](https://github.com/geoserver/geoserver/security/advisories/GHSA-6jj6-gm7p-fcvv)
-- [https://github.com/geotools/geotools/security/advisories/GHSA-w3pj-wh35-fq8w](https://github.com/geotools/geotools/security/advisories/GHSA-w3pj-wh35-fq8w)
-- [https://github.com/geotools/geotools/pull/4797](https://github.com/geotools/geotools/pull/4797)
 
 ---
 
@@ -916,7 +916,7 @@ code.
 - CRITICAL severity
 - 60.07% exploit probability
 
-**Affected Vendors**: toshiba tec, konica minolta, inc., brother industries, ltd
+**Affected Vendors**: brother industries, ltd, toshiba tec, konica minolta, inc.
 
 **Tags**: `CWE-1391`
 
