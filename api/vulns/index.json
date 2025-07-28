@@ -1,5 +1,5 @@
 {
-  "generated": "2025-07-28T04:23:48.577270",
+  "generated": "2025-07-28T08:10:50.623726",
   "count": 15558,
   "vulnerabilities": [
     {
@@ -181,7 +181,7 @@
       "publishedDate": "2024-11-15T03:18:45.746000+00:00",
       "lastModifiedDate": "2024-11-19T13:37:03.351000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["really simple plugins", "rogierlankhorst"],
+      "vendors": ["rogierlankhorst", "really simple plugins"],
       "tags": ["CWE-288"]
     },
     {
@@ -3317,7 +3317,7 @@
       "publishedDate": "2024-10-18T17:32:30.648000+00:00",
       "lastModifiedDate": "2024-10-18T18:56:31.697000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["scottpaterson", "scott paterson"],
+      "vendors": ["scott paterson", "scottpaterson"],
       "tags": ["CWE-94"]
     },
     {
@@ -5921,7 +5921,7 @@
       "publishedDate": "2024-06-25T03:30:37.970000+00:00",
       "lastModifiedDate": "2024-08-01T21:33:05.337000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["pedrogusmao02", "blazeretail", "warfareplugins", "stuartobrien", "themerex"],
+      "vendors": ["blazeretail", "warfareplugins", "stuartobrien", "themerex", "pedrogusmao02"],
       "tags": []
     },
     {
@@ -9073,20 +9073,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["totolink"],
       "tags": ["CWE-120", "CWE-119"]
-    },
-    {
-      "cveId": "CVE-2025-6688",
-      "title": "Simple Payment 1.3.6 - 2.3.8 - Authentication Bypass to Admin",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 0.31,
-      "epssPercentile": 53.474,
-      "riskScore": 50,
-      "publishedDate": "2025-06-27T07:22:23.675000+00:00",
-      "lastModifiedDate": "2025-06-27T13:40:48.222000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["idokd"],
-      "tags": ["CWE-288"]
     },
     {
       "cveId": "CVE-2025-6098",
@@ -15725,20 +15711,6 @@
       "tags": ["CWE-434"]
     },
     {
-      "cveId": "CVE-2025-4007",
-      "title": "Tenda W12/i24 httpd modules cgidhcpsCfgSet stack-based overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.06,
-      "epssPercentile": 20.464,
-      "riskScore": 48,
-      "publishedDate": "2025-04-28T07:31:05.788000+00:00",
-      "lastModifiedDate": "2025-04-28T16:16:02.573000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["tenda"],
-      "tags": ["CWE-121", "CWE-119"]
-    },
-    {
       "cveId": "CVE-2025-3699",
       "title": "CVE-2025-3699: Missing Authentication for Critical Function vulnerability in Mitsubishi Electric Corporation G-50 V...",
       "severity": "CRITICAL",
@@ -17123,6 +17095,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["d-link"],
       "tags": ["CWE-121", "CWE-119"]
+    },
+    {
+      "cveId": "CVE-2025-6688",
+      "title": "Simple Payment 1.3.6 - 2.3.8 - Authentication Bypass to Admin",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.31,
+      "epssPercentile": 53.474,
+      "riskScore": 48,
+      "publishedDate": "2025-06-27T07:22:23.675000+00:00",
+      "lastModifiedDate": "2025-06-27T13:40:48.222000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["idokd"],
+      "tags": ["CWE-288"]
     },
     {
       "cveId": "CVE-2025-6163",
@@ -19054,11 +19040,11 @@
       "lastModifiedDate": "2025-06-25T14:15:31.576000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "toshiba tec",
+        "brother industries, ltd",
+        "fujifilm business innovation",
         "konica minolta, inc.",
         "ricoh",
-        "brother industries, ltd",
-        "fujifilm business innovation"
+        "toshiba tec"
       ],
       "tags": ["CWE-1286"]
     },
@@ -24772,10 +24758,10 @@
       "lastModifiedDate": "2025-06-25T14:08:48.280000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
+        "fujifilm business innovation",
         "konica minolta, inc.",
         "ricoh",
-        "brother industries, ltd",
-        "fujifilm business innovation"
+        "brother industries, ltd"
       ],
       "tags": ["CWE-121"]
     },
@@ -27846,20 +27832,6 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
-      "cveId": "CVE-2025-7875",
-      "title": "Metasoft 美特软件 MetaCRM debug.jsp improper authentication",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.07,
-      "epssPercentile": 21.646,
-      "riskScore": 46,
-      "publishedDate": "2025-07-20T07:14:05.444000+00:00",
-      "lastModifiedDate": "2025-07-21T17:03:03.085000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["metasoft 美特软件"],
-      "tags": ["CWE-287"]
-    },
-    {
       "cveId": "CVE-2025-7535",
       "title": "Campcodes Sales and Inventory System reprint_cash.php sql injection",
       "severity": "HIGH",
@@ -28894,6 +28866,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["codexthemes"],
       "tags": ["CWE-434"]
+    },
+    {
+      "cveId": "CVE-2025-4007",
+      "title": "Tenda W12/i24 httpd modules cgidhcpsCfgSet stack-based overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.06,
+      "epssPercentile": 20.464,
+      "riskScore": 46,
+      "publishedDate": "2025-04-28T07:31:05.788000+00:00",
+      "lastModifiedDate": "2025-04-28T16:16:02.573000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["tenda"],
+      "tags": ["CWE-121", "CWE-119"]
     },
     {
       "cveId": "CVE-2025-3786",
@@ -33950,20 +33936,6 @@
       "tags": ["CWE-288"]
     },
     {
-      "cveId": "CVE-2024-13448",
-      "title": "ThemeREX Addons <= 2.32.3 - Unauthenticated Arbitrary File Upload in trx_addons_uploads_save_data",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 0.74,
-      "epssPercentile": 71.847,
-      "riskScore": 46,
-      "publishedDate": "2025-01-28T06:38:41.703000+00:00",
-      "lastModifiedDate": "2025-01-28T15:14:51.436000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["n/a"],
-      "tags": ["CWE-434"]
-    },
-    {
       "cveId": "CVE-2024-13513",
       "title": "Oliver POS – A WooCommerce Point of Sale (POS) <= 2.4.2.3 - Sensitive Information Exposure to Privilege Escalation",
       "severity": "CRITICAL",
@@ -35262,7 +35234,7 @@
       "publishedDate": "2025-06-25T07:25:00.402000+00:00",
       "lastModifiedDate": "2025-06-25T14:13:40.189000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["ricoh", "brother industries, ltd", "fujifilm business innovation"],
+      "vendors": ["fujifilm business innovation", "ricoh", "brother industries, ltd"],
       "tags": ["CWE-1286"]
     },
     {
@@ -38664,7 +38636,7 @@
       "publishedDate": "2025-06-13T21:03:18.087000+00:00",
       "lastModifiedDate": "2025-06-17T15:18:55.236000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["broadcom", "dell"],
+      "vendors": ["dell", "broadcom"],
       "tags": ["CWE-787"]
     },
     {
@@ -38678,7 +38650,7 @@
       "publishedDate": "2025-06-13T21:26:58.869000+00:00",
       "lastModifiedDate": "2025-06-17T18:13:30.525000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["broadcom", "dell"],
+      "vendors": ["dell", "broadcom"],
       "tags": ["CWE-763"]
     },
     {
@@ -40596,7 +40568,7 @@
       "publishedDate": "2025-06-13T20:51:33.392000+00:00",
       "lastModifiedDate": "2025-06-17T03:55:12.235000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["broadcom", "dell"],
+      "vendors": ["dell", "broadcom"],
       "tags": ["CWE-121"]
     },
     {
@@ -49098,6 +49070,20 @@
       "tags": ["CWE-434"]
     },
     {
+      "cveId": "CVE-2025-7875",
+      "title": "Metasoft 美特软件 MetaCRM debug.jsp improper authentication",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.07,
+      "epssPercentile": 21.646,
+      "riskScore": 44,
+      "publishedDate": "2025-07-20T07:14:05.444000+00:00",
+      "lastModifiedDate": "2025-07-21T17:03:03.085000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["metasoft 美特软件"],
+      "tags": ["CWE-287"]
+    },
+    {
       "cveId": "CVE-2025-7735",
       "title": "UNIMAX｜Hospital Information System - SQL Injection",
       "severity": "HIGH",
@@ -50327,20 +50313,6 @@
       "lastModifiedDate": "2025-04-28T14:13:49.216000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["itsourcecode"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-4004",
-      "title": "PHPGurukul COVID19 Testing Management System password-recovery.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 9.797,
-      "riskScore": 44,
-      "publishedDate": "2025-04-28T06:00:07.575000+00:00",
-      "lastModifiedDate": "2025-05-02T10:48:11.321000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -51895,20 +51867,6 @@
       "lastModifiedDate": "2025-05-19T18:31:19.529000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["itsourcecode"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-4005",
-      "title": "PHPGurukul COVID19 Testing Management System patient-report.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 9.797,
-      "riskScore": 44,
-      "publishedDate": "2025-04-28T06:31:06.157000+00:00",
-      "lastModifiedDate": "2025-04-28T14:10:50.310000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -55534,7 +55492,7 @@
       "publishedDate": "2025-06-13T21:48:29.351000+00:00",
       "lastModifiedDate": "2025-06-17T15:18:22.706000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["broadcom", "dell"],
+      "vendors": ["dell", "broadcom"],
       "tags": ["CWE-502"]
     },
     {
@@ -55646,7 +55604,7 @@
       "publishedDate": "2025-06-13T20:42:18.769000+00:00",
       "lastModifiedDate": "2025-06-16T15:21:53.325000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["broadcom", "dell"],
+      "vendors": ["dell", "broadcom"],
       "tags": ["CWE-125"]
     },
     {
@@ -58320,7 +58278,7 @@
       "publishedDate": "2024-03-18T16:03:44.987000+00:00",
       "lastModifiedDate": "2024-08-28T15:04:28.061000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric", "schneider electric "],
+      "vendors": ["schneider electric ", "schneider electric"],
       "tags": ["CWE-307"]
     },
     {
@@ -59052,6 +59010,20 @@
       "tags": ["CWE-121"]
     },
     {
+      "cveId": "CVE-2024-13448",
+      "title": "ThemeREX Addons <= 2.32.3 - Unauthenticated Arbitrary File Upload in trx_addons_uploads_save_data",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.74,
+      "epssPercentile": 71.847,
+      "riskScore": 44,
+      "publishedDate": "2025-01-28T06:38:41.703000+00:00",
+      "lastModifiedDate": "2025-01-28T15:14:51.436000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["n/a"],
+      "tags": ["CWE-434"]
+    },
+    {
       "cveId": "CVE-2024-13944",
       "title": "Link Following Local Privilege Escalation Vulnerability in NortonUtilitiesSvc in Norton Utilities Ultimate (Also affects Avast CleanUp and AVG TuneUp)",
       "severity": "HIGH",
@@ -59062,7 +59034,7 @@
       "publishedDate": "2025-05-09T15:18:34.124000+00:00",
       "lastModifiedDate": "2025-05-09T19:09:17.086000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["avast", "norton", "avg"],
+      "vendors": ["avg", "avast", "norton"],
       "tags": ["CWE-367"]
     },
     {
@@ -68250,20 +68222,6 @@
       "tags": ["CWE-269"]
     },
     {
-      "cveId": "CVE-2025-36529",
-      "title": "CVE-2025-36529: An OS command injection issue exists in multiple versions of TB-eye network recorders and AHD record...",
-      "severity": "HIGH",
-      "cvssScore": 7.2,
-      "epssScore": 0.24,
-      "epssPercentile": 47.753,
-      "riskScore": 43,
-      "publishedDate": "2025-06-27T05:23:27.330000+00:00",
-      "lastModifiedDate": "2025-06-30T18:47:15.964000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["tb-eye ltd."],
-      "tags": ["CWE-78"]
-    },
-    {
       "cveId": "CVE-2025-36574",
       "title": "CVE-2025-36574: Dell Wyse Management Suite, versions prior to WMS 5.2, contain an Absolute Path Traversal vulnerabil...",
       "severity": "HIGH",
@@ -69268,7 +69226,7 @@
       "publishedDate": "2025-06-24T08:14:31.864000+00:00",
       "lastModifiedDate": "2025-06-24T13:55:34.477000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "mb connect line"],
+      "vendors": ["mb connect line", "helmholz"],
       "tags": ["CWE-204"]
     },
     {
@@ -89796,6 +89754,20 @@
       "tags": ["CWE-89"]
     },
     {
+      "cveId": "CVE-2025-4004",
+      "title": "PHPGurukul COVID19 Testing Management System password-recovery.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 9.797,
+      "riskScore": 42,
+      "publishedDate": "2025-04-28T06:00:07.575000+00:00",
+      "lastModifiedDate": "2025-05-02T10:48:11.321000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["phpgurukul"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-4769",
       "title": "CBEWIN Anytxt Searcher ATService.exe uncontrolled search path",
       "severity": "HIGH",
@@ -89878,6 +89850,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["jct"],
       "tags": ["CWE-269"]
+    },
+    {
+      "cveId": "CVE-2025-4005",
+      "title": "PHPGurukul COVID19 Testing Management System patient-report.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 9.797,
+      "riskScore": 42,
+      "publishedDate": "2025-04-28T06:31:06.157000+00:00",
+      "lastModifiedDate": "2025-04-28T14:10:50.310000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["phpgurukul"],
+      "tags": ["CWE-89", "CWE-74"]
     },
     {
       "cveId": "CVE-2025-4525",
@@ -97338,7 +97324,7 @@
       "publishedDate": "2024-07-02T13:47:36.399000+00:00",
       "lastModifiedDate": "2024-08-02T04:12:25.618000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["yt-dlp", "ytdl-org"],
+      "vendors": ["ytdl-org", "yt-dlp"],
       "tags": ["CWE-669"]
     },
     {
@@ -107226,6 +107212,20 @@
       "tags": ["CWE-202"]
     },
     {
+      "cveId": "CVE-2025-36529",
+      "title": "CVE-2025-36529: An OS command injection issue exists in multiple versions of TB-eye network recorders and AHD record...",
+      "severity": "HIGH",
+      "cvssScore": 7.2,
+      "epssScore": 0.24,
+      "epssPercentile": 47.753,
+      "riskScore": 41,
+      "publishedDate": "2025-06-27T05:23:27.330000+00:00",
+      "lastModifiedDate": "2025-06-30T18:47:15.964000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["tb-eye ltd."],
+      "tags": ["CWE-78"]
+    },
+    {
       "cveId": "CVE-2025-4646",
       "title": "A high privilege user is able to create and use a valid admin API token in centreon-web",
       "severity": "HIGH",
@@ -108876,20 +108876,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["ukrsolution"],
       "tags": ["CWE-434"]
-    },
-    {
-      "cveId": "CVE-2025-22235",
-      "title": "Spring Boot EndpointRequest.to() creates wrong matcher if actuator endpoint is not exposed",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.08,
-      "epssPercentile": 24.915,
-      "riskScore": 41,
-      "publishedDate": "2025-04-28T07:10:35.370000+00:00",
-      "lastModifiedDate": "2025-05-16T23:03:06.227000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["spring"],
-      "tags": ["CWE-20"]
     },
     {
       "cveId": "CVE-2025-6710",
@@ -113902,20 +113888,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["webcodingplace"],
       "tags": ["CWE-352"]
-    },
-    {
-      "cveId": "CVE-2024-13509",
-      "title": "WS Form LITE – Drag & Drop Contact Form Builder for WordPress <= 1.10.13 - Unauthenticated Stored Cross-Site Scripting",
-      "severity": "HIGH",
-      "cvssScore": 7.2,
-      "epssScore": 0.24,
-      "epssPercentile": 46.287,
-      "riskScore": 41,
-      "publishedDate": "2025-01-28T06:38:42.309000+00:00",
-      "lastModifiedDate": "2025-01-28T15:14:40.231000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["westguard"],
-      "tags": ["CWE-79"]
     },
     {
       "cveId": "CVE-2024-13744",
@@ -127690,7 +127662,7 @@
       "publishedDate": "2024-03-18T16:04:57.375000+00:00",
       "lastModifiedDate": "2024-08-01T19:03:37.851000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric", "schneider electric "],
+      "vendors": ["schneider electric ", "schneider electric"],
       "tags": ["CWE-79"]
     },
     {
@@ -141134,6 +141106,20 @@
       "tags": ["CWE-79"]
     },
     {
+      "cveId": "CVE-2025-22235",
+      "title": "Spring Boot EndpointRequest.to() creates wrong matcher if actuator endpoint is not exposed",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.08,
+      "epssPercentile": 24.915,
+      "riskScore": 39,
+      "publishedDate": "2025-04-28T07:10:35.370000+00:00",
+      "lastModifiedDate": "2025-05-16T23:03:06.227000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["spring"],
+      "tags": ["CWE-20"]
+    },
+    {
       "cveId": "CVE-2025-24033",
       "title": "@fastify/multipart vulnerable to unlimited consumption of resources",
       "severity": "HIGH",
@@ -146984,6 +146970,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["presslayouts"],
       "tags": ["CWE-94"]
+    },
+    {
+      "cveId": "CVE-2024-13509",
+      "title": "WS Form LITE – Drag & Drop Contact Form Builder for WordPress <= 1.10.13 - Unauthenticated Stored Cross-Site Scripting",
+      "severity": "HIGH",
+      "cvssScore": 7.2,
+      "epssScore": 0.24,
+      "epssPercentile": 46.287,
+      "riskScore": 39,
+      "publishedDate": "2025-01-28T06:38:42.309000+00:00",
+      "lastModifiedDate": "2025-01-28T15:14:40.231000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["westguard"],
+      "tags": ["CWE-79"]
     },
     {
       "cveId": "CVE-2024-13792",
@@ -172196,7 +172196,7 @@
       "publishedDate": "2024-03-18T16:05:47.722000+00:00",
       "lastModifiedDate": "2024-08-15T16:23:48.504000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric", "schneider electric "],
+      "vendors": ["schneider electric ", "schneider electric"],
       "tags": ["CWE-552"]
     },
     {
@@ -189346,7 +189346,7 @@
       "publishedDate": "2024-07-08T15:25:38.672000+00:00",
       "lastModifiedDate": "2024-08-01T22:27:36.345000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["levelone", "realtek"],
+      "vendors": ["realtek", "levelone"],
       "tags": ["CWE-122"]
     },
     {
