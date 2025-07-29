@@ -1,6 +1,6 @@
 ---
 title: Morning Vulnerability Briefing - 2025-07-29
-date: 2025-07-29T12:11:48.136693
+date: 2025-07-29T16:09:12.841408
 layout: layouts/post.njk
 tags: [vulnerability, briefing, security]
 vulnerabilityCount: 15586
@@ -16,8 +16,8 @@ Today's briefing covers **15586 vulnerabilities** from 0 sources.
 
 - 🔴 **Critical Risk**: 0 vulnerabilities
 - 🟠 **High Risk**: 0 vulnerabilities
-- 🟡 **Medium Risk**: 9997 vulnerabilities
-- 🟢 **Low Risk**: 5589 vulnerabilities
+- 🟡 **Medium Risk**: 9995 vulnerabilities
+- 🟢 **Low Risk**: 5591 vulnerabilities
 
 ## Top Vulnerabilities
 
@@ -297,7 +297,7 @@ critical systems.
 - CRITICAL severity
 - 93.95% exploit probability
 
-**Affected Vendors**: rogierlankhorst, really simple plugins
+**Affected Vendors**: really simple plugins, rogierlankhorst
 
 **Tags**: `CWE-288`
 
@@ -314,14 +314,14 @@ critical systems.
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.6 | 
-**EPSS**: 92.5%
+**EPSS**: 92.8%
 
 **Summary**: A out-of-bounds write in Fortinet FortiOS versions 7.4.0 through 7.4.2, 7.2.0 through 7.2.6, 7.0.0 through 7.0.13, 6.4.0 through 6.4.14, 6.2.0 through 6.2.15, 6.0.0 through 6.0.17, FortiProxy versions 7.4.0 through 7.4.2, 7.2.0 through 7.2.8, 7.0.0 through 7.0.14, 2.0.0 through 2.0.13, 1.2.0 through 1.2.13, 1.1.0 through 1.1.6, 1.0.0 through 1.0.7 allows attacker to execute unauthorized code or commands via specifically crafted requests
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 92.55% exploit probability
+- 92.78% exploit probability
 - Affects critical infrastructure: fortinet
 
 **Affected Vendors**: fortinet
@@ -916,7 +916,7 @@ code.
 - CRITICAL severity
 - 60.07% exploit probability
 
-**Affected Vendors**: brother industries, ltd, toshiba tec, konica minolta, inc.
+**Affected Vendors**: brother industries, ltd, konica minolta, inc., toshiba tec
 
 **Tags**: `CWE-1391`
 
@@ -959,14 +959,14 @@ code.
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.8 | 
-**EPSS**: 94.2%
+**EPSS**: 94.1%
 
 **Summary**: ** UNSUPPORTED WHEN ASSIGNED ** A vulnerability, which was classified as very critical, has been found in D-Link DNS-320L, DNS-325, DNS-327L and DNS-340L up to 20240403. This issue affects some unknown processing of the file /cgi-bin/nas_sharing.cgi of the component HTTP GET Request Handler. The manipulation of the argument user with the input messagebus leads to hard-coded credentials. The attack may be initiated remotely. The exploit has been disclosed to the public and may be used. The associ...
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 94.18% exploit probability
+- 94.11% exploit probability
 
 **Affected Vendors**: d-link
 
