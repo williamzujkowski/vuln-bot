@@ -1,9 +1,10 @@
 # MANIFEST.yaml - Project metadata for Vuln-Bot
+# Last Updated: 2025-07-29
 
 project:
   name: Vuln-Bot
   description: High-risk CVE intelligence platform tracking Critical & High severity vulnerabilities with EPSS ≥ 70%
-  version: 1.0.0
+  version: 2.0.0
   license: MIT
   repository: https://github.com/williamzujkowski/vuln-bot
   homepage: https://williamzujkowski.github.io/vuln-bot/
@@ -14,20 +15,237 @@ metadata:
   focus: high-risk-cves
   epss_threshold: 70%
   severity_levels: [CRITICAL, HIGH]
+  data_sources:
+    - CVEProject/cvelistV5
+    - FIRST.org EPSS API
+    - Planned: OSV.dev
+    - Planned: Social Media (Twitter/X, Bluesky)
   
 data_flow:
-  harvest: CVEProject/cvelistV5 → EPSS ≥ 70% Filter → Risk Scoring
-  storage: Chunked by severity-year (8 files vs 33,000+)
-  delivery: Static site via GitHub Pages
+  harvest: CVEProject/cvelistV5 → EPSS ≥ 70% Filter → Risk Scoring → Chunked Storage
+  storage: Chunked by severity-year (optimized from 33,000+ individual files)
+  delivery: Static site via GitHub Pages with client-side rendering
+  refresh_rate: Every 4 hours via GitHub Actions
 
 key_features:
   - High-risk vulnerability focus (EPSS ≥ 70%)
   - Automated harvesting every 4 hours
-  - Chunked storage optimization
-  - Client-side filtering and search
+  - Chunked storage optimization (300x faster loading)
+  - Client-side filtering and search with virtual scrolling
   - RSS/Atom syndication feeds
+  - Customizable dashboard widgets
+  - Offline support with service workers
+  - Dark mode support
+  - Security alerts for critical vulnerabilities
+  - Saved searches functionality
+  - Keyboard shortcuts for power users
 
+architecture:
+  backend:
+    language: Python 3.11+
+    framework: Custom modular architecture
+    key_modules:
+      - harvest: Data collection orchestration
+      - processing: Risk scoring and normalization
+      - quality: Validation and configuration
+      - storage: Optimization and chunking
+    
+  frontend:
+    framework: 11ty (Eleventy) static site generator
+    ui_library: Alpine.js for reactivity
+    styling: Tailwind CSS
+    typescript: Yes, with component-based architecture
+    bundling: JavaScript modules with minification
+
+project_structure:
+  root_files:
+    - MANIFEST.yaml: Project metadata and documentation
+    - README.md: Project overview and setup instructions
+    - package.json: Node.js dependencies and scripts
+    - package-lock.json: Locked dependency versions
+    - .eleventyignore: Build exclusions for 11ty
+    - .gitignore: Version control exclusions
+    - eleventy.config.js: Static site generator configuration
+    - postcss.config.js: CSS processing configuration
+    - tailwind.config.js: Tailwind CSS customization
+    - tsconfig.json: TypeScript compiler configuration
+    - pyproject.toml: Python project configuration
+    - ruff.toml: Python linter configuration
+    - pytest.ini: Python test configuration
+    - CODE_OF_CONDUCT.md: Community guidelines
+    - CONTRIBUTING.md: Contribution guidelines
+    - SECURITY.md: Security policy
+    - LICENSE: MIT license
+    
+  github_workflows:
+    - .github/workflows/ci.yml: Continuous integration pipeline
+    - .github/workflows/codeql.yml: Security scanning
+    - .github/workflows/coverage.yml: Test coverage reporting
+    - .github/workflows/deploy.yml: GitHub Pages deployment
+    - .github/workflows/harvest.yml: CVE data harvesting (runs every 4 hours)
+    - .github/workflows/update-badge.yml: README badge updates
+    
+  python_modules:
+    scripts/:
+      - __init__.py: Package initialization
+      - main.py: Main entry point for harvesting
+      - models.py: Data models and structures
+      - metrics.py: Performance and analytics tracking
+      - storage_optimizer.py: Chunking and optimization logic
+      - filter_high_epss.py: EPSS filtering logic
+      - generate_badge.py: Coverage badge generation
+      - bump_version.py: Version management utility
+      - visualize_metrics.py: Metrics visualization
+      
+    scripts/harvest/:
+      - __init__.py: Package initialization
+      - base_client.py: Base HTTP client implementation
+      - cve_client.py: CVE.org API client
+      - cvelist_client.py: CVEList GitHub repository client
+      - epss_client.py: EPSS API client
+      - github_advisory_client.py: GitHub Security Advisory client
+      - orchestrator.py: Harvest workflow coordination
+      
+    scripts/processing/:
+      - __init__.py: Package initialization
+      - briefing_generator.py: Daily briefing generation
+      - optimized_briefing_generator.py: Performance-optimized briefing
+      - cache_manager.py: Cache handling and invalidation
+      - normalizer.py: Data normalization utilities
+      - risk_scorer.py: Risk assessment algorithms
+      
+    scripts/quality/:
+      - __init__.py: Package initialization
+      - config.py: Quality assurance configuration
+      - validator.py: Data validation logic
+      
+    scripts/utils/:
+      - __init__.py: Package initialization
+  
+  typescript_modules:
+    src/assets/ts/:
+      - dashboard.ts: Main dashboard application
+      - VulnerabilityDashboard.ts: Core dashboard logic
+      - analytics.ts: Usage analytics
+      - types.ts: TypeScript type definitions
+      - image-optimization.ts: Image loading optimization
+      - offline-support.ts: Service worker management
+      
+    src/assets/ts/components/:
+      - CveModal.ts: CVE detail modal component
+      - SavedSearches.ts: Search persistence component
+      - SecurityAlerts.ts: Alert notification component
+      - VirtualScroll.ts: Performance scrolling component
+      - WidgetManager.ts: Dashboard widget orchestration
+      
+    src/assets/ts/components/widgets/:
+      - StatsWidget.ts: Statistics display widget
+      - TimelineWidget.ts: Vulnerability timeline widget
+      
+    src/assets/ts/types/:
+      - alpine.ts: Alpine.js type definitions
+      - vulnerability.ts: Vulnerability data types
+      - window.d.ts: Global window extensions
+  
+  templates_and_content:
+    src/:
+      - index.njk: Homepage template
+      - vulnerabilities.njk: Vulnerability listing page
+      - about.njk: About page
+      - api.njk: API documentation
+      - feed.njk: RSS feed generator
+      - syndication.njk: Syndication options
+      
+    src/_includes/:
+      layouts/:
+        - base.njk: Base HTML layout
+        - default.njk: Default page layout
+      components/:
+        - dashboard-filters.njk: Filter UI components
+        - search-filters.njk: Search interface
+        - vulnerability-table.njk: Data table component
+        - security-alerts.njk: Alert display component
+        - widget-container.njk: Widget layout component
+      
+    src/_posts/:
+      - Multiple date-based vulnerability briefings (YYYY-MM-DD-vuln-brief.md)
+      
+  data_files:
+    src/api/vulns/:
+      - index.json: Main vulnerability index
+      - chunk-index.json: Chunk manifest
+      - vulns-YYYY-SEVERITY.json: Chunked vulnerability data by year and severity
+      
+    src/_data/:
+      - nav.yml: Navigation configuration
+      - site.js: Site metadata
+      
+  assets:
+    src/assets/:
+      css/:
+        - main.css: Main stylesheet (Tailwind CSS)
+      js/:
+        - dashboard.js: Compiled dashboard JavaScript
+        - dashboard.js.map: Source maps
+        - image-optimization.js: Compiled image optimization
+        - image-optimization.js.map: Source maps
+        - offline-support.js: Compiled service worker
+        - offline-support.js.map: Source maps
+      images/:
+        - claude-code-logo.png: Logo assets
+        - vuln-bot-logo.svg: Project logo
+        - vuln-bot-architecture.png: Architecture diagram
+        
+  tests:
+    tests/:
+      - __init__.py: Test package initialization
+      - test_*.py: Various Python test modules
+    test-*.html: Browser-based test files
+    
+  documentation:
+    docs/:
+      - Architecture documentation (planned)
+      - API documentation (planned)
+      - Deployment guide (planned)
+      
+  configuration:
+    .github/: GitHub-specific configuration
+    .vscode/: VS Code workspace settings
+    .claude/: Claude Code configuration and memory
+    .roo/: Additional configuration
+    .eleventy/: 11ty cache directory
+    
+deployment:
+  platform: GitHub Pages
+  url: https://williamzujkowski.github.io/vuln-bot/
+  branch: gh-pages
+  build_command: npm run build
+  deploy_action: .github/workflows/deploy.yml
+  
+performance_metrics:
+  page_load: <2s with chunked data
+  search_response: <100ms client-side
+  data_size: ~5MB compressed (vs 150MB+ unchunked)
+  harvest_time: ~10-15 minutes per run
+  
+future_enhancements:
+  - OSV.dev integration for additional vulnerability data
+  - Social media monitoring (Twitter/X, Bluesky)
+  - Project popularity metrics (GitHub stars, package downloads)
+  - Tech stack filtering (Web Apps, Cloud, User endpoints)
+  - Exploit/PoC availability tracking
+  - "Why this matters" intelligence system
+  - Card-based UI redesign
+  - 24-hour critical vulnerability alerting
+  - Machine learning-based risk prediction
+  
 maintainers:
   - name: William Zujkowski
     github: williamzujkowski
     role: Project Lead
+    
+contributors:
+  # Add contributors as they join the project
+  
+last_updated: 2025-07-29
+manifest_version: 2.0
