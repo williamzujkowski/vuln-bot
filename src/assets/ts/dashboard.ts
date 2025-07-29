@@ -779,7 +779,8 @@ document.addEventListener("alpine:init", () => {
                 event.preventDefault();
                 const savedSearchComponent = (window as any).savedSearches;
                 if (savedSearchComponent) {
-                  savedSearchComponent.showSavedSearches = !savedSearchComponent.showSavedSearches;
+                  savedSearchComponent.showSavedSearches =
+                    !savedSearchComponent.showSavedSearches;
                 }
               }
               break;
