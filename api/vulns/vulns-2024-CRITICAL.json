@@ -1,14 +1,14 @@
 {
   "chunk": "2024-CRITICAL",
   "count": 1458,
-  "generated": "2025-07-29T00:27:40.722942",
+  "generated": "2025-07-29T04:25:44.144134",
   "vulnerabilities": [
     {
       "cveId": "CVE-2024-21413",
       "title": "Microsoft Outlook Remote Code Execution Vulnerability",
       "description": "Microsoft Outlook Remote Code Execution Vulnerability",
       "publishedDate": "2024-02-13T18:02:24.799000+00:00",
-      "lastModifiedDate": "2025-05-29T14:06:52.678000+00:00",
+      "lastModifiedDate": "2025-07-28T19:42:22.946000+00:00",
       "severity": "CRITICAL",
       "cvssMetrics": [
         {
@@ -51,7 +51,7 @@
           {
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/21xxx/CVE-2024-21413.json",
-            "lastModified": "2025-05-29T14:06:52.678000+00:00"
+            "lastModified": "2025-07-28T19:42:22.946000+00:00"
           }
         ]
       }
@@ -167,7 +167,7 @@
       "title": "CVE-2024-21762: A out-of-bounds write in Fortinet FortiOS versions 7.4.0 through 7.4.2, 7.2.0 through 7.2.6, 7.0.0 t...",
       "description": "A out-of-bounds write in Fortinet FortiOS versions 7.4.0 through 7.4.2, 7.2.0 through 7.2.6, 7.0.0 through 7.0.13, 6.4.0 through 6.4.14, 6.2.0 through 6.2.15, 6.0.0 through 6.0.17, FortiProxy versions 7.4.0 through 7.4.2, 7.2.0 through 7.2.8, 7.0.0 through 7.0.14, 2.0.0 through 2.0.13, 1.2.0 through 1.2.13, 1.1.0 through 1.1.6, 1.0.0 through 1.0.7 allows attacker to execute unauthorized code or commands via specifically crafted requests",
       "publishedDate": "2024-02-09T08:14:25.954000+00:00",
-      "lastModifiedDate": "2025-04-24T15:49:22.420000+00:00",
+      "lastModifiedDate": "2025-07-28T19:43:30.168000+00:00",
       "severity": "CRITICAL",
       "cvssMetrics": [
         {
@@ -205,7 +205,7 @@
           {
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/21xxx/CVE-2024-21762.json",
-            "lastModified": "2025-04-24T15:49:22.420000+00:00"
+            "lastModified": "2025-07-28T19:43:30.168000+00:00"
           }
         ]
       }
@@ -215,7 +215,7 @@
       "title": "CVE-2024-47575: A missing authentication for critical function in FortiManager 7.6.0, FortiManager 7.4.0 through 7.4...",
       "description": "A missing authentication for critical function in FortiManager 7.6.0, FortiManager 7.4.0 through 7.4.4, FortiManager 7.2.0 through 7.2.7, FortiManager 7.0.0 through 7.0.12, FortiManager 6.4.0 through 6.4.14, FortiManager 6.2.0 through 6.2.12, Fortinet FortiManager Cloud 7.4.1 through 7.4.4, FortiManager Cloud 7.2.1 through 7.2.7, FortiManager Cloud 7.0.1 through 7.0.12, FortiManager Cloud 6.4.1 through 6.4.7 allows attacker to execute arbitrary code or commands via specially crafted requests.",
       "publishedDate": "2024-10-23T15:03:48.798000+00:00",
-      "lastModifiedDate": "2024-11-07T07:41:45.283000+00:00",
+      "lastModifiedDate": "2025-07-28T19:42:45.849000+00:00",
       "severity": "CRITICAL",
       "cvssMetrics": [
         {
@@ -253,7 +253,7 @@
           {
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/47xxx/CVE-2024-47575.json",
-            "lastModified": "2024-11-07T07:41:45.283000+00:00"
+            "lastModified": "2025-07-28T19:42:45.849000+00:00"
           }
         ]
       }
@@ -263,7 +263,7 @@
       "title": "Argument Injection in PHP-CGI",
       "description": "In PHP versions 8.1.* before 8.1.29, 8.2.* before 8.2.20, 8.3.* before 8.3.8, when using Apache and PHP-CGI on Windows, if the system is set up to use certain code pages, Windows may use \"Best-Fit\" behavior to replace characters in command line given to Win32 API functions. PHP CGI module may misinterpret those characters as PHP options, which may allow a malicious user to pass options to PHP binary being run, and thus reveal the source code of scripts, run arbitrary PHP code on the server, etc.",
       "publishedDate": "2024-06-09T19:42:36.464000+00:00",
-      "lastModifiedDate": "2025-03-14T01:24:54.997000+00:00",
+      "lastModifiedDate": "2025-07-28T19:43:15.379000+00:00",
       "severity": "CRITICAL",
       "cvssMetrics": [
         {
@@ -391,7 +391,7 @@
           {
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/4xxx/CVE-2024-4577.json",
-            "lastModified": "2025-03-14T01:24:54.997000+00:00"
+            "lastModified": "2025-07-28T19:43:15.379000+00:00"
           }
         ]
       }
@@ -422,8 +422,8 @@
         "vendors": ["really simple plugins", "rogierlankhorst"],
         "products": [
           "really simple security pro",
-          "really simple security pro multisite",
-          "really simple security – simple and performant security (formerly really simple ssl)"
+          "really simple security – simple and performant security (formerly really simple ssl)",
+          "really simple security pro multisite"
         ]
       },
       "references": [
@@ -478,7 +478,7 @@
       "title": "Authentication bypass using an alternate path or channel",
       "description": "ConnectWise ScreenConnect 23.9.7 and prior are affected by an Authentication Bypass Using an Alternate Path or Channel\n\n vulnerability, which may allow an attacker direct access to confidential information or \n\ncritical systems.\n\n",
       "publishedDate": "2024-02-21T15:36:03.960000+00:00",
-      "lastModifiedDate": "2024-08-01T18:48:21.899000+00:00",
+      "lastModifiedDate": "2025-07-28T19:43:28.229000+00:00",
       "severity": "CRITICAL",
       "cvssMetrics": [
         {
@@ -561,7 +561,7 @@
           {
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/1xxx/CVE-2024-1709.json",
-            "lastModified": "2024-08-01T18:48:21.899000+00:00"
+            "lastModified": "2025-07-28T19:43:28.229000+00:00"
           }
         ]
       }
@@ -674,31 +674,31 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          "windows 11 version 21h2",
-          "windows 11 version 23h2",
-          "windows 11 version 22h2",
-          "windows server 2012 r2",
-          "windows 10 version 1809",
           "windows server 2016",
+          "windows server 2008 service pack 2",
+          "windows server 2019 (server core installation)",
+          "windows server 2012 r2",
           "windows 10 version 22h2",
           "windows server 2022",
-          "windows server 2019 (server core installation)",
+          "windows 10 version 21h2",
+          "windows 10 version 1809",
+          "windows 11 version 22h3",
+          "windows 10 version 1507",
+          "windows server 2012 (server core installation)",
+          "windows server 2012",
+          "windows server 2008  service pack 2",
           "windows server 2008 service pack 2 (server core installation)",
-          "windows server 2008 service pack 2",
-          "windows server 2016 (server core installation)",
-          "windows server 2008 r2 service pack 1 (server core installation)",
+          "windows server 2022, 23h2 edition (server core installation)",
           "windows server 2012 r2 (server core installation)",
           "windows server 2019",
+          "windows server 2008 r2 service pack 1 (server core installation)",
           "windows 11 version 24h2",
-          "windows server 2008  service pack 2",
-          "windows server 2012",
-          "windows 10 version 1507",
-          "windows 10 version 1607",
-          "windows 10 version 21h2",
+          "windows server 2016 (server core installation)",
           "windows server 2008 r2 service pack 1",
-          "windows 11 version 22h3",
-          "windows server 2022, 23h2 edition (server core installation)",
-          "windows server 2012 (server core installation)"
+          "windows 11 version 23h2",
+          "windows 11 version 22h2",
+          "windows 11 version 21h2",
+          "windows 10 version 1607"
         ]
       },
       "references": [
@@ -748,21 +748,21 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          "windows server 2019",
-          "windows server 2008  service pack 2",
-          "windows server 2012",
-          "windows server 2022",
-          "windows server 2019 (server core installation)",
-          "windows server 2008 service pack 2 (server core installation)",
-          "windows server 2012 r2",
-          "windows server 2008 r2 service pack 1",
-          "windows server 2008 service pack 2",
           "windows server 2022, 23h2 edition (server core installation)",
+          "windows server 2016",
           "windows server 2016 (server core installation)",
-          "windows server 2008 r2 service pack 1 (server core installation)",
+          "windows server 2008 service pack 2",
+          "windows server 2008 r2 service pack 1",
+          "windows server 2019 (server core installation)",
+          "windows server 2012 r2",
           "windows server 2012 r2 (server core installation)",
           "windows server 2012 (server core installation)",
-          "windows server 2016"
+          "windows server 2022",
+          "windows server 2019",
+          "windows server 2012",
+          "windows server 2008 r2 service pack 1 (server core installation)",
+          "windows server 2008  service pack 2",
+          "windows server 2008 service pack 2 (server core installation)"
         ]
       },
       "references": [
@@ -812,32 +812,32 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          "windows 11 version 23h2",
-          "windows 11 version 22h2",
-          "windows server 2012 r2",
-          "windows 10 version 1809",
           "windows server 2016",
+          "windows server 2008 service pack 2",
+          "windows server 2019 (server core installation)",
+          "windows server 2012 r2",
           "windows 10 version 22h2",
           "windows server 2022",
-          "windows server 2019 (server core installation)",
-          "windows server 2025",
+          "windows 10 version 21h2",
+          "windows 10 version 1809",
+          "windows 11 version 22h3",
+          "windows 10 version 1507",
+          "windows server 2012 (server core installation)",
+          "windows server 2012",
+          "windows server 2008  service pack 2",
+          "windows server 2025 (server core installation)",
           "windows server 2008 service pack 2 (server core installation)",
-          "windows server 2008 service pack 2",
-          "windows server 2016 (server core installation)",
-          "windows server 2008 r2 service pack 1 (server core installation)",
+          "windows server 2022, 23h2 edition (server core installation)",
+          "windows server 2025",
           "windows server 2012 r2 (server core installation)",
           "windows server 2019",
+          "windows server 2008 r2 service pack 1 (server core installation)",
           "windows 11 version 24h2",
-          "windows server 2008  service pack 2",
-          "windows server 2012",
-          "windows 10 version 1507",
-          "windows 10 version 1607",
-          "windows 10 version 21h2",
-          "windows server 2025 (server core installation)",
+          "windows server 2016 (server core installation)",
           "windows server 2008 r2 service pack 1",
-          "windows 11 version 22h3",
-          "windows server 2022, 23h2 edition (server core installation)",
-          "windows server 2012 (server core installation)"
+          "windows 11 version 23h2",
+          "windows 11 version 22h2",
+          "windows 10 version 1607"
         ]
       },
       "references": [
@@ -867,7 +867,7 @@
       "title": "CVE-2024-45519: The postjournal service in Zimbra Collaboration (ZCS) before 8.8.15 Patch 46, 9 before 9.0.0 Patch 4...",
       "description": "The postjournal service in Zimbra Collaboration (ZCS) before 8.8.15 Patch 46, 9 before 9.0.0 Patch 41, 10 before 10.0.9, and 10.1 before 10.1.1 sometimes allows unauthenticated users to execute commands.",
       "publishedDate": "2024-10-02T00:00:00+00:00",
-      "lastModifiedDate": "2024-10-22T21:01:35.614951+00:00",
+      "lastModifiedDate": "2025-07-28T19:42:50.278000+00:00",
       "severity": "CRITICAL",
       "cvssMetrics": [
         {
@@ -930,7 +930,7 @@
           {
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/45xxx/CVE-2024-45519.json",
-            "lastModified": "2024-10-22T21:01:35.614951"
+            "lastModified": "2025-07-28T19:42:50.278000+00:00"
           }
         ]
       }
@@ -1131,7 +1131,7 @@
       "title": "Remote Code Execution (RCE) vulnerability in evaluating property name expressions in Geoserver",
       "description": "GeoServer is an open source server that allows users to share and edit geospatial data. Prior to versions 2.22.6, 2.23.6, 2.24.4, and 2.25.2, multiple OGC request parameters allow Remote Code Execution (RCE) by unauthenticated users through specially crafted input against a default GeoServer installation due to unsafely evaluating property names as XPath expressions.\n\nThe GeoTools library API that GeoServer calls evaluates property/attribute names for feature types in a way that unsafely passes them to the commons-jxpath library which can execute arbitrary code when evaluating XPath expressions. This XPath evaluation is intended to be used only by complex feature types (i.e., Application Schema data stores) but is incorrectly being applied to simple feature types as well which makes this vulnerability apply to **ALL** GeoServer instances. No public PoC is provided but this vulnerability has been confirmed to be exploitable through WFS GetFeature, WFS GetPropertyValue, WMS GetMap, WMS GetFeatureInfo, WMS GetLegendGraphic and WPS Execute requests. This vulnerability can lead to executing arbitrary code.\n\nVersions 2.22.6, 2.23.6, 2.24.4, and 2.25.2 contain a patch for the issue. A workaround exists by removing the `gt-complex-x.y.jar` file from the GeoServer where `x.y` is the GeoTools version (e.g., `gt-complex-31.1.jar` if running GeoServer 2.25.1). This will remove the vulnerable code from GeoServer but may break some GeoServer functionality or prevent GeoServer from deploying if the gt-complex module is needed.",
       "publishedDate": "2024-07-01T15:25:41.873000+00:00",
-      "lastModifiedDate": "2025-03-25T14:32:25.037000+00:00",
+      "lastModifiedDate": "2025-07-28T19:43:11.377000+00:00",
       "severity": "CRITICAL",
       "cvssMetrics": [
         {
@@ -1189,7 +1189,7 @@
           {
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/36xxx/CVE-2024-36401.json",
-            "lastModified": "2025-03-25T14:32:25.037000+00:00"
+            "lastModified": "2025-07-28T19:43:11.377000+00:00"
           }
         ]
       }
@@ -1199,7 +1199,7 @@
       "title": "Unauthenticated arbitrary file read and remote code execution in CrushFTP",
       "description": "A server side template injection vulnerability in CrushFTP in all versions before 10.7.1 and 11.1.0 on all platforms allows unauthenticated remote attackers to read files from the filesystem outside of the VFS Sandbox, bypass authentication to gain administrative access, and perform remote code execution on the server.\n",
       "publishedDate": "2024-04-22T19:21:46.408000+00:00",
-      "lastModifiedDate": "2025-02-04T16:21:39.750000+00:00",
+      "lastModifiedDate": "2025-07-28T19:43:21.512000+00:00",
       "severity": "CRITICAL",
       "cvssMetrics": [
         {
@@ -1267,7 +1267,7 @@
           {
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/4xxx/CVE-2024-4040.json",
-            "lastModified": "2025-02-04T16:21:39.750000+00:00"
+            "lastModified": "2025-07-28T19:43:21.512000+00:00"
           }
         ]
       }
@@ -1277,7 +1277,7 @@
       "title": "PAN-OS: Arbitrary File Creation Leads to OS Command Injection Vulnerability in GlobalProtect",
       "description": "A command injection as a result of arbitrary file creation vulnerability in the GlobalProtect feature of Palo Alto Networks PAN-OS software for specific PAN-OS versions and distinct feature configurations may enable an unauthenticated attacker to execute arbitrary code with root privileges on the firewall.\n\nCloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vulnerability.",
       "publishedDate": "2024-04-12T07:20:00.707000+00:00",
-      "lastModifiedDate": "2024-08-01T20:12:06.667000+00:00",
+      "lastModifiedDate": "2025-07-28T19:43:22.839000+00:00",
       "severity": "CRITICAL",
       "cvssMetrics": [
         {
@@ -1296,7 +1296,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["palo alto networks"],
-        "products": ["prisma access", "pan-os", "cloud ngfw"]
+        "products": ["cloud ngfw", "prisma access", "pan-os"]
       },
       "references": [
         {
@@ -1330,7 +1330,7 @@
           {
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/3xxx/CVE-2024-3400.json",
-            "lastModified": "2024-08-01T20:12:06.667000+00:00"
+            "lastModified": "2025-07-28T19:43:22.839000+00:00"
           }
         ]
       }
@@ -1340,7 +1340,7 @@
       "title": "ProjectSend Unauthenticated Configuration Modification",
       "description": "ProjectSend versions prior to r1720 are affected by an improper authentication vulnerability. Remote, unauthenticated attackers can exploit this flaw by sending crafted HTTP requests to options.php, enabling unauthorized modification of the application's configuration. Successful exploitation allows attackers to create accounts, upload webshells, and embed malicious JavaScript.",
       "publishedDate": "2024-11-26T09:55:23.588000+00:00",
-      "lastModifiedDate": "2024-12-06T04:55:28.192000+00:00",
+      "lastModifiedDate": "2025-07-28T19:42:36.338000+00:00",
       "severity": "CRITICAL",
       "cvssMetrics": [
         {
@@ -1398,7 +1398,7 @@
           {
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/11xxx/CVE-2024-11680.json",
-            "lastModified": "2024-12-06T04:55:28.192000+00:00"
+            "lastModified": "2025-07-28T19:42:36.338000+00:00"
           }
         ]
       }
@@ -1408,7 +1408,7 @@
       "title": "CVE-2024-20439: A vulnerability in Cisco Smart Licensing Utility (CSLU) could allow an unauthenticated, remote attac...",
       "description": "A vulnerability in Cisco Smart Licensing Utility (CSLU) could allow an unauthenticated, remote attacker to log into an affected system by using a static administrative credential.\r\n\r This vulnerability is due to an undocumented static user credential for an administrative account. An attacker could exploit this vulnerability by using the static credentials to login to the affected system. A successful exploit could allow the attacker to login to the affected system with administrative rights over the CSLU application API.",
       "publishedDate": "2024-09-04T16:28:39.669000+00:00",
-      "lastModifiedDate": "2025-06-10T16:36:10.532000+00:00",
+      "lastModifiedDate": "2025-07-28T19:42:02.654000+00:00",
       "severity": "CRITICAL",
       "cvssMetrics": [
         {
@@ -1446,7 +1446,7 @@
           {
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/20xxx/CVE-2024-20439.json",
-            "lastModified": "2025-06-10T16:36:10.532000+00:00"
+            "lastModified": "2025-07-28T19:42:02.654000+00:00"
           }
         ]
       }
@@ -1456,7 +1456,7 @@
       "title": "CVE-2024-51378: getresetstatus in dns/views.py and ftp/views.py in CyberPanel (aka Cyber Panel) before 1c0c6cb allow...",
       "description": "getresetstatus in dns/views.py and ftp/views.py in CyberPanel (aka Cyber Panel) before 1c0c6cb allows remote attackers to bypass authentication and execute arbitrary commands via /dns/getresetstatus or /ftp/getresetstatus by bypassing secMiddleware (which is only for a POST request) and using shell metacharacters in the statusfile property, as exploited in the wild in October 2024 by PSAUX. Versions through 2.3.6 and (unpatched) 2.3.7 are affected.",
       "publishedDate": "2024-10-29T00:00:00+00:00",
-      "lastModifiedDate": "2025-02-05T19:34:07.114000+00:00",
+      "lastModifiedDate": "2025-07-28T19:42:35.696000+00:00",
       "severity": "CRITICAL",
       "cvssMetrics": [
         {
@@ -1524,7 +1524,7 @@
           {
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/51xxx/CVE-2024-51378.json",
-            "lastModified": "2025-02-05T19:34:07.114000+00:00"
+            "lastModified": "2025-07-28T19:42:35.696000+00:00"
           }
         ]
       }
@@ -1534,7 +1534,7 @@
       "title": "CVE-2024-51567: upgrademysqlstatus in databases/views.py in CyberPanel (aka Cyber Panel) before 5b08cd6 allows remot...",
       "description": "upgrademysqlstatus in databases/views.py in CyberPanel (aka Cyber Panel) before 5b08cd6 allows remote attackers to bypass authentication and execute arbitrary commands via /dataBases/upgrademysqlstatus by bypassing secMiddleware (which is only for a POST request) and using shell metacharacters in the statusfile property, as exploited in the wild in October 2024 by PSAUX. Versions through 2.3.6 and (unpatched) 2.3.7 are affected.",
       "publishedDate": "2024-10-29T00:00:00+00:00",
-      "lastModifiedDate": "2025-02-05T19:35:02.390000+00:00",
+      "lastModifiedDate": "2025-07-28T19:42:43.182000+00:00",
       "severity": "CRITICAL",
       "cvssMetrics": [
         {
@@ -1602,7 +1602,7 @@
           {
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/51xxx/CVE-2024-51567.json",
-            "lastModified": "2025-02-05T19:35:02.390000+00:00"
+            "lastModified": "2025-07-28T19:42:43.182000+00:00"
           }
         ]
       }
@@ -1612,7 +1612,7 @@
       "title": "LoadMaster Pre-Authenticated OS Command Injection",
       "description": "Unauthenticated remote attackers can access the system through the LoadMaster management interface, enabling arbitrary system command execution.\n\n\n",
       "publishedDate": "2024-02-21T17:39:12.599000+00:00",
-      "lastModifiedDate": "2024-11-19T04:55:42.626000+00:00",
+      "lastModifiedDate": "2025-07-28T19:42:39.953000+00:00",
       "severity": "CRITICAL",
       "cvssMetrics": [
         {
@@ -1665,7 +1665,7 @@
           {
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/1xxx/CVE-2024-1212.json",
-            "lastModified": "2024-11-19T04:55:42.626000+00:00"
+            "lastModified": "2025-07-28T19:42:39.953000+00:00"
           }
         ]
       }
@@ -1917,7 +1917,7 @@
       "title": "D-Link DNS-320L/DNS-325/DNS-327L/DNS-340L HTTP GET Request nas_sharing.cgi hard-coded credentials",
       "description": "** UNSUPPORTED WHEN ASSIGNED ** A vulnerability, which was classified as very critical, has been found in D-Link DNS-320L, DNS-325, DNS-327L and DNS-340L up to 20240403. This issue affects some unknown processing of the file /cgi-bin/nas_sharing.cgi of the component HTTP GET Request Handler. The manipulation of the argument user with the input messagebus leads to hard-coded credentials. The attack may be initiated remotely. The exploit has been disclosed to the public and may be used. The associated identifier of this vulnerability is VDB-259283. NOTE: This vulnerability only affects products that are no longer supported by the maintainer. NOTE: Vendor was contacted early and confirmed immediately that the product is end-of-life. It should be retired and replaced.",
       "publishedDate": "2024-04-04T01:00:05.740000+00:00",
-      "lastModifiedDate": "2024-08-01T20:05:08.352000+00:00",
+      "lastModifiedDate": "2025-07-28T19:43:23.573000+00:00",
       "severity": "CRITICAL",
       "cvssMetrics": [
         {
@@ -1942,7 +1942,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["d-link"],
-        "products": ["dns-325", "dns-320l", "dns-327l", "dns-340l"]
+        "products": ["dns-320l", "dns-340l", "dns-327l", "dns-325"]
       },
       "references": [
         {
@@ -1976,7 +1976,7 @@
           {
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/3xxx/CVE-2024-3272.json",
-            "lastModified": "2024-08-01T20:05:08.352000+00:00"
+            "lastModified": "2025-07-28T19:43:23.573000+00:00"
           }
         ]
       }
@@ -2660,7 +2660,7 @@
       "title": "Incomplete Input Validation in GlideExpression Script",
       "description": "ServiceNow has addressed an input validation vulnerability that was identified in the Washington DC, Vancouver, and earlier Now Platform releases. This vulnerability could enable an unauthenticated user to remotely execute code within the context of the Now Platform. The vulnerability is addressed in the listed patches and hot fixes below, which were released during the June 2024 patching cycle. If you have not done so already, we recommend applying security patches relevant to your instance as soon as possible.",
       "publishedDate": "2024-07-10T16:28:32.649000+00:00",
-      "lastModifiedDate": "2025-02-13T17:54:06.926000+00:00",
+      "lastModifiedDate": "2025-07-28T19:43:08.903000+00:00",
       "severity": "CRITICAL",
       "cvssMetrics": [
         {
@@ -2708,7 +2708,7 @@
           {
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/5xxx/CVE-2024-5217.json",
-            "lastModified": "2025-02-13T17:54:06.926000+00:00"
+            "lastModified": "2025-07-28T19:43:08.903000+00:00"
           }
         ]
       }
@@ -3020,7 +3020,7 @@
       "title": "Jelly Template Injection Vulnerability in ServiceNow UI Macros",
       "description": "ServiceNow has addressed an input validation vulnerability that was identified in Vancouver and Washington DC Now Platform releases. This vulnerability could enable an unauthenticated user to remotely execute code within the context of the Now Platform. ServiceNow applied an update to hosted instances, and ServiceNow released the update to our partners and self-hosted customers. Listed below are the patches and hot fixes that address the vulnerability. If you have not done so already, we recommend applying security patches relevant to your instance as soon as possible.",
       "publishedDate": "2024-07-10T16:16:39.926000+00:00",
-      "lastModifiedDate": "2025-02-13T17:53:42.424000+00:00",
+      "lastModifiedDate": "2025-07-28T19:43:09.250000+00:00",
       "severity": "CRITICAL",
       "cvssMetrics": [
         {
@@ -3068,7 +3068,7 @@
           {
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/4xxx/CVE-2024-4879.json",
-            "lastModified": "2025-02-13T17:53:42.424000+00:00"
+            "lastModified": "2025-07-28T19:43:09.250000+00:00"
           }
         ]
       }
@@ -3098,12 +3098,12 @@
         "cpeMatches": [],
         "vendors": ["red hat"],
         "products": [
-          "red hat enterprise linux 8",
           "red hat jboss enterprise application platform 8",
-          "red hat enterprise linux 6",
-          "red hat enterprise linux 10",
           "red hat enterprise linux 9",
-          "red hat enterprise linux 7"
+          "red hat enterprise linux 7",
+          "red hat enterprise linux 8",
+          "red hat enterprise linux 6",
+          "red hat enterprise linux 10"
         ]
       },
       "references": [
@@ -3201,7 +3201,7 @@
       "title": "CVE-2024-27198: In JetBrains TeamCity before 2023.11.4 authentication bypass allowing to perform admin actions was p...",
       "description": "In JetBrains TeamCity before 2023.11.4 authentication bypass allowing to perform admin actions was possible",
       "publishedDate": "2024-03-04T17:21:39.422000+00:00",
-      "lastModifiedDate": "2025-02-13T17:46:19.582000+00:00",
+      "lastModifiedDate": "2025-07-28T19:43:25.985000+00:00",
       "severity": "CRITICAL",
       "cvssMetrics": [
         {
@@ -3244,7 +3244,7 @@
           {
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/27xxx/CVE-2024-27198.json",
-            "lastModified": "2025-02-13T17:46:19.582000+00:00"
+            "lastModified": "2025-07-28T19:43:25.985000+00:00"
           }
         ]
       }
@@ -3254,7 +3254,7 @@
       "title": "Command Injection Vulnerability in Remote Support(RS) & Privileged Remote Access (PRA)",
       "description": "A critical vulnerability has been discovered in Privileged Remote Access (PRA) and Remote Support (RS) products which can allow an unauthenticated attacker to inject commands that are run as a site user.",
       "publishedDate": "2024-12-17T04:29:07.883000+00:00",
-      "lastModifiedDate": "2025-02-17T20:34:17.077000+00:00",
+      "lastModifiedDate": "2025-07-28T19:42:32.147000+00:00",
       "severity": "CRITICAL",
       "cvssMetrics": [
         {
@@ -3302,7 +3302,7 @@
           {
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/12xxx/CVE-2024-12356.json",
-            "lastModified": "2025-02-17T20:34:17.077000+00:00"
+            "lastModified": "2025-07-28T19:42:32.147000+00:00"
           }
         ]
       }
@@ -3619,7 +3619,7 @@
       "title": "Rejetto HTTP File Server 2.3m Unauthenticated RCE",
       "description": "Rejetto HTTP File Server, up to and including version 2.3m, is vulnerable to a template injection vulnerability. This vulnerability allows a remote, unauthenticated attacker to execute arbitrary commands on the affected system by sending a specially crafted HTTP request. As of the CVE assignment date, Rejetto HFS 2.3m is no longer supported.",
       "publishedDate": "2024-05-31T09:36:28.763000+00:00",
-      "lastModifiedDate": "2025-06-17T19:51:35.582000+00:00",
+      "lastModifiedDate": "2025-07-28T19:43:11.693000+00:00",
       "severity": "CRITICAL",
       "cvssMetrics": [
         {
@@ -3667,7 +3667,7 @@
           {
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/23xxx/CVE-2024-23692.json",
-            "lastModified": "2025-06-17T19:51:35.582000+00:00"
+            "lastModified": "2025-07-28T19:43:11.693000+00:00"
           }
         ]
       }
@@ -3866,7 +3866,7 @@
       "title": "XXE can expose crypt key and other secrets granting full admin access",
       "description": "Adobe Commerce versions 2.4.7, 2.4.6-p5, 2.4.5-p7, 2.4.4-p8 and earlier are affected by an Improper Restriction of XML External Entity Reference ('XXE') vulnerability that could result in arbitrary code execution. An attacker could exploit this vulnerability by sending a crafted XML document that references external entities. Exploitation of this issue does not require user interaction.",
       "publishedDate": "2024-06-13T09:04:56.093000+00:00",
-      "lastModifiedDate": "2025-02-13T17:52:23.860000+00:00",
+      "lastModifiedDate": "2025-07-28T19:43:10.964000+00:00",
       "severity": "CRITICAL",
       "cvssMetrics": [
         {
@@ -3909,7 +3909,7 @@
           {
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/34xxx/CVE-2024-34102.json",
-            "lastModified": "2025-02-13T17:52:23.860000+00:00"
+            "lastModified": "2025-07-28T19:43:10.964000+00:00"
           }
         ]
       }
@@ -4035,7 +4035,7 @@
       "title": "CVE-2024-7593: Incorrect implementation of an authentication algorithm in Ivanti vTM other than versions 22.2R1 or ...",
       "description": "Incorrect implementation of an authentication algorithm in Ivanti vTM other than versions 22.2R1 or 22.7R2 allows a remote unauthenticated attacker to bypass authentication of the admin panel.",
       "publishedDate": "2024-08-13T18:17:47.248000+00:00",
-      "lastModifiedDate": "2024-09-24T19:45:51.448000+00:00",
+      "lastModifiedDate": "2025-07-28T19:42:51.925000+00:00",
       "severity": "CRITICAL",
       "cvssMetrics": [
         {
@@ -4073,7 +4073,7 @@
           {
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/7xxx/CVE-2024-7593.json",
-            "lastModified": "2024-09-24T19:45:51.448000+00:00"
+            "lastModified": "2025-07-28T19:42:51.925000+00:00"
           }
         ]
       }
@@ -4131,7 +4131,7 @@
       "title": "WhatsUp Gold GetFileWithoutZip Directory Traversal Remote Code Execution Vulnerability",
       "description": "In WhatsUp Gold versions released before 2023.1.3, an unauthenticated Remote Code Execution vulnerability in Progress WhatsUpGold.  The \n\nWhatsUp.ExportUtilities.Export.GetFileWithoutZip\n\n\n\n allows execution of commands with iisapppool\\nmconsole privileges.",
       "publishedDate": "2024-06-25T19:48:15.268000+00:00",
-      "lastModifiedDate": "2025-03-03T20:14:13.636000+00:00",
+      "lastModifiedDate": "2025-07-28T19:42:13.296000+00:00",
       "severity": "CRITICAL",
       "cvssMetrics": [
         {
@@ -4174,7 +4174,7 @@
           {
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/4xxx/CVE-2024-4885.json",
-            "lastModified": "2025-03-03T20:14:13.636000+00:00"
+            "lastModified": "2025-07-28T19:42:13.296000+00:00"
           }
         ]
       }
@@ -4239,7 +4239,7 @@
       "title": "Registration Authentication Bypass Vulnerability",
       "description": "In Progress Telerik Report Server, version 2024 Q1 (10.0.24.305) or earlier, on IIS, an unauthenticated attacker can gain access to Telerik Report Server restricted functionality via an authentication bypass vulnerability.",
       "publishedDate": "2024-05-29T14:51:21.612000+00:00",
-      "lastModifiedDate": "2024-08-01T20:40:46.999000+00:00",
+      "lastModifiedDate": "2025-07-28T19:43:14.331000+00:00",
       "severity": "CRITICAL",
       "cvssMetrics": [
         {
@@ -4277,7 +4277,7 @@
           {
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/4xxx/CVE-2024-4358.json",
-            "lastModified": "2024-08-01T20:40:46.999000+00:00"
+            "lastModified": "2025-07-28T19:43:14.331000+00:00"
           }
         ]
       }
@@ -4552,7 +4552,7 @@
       "title": "WhatsUp Gold HasErrors SQL Injection Authentication Bypass Vulnerability",
       "description": "In WhatsUp Gold versions released before 2024.0.0, a SQL Injection vulnerability allows an unauthenticated attacker to retrieve the users encrypted password.",
       "publishedDate": "2024-08-29T22:04:41.139000+00:00",
-      "lastModifiedDate": "2025-01-27T22:06:33.504000+00:00",
+      "lastModifiedDate": "2025-07-28T19:42:55.446000+00:00",
       "severity": "CRITICAL",
       "cvssMetrics": [
         {
@@ -4595,7 +4595,7 @@
           {
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/6xxx/CVE-2024-6670.json",
-            "lastModified": "2025-01-27T22:06:33.504000+00:00"
+            "lastModified": "2025-07-28T19:42:55.446000+00:00"
           }
         ]
       }
@@ -5271,7 +5271,7 @@
       "title": "CVE-2024-8963: Path Traversal in the Ivanti CSA before 4.6 Patch 519 allows a remote unauthenticated attacker to ac...",
       "description": "Path Traversal in the Ivanti CSA before 4.6 Patch 519 allows a remote unauthenticated attacker to access restricted functionality.",
       "publishedDate": "2024-09-19T17:14:49.386000+00:00",
-      "lastModifiedDate": "2024-09-21T15:12:11.194000+00:00",
+      "lastModifiedDate": "2025-07-28T19:42:52.294000+00:00",
       "severity": "CRITICAL",
       "cvssMetrics": [
         {
@@ -5309,7 +5309,7 @@
           {
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/8xxx/CVE-2024-8963.json",
-            "lastModified": "2024-09-21T15:12:11.194000+00:00"
+            "lastModified": "2025-07-28T19:42:52.294000+00:00"
           }
         ]
       }
@@ -5367,7 +5367,7 @@
       "title": "SolarWinds Web Help Desk Hardcoded Credential Vulnerability",
       "description": "The SolarWinds Web Help Desk (WHD) software is affected by a hardcoded credential vulnerability, allowing remote unauthenticated user to access internal functionality and modify data.",
       "publishedDate": "2024-08-21T21:17:23.041000+00:00",
-      "lastModifiedDate": "2024-10-16T13:00:04.181000+00:00",
+      "lastModifiedDate": "2025-07-28T19:42:47.218000+00:00",
       "severity": "CRITICAL",
       "cvssMetrics": [
         {
@@ -5410,7 +5410,7 @@
           {
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/28xxx/CVE-2024-28987.json",
-            "lastModified": "2024-10-16T13:00:04.181000+00:00"
+            "lastModified": "2025-07-28T19:42:47.218000+00:00"
           }
         ]
       }
@@ -6518,7 +6518,7 @@
       "title": "PTZOptics NDI and SDI Cameras /cgi-bin/param.cgi Insufficient Authentication",
       "description": "PTZOptics PT30X-SDI/NDI-xx before firmware 6.3.40 is vulnerable to an insufficient authentication issue. The camera does not properly enforce authentication to /cgi-bin/param.cgi when requests are sent without an HTTP Authorization header. The result is a remote and unauthenticated attacker can leak sensitive data such as usernames, password hashes, and configurations details. Additionally, the attacker can update individual configuration values or overwrite the whole file.",
       "publishedDate": "2024-09-17T19:59:27.205000+00:00",
-      "lastModifiedDate": "2024-11-04T17:20:22.472000+00:00",
+      "lastModifiedDate": "2025-07-28T19:42:44.198000+00:00",
       "severity": "CRITICAL",
       "cvssMetrics": [
         {
@@ -6561,7 +6561,7 @@
           {
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/8xxx/CVE-2024-8956.json",
-            "lastModified": "2024-11-04T17:20:22.472000+00:00"
+            "lastModified": "2025-07-28T19:42:44.198000+00:00"
           }
         ]
       }
@@ -6644,7 +6644,7 @@
       "title": "GeoVision EOL device - OS Command Injection",
       "description": "Certain EOL GeoVision devices fail to properly filter user input for the specific functionality. Unauthenticated remote attackers can exploit this vulnerability to inject and execute arbitrary system commands on the device.",
       "publishedDate": "2024-06-17T05:48:42.779000+00:00",
-      "lastModifiedDate": "2025-05-07T22:20:23.181000+00:00",
+      "lastModifiedDate": "2025-07-28T19:41:53.931000+00:00",
       "severity": "CRITICAL",
       "cvssMetrics": [
         {
@@ -6664,26 +6664,26 @@
         "cpeMatches": [],
         "vendors": ["geovision"],
         "products": [
-          "gv_vs28xx",
-          "gv_dsp_lpr_v2",
-          "gv_ipcamd_gv_bx130",
-          "gv_ipcamd_gv_fe3401",
-          "gv_vs2410",
-          "gv-vs14_vs14",
-          "gv_vs03",
-          "gv_ipcamd_gv_ebl1100",
+          "gv_ipcamd_gv_efd1100",
           "gv_ipcamd_gv_cb220",
-          "gv_ipcamd_gv_fd2410",
-          "gvlx 4 v2",
-          "gv_ipcamd_gv_bx1500",
-          "gvlx 4 v3",
-          "gv vs04a",
+          "gv_ipcamd_gv_bx130",
+          "gv-vs14_vs14",
+          "gv_dsp_lpr_v2",
+          "gv_ipcamd_gv_ebl1100",
+          "gv_vs03",
           "gv vs04h",
           "gv_ipcamd_gv_fd3400",
-          "gv_vs216xx",
+          "gv_ipcamd_gv_bx1500",
+          "gvlx 4 v2",
+          "gv_vs2410",
+          "gv_ipcamd_gv_fe3401",
           "gv_gm8186_vs14",
-          "gv_ipcamd_gv_efd1100",
-          "gv_ipcamd_gv_fe420"
+          "gv_ipcamd_gv_fd2410",
+          "gv_vs28xx",
+          "gv_vs216xx",
+          "gvlx 4 v3",
+          "gv_ipcamd_gv_fe420",
+          "gv vs04a"
         ]
       },
       "references": [
@@ -6708,7 +6708,7 @@
           {
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/6xxx/CVE-2024-6047.json",
-            "lastModified": "2025-05-07T22:20:23.181000+00:00"
+            "lastModified": "2025-07-28T19:41:53.931000+00:00"
           }
         ]
       }
@@ -7685,7 +7685,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["synology"],
-        "products": ["beephotos", "synology photos"]
+        "products": ["synology photos", "beephotos"]
       },
       "references": [
         {
@@ -7767,7 +7767,7 @@
       "title": "CVE-2024-23113: A use of externally-controlled format string in Fortinet FortiOS versions 7.4.0 through 7.4.2, 7.2.0...",
       "description": "A use of externally-controlled format string in Fortinet FortiOS versions 7.4.0 through 7.4.2, 7.2.0 through 7.2.6, 7.0.0 through 7.0.13, FortiProxy versions 7.4.0 through 7.4.2, 7.2.0 through 7.2.8, 7.0.0 through 7.0.14, FortiPAM versions 1.2.0, 1.1.0 through 1.1.2, 1.0.0 through 1.0.3, FortiSwitchManager versions 7.2.0 through 7.2.3, 7.0.0 through 7.0.3 allows attacker to execute unauthorized code or commands via specially crafted packets.",
       "publishedDate": "2024-02-15T13:59:25.313000+00:00",
-      "lastModifiedDate": "2024-10-10T14:01:05.045000+00:00",
+      "lastModifiedDate": "2025-07-28T19:42:48.877000+00:00",
       "severity": "CRITICAL",
       "cvssMetrics": [
         {
@@ -7786,7 +7786,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["fortinet"],
-        "products": ["fortiswitchmanager", "fortiproxy", "fortipam", "fortios"]
+        "products": ["fortiproxy", "fortios", "fortipam", "fortiswitchmanager"]
       },
       "references": [
         {
@@ -7805,7 +7805,7 @@
           {
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/23xxx/CVE-2024-23113.json",
-            "lastModified": "2024-10-10T14:01:05.045000+00:00"
+            "lastModified": "2025-07-28T19:42:48.877000+00:00"
           }
         ]
       }
@@ -8423,7 +8423,7 @@
       "title": "Heap-overflow vulnerability",
       "description": "The vCenter Server contains a heap-overflow vulnerability in the implementation of the DCERPC protocol. A malicious actor with network access to vCenter Server may trigger this vulnerability by sending a specially crafted network packet potentially leading to remote code execution.",
       "publishedDate": "2024-09-17T17:13:09.778000+00:00",
-      "lastModifiedDate": "2025-06-10T16:31:30.590000+00:00",
+      "lastModifiedDate": "2025-07-28T19:42:38.860000+00:00",
       "severity": "CRITICAL",
       "cvssMetrics": [
         {
@@ -8442,7 +8442,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["n/a"],
-        "products": ["vmware vcenter server", "vmware cloud foundation"]
+        "products": ["vmware cloud foundation", "vmware vcenter server"]
       },
       "references": [
         {
@@ -8461,7 +8461,7 @@
           {
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/38xxx/CVE-2024-38812.json",
-            "lastModified": "2025-06-10T16:31:30.590000+00:00"
+            "lastModified": "2025-07-28T19:42:38.860000+00:00"
           }
         ]
       }
@@ -8766,7 +8766,7 @@
       "title": "GeoVision EOL devices - OS Command Injection",
       "description": "Certain EOL GeoVision devices have an OS Command Injection vulnerability. Unauthenticated remote attackers can exploit this vulnerability to inject and execute arbitrary system commands on the device. Moreover, this vulnerability has already been exploited by attackers, and we have received related reports.",
       "publishedDate": "2024-11-15T02:00:27.361000+00:00",
-      "lastModifiedDate": "2025-05-07T22:20:22.841000+00:00",
+      "lastModifiedDate": "2025-07-28T19:41:53.628000+00:00",
       "severity": "CRITICAL",
       "cvssMetrics": [
         {
@@ -8785,7 +8785,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["geovision"],
-        "products": ["gvlx 4 v3", "gv-vs11", "gv-dsp_lpr_v3", "gvlx 4 v2", "gv-vs12"]
+        "products": ["gv-vs12", "gv-dsp_lpr_v3", "gv-vs11", "gvlx 4 v2", "gvlx 4 v3"]
       },
       "references": [
         {
@@ -8809,7 +8809,7 @@
           {
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/11xxx/CVE-2024-11120.json",
-            "lastModified": "2025-05-07T22:20:22.841000+00:00"
+            "lastModified": "2025-07-28T19:41:53.628000+00:00"
           }
         ]
       }
@@ -9525,13 +9525,13 @@
         "cpeMatches": [],
         "vendors": ["asus"],
         "products": [
-          "rt-ac68u",
-          "zenwifi xt8",
           "rt-ax57",
+          "rt-ac68u",
           "rt-ax58u",
-          "rt-ax88u",
           "rt-ac86u",
-          "zenwifi xt8 v2"
+          "rt-ax88u",
+          "zenwifi xt8 v2",
+          "zenwifi xt8"
         ]
       },
       "references": [
@@ -9886,7 +9886,7 @@
       "title": "ScienceLogic SL1 unspecified vulnerability",
       "description": "ScienceLogic SL1 (formerly EM7) is affected by an unspecified vulnerability involving an unspecified third-party component packaged with SL1. The vulnerability is addressed in SL1 versions 12.1.3+, 12.2.3+, and 12.3+.  Remediations have been made available for all SL1 versions back to version lines 10.1.x, 10.2.x, 11.1.x, 11.2.x, and 11.3.x.",
       "publishedDate": "2024-10-18T14:45:02.147000+00:00",
-      "lastModifiedDate": "2024-10-21T16:20:22.738000+00:00",
+      "lastModifiedDate": "2025-07-28T19:42:46.543000+00:00",
       "severity": "CRITICAL",
       "cvssMetrics": [
         {
@@ -9964,7 +9964,7 @@
           {
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/9xxx/CVE-2024-9537.json",
-            "lastModified": "2024-10-21T16:20:22.738000+00:00"
+            "lastModified": "2025-07-28T19:42:46.543000+00:00"
           }
         ]
       }
@@ -10580,13 +10580,13 @@
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": ["warfareplugins", "blazeretail", "themerex", "pedrogusmao02", "stuartobrien"],
+        "vendors": ["warfareplugins", "blazeretail", "pedrogusmao02", "themerex", "stuartobrien"],
         "products": [
           "wrapper link elementor",
-          "contact form 7 multi-step addon",
-          "blaze retail widget",
           "simply show hooks",
-          "social sharing plugin – social warfare"
+          "contact form 7 multi-step addon",
+          "social sharing plugin – social warfare",
+          "blaze retail widget"
         ]
       },
       "references": [
@@ -11404,7 +11404,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["n/a"],
-        "products": ["vmware vcenter server", "vmware cloud foundation"]
+        "products": ["vmware cloud foundation", "vmware vcenter server"]
       },
       "references": [
         {
@@ -11452,7 +11452,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["n/a"],
-        "products": ["vmware vcenter server", "vmware cloud foundation"]
+        "products": ["vmware cloud foundation", "vmware vcenter server"]
       },
       "references": [
         {
@@ -11703,12 +11703,12 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          "windows server 2019",
-          "windows server 2022",
-          "windows server 2019 (server core installation)",
           "windows server 2022, 23h2 edition (server core installation)",
+          "windows server 2016",
           "windows server 2016 (server core installation)",
-          "windows server 2016"
+          "windows server 2019 (server core installation)",
+          "windows server 2022",
+          "windows server 2019"
         ]
       },
       "references": [
@@ -11758,31 +11758,31 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          "windows 11 version 21h2",
-          "windows 11 version 23h2",
-          "windows 11 version 22h2",
-          "windows server 2012 r2",
-          "windows 10 version 1809",
           "windows server 2016",
+          "windows server 2008 service pack 2",
+          "windows server 2019 (server core installation)",
+          "windows server 2012 r2",
           "windows 10 version 22h2",
           "windows server 2022",
-          "windows server 2019 (server core installation)",
+          "windows 10 version 21h2",
+          "windows 10 version 1809",
+          "windows 11 version 22h3",
+          "windows 10 version 1507",
+          "windows server 2012 (server core installation)",
+          "windows server 2012",
+          "windows server 2008  service pack 2",
           "windows server 2008 service pack 2 (server core installation)",
-          "windows server 2008 service pack 2",
-          "windows server 2016 (server core installation)",
-          "windows server 2008 r2 service pack 1 (server core installation)",
+          "windows server 2022, 23h2 edition (server core installation)",
           "windows server 2012 r2 (server core installation)",
           "windows server 2019",
+          "windows server 2008 r2 service pack 1 (server core installation)",
           "windows 11 version 24h2",
-          "windows server 2008  service pack 2",
-          "windows server 2012",
-          "windows 10 version 1507",
-          "windows 10 version 1607",
-          "windows 10 version 21h2",
+          "windows server 2016 (server core installation)",
           "windows server 2008 r2 service pack 1",
-          "windows 11 version 22h3",
-          "windows server 2022, 23h2 edition (server core installation)",
-          "windows server 2012 (server core installation)"
+          "windows 11 version 23h2",
+          "windows 11 version 22h2",
+          "windows 11 version 21h2",
+          "windows 10 version 1607"
         ]
       },
       "references": [
@@ -11832,31 +11832,31 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          "windows 11 version 21h2",
-          "windows 11 version 23h2",
-          "windows 11 version 22h2",
-          "windows server 2012 r2",
-          "windows 10 version 1809",
           "windows server 2016",
+          "windows server 2008 service pack 2",
+          "windows server 2019 (server core installation)",
+          "windows server 2012 r2",
           "windows 10 version 22h2",
           "windows server 2022",
-          "windows server 2019 (server core installation)",
+          "windows 10 version 21h2",
+          "windows 10 version 1809",
+          "windows 11 version 22h3",
+          "windows 10 version 1507",
+          "windows server 2012 (server core installation)",
+          "windows server 2012",
+          "windows server 2008  service pack 2",
           "windows server 2008 service pack 2 (server core installation)",
-          "windows server 2008 service pack 2",
-          "windows server 2016 (server core installation)",
-          "windows server 2008 r2 service pack 1 (server core installation)",
+          "windows server 2022, 23h2 edition (server core installation)",
           "windows server 2012 r2 (server core installation)",
           "windows server 2019",
+          "windows server 2008 r2 service pack 1 (server core installation)",
           "windows 11 version 24h2",
-          "windows server 2008  service pack 2",
-          "windows server 2012",
-          "windows 10 version 1507",
-          "windows 10 version 1607",
-          "windows 10 version 21h2",
+          "windows server 2016 (server core installation)",
           "windows server 2008 r2 service pack 1",
-          "windows 11 version 22h3",
-          "windows server 2022, 23h2 edition (server core installation)",
-          "windows server 2012 (server core installation)"
+          "windows 11 version 23h2",
+          "windows 11 version 22h2",
+          "windows 11 version 21h2",
+          "windows 10 version 1607"
         ]
       },
       "references": [
@@ -11954,9 +11954,9 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
+          "system center operations manager (scom) 2019",
           "system center operations manager (scom) 2022",
-          "open management infrastructure",
-          "system center operations manager (scom) 2019"
+          "open management infrastructure"
         ]
       },
       "references": [
@@ -12005,7 +12005,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["myscada"],
-        "products": ["mypro runtime", "mypro manager"]
+        "products": ["mypro manager", "mypro runtime"]
       },
       "references": [
         {
@@ -12564,7 +12564,7 @@
       "title": "SolarWinds Web Help Desk Java Deserialization Remote Code Execution Vulnerability",
       "description": "SolarWinds Web Help Desk was found to be susceptible to a Java Deserialization Remote Code Execution vulnerability that, if exploited, would allow an attacker to run commands on the host machine. \n\nWhile it was reported as an unauthenticated vulnerability, SolarWinds has been unable to reproduce it without authentication after thorough testing.  \n\nHowever, out of an abundance of caution, we recommend all Web Help Desk customers apply the patch, which is now available.",
       "publishedDate": "2024-08-13T22:06:45.234000+00:00",
-      "lastModifiedDate": "2025-02-10T18:33:18.550000+00:00",
+      "lastModifiedDate": "2025-07-28T19:43:04.690000+00:00",
       "severity": "CRITICAL",
       "cvssMetrics": [
         {
@@ -12607,7 +12607,7 @@
           {
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/28xxx/CVE-2024-28986.json",
-            "lastModified": "2025-02-10T18:33:18.550000+00:00"
+            "lastModified": "2025-07-28T19:43:04.690000+00:00"
           }
         ]
       }
@@ -12743,30 +12743,30 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          "windows 11 version 21h2",
-          "windows 11 version 23h2",
-          "windows 11 version 22h2",
-          "windows server 2012 r2",
-          "windows 10 version 1809",
           "windows server 2016",
+          "windows server 2008 service pack 2",
+          "windows server 2019 (server core installation)",
+          "windows server 2012 r2",
           "windows 10 version 22h2",
           "windows server 2022",
-          "windows server 2019 (server core installation)",
+          "windows 10 version 21h2",
+          "windows 10 version 1809",
+          "windows 11 version 22h3",
+          "windows 10 version 1507",
+          "windows server 2012 (server core installation)",
+          "windows server 2012",
+          "windows server 2008  service pack 2",
           "windows server 2008 service pack 2 (server core installation)",
-          "windows server 2008 service pack 2",
-          "windows server 2016 (server core installation)",
-          "windows server 2008 r2 service pack 1 (server core installation)",
+          "windows server 2022, 23h2 edition (server core installation)",
           "windows server 2012 r2 (server core installation)",
           "windows server 2019",
-          "windows server 2008  service pack 2",
-          "windows server 2012",
-          "windows 10 version 1507",
-          "windows 10 version 1607",
-          "windows 10 version 21h2",
+          "windows server 2008 r2 service pack 1 (server core installation)",
+          "windows server 2016 (server core installation)",
           "windows server 2008 r2 service pack 1",
-          "windows 11 version 22h3",
-          "windows server 2022, 23h2 edition (server core installation)",
-          "windows server 2012 (server core installation)"
+          "windows 11 version 23h2",
+          "windows 11 version 22h2",
+          "windows 11 version 21h2",
+          "windows 10 version 1607"
         ]
       },
       "references": [
@@ -13024,18 +13024,18 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          "windows server 2019",
-          "windows server 2012",
-          "windows server 2022",
+          "windows server 2022, 23h2 edition (server core installation)",
+          "windows server 2016",
+          "windows server 2016 (server core installation)",
+          "windows server 2008 r2 service pack 1",
           "windows server 2019 (server core installation)",
           "windows server 2012 r2",
-          "windows server 2008 r2 service pack 1",
-          "windows server 2022, 23h2 edition (server core installation)",
-          "windows server 2016 (server core installation)",
-          "windows server 2008 r2 service pack 1 (server core installation)",
           "windows server 2012 r2 (server core installation)",
           "windows server 2012 (server core installation)",
-          "windows server 2016"
+          "windows server 2022",
+          "windows server 2019",
+          "windows server 2012",
+          "windows server 2008 r2 service pack 1 (server core installation)"
         ]
       },
       "references": [
@@ -13617,14 +13617,14 @@
         "cpeMatches": [],
         "vendors": ["cisco"],
         "products": [
-          "cisco packaged contact center enterprise",
-          "cisco unified contact center enterprise",
-          "cisco unified contact center express",
-          "cisco unified communications manager / cisco unity connection",
-          "cisco unified communications manager im and presence service",
           "cisco virtualized voice browser",
           "cisco unified communications manager",
-          "cisco unity connection"
+          "cisco unified communications manager im and presence service",
+          "cisco packaged contact center enterprise",
+          "cisco unified contact center express",
+          "cisco unity connection",
+          "cisco unified communications manager / cisco unity connection",
+          "cisco unified contact center enterprise"
         ]
       },
       "references": [
@@ -14393,18 +14393,18 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          "windows server 2019",
-          "windows server 2012",
-          "windows server 2025 (server core installation)",
+          "windows server 2022, 23h2 edition (server core installation)",
           "windows server 2025",
-          "windows server 2022",
+          "windows server 2016",
+          "windows server 2016 (server core installation)",
           "windows server 2019 (server core installation)",
           "windows server 2012 r2",
-          "windows server 2022, 23h2 edition (server core installation)",
-          "windows server 2016 (server core installation)",
           "windows server 2012 r2 (server core installation)",
           "windows server 2012 (server core installation)",
-          "windows server 2016"
+          "windows server 2022",
+          "windows server 2019",
+          "windows server 2012",
+          "windows server 2025 (server core installation)"
         ]
       },
       "references": [
@@ -14757,7 +14757,7 @@
       "title": "Microsoft Exchange Server Elevation of Privilege Vulnerability",
       "description": "Microsoft Exchange Server Elevation of Privilege Vulnerability",
       "publishedDate": "2024-02-13T18:02:48.590000+00:00",
-      "lastModifiedDate": "2025-05-03T01:37:17.860000+00:00",
+      "lastModifiedDate": "2025-07-28T19:43:28.843000+00:00",
       "severity": "CRITICAL",
       "cvssMetrics": [
         {
@@ -14799,7 +14799,7 @@
           {
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/21xxx/CVE-2024-21410.json",
-            "lastModified": "2025-05-03T01:37:17.860000+00:00"
+            "lastModified": "2025-07-28T19:43:28.843000+00:00"
           }
         ]
       }
@@ -15969,7 +15969,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["inspirelabs"],
-        "products": ["inpost for woocommerce", "inpost pl"]
+        "products": ["inpost pl", "inpost for woocommerce"]
       },
       "references": [
         {
@@ -16532,21 +16532,21 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          "azure cyclecloud 8.2.1",
-          "azure cyclecloud 8.0.2",
-          "azure cyclecloud 8.2.2",
-          "azure cyclecloud 8.1.1",
-          "azure cyclecloud 8.3.0",
-          "azure cyclecloud 8.4.1",
-          "azure cyclecloud 8.5.0",
-          "azure cyclecloud 8.1.0",
-          "azure cyclecloud 8.0.0",
           "azure cyclecloud 8.2.0",
-          "azure cyclecloud 8.4.0",
-          "azure cyclecloud 8.0.1",
+          "azure cyclecloud 8.0.0",
+          "azure cyclecloud 8.2.1",
+          "azure cyclecloud 8.2.2",
           "azure cyclecloud 8.6.0",
+          "azure cyclecloud 8.0.2",
+          "azure cyclecloud 8.1.0",
+          "azure cyclecloud 8.1.1",
           "azure cyclecloud 8.4.2",
-          "azure cyclecloud"
+          "azure cyclecloud 8.3.0",
+          "azure cyclecloud 8.0.1",
+          "azure cyclecloud 8.4.0",
+          "azure cyclecloud 8.4.1",
+          "azure cyclecloud",
+          "azure cyclecloud 8.5.0"
         ]
       },
       "references": [
@@ -16596,11 +16596,11 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          ".net 9.0",
           "microsoft visual studio 2022 version 17.10",
-          "microsoft visual studio 2022 version 17.8",
-          "microsoft visual studio 2022 version 17.6",
+          ".net 9.0",
           "microsoft visual studio 2022 version 17.11",
+          "microsoft visual studio 2022 version 17.6",
+          "microsoft visual studio 2022 version 17.8",
           "powershell 7.5"
         ]
       },
@@ -16840,9 +16840,9 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
+          "windows server 2016",
           "windows 10 version 1607",
-          "windows server 2016 (server core installation)",
-          "windows server 2016"
+          "windows server 2016 (server core installation)"
         ]
       },
       "references": [
@@ -16988,9 +16988,9 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
+          "windows server 2016",
           "windows 10 version 1607",
-          "windows server 2016 (server core installation)",
-          "windows server 2016"
+          "windows server 2016 (server core installation)"
         ]
       },
       "references": [
@@ -18897,28 +18897,28 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          ".net 7.0",
-          "microsoft visual studio 2022 version 17.4",
-          "microsoft visual studio 2022 version 17.2",
-          "powershell 7.4",
+          ".net 8.0",
           "microsoft .net framework 3.5 and 4.8.1",
+          ".net 6.0",
+          "microsoft .net framework 3.0 service pack 2",
+          "microsoft .net framework 4.6.2/4.7/4.7.1/4.7.2",
+          "microsoft visual studio 2019 version 16.11 (includes 16.0 - 16.10)",
+          "nuget 17.8.0",
+          "nuget 17.6.0",
+          "microsoft .net framework 4.8",
+          "powershell 7.4",
+          "microsoft visual studio 2022 version 17.2",
+          "microsoft .net framework 2.0 service pack 2",
           "powershell 7.3",
           "microsoft .net framework 3.5 and 4.8",
-          "nuget 5.11.0",
-          "microsoft .net framework 3.5 and 4.7.2",
-          "microsoft visual studio 2019 version 16.11 (includes 16.0 - 16.10)",
-          "nuget 17.6.0",
-          "microsoft .net framework 2.0 service pack 2",
-          "microsoft .net framework 4.6.2/4.7/4.7.1/4.7.2",
-          "nuget 17.8.0",
-          "nuget 17.4.0",
-          ".net 6.0",
           "powershell 7.2",
-          "microsoft .net framework 4.8",
-          "microsoft .net framework 3.0 service pack 2",
           "microsoft visual studio 2022 version 17.8",
+          "microsoft .net framework 3.5 and 4.7.2",
           "microsoft visual studio 2022 version 17.6",
-          ".net 8.0"
+          "nuget 5.11.0",
+          "microsoft visual studio 2022 version 17.4",
+          ".net 7.0",
+          "nuget 17.4.0"
         ]
       },
       "references": [
@@ -19142,21 +19142,21 @@
         "cpeMatches": [],
         "vendors": ["microsoft"],
         "products": [
-          "windows server 2019",
-          "windows server 2008  service pack 2",
-          "windows server 2012",
-          "windows server 2022",
-          "windows server 2019 (server core installation)",
-          "windows server 2008 service pack 2 (server core installation)",
-          "windows server 2012 r2",
-          "windows server 2008 r2 service pack 1",
-          "windows server 2008 service pack 2",
           "windows server 2022, 23h2 edition (server core installation)",
+          "windows server 2016",
           "windows server 2016 (server core installation)",
-          "windows server 2008 r2 service pack 1 (server core installation)",
+          "windows server 2008 service pack 2",
+          "windows server 2008 r2 service pack 1",
+          "windows server 2019 (server core installation)",
+          "windows server 2012 r2",
           "windows server 2012 r2 (server core installation)",
           "windows server 2012 (server core installation)",
-          "windows server 2016"
+          "windows server 2022",
+          "windows server 2019",
+          "windows server 2012",
+          "windows server 2008 r2 service pack 1 (server core installation)",
+          "windows server 2008  service pack 2",
+          "windows server 2008 service pack 2 (server core installation)"
         ]
       },
       "references": [
@@ -19703,12 +19703,12 @@
         "cpeMatches": [],
         "vendors": ["red hat"],
         "products": [
-          "red hat openshift container platform 4.16",
-          "red hat openshift container platform 4.13",
           "red hat openshift container platform 4.17",
-          "red hat openshift container platform 4.14",
           "red hat openshift container platform 4.15",
-          "red hat openshift container platform 4.12"
+          "red hat openshift container platform 4.14",
+          "red hat openshift container platform 4.16",
+          "red hat openshift container platform 4.12",
+          "red hat openshift container platform 4.13"
         ]
       },
       "references": [
@@ -19878,11 +19878,11 @@
         "cpeMatches": [],
         "vendors": ["red hat"],
         "products": [
-          "red hat satellite 6.15 for rhel 8",
-          "red hat satellite 6.16 for rhel 9",
+          "red hat satellite 6.16 for rhel 8",
           "red hat satellite 6.13 for rhel 8",
+          "red hat satellite 6.15 for rhel 8",
           "red hat satellite 6.14 for rhel 8",
-          "red hat satellite 6.16 for rhel 8"
+          "red hat satellite 6.16 for rhel 9"
         ]
       },
       "references": [
@@ -20243,12 +20243,12 @@
         "cpeMatches": [],
         "vendors": ["xiongmai"],
         "products": [
+          "xm530_r80x30-pq_8m",
+          "ahb8008t-gl",
           "ahb7004t-gs-v3",
           "ahb7804r-mh-v2",
-          "ahb8008t-gl",
           "ahb8032f-lme",
           "ahb7004t-mhv2",
-          "xm530_r80x30-pq_8m",
           "ahb8004t-gl"
         ]
       },
@@ -21153,7 +21153,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["stylemixthemes"],
-        "products": ["consulting elementor widgets", "masterstudy elementor widgets"]
+        "products": ["masterstudy elementor widgets", "consulting elementor widgets"]
       },
       "references": [
         {
@@ -23289,7 +23289,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["qnap systems inc."],
-        "products": ["quts hero", "qts", "qutscloud"]
+        "products": ["qts", "qutscloud", "quts hero"]
       },
       "references": [
         {
@@ -25278,27 +25278,27 @@
         "cpeMatches": [],
         "vendors": ["siemens"],
         "products": [
-          "sinteso mobile",
+          "cerberus pro en x200 cloud distribution ip7",
           "sinteso fs20 en x300 cloud distribution mp8",
-          "cerberus pro en engineering tool",
+          "cerberus pro en x300 cloud distribution ip7",
+          "cerberus pro en x300 cloud distribution ip8",
+          "sinteso fs20 en fire panel fc20 mp7",
+          "cerberus pro en fire panel fc72x ip7",
+          "sinteso fs20 en x200 cloud distribution mp8",
+          "cerberus pro ul x300 cloud distribution",
+          "sinteso fs20 en engineering tool",
           "cerberus pro en x200 cloud distribution ip8",
           "desigo fire safety ul x300 cloud distribution",
-          "sinteso fs20 en engineering tool",
-          "cerberus pro en x300 cloud distribution ip7",
-          "sinteso fs20 en x300 cloud distribution mp7",
-          "sinteso fs20 en fire panel fc20 mp6",
-          "cerberus pro ul engineering tool",
-          "desigo fire safety ul compact panel fc2025/2050",
-          "cerberus pro en x300 cloud distribution ip8",
-          "sinteso fs20 en x200 cloud distribution mp8",
-          "desigo fire safety ul engineering tool",
-          "cerberus pro en fire panel fc72x ip7",
-          "cerberus pro ul compact panel fc922/924",
-          "sinteso fs20 en fire panel fc20 mp7",
-          "sinteso fs20 en x200 cloud distribution mp7",
-          "cerberus pro ul x300 cloud distribution",
           "cerberus pro en fire panel fc72x ip6",
-          "cerberus pro en x200 cloud distribution ip7"
+          "cerberus pro en engineering tool",
+          "sinteso mobile",
+          "cerberus pro ul engineering tool",
+          "sinteso fs20 en x300 cloud distribution mp7",
+          "desigo fire safety ul engineering tool",
+          "sinteso fs20 en x200 cloud distribution mp7",
+          "sinteso fs20 en fire panel fc20 mp6",
+          "desigo fire safety ul compact panel fc2025/2050",
+          "cerberus pro ul compact panel fc922/924"
         ]
       },
       "references": [
@@ -28171,11 +28171,11 @@
         "cpeMatches": [],
         "vendors": ["canon inc."],
         "products": [
-          "color imageclass mf750c series",
-          "c1333if",
-          "i-sensys mf754cdw",
           "satera mf750c series",
-          "color imageclass x mf1333c"
+          "c1333if",
+          "color imageclass x mf1333c",
+          "i-sensys mf754cdw",
+          "color imageclass mf750c series"
         ]
       },
       "references": [
@@ -29176,11 +29176,11 @@
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": ["schneider electric ", "schneider electric"],
+        "vendors": ["schneider electric", "schneider electric "],
         "products": [
+          "easergy t200 (dnp3) models: t200i, t200e, t200p, t200s, t200h",
           "easergy t200 (iec104) models: t200i, t200e, t200p, t200s, t200h",
-          "easergy t200 (modbus) models: t200i, t200e, t200p, t200s, t200h ",
-          "easergy t200 (dnp3) models: t200i, t200e, t200p, t200s, t200h"
+          "easergy t200 (modbus) models: t200i, t200e, t200p, t200s, t200h "
         ]
       },
       "references": [
@@ -30221,7 +30221,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["d-link"],
-        "products": ["dir-x4860 a1", "dir-x5460 a1"]
+        "products": ["dir-x5460 a1", "dir-x4860 a1"]
       },
       "references": [
         {
@@ -30704,12 +30704,12 @@
         "cpeMatches": [],
         "vendors": ["red hat"],
         "products": [
-          "red hat openshift container platform 4.16",
-          "red hat openshift container platform 4.13",
           "red hat openshift container platform 4.17",
-          "red hat openshift container platform 4.14",
           "red hat openshift container platform 4.15",
-          "red hat openshift container platform 4.12"
+          "red hat openshift container platform 4.14",
+          "red hat openshift container platform 4.16",
+          "red hat openshift container platform 4.12",
+          "red hat openshift container platform 4.13"
         ]
       },
       "references": [
@@ -31006,9 +31006,9 @@
         "cpeMatches": [],
         "vendors": ["toshiba tec corporation", "sharp corporation"],
         "products": [
-          "sharp digital full-color mfps and monochrome mfps",
           "e-studio 908",
           "e-studio 1058",
+          "sharp digital full-color mfps and monochrome mfps",
           "e-studio 1208"
         ]
       },
@@ -31068,7 +31068,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["siemens"],
-        "products": ["intermesh 7707 fire subscriber", "intermesh 7177 hybrid 2.0 subscriber"]
+        "products": ["intermesh 7177 hybrid 2.0 subscriber", "intermesh 7707 fire subscriber"]
       },
       "references": [
         {
@@ -31290,7 +31290,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["phoenix contact"],
-        "products": ["charx sec-3000", "charx sec-3150", "charx sec-3050", "charx sec-3100"]
+        "products": ["charx sec-3050", "charx sec-3150", "charx sec-3000", "charx sec-3100"]
       },
       "references": [
         {
@@ -32512,28 +32512,28 @@
         "cpeMatches": [],
         "vendors": ["asus"],
         "products": [
-          "dsl-n55u_c1",
-          "dsl-n10p_c1",
-          "dsl-n16u",
           "dsl-n16",
-          "dsl-ac52",
-          "dsl-n10_d1",
-          "dsl-ac56u",
+          "dsl-n16u",
           "dsl-n14u",
-          "dsl-n17u",
-          "dsl-n10_c1",
+          "dsl-ac51",
           "dsl-n16p",
-          "dsl-n55u_d1",
-          "dsl-ac52u",
-          "dsl-ac55",
           "dsl-n14u_b1",
-          "dsl-n12u_c1",
+          "dsl-n66u",
+          "dsl-n55u_c1",
+          "dsl-ac56u",
+          "dsl-ac55",
           "dsl-n12e_c1",
+          "dsl-n55u_d1",
+          "dsl-ac55u",
+          "dsl-n10_c1",
+          "dsl-ac52",
+          "dsl-n10p_c1",
+          "dsl-n12u_c1",
           "dsl-ac750",
           "dsl-n12u_d1",
-          "dsl-ac51",
-          "dsl-n66u",
-          "dsl-ac55u"
+          "dsl-n10_d1",
+          "dsl-n17u",
+          "dsl-ac52u"
         ]
       },
       "references": [
@@ -32641,19 +32641,19 @@
         "cpeMatches": [],
         "vendors": ["siemens"],
         "products": [
-          "telecontrol server basic 1000 v3.1",
-          "pp telecontrol server basic 1000 to 5000 v3.1",
-          "pp telecontrol server basic 8 to 32 v3.1",
+          "pp telecontrol server basic 64 to 256 v3.1",
+          "telecontrol server basic upgr v3.1",
           "telecontrol server basic 256 v3.1",
+          "pp telecontrol server basic 1000 to 5000 v3.1",
           "telecontrol server basic 64 v3.1",
-          "pp telecontrol server basic 256 to 1000 v3.1",
+          "telecontrol server basic 8 v3.1",
+          "pp telecontrol server basic 32 to 64 v3.1",
+          "telecontrol server basic 1000 v3.1",
+          "telecontrol server basic 5000 v3.1",
+          "pp telecontrol server basic 8 to 32 v3.1",
           "telecontrol server basic serv upgr",
           "telecontrol server basic 32 v3.1",
-          "telecontrol server basic 5000 v3.1",
-          "telecontrol server basic upgr v3.1",
-          "pp telecontrol server basic 64 to 256 v3.1",
-          "pp telecontrol server basic 32 to 64 v3.1",
-          "telecontrol server basic 8 v3.1"
+          "pp telecontrol server basic 256 to 1000 v3.1"
         ]
       },
       "references": [
@@ -32914,7 +32914,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["ivanti"],
-        "products": ["connect secure", "policy secure"]
+        "products": ["policy secure", "connect secure"]
       },
       "references": [
         {
@@ -33333,7 +33333,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["ivanti"],
-        "products": ["connect secure", "policy secure"]
+        "products": ["policy secure", "connect secure"]
       },
       "references": [
         {
@@ -33381,7 +33381,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["ivanti"],
-        "products": ["connect secure", "policy secure"]
+        "products": ["policy secure", "connect secure"]
       },
       "references": [
         {
@@ -34176,7 +34176,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["planet technology"],
-        "products": ["gs-4210-24pl4c hardware 2.0", "gs-4210-24p2s hardware 3.0"]
+        "products": ["gs-4210-24p2s hardware 3.0", "gs-4210-24pl4c hardware 2.0"]
       },
       "references": [
         {
@@ -36326,11 +36326,11 @@
         "cpeMatches": [],
         "vendors": ["dell"],
         "products": [
-          "dell powerflex custom node",
-          "dell insightiq",
           "dell powerflex rack",
           "dell powerflex appliance",
-          "dell data lakehouse"
+          "dell data lakehouse",
+          "dell powerflex custom node",
+          "dell insightiq"
         ]
       },
       "references": [
@@ -38001,7 +38001,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["sick ag"],
-        "products": ["sick clv6xx", "sick rfx6xx", "sick lector6xx"]
+        "products": ["sick lector6xx", "sick clv6xx", "sick rfx6xx"]
       },
       "references": [
         {
@@ -38074,7 +38074,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["sick ag"],
-        "products": ["sick inspectorp62x", "sick inspectorp61x", "tim3xx"]
+        "products": ["sick inspectorp61x", "tim3xx", "sick inspectorp62x"]
       },
       "references": [
         {
@@ -38311,7 +38311,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["pearlbells"],
-        "products": ["post title (typewriter)", "flash news / post (responsive)"]
+        "products": ["flash news / post (responsive)", "post title (typewriter)"]
       },
       "references": [
         {
@@ -38466,15 +38466,15 @@
         "cpeMatches": [],
         "vendors": ["kieback & peter", "kieback&peter"],
         "products": [
-          "ddc4400e",
-          "ddc4040e",
-          "ddc4200",
-          "ddc4100",
-          "ddc4002",
           "ddc4020e",
           "ddc4200e",
           "ddc4002e",
+          "ddc4400e",
           "ddc4400",
+          "ddc4100",
+          "ddc4200",
+          "ddc4040e",
+          "ddc4002",
           "ddc4200-l"
         ]
       },
@@ -38811,32 +38811,32 @@
         "cpeMatches": [],
         "vendors": ["mitsubishi electric corporation"],
         "products": [
-          "melsec-q series q26udehcpu",
-          "melsec-q series q20udehcpu",
-          "melsec-q series q04udpvcpu",
-          "melsec-q series q04udvcpu",
-          "melsec-q series q26udpvcpu",
-          "melsec-q series q13udvcpu",
-          "melsec-q series q06udpvcpu",
-          "melsec-q series q13udehcpu",
-          "melsec-l series l26cpu-pbt",
-          "melsec-l series l26cpu-bt",
-          "melsec-q series q50udehcpu",
-          "melsec-q series q13udpvcpu",
-          "melsec-l series l02cpu",
-          "melsec-q series q26udvcpu",
-          "melsec-q series q100udehcpu",
-          "melsec-l series l02cpu-p",
-          "melsec-l series l26cpu",
-          "melsec-q series q03udecpu",
           "melsec-q series q06udehcpu",
-          "melsec-q series q04udehcpu",
+          "melsec-l series l02cpu",
           "melsec-l series l06cpu-p",
-          "melsec-q series q03udvcpu",
-          "melsec-q series q06udvcpu",
-          "melsec-l series l06cpu",
           "melsec-l series l26cpu-p",
-          "melsec-q series q10udehcpu"
+          "melsec-q series q26udehcpu",
+          "melsec-q series q100udehcpu",
+          "melsec-q series q06udpvcpu",
+          "melsec-q series q10udehcpu",
+          "melsec-q series q04udpvcpu",
+          "melsec-q series q26udpvcpu",
+          "melsec-q series q26udvcpu",
+          "melsec-q series q03udvcpu",
+          "melsec-q series q20udehcpu",
+          "melsec-q series q04udehcpu",
+          "melsec-q series q03udecpu",
+          "melsec-l series l26cpu",
+          "melsec-l series l02cpu-p",
+          "melsec-q series q04udvcpu",
+          "melsec-l series l26cpu-pbt",
+          "melsec-l series l06cpu",
+          "melsec-q series q06udvcpu",
+          "melsec-q series q13udehcpu",
+          "melsec-q series q13udpvcpu",
+          "melsec-q series q13udvcpu",
+          "melsec-q series q50udehcpu",
+          "melsec-l series l26cpu-bt"
         ]
       },
       "references": [
@@ -39070,32 +39070,32 @@
         "cpeMatches": [],
         "vendors": ["mitsubishi electric corporation"],
         "products": [
-          "melsec-q series q26udehcpu",
-          "melsec-q series q20udehcpu",
-          "melsec-q series q04udpvcpu",
-          "melsec-q series q04udvcpu",
-          "melsec-q series q26udpvcpu",
-          "melsec-q series q13udvcpu",
-          "melsec-q series q06udpvcpu",
-          "melsec-q series q13udehcpu",
-          "melsec-l series l26cpu-pbt",
-          "melsec-l series l26cpu-bt",
-          "melsec-q series q50udehcpu",
-          "melsec-q series q13udpvcpu",
-          "melsec-l series l02cpu",
-          "melsec-q series q26udvcpu",
-          "melsec-q series q100udehcpu",
-          "melsec-l series l02cpu-p",
-          "melsec-l series l26cpu",
-          "melsec-q series q03udecpu",
           "melsec-q series q06udehcpu",
-          "melsec-q series q04udehcpu",
+          "melsec-l series l02cpu",
           "melsec-l series l06cpu-p",
-          "melsec-q series q03udvcpu",
-          "melsec-q series q06udvcpu",
-          "melsec-l series l06cpu",
           "melsec-l series l26cpu-p",
-          "melsec-q series q10udehcpu"
+          "melsec-q series q26udehcpu",
+          "melsec-q series q100udehcpu",
+          "melsec-q series q06udpvcpu",
+          "melsec-q series q10udehcpu",
+          "melsec-q series q04udpvcpu",
+          "melsec-q series q26udpvcpu",
+          "melsec-q series q26udvcpu",
+          "melsec-q series q03udvcpu",
+          "melsec-q series q20udehcpu",
+          "melsec-q series q04udehcpu",
+          "melsec-q series q03udecpu",
+          "melsec-l series l26cpu",
+          "melsec-l series l02cpu-p",
+          "melsec-q series q04udvcpu",
+          "melsec-l series l26cpu-pbt",
+          "melsec-l series l06cpu",
+          "melsec-q series q06udvcpu",
+          "melsec-q series q13udehcpu",
+          "melsec-q series q13udpvcpu",
+          "melsec-q series q13udvcpu",
+          "melsec-q series q50udehcpu",
+          "melsec-l series l26cpu-bt"
         ]
       },
       "references": [
@@ -39208,32 +39208,32 @@
         "cpeMatches": [],
         "vendors": ["mitsubishi electric corporation"],
         "products": [
-          "melsec-q series q26udehcpu",
-          "melsec-q series q20udehcpu",
-          "melsec-q series q04udpvcpu",
-          "melsec-q series q04udvcpu",
-          "melsec-q series q26udpvcpu",
-          "melsec-q series q13udvcpu",
-          "melsec-q series q06udpvcpu",
-          "melsec-q series q13udehcpu",
-          "melsec-l series l26cpu-pbt",
-          "melsec-l series l26cpu-bt",
-          "melsec-q series q50udehcpu",
-          "melsec-q series q13udpvcpu",
-          "melsec-l series l02cpu",
-          "melsec-q series q26udvcpu",
-          "melsec-q series q100udehcpu",
-          "melsec-l series l02cpu-p",
-          "melsec-l series l26cpu",
-          "melsec-q series q03udecpu",
           "melsec-q series q06udehcpu",
-          "melsec-q series q04udehcpu",
+          "melsec-l series l02cpu",
           "melsec-l series l06cpu-p",
-          "melsec-q series q03udvcpu",
-          "melsec-q series q06udvcpu",
-          "melsec-l series l06cpu",
           "melsec-l series l26cpu-p",
-          "melsec-q series q10udehcpu"
+          "melsec-q series q26udehcpu",
+          "melsec-q series q100udehcpu",
+          "melsec-q series q06udpvcpu",
+          "melsec-q series q10udehcpu",
+          "melsec-q series q04udpvcpu",
+          "melsec-q series q26udpvcpu",
+          "melsec-q series q26udvcpu",
+          "melsec-q series q03udvcpu",
+          "melsec-q series q20udehcpu",
+          "melsec-q series q04udehcpu",
+          "melsec-q series q03udecpu",
+          "melsec-l series l26cpu",
+          "melsec-l series l02cpu-p",
+          "melsec-q series q04udvcpu",
+          "melsec-l series l26cpu-pbt",
+          "melsec-l series l06cpu",
+          "melsec-q series q06udvcpu",
+          "melsec-q series q13udehcpu",
+          "melsec-q series q13udpvcpu",
+          "melsec-q series q13udvcpu",
+          "melsec-q series q50udehcpu",
+          "melsec-l series l26cpu-bt"
         ]
       },
       "references": [
@@ -40802,32 +40802,32 @@
         "cpeMatches": [],
         "vendors": ["mitsubishi electric corporation"],
         "products": [
-          "melsec-q series q26udehcpu",
-          "melsec-q series q20udehcpu",
-          "melsec-q series q04udpvcpu",
-          "melsec-q series q04udvcpu",
-          "melsec-q series q26udpvcpu",
-          "melsec-q series q13udvcpu",
-          "melsec-q series q06udpvcpu",
-          "melsec-q series q13udehcpu",
-          "melsec-l series l26cpu-pbt",
-          "melsec-l series l26cpu-bt",
-          "melsec-q series q50udehcpu",
-          "melsec-q series q13udpvcpu",
-          "melsec-l series l02cpu",
-          "melsec-q series q26udvcpu",
-          "melsec-q series q100udehcpu",
-          "melsec-l series l02cpu-p",
-          "melsec-l series l26cpu",
-          "melsec-q series q03udecpu",
           "melsec-q series q06udehcpu",
-          "melsec-q series q04udehcpu",
+          "melsec-l series l02cpu",
           "melsec-l series l06cpu-p",
-          "melsec-q series q03udvcpu",
-          "melsec-q series q06udvcpu",
-          "melsec-l series l06cpu",
           "melsec-l series l26cpu-p",
-          "melsec-q series q10udehcpu"
+          "melsec-q series q26udehcpu",
+          "melsec-q series q100udehcpu",
+          "melsec-q series q06udpvcpu",
+          "melsec-q series q10udehcpu",
+          "melsec-q series q04udpvcpu",
+          "melsec-q series q26udpvcpu",
+          "melsec-q series q26udvcpu",
+          "melsec-q series q03udvcpu",
+          "melsec-q series q20udehcpu",
+          "melsec-q series q04udehcpu",
+          "melsec-q series q03udecpu",
+          "melsec-l series l26cpu",
+          "melsec-l series l02cpu-p",
+          "melsec-q series q04udvcpu",
+          "melsec-l series l26cpu-pbt",
+          "melsec-l series l06cpu",
+          "melsec-q series q06udvcpu",
+          "melsec-q series q13udehcpu",
+          "melsec-q series q13udpvcpu",
+          "melsec-q series q13udvcpu",
+          "melsec-q series q50udehcpu",
+          "melsec-l series l26cpu-bt"
         ]
       },
       "references": [
@@ -40887,32 +40887,32 @@
         "cpeMatches": [],
         "vendors": ["mitsubishi electric corporation"],
         "products": [
-          "melsec-q series q26udehcpu",
-          "melsec-q series q20udehcpu",
-          "melsec-q series q04udpvcpu",
-          "melsec-q series q04udvcpu",
-          "melsec-q series q26udpvcpu",
-          "melsec-q series q13udvcpu",
-          "melsec-q series q06udpvcpu",
-          "melsec-q series q13udehcpu",
-          "melsec-l series l26cpu-pbt",
-          "melsec-l series l26cpu-bt",
-          "melsec-q series q50udehcpu",
-          "melsec-q series q13udpvcpu",
-          "melsec-l series l02cpu",
-          "melsec-q series q26udvcpu",
-          "melsec-q series q100udehcpu",
-          "melsec-l series l02cpu-p",
-          "melsec-l series l26cpu",
-          "melsec-q series q03udecpu",
           "melsec-q series q06udehcpu",
-          "melsec-q series q04udehcpu",
+          "melsec-l series l02cpu",
           "melsec-l series l06cpu-p",
-          "melsec-q series q03udvcpu",
-          "melsec-q series q06udvcpu",
-          "melsec-l series l06cpu",
           "melsec-l series l26cpu-p",
-          "melsec-q series q10udehcpu"
+          "melsec-q series q26udehcpu",
+          "melsec-q series q100udehcpu",
+          "melsec-q series q06udpvcpu",
+          "melsec-q series q10udehcpu",
+          "melsec-q series q04udpvcpu",
+          "melsec-q series q26udpvcpu",
+          "melsec-q series q26udvcpu",
+          "melsec-q series q03udvcpu",
+          "melsec-q series q20udehcpu",
+          "melsec-q series q04udehcpu",
+          "melsec-q series q03udecpu",
+          "melsec-l series l26cpu",
+          "melsec-l series l02cpu-p",
+          "melsec-q series q04udvcpu",
+          "melsec-l series l26cpu-pbt",
+          "melsec-l series l06cpu",
+          "melsec-q series q06udvcpu",
+          "melsec-q series q13udehcpu",
+          "melsec-q series q13udpvcpu",
+          "melsec-q series q13udvcpu",
+          "melsec-q series q50udehcpu",
+          "melsec-l series l26cpu-bt"
         ]
       },
       "references": [
@@ -41120,7 +41120,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["janobe"],
-        "products": ["janobe debit card payment", "janobe paypal", "janobe credit card"]
+        "products": ["janobe paypal", "janobe debit card payment", "janobe credit card"]
       },
       "references": [
         {
@@ -41216,7 +41216,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["janobe"],
-        "products": ["janobe debit card payment", "janobe paypal", "janobe credit card"]
+        "products": ["janobe paypal", "janobe debit card payment", "janobe credit card"]
       },
       "references": [
         {
@@ -41360,7 +41360,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["janobe"],
-        "products": ["janobe debit card payment", "janobe paypal", "janove credit card"]
+        "products": ["janobe paypal", "janove credit card", "janobe debit card payment"]
       },
       "references": [
         {
@@ -41600,7 +41600,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["janobe"],
-        "products": ["janobe debit card payment", "janobe paypal", "janobe credit card"]
+        "products": ["janobe paypal", "janobe debit card payment", "janobe credit card"]
       },
       "references": [
         {
@@ -41696,7 +41696,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["janobe"],
-        "products": ["janobe debit card payment", "janobe paypal", "janobe credit card"]
+        "products": ["janobe paypal", "janobe debit card payment", "janobe credit card"]
       },
       "references": [
         {
@@ -41745,18 +41745,18 @@
         "cpeMatches": [],
         "vendors": ["siemens"],
         "products": [
-          "simatic pcs neo v4.0",
-          "totally integrated automation portal (tia portal) v16",
-          "opcenter quality",
-          "opcenter rdl",
-          "simatic pcs neo v5.0",
-          "simatic pcs neo v4.1",
-          "totally integrated automation portal (tia portal) v17",
           "opcenter execution foundation",
-          "totally integrated automation portal (tia portal) v19",
+          "totally integrated automation portal (tia portal) v16",
+          "simatic pcs neo v5.0",
+          "opcenter rdl",
+          "simatic pcs neo v4.0",
+          "simatic pcs neo v4.1",
           "sinec nms",
-          "totally integrated automation portal (tia portal) v18",
-          "sinema remote connect client"
+          "sinema remote connect client",
+          "totally integrated automation portal (tia portal) v17",
+          "opcenter quality",
+          "totally integrated automation portal (tia portal) v19",
+          "totally integrated automation portal (tia portal) v18"
         ]
       },
       "references": [
@@ -41901,7 +41901,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["janobe"],
-        "products": ["janobe debit card payment", "janobe paypal", "janobe credit card"]
+        "products": ["janobe paypal", "janobe debit card payment", "janobe credit card"]
       },
       "references": [
         {
@@ -42093,7 +42093,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["janobe"],
-        "products": ["janobe debit card payment", "janobe paypal", "janobe credit card"]
+        "products": ["janobe paypal", "janobe debit card payment", "janobe credit card"]
       },
       "references": [
         {
@@ -42189,7 +42189,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["janobe"],
-        "products": ["janobe debit card payment", "janobe paypal", "janobe credit card"]
+        "products": ["janobe paypal", "janobe debit card payment", "janobe credit card"]
       },
       "references": [
         {
@@ -42238,10 +42238,10 @@
         "cpeMatches": [],
         "vendors": ["ifm"],
         "products": [
-          "moneo appliance qva200",
-          "moneo appliance qha210",
           "moneo appliance qha300",
-          "moneo for micosoft windows"
+          "moneo for micosoft windows",
+          "moneo appliance qva200",
+          "moneo appliance qha210"
         ]
       },
       "references": [
@@ -43484,31 +43484,31 @@
         "vendors": ["canon inc."],
         "products": [
           "i-sensys mf740c series",
-          "color imageclass x lbp1333c",
-          "color imageclass lbp674cdw",
-          "satera lbp670c series",
-          "satera mf740c series",
-          "c1333p",
-          "satera mf640c series",
-          "c1333i series",
-          "i-sensys mf750c series",
-          "color imageclass mf740c series",
-          "c1127i series",
-          "color imageclass lbp622cdw",
           "c1127p",
-          "color imageclass x lbp1127c",
-          "i-sensys lbp620c series",
-          "satera mf750c series",
-          "color imageclass x mf1333c",
-          "color imageclass lbp664cdw",
-          "satera lbp620c series",
-          "color imageclass mf640c series",
-          "i-sensys lbp660c series",
-          "color imageclass mf750c series",
+          "color imageclass mf740c series",
+          "color imageclass x lbp1333c",
+          "satera lbp670c series",
           "i-sensys mf640c series",
-          "satera lbp660c series",
           "color imageclass x mf1127c",
-          "i-sensys lbp673cdw"
+          "satera lbp620c series",
+          "satera mf640c series",
+          "i-sensys lbp673cdw",
+          "i-sensys mf750c series",
+          "color imageclass lbp622cdw",
+          "c1333i series",
+          "satera lbp660c series",
+          "i-sensys lbp620c series",
+          "color imageclass x mf1333c",
+          "satera mf740c series",
+          "color imageclass lbp664cdw",
+          "satera mf750c series",
+          "c1333p",
+          "color imageclass lbp674cdw",
+          "color imageclass x lbp1127c",
+          "c1127i series",
+          "i-sensys lbp660c series",
+          "color imageclass mf640c series",
+          "color imageclass mf750c series"
         ]
       },
       "references": [
@@ -45119,17 +45119,17 @@
         "cpeMatches": [],
         "vendors": ["siemens"],
         "products": [
-          "simatic pcs neo v4.0",
+          "opcenter execution foundation",
           "totally integrated automation portal (tia portal) v16",
+          "simatic pcs neo v5.0",
+          "opcenter rdl",
+          "simatic pcs neo v4.0",
+          "simatic pcs neo v4.1",
+          "sinec nms",
+          "totally integrated automation portal (tia portal) v17",
           "opcenter quality",
           "opcenter intelligence",
-          "opcenter rdl",
-          "simatic pcs neo v5.0",
-          "simatic pcs neo v4.1",
-          "totally integrated automation portal (tia portal) v17",
-          "opcenter execution foundation",
           "totally integrated automation portal (tia portal) v19",
-          "sinec nms",
           "totally integrated automation portal (tia portal) v18"
         ]
       },
@@ -47013,7 +47013,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["dover fueling solutions (dfs)"],
-        "products": ["progauge maglink lx4 console", "progauge maglink lx console"]
+        "products": ["progauge maglink lx console", "progauge maglink lx4 console"]
       },
       "references": [
         {
@@ -47302,11 +47302,11 @@
         "cpeMatches": [],
         "vendors": ["zyxel"],
         "products": [
-          "wax655e firmware",
-          "wbe530 firmware",
           "wac500 firmware",
+          "usg lite 60ax firmware",
           "nwa1123acv3 firmware",
-          "usg lite 60ax firmware"
+          "wax655e firmware",
+          "wbe530 firmware"
         ]
       },
       "references": [
@@ -47658,7 +47658,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["myscada"],
-        "products": ["mypro runtime", "mypro manager"]
+        "products": ["mypro manager", "mypro runtime"]
       },
       "references": [
         {
@@ -49466,7 +49466,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["spotfire"],
-        "products": ["spotfire for aws marketplace", "spotfire server", "spotfire analyst"]
+        "products": ["spotfire analyst", "spotfire server", "spotfire for aws marketplace"]
       },
       "references": [
         {
@@ -50009,7 +50009,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["ivanti"],
-        "products": ["connect secure", "policy secure"]
+        "products": ["policy secure", "connect secure"]
       },
       "references": [
         {
@@ -50591,8 +50591,8 @@
         "cpeMatches": [],
         "vendors": ["schneider electric"],
         "products": [
-          "system monitor application in harmony industrial pc hmibmo/hmibmi/hmipso/hmibmp/hmibmu/hmipsp/hmipep series",
-          "system monitor application in pro-face industrial pc ps5000 series"
+          "system monitor application in pro-face industrial pc ps5000 series",
+          "system monitor application in harmony industrial pc hmibmo/hmibmi/hmipso/hmibmp/hmibmu/hmipsp/hmipep series"
         ]
       },
       "references": [
@@ -51376,7 +51376,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["flycass"],
-        "products": ["cockpit access security system (cass)", "known crewmember (kcm)"]
+        "products": ["known crewmember (kcm)", "cockpit access security system (cass)"]
       },
       "references": [
         {
@@ -52098,7 +52098,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["advantech"],
-        "products": ["eki-6333ac-1gpo", "eki-6333ac-2gd", "eki-6333ac-2g"]
+        "products": ["eki-6333ac-2gd", "eki-6333ac-2g", "eki-6333ac-1gpo"]
       },
       "references": [
         {
@@ -52194,7 +52194,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["advantech"],
-        "products": ["eki-6333ac-1gpo", "eki-6333ac-2gd", "eki-6333ac-2g"]
+        "products": ["eki-6333ac-2gd", "eki-6333ac-2g", "eki-6333ac-1gpo"]
       },
       "references": [
         {
@@ -52290,7 +52290,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["advantech"],
-        "products": ["eki-6333ac-1gpo", "eki-6333ac-2gd", "eki-6333ac-2g"]
+        "products": ["eki-6333ac-2gd", "eki-6333ac-2g", "eki-6333ac-1gpo"]
       },
       "references": [
         {
@@ -52482,7 +52482,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["advantech"],
-        "products": ["eki-6333ac-1gpo", "eki-6333ac-2gd", "eki-6333ac-2g"]
+        "products": ["eki-6333ac-2gd", "eki-6333ac-2g", "eki-6333ac-1gpo"]
       },
       "references": [
         {
@@ -52530,7 +52530,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["advantech"],
-        "products": ["eki-6333ac-1gpo", "eki-6333ac-2gd", "eki-6333ac-2g"]
+        "products": ["eki-6333ac-2gd", "eki-6333ac-2g", "eki-6333ac-1gpo"]
       },
       "references": [
         {
@@ -52626,7 +52626,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["advantech"],
-        "products": ["eki-6333ac-1gpo", "eki-6333ac-2gd", "eki-6333ac-2g"]
+        "products": ["eki-6333ac-2gd", "eki-6333ac-2g", "eki-6333ac-1gpo"]
       },
       "references": [
         {
@@ -53029,8 +53029,8 @@
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": ["n/a", "na"],
-        "products": ["vmware workstation", "vmware fusion"]
+        "vendors": ["na", "n/a"],
+        "products": ["vmware fusion", "vmware workstation"]
       },
       "references": [
         {
@@ -53483,13 +53483,13 @@
         "cpeMatches": [],
         "vendors": ["endress+hauser"],
         "products": [
-          "field xpert smt79",
           "echo curve viewer",
-          "field xpert smt77",
-          "field xpert smt50",
           "fieldcare sfe500 package usb",
           "fieldcare sfe500 package web-package",
-          "field xpert smt70"
+          "field xpert smt70",
+          "field xpert smt79",
+          "field xpert smt77",
+          "field xpert smt50"
         ]
       },
       "references": [
@@ -53589,8 +53589,8 @@
         "products": [
           "oit700-f113-b12-cb",
           "oit1500-f113-b12-cb",
-          "oit200-f113-b12-cb",
-          "oit500-f113-b12-cb"
+          "oit500-f113-b12-cb",
+          "oit200-f113-b12-cb"
         ]
       },
       "references": [
@@ -56913,7 +56913,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["myscada"],
-        "products": ["mypro runtime", "mypro manager"]
+        "products": ["mypro manager", "mypro runtime"]
       },
       "references": [
         {
@@ -57730,12 +57730,12 @@
         "cpeMatches": [],
         "vendors": ["schneider electric"],
         "products": [
+          "sage 1410",
+          "sage 2400",
           "sage 3030 magnum",
           "sage 4400",
-          "sage 1430",
-          "sage 1410",
           "sage 1450",
-          "sage 2400"
+          "sage 1430"
         ]
       },
       "references": [
@@ -57881,19 +57881,19 @@
         "cpeMatches": [],
         "vendors": ["jetbrains"],
         "products": [
-          "rider",
-          "rubymine",
-          "phpstorm",
-          "intellij idea",
-          "rustrover",
-          "aqua",
-          "dataspell",
-          "webstorm",
           "datagrip",
-          "goland",
-          "mps",
+          "rider",
           "clion",
-          "pycharm"
+          "intellij idea",
+          "dataspell",
+          "pycharm",
+          "rubymine",
+          "goland",
+          "rustrover",
+          "phpstorm",
+          "webstorm",
+          "mps",
+          "aqua"
         ]
       },
       "references": [
@@ -58380,66 +58380,66 @@
         "cpeMatches": [],
         "vendors": ["moxa"],
         "products": [
-          "ics-g7528a series",
-          "eds-p510a series",
-          "sds-3006 series",
+          "eds-508a series",
           "ics-g7852a series",
-          "sds-3010 series",
-          "ics-g7826a series",
-          "iks-g6524a series",
-          "nat-102 series",
-          "edf-g1002-bp series",
-          "edr-g9004 series",
-          "ics-g7752a series",
-          "pt-7828 series",
-          "ics-g7526a series",
-          "tn-4500a series",
-          "oncell g4302-lte4 series",
+          "sds-3006 series",
+          "pt-7728 series",
+          "tn-5500a series",
+          "ics-g7828a series",
           "eds-518e series",
-          "tn-4900 series",
-          "ics-g7748a series",
+          "ics-g7848a series",
+          "tn-g6500 series",
+          "eds-p510 series",
+          "tn-4500a series",
+          "nat-102 series",
+          "ics-g7528a series",
+          "eds-611 series",
+          "pt-g7728 series",
+          "pt-g510 series",
+          "eds-405a series",
+          "eds-g512e series",
+          "edr-g9010 series",
+          "eds-510a series",
+          "pt-g503 series",
+          "eds-505a series",
+          "iks-6728a series",
+          "sds-3010 series",
+          "iks-g6524a series",
+          "edf-g1002-bp series",
+          "eds-528e series",
+          "eds-g508e series",
           "tn-g4500 series",
+          "ics-g7752a series",
+          "iks-g6824a series",
+          "ics-g7748a series",
+          "iks-6726a series",
+          "sds-g3016 series",
+          "sds-g3006 series",
+          "pt-7828 series",
+          "eds-p506e series",
+          "eds-619 series",
+          "eds-p510a series",
+          "eds-608 series",
+          "eds-510e series",
+          "edr-8010 series",
+          "sds-g3010 series",
+          "sds-3008 series",
+          "sds-3016 series",
+          "oncell g4302-lte4 series",
+          "eds-518a series",
+          "pt-g7828 series",
+          "ics-g7750a series",
+          "sds-g3008 series",
           "eds-516a series",
           "eds-g509 series",
-          "eds-608 series",
-          "ics-g7848a series",
-          "sds-3016 series",
-          "eds-g508e series",
-          "ics-g7828a series",
-          "sds-g3016 series",
-          "pt-g7828 series",
-          "eds-g512e series",
-          "sds-g3006 series",
-          "sds-3008 series",
-          "ics-g7750a series",
-          "eds-510a series",
-          "iks-6728a series",
-          "eds-619 series",
-          "edr-g9010 series",
-          "eds-528e series",
-          "pt-g510 series",
-          "pt-7728 series",
-          "sds-g3008 series",
-          "iks-6726a series",
-          "iks-g6824a series",
-          "eds-611 series",
-          "eds-505a series",
-          "tn-g6500 series",
-          "eds-405a series",
-          "ics-g7850a series",
-          "eds-518a series",
-          "edr-8010 series",
-          "eds-p510 series",
-          "eds-p506e series",
-          "pt-g503 series",
-          "eds-g516e series",
-          "eds-510e series",
-          "pt-g7728 series",
-          "tn-5500a series",
+          "tn-4900 series",
+          "ics-g7826a series",
+          "edr-g9004 series",
           "eds-616 series",
-          "sds-g3010 series",
           "eds-408a series",
-          "eds-508a series"
+          "ics-g7850a series",
+          "ics-g7526a series",
+          "eds-g516e series"
         ]
       },
       "references": [
@@ -58638,20 +58638,20 @@
         "cpeMatches": [],
         "vendors": ["vonets"],
         "products": [
-          "vga-1000",
-          "vap11ac",
+          "var600-h",
+          "vap11s-5g",
           "vap11s",
-          "vap11g",
           "var1200-l",
+          "vbg1200",
+          "var11n-300",
           "vap11g-500",
+          "vga-1000",
+          "vap11g-300",
           "vap11g-500s",
           "vap11n-300",
-          "var1200-h",
-          "vbg1200",
-          "var600-h",
-          "var11n-300",
-          "vap11s-5g",
-          "vap11g-300"
+          "vap11g",
+          "vap11ac",
+          "var1200-h"
         ]
       },
       "references": [
@@ -60582,7 +60582,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["dover fueling solutions (dfs)"],
-        "products": ["progauge maglink lx4 console", "progauge maglink lx console"]
+        "products": ["progauge maglink lx console", "progauge maglink lx4 console"]
       },
       "references": [
         {
@@ -60928,7 +60928,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["dover fueling solutions (dfs)"],
-        "products": ["progauge maglink lx4 console", "progauge maglink lx console"]
+        "products": ["progauge maglink lx console", "progauge maglink lx4 console"]
       },
       "references": [
         {
@@ -60976,7 +60976,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["dover fueling solutions (dfs)"],
-        "products": ["progauge maglink lx4 console", "progauge maglink lx console"]
+        "products": ["progauge maglink lx console", "progauge maglink lx4 console"]
       },
       "references": [
         {
@@ -61025,15 +61025,15 @@
         "cpeMatches": [],
         "vendors": ["kieback&peter"],
         "products": [
-          "ddc4400e",
-          "ddc4040e",
-          "ddc4200",
-          "ddc4100",
-          "ddc4002",
           "ddc4020e",
           "ddc4200e",
           "ddc4002e",
+          "ddc4400e",
           "ddc4400",
+          "ddc4100",
+          "ddc4200",
+          "ddc4040e",
+          "ddc4002",
           "ddc4200-l"
         ]
       },
@@ -61526,14 +61526,14 @@
         "cpeMatches": [],
         "vendors": ["siemens"],
         "products": [
+          "location intelligence perpetual medium",
+          "location intelligence sus small",
+          "location intelligence perpetual large",
+          "location intelligence sus large",
+          "location intelligence sus medium",
           "location intelligence perpetual non-prod",
           "location intelligence perpetual small",
-          "location intelligence sus medium",
-          "location intelligence sus small",
-          "location intelligence sus large",
-          "location intelligence perpetual medium",
-          "location intelligence sus non-prod",
-          "location intelligence perpetual large"
+          "location intelligence sus non-prod"
         ]
       },
       "references": [
@@ -63140,7 +63140,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["qnap systems inc."],
-        "products": ["quts hero", "qts", "qutscloud"]
+        "products": ["qts", "qutscloud", "quts hero"]
       },
       "references": [
         {
@@ -64830,7 +64830,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["ivanti"],
-        "products": ["connect secure", "policy secure"]
+        "products": ["policy secure", "connect secure"]
       },
       "references": [
         {
@@ -67536,18 +67536,18 @@
         "cpeMatches": [],
         "vendors": ["abb, busch-jaeger"],
         "products": [
-          "2,4'' display 70, sd-u12-70-1-4015",
-          "bcu knx, ba-u1.0.21",
-          "roomtouch 4\", rt-u12-86-1-811",
-          "bcu knx, ba-u1.0.11",
-          "roomtouch 4\", rt/u12.86.11-811",
-          "2,4'' display 70, sd/u12.70.11-4015",
-          "roomtouch 4\", rt/u12.86.1-825",
           "2.4! display 55, sd/u12.55.11-825",
+          "roomtouch 4\", rt/u12.86.11-811",
+          "2,4'' display 70, sd-u12-70-1-4015",
+          "bcu knx, ba-u1.0.1",
+          "bcu knx, ba-u1.0.11",
+          "bcu knx, ba-u1.0.21",
           "2.4! display 55, sd/sd/u12.55.1-825",
           "2.4! display 63, sd/u12.63.11-825",
-          "bcu knx, ba-u1.0.1",
-          "roomtouch 4\", rt/u12.86.11-825"
+          "roomtouch 4\", rt/u12.86.11-825",
+          "2,4'' display 70, sd/u12.70.11-4015",
+          "roomtouch 4\", rt/u12.86.1-825",
+          "roomtouch 4\", rt-u12-86-1-811"
         ]
       },
       "references": [
@@ -68002,7 +68002,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["ge healthcare"],
-        "products": ["echopac software only", "imagevault", "echopac turnkey"]
+        "products": ["echopac turnkey", "imagevault", "echopac software only"]
       },
       "references": [
         {
@@ -68483,10 +68483,10 @@
         "cpeMatches": [],
         "vendors": ["n/a"],
         "products": [
-          "vmware cloud foundation",
-          "vmware workstation",
+          "vmware esxi",
           "vmware fusion",
-          "vmware esxi"
+          "vmware workstation",
+          "vmware cloud foundation"
         ]
       },
       "references": [
@@ -68589,10 +68589,10 @@
         "cpeMatches": [],
         "vendors": ["n/a"],
         "products": [
-          "vmware cloud foundation",
-          "vmware workstation",
+          "vmware esxi",
           "vmware fusion",
-          "vmware esxi"
+          "vmware workstation",
+          "vmware cloud foundation"
         ]
       },
       "references": [
@@ -70108,7 +70108,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["hitachi"],
-        "products": ["hitachi infrastructure analytics advisor", "hitachi ops center analyzer"]
+        "products": ["hitachi ops center analyzer", "hitachi infrastructure analytics advisor"]
       },
       "references": [
         {
@@ -72587,10 +72587,10 @@
         "cpeMatches": [],
         "vendors": ["blue planet"],
         "products": [
-          "route optimization and analysis (roa)",
           "orchestration (bpo)",
-          "inventory (bpi)",
-          "unified assurance and analytics (uaa) "
+          "unified assurance and analytics (uaa) ",
+          "route optimization and analysis (roa)",
+          "inventory (bpi)"
         ]
       },
       "references": [
@@ -73792,18 +73792,18 @@
         "cpeMatches": [],
         "vendors": ["abb, busch-jaeger"],
         "products": [
-          "2,4'' display 70, sd-u12-70-1-4015",
-          "bcu knx, ba-u1.0.21",
-          "roomtouch 4\", rt-u12-86-1-811",
-          "bcu knx, ba-u1.0.11",
-          "roomtouch 4\", rt/u12.86.11-811",
-          "2,4'' display 70, sd/u12.70.11-4015",
-          "roomtouch 4\", rt/u12.86.1-825",
           "2.4! display 55, sd/u12.55.11-825",
+          "roomtouch 4\", rt/u12.86.11-811",
+          "2,4'' display 70, sd-u12-70-1-4015",
+          "bcu knx, ba-u1.0.1",
+          "bcu knx, ba-u1.0.11",
+          "bcu knx, ba-u1.0.21",
           "2.4! display 55, sd/sd/u12.55.1-825",
           "2.4! display 63, sd/u12.63.11-825",
-          "bcu knx, ba-u1.0.1",
-          "roomtouch 4\", rt/u12.86.11-825"
+          "roomtouch 4\", rt/u12.86.11-825",
+          "2,4'' display 70, sd/u12.70.11-4015",
+          "roomtouch 4\", rt/u12.86.1-825",
+          "roomtouch 4\", rt-u12-86-1-811"
         ]
       },
       "references": [
@@ -75485,20 +75485,20 @@
         "cpeMatches": [],
         "vendors": ["vonets"],
         "products": [
-          "vga-1000",
-          "vap11ac",
+          "var600-h",
+          "vap11s-5g",
           "vap11s",
-          "vap11g",
           "var1200-l",
+          "vbg1200",
+          "var11n-300",
           "vap11g-500",
+          "vga-1000",
+          "vap11g-300",
           "vap11g-500s",
           "vap11n-300",
-          "var1200-h",
-          "vbg1200",
-          "var600-h",
-          "var11n-300",
-          "vap11s-5g",
-          "vap11g-300"
+          "vap11g",
+          "vap11ac",
+          "var1200-h"
         ]
       },
       "references": [
@@ -75596,20 +75596,20 @@
         "cpeMatches": [],
         "vendors": ["vonets"],
         "products": [
-          "vga-1000",
-          "vap11ac",
+          "var600-h",
+          "vap11s-5g",
           "vap11s",
-          "vap11g",
           "var1200-l",
+          "vbg1200",
+          "var11n-300",
           "vap11g-500",
+          "vga-1000",
+          "vap11g-300",
           "vap11g-500s",
           "vap11n-300",
-          "var1200-h",
-          "vbg1200",
-          "var600-h",
-          "var11n-300",
-          "vap11s-5g",
-          "vap11g-300"
+          "vap11g",
+          "vap11ac",
+          "var1200-h"
         ]
       },
       "references": [
@@ -77147,17 +77147,17 @@
         "cpeMatches": [],
         "vendors": ["siemens"],
         "products": [
-          "simatic process historian 2020",
-          "simatic process historian 2022",
-          "simatic wincc v7.4",
-          "simatic wincc runtime professional v18",
-          "simatic information server 2020",
           "simatic information server 2022",
+          "simatic process historian 2022",
+          "simatic wincc v8.0",
+          "simatic wincc runtime professional v19",
           "simatic batch v9.1",
           "simatic pcs 7 v9.1",
+          "simatic process historian 2020",
+          "simatic wincc v7.4",
+          "simatic information server 2020",
           "simatic wincc v7.5",
-          "simatic wincc v8.0",
-          "simatic wincc runtime professional v19"
+          "simatic wincc runtime professional v18"
         ]
       },
       "references": [
@@ -77302,7 +77302,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": ["purestorage"],
-        "products": ["flasharray", "flashblade"]
+        "products": ["flashblade", "flasharray"]
       },
       "references": [
         {
