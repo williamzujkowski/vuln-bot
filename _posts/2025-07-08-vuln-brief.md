@@ -1,40 +1,64 @@
 ---
-title: Morning Vulnerability Briefing - 2025-06-30
-date: 2025-06-30T20:06:44.177756
+title: Morning Vulnerability Briefing - 2025-07-08
+date: 2025-07-08T20:07:50.833927
 layout: layouts/post.njk
 tags: [vulnerability, briefing, security]
-vulnerabilityCount: 33030
+vulnerabilityCount: 33233
 criticalCount: 0
 highCount: 0
 ---
 
-# Morning Vulnerability Briefing - 2025-06-30
+# Morning Vulnerability Briefing - 2025-07-08
 
-Today's briefing covers **33030 vulnerabilities** from 0 sources.
+Today's briefing covers **33233 vulnerabilities** from 0 sources.
 
 ## Risk Distribution
 
 - 🔴 **Critical Risk**: 0 vulnerabilities
 - 🟠 **High Risk**: 0 vulnerabilities
-- 🟡 **Medium Risk**: 11368 vulnerabilities
-- 🟢 **Low Risk**: 21662 vulnerabilities
+- 🟡 **Medium Risk**: 11415 vulnerabilities
+- 🟢 **Low Risk**: 21818 vulnerabilities
 
 ## Top Vulnerabilities
 
-### 1. [CVE-2025-49113](/api/vulns/CVE-2025-49113.json)
+### 1. [CVE-2024-55591](/api/vulns/CVE-2024-55591.json)
 
-**Risk Score**: 69/100 | 
+**Risk Score**: 68/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 9.6 | 
+**EPSS**: 94.2%
+
+**Summary**: An Authentication Bypass Using an Alternate Path or Channel vulnerability [CWE-288] affecting FortiOS version 7.0.0 through 7.0.16 and FortiProxy version 7.0.0 through 7.0.19 and 7.2.0 through 7.2.12 allows a remote attacker to gain super-admin privileges via crafted requests to Node.js websocket module.
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 94.25% exploit probability
+- Affects critical infrastructure: fortinet
+
+**Affected Vendors**: fortinet
+
+**Tags**: `CWE-288`
+
+**References**:
+
+- [https://fortiguard.fortinet.com/psirt/FG-IR-24-535](https://fortiguard.fortinet.com/psirt/FG-IR-24-535)
+
+---
+
+### 2. [CVE-2025-49113](/api/vulns/CVE-2025-49113.json)
+
+**Risk Score**: 68/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.9 | 
-**EPSS**: 76.3%
+**EPSS**: 84.7%
 
 **Summary**: Roundcube Webmail before 1.5.10 and 1.6.x before 1.6.11 allows remote code execution by authenticated users because the _from parameter in a URL is not validated in program/actions/settings/upload.php, leading to PHP Object Deserialization.
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 76.28% exploit probability
-- Published within last month
+- 84.73% exploit probability
 
 **Affected Vendors**: roundcube
 
@@ -48,44 +72,19 @@ Today's briefing covers **33030 vulnerabilities** from 0 sources.
 
 ---
 
-### 2. [CVE-2024-55591](/api/vulns/CVE-2024-55591.json)
-
-**Risk Score**: 68/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.6 | 
-**EPSS**: 94.2%
-
-**Summary**: An Authentication Bypass Using an Alternate Path or Channel vulnerability [CWE-288] affecting FortiOS version 7.0.0 through 7.0.16 and FortiProxy version 7.0.0 through 7.0.19 and 7.2.0 through 7.2.12 allows a remote attacker to gain super-admin privileges via crafted requests to Node.js websocket module.
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 94.18% exploit probability
-- Affects critical infrastructure: fortinet
-
-**Affected Vendors**: fortinet
-
-**Tags**: `CWE-288`
-
-**References**:
-
-- [https://fortiguard.fortinet.com/psirt/FG-IR-24-535](https://fortiguard.fortinet.com/psirt/FG-IR-24-535)
-
----
-
 ### 3. [CVE-2024-21413](/api/vulns/CVE-2024-21413.json)
 
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.8 | 
-**EPSS**: 93.7%
+**EPSS**: 93.8%
 
 **Summary**: Microsoft Outlook Remote Code Execution Vulnerability
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 93.68% exploit probability
+- 93.75% exploit probability
 - Affects critical infrastructure: microsoft
 
 **Affected Vendors**: microsoft
@@ -98,31 +97,29 @@ Today's briefing covers **33030 vulnerabilities** from 0 sources.
 
 ---
 
-### 4. [CVE-2025-3248](/api/vulns/CVE-2025-3248.json)
+### 4. [CVE-2025-24893](/api/vulns/CVE-2025-24893.json)
 
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.8 | 
-**EPSS**: 92.4%
+**EPSS**: 92.6%
 
-**Summary**: Langflow versions prior to 1.3.0 are susceptible to code injection in 
-the /api/v1/validate/code endpoint. A remote and unauthenticated attacker can send crafted HTTP requests to execute arbitrary
-code.
+**Summary**: XWiki Platform is a generic wiki platform offering runtime services for applications built on top of it. Any guest can perform arbitrary remote code execution through a request to `SolrSearch`. This impacts the confidentiality, integrity and availability of the whole XWiki installation. To reproduce on an instance, without being logged in, go to `<host>/xwiki/bin/get/Main/SolrSearch?media=rss&text=%7D%7D%7D%7B%7Basync%20async%3Dfalse%7D%7D%7B%7Bgroovy%7D%7Dprintln%28"Hello%20from"%20%2B%20"%20se...
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 92.39% exploit probability
+- 92.64% exploit probability
 
-**Affected Vendors**: langflow-ai
+**Affected Vendors**: xwiki
 
-**Tags**: `CWE-306`
+**Tags**: `CWE-95`
 
 **References**:
 
-- [https://github.com/langflow-ai/langflow/pull/6911](https://github.com/langflow-ai/langflow/pull/6911)
-- [https://github.com/langflow-ai/langflow/releases/tag/1.3.0](https://github.com/langflow-ai/langflow/releases/tag/1.3.0)
-- [https://www.horizon3.ai/attack-research/disclosures/unsafe-at-any-speed-abusing-python-exec-for-unauth-rce-in-langflow-ai/](https://www.horizon3.ai/attack-research/disclosures/unsafe-at-any-speed-abusing-python-exec-for-unauth-rce-in-langflow-ai/)
+- [https://github.com/xwiki/xwiki-platform/security/advisories/GHSA-rr6p-3pfg-562j](https://github.com/xwiki/xwiki-platform/security/advisories/GHSA-rr6p-3pfg-562j)
+- [https://github.com/xwiki/xwiki-platform/commit/67021db9b8ed26c2236a653269302a86bf01ef40](https://github.com/xwiki/xwiki-platform/commit/67021db9b8ed26c2236a653269302a86bf01ef40)
+- [https://github.com/xwiki/xwiki-platform/blob/568447cad5172d97d6bbcfda9f6183689c2cf086/xwiki-platform-core/xwiki-platform-search/xwiki-platform-search-solr/xwiki-platform-search-solr-ui/src/main/resources/Main/SolrSearchMacros.xml#L955](https://github.com/xwiki/xwiki-platform/blob/568447cad5172d97d6bbcfda9f6183689c2cf086/xwiki-platform-core/xwiki-platform-search/xwiki-platform-search-solr/xwiki-platform-search-solr-ui/src/main/resources/Main/SolrSearchMacros.xml#L955)
 
 ---
 
@@ -131,14 +128,14 @@ code.
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.8 | 
-**EPSS**: 91.3%
+**EPSS**: 92.0%
 
 **Summary**: IBM Operational Decision Manager 8.10.3 could allow a remote authenticated attacker to execute arbitrary code on the system, caused by an unsafe deserialization. By sending specially crafted request, an attacker could exploit this vulnerability to execute arbitrary code in the context of SYSTEM.  IBM X-Force ID:  279146.
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 91.3% exploit probability
+- 92.01% exploit probability
 - Affects critical infrastructure: ibm
 
 **Affected Vendors**: ibm
@@ -202,33 +199,7 @@ code.
 
 ---
 
-### 8. [CVE-2025-32432](/api/vulns/CVE-2025-32432.json)
-
-**Risk Score**: 67/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 10.0 | 
-**EPSS**: 82.7%
-
-**Summary**: Craft is a flexible, user-friendly CMS for creating custom digital experiences on the web and beyond. Starting from version 3.0.0-RC1 to before 3.9.15, 4.0.0-RC1 to before 4.14.15, and 5.0.0-RC1 to before 5.6.17, Craft is vulnerable to remote code execution. This is a high-impact, low-complexity attack vector. This issue has been patched in versions 3.9.15, 4.14.15, and 5.6.17, and is an additional fix for CVE-2023-41892.
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 82.72% exploit probability
-
-**Affected Vendors**: craftcms
-
-**Tags**: `CWE-94`
-
-**References**:
-
-- [https://github.com/craftcms/cms/security/advisories/GHSA-f3gw-9ww9-jmc3](https://github.com/craftcms/cms/security/advisories/GHSA-f3gw-9ww9-jmc3)
-- [https://github.com/craftcms/cms/commit/e1c85441fa47eeb7c688c2053f25419bc0547b47](https://github.com/craftcms/cms/commit/e1c85441fa47eeb7c688c2053f25419bc0547b47)
-- [https://github.com/craftcms/cms/blob/3.x/CHANGELOG.md#3915---2025-04-10-critical](https://github.com/craftcms/cms/blob/3.x/CHANGELOG.md#3915---2025-04-10-critical)
-
----
-
-### 9. [CVE-2024-4577](/api/vulns/CVE-2024-4577.json)
+### 8. [CVE-2024-4577](/api/vulns/CVE-2024-4577.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
@@ -254,33 +225,7 @@ code.
 
 ---
 
-### 10. [CVE-2024-50603](/api/vulns/CVE-2024-50603.json)
-
-**Risk Score**: 66/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 10.0 | 
-**EPSS**: 94.3%
-
-**Summary**: An issue was discovered in Aviatrix Controller before 7.1.4191 and 7.2.x before 7.2.4996. Due to the improper neutralization of special elements used in an OS command, an unauthenticated attacker is able to execute arbitrary code. Shell metacharacters can be sent to /v1/api in cloud_type for list_flightpath_destination_instances, or src_cloud_type for flightpath_connection_test.
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 94.35% exploit probability
-
-**Affected Vendors**: aviatrix
-
-**Tags**: `CWE-78`
-
-**References**:
-
-- [https://docs.aviatrix.com/documentation/latest/network-security/index.html](https://docs.aviatrix.com/documentation/latest/network-security/index.html)
-- [https://docs.aviatrix.com/documentation/latest/release-notices/psirt-advisories/psirt-advisories.html?expand=true#remote-code-execution-vulnerability-in-aviatrix-controllers](https://docs.aviatrix.com/documentation/latest/release-notices/psirt-advisories/psirt-advisories.html?expand=true#remote-code-execution-vulnerability-in-aviatrix-controllers)
-- [https://www.securing.pl/en/cve-2024-50603-aviatrix-network-controller-command-injection-vulnerability/](https://www.securing.pl/en/cve-2024-50603-aviatrix-network-controller-command-injection-vulnerability/)
-
----
-
-### 11. [CVE-2024-1709](/api/vulns/CVE-2024-1709.json)
+### 9. [CVE-2024-1709](/api/vulns/CVE-2024-1709.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
@@ -312,7 +257,7 @@ critical systems.
 
 ---
 
-### 12. [CVE-2024-10924](/api/vulns/CVE-2024-10924.json)
+### 10. [CVE-2024-10924](/api/vulns/CVE-2024-10924.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
@@ -338,45 +283,19 @@ critical systems.
 
 ---
 
-### 13. [CVE-2025-24893](/api/vulns/CVE-2025-24893.json)
-
-**Risk Score**: 66/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 92.4%
-
-**Summary**: XWiki Platform is a generic wiki platform offering runtime services for applications built on top of it. Any guest can perform arbitrary remote code execution through a request to `SolrSearch`. This impacts the confidentiality, integrity and availability of the whole XWiki installation. To reproduce on an instance, without being logged in, go to `<host>/xwiki/bin/get/Main/SolrSearch?media=rss&text=%7D%7D%7D%7B%7Basync%20async%3Dfalse%7D%7D%7B%7Bgroovy%7D%7Dprintln%28"Hello%20from"%20%2B%20"%20se...
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 92.39% exploit probability
-
-**Affected Vendors**: xwiki
-
-**Tags**: `CWE-95`
-
-**References**:
-
-- [https://github.com/xwiki/xwiki-platform/security/advisories/GHSA-rr6p-3pfg-562j](https://github.com/xwiki/xwiki-platform/security/advisories/GHSA-rr6p-3pfg-562j)
-- [https://github.com/xwiki/xwiki-platform/commit/67021db9b8ed26c2236a653269302a86bf01ef40](https://github.com/xwiki/xwiki-platform/commit/67021db9b8ed26c2236a653269302a86bf01ef40)
-- [https://github.com/xwiki/xwiki-platform/blob/568447cad5172d97d6bbcfda9f6183689c2cf086/xwiki-platform-core/xwiki-platform-search/xwiki-platform-search-solr/xwiki-platform-search-solr-ui/src/main/resources/Main/SolrSearchMacros.xml#L955](https://github.com/xwiki/xwiki-platform/blob/568447cad5172d97d6bbcfda9f6183689c2cf086/xwiki-platform-core/xwiki-platform-search/xwiki-platform-search-solr/xwiki-platform-search-solr-ui/src/main/resources/Main/SolrSearchMacros.xml#L955)
-
----
-
-### 14. [CVE-2024-21762](/api/vulns/CVE-2024-21762.json)
+### 11. [CVE-2024-21762](/api/vulns/CVE-2024-21762.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.6 | 
-**EPSS**: 91.6%
+**EPSS**: 92.7%
 
 **Summary**: A out-of-bounds write in Fortinet FortiOS versions 7.4.0 through 7.4.2, 7.2.0 through 7.2.6, 7.0.0 through 7.0.13, 6.4.0 through 6.4.14, 6.2.0 through 6.2.15, 6.0.0 through 6.0.17, FortiProxy versions 7.4.0 through 7.4.2, 7.2.0 through 7.2.8, 7.0.0 through 7.0.14, 2.0.0 through 2.0.13, 1.2.0 through 1.2.13, 1.1.0 through 1.1.6, 1.0.0 through 1.0.7 allows attacker to execute unauthorized code or commands via specifically crafted requests
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 91.6% exploit probability
+- 92.66% exploit probability
 - Affects critical infrastructure: fortinet
 
 **Affected Vendors**: fortinet
@@ -389,7 +308,7 @@ critical systems.
 
 ---
 
-### 15. [CVE-2024-47575](/api/vulns/CVE-2024-47575.json)
+### 12. [CVE-2024-47575](/api/vulns/CVE-2024-47575.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
@@ -414,7 +333,7 @@ critical systems.
 
 ---
 
-### 16. [CVE-2024-20439](/api/vulns/CVE-2024-20439.json)
+### 13. [CVE-2024-20439](/api/vulns/CVE-2024-20439.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
@@ -438,7 +357,7 @@ critical systems.
 
 ---
 
-### 17. [CVE-2025-47916](/api/vulns/CVE-2025-47916.json)
+### 14. [CVE-2025-47916](/api/vulns/CVE-2025-47916.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
@@ -463,7 +382,33 @@ critical systems.
 
 ---
 
-### 18. [CVE-2024-4040](/api/vulns/CVE-2024-4040.json)
+### 15. [CVE-2025-32432](/api/vulns/CVE-2025-32432.json)
+
+**Risk Score**: 66/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 10.0 | 
+**EPSS**: 76.1%
+
+**Summary**: Craft is a flexible, user-friendly CMS for creating custom digital experiences on the web and beyond. Starting from version 3.0.0-RC1 to before 3.9.15, 4.0.0-RC1 to before 4.14.15, and 5.0.0-RC1 to before 5.6.17, Craft is vulnerable to remote code execution. This is a high-impact, low-complexity attack vector. This issue has been patched in versions 3.9.15, 4.14.15, and 5.6.17, and is an additional fix for CVE-2023-41892.
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 76.13% exploit probability
+
+**Affected Vendors**: craftcms
+
+**Tags**: `CWE-94`
+
+**References**:
+
+- [https://github.com/craftcms/cms/security/advisories/GHSA-f3gw-9ww9-jmc3](https://github.com/craftcms/cms/security/advisories/GHSA-f3gw-9ww9-jmc3)
+- [https://github.com/craftcms/cms/commit/e1c85441fa47eeb7c688c2053f25419bc0547b47](https://github.com/craftcms/cms/commit/e1c85441fa47eeb7c688c2053f25419bc0547b47)
+- [https://github.com/craftcms/cms/blob/3.x/CHANGELOG.md#3915---2025-04-10-critical](https://github.com/craftcms/cms/blob/3.x/CHANGELOG.md#3915---2025-04-10-critical)
+
+---
+
+### 16. [CVE-2024-4040](/api/vulns/CVE-2024-4040.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -490,7 +435,7 @@ critical systems.
 
 ---
 
-### 19. [CVE-2024-36401](/api/vulns/CVE-2024-36401.json)
+### 17. [CVE-2024-36401](/api/vulns/CVE-2024-36401.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -518,7 +463,7 @@ The GeoTools library API that GeoServer calls evaluates property/attribute names
 
 ---
 
-### 20. [CVE-2024-1212](/api/vulns/CVE-2024-1212.json)
+### 18. [CVE-2024-1212](/api/vulns/CVE-2024-1212.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -547,7 +492,7 @@ The GeoTools library API that GeoServer calls evaluates property/attribute names
 
 ---
 
-### 21. [CVE-2024-3400](/api/vulns/CVE-2024-3400.json)
+### 19. [CVE-2024-3400](/api/vulns/CVE-2024-3400.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -561,7 +506,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 **Risk Factors**:
 
 - CRITICAL severity
-- 94.32% exploit probability
+- 94.35% exploit probability
 
 **Affected Vendors**: palo alto networks
 
@@ -575,7 +520,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 22. [CVE-2024-51567](/api/vulns/CVE-2024-51567.json)
+### 20. [CVE-2024-51567](/api/vulns/CVE-2024-51567.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -599,7 +544,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 23. [CVE-2024-31982](/api/vulns/CVE-2024-31982.json)
+### 21. [CVE-2024-31982](/api/vulns/CVE-2024-31982.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -625,7 +570,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 24. [CVE-2024-45519](/api/vulns/CVE-2024-45519.json)
+### 22. [CVE-2024-45519](/api/vulns/CVE-2024-45519.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -649,7 +594,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 25. [CVE-2024-5932](/api/vulns/CVE-2024-5932.json)
+### 23. [CVE-2024-5932](/api/vulns/CVE-2024-5932.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -675,7 +620,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 26. [CVE-2024-51378](/api/vulns/CVE-2024-51378.json)
+### 24. [CVE-2024-51378](/api/vulns/CVE-2024-51378.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -699,7 +644,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 27. [CVE-2025-29927](/api/vulns/CVE-2025-29927.json)
+### 25. [CVE-2025-29927](/api/vulns/CVE-2025-29927.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -725,7 +670,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 28. [CVE-2024-11680](/api/vulns/CVE-2024-11680.json)
+### 26. [CVE-2024-11680](/api/vulns/CVE-2024-11680.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -751,7 +696,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 29. [CVE-2024-25600](/api/vulns/CVE-2024-25600.json)
+### 27. [CVE-2024-25600](/api/vulns/CVE-2024-25600.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -777,7 +722,35 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 30. [CVE-2024-23108](/api/vulns/CVE-2024-23108.json)
+### 28. [CVE-2025-3248](/api/vulns/CVE-2025-3248.json)
+
+**Risk Score**: 65/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 9.8 | 
+**EPSS**: 92.4%
+
+**Summary**: Langflow versions prior to 1.3.0 are susceptible to code injection in 
+the /api/v1/validate/code endpoint. A remote and unauthenticated attacker can send crafted HTTP requests to execute arbitrary
+code.
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 92.36% exploit probability
+
+**Affected Vendors**: langflow-ai
+
+**Tags**: `CWE-306`
+
+**References**:
+
+- [https://github.com/langflow-ai/langflow/pull/6911](https://github.com/langflow-ai/langflow/pull/6911)
+- [https://github.com/langflow-ai/langflow/releases/tag/1.3.0](https://github.com/langflow-ai/langflow/releases/tag/1.3.0)
+- [https://www.horizon3.ai/attack-research/disclosures/unsafe-at-any-speed-abusing-python-exec-for-unauth-rce-in-langflow-ai/](https://www.horizon3.ai/attack-research/disclosures/unsafe-at-any-speed-abusing-python-exec-for-unauth-rce-in-langflow-ai/)
+
+---
+
+### 29. [CVE-2024-23108](/api/vulns/CVE-2024-23108.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -802,19 +775,19 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 31. [CVE-2024-38063](/api/vulns/CVE-2024-38063.json)
+### 30. [CVE-2024-38063](/api/vulns/CVE-2024-38063.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.8 | 
-**EPSS**: 87.4%
+**EPSS**: 88.1%
 
 **Summary**: Windows TCP/IP Remote Code Execution Vulnerability
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 87.37% exploit probability
+- 88.1% exploit probability
 - Affects critical infrastructure: microsoft
 
 **Affected Vendors**: microsoft
@@ -827,19 +800,19 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 32. [CVE-2025-1661](/api/vulns/CVE-2025-1661.json)
+### 31. [CVE-2025-1661](/api/vulns/CVE-2025-1661.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.8 | 
-**EPSS**: 87.3%
+**EPSS**: 87.2%
 
 **Summary**: The HUSKY – Products Filter Professional for WooCommerce plugin for WordPress is vulnerable to Local File Inclusion in all versions up to, and including, 1.3.6.5 via the 'template' parameter of the woof_text_search AJAX action. This makes it possible for unauthenticated attackers to include and execute arbitrary files on the server, allowing the execution of any PHP code in those files. This can be used to bypass access controls, obtain sensitive data, or achieve code execution in cases where im...
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 87.31% exploit probability
+- 87.18% exploit probability
 
 **Affected Vendors**: realmag777
 
@@ -853,7 +826,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 33. [CVE-2024-49112](/api/vulns/CVE-2024-49112.json)
+### 32. [CVE-2024-49112](/api/vulns/CVE-2024-49112.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -878,7 +851,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 34. [CVE-2024-38077](/api/vulns/CVE-2024-38077.json)
+### 33. [CVE-2024-38077](/api/vulns/CVE-2024-38077.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -900,6 +873,32 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 **References**:
 
 - [https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-38077](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-38077)
+
+---
+
+### 34. [CVE-2024-50603](/api/vulns/CVE-2024-50603.json)
+
+**Risk Score**: 64/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 10.0 | 
+**EPSS**: 94.3%
+
+**Summary**: An issue was discovered in Aviatrix Controller before 7.1.4191 and 7.2.x before 7.2.4996. Due to the improper neutralization of special elements used in an OS command, an unauthenticated attacker is able to execute arbitrary code. Shell metacharacters can be sent to /v1/api in cloud_type for list_flightpath_destination_instances, or src_cloud_type for flightpath_connection_test.
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 94.35% exploit probability
+
+**Affected Vendors**: aviatrix
+
+**Tags**: `CWE-78`
+
+**References**:
+
+- [https://docs.aviatrix.com/documentation/latest/network-security/index.html](https://docs.aviatrix.com/documentation/latest/network-security/index.html)
+- [https://docs.aviatrix.com/documentation/latest/release-notices/psirt-advisories/psirt-advisories.html?expand=true#remote-code-execution-vulnerability-in-aviatrix-controllers](https://docs.aviatrix.com/documentation/latest/release-notices/psirt-advisories/psirt-advisories.html?expand=true#remote-code-execution-vulnerability-in-aviatrix-controllers)
+- [https://www.securing.pl/en/cve-2024-50603-aviatrix-network-controller-command-injection-vulnerability/](https://www.securing.pl/en/cve-2024-50603-aviatrix-network-controller-command-injection-vulnerability/)
 
 ---
 
@@ -934,14 +933,14 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.8 | 
-**EPSS**: 94.1%
+**EPSS**: 93.9%
 
 **Summary**: Absolute path traversal in Ivanti EPM before the 2024 January-2025 Security Update and 2022 SU6 January-2025 Security Update allows a remote unauthenticated attacker to leak sensitive information.
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 94.12% exploit probability
+- 93.88% exploit probability
 
 **Affected Vendors**: ivanti
 
@@ -953,27 +952,27 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 37. [CVE-2024-13160](/api/vulns/CVE-2024-13160.json)
+### 37. [CVE-2024-3495](/api/vulns/CVE-2024-3495.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.8 | 
 **EPSS**: 93.5%
 
-**Summary**: Absolute path traversal in Ivanti EPM before the 2024 January-2025 Security Update and 2022 SU6 January-2025 Security Update allows a remote unauthenticated attacker to leak sensitive information.
+**Summary**: The Country State City Dropdown CF7 plugin for WordPress is vulnerable to SQL Injection via the ‘cnt’ and 'sid' parameters in versions up to, and including, 2.7.2 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 93.51% exploit probability
+- 93.49% exploit probability
 
-**Affected Vendors**: ivanti
-
-**Tags**: `CWE-36`
+**Affected Vendors**: trustyplugins
 
 **References**:
 
-- [https://forums.ivanti.com/s/article/Security-Advisory-EPM-January-2025-for-EPM-2024-and-EPM-2022-SU6](https://forums.ivanti.com/s/article/Security-Advisory-EPM-January-2025-for-EPM-2024-and-EPM-2022-SU6)
+- [https://www.wordfence.com/threat-intel/vulnerabilities/id/17dcacaf-0e2a-4bef-b944-fb7e43d25777?source=cve](https://www.wordfence.com/threat-intel/vulnerabilities/id/17dcacaf-0e2a-4bef-b944-fb7e43d25777?source=cve)
+- [https://plugins.trac.wordpress.org/browser/country-state-city-auto-dropdown/trunk/includes/ajax-actions.php#L8](https://plugins.trac.wordpress.org/browser/country-state-city-auto-dropdown/trunk/includes/ajax-actions.php#L8)
+- [https://plugins.trac.wordpress.org/browser/country-state-city-auto-dropdown/trunk/includes/ajax-actions.php#L22](https://plugins.trac.wordpress.org/browser/country-state-city-auto-dropdown/trunk/includes/ajax-actions.php#L22)
 
 ---
 
@@ -1029,31 +1028,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 40. [CVE-2024-3495](/api/vulns/CVE-2024-3495.json)
-
-**Risk Score**: 64/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 93.3%
-
-**Summary**: The Country State City Dropdown CF7 plugin for WordPress is vulnerable to SQL Injection via the ‘cnt’ and 'sid' parameters in versions up to, and including, 2.7.2 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 93.3% exploit probability
-
-**Affected Vendors**: trustyplugins
-
-**References**:
-
-- [https://www.wordfence.com/threat-intel/vulnerabilities/id/17dcacaf-0e2a-4bef-b944-fb7e43d25777?source=cve](https://www.wordfence.com/threat-intel/vulnerabilities/id/17dcacaf-0e2a-4bef-b944-fb7e43d25777?source=cve)
-- [https://plugins.trac.wordpress.org/browser/country-state-city-auto-dropdown/trunk/includes/ajax-actions.php#L8](https://plugins.trac.wordpress.org/browser/country-state-city-auto-dropdown/trunk/includes/ajax-actions.php#L8)
-- [https://plugins.trac.wordpress.org/browser/country-state-city-auto-dropdown/trunk/includes/ajax-actions.php#L22](https://plugins.trac.wordpress.org/browser/country-state-city-auto-dropdown/trunk/includes/ajax-actions.php#L22)
-
----
-
-### 41. [CVE-2024-29895](/api/vulns/CVE-2024-29895.json)
+### 40. [CVE-2024-29895](/api/vulns/CVE-2024-29895.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1079,33 +1054,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 42. [CVE-2024-32651](/api/vulns/CVE-2024-32651.json)
-
-**Risk Score**: 64/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 10.0 | 
-**EPSS**: 92.5%
-
-**Summary**: changedetection.io is an open source web page change detection, website watcher, restock monitor and notification service. There is a Server Side Template Injection (SSTI) in Jinja2 that allows Remote Command Execution on the server host. Attackers can run any system command without any restriction and they could use a reverse shell. The impact is critical as the attacker can completely takeover the server machine. This can be reduced if changedetection is behind a login page, but this isn't req...
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 92.52% exploit probability
-
-**Affected Vendors**: dgtlmoon
-
-**Tags**: `CWE-1336`
-
-**References**:
-
-- [https://github.com/dgtlmoon/changedetection.io/security/advisories/GHSA-4r7v-whpg-8rx3](https://github.com/dgtlmoon/changedetection.io/security/advisories/GHSA-4r7v-whpg-8rx3)
-- [https://github.com/dgtlmoon/changedetection.io/releases/tag/0.45.21](https://github.com/dgtlmoon/changedetection.io/releases/tag/0.45.21)
-- [https://www.onsecurity.io/blog/server-side-template-injection-with-jinja2](https://www.onsecurity.io/blog/server-side-template-injection-with-jinja2)
-
----
-
-### 43. [CVE-2024-9234](/api/vulns/CVE-2024-9234.json)
+### 41. [CVE-2024-9234](/api/vulns/CVE-2024-9234.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1131,19 +1080,69 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
+### 42. [CVE-2024-32651](/api/vulns/CVE-2024-32651.json)
+
+**Risk Score**: 64/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 10.0 | 
+**EPSS**: 92.5%
+
+**Summary**: changedetection.io is an open source web page change detection, website watcher, restock monitor and notification service. There is a Server Side Template Injection (SSTI) in Jinja2 that allows Remote Command Execution on the server host. Attackers can run any system command without any restriction and they could use a reverse shell. The impact is critical as the attacker can completely takeover the server machine. This can be reduced if changedetection is behind a login page, but this isn't req...
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 92.49% exploit probability
+
+**Affected Vendors**: dgtlmoon
+
+**Tags**: `CWE-1336`
+
+**References**:
+
+- [https://github.com/dgtlmoon/changedetection.io/security/advisories/GHSA-4r7v-whpg-8rx3](https://github.com/dgtlmoon/changedetection.io/security/advisories/GHSA-4r7v-whpg-8rx3)
+- [https://github.com/dgtlmoon/changedetection.io/releases/tag/0.45.21](https://github.com/dgtlmoon/changedetection.io/releases/tag/0.45.21)
+- [https://www.onsecurity.io/blog/server-side-template-injection-with-jinja2](https://www.onsecurity.io/blog/server-side-template-injection-with-jinja2)
+
+---
+
+### 43. [CVE-2025-24016](/api/vulns/CVE-2025-24016.json)
+
+**Risk Score**: 64/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 9.9 | 
+**EPSS**: 92.3%
+
+**Summary**: Wazuh is a free and open source platform used for threat prevention, detection, and response. Starting in version 4.4.0 and prior to version 4.9.1, an unsafe deserialization vulnerability allows for remote code execution on Wazuh servers. DistributedAPI parameters are a serialized as JSON and deserialized using `as_wazuh_object` (in `framework/wazuh/core/cluster/common.py`). If an attacker manages to inject an unsanitized dictionary in DAPI request/response, they can forge an unhandled exception...
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 92.28% exploit probability
+
+**Affected Vendors**: wazuh
+
+**Tags**: `CWE-502`
+
+**References**:
+
+- [https://github.com/wazuh/wazuh/security/advisories/GHSA-hcrc-79hj-m3qh](https://github.com/wazuh/wazuh/security/advisories/GHSA-hcrc-79hj-m3qh)
+
+---
+
 ### 44. [CVE-2024-1071](/api/vulns/CVE-2024-1071.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.8 | 
-**EPSS**: 92.0%
+**EPSS**: 92.2%
 
 **Summary**: The Ultimate Member – User Profile, Registration, Login, Member Directory, Content Restriction & Membership Plugin plugin for WordPress is vulnerable to SQL Injection via the 'sorting' parameter in versions 2.1.3 to 2.8.2 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive i...
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 91.99% exploit probability
+- 92.25% exploit probability
 
 **Affected Vendors**: ultimatemember
 
@@ -1233,57 +1232,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 48. [CVE-2025-31161](/api/vulns/CVE-2025-31161.json)
-
-**Risk Score**: 64/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 83.3%
-
-**Summary**: CrushFTP 10 before 10.8.4 and 11 before 11.3.1 allows authentication bypass and takeover of the crushadmin account (unless a DMZ proxy instance is used), as exploited in the wild in March and April 2025, aka "Unauthenticated HTTP(S) port access." A race condition exists in the AWS4-HMAC (compatible with S3) authorization method of the HTTP component of the FTP server. The server first verifies the existence of the user by performing a call to login_user_pass() with no password requirement. This ...
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 83.27% exploit probability
-
-**Affected Vendors**: crushftp
-
-**Tags**: `CWE-305`
-
-**References**:
-
-- [https://outpost24.com/blog/crushftp-auth-bypass-vulnerability/](https://outpost24.com/blog/crushftp-auth-bypass-vulnerability/)
-- [https://crushftp.com/crush11wiki/Wiki.jsp?page=Update#section-Update-VulnerabilityInfo](https://crushftp.com/crush11wiki/Wiki.jsp?page=Update#section-Update-VulnerabilityInfo)
-
----
-
-### 49. [CVE-2025-27007](/api/vulns/CVE-2025-27007.json)
-
-**Risk Score**: 64/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 81.8%
-
-**Summary**: Incorrect Privilege Assignment vulnerability in Brainstorm Force SureTriggers allows Privilege Escalation.This issue affects SureTriggers: from n/a through 1.0.82.
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 81.78% exploit probability
-
-**Affected Vendors**: brainstorm force
-
-**Tags**: `CWE-266`
-
-**References**:
-
-- [https://patchstack.com/database/wordpress/plugin/suretriggers/vulnerability/wordpress-suretriggers-1-0-82-privilege-escalation-vulnerability?_s_id=cve](https://patchstack.com/database/wordpress/plugin/suretriggers/vulnerability/wordpress-suretriggers-1-0-82-privilege-escalation-vulnerability?_s_id=cve)
-- [https://patchstack.com/articles/additional-critical-ottokit-formerly-suretriggers-vulnerability-patched?_s_id=cve](https://patchstack.com/articles/additional-critical-ottokit-formerly-suretriggers-vulnerability-patched?_s_id=cve)
-
----
-
-### 50. [CVE-2024-24576](/api/vulns/CVE-2024-24576.json)
+### 48. [CVE-2024-24576](/api/vulns/CVE-2024-24576.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1306,6 +1255,56 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 - [https://github.com/rust-lang/rust/security/advisories/GHSA-q455-m56c-85mh](https://github.com/rust-lang/rust/security/advisories/GHSA-q455-m56c-85mh)
 - [https://doc.rust-lang.org/std/io/enum.ErrorKind.html#variant.InvalidInput](https://doc.rust-lang.org/std/io/enum.ErrorKind.html#variant.InvalidInput)
 - [https://doc.rust-lang.org/std/os/windows/process/trait.CommandExt.html#tymethod.raw_arg](https://doc.rust-lang.org/std/os/windows/process/trait.CommandExt.html#tymethod.raw_arg)
+
+---
+
+### 49. [CVE-2024-43468](/api/vulns/CVE-2024-43468.json)
+
+**Risk Score**: 64/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 9.8 | 
+**EPSS**: 80.0%
+
+**Summary**: Microsoft Configuration Manager Remote Code Execution Vulnerability
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 80.03% exploit probability
+- Affects critical infrastructure: microsoft
+
+**Affected Vendors**: microsoft
+
+**Tags**: `CWE-89`
+
+**References**:
+
+- [https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-43468](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-43468)
+
+---
+
+### 50. [CVE-2025-21298](/api/vulns/CVE-2025-21298.json)
+
+**Risk Score**: 64/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 9.8 | 
+**EPSS**: 70.6%
+
+**Summary**: Windows OLE Remote Code Execution Vulnerability
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 70.56% exploit probability
+- Affects critical infrastructure: microsoft
+
+**Affected Vendors**: microsoft
+
+**Tags**: `CWE-416`
+
+**References**:
+
+- [https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-21298](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-21298)
 
 ---
 
