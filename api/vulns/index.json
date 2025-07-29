@@ -1,5 +1,5 @@
 {
-  "generated": "2025-07-29T08:10:02.239586",
+  "generated": "2025-07-29T12:11:48.136693",
   "count": 15586,
   "vulnerabilities": [
     {
@@ -419,7 +419,7 @@
       "publishedDate": "2025-06-25T07:17:32.423000+00:00",
       "lastModifiedDate": "2025-07-25T16:19:55.848000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec", "brother industries, ltd", "konica minolta, inc."],
+      "vendors": ["brother industries, ltd", "toshiba tec", "konica minolta, inc."],
       "tags": ["CWE-1391"]
     },
     {
@@ -5109,7 +5109,7 @@
       "publishedDate": "2025-05-13T03:21:29.625000+00:00",
       "lastModifiedDate": "2025-05-13T13:57:36.925000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["relevanssi", "msaari"],
+      "vendors": ["msaari", "relevanssi"],
       "tags": ["CWE-89"]
     },
     {
@@ -5851,7 +5851,7 @@
       "publishedDate": "2024-06-25T03:30:37.970000+00:00",
       "lastModifiedDate": "2024-08-01T21:33:05.337000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["blazeretail", "warfareplugins", "pedrogusmao02", "stuartobrien", "themerex"],
+      "vendors": ["themerex", "blazeretail", "warfareplugins", "pedrogusmao02", "stuartobrien"],
       "tags": []
     },
     {
@@ -9745,20 +9745,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["parorrey"],
       "tags": []
-    },
-    {
-      "cveId": "CVE-2024-6107",
-      "title": "CVE-2024-6107: Due to insufficient verification, an attacker could use a malicious client to bypass authentication ...",
-      "severity": "CRITICAL",
-      "cvssScore": 9.6,
-      "epssScore": 0.03,
-      "epssPercentile": 5.264,
-      "riskScore": 50,
-      "publishedDate": "2025-07-21T08:52:56.608000+00:00",
-      "lastModifiedDate": "2025-07-21T17:07:16.633000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["canonical"],
-      "tags": ["CWE-287"]
     },
     {
       "cveId": "CVE-2024-9193",
@@ -19057,6 +19043,20 @@
       "tags": []
     },
     {
+      "cveId": "CVE-2024-6107",
+      "title": "CVE-2024-6107: Due to insufficient verification, an attacker could use a malicious client to bypass authentication ...",
+      "severity": "CRITICAL",
+      "cvssScore": 9.6,
+      "epssScore": 0.03,
+      "epssPercentile": 5.264,
+      "riskScore": 48,
+      "publishedDate": "2025-07-21T08:52:56.608000+00:00",
+      "lastModifiedDate": "2025-07-21T17:07:16.633000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["canonical"],
+      "tags": ["CWE-287"]
+    },
+    {
       "cveId": "CVE-2024-6500",
       "title": "InPost for WooCommerce <= 1.4.0 and InPost PL <= 1.4.4 - Missing Authorization to Unauthenticated Arbitrary File Read and Delete",
       "severity": "CRITICAL",
@@ -19097,8 +19097,8 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": [
         "konica minolta, inc.",
-        "toshiba tec",
         "ricoh",
+        "toshiba tec",
         "brother industries, ltd",
         "fujifilm business innovation"
       ],
@@ -24912,10 +24912,10 @@
       "lastModifiedDate": "2025-06-25T14:08:48.280000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "ricoh",
         "brother industries, ltd",
-        "konica minolta, inc.",
-        "fujifilm business innovation"
+        "fujifilm business innovation",
+        "ricoh",
+        "konica minolta, inc."
       ],
       "tags": ["CWE-121"]
     },
@@ -27352,7 +27352,7 @@
       "publishedDate": "2025-07-08T05:32:05.678000+00:00",
       "lastModifiedDate": "2025-07-08T13:45:36.200000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes", "phpgurukul"],
+      "vendors": ["phpgurukul", "campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -28122,7 +28122,7 @@
       "publishedDate": "2025-07-08T06:02:05.515000+00:00",
       "lastModifiedDate": "2025-07-08T13:44:30.198000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes", "phpgurukul"],
+      "vendors": ["phpgurukul", "campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -31428,20 +31428,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["vmware"],
       "tags": ["CWE-200"]
-    },
-    {
-      "cveId": "CVE-2025-41459",
-      "title": "Insecure authentication due to missing bruteforce protection and runtime manipulation in Two App Studio Journey 5.5.6 for iOS",
-      "severity": "HIGH",
-      "cvssScore": 7.8,
-      "epssScore": 0.01,
-      "epssPercentile": 1.852,
-      "riskScore": 46,
-      "publishedDate": "2025-07-21T11:01:29.417000+00:00",
-      "lastModifiedDate": "2025-07-21T12:25:07.926000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["two app studio"],
-      "tags": ["CWE-287"]
     },
     {
       "cveId": "CVE-2025-41431",
@@ -35360,7 +35346,7 @@
       "publishedDate": "2025-06-25T07:25:00.402000+00:00",
       "lastModifiedDate": "2025-06-25T14:13:40.189000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["ricoh", "brother industries, ltd", "fujifilm business innovation"],
+      "vendors": ["brother industries, ltd", "fujifilm business innovation", "ricoh"],
       "tags": ["CWE-1286"]
     },
     {
@@ -39238,22 +39224,8 @@
       "publishedDate": "2025-06-24T08:05:15.547000+00:00",
       "lastModifiedDate": "2025-06-24T14:18:57.831000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-306"]
-    },
-    {
-      "cveId": "CVE-2025-3891",
-      "title": "Mod_auth_openidc: dos via empty post in mod_auth_openidc with oidcpreservepost enabled",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.49,
-      "epssPercentile": 64.562,
-      "riskScore": 45,
-      "publishedDate": "2025-04-29T11:56:50.808000+00:00",
-      "lastModifiedDate": "2025-07-28T13:20:20.913000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["red hat"],
-      "tags": ["CWE-248"]
     },
     {
       "cveId": "CVE-2025-3053",
@@ -41510,20 +41482,6 @@
       "tags": ["CWE-77"]
     },
     {
-      "cveId": "CVE-2025-41675",
-      "title": "Remote Command Injection via GET in Cloud Server Communication Script Due to Improper Input Neutralization",
-      "severity": "HIGH",
-      "cvssScore": 7.2,
-      "epssScore": 0.15,
-      "epssPercentile": 36.665,
-      "riskScore": 45,
-      "publishedDate": "2025-07-21T09:29:57.024000+00:00",
-      "lastModifiedDate": "2025-07-21T20:36:45.460000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
-      "tags": ["CWE-78"]
-    },
-    {
       "cveId": "CVE-2025-41232",
       "title": "CVE-2025-41232: Spring Security authorization bypass for method security annotations on private methods",
       "severity": "CRITICAL",
@@ -41536,34 +41494,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["spring"],
       "tags": []
-    },
-    {
-      "cveId": "CVE-2025-41673",
-      "title": "Remote Command Injection in send_sms Action Due to Improper Input Neutralization",
-      "severity": "HIGH",
-      "cvssScore": 7.2,
-      "epssScore": 0.15,
-      "epssPercentile": 36.665,
-      "riskScore": 45,
-      "publishedDate": "2025-07-21T09:29:32.129000+00:00",
-      "lastModifiedDate": "2025-07-21T17:06:11.768000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
-      "tags": ["CWE-78"]
-    },
-    {
-      "cveId": "CVE-2025-41674",
-      "title": "Remote Command Injection in diagnostic Action Due to Improper Input Neutralization",
-      "severity": "HIGH",
-      "cvssScore": 7.2,
-      "epssScore": 0.15,
-      "epssPercentile": 36.665,
-      "riskScore": 45,
-      "publishedDate": "2025-07-21T09:29:43.181000+00:00",
-      "lastModifiedDate": "2025-07-21T17:05:33.656000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
-      "tags": ["CWE-78"]
     },
     {
       "cveId": "CVE-2025-1026",
@@ -41620,20 +41550,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["atisoluciones"],
       "tags": ["CWE-89"]
-    },
-    {
-      "cveId": "CVE-2025-1469",
-      "title": "IDOR in Turtek Software's Eyotek",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.04,
-      "epssPercentile": 11.711,
-      "riskScore": 45,
-      "publishedDate": "2025-07-21T08:35:00.914000+00:00",
-      "lastModifiedDate": "2025-07-21T17:25:16.332000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["turtek software"],
-      "tags": ["CWE-639"]
     },
     {
       "cveId": "CVE-2025-1727",
@@ -43382,7 +43298,7 @@
       "publishedDate": "2024-10-15T10:28:37.223000+00:00",
       "lastModifiedDate": "2024-10-16T17:39:58.106000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-798"]
     },
     {
@@ -43438,7 +43354,7 @@
       "publishedDate": "2024-10-15T10:28:16.384000+00:00",
       "lastModifiedDate": "2024-10-16T17:44:15.429000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-306"]
     },
     {
@@ -47596,7 +47512,7 @@
       "publishedDate": "2025-05-30T18:00:06.477000+00:00",
       "lastModifiedDate": "2025-05-30T18:15:18.480000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes", "phpgurukul"],
+      "vendors": ["phpgurukul", "campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -51922,7 +51838,7 @@
       "publishedDate": "2025-05-03T11:00:09.135000+00:00",
       "lastModifiedDate": "2025-05-30T09:10:12.356000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes", "phpgurukul"],
+      "vendors": ["phpgurukul", "campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -52594,7 +52510,7 @@
       "publishedDate": "2025-05-05T18:31:04.418000+00:00",
       "lastModifiedDate": "2025-05-05T18:48:57.123000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["oretnom23", "sourcecodester"],
+      "vendors": ["sourcecodester", "oretnom23"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -55958,6 +55874,20 @@
       "tags": ["CWE-124"]
     },
     {
+      "cveId": "CVE-2025-41459",
+      "title": "Insecure authentication due to missing bruteforce protection and runtime manipulation in Two App Studio Journey 5.5.6 for iOS",
+      "severity": "HIGH",
+      "cvssScore": 7.8,
+      "epssScore": 0.01,
+      "epssPercentile": 1.852,
+      "riskScore": 44,
+      "publishedDate": "2025-07-21T11:01:29.417000+00:00",
+      "lastModifiedDate": "2025-07-21T12:25:07.926000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["two app studio"],
+      "tags": ["CWE-287"]
+    },
+    {
       "cveId": "CVE-2025-41661",
       "title": "Weidmueller: Security routers IE-SR-2TX are affected by CSRF",
       "severity": "HIGH",
@@ -58054,7 +57984,7 @@
       "publishedDate": "2024-03-18T16:03:44.987000+00:00",
       "lastModifiedDate": "2024-08-28T15:04:28.061000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric", "schneider electric "],
+      "vendors": ["schneider electric ", "schneider electric"],
       "tags": ["CWE-307"]
     },
     {
@@ -58810,7 +58740,7 @@
       "publishedDate": "2025-05-09T15:18:34.124000+00:00",
       "lastModifiedDate": "2025-05-09T19:09:17.086000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["avg", "avast", "norton"],
+      "vendors": ["norton", "avg", "avast"],
       "tags": ["CWE-367"]
     },
     {
@@ -63682,7 +63612,7 @@
       "publishedDate": "2024-10-22T21:13:37.183000+00:00",
       "lastModifiedDate": "2024-10-23T14:43:52.114000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["kieback&peter", "kieback & peter"],
+      "vendors": ["kieback & peter", "kieback&peter"],
       "tags": ["CWE-22"]
     },
     {
@@ -68460,20 +68390,6 @@
       "tags": ["CWE-120", "CWE-119"]
     },
     {
-      "cveId": "CVE-2025-4058",
-      "title": "Projectworlds Online Examination System Bloodgroop_process.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 10.51,
-      "riskScore": 43,
-      "publishedDate": "2025-04-29T11:31:03.566000+00:00",
-      "lastModifiedDate": "2025-04-29T13:20:17.241000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["projectworlds"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
       "cveId": "CVE-2025-4482",
       "title": "Project Worlds Student Project Allocation System forgot_password_sql.php sql injection",
       "severity": "HIGH",
@@ -68918,7 +68834,7 @@
       "publishedDate": "2025-06-24T08:10:29.717000+00:00",
       "lastModifiedDate": "2025-06-24T13:56:13.121000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-639"]
     },
     {
@@ -69030,7 +68946,7 @@
       "publishedDate": "2025-06-24T08:14:31.864000+00:00",
       "lastModifiedDate": "2025-06-24T13:55:34.477000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-204"]
     },
     {
@@ -69116,6 +69032,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["wpclever"],
       "tags": ["CWE-269"]
+    },
+    {
+      "cveId": "CVE-2025-3891",
+      "title": "Mod_auth_openidc: dos via empty post in mod_auth_openidc with oidcpreservepost enabled",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.49,
+      "epssPercentile": 64.562,
+      "riskScore": 43,
+      "publishedDate": "2025-04-29T11:56:50.808000+00:00",
+      "lastModifiedDate": "2025-07-28T13:20:20.913000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["red hat"],
+      "tags": ["CWE-248"]
     },
     {
       "cveId": "CVE-2025-3836",
@@ -70896,6 +70826,20 @@
       "tags": ["CWE-89"]
     },
     {
+      "cveId": "CVE-2025-41675",
+      "title": "Remote Command Injection via GET in Cloud Server Communication Script Due to Improper Input Neutralization",
+      "severity": "HIGH",
+      "cvssScore": 7.2,
+      "epssScore": 0.15,
+      "epssPercentile": 36.665,
+      "riskScore": 43,
+      "publishedDate": "2025-07-21T09:29:57.024000+00:00",
+      "lastModifiedDate": "2025-07-21T20:36:45.460000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["helmholz", "mb connect line"],
+      "tags": ["CWE-78"]
+    },
+    {
       "cveId": "CVE-2025-41654",
       "title": "PEPPERL+FUCHS: Profinet Gateway LB8122A.1.EL – Device is affected by information disclosure via the SNMP protocol",
       "severity": "HIGH",
@@ -70966,6 +70910,34 @@
       "tags": ["CWE-287"]
     },
     {
+      "cveId": "CVE-2025-41673",
+      "title": "Remote Command Injection in send_sms Action Due to Improper Input Neutralization",
+      "severity": "HIGH",
+      "cvssScore": 7.2,
+      "epssScore": 0.15,
+      "epssPercentile": 36.665,
+      "riskScore": 43,
+      "publishedDate": "2025-07-21T09:29:32.129000+00:00",
+      "lastModifiedDate": "2025-07-21T17:06:11.768000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["helmholz", "mb connect line"],
+      "tags": ["CWE-78"]
+    },
+    {
+      "cveId": "CVE-2025-41674",
+      "title": "Remote Command Injection in diagnostic Action Due to Improper Input Neutralization",
+      "severity": "HIGH",
+      "cvssScore": 7.2,
+      "epssScore": 0.15,
+      "epssPercentile": 36.665,
+      "riskScore": 43,
+      "publishedDate": "2025-07-21T09:29:43.181000+00:00",
+      "lastModifiedDate": "2025-07-21T17:05:33.656000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["helmholz", "mb connect line"],
+      "tags": ["CWE-78"]
+    },
+    {
       "cveId": "CVE-2025-1270",
       "title": "Insecure direct object reference (IDOR) vulnerability in H6Web",
       "severity": "CRITICAL",
@@ -71034,6 +71006,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["learning digital"],
       "tags": ["CWE-89"]
+    },
+    {
+      "cveId": "CVE-2025-1469",
+      "title": "IDOR in Turtek Software's Eyotek",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.04,
+      "epssPercentile": 11.711,
+      "riskScore": 43,
+      "publishedDate": "2025-07-21T08:35:00.914000+00:00",
+      "lastModifiedDate": "2025-07-21T17:25:16.332000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["turtek software"],
+      "tags": ["CWE-639"]
     },
     {
       "cveId": "CVE-2025-1667",
@@ -76478,7 +76464,7 @@
       "publishedDate": "2024-10-15T10:27:52.208000+00:00",
       "lastModifiedDate": "2024-10-16T17:47:04.737000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-261"]
     },
     {
@@ -79852,7 +79838,7 @@
       "publishedDate": "2025-01-08T11:09:24.799000+00:00",
       "lastModifiedDate": "2025-01-08T13:54:46.719000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["wp swings", "wpswings"],
+      "vendors": ["wpswings", "wp swings"],
       "tags": ["CWE-862"]
     },
     {
@@ -82092,7 +82078,7 @@
       "publishedDate": "2024-02-05T14:33:06.481000+00:00",
       "lastModifiedDate": "2025-05-09T16:32:50.015000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["tiangolo", "encode", "kludex"],
+      "vendors": ["tiangolo", "kludex", "encode"],
       "tags": ["CWE-400"]
     },
     {
@@ -96960,7 +96946,7 @@
       "publishedDate": "2024-07-02T13:47:36.399000+00:00",
       "lastModifiedDate": "2024-08-02T04:12:25.618000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["ytdl-org", "yt-dlp"],
+      "vendors": ["yt-dlp", "ytdl-org"],
       "tags": ["CWE-669"]
     },
     {
@@ -106960,6 +106946,20 @@
       "tags": ["CWE-434"]
     },
     {
+      "cveId": "CVE-2025-4058",
+      "title": "Projectworlds Online Examination System Bloodgroop_process.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 10.51,
+      "riskScore": 41,
+      "publishedDate": "2025-04-29T11:31:03.566000+00:00",
+      "lastModifiedDate": "2025-04-29T13:20:17.241000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["projectworlds"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-4019",
       "title": "20120630 Novel-Plus GeneratorController.java genCode missing authentication",
       "severity": "HIGH",
@@ -111286,20 +111286,6 @@
       "tags": []
     },
     {
-      "cveId": "CVE-2025-30194",
-      "title": "Denial of service via crafted DoH exchange",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.07,
-      "epssPercentile": 20.738,
-      "riskScore": 41,
-      "publishedDate": "2025-04-29T11:25:47.141000+00:00",
-      "lastModifiedDate": "2025-06-20T15:42:56.102000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["powerdns"],
-      "tags": ["CWE-416"]
-    },
-    {
       "cveId": "CVE-2025-35471",
       "title": "conda-forge openssl-feedstock writable OPENSSLDIR",
       "severity": "HIGH",
@@ -113340,7 +113326,7 @@
       "publishedDate": "2024-10-15T10:27:06.004000+00:00",
       "lastModifiedDate": "2024-10-16T17:49:30.446000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-20"]
     },
     {
@@ -119222,20 +119208,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-347"]
-    },
-    {
-      "cveId": "CVE-2024-41140",
-      "title": "Improper Authorization",
-      "severity": "HIGH",
-      "cvssScore": 8.1,
-      "epssScore": 0.05,
-      "epssPercentile": 14.423,
-      "riskScore": 41,
-      "publishedDate": "2025-01-29T11:14:50.910000+00:00",
-      "lastModifiedDate": "2025-02-12T19:51:14.429000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["manageengine"],
-      "tags": ["CWE-863"]
     },
     {
       "cveId": "CVE-2024-41127",
@@ -127984,7 +127956,7 @@
       "publishedDate": "2024-03-18T16:04:57.375000+00:00",
       "lastModifiedDate": "2024-08-01T19:03:37.851000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric", "schneider electric "],
+      "vendors": ["schneider electric ", "schneider electric"],
       "tags": ["CWE-79"]
     },
     {
@@ -143920,6 +143892,20 @@
       "tags": ["CWE-98"]
     },
     {
+      "cveId": "CVE-2025-30194",
+      "title": "Denial of service via crafted DoH exchange",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.07,
+      "epssPercentile": 20.738,
+      "riskScore": 39,
+      "publishedDate": "2025-04-29T11:25:47.141000+00:00",
+      "lastModifiedDate": "2025-06-20T15:42:56.102000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["powerdns"],
+      "tags": ["CWE-416"]
+    },
+    {
       "cveId": "CVE-2025-30716",
       "title": "CVE-2025-30716: Vulnerability in the Oracle Common Applications product of Oracle E-Business Suite (component: CRM U...",
       "severity": "HIGH",
@@ -146912,7 +146898,7 @@
       "publishedDate": "2024-10-15T10:28:58.559000+00:00",
       "lastModifiedDate": "2025-01-24T06:32:08.237000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-306"]
     },
     {
@@ -146926,7 +146912,7 @@
       "publishedDate": "2024-10-15T10:27:32.688000+00:00",
       "lastModifiedDate": "2024-10-16T17:36:22.123000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-1391"]
     },
     {
@@ -155202,6 +155188,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["txtdot"],
       "tags": ["CWE-918"]
+    },
+    {
+      "cveId": "CVE-2024-41140",
+      "title": "Improper Authorization",
+      "severity": "HIGH",
+      "cvssScore": 8.1,
+      "epssScore": 0.05,
+      "epssPercentile": 14.423,
+      "riskScore": 39,
+      "publishedDate": "2025-01-29T11:14:50.910000+00:00",
+      "lastModifiedDate": "2025-02-12T19:51:14.429000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["manageengine"],
+      "tags": ["CWE-863"]
     },
     {
       "cveId": "CVE-2024-41656",
@@ -172588,7 +172588,7 @@
       "publishedDate": "2024-03-18T16:05:47.722000+00:00",
       "lastModifiedDate": "2024-08-15T16:23:48.504000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric", "schneider electric "],
+      "vendors": ["schneider electric ", "schneider electric"],
       "tags": ["CWE-552"]
     },
     {
@@ -183186,7 +183186,7 @@
       "publishedDate": "2024-07-04T08:53:41.217000+00:00",
       "lastModifiedDate": "2024-08-19T15:25:49.496000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-427"]
     },
     {
