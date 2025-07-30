@@ -1,5 +1,5 @@
 {
-  "generated": "2025-07-29T20:09:01.223324",
+  "generated": "2025-07-30T00:26:06.309097",
   "count": 15586,
   "vulnerabilities": [
     {
@@ -419,7 +419,7 @@
       "publishedDate": "2025-06-25T07:17:32.423000+00:00",
       "lastModifiedDate": "2025-07-25T16:19:55.848000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec", "brother industries, ltd", "konica minolta, inc."],
+      "vendors": ["toshiba tec", "konica minolta, inc.", "brother industries, ltd"],
       "tags": ["CWE-1391"]
     },
     {
@@ -3303,7 +3303,7 @@
       "publishedDate": "2024-10-18T17:32:30.648000+00:00",
       "lastModifiedDate": "2024-10-18T18:56:31.697000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["scott paterson", "scottpaterson"],
+      "vendors": ["scottpaterson", "scott paterson"],
       "tags": ["CWE-94"]
     },
     {
@@ -5001,20 +5001,6 @@
       "tags": ["CWE-862"]
     },
     {
-      "cveId": "CVE-2025-7945",
-      "title": "D-Link DIR-513 formSetWanDhcpplus buffer overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.05,
-      "epssPercentile": 15.223,
-      "riskScore": 52,
-      "publishedDate": "2025-07-21T23:32:06.071000+00:00",
-      "lastModifiedDate": "2025-07-23T16:08:04.393000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["d-link"],
-      "tags": ["CWE-120", "CWE-119"]
-    },
-    {
       "cveId": "CVE-2025-7206",
       "title": "D-Link DIR-825 httpd switch_language.cgi sub_410DDC stack-based overflow",
       "severity": "CRITICAL",
@@ -5095,7 +5081,7 @@
       "publishedDate": "2025-05-13T03:21:29.625000+00:00",
       "lastModifiedDate": "2025-05-13T13:57:36.925000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["relevanssi", "msaari"],
+      "vendors": ["msaari", "relevanssi"],
       "tags": ["CWE-89"]
     },
     {
@@ -5851,7 +5837,7 @@
       "publishedDate": "2024-06-25T03:30:37.970000+00:00",
       "lastModifiedDate": "2024-08-01T21:33:05.337000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["pedrogusmao02", "blazeretail", "stuartobrien", "warfareplugins", "themerex"],
+      "vendors": ["warfareplugins", "stuartobrien", "themerex", "pedrogusmao02", "blazeretail"],
       "tags": []
     },
     {
@@ -6399,20 +6385,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["samsung electronics"],
       "tags": ["CWE-434"]
-    },
-    {
-      "cveId": "CVE-2025-54122",
-      "title": "Manager-io/Manager allows unauthenticated full read server-side request forgery in \"proxy\" endpoint",
-      "severity": "CRITICAL",
-      "cvssScore": 10.0,
-      "epssScore": 0.15,
-      "epssPercentile": 35.813,
-      "riskScore": 51,
-      "publishedDate": "2025-07-21T20:28:26.690000+00:00",
-      "lastModifiedDate": "2025-07-21T20:48:22.700000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["manager-io"],
-      "tags": ["CWE-918"]
     },
     {
       "cveId": "CVE-2025-54448",
@@ -7409,20 +7381,6 @@
       "tags": ["CWE-502"]
     },
     {
-      "cveId": "CVE-2025-21415",
-      "title": "Azure AI Face Service Elevation of Privilege Vulnerability",
-      "severity": "CRITICAL",
-      "cvssScore": 9.9,
-      "epssScore": 0.7,
-      "epssPercentile": 71.043,
-      "riskScore": 50,
-      "publishedDate": "2025-01-29T22:42:01.411000+00:00",
-      "lastModifiedDate": "2025-04-02T13:23:55.861000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["microsoft"],
-      "tags": ["CWE-290"]
-    },
-    {
       "cveId": "CVE-2025-49533",
       "title": "Adobe Experience Manager (MS) | Deserialization of Untrusted Data (CWE-502)",
       "severity": "CRITICAL",
@@ -7897,6 +7855,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["tenda"],
       "tags": ["CWE-121", "CWE-119"]
+    },
+    {
+      "cveId": "CVE-2025-7945",
+      "title": "D-Link DIR-513 formSetWanDhcpplus buffer overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.05,
+      "epssPercentile": 15.223,
+      "riskScore": 50,
+      "publishedDate": "2025-07-21T23:32:06.071000+00:00",
+      "lastModifiedDate": "2025-07-23T16:08:04.393000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["d-link"],
+      "tags": ["CWE-120", "CWE-119"]
     },
     {
       "cveId": "CVE-2025-7792",
@@ -8977,20 +8949,6 @@
       "tags": ["CWE-120", "CWE-119"]
     },
     {
-      "cveId": "CVE-2025-6825",
-      "title": "TOTOLINK A702R HTTP POST Request formWlSiteSurvey buffer overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.17,
-      "epssPercentile": 38.372,
-      "riskScore": 50,
-      "publishedDate": "2025-06-28T20:31:07.693000+00:00",
-      "lastModifiedDate": "2025-06-30T15:55:59.251000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["totolink"],
-      "tags": ["CWE-120", "CWE-119"]
-    },
-    {
       "cveId": "CVE-2025-6190",
       "title": "Realty Portal – Agent <= 0.3.9 - Missing Authorization to Authenticated (Subscriber+) Privilege Escalation via rp_user_profile() Function",
       "severity": "HIGH",
@@ -9311,20 +9269,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["redis"],
       "tags": ["CWE-680"]
-    },
-    {
-      "cveId": "CVE-2025-32444",
-      "title": "vLLM Vulnerable to Remote Code Execution via Mooncake Integration",
-      "severity": "CRITICAL",
-      "cvssScore": 10.0,
-      "epssScore": 0.77,
-      "epssPercentile": 72.529,
-      "riskScore": 50,
-      "publishedDate": "2025-04-30T00:25:00.655000+00:00",
-      "lastModifiedDate": "2025-04-30T13:08:35.928000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["vllm-project"],
-      "tags": ["CWE-502"]
     },
     {
       "cveId": "CVE-2025-30397",
@@ -10795,6 +10739,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["samsung electronics"],
       "tags": ["CWE-798"]
+    },
+    {
+      "cveId": "CVE-2025-54122",
+      "title": "Manager-io/Manager allows unauthenticated full read server-side request forgery in \"proxy\" endpoint",
+      "severity": "CRITICAL",
+      "cvssScore": 10.0,
+      "epssScore": 0.15,
+      "epssPercentile": 35.813,
+      "riskScore": 49,
+      "publishedDate": "2025-07-21T20:28:26.690000+00:00",
+      "lastModifiedDate": "2025-07-21T20:48:22.700000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["manager-io"],
+      "tags": ["CWE-918"]
     },
     {
       "cveId": "CVE-2025-7341",
@@ -13779,6 +13737,20 @@
       "tags": ["CWE-121", "CWE-119"]
     },
     {
+      "cveId": "CVE-2025-21415",
+      "title": "Azure AI Face Service Elevation of Privilege Vulnerability",
+      "severity": "CRITICAL",
+      "cvssScore": 9.9,
+      "epssScore": 0.7,
+      "epssPercentile": 71.043,
+      "riskScore": 48,
+      "publishedDate": "2025-01-29T22:42:01.411000+00:00",
+      "lastModifiedDate": "2025-04-02T13:23:55.861000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["microsoft"],
+      "tags": ["CWE-290"]
+    },
+    {
       "cveId": "CVE-2025-21198",
       "title": "Microsoft High Performance Compute (HPC) Pack Remote Code Execution Vulnerability",
       "severity": "CRITICAL",
@@ -16229,20 +16201,6 @@
       "tags": ["CWE-798"]
     },
     {
-      "cveId": "CVE-2025-46348",
-      "title": "YesWiki Vulnerable to Unauthenticated Site Backup Creation and Download",
-      "severity": "CRITICAL",
-      "cvssScore": 10.0,
-      "epssScore": 0.15,
-      "epssPercentile": 36.046,
-      "riskScore": 48,
-      "publishedDate": "2025-04-29T20:39:40.423000+00:00",
-      "lastModifiedDate": "2025-04-30T13:19:35.339000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["yeswiki"],
-      "tags": ["CWE-287", "CWE-862"]
-    },
-    {
       "cveId": "CVE-2025-46724",
       "title": "Langroid has a Code Injection vulnerability in TableChatAgent",
       "severity": "CRITICAL",
@@ -16549,6 +16507,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["totolink"],
       "tags": ["CWE-121", "CWE-119"]
+    },
+    {
+      "cveId": "CVE-2025-6825",
+      "title": "TOTOLINK A702R HTTP POST Request formWlSiteSurvey buffer overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.17,
+      "epssPercentile": 38.372,
+      "riskScore": 48,
+      "publishedDate": "2025-06-28T20:31:07.693000+00:00",
+      "lastModifiedDate": "2025-06-30T15:55:59.251000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["totolink"],
+      "tags": ["CWE-120", "CWE-119"]
     },
     {
       "cveId": "CVE-2025-6143",
@@ -17499,7 +17471,7 @@
       "publishedDate": "2025-06-13T09:23:49.631000+00:00",
       "lastModifiedDate": "2025-06-13T12:22:47.798000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["rts", "telex"],
+      "vendors": ["telex", "rts"],
       "tags": []
     },
     {
@@ -17977,6 +17949,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["kunbus gmbh"],
       "tags": ["CWE-305"]
+    },
+    {
+      "cveId": "CVE-2025-32444",
+      "title": "vLLM Vulnerable to Remote Code Execution via Mooncake Integration",
+      "severity": "CRITICAL",
+      "cvssScore": 10.0,
+      "epssScore": 0.77,
+      "epssPercentile": 72.529,
+      "riskScore": 48,
+      "publishedDate": "2025-04-30T00:25:00.655000+00:00",
+      "lastModifiedDate": "2025-04-30T13:08:35.928000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["vllm-project"],
+      "tags": ["CWE-502"]
     },
     {
       "cveId": "CVE-2025-32717",
@@ -18999,10 +18985,10 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": [
         "toshiba tec",
-        "brother industries, ltd",
         "fujifilm business innovation",
-        "konica minolta, inc.",
-        "ricoh"
+        "brother industries, ltd",
+        "ricoh",
+        "konica minolta, inc."
       ],
       "tags": ["CWE-1286"]
     },
@@ -24828,9 +24814,9 @@
       "lastModifiedDate": "2025-06-25T14:08:48.280000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "brother industries, ltd",
         "fujifilm business innovation",
         "konica minolta, inc.",
+        "brother industries, ltd",
         "ricoh"
       ],
       "tags": ["CWE-121"]
@@ -26320,20 +26306,6 @@
       "tags": ["CWE-400"]
     },
     {
-      "cveId": "CVE-2025-21396",
-      "title": "Microsoft Account Elevation of Privilege Vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 8.2,
-      "epssScore": 0.56,
-      "epssPercentile": 67.407,
-      "riskScore": 46,
-      "publishedDate": "2025-01-29T23:07:03.752000+00:00",
-      "lastModifiedDate": "2025-04-02T13:23:55.277000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["microsoft"],
-      "tags": ["CWE-862"]
-    },
-    {
       "cveId": "CVE-2025-21286",
       "title": "Windows Telephony Service Remote Code Execution Vulnerability",
       "severity": "HIGH",
@@ -27282,7 +27254,7 @@
       "publishedDate": "2025-07-08T05:32:05.678000+00:00",
       "lastModifiedDate": "2025-07-08T13:45:36.200000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes", "phpgurukul"],
+      "vendors": ["phpgurukul", "campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -28094,7 +28066,7 @@
       "publishedDate": "2025-07-08T06:02:05.515000+00:00",
       "lastModifiedDate": "2025-07-08T13:44:30.198000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes", "phpgurukul"],
+      "vendors": ["phpgurukul", "campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -29358,20 +29330,6 @@
       "tags": ["CWE-120", "CWE-119"]
     },
     {
-      "cveId": "CVE-2025-3501",
-      "title": "Org.keycloak.protocol.services: keycloak hostname verification",
-      "severity": "HIGH",
-      "cvssScore": 8.2,
-      "epssScore": 0.01,
-      "epssPercentile": 1.25,
-      "riskScore": 46,
-      "publishedDate": "2025-04-29T20:45:29.507000+00:00",
-      "lastModifiedDate": "2025-06-09T13:57:37.270000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["red hat"],
-      "tags": ["CWE-297"]
-    },
-    {
       "cveId": "CVE-2025-3361",
       "title": "HGiga iSherlock - OS Command Injection",
       "severity": "CRITICAL",
@@ -29876,6 +29834,20 @@
       "tags": ["CWE-89"]
     },
     {
+      "cveId": "CVE-2025-46348",
+      "title": "YesWiki Vulnerable to Unauthenticated Site Backup Creation and Download",
+      "severity": "CRITICAL",
+      "cvssScore": 10.0,
+      "epssScore": 0.15,
+      "epssPercentile": 36.046,
+      "riskScore": 46,
+      "publishedDate": "2025-04-29T20:39:40.423000+00:00",
+      "lastModifiedDate": "2025-04-30T13:19:35.339000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["yeswiki"],
+      "tags": ["CWE-287", "CWE-862"]
+    },
+    {
       "cveId": "CVE-2025-46661",
       "title": "CVE-2025-46661: IPW Systems Metazo through 8.1.3 allows unauthenticated Remote Code Execution because smartyValidato...",
       "severity": "CRITICAL",
@@ -30058,20 +30030,6 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
-      "cveId": "CVE-2025-6827",
-      "title": "code-projects Inventory Management System editOrder.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.652,
-      "riskScore": 46,
-      "publishedDate": "2025-06-28T22:00:16.543000+00:00",
-      "lastModifiedDate": "2025-06-30T16:18:08.713000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
       "cveId": "CVE-2025-6956",
       "title": "Campcodes Employee Management System changepassemp.php sql injection",
       "severity": "HIGH",
@@ -30098,20 +30056,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["hogash"],
       "tags": ["CWE-98"]
-    },
-    {
-      "cveId": "CVE-2025-6828",
-      "title": "code-projects Inventory Management System orders.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.652,
-      "riskScore": 46,
-      "publishedDate": "2025-06-28T22:31:05.926000+00:00",
-      "lastModifiedDate": "2025-06-30T16:16:25.929000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
     },
     {
       "cveId": "CVE-2025-6844",
@@ -30251,20 +30195,6 @@
       "lastModifiedDate": "2025-07-01T15:47:17.009000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["campcodes"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-6835",
-      "title": "code-projects Library System student-issue-book.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.652,
-      "riskScore": 46,
-      "publishedDate": "2025-06-29T00:00:18.720000+00:00",
-      "lastModifiedDate": "2025-06-30T20:16:26.729000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -30431,20 +30361,6 @@
       "riskScore": 46,
       "publishedDate": "2025-06-29T02:00:15.680000+00:00",
       "lastModifiedDate": "2025-06-30T20:13:05.481000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-6834",
-      "title": "code-projects Inventory Management System editPayment.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 12.076,
-      "riskScore": 46,
-      "publishedDate": "2025-06-28T23:31:05.813000+00:00",
-      "lastModifiedDate": "2025-06-30T16:09:33.331000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
@@ -30629,20 +30545,6 @@
       "lastModifiedDate": "2025-06-30T16:33:06.867000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["phpgurukul"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-6826",
-      "title": "code-projects Payroll Management System ajax.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.652,
-      "riskScore": 46,
-      "publishedDate": "2025-06-28T21:00:18.376000+00:00",
-      "lastModifiedDate": "2025-06-30T15:55:04.688000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -31220,20 +31122,6 @@
       "tags": ["CWE-319"]
     },
     {
-      "cveId": "CVE-2025-53832",
-      "title": "@translated/lara-mcp vulnerable to command injection in import_tmx tool",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.13,
-      "epssPercentile": 33.399,
-      "riskScore": 46,
-      "publishedDate": "2025-07-21T20:18:02.755000+00:00",
-      "lastModifiedDate": "2025-07-21T20:50:29.802000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["translated"],
-      "tags": ["CWE-77"]
-    },
-    {
       "cveId": "CVE-2025-53314",
       "title": "WordPress WP Optimizer plugin <= 2.3.6 - Cross Site Request Forgery (CSRF) Vulnerability",
       "severity": "CRITICAL",
@@ -31302,20 +31190,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["nixos"],
       "tags": ["CWE-271"]
-    },
-    {
-      "cveId": "CVE-2025-53528",
-      "title": "Cadwyn is vulnerable to an XSS attack through its docs page",
-      "severity": "HIGH",
-      "cvssScore": 7.6,
-      "epssScore": 0.04,
-      "epssPercentile": 12.506,
-      "riskScore": 46,
-      "publishedDate": "2025-07-21T20:15:17.464000+00:00",
-      "lastModifiedDate": "2025-07-23T15:01:36.184000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["zmievsa"],
-      "tags": ["CWE-79"]
     },
     {
       "cveId": "CVE-2025-53536",
@@ -32282,20 +32156,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["f5"],
       "tags": ["CWE-125"]
-    },
-    {
-      "cveId": "CVE-2025-0851",
-      "title": "Path traversal issue in Deep Java Library",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 1.9,
-      "epssPercentile": 82.445,
-      "riskScore": 46,
-      "publishedDate": "2025-01-29T21:19:59.309000+00:00",
-      "lastModifiedDate": "2025-02-12T19:51:13.248000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["aws"],
-      "tags": ["CWE-36", "CWE-73"]
     },
     {
       "cveId": "CVE-2025-0680",
@@ -35262,7 +35122,7 @@
       "publishedDate": "2025-06-25T07:25:00.402000+00:00",
       "lastModifiedDate": "2025-06-25T14:13:40.189000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["brother industries, ltd", "fujifilm business innovation", "ricoh"],
+      "vendors": ["fujifilm business innovation", "brother industries, ltd", "ricoh"],
       "tags": ["CWE-1286"]
     },
     {
@@ -39140,7 +39000,7 @@
       "publishedDate": "2025-06-24T08:05:15.547000+00:00",
       "lastModifiedDate": "2025-06-24T14:18:57.831000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-306"]
     },
     {
@@ -40920,20 +40780,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-416"]
-    },
-    {
-      "cveId": "CVE-2025-29906",
-      "title": "Finit bundled getty can bypass /bin/login",
-      "severity": "HIGH",
-      "cvssScore": 8.6,
-      "epssScore": 0.03,
-      "epssPercentile": 6.462,
-      "riskScore": 45,
-      "publishedDate": "2025-04-29T22:17:47.228000+00:00",
-      "lastModifiedDate": "2025-04-30T17:33:20.258000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["troglobit"],
-      "tags": ["CWE-287"]
     },
     {
       "cveId": "CVE-2025-29800",
@@ -43172,7 +43018,7 @@
       "publishedDate": "2024-10-15T10:28:37.223000+00:00",
       "lastModifiedDate": "2024-10-16T17:39:58.106000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-798"]
     },
     {
@@ -43228,7 +43074,7 @@
       "publishedDate": "2024-10-15T10:28:16.384000+00:00",
       "lastModifiedDate": "2024-10-16T17:44:15.429000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-306"]
     },
     {
@@ -47372,7 +47218,7 @@
       "publishedDate": "2025-05-30T18:00:06.477000+00:00",
       "lastModifiedDate": "2025-05-30T18:15:18.480000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes", "phpgurukul"],
+      "vendors": ["phpgurukul", "campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -48130,6 +47976,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["microsoft"],
       "tags": ["CWE-416"]
+    },
+    {
+      "cveId": "CVE-2025-21396",
+      "title": "Microsoft Account Elevation of Privilege Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 8.2,
+      "epssScore": 0.56,
+      "epssPercentile": 67.407,
+      "riskScore": 44,
+      "publishedDate": "2025-01-29T23:07:03.752000+00:00",
+      "lastModifiedDate": "2025-04-02T13:23:55.277000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["microsoft"],
+      "tags": ["CWE-862"]
     },
     {
       "cveId": "CVE-2025-21479",
@@ -51628,7 +51488,7 @@
       "publishedDate": "2025-05-03T11:00:09.135000+00:00",
       "lastModifiedDate": "2025-05-30T09:10:12.356000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes", "phpgurukul"],
+      "vendors": ["phpgurukul", "campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -52286,7 +52146,7 @@
       "publishedDate": "2025-05-05T18:31:04.418000+00:00",
       "lastModifiedDate": "2025-05-05T18:48:57.123000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["oretnom23", "sourcecodester"],
+      "vendors": ["sourcecodester", "oretnom23"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -52498,6 +52358,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["h3c"],
       "tags": ["CWE-120", "CWE-119"]
+    },
+    {
+      "cveId": "CVE-2025-3501",
+      "title": "Org.keycloak.protocol.services: keycloak hostname verification",
+      "severity": "HIGH",
+      "cvssScore": 8.2,
+      "epssScore": 0.01,
+      "epssPercentile": 1.25,
+      "riskScore": 44,
+      "publishedDate": "2025-04-29T20:45:29.507000+00:00",
+      "lastModifiedDate": "2025-06-09T13:57:37.270000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["red hat"],
+      "tags": ["CWE-297"]
     },
     {
       "cveId": "CVE-2025-3302",
@@ -53270,6 +53144,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-6827",
+      "title": "code-projects Inventory Management System editOrder.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.652,
+      "riskScore": 44,
+      "publishedDate": "2025-06-28T22:00:16.543000+00:00",
+      "lastModifiedDate": "2025-06-30T16:18:08.713000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-6821",
       "title": "code-projects Inventory Management System createOrder.php sql injection",
       "severity": "HIGH",
@@ -53335,6 +53223,20 @@
       "riskScore": 44,
       "publishedDate": "2025-06-22T11:31:06.073000+00:00",
       "lastModifiedDate": "2025-06-23T14:10:06.491000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-6828",
+      "title": "code-projects Inventory Management System orders.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.652,
+      "riskScore": 44,
+      "publishedDate": "2025-06-28T22:31:05.926000+00:00",
+      "lastModifiedDate": "2025-06-30T16:16:25.929000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
@@ -53844,6 +53746,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-6835",
+      "title": "code-projects Library System student-issue-book.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.652,
+      "riskScore": 44,
+      "publishedDate": "2025-06-29T00:00:18.720000+00:00",
+      "lastModifiedDate": "2025-06-30T20:16:26.729000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-6777",
       "title": "code-projects Food Distributor Site process_login.php sql injection",
       "severity": "HIGH",
@@ -54247,6 +54163,20 @@
       "lastModifiedDate": "2025-06-20T13:50:12.910000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["phpgurukul"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-6834",
+      "title": "code-projects Inventory Management System editPayment.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 12.076,
+      "riskScore": 44,
+      "publishedDate": "2025-06-28T23:31:05.813000+00:00",
+      "lastModifiedDate": "2025-06-30T16:09:33.331000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -54833,6 +54763,20 @@
       "riskScore": 44,
       "publishedDate": "2025-06-22T15:00:15.999000+00:00",
       "lastModifiedDate": "2025-06-23T19:26:25.387000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-6826",
+      "title": "code-projects Payroll Management System ajax.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.652,
+      "riskScore": 44,
+      "publishedDate": "2025-06-28T21:00:18.376000+00:00",
+      "lastModifiedDate": "2025-06-30T15:55:04.688000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
@@ -55622,6 +55566,20 @@
       "tags": ["CWE-89"]
     },
     {
+      "cveId": "CVE-2025-53832",
+      "title": "@translated/lara-mcp vulnerable to command injection in import_tmx tool",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.13,
+      "epssPercentile": 33.399,
+      "riskScore": 44,
+      "publishedDate": "2025-07-21T20:18:02.755000+00:00",
+      "lastModifiedDate": "2025-07-21T20:50:29.802000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["translated"],
+      "tags": ["CWE-77"]
+    },
+    {
       "cveId": "CVE-2025-53015",
       "title": "ImageMagick has XMP profile write that triggers hang due to unbounded loop",
       "severity": "HIGH",
@@ -55690,6 +55648,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["delta electronics"],
       "tags": ["CWE-502"]
+    },
+    {
+      "cveId": "CVE-2025-53528",
+      "title": "Cadwyn is vulnerable to an XSS attack through its docs page",
+      "severity": "HIGH",
+      "cvssScore": 7.6,
+      "epssScore": 0.04,
+      "epssPercentile": 12.506,
+      "riskScore": 44,
+      "publishedDate": "2025-07-21T20:15:17.464000+00:00",
+      "lastModifiedDate": "2025-07-23T15:01:36.184000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["zmievsa"],
+      "tags": ["CWE-79"]
     },
     {
       "cveId": "CVE-2025-53503",
@@ -57036,6 +57008,20 @@
       "tags": ["CWE-787"]
     },
     {
+      "cveId": "CVE-2025-0851",
+      "title": "Path traversal issue in Deep Java Library",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 1.9,
+      "epssPercentile": 82.445,
+      "riskScore": 44,
+      "publishedDate": "2025-01-29T21:19:59.309000+00:00",
+      "lastModifiedDate": "2025-02-12T19:51:13.248000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["aws"],
+      "tags": ["CWE-36", "CWE-73"]
+    },
+    {
       "cveId": "CVE-2025-0455",
       "title": "NetVision Information airPASS - SQL injection",
       "severity": "CRITICAL",
@@ -57368,7 +57354,7 @@
       "publishedDate": "2024-07-09T05:34:17.609000+00:00",
       "lastModifiedDate": "2024-08-01T21:11:12.734000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["webnus", "webnus/"],
+      "vendors": ["webnus/", "webnus"],
       "tags": []
     },
     {
@@ -57830,7 +57816,7 @@
       "publishedDate": "2024-03-18T16:03:44.987000+00:00",
       "lastModifiedDate": "2024-08-28T15:04:28.061000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric", "schneider electric "],
+      "vendors": ["schneider electric ", "schneider electric"],
       "tags": ["CWE-307"]
     },
     {
@@ -58558,7 +58544,7 @@
       "publishedDate": "2025-05-09T15:18:34.124000+00:00",
       "lastModifiedDate": "2025-05-09T19:09:17.086000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["avg", "avast", "norton"],
+      "vendors": ["norton", "avast", "avg"],
       "tags": ["CWE-367"]
     },
     {
@@ -68638,7 +68624,7 @@
       "publishedDate": "2025-06-24T08:10:29.717000+00:00",
       "lastModifiedDate": "2025-06-24T13:56:13.121000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-639"]
     },
     {
@@ -68750,7 +68736,7 @@
       "publishedDate": "2025-06-24T08:14:31.864000+00:00",
       "lastModifiedDate": "2025-06-24T13:55:34.477000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-204"]
     },
     {
@@ -70042,6 +70028,20 @@
       "tags": ["CWE-922"]
     },
     {
+      "cveId": "CVE-2025-29906",
+      "title": "Finit bundled getty can bypass /bin/login",
+      "severity": "HIGH",
+      "cvssScore": 8.6,
+      "epssScore": 0.03,
+      "epssPercentile": 6.462,
+      "riskScore": 43,
+      "publishedDate": "2025-04-29T22:17:47.228000+00:00",
+      "lastModifiedDate": "2025-04-30T17:33:20.258000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["troglobit"],
+      "tags": ["CWE-287"]
+    },
+    {
       "cveId": "CVE-2025-29000",
       "title": "WordPress Multi-language Responsive Contact Form plugin <= 2.8 - Broken Access Control Vulnerability",
       "severity": "HIGH",
@@ -70668,7 +70668,7 @@
       "publishedDate": "2025-07-21T09:29:57.024000+00:00",
       "lastModifiedDate": "2025-07-21T20:36:45.460000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-78"]
     },
     {
@@ -70752,7 +70752,7 @@
       "publishedDate": "2025-07-21T09:29:32.129000+00:00",
       "lastModifiedDate": "2025-07-21T17:06:11.768000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-78"]
     },
     {
@@ -70766,7 +70766,7 @@
       "publishedDate": "2025-07-21T09:29:43.181000+00:00",
       "lastModifiedDate": "2025-07-21T17:05:33.656000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-78"]
     },
     {
@@ -71720,20 +71720,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["mnx"],
       "tags": ["CWE-321"]
-    },
-    {
-      "cveId": "CVE-2025-30202",
-      "title": "Data exposure via ZeroMQ on multi-node vLLM deployment",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.07,
-      "epssPercentile": 22.238,
-      "riskScore": 43,
-      "publishedDate": "2025-04-30T00:24:45.723000+00:00",
-      "lastModifiedDate": "2025-04-30T13:16:43.914000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["vllm-project"],
-      "tags": ["CWE-770"]
     },
     {
       "cveId": "CVE-2025-30284",
@@ -76310,7 +76296,7 @@
       "publishedDate": "2024-10-15T10:27:52.208000+00:00",
       "lastModifiedDate": "2024-10-16T17:47:04.737000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-261"]
     },
     {
@@ -81532,7 +81518,7 @@
       "publishedDate": "2024-08-07T11:00:06.508000+00:00",
       "lastModifiedDate": "2024-08-07T13:17:59.476000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["webnus", "webnus/"],
+      "vendors": ["webnus/", "webnus"],
       "tags": ["CWE-918"]
     },
     {
@@ -81938,7 +81924,7 @@
       "publishedDate": "2024-02-05T14:33:06.481000+00:00",
       "lastModifiedDate": "2025-05-09T16:32:50.015000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["tiangolo", "encode", "kludex"],
+      "vendors": ["encode", "tiangolo", "kludex"],
       "tags": ["CWE-400"]
     },
     {
@@ -96180,20 +96166,6 @@
       "tags": ["CWE-79"]
     },
     {
-      "cveId": "CVE-2025-0846",
-      "title": "1000 Projects Employee Task Management System AdminLogin.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 11.411,
-      "riskScore": 42,
-      "publishedDate": "2025-01-30T00:00:17.901000+00:00",
-      "lastModifiedDate": "2025-01-30T15:19:48.894000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["1000 projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
       "cveId": "CVE-2025-0500",
       "title": "Issue affecting Amazon WorkSpaces (when running Amazon DCV protocol), Amazon AppStream 2.0, and Amazon DCV clients",
       "severity": "HIGH",
@@ -96876,7 +96848,7 @@
       "publishedDate": "2024-07-02T13:47:36.399000+00:00",
       "lastModifiedDate": "2024-08-02T04:12:25.618000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["ytdl-org", "yt-dlp"],
+      "vendors": ["yt-dlp", "ytdl-org"],
       "tags": ["CWE-669"]
     },
     {
@@ -111062,6 +111034,20 @@
       "tags": ["CWE-98"]
     },
     {
+      "cveId": "CVE-2025-30202",
+      "title": "Data exposure via ZeroMQ on multi-node vLLM deployment",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.07,
+      "epssPercentile": 22.238,
+      "riskScore": 41,
+      "publishedDate": "2025-04-30T00:24:45.723000+00:00",
+      "lastModifiedDate": "2025-04-30T13:16:43.914000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["vllm-project"],
+      "tags": ["CWE-770"]
+    },
+    {
       "cveId": "CVE-2025-30901",
       "title": "WordPress JS Help Desk plugin <= 2.9.2 - Local File Inclusion vulnerability",
       "severity": "HIGH",
@@ -111300,20 +111286,6 @@
       "tags": ["CWE-352"]
     },
     {
-      "cveId": "CVE-2025-0841",
-      "title": "Aridius XYZ News loadMore deserialization",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.1,
-      "epssPercentile": 28.264,
-      "riskScore": 41,
-      "publishedDate": "2025-01-29T20:31:03.975000+00:00",
-      "lastModifiedDate": "2025-01-31T16:51:09.449000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["aridius"],
-      "tags": ["CWE-502", "CWE-20"]
-    },
-    {
       "cveId": "CVE-2025-0798",
       "title": "MicroWorld eScan Antivirus Quarantine rtscanner os command injection",
       "severity": "HIGH",
@@ -111340,34 +111312,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["exelban"],
       "tags": ["CWE-77", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-0843",
-      "title": "needyamin Library Card System Admin Panel admindashboard.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.05,
-      "epssPercentile": 13.781,
-      "riskScore": 41,
-      "publishedDate": "2025-01-29T23:00:06.941000+00:00",
-      "lastModifiedDate": "2025-04-16T11:19:00.447000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["needyamin"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-0842",
-      "title": "needyamin Library Card System Login admin.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.05,
-      "epssPercentile": 14.606,
-      "riskScore": 41,
-      "publishedDate": "2025-01-29T21:31:04.981000+00:00",
-      "lastModifiedDate": "2025-02-12T19:51:13.116000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["needyamin"],
-      "tags": ["CWE-89", "CWE-74"]
     },
     {
       "cveId": "CVE-2025-0749",
@@ -113228,7 +113172,7 @@
       "publishedDate": "2024-10-15T10:27:06.004000+00:00",
       "lastModifiedDate": "2024-10-16T17:49:30.446000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-20"]
     },
     {
@@ -126644,6 +126588,20 @@
       "tags": ["CWE-1392"]
     },
     {
+      "cveId": "CVE-2025-0846",
+      "title": "1000 Projects Employee Task Management System AdminLogin.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 11.411,
+      "riskScore": 40,
+      "publishedDate": "2025-01-30T00:00:17.901000+00:00",
+      "lastModifiedDate": "2025-01-30T15:19:48.894000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["1000 projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-0527",
       "title": "code-projects Admission Management System signupconfirm.php sql injection",
       "severity": "HIGH",
@@ -127914,7 +127872,7 @@
       "publishedDate": "2024-03-18T16:04:57.375000+00:00",
       "lastModifiedDate": "2024-08-01T19:03:37.851000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric", "schneider electric "],
+      "vendors": ["schneider electric ", "schneider electric"],
       "tags": ["CWE-79"]
     },
     {
@@ -141484,20 +141442,6 @@
       "tags": ["CWE-22"]
     },
     {
-      "cveId": "CVE-2025-24793",
-      "title": "Snowflake Connector for Python has an SQL Injection in write_pandas",
-      "severity": "HIGH",
-      "cvssScore": 7.0,
-      "epssScore": 0.06,
-      "epssPercentile": 18.951,
-      "riskScore": 39,
-      "publishedDate": "2025-01-29T20:23:02.227000+00:00",
-      "lastModifiedDate": "2025-01-31T16:54:16.113000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["snowflakedb"],
-      "tags": ["CWE-89"]
-    },
-    {
       "cveId": "CVE-2025-24357",
       "title": "vLLM allows a malicious model RCE by torch.load in hf_model_weights_iterator",
       "severity": "HIGH",
@@ -143990,6 +143934,20 @@
       "tags": ["CWE-552"]
     },
     {
+      "cveId": "CVE-2025-0841",
+      "title": "Aridius XYZ News loadMore deserialization",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.1,
+      "epssPercentile": 28.264,
+      "riskScore": 39,
+      "publishedDate": "2025-01-29T20:31:03.975000+00:00",
+      "lastModifiedDate": "2025-01-31T16:51:09.449000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["aridius"],
+      "tags": ["CWE-502", "CWE-20"]
+    },
+    {
       "cveId": "CVE-2025-0460",
       "title": "Blog Botz for Journal Theme blog_add unrestricted upload",
       "severity": "HIGH",
@@ -144074,6 +144032,20 @@
       "tags": ["CWE-918"]
     },
     {
+      "cveId": "CVE-2025-0843",
+      "title": "needyamin Library Card System Admin Panel admindashboard.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.05,
+      "epssPercentile": 13.781,
+      "riskScore": 39,
+      "publishedDate": "2025-01-29T23:00:06.941000+00:00",
+      "lastModifiedDate": "2025-04-16T11:19:00.447000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["needyamin"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-0340",
       "title": "code-projects Cinema Seat Reservation System deleteBooking.php sql injection",
       "severity": "HIGH",
@@ -144085,6 +144057,20 @@
       "lastModifiedDate": "2025-01-09T15:45:10.558000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-0842",
+      "title": "needyamin Library Card System Login admin.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.05,
+      "epssPercentile": 14.606,
+      "riskScore": 39,
+      "publishedDate": "2025-01-29T21:31:04.981000+00:00",
+      "lastModifiedDate": "2025-02-12T19:51:13.116000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["needyamin"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -145022,7 +145008,7 @@
       "publishedDate": "2024-07-03T12:26:44.599000+00:00",
       "lastModifiedDate": "2025-02-13T17:54:25.437000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "red lion europe"],
+      "vendors": ["red lion europe", "helmholz"],
       "tags": ["CWE-78"]
     },
     {
@@ -146898,7 +146884,7 @@
       "publishedDate": "2024-10-15T10:28:58.559000+00:00",
       "lastModifiedDate": "2025-01-24T06:32:08.237000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-306"]
     },
     {
@@ -146912,7 +146898,7 @@
       "publishedDate": "2024-10-15T10:27:32.688000+00:00",
       "lastModifiedDate": "2024-10-16T17:36:22.123000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-1391"]
     },
     {
@@ -150570,20 +150556,6 @@
       "tags": ["CWE-78"]
     },
     {
-      "cveId": "CVE-2024-11187",
-      "title": "Many records in the additional section cause CPU exhaustion",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.3,
-      "epssPercentile": 52.759,
-      "riskScore": 39,
-      "publishedDate": "2025-01-29T21:40:11.942000+00:00",
-      "lastModifiedDate": "2025-02-11T19:02:32.914000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["isc"],
-      "tags": ["CWE-405"]
-    },
-    {
       "cveId": "CVE-2024-11220",
       "title": "Open Automation Software Incorrect Execution-Assigned Permissions",
       "severity": "HIGH",
@@ -150834,20 +150806,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["codezips"],
       "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2024-12705",
-      "title": "DNS-over-HTTPS implementation suffers from multiple issues under heavy query load",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.17,
-      "epssPercentile": 38.59,
-      "riskScore": 39,
-      "publishedDate": "2025-01-29T21:40:27.839000+00:00",
-      "lastModifiedDate": "2025-02-07T17:02:44.473000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["isc"],
-      "tags": ["CWE-770"]
     },
     {
       "cveId": "CVE-2024-12642",
@@ -172588,7 +172546,7 @@
       "publishedDate": "2024-03-18T16:05:47.722000+00:00",
       "lastModifiedDate": "2024-08-15T16:23:48.504000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric", "schneider electric "],
+      "vendors": ["schneider electric ", "schneider electric"],
       "tags": ["CWE-552"]
     },
     {
@@ -187166,6 +187124,20 @@
       "tags": ["CWE-89"]
     },
     {
+      "cveId": "CVE-2025-24793",
+      "title": "Snowflake Connector for Python has an SQL Injection in write_pandas",
+      "severity": "HIGH",
+      "cvssScore": 7.0,
+      "epssScore": 0.06,
+      "epssPercentile": 18.951,
+      "riskScore": 37,
+      "publishedDate": "2025-01-29T20:23:02.227000+00:00",
+      "lastModifiedDate": "2025-01-31T16:54:16.113000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["snowflakedb"],
+      "tags": ["CWE-89"]
+    },
+    {
       "cveId": "CVE-2025-24019",
       "title": "YesWiki vulnerable to authenticated arbitrary file deletion",
       "severity": "HIGH",
@@ -189738,7 +189710,7 @@
       "publishedDate": "2024-07-08T15:25:38.672000+00:00",
       "lastModifiedDate": "2024-08-01T22:27:36.345000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["realtek", "levelone"],
+      "vendors": ["levelone", "realtek"],
       "tags": ["CWE-122"]
     },
     {
@@ -192934,6 +192906,20 @@
       "tags": ["CWE-287"]
     },
     {
+      "cveId": "CVE-2024-11187",
+      "title": "Many records in the additional section cause CPU exhaustion",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.3,
+      "epssPercentile": 52.759,
+      "riskScore": 37,
+      "publishedDate": "2025-01-29T21:40:11.942000+00:00",
+      "lastModifiedDate": "2025-02-11T19:02:32.914000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["isc"],
+      "tags": ["CWE-405"]
+    },
+    {
       "cveId": "CVE-2024-11066",
       "title": "D-Link DSL6740C - OS Command Injection",
       "severity": "HIGH",
@@ -193044,6 +193030,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["hcabrera"],
       "tags": ["CWE-94"]
+    },
+    {
+      "cveId": "CVE-2024-12705",
+      "title": "DNS-over-HTTPS implementation suffers from multiple issues under heavy query load",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.17,
+      "epssPercentile": 38.59,
+      "riskScore": 37,
+      "publishedDate": "2025-01-29T21:40:27.839000+00:00",
+      "lastModifiedDate": "2025-02-07T17:02:44.473000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["isc"],
+      "tags": ["CWE-770"]
     },
     {
       "cveId": "CVE-2024-12721",
