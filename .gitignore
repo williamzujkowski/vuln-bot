@@ -91,6 +91,11 @@ Thumbs.db
 *.sqlite
 *.sqlite3
 
+# Swarm coordination cache files
+.swarm/
+*.db-shm
+*.db-wal
+
 # Logs
 logs/
 *.log
