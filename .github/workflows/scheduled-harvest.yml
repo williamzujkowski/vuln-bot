@@ -20,7 +20,6 @@ permissions:
 
 env:
   PYTHON_VERSION: "3.x"
-  NODE_VERSION: "lts/*"
 
 jobs:
   harvest:
@@ -34,12 +33,6 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: ${{ env.PYTHON_VERSION }}
-      
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: "npm"
       
       - name: Install uv
         run: |
@@ -65,7 +58,6 @@ jobs:
       - name: Install dependencies
         run: |
           uv pip install --system -r requirements.txt
-          npm ci
       
       - name: Run vulnerability harvest
         id: harvest
@@ -102,6 +94,23 @@ jobs:
             --cache-dir actions-cache/ \
             --output-dir .
       
+      - name: Generate HTMX dashboard
+        run: |
+          echo "Building static HTMX dashboard..."
+          # Create cache directory
+          mkdir -p .cache
+          
+          # Copy the database to the expected location
+          cp actions-cache/vulns.db .cache/vulns.db || true
+          
+          # Generate the HTMX dashboard
+          python scripts/generate_htmx_dashboard.py
+          
+          # Copy service worker if it doesn't exist
+          if [ ! -f public/sw.js ] && [ -f src/sw.js ]; then
+            cp src/sw.js public/
+          fi
+      
       - name: Generate metrics visualization
         if: always()
         run: |
@@ -110,10 +119,6 @@ jobs:
           python -m scripts.visualize_metrics \
             --db-path actions-cache/metrics.db \
             --format github >> $GITHUB_STEP_SUMMARY || echo "Metrics not available" >> $GITHUB_STEP_SUMMARY
-      
-      - name: Build static site
-        run: |
-          npm run build
       
       - name: Update coverage badge
         if: github.event_name != 'workflow_dispatch' || !github.event.inputs.dry_run

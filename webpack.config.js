@@ -3,6 +3,7 @@ const path = require("path");
 module.exports = {
   entry: {
     dashboard: "./src/assets/ts/dashboard.ts",
+    "dashboard-enhanced": "./src/assets/ts/dashboard-enhanced.ts",
     "offline-support": "./src/assets/ts/offline-support.ts",
     "image-optimization": "./src/assets/ts/image-optimization.ts",
   },

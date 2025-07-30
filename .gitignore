@@ -124,3 +124,8 @@ optimized-storage/
 
 # Individual CVE files (we use chunked storage now)
 src/api/vulns/CVE-*.json
+# HTMX specific
+public/fragments/
+public/data/
+src-11ty-backup/
+package.json.11ty-backup

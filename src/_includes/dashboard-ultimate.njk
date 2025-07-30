@@ -1,0 +1,986 @@
+---
+layout: layouts/base
+title: Vulnerability Intelligence Platform
+---
+
+<style>
+/* Ultimate Dashboard Design System */
+:root {
+  /* Modern Color Palette */
+  --color-bg-primary: #0a0a0f;
+  --color-bg-secondary: #12121a;
+  --color-bg-tertiary: #1a1a25;
+  --color-bg-card: #1e1e2a;
+  --color-bg-hover: #252535;
+  
+  /* Accent Colors with Glow */
+  --color-accent-primary: #00d4ff;
+  --color-accent-secondary: #7c3aed;
+  --color-accent-success: #10b981;
+  --color-accent-warning: #f59e0b;
+  --color-accent-danger: #ef4444;
+  --color-accent-critical: #dc2626;
+  
+  /* Text Colors */
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #a3a3b8;
+  --color-text-muted: #6b6b85;
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #00d4ff 0%, #7c3aed 100%);
+  --gradient-danger: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  --gradient-success: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  --gradient-dark: linear-gradient(180deg, #1a1a25 0%, #0a0a0f 100%);
+  
+  /* Effects */
+  --shadow-glow: 0 0 40px rgba(0, 212, 255, 0.3);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.5);
+  --shadow-hover: 0 8px 32px rgba(0, 0, 0, 0.6);
+  
+  /* Animation */
+  --transition-fast: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Animated Background */
+.dashboard-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background: var(--color-bg-primary);
+  overflow: hidden;
+}
+
+.dashboard-bg::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 80% 50%, rgba(124, 58, 237, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 50% 100%, rgba(239, 68, 68, 0.05) 0%, transparent 50%);
+  animation: bgRotate 60s linear infinite;
+}
+
+@keyframes bgRotate {
+  to { transform: rotate(360deg); }
+}
+
+/* Main Container */
+.ultimate-dashboard {
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+/* Header */
+.dash-header {
+  background: rgba(18, 18, 26, 0.8);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 1rem 2rem;
+}
+
+.header-content {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brand-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--gradient-primary);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.5rem;
+  box-shadow: var(--shadow-glow);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(0.95); }
+}
+
+.brand-text h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.brand-text p {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.header-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-header {
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-header:hover {
+  background: rgba(0, 212, 255, 0.1);
+  border-color: var(--color-accent-primary);
+  color: var(--color-accent-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 212, 255, 0.2);
+}
+
+/* Main Content */
+.dash-main {
+  padding: 2rem;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  margin-bottom: 3rem;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--color-text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Stats Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.stat-card {
+  background: var(--color-bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-base);
+  animation: fadeIn 0.6s ease-out;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-primary);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(0, 212, 255, 0.3);
+}
+
+.stat-card:hover::before {
+  opacity: 1;
+}
+
+.stat-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(0, 212, 255, 0.1);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.stat-change {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--color-accent-success);
+}
+
+.stat-change.negative {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--color-accent-danger);
+}
+
+/* Quick Filters */
+.quick-filters {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.filter-chip {
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 30px;
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filter-chip:hover {
+  background: rgba(0, 212, 255, 0.1);
+  border-color: var(--color-accent-primary);
+  color: var(--color-accent-primary);
+  transform: scale(1.05);
+}
+
+.filter-chip.active {
+  background: var(--gradient-primary);
+  color: white;
+  border-color: transparent;
+}
+
+/* Search Section */
+.search-section {
+  background: var(--color-bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.search-container {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.search-input {
+  width: 100%;
+  padding: 1rem 3rem 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid transparent;
+  border-radius: 16px;
+  font-size: 1rem;
+  color: var(--color-text-primary);
+  transition: all var(--transition-base);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--color-accent-primary);
+  background: rgba(0, 212, 255, 0.05);
+  box-shadow: 0 0 0 4px rgba(0, 212, 255, 0.1);
+}
+
+.search-icon {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-muted);
+}
+
+/* Data Table */
+.data-section {
+  background: var(--color-bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 2rem;
+  overflow: hidden;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.table-container {
+  overflow-x: auto;
+  margin: -2rem;
+  padding: 2rem;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  white-space: nowrap;
+}
+
+.data-table td {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.data-table tbody tr {
+  transition: all var(--transition-base);
+}
+
+.data-table tbody tr:hover {
+  background: rgba(0, 212, 255, 0.02);
+}
+
+/* Severity Badges */
+.severity-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.severity-critical {
+  background: rgba(220, 38, 38, 0.2);
+  color: #dc2626;
+  border: 1px solid rgba(220, 38, 38, 0.3);
+}
+
+.severity-high {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.severity-medium {
+  background: rgba(245, 158, 11, 0.2);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+/* Risk Score */
+.risk-score {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 1.125rem;
+  position: relative;
+}
+
+.risk-score::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  padding: 2px;
+  background: var(--gradient-danger);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.8;
+}
+
+.risk-score.high {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+.risk-score.critical {
+  background: rgba(220, 38, 38, 0.1);
+  color: #dc2626;
+}
+
+/* Loading Animation */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(10, 10, 15, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.loading-spinner {
+  width: 60px;
+  height: 60px;
+  border: 3px solid rgba(0, 212, 255, 0.1);
+  border-top-color: var(--color-accent-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dash-header {
+    padding: 1rem;
+  }
+  
+  .header-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .quick-filters {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-bg-hover);
+  border-radius: 6px;
+  border: 2px solid var(--color-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-primary);
+}
+</style>
+
+<div class="dashboard-bg"></div>
+
+<div class="ultimate-dashboard" x-data="ultimateDashboard()" x-init="init()">
+  <!-- Header -->
+  <header class="dash-header">
+    <div class="header-content">
+      <div class="brand">
+        <div class="brand-icon">VB</div>
+        <div class="brand-text">
+          <h1>Vuln-Bot Intelligence</h1>
+          <p>Real-time Vulnerability Monitoring</p>
+        </div>
+      </div>
+      
+      <div class="header-actions">
+        <button class="btn-header" @click="showInsights = true">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M1 8h14M8 1v14"/>
+          </svg>
+          Insights
+        </button>
+        <button class="btn-header" @click="exportData()">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M8 1v10m-4-4l4 4 4-4"/>
+          </svg>
+          Export
+        </button>
+        <button class="btn-header" @click="toggleTheme()">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="8" cy="8" r="4"/>
+          </svg>
+          Theme
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="dash-main">
+    <!-- Hero Section -->
+    <div class="hero-section">
+      <h2 class="hero-title">Vulnerability Intelligence Dashboard</h2>
+      <p class="hero-subtitle">Track critical security vulnerabilities with EPSS ≥ 70% exploitation probability</p>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon">🛡️</div>
+        <div class="stat-value" x-text="stats.total">0</div>
+        <div class="stat-label">Total Vulnerabilities</div>
+        <div class="stat-change" :class="{'negative': stats.totalChange > 0}">
+          <span x-text="stats.totalChange > 0 ? '+' + stats.totalChange : stats.totalChange"></span>
+          <span>from last week</span>
+        </div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon">🚨</div>
+        <div class="stat-value" x-text="stats.critical">0</div>
+        <div class="stat-label">Critical Severity</div>
+        <div class="stat-change negative">
+          <span x-text="'+' + stats.criticalNew"></span>
+          <span>new today</span>
+        </div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon">📈</div>
+        <div class="stat-value" x-text="stats.highEpss">0</div>
+        <div class="stat-label">High EPSS (≥90%)</div>
+        <div class="stat-change">
+          <span>Exploitation likely</span>
+        </div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon">⚡</div>
+        <div class="stat-value" x-text="stats.avgRisk">0</div>
+        <div class="stat-label">Average Risk Score</div>
+        <div class="stat-change">
+          <span>Out of 100</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Filters -->
+    <div class="quick-filters">
+      <button class="filter-chip" :class="{'active': activeFilter === 'all'}" @click="setFilter('all')">
+        All Vulnerabilities
+      </button>
+      <button class="filter-chip" :class="{'active': activeFilter === 'critical'}" @click="setFilter('critical')">
+        <span class="severity-badge severity-critical">Critical</span>
+      </button>
+      <button class="filter-chip" :class="{'active': activeFilter === 'today'}" @click="setFilter('today')">
+        📅 Today's CVEs
+      </button>
+      <button class="filter-chip" :class="{'active': activeFilter === 'kev'}" @click="setFilter('kev')">
+        ⭐ KEV Listed
+      </button>
+      <button class="filter-chip" :class="{'active': activeFilter === 'network'}" @click="setFilter('network')">
+        🌐 Network Vector
+      </button>
+    </div>
+
+    <!-- Search Section -->
+    <div class="search-section">
+      <div class="search-container">
+        <input 
+          type="text" 
+          class="search-input" 
+          placeholder="Search CVE ID, vendor, or keyword..."
+          x-model="searchQuery"
+          @input.debounce.300ms="search()"
+        >
+        <svg class="search-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="8" cy="8" r="6"/>
+          <path d="m13 13 5 5"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Data Table -->
+    <div class="data-section">
+      <div class="section-header">
+        <h3 class="section-title">Vulnerability Details</h3>
+        <div class="section-actions">
+          <span x-text="filteredData.length + ' results'"></span>
+        </div>
+      </div>
+      
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th @click="sort('cveId')">CVE ID</th>
+              <th @click="sort('severity')">Severity</th>
+              <th @click="sort('cvssScore')">CVSS</th>
+              <th @click="sort('epssPercentile')">EPSS %</th>
+              <th @click="sort('riskScore')">Risk Score</th>
+              <th>Title</th>
+              <th>Vendors</th>
+              <th @click="sort('publishedDate')">Published</th>
+            </tr>
+          </thead>
+          <tbody>
+            <template x-for="vuln in paginatedData" :key="vuln.cveId">
+              <tr>
+                <td>
+                  <a href="#" @click.prevent="showDetails(vuln)" style="color: var(--color-accent-primary); text-decoration: none;">
+                    <span x-text="vuln.cveId"></span>
+                  </a>
+                </td>
+                <td>
+                  <span class="severity-badge" :class="'severity-' + vuln.severity.toLowerCase()" x-text="vuln.severity"></span>
+                </td>
+                <td x-text="vuln.cvssScore || 'N/A'"></td>
+                <td x-text="vuln.epssPercentile + '%'"></td>
+                <td>
+                  <div class="risk-score" :class="vuln.riskScore >= 80 ? 'critical' : 'high'">
+                    <span x-text="vuln.riskScore"></span>
+                  </div>
+                </td>
+                <td x-text="vuln.title"></td>
+                <td x-text="(vuln.vendors || []).slice(0, 3).join(', ')"></td>
+                <td x-text="formatDate(vuln.publishedDate)"></td>
+              </tr>
+            </template>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <!-- Loading Overlay -->
+  <div class="loading-overlay" x-show="loading" x-transition>
+    <div class="loading-spinner"></div>
+  </div>
+</div>
+
+<script>
+function ultimateDashboard() {
+  return {
+    // Data
+    vulnerabilities: [],
+    filteredData: [],
+    paginatedData: [],
+    
+    // UI State
+    loading: true,
+    searchQuery: '',
+    activeFilter: 'all',
+    currentPage: 1,
+    pageSize: 50,
+    sortField: 'riskScore',
+    sortDirection: 'desc',
+    
+    // Stats
+    stats: {
+      total: 0,
+      totalChange: 0,
+      critical: 0,
+      criticalNew: 0,
+      highEpss: 0,
+      avgRisk: 0
+    },
+    
+    // Initialize
+    async init() {
+      await this.loadData();
+      this.calculateStats();
+      this.applyFilters();
+      this.loading = false;
+    },
+    
+    // Load vulnerability data
+    async loadData() {
+      try {
+        // Simulate loading data
+        this.vulnerabilities = this.generateMockData();
+      } catch (error) {
+        console.error('Failed to load data:', error);
+      }
+    },
+    
+    // Generate mock data for demonstration
+    generateMockData() {
+      const vendors = ['Microsoft', 'Apache', 'Oracle', 'Cisco', 'VMware', 'Adobe', 'Google', 'Mozilla'];
+      const severities = ['CRITICAL', 'HIGH', 'MEDIUM'];
+      const data = [];
+      
+      for (let i = 0; i < 150; i++) {
+        const severity = severities[Math.floor(Math.random() * severities.length)];
+        const cvssScore = severity === 'CRITICAL' ? 9 + Math.random() : 
+                         severity === 'HIGH' ? 7 + Math.random() * 2 : 
+                         5 + Math.random() * 2;
+        const epssPercentile = 70 + Math.floor(Math.random() * 30);
+        
+        data.push({
+          cveId: `CVE-2025-${String(40000 + i).padStart(5, '0')}`,
+          severity: severity,
+          cvssScore: Math.round(cvssScore * 10) / 10,
+          epssPercentile: epssPercentile,
+          riskScore: Math.round((cvssScore * 4 + epssPercentile * 0.4 + (severity === 'CRITICAL' ? 10 : 7)) / 0.5),
+          title: `${severity} vulnerability in ${vendors[Math.floor(Math.random() * vendors.length)]} component`,
+          vendors: [vendors[Math.floor(Math.random() * vendors.length)]],
+          publishedDate: new Date(Date.now() - Math.random() * 30 * 24 * 60 * 60 * 1000).toISOString(),
+          tags: Math.random() > 0.7 ? ['KEV'] : []
+        });
+      }
+      
+      return data;
+    },
+    
+    // Calculate statistics
+    calculateStats() {
+      this.stats.total = this.vulnerabilities.length;
+      this.stats.totalChange = Math.floor(Math.random() * 20) - 10;
+      this.stats.critical = this.vulnerabilities.filter(v => v.severity === 'CRITICAL').length;
+      this.stats.criticalNew = Math.floor(Math.random() * 5) + 1;
+      this.stats.highEpss = this.vulnerabilities.filter(v => v.epssPercentile >= 90).length;
+      this.stats.avgRisk = Math.round(
+        this.vulnerabilities.reduce((sum, v) => sum + v.riskScore, 0) / this.vulnerabilities.length
+      );
+    },
+    
+    // Apply filters
+    applyFilters() {
+      let data = [...this.vulnerabilities];
+      
+      // Apply quick filter
+      switch (this.activeFilter) {
+        case 'critical':
+          data = data.filter(v => v.severity === 'CRITICAL');
+          break;
+        case 'today':
+          const today = new Date().toDateString();
+          data = data.filter(v => new Date(v.publishedDate).toDateString() === today);
+          break;
+        case 'kev':
+          data = data.filter(v => v.tags && v.tags.includes('KEV'));
+          break;
+        case 'network':
+          data = data.filter(v => v.title.toLowerCase().includes('network') || v.title.toLowerCase().includes('remote'));
+          break;
+      }
+      
+      // Apply search
+      if (this.searchQuery) {
+        const query = this.searchQuery.toLowerCase();
+        data = data.filter(v => 
+          v.cveId.toLowerCase().includes(query) ||
+          v.title.toLowerCase().includes(query) ||
+          v.vendors.some(vendor => vendor.toLowerCase().includes(query))
+        );
+      }
+      
+      // Sort
+      data.sort((a, b) => {
+        const aVal = a[this.sortField];
+        const bVal = b[this.sortField];
+        const dir = this.sortDirection === 'asc' ? 1 : -1;
+        return aVal < bVal ? -dir : aVal > bVal ? dir : 0;
+      });
+      
+      this.filteredData = data;
+      this.updatePagination();
+    },
+    
+    // Update pagination
+    updatePagination() {
+      const start = (this.currentPage - 1) * this.pageSize;
+      const end = start + this.pageSize;
+      this.paginatedData = this.filteredData.slice(start, end);
+    },
+    
+    // Set filter
+    setFilter(filter) {
+      this.activeFilter = filter;
+      this.currentPage = 1;
+      this.applyFilters();
+    },
+    
+    // Search
+    search() {
+      this.currentPage = 1;
+      this.applyFilters();
+    },
+    
+    // Sort
+    sort(field) {
+      if (this.sortField === field) {
+        this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+      } else {
+        this.sortField = field;
+        this.sortDirection = 'desc';
+      }
+      this.applyFilters();
+    },
+    
+    // Format date
+    formatDate(dateStr) {
+      const date = new Date(dateStr);
+      const now = new Date();
+      const diffDays = Math.floor((now - date) / (1000 * 60 * 60 * 24));
+      
+      if (diffDays === 0) return 'Today';
+      if (diffDays === 1) return 'Yesterday';
+      if (diffDays < 7) return `${diffDays} days ago`;
+      
+      return date.toLocaleDateString('en-US', { 
+        month: 'short', 
+        day: 'numeric',
+        year: 'numeric'
+      });
+    },
+    
+    // Show details
+    showDetails(vuln) {
+      alert(`CVE Details: ${vuln.cveId}\n\nTitle: ${vuln.title}\nSeverity: ${vuln.severity}\nCVSS: ${vuln.cvssScore}\nEPSS: ${vuln.epssPercentile}%\nRisk Score: ${vuln.riskScore}`);
+    },
+    
+    // Export data
+    exportData() {
+      const csv = this.generateCSV(this.filteredData);
+      const blob = new Blob([csv], { type: 'text/csv' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `vulnerabilities-${new Date().toISOString().split('T')[0]}.csv`;
+      a.click();
+      URL.revokeObjectURL(url);
+    },
+    
+    generateCSV(data) {
+      const headers = ['CVE ID', 'Severity', 'CVSS Score', 'EPSS %', 'Risk Score', 'Title', 'Vendors', 'Published Date'];
+      const rows = data.map(v => [
+        v.cveId,
+        v.severity,
+        v.cvssScore || '',
+        v.epssPercentile,
+        v.riskScore,
+        `"${v.title.replace(/"/g, '""')}"`,
+        `"${v.vendors.join(', ')}"`,
+        v.publishedDate
+      ]);
+      
+      return [headers, ...rows].map(row => row.join(',')).join('\n');
+    },
+    
+    // Toggle theme (placeholder)
+    toggleTheme() {
+      alert('Theme switching coming soon!');
+    }
+  };
+}
+</script>
