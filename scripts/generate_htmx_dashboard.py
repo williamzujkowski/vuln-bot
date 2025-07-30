@@ -702,10 +702,12 @@ class HTMXDashboardGenerator:
             vendors = json.loads(vuln["vendors"]) if vuln["vendors"] else []
             risk_score = self.calculate_risk_score(vuln)
 
+            title_escaped = vuln["title"].replace('"', '""')
+            vendors_str = ", ".join(vendors)
             csv_lines.append(
                 f'"{vuln["cve_id"]}","{vuln["severity"]}",{vuln["cvss_score"] or ""},'
-                f'{vuln["epss_percentile"]},{risk_score},"{vuln["title"].replace('"', '""')}",'
-                f'"{", ".join(vendors)}",{vuln["published_date"]}'
+                f'{vuln["epss_percentile"]},{risk_score},"{title_escaped}",'
+                f'"{vendors_str}",{vuln["published_date"]}'
             )
 
         # Create data directory
