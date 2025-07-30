@@ -1,5 +1,5 @@
 {
-  "generated": "2025-07-30T08:09:57.682535",
+  "generated": "2025-07-30T12:10:55.699975",
   "count": 15609,
   "vulnerabilities": [
     {
@@ -181,7 +181,7 @@
       "publishedDate": "2024-11-15T03:18:45.746000+00:00",
       "lastModifiedDate": "2024-11-19T13:37:03.351000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["really simple plugins", "rogierlankhorst"],
+      "vendors": ["rogierlankhorst", "really simple plugins"],
       "tags": ["CWE-288"]
     },
     {
@@ -419,7 +419,7 @@
       "publishedDate": "2025-06-25T07:17:32.423000+00:00",
       "lastModifiedDate": "2025-07-25T16:19:55.848000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["brother industries, ltd", "konica minolta, inc.", "toshiba tec"],
+      "vendors": ["konica minolta, inc.", "toshiba tec", "brother industries, ltd"],
       "tags": ["CWE-1391"]
     },
     {
@@ -1063,7 +1063,7 @@
       "publishedDate": "2024-11-26T07:37:44.549000+00:00",
       "lastModifiedDate": "2024-12-10T14:58:18.708000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-288"]
     },
     {
@@ -3303,7 +3303,7 @@
       "publishedDate": "2024-10-18T17:32:30.648000+00:00",
       "lastModifiedDate": "2024-10-18T18:56:31.697000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["scottpaterson", "scott paterson"],
+      "vendors": ["scott paterson", "scottpaterson"],
       "tags": ["CWE-94"]
     },
     {
@@ -4483,20 +4483,6 @@
       "tags": []
     },
     {
-      "cveId": "CVE-2025-6187",
-      "title": "bSecure 1.3.7 - 1.7.9 - Missing Authorization to Unauthenticated Privilege Escalation via order_info REST Endpoint",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 0.25,
-      "epssPercentile": 48.422,
-      "riskScore": 53,
-      "publishedDate": "2025-07-22T09:22:44.548000+00:00",
-      "lastModifiedDate": "2025-07-22T20:04:06.430000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["bsecuretech"],
-      "tags": ["CWE-862"]
-    },
-    {
       "cveId": "CVE-2025-6380",
       "title": "ONLYOFFICE Docs 1.1.0 - 2.2.0 - Missing Authorization to Unauthenticated Privilege Escalation via callback Function",
       "severity": "CRITICAL",
@@ -4619,7 +4605,7 @@
       "publishedDate": "2024-11-26T07:37:38.329000+00:00",
       "lastModifiedDate": "2024-12-10T15:43:57.213000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-22"]
     },
     {
@@ -5095,7 +5081,7 @@
       "publishedDate": "2025-05-13T03:21:29.625000+00:00",
       "lastModifiedDate": "2025-05-13T13:57:36.925000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["msaari", "relevanssi"],
+      "vendors": ["relevanssi", "msaari"],
       "tags": ["CWE-89"]
     },
     {
@@ -5865,7 +5851,7 @@
       "publishedDate": "2024-06-25T03:30:37.970000+00:00",
       "lastModifiedDate": "2024-08-01T21:33:05.337000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["stuartobrien", "pedrogusmao02", "blazeretail", "warfareplugins", "themerex"],
+      "vendors": ["warfareplugins", "themerex", "stuartobrien", "pedrogusmao02", "blazeretail"],
       "tags": []
     },
     {
@@ -6625,20 +6611,6 @@
       "tags": ["CWE-89"]
     },
     {
-      "cveId": "CVE-2025-4285",
-      "title": "SQLi in Rolantis Information Technologies' Agentis",
-      "severity": "CRITICAL",
-      "cvssScore": 10.0,
-      "epssScore": 0.04,
-      "epssPercentile": 11.211,
-      "riskScore": 51,
-      "publishedDate": "2025-07-22T11:21:54.909000+00:00",
-      "lastModifiedDate": "2025-07-22T14:05:59.581000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["rolantis information technologies"],
-      "tags": ["CWE-89"]
-    },
-    {
       "cveId": "CVE-2025-4439",
       "title": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') in GitLab",
       "severity": "HIGH",
@@ -6693,6 +6665,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["emby"],
       "tags": ["CWE-918"]
+    },
+    {
+      "cveId": "CVE-2025-6187",
+      "title": "bSecure 1.3.7 - 1.7.9 - Missing Authorization to Unauthenticated Privilege Escalation via order_info REST Endpoint",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.25,
+      "epssPercentile": 48.422,
+      "riskScore": 51,
+      "publishedDate": "2025-07-22T09:22:44.548000+00:00",
+      "lastModifiedDate": "2025-07-22T20:04:06.430000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["bsecuretech"],
+      "tags": ["CWE-862"]
     },
     {
       "cveId": "CVE-2025-6918",
@@ -11189,6 +11175,20 @@
       "tags": ["CWE-427"]
     },
     {
+      "cveId": "CVE-2025-4285",
+      "title": "SQLi in Rolantis Information Technologies' Agentis",
+      "severity": "CRITICAL",
+      "cvssScore": 10.0,
+      "epssScore": 0.04,
+      "epssPercentile": 11.211,
+      "riskScore": 49,
+      "publishedDate": "2025-07-22T11:21:54.909000+00:00",
+      "lastModifiedDate": "2025-07-22T14:05:59.581000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["rolantis information technologies"],
+      "tags": ["CWE-89"]
+    },
+    {
       "cveId": "CVE-2025-4404",
       "title": "Freeipa: idm: privilege escalation from host to domain admin in freeipa",
       "severity": "CRITICAL",
@@ -14869,20 +14869,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["coderevolution"],
       "tags": ["CWE-434"]
-    },
-    {
-      "cveId": "CVE-2025-4114",
-      "title": "Netgear JWNR2000v2 check_language_file buffer overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.26,
-      "epssPercentile": 49.407,
-      "riskScore": 48,
-      "publishedDate": "2025-04-30T12:00:06.173000+00:00",
-      "lastModifiedDate": "2025-04-30T13:41:20.693000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["netgear"],
-      "tags": ["CWE-120", "CWE-119"]
     },
     {
       "cveId": "CVE-2025-4448",
@@ -19026,11 +19012,11 @@
       "lastModifiedDate": "2025-06-25T14:15:31.576000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "toshiba tec",
+        "ricoh",
+        "fujifilm business innovation",
         "brother industries, ltd",
         "konica minolta, inc.",
-        "fujifilm business innovation",
-        "ricoh"
+        "toshiba tec"
       ],
       "tags": ["CWE-1286"]
     },
@@ -20503,20 +20489,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["techlabpro1"],
       "tags": ["CWE-98"]
-    },
-    {
-      "cveId": "CVE-2025-7692",
-      "title": "Orion Login with SMS <= 1.0.5 - Authenticated Bypass via Weak OTP",
-      "severity": "HIGH",
-      "cvssScore": 8.1,
-      "epssScore": 0.13,
-      "epssPercentile": 33.644,
-      "riskScore": 47,
-      "publishedDate": "2025-07-22T09:22:42.768000+00:00",
-      "lastModifiedDate": "2025-07-22T13:20:49.176000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["gsayed786"],
-      "tags": ["CWE-288"]
     },
     {
       "cveId": "CVE-2025-7096",
@@ -24898,10 +24870,10 @@
       "lastModifiedDate": "2025-06-25T14:08:48.280000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "brother industries, ltd",
-        "fujifilm business innovation",
         "konica minolta, inc.",
-        "ricoh"
+        "fujifilm business innovation",
+        "ricoh",
+        "brother industries, ltd"
       ],
       "tags": ["CWE-121"]
     },
@@ -25856,20 +25828,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["wpvividplugins"],
       "tags": ["CWE-434"]
-    },
-    {
-      "cveId": "CVE-2025-5878",
-      "title": "ESAPI esapi-java-legacy SQL Injection Defense Encoder.encodeForSQL special element",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.14,
-      "epssPercentile": 34.785,
-      "riskScore": 46,
-      "publishedDate": "2025-06-29T11:11:47.327000+00:00",
-      "lastModifiedDate": "2025-06-30T20:11:01.775000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["esapi"],
-      "tags": ["CWE-138", "CWE-20"]
     },
     {
       "cveId": "CVE-2025-5482",
@@ -27394,7 +27352,7 @@
       "publishedDate": "2025-07-08T05:32:05.678000+00:00",
       "lastModifiedDate": "2025-07-08T13:45:36.200000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes", "phpgurukul"],
+      "vendors": ["phpgurukul", "campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -28262,7 +28220,7 @@
       "publishedDate": "2025-07-08T06:02:05.515000+00:00",
       "lastModifiedDate": "2025-07-08T13:44:30.198000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes", "phpgurukul"],
+      "vendors": ["phpgurukul", "campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -29132,6 +29090,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["art-in bilişim teknolojileri ve yazılım hizm. tic. ltd. şti."],
       "tags": ["CWE-307"]
+    },
+    {
+      "cveId": "CVE-2025-4114",
+      "title": "Netgear JWNR2000v2 check_language_file buffer overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.26,
+      "epssPercentile": 49.407,
+      "riskScore": 46,
+      "publishedDate": "2025-04-30T12:00:06.173000+00:00",
+      "lastModifiedDate": "2025-04-30T13:41:20.693000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["netgear"],
+      "tags": ["CWE-120", "CWE-119"]
     },
     {
       "cveId": "CVE-2025-4315",
@@ -30616,20 +30588,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-6213",
-      "title": "Nginx Cache Purge Preload <= 2.1.1 - Authenticated (Administrator+) Remote Code Execution",
-      "severity": "HIGH",
-      "cvssScore": 7.2,
-      "epssScore": 0.3,
-      "epssPercentile": 52.638,
-      "riskScore": 46,
-      "publishedDate": "2025-07-22T09:22:44.147000+00:00",
-      "lastModifiedDate": "2025-07-22T20:03:28.839000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["psauxit"],
-      "tags": ["CWE-94"]
     },
     {
       "cveId": "CVE-2025-6631",
@@ -35318,7 +35276,7 @@
       "publishedDate": "2025-06-25T07:25:00.402000+00:00",
       "lastModifiedDate": "2025-06-25T14:13:40.189000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["brother industries, ltd", "fujifilm business innovation", "ricoh"],
+      "vendors": ["fujifilm business innovation", "ricoh", "brother industries, ltd"],
       "tags": ["CWE-1286"]
     },
     {
@@ -38108,6 +38066,20 @@
       "tags": ["CWE-306", "CWE-287"]
     },
     {
+      "cveId": "CVE-2025-7692",
+      "title": "Orion Login with SMS <= 1.0.5 - Authenticated Bypass via Weak OTP",
+      "severity": "HIGH",
+      "cvssScore": 8.1,
+      "epssScore": 0.13,
+      "epssPercentile": 33.644,
+      "riskScore": 45,
+      "publishedDate": "2025-07-22T09:22:42.768000+00:00",
+      "lastModifiedDate": "2025-07-22T13:20:49.176000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["gsayed786"],
+      "tags": ["CWE-288"]
+    },
+    {
       "cveId": "CVE-2025-7338",
       "title": "Multer vulnerable to Denial of Service via unhandled exception from malformed request",
       "severity": "HIGH",
@@ -38706,7 +38678,7 @@
       "publishedDate": "2025-06-13T21:03:18.087000+00:00",
       "lastModifiedDate": "2025-06-17T15:18:55.236000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["broadcom", "dell"],
+      "vendors": ["dell", "broadcom"],
       "tags": ["CWE-787"]
     },
     {
@@ -38720,7 +38692,7 @@
       "publishedDate": "2025-06-13T21:26:58.869000+00:00",
       "lastModifiedDate": "2025-06-17T18:13:30.525000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["broadcom", "dell"],
+      "vendors": ["dell", "broadcom"],
       "tags": ["CWE-763"]
     },
     {
@@ -40568,7 +40540,7 @@
       "publishedDate": "2025-06-13T20:51:33.392000+00:00",
       "lastModifiedDate": "2025-06-17T03:55:12.235000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["broadcom", "dell"],
+      "vendors": ["dell", "broadcom"],
       "tags": ["CWE-121"]
     },
     {
@@ -41368,20 +41340,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["chainguard-dev"],
       "tags": ["CWE-276"]
-    },
-    {
-      "cveId": "CVE-2025-53472",
-      "title": "CVE-2025-53472: WRC-BE36QS-B and WRC-W701-B contain an improper neutralization of special elements used in an OS com...",
-      "severity": "HIGH",
-      "cvssScore": 7.2,
-      "epssScore": 0.24,
-      "epssPercentile": 47.508,
-      "riskScore": 45,
-      "publishedDate": "2025-07-22T09:30:01.735000+00:00",
-      "lastModifiedDate": "2025-07-22T19:52:49.939000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["elecom co.,ltd."],
-      "tags": ["CWE-78"]
     },
     {
       "cveId": "CVE-2025-53024",
@@ -43592,7 +43550,7 @@
       "publishedDate": "2024-11-26T07:38:12.712000+00:00",
       "lastModifiedDate": "2025-01-27T17:45:48.564000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-798"]
     },
     {
@@ -45804,7 +45762,7 @@
       "publishedDate": "2024-11-26T07:37:06.324000+00:00",
       "lastModifiedDate": "2024-12-10T14:57:54.916000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-121"]
     },
     {
@@ -46028,7 +45986,7 @@
       "publishedDate": "2024-11-26T07:38:06.435000+00:00",
       "lastModifiedDate": "2025-01-27T17:46:45.224000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-798"]
     },
     {
@@ -46858,6 +46816,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-5878",
+      "title": "ESAPI esapi-java-legacy SQL Injection Defense Encoder.encodeForSQL special element",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.14,
+      "epssPercentile": 34.785,
+      "riskScore": 44,
+      "publishedDate": "2025-06-29T11:11:47.327000+00:00",
+      "lastModifiedDate": "2025-06-30T20:11:01.775000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["esapi"],
+      "tags": ["CWE-138", "CWE-20"]
+    },
+    {
       "cveId": "CVE-2025-5409",
       "title": "Mist Community Edition API Token views.py create_token access control",
       "severity": "HIGH",
@@ -47428,7 +47400,7 @@
       "publishedDate": "2025-05-30T18:00:06.477000+00:00",
       "lastModifiedDate": "2025-05-30T18:15:18.480000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes", "phpgurukul"],
+      "vendors": ["phpgurukul", "campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -50456,20 +50428,6 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
-      "cveId": "CVE-2025-4108",
-      "title": "PHPGurukul Student Record System add-subject.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 10.489,
-      "riskScore": 44,
-      "publishedDate": "2025-04-30T10:00:06.958000+00:00",
-      "lastModifiedDate": "2025-04-30T16:25:35.336000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
       "cveId": "CVE-2025-4647",
       "title": "A user with elevated privileges can bypass sanitization measures by replacing the content of an existing SVG",
       "severity": "HIGH",
@@ -51198,20 +51156,6 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
-      "cveId": "CVE-2025-4112",
-      "title": "PHPGurukul Student Record System add-course.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 10.489,
-      "riskScore": 44,
-      "publishedDate": "2025-04-30T11:00:08.428000+00:00",
-      "lastModifiedDate": "2025-04-30T15:32:57.086000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["phpgurukul"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
       "cveId": "CVE-2025-4749",
       "title": "D-Link DI-7003GV2 Factory Reset backup.asp sub_4983B0 denial of service",
       "severity": "HIGH",
@@ -51698,7 +51642,7 @@
       "publishedDate": "2025-05-03T11:00:09.135000+00:00",
       "lastModifiedDate": "2025-05-30T09:10:12.356000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["campcodes", "phpgurukul"],
+      "vendors": ["phpgurukul", "campcodes"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -54712,6 +54656,20 @@
       "tags": ["CWE-416"]
     },
     {
+      "cveId": "CVE-2025-6213",
+      "title": "Nginx Cache Purge Preload <= 2.1.1 - Authenticated (Administrator+) Remote Code Execution",
+      "severity": "HIGH",
+      "cvssScore": 7.2,
+      "epssScore": 0.3,
+      "epssPercentile": 52.638,
+      "riskScore": 44,
+      "publishedDate": "2025-07-22T09:22:44.147000+00:00",
+      "lastModifiedDate": "2025-07-22T20:03:28.839000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["psauxit"],
+      "tags": ["CWE-94"]
+    },
+    {
       "cveId": "CVE-2025-6404",
       "title": "Campcodes Online Teacher Record Management System search.php sql injection",
       "severity": "HIGH",
@@ -55160,20 +55118,6 @@
       "tags": ["CWE-862"]
     },
     {
-      "cveId": "CVE-2025-24351",
-      "title": "CVE-2025-24351: A vulnerability in the “Remote Logging” functionality of the web application of ctrlX OS allows a re...",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.46,
-      "epssPercentile": 63.166,
-      "riskScore": 44,
-      "publishedDate": "2025-04-30T11:47:00.441000+00:00",
-      "lastModifiedDate": "2025-05-01T03:55:11.802000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["bosch rexroth ag"],
-      "tags": []
-    },
-    {
       "cveId": "CVE-2025-24326",
       "title": "BIG-IP Advanced WAF/ASM BADoS vulnerability",
       "severity": "HIGH",
@@ -55226,7 +55170,7 @@
       "publishedDate": "2025-06-13T21:48:29.351000+00:00",
       "lastModifiedDate": "2025-06-17T15:18:22.706000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["broadcom", "dell"],
+      "vendors": ["dell", "broadcom"],
       "tags": ["CWE-502"]
     },
     {
@@ -55338,7 +55282,7 @@
       "publishedDate": "2025-06-13T20:42:18.769000+00:00",
       "lastModifiedDate": "2025-06-16T15:21:53.325000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["broadcom", "dell"],
+      "vendors": ["dell", "broadcom"],
       "tags": ["CWE-125"]
     },
     {
@@ -58138,7 +58082,7 @@
       "publishedDate": "2024-03-18T16:03:44.987000+00:00",
       "lastModifiedDate": "2024-08-28T15:04:28.061000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric", "schneider electric "],
+      "vendors": ["schneider electric ", "schneider electric"],
       "tags": ["CWE-307"]
     },
     {
@@ -58866,7 +58810,7 @@
       "publishedDate": "2025-05-09T15:18:34.124000+00:00",
       "lastModifiedDate": "2025-05-09T19:09:17.086000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["avg", "norton", "avast"],
+      "vendors": ["avast", "norton", "avg"],
       "tags": ["CWE-367"]
     },
     {
@@ -59468,7 +59412,7 @@
       "publishedDate": "2024-10-25T06:18:36.274000+00:00",
       "lastModifiedDate": "2024-10-25T18:38:24.503000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-288"]
     },
     {
@@ -63738,7 +63682,7 @@
       "publishedDate": "2024-10-22T21:13:37.183000+00:00",
       "lastModifiedDate": "2024-10-23T14:43:52.114000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["kieback & peter", "kieback&peter"],
+      "vendors": ["kieback&peter", "kieback & peter"],
       "tags": ["CWE-22"]
     },
     {
@@ -70922,6 +70866,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["roocodeinc"],
       "tags": ["CWE-77"]
+    },
+    {
+      "cveId": "CVE-2025-53472",
+      "title": "CVE-2025-53472: WRC-BE36QS-B and WRC-W701-B contain an improper neutralization of special elements used in an OS com...",
+      "severity": "HIGH",
+      "cvssScore": 7.2,
+      "epssScore": 0.24,
+      "epssPercentile": 47.508,
+      "riskScore": 43,
+      "publishedDate": "2025-07-22T09:30:01.735000+00:00",
+      "lastModifiedDate": "2025-07-22T19:52:49.939000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["elecom co.,ltd."],
+      "tags": ["CWE-78"]
     },
     {
       "cveId": "CVE-2025-53169",
@@ -79992,7 +79950,7 @@
       "publishedDate": "2025-01-08T11:09:24.799000+00:00",
       "lastModifiedDate": "2025-01-08T13:54:46.719000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["wp swings", "wpswings"],
+      "vendors": ["wpswings", "wp swings"],
       "tags": ["CWE-862"]
     },
     {
@@ -89964,6 +89922,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-4108",
+      "title": "PHPGurukul Student Record System add-subject.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 10.489,
+      "riskScore": 42,
+      "publishedDate": "2025-04-30T10:00:06.958000+00:00",
+      "lastModifiedDate": "2025-04-30T16:25:35.336000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["phpgurukul"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-4123",
       "title": "CVE-2025-4123: A cross-site scripting (XSS) vulnerability exists in Grafana caused by combining a client path trave...",
       "severity": "HIGH",
@@ -90060,6 +90032,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["jct"],
       "tags": ["CWE-269"]
+    },
+    {
+      "cveId": "CVE-2025-4112",
+      "title": "PHPGurukul Student Record System add-course.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 10.489,
+      "riskScore": 42,
+      "publishedDate": "2025-04-30T11:00:08.428000+00:00",
+      "lastModifiedDate": "2025-04-30T15:32:57.086000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["phpgurukul"],
+      "tags": ["CWE-89", "CWE-74"]
     },
     {
       "cveId": "CVE-2025-4027",
@@ -90160,20 +90146,6 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
-      "cveId": "CVE-2025-4125",
-      "title": "ISPSoft File Parsing Out-Of-Bounds Write Remote Code Execution Vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.8,
-      "epssScore": 0.07,
-      "epssPercentile": 21.254,
-      "riskScore": 42,
-      "publishedDate": "2025-04-30T08:21:22.470000+00:00",
-      "lastModifiedDate": "2025-04-30T13:03:53.612000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["delta electronics"],
-      "tags": ["CWE-787"]
-    },
-    {
       "cveId": "CVE-2025-4539",
       "title": "Hainan ToDesk DLL File Parser profapi.dll uncontrolled search path",
       "severity": "HIGH",
@@ -90256,20 +90228,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["phpgurukul"],
       "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-4124",
-      "title": "ISPSoft File Parsing Out-Of-Bounds Write Remote Code Execution Vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.8,
-      "epssScore": 0.07,
-      "epssPercentile": 21.254,
-      "riskScore": 42,
-      "publishedDate": "2025-04-30T08:20:11.777000+00:00",
-      "lastModifiedDate": "2025-04-30T13:04:14.791000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["delta electronics"],
-      "tags": ["CWE-787"]
     },
     {
       "cveId": "CVE-2025-3694",
@@ -92090,6 +92048,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["sap_se"],
       "tags": ["CWE-22"]
+    },
+    {
+      "cveId": "CVE-2025-24351",
+      "title": "CVE-2025-24351: A vulnerability in the “Remote Logging” functionality of the web application of ctrlX OS allows a re...",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.46,
+      "epssPercentile": 63.166,
+      "riskScore": 42,
+      "publishedDate": "2025-04-30T11:47:00.441000+00:00",
+      "lastModifiedDate": "2025-05-01T03:55:11.802000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["bosch rexroth ag"],
+      "tags": []
     },
     {
       "cveId": "CVE-2025-24028",
@@ -96250,20 +96222,6 @@
       "tags": ["CWE-88"]
     },
     {
-      "cveId": "CVE-2025-0747",
-      "title": "Stored Cross-Site vulnerability in EmbedAI",
-      "severity": "HIGH",
-      "cvssScore": 8.6,
-      "epssScore": 0.07,
-      "epssPercentile": 22.87,
-      "riskScore": 42,
-      "publishedDate": "2025-01-30T11:20:21.844000+00:00",
-      "lastModifiedDate": "2025-02-18T19:01:15.344000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["embedai"],
-      "tags": ["CWE-79"]
-    },
-    {
       "cveId": "CVE-2025-0151",
       "title": "Zoom Apps - Use After Free",
       "severity": "HIGH",
@@ -96544,20 +96502,6 @@
       "tags": ["CWE-79"]
     },
     {
-      "cveId": "CVE-2025-0739",
-      "title": "Improper Access Control vulnerability in EmbedAI",
-      "severity": "HIGH",
-      "cvssScore": 8.6,
-      "epssScore": 0.06,
-      "epssPercentile": 18.554,
-      "riskScore": 42,
-      "publishedDate": "2025-01-30T11:10:48.173000+00:00",
-      "lastModifiedDate": "2025-01-30T14:59:17.678000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["embedai"],
-      "tags": ["CWE-284"]
-    },
-    {
       "cveId": "CVE-2025-0828",
       "title": "Stored Cross-site Scripting (XSS) vulnerability affecting Engineering Release in ENOVIA Product Engineering Specialist from Release 3DEXPERIENCE R2022x through Release 3DEXPERIENCE R2024x",
       "severity": "HIGH",
@@ -96612,20 +96556,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["dassault systèmes"],
       "tags": ["CWE-79"]
-    },
-    {
-      "cveId": "CVE-2025-0740",
-      "title": "Improper Access Control vulnerability in EmbedAI",
-      "severity": "HIGH",
-      "cvssScore": 8.6,
-      "epssScore": 0.06,
-      "epssPercentile": 18.554,
-      "riskScore": 42,
-      "publishedDate": "2025-01-30T11:11:24.393000+00:00",
-      "lastModifiedDate": "2025-01-30T14:58:52.942000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["embedai"],
-      "tags": ["CWE-284"]
     },
     {
       "cveId": "CVE-2025-0595",
@@ -99286,20 +99216,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["avast"],
       "tags": ["CWE-59", "CWE-367"]
-    },
-    {
-      "cveId": "CVE-2024-13694",
-      "title": "WooCommerce Wishlist <= 1.8.7 - Unauthenticated Wishlist Disclosure via download_pdf_file Function",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.06,
-      "epssPercentile": 17.591,
-      "riskScore": 42,
-      "publishedDate": "2025-01-30T08:21:26.437000+00:00",
-      "lastModifiedDate": "2025-01-30T15:06:26.871000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["moreconvert"],
-      "tags": ["CWE-285"]
     },
     {
       "cveId": "CVE-2024-13889",
@@ -108850,20 +108766,6 @@
       "tags": ["CWE-327"]
     },
     {
-      "cveId": "CVE-2025-24346",
-      "title": "CVE-2025-24346: A vulnerability in the “Proxy” functionality of the web application of ctrlX OS allows a remote auth...",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.52,
-      "epssPercentile": 65.812,
-      "riskScore": 41,
-      "publishedDate": "2025-04-30T11:39:42.899000+00:00",
-      "lastModifiedDate": "2025-05-01T03:55:10.447000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["bosch rexroth ag"],
-      "tags": []
-    },
-    {
       "cveId": "CVE-2025-24337",
       "title": "CVE-2025-24337: WriteFreely through 0.15.1, when MySQL is used, allows local users to discover credentials by readin...",
       "severity": "HIGH",
@@ -114628,7 +114530,7 @@
       "publishedDate": "2024-10-25T06:18:30.415000+00:00",
       "lastModifiedDate": "2024-10-25T18:38:02.777000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-749"]
     },
     {
@@ -114922,7 +114824,7 @@
       "publishedDate": "2024-11-26T07:38:24.464000+00:00",
       "lastModifiedDate": "2024-11-26T16:28:15.625000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -114936,7 +114838,7 @@
       "publishedDate": "2024-11-26T07:38:30.408000+00:00",
       "lastModifiedDate": "2024-11-26T14:48:35.480000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -114992,7 +114894,7 @@
       "publishedDate": "2024-11-26T07:38:18.359000+00:00",
       "lastModifiedDate": "2024-11-26T14:09:24.516000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-79"]
     },
     {
@@ -121576,20 +121478,6 @@
       "tags": ["CWE-787"]
     },
     {
-      "cveId": "CVE-2025-21107",
-      "title": "CVE-2025-21107: Dell NetWorker, version(s) prior to 19.11.0.3, all versions of 19.10 & prior versions contain(s) an ...",
-      "severity": "HIGH",
-      "cvssScore": 7.8,
-      "epssScore": 0.02,
-      "epssPercentile": 3.702,
-      "riskScore": 40,
-      "publishedDate": "2025-01-30T09:15:51.866000+00:00",
-      "lastModifiedDate": "2025-01-30T15:04:59.450000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["dell"],
-      "tags": ["CWE-428"]
-    },
-    {
       "cveId": "CVE-2025-21447",
       "title": "Improper Validation of Array Index in Computer Vision",
       "severity": "HIGH",
@@ -122792,6 +122680,34 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["dell"],
       "tags": ["CWE-96"]
+    },
+    {
+      "cveId": "CVE-2025-4125",
+      "title": "ISPSoft File Parsing Out-Of-Bounds Write Remote Code Execution Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.8,
+      "epssScore": 0.07,
+      "epssPercentile": 21.254,
+      "riskScore": 40,
+      "publishedDate": "2025-04-30T08:21:22.470000+00:00",
+      "lastModifiedDate": "2025-04-30T13:03:53.612000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["delta electronics"],
+      "tags": ["CWE-787"]
+    },
+    {
+      "cveId": "CVE-2025-4124",
+      "title": "ISPSoft File Parsing Out-Of-Bounds Write Remote Code Execution Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.8,
+      "epssScore": 0.07,
+      "epssPercentile": 21.254,
+      "riskScore": 40,
+      "publishedDate": "2025-04-30T08:20:11.777000+00:00",
+      "lastModifiedDate": "2025-04-30T13:04:14.791000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["delta electronics"],
+      "tags": ["CWE-787"]
     },
     {
       "cveId": "CVE-2025-3395",
@@ -124348,20 +124264,6 @@
       "tags": ["CWE-787"]
     },
     {
-      "cveId": "CVE-2025-24338",
-      "title": "CVE-2025-24338: A vulnerability in the “Manages app data” functionality of the web application of ctrlX OS allows a ...",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.43,
-      "epssPercentile": 61.808,
-      "riskScore": 40,
-      "publishedDate": "2025-04-30T10:51:00.663000+00:00",
-      "lastModifiedDate": "2025-05-01T03:55:07.698000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["bosch rexroth ag"],
-      "tags": []
-    },
-    {
       "cveId": "CVE-2025-24445",
       "title": "Substance3D - Sampler | Out-of-bounds Write (CWE-787)",
       "severity": "HIGH",
@@ -124404,20 +124306,6 @@
       "tags": ["CWE-862"]
     },
     {
-      "cveId": "CVE-2025-24349",
-      "title": "CVE-2025-24349: A vulnerability in the “Network Interfaces” functionality of the web application of ctrlX OS allows ...",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.53,
-      "epssPercentile": 66.183,
-      "riskScore": 40,
-      "publishedDate": "2025-04-30T11:44:33.547000+00:00",
-      "lastModifiedDate": "2025-04-30T14:30:33.942000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["bosch rexroth ag"],
-      "tags": []
-    },
-    {
       "cveId": "CVE-2025-24914",
       "title": "Local Priviledge Escalation",
       "severity": "HIGH",
@@ -124458,20 +124346,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["adobe"],
       "tags": ["CWE-787"]
-    },
-    {
-      "cveId": "CVE-2025-24350",
-      "title": "CVE-2025-24350: A vulnerability in the “Certificates and Keys” functionality of the web application of ctrlX OS allo...",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.32,
-      "epssPercentile": 54.262,
-      "riskScore": 40,
-      "publishedDate": "2025-04-30T11:45:52.088000+00:00",
-      "lastModifiedDate": "2025-04-30T14:23:43.476000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["bosch rexroth ag"],
-      "tags": []
     },
     {
       "cveId": "CVE-2025-24377",
@@ -126728,18 +126602,18 @@
       "tags": ["CWE-122"]
     },
     {
-      "cveId": "CVE-2025-0834",
-      "title": "Wondershare Dr.Fone Privilege Scalation Vulnerability",
+      "cveId": "CVE-2025-0747",
+      "title": "Stored Cross-Site vulnerability in EmbedAI",
       "severity": "HIGH",
-      "cvssScore": 7.8,
-      "epssScore": 0.02,
-      "epssPercentile": 3.942,
+      "cvssScore": 8.6,
+      "epssScore": 0.07,
+      "epssPercentile": 22.87,
       "riskScore": 40,
-      "publishedDate": "2025-01-30T09:02:48.133000+00:00",
-      "lastModifiedDate": "2025-01-30T15:05:40.124000+00:00",
+      "publishedDate": "2025-01-30T11:20:21.844000+00:00",
+      "lastModifiedDate": "2025-02-18T19:01:15.344000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["wondershare"],
-      "tags": ["CWE-269"]
+      "vendors": ["embedai"],
+      "tags": ["CWE-79"]
     },
     {
       "cveId": "CVE-2025-0817",
@@ -126994,6 +126868,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-0739",
+      "title": "Improper Access Control vulnerability in EmbedAI",
+      "severity": "HIGH",
+      "cvssScore": 8.6,
+      "epssScore": 0.06,
+      "epssPercentile": 18.554,
+      "riskScore": 40,
+      "publishedDate": "2025-01-30T11:10:48.173000+00:00",
+      "lastModifiedDate": "2025-01-30T14:59:17.678000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["embedai"],
+      "tags": ["CWE-284"]
+    },
+    {
       "cveId": "CVE-2025-0327",
       "title": "CVE-2025-0327: CWE-269: Improper Privilege Management vulnerability exists for two services (of which one managing ...",
       "severity": "HIGH",
@@ -127006,6 +126894,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["schneider electric"],
       "tags": ["CWE-269"]
+    },
+    {
+      "cveId": "CVE-2025-0740",
+      "title": "Improper Access Control vulnerability in EmbedAI",
+      "severity": "HIGH",
+      "cvssScore": 8.6,
+      "epssScore": 0.06,
+      "epssPercentile": 18.554,
+      "riskScore": 40,
+      "publishedDate": "2025-01-30T11:11:24.393000+00:00",
+      "lastModifiedDate": "2025-01-30T14:58:52.942000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["embedai"],
+      "tags": ["CWE-284"]
     },
     {
       "cveId": "CVE-2025-0626",
@@ -128180,7 +128082,7 @@
       "publishedDate": "2024-03-18T16:04:57.375000+00:00",
       "lastModifiedDate": "2024-08-01T19:03:37.851000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric", "schneider electric "],
+      "vendors": ["schneider electric ", "schneider electric"],
       "tags": ["CWE-79"]
     },
     {
@@ -129794,20 +129696,6 @@
       "tags": ["CWE-275", "CWE-266"]
     },
     {
-      "cveId": "CVE-2024-13453",
-      "title": "Contact Form & SMTP Plugin for WordPress by PirateForms <= 2.6.0 - Unauthenticated Arbitrary Shortcode Execution",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.27,
-      "epssPercentile": 50.473,
-      "riskScore": 40,
-      "publishedDate": "2025-01-30T11:10:19.532000+00:00",
-      "lastModifiedDate": "2025-02-18T19:05:53.124000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["smub"],
-      "tags": ["CWE-94"]
-    },
-    {
       "cveId": "CVE-2024-13491",
       "title": "Small Package Quotes – For Customers of FedEx <= 4.3.1 - Unauthenticated SQL Injection",
       "severity": "HIGH",
@@ -130086,6 +129974,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["reve"],
       "tags": ["CWE-276", "CWE-266"]
+    },
+    {
+      "cveId": "CVE-2024-13694",
+      "title": "WooCommerce Wishlist <= 1.8.7 - Unauthenticated Wishlist Disclosure via download_pdf_file Function",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.06,
+      "epssPercentile": 17.591,
+      "riskScore": 40,
+      "publishedDate": "2025-01-30T08:21:26.437000+00:00",
+      "lastModifiedDate": "2025-01-30T15:06:26.871000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["moreconvert"],
+      "tags": ["CWE-285"]
     },
     {
       "cveId": "CVE-2024-13681",
@@ -130448,7 +130350,7 @@
       "publishedDate": "2024-10-22T22:19:20.646000+00:00",
       "lastModifiedDate": "2024-11-06T15:50:04.628000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-276"]
     },
     {
@@ -133192,7 +133094,7 @@
       "publishedDate": "2024-11-28T22:16:31.396000+00:00",
       "lastModifiedDate": "2024-12-06T05:18:03.652000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-427"]
     },
     {
@@ -134130,7 +134032,7 @@
       "publishedDate": "2024-10-25T06:18:00.481000+00:00",
       "lastModifiedDate": "2024-10-25T18:37:13.542000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -135978,7 +135880,7 @@
       "publishedDate": "2024-11-28T22:20:28.303000+00:00",
       "lastModifiedDate": "2024-12-06T05:23:50.441000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-427"]
     },
     {
@@ -137994,7 +137896,7 @@
       "publishedDate": "2024-10-25T06:18:10.875000+00:00",
       "lastModifiedDate": "2024-10-25T17:16:12.736000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-125"]
     },
     {
@@ -141792,6 +141694,20 @@
       "tags": ["CWE-89"]
     },
     {
+      "cveId": "CVE-2025-24346",
+      "title": "CVE-2025-24346: A vulnerability in the “Proxy” functionality of the web application of ctrlX OS allows a remote auth...",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.52,
+      "epssPercentile": 65.812,
+      "riskScore": 39,
+      "publishedDate": "2025-04-30T11:39:42.899000+00:00",
+      "lastModifiedDate": "2025-05-01T03:55:10.447000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["bosch rexroth ag"],
+      "tags": []
+    },
+    {
       "cveId": "CVE-2025-24885",
       "title": "pwn.college has a XSS on dojo pages",
       "severity": "HIGH",
@@ -144312,20 +144228,6 @@
       "tags": ["CWE-77", "CWE-74"]
     },
     {
-      "cveId": "CVE-2025-0744",
-      "title": "Improper Access Control vulnerability in EmbedAI",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.06,
-      "epssPercentile": 17.08,
-      "riskScore": 39,
-      "publishedDate": "2025-01-30T11:17:25.952000+00:00",
-      "lastModifiedDate": "2025-02-18T19:03:02.490000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["embedai"],
-      "tags": ["CWE-284"]
-    },
-    {
       "cveId": "CVE-2025-0474",
       "title": "Invoice Ninja PDF Rendering Server Side Request Forgery",
       "severity": "HIGH",
@@ -144450,20 +144352,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["amd"],
       "tags": ["CWE-276"]
-    },
-    {
-      "cveId": "CVE-2025-0745",
-      "title": "Improper Access Control vulnerability in EmbedAI",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.07,
-      "epssPercentile": 20.865,
-      "riskScore": 39,
-      "publishedDate": "2025-01-30T11:18:01.189000+00:00",
-      "lastModifiedDate": "2025-02-18T19:02:35.781000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["embedai"],
-      "tags": ["CWE-284"]
     },
     {
       "cveId": "CVE-2025-0675",
@@ -145316,7 +145204,7 @@
       "publishedDate": "2024-07-03T12:26:44.599000+00:00",
       "lastModifiedDate": "2025-02-13T17:54:25.437000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["red lion europe", "helmholz"],
+      "vendors": ["helmholz", "red lion europe"],
       "tags": ["CWE-78"]
     },
     {
@@ -148732,7 +148620,7 @@
       "publishedDate": "2024-10-25T06:18:42.287000+00:00",
       "lastModifiedDate": "2024-10-25T18:32:25.798000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-644"]
     },
     {
@@ -148886,7 +148774,7 @@
       "publishedDate": "2024-10-25T06:18:50.793000+00:00",
       "lastModifiedDate": "2024-10-25T14:16:46.537000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["toshiba tec corporation", "sharp corporation"],
+      "vendors": ["sharp corporation", "toshiba tec corporation"],
       "tags": ["CWE-79"]
     },
     {
@@ -158480,6 +158368,20 @@
       "tags": ["CWE-191"]
     },
     {
+      "cveId": "CVE-2025-21107",
+      "title": "CVE-2025-21107: Dell NetWorker, version(s) prior to 19.11.0.3, all versions of 19.10 & prior versions contain(s) an ...",
+      "severity": "HIGH",
+      "cvssScore": 7.8,
+      "epssScore": 0.02,
+      "epssPercentile": 3.702,
+      "riskScore": 38,
+      "publishedDate": "2025-01-30T09:15:51.866000+00:00",
+      "lastModifiedDate": "2025-01-30T15:04:59.450000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["dell"],
+      "tags": ["CWE-428"]
+    },
+    {
       "cveId": "CVE-2025-21135",
       "title": "Animate | Integer Underflow (Wrap or Wraparound) (CWE-191)",
       "severity": "HIGH",
@@ -162932,6 +162834,20 @@
       "tags": ["CWE-79"]
     },
     {
+      "cveId": "CVE-2025-24338",
+      "title": "CVE-2025-24338: A vulnerability in the “Manages app data” functionality of the web application of ctrlX OS allows a ...",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.43,
+      "epssPercentile": 61.808,
+      "riskScore": 38,
+      "publishedDate": "2025-04-30T10:51:00.663000+00:00",
+      "lastModifiedDate": "2025-05-01T03:55:07.698000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["bosch rexroth ag"],
+      "tags": []
+    },
+    {
       "cveId": "CVE-2025-24656",
       "title": "WordPress Realtyna Provisioning Plugin <= 1.2.2 - Reflected Cross Site Scripting (XSS) vulnerability",
       "severity": "HIGH",
@@ -163028,6 +162944,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["tomáš groulík"],
       "tags": ["CWE-79"]
+    },
+    {
+      "cveId": "CVE-2025-24349",
+      "title": "CVE-2025-24349: A vulnerability in the “Network Interfaces” functionality of the web application of ctrlX OS allows ...",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.53,
+      "epssPercentile": 66.183,
+      "riskScore": 38,
+      "publishedDate": "2025-04-30T11:44:33.547000+00:00",
+      "lastModifiedDate": "2025-04-30T14:30:33.942000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["bosch rexroth ag"],
+      "tags": []
     },
     {
       "cveId": "CVE-2025-24602",
@@ -163182,6 +163112,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["bannersky.com"],
       "tags": ["CWE-79"]
+    },
+    {
+      "cveId": "CVE-2025-24350",
+      "title": "CVE-2025-24350: A vulnerability in the “Certificates and Keys” functionality of the web application of ctrlX OS allo...",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.32,
+      "epssPercentile": 54.262,
+      "riskScore": 38,
+      "publishedDate": "2025-04-30T11:45:52.088000+00:00",
+      "lastModifiedDate": "2025-04-30T14:23:43.476000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["bosch rexroth ag"],
+      "tags": []
     },
     {
       "cveId": "CVE-2025-24548",
@@ -170926,6 +170870,20 @@
       "tags": ["CWE-79"]
     },
     {
+      "cveId": "CVE-2025-0834",
+      "title": "Wondershare Dr.Fone Privilege Scalation Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.8,
+      "epssScore": 0.02,
+      "epssPercentile": 3.942,
+      "riskScore": 38,
+      "publishedDate": "2025-01-30T09:02:48.133000+00:00",
+      "lastModifiedDate": "2025-01-30T15:05:40.124000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["wondershare"],
+      "tags": ["CWE-269"]
+    },
+    {
       "cveId": "CVE-2025-0543",
       "title": "G DATA Security Client Local privilege escalation",
       "severity": "HIGH",
@@ -172868,7 +172826,7 @@
       "publishedDate": "2024-03-18T16:05:47.722000+00:00",
       "lastModifiedDate": "2024-08-15T16:23:48.504000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric", "schneider electric "],
+      "vendors": ["schneider electric ", "schneider electric"],
       "tags": ["CWE-552"]
     },
     {
@@ -174648,6 +174606,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["ivanti"],
       "tags": ["CWE-908"]
+    },
+    {
+      "cveId": "CVE-2024-13453",
+      "title": "Contact Form & SMTP Plugin for WordPress by PirateForms <= 2.6.0 - Unauthenticated Arbitrary Shortcode Execution",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.27,
+      "epssPercentile": 50.473,
+      "riskScore": 38,
+      "publishedDate": "2025-01-30T11:10:19.532000+00:00",
+      "lastModifiedDate": "2025-02-18T19:05:53.124000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["smub"],
+      "tags": ["CWE-94"]
     },
     {
       "cveId": "CVE-2024-13813",
@@ -178510,7 +178482,7 @@
       "publishedDate": "2024-11-28T22:18:28.358000+00:00",
       "lastModifiedDate": "2024-12-06T05:21:38.917000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-561"]
     },
     {
@@ -183466,7 +183438,7 @@
       "publishedDate": "2024-07-04T08:53:41.217000+00:00",
       "lastModifiedDate": "2024-08-19T15:25:49.496000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["iconics", "mitsubishi electric corporation"],
+      "vendors": ["mitsubishi electric corporation", "iconics"],
       "tags": ["CWE-427"]
     },
     {
@@ -187712,6 +187684,20 @@
       "tags": ["CWE-502"]
     },
     {
+      "cveId": "CVE-2025-0744",
+      "title": "Improper Access Control vulnerability in EmbedAI",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.06,
+      "epssPercentile": 17.08,
+      "riskScore": 37,
+      "publishedDate": "2025-01-30T11:17:25.952000+00:00",
+      "lastModifiedDate": "2025-02-18T19:03:02.490000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["embedai"],
+      "tags": ["CWE-284"]
+    },
+    {
       "cveId": "CVE-2025-0638",
       "title": "Routinator crashes when illegal characters are present in manifest file names",
       "severity": "HIGH",
@@ -187766,6 +187752,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["pmb services"],
       "tags": ["CWE-200"]
+    },
+    {
+      "cveId": "CVE-2025-0745",
+      "title": "Improper Access Control vulnerability in EmbedAI",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.07,
+      "epssPercentile": 20.865,
+      "riskScore": 37,
+      "publishedDate": "2025-01-30T11:18:01.189000+00:00",
+      "lastModifiedDate": "2025-02-18T19:02:35.781000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["embedai"],
+      "tags": ["CWE-284"]
     },
     {
       "cveId": "CVE-2024-33018",
@@ -190032,7 +190032,7 @@
       "publishedDate": "2024-07-08T15:25:38.672000+00:00",
       "lastModifiedDate": "2024-08-01T22:27:36.345000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["realtek", "levelone"],
+      "vendors": ["levelone", "realtek"],
       "tags": ["CWE-122"]
     },
     {
