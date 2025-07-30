@@ -1,0 +1,113 @@
+
+        <div class="charts-grid" id="charts-container">
+            <div class="chart-card">
+                <h3 class="chart-title">Severity Distribution</h3>
+                <div class="chart-container">
+                    <canvas id="severity-chart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-card">
+                <h3 class="chart-title">30-Day Trend</h3>
+                <div class="chart-container">
+                    <canvas id="trend-chart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-card">
+                <h3 class="chart-title">Top Vendors</h3>
+                <div class="chart-container">
+                    <canvas id="vendor-chart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-card">
+                <h3 class="chart-title">EPSS Distribution</h3>
+                <div class="chart-container">
+                    <canvas id="epss-chart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // Chart data and initialization
+            const chartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: { color: '#cbd5e1' }
+                    }
+                },
+                scales: {
+                    x: { ticks: { color: '#94a3b8' }, grid: { color: 'rgba(148, 163, 184, 0.1)' } },
+                    y: { ticks: { color: '#94a3b8' }, grid: { color: 'rgba(148, 163, 184, 0.1)' } }
+                }
+            };
+
+            // Severity Chart
+            new Chart(document.getElementById('severity-chart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['CRITICAL', 'HIGH', 'MEDIUM'],
+                    datasets: [{
+                        data: [49, 52, 49],
+                        backgroundColor: ['#dc2626', '#ef4444', '#f59e0b', '#3b82f6'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    ...chartOptions,
+                    cutout: '70%'
+                }
+            });
+
+            // Trend Chart
+            new Chart(document.getElementById('trend-chart'), {
+                type: 'line',
+                data: {
+                    labels: ['Jul 01', 'Jul 02', 'Jul 03', 'Jul 04', 'Jul 05', 'Jul 06', 'Jul 07', 'Jul 08', 'Jul 09', 'Jul 10', 'Jul 11', 'Jul 12', 'Jul 13', 'Jul 14', 'Jul 15', 'Jul 16', 'Jul 17', 'Jul 18', 'Jul 19', 'Jul 20', 'Jul 21', 'Jul 22', 'Jul 23', 'Jul 24', 'Jul 25', 'Jul 26', 'Jul 27', 'Jul 28', 'Jul 29', 'Jul 30'],
+                    datasets: [{
+                        label: 'New CVEs',
+                        data: [7, 4, 5, 5, 4, 7, 2, 4, 4, 7, 5, 3, 5, 5, 7, 8, 6, 6, 6, 1, 5, 7, 4, 5, 4, 4, 2, 7, 7, 2],
+                        borderColor: '#00d4ff',
+                        backgroundColor: 'rgba(0, 212, 255, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: chartOptions
+            });
+
+            // Vendor Chart
+            new Chart(document.getElementById('vendor-chart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Mozilla', 'Microsoft', 'Google', 'VMware', 'Oracle', 'Adobe', 'Cisco', 'Apache'],
+                    datasets: [{
+                        label: 'Vulnerabilities',
+                        data: [24, 23, 21, 19, 17, 17, 16, 13],
+                        backgroundColor: '#8b5cf6'
+                    }]
+                },
+                options: {
+                    ...chartOptions,
+                    indexAxis: 'y'
+                }
+            });
+
+            // EPSS Chart
+            new Chart(document.getElementById('epss-chart'), {
+                type: 'bar',
+                data: {
+                    labels: ['90-100%', '80-89%', '70-79%'],
+                    datasets: [{
+                        label: 'Count',
+                        data: [42, 58, 50],
+                        backgroundColor: ['#dc2626', '#ef4444', '#f59e0b']
+                    }]
+                },
+                options: chartOptions
+            });
+        </script>
+        
