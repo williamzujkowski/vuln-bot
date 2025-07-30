@@ -326,9 +326,7 @@ class HTMXDashboardGenerator:
         </script>
         """
 
-    def filter_vulnerabilities(
-        self, filter_type: str
-    ) -> List[sqlite3.Row]:
+    def filter_vulnerabilities(self, filter_type: str) -> List[sqlite3.Row]:
         """Filter vulnerabilities based on quick filter type"""
         if filter_type == "all":
             return self.vulnerabilities
