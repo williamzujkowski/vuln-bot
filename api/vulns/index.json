@@ -1,5 +1,5 @@
 {
-  "generated": "2025-07-30T16:08:03.003852",
+  "generated": "2025-07-30T20:07:45.461946",
   "count": 15609,
   "vulnerabilities": [
     {
@@ -532,9 +532,9 @@
       "lastModifiedDate": "2025-07-25T16:19:55.848000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "toshiba tec",
         "brother industries, ltd",
-        "konica minolta, inc."
+        "konica minolta, inc.",
+        "toshiba tec"
       ],
       "tags": [
         "CWE-1391"
@@ -6440,8 +6440,8 @@
       "lastModifiedDate": "2025-05-13T13:57:36.925000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "msaari",
-        "relevanssi"
+        "relevanssi",
+        "msaari"
       ],
       "tags": [
         "CWE-89"
@@ -7089,42 +7089,6 @@
       ]
     },
     {
-      "cveId": "CVE-2025-30390",
-      "title": "Azure ML Compute Elevation of Privilege Vulnerability",
-      "severity": "CRITICAL",
-      "cvssScore": 9.9,
-      "epssScore": 0.09,
-      "epssPercentile": 27.552,
-      "riskScore": 52,
-      "publishedDate": "2025-04-30T17:14:51.736000+00:00",
-      "lastModifiedDate": "2025-06-04T17:53:40.629000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "microsoft"
-      ],
-      "tags": [
-        "CWE-285"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-30392",
-      "title": "Azure AI bot Elevation of Privilege Vulnerability",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 0.11,
-      "epssPercentile": 29.862,
-      "riskScore": 52,
-      "publishedDate": "2025-04-30T17:14:52.419000+00:00",
-      "lastModifiedDate": "2025-06-04T17:53:41.264000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "microsoft"
-      ],
-      "tags": [
-        "CWE-285"
-      ]
-    },
-    {
       "cveId": "CVE-2025-30220",
       "title": "GeoTools, GeoServer, and GeoNetwork XML External Entity (XXE) Processing Vulnerability in XSD schema handling",
       "severity": "CRITICAL",
@@ -7400,10 +7364,10 @@
       "lastModifiedDate": "2024-08-01T21:33:05.337000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "pedrogusmao02",
         "stuartobrien",
-        "warfareplugins",
         "blazeretail",
+        "warfareplugins",
+        "pedrogusmao02",
         "themerex"
       ],
       "tags": []
@@ -12011,6 +11975,42 @@
       ]
     },
     {
+      "cveId": "CVE-2025-30390",
+      "title": "Azure ML Compute Elevation of Privilege Vulnerability",
+      "severity": "CRITICAL",
+      "cvssScore": 9.9,
+      "epssScore": 0.09,
+      "epssPercentile": 27.552,
+      "riskScore": 50,
+      "publishedDate": "2025-04-30T17:14:51.736000+00:00",
+      "lastModifiedDate": "2025-06-04T17:53:40.629000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "microsoft"
+      ],
+      "tags": [
+        "CWE-285"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-30392",
+      "title": "Azure AI bot Elevation of Privilege Vulnerability",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.11,
+      "epssPercentile": 29.862,
+      "riskScore": 50,
+      "publishedDate": "2025-04-30T17:14:52.419000+00:00",
+      "lastModifiedDate": "2025-06-04T17:53:41.264000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "microsoft"
+      ],
+      "tags": [
+        "CWE-285"
+      ]
+    },
+    {
       "cveId": "CVE-2025-0674",
       "title": "Elber Communications Equipment Authentication Bypass Using an Alternate Path or Channel",
       "severity": "CRITICAL",
@@ -13024,24 +13024,6 @@
       ],
       "tags": [
         "CWE-787"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-21416",
-      "title": "Azure Virtual Desktop Elevation of Privilege Vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 8.5,
-      "epssScore": 0.07,
-      "epssPercentile": 21.042,
-      "riskScore": 49,
-      "publishedDate": "2025-04-30T17:14:53.010000+00:00",
-      "lastModifiedDate": "2025-06-04T17:53:41.778000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "microsoft"
-      ],
-      "tags": [
-        "CWE-862"
       ]
     },
     {
@@ -15390,24 +15372,6 @@
       ],
       "tags": [
         "CWE-502"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-30389",
-      "title": "Azure Bot Framework SDK Elevation of Privilege Vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 8.7,
-      "epssScore": 0.06,
-      "epssPercentile": 19.047,
-      "riskScore": 49,
-      "publishedDate": "2025-04-30T17:14:50.414000+00:00",
-      "lastModifiedDate": "2025-06-04T17:53:39.477000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "microsoft"
-      ],
-      "tags": [
-        "CWE-285"
       ]
     },
     {
@@ -22597,8 +22561,8 @@
       "lastModifiedDate": "2025-06-13T12:22:47.798000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "rts",
-        "telex"
+        "telex",
+        "rts"
       ],
       "tags": []
     },
@@ -23377,24 +23341,6 @@
       ],
       "tags": [
         "CWE-416"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-30391",
-      "title": "Microsoft Dynamics Information Disclosure Vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 8.1,
-      "epssScore": 0.13,
-      "epssPercentile": 32.87,
-      "riskScore": 48,
-      "publishedDate": "2025-04-30T17:14:49.584000+00:00",
-      "lastModifiedDate": "2025-06-04T17:53:38.862000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "microsoft"
-      ],
-      "tags": [
-        "CWE-20"
       ]
     },
     {
@@ -24519,11 +24465,11 @@
       "lastModifiedDate": "2025-06-25T14:15:31.576000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "ricoh",
-        "brother industries, ltd",
         "fujifilm business innovation",
+        "konica minolta, inc.",
         "toshiba tec",
-        "konica minolta, inc."
+        "ricoh",
+        "brother industries, ltd"
       ],
       "tags": [
         "CWE-1286"
@@ -25359,6 +25305,24 @@
       ],
       "tags": [
         "CWE-415"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-21416",
+      "title": "Azure Virtual Desktop Elevation of Privilege Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 8.5,
+      "epssScore": 0.07,
+      "epssPercentile": 21.042,
+      "riskScore": 47,
+      "publishedDate": "2025-04-30T17:14:53.010000+00:00",
+      "lastModifiedDate": "2025-06-04T17:53:41.778000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "microsoft"
+      ],
+      "tags": [
+        "CWE-862"
       ]
     },
     {
@@ -27872,24 +27836,6 @@
       "tags": [
         "CWE-285",
         "CWE-266"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-46558",
-      "title": "org.xwiki.contrib.markdown:syntax-markdown-commonmark12 vulnerable to XSS via Markdown content",
-      "severity": "CRITICAL",
-      "cvssScore": 9.1,
-      "epssScore": 0.05,
-      "epssPercentile": 16.387,
-      "riskScore": 47,
-      "publishedDate": "2025-04-30T18:27:30.953000+00:00",
-      "lastModifiedDate": "2025-04-30T19:01:32.321000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "xwiki-contrib"
-      ],
-      "tags": [
-        "CWE-79"
       ]
     },
     {
@@ -30425,6 +30371,24 @@
       ]
     },
     {
+      "cveId": "CVE-2025-30389",
+      "title": "Azure Bot Framework SDK Elevation of Privilege Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 8.7,
+      "epssScore": 0.06,
+      "epssPercentile": 19.047,
+      "riskScore": 47,
+      "publishedDate": "2025-04-30T17:14:50.414000+00:00",
+      "lastModifiedDate": "2025-06-04T17:53:39.477000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "microsoft"
+      ],
+      "tags": [
+        "CWE-285"
+      ]
+    },
+    {
       "cveId": "CVE-2025-30393",
       "title": "Microsoft Excel Remote Code Execution Vulnerability",
       "severity": "HIGH",
@@ -31991,10 +31955,10 @@
       "lastModifiedDate": "2025-06-25T14:08:48.280000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
+        "fujifilm business innovation",
         "ricoh",
         "brother industries, ltd",
-        "konica minolta, inc.",
-        "fujifilm business innovation"
+        "konica minolta, inc."
       ],
       "tags": [
         "CWE-121"
@@ -33005,24 +32969,6 @@
       ],
       "tags": [
         "CWE-20"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-33074",
-      "title": "Azure Functions Remote Code Execution Vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.03,
-      "epssPercentile": 6.641,
-      "riskScore": 46,
-      "publishedDate": "2025-04-30T17:14:51.166000+00:00",
-      "lastModifiedDate": "2025-06-04T17:53:40.045000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "microsoft"
-      ],
-      "tags": [
-        "CWE-347"
       ]
     },
     {
@@ -41572,6 +41518,24 @@
       "tags": []
     },
     {
+      "cveId": "CVE-2025-30391",
+      "title": "Microsoft Dynamics Information Disclosure Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 8.1,
+      "epssScore": 0.13,
+      "epssPercentile": 32.87,
+      "riskScore": 46,
+      "publishedDate": "2025-04-30T17:14:49.584000+00:00",
+      "lastModifiedDate": "2025-06-04T17:53:38.862000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "microsoft"
+      ],
+      "tags": [
+        "CWE-20"
+      ]
+    },
+    {
       "cveId": "CVE-2025-30969",
       "title": "WordPress iFrame Images Gallery plugin <= 9.0 - SQL Injection Vulnerability",
       "severity": "HIGH",
@@ -41695,24 +41659,6 @@
       ],
       "tags": [
         "CWE-125"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-0680",
-      "title": "New Rock Technologies Cloud Connected Devices has a Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability.",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 0.18,
-      "epssPercentile": 39.944,
-      "riskScore": 46,
-      "publishedDate": "2025-01-30T18:50:10.932000+00:00",
-      "lastModifiedDate": "2025-01-30T19:15:29.817000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "new rock technologies"
-      ],
-      "tags": [
-        "CWE-78"
       ]
     },
     {
@@ -44889,24 +44835,6 @@
       ]
     },
     {
-      "cveId": "CVE-2024-12248",
-      "title": "Out-of-bounds Write vulnerability in Contec Health CMS8000 Patient Monitor",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 0.38,
-      "epssPercentile": 58.487,
-      "riskScore": 46,
-      "publishedDate": "2025-01-30T18:17:22.814000+00:00",
-      "lastModifiedDate": "2025-02-12T16:53:16.892000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "contec health"
-      ],
-      "tags": [
-        "CWE-787"
-      ]
-    },
-    {
       "cveId": "CVE-2024-12225",
       "title": "Io.quarkus:quarkus-security-webauthn: quarkus webauthn unexpected authentication bypass",
       "severity": "CRITICAL",
@@ -45462,9 +45390,9 @@
       "lastModifiedDate": "2025-06-25T14:13:40.189000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
+        "fujifilm business innovation",
         "ricoh",
-        "brother industries, ltd",
-        "fujifilm business innovation"
+        "brother industries, ltd"
       ],
       "tags": [
         "CWE-1286"
@@ -49851,8 +49779,8 @@
       "lastModifiedDate": "2025-06-17T15:18:55.236000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "broadcom",
-        "dell"
+        "dell",
+        "broadcom"
       ],
       "tags": [
         "CWE-787"
@@ -49870,8 +49798,8 @@
       "lastModifiedDate": "2025-06-17T18:13:30.525000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "broadcom",
-        "dell"
+        "dell",
+        "broadcom"
       ],
       "tags": [
         "CWE-763"
@@ -51195,6 +51123,24 @@
       ]
     },
     {
+      "cveId": "CVE-2025-46558",
+      "title": "org.xwiki.contrib.markdown:syntax-markdown-commonmark12 vulnerable to XSS via Markdown content",
+      "severity": "CRITICAL",
+      "cvssScore": 9.1,
+      "epssScore": 0.05,
+      "epssPercentile": 16.387,
+      "riskScore": 45,
+      "publishedDate": "2025-04-30T18:27:30.953000+00:00",
+      "lastModifiedDate": "2025-04-30T19:01:32.321000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "xwiki-contrib"
+      ],
+      "tags": [
+        "CWE-79"
+      ]
+    },
+    {
       "cveId": "CVE-2025-46274",
       "title": "Planet Technology Network Products Use of Hard-coded Credentials",
       "severity": "CRITICAL",
@@ -52144,8 +52090,8 @@
       "lastModifiedDate": "2025-06-17T03:55:12.235000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "broadcom",
-        "dell"
+        "dell",
+        "broadcom"
       ],
       "tags": [
         "CWE-121"
@@ -59198,6 +59144,24 @@
       ]
     },
     {
+      "cveId": "CVE-2025-33074",
+      "title": "Azure Functions Remote Code Execution Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.03,
+      "epssPercentile": 6.641,
+      "riskScore": 44,
+      "publishedDate": "2025-04-30T17:14:51.166000+00:00",
+      "lastModifiedDate": "2025-06-04T17:53:40.045000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "microsoft"
+      ],
+      "tags": [
+        "CWE-347"
+      ]
+    },
+    {
       "cveId": "CVE-2025-5856",
       "title": "PHPGurukul BP Monitoring Management System registration.php sql injection",
       "severity": "HIGH",
@@ -60809,8 +60773,8 @@
       "lastModifiedDate": "2025-06-05T14:09:25.990000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "anirbandutta9",
-        "code-projects"
+        "code-projects",
+        "anirbandutta9"
       ],
       "tags": [
         "CWE-89",
@@ -71343,8 +71307,8 @@
       "lastModifiedDate": "2025-06-17T15:18:22.706000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "broadcom",
-        "dell"
+        "dell",
+        "broadcom"
       ],
       "tags": [
         "CWE-502"
@@ -71488,8 +71452,8 @@
       "lastModifiedDate": "2025-06-16T15:21:53.325000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "broadcom",
-        "dell"
+        "dell",
+        "broadcom"
       ],
       "tags": [
         "CWE-125"
@@ -74103,6 +74067,24 @@
       ]
     },
     {
+      "cveId": "CVE-2025-0680",
+      "title": "New Rock Technologies Cloud Connected Devices has a Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability.",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.18,
+      "epssPercentile": 39.944,
+      "riskScore": 44,
+      "publishedDate": "2025-01-30T18:50:10.932000+00:00",
+      "lastModifiedDate": "2025-01-30T19:15:29.817000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "new rock technologies"
+      ],
+      "tags": [
+        "CWE-78"
+      ]
+    },
+    {
       "cveId": "CVE-2025-0358",
       "title": "CVE-2025-0358: During an annual penetration test conducted on behalf of Axis Communication, Truesec discovered a fl...",
       "severity": "HIGH",
@@ -74485,8 +74467,8 @@
       "lastModifiedDate": "2024-08-01T21:11:12.734000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "webnus/",
-        "webnus"
+        "webnus",
+        "webnus/"
       ],
       "tags": []
     },
@@ -76000,9 +75982,9 @@
       "lastModifiedDate": "2025-05-09T19:09:17.086000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "avg",
         "norton",
-        "avast"
+        "avast",
+        "avg"
       ],
       "tags": [
         "CWE-367"
@@ -78419,6 +78401,24 @@
       ],
       "tags": [
         "CWE-288"
+      ]
+    },
+    {
+      "cveId": "CVE-2024-12248",
+      "title": "Out-of-bounds Write vulnerability in Contec Health CMS8000 Patient Monitor",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.38,
+      "epssPercentile": 58.487,
+      "riskScore": 44,
+      "publishedDate": "2025-01-30T18:17:22.814000+00:00",
+      "lastModifiedDate": "2025-02-12T16:53:16.892000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "contec health"
+      ],
+      "tags": [
+        "CWE-787"
       ]
     },
     {
@@ -90587,24 +90587,6 @@
       ],
       "tags": [
         "CWE-502"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-24802",
-      "title": "Soundness issue with Plonky2 look up tables",
-      "severity": "HIGH",
-      "cvssScore": 8.6,
-      "epssScore": 0.04,
-      "epssPercentile": 11.152,
-      "riskScore": 43,
-      "publishedDate": "2025-01-30T19:20:14.250000+00:00",
-      "lastModifiedDate": "2025-01-30T19:55:17.620000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "0xpolygonzero"
-      ],
-      "tags": [
-        "CWE-1240"
       ]
     },
     {
@@ -103271,8 +103253,8 @@
       "lastModifiedDate": "2025-01-08T13:54:46.719000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "wpswings",
-        "wp swings"
+        "wp swings",
+        "wpswings"
       ],
       "tags": [
         "CWE-862"
@@ -105334,8 +105316,8 @@
       "lastModifiedDate": "2025-03-14T14:56:10.154000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "na",
-        "n/a"
+        "n/a",
+        "na"
       ],
       "tags": []
     },
@@ -105602,8 +105584,8 @@
       "lastModifiedDate": "2024-08-07T13:17:59.476000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "webnus/",
-        "webnus"
+        "webnus",
+        "webnus/"
       ],
       "tags": [
         "CWE-918"
@@ -124396,24 +124378,6 @@
       ]
     },
     {
-      "cveId": "CVE-2025-0147",
-      "title": "Zoom Workplace App for Linux - Type Confusion",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.08,
-      "epssPercentile": 25.734,
-      "riskScore": 42,
-      "publishedDate": "2025-01-30T19:49:00.792000+00:00",
-      "lastModifiedDate": "2025-01-30T20:08:44.020000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "zoom communications, inc"
-      ],
-      "tags": [
-        "CWE-843"
-      ]
-    },
-    {
       "cveId": "CVE-2025-0832",
       "title": "Stored Cross-site Scripting (XSS) vulnerability affecting Project Gantt in ENOVIA Collaborative Industry Innovator from Release 3DEXPERIENCE R2022x through Release 3DEXPERIENCE R2024x",
       "severity": "HIGH",
@@ -140190,6 +140154,24 @@
       ]
     },
     {
+      "cveId": "CVE-2025-24802",
+      "title": "Soundness issue with Plonky2 look up tables",
+      "severity": "HIGH",
+      "cvssScore": 8.6,
+      "epssScore": 0.04,
+      "epssPercentile": 11.152,
+      "riskScore": 41,
+      "publishedDate": "2025-01-30T19:20:14.250000+00:00",
+      "lastModifiedDate": "2025-01-30T19:55:17.620000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "0xpolygonzero"
+      ],
+      "tags": [
+        "CWE-1240"
+      ]
+    },
+    {
       "cveId": "CVE-2025-24418",
       "title": "Adobe Commerce | Improper Authorization (CWE-285)",
       "severity": "HIGH",
@@ -152140,24 +152122,6 @@
       ]
     },
     {
-      "cveId": "CVE-2024-9876",
-      "title": "Application is vulnerable to Privilege escalation",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 5.208,
-      "riskScore": 41,
-      "publishedDate": "2025-04-30T18:31:28.797000+00:00",
-      "lastModifiedDate": "2025-04-30T18:58:18.908000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "abb"
-      ],
-      "tags": [
-        "CWE-471"
-      ]
-    },
-    {
       "cveId": "CVE-2024-9325",
       "title": "Intelbras InControl incontrol-service-watchdog.exe unquoted search path",
       "severity": "HIGH",
@@ -163327,6 +163291,24 @@
       ]
     },
     {
+      "cveId": "CVE-2025-0147",
+      "title": "Zoom Workplace App for Linux - Type Confusion",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.08,
+      "epssPercentile": 25.734,
+      "riskScore": 40,
+      "publishedDate": "2025-01-30T19:49:00.792000+00:00",
+      "lastModifiedDate": "2025-01-30T20:08:44.020000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "zoom communications, inc"
+      ],
+      "tags": [
+        "CWE-843"
+      ]
+    },
+    {
       "cveId": "CVE-2025-0207",
       "title": "code-projects Online Shoe Store login.php sql injection",
       "severity": "HIGH",
@@ -163567,24 +163549,6 @@
       ],
       "tags": [
         "CWE-284"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-0626",
-      "title": "Hidden Functionality vulnerability in Contec Health CMS8000 Patient Monitor",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.2,
-      "epssPercentile": 42.791,
-      "riskScore": 40,
-      "publishedDate": "2025-01-30T18:17:29.717000+00:00",
-      "lastModifiedDate": "2025-03-01T17:12:24.132000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "contec health"
-      ],
-      "tags": [
-        "CWE-912"
       ]
     },
     {
@@ -176002,8 +175966,8 @@
       "lastModifiedDate": "2024-11-04T17:01:46.227000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "anirbandutta9",
-        "code-projects"
+        "code-projects",
+        "anirbandutta9"
       ],
       "tags": [
         "CWE-89"
@@ -186964,8 +186928,8 @@
       "lastModifiedDate": "2025-02-13T17:54:25.437000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "helmholz",
-        "red lion europe"
+        "red lion europe",
+        "helmholz"
       ],
       "tags": [
         "CWE-78"
@@ -198168,6 +198132,24 @@
       ],
       "tags": [
         "CWE-89"
+      ]
+    },
+    {
+      "cveId": "CVE-2024-9876",
+      "title": "Application is vulnerable to Privilege escalation",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 5.208,
+      "riskScore": 39,
+      "publishedDate": "2025-04-30T18:31:28.797000+00:00",
+      "lastModifiedDate": "2025-04-30T18:58:18.908000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "abb"
+      ],
+      "tags": [
+        "CWE-471"
       ]
     },
     {
@@ -220048,6 +220030,24 @@
       ],
       "tags": [
         "CWE-863"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-0626",
+      "title": "Hidden Functionality vulnerability in Contec Health CMS8000 Patient Monitor",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.2,
+      "epssPercentile": 42.791,
+      "riskScore": 38,
+      "publishedDate": "2025-01-30T18:17:29.717000+00:00",
+      "lastModifiedDate": "2025-03-01T17:12:24.132000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "contec health"
+      ],
+      "tags": [
+        "CWE-912"
       ]
     },
     {
