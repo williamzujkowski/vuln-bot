@@ -1,7 +1,7 @@
 {
   "chunk": "2025-MEDIUM",
   "count": 2,
-  "generated": "2025-07-30T12:10:55.699975",
+  "generated": "2025-07-30T16:08:03.003852",
   "vulnerabilities": [
     {
       "cveId": "CVE-2025-29088",
@@ -20,14 +20,18 @@
       ],
       "epss": {
         "score": 0.0005,
-        "percentile": 14.302
+        "percentile": 14.354
       },
       "riskScore": 38,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": ["sqlite"],
-        "products": ["sqlite"]
+        "vendors": [
+          "sqlite"
+        ],
+        "products": [
+          "sqlite"
+        ]
       },
       "references": [
         {
@@ -58,7 +62,9 @@
       ],
       "attackTechniques": [],
       "metadata": {
-        "tags": ["CWE-190"],
+        "tags": [
+          "CWE-190"
+        ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
         "attackVector": null,
@@ -94,40 +100,56 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 11.692
+        "percentile": 11.704
       },
       "riskScore": 33,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": ["n/a"],
-        "products": ["shishuocms"]
+        "vendors": [
+          "n/a"
+        ],
+        "products": [
+          "shishuocms"
+        ]
       },
       "references": [
         {
           "url": "https://vuldb.com/?id.298409",
           "source": "VDB-298409 | shishuocms cross-site request forgery",
-          "tags": ["vdb-entry"]
+          "tags": [
+            "vdb-entry"
+          ]
         },
         {
           "url": "https://vuldb.com/?ctiid.298409",
           "source": "VDB-298409 | CTI Indicators (IOB, IOC)",
-          "tags": ["signature", "permissions-required"]
+          "tags": [
+            "signature",
+            "permissions-required"
+          ]
         },
         {
           "url": "https://vuldb.com/?submit.505741",
           "source": "Submit #505741 | https://gitee.com/shishuo/CMS_old shishuocms 1.1 Cross-Site Request Forgery",
-          "tags": ["third-party-advisory"]
+          "tags": [
+            "third-party-advisory"
+          ]
         },
         {
           "url": "https://github.com/caigo8/CVE-md/blob/main/shishuocms/CSRF%E6%B7%BB%E5%8A%A0%E7%AE%A1%E7%90%86%E5%91%98.md",
           "source": "",
-          "tags": ["exploit"]
+          "tags": [
+            "exploit"
+          ]
         }
       ],
       "attackTechniques": [],
       "metadata": {
-        "tags": ["CWE-352", "CWE-862"],
+        "tags": [
+          "CWE-352",
+          "CWE-862"
+        ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
         "attackVector": null,

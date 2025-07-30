@@ -1,6 +1,6 @@
 ---
 title: Morning Vulnerability Briefing - 2025-07-30
-date: 2025-07-30T12:10:55.699975
+date: 2025-07-30T16:08:03.003852
 layout: layouts/post.njk
 tags: [vulnerability, briefing, security]
 vulnerabilityCount: 15609
@@ -16,8 +16,8 @@ Today's briefing covers **15609 vulnerabilities** from 0 sources.
 
 - 🔴 **Critical Risk**: 0 vulnerabilities
 - 🟠 **High Risk**: 0 vulnerabilities
-- 🟡 **Medium Risk**: 10006 vulnerabilities
-- 🟢 **Low Risk**: 5603 vulnerabilities
+- 🟡 **Medium Risk**: 10001 vulnerabilities
+- 🟢 **Low Risk**: 5608 vulnerabilities
 
 ## Top Vulnerabilities
 
@@ -212,7 +212,7 @@ Today's briefing covers **15609 vulnerabilities** from 0 sources.
 **Risk Factors**:
 
 - CRITICAL severity
-- 94.39% exploit probability
+- 94.38% exploit probability
 
 **Affected Vendors**: php group
 
@@ -339,14 +339,14 @@ critical systems.
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.8 | 
-**EPSS**: 90.3%
+**EPSS**: 90.5%
 
 **Summary**: A missing authentication for critical function in FortiManager 7.6.0, FortiManager 7.4.0 through 7.4.4, FortiManager 7.2.0 through 7.2.7, FortiManager 7.0.0 through 7.0.12, FortiManager 6.4.0 through 6.4.14, FortiManager 6.2.0 through 6.2.12, Fortinet FortiManager Cloud 7.4.1 through 7.4.4, FortiManager Cloud 7.2.1 through 7.2.7, FortiManager Cloud 7.0.1 through 7.0.12, FortiManager Cloud 6.4.1 through 6.4.7 allows attacker to execute arbitrary code or commands via specially crafted requests.
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 90.31% exploit probability
+- 90.46% exploit probability
 - Affects critical infrastructure: fortinet
 
 **Affected Vendors**: fortinet
@@ -482,7 +482,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 **Risk Factors**:
 
 - CRITICAL severity
-- 94.32% exploit probability
+- 94.3% exploit probability
 
 **Affected Vendors**: palo alto networks
 
@@ -916,7 +916,7 @@ code.
 - CRITICAL severity
 - 60.07% exploit probability
 
-**Affected Vendors**: konica minolta, inc., toshiba tec, brother industries, ltd
+**Affected Vendors**: toshiba tec, brother industries, ltd, konica minolta, inc.
 
 **Tags**: `CWE-1391`
 
@@ -1298,7 +1298,7 @@ code.
 **Risk Factors**:
 
 - CRITICAL severity
-- 94.58% exploit probability
+- 94.57% exploit probability
 
 **Affected Vendors**: jetbrains
 

@@ -1,7 +1,7 @@
 {
   "chunk": "2024-MEDIUM",
   "count": 15,
-  "generated": "2025-07-30T12:10:55.699975",
+  "generated": "2025-07-30T16:08:03.003852",
   "vulnerabilities": [
     {
       "cveId": "CVE-2024-52531",
@@ -20,14 +20,18 @@
       ],
       "epss": {
         "score": 0.0012,
-        "percentile": 32.165
+        "percentile": 32.182
       },
       "riskScore": 37,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": ["gnome"],
-        "products": ["libsoup"]
+        "vendors": [
+          "gnome"
+        ],
+        "products": [
+          "libsoup"
+        ]
       },
       "references": [
         {
@@ -53,7 +57,9 @@
       ],
       "attackTechniques": [],
       "metadata": {
-        "tags": ["CWE-787"],
+        "tags": [
+          "CWE-787"
+        ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
         "attackVector": null,
@@ -83,14 +89,21 @@
       ],
       "epss": {
         "score": 0.0016,
-        "percentile": 37.611
+        "percentile": 37.638
       },
       "riskScore": 36,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": ["elecom co.,ltd."],
-        "products": ["wrc-x3200gst3-b", "wrc-2533gst2", "wrc-g01-w", "wrc-1167gst2"]
+        "vendors": [
+          "elecom co.,ltd."
+        ],
+        "products": [
+          "wrc-1167gst2",
+          "wrc-x3200gst3-b",
+          "wrc-g01-w",
+          "wrc-2533gst2"
+        ]
       },
       "references": [
         {
@@ -136,25 +149,33 @@
       ],
       "epss": {
         "score": 0.0028,
-        "percentile": 51.366
+        "percentile": 51.385
       },
       "riskScore": 35,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": ["piotnet"],
-        "products": ["piotnet addons for elementor pro"]
+        "vendors": [
+          "piotnet"
+        ],
+        "products": [
+          "piotnet addons for elementor pro"
+        ]
       },
       "references": [
         {
           "url": "https://patchstack.com/database/vulnerability/piotnet-addons-for-elementor-pro/wordpress-piotnet-addons-for-elementor-pro-plugin-7-1-17-authenticated-stored-cross-site-scripting-xss-vulnerability?_s_id=cve",
           "source": "",
-          "tags": ["vdb-entry"]
+          "tags": [
+            "vdb-entry"
+          ]
         }
       ],
       "attackTechniques": [],
       "metadata": {
-        "tags": ["CWE-79"],
+        "tags": [
+          "CWE-79"
+        ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
         "attackVector": null,
@@ -184,14 +205,18 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 11.496
+        "percentile": 11.507
       },
       "riskScore": 35,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": ["n/a"],
-        "products": ["n/a"]
+        "vendors": [
+          "n/a"
+        ],
+        "products": [
+          "n/a"
+        ]
       },
       "references": [
         {
@@ -232,14 +257,18 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 18.574
+        "percentile": 18.642
       },
       "riskScore": 33,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": ["hewlett packard enterprise (hpe)"],
-        "products": ["hpe athonet core"]
+        "vendors": [
+          "hewlett packard enterprise (hpe)"
+        ],
+        "products": [
+          "hpe athonet core"
+        ]
       },
       "references": [
         {
@@ -280,14 +309,18 @@
       ],
       "epss": {
         "score": 0.0009,
-        "percentile": 26.815
+        "percentile": 26.837
       },
       "riskScore": 33,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": ["hewlett packard enterprise (hpe)"],
-        "products": ["hpe athonet core"]
+        "vendors": [
+          "hewlett packard enterprise (hpe)"
+        ],
+        "products": [
+          "hpe athonet core"
+        ]
       },
       "references": [
         {
@@ -328,14 +361,18 @@
       ],
       "epss": {
         "score": 0.0009,
-        "percentile": 26.815
+        "percentile": 26.837
       },
       "riskScore": 33,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": ["hewlett packard enterprise (hpe)"],
-        "products": ["hpe athonet core"]
+        "vendors": [
+          "hewlett packard enterprise (hpe)"
+        ],
+        "products": [
+          "hpe athonet core"
+        ]
       },
       "references": [
         {
@@ -376,14 +413,18 @@
       ],
       "epss": {
         "score": 0.0009,
-        "percentile": 26.815
+        "percentile": 26.837
       },
       "riskScore": 33,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": ["hewlett packard enterprise (hpe)"],
-        "products": ["hpe athonet core"]
+        "vendors": [
+          "hewlett packard enterprise (hpe)"
+        ],
+        "products": [
+          "hpe athonet core"
+        ]
       },
       "references": [
         {
@@ -424,14 +465,18 @@
       ],
       "epss": {
         "score": 0.0009,
-        "percentile": 26.815
+        "percentile": 26.837
       },
       "riskScore": 33,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": ["hewlett packard enterprise (hpe)"],
-        "products": ["hpe athonet core"]
+        "vendors": [
+          "hewlett packard enterprise (hpe)"
+        ],
+        "products": [
+          "hpe athonet core"
+        ]
       },
       "references": [
         {
@@ -472,14 +517,18 @@
       ],
       "epss": {
         "score": 0.0009,
-        "percentile": 26.815
+        "percentile": 26.837
       },
       "riskScore": 33,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": ["hewlett packard enterprise (hpe)"],
-        "products": ["hpe athonet core"]
+        "vendors": [
+          "hewlett packard enterprise (hpe)"
+        ],
+        "products": [
+          "hpe athonet core"
+        ]
       },
       "references": [
         {
@@ -520,14 +569,18 @@
       ],
       "epss": {
         "score": 0.0009,
-        "percentile": 26.815
+        "percentile": 26.837
       },
       "riskScore": 33,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": ["hewlett packard enterprise (hpe)"],
-        "products": ["hpe athonet core"]
+        "vendors": [
+          "hewlett packard enterprise (hpe)"
+        ],
+        "products": [
+          "hpe athonet core"
+        ]
       },
       "references": [
         {
@@ -568,14 +621,18 @@
       ],
       "epss": {
         "score": 0.0049,
-        "percentile": 64.529
+        "percentile": 64.532
       },
       "riskScore": 33,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": ["n/a"],
-        "products": ["n/a"]
+        "vendors": [
+          "n/a"
+        ],
+        "products": [
+          "n/a"
+        ]
       },
       "references": [
         {
@@ -616,14 +673,18 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 19.362
+        "percentile": 19.429
       },
       "riskScore": 32,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": ["measuresoft"],
-        "products": ["scadapro"]
+        "vendors": [
+          "measuresoft"
+        ],
+        "products": [
+          "scadapro"
+        ]
       },
       "references": [
         {
@@ -634,7 +695,9 @@
       ],
       "attackTechniques": [],
       "metadata": {
-        "tags": ["CWE-284"],
+        "tags": [
+          "CWE-284"
+        ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
         "attackVector": null,
@@ -664,14 +727,18 @@
       ],
       "epss": {
         "score": 0.0036,
-        "percentile": 57.273
+        "percentile": 57.3
       },
       "riskScore": 32,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": ["checkmk gmbh"],
-        "products": ["checkmk"]
+        "vendors": [
+          "checkmk gmbh"
+        ],
+        "products": [
+          "checkmk"
+        ]
       },
       "references": [
         {
@@ -682,7 +749,9 @@
       ],
       "attackTechniques": [],
       "metadata": {
-        "tags": ["CWE-290"],
+        "tags": [
+          "CWE-290"
+        ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
         "attackVector": null,
@@ -712,25 +781,34 @@
       ],
       "epss": {
         "score": 0.0086,
-        "percentile": 74.069
+        "percentile": 74.084
       },
       "riskScore": 32,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
-        "vendors": ["dell"],
-        "products": ["secure connect gateway-application", "secure connect gateway-appliance"]
+        "vendors": [
+          "dell"
+        ],
+        "products": [
+          "secure connect gateway-appliance",
+          "secure connect gateway-application"
+        ]
       },
       "references": [
         {
           "url": "https://www.dell.com/support/kbdoc/en-us/000225910/dsa-2024-181-security-update-for-dell-secure-connect-gateway-application-and-appliance-vulnerabilities",
           "source": "",
-          "tags": ["vendor-advisory"]
+          "tags": [
+            "vendor-advisory"
+          ]
         }
       ],
       "attackTechniques": [],
       "metadata": {
-        "tags": ["CWE-89"],
+        "tags": [
+          "CWE-89"
+        ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
         "attackVector": null,
