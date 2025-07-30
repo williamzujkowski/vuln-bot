@@ -1,5 +1,5 @@
 {
-  "generated": "2025-07-30T04:23:09.039499",
+  "generated": "2025-07-30T08:09:57.682535",
   "count": 15609,
   "vulnerabilities": [
     {
@@ -181,7 +181,7 @@
       "publishedDate": "2024-11-15T03:18:45.746000+00:00",
       "lastModifiedDate": "2024-11-19T13:37:03.351000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["rogierlankhorst", "really simple plugins"],
+      "vendors": ["really simple plugins", "rogierlankhorst"],
       "tags": ["CWE-288"]
     },
     {
@@ -419,7 +419,7 @@
       "publishedDate": "2025-06-25T07:17:32.423000+00:00",
       "lastModifiedDate": "2025-07-25T16:19:55.848000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["konica minolta, inc.", "toshiba tec", "brother industries, ltd"],
+      "vendors": ["brother industries, ltd", "konica minolta, inc.", "toshiba tec"],
       "tags": ["CWE-1391"]
     },
     {
@@ -5095,7 +5095,7 @@
       "publishedDate": "2025-05-13T03:21:29.625000+00:00",
       "lastModifiedDate": "2025-05-13T13:57:36.925000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["relevanssi", "msaari"],
+      "vendors": ["msaari", "relevanssi"],
       "tags": ["CWE-89"]
     },
     {
@@ -5865,7 +5865,7 @@
       "publishedDate": "2024-06-25T03:30:37.970000+00:00",
       "lastModifiedDate": "2024-08-01T21:33:05.337000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["pedrogusmao02", "stuartobrien", "themerex", "warfareplugins", "blazeretail"],
+      "vendors": ["stuartobrien", "pedrogusmao02", "blazeretail", "warfareplugins", "themerex"],
       "tags": []
     },
     {
@@ -14255,20 +14255,6 @@
       "tags": ["CWE-648"]
     },
     {
-      "cveId": "CVE-2025-7645",
-      "title": "Extensions For CF7 (Contact form 7 Database, Conditional Fields and Redirection) <= 3.2.8 - Unauthenticated Arbitrary File Deletion Triggered via Admin Form Submission Deletion",
-      "severity": "HIGH",
-      "cvssScore": 8.1,
-      "epssScore": 0.31,
-      "epssPercentile": 53.527,
-      "riskScore": 48,
-      "publishedDate": "2025-07-22T06:38:50+00:00",
-      "lastModifiedDate": "2025-07-22T15:08:36.002000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["htplugins"],
-      "tags": ["CWE-22"]
-    },
-    {
       "cveId": "CVE-2025-26850",
       "title": "CVE-2025-26850: The agent in Quest KACE Systems Management Appliance (SMA) before 14.0.97 and 14.1.x before 14.1.19 ...",
       "severity": "CRITICAL",
@@ -19040,11 +19026,11 @@
       "lastModifiedDate": "2025-06-25T14:15:31.576000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "ricoh",
-        "fujifilm business innovation",
-        "brother industries, ltd",
         "toshiba tec",
-        "konica minolta, inc."
+        "brother industries, ltd",
+        "konica minolta, inc.",
+        "fujifilm business innovation",
+        "ricoh"
       ],
       "tags": ["CWE-1286"]
     },
@@ -21875,20 +21861,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["wifi-soft"],
       "tags": ["CWE-78", "CWE-77"]
-    },
-    {
-      "cveId": "CVE-2025-6585",
-      "title": "WP JobHunt <= 7.2 - Authenticated (Subscriber+) Insecure Direct Object Reference to Arbitrary Account Deletion",
-      "severity": "HIGH",
-      "cvssScore": 8.1,
-      "epssScore": 0.07,
-      "epssPercentile": 20.693,
-      "riskScore": 47,
-      "publishedDate": "2025-07-22T04:25:08.363000+00:00",
-      "lastModifiedDate": "2025-07-22T15:52:23.467000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["n/a"],
-      "tags": ["CWE-20"]
     },
     {
       "cveId": "CVE-2025-6423",
@@ -24926,10 +24898,10 @@
       "lastModifiedDate": "2025-06-25T14:08:48.280000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "fujifilm business innovation",
-        "ricoh",
         "brother industries, ltd",
-        "konica minolta, inc."
+        "fujifilm business innovation",
+        "konica minolta, inc.",
+        "ricoh"
       ],
       "tags": ["CWE-121"]
     },
@@ -28322,6 +28294,20 @@
       "tags": ["CWE-89", "CWE-74"]
     },
     {
+      "cveId": "CVE-2025-7645",
+      "title": "Extensions For CF7 (Contact form 7 Database, Conditional Fields and Redirection) <= 3.2.8 - Unauthenticated Arbitrary File Deletion Triggered via Admin Form Submission Deletion",
+      "severity": "HIGH",
+      "cvssScore": 8.1,
+      "epssScore": 0.31,
+      "epssPercentile": 53.527,
+      "riskScore": 46,
+      "publishedDate": "2025-07-22T06:38:50+00:00",
+      "lastModifiedDate": "2025-07-22T15:08:36.002000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["htplugins"],
+      "tags": ["CWE-22"]
+    },
+    {
       "cveId": "CVE-2025-7433",
       "title": "CVE-2025-7433: A local privilege escalation vulnerability in Sophos Intercept X for Windows with Central Device Enc...",
       "severity": "HIGH",
@@ -30408,20 +30394,6 @@
       "tags": ["CWE-416"]
     },
     {
-      "cveId": "CVE-2025-6846",
-      "title": "code-projects Simple Forum forum_viewfile.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 7.073,
-      "riskScore": 46,
-      "publishedDate": "2025-06-29T05:00:13.460000+00:00",
-      "lastModifiedDate": "2025-06-30T15:50:30.048000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
       "cveId": "CVE-2025-6962",
       "title": "Campcodes Employee Management System myprofileup.php sql injection",
       "severity": "HIGH",
@@ -30531,20 +30503,6 @@
       "lastModifiedDate": "2025-07-01T14:37:11.378000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["campcodes"],
-      "tags": ["CWE-89", "CWE-74"]
-    },
-    {
-      "cveId": "CVE-2025-6845",
-      "title": "code-projects Simple Forum register1.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.652,
-      "riskScore": 46,
-      "publishedDate": "2025-06-29T04:31:05.482000+00:00",
-      "lastModifiedDate": "2025-06-30T15:51:10.509000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -35360,7 +35318,7 @@
       "publishedDate": "2025-06-25T07:25:00.402000+00:00",
       "lastModifiedDate": "2025-06-25T14:13:40.189000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["fujifilm business innovation", "ricoh", "brother industries, ltd"],
+      "vendors": ["brother industries, ltd", "fujifilm business innovation", "ricoh"],
       "tags": ["CWE-1286"]
     },
     {
@@ -39238,7 +39196,7 @@
       "publishedDate": "2025-06-24T08:05:15.547000+00:00",
       "lastModifiedDate": "2025-06-24T14:18:57.831000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-306"]
     },
     {
@@ -40360,6 +40318,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["brainstormforce"],
       "tags": ["CWE-502"]
+    },
+    {
+      "cveId": "CVE-2025-6585",
+      "title": "WP JobHunt <= 7.2 - Authenticated (Subscriber+) Insecure Direct Object Reference to Arbitrary Account Deletion",
+      "severity": "HIGH",
+      "cvssScore": 8.1,
+      "epssScore": 0.07,
+      "epssPercentile": 20.693,
+      "riskScore": 45,
+      "publishedDate": "2025-07-22T04:25:08.363000+00:00",
+      "lastModifiedDate": "2025-07-22T15:52:23.467000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["n/a"],
+      "tags": ["CWE-20"]
     },
     {
       "cveId": "CVE-2025-6996",
@@ -43256,7 +43228,7 @@
       "publishedDate": "2024-10-15T10:28:37.223000+00:00",
       "lastModifiedDate": "2024-10-16T17:39:58.106000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-798"]
     },
     {
@@ -43312,7 +43284,7 @@
       "publishedDate": "2024-10-15T10:28:16.384000+00:00",
       "lastModifiedDate": "2024-10-16T17:44:15.429000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-306"]
     },
     {
@@ -47316,7 +47288,7 @@
       "publishedDate": "2025-06-05T02:31:05.107000+00:00",
       "lastModifiedDate": "2025-06-05T14:09:25.990000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["anirbandutta9", "code-projects"],
+      "vendors": ["code-projects", "anirbandutta9"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -52384,7 +52356,7 @@
       "publishedDate": "2025-05-05T18:31:04.418000+00:00",
       "lastModifiedDate": "2025-05-05T18:48:57.123000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["oretnom23", "sourcecodester"],
+      "vendors": ["sourcecodester", "oretnom23"],
       "tags": ["CWE-89", "CWE-74"]
     },
     {
@@ -53970,6 +53942,20 @@
       "tags": ["CWE-88"]
     },
     {
+      "cveId": "CVE-2025-6846",
+      "title": "code-projects Simple Forum forum_viewfile.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 7.073,
+      "riskScore": 44,
+      "publishedDate": "2025-06-29T05:00:13.460000+00:00",
+      "lastModifiedDate": "2025-06-30T15:50:30.048000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
       "cveId": "CVE-2025-6469",
       "title": "code-projects Online Bidding System details.php sql injection",
       "severity": "HIGH",
@@ -54217,6 +54203,20 @@
       "riskScore": 44,
       "publishedDate": "2025-06-22T09:31:06.748000+00:00",
       "lastModifiedDate": "2025-06-23T17:02:44.415000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["code-projects"],
+      "tags": ["CWE-89", "CWE-74"]
+    },
+    {
+      "cveId": "CVE-2025-6845",
+      "title": "code-projects Simple Forum register1.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.652,
+      "riskScore": 44,
+      "publishedDate": "2025-06-29T04:31:05.482000+00:00",
+      "lastModifiedDate": "2025-06-30T15:51:10.509000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": ["code-projects"],
       "tags": ["CWE-89", "CWE-74"]
@@ -58138,7 +58138,7 @@
       "publishedDate": "2024-03-18T16:03:44.987000+00:00",
       "lastModifiedDate": "2024-08-28T15:04:28.061000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric ", "schneider electric"],
+      "vendors": ["schneider electric", "schneider electric "],
       "tags": ["CWE-307"]
     },
     {
@@ -58866,7 +58866,7 @@
       "publishedDate": "2025-05-09T15:18:34.124000+00:00",
       "lastModifiedDate": "2025-05-09T19:09:17.086000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["norton", "avast", "avg"],
+      "vendors": ["avg", "norton", "avast"],
       "tags": ["CWE-367"]
     },
     {
@@ -63738,7 +63738,7 @@
       "publishedDate": "2024-10-22T21:13:37.183000+00:00",
       "lastModifiedDate": "2024-10-23T14:43:52.114000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["kieback&peter", "kieback & peter"],
+      "vendors": ["kieback & peter", "kieback&peter"],
       "tags": ["CWE-22"]
     },
     {
@@ -68946,7 +68946,7 @@
       "publishedDate": "2025-06-24T08:10:29.717000+00:00",
       "lastModifiedDate": "2025-06-24T13:56:13.121000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-639"]
     },
     {
@@ -70990,7 +70990,7 @@
       "publishedDate": "2025-07-21T09:29:57.024000+00:00",
       "lastModifiedDate": "2025-07-21T20:36:45.460000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-78"]
     },
     {
@@ -71074,7 +71074,7 @@
       "publishedDate": "2025-07-21T09:29:32.129000+00:00",
       "lastModifiedDate": "2025-07-21T17:06:11.768000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-78"]
     },
     {
@@ -71088,7 +71088,7 @@
       "publishedDate": "2025-07-21T09:29:43.181000+00:00",
       "lastModifiedDate": "2025-07-21T17:05:33.656000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-78"]
     },
     {
@@ -76618,7 +76618,7 @@
       "publishedDate": "2024-10-15T10:27:52.208000+00:00",
       "lastModifiedDate": "2024-10-16T17:47:04.737000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-261"]
     },
     {
@@ -82246,7 +82246,7 @@
       "publishedDate": "2024-02-05T14:33:06.481000+00:00",
       "lastModifiedDate": "2025-05-09T16:32:50.015000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["tiangolo", "encode", "kludex"],
+      "vendors": ["encode", "kludex", "tiangolo"],
       "tags": ["CWE-400"]
     },
     {
@@ -91756,20 +91756,6 @@
       "tags": []
     },
     {
-      "cveId": "CVE-2025-22882",
-      "title": "ISPSoft File Parsing Stack-based Buffer Overflow Remote Code Execution Vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.8,
-      "epssScore": 0.05,
-      "epssPercentile": 16.682,
-      "riskScore": 42,
-      "publishedDate": "2025-04-30T07:34:43.503000+00:00",
-      "lastModifiedDate": "2025-04-30T13:05:11.163000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["delta electronics"],
-      "tags": []
-    },
-    {
       "cveId": "CVE-2025-22146",
       "title": "Improper authentication on SAML SSO process allows user impersonation in sentry",
       "severity": "CRITICAL",
@@ -91782,20 +91768,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["getsentry"],
       "tags": ["CWE-287"]
-    },
-    {
-      "cveId": "CVE-2025-22883",
-      "title": "ISPSoft File Parsing Out-Of-Bounds Write Remote Code Execution Vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.8,
-      "epssScore": 0.07,
-      "epssPercentile": 21.254,
-      "riskScore": 42,
-      "publishedDate": "2025-04-30T07:36:13.595000+00:00",
-      "lastModifiedDate": "2025-04-30T13:04:51.768000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["delta electronics"],
-      "tags": ["CWE-787"]
     },
     {
       "cveId": "CVE-2025-22843",
@@ -91908,20 +91880,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["ivanti"],
       "tags": ["CWE-1392"]
-    },
-    {
-      "cveId": "CVE-2025-22884",
-      "title": "ISPSoft File Parsing Stack-based Buffer Overflow Remote Code Execution Vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.8,
-      "epssScore": 0.05,
-      "epssPercentile": 16.682,
-      "riskScore": 42,
-      "publishedDate": "2025-04-30T07:37:08.747000+00:00",
-      "lastModifiedDate": "2025-04-30T13:04:31.230000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": ["delta electronics"],
-      "tags": []
     },
     {
       "cveId": "CVE-2025-22225",
@@ -97170,7 +97128,7 @@
       "publishedDate": "2024-07-02T13:47:36.399000+00:00",
       "lastModifiedDate": "2024-08-02T04:12:25.618000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["yt-dlp", "ytdl-org"],
+      "vendors": ["ytdl-org", "yt-dlp"],
       "tags": ["CWE-669"]
     },
     {
@@ -113480,7 +113438,7 @@
       "publishedDate": "2024-10-15T10:27:06.004000+00:00",
       "lastModifiedDate": "2024-10-16T17:49:30.446000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-20"]
     },
     {
@@ -123746,6 +123704,20 @@
       "tags": ["CWE-89"]
     },
     {
+      "cveId": "CVE-2025-22882",
+      "title": "ISPSoft File Parsing Stack-based Buffer Overflow Remote Code Execution Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.8,
+      "epssScore": 0.05,
+      "epssPercentile": 16.682,
+      "riskScore": 40,
+      "publishedDate": "2025-04-30T07:34:43.503000+00:00",
+      "lastModifiedDate": "2025-04-30T13:05:11.163000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["delta electronics"],
+      "tags": []
+    },
+    {
       "cveId": "CVE-2025-22678",
       "title": "WordPress my white theme <= 2.0.8 - Reflected Cross Site Scripting (XSS) vulnerability",
       "severity": "HIGH",
@@ -123772,6 +123744,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["edoc intelligence llc"],
       "tags": ["CWE-89"]
+    },
+    {
+      "cveId": "CVE-2025-22883",
+      "title": "ISPSoft File Parsing Out-Of-Bounds Write Remote Code Execution Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.8,
+      "epssScore": 0.07,
+      "epssPercentile": 21.254,
+      "riskScore": 40,
+      "publishedDate": "2025-04-30T07:36:13.595000+00:00",
+      "lastModifiedDate": "2025-04-30T13:04:51.768000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["delta electronics"],
+      "tags": ["CWE-787"]
     },
     {
       "cveId": "CVE-2025-22791",
@@ -123926,6 +123912,20 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": ["n/a"],
       "tags": ["CWE-89"]
+    },
+    {
+      "cveId": "CVE-2025-22884",
+      "title": "ISPSoft File Parsing Stack-based Buffer Overflow Remote Code Execution Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.8,
+      "epssScore": 0.05,
+      "epssPercentile": 16.682,
+      "riskScore": 40,
+      "publishedDate": "2025-04-30T07:37:08.747000+00:00",
+      "lastModifiedDate": "2025-04-30T13:04:31.230000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": ["delta electronics"],
+      "tags": []
     },
     {
       "cveId": "CVE-2025-22458",
@@ -128180,7 +128180,7 @@
       "publishedDate": "2024-03-18T16:04:57.375000+00:00",
       "lastModifiedDate": "2024-08-01T19:03:37.851000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric ", "schneider electric"],
+      "vendors": ["schneider electric", "schneider electric "],
       "tags": ["CWE-79"]
     },
     {
@@ -136720,7 +136720,7 @@
       "publishedDate": "2024-11-04T03:31:04.265000+00:00",
       "lastModifiedDate": "2024-11-04T17:01:46.227000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["anirbandutta9", "code-projects"],
+      "vendors": ["code-projects", "anirbandutta9"],
       "tags": ["CWE-89"]
     },
     {
@@ -145316,7 +145316,7 @@
       "publishedDate": "2024-07-03T12:26:44.599000+00:00",
       "lastModifiedDate": "2025-02-13T17:54:25.437000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["helmholz", "red lion europe"],
+      "vendors": ["red lion europe", "helmholz"],
       "tags": ["CWE-78"]
     },
     {
@@ -147192,7 +147192,7 @@
       "publishedDate": "2024-10-15T10:28:58.559000+00:00",
       "lastModifiedDate": "2025-01-24T06:32:08.237000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-306"]
     },
     {
@@ -147206,7 +147206,7 @@
       "publishedDate": "2024-10-15T10:27:32.688000+00:00",
       "lastModifiedDate": "2024-10-16T17:36:22.123000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mb connect line", "helmholz"],
+      "vendors": ["helmholz", "mb connect line"],
       "tags": ["CWE-1391"]
     },
     {
@@ -172868,7 +172868,7 @@
       "publishedDate": "2024-03-18T16:05:47.722000+00:00",
       "lastModifiedDate": "2024-08-15T16:23:48.504000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["schneider electric ", "schneider electric"],
+      "vendors": ["schneider electric", "schneider electric "],
       "tags": ["CWE-552"]
     },
     {
@@ -183466,7 +183466,7 @@
       "publishedDate": "2024-07-04T08:53:41.217000+00:00",
       "lastModifiedDate": "2024-08-19T15:25:49.496000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["mitsubishi electric corporation", "iconics"],
+      "vendors": ["iconics", "mitsubishi electric corporation"],
       "tags": ["CWE-427"]
     },
     {
@@ -190032,7 +190032,7 @@
       "publishedDate": "2024-07-08T15:25:38.672000+00:00",
       "lastModifiedDate": "2024-08-01T22:27:36.345000+00:00",
       "exploitationStatus": "UNKNOWN",
-      "vendors": ["levelone", "realtek"],
+      "vendors": ["realtek", "levelone"],
       "tags": ["CWE-122"]
     },
     {
