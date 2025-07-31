@@ -261,6 +261,20 @@ class VulnerabilityNormalizer:
 
             # Add sources
             merged.sources.extend(vuln.sources)
+            
+            # Update attack vector details if we have better data
+            if (vuln.attack_vector and vuln.attack_vector != "Unknown" and 
+                merged.attack_vector == "Unknown"):
+                merged.attack_vector = vuln.attack_vector
+            if (vuln.attack_complexity and vuln.attack_complexity != "Unknown" and 
+                merged.attack_complexity == "Unknown"):
+                merged.attack_complexity = vuln.attack_complexity
+            if (vuln.privileges_required and vuln.privileges_required != "Unknown" and 
+                merged.privileges_required == "Unknown"):
+                merged.privileges_required = vuln.privileges_required
+            if (vuln.user_interaction and vuln.user_interaction != "Unknown" and 
+                merged.user_interaction == "Unknown"):
+                merged.user_interaction = vuln.user_interaction
 
         return merged
 

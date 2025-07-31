@@ -293,17 +293,19 @@ class HarvestOrchestrator:
         # Define harvest tasks
         harvest_tasks = []
 
-        # Use NVD as primary source for complete vendor/product data
-        if not include_sources or "nvd" in include_sources:
-            harvest_tasks.append(
-                ("NVD", self.harvest_nvd_data, years, min_severity, None)
-            )
-
-        # Keep CVEList as fallback/secondary source
+        # Use CVEList as primary source since we don't have NVD API key
         if not include_sources or "cve" in include_sources:
             harvest_tasks.append(
                 ("CVEList", self.harvest_cve_data, years, min_severity, incremental)
             )
+
+        # Keep NVD as fallback source (limited by rate limits without API key)
+        if not include_sources or "nvd" in include_sources:
+            # Only use NVD if we have an API key or explicitly requested
+            if self.api_keys.get("NVD_API_KEY") or "nvd" in (include_sources or set()):
+                harvest_tasks.append(
+                    ("NVD", self.harvest_nvd_data, years, min_severity, None)
+                )
 
         if not include_sources or "github" in include_sources:
             harvest_tasks.append(

@@ -1,10 +1,19 @@
 """National Vulnerability Database (NVD) API client for comprehensive CVE data."""
 
+import os
+import re
 import time
 from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional
 
+import requests
 import structlog
+from tenacity import (
+    retry,
+    retry_if_exception_type,
+    stop_after_attempt,
+    wait_exponential,
+)
 
 from scripts.harvest.base_client import BaseAPIClient
 from scripts.models import (
@@ -15,6 +24,8 @@ from scripts.models import (
     Vulnerability,
     VulnerabilitySource,
 )
+from scripts.processing.vendor_product_extractor import VendorProductExtractor
+from scripts.processing.cvss_parser import CVSSVectorParser
 
 
 class NVDClient(BaseAPIClient):
@@ -29,6 +40,10 @@ class NVDClient(BaseAPIClient):
             api_key: Optional NVD API key for higher rate limits
             **kwargs: Additional arguments for BaseAPIClient
         """
+        # Check for API key in environment if not provided
+        if api_key is None:
+            api_key = os.environ.get('NVD_API_KEY')
+        
         # Set api_key first before calling parent constructor
         self.api_key = api_key
 
@@ -46,6 +61,10 @@ class NVDClient(BaseAPIClient):
         )
 
         self.logger = structlog.get_logger(self.__class__.__name__)
+        
+        # Initialize enhanced extractors
+        self.vendor_product_extractor = VendorProductExtractor()
+        self.cvss_parser = CVSSVectorParser()
 
     def get_headers(self) -> Dict[str, str]:
         """Get headers for NVD API requests."""
@@ -322,12 +341,13 @@ class NVDClient(BaseAPIClient):
                     )
                     cvss_metrics.append(cvss_metric)
 
-                    # Extract attack vector details from the first (primary) CVSS metric
-                    if len(cvss_metrics) == 1:
-                        attack_vector = cvss_data.get("attackVector", "Unknown")
-                        attack_complexity = cvss_data.get("attackComplexity", "Unknown")
-                        privileges_required = cvss_data.get("privilegesRequired", "Unknown")
-                        user_interaction = cvss_data.get("userInteraction", "Unknown")
+                    # Enhanced CVSS vector parsing for attack details (use first/primary metric)  
+                    if len(cvss_metrics) == 1 and cvss_metric.vector_string:
+                        parsed_vector = self.cvss_parser.parse_cvss_vector(cvss_metric.vector_string)
+                        attack_vector = parsed_vector.get("attack_vector", "Unknown")
+                        attack_complexity = parsed_vector.get("attack_complexity", "Unknown")
+                        privileges_required = parsed_vector.get("privileges_required", "Unknown")
+                        user_interaction = parsed_vector.get("user_interaction", "Unknown")
 
                     # Update severity to highest found
                     if self._severity_order(cvss_metric.base_severity) > self._severity_order(severity):
@@ -348,36 +368,21 @@ class NVDClient(BaseAPIClient):
                         )
                         cvss_metrics.append(cvss_metric)
 
-                        # Extract attack vector details from the first (primary) CVSS metric
-                        if len(cvss_metrics) == 1:
-                            attack_vector = cvss_data.get("attackVector", "Unknown")
-                            attack_complexity = cvss_data.get("attackComplexity", "Unknown")
-                            privileges_required = cvss_data.get("privilegesRequired", "Unknown")
-                            user_interaction = cvss_data.get("userInteraction", "Unknown")
+                        # Enhanced CVSS vector parsing for attack details (use first/primary metric)
+                        if len(cvss_metrics) == 1 and cvss_metric.vector_string:
+                            parsed_vector = self.cvss_parser.parse_cvss_vector(cvss_metric.vector_string)
+                            attack_vector = parsed_vector.get("attack_vector", "Unknown")
+                            attack_complexity = parsed_vector.get("attack_complexity", "Unknown")
+                            privileges_required = parsed_vector.get("privileges_required", "Unknown")
+                            user_interaction = parsed_vector.get("user_interaction", "Unknown")
 
                         if self._severity_order(cvss_metric.base_severity) > self._severity_order(severity):
                             severity = cvss_metric.base_severity
 
-            # Parse vendor and product information from configurations
-            affected_vendors = set()
-            affected_products = set()
-
-            configurations = cve_data.get("configurations", [])
-            for config in configurations:
-                for node in config.get("nodes", []):
-                    for cpe_match in node.get("cpeMatch", []):
-                        cpe_name = cpe_match.get("criteria", "")
-                        if cpe_name:
-                            # Parse CPE name: cpe:2.3:a:vendor:product:version:update:edition:language:sw_edition:target_sw:target_hw:other
-                            cpe_parts = cpe_name.split(":")
-                            if len(cpe_parts) >= 5:
-                                vendor = cpe_parts[3].replace("_", " ").strip()
-                                product = cpe_parts[4].replace("_", " ").strip()
-
-                                if vendor and vendor != "*":
-                                    affected_vendors.add(vendor.lower())
-                                if product and product != "*":
-                                    affected_products.add(product.lower())
+            # Enhanced vendor/product extraction using multiple methods
+            vendors, products = self.vendor_product_extractor.extract_vendors_products(
+                cve_record, description, title
+            )
 
             # Parse references
             references = []
@@ -414,8 +419,8 @@ class NVDClient(BaseAPIClient):
                 last_modified_date=last_modified_date,
                 cvss_metrics=cvss_metrics,
                 severity=severity,
-                affected_vendors=list(affected_vendors),
-                affected_products=list(affected_products),
+                affected_vendors=vendors,
+                affected_products=products,
                 references=references,
                 exploitation_status=exploitation_status,
                 attack_vector=attack_vector,

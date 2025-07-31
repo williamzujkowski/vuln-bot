@@ -260,6 +260,10 @@ class Vulnerability(BaseModel):
             "exploitationStatus": self.exploitation_status.value,
             "vendors": self.affected_vendors[:5],  # Top 5 vendors
             "products": self.affected_products[:3],  # Top 3 products for display
+            "attackVector": self.attack_vector,
+            "attackComplexity": self.attack_complexity,
+            "privilegesRequired": self.privileges_required,
+            "userInteraction": self.user_interaction,
             "tags": self.tags,
         }
 
@@ -335,6 +339,9 @@ class Vulnerability(BaseModel):
                 "requiresUserInteraction": self.requires_user_interaction,
                 "requiresPrivileges": self.requires_privileges,
                 "attackVector": self.attack_vector,
+                "attackComplexity": self.attack_complexity,
+                "privilegesRequired": self.privileges_required,
+                "userInteraction": self.user_interaction,
                 "sources": [
                     {
                         "name": src.name,

@@ -22,6 +22,8 @@ from scripts.models import (
     Vulnerability,
     VulnerabilitySource,
 )
+from scripts.processing.vendor_product_extractor import VendorProductExtractor
+from scripts.processing.cvss_parser import CVSSVectorParser
 
 
 class CVEListClient(BaseAPIClient):
@@ -59,6 +61,10 @@ class CVEListClient(BaseAPIClient):
         self.use_releases = use_releases
         self.cache_manager = cache_manager
         self.logger = structlog.get_logger(self.__class__.__name__)
+        
+        # Initialize enhanced extractors
+        self.vendor_product_extractor = VendorProductExtractor()
+        self.cvss_parser = CVSSVectorParser()
 
         if not use_github_api and local_repo_path:
             self._ensure_local_repo()
@@ -354,9 +360,13 @@ class CVEListClient(BaseAPIClient):
                 ).replace("Z", "+00:00")
             )
 
-            # Parse CVSS metrics
+            # Parse CVSS metrics and extract attack vector details
             cvss_metrics = []
             severity = SeverityLevel.NONE
+            attack_vector = "Unknown"
+            attack_complexity = "Unknown" 
+            privileges_required = "Unknown"
+            user_interaction = "Unknown"
 
             # Use the same severity order
             severity_order = {
@@ -375,18 +385,19 @@ class CVEListClient(BaseAPIClient):
                         cvss_metric.base_severity, 0
                     ) > severity_order.get(severity, 0):
                         severity = cvss_metric.base_severity
+                    
+                    # Parse CVSS vector for attack details (use first/primary metric)
+                    if len(cvss_metrics) == 1 and cvss_metric.vector_string:
+                        parsed_vector = self.cvss_parser.parse_cvss_vector(cvss_metric.vector_string)
+                        attack_vector = parsed_vector.get("attack_vector", "Unknown")
+                        attack_complexity = parsed_vector.get("attack_complexity", "Unknown")
+                        privileges_required = parsed_vector.get("privileges_required", "Unknown")
+                        user_interaction = parsed_vector.get("user_interaction", "Unknown")
 
-            # Parse affected products
-            affected_vendors = set()
-            affected_products = set()
-
-            for affected in cna.get("affected", []):
-                vendor = affected.get("vendor", "").lower()
-                if vendor:
-                    affected_vendors.add(vendor)
-                product = affected.get("product", "").lower()
-                if product:
-                    affected_products.add(product)
+            # Enhanced vendor/product extraction
+            vendors, products = self.vendor_product_extractor.extract_vendors_products(
+                cve_data, description, title
+            )
 
             # Parse references
             references = []
@@ -423,8 +434,12 @@ class CVEListClient(BaseAPIClient):
                 last_modified_date=last_modified_date,
                 cvss_metrics=cvss_metrics,
                 severity=severity,
-                affected_vendors=list(affected_vendors),
-                affected_products=list(affected_products),
+                affected_vendors=vendors,
+                affected_products=products,
+                attack_vector=attack_vector,
+                attack_complexity=attack_complexity,
+                privileges_required=privileges_required,
+                user_interaction=user_interaction,
                 references=references,
                 exploitation_status=exploitation_status,
                 sources=[
