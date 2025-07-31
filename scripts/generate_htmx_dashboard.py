@@ -519,18 +519,24 @@ class HTMXDashboardGenerator:
             html = self.get_dashboard_template()
 
         # Replace API endpoints with static fragments
+        # With base tag, we can use simple relative paths
         replacements = {
-            "/api/stats": f"{self.base_path}/fragments/stats.html",
-            "/api/vulnerabilities": f"{self.base_path}/fragments/vulnerabilities.html",
-            "/api/charts": f"{self.base_path}/fragments/charts.html",
-            "/api/filter/quick": f"{self.base_path}/fragments/filter/{{filter}}.html",
-            "/api/sort": f"{self.base_path}/fragments/sort/{{field}}_{{order}}.html",
-            "/api/export/csv": f"{self.base_path}/data/vulnerabilities.csv",
+            "/api/stats": "fragments/stats.html",
+            "/api/vulnerabilities": "fragments/vulnerabilities.html",
+            "/api/charts": "fragments/charts.html",
+            "/api/filter/quick": "fragments/filter/{filter}.html",
+            "/api/sort": "fragments/sort/{field}_{order}.html",
+            "/api/export/csv": "data/vulnerabilities.csv",
             "/fragments/stats.html": "fragments/stats.html",
             "/fragments/vulnerabilities.html": "fragments/vulnerabilities.html",
             "/fragments/charts.html": "fragments/charts.html",
             "/fragments/filter/": "fragments/filter/",
             "/data/vulnerabilities.csv": "data/vulnerabilities.csv",
+            f"{self.base_path}/fragments/stats.html": "fragments/stats.html",
+            f"{self.base_path}/fragments/vulnerabilities.html": "fragments/vulnerabilities.html",
+            f"{self.base_path}/fragments/charts.html": "fragments/charts.html",
+            f"{self.base_path}/fragments/filter/": "fragments/filter/",
+            f"{self.base_path}/data/vulnerabilities.csv": "data/vulnerabilities.csv",
         }
 
         for old, new in replacements.items():
