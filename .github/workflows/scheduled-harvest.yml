@@ -55,6 +55,14 @@ jobs:
           restore-keys: |
             api-cache-
       
+      - name: Cache generation metadata
+        uses: actions/cache@v4
+        with:
+          path: public/.generation_metadata/
+          key: generation-metadata-${{ github.run_number }}
+          restore-keys: |
+            generation-metadata-
+      
       - name: Install dependencies
         run: |
           uv pip install --system -r requirements.txt
@@ -94,20 +102,19 @@ jobs:
             --cache-dir actions-cache/ \
             --output-dir .
       
-      - name: Generate Alpine.js dashboard
+      - name: Generate dashboard and CVE pages (incremental)
         run: |
-          echo "Building static Alpine.js dashboard..."
+          echo "Building static Alpine.js dashboard and CVE pages with incremental optimization..."
           # Create cache directory
           mkdir -p .cache
           
           # Copy the database to the expected location
           cp actions-cache/vulnerability_cache.db .cache/vulns.db || true
           
-          # Generate the Alpine.js dashboard
-          python scripts/generate_alpine_dashboard.py
-          
-          # Generate static CVE detail pages
-          python scripts/generate_cve_pages.py
+          # Use incremental generator (only updates changed CVEs and dashboard if needed)
+          python -m scripts.incremental_generator \
+            --db-path .cache/vulns.db \
+            --output-dir public
           
           # Copy service worker if it doesn't exist
           if [ ! -f public/sw.js ] && [ -f src/sw.js ]; then
