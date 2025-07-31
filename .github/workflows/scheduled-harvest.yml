@@ -102,6 +102,20 @@ jobs:
             --cache-dir actions-cache/ \
             --output-dir .
       
+      - name: Copy API files to public directory
+        run: |
+          echo "Copying fresh API files from root to public directory..."
+          mkdir -p public/api/vulns
+          if [ -d "api/vulns" ]; then
+            cp -r api/vulns/* public/api/vulns/
+            echo "✓ Copied API files to public directory"
+            echo "Files copied:"
+            ls -la public/api/vulns/ | head -10
+          else
+            echo "⚠ Warning: No API files found in root directory"
+            exit 1
+          fi
+      
       - name: Generate dashboard and CVE pages (incremental)
         run: |
           echo "Building static Alpine.js dashboard and CVE pages with incremental optimization..."
