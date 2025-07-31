@@ -634,9 +634,7 @@
         // HTMX Configuration
         document.body.addEventListener('htmx:configRequest', (event) => {
             // Add custom headers if needed
-            if (event.detail.headers) {
-                event.detail.headers['X-Requested-With'] = 'HTMX';
-            }
+            event.detail.headers['X-Requested-With'] = 'HTMX';
         });
         
         // Handle filter changes
@@ -701,9 +699,14 @@
     </script>
 
         <script>
-        // HTMX Static Adapter for GitHub Pages
+        // HTMX Configuration and Static Adapter for GitHub Pages
         document.body.addEventListener('htmx:configRequest', (event) => {
-            // Handle dynamic URLs
+            // Add custom headers if needed
+            if (event.detail.headers) {
+                event.detail.headers['X-Requested-With'] = 'HTMX';
+            }
+            
+            // Handle dynamic URLs for GitHub Pages
             let url = event.detail.path;
             console.log('Original URL:', url);
 

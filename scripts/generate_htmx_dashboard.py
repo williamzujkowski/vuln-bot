@@ -526,10 +526,16 @@ class HTMXDashboardGenerator:
         # Add HTMX static adapter script
         adapter_script = """
         <script>
-        // HTMX Static Adapter for GitHub Pages
+        // HTMX Configuration and Static Adapter for GitHub Pages
         document.body.addEventListener('htmx:configRequest', (event) => {
-            // Handle dynamic URLs
+            // Add custom headers if needed
+            if (event.detail.headers) {
+                event.detail.headers['X-Requested-With'] = 'HTMX';
+            }
+            
+            // Handle dynamic URLs for GitHub Pages
             let url = event.detail.path;
+            console.log('Original URL:', url);
 
             // Handle quick filters
             if (url.includes('{filter}')) {
@@ -537,17 +543,23 @@ class HTMXDashboardGenerator:
                 if (filterMatch) {
                     const filter = JSON.parse(filterMatch).filter;
                     url = url.replace('{filter}', filter);
+                    console.log('Filter URL:', url);
                 }
             }
 
             // Handle sorting
             if (url.includes('{field}_{order}')) {
-                const field = event.detail.elt.dataset.sort || 'epss_percentile';
-                const currentOrder = event.detail.elt.textContent.includes('↓') ? 'desc' : 'asc';
+                const element = event.detail.elt;
+                const field = element.dataset.sort || 'epss_percentile';
+                const currentOrder = element.textContent.includes('↓') ? 'desc' : 'asc';
                 const newOrder = currentOrder === 'desc' ? 'asc' : 'desc';
-                url = url.replace('{field}', field).replace('{order}', newOrder);
+                const replacement = field + '_' + newOrder;
+                console.log('Sorting - Field:', field, 'Current Order:', currentOrder, 'New Order:', newOrder, 'Replacement:', replacement);
+                url = url.replace('{field}_{order}', replacement);
+                console.log('Sort URL:', url);
             }
 
+            console.log('Final URL:', url);
             event.detail.path = url;
         });
 
