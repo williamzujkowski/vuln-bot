@@ -532,7 +532,7 @@ class HTMXDashboardGenerator:
             if (event.detail.headers) {
                 event.detail.headers['X-Requested-With'] = 'HTMX';
             }
-            
+
             // Handle dynamic URLs for GitHub Pages
             let url = event.detail.path;
             console.log('Original URL:', url);

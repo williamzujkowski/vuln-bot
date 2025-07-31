@@ -164,19 +164,19 @@ class AlpineDashboardGenerator:
                 }
             )
 
-        html_content = f"""<!DOCTYPE html>  # nosec B608
+        html_content = f"""<!DOCTYPE html>  # noqa: B608
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vulnerability Intelligence Dashboard</title>
-    
+
     <!-- Alpine.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    
+
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
+
     <style>
         /* Modern Dark Theme */
         :root {{
@@ -184,41 +184,41 @@ class AlpineDashboardGenerator:
             --bg-secondary: #12121a;
             --bg-card: #1e1e2a;
             --bg-hover: #252535;
-            
+
             --accent-primary: #00d4ff;
             --accent-secondary: #7c3aed;
             --accent-danger: #ef4444;
             --accent-success: #10b981;
-            
+
             --text-primary: #ffffff;
             --text-secondary: #a3a3b8;
             --text-muted: #6b6b85;
-            
+
             --gradient-primary: linear-gradient(135deg, #00d4ff 0%, #7c3aed 100%);
             --shadow-glow: 0 0 40px rgba(0, 212, 255, 0.3);
-            
+
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }}
-        
+
         * {{
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }}
-        
+
         body {{
             background: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.6;
         }}
-        
+
         /* Layout */
         .dashboard {{
             min-height: 100vh;
             display: flex;
             flex-direction: column;
         }}
-        
+
         /* Header */
         .header {{
             background: rgba(18, 18, 26, 0.9);
@@ -229,7 +229,7 @@ class AlpineDashboardGenerator:
             top: 0;
             z-index: 100;
         }}
-        
+
         .header-content {{
             max-width: 1600px;
             margin: 0 auto;
@@ -237,13 +237,13 @@ class AlpineDashboardGenerator:
             justify-content: space-between;
             align-items: center;
         }}
-        
+
         .brand {{
             display: flex;
             align-items: center;
             gap: 1rem;
         }}
-        
+
         .brand-icon {{
             width: 48px;
             height: 48px;
@@ -255,7 +255,7 @@ class AlpineDashboardGenerator:
             font-weight: 700;
             font-size: 1.5rem;
         }}
-        
+
         .brand h1 {{
             font-size: 1.75rem;
             background: var(--gradient-primary);
@@ -263,7 +263,7 @@ class AlpineDashboardGenerator:
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }}
-        
+
         /* Main Content */
         .main {{
             flex: 1;
@@ -272,7 +272,7 @@ class AlpineDashboardGenerator:
             margin: 0 auto;
             width: 100%;
         }}
-        
+
         /* Stats Grid */
         .stats-grid {{
             display: grid;
@@ -280,7 +280,7 @@ class AlpineDashboardGenerator:
             gap: 1.5rem;
             margin-bottom: 2rem;
         }}
-        
+
         .stat-card {{
             background: var(--bg-card);
             border: 1px solid rgba(255, 255, 255, 0.05);
@@ -288,12 +288,12 @@ class AlpineDashboardGenerator:
             padding: 2rem;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }}
-        
+
         .stat-card:hover {{
             transform: translateY(-4px);
             box-shadow: var(--shadow-glow);
         }}
-        
+
         .stat-value {{
             font-size: 2.5rem;
             font-weight: 700;
@@ -302,12 +302,12 @@ class AlpineDashboardGenerator:
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }}
-        
+
         .stat-label {{
             color: var(--text-secondary);
             margin-bottom: 0.5rem;
         }}
-        
+
         /* Filters */
         .filters-section {{
             background: var(--bg-card);
@@ -315,26 +315,26 @@ class AlpineDashboardGenerator:
             padding: 2rem;
             margin-bottom: 2rem;
         }}
-        
+
         .filter-grid {{
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1rem;
             margin-bottom: 1rem;
         }}
-        
+
         .filter-group {{
             display: flex;
             flex-direction: column;
             gap: 0.5rem;
         }}
-        
+
         .filter-group label {{
             color: var(--text-secondary);
             font-size: 0.875rem;
             font-weight: 500;
         }}
-        
+
         .filter-group input,
         .filter-group select {{
             background: rgba(255, 255, 255, 0.05);
@@ -344,20 +344,20 @@ class AlpineDashboardGenerator:
             color: var(--text-primary);
             transition: all 0.3s ease;
         }}
-        
+
         .filter-group input:focus,
         .filter-group select:focus {{
             outline: none;
             border-color: var(--accent-primary);
             box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
         }}
-        
+
         /* Search */
         .search-box {{
             position: relative;
             margin-bottom: 1rem;
         }}
-        
+
         .search-input {{
             width: 100%;
             padding: 1rem 3rem 1rem 1.5rem;
@@ -367,13 +367,13 @@ class AlpineDashboardGenerator:
             font-size: 1rem;
             color: var(--text-primary);
         }}
-        
+
         .search-input:focus {{
             outline: none;
             border-color: var(--accent-primary);
             background: rgba(0, 212, 255, 0.05);
         }}
-        
+
         /* Quick Filters */
         .quick-filters {{
             display: flex;
@@ -381,7 +381,7 @@ class AlpineDashboardGenerator:
             flex-wrap: wrap;
             margin-bottom: 2rem;
         }}
-        
+
         .filter-chip {{
             padding: 0.75rem 1.5rem;
             background: rgba(255, 255, 255, 0.05);
@@ -391,19 +391,19 @@ class AlpineDashboardGenerator:
             cursor: pointer;
             transition: all 0.3s ease;
         }}
-        
+
         .filter-chip:hover {{
             background: rgba(0, 212, 255, 0.1);
             border-color: var(--accent-primary);
             color: var(--accent-primary);
         }}
-        
+
         .filter-chip.active {{
             background: var(--gradient-primary);
             color: white;
             border-color: transparent;
         }}
-        
+
         /* Data Table */
         .data-section {{
             background: var(--bg-card);
@@ -411,16 +411,16 @@ class AlpineDashboardGenerator:
             padding: 2rem;
             overflow: hidden;
         }}
-        
+
         .table-wrapper {{
             overflow-x: auto;
         }}
-        
+
         table {{
             width: 100%;
             border-collapse: collapse;
         }}
-        
+
         th {{
             text-align: left;
             padding: 1rem;
@@ -430,24 +430,24 @@ class AlpineDashboardGenerator:
             cursor: pointer;
             user-select: none;
         }}
-        
+
         th:hover {{
             color: var(--accent-primary);
         }}
-        
+
         td {{
             padding: 1rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }}
-        
+
         tbody tr {{
             transition: background-color 0.2s ease;
         }}
-        
+
         tbody tr:hover {{
             background: rgba(0, 212, 255, 0.02);
         }}
-        
+
         /* Severity Badges */
         .severity-badge {{
             display: inline-flex;
@@ -457,31 +457,31 @@ class AlpineDashboardGenerator:
             font-weight: 600;
             text-transform: uppercase;
         }}
-        
+
         .severity-critical {{
             background: rgba(220, 38, 38, 0.2);
             color: #dc2626;
             border: 1px solid rgba(220, 38, 38, 0.3);
         }}
-        
+
         .severity-high {{
             background: rgba(239, 68, 68, 0.2);
             color: #ef4444;
             border: 1px solid rgba(239, 68, 68, 0.3);
         }}
-        
+
         .severity-medium {{
             background: rgba(245, 158, 11, 0.2);
             color: #f59e0b;
             border: 1px solid rgba(245, 158, 11, 0.3);
         }}
-        
+
         .severity-low {{
             background: rgba(59, 130, 246, 0.2);
             color: #3b82f6;
             border: 1px solid rgba(59, 130, 246, 0.3);
         }}
-        
+
         /* Pagination */
         .pagination {{
             display: flex;
@@ -490,7 +490,7 @@ class AlpineDashboardGenerator:
             gap: 1rem;
             margin-top: 2rem;
         }}
-        
+
         .page-btn {{
             padding: 0.5rem 1rem;
             background: rgba(255, 255, 255, 0.05);
@@ -500,18 +500,18 @@ class AlpineDashboardGenerator:
             cursor: pointer;
             transition: all 0.3s ease;
         }}
-        
+
         .page-btn:hover:not(:disabled) {{
             background: rgba(0, 212, 255, 0.1);
             border-color: var(--accent-primary);
             color: var(--accent-primary);
         }}
-        
+
         .page-btn:disabled {{
             opacity: 0.5;
             cursor: not-allowed;
         }}
-        
+
         /* Charts */
         .charts-grid {{
             display: grid;
@@ -519,24 +519,24 @@ class AlpineDashboardGenerator:
             gap: 2rem;
             margin: 2rem 0;
         }}
-        
+
         .chart-card {{
             background: var(--bg-card);
             border-radius: 20px;
             padding: 1.5rem;
         }}
-        
+
         .chart-title {{
             font-size: 1.25rem;
             margin-bottom: 1rem;
             color: var(--text-secondary);
         }}
-        
+
         .chart-container {{
             position: relative;
             height: 300px;
         }}
-        
+
         /* Modal */
         .modal {{
             display: none;
@@ -550,11 +550,11 @@ class AlpineDashboardGenerator:
             align-items: center;
             justify-content: center;
         }}
-        
+
         .modal.show {{
             display: flex;
         }}
-        
+
         .modal-content {{
             background: var(--bg-card);
             border-radius: 20px;
@@ -564,12 +564,12 @@ class AlpineDashboardGenerator:
             max-height: 80vh;
             overflow-y: auto;
         }}
-        
+
         .modal h2 {{
             margin-bottom: 1rem;
             color: var(--accent-primary);
         }}
-        
+
         .modal-close {{
             background: var(--accent-primary);
             color: white;
@@ -579,47 +579,47 @@ class AlpineDashboardGenerator:
             cursor: pointer;
             margin-top: 1rem;
         }}
-        
+
         /* Responsive */
         @media (max-width: 768px) {{
             .header-content {{
                 flex-direction: column;
                 gap: 1rem;
             }}
-            
+
             .main {{
                 padding: 1rem;
             }}
-            
+
             .stats-grid {{
                 grid-template-columns: 1fr;
             }}
-            
+
             .filter-grid {{
                 grid-template-columns: 1fr;
             }}
-            
+
             .quick-filters {{
                 justify-content: center;
             }}
-            
+
             .charts-grid {{
                 grid-template-columns: 1fr;
             }}
         }}
-        
+
         .truncate {{
             max-width: 200px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }}
-        
+
         .cve-link {{
             color: var(--accent-primary);
             text-decoration: none;
         }}
-        
+
         .cve-link:hover {{
             text-decoration: underline;
         }}
@@ -646,7 +646,7 @@ class AlpineDashboardGenerator:
                 </div>
             </div>
         </header>
-        
+
         <!-- Main Content -->
         <main class="main">
             <!-- Stats Section -->
@@ -687,56 +687,56 @@ class AlpineDashboardGenerator:
                     </div>
                 </div>
             </div>
-            
+
             <!-- Quick Filters -->
             <div class="quick-filters">
-                <button class="filter-chip" 
+                <button class="filter-chip"
                         :class="{{ 'active': quickFilter === 'all' }}"
                         @click="setQuickFilter('all')">
                     All Vulnerabilities
                 </button>
-                <button class="filter-chip" 
+                <button class="filter-chip"
                         :class="{{ 'active': quickFilter === 'critical' }}"
                         @click="setQuickFilter('critical')">
                     <span class="severity-badge severity-critical">Critical</span>
                 </button>
-                <button class="filter-chip" 
+                <button class="filter-chip"
                         :class="{{ 'active': quickFilter === 'today' }}"
                         @click="setQuickFilter('today')">
                     📅 Today's CVEs
                 </button>
-                <button class="filter-chip" 
+                <button class="filter-chip"
                         :class="{{ 'active': quickFilter === 'kev' }}"
                         @click="setQuickFilter('kev')">
                     ⭐ KEV Listed
                 </button>
-                <button class="filter-chip" 
+                <button class="filter-chip"
                         :class="{{ 'active': quickFilter === 'network' }}"
                         @click="setQuickFilter('network')">
                     🌐 Network Vector
                 </button>
             </div>
-            
+
             <!-- Filters Section -->
             <div class="filters-section" x-data="{{ expanded: true }}">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
                     <h2 style="font-size: 1.25rem;">Filters</h2>
-                    <button @click="expanded = !expanded" 
+                    <button @click="expanded = !expanded"
                             style="background: none; border: none; color: var(--text-secondary); cursor: pointer;">
                         <span x-text="expanded ? '−' : '+'"></span>
                     </button>
                 </div>
-                
+
                 <div x-show="expanded" x-transition>
                     <!-- Search -->
                     <div class="search-box">
-                        <input type="text" 
+                        <input type="text"
                                x-model="search"
-                               class="search-input" 
+                               class="search-input"
                                placeholder="Search CVE ID, vendor, or keyword..."
                                @keydown.slash.window.prevent="$el.focus()">
                     </div>
-                    
+
                     <!-- Filter Grid -->
                     <div class="filter-grid">
                         <div class="filter-group">
@@ -749,7 +749,7 @@ class AlpineDashboardGenerator:
                                 <option value="LOW">Low</option>
                             </select>
                         </div>
-                        
+
                         <div class="filter-group">
                             <label>CVSS Score</label>
                             <div style="display: flex; gap: 0.5rem;">
@@ -757,7 +757,7 @@ class AlpineDashboardGenerator:
                                 <input type="number" x-model.number="filters.cvss_max" placeholder="Max" min="0" max="10" step="0.1">
                             </div>
                         </div>
-                        
+
                         <div class="filter-group">
                             <label>EPSS %</label>
                             <div style="display: flex; gap: 0.5rem;">
@@ -765,7 +765,7 @@ class AlpineDashboardGenerator:
                                 <input type="number" x-model.number="filters.epss_max" placeholder="Max" min="0" max="100" value="100">
                             </div>
                         </div>
-                        
+
                         <div class="filter-group">
                             <label>Published Date</label>
                             <div style="display: flex; gap: 0.5rem;">
@@ -773,13 +773,13 @@ class AlpineDashboardGenerator:
                                 <input type="date" x-model="filters.published_to">
                             </div>
                         </div>
-                        
+
                         <div class="filter-group">
                             <label>Vendor</label>
                             <input type="text" x-model="filters.vendor" placeholder="e.g., Microsoft">
                         </div>
                     </div>
-                    
+
                     <div style="display: flex; gap: 1rem; margin-top: 1rem;">
                         <button class="filter-chip active" @click="resetFilters()" @keydown.r.window.prevent="resetFilters()">
                             Reset
@@ -787,7 +787,7 @@ class AlpineDashboardGenerator:
                     </div>
                 </div>
             </div>
-            
+
             <!-- Charts Section -->
             <div class="charts-grid">
                 <div class="chart-card">
@@ -804,15 +804,15 @@ class AlpineDashboardGenerator:
                     </div>
                 </div>
             </div>
-            
+
             <!-- Data Table -->
             <div class="data-section">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
                     <h2 style="font-size: 1.5rem;">Vulnerabilities</h2>
-                    <div x-text="`Showing ${{Math.min(perPage, filteredVulns.length)}} of ${{filteredVulns.length}} results`" 
+                    <div x-text="`Showing ${{Math.min(perPage, filteredVulns.length)}} of ${{filteredVulns.length}} results`"
                          style="color: var(--text-secondary);"></div>
                 </div>
-                
+
                 <div class="table-wrapper">
                     <table>
                         <thead>
@@ -860,14 +860,14 @@ class AlpineDashboardGenerator:
                     </table>
 
                     <div class="pagination">
-                        <button class="page-btn" 
-                                @click="currentPage--" 
+                        <button class="page-btn"
+                                @click="currentPage--"
                                 :disabled="currentPage <= 1">
                             Previous
                         </button>
                         <span x-text="`Page ${{currentPage}} of ${{totalPages}} • ${{filteredVulns.length}} vulnerabilities`"></span>
-                        <button class="page-btn" 
-                                @click="currentPage++" 
+                        <button class="page-btn"
+                                @click="currentPage++"
                                 :disabled="currentPage >= totalPages">
                             Next
                         </button>
@@ -875,7 +875,7 @@ class AlpineDashboardGenerator:
                 </div>
             </div>
         </main>
-        
+
         <!-- CVE Modal -->
         <div x-ref="modal" class="modal" :class="{{ 'show': showModal }}" @click.self="closeModal()">
             <div class="modal-content">
@@ -909,7 +909,7 @@ class AlpineDashboardGenerator:
                 // Data
                 vulnerabilities: vulnerabilityData,
                 stats: statsData,
-                
+
                 // UI State
                 search: '',
                 quickFilter: 'all',
@@ -919,7 +919,7 @@ class AlpineDashboardGenerator:
                 perPage: 50,
                 showModal: false,
                 selectedVuln: null,
-                
+
                 // Filters
                 filters: {{
                     severity: '',
@@ -943,7 +943,7 @@ class AlpineDashboardGenerator:
                 // Computed Properties
                 get filteredVulns() {{
                     let vulns = [...this.vulnerabilities];
-                    
+
                     // Quick filter
                     if (this.quickFilter === 'critical') {{
                         vulns = vulns.filter(v => v.severity === 'CRITICAL');
@@ -955,70 +955,70 @@ class AlpineDashboardGenerator:
                     }} else if (this.quickFilter === 'network') {{
                         vulns = vulns.filter(v => v.attack_vector === 'NETWORK');
                     }}
-                    
+
                     // Search
                     if (this.search) {{
                         const searchLower = this.search.toLowerCase();
-                        vulns = vulns.filter(v => 
+                        vulns = vulns.filter(v =>
                             v.cve_id.toLowerCase().includes(searchLower) ||
                             v.title.toLowerCase().includes(searchLower) ||
                             v.vendors.some(vendor => vendor.toLowerCase().includes(searchLower))
                         );
                     }}
-                    
+
                     // Advanced filters
                     if (this.filters.severity) {{
                         vulns = vulns.filter(v => v.severity === this.filters.severity);
                     }}
-                    
+
                     if (this.filters.cvss_min !== null) {{
                         vulns = vulns.filter(v => v.cvss_score >= this.filters.cvss_min);
                     }}
-                    
+
                     if (this.filters.cvss_max !== null) {{
                         vulns = vulns.filter(v => v.cvss_score <= this.filters.cvss_max);
                     }}
-                    
+
                     if (this.filters.epss_min !== null) {{
                         vulns = vulns.filter(v => v.epss_percentile >= this.filters.epss_min);
                     }}
-                    
+
                     if (this.filters.epss_max !== null) {{
                         vulns = vulns.filter(v => v.epss_percentile <= this.filters.epss_max);
                     }}
-                    
+
                     if (this.filters.published_from) {{
                         vulns = vulns.filter(v => v.published_date >= this.filters.published_from);
                     }}
-                    
+
                     if (this.filters.published_to) {{
                         vulns = vulns.filter(v => v.published_date <= this.filters.published_to);
                     }}
-                    
+
                     if (this.filters.vendor) {{
                         const vendorLower = this.filters.vendor.toLowerCase();
-                        vulns = vulns.filter(v => 
+                        vulns = vulns.filter(v =>
                             v.vendors.some(vendor => vendor.toLowerCase().includes(vendorLower))
                         );
                     }}
-                    
+
                     // Sorting
                     vulns.sort((a, b) => {{
                         let aVal = a[this.sortField];
                         let bVal = b[this.sortField];
-                        
+
                         // Handle special cases
                         if (this.sortField === 'severity') {{
                             const severityOrder = {{ 'CRITICAL': 4, 'HIGH': 3, 'MEDIUM': 2, 'LOW': 1 }};
                             aVal = severityOrder[aVal] || 0;
                             bVal = severityOrder[bVal] || 0;
                         }}
-                        
+
                         if (aVal < bVal) return this.sortOrder === 'asc' ? -1 : 1;
                         if (aVal > bVal) return this.sortOrder === 'asc' ? 1 : -1;
                         return 0;
                     }});
-                    
+
                     return vulns;
                 }},
 
@@ -1089,7 +1089,7 @@ class AlpineDashboardGenerator:
                             v.published_short
                         ].join(','))
                     ].join('\\n');
-                    
+
                     const blob = new Blob([csvContent], {{ type: 'text/csv' }});
                     const url = window.URL.createObjectURL(blob);
                     const a = document.createElement('a');
@@ -1105,7 +1105,7 @@ class AlpineDashboardGenerator:
                         if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT') {{
                             return;
                         }}
-                        
+
                         switch(e.key) {{
                             case '/':
                                 e.preventDefault();
