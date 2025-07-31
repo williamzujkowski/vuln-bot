@@ -1,19 +1,11 @@
 """National Vulnerability Database (NVD) API client for comprehensive CVE data."""
 
 import os
-import re
 import time
 from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional
 
-import requests
 import structlog
-from tenacity import (
-    retry,
-    retry_if_exception_type,
-    stop_after_attempt,
-    wait_exponential,
-)
 
 from scripts.harvest.base_client import BaseAPIClient
 from scripts.models import (
@@ -24,8 +16,8 @@ from scripts.models import (
     Vulnerability,
     VulnerabilitySource,
 )
-from scripts.processing.vendor_product_extractor import VendorProductExtractor
 from scripts.processing.cvss_parser import CVSSVectorParser
+from scripts.processing.vendor_product_extractor import VendorProductExtractor
 
 
 class NVDClient(BaseAPIClient):
@@ -43,7 +35,7 @@ class NVDClient(BaseAPIClient):
         # Check for API key in environment if not provided
         if api_key is None:
             api_key = os.environ.get('NVD_API_KEY')
-        
+
         # Set api_key first before calling parent constructor
         self.api_key = api_key
 
@@ -61,7 +53,7 @@ class NVDClient(BaseAPIClient):
         )
 
         self.logger = structlog.get_logger(self.__class__.__name__)
-        
+
         # Initialize enhanced extractors
         self.vendor_product_extractor = VendorProductExtractor()
         self.cvss_parser = CVSSVectorParser()
@@ -341,7 +333,7 @@ class NVDClient(BaseAPIClient):
                     )
                     cvss_metrics.append(cvss_metric)
 
-                    # Enhanced CVSS vector parsing for attack details (use first/primary metric)  
+                    # Enhanced CVSS vector parsing for attack details (use first/primary metric)
                     if len(cvss_metrics) == 1 and cvss_metric.vector_string:
                         parsed_vector = self.cvss_parser.parse_cvss_vector(cvss_metric.vector_string)
                         attack_vector = parsed_vector.get("attack_vector", "Unknown")

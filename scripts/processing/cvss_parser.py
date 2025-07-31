@@ -1,7 +1,7 @@
 """Enhanced CVSS vector parsing for extracting detailed attack metrics."""
 
 import re
-from typing import Dict, Optional, Tuple
+from typing import Dict
 
 import structlog
 
@@ -17,7 +17,7 @@ class CVSSVectorParser:
         self.cvss3_mappings = {
             "AV": {  # Attack Vector
                 "N": "Network",
-                "A": "Adjacent Network", 
+                "A": "Adjacent Network",
                 "L": "Local",
                 "P": "Physical"
             },
@@ -27,7 +27,7 @@ class CVSSVectorParser:
             },
             "PR": {  # Privileges Required
                 "N": "None",
-                "L": "Low", 
+                "L": "Low",
                 "H": "High"
             },
             "UI": {  # User Interaction
@@ -44,13 +44,13 @@ class CVSSVectorParser:
                 "H": "High"
             },
             "I": {   # Integrity Impact
-                "N": "None", 
+                "N": "None",
                 "L": "Low",
                 "H": "High"
             },
             "A": {   # Availability Impact
                 "N": "None",
-                "L": "Low", 
+                "L": "Low",
                 "H": "High"
             }
         }
@@ -74,7 +74,7 @@ class CVSSVectorParser:
             },
             "C": {   # Confidentiality Impact
                 "N": "None",
-                "P": "Partial", 
+                "P": "Partial",
                 "C": "Complete"
             },
             "I": {   # Integrity Impact
@@ -91,16 +91,16 @@ class CVSSVectorParser:
 
     def parse_cvss_vector(self, vector_string: str) -> Dict[str, str]:
         """Parse CVSS vector string and extract all components.
-        
+
         Args:
             vector_string: CVSS vector string (e.g., "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H")
-            
+
         Returns:
             Dictionary with parsed CVSS components
         """
         result = {
             "attack_vector": "Unknown",
-            "attack_complexity": "Unknown", 
+            "attack_complexity": "Unknown",
             "privileges_required": "Unknown",
             "user_interaction": "Unknown",
             "scope": "Unknown",
@@ -152,14 +152,14 @@ class CVSSVectorParser:
                 return "3.1"
             elif re.match(r"AV:[NAL]/AC:[HML]/Au:[MSN]", vector_string):
                 return "2.0"
-            
+
         return "Unknown"
 
     def _parse_cvss3_vector(self, vector_string: str, result: Dict[str, str]) -> Dict[str, str]:
         """Parse CVSS v3.x vector string."""
         # Extract metric values using regex
         metrics = re.findall(r"([A-Z]+):([A-Z])", vector_string)
-        
+
         for metric, value in metrics:
             if metric == "AV":
                 result["attack_vector"] = self.cvss3_mappings["AV"].get(value, f"Unknown ({value})")
@@ -184,7 +184,7 @@ class CVSSVectorParser:
         """Parse CVSS v2.0 vector string."""
         # Extract metric values using regex
         metrics = re.findall(r"([A-Z][a-z]?):([A-Z])", vector_string)
-        
+
         for metric, value in metrics:
             if metric == "AV":
                 result["attack_vector"] = self.cvss2_mappings["AV"].get(value, f"Unknown ({value})")

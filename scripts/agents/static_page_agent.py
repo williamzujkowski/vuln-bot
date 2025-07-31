@@ -89,7 +89,7 @@ class StaticPageAgent(BaseAgent):
 
                     if should_update:
                         # Generate page content
-                        page_content = await self._generate_page_content(vuln, config)
+                        page_content = await self._generate_page_content(vuln)
 
                         # Write page
                         page_path.write_text(page_content)
@@ -117,7 +117,7 @@ class StaticPageAgent(BaseAgent):
 
             # Generate index page if requested
             if config.get('generate_index'):
-                await self._generate_index_page(vulnerabilities, output_dir, config)
+                await self._generate_index_page(vulnerabilities, output_dir)
 
             results['obsolete_files_removed'] = len(obsolete_files)
             results['completed_at'] = datetime.now(timezone.utc).isoformat()
@@ -140,7 +140,7 @@ class StaticPageAgent(BaseAgent):
             self.logger.error("Static page generation failed", error=str(e))
             raise
 
-    async def _generate_page_content(self, vuln, config: Dict[str, Any]) -> str:
+    async def _generate_page_content(self, vuln) -> str:
         """Generate content for a single CVE page.
 
         Args:
@@ -295,7 +295,7 @@ class StaticPageAgent(BaseAgent):
 
         return "\n".join(content_parts)
 
-    async def _generate_index_page(self, vulnerabilities: List, output_dir: Path, config: Dict[str, Any]) -> None:
+    async def _generate_index_page(self, vulnerabilities: List, output_dir: Path) -> None:
         """Generate index page for all CVEs.
 
         Args:

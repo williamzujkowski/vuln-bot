@@ -1,7 +1,7 @@
 """Enhanced vendor and product extraction utility for CVE data."""
 
 import re
-from typing import Dict, List, Optional, Set, Tuple
+from typing import Dict, List, Tuple
 
 import structlog
 
@@ -77,86 +77,86 @@ class VendorProductExtractor:
             (r"\b(ms)\s+(office|outlook|word|excel|powerpoint)\b", "Microsoft", r"\2"),
             (r"\b(windows)\s+(\d+|server|vista|xp|7|8|10|11)\b", "Microsoft", "Windows"),
             (r"\b(internet explorer|ie)\s*(\d+)?\b", "Microsoft", "Internet Explorer"),
-            
+
             # Apple products
             (r"\b(apple)\s+(safari|ios|macos|watchos|tvos)\b", "Apple", r"\2"),
             (r"\b(safari)\s+(\d+(?:\.\d+)*)\b", "Apple", "Safari"),
             (r"\b(ios)\s+(\d+(?:\.\d+)*)\b", "Apple", "iOS"),
             (r"\b(macos)\s+(\w+)\b", "Apple", "macOS"),
-            
+
             # Google products
             (r"\b(google)\s+(chrome|android|firebase|cloud)\b", "Google", r"\2"),
             (r"\b(chrome)\s+(\d+(?:\.\d+)*)\b", "Google", "Chrome"),
             (r"\b(android)\s+(\d+(?:\.\d+)*)\b", "Google", "Android"),
-            
+
             # Adobe products
             (r"\b(adobe)\s+(flash|reader|acrobat|photoshop|illustrator)\b", "Adobe", r"\2"),
             (r"\b(flash player)\b", "Adobe", "Flash Player"),
-            
+
             # Oracle products
             (r"\b(oracle)\s+(database|weblogic|java|mysql)\b", "Oracle", r"\2"),
             (r"\b(java)\s+(se|ee|runtime|jre|jdk)\b", "Oracle", "Java"),
-            
-            # Cisco products  
+
+            # Cisco products
             (r"\b(cisco)\s+(ios|asa|firepower|webex)\b", "Cisco", r"\2"),
-            
+
             # VMware products
             (r"\b(vmware)\s+(vsphere|vcenter|workstation|fusion)\b", "VMware", r"\2"),
-            
+
             # Linux distributions
             (r"\b(red hat|redhat)\s+(enterprise|linux|rhel)\b", "Red Hat", "Red Hat Enterprise Linux"),
             (r"\b(ubuntu)\s+(\d+\.\d+)\b", "Canonical", "Ubuntu"),
             (r"\b(debian)\s+(\d+)\b", "Debian", "Debian"),
             (r"\b(centos)\s+(\d+)\b", "CentOS", "CentOS"),
             (r"\b(suse)\s+(linux|enterprise)\b", "SUSE", "SUSE Linux"),
-            
+
             # Web browsers
             (r"\b(firefox)\s+(\d+(?:\.\d+)*)\b", "Mozilla", "Firefox"),
             (r"\b(mozilla)\s+(firefox)\b", "Mozilla", "Firefox"),
-            
+
             # Web frameworks and applications
             (r"\b(wordpress)\b", "WordPress", "WordPress"),
             (r"\b(drupal)\s+(\d+(?:\.\d+)*)\b", "Drupal", "Drupal"),
             (r"\b(joomla)\s+(\d+(?:\.\d+)*)\b", "Joomla", "Joomla"),
-            
+
             # Databases
             (r"\b(postgresql)\s+(\d+(?:\.\d+)*)\b", "PostgreSQL", "PostgreSQL"),
             (r"\b(mysql)\s+(\d+(?:\.\d+)*)\b", "MySQL", "MySQL"),
             (r"\b(mongodb)\s+(\d+(?:\.\d+)*)\b", "MongoDB", "MongoDB"),
             (r"\b(elasticsearch)\b", "Elastic", "Elasticsearch"),
-            
+
             # Development tools
             (r"\b(jenkins)\s+(\d+(?:\.\d+)*)\b", "Jenkins", "Jenkins"),
             (r"\b(docker|docker engine)\b", "Docker", "Docker"),
             (r"\b(kubernetes|k8s)\b", "Kubernetes", "Kubernetes"),
-            
+
             # Programming languages/runtimes
             (r"\b(node\.?js)\s+(\d+(?:\.\d+)*)\b", "Node.js", "Node.js"),
             (r"\b(python)\s+(\d+(?:\.\d+)*)\b", "Python", "Python"),
             (r"\b(php)\s+(\d+(?:\.\d+)*)\b", "PHP", "PHP"),
             (r"\b(ruby)\s+(\d+(?:\.\d+)*)\b", "Ruby", "Ruby"),
             (r"\b(go|golang)\s+(\d+(?:\.\d+)*)\b", "Go", "Go"),
-            
+
             # Apache specific improvements
             (r"\b(apache)\s+(http\s+server)\b", "Apache", "Apache HTTP Server"),
-            
+
             # Generic patterns (more conservative)
             (r"\b([A-Z][a-z]+)\s+(Server|Database|Framework|Engine|Browser)\b", r"\1", r"\1 \2"),
         ]
 
     def extract_vendors_products(
-        self, 
-        cve_data: Dict, 
-        description: str = "", 
+        self,
+        cve_data: Dict,
+        description: str = "",
         title: str = ""
     ) -> Tuple[List[str], List[str]]:
         """Extract vendor and product information from CVE data.
-        
+
         Args:
             cve_data: Full CVE data structure
             description: CVE description text
             title: CVE title text
-            
+
         Returns:
             Tuple of (vendors, products) lists
         """
@@ -267,7 +267,7 @@ class VendorProductExtractor:
                         vendor = vendor_template
                     else:
                         vendor = match.expand(vendor_template)
-                    
+
                     # Process product
                     if isinstance(product_template, str) and not product_template.startswith("\\"):
                         product = product_template
@@ -296,7 +296,7 @@ class VendorProductExtractor:
 
         for ref in cna.get("references", []):
             url = ref.get("url", "").lower()
-            
+
             # Extract from domain names
             domain_patterns = [
                 (r"microsoft\.com", "microsoft"),

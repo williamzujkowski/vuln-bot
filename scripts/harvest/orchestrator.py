@@ -300,12 +300,11 @@ class HarvestOrchestrator:
             )
 
         # Keep NVD as fallback source (limited by rate limits without API key)
-        if not include_sources or "nvd" in include_sources:
-            # Only use NVD if we have an API key or explicitly requested
-            if self.api_keys.get("NVD_API_KEY") or "nvd" in (include_sources or set()):
-                harvest_tasks.append(
-                    ("NVD", self.harvest_nvd_data, years, min_severity, None)
-                )
+        # Only use NVD if we have an API key or explicitly requested
+        if (not include_sources or "nvd" in include_sources) and (self.api_keys.get("NVD_API_KEY") or "nvd" in (include_sources or set())):
+            harvest_tasks.append(
+                ("NVD", self.harvest_nvd_data, years, min_severity, None)
+            )
 
         if not include_sources or "github" in include_sources:
             harvest_tasks.append(

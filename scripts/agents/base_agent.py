@@ -86,7 +86,7 @@ class BaseAgent(abc.ABC):
 
             # Update state tracking
             execution_time = time.time() - start_time
-            self._update_run_metadata(execution_time, success=True)
+            self._update_run_metadata(success=True)
 
             # Cache the result
             await self._cache_result(result)
@@ -101,7 +101,7 @@ class BaseAgent(abc.ABC):
 
         except Exception as e:
             execution_time = time.time() - start_time
-            self._update_run_metadata(execution_time, success=False, error=str(e))
+            self._update_run_metadata(success=False, error=str(e))
             self.logger.error(
                 "Agent execution failed",
                 error=str(e),
@@ -198,7 +198,7 @@ class BaseAgent(abc.ABC):
         except Exception as e:
             self.logger.warning("Failed to cache result", error=str(e))
 
-    def _update_run_metadata(self, execution_time: float, success: bool, error: Optional[str] = None) -> None:
+    def _update_run_metadata(self, success: bool, error: Optional[str] = None) -> None:
         """Update agent run metadata."""
         self.last_run = datetime.now(timezone.utc)
         self.run_count += 1

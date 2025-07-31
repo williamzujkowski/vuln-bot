@@ -22,8 +22,8 @@ from scripts.models import (
     Vulnerability,
     VulnerabilitySource,
 )
-from scripts.processing.vendor_product_extractor import VendorProductExtractor
 from scripts.processing.cvss_parser import CVSSVectorParser
+from scripts.processing.vendor_product_extractor import VendorProductExtractor
 
 
 class CVEListClient(BaseAPIClient):
@@ -61,7 +61,7 @@ class CVEListClient(BaseAPIClient):
         self.use_releases = use_releases
         self.cache_manager = cache_manager
         self.logger = structlog.get_logger(self.__class__.__name__)
-        
+
         # Initialize enhanced extractors
         self.vendor_product_extractor = VendorProductExtractor()
         self.cvss_parser = CVSSVectorParser()
@@ -364,7 +364,7 @@ class CVEListClient(BaseAPIClient):
             cvss_metrics = []
             severity = SeverityLevel.NONE
             attack_vector = "Unknown"
-            attack_complexity = "Unknown" 
+            attack_complexity = "Unknown"
             privileges_required = "Unknown"
             user_interaction = "Unknown"
 
@@ -385,7 +385,7 @@ class CVEListClient(BaseAPIClient):
                         cvss_metric.base_severity, 0
                     ) > severity_order.get(severity, 0):
                         severity = cvss_metric.base_severity
-                    
+
                     # Parse CVSS vector for attack details (use first/primary metric)
                     if len(cvss_metrics) == 1 and cvss_metric.vector_string:
                         parsed_vector = self.cvss_parser.parse_cvss_vector(cvss_metric.vector_string)
