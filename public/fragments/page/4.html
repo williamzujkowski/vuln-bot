@@ -1,0 +1,72 @@
+
+        <div class="table-container" id="vulnerabilities-table">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th class="sortable" data-sort="cve_id"
+                            hx-get="../sort/cve_id.html"
+                            hx-target="#vulnerabilities-table"
+                            hx-swap="outerHTML">
+                            CVE ID
+                        </th>
+                        <th class="sortable" data-sort="severity"
+                            hx-get="../sort/severity.html"
+                            hx-target="#vulnerabilities-table"
+                            hx-swap="outerHTML">
+                            Severity
+                        </th>
+                        <th class="sortable" data-sort="cvss_score"
+                            hx-get="../sort/cvss_score.html"
+                            hx-target="#vulnerabilities-table"
+                            hx-swap="outerHTML">
+                            CVSS
+                        </th>
+                        <th class="sortable" data-sort="epss_percentile"
+                            hx-get="../sort/epss_percentile.html"
+                            hx-target="#vulnerabilities-table"
+                            hx-swap="outerHTML">
+                            EPSS % ↓
+                        </th>
+                        <th class="sortable" data-sort="risk_score"
+                            hx-get="../sort/risk_score.html"
+                            hx-target="#vulnerabilities-table"
+                            hx-swap="outerHTML">
+                            Risk Score
+                        </th>
+                        <th>Title</th>
+                        <th>Vendors</th>
+                        <th class="sortable" data-sort="published_date"
+                            hx-get="../sort/published_date.html"
+                            hx-target="#vulnerabilities-table"
+                            hx-swap="outerHTML">
+                            Published
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+
+            <div class="pagination">
+                <button class="page-btn"
+                        
+                        hx-get="../page/3.html" hx-target="#vulnerabilities-table" hx-swap="outerHTML">
+                    Previous
+                </button>
+                <span class="page-info">
+                    Page 4 of 3 • 150 vulnerabilities
+                </span>
+                <button class="page-btn"
+                        disabled
+                        >
+                    Next
+                </button>
+            </div>
+        </div>
+
+        <script>
+            // Update result count
+            document.getElementById('result-count').textContent = 'Showing 0 of 150 results';
+        </script>
+        

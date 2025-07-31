@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTMX Debug Test</title>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+</head>
+<body>
+    <h1>HTMX Debug Test</h1>
+    
+    <button hx-get="/vuln-bot/fragments/stats.html" 
+            hx-target="#result"
+            hx-trigger="click">
+        Test Stats Fragment
+    </button>
+    
+    <button hx-get="/vuln-bot/fragments/filter/critical.html" 
+            hx-target="#result"
+            hx-trigger="click">
+        Test Critical Filter
+    </button>
+    
+    <button hx-get="/vuln-bot/fragments/filter/{filter}.html" 
+            hx-vals='{"filter": "all"}'
+            hx-target="#result"
+            hx-trigger="click">
+        Test Dynamic Filter
+    </button>
+    
+    <div id="result" style="border: 1px solid #ccc; padding: 10px; margin-top: 20px;">
+        Click a button to load content here
+    </div>
+    
+    <script>
+        // Log all HTMX events
+        document.body.addEventListener('htmx:configRequest', (event) => {
+            console.log('HTMX configRequest:', event.detail);
+            
+            // Handle dynamic URLs
+            let url = event.detail.path;
+            if (url.includes('{filter}')) {
+                const filterMatch = event.detail.elt.getAttribute('hx-vals');
+                if (filterMatch) {
+                    const filter = JSON.parse(filterMatch).filter;
+                    url = url.replace('{filter}', filter);
+                    console.log('Replaced URL:', url);
+                }
+            }
+            event.detail.path = url;
+        });
+        
+        document.body.addEventListener('htmx:beforeRequest', (event) => {
+            console.log('HTMX beforeRequest:', event.detail);
+        });
+        
+        document.body.addEventListener('htmx:afterRequest', (event) => {
+            console.log('HTMX afterRequest:', event.detail);
+        });
+        
+        document.body.addEventListener('htmx:responseError', (event) => {
+            console.error('HTMX responseError:', event.detail);
+        });
+    </script>
+</body>
+</html>
