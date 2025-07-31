@@ -1,6 +1,6 @@
 ---
 title: Morning Vulnerability Briefing - 2025-07-31
-date: 2025-07-31T08:10:42.013483
+date: 2025-07-31T12:10:19.557288
 layout: layouts/post.njk
 tags: [vulnerability, briefing, security]
 vulnerabilityCount: 15638
@@ -16,8 +16,8 @@ Today's briefing covers **15638 vulnerabilities** from 0 sources.
 
 - 🔴 **Critical Risk**: 0 vulnerabilities
 - 🟠 **High Risk**: 0 vulnerabilities
-- 🟡 **Medium Risk**: 10020 vulnerabilities
-- 🟢 **Low Risk**: 5618 vulnerabilities
+- 🟡 **Medium Risk**: 10019 vulnerabilities
+- 🟢 **Low Risk**: 5619 vulnerabilities
 
 ## Top Vulnerabilities
 
@@ -297,7 +297,7 @@ critical systems.
 - CRITICAL severity
 - 93.95% exploit probability
 
-**Affected Vendors**: rogierlankhorst, really simple plugins
+**Affected Vendors**: really simple plugins, rogierlankhorst
 
 **Tags**: `CWE-288`
 
@@ -916,7 +916,7 @@ code.
 - CRITICAL severity
 - 60.07% exploit probability
 
-**Affected Vendors**: konica minolta, inc., brother industries, ltd, toshiba tec
+**Affected Vendors**: brother industries, ltd, toshiba tec, konica minolta, inc.
 
 **Tags**: `CWE-1391`
 
@@ -1210,32 +1210,7 @@ code.
 
 ---
 
-### 47. [CVE-2025-27007](/api/vulns/CVE-2025-27007.json)
-
-**Risk Score**: 64/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 81.6%
-
-**Summary**: Incorrect Privilege Assignment vulnerability in Brainstorm Force SureTriggers allows Privilege Escalation.This issue affects SureTriggers: from n/a through 1.0.82.
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 81.6% exploit probability
-
-**Affected Vendors**: brainstorm force
-
-**Tags**: `CWE-266`
-
-**References**:
-
-- [https://patchstack.com/database/wordpress/plugin/suretriggers/vulnerability/wordpress-suretriggers-1-0-82-privilege-escalation-vulnerability?_s_id=cve](https://patchstack.com/database/wordpress/plugin/suretriggers/vulnerability/wordpress-suretriggers-1-0-82-privilege-escalation-vulnerability?_s_id=cve)
-- [https://patchstack.com/articles/additional-critical-ottokit-formerly-suretriggers-vulnerability-patched?_s_id=cve](https://patchstack.com/articles/additional-critical-ottokit-formerly-suretriggers-vulnerability-patched?_s_id=cve)
-
----
-
-### 48. [CVE-2024-24576](/api/vulns/CVE-2024-24576.json)
+### 47. [CVE-2024-24576](/api/vulns/CVE-2024-24576.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1261,7 +1236,7 @@ code.
 
 ---
 
-### 49. [CVE-2024-43468](/api/vulns/CVE-2024-43468.json)
+### 48. [CVE-2024-43468](/api/vulns/CVE-2024-43468.json)
 
 **Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
@@ -1286,7 +1261,7 @@ code.
 
 ---
 
-### 50. [CVE-2024-27198](/api/vulns/CVE-2024-27198.json)
+### 49. [CVE-2024-27198](/api/vulns/CVE-2024-27198.json)
 
 **Risk Score**: 63/100 | 
 **Severity**: CRITICAL | 
@@ -1306,6 +1281,33 @@ code.
 
 - [https://www.jetbrains.com/privacy-security/issues-fixed/](https://www.jetbrains.com/privacy-security/issues-fixed/)
 - [https://www.darkreading.com/cyberattacks-data-breaches/jetbrains-teamcity-mass-exploitation-underway-rogue-accounts-thrive](https://www.darkreading.com/cyberattacks-data-breaches/jetbrains-teamcity-mass-exploitation-underway-rogue-accounts-thrive)
+
+---
+
+### 50. [CVE-2024-2389](/api/vulns/CVE-2024-2389.json)
+
+**Risk Score**: 63/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 10.0 | 
+**EPSS**: 94.3%
+
+**Summary**: In Flowmon versions prior to 11.1.14 and 12.3.5, an operating system command injection vulnerability has been identified.  An unauthenticated user can gain entry to the system via the Flowmon management interface, allowing for the execution of arbitrary system commands.
+
+
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 94.35% exploit probability
+
+**Affected Vendors**: progress software
+
+**Tags**: `CWE-78`
+
+**References**:
+
+- [https://www.flowmon.com](https://www.flowmon.com)
+- [https://support.kemptechnologies.com/hc/en-us/articles/24878235038733-CVE-2024-2389-Flowmon-critical-security-vulnerability](https://support.kemptechnologies.com/hc/en-us/articles/24878235038733-CVE-2024-2389-Flowmon-critical-security-vulnerability)
 
 ---
 

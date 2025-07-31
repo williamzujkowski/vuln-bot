@@ -34,7 +34,6 @@ CVE-2024-51567,CRITICAL,0,0,65,CVE-2024-51567: upgrademysqlstatus in databases/v
 CVE-2024-1212,CRITICAL,0,0,65,LoadMaster Pre-Authenticated OS Command Injection,,2024-02-21
 CVE-2024-23108,CRITICAL,0,0,65,CVE-2024-23108: An improper neutralization of special elements used in an os command ('os command injection') in For...,,2024-02-05
 CVE-2024-31982,CRITICAL,0,0,65,XWiki Platform: Remote code execution as guest via DatabaseSearch,,2024-04-10
-CVE-2025-27007,CRITICAL,0,0,64,WordPress SureTriggers <= 1.0.82 - Privilege Escalation Vulnerability,,2025-05-01
 CVE-2024-21650,CRITICAL,0,0,64,XWiki Remote Code Execution vulnerability via user registration,,2024-01-08
 CVE-2024-3495,CRITICAL,0,0,64,Country State City Dropdown CF7 <= 2.7.2 - Unauthenticated SQL Injection,,2024-05-22
 CVE-2024-3272,CRITICAL,0,0,64,D-Link DNS-320L/DNS-325/DNS-327L/DNS-340L HTTP GET Request nas_sharing.cgi hard-coded credentials,,2024-04-04
@@ -71,6 +70,7 @@ CVE-2024-1698,CRITICAL,0,0,63,"CVE-2024-1698: The NotificationX – Best FOMO, S
 CVE-2024-23692,CRITICAL,0,0,63,Rejetto HTTP File Server 2.3m Unauthenticated RCE,,2024-05-31
 CVE-2024-28255,CRITICAL,0,0,63,Authentication Bypass in OpenMetadata,,2024-03-15
 CVE-2025-21298,CRITICAL,0,0,62,Windows OLE Remote Code Execution Vulnerability,,2025-01-14
+CVE-2025-27007,CRITICAL,0,0,62,WordPress SureTriggers <= 1.0.82 - Privilege Escalation Vulnerability,,2025-05-01
 CVE-2025-31161,CRITICAL,0,0,62,CVE-2025-31161: CrushFTP 10 before 10.8.4 and 11 before 11.3.1 allows authentication bypass and takeover of the crus...,,2025-04-03
 CVE-2025-30066,HIGH,0,0,62,CVE-2025-30066: tj-actions changed-files before 46 allows remote attackers to discover secrets by reading actions lo...,,2025-03-15
 CVE-2024-33610,CRITICAL,0,0,62,"CVE-2024-33610: ""sessionlist.html"" and ""sys_trayentryreboot.html"" are accessible with no authentication. ""sessionlis...",,2024-11-26
@@ -472,7 +472,6 @@ CVE-2025-6260,CRITICAL,0,0,51,Network Thermostat X-Series WiFi Thermostats Missi
 CVE-2025-24799,HIGH,0,0,51,GLPI allows unauthenticated SQL injection through the inventory endpoint,,2025-03-18
 CVE-2025-53624,CRITICAL,0,0,51,docusaurus-plugin-content-gists Exposes GitHub Personal Access Token,,2025-07-09
 CVE-2025-53762,HIGH,0,0,51,Microsoft Purview Elevation of Privilege Vulnerability,,2025-07-18
-CVE-2025-41687,CRITICAL,0,0,51,Weidmueller: Unauthenticated Stack-Based Buffer Overflow in u-link Management API,,2025-07-23
 CVE-2025-41646,CRITICAL,0,0,51,RevPi Webstatus application is vulnerable to an authentication bypass,,2025-06-06
 CVE-2025-32711,CRITICAL,0,0,51,M365 Copilot Information Disclosure Vulnerability,,2025-06-11
 CVE-2024-38366,CRITICAL,0,0,51,CoacoaPods trunk RCE in email verification system rfc-822,,2024-07-01
@@ -839,6 +838,7 @@ CVE-2025-53825,CRITICAL,0,0,49,Dokploy's Preview Deployments are vulnerable to R
 CVE-2025-53835,CRITICAL,0,0,49,XWiki Rendering is vulnerable to XSS attacks through insecure XHTML syntax,,2025-07-14
 CVE-2025-53084,CRITICAL,0,0,49,CVE-2025-53084: A cross-site scripting (xss) vulnerability exists in the videosList page parameter functionality of ...,,2025-07-24
 CVE-2025-53095,CRITICAL,0,0,49,Sunshine application-wide CSRF in the UI leads to command injection as Administrator,,2025-07-01
+CVE-2025-41687,CRITICAL,0,0,49,Weidmueller: Unauthenticated Stack-Based Buffer Overflow in u-link Management API,,2025-07-23
 CVE-2025-41235,HIGH,0,0,49,CVE-2025-41235: Spring Cloud Gateway Server Forwards Headers from Untrusted Proxies,,2025-05-30
 CVE-2025-41648,CRITICAL,0,0,49,Pilz: Authentication Bypass in IndustrialPI Webstatus,,2025-07-01
 CVE-2025-41225,HIGH,0,0,49,VMware vCenter Server authenticated command-execution vulnerability,,2025-05-20
@@ -1263,9 +1263,7 @@ CVE-2025-53104,CRITICAL,0,0,48,gluestack-ui Command Injection Vulnerability via 
 CVE-2025-53546,CRITICAL,0,0,48,Folo allows secrets exfiltration via `pull_request_target`,,2025-07-09
 CVE-2025-53371,CRITICAL,0,0,48,"DiscordNotifications allows DOS, SSRF, and possible RCE through requests to user-controlled URLs",,2025-07-10
 CVE-2025-53909,CRITICAL,0,0,48,mailcow: dockerized vulnerable to SSTI in Quota and Quarantine Notification Template,,2025-07-17
-CVE-2025-41683,HIGH,0,0,48,Weidmueller: Root Command Injection via Unsanitized Input in event_mail_test Endpoint,,2025-07-23
 CVE-2025-41438,CRITICAL,0,0,48,Consilium Safety CS5000 Fire Panel Initialization of a Resource with an Insecure Default,,2025-05-29
-CVE-2025-41684,HIGH,0,0,48,Weidmueller: Root Command Injection via Unsanitized Input in tls_iotgen_setting Endpoint,,2025-07-23
 CVE-2025-41426,CRITICAL,0,0,48,Vertiv Liebert RDU101 and UNITY Stack-based Buffer Overflow,,2025-05-21
 CVE-2025-41229,HIGH,0,0,48,VMware Cloud Foundation Directory Traversal Vulnerability,,2025-05-20
 CVE-2025-1907,CRITICAL,0,0,48,Instantel Micromate Missing Authentication for Critical Function,,2025-05-29
@@ -2165,29 +2163,23 @@ CVE-2025-6991,HIGH,0,0,46,Kallyas <= 4.21.0 - Authenticated (Contributor+) Local
 CVE-2025-6907,HIGH,0,0,46,code-projects Car Rental System book_car.php sql injection,,2025-06-30
 CVE-2025-6635,HIGH,0,0,46,PRT File Parsing Out-of-Bounds Read Vulnerability,,2025-07-29
 CVE-2025-6958,HIGH,0,0,46,Campcodes Employee Management System edit.php sql injection,,2025-07-01
-CVE-2025-6902,HIGH,0,0,46,code-projects Inventory Management System editUser.php sql injection,,2025-06-30
 CVE-2025-6954,HIGH,0,0,46,Campcodes Employee Management System applyleave.php sql injection,,2025-07-01
 CVE-2025-6637,HIGH,0,0,46,PRT File Parsing Out-of-Bounds Write Vulnerability,,2025-07-29
 CVE-2025-6960,HIGH,0,0,46,Campcodes Employee Management System empproject.php sql injection,,2025-07-01
-CVE-2025-6906,HIGH,0,0,46,code-projects Car Rental System login.php sql injection,,2025-06-30
 CVE-2025-6636,HIGH,0,0,46,PRT File Parsing Use-After-Free Vulnerability,,2025-07-29
 CVE-2025-6962,HIGH,0,0,46,Campcodes Employee Management System myprofileup.php sql injection,,2025-07-01
 CVE-2025-6513,CRITICAL,0,0,46,BRAIN2 Configuration file for database access not sufficiently secured,,2025-06-23
 CVE-2025-6963,HIGH,0,0,46,Campcodes Employee Management System myprofile.php sql injection,,2025-07-01
-CVE-2025-6904,HIGH,0,0,46,code-projects Car Rental System add_cars.php sql injection,,2025-06-30
 CVE-2025-6936,HIGH,0,0,46,code-projects Simple Pizza Ordering System addpro.php sql injection,,2025-07-01
 CVE-2025-6917,HIGH,0,0,46,code-projects Online Hotel Booking registration.php sql injection,,2025-06-30
 CVE-2025-6955,HIGH,0,0,46,Campcodes Employee Management System aprocess.php sql injection,,2025-07-01
 CVE-2025-6031,HIGH,0,0,46,Insecure device pairing in end of life Amazon Cloud Cam,,2025-06-12
-CVE-2025-6905,HIGH,0,0,46,code-projects Car Rental System signup.php sql injection,,2025-06-30
 CVE-2025-6755,HIGH,0,0,46,Game Users Share Buttons <= 1.3.0 - Authenticated (Subscriber+) Arbitrary File Deletion via themeNameId Parameter,,2025-06-28
 CVE-2025-6935,HIGH,0,0,46,Campcodes Sales and Inventory System payment_add.php sql injection,,2025-06-30
 CVE-2025-6937,HIGH,0,0,46,code-projects Simple Pizza Ordering System large.php sql injection,,2025-07-01
 CVE-2025-6959,HIGH,0,0,46,Campcodes Employee Management System eloginwel.php sql injection,,2025-07-01
 CVE-2025-6631,HIGH,0,0,46,PRT File Parsing Out-of-Bounds Write Vulnerability,,2025-07-29
 CVE-2025-6957,HIGH,0,0,46,Campcodes Employee Management System eprocess.php sql injection,,2025-07-01
-CVE-2025-6901,HIGH,0,0,46,code-projects Inventory Management System removeUser.php sql injection,,2025-06-30
-CVE-2025-6903,HIGH,0,0,46,code-projects Car Rental System approve.php sql injection,,2025-06-30
 CVE-2025-6020,HIGH,0,0,46,Linux-pam: linux-pam directory traversal,,2025-06-17
 CVE-2025-24777,HIGH,0,0,46,WordPress Hillter theme <= 3.0.7 - PHP Object Injection Vulnerability,,2025-07-16
 CVE-2025-24084,HIGH,0,0,46,Windows Subsystem for Linux (WSL2) Kernel Remote Code Execution Vulnerability,,2025-03-11
@@ -2239,8 +2231,10 @@ CVE-2025-53536,HIGH,0,0,46,Roo Code allows Potential Remote Code Execution via .
 CVE-2025-53641,HIGH,0,0,46,Postiz allows header mutation in middleware facilitates resulting in SSRF,,2025-07-11
 CVE-2025-41230,HIGH,0,0,46,VMware Cloud Foundation Information Disclosure Vulnerability,,2025-05-20
 CVE-2025-41431,HIGH,0,0,46,TMM Vulnerability,,2025-05-07
+CVE-2025-41683,HIGH,0,0,46,Weidmueller: Root Command Injection via Unsanitized Input in event_mail_test Endpoint,,2025-07-23
 CVE-2025-41667,HIGH,0,0,46,Phoenix Contact: File access due to the replacement of a critical file used by the arp-preinit script,,2025-07-08
 CVE-2025-41668,HIGH,0,0,46,Phoenix Contact: File access due to the replacement of a critical file used by the service security-profile,,2025-07-08
+CVE-2025-41684,HIGH,0,0,46,Weidmueller: Root Command Injection via Unsanitized Input in tls_iotgen_setting Endpoint,,2025-07-23
 CVE-2025-41666,HIGH,0,0,46,Phoenix Contact: File access due to the replacement of a critical file used by the watchdog,,2025-07-08
 CVE-2025-41414,HIGH,0,0,46,BIG-IP HTTP/2 vulnerability,,2025-05-07
 CVE-2025-41224,HIGH,0,0,46,"CVE-2025-41224: A vulnerability has been identified in RUGGEDCOM RMC8388 V5.X (All versions < V5.10.0), RUGGEDCOM RM...",,2025-07-08
@@ -3613,7 +3607,6 @@ CVE-2025-4987,HIGH,0,0,44,Stored Cross-site Scripting (XSS) vulnerability affect
 CVE-2025-4906,HIGH,0,0,44,PHPGurukul Notice Board System login.php sql injection,,2025-05-19
 CVE-2025-4870,HIGH,0,0,44,itsourcecode Restaurant Management System menu_save.php sql injection,,2025-05-18
 CVE-2025-4930,HIGH,0,0,44,Campcodes Online Shopping Portal my-cart.php sql injection,,2025-05-19
-CVE-2025-4164,HIGH,0,0,44,PHPGurukul Employee Record Management System changepassword.php sql injection,,2025-05-01
 CVE-2025-4771,HIGH,0,0,44,PHPGurukul Online Course Registration course.php sql injection,,2025-05-16
 CVE-2025-4815,HIGH,0,0,44,Campcodes Sales and Inventory System supplier_update.php sql injection,,2025-05-17
 CVE-2025-4647,HIGH,0,0,44,A user with elevated privileges can bypass sanitization measures by replacing the content of an existing SVG,,2025-05-13
@@ -3839,6 +3832,7 @@ CVE-2025-6844,HIGH,0,0,44,code-projects Simple Forum signin.php sql injection,,2
 CVE-2025-6306,HIGH,0,0,44,code-projects Online Shoe Store admin_index.php sql injection,,2025-06-20
 CVE-2025-6871,HIGH,0,0,44,SourceCodester Simple Company Website Login.php sql injection,,2025-06-29
 CVE-2025-6451,HIGH,0,0,44,code-projects Simple Online Hotel Reservation System delete_pending.php sql injection,,2025-06-22
+CVE-2025-6902,HIGH,0,0,44,code-projects Inventory Management System editUser.php sql injection,,2025-06-30
 CVE-2025-6665,HIGH,0,0,44,code-projects Inventory Management System editBrand.php sql injection,,2025-06-25
 CVE-2025-6668,HIGH,0,0,44,code-projects Inventory Management System fetchSelectedBrand.php sql injection,,2025-06-25
 CVE-2025-6761,HIGH,0,0,44,Kingdee Cloud-Starry-Sky Enterprise Edition Freemarker Engine DynamicForm 4 Action.class plugin.buildMobilePopHtml special elements used in a template engine,,2025-06-27
@@ -3850,6 +3844,7 @@ CVE-2025-6220,HIGH,0,0,44,Ultimate Addons for Contact Form 7 <= 3.5.12 - Authent
 CVE-2025-6409,HIGH,0,0,44,PHPGurukul Art Gallery Management System forgot-password.php sql injection,,2025-06-21
 CVE-2025-6343,HIGH,0,0,44,code-projects Online Shoe Store admin_product.php sql injection,,2025-06-20
 CVE-2025-6458,HIGH,0,0,44,code-projects Online Hotel Reservation System execedituser.php sql injection,,2025-06-22
+CVE-2025-6906,HIGH,0,0,44,code-projects Car Rental System login.php sql injection,,2025-06-30
 CVE-2025-6974,HIGH,0,0,44,Use of Uninitialized Variable vulnerability exists in the JT file reading procedure in SOLIDWORKS eDrawings on Release SOLIDWORKS Desktop 2025,,2025-07-15
 CVE-2025-6763,HIGH,0,0,44,Comet System H3531 Web-based Management Interface setupA.cfg missing authentication,,2025-06-27
 CVE-2025-6457,HIGH,0,0,44,code-projects Online Hotel Reservation System demo.php sql injection,,2025-06-22
@@ -3871,6 +3866,7 @@ CVE-2025-6175,HIGH,0,0,44,CRLF Injection in DECE Software's Geodi,,2025-07-29
 CVE-2025-6835,HIGH,0,0,44,code-projects Library System student-issue-book.php sql injection,,2025-06-29
 CVE-2025-6777,HIGH,0,0,44,code-projects Food Distributor Site process_login.php sql injection,,2025-06-27
 CVE-2025-6472,HIGH,0,0,44,code-projects Online Bidding System showprod.php sql injection,,2025-06-22
+CVE-2025-6904,HIGH,0,0,44,code-projects Car Rental System add_cars.php sql injection,,2025-06-30
 CVE-2025-6888,HIGH,0,0,44,PHPGurukul Teachers Record Management System changeimage.php sql injection,,2025-06-30
 CVE-2025-6972,HIGH,0,0,44,Use After Free vulnerability exists in the CATPRODUCT file reading procedure in SOLIDWORKS eDrawings on Release SOLIDWORKS Desktop 2025,,2025-07-15
 CVE-2025-6294,HIGH,0,0,44,code-projects Hostel Management System contact.php sql injection,,2025-06-20
@@ -3890,6 +3886,7 @@ CVE-2025-6123,HIGH,0,0,44,code-projects Restaurant Order System payment.php sql 
 CVE-2025-6403,HIGH,0,0,44,code-projects School Fees Payment System student.php sql injection,,2025-06-21
 CVE-2025-6407,HIGH,0,0,44,Campcodes Online Hospital Management System user-login.php sql injection,,2025-06-21
 CVE-2025-6448,HIGH,0,0,44,code-projects Simple Online Hotel Reservation System delete_room.php sql injection,,2025-06-22
+CVE-2025-6905,HIGH,0,0,44,code-projects Car Rental System signup.php sql injection,,2025-06-30
 CVE-2025-6159,HIGH,0,0,44,code-projects Hostel Management System allocate_room.php sql injection,,2025-06-17
 CVE-2025-6863,HIGH,0,0,44,PHPGurukul Local Services Search Engine Management System edit-category-detail.php sql injection,,2025-06-29
 CVE-2025-6212,HIGH,0,0,44,Ultra Addons for Contact Form 7 3.5.11 - 3.5.19 - Unauthenticated Stored Cross-Site Scripting via Database module,,2025-06-26
@@ -3932,6 +3929,7 @@ CVE-2025-6455,HIGH,0,0,44,code-projects Online Hotel Reservation System messagee
 CVE-2025-6891,HIGH,0,0,44,code-projects Inventory Management System createUser.php sql injection,,2025-06-30
 CVE-2025-6713,HIGH,0,0,44,MongoDB Server may be susceptible to privilege escalation due to $mergeCursors stage,,2025-07-07
 CVE-2025-6580,HIGH,0,0,44,SourceCodester Best Salon Management System Login sql injection,,2025-06-24
+CVE-2025-6901,HIGH,0,0,44,code-projects Inventory Management System removeUser.php sql injection,,2025-06-30
 CVE-2025-6822,HIGH,0,0,44,code-projects Inventory Management System removeProduct.php sql injection,,2025-06-28
 CVE-2025-6419,HIGH,0,0,44,code-projects Simple Online Hotel Reservation System edit_room.php sql injection,,2025-06-21
 CVE-2025-6160,HIGH,0,0,44,SourceCodester Client Database Management System user_customer_create_order.php sql injection,,2025-06-17
@@ -3948,6 +3946,7 @@ CVE-2025-6819,HIGH,0,0,44,code-projects Inventory Management System removeBrand.
 CVE-2025-6501,HIGH,0,0,44,code-projects Inventory Management System createCategories.php sql injection,,2025-06-23
 CVE-2025-6318,HIGH,0,0,44,PHPGurukul Pre-School Enrollment System check_availability.php sql injection,,2025-06-20
 CVE-2025-6481,HIGH,0,0,44,code-projects Simple Pizza Ordering System update.php sql injection,,2025-06-22
+CVE-2025-6903,HIGH,0,0,44,code-projects Car Rental System approve.php sql injection,,2025-06-30
 CVE-2025-6885,HIGH,0,0,44,PHPGurukul Teachers Record Management System edit-teacher-detail.php sql injection,,2025-06-30
 CVE-2025-6826,HIGH,0,0,44,code-projects Payroll Management System ajax.php sql injection,,2025-06-28
 CVE-2025-6408,HIGH,0,0,44,Campcodes Online Hospital Management System search.php sql injection,,2025-06-21
@@ -4010,8 +4009,6 @@ CVE-2025-53832,HIGH,0,0,44,@translated/lara-mcp vulnerable to command injection 
 CVE-2025-53015,HIGH,0,0,44,ImageMagick has XMP profile write that triggers hang due to unbounded loop,,2025-07-14
 CVE-2025-53372,HIGH,0,0,44,node-code-sandbox-mcp has a Sandbox Escape via Command Injection,,2025-07-08
 CVE-2025-53277,HIGH,0,0,44,WordPress IS-theme-companion plugin <= 1.57 - Cross Site Request Forgery (CSRF) Vulnerability,,2025-06-27
-CVE-2025-53415,HIGH,0,0,44,File Parsing Deserialization of Untrusted Data in DTM Soft,,2025-06-30
-CVE-2025-53416,HIGH,0,0,44,File Parsing Deserialization of Untrusted Data in DTN Soft,,2025-06-30
 CVE-2025-53528,HIGH,0,0,44,Cadwyn is vulnerable to an XSS attack through its docs page,,2025-07-21
 CVE-2025-53503,HIGH,0,0,44,CVE-2025-53503: Trend Micro Cleaner One Pro is vulnerable to a Privilege Escalation vulnerability that could allow a...,,2025-07-10
 CVE-2025-53080,HIGH,0,0,44,CVE-2025-53080: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') in Samsung DMS(Data M...,,2025-07-29
@@ -4909,12 +4906,10 @@ CVE-2025-4288,HIGH,0,0,43,PCMan FTP Server RNFR Command buffer overflow,,2025-05
 CVE-2025-4184,HIGH,0,0,43,PCMan FTP Server QUOTE Command buffer overflow,,2025-05-01
 CVE-2025-4392,HIGH,0,0,43,Shared Files <= 1.7.48 - Unauthenticated Stored Cross-Site Scripting via sanitize_file Function,,2025-06-03
 CVE-2025-4456,HIGH,0,0,43,Project Worlds Car Rental Project signup.php sql injection,,2025-05-09
-CVE-2025-4160,HIGH,0,0,43,PCMan FTP Server LS Command buffer overflow,,2025-05-01
 CVE-2025-4706,HIGH,0,0,43,projectworlds Online Examination System Procedure3b_yearwiseVisit.php sql injection,,2025-05-15
 CVE-2025-4130,HIGH,0,0,43,Hardcoded Credentials in PAVO Inc.'s PAVO Pay,,2025-07-21
 CVE-2025-4928,HIGH,0,0,43,projectworlds Online Lawyer Management System save_lawyer_edit_profile.php sql injection,,2025-05-19
 CVE-2025-4579,HIGH,0,0,43,WP Content Security Plugin <= 2.3 - Unauthenticated Stored Cross-Site Scripting via CSP-Report Fields,,2025-05-15
-CVE-2025-4158,HIGH,0,0,43,PCMan FTP Server PROMPT Command buffer overflow,,2025-05-01
 CVE-2025-4844,HIGH,0,0,43,FreeFloat FTP Server CD Command buffer overflow,,2025-05-18
 CVE-2025-4253,HIGH,0,0,43,PCMan FTP Server HASH Command buffer overflow,,2025-05-04
 CVE-2025-4848,HIGH,0,0,43,FreeFloat FTP Server RECV Command buffer overflow,,2025-05-18
@@ -4923,16 +4918,13 @@ CVE-2025-4129,HIGH,0,0,43,IDOR in PAVO Inc.'s PAVO Pay,,2025-07-21
 CVE-2025-4791,HIGH,0,0,43,FreeFloat FTP Server HASH Command buffer overflow,,2025-05-16
 CVE-2025-4183,HIGH,0,0,43,PCMan FTP Server RECV Command buffer overflow,,2025-05-01
 CVE-2025-4482,HIGH,0,0,43,Project Worlds Student Project Allocation System forgot_password_sql.php sql injection,,2025-05-09
-CVE-2025-4159,HIGH,0,0,43,PCMan FTP Server GLOB Command buffer overflow,,2025-05-01
 CVE-2025-4936,HIGH,0,0,43,projectworlds Online Food Ordering System admin-page.php sql injection,,2025-05-19
 CVE-2025-4803,HIGH,0,0,43,Glossary by WPPedia <= 1.3.0 - Authenticated (Administrator+) PHP Object Injection,,2025-05-21
 CVE-2025-4543,HIGH,0,0,43,LyLme Spage ajax_link.php sql injection,,2025-05-11
 CVE-2025-4252,HIGH,0,0,43,PCMan FTP Server APPEND Command buffer overflow,,2025-05-04
-CVE-2025-4161,HIGH,0,0,43,PCMan FTP Server VERBOSE Command buffer overflow,,2025-05-01
 CVE-2025-4790,HIGH,0,0,43,FreeFloat FTP Server GLOB Command buffer overflow,,2025-05-16
 CVE-2025-4239,HIGH,0,0,43,PCMan FTP Server TYPE Command buffer overflow,,2025-05-03
 CVE-2025-4789,HIGH,0,0,43,FreeFloat FTP Server LCD Command buffer overflow,,2025-05-16
-CVE-2025-4162,HIGH,0,0,43,PCMan FTP Server ASCII Command buffer overflow,,2025-05-01
 CVE-2025-4272,HIGH,0,0,43,Mechrevo Control Console GCUService csCAPI.dll uncontrolled search path,,2025-05-05
 CVE-2025-4254,HIGH,0,0,43,PCMan FTP Server LIST Command buffer overflow,,2025-05-04
 CVE-2025-4290,HIGH,0,0,43,PCMan FTP Server SMNT Command buffer overflow,,2025-05-05
@@ -5782,7 +5774,6 @@ CVE-2024-8901,HIGH,0,0,43,Lack of JWT issuer and signer validation,,2024-10-21
 CVE-2024-8464,CRITICAL,0,0,43,SQL injection vulnerability in Job Portal,,2024-09-05
 CVE-2024-8795,HIGH,0,0,43,BA Book Everything <= 1.6.20 - Cross-Site Request Forgery to Email Address Update/Account Takeover,,2024-09-24
 CVE-2024-8466,CRITICAL,0,0,43,SQL injection vulnerability in Job Portal,,2024-09-05
-CVE-2024-8419,HIGH,0,0,43,ifm: Improper Access Control vulnerability in AC4xxS devices,,2025-06-30
 CVE-2024-8884,CRITICAL,0,0,43,"CVE-2024-8884: CWE-200: Exposure of Sensitive Information to an Unauthorized Actor vulnerability exists that
 could ...",,2024-10-08
 CVE-2024-8465,CRITICAL,0,0,43,SQL injection vulnerability in Job Portal,,2024-09-05
@@ -6462,6 +6453,7 @@ CVE-2025-4031,HIGH,0,0,42,PHPGurukul Pre-School Enrollment System aboutus.php sq
 CVE-2025-4540,HIGH,0,0,42,MTSoftware C-Lodop CLodopPrintService unquoted search path,,2025-05-11
 CVE-2025-4030,HIGH,0,0,42,PHPGurukul COVID19 Testing Management System search-report-result.php sql injection,,2025-04-28
 CVE-2025-4073,HIGH,0,0,42,PHPGurukul Student Record System change-password.php sql injection,,2025-04-29
+CVE-2025-4164,HIGH,0,0,42,PHPGurukul Employee Record Management System changepassword.php sql injection,,2025-05-01
 CVE-2025-4108,HIGH,0,0,42,PHPGurukul Student Record System add-subject.php sql injection,,2025-04-30
 CVE-2025-4123,HIGH,0,0,42,CVE-2025-4123: A cross-site scripting (XSS) vulnerability exists in Grafana caused by combining a client path trave...,,2025-05-22
 CVE-2025-4026,HIGH,0,0,42,PHPGurukul Nipah Virus Testing Management System profile.php sql injection,,2025-04-28
@@ -6669,6 +6661,8 @@ CVE-2025-39586,HIGH,0,0,42,WordPress ProfileGrid  <= 5.9.4.8 - SQL Injection Vul
 CVE-2025-39542,HIGH,0,0,42,WordPress Xelion Webchat <= 9.1.0 - Privilege Escalation Vulnerability,,2025-04-17
 CVE-2025-39377,HIGH,0,0,42,WordPress Appsero Helper plugin <= 1.3.4 - SQL Injection vulnerability,,2025-04-24
 CVE-2025-53990,HIGH,0,0,42,WordPress JetFormBuilder plugin <= 3.5.1.2 - PHP Object Injection Vulnerability,,2025-07-16
+CVE-2025-53415,HIGH,0,0,42,File Parsing Deserialization of Untrusted Data in DTM Soft,,2025-06-30
+CVE-2025-53416,HIGH,0,0,42,File Parsing Deserialization of Untrusted Data in DTN Soft,,2025-06-30
 CVE-2025-41256,HIGH,0,0,42,Cyberduck and Mountain Duck - Weak Hash Algorithm for Certificate Fingerprint,,2025-06-25
 CVE-2025-41388,HIGH,0,0,42,Fuji Electric Smart Editor Stack-based Buffer Overflow,,2025-06-17
 CVE-2025-41413,HIGH,0,0,42,Fuji Electric Smart Editor Out-of-bounds Write,,2025-06-17
@@ -7681,12 +7675,17 @@ CVE-2025-36529,HIGH,0,0,41,CVE-2025-36529: An OS command injection issue exists 
 CVE-2025-4065,HIGH,0,0,41,ScriptAndTools Online-Travling-System addadvertisement.php access control,,2025-04-29
 CVE-2025-4646,HIGH,0,0,41,A high privilege user is able to create and use a valid admin API token in centreon-web,,2025-05-13
 CVE-2025-4224,HIGH,0,0,41,wpForo + wpForo Advanced Attachments <= 3.1.3 - Unauthenticated Stored Cross-Site Scripting,,2025-06-03
+CVE-2025-4160,HIGH,0,0,41,PCMan FTP Server LS Command buffer overflow,,2025-05-01
 CVE-2025-4477,HIGH,0,0,41,TeamT5 ThreatSonar Anti-Ransomware - Privilege Escalation,,2025-05-19
 CVE-2025-4134,HIGH,0,0,41,Lack of file validation in Avast Business Antivirus for Linux allows writing untrusted update files,,2025-05-28
+CVE-2025-4158,HIGH,0,0,41,PCMan FTP Server PROMPT Command buffer overflow,,2025-05-01
 CVE-2025-4102,HIGH,0,0,41,Beaver Builder Plugin (Starter Version) <= 2.9.1 - Authenticated (Administrator+) Arbitrary File Upload,,2025-06-20
 CVE-2025-4058,HIGH,0,0,41,Projectworlds Online Examination System Bloodgroop_process.php sql injection,,2025-04-29
+CVE-2025-4159,HIGH,0,0,41,PCMan FTP Server GLOB Command buffer overflow,,2025-05-01
 CVE-2025-4079,HIGH,0,0,41,PCMan FTP Server RENAME Command buffer overflow,,2025-04-29
 CVE-2025-4066,HIGH,0,0,41,ScriptAndTools Online-Travling-System addpackage.php access control,,2025-04-29
+CVE-2025-4161,HIGH,0,0,41,PCMan FTP Server VERBOSE Command buffer overflow,,2025-05-01
+CVE-2025-4162,HIGH,0,0,41,PCMan FTP Server ASCII Command buffer overflow,,2025-05-01
 CVE-2025-4019,HIGH,0,0,41,20120630 Novel-Plus GeneratorController.java genCode missing authentication,,2025-04-28
 CVE-2025-4821,HIGH,0,0,41,Incorrect congestion window growth by invalid ACK ranges,,2025-06-18
 CVE-2025-4034,HIGH,0,0,41,projectworlds Online Examination System inser_doc_process.php sql injection,,2025-04-28
@@ -8201,7 +8200,6 @@ CVE-2024-13600,HIGH,0,0,41,Majestic Support – The Leading-Edge Help Desk & Cus
 CVE-2024-13684,HIGH,0,0,41,Reset <= 1.6 - Cross-Site Request Forgery to Database Reset,,2025-02-18
 CVE-2024-13690,HIGH,0,0,41,WP Church Donation <= 1.7 - Unauthenticated Stored Cross-Site Scripting,,2025-03-25
 CVE-2024-13533,HIGH,0,0,41,Small Package Quotes – USPS Edition <= 1.3.5 - Unauthenticated SQL Injection,,2025-02-19
-CVE-2024-13472,HIGH,0,0,41,WooCommerce Product Table Lite <= 3.9.4 - Unauthenticated Arbitrary Shortcode Execution & Reflected Cross-Site Scripting,,2025-01-31
 CVE-2024-13473,HIGH,0,0,41,LTL Freight Quotes - Worldwide Express Edition <= 5.0.20 - Unauthenticated SQL Injection,,2025-02-12
 CVE-2024-13558,HIGH,0,0,41,NP Quote Request for WooCommerce <= 1.9.179 - Insecure Direct Object Reference to Unauthenticated Sensitive Information Disclosure,,2025-03-20
 CVE-2024-7384,HIGH,0,0,41,AcyMailing <= 9.7.2 - Authenticated (Subscriber+) Arbitrary File Upload via acym_extractArchive Function,,2024-08-22
@@ -8364,6 +8362,7 @@ CVE-2024-40721,HIGH,0,0,41,CHANGING Information Technology TCBServiSign Windows 
 CVE-2024-8450,HIGH,0,0,41,PLANET Technology switch devices - Hard-coded SNMPv1 read-write community string,,2024-09-30
 CVE-2024-8014,HIGH,0,0,41,Telerik Reporting EntityDataSource Insecure Type Resolution,,2024-10-09
 CVE-2024-8015,CRITICAL,0,0,41,Telerik Report Server Insecure Type Resolution,,2024-10-09
+CVE-2024-8419,HIGH,0,0,41,ifm: Improper Access Control vulnerability in AC4xxS devices,,2025-06-30
 CVE-2024-8327,HIGH,0,0,41,HWA JIUH DIGITAL TECHNOLOGY Easy test Online Learning and Testing Platform - SQL injection,,2024-08-30
 CVE-2024-8428,HIGH,0,0,41,ForumWP – Forum & Discussion Board Plugin <= 2.0.2 - Insecure Direct Object Reference to Authenticated (Subscriber+) Privilege Escalation via Account Takeover,,2024-09-06
 CVE-2024-8684,HIGH,0,0,41,OS Command Injection vulnerability in Revolution Pi,,2025-02-10
@@ -10621,6 +10620,7 @@ CVE-2024-13767,HIGH,0,0,39,Live2DWebCanvas <= 1.9.11 - Authenticated (Subscriber
 CVE-2024-13345,HIGH,0,0,39,Avada Builder <= 3.11.13 - Unauthenticated Arbitrary Shortcode Execution,,2025-02-13
 CVE-2024-13409,HIGH,0,0,39,"Post Grid, Slider & Carousel Ultimate – with Shortcode, Gutenberg Block & Elementor Widget <= 1.6.10 - Authenticated (Contributor+) Local File Inclusion via post_type_ajax_handler()",,2025-01-24
 CVE-2024-13333,HIGH,0,0,39,Advanced File Manager 5.2.12 - 5.2.13 - Authenticated (Subscriber+) Arbitrary File Upload,,2025-01-17
+CVE-2024-13472,HIGH,0,0,39,WooCommerce Product Table Lite <= 3.9.4 - Unauthenticated Arbitrary Shortcode Execution & Reflected Cross-Site Scripting,,2025-01-31
 CVE-2024-13708,HIGH,0,0,39,Booster for WooCommerce 4.0.1 - 7.2.4 - Unauthenticated Stored Cross-Site Scripting,,2025-04-04
 CVE-2024-7837,HIGH,0,0,39,SQLi in Firmanet Software's ERP,,2024-11-22
 CVE-2024-7369,HIGH,0,0,39,SourceCodester Simple Realtime Quiz System Login ajax.php sql injection,,2024-08-01
@@ -11645,7 +11645,6 @@ CVE-2025-20882,HIGH,0,0,38,CVE-2025-20882: Out-of-bounds write in accessing unin
 CVE-2025-22688,HIGH,0,0,38,WordPress Unlimited Page Sidebars plugin <= 0.2.6 - CSRF to Stored XSS vulnerability,,2025-02-03
 CVE-2025-22685,HIGH,0,0,38,WordPress Tags to Keywords plugin <= 1.0.1 - CSRF to Stored XSS vulnerability,,2025-02-03
 CVE-2025-22356,HIGH,0,0,38,WordPress Stencies plugin <= 0.58 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-03-28
-CVE-2025-22332,HIGH,0,0,38,WordPress CloudFlare(R) Cache Purge plugin <= 1.2 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-31
 CVE-2025-22628,HIGH,0,0,38,WordPress Filled In Plugin <= 1.9.2 - CSRF to Stored XSS vulnerability,,2025-03-27
 CVE-2025-22703,HIGH,0,0,38,WordPress Forge – Front-End Page Builder plugin <= 1.4.6 - CSRF to Stored Cross Site Scripting (XSS) vulnerability,,2025-02-03
 CVE-2025-22632,HIGH,0,0,38,WordPress WooCommerce Pricing – Product Pricing plugin <= 1.0.9 - Cross Site Scripting (XSS) vulnerability,,2025-02-23
@@ -11669,9 +11668,7 @@ CVE-2025-22682,HIGH,0,0,38,WordPress Hesabfa Accounting Plugin <= 2.1.2 - Reflec
 CVE-2025-22286,HIGH,0,0,38,WordPress LTL Freight Quotes – Worldwide Express Edition plugin <= 5.0.21 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-02-16
 CVE-2025-22461,HIGH,0,0,38,CVE-2025-22461: SQL injection in Ivanti Endpoint Manager before version 2024 SU1 or before version 2022 SU7 allows a...,,2025-04-08
 CVE-2025-22705,HIGH,0,0,38,WordPress Disqus Popular Posts plugin <= 2.1.1 - CSRF to Reflected Cross Site Scripting (XSS) vulnerability,,2025-02-14
-CVE-2025-22564,HIGH,0,0,38,WordPress Pretty Url Plugin <= 1.5.4 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-31
 CVE-2025-22767,HIGH,0,0,38,WordPress GlobalPayments WooCommerce Plugin <= 1.13.0 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-03-28
-CVE-2025-22341,HIGH,0,0,38,WordPress Hide Login+ plugin <= 3.5.1 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-31
 CVE-2025-22501,HIGH,0,0,38,WordPress Improve My City plugin <= 1.6 - Cross Site Scripting (XSS) vulnerability,,2025-03-28
 CVE-2025-22635,HIGH,0,0,38,WordPress Eventer - WordPress Event & Booking Manager Plugin plugin < 3.9.9 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-02-23
 CVE-2025-22566,HIGH,0,0,38,WordPress ULTIMATE VIDEO GALLERY Plugin <= 1.4 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-03-28
@@ -11680,10 +11677,8 @@ CVE-2025-22679,HIGH,0,0,38,WordPress Job Board Manager Plugin <= 2.1.60 - Reflec
 CVE-2025-22651,HIGH,0,0,38,WordPress Stylish Google Sheet Reader plugin <= 4.0 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-04-17
 CVE-2025-22774,HIGH,0,0,38,WordPress CRUDLab Scroll to Top Plugin <= 1.0.1 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-04-17
 CVE-2025-22794,HIGH,0,0,38,WordPress World Cup Predictor Plugin <= 1.9.6 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-02-04
-CVE-2025-24710,HIGH,0,0,38,WordPress Gwolle Guestbook plugin <= 4.7.1 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-31
 CVE-2025-24745,HIGH,0,0,38,WordPress Classified Listing plugin <= 4.0.1 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-04-17
 CVE-2025-24707,HIGH,0,0,38,WordPress Photo Gallery – GT3 Image Gallery & Gutenberg Block Gallery plugin <= 2.7.7.24 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-02-03
-CVE-2025-24609,HIGH,0,0,38,WordPress PORTONE 우커머스 결제 Plugin <= 3.2.4 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-31
 CVE-2025-24599,HIGH,0,0,38,WordPress Newsletters plugin <= 4.9.9.6 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-02-04
 CVE-2025-24670,HIGH,0,0,38,WordPress Term Taxonomy Converter Plugin <= 1.2 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-04-17
 CVE-2025-24621,HIGH,0,0,38,WordPress Arconix Shortcodes plugin <= 2.1.15 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-04-17
@@ -11700,35 +11695,26 @@ CVE-2025-24631,HIGH,0,0,38,WordPress BP Email Assign Templates Plugin <= 1.5 - R
 CVE-2025-24700,HIGH,0,0,38,WordPress WP Event Aggregator Plugin <= 1.8.2 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-02-14
 CVE-2025-24694,HIGH,0,0,38,WordPress Name: CM E-Mail Registration Blacklist plugin <= 1.5.5 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-03-03
 CVE-2025-24614,HIGH,0,0,38,WordPress Post Timeline Plugin <= 2.3.9 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-02-14
-CVE-2025-24549,HIGH,0,0,38,WordPress Post Meta plugin <= 1.0.9 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-31
 CVE-2025-24692,HIGH,0,0,38,WordPress Bulk Menu Edit plugin <= 1.3 - Broken Access Control vulnerability,,2025-02-14
 CVE-2025-24564,HIGH,0,0,38,WordPress Contact Form With Shortcode plugin <= 4.2.5 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-02-14
 CVE-2025-24554,HIGH,0,0,38,WordPress AWcode Toolkit plugin <= 1.0.14 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-02-14
 CVE-2025-24017,HIGH,0,0,38,YesWiki Vulnerable to Unauthenticated DOM Based XSS,,2025-01-21
-CVE-2025-24749,HIGH,0,0,38,WordPress  EZPZ SAML SP Single Sign On (SSO) plugin <= 1.2.5 - CSRF to Stored XSS vulnerability,,2025-01-31
-CVE-2025-24563,HIGH,0,0,38,WordPress Cleanup – Directory Listing & Classifieds plugin <= 1.0.4 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-31
 CVE-2025-24645,HIGH,0,0,38,WordPress Eazy Under Construction Plugin <= 1.0 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-04-17
 CVE-2025-24619,HIGH,0,0,38,WordPress WP Log Action Plugin <= 0.51 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-04-17
 CVE-2025-24499,HIGH,0,0,38,CVE-2025-24499: A vulnerability has been identified in SCALANCE WAB762-1 (6GK5762-1AJ00-6AA0) (All versions < V3.0.0...,,2025-02-11
-CVE-2025-24686,HIGH,0,0,38,WordPress RegistrationMagic Plugin <= 6.0.3.3 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-31
 CVE-2025-24660,HIGH,0,0,38,WordPress Simple Membership Custom Messages Plugin <= 2.4 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-02-03
 CVE-2025-24676,HIGH,0,0,38,WordPress Custom WP Store Locator plugin  <= 1.4.7 - Cross Site Scripting (XSS) vulnerability,,2025-02-03
 CVE-2025-24030,HIGH,0,0,38,Envoy Admin Interface Exposed through prometheus metrics endpoint,,2025-01-23
 CVE-2025-24886,HIGH,0,0,38,pwn.college has Symlink LFI in Dojo repos,,2025-01-30
 CVE-2025-24684,HIGH,0,0,38,WordPress Media Downloader Plugin <= 0.4.7.5 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-02-03
 CVE-2025-24536,HIGH,0,0,38,WordPress ThriveDesk plugin <= 2.0.6 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-02-03
-CVE-2025-24560,HIGH,0,0,38,WordPress Awesome Event Booking plugin <= 2.7.1 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-31
-CVE-2025-24718,HIGH,0,0,38,WordPress WP Sessions Time Monitoring Full Automatic Plugin <= 1.1.1 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-31
 CVE-2025-24641,HIGH,0,0,38,WordPress Better WishList API plugin <= 1.1.3 - Stored Cross Site Scripting (XSS) vulnerability,,2025-02-14
-CVE-2025-24535,HIGH,0,0,38,WordPress SKT Donation plugin <= 1.9 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-31
 CVE-2025-24655,HIGH,0,0,38,WordPress Wishlist Plugin <= 1.0.39 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-04-17
 CVE-2025-24659,HIGH,0,0,38,WordPress Premium Packages – Sell Digital Products Securely plugin <= 5.9.6 - SQL Injection vulnerability,,2025-01-24
 CVE-2025-24598,HIGH,0,0,38,WordPress WP Mailster plugin <= 1.8.17.0 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-02-04
 CVE-2025-24338,HIGH,0,0,38,CVE-2025-24338: A vulnerability in the “Manages app data” functionality of the web application of ctrlX OS allows a ...,,2025-04-30
 CVE-2025-24656,HIGH,0,0,38,WordPress Realtyna Provisioning Plugin <= 1.2.2 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-02-03
 CVE-2025-24615,HIGH,0,0,38,WordPress Analytics Cat Plugin <= 1.1.2 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-02-14
-CVE-2025-24608,HIGH,0,0,38,WordPress GD Mail Queue Plugin <= 4.3 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-31
-CVE-2025-24635,HIGH,0,0,38,WordPress Paytm – Donation Plugin plugin <= 2.3.1 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-31
 CVE-2025-24646,HIGH,0,0,38,WordPress XML for Avito Plugin <= 2.5.2 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-02-03
 CVE-2025-24553,HIGH,0,0,38,WordPress Shipping with Venipak for WooCommerce plugin <= 1.22.3 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-04-17
 CVE-2025-24566,HIGH,0,0,38,WordPress Intro Tour Tutorial DeepPresentation plugin <= 6.5.2 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-02-14
@@ -11738,15 +11724,12 @@ CVE-2025-24557,HIGH,0,0,38,WordPress PlainInventory plugin <= 3.1.5 - Reflected 
 CVE-2025-24620,HIGH,0,0,38,WordPress AIO Shortcodes plugin <= 1.3 - Stored Cross Site Scripting (XSS) vulnerability,,2025-02-03
 CVE-2025-24637,HIGH,0,0,38,WordPress Beacon Lead Magnets and Lead Capture Plugin <= 1.5.7 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-04-17
 CVE-2025-24629,HIGH,0,0,38,WordPress Import Excel to Gravity Forms Plugin <= 1.18 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-02-03
-CVE-2025-24551,HIGH,0,0,38,WordPress Radio Buttons and Swatches for WooCommerce plugin <= 1.1.20 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-31
 CVE-2025-24616,HIGH,0,0,38,WordPress Uix Page Builder Plugin <= 1.7.3 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-02-14
 CVE-2025-24699,HIGH,0,0,38,WordPress WP Coder Plugin <= 3.6 -  CSRF to Cross Site Scripting (XSS) vulnerability,,2025-02-14
-CVE-2025-24632,HIGH,0,0,38,WordPress Advanced Dynamic Pricing for WooCommerce Plugin <= 4.9.0 -Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-31
 CVE-2025-24576,HIGH,0,0,38,WordPress Landing Page Cat plugin <= 1.7.7 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-02-03
 CVE-2025-24545,HIGH,0,0,38,WordPress BSK Forms Validation plugin <= 1.7 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-02-03
 CVE-2025-24350,HIGH,0,0,38,CVE-2025-24350: A vulnerability in the “Certificates and Keys” functionality of the web application of ctrlX OS allo...,,2025-04-30
 CVE-2025-24548,HIGH,0,0,38,WordPress Autoglot – Automatic WordPress Translation plugin <=2.4.7 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-04-17
-CVE-2025-24534,HIGH,0,0,38,WordPress DPortfolio plugin <= 2.0 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-31
 CVE-2025-24565,HIGH,0,0,38,WordPress WP2LEADS plugin <= 3.3.3 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-02-14
 CVE-2025-24559,HIGH,0,0,38,WordPress WP Mailster plugin <= 1.8.15.0 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-02-03
 CVE-2025-24586,HIGH,0,0,38,WordPress Shipment Tracker for Woocommerce plugin <= 1.4.23 - Cross Site Scripting (XSS) vulnerability,,2025-04-17
@@ -11830,7 +11813,6 @@ CVE-2025-23479,HIGH,0,0,38,WordPress melascrivi plugin <= 1.4 - Reflected Cross 
 CVE-2025-23612,HIGH,0,0,38,WordPress Pixobe Cartography plugin <= 1.0.1 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-03-26
 CVE-2025-23488,HIGH,0,0,38,WordPress rng-refresh plugin <= 1.0 -  Reflected Cross Site Scripting (XSS) vulnerability,,2025-03-03
 CVE-2025-23853,HIGH,0,0,38,WordPress NoFollow Free plugin <= 1.6.3 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-02-14
-CVE-2025-23989,HIGH,0,0,38,WordPress  Internal Link Builder plugin <= 1.0 - CSRF to Stored XSS vulnerability,,2025-01-31
 CVE-2025-23652,HIGH,0,0,38,WordPress Add custom content after post plugin <= 1.0 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-02-14
 CVE-2025-23881,HIGH,0,0,38,WordPress  LJ Custom Menu Links Plugin <= 2.5 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-03-03
 CVE-2025-23753,HIGH,0,0,38,WordPress DN Sitemap Control plugin <= 1.0.6 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-03-03
@@ -11850,7 +11832,6 @@ CVE-2025-23549,HIGH,0,0,38,WordPress Maniac SEO plugin <= 2.0 - Reflected Cross 
 CVE-2025-23428,HIGH,0,0,38,WordPress QMean plugin <= 2.0 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-02-14
 CVE-2025-23658,HIGH,0,0,38,WordPress Advanced Angular Contact Form plugin <= 1.1.0 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-02-14
 CVE-2025-23523,HIGH,0,0,38,WordPress HSS Embed Streaming Video plugin <= 3.23 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-02-14
-CVE-2025-23980,HIGH,0,0,38,WordPress Full Circle plugin <= 0.5.7.8 - CSRF to Stored Cross Site Scripting (XSS) vulnerability,,2025-01-31
 CVE-2025-23685,HIGH,0,0,38,WordPress RomanCart On WordPress plugin <= 0.0.2 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-02-03
 CVE-2025-23441,HIGH,0,0,38,WordPress Attach Gallery Posts plugin <= 1.6 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-03-03
 CVE-2025-23680,HIGH,0,0,38,WordPress Narnoo Operator plugin <= 2.0.0 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-03-26
@@ -11900,7 +11881,6 @@ CVE-2025-23425,HIGH,0,0,38,WordPress Marekkis Watermark plugin <= 0.9.4 - Reflec
 CVE-2025-23485,HIGH,0,0,38,WordPress RS Survey plugin <= 1.0 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-03-03
 CVE-2025-23748,HIGH,0,0,38,WordPress Singsys -Awesome Gallery plugin <= 1.0 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-02-14
 CVE-2025-23728,HIGH,0,0,38,WordPress AuMenu plugin <= 1.1.5 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-03-26
-CVE-2025-23990,HIGH,0,0,38,WordPress Scroll Styler plugin <= 1.1 - CSRF to Stored XSS vulnerability,,2025-01-31
 CVE-2025-23786,HIGH,0,0,38,WordPress Email to Download Plugin <= 3.1.0 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-02-14
 CVE-2025-23956,HIGH,0,0,38,WordPress WP Easy Post Mailer Plugin <= 0.64 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-03-03
 CVE-2025-23582,HIGH,0,0,38,WordPress Bulk Categories Assign plugin <= 1.0 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-02-03
@@ -11908,7 +11888,6 @@ CVE-2025-23473,HIGH,0,0,38,WordPress Killer Theme Options plugin <= 2.0 - Reflec
 CVE-2025-23855,HIGH,0,0,38,WordPress SpiderDisplay plugin <= 1.9.1 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-04-17
 CVE-2025-23650,HIGH,0,0,38,WordPress Tidy.ro plugin <= 1.3 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-02-14
 CVE-2025-23750,HIGH,0,0,38,WordPress Custom Widget Creator plugin <= 1.0.5 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-02-14
-CVE-2025-23671,HIGH,0,0,38,WordPress WP OpenSearch plugin <= 1.0 - Cross Site Scripting (XSS) vulnerability,,2025-01-31
 CVE-2025-23635,HIGH,0,0,38,WordPress ePermissions plugin <= 1.2 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-03-03
 CVE-2025-23657,HIGH,0,0,38,WordPress WordPress-to-candidate for Salesforce CRM plugin <= 1.0.1 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-02-14
 CVE-2025-23742,HIGH,0,0,38,WordPress Podamibe Twilio Private Call plugin <= 1.0.1 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-02-14
@@ -11920,7 +11899,6 @@ CVE-2025-23782,HIGH,0,0,38,WordPress TotalContest Lite Plugin <= 2.8.1 - Reflect
 CVE-2025-23851,HIGH,0,0,38,WordPress Coronavirus (COVID-19) Outbreak Data Widgets Plugin <= 1.1.1 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-02-14
 CVE-2025-23984,HIGH,0,0,38,WordPress Dynamic URL SEO plugin <= 1.0 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-02-03
 CVE-2025-23212,HIGH,0,0,38,Tandoor Recipes - Local file disclosure - Users can read the content of any file on the server,,2025-01-28
-CVE-2025-23976,HIGH,0,0,38,WordPress Issuu Panel plugin <= 2.1.1 - CSRF to Stored Cross Site Scripting (XSS) vulnerability,,2025-01-31
 CVE-2025-23519,HIGH,0,0,38,WordPress G Web Pro Store Locator plugin <= 2.0.1 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-03-03
 CVE-2025-23787,HIGH,0,0,38,WordPress Easy Bet Plugin <= 1.0.7 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-02-14
 CVE-2025-23385,HIGH,0,0,38,"CVE-2025-23385: In JetBrains ReSharper before 2024.3.4, 2024.2.8, and 2024.1.7, Rider before 2024.3.4, 2024.2.8, and...",,2025-01-28
@@ -11948,7 +11926,6 @@ CVE-2025-23539,HIGH,0,0,38,WordPress Awesome Hooks plugin <= 1.0.1 - Cross Site 
 CVE-2025-23721,HIGH,0,0,38,WordPress Mobigate plugin <= 1.0.3 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-03-03
 CVE-2025-23663,HIGH,0,0,38,WordPress Contexto plugin <= 1.0 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-03-03
 CVE-2025-23923,HIGH,0,0,38,WordPress Lockets Plugin <= 0.999 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-02-03
-CVE-2025-23978,HIGH,0,0,38,WordPress FlashCounter plugin <= 1.1.8 - CSRF to Stored Cross Site Scripting (XSS) vulnerability,,2025-01-31
 CVE-2025-23847,HIGH,0,0,38,WordPress Site Launcher Plugin <= 0.9.4 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-03-03
 CVE-2025-23542,HIGH,0,0,38,WordPress RDP Linkedin Login plugin <= 1.7.0 - Cross Site Scripting (XSS) vulnerability,,2025-03-26
 CVE-2025-23648,HIGH,0,0,38,WordPress AdsMiddle plugin <= 1.0 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-02-14
@@ -11960,13 +11937,10 @@ CVE-2025-23840,HIGH,0,0,38,WordPress WP-NOTCAPTCHA Plugin <= 1.3.1 - Reflected C
 CVE-2025-23490,HIGH,0,0,38,WordPress Browser-Update-Notify plugin <= 0.2.1 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-03-03
 CVE-2025-23587,HIGH,0,0,38,WordPress all-in-one-box-login plugin <= 2.0.1 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-03-03
 CVE-2025-23645,HIGH,0,0,38,WordPress Find Content IDs plugin <= 1.0 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-02-04
-CVE-2025-23977,HIGH,0,0,38,WordPress Post Carousel Slider plugin <= 2.0.1 - CSRF to Stored XSS vulnerability,,2025-01-31
 CVE-2025-23852,HIGH,0,0,38,WordPress First Comment Redirect plugin <= 1.0.3 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-03-03
 CVE-2025-23447,HIGH,0,0,38,WordPress Smooth Dynamic Slider plugin <= 1.0 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-03-03
-CVE-2025-23759,HIGH,0,0,38,WordPress Affiliate Tools Việt Nam plugin <= 0.3.17 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-31
 CVE-2025-23633,HIGH,0,0,38,WordPress WP Database Audit plugin <= 1.0 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-03-26
 CVE-2025-23433,HIGH,0,0,38,WordPress vcOS plugin <=1.4.0 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-03-03
-CVE-2025-23596,HIGH,0,0,38,WordPress Notifikácie.sk plugin <= 1.0 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-31
 CVE-2025-23904,HIGH,0,0,38,WordPress Rebrand Fluent Forms Plugin <= 1.0 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-03-03
 CVE-2025-23520,HIGH,0,0,38,WordPress Heartland Management Terminal plugin <= 1.3.0 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-03-03
 CVE-2025-23439,HIGH,0,0,38,WordPress TinyMCE Extended Config plugin <= 0.1.0 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-03-03
@@ -14432,6 +14406,7 @@ CVE-2025-22714,HIGH,0,0,36,WordPress MDJM Event Management Plugin <= 1.7.5.5 - R
 CVE-2025-22709,HIGH,0,0,36,WordPress Verge3D Publishing and E-Commerce Plugin <= 4.8.0 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-21
 CVE-2025-22357,HIGH,0,0,36,WordPress Target Notifications plugin <= 1.1.1 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-07
 CVE-2025-22571,HIGH,0,0,36,WordPress Instabot plugin <= 1.10 - CSRF to Stored XSS vulnerability,,2025-01-07
+CVE-2025-22332,HIGH,0,0,36,WordPress CloudFlare(R) Cache Purge plugin <= 1.2 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-31
 CVE-2025-22766,HIGH,0,0,36,WordPress Zarinpal Paid Download Plugin <= 2.3 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-15
 CVE-2025-22735,HIGH,0,0,36,WordPress Tag Cloud Plugin - Tag Groups plugin <= 2.0.4 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-21
 CVE-2025-22337,HIGH,0,0,36,WordPress Order Audit Log for WooCommerce plugin <= 2.0  - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-13
@@ -14482,10 +14457,12 @@ CVE-2025-22295,HIGH,0,0,36,WordPress Tripetto plugin <= 8.0.5 - Cross Site Scrip
 CVE-2025-22590,HIGH,0,0,36,WordPress Prayer Times Anywhere plugin <= 2.0.1 - CSRF to Stored XSS vulnerability,,2025-01-07
 CVE-2025-22358,HIGH,0,0,36,WordPress Wp advertising management plugin <= 1.0.3 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-07
 CVE-2025-22552,HIGH,0,0,36,WordPress Affiliate Disclosure Statement plugin <= 0.3 - CSRF to Stored XSS vulnerability,,2025-01-07
+CVE-2025-22564,HIGH,0,0,36,WordPress Pretty Url Plugin <= 1.5.4 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-31
 CVE-2025-22353,HIGH,0,0,36,WordPress BVD Easy Gallery Manager plugin <= 1.0.6 - Cross Site Scripting (XSS) vulnerability,,2025-01-07
 CVE-2025-22733,HIGH,0,0,36,WordPress My auctions allegro Plugin <= 3.6.18 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-21
 CVE-2025-22719,HIGH,0,0,36,WordPress VikAppointments Services Booking Calendar plugin <= 1.2.16 - CSRF to Stored XSS vulnerability,,2025-01-21
 CVE-2025-22570,HIGH,0,0,36,WordPress Inline Tweets plugin <= 2.0 - Cross Site Scripting (XSS) vulnerability,,2025-01-13
+CVE-2025-22341,HIGH,0,0,36,WordPress Hide Login+ plugin <= 3.5.1 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-31
 CVE-2025-22795,HIGH,0,0,36,WordPress Multilang Contact Form Plugin <= 1.5 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-15
 CVE-2025-22765,HIGH,0,0,36,WordPress WP Order By Plugin <= 1.4.2 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-15
 CVE-2025-22514,HIGH,0,0,36,WordPress Axact Author List Widget Plugin <= 3.1.1 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-13
@@ -14509,17 +14486,31 @@ CVE-2025-22335,HIGH,0,0,36,WordPress Opencart Product in WP plugin <= 1.0.1 - Re
 CVE-2025-22557,HIGH,0,0,36,WordPress News Publisher Autopilot plugin <= 2.1.4 - CSRF to Stored XSS vulnerability,,2025-01-07
 CVE-2025-22313,HIGH,0,0,36,WordPress Widgetize Pages Light plugin <= 3.0 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-09
 CVE-2025-24555,HIGH,0,0,36,WordPress Subscription DNA plugin <= 2.1 - CSRF to Stored XSS vulnerability,,2025-01-24
+CVE-2025-24710,HIGH,0,0,36,WordPress Gwolle Guestbook plugin <= 4.7.1 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-31
 CVE-2025-24593,HIGH,0,0,36,WordPress Edwiser Bridge plugin <= 3.0.8 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-27
+CVE-2025-24609,HIGH,0,0,36,WordPress PORTONE 우커머스 결제 Plugin <= 3.2.4 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-31
 CVE-2025-24001,HIGH,0,0,36,WordPress PPO Call To Actions plugin <= 0.1.3 - CSRF to Stored XSS vulnerability,,2025-01-21
 CVE-2025-24680,HIGH,0,0,36,WordPress WP Multi Store Locator Plugin <= 2.4.7 - Cross Site Scripting (XSS) vulnerability,,2025-01-27
 CVE-2025-24636,HIGH,0,0,36,WordPress MachForm Shortcode plugin <= 1.4.1 - CSRF to Stored XSS vulnerability,,2025-01-24
+CVE-2025-24549,HIGH,0,0,36,WordPress Post Meta plugin <= 1.0.9 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-31
+CVE-2025-24749,HIGH,0,0,36,WordPress  EZPZ SAML SP Single Sign On (SSO) plugin <= 1.2.5 - CSRF to Stored XSS vulnerability,,2025-01-31
+CVE-2025-24563,HIGH,0,0,36,WordPress Cleanup – Directory Listing & Classifieds plugin <= 1.0.4 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-31
 CVE-2025-24570,HIGH,0,0,36,WordPress Atarim plugin <= 4.0.8 - Cross Site Scripting (XSS) vulnerability,,2025-01-24
+CVE-2025-24686,HIGH,0,0,36,WordPress RegistrationMagic Plugin <= 6.0.3.3 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-31
 CVE-2025-24562,HIGH,0,0,36,WordPress KBucket plugin <= 4.1.6 - CSRF to Stored Cross-Site Scripting vulnerability,,2025-01-24
+CVE-2025-24560,HIGH,0,0,36,WordPress Awesome Event Booking plugin <= 2.7.1 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-31
+CVE-2025-24718,HIGH,0,0,36,WordPress WP Sessions Time Monitoring Full Automatic Plugin <= 1.1.1 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-31
 CVE-2025-24561,HIGH,0,0,36,WordPress ReviewsTap plugin <= 1.1.2 - CSRF to Stored Cross-Site Scripting vulnerability,,2025-01-24
+CVE-2025-24535,HIGH,0,0,36,WordPress SKT Donation plugin <= 1.9 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-31
 CVE-2025-24626,HIGH,0,0,36,WordPress Music Store – WordPress eCommerce Plugin <= 1.1.19 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-27
+CVE-2025-24608,HIGH,0,0,36,WordPress GD Mail Queue Plugin <= 4.3 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-31
+CVE-2025-24635,HIGH,0,0,36,WordPress Paytm – Donation Plugin plugin <= 2.3.1 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-31
 CVE-2025-24708,HIGH,0,0,36,WordPress WP Dynamics CRM plugin <= 1.1.6 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-27
 CVE-2025-24458,HIGH,0,0,36,CVE-2025-24458: In JetBrains YouTrack before 2024.3.55417 account takeover was possible via spoofed email and Helpde...,,2025-01-21
 CVE-2025-24756,HIGH,0,0,36,WordPress Roi Calculator plugin <= 1.0 - CSRF to Stored XSS vulnerability,,2025-01-24
+CVE-2025-24551,HIGH,0,0,36,WordPress Radio Buttons and Swatches for WooCommerce plugin <= 1.1.20 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-31
+CVE-2025-24632,HIGH,0,0,36,WordPress Advanced Dynamic Pricing for WooCommerce Plugin <= 4.9.0 -Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-31
+CVE-2025-24534,HIGH,0,0,36,WordPress DPortfolio plugin <= 2.0 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-31
 CVE-2025-23694,HIGH,0,0,36,WordPress Shabbos and Yom Tov plugin <= 1.9 - CSRF to Stored XSS vulnerability,,2025-01-16
 CVE-2025-23805,HIGH,0,0,36,WordPress SEOReseller Partner plugin <= 1.3.15 - CSRF to Stored XSS vulnerability,,2025-01-16
 CVE-2025-23470,HIGH,0,0,36,WordPress Visit Site Link enhanced plugin <= 1.0 - CSRF to Stored XSS vulnerability,,2025-01-16
@@ -14577,6 +14568,7 @@ CVE-2025-23822,HIGH,0,0,36,WordPress Category Custom Fields plugin <= 1.0 - CSRF
 CVE-2025-23567,HIGH,0,0,36,WordPress GDReseller plugin <= 1.6 - CSRF to Stored XSS vulnerability,,2025-01-16
 CVE-2025-23629,HIGH,0,0,36,WordPress Gallerio plugin <= 1.0.1 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-23
 CVE-2025-23603,HIGH,0,0,36,WordPress Group category creator plugin <= 1.3.0.3 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-22
+CVE-2025-23989,HIGH,0,0,36,WordPress  Internal Link Builder plugin <= 1.0 - CSRF to Stored XSS vulnerability,,2025-01-31
 CVE-2025-23683,HIGH,0,0,36,WordPress MACME plugin <= 1.2 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-22
 CVE-2025-23902,HIGH,0,0,36,WordPress Error Notification plugin <= 0.2.7 - CSRF to Stored XSS vulnerability,,2025-01-16
 CVE-2025-23711,HIGH,0,0,36,WordPress Quote me plugin <= 1.0 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-24
@@ -14602,6 +14594,7 @@ CVE-2025-23547,HIGH,0,0,36,WordPress LH Login Page plugin <= 2.14 - Reflected Cr
 CVE-2025-23821,HIGH,0,0,36,WordPress WP Cookies Alert plugin <= 1.1.1 - CSRF to Stored XSS vulnerability,,2025-01-16
 CVE-2025-23675,HIGH,0,0,36,WordPress Import Users to MailChimp plugin <= 1.0 - CSRF to Stored XSS vulnerability,,2025-01-16
 CVE-2025-23453,HIGH,0,0,36,WordPress Stars SMTP Mailer plugin <= 1.7 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-16
+CVE-2025-23980,HIGH,0,0,36,WordPress Full Circle plugin <= 0.5.7.8 - CSRF to Stored Cross Site Scripting (XSS) vulnerability,,2025-01-31
 CVE-2025-23426,HIGH,0,0,36,WordPress go Social plugin <= 1.0 - CSRF to Stored Cross Site Scripting (XSS) vulnerability,,2025-01-16
 CVE-2025-23639,HIGH,0,0,36,WordPress MDC YouTube Downloader plugin <= 3.0.0 - CSRF to Stored XSS vulnerability,,2025-01-16
 CVE-2025-23660,HIGH,0,0,36,WordPress MFPlugin plugin <= 1.3 - CSRF to Cross-Site Scripting vulnerability,,2025-01-16
@@ -14665,6 +14658,7 @@ CVE-2025-23544,HIGH,0,0,36,WordPress StatPressCN plugin <= 1.9.1 - Reflected Cro
 CVE-2025-23540,HIGH,0,0,36,WordPress WP Front-end login and register plugin <= 2.1.0 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-23
 CVE-2025-23884,HIGH,0,0,36,WordPress Annie plugin <= 2.1.1 - CSRF to Stored XSS vulnerability,,2025-01-16
 CVE-2025-23427,HIGH,0,0,36,WordPress Redux Converter plugin <= 1.1.3.1 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-24
+CVE-2025-23990,HIGH,0,0,36,WordPress Scroll Styler plugin <= 1.1 - CSRF to Stored XSS vulnerability,,2025-01-31
 CVE-2025-23885,HIGH,0,0,36,WordPress MJ Contact us Plugin <= 5.2.3 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-24
 CVE-2025-23678,HIGH,0,0,36,WordPress LocalGrid plugin <= 1.0.1 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-22
 CVE-2025-23832,HIGH,0,0,36,WordPress Admin Cleanup plugin <= 1.0.2 - CSRF to Stored XSS vulnerability,,2025-01-16
@@ -14674,6 +14668,7 @@ CVE-2025-23754,HIGH,0,0,36,WordPress The Loops plugin <= 1.0.2 - Reflected Cross
 CVE-2025-23442,HIGH,0,0,36,WordPress Shockingly Big IE6 Warning plugin <= 1.6.3 - CSRF to Stored XSS vulnerability,,2025-01-16
 CVE-2025-23758,HIGH,0,0,36,WordPress pootle button plugin <= 1.2.0 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-22
 CVE-2025-23664,HIGH,0,0,36,WordPress Real Seguro Viagem plugin <= 2.0.5 - CSRF to Stored Cross-Site Scripting vulnerability,,2025-01-16
+CVE-2025-23671,HIGH,0,0,36,WordPress WP OpenSearch plugin <= 1.0 - Cross Site Scripting (XSS) vulnerability,,2025-01-31
 CVE-2025-23617,HIGH,0,0,36,WordPress Floatbox Plus plugin <= 1.4.4 - CSRF to Stored XSS vulnerability,,2025-01-16
 CVE-2025-23483,HIGH,0,0,36,WordPress Universal Analytics Injector plugin <= 1.0.3 - CSRF to Stored XSS vulnerability,,2025-01-16
 CVE-2025-23725,HIGH,0,0,36,WordPress Accessibility Task Manager plugin <= 1.2.1 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-23
@@ -14691,6 +14686,7 @@ CVE-2025-23793,HIGH,0,0,36,WordPress Auto FTP plugin <= 1.0.1 - CSRF to Stored C
 CVE-2025-23449,HIGH,0,0,36,WordPress Simple shortcode buttons plugin <= 1.3.2 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-22
 CVE-2025-23737,HIGH,0,0,36,WordPress Network-Favorites plugin <= 1.1 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-24
 CVE-2025-23435,HIGH,0,0,36,WordPress Password Protect Plugin for WordPress plugin <= 0.8.1.0 - CSRF to Stored XSS vulnerability,,2025-01-16
+CVE-2025-23976,HIGH,0,0,36,WordPress Issuu Panel plugin <= 2.1.1 - CSRF to Stored Cross Site Scripting (XSS) vulnerability,,2025-01-31
 CVE-2025-23499,HIGH,0,0,36,WordPress Board Election plugin <= 1.0.1 - CSRF to Stored Cross Site Scripting (XSS) vulnerability,,2025-01-16
 CVE-2025-23463,HIGH,0,0,36,WordPress MD Custom content after or before of post plugin <= 1.0 - CSRF to Stored XSS vulnerability,,2025-01-16
 CVE-2025-23569,HIGH,0,0,36,WordPress Shortcode in Comment plugin <= 1.1.1 - CSRF to Stored XSS vulnerability,,2025-01-16
@@ -14722,6 +14718,7 @@ CVE-2025-23686,HIGH,0,0,36,WordPress Admin Menu Organizer plugin <= 1.0.1 - Refl
 CVE-2025-23889,HIGH,0,0,36,WordPress FooGallery Captions Plugin <= 1.0.2 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-24
 CVE-2025-23626,HIGH,0,0,36,WordPress Kumihimo plugin <= 1.0.2 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-23
 CVE-2025-23476,HIGH,0,0,36,WordPress my-related-posts plugin <= 1.1 - CSRF to Stored XSS vulnerability,,2025-01-16
+CVE-2025-23978,HIGH,0,0,36,WordPress FlashCounter plugin <= 1.1.8 - CSRF to Stored Cross Site Scripting (XSS) vulnerability,,2025-01-31
 CVE-2025-23509,HIGH,0,0,36,WordPress HyperComments plugin <= 0.9.6 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-22
 CVE-2025-23827,HIGH,0,0,36,WordPress Strx Magic Floating Sidebar Maker plugin <= 1.4.1 - CSRF to Stored XSS vulnerability,,2025-01-16
 CVE-2025-23622,HIGH,0,0,36,WordPress CBX Accounting & Bookkeeping plugin <= 1.3.14 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-24
@@ -14741,11 +14738,14 @@ CVE-2025-23475,HIGH,0,0,36,WordPress History timeline plugin <= 0.7.2 - Reflecte
 CVE-2025-23610,HIGH,0,0,36,WordPress Ultimate Events plugin <= 1.3.3 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-22
 CVE-2025-23558,HIGH,0,0,36,WordPress Geotagged Media plugin <= 0.3.0 - CSRF to Stored XSS vulnerability,,2025-01-16
 CVE-2025-23870,HIGH,0,0,36,WordPress Copyright Safeguard Footer Notice plugin <= 3.0 - CSRF to Stored Cross Site Request Forgery (CSRF) vulnerability,,2025-01-16
+CVE-2025-23977,HIGH,0,0,36,WordPress Post Carousel Slider plugin <= 2.0.1 - CSRF to Stored XSS vulnerability,,2025-01-31
 CVE-2025-23768,HIGH,0,0,36,WordPress InFunding plugin <= 1.0 - Cross Site Scripting (XSS) vulnerability,,2025-01-22
 CVE-2025-23692,HIGH,0,0,36,WordPress Slider for Writers plugin <= 1.3 - CSRF to Stored XSS vulnerability,,2025-01-16
 CVE-2025-23605,HIGH,0,0,36,WordPress Call To Action Popup plugin <= 1.0.2 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-22
+CVE-2025-23759,HIGH,0,0,36,WordPress Affiliate Tools Việt Nam plugin <= 0.3.17 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-31
 CVE-2025-23467,HIGH,0,0,36,WordPress RSS News Scroller plugin <= 2.0.0 - CSRF to Stored XSS vulnerability,,2025-01-16
 CVE-2025-23583,HIGH,0,0,36,WordPress Explara Membership plugin <= 0.0.7 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-22
+CVE-2025-23596,HIGH,0,0,36,WordPress Notifikácie.sk plugin <= 1.0 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-31
 CVE-2025-23900,HIGH,0,0,36,WordPress Genki Announcement plugin <= 1.4.1 - CSRF to Stored XSS vulnerability,,2025-01-16
 CVE-2025-23756,HIGH,0,0,36,WordPress LawPress plugin <= 1.4.5 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-27
 CVE-2025-23624,HIGH,0,0,36,WordPress WpDevTool plugin <= 0.1.1 - Reflected Cross Site Scripting (XSS) vulnerability,,2025-01-23
