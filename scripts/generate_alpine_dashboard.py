@@ -30,58 +30,67 @@ class AlpineDashboardGenerator:
         self.load_vulnerabilities()
 
     def load_vulnerabilities(self):
-        """Load all vulnerabilities from database"""
+        """Load all vulnerabilities from cache database"""
         cursor = self.db.cursor()
         rows = cursor.execute("""
-            SELECT
-                cve_id,
-                title,
-                severity,
-                cvss_score,
-                epss_percentile,
-                published_date,
-                last_modified_date,
-                vendors,
-                products,
-                tags,
-                description,
-                attack_vector,
-                attack_complexity,
-                scope,
-                user_interaction,
-                privileges_required,
-                confidentiality_impact,
-                integrity_impact,
-                availability_impact
-            FROM vulnerabilities
-            ORDER BY epss_percentile DESC, cvss_score DESC
+            SELECT cve_id, data, risk_score, severity, published_date, last_modified_date
+            FROM vulnerability_cache
+            ORDER BY risk_score DESC
         """).fetchall()
 
-        # Convert to list of dicts and add risk_score
+        # Convert cache data to vulnerability objects
         self.vulnerabilities = []
         for row in rows:
-            vuln = dict(row)
-            # Calculate risk score (simplified formula)
-            cvss = vuln.get("cvss_score", 0) or 0
-            epss = vuln.get("epss_percentile", 0) or 0
-            vuln["risk_score"] = int((cvss * 10 + epss) / 2)
+            try:
+                # Parse the JSON data from cache
+                vuln_data = json.loads(row["data"])
+                
+                # Create vulnerability dict with both cache fields and parsed data
+                vuln = {
+                    "cve_id": row["cve_id"],
+                    "risk_score": row["risk_score"],
+                    "severity": row["severity"],
+                    "published_date": row["published_date"],
+                    "last_modified_date": row["last_modified_date"],
+                    **vuln_data  # Merge in all the JSON data
+                }
+                
+                # Ensure required fields exist with defaults
+                vuln.setdefault("title", vuln.get("cve_id", "Unknown"))
+                vuln.setdefault("cvss_score", 0)
+                vuln.setdefault("epss_percentile", 0)
+                vuln.setdefault("description", "No description available")
+                vuln.setdefault("vendors", [])
+                vuln.setdefault("products", [])
+                vuln.setdefault("tags", [])
+                
+                # Ensure lists are properly formatted
+                if isinstance(vuln["vendors"], str):
+                    vuln["vendors_list"] = json.loads(vuln["vendors"]) if vuln["vendors"] else []
+                else:
+                    vuln["vendors_list"] = vuln["vendors"] if vuln["vendors"] else []
+                    
+                if isinstance(vuln["products"], str):
+                    vuln["products_list"] = json.loads(vuln["products"]) if vuln["products"] else []
+                else:
+                    vuln["products_list"] = vuln["products"] if vuln["products"] else []
+                    
+                if isinstance(vuln["tags"], str):
+                    vuln["tags_list"] = json.loads(vuln["tags"]) if vuln["tags"] else []
+                else:
+                    vuln["tags_list"] = vuln["tags"] if vuln["tags"] else []
 
-            # Parse JSON fields safely
-            vuln["vendors_list"] = (
-                json.loads(vuln["vendors"]) if vuln["vendors"] else []
-            )
-            vuln["products_list"] = (
-                json.loads(vuln["products"]) if vuln["products"] else []
-            )
-            vuln["tags_list"] = json.loads(vuln["tags"]) if vuln["tags"] else []
+                # Format published date
+                if vuln["published_date"]:
+                    vuln["published_short"] = str(vuln["published_date"])[:10]
+                else:
+                    vuln["published_short"] = "Unknown"
 
-            # Format published date
-            if vuln["published_date"]:
-                vuln["published_short"] = vuln["published_date"][:10]
-            else:
-                vuln["published_short"] = "Unknown"
-
-            self.vulnerabilities.append(vuln)
+                self.vulnerabilities.append(vuln)
+                
+            except (json.JSONDecodeError, KeyError, TypeError) as e:
+                print(f"Warning: Failed to parse vulnerability {row.get('cve_id', 'unknown')}: {e}")
+                continue
 
     def _create_enhanced_title(self, vuln) -> str:
         """Create enhanced title format: [SEVERITY] Vendor Product vVersion"""
