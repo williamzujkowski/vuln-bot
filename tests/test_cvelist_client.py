@@ -198,8 +198,8 @@ class TestCVEListClient:
         assert vuln.severity == SeverityLevel.CRITICAL
         assert len(vuln.cvss_metrics) == 1
         assert vuln.cvss_metrics[0].base_score == 9.8
-        assert vuln.affected_vendors == ["test vendor"]
-        assert vuln.affected_products == ["product x"]
+        assert vuln.affected_vendors == ["Test Vendor"]
+        assert vuln.affected_products == ["Product X"]
         assert len(vuln.references) == 1
         assert vuln.tags == ["CWE-78"]
 

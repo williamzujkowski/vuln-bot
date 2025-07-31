@@ -188,13 +188,13 @@ class TestCVEListClientExtended:
         assert vuln is not None
 
         # Check that vendors and products are extracted correctly
-        assert "testvendor1" in vuln.affected_vendors
-        assert "testvendor2" in vuln.affected_vendors
+        assert "Testvendor1" in vuln.affected_vendors
+        assert "Testvendor2" in vuln.affected_vendors
         assert len(vuln.affected_vendors) == 2  # No duplicates
 
-        assert "testproduct1" in vuln.affected_products
-        assert "testproduct2" in vuln.affected_products
-        assert "testproduct3" in vuln.affected_products
+        assert "Testproduct1" in vuln.affected_products
+        assert "Testproduct2" in vuln.affected_products
+        assert "Testproduct3" in vuln.affected_products
         assert len(vuln.affected_products) == 3
 
     def test_parse_references(self, client):
