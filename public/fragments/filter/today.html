@@ -4,31 +4,31 @@
                 <thead>
                     <tr>
                         <th class="sortable" data-sort="cve_id"
-                            hx-get="/fragments/sort/cve_id.html"
+                            hx-get="../sort/cve_id.html"
                             hx-target="#vulnerabilities-table"
                             hx-swap="outerHTML">
                             CVE ID
                         </th>
                         <th class="sortable" data-sort="severity"
-                            hx-get="/fragments/sort/severity.html"
+                            hx-get="../sort/severity.html"
                             hx-target="#vulnerabilities-table"
                             hx-swap="outerHTML">
                             Severity
                         </th>
                         <th class="sortable" data-sort="cvss_score"
-                            hx-get="/fragments/sort/cvss_score.html"
+                            hx-get="../sort/cvss_score.html"
                             hx-target="#vulnerabilities-table"
                             hx-swap="outerHTML">
                             CVSS
                         </th>
                         <th class="sortable" data-sort="epss_percentile"
-                            hx-get="/fragments/sort/epss_percentile.html"
+                            hx-get="../sort/epss_percentile.html"
                             hx-target="#vulnerabilities-table"
                             hx-swap="outerHTML">
                             EPSS % ↓
                         </th>
                         <th class="sortable" data-sort="risk_score"
-                            hx-get="/fragments/sort/risk_score.html"
+                            hx-get="../sort/risk_score.html"
                             hx-target="#vulnerabilities-table"
                             hx-swap="outerHTML">
                             Risk Score
@@ -36,7 +36,7 @@
                         <th>Title</th>
                         <th>Vendors</th>
                         <th class="sortable" data-sort="published_date"
-                            hx-get="/fragments/sort/published_date.html"
+                            hx-get="../sort/published_date.html"
                             hx-target="#vulnerabilities-table"
                             hx-swap="outerHTML">
                             Published
@@ -47,48 +47,32 @@
                     
         <tr class="vulnerability-row" data-cve="CVE-2025-40045">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40045"
-                   onclick="openCveModal('CVE-2025-40045'); return false;">
-                    CVE-2025-40045
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40045'); return false;" 
+                   class="cve-link">CVE-2025-40045</a>
             </td>
             <td><span class="severity-badge severity-high">HIGH</span></td>
             <td>7.2</td>
-            <td>91%</td>
-            <td>
-                <div class="risk-score critical">
-                    <span>82</span>
-                </div>
-            </td>
-            <td class="title-cell">HIGH vulnerability in Oracle Framework</td>
-            <td>VMware</td>
-            <td>Today</td>
+            <td>91</td>
+            <td>81</td>
+            <td class="truncate">HIGH vulnerability in Oracle Framework</td>
+            <td class="truncate">VMware</td>
+            <td>2025-07-30</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40068">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40068"
-                   onclick="openCveModal('CVE-2025-40068'); return false;">
-                    CVE-2025-40068
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40068'); return false;" 
+                   class="cve-link">CVE-2025-40068</a>
             </td>
             <td><span class="severity-badge severity-high">HIGH</span></td>
             <td>7.7</td>
-            <td>76%</td>
-            <td>
-                <div class="risk-score high">
-                    <span>78</span>
-                </div>
-            </td>
-            <td class="title-cell">HIGH vulnerability in Google Framework</td>
-            <td>VMware</td>
-            <td>Today</td>
+            <td>76</td>
+            <td>76</td>
+            <td class="truncate">HIGH vulnerability in Google Framework</td>
+            <td class="truncate">VMware</td>
+            <td>2025-07-30</td>
         </tr>
-        
+            
                 </tbody>
             </table>
 

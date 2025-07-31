@@ -14,6 +14,7 @@ from typing import List
 OUTPUT_DIR = Path("public")
 FRAGMENTS_DIR = OUTPUT_DIR / "fragments"
 DB_PATH = Path(".cache/vulns.db")
+BASE_PATH = "/vuln-bot"  # GitHub Pages base path
 
 # Ensure output directories exist
 OUTPUT_DIR.mkdir(exist_ok=True)
@@ -28,12 +29,13 @@ class HTMXDashboardGenerator:
         self.db = sqlite3.connect(db_path)
         self.db.row_factory = sqlite3.Row
         self.vulnerabilities = []
+        self.base_path = BASE_PATH
         self.load_vulnerabilities()
 
     def load_vulnerabilities(self):
         """Load all vulnerabilities from database"""
         cursor = self.db.cursor()
-        self.vulnerabilities = cursor.execute("""
+        rows = cursor.execute("""
             SELECT
                 cve_id,
                 title,
@@ -48,166 +50,155 @@ class HTMXDashboardGenerator:
                 description,
                 attack_vector,
                 attack_complexity,
-                privileges_required,
-                user_interaction,
                 scope,
+                user_interaction,
+                privileges_required,
                 confidentiality_impact,
                 integrity_impact,
                 availability_impact
             FROM vulnerabilities
-            WHERE epss_percentile >= 70
-            ORDER BY epss_percentile DESC
+            ORDER BY epss_percentile DESC, cvss_score DESC
         """).fetchall()
+        
+        # Convert to list of dicts and add risk_score
+        self.vulnerabilities = []
+        for row in rows:
+            vuln = dict(row)
+            # Calculate risk score (simplified formula)
+            cvss = vuln.get('cvss_score', 0) or 0
+            epss = vuln.get('epss_percentile', 0) or 0
+            vuln['risk_score'] = int((cvss * 10 + epss) / 2)
+            self.vulnerabilities.append(vuln)
 
     def generate_stats_fragment(self) -> str:
         """Generate statistics fragment"""
-        cursor = self.db.cursor()
+        # Calculate stats
+        total = len(self.vulnerabilities)
+        critical = sum(1 for v in self.vulnerabilities if v["severity"] == "CRITICAL")
+        high = sum(1 for v in self.vulnerabilities if v["severity"] == "HIGH")
+        medium = sum(1 for v in self.vulnerabilities if v["severity"] == "MEDIUM")
 
-        # Calculate statistics
-        stats = cursor.execute("""
-            SELECT
-                COUNT(*) as total,
-                COUNT(CASE WHEN severity = 'CRITICAL' THEN 1 END) as critical,
-                COUNT(CASE WHEN epss_percentile >= 90 THEN 1 END) as high_epss,
-                AVG(COALESCE(cvss_score * 10, 50)) as avg_risk
-            FROM vulnerabilities
-            WHERE epss_percentile >= 70
-        """).fetchone()
-
-        # Week-over-week change
-        week_ago = (datetime.now() - timedelta(days=7)).isoformat()
-        week_change = cursor.execute(
-            """
-            SELECT COUNT(*) as new_vulns
-            FROM vulnerabilities
-            WHERE published_date >= ? AND epss_percentile >= 70
-        """,
-            (week_ago,),
-        ).fetchone()
-
-        # Today's new
+        # Get today's count
         today = datetime.now().date().isoformat()
-        today_new = cursor.execute(
-            """
-            SELECT COUNT(*) as new_today
-            FROM vulnerabilities
-            WHERE published_date >= ? AND epss_percentile >= 70
-        """,
-            (today,),
-        ).fetchone()
+        today_count = sum(
+            1 for v in self.vulnerabilities if v["published_date"].startswith(today)
+        )
+
+        # Get week change
+        week_ago = (datetime.now() - timedelta(days=7)).date().isoformat()
+        week_count = sum(
+            1 for v in self.vulnerabilities if v["published_date"] >= week_ago
+        )
+
+        # Get KEV count
+        kev_count = sum(
+            1
+            for v in self.vulnerabilities
+            if v["tags"] and "KEV" in json.loads(v["tags"])
+        )
 
         return f"""
         <div class="stats-grid" id="stats-container">
             <div class="stat-card">
                 <div class="stat-icon">🛡️</div>
-                <div class="stat-value">{stats["total"]}</div>
+                <div class="stat-value">{total}</div>
                 <div class="stat-label">Total Vulnerabilities</div>
-                <div class="stat-change {"negative" if week_change["new_vulns"] > 0 else ""}">
-                    <span>{"+" if week_change["new_vulns"] > 0 else ""}{week_change["new_vulns"]}</span>
+                <div class="stat-change negative">
+                    <span>+{week_count}</span>
                     <span>from last week</span>
                 </div>
             </div>
 
             <div class="stat-card">
                 <div class="stat-icon">🚨</div>
-                <div class="stat-value">{stats["critical"]}</div>
+                <div class="stat-value">{critical}</div>
                 <div class="stat-label">Critical Severity</div>
                 <div class="stat-change negative">
-                    <span>+{today_new["new_today"]}</span>
+                    <span>+{today_count}</span>
                     <span>new today</span>
                 </div>
             </div>
 
             <div class="stat-card">
-                <div class="stat-icon">📈</div>
-                <div class="stat-value">{stats["high_epss"]}</div>
-                <div class="stat-label">High EPSS (≥90%)</div>
-                <div class="stat-change">
-                    <span>Exploitation likely</span>
+                <div class="stat-icon">⚠️</div>
+                <div class="stat-value">{high}</div>
+                <div class="stat-label">High Severity</div>
+                <div class="stat-trend">
+                    <span>{round(high/total*100)}%</span>
+                    <span>of total</span>
                 </div>
             </div>
 
             <div class="stat-card">
-                <div class="stat-icon">⚡</div>
-                <div class="stat-value">{int(stats["avg_risk"])}</div>
-                <div class="stat-label">Average Risk Score</div>
-                <div class="stat-change">
-                    <span>Out of 100</span>
+                <div class="stat-icon">⭐</div>
+                <div class="stat-value">{kev_count}</div>
+                <div class="stat-label">KEV Listed</div>
+                <div class="stat-trend">
+                    <span>Known</span>
+                    <span>Exploited</span>
                 </div>
             </div>
         </div>
         """
 
-    def generate_vulnerability_row(self, vuln: sqlite3.Row) -> str:
-        """Generate a single vulnerability table row"""
-        severity_class = f"severity-{vuln['severity'].lower()}"
+    def generate_charts_fragment(self) -> str:
+        """Generate charts fragment with data"""
+        # Prepare chart data
+        severity_counts = {
+            "CRITICAL": sum(1 for v in self.vulnerabilities if v["severity"] == "CRITICAL"),
+            "HIGH": sum(1 for v in self.vulnerabilities if v["severity"] == "HIGH"),
+            "MEDIUM": sum(1 for v in self.vulnerabilities if v["severity"] == "MEDIUM"),
+            "LOW": sum(1 for v in self.vulnerabilities if v["severity"] == "LOW"),
+        }
 
-        # Parse JSON fields
-        vendors = json.loads(vuln["vendors"]) if vuln["vendors"] else []
-
-        # Format date
-        pub_date = datetime.fromisoformat(vuln["published_date"])
-        days_old = (datetime.now() - pub_date).days
-        if days_old == 0:
-            date_str = "Today"
-        elif days_old == 1:
-            date_str = "Yesterday"
-        elif days_old < 7:
-            date_str = f"{days_old} days ago"
-        else:
-            date_str = pub_date.strftime("%b %d, %Y")
-
-        # Risk score calculation
-        risk_score = self.calculate_risk_score(vuln)
-        risk_class = "critical" if risk_score >= 80 else "high"
+        # EPSS distribution
+        epss_ranges = {
+            "90-100%": sum(1 for v in self.vulnerabilities if v["epss_percentile"] >= 90),
+            "70-89%": sum(
+                1 for v in self.vulnerabilities if 70 <= v["epss_percentile"] < 90
+            ),
+            "50-69%": sum(
+                1 for v in self.vulnerabilities if 50 <= v["epss_percentile"] < 70
+            ),
+            "<50%": sum(1 for v in self.vulnerabilities if v["epss_percentile"] < 50),
+        }
 
         return f"""
-        <tr class="vulnerability-row" data-cve="{vuln["cve_id"]}">
-            <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="{vuln["cve_id"]}"
-                   onclick="openCveModal('{vuln["cve_id"]}'); return false;">
-                    {vuln["cve_id"]}
-                </a>
-            </td>
-            <td><span class="severity-badge {severity_class}">{vuln["severity"]}</span></td>
-            <td>{vuln["cvss_score"] or "N/A"}</td>
-            <td>{vuln["epss_percentile"]}%</td>
-            <td>
-                <div class="risk-score {risk_class}">
-                    <span>{risk_score}</span>
+        <div class="charts-grid" id="charts-container">
+            <div class="chart-card">
+                <h3 class="chart-title">Severity Distribution</h3>
+                <div class="chart-container">
+                    <canvas id="severity-chart"></canvas>
                 </div>
-            </td>
-            <td class="title-cell">{vuln["title"][:80]}{"..." if len(vuln["title"]) > 80 else ""}</td>
-            <td>{", ".join(vendors[:2])}{"..." if len(vendors) > 2 else ""}</td>
-            <td>{date_str}</td>
-        </tr>
+            </div>
+
+            <div class="chart-card">
+                <h3 class="chart-title">EPSS Score Distribution</h3>
+                <div class="chart-container">
+                    <canvas id="epss-chart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            window.chartData = {{
+                severity: {{
+                    labels: {list(severity_counts.keys())},
+                    datasets: [{{
+                        data: {list(severity_counts.values())},
+                        backgroundColor: ['#dc2626', '#ef4444', '#f59e0b', '#3b82f6']
+                    }}]
+                }},
+                epss: {{
+                    labels: {list(epss_ranges.keys())},
+                    datasets: [{{
+                        data: {list(epss_ranges.values())},
+                        backgroundColor: ['#dc2626', '#ef4444', '#f59e0b', '#10b981']
+                    }}]
+                }}
+            }};
+        </script>
         """
-
-    def calculate_risk_score(self, vuln: sqlite3.Row) -> int:
-        """Calculate risk score for a vulnerability"""
-        score = 0
-
-        # CVSS contribution (40%)
-        score += (vuln["cvss_score"] or 0) * 4
-
-        # EPSS contribution (40%)
-        score += (vuln["epss_percentile"] or 0) * 0.4
-
-        # Severity bonus (10%)
-        severity_bonus = {"CRITICAL": 10, "HIGH": 7, "MEDIUM": 4, "LOW": 1}
-        score += severity_bonus.get(vuln["severity"], 0)
-
-        # Recency bonus (10%)
-        pub_date = datetime.fromisoformat(vuln["published_date"])
-        days_old = (datetime.now() - pub_date).days
-        if days_old <= 7:
-            score += 10
-        elif days_old <= 30:
-            score += 5
-
-        return min(int(score), 100)
 
     def generate_table_fragment(
         self,
@@ -218,40 +209,57 @@ class HTMXDashboardGenerator:
         sort_order: str = "desc",
     ) -> str:
         """Generate vulnerability table fragment"""
-        total = len(vulns)
-        total_pages = (total + per_page - 1) // per_page
-
         # Sort vulnerabilities
-        if sort_field == "risk_score":
+        reverse = sort_order == "desc"
+        if sort_field in ["severity"]:
+            severity_order = {"CRITICAL": 4, "HIGH": 3, "MEDIUM": 2, "LOW": 1}
             vulns = sorted(
-                vulns,
-                key=lambda v: self.calculate_risk_score(v),
-                reverse=(sort_order == "desc"),
+                vulns, key=lambda v: severity_order.get(v[sort_field], 0), reverse=reverse
             )
         else:
-            vulns = sorted(
-                vulns, key=lambda v: v[sort_field] or 0, reverse=(sort_order == "desc")
-            )
+            vulns = sorted(vulns, key=lambda v: v[sort_field] or 0, reverse=reverse)
 
         # Paginate
+        total = len(vulns)
+        total_pages = (total + per_page - 1) // per_page
         start = (page - 1) * per_page
         end = start + per_page
         page_vulns = vulns[start:end]
 
-        # Generate rows
-        rows = [self.generate_vulnerability_row(vuln) for vuln in page_vulns]
+        # Generate table HTML
+        rows_html = ""
+        for vuln in page_vulns:
+            severity_class = f"severity-{vuln['severity'].lower()}"
+            vendors = (
+                ", ".join(json.loads(vuln["vendors"])[:3])
+                if vuln["vendors"]
+                else "Unknown"
+            )
+            pub_date = vuln["published_date"][:10] if vuln["published_date"] else "Unknown"
+
+            rows_html += f"""
+        <tr class="vulnerability-row" data-cve="{vuln['cve_id']}">
+            <td>
+                <a href="#" onclick="openCveModal('{vuln['cve_id']}'); return false;" 
+                   class="cve-link">{vuln['cve_id']}</a>
+            </td>
+            <td><span class="severity-badge {severity_class}">{vuln['severity']}</span></td>
+            <td>{vuln['cvss_score']}</td>
+            <td>{vuln['epss_percentile']}</td>
+            <td>{vuln['risk_score']}</td>
+            <td class="truncate">{vuln['title'] or 'No title available'}</td>
+            <td class="truncate">{vendors}</td>
+            <td>{pub_date}</td>
+        </tr>
+            """
 
         # Sort indicators
-        sort_indicators = {
-            "cve_id": "",
-            "severity": "",
-            "cvss_score": "",
-            "epss_percentile": "",
-            "risk_score": "",
-            "published_date": "",
-        }
-        if sort_field in sort_indicators:
-            sort_indicators[sort_field] = " ↓" if sort_order == "desc" else " ↑"
+        sort_indicators = {}
+        for field in ["cve_id", "severity", "cvss_score", "epss_percentile", "risk_score", "published_date"]:
+            if field == sort_field:
+                sort_indicators[field] = " ↓" if sort_order == "desc" else " ↑"
+            else:
+                sort_indicators[field] = ""
 
         return f"""
         <div class="table-container" id="vulnerabilities-table">
@@ -259,54 +267,54 @@ class HTMXDashboardGenerator:
                 <thead>
                     <tr>
                         <th class="sortable" data-sort="cve_id"
-                            hx-get="/fragments/sort/cve_id.html"
+                            hx-get="{self.base_path}/fragments/sort/cve_id.html"
                             hx-target="#vulnerabilities-table"
                             hx-swap="outerHTML">
-                            CVE ID{sort_indicators["cve_id"]}
+                            CVE ID{sort_indicators.get('cve_id', '')}
                         </th>
                         <th class="sortable" data-sort="severity"
-                            hx-get="/fragments/sort/severity.html"
+                            hx-get="{self.base_path}/fragments/sort/severity.html"
                             hx-target="#vulnerabilities-table"
                             hx-swap="outerHTML">
-                            Severity{sort_indicators["severity"]}
+                            Severity{sort_indicators.get('severity', '')}
                         </th>
                         <th class="sortable" data-sort="cvss_score"
-                            hx-get="/fragments/sort/cvss_score.html"
+                            hx-get="{self.base_path}/fragments/sort/cvss_score.html"
                             hx-target="#vulnerabilities-table"
                             hx-swap="outerHTML">
-                            CVSS{sort_indicators["cvss_score"]}
+                            CVSS{sort_indicators.get('cvss_score', '')}
                         </th>
                         <th class="sortable" data-sort="epss_percentile"
-                            hx-get="/fragments/sort/epss_percentile.html"
+                            hx-get="{self.base_path}/fragments/sort/epss_percentile.html"
                             hx-target="#vulnerabilities-table"
                             hx-swap="outerHTML">
-                            EPSS %{sort_indicators["epss_percentile"]}
+                            EPSS %{sort_indicators.get('epss_percentile', '')}
                         </th>
                         <th class="sortable" data-sort="risk_score"
-                            hx-get="/fragments/sort/risk_score.html"
+                            hx-get="{self.base_path}/fragments/sort/risk_score.html"
                             hx-target="#vulnerabilities-table"
                             hx-swap="outerHTML">
-                            Risk Score{sort_indicators["risk_score"]}
+                            Risk Score{sort_indicators.get('risk_score', '')}
                         </th>
                         <th>Title</th>
                         <th>Vendors</th>
                         <th class="sortable" data-sort="published_date"
-                            hx-get="/fragments/sort/published_date.html"
+                            hx-get="{self.base_path}/fragments/sort/published_date.html"
                             hx-target="#vulnerabilities-table"
                             hx-swap="outerHTML">
-                            Published{sort_indicators["published_date"]}
+                            Published{sort_indicators.get('published_date', '')}
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    {"".join(rows)}
+                    {rows_html}
                 </tbody>
             </table>
 
             <div class="pagination">
                 <button class="page-btn"
                         {"disabled" if page <= 1 else ""}
-                        {'hx-get="/fragments/page/' + str(page - 1) + '.html" hx-target="#vulnerabilities-table" hx-swap="outerHTML"' if page > 1 else ""}>
+                        {'hx-get="' + self.base_path + '/fragments/page/' + str(page - 1) + '.html" hx-target="#vulnerabilities-table" hx-swap="outerHTML"' if page > 1 else ""}>
                     Previous
                 </button>
                 <span class="page-info">
@@ -314,7 +322,7 @@ class HTMXDashboardGenerator:
                 </span>
                 <button class="page-btn"
                         {"disabled" if page >= total_pages else ""}
-                        {'hx-get="/fragments/page/' + str(page + 1) + '.html" hx-target="#vulnerabilities-table" hx-swap="outerHTML"' if page < total_pages else ""}>
+                        {'hx-get="' + self.base_path + '/fragments/page/' + str(page + 1) + '.html" hx-target="#vulnerabilities-table" hx-swap="outerHTML"' if page < total_pages else ""}>
                     Next
                 </button>
             </div>
@@ -347,220 +355,39 @@ class HTMXDashboardGenerator:
             return [
                 v
                 for v in self.vulnerabilities
-                if v["attack_vector"] == "NETWORK"
-                or "network" in v["title"].lower()
-                or "remote" in v["title"].lower()
+                if v["attack_vector"] and v["attack_vector"] == "NETWORK"
             ]
         else:
             return self.vulnerabilities
 
-    def generate_charts_fragment(self) -> str:
-        """Generate charts fragment with data"""
-        cursor = self.db.cursor()
-
-        # Severity distribution
-        severity_data = cursor.execute("""
-            SELECT severity, COUNT(*) as count
-            FROM vulnerabilities
-            WHERE epss_percentile >= 70
-            GROUP BY severity
-            ORDER BY
-                CASE severity
-                    WHEN 'CRITICAL' THEN 1
-                    WHEN 'HIGH' THEN 2
-                    WHEN 'MEDIUM' THEN 3
-                    WHEN 'LOW' THEN 4
-                END
-        """).fetchall()
-
-        # 30-day trend
-        trend_data = []
-        for i in range(29, -1, -1):
-            date = (datetime.now() - timedelta(days=i)).date()
-            count = cursor.execute(
-                """
-                SELECT COUNT(*) as count
-                FROM vulnerabilities
-                WHERE DATE(published_date) = ? AND epss_percentile >= 70
-            """,
-                (date.isoformat(),),
-            ).fetchone()["count"]
-            trend_data.append({"date": date.strftime("%b %d"), "count": count})
-
-        # Top vendors
-        vendor_counts = {}
-        for vuln in self.vulnerabilities:
-            if vuln["vendors"]:
-                vendors = json.loads(vuln["vendors"])
-                for vendor in vendors:
-                    vendor_counts[vendor] = vendor_counts.get(vendor, 0) + 1
-
-        top_vendors = sorted(vendor_counts.items(), key=lambda x: x[1], reverse=True)[
-            :10
-        ]
-
-        # EPSS distribution
-        epss_ranges = [
-            {"label": "90-100%", "min": 90, "max": 100, "color": "#dc2626"},
-            {"label": "80-89%", "min": 80, "max": 89, "color": "#ef4444"},
-            {"label": "70-79%", "min": 70, "max": 79, "color": "#f59e0b"},
-        ]
-
-        epss_data = []
-        for range_def in epss_ranges:
-            count = len(
-                [
-                    v
-                    for v in self.vulnerabilities
-                    if range_def["min"] <= v["epss_percentile"] <= range_def["max"]
-                ]
-            )
-            epss_data.append(
-                {
-                    "label": range_def["label"],
-                    "count": count,
-                    "color": range_def["color"],
-                }
-            )
-
-        return f"""
-        <div class="charts-grid" id="charts-container">
-            <div class="chart-card">
-                <h3 class="chart-title">Severity Distribution</h3>
-                <div class="chart-container">
-                    <canvas id="severity-chart"></canvas>
-                </div>
-            </div>
-
-            <div class="chart-card">
-                <h3 class="chart-title">30-Day Trend</h3>
-                <div class="chart-container">
-                    <canvas id="trend-chart"></canvas>
-                </div>
-            </div>
-
-            <div class="chart-card">
-                <h3 class="chart-title">Top Vendors</h3>
-                <div class="chart-container">
-                    <canvas id="vendor-chart"></canvas>
-                </div>
-            </div>
-
-            <div class="chart-card">
-                <h3 class="chart-title">EPSS Distribution</h3>
-                <div class="chart-container">
-                    <canvas id="epss-chart"></canvas>
-                </div>
-            </div>
-        </div>
-
-        <script>
-            // Chart data and initialization
-            const chartOptions = {{
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {{
-                    legend: {{
-                        labels: {{ color: '#cbd5e1' }}
-                    }}
-                }},
-                scales: {{
-                    x: {{ ticks: {{ color: '#94a3b8' }}, grid: {{ color: 'rgba(148, 163, 184, 0.1)' }} }},
-                    y: {{ ticks: {{ color: '#94a3b8' }}, grid: {{ color: 'rgba(148, 163, 184, 0.1)' }} }}
-                }}
-            }};
-
-            // Severity Chart
-            new Chart(document.getElementById('severity-chart'), {{
-                type: 'doughnut',
-                data: {{
-                    labels: {[row["severity"] for row in severity_data]},
-                    datasets: [{{
-                        data: {[row["count"] for row in severity_data]},
-                        backgroundColor: ['#dc2626', '#ef4444', '#f59e0b', '#3b82f6'],
-                        borderWidth: 0
-                    }}]
-                }},
-                options: {{
-                    ...chartOptions,
-                    cutout: '70%'
-                }}
-            }});
-
-            // Trend Chart
-            new Chart(document.getElementById('trend-chart'), {{
-                type: 'line',
-                data: {{
-                    labels: {[d["date"] for d in trend_data]},
-                    datasets: [{{
-                        label: 'New CVEs',
-                        data: {[d["count"] for d in trend_data]},
-                        borderColor: '#00d4ff',
-                        backgroundColor: 'rgba(0, 212, 255, 0.1)',
-                        tension: 0.4,
-                        fill: true
-                    }}]
-                }},
-                options: chartOptions
-            }});
-
-            // Vendor Chart
-            new Chart(document.getElementById('vendor-chart'), {{
-                type: 'bar',
-                data: {{
-                    labels: {[v[0] for v in top_vendors]},
-                    datasets: [{{
-                        label: 'Vulnerabilities',
-                        data: {[v[1] for v in top_vendors]},
-                        backgroundColor: '#8b5cf6'
-                    }}]
-                }},
-                options: {{
-                    ...chartOptions,
-                    indexAxis: 'y'
-                }}
-            }});
-
-            // EPSS Chart
-            new Chart(document.getElementById('epss-chart'), {{
-                type: 'bar',
-                data: {{
-                    labels: {[d["label"] for d in epss_data]},
-                    datasets: [{{
-                        label: 'Count',
-                        data: {[d["count"] for d in epss_data]},
-                        backgroundColor: {[d["color"] for d in epss_data]}
-                    }}]
-                }},
-                options: chartOptions
-            }});
-        </script>
-        """
-
     def generate_all_fragments(self):
         """Generate all static fragments"""
-        print("🔨 Generating HTMX fragments...")
+        print("Generating HTMX fragments...")
 
-        # Generate stats
+        # Stats fragment
         with open(FRAGMENTS_DIR / "stats.html", "w") as f:
             f.write(self.generate_stats_fragment())
+        print("✓ Generated stats fragment")
 
-        # Generate main table
-        with open(FRAGMENTS_DIR / "vulnerabilities.html", "w") as f:
-            f.write(self.generate_table_fragment(self.vulnerabilities))
-
-        # Generate charts
+        # Charts fragment
         with open(FRAGMENTS_DIR / "charts.html", "w") as f:
             f.write(self.generate_charts_fragment())
+        print("✓ Generated charts fragment")
 
-        # Generate filter fragments
+        # Main vulnerabilities table
+        with open(FRAGMENTS_DIR / "vulnerabilities.html", "w") as f:
+            f.write(self.generate_table_fragment(self.vulnerabilities))
+        print("✓ Generated main vulnerabilities table")
+
+        # Filter fragments
         filters = ["all", "critical", "today", "kev", "network"]
         for filter_type in filters:
-            filtered = self.filter_vulnerabilities(filter_type)
+            filtered_vulns = self.filter_vulnerabilities(filter_type)
             with open(FRAGMENTS_DIR / "filter" / f"{filter_type}.html", "w") as f:
-                f.write(self.generate_table_fragment(filtered))
+                f.write(self.generate_table_fragment(filtered_vulns))
+        print(f"✓ Generated {len(filters)} filter fragments")
 
-        # Generate sort fragments
+        # Sort fragments
         sort_fields = [
             "cve_id",
             "severity",
@@ -570,7 +397,6 @@ class HTMXDashboardGenerator:
             "published_date",
         ]
         for field in sort_fields:
-            # Generate both asc and desc versions
             for order in ["asc", "desc"]:
                 with open(FRAGMENTS_DIR / "sort" / f"{field}_{order}.html", "w") as f:
                     f.write(
@@ -578,26 +404,100 @@ class HTMXDashboardGenerator:
                             self.vulnerabilities, sort_field=field, sort_order=order
                         )
                     )
+        print(f"✓ Generated {len(sort_fields) * 2} sort fragments")
 
-        # Generate pagination fragments (first 10 pages)
-        for page in range(1, min(11, (len(self.vulnerabilities) + 49) // 50 + 1)):
-            with open(FRAGMENTS_DIR / "page" / f"{page}.html", "w") as f:
-                f.write(self.generate_table_fragment(self.vulnerabilities, page=page))
+        # Pagination fragments (first 10 pages)
+        for page_num in range(1, min(11, (len(self.vulnerabilities) // 50) + 2)):
+            with open(FRAGMENTS_DIR / "page" / f"{page_num}.html", "w") as f:
+                f.write(self.generate_table_fragment(self.vulnerabilities, page=page_num))
+        print(f"✓ Generated pagination fragments")
 
-        print(f"✅ Generated {len(list(FRAGMENTS_DIR.rglob('*.html')))} fragments")
+    def export_data(self):
+        """Export vulnerability data as JSON and CSV"""
+        print("Exporting data files...")
 
-    def generate_main_dashboard(self):
-        """Generate the main dashboard HTML"""
-        html = Path("src/dashboard-htmx.html").read_text()
+        # Export as JSON
+        data = []
+        for vuln in self.vulnerabilities:
+            data.append(
+                {
+                    "cve_id": vuln["cve_id"],
+                    "title": vuln["title"],
+                    "severity": vuln["severity"],
+                    "cvss_score": vuln["cvss_score"],
+                    "epss_percentile": vuln["epss_percentile"],
+                    "risk_score": vuln["risk_score"],
+                    "vendors": json.loads(vuln["vendors"]) if vuln["vendors"] else [],
+                    "tags": json.loads(vuln["tags"]) if vuln["tags"] else [],
+                    "published_date": vuln["published_date"],
+                }
+            )
 
-        # Replace API endpoints with static fragment paths
+        (OUTPUT_DIR / "data").mkdir(exist_ok=True)
+        with open(OUTPUT_DIR / "data" / "vulnerabilities.json", "w") as f:
+            json.dump(data, f, indent=2)
+        print("✓ Exported JSON data")
+
+        # Export as CSV
+        import csv
+
+        with open(OUTPUT_DIR / "data" / "vulnerabilities.csv", "w", newline="") as f:
+            writer = csv.writer(f)
+            writer.writerow(
+                [
+                    "CVE ID",
+                    "Severity",
+                    "CVSS",
+                    "EPSS %",
+                    "Risk Score",
+                    "Title",
+                    "Vendors",
+                    "Published",
+                ]
+            )
+            for vuln in self.vulnerabilities:
+                vendors = (
+                    ", ".join(json.loads(vuln["vendors"])[:3])
+                    if vuln["vendors"]
+                    else ""
+                )
+                writer.writerow(
+                    [
+                        vuln["cve_id"],
+                        vuln["severity"],
+                        vuln["cvss_score"],
+                        vuln["epss_percentile"],
+                        vuln["risk_score"],
+                        vuln["title"] or "",
+                        vendors,
+                        vuln["published_date"][:10] if vuln["published_date"] else "",
+                    ]
+                )
+        print("✓ Exported CSV data")
+
+    def create_dashboard_html(self):
+        """Create the main dashboard HTML with HTMX"""
+        dashboard_template = Path("src/dashboard-htmx.html")
+        if dashboard_template.exists():
+            with open(dashboard_template, "r") as f:
+                html = f.read()
+        else:
+            # Fallback to embedded template
+            html = self.get_dashboard_template()
+
+        # Replace API endpoints with static fragments
         replacements = {
-            "/api/stats": "/fragments/stats.html",
-            "/api/vulnerabilities": "/fragments/vulnerabilities.html",
-            "/api/charts": "/fragments/charts.html",
-            "/api/filter/quick": "/fragments/filter/{filter}.html",
-            "/api/sort": "/fragments/sort/{field}_{order}.html",
-            "/api/export/csv": "/data/vulnerabilities.csv",
+            "/api/stats": f"{self.base_path}/fragments/stats.html",
+            "/api/vulnerabilities": f"{self.base_path}/fragments/vulnerabilities.html",
+            "/api/charts": f"{self.base_path}/fragments/charts.html",
+            "/api/filter/quick": f"{self.base_path}/fragments/filter/{{filter}}.html",
+            "/api/sort": f"{self.base_path}/fragments/sort/{{field}}_{{order}}.html",
+            "/api/export/csv": f"{self.base_path}/data/vulnerabilities.csv",
+            "/fragments/stats.html": f"{self.base_path}/fragments/stats.html",
+            "/fragments/vulnerabilities.html": f"{self.base_path}/fragments/vulnerabilities.html",
+            "/fragments/charts.html": f"{self.base_path}/fragments/charts.html",
+            "/fragments/filter/": f"{self.base_path}/fragments/filter/",
+            "/data/vulnerabilities.csv": f"{self.base_path}/data/vulnerabilities.csv",
         }
 
         for old, new in replacements.items():
@@ -688,85 +588,67 @@ class HTMXDashboardGenerator:
         # Insert adapter script before closing body tag
         html = html.replace("</body>", adapter_script + "\n</body>")
 
-        # Write main dashboard
+        # Write the dashboard HTML
         with open(OUTPUT_DIR / "index.html", "w") as f:
             f.write(html)
+        print("✓ Created dashboard HTML")
 
-        print("✅ Generated main dashboard")
+    def get_dashboard_template(self) -> str:
+        """Get the embedded dashboard template"""
+        # This is a fallback if src/dashboard-htmx.html doesn't exist
+        return """<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vulnerability Intelligence Dashboard</title>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>/* Add your styles here */</style>
+</head>
+<body>
+    <div class="dashboard">
+        <h1>Vulnerability Intelligence Dashboard</h1>
+        <div hx-get="/fragments/vulnerabilities.html" hx-trigger="load"></div>
+    </div>
+</body>
+</html>"""
 
-    def generate_csv_export(self):
-        """Generate CSV export file"""
-        csv_lines = ["CVE ID,Severity,CVSS,EPSS %,Risk Score,Title,Vendors,Published"]
+    def copy_service_worker(self):
+        """Copy service worker if it exists"""
+        sw_source = Path("src/sw.js")
+        if sw_source.exists():
+            import shutil
 
-        for vuln in self.vulnerabilities:
-            vendors = json.loads(vuln["vendors"]) if vuln["vendors"] else []
-            risk_score = self.calculate_risk_score(vuln)
-
-            title_escaped = vuln["title"].replace('"', '""')
-            vendors_str = ", ".join(vendors)
-            csv_lines.append(
-                f'"{vuln["cve_id"]}","{vuln["severity"]}",{vuln["cvss_score"] or ""},'
-                f'{vuln["epss_percentile"]},{risk_score},"{title_escaped}",'
-                f'"{vendors_str}",{vuln["published_date"]}'
-            )
-
-        # Create data directory
-        data_dir = OUTPUT_DIR / "data"
-        data_dir.mkdir(exist_ok=True)
-
-        with open(data_dir / "vulnerabilities.csv", "w") as f:
-            f.write("\n".join(csv_lines))
-
-        print("✅ Generated CSV export")
-
-    def generate_vulnerability_data_json(self):
-        """Generate JSON data file for client-side search"""
-        data = []
-        for vuln in self.vulnerabilities:
-            data.append(
-                {
-                    "cve_id": vuln["cve_id"],
-                    "title": vuln["title"],
-                    "severity": vuln["severity"],
-                    "cvss_score": vuln["cvss_score"],
-                    "epss_percentile": vuln["epss_percentile"],
-                    "risk_score": self.calculate_risk_score(vuln),
-                    "vendors": json.loads(vuln["vendors"]) if vuln["vendors"] else [],
-                    "tags": json.loads(vuln["tags"]) if vuln["tags"] else [],
-                    "published_date": vuln["published_date"],
-                }
-            )
-
-        # Create data directory if not exists
-        data_dir = OUTPUT_DIR / "data"
-        data_dir.mkdir(exist_ok=True)
-
-        with open(data_dir / "vulnerabilities.json", "w") as f:
-            json.dump(data, f, separators=(",", ":"))
-
-        print(f"✅ Generated vulnerabilities.json ({len(data)} CVEs)")
+            shutil.copy(sw_source, OUTPUT_DIR / "sw.js")
+            print("✓ Copied service worker")
 
 
 def main():
-    """Generate static HTMX dashboard"""
-    print("🚀 Generating Static HTMX Dashboard for GitHub Pages")
-
+    """Main function"""
+    # Check if database exists
     if not DB_PATH.exists():
-        print(f"❌ Database not found at {DB_PATH}")
-        print("   Run 'python -m scripts.main harvest' first")
-        return
+        print(f"Error: Database not found at {DB_PATH}")
+        print("Creating test database...")
+        # Import the create_test_db module
+        import sys
 
+        sys.path.insert(0, "scripts")
+        from create_test_db import create_test_database
+
+        create_test_database()
+        print("✓ Created test database")
+
+    # Generate dashboard
     generator = HTMXDashboardGenerator(DB_PATH)
-
-    # Generate all components
     generator.generate_all_fragments()
-    generator.generate_main_dashboard()
-    generator.generate_csv_export()
-    generator.generate_vulnerability_data_json()
+    generator.export_data()
+    generator.create_dashboard_html()
+    generator.copy_service_worker()
 
-    print("\n✅ Dashboard generation complete!")
+    print("\n✅ HTMX dashboard generated successfully!")
     print(f"📁 Output directory: {OUTPUT_DIR}")
-    print("🌐 Ready to deploy to GitHub Pages")
+    print(f"🚀 Ready to deploy to GitHub Pages")
 
 
 if __name__ == "__main__":

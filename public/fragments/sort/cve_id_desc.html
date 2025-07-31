@@ -4,31 +4,31 @@
                 <thead>
                     <tr>
                         <th class="sortable" data-sort="cve_id"
-                            hx-get="/fragments/sort/cve_id.html"
+                            hx-get="../sort/cve_id.html"
                             hx-target="#vulnerabilities-table"
                             hx-swap="outerHTML">
                             CVE ID ↓
                         </th>
                         <th class="sortable" data-sort="severity"
-                            hx-get="/fragments/sort/severity.html"
+                            hx-get="../sort/severity.html"
                             hx-target="#vulnerabilities-table"
                             hx-swap="outerHTML">
                             Severity
                         </th>
                         <th class="sortable" data-sort="cvss_score"
-                            hx-get="/fragments/sort/cvss_score.html"
+                            hx-get="../sort/cvss_score.html"
                             hx-target="#vulnerabilities-table"
                             hx-swap="outerHTML">
                             CVSS
                         </th>
                         <th class="sortable" data-sort="epss_percentile"
-                            hx-get="/fragments/sort/epss_percentile.html"
+                            hx-get="../sort/epss_percentile.html"
                             hx-target="#vulnerabilities-table"
                             hx-swap="outerHTML">
                             EPSS %
                         </th>
                         <th class="sortable" data-sort="risk_score"
-                            hx-get="/fragments/sort/risk_score.html"
+                            hx-get="../sort/risk_score.html"
                             hx-target="#vulnerabilities-table"
                             hx-swap="outerHTML">
                             Risk Score
@@ -36,7 +36,7 @@
                         <th>Title</th>
                         <th>Vendors</th>
                         <th class="sortable" data-sort="published_date"
-                            hx-get="/fragments/sort/published_date.html"
+                            hx-get="../sort/published_date.html"
                             hx-target="#vulnerabilities-table"
                             hx-swap="outerHTML">
                             Published
@@ -47,1104 +47,704 @@
                     
         <tr class="vulnerability-row" data-cve="CVE-2025-40149">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40149"
-                   onclick="openCveModal('CVE-2025-40149'); return false;">
-                    CVE-2025-40149
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40149'); return false;" 
+                   class="cve-link">CVE-2025-40149</a>
             </td>
             <td><span class="severity-badge severity-high">HIGH</span></td>
             <td>7.8</td>
-            <td>85%</td>
-            <td>
-                <div class="risk-score critical">
-                    <span>82</span>
-                </div>
-            </td>
-            <td class="title-cell">HIGH vulnerability in VMware Client</td>
-            <td>Oracle</td>
-            <td>6 days ago</td>
+            <td>85</td>
+            <td>81</td>
+            <td class="truncate">HIGH vulnerability in VMware Client</td>
+            <td class="truncate">Oracle</td>
+            <td>2025-07-24</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40148">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40148"
-                   onclick="openCveModal('CVE-2025-40148'); return false;">
-                    CVE-2025-40148
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40148'); return false;" 
+                   class="cve-link">CVE-2025-40148</a>
             </td>
             <td><span class="severity-badge severity-critical">CRITICAL</span></td>
             <td>9.1</td>
-            <td>76%</td>
-            <td>
-                <div class="risk-score critical">
-                    <span>81</span>
-                </div>
-            </td>
-            <td class="title-cell">CRITICAL vulnerability in Adobe Framework</td>
-            <td>Google</td>
-            <td>Jul 20, 2025</td>
+            <td>76</td>
+            <td>83</td>
+            <td class="truncate">CRITICAL vulnerability in Adobe Framework</td>
+            <td class="truncate">Google</td>
+            <td>2025-07-20</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40147">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40147"
-                   onclick="openCveModal('CVE-2025-40147'); return false;">
-                    CVE-2025-40147
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40147'); return false;" 
+                   class="cve-link">CVE-2025-40147</a>
             </td>
             <td><span class="severity-badge severity-critical">CRITICAL</span></td>
             <td>9.1</td>
-            <td>80%</td>
-            <td>
-                <div class="risk-score critical">
-                    <span>83</span>
-                </div>
-            </td>
-            <td class="title-cell">CRITICAL vulnerability in Mozilla Framework</td>
-            <td>Oracle</td>
-            <td>Jul 21, 2025</td>
+            <td>80</td>
+            <td>85</td>
+            <td class="truncate">CRITICAL vulnerability in Mozilla Framework</td>
+            <td class="truncate">Oracle</td>
+            <td>2025-07-21</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40146">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40146"
-                   onclick="openCveModal('CVE-2025-40146'); return false;">
-                    CVE-2025-40146
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40146'); return false;" 
+                   class="cve-link">CVE-2025-40146</a>
             </td>
             <td><span class="severity-badge severity-critical">CRITICAL</span></td>
             <td>9.4</td>
-            <td>79%</td>
-            <td>
-                <div class="risk-score critical">
-                    <span>84</span>
-                </div>
-            </td>
-            <td class="title-cell">CRITICAL vulnerability in Microsoft Client</td>
-            <td>Adobe</td>
-            <td>Jul 01, 2025</td>
+            <td>79</td>
+            <td>86</td>
+            <td class="truncate">CRITICAL vulnerability in Microsoft Client</td>
+            <td class="truncate">Adobe</td>
+            <td>2025-07-01</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40145">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40145"
-                   onclick="openCveModal('CVE-2025-40145'); return false;">
-                    CVE-2025-40145
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40145'); return false;" 
+                   class="cve-link">CVE-2025-40145</a>
             </td>
             <td><span class="severity-badge severity-critical">CRITICAL</span></td>
             <td>9.1</td>
-            <td>97%</td>
-            <td>
-                <div class="risk-score critical">
-                    <span>90</span>
-                </div>
-            </td>
-            <td class="title-cell">CRITICAL vulnerability in Mozilla Server</td>
-            <td>Oracle</td>
-            <td>Jul 15, 2025</td>
+            <td>97</td>
+            <td>94</td>
+            <td class="truncate">CRITICAL vulnerability in Mozilla Server</td>
+            <td class="truncate">Oracle</td>
+            <td>2025-07-15</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40144">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40144"
-                   onclick="openCveModal('CVE-2025-40144'); return false;">
-                    CVE-2025-40144
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40144'); return false;" 
+                   class="cve-link">CVE-2025-40144</a>
             </td>
             <td><span class="severity-badge severity-critical">CRITICAL</span></td>
             <td>9.2</td>
-            <td>97%</td>
-            <td>
-                <div class="risk-score critical">
-                    <span>90</span>
-                </div>
-            </td>
-            <td class="title-cell">CRITICAL vulnerability in Microsoft Client</td>
-            <td>Apache</td>
-            <td>Jul 15, 2025</td>
+            <td>97</td>
+            <td>94</td>
+            <td class="truncate">CRITICAL vulnerability in Microsoft Client</td>
+            <td class="truncate">Apache</td>
+            <td>2025-07-15</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40143">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40143"
-                   onclick="openCveModal('CVE-2025-40143'); return false;">
-                    CVE-2025-40143
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40143'); return false;" 
+                   class="cve-link">CVE-2025-40143</a>
             </td>
             <td><span class="severity-badge severity-critical">CRITICAL</span></td>
             <td>10.0</td>
-            <td>92%</td>
-            <td>
-                <div class="risk-score critical">
-                    <span>91</span>
-                </div>
-            </td>
-            <td class="title-cell">CRITICAL vulnerability in Apache Server</td>
-            <td>Oracle</td>
-            <td>Jul 14, 2025</td>
+            <td>92</td>
+            <td>96</td>
+            <td class="truncate">CRITICAL vulnerability in Apache Server</td>
+            <td class="truncate">Oracle</td>
+            <td>2025-07-14</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40142">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40142"
-                   onclick="openCveModal('CVE-2025-40142'); return false;">
-                    CVE-2025-40142
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40142'); return false;" 
+                   class="cve-link">CVE-2025-40142</a>
             </td>
             <td><span class="severity-badge severity-critical">CRITICAL</span></td>
             <td>9.3</td>
-            <td>81%</td>
-            <td>
-                <div class="risk-score critical">
-                    <span>84</span>
-                </div>
-            </td>
-            <td class="title-cell">CRITICAL vulnerability in Mozilla Service</td>
-            <td>VMware</td>
-            <td>Jul 09, 2025</td>
+            <td>81</td>
+            <td>87</td>
+            <td class="truncate">CRITICAL vulnerability in Mozilla Service</td>
+            <td class="truncate">VMware</td>
+            <td>2025-07-09</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40141">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40141"
-                   onclick="openCveModal('CVE-2025-40141'); return false;">
-                    CVE-2025-40141
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40141'); return false;" 
+                   class="cve-link">CVE-2025-40141</a>
             </td>
             <td><span class="severity-badge severity-critical">CRITICAL</span></td>
             <td>9.6</td>
-            <td>93%</td>
-            <td>
-                <div class="risk-score critical">
-                    <span>95</span>
-                </div>
-            </td>
-            <td class="title-cell">CRITICAL vulnerability in Oracle Server</td>
-            <td>VMware</td>
-            <td>3 days ago</td>
+            <td>93</td>
+            <td>94</td>
+            <td class="truncate">CRITICAL vulnerability in Oracle Server</td>
+            <td class="truncate">VMware</td>
+            <td>2025-07-27</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40140">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40140"
-                   onclick="openCveModal('CVE-2025-40140'); return false;">
-                    CVE-2025-40140
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40140'); return false;" 
+                   class="cve-link">CVE-2025-40140</a>
             </td>
             <td><span class="severity-badge severity-critical">CRITICAL</span></td>
             <td>9.5</td>
-            <td>76%</td>
-            <td>
-                <div class="risk-score critical">
-                    <span>83</span>
-                </div>
-            </td>
-            <td class="title-cell">CRITICAL vulnerability in Microsoft Service</td>
-            <td>VMware</td>
-            <td>Jul 12, 2025</td>
+            <td>76</td>
+            <td>85</td>
+            <td class="truncate">CRITICAL vulnerability in Microsoft Service</td>
+            <td class="truncate">VMware</td>
+            <td>2025-07-12</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40139">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40139"
-                   onclick="openCveModal('CVE-2025-40139'); return false;">
-                    CVE-2025-40139
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40139'); return false;" 
+                   class="cve-link">CVE-2025-40139</a>
             </td>
             <td><span class="severity-badge severity-high">HIGH</span></td>
             <td>8.5</td>
-            <td>95%</td>
-            <td>
-                <div class="risk-score critical">
-                    <span>84</span>
-                </div>
-            </td>
-            <td class="title-cell">HIGH vulnerability in Cisco Client</td>
-            <td>Cisco</td>
-            <td>Jul 05, 2025</td>
+            <td>95</td>
+            <td>90</td>
+            <td class="truncate">HIGH vulnerability in Cisco Client</td>
+            <td class="truncate">Cisco</td>
+            <td>2025-07-05</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40138">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40138"
-                   onclick="openCveModal('CVE-2025-40138'); return false;">
-                    CVE-2025-40138
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40138'); return false;" 
+                   class="cve-link">CVE-2025-40138</a>
             </td>
             <td><span class="severity-badge severity-medium">MEDIUM</span></td>
             <td>5.5</td>
-            <td>75%</td>
-            <td>
-                <div class="risk-score high">
-                    <span>61</span>
-                </div>
-            </td>
-            <td class="title-cell">MEDIUM vulnerability in VMware Framework</td>
-            <td>Microsoft</td>
-            <td>Jul 17, 2025</td>
+            <td>75</td>
+            <td>65</td>
+            <td class="truncate">MEDIUM vulnerability in VMware Framework</td>
+            <td class="truncate">Microsoft</td>
+            <td>2025-07-17</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40137">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40137"
-                   onclick="openCveModal('CVE-2025-40137'); return false;">
-                    CVE-2025-40137
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40137'); return false;" 
+                   class="cve-link">CVE-2025-40137</a>
             </td>
             <td><span class="severity-badge severity-high">HIGH</span></td>
             <td>8.1</td>
-            <td>71%</td>
-            <td>
-                <div class="risk-score high">
-                    <span>72</span>
-                </div>
-            </td>
-            <td class="title-cell">HIGH vulnerability in Apache Service</td>
-            <td>Adobe</td>
-            <td>Jul 12, 2025</td>
+            <td>71</td>
+            <td>76</td>
+            <td class="truncate">HIGH vulnerability in Apache Service</td>
+            <td class="truncate">Adobe</td>
+            <td>2025-07-12</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40136">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40136"
-                   onclick="openCveModal('CVE-2025-40136'); return false;">
-                    CVE-2025-40136
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40136'); return false;" 
+                   class="cve-link">CVE-2025-40136</a>
             </td>
             <td><span class="severity-badge severity-high">HIGH</span></td>
             <td>8.6</td>
-            <td>89%</td>
-            <td>
-                <div class="risk-score critical">
-                    <span>82</span>
-                </div>
-            </td>
-            <td class="title-cell">HIGH vulnerability in VMware Framework</td>
-            <td>Oracle</td>
-            <td>Jul 11, 2025</td>
+            <td>89</td>
+            <td>87</td>
+            <td class="truncate">HIGH vulnerability in VMware Framework</td>
+            <td class="truncate">Oracle</td>
+            <td>2025-07-11</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40135">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40135"
-                   onclick="openCveModal('CVE-2025-40135'); return false;">
-                    CVE-2025-40135
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40135'); return false;" 
+                   class="cve-link">CVE-2025-40135</a>
             </td>
             <td><span class="severity-badge severity-critical">CRITICAL</span></td>
             <td>10.0</td>
-            <td>85%</td>
-            <td>
-                <div class="risk-score critical">
-                    <span>89</span>
-                </div>
-            </td>
-            <td class="title-cell">CRITICAL vulnerability in Mozilla Service</td>
-            <td>Oracle</td>
-            <td>Jul 06, 2025</td>
+            <td>85</td>
+            <td>92</td>
+            <td class="truncate">CRITICAL vulnerability in Mozilla Service</td>
+            <td class="truncate">Oracle</td>
+            <td>2025-07-06</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40134">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40134"
-                   onclick="openCveModal('CVE-2025-40134'); return false;">
-                    CVE-2025-40134
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40134'); return false;" 
+                   class="cve-link">CVE-2025-40134</a>
             </td>
             <td><span class="severity-badge severity-critical">CRITICAL</span></td>
             <td>9.7</td>
-            <td>98%</td>
-            <td>
-                <div class="risk-score critical">
-                    <span>93</span>
-                </div>
-            </td>
-            <td class="title-cell">CRITICAL vulnerability in Microsoft Service</td>
-            <td>Mozilla</td>
-            <td>Jul 19, 2025</td>
+            <td>98</td>
+            <td>97</td>
+            <td class="truncate">CRITICAL vulnerability in Microsoft Service</td>
+            <td class="truncate">Mozilla</td>
+            <td>2025-07-19</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40133">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40133"
-                   onclick="openCveModal('CVE-2025-40133'); return false;">
-                    CVE-2025-40133
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40133'); return false;" 
+                   class="cve-link">CVE-2025-40133</a>
             </td>
             <td><span class="severity-badge severity-medium">MEDIUM</span></td>
             <td>5.8</td>
-            <td>97%</td>
-            <td>
-                <div class="risk-score high">
-                    <span>71</span>
-                </div>
-            </td>
-            <td class="title-cell">MEDIUM vulnerability in Microsoft Service</td>
-            <td>Mozilla</td>
-            <td>Jul 21, 2025</td>
+            <td>97</td>
+            <td>77</td>
+            <td class="truncate">MEDIUM vulnerability in Microsoft Service</td>
+            <td class="truncate">Mozilla</td>
+            <td>2025-07-21</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40132">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40132"
-                   onclick="openCveModal('CVE-2025-40132'); return false;">
-                    CVE-2025-40132
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40132'); return false;" 
+                   class="cve-link">CVE-2025-40132</a>
             </td>
             <td><span class="severity-badge severity-high">HIGH</span></td>
             <td>9.0</td>
-            <td>71%</td>
-            <td>
-                <div class="risk-score high">
-                    <span>76</span>
-                </div>
-            </td>
-            <td class="title-cell">HIGH vulnerability in Apache Library</td>
-            <td>Mozilla</td>
-            <td>Jul 09, 2025</td>
+            <td>71</td>
+            <td>80</td>
+            <td class="truncate">HIGH vulnerability in Apache Library</td>
+            <td class="truncate">Mozilla</td>
+            <td>2025-07-09</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40131">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40131"
-                   onclick="openCveModal('CVE-2025-40131'); return false;">
-                    CVE-2025-40131
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40131'); return false;" 
+                   class="cve-link">CVE-2025-40131</a>
             </td>
             <td><span class="severity-badge severity-high">HIGH</span></td>
             <td>7.5</td>
-            <td>99%</td>
-            <td>
-                <div class="risk-score critical">
-                    <span>81</span>
-                </div>
-            </td>
-            <td class="title-cell">HIGH vulnerability in Cisco Service</td>
-            <td>Apache</td>
-            <td>Jul 13, 2025</td>
+            <td>99</td>
+            <td>87</td>
+            <td class="truncate">HIGH vulnerability in Cisco Service</td>
+            <td class="truncate">Apache</td>
+            <td>2025-07-13</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40130">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40130"
-                   onclick="openCveModal('CVE-2025-40130'); return false;">
-                    CVE-2025-40130
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40130'); return false;" 
+                   class="cve-link">CVE-2025-40130</a>
             </td>
             <td><span class="severity-badge severity-medium">MEDIUM</span></td>
             <td>5.9</td>
-            <td>76%</td>
-            <td>
-                <div class="risk-score high">
-                    <span>63</span>
-                </div>
-            </td>
-            <td class="title-cell">MEDIUM vulnerability in Oracle Client</td>
-            <td>Google</td>
-            <td>Jul 17, 2025</td>
+            <td>76</td>
+            <td>67</td>
+            <td class="truncate">MEDIUM vulnerability in Oracle Client</td>
+            <td class="truncate">Google</td>
+            <td>2025-07-17</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40129">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40129"
-                   onclick="openCveModal('CVE-2025-40129'); return false;">
-                    CVE-2025-40129
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40129'); return false;" 
+                   class="cve-link">CVE-2025-40129</a>
             </td>
             <td><span class="severity-badge severity-medium">MEDIUM</span></td>
             <td>5.4</td>
-            <td>91%</td>
-            <td>
-                <div class="risk-score high">
-                    <span>67</span>
-                </div>
-            </td>
-            <td class="title-cell">MEDIUM vulnerability in VMware Framework</td>
-            <td>Mozilla</td>
-            <td>Jul 10, 2025</td>
+            <td>91</td>
+            <td>72</td>
+            <td class="truncate">MEDIUM vulnerability in VMware Framework</td>
+            <td class="truncate">Mozilla</td>
+            <td>2025-07-10</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40128">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40128"
-                   onclick="openCveModal('CVE-2025-40128'); return false;">
-                    CVE-2025-40128
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40128'); return false;" 
+                   class="cve-link">CVE-2025-40128</a>
             </td>
             <td><span class="severity-badge severity-medium">MEDIUM</span></td>
             <td>6.5</td>
-            <td>85%</td>
-            <td>
-                <div class="risk-score high">
-                    <span>69</span>
-                </div>
-            </td>
-            <td class="title-cell">MEDIUM vulnerability in Cisco Framework</td>
-            <td>VMware</td>
-            <td>Jul 02, 2025</td>
+            <td>85</td>
+            <td>75</td>
+            <td class="truncate">MEDIUM vulnerability in Cisco Framework</td>
+            <td class="truncate">VMware</td>
+            <td>2025-07-02</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40127">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40127"
-                   onclick="openCveModal('CVE-2025-40127'); return false;">
-                    CVE-2025-40127
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40127'); return false;" 
+                   class="cve-link">CVE-2025-40127</a>
             </td>
             <td><span class="severity-badge severity-critical">CRITICAL</span></td>
             <td>9.0</td>
-            <td>96%</td>
-            <td>
-                <div class="risk-score critical">
-                    <span>89</span>
-                </div>
-            </td>
-            <td class="title-cell">CRITICAL vulnerability in Oracle Library</td>
-            <td>Mozilla</td>
-            <td>Jul 06, 2025</td>
+            <td>96</td>
+            <td>93</td>
+            <td class="truncate">CRITICAL vulnerability in Oracle Library</td>
+            <td class="truncate">Mozilla</td>
+            <td>2025-07-06</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40126">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40126"
-                   onclick="openCveModal('CVE-2025-40126'); return false;">
-                    CVE-2025-40126
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40126'); return false;" 
+                   class="cve-link">CVE-2025-40126</a>
             </td>
             <td><span class="severity-badge severity-high">HIGH</span></td>
             <td>7.9</td>
-            <td>87%</td>
-            <td>
-                <div class="risk-score high">
-                    <span>78</span>
-                </div>
-            </td>
-            <td class="title-cell">HIGH vulnerability in Adobe Library</td>
-            <td>Cisco</td>
-            <td>Jun 30, 2025</td>
+            <td>87</td>
+            <td>83</td>
+            <td class="truncate">HIGH vulnerability in Adobe Library</td>
+            <td class="truncate">Cisco</td>
+            <td>2025-06-30</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40125">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40125"
-                   onclick="openCveModal('CVE-2025-40125'); return false;">
-                    CVE-2025-40125
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40125'); return false;" 
+                   class="cve-link">CVE-2025-40125</a>
             </td>
             <td><span class="severity-badge severity-high">HIGH</span></td>
             <td>8.2</td>
-            <td>82%</td>
-            <td>
-                <div class="risk-score critical">
-                    <span>82</span>
-                </div>
-            </td>
-            <td class="title-cell">HIGH vulnerability in Mozilla Server</td>
-            <td>Adobe</td>
-            <td>Yesterday</td>
+            <td>82</td>
+            <td>82</td>
+            <td class="truncate">HIGH vulnerability in Mozilla Server</td>
+            <td class="truncate">Adobe</td>
+            <td>2025-07-29</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40124">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40124"
-                   onclick="openCveModal('CVE-2025-40124'); return false;">
-                    CVE-2025-40124
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40124'); return false;" 
+                   class="cve-link">CVE-2025-40124</a>
             </td>
             <td><span class="severity-badge severity-high">HIGH</span></td>
             <td>8.5</td>
-            <td>85%</td>
-            <td>
-                <div class="risk-score critical">
-                    <span>80</span>
-                </div>
-            </td>
-            <td class="title-cell">HIGH vulnerability in Oracle Service</td>
-            <td>Apache</td>
-            <td>Jul 14, 2025</td>
+            <td>85</td>
+            <td>85</td>
+            <td class="truncate">HIGH vulnerability in Oracle Service</td>
+            <td class="truncate">Apache</td>
+            <td>2025-07-14</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40123">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40123"
-                   onclick="openCveModal('CVE-2025-40123'); return false;">
-                    CVE-2025-40123
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40123'); return false;" 
+                   class="cve-link">CVE-2025-40123</a>
             </td>
             <td><span class="severity-badge severity-medium">MEDIUM</span></td>
             <td>6.9</td>
-            <td>70%</td>
-            <td>
-                <div class="risk-score high">
-                    <span>64</span>
-                </div>
-            </td>
-            <td class="title-cell">MEDIUM vulnerability in Google Server</td>
-            <td>Google</td>
-            <td>Jul 16, 2025</td>
+            <td>70</td>
+            <td>69</td>
+            <td class="truncate">MEDIUM vulnerability in Google Server</td>
+            <td class="truncate">Google</td>
+            <td>2025-07-16</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40122">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40122"
-                   onclick="openCveModal('CVE-2025-40122'); return false;">
-                    CVE-2025-40122
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40122'); return false;" 
+                   class="cve-link">CVE-2025-40122</a>
             </td>
             <td><span class="severity-badge severity-medium">MEDIUM</span></td>
             <td>6.2</td>
-            <td>95%</td>
-            <td>
-                <div class="risk-score high">
-                    <span>76</span>
-                </div>
-            </td>
-            <td class="title-cell">MEDIUM vulnerability in Adobe Client</td>
-            <td>Google</td>
-            <td>Jul 23, 2025</td>
+            <td>95</td>
+            <td>78</td>
+            <td class="truncate">MEDIUM vulnerability in Adobe Client</td>
+            <td class="truncate">Google</td>
+            <td>2025-07-23</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40121">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40121"
-                   onclick="openCveModal('CVE-2025-40121'); return false;">
-                    CVE-2025-40121
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40121'); return false;" 
+                   class="cve-link">CVE-2025-40121</a>
             </td>
             <td><span class="severity-badge severity-medium">MEDIUM</span></td>
             <td>5.8</td>
-            <td>84%</td>
-            <td>
-                <div class="risk-score high">
-                    <span>70</span>
-                </div>
-            </td>
-            <td class="title-cell">MEDIUM vulnerability in Mozilla Client</td>
-            <td>Apache</td>
-            <td>5 days ago</td>
+            <td>84</td>
+            <td>71</td>
+            <td class="truncate">MEDIUM vulnerability in Mozilla Client</td>
+            <td class="truncate">Apache</td>
+            <td>2025-07-25</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40120">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40120"
-                   onclick="openCveModal('CVE-2025-40120'); return false;">
-                    CVE-2025-40120
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40120'); return false;" 
+                   class="cve-link">CVE-2025-40120</a>
             </td>
             <td><span class="severity-badge severity-high">HIGH</span></td>
             <td>8.8</td>
-            <td>78%</td>
-            <td>
-                <div class="risk-score high">
-                    <span>78</span>
-                </div>
-            </td>
-            <td class="title-cell">HIGH vulnerability in Adobe Library</td>
-            <td>Google</td>
-            <td>Jul 03, 2025</td>
+            <td>78</td>
+            <td>83</td>
+            <td class="truncate">HIGH vulnerability in Adobe Library</td>
+            <td class="truncate">Google</td>
+            <td>2025-07-03</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40119">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40119"
-                   onclick="openCveModal('CVE-2025-40119'); return false;">
-                    CVE-2025-40119
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40119'); return false;" 
+                   class="cve-link">CVE-2025-40119</a>
             </td>
             <td><span class="severity-badge severity-high">HIGH</span></td>
             <td>8.1</td>
-            <td>87%</td>
-            <td>
-                <div class="risk-score critical">
-                    <span>84</span>
-                </div>
-            </td>
-            <td class="title-cell">HIGH vulnerability in Cisco Service</td>
-            <td>Cisco</td>
-            <td>5 days ago</td>
+            <td>87</td>
+            <td>84</td>
+            <td class="truncate">HIGH vulnerability in Cisco Service</td>
+            <td class="truncate">Cisco</td>
+            <td>2025-07-25</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40118">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40118"
-                   onclick="openCveModal('CVE-2025-40118'); return false;">
-                    CVE-2025-40118
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40118'); return false;" 
+                   class="cve-link">CVE-2025-40118</a>
             </td>
             <td><span class="severity-badge severity-high">HIGH</span></td>
             <td>8.5</td>
-            <td>84%</td>
-            <td>
-                <div class="risk-score critical">
-                    <span>84</span>
-                </div>
-            </td>
-            <td class="title-cell">HIGH vulnerability in VMware Server</td>
-            <td>VMware</td>
-            <td>4 days ago</td>
+            <td>84</td>
+            <td>84</td>
+            <td class="truncate">HIGH vulnerability in VMware Server</td>
+            <td class="truncate">VMware</td>
+            <td>2025-07-26</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40117">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40117"
-                   onclick="openCveModal('CVE-2025-40117'); return false;">
-                    CVE-2025-40117
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40117'); return false;" 
+                   class="cve-link">CVE-2025-40117</a>
             </td>
             <td><span class="severity-badge severity-medium">MEDIUM</span></td>
             <td>7.0</td>
-            <td>91%</td>
-            <td>
-                <div class="risk-score high">
-                    <span>73</span>
-                </div>
-            </td>
-            <td class="title-cell">MEDIUM vulnerability in Microsoft Framework</td>
-            <td>Microsoft</td>
-            <td>Jul 06, 2025</td>
+            <td>91</td>
+            <td>80</td>
+            <td class="truncate">MEDIUM vulnerability in Microsoft Framework</td>
+            <td class="truncate">Microsoft</td>
+            <td>2025-07-06</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40116">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40116"
-                   onclick="openCveModal('CVE-2025-40116'); return false;">
-                    CVE-2025-40116
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40116'); return false;" 
+                   class="cve-link">CVE-2025-40116</a>
             </td>
             <td><span class="severity-badge severity-high">HIGH</span></td>
             <td>8.9</td>
-            <td>91%</td>
-            <td>
-                <div class="risk-score critical">
-                    <span>84</span>
-                </div>
-            </td>
-            <td class="title-cell">HIGH vulnerability in Adobe Client</td>
-            <td>Microsoft</td>
-            <td>Jul 17, 2025</td>
+            <td>91</td>
+            <td>90</td>
+            <td class="truncate">HIGH vulnerability in Adobe Client</td>
+            <td class="truncate">Microsoft</td>
+            <td>2025-07-17</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40115">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40115"
-                   onclick="openCveModal('CVE-2025-40115'); return false;">
-                    CVE-2025-40115
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40115'); return false;" 
+                   class="cve-link">CVE-2025-40115</a>
             </td>
             <td><span class="severity-badge severity-medium">MEDIUM</span></td>
             <td>5.1</td>
-            <td>74%</td>
-            <td>
-                <div class="risk-score high">
-                    <span>59</span>
-                </div>
-            </td>
-            <td class="title-cell">MEDIUM vulnerability in Microsoft Service</td>
-            <td>Google</td>
-            <td>Jul 04, 2025</td>
+            <td>74</td>
+            <td>62</td>
+            <td class="truncate">MEDIUM vulnerability in Microsoft Service</td>
+            <td class="truncate">Google</td>
+            <td>2025-07-04</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40114">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40114"
-                   onclick="openCveModal('CVE-2025-40114'); return false;">
-                    CVE-2025-40114
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40114'); return false;" 
+                   class="cve-link">CVE-2025-40114</a>
             </td>
             <td><span class="severity-badge severity-critical">CRITICAL</span></td>
             <td>9.5</td>
-            <td>95%</td>
-            <td>
-                <div class="risk-score critical">
-                    <span>96</span>
-                </div>
-            </td>
-            <td class="title-cell">CRITICAL vulnerability in Mozilla Service</td>
-            <td>Microsoft</td>
-            <td>4 days ago</td>
+            <td>95</td>
+            <td>95</td>
+            <td class="truncate">CRITICAL vulnerability in Mozilla Service</td>
+            <td class="truncate">Microsoft</td>
+            <td>2025-07-26</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40113">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40113"
-                   onclick="openCveModal('CVE-2025-40113'); return false;">
-                    CVE-2025-40113
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40113'); return false;" 
+                   class="cve-link">CVE-2025-40113</a>
             </td>
             <td><span class="severity-badge severity-critical">CRITICAL</span></td>
             <td>9.9</td>
-            <td>92%</td>
-            <td>
-                <div class="risk-score critical">
-                    <span>91</span>
-                </div>
-            </td>
-            <td class="title-cell">CRITICAL vulnerability in Adobe Service</td>
-            <td>Mozilla</td>
-            <td>Jul 19, 2025</td>
+            <td>92</td>
+            <td>95</td>
+            <td class="truncate">CRITICAL vulnerability in Adobe Service</td>
+            <td class="truncate">Mozilla</td>
+            <td>2025-07-19</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40112">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40112"
-                   onclick="openCveModal('CVE-2025-40112'); return false;">
-                    CVE-2025-40112
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40112'); return false;" 
+                   class="cve-link">CVE-2025-40112</a>
             </td>
             <td><span class="severity-badge severity-high">HIGH</span></td>
             <td>7.7</td>
-            <td>80%</td>
-            <td>
-                <div class="risk-score high">
-                    <span>74</span>
-                </div>
-            </td>
-            <td class="title-cell">HIGH vulnerability in Microsoft Framework</td>
-            <td>Google</td>
-            <td>Jul 14, 2025</td>
+            <td>80</td>
+            <td>78</td>
+            <td class="truncate">HIGH vulnerability in Microsoft Framework</td>
+            <td class="truncate">Google</td>
+            <td>2025-07-14</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40111">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40111"
-                   onclick="openCveModal('CVE-2025-40111'); return false;">
-                    CVE-2025-40111
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40111'); return false;" 
+                   class="cve-link">CVE-2025-40111</a>
             </td>
             <td><span class="severity-badge severity-critical">CRITICAL</span></td>
             <td>9.6</td>
-            <td>75%</td>
-            <td>
-                <div class="risk-score critical">
-                    <span>83</span>
-                </div>
-            </td>
-            <td class="title-cell">CRITICAL vulnerability in Microsoft Service</td>
-            <td>Cisco</td>
-            <td>Jul 18, 2025</td>
+            <td>75</td>
+            <td>85</td>
+            <td class="truncate">CRITICAL vulnerability in Microsoft Service</td>
+            <td class="truncate">Cisco</td>
+            <td>2025-07-18</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40110">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40110"
-                   onclick="openCveModal('CVE-2025-40110'); return false;">
-                    CVE-2025-40110
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40110'); return false;" 
+                   class="cve-link">CVE-2025-40110</a>
             </td>
             <td><span class="severity-badge severity-critical">CRITICAL</span></td>
             <td>9.1</td>
-            <td>89%</td>
-            <td>
-                <div class="risk-score critical">
-                    <span>92</span>
-                </div>
-            </td>
-            <td class="title-cell">CRITICAL vulnerability in VMware Framework</td>
-            <td>Microsoft</td>
-            <td>6 days ago</td>
+            <td>89</td>
+            <td>90</td>
+            <td class="truncate">CRITICAL vulnerability in VMware Framework</td>
+            <td class="truncate">Microsoft</td>
+            <td>2025-07-24</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40109">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40109"
-                   onclick="openCveModal('CVE-2025-40109'); return false;">
-                    CVE-2025-40109
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40109'); return false;" 
+                   class="cve-link">CVE-2025-40109</a>
             </td>
             <td><span class="severity-badge severity-medium">MEDIUM</span></td>
             <td>6.4</td>
-            <td>75%</td>
-            <td>
-                <div class="risk-score high">
-                    <span>64</span>
-                </div>
-            </td>
-            <td class="title-cell">MEDIUM vulnerability in VMware Framework</td>
-            <td>Microsoft</td>
-            <td>Jul 08, 2025</td>
+            <td>75</td>
+            <td>69</td>
+            <td class="truncate">MEDIUM vulnerability in VMware Framework</td>
+            <td class="truncate">Microsoft</td>
+            <td>2025-07-08</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40108">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40108"
-                   onclick="openCveModal('CVE-2025-40108'); return false;">
-                    CVE-2025-40108
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40108'); return false;" 
+                   class="cve-link">CVE-2025-40108</a>
             </td>
             <td><span class="severity-badge severity-critical">CRITICAL</span></td>
             <td>9.3</td>
-            <td>83%</td>
-            <td>
-                <div class="risk-score critical">
-                    <span>85</span>
-                </div>
-            </td>
-            <td class="title-cell">CRITICAL vulnerability in Microsoft Client</td>
-            <td>Apache</td>
-            <td>Jul 05, 2025</td>
+            <td>83</td>
+            <td>88</td>
+            <td class="truncate">CRITICAL vulnerability in Microsoft Client</td>
+            <td class="truncate">Apache</td>
+            <td>2025-07-05</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40107">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40107"
-                   onclick="openCveModal('CVE-2025-40107'); return false;">
-                    CVE-2025-40107
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40107'); return false;" 
+                   class="cve-link">CVE-2025-40107</a>
             </td>
             <td><span class="severity-badge severity-critical">CRITICAL</span></td>
             <td>9.4</td>
-            <td>99%</td>
-            <td>
-                <div class="risk-score critical">
-                    <span>92</span>
-                </div>
-            </td>
-            <td class="title-cell">CRITICAL vulnerability in Oracle Service</td>
-            <td>Google</td>
-            <td>Jul 10, 2025</td>
+            <td>99</td>
+            <td>96</td>
+            <td class="truncate">CRITICAL vulnerability in Oracle Service</td>
+            <td class="truncate">Google</td>
+            <td>2025-07-10</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40106">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40106"
-                   onclick="openCveModal('CVE-2025-40106'); return false;">
-                    CVE-2025-40106
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40106'); return false;" 
+                   class="cve-link">CVE-2025-40106</a>
             </td>
             <td><span class="severity-badge severity-medium">MEDIUM</span></td>
             <td>6.4</td>
-            <td>98%</td>
-            <td>
-                <div class="risk-score high">
-                    <span>73</span>
-                </div>
-            </td>
-            <td class="title-cell">MEDIUM vulnerability in VMware Library</td>
-            <td>Microsoft</td>
-            <td>Jul 18, 2025</td>
+            <td>98</td>
+            <td>81</td>
+            <td class="truncate">MEDIUM vulnerability in VMware Library</td>
+            <td class="truncate">Microsoft</td>
+            <td>2025-07-18</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40105">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40105"
-                   onclick="openCveModal('CVE-2025-40105'); return false;">
-                    CVE-2025-40105
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40105'); return false;" 
+                   class="cve-link">CVE-2025-40105</a>
             </td>
             <td><span class="severity-badge severity-high">HIGH</span></td>
             <td>8.4</td>
-            <td>75%</td>
-            <td>
-                <div class="risk-score critical">
-                    <span>80</span>
-                </div>
-            </td>
-            <td class="title-cell">HIGH vulnerability in Apache Library</td>
-            <td>Mozilla</td>
-            <td>2 days ago</td>
+            <td>75</td>
+            <td>79</td>
+            <td class="truncate">HIGH vulnerability in Apache Library</td>
+            <td class="truncate">Mozilla</td>
+            <td>2025-07-28</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40104">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40104"
-                   onclick="openCveModal('CVE-2025-40104'); return false;">
-                    CVE-2025-40104
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40104'); return false;" 
+                   class="cve-link">CVE-2025-40104</a>
             </td>
             <td><span class="severity-badge severity-medium">MEDIUM</span></td>
             <td>5.3</td>
-            <td>80%</td>
-            <td>
-                <div class="risk-score high">
-                    <span>62</span>
-                </div>
-            </td>
-            <td class="title-cell">MEDIUM vulnerability in Oracle Client</td>
-            <td>Apache</td>
-            <td>Jul 04, 2025</td>
+            <td>80</td>
+            <td>66</td>
+            <td class="truncate">MEDIUM vulnerability in Oracle Client</td>
+            <td class="truncate">Apache</td>
+            <td>2025-07-04</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40103">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40103"
-                   onclick="openCveModal('CVE-2025-40103'); return false;">
-                    CVE-2025-40103
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40103'); return false;" 
+                   class="cve-link">CVE-2025-40103</a>
             </td>
             <td><span class="severity-badge severity-medium">MEDIUM</span></td>
             <td>6.2</td>
-            <td>72%</td>
-            <td>
-                <div class="risk-score high">
-                    <span>62</span>
-                </div>
-            </td>
-            <td class="title-cell">MEDIUM vulnerability in Apache Library</td>
-            <td>Microsoft</td>
-            <td>Jul 06, 2025</td>
+            <td>72</td>
+            <td>67</td>
+            <td class="truncate">MEDIUM vulnerability in Apache Library</td>
+            <td class="truncate">Microsoft</td>
+            <td>2025-07-06</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40102">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40102"
-                   onclick="openCveModal('CVE-2025-40102'); return false;">
-                    CVE-2025-40102
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40102'); return false;" 
+                   class="cve-link">CVE-2025-40102</a>
             </td>
             <td><span class="severity-badge severity-high">HIGH</span></td>
             <td>7.4</td>
-            <td>91%</td>
-            <td>
-                <div class="risk-score critical">
-                    <span>83</span>
-                </div>
-            </td>
-            <td class="title-cell">HIGH vulnerability in Apache Framework</td>
-            <td>Apache</td>
-            <td>Jul 23, 2025</td>
+            <td>91</td>
+            <td>82</td>
+            <td class="truncate">HIGH vulnerability in Apache Framework</td>
+            <td class="truncate">Apache</td>
+            <td>2025-07-23</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40101">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40101"
-                   onclick="openCveModal('CVE-2025-40101'); return false;">
-                    CVE-2025-40101
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40101'); return false;" 
+                   class="cve-link">CVE-2025-40101</a>
             </td>
             <td><span class="severity-badge severity-medium">MEDIUM</span></td>
             <td>5.8</td>
-            <td>72%</td>
-            <td>
-                <div class="risk-score high">
-                    <span>66</span>
-                </div>
-            </td>
-            <td class="title-cell">MEDIUM vulnerability in Oracle Library</td>
-            <td>Microsoft</td>
-            <td>Yesterday</td>
+            <td>72</td>
+            <td>65</td>
+            <td class="truncate">MEDIUM vulnerability in Oracle Library</td>
+            <td class="truncate">Microsoft</td>
+            <td>2025-07-29</td>
         </tr>
-        
+            
         <tr class="vulnerability-row" data-cve="CVE-2025-40100">
             <td>
-                <a href="#"
-                   class="cve-link"
-                   data-cve="CVE-2025-40100"
-                   onclick="openCveModal('CVE-2025-40100'); return false;">
-                    CVE-2025-40100
-                </a>
+                <a href="#" onclick="openCveModal('CVE-2025-40100'); return false;" 
+                   class="cve-link">CVE-2025-40100</a>
             </td>
             <td><span class="severity-badge severity-medium">MEDIUM</span></td>
             <td>6.9</td>
-            <td>83%</td>
-            <td>
-                <div class="risk-score high">
-                    <span>69</span>
-                </div>
-            </td>
-            <td class="title-cell">MEDIUM vulnerability in Cisco Library</td>
-            <td>Cisco</td>
-            <td>Jul 10, 2025</td>
+            <td>83</td>
+            <td>76</td>
+            <td class="truncate">MEDIUM vulnerability in Cisco Library</td>
+            <td class="truncate">Cisco</td>
+            <td>2025-07-10</td>
         </tr>
-        
+            
                 </tbody>
             </table>
 
@@ -1159,7 +759,7 @@
                 </span>
                 <button class="page-btn"
                         
-                        hx-get="/fragments/page/2.html" hx-target="#vulnerabilities-table" hx-swap="outerHTML">
+                        hx-get="../page/2.html" hx-target="#vulnerabilities-table" hx-swap="outerHTML">
                     Next
                 </button>
             </div>

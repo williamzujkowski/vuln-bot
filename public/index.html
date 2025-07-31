@@ -430,7 +430,7 @@
                 </div>
                 <div style="display: flex; gap: 1rem;">
                     <button class="filter-chip" 
-                            hx-get="/data/vulnerabilities.csv" 
+                            hx-get="data/vulnerabilities.csv" 
                             hx-include="#filters-form">
                         Export CSV
                     </button>
@@ -442,7 +442,7 @@
         <main class="main">
             <!-- Stats Section - Loaded via HTMX -->
             <div id="stats-container" 
-                 hx-get="/fragments/stats.html" 
+                 hx-get="fragments/stats.html" 
                  hx-trigger="load, filter-change from:body"
                  hx-swap="innerHTML">
                 <!-- Stats will be loaded here -->
@@ -457,35 +457,35 @@
             <!-- Quick Filters -->
             <div class="quick-filters">
                 <button class="filter-chip" 
-                        hx-get="/fragments/filter/{filter}.html" 
+                        hx-get="fragments/filter/{filter}.html" 
                         hx-vals='{"filter": "all"}'
                         hx-target="#vulnerabilities-table"
                         hx-indicator=".htmx-indicator">
                     All Vulnerabilities
                 </button>
                 <button class="filter-chip" 
-                        hx-get="/fragments/filter/{filter}.html" 
+                        hx-get="fragments/filter/{filter}.html" 
                         hx-vals='{"filter": "critical"}'
                         hx-target="#vulnerabilities-table"
                         hx-indicator=".htmx-indicator">
                     <span class="severity-badge severity-critical">Critical</span>
                 </button>
                 <button class="filter-chip" 
-                        hx-get="/fragments/filter/{filter}.html" 
+                        hx-get="fragments/filter/{filter}.html" 
                         hx-vals='{"filter": "today"}'
                         hx-target="#vulnerabilities-table"
                         hx-indicator=".htmx-indicator">
                     📅 Today's CVEs
                 </button>
                 <button class="filter-chip" 
-                        hx-get="/fragments/filter/{filter}.html" 
+                        hx-get="fragments/filter/{filter}.html" 
                         hx-vals='{"filter": "kev"}'
                         hx-target="#vulnerabilities-table"
                         hx-indicator=".htmx-indicator">
                     ⭐ KEV Listed
                 </button>
                 <button class="filter-chip" 
-                        hx-get="/fragments/filter/{filter}.html" 
+                        hx-get="fragments/filter/{filter}.html" 
                         hx-vals='{"filter": "network"}'
                         hx-target="#vulnerabilities-table"
                         hx-indicator=".htmx-indicator">
@@ -568,7 +568,7 @@
                         <div style="display: flex; gap: 1rem; margin-top: 1rem;">
                             <button type="submit" class="filter-chip active">Apply Filters</button>
                             <button type="reset" class="filter-chip"
-                                    hx-get="/fragments/vulnerabilities.html"
+                                    hx-get="fragments/vulnerabilities.html"
                                     hx-target="#vulnerabilities-table">
                                 Reset
                             </button>
@@ -579,7 +579,7 @@
             
             <!-- Charts Section -->
             <div id="charts-container" 
-                 hx-get="/fragments/charts.html" 
+                 hx-get="fragments/charts.html" 
                  hx-trigger="load, filter-change from:body"
                  hx-swap="innerHTML"
                  class="charts-grid">
@@ -596,7 +596,7 @@
                 </div>
                 
                 <div id="vulnerabilities-table" 
-                     hx-get="/fragments/vulnerabilities.html" 
+                     hx-get="fragments/vulnerabilities.html" 
                      hx-trigger="load"
                      hx-indicator=".htmx-indicator">
                     <!-- Table will be loaded here -->
@@ -692,7 +692,7 @@
                     break;
                 case 'e':
                     e.preventDefault();
-                    document.querySelector('[hx-get="/data/vulnerabilities.csv"]').click();
+                    document.querySelector('[hx-get="data/vulnerabilities.csv"]').click();
                     break;
             }
         });
