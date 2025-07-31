@@ -284,31 +284,31 @@ class HTMXDashboardGenerator:
                 <thead>
                     <tr>
                         <th class="sortable" data-sort="cve_id"
-                            hx-get="{base_prefix}sort/cve_id.html"
+                            hx-get="{base_prefix}sort/{{field}}_{{order}}.html"
                             hx-target="#vulnerabilities-table"
                             hx-swap="outerHTML">
                             CVE ID{sort_indicators.get("cve_id", "")}
                         </th>
                         <th class="sortable" data-sort="severity"
-                            hx-get="{base_prefix}sort/severity.html"
+                            hx-get="{base_prefix}sort/{{field}}_{{order}}.html"
                             hx-target="#vulnerabilities-table"
                             hx-swap="outerHTML">
                             Severity{sort_indicators.get("severity", "")}
                         </th>
                         <th class="sortable" data-sort="cvss_score"
-                            hx-get="{base_prefix}sort/cvss_score.html"
+                            hx-get="{base_prefix}sort/{{field}}_{{order}}.html"
                             hx-target="#vulnerabilities-table"
                             hx-swap="outerHTML">
                             CVSS{sort_indicators.get("cvss_score", "")}
                         </th>
                         <th class="sortable" data-sort="epss_percentile"
-                            hx-get="{base_prefix}sort/epss_percentile.html"
+                            hx-get="{base_prefix}sort/{{field}}_{{order}}.html"
                             hx-target="#vulnerabilities-table"
                             hx-swap="outerHTML">
                             EPSS %{sort_indicators.get("epss_percentile", "")}
                         </th>
                         <th class="sortable" data-sort="risk_score"
-                            hx-get="{base_prefix}sort/risk_score.html"
+                            hx-get="{base_prefix}sort/{{field}}_{{order}}.html"
                             hx-target="#vulnerabilities-table"
                             hx-swap="outerHTML">
                             Risk Score{sort_indicators.get("risk_score", "")}
@@ -316,7 +316,7 @@ class HTMXDashboardGenerator:
                         <th>Title</th>
                         <th>Vendors</th>
                         <th class="sortable" data-sort="published_date"
-                            hx-get="{base_prefix}sort/published_date.html"
+                            hx-get="{base_prefix}sort/{{field}}_{{order}}.html"
                             hx-target="#vulnerabilities-table"
                             hx-swap="outerHTML">
                             Published{sort_indicators.get("published_date", "")}
