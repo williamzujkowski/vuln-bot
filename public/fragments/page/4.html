@@ -4,31 +4,31 @@
                 <thead>
                     <tr>
                         <th class="sortable" data-sort="cve_id"
-                            hx-get="/vuln-bot/fragments/sort/cve_id.html"
+                            hx-get="../sort/cve_id.html"
                             hx-target="#vulnerabilities-table"
                             hx-swap="outerHTML">
                             CVE ID
                         </th>
                         <th class="sortable" data-sort="severity"
-                            hx-get="/vuln-bot/fragments/sort/severity.html"
+                            hx-get="../sort/severity.html"
                             hx-target="#vulnerabilities-table"
                             hx-swap="outerHTML">
                             Severity
                         </th>
                         <th class="sortable" data-sort="cvss_score"
-                            hx-get="/vuln-bot/fragments/sort/cvss_score.html"
+                            hx-get="../sort/cvss_score.html"
                             hx-target="#vulnerabilities-table"
                             hx-swap="outerHTML">
                             CVSS
                         </th>
                         <th class="sortable" data-sort="epss_percentile"
-                            hx-get="/vuln-bot/fragments/sort/epss_percentile.html"
+                            hx-get="../sort/epss_percentile.html"
                             hx-target="#vulnerabilities-table"
                             hx-swap="outerHTML">
                             EPSS % ↓
                         </th>
                         <th class="sortable" data-sort="risk_score"
-                            hx-get="/vuln-bot/fragments/sort/risk_score.html"
+                            hx-get="../sort/risk_score.html"
                             hx-target="#vulnerabilities-table"
                             hx-swap="outerHTML">
                             Risk Score
@@ -36,7 +36,7 @@
                         <th>Title</th>
                         <th>Vendors</th>
                         <th class="sortable" data-sort="published_date"
-                            hx-get="/vuln-bot/fragments/sort/published_date.html"
+                            hx-get="../sort/published_date.html"
                             hx-target="#vulnerabilities-table"
                             hx-swap="outerHTML">
                             Published
@@ -51,7 +51,7 @@
             <div class="pagination">
                 <button class="page-btn"
                         
-                        hx-get="/vuln-bot/fragments/page/3.html" hx-target="#vulnerabilities-table" hx-swap="outerHTML">
+                        hx-get="../page/3.html" hx-target="#vulnerabilities-table" hx-swap="outerHTML">
                     Previous
                 </button>
                 <span class="page-info">
