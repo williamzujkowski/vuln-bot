@@ -210,7 +210,6 @@ class HTMXDashboardGenerator:
         per_page: int = 50,
         sort_field: str = "epss_percentile",
         sort_order: str = "desc",
-        use_relative_paths: bool = True,
     ) -> str:
         """Generate vulnerability table fragment"""
         # Sort vulnerabilities
@@ -276,8 +275,8 @@ class HTMXDashboardGenerator:
             else:
                 sort_indicators[field] = ""
 
-        # Use relative paths for fragments
-        base_prefix = "../" if use_relative_paths else self.base_path + "/fragments/"
+        # Always use absolute paths with base path for GitHub Pages
+        base_prefix = self.base_path + "/fragments/"
 
         return f"""
         <div class="table-container" id="vulnerabilities-table">
@@ -332,7 +331,7 @@ class HTMXDashboardGenerator:
             <div class="pagination">
                 <button class="page-btn"
                         {"disabled" if page <= 1 else ""}
-                        {'hx-get="' + base_prefix + "page/" + str(page - 1) + '.html" hx-target="#vulnerabilities-table" hx-swap="outerHTML"' if page > 1 else ""}>
+                        {'hx-get="' + self.base_path + "/fragments/page/" + str(page - 1) + '.html" hx-target="#vulnerabilities-table" hx-swap="outerHTML"' if page > 1 else ""}>
                     Previous
                 </button>
                 <span class="page-info">
@@ -340,7 +339,7 @@ class HTMXDashboardGenerator:
                 </span>
                 <button class="page-btn"
                         {"disabled" if page >= total_pages else ""}
-                        {'hx-get="' + base_prefix + "page/" + str(page + 1) + '.html" hx-target="#vulnerabilities-table" hx-swap="outerHTML"' if page < total_pages else ""}>
+                        {'hx-get="' + self.base_path + "/fragments/page/" + str(page + 1) + '.html" hx-target="#vulnerabilities-table" hx-swap="outerHTML"' if page < total_pages else ""}>
                     Next
                 </button>
             </div>
@@ -392,13 +391,9 @@ class HTMXDashboardGenerator:
             f.write(self.generate_charts_fragment())
         print("✓ Generated charts fragment")
 
-        # Main vulnerabilities table - called from index.html, use absolute paths
+        # Main vulnerabilities table
         with open(FRAGMENTS_DIR / "vulnerabilities.html", "w") as f:
-            f.write(
-                self.generate_table_fragment(
-                    self.vulnerabilities, use_relative_paths=False
-                )
-            )
+            f.write(self.generate_table_fragment(self.vulnerabilities))
         print("✓ Generated main vulnerabilities table")
 
         # Filter fragments
@@ -406,11 +401,7 @@ class HTMXDashboardGenerator:
         for filter_type in filters:
             filtered_vulns = self.filter_vulnerabilities(filter_type)
             with open(FRAGMENTS_DIR / "filter" / f"{filter_type}.html", "w") as f:
-                f.write(
-                    self.generate_table_fragment(
-                        filtered_vulns, use_relative_paths=True
-                    )
-                )
+                f.write(self.generate_table_fragment(filtered_vulns))
         print(f"✓ Generated {len(filters)} filter fragments")
 
         # Sort fragments
@@ -427,10 +418,7 @@ class HTMXDashboardGenerator:
                 with open(FRAGMENTS_DIR / "sort" / f"{field}_{order}.html", "w") as f:
                     f.write(
                         self.generate_table_fragment(
-                            self.vulnerabilities,
-                            sort_field=field,
-                            sort_order=order,
-                            use_relative_paths=True,
+                            self.vulnerabilities, sort_field=field, sort_order=order
                         )
                     )
         print(f"✓ Generated {len(sort_fields) * 2} sort fragments")
@@ -439,9 +427,7 @@ class HTMXDashboardGenerator:
         for page_num in range(1, min(11, (len(self.vulnerabilities) // 50) + 2)):
             with open(FRAGMENTS_DIR / "page" / f"{page_num}.html", "w") as f:
                 f.write(
-                    self.generate_table_fragment(
-                        self.vulnerabilities, page=page_num, use_relative_paths=True
-                    )
+                    self.generate_table_fragment(self.vulnerabilities, page=page_num)
                 )
         print("✓ Generated pagination fragments")
 
@@ -518,25 +504,19 @@ class HTMXDashboardGenerator:
             # Fallback to embedded template
             html = self.get_dashboard_template()
 
-        # Replace API endpoints with static fragments
-        # With base tag, we can use simple relative paths
+        # Replace API endpoints with static fragments using absolute paths
         replacements = {
-            "/api/stats": "fragments/stats.html",
-            "/api/vulnerabilities": "fragments/vulnerabilities.html",
-            "/api/charts": "fragments/charts.html",
-            "/api/filter/quick": "fragments/filter/{filter}.html",
-            "/api/sort": "fragments/sort/{field}_{order}.html",
-            "/api/export/csv": "data/vulnerabilities.csv",
-            "/fragments/stats.html": "fragments/stats.html",
-            "/fragments/vulnerabilities.html": "fragments/vulnerabilities.html",
-            "/fragments/charts.html": "fragments/charts.html",
-            "/fragments/filter/": "fragments/filter/",
-            "/data/vulnerabilities.csv": "data/vulnerabilities.csv",
-            f"{self.base_path}/fragments/stats.html": "fragments/stats.html",
-            f"{self.base_path}/fragments/vulnerabilities.html": "fragments/vulnerabilities.html",
-            f"{self.base_path}/fragments/charts.html": "fragments/charts.html",
-            f"{self.base_path}/fragments/filter/": "fragments/filter/",
-            f"{self.base_path}/data/vulnerabilities.csv": "data/vulnerabilities.csv",
+            "/api/stats": f"{self.base_path}/fragments/stats.html",
+            "/api/vulnerabilities": f"{self.base_path}/fragments/vulnerabilities.html",
+            "/api/charts": f"{self.base_path}/fragments/charts.html",
+            "/api/filter/quick": f"{self.base_path}/fragments/filter/{{filter}}.html",
+            "/api/sort": f"{self.base_path}/fragments/sort/{{field}}_{{order}}.html",
+            "/api/export/csv": f"{self.base_path}/data/vulnerabilities.csv",
+            "/fragments/stats.html": f"{self.base_path}/fragments/stats.html",
+            "/fragments/vulnerabilities.html": f"{self.base_path}/fragments/vulnerabilities.html",
+            "/fragments/charts.html": f"{self.base_path}/fragments/charts.html",
+            "/fragments/filter/": f"{self.base_path}/fragments/filter/",
+            "/data/vulnerabilities.csv": f"{self.base_path}/data/vulnerabilities.csv",
         }
 
         for old, new in replacements.items():
