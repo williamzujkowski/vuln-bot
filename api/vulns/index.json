@@ -1,5 +1,5 @@
 {
-  "generated": "2025-07-30T20:07:45.461946",
+  "generated": "2025-07-31T00:25:14.944570",
   "count": 15609,
   "vulnerabilities": [
     {
@@ -228,8 +228,8 @@
       "lastModifiedDate": "2024-11-19T13:37:03.351000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "rogierlankhorst",
-        "really simple plugins"
+        "really simple plugins",
+        "rogierlankhorst"
       ],
       "tags": [
         "CWE-288"
@@ -532,9 +532,9 @@
       "lastModifiedDate": "2025-07-25T16:19:55.848000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
+        "toshiba tec",
         "brother industries, ltd",
-        "konica minolta, inc.",
-        "toshiba tec"
+        "konica minolta, inc."
       ],
       "tags": [
         "CWE-1391"
@@ -3331,24 +3331,6 @@
       ]
     },
     {
-      "cveId": "CVE-2024-52875",
-      "title": "CVE-2024-52875: An issue was discovered in GFI Kerio Control 9.2.5 through 9.4.5. The dest GET parameter passed to t...",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 80.57,
-      "epssPercentile": 99.082,
-      "riskScore": 58,
-      "publishedDate": "2025-01-31T00:00:00+00:00",
-      "lastModifiedDate": "2025-02-12T20:41:37.262000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "gfi"
-      ],
-      "tags": [
-        "CWE-113"
-      ]
-    },
-    {
       "cveId": "CVE-2024-52433",
       "title": "WordPress My Geo Posts Free plugin <= 1.2 - PHP Object Injection vulnerability",
       "severity": "CRITICAL",
@@ -4170,6 +4152,24 @@
       ],
       "tags": [
         "CWE-1336"
+      ]
+    },
+    {
+      "cveId": "CVE-2024-52875",
+      "title": "CVE-2024-52875: An issue was discovered in GFI Kerio Control 9.2.5 through 9.4.5. The dest GET parameter passed to t...",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 80.57,
+      "epssPercentile": 99.082,
+      "riskScore": 56,
+      "publishedDate": "2025-01-31T00:00:00+00:00",
+      "lastModifiedDate": "2025-02-12T20:41:37.262000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "gfi"
+      ],
+      "tags": [
+        "CWE-113"
       ]
     },
     {
@@ -7071,24 +7071,6 @@
       ]
     },
     {
-      "cveId": "CVE-2025-32463",
-      "title": "CVE-2025-32463: Sudo before 1.9.17p1 allows local users to obtain root access because /etc/nsswitch.conf from a user...",
-      "severity": "CRITICAL",
-      "cvssScore": 9.3,
-      "epssScore": 0.3,
-      "epssPercentile": 53.162,
-      "riskScore": 52,
-      "publishedDate": "2025-06-30T00:00:00+00:00",
-      "lastModifiedDate": "2025-07-22T14:59:53.402000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "sudo project"
-      ],
-      "tags": [
-        "CWE-829"
-      ]
-    },
-    {
       "cveId": "CVE-2025-30220",
       "title": "GeoTools, GeoServer, and GeoNetwork XML External Entity (XXE) Processing Vulnerability in XSD schema handling",
       "severity": "CRITICAL",
@@ -7364,11 +7346,11 @@
       "lastModifiedDate": "2024-08-01T21:33:05.337000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "stuartobrien",
-        "blazeretail",
         "warfareplugins",
         "pedrogusmao02",
-        "themerex"
+        "themerex",
+        "blazeretail",
+        "stuartobrien"
       ],
       "tags": []
     },
@@ -11918,6 +11900,24 @@
       ],
       "tags": [
         "CWE-89"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-32463",
+      "title": "CVE-2025-32463: Sudo before 1.9.17p1 allows local users to obtain root access because /etc/nsswitch.conf from a user...",
+      "severity": "CRITICAL",
+      "cvssScore": 9.3,
+      "epssScore": 0.3,
+      "epssPercentile": 53.162,
+      "riskScore": 50,
+      "publishedDate": "2025-06-30T00:00:00+00:00",
+      "lastModifiedDate": "2025-07-22T14:59:53.402000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "sudo project"
+      ],
+      "tags": [
+        "CWE-829"
       ]
     },
     {
@@ -18608,25 +18608,6 @@
       ]
     },
     {
-      "cveId": "CVE-2025-4140",
-      "title": "Netgear EX6120 sub_30394 buffer overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.26,
-      "epssPercentile": 49.759,
-      "riskScore": 48,
-      "publishedDate": "2025-04-30T21:31:04.393000+00:00",
-      "lastModifiedDate": "2025-05-02T16:50:49.517000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "netgear"
-      ],
-      "tags": [
-        "CWE-120",
-        "CWE-119"
-      ]
-    },
-    {
       "cveId": "CVE-2025-4897",
       "title": "Tenda A15 HTTP POST Request multimodalAdd buffer overflow",
       "severity": "HIGH",
@@ -18717,25 +18698,6 @@
       ],
       "tags": [
         "CWE-73"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-4142",
-      "title": "Netgear EX6200 sub_3C8EC buffer overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.26,
-      "epssPercentile": 49.759,
-      "riskScore": 48,
-      "publishedDate": "2025-04-30T22:31:04.284000+00:00",
-      "lastModifiedDate": "2025-05-01T13:45:36.141000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "netgear"
-      ],
-      "tags": [
-        "CWE-120",
-        "CWE-119"
       ]
     },
     {
@@ -19192,25 +19154,6 @@
       ]
     },
     {
-      "cveId": "CVE-2025-4145",
-      "title": "Netgear EX6200 sub_3D0BC buffer overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.26,
-      "epssPercentile": 49.759,
-      "riskScore": 48,
-      "publishedDate": "2025-05-01T00:00:11.908000+00:00",
-      "lastModifiedDate": "2025-05-01T15:33:34.471000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "netgear"
-      ],
-      "tags": [
-        "CWE-120",
-        "CWE-119"
-      ]
-    },
-    {
       "cveId": "CVE-2025-4730",
       "title": "TOTOLINK A3002R/A3002RU HTTP POST Request formMapDel buffer overflow",
       "severity": "HIGH",
@@ -19391,25 +19334,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": [
         "d-link"
-      ],
-      "tags": [
-        "CWE-120",
-        "CWE-119"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-4141",
-      "title": "Netgear EX6200 sub_3C03C buffer overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.26,
-      "epssPercentile": 49.759,
-      "riskScore": 48,
-      "publishedDate": "2025-04-30T22:00:06.552000+00:00",
-      "lastModifiedDate": "2025-05-01T15:33:55.055000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "netgear"
       ],
       "tags": [
         "CWE-120",
@@ -19673,25 +19597,6 @@
       "exploitationStatus": "UNKNOWN",
       "vendors": [
         "totolink"
-      ],
-      "tags": [
-        "CWE-120",
-        "CWE-119"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-4139",
-      "title": "Netgear EX6120 fwAcosCgiInbound buffer overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.22,
-      "epssPercentile": 45.053,
-      "riskScore": 48,
-      "publishedDate": "2025-04-30T20:31:04.150000+00:00",
-      "lastModifiedDate": "2025-04-30T20:35:31.481000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "netgear"
       ],
       "tags": [
         "CWE-120",
@@ -22561,8 +22466,8 @@
       "lastModifiedDate": "2025-06-13T12:22:47.798000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "telex",
-        "rts"
+        "rts",
+        "telex"
       ],
       "tags": []
     },
@@ -24465,11 +24370,11 @@
       "lastModifiedDate": "2025-06-25T14:15:31.576000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "fujifilm business innovation",
-        "konica minolta, inc.",
-        "toshiba tec",
         "ricoh",
-        "brother industries, ltd"
+        "toshiba tec",
+        "brother industries, ltd",
+        "fujifilm business innovation",
+        "konica minolta, inc."
       ],
       "tags": [
         "CWE-1286"
@@ -26301,42 +26206,6 @@
       ]
     },
     {
-      "cveId": "CVE-2025-54140",
-      "title": "pyLoad has Path Traversal Vulnerability in json/upload Endpoint that allows Arbitrary File Write",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.24,
-      "epssPercentile": 47.665,
-      "riskScore": 47,
-      "publishedDate": "2025-07-22T21:34:30.750000+00:00",
-      "lastModifiedDate": "2025-07-23T18:28:44.036000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "pyload"
-      ],
-      "tags": [
-        "CWE-22"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-54138",
-      "title": "LibreNMS has Authenticated Local File Inclusion in ajax_form.php that Allows RCE",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.01,
-      "epssPercentile": 0.365,
-      "riskScore": 47,
-      "publishedDate": "2025-07-22T21:33:59.149000+00:00",
-      "lastModifiedDate": "2025-07-23T18:26:50.196000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "librenms"
-      ],
-      "tags": [
-        "CWE-98"
-      ]
-    },
-    {
       "cveId": "CVE-2025-54377",
       "title": "Roo Code Lacks Line Break Validation in its Command Execution Tool",
       "severity": "HIGH",
@@ -26352,43 +26221,6 @@
       ],
       "tags": [
         "CWE-77"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-54141",
-      "title": "ViewVC's standalone server exposes arbitrary server filesystem content",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.21,
-      "epssPercentile": 43.773,
-      "riskScore": 47,
-      "publishedDate": "2025-07-22T21:35:47.844000+00:00",
-      "lastModifiedDate": "2025-07-23T18:31:31.496000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "viewvc"
-      ],
-      "tags": [
-        "CWE-22",
-        "CWE-79"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-54072",
-      "title": "yt-dlp allows `--exec` command injection when using placeholder on Windows",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.11,
-      "epssPercentile": 30.329,
-      "riskScore": 47,
-      "publishedDate": "2025-07-22T21:34:43.408000+00:00",
-      "lastModifiedDate": "2025-07-23T18:30:06.761000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "yt-dlp"
-      ],
-      "tags": [
-        "CWE-78"
       ]
     },
     {
@@ -26481,24 +26313,6 @@
       ],
       "tags": [
         "CWE-23"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-7766",
-      "title": "Lantronix Provisioning Manager Improper Restriction of XML External Entity Reference",
-      "severity": "HIGH",
-      "cvssScore": 8.0,
-      "epssScore": 0.05,
-      "epssPercentile": 15.007,
-      "riskScore": 47,
-      "publishedDate": "2025-07-22T21:44:10.227000+00:00",
-      "lastModifiedDate": "2025-07-23T19:57:57.931000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "lantronix"
-      ],
-      "tags": [
-        "CWE-611"
       ]
     },
     {
@@ -29165,25 +28979,6 @@
       ]
     },
     {
-      "cveId": "CVE-2025-53538",
-      "title": "Suricata's mishandling of data on  HTTP2 stream 0 can lead to resource starvation",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.05,
-      "epssPercentile": 15.22,
-      "riskScore": 47,
-      "publishedDate": "2025-07-22T21:36:03.976000+00:00",
-      "lastModifiedDate": "2025-07-23T18:32:21.856000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "oisf"
-      ],
-      "tags": [
-        "CWE-770",
-        "CWE-400"
-      ]
-    },
-    {
       "cveId": "CVE-2025-53368",
       "title": "Citizen is vulnerable to stored XSS attack in the legacy search bar",
       "severity": "HIGH",
@@ -29217,24 +29012,6 @@
       ],
       "tags": [
         "CWE-863"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-41425",
-      "title": "DuraComm DP-10iN-100-MU Cross-site Scripting",
-      "severity": "HIGH",
-      "cvssScore": 8.1,
-      "epssScore": 0.05,
-      "epssPercentile": 15.161,
-      "riskScore": 47,
-      "publishedDate": "2025-07-22T21:38:45.479000+00:00",
-      "lastModifiedDate": "2025-07-23T19:57:18.417000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "duracomm corporation"
-      ],
-      "tags": [
-        "CWE-79"
       ]
     },
     {
@@ -31955,9 +31732,9 @@
       "lastModifiedDate": "2025-06-25T14:08:48.280000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "fujifilm business innovation",
         "ricoh",
         "brother industries, ltd",
+        "fujifilm business innovation",
         "konica minolta, inc."
       ],
       "tags": [
@@ -33967,24 +33744,6 @@
       ]
     },
     {
-      "cveId": "CVE-2025-48733",
-      "title": "DuraComm DP-10iN-100-MU Missing Authentication for Critical Function",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.07,
-      "epssPercentile": 22.053,
-      "riskScore": 46,
-      "publishedDate": "2025-07-22T21:35:52.983000+00:00",
-      "lastModifiedDate": "2025-07-23T19:56:55.222000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "duracomm corporation"
-      ],
-      "tags": [
-        "CWE-306"
-      ]
-    },
-    {
       "cveId": "CVE-2025-48281",
       "title": "WordPress MyStyle Custom Product Designer <= 3.21.1 - SQL Injection Vulnerability",
       "severity": "CRITICAL",
@@ -34126,24 +33885,6 @@
       ],
       "tags": [
         "CWE-89"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-54137",
-      "title": "NodeJS version of the HAX CMS application is distributed with Default Secrets",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.08,
-      "epssPercentile": 23.948,
-      "riskScore": 46,
-      "publishedDate": "2025-07-22T21:34:20.201000+00:00",
-      "lastModifiedDate": "2025-07-23T18:27:54.073000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "haxtheweb"
-      ],
-      "tags": [
-        "CWE-1392"
       ]
     },
     {
@@ -37047,24 +36788,6 @@
       ]
     },
     {
-      "cveId": "CVE-2025-47154",
-      "title": "CVE-2025-47154: LibJS in Ladybird before f5a6704 mishandles the freeing of the vector that arguments_list references...",
-      "severity": "CRITICAL",
-      "cvssScore": 9.0,
-      "epssScore": 0.23,
-      "epssPercentile": 45.343,
-      "riskScore": 46,
-      "publishedDate": "2025-05-01T00:00:00+00:00",
-      "lastModifiedDate": "2025-05-01T15:33:42.106000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "ladybird"
-      ],
-      "tags": [
-        "CWE-820"
-      ]
-    },
-    {
       "cveId": "CVE-2025-47640",
       "title": "WordPress Printcart Web to Print Product Designer for WooCommerce <= 2.3.8 - SQL Injection Vulnerability",
       "severity": "CRITICAL",
@@ -37391,6 +37114,44 @@
       ]
     },
     {
+      "cveId": "CVE-2025-4140",
+      "title": "Netgear EX6120 sub_30394 buffer overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.26,
+      "epssPercentile": 49.759,
+      "riskScore": 46,
+      "publishedDate": "2025-04-30T21:31:04.393000+00:00",
+      "lastModifiedDate": "2025-05-02T16:50:49.517000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "netgear"
+      ],
+      "tags": [
+        "CWE-120",
+        "CWE-119"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-4142",
+      "title": "Netgear EX6200 sub_3C8EC buffer overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.26,
+      "epssPercentile": 49.759,
+      "riskScore": 46,
+      "publishedDate": "2025-04-30T22:31:04.284000+00:00",
+      "lastModifiedDate": "2025-05-01T13:45:36.141000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "netgear"
+      ],
+      "tags": [
+        "CWE-120",
+        "CWE-119"
+      ]
+    },
+    {
       "cveId": "CVE-2025-4115",
       "title": "Netgear JWNR2000v2 default_version_is_new buffer overflow",
       "severity": "HIGH",
@@ -37500,6 +37261,25 @@
       ]
     },
     {
+      "cveId": "CVE-2025-4145",
+      "title": "Netgear EX6200 sub_3D0BC buffer overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.26,
+      "epssPercentile": 49.759,
+      "riskScore": 46,
+      "publishedDate": "2025-05-01T00:00:11.908000+00:00",
+      "lastModifiedDate": "2025-05-01T15:33:34.471000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "netgear"
+      ],
+      "tags": [
+        "CWE-120",
+        "CWE-119"
+      ]
+    },
+    {
       "cveId": "CVE-2025-4116",
       "title": "Netgear JWNR2000v2 get_cur_lang_ver buffer overflow",
       "severity": "HIGH",
@@ -37573,6 +37353,25 @@
       ]
     },
     {
+      "cveId": "CVE-2025-4141",
+      "title": "Netgear EX6200 sub_3C03C buffer overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.26,
+      "epssPercentile": 49.759,
+      "riskScore": 46,
+      "publishedDate": "2025-04-30T22:00:06.552000+00:00",
+      "lastModifiedDate": "2025-05-01T15:33:55.055000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "netgear"
+      ],
+      "tags": [
+        "CWE-120",
+        "CWE-119"
+      ]
+    },
+    {
       "cveId": "CVE-2025-4317",
       "title": "TheGem <= 5.10.3 - Authenticated (Subscriber+) Arbitrary File Upload",
       "severity": "HIGH",
@@ -37588,6 +37387,25 @@
       ],
       "tags": [
         "CWE-434"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-4139",
+      "title": "Netgear EX6120 fwAcosCgiInbound buffer overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.22,
+      "epssPercentile": 45.053,
+      "riskScore": 46,
+      "publishedDate": "2025-04-30T20:31:04.150000+00:00",
+      "lastModifiedDate": "2025-04-30T20:35:31.481000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "netgear"
+      ],
+      "tags": [
+        "CWE-120",
+        "CWE-119"
       ]
     },
     {
@@ -38987,25 +38805,6 @@
       ]
     },
     {
-      "cveId": "CVE-2025-6871",
-      "title": "SourceCodester Simple Company Website Login.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.05,
-      "epssPercentile": 14.435,
-      "riskScore": 46,
-      "publishedDate": "2025-06-29T20:32:05.871000+00:00",
-      "lastModifiedDate": "2025-06-30T20:04:52.636000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "sourcecodester"
-      ],
-      "tags": [
-        "CWE-89",
-        "CWE-74"
-      ]
-    },
-    {
       "cveId": "CVE-2025-6958",
       "title": "Campcodes Employee Management System edit.php sql injection",
       "severity": "HIGH",
@@ -40267,24 +40066,6 @@
       ],
       "tags": [
         "CWE-401"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-53703",
-      "title": "DuraComm DP-10iN-100-MU Cleartext Transmission of Sensitive Information",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.01,
-      "epssPercentile": 0.754,
-      "riskScore": 46,
-      "publishedDate": "2025-07-22T21:31:22.451000+00:00",
-      "lastModifiedDate": "2025-07-23T15:15:01.356000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "duracomm corporation"
-      ],
-      "tags": [
-        "CWE-319"
       ]
     },
     {
@@ -45390,9 +45171,9 @@
       "lastModifiedDate": "2025-06-25T14:13:40.189000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "fujifilm business innovation",
         "ricoh",
-        "brother industries, ltd"
+        "brother industries, ltd",
+        "fujifilm business innovation"
       ],
       "tags": [
         "CWE-1286"
@@ -48858,6 +48639,42 @@
       ]
     },
     {
+      "cveId": "CVE-2025-54140",
+      "title": "pyLoad has Path Traversal Vulnerability in json/upload Endpoint that allows Arbitrary File Write",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.24,
+      "epssPercentile": 47.665,
+      "riskScore": 45,
+      "publishedDate": "2025-07-22T21:34:30.750000+00:00",
+      "lastModifiedDate": "2025-07-23T18:28:44.036000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "pyload"
+      ],
+      "tags": [
+        "CWE-22"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-54138",
+      "title": "LibreNMS has Authenticated Local File Inclusion in ajax_form.php that Allows RCE",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.01,
+      "epssPercentile": 0.365,
+      "riskScore": 45,
+      "publishedDate": "2025-07-22T21:33:59.149000+00:00",
+      "lastModifiedDate": "2025-07-23T18:26:50.196000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "librenms"
+      ],
+      "tags": [
+        "CWE-98"
+      ]
+    },
+    {
       "cveId": "CVE-2025-54597",
       "title": "CVE-2025-54597: LinuxServer.io Heimdall before 2.7.3 allows XSS via the q parameter....",
       "severity": "HIGH",
@@ -48925,6 +48742,43 @@
       ],
       "tags": [
         "CWE-287"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-54141",
+      "title": "ViewVC's standalone server exposes arbitrary server filesystem content",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.21,
+      "epssPercentile": 43.773,
+      "riskScore": 45,
+      "publishedDate": "2025-07-22T21:35:47.844000+00:00",
+      "lastModifiedDate": "2025-07-23T18:31:31.496000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "viewvc"
+      ],
+      "tags": [
+        "CWE-22",
+        "CWE-79"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-54072",
+      "title": "yt-dlp allows `--exec` command injection when using placeholder on Windows",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.11,
+      "epssPercentile": 30.329,
+      "riskScore": 45,
+      "publishedDate": "2025-07-22T21:34:43.408000+00:00",
+      "lastModifiedDate": "2025-07-23T18:30:06.761000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "yt-dlp"
+      ],
+      "tags": [
+        "CWE-78"
       ]
     },
     {
@@ -49110,6 +48964,24 @@
       ],
       "tags": [
         "CWE-843"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-7766",
+      "title": "Lantronix Provisioning Manager Improper Restriction of XML External Entity Reference",
+      "severity": "HIGH",
+      "cvssScore": 8.0,
+      "epssScore": 0.05,
+      "epssPercentile": 15.007,
+      "riskScore": 45,
+      "publishedDate": "2025-07-22T21:44:10.227000+00:00",
+      "lastModifiedDate": "2025-07-23T19:57:57.931000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "lantronix"
+      ],
+      "tags": [
+        "CWE-611"
       ]
     },
     {
@@ -49779,8 +49651,8 @@
       "lastModifiedDate": "2025-06-17T15:18:55.236000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "dell",
-        "broadcom"
+        "broadcom",
+        "dell"
       ],
       "tags": [
         "CWE-787"
@@ -49798,8 +49670,8 @@
       "lastModifiedDate": "2025-06-17T18:13:30.525000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "dell",
-        "broadcom"
+        "broadcom",
+        "dell"
       ],
       "tags": [
         "CWE-763"
@@ -50375,8 +50247,8 @@
       "lastModifiedDate": "2025-06-24T14:18:57.831000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "helmholz",
-        "mb connect line"
+        "mb connect line",
+        "helmholz"
       ],
       "tags": [
         "CWE-306"
@@ -52090,8 +51962,8 @@
       "lastModifiedDate": "2025-06-17T03:55:12.235000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "dell",
-        "broadcom"
+        "broadcom",
+        "dell"
       ],
       "tags": [
         "CWE-121"
@@ -53127,6 +52999,25 @@
       ]
     },
     {
+      "cveId": "CVE-2025-53538",
+      "title": "Suricata's mishandling of data on  HTTP2 stream 0 can lead to resource starvation",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.05,
+      "epssPercentile": 15.22,
+      "riskScore": 45,
+      "publishedDate": "2025-07-22T21:36:03.976000+00:00",
+      "lastModifiedDate": "2025-07-23T18:32:21.856000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "oisf"
+      ],
+      "tags": [
+        "CWE-770",
+        "CWE-400"
+      ]
+    },
+    {
       "cveId": "CVE-2025-53024",
       "title": "CVE-2025-53024: Vulnerability in the Oracle VM VirtualBox product of Oracle Virtualization (component: Core).   The ...",
       "severity": "HIGH",
@@ -53177,6 +53068,24 @@
       ],
       "tags": [
         "CWE-77"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-41425",
+      "title": "DuraComm DP-10iN-100-MU Cross-site Scripting",
+      "severity": "HIGH",
+      "cvssScore": 8.1,
+      "epssScore": 0.05,
+      "epssPercentile": 15.161,
+      "riskScore": 45,
+      "publishedDate": "2025-07-22T21:38:45.479000+00:00",
+      "lastModifiedDate": "2025-07-23T19:57:18.417000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "duracomm corporation"
+      ],
+      "tags": [
+        "CWE-79"
       ]
     },
     {
@@ -55497,8 +55406,8 @@
       "lastModifiedDate": "2024-10-16T17:39:58.106000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "helmholz",
-        "mb connect line"
+        "mb connect line",
+        "helmholz"
       ],
       "tags": [
         "CWE-798"
@@ -55571,8 +55480,8 @@
       "lastModifiedDate": "2024-10-16T17:44:15.429000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "helmholz",
-        "mb connect line"
+        "mb connect line",
+        "helmholz"
       ],
       "tags": [
         "CWE-306"
@@ -62402,6 +62311,24 @@
       ]
     },
     {
+      "cveId": "CVE-2025-48733",
+      "title": "DuraComm DP-10iN-100-MU Missing Authentication for Critical Function",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.07,
+      "epssPercentile": 22.053,
+      "riskScore": 44,
+      "publishedDate": "2025-07-22T21:35:52.983000+00:00",
+      "lastModifiedDate": "2025-07-23T19:56:55.222000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "duracomm corporation"
+      ],
+      "tags": [
+        "CWE-306"
+      ]
+    },
+    {
       "cveId": "CVE-2025-48278",
       "title": "WordPress RSVPMarker  <= 11.5.6 - SQL Injection Vulnerability",
       "severity": "HIGH",
@@ -62616,6 +62543,24 @@
       ],
       "tags": [
         "CWE-79"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-54137",
+      "title": "NodeJS version of the HAX CMS application is distributed with Default Secrets",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.08,
+      "epssPercentile": 23.948,
+      "riskScore": 44,
+      "publishedDate": "2025-07-22T21:34:20.201000+00:00",
+      "lastModifiedDate": "2025-07-23T18:27:54.073000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "haxtheweb"
+      ],
+      "tags": [
+        "CWE-1392"
       ]
     },
     {
@@ -63319,6 +63264,24 @@
       ],
       "tags": [
         "CWE-502"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-47154",
+      "title": "CVE-2025-47154: LibJS in Ladybird before f5a6704 mishandles the freeing of the vector that arguments_list references...",
+      "severity": "CRITICAL",
+      "cvssScore": 9.0,
+      "epssScore": 0.23,
+      "epssPercentile": 45.343,
+      "riskScore": 44,
+      "publishedDate": "2025-05-01T00:00:00+00:00",
+      "lastModifiedDate": "2025-05-01T15:33:42.106000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "ladybird"
+      ],
+      "tags": [
+        "CWE-820"
       ]
     },
     {
@@ -69097,6 +69060,25 @@
       ]
     },
     {
+      "cveId": "CVE-2025-6871",
+      "title": "SourceCodester Simple Company Website Login.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.05,
+      "epssPercentile": 14.435,
+      "riskScore": 44,
+      "publishedDate": "2025-06-29T20:32:05.871000+00:00",
+      "lastModifiedDate": "2025-06-30T20:04:52.636000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "sourcecodester"
+      ],
+      "tags": [
+        "CWE-89",
+        "CWE-74"
+      ]
+    },
+    {
       "cveId": "CVE-2025-6451",
       "title": "code-projects Simple Online Hotel Reservation System delete_pending.php sql injection",
       "severity": "HIGH",
@@ -71307,8 +71289,8 @@
       "lastModifiedDate": "2025-06-17T15:18:22.706000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "dell",
-        "broadcom"
+        "broadcom",
+        "dell"
       ],
       "tags": [
         "CWE-502"
@@ -71452,8 +71434,8 @@
       "lastModifiedDate": "2025-06-16T15:21:53.325000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "dell",
-        "broadcom"
+        "broadcom",
+        "dell"
       ],
       "tags": [
         "CWE-125"
@@ -72142,6 +72124,24 @@
       ],
       "tags": [
         "CWE-89"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-53703",
+      "title": "DuraComm DP-10iN-100-MU Cleartext Transmission of Sensitive Information",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.01,
+      "epssPercentile": 0.754,
+      "riskScore": 44,
+      "publishedDate": "2025-07-22T21:31:22.451000+00:00",
+      "lastModifiedDate": "2025-07-23T15:15:01.356000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "duracomm corporation"
+      ],
+      "tags": [
+        "CWE-319"
       ]
     },
     {
@@ -74467,8 +74467,8 @@
       "lastModifiedDate": "2024-08-01T21:11:12.734000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "webnus",
-        "webnus/"
+        "webnus/",
+        "webnus"
       ],
       "tags": []
     },
@@ -75982,9 +75982,9 @@
       "lastModifiedDate": "2025-05-09T19:09:17.086000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
+        "avg",
         "norton",
-        "avast",
-        "avg"
+        "avast"
       ],
       "tags": [
         "CWE-367"
@@ -89093,8 +89093,8 @@
       "lastModifiedDate": "2025-06-24T13:56:13.121000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "helmholz",
-        "mb connect line"
+        "mb connect line",
+        "helmholz"
       ],
       "tags": [
         "CWE-639"
@@ -89238,8 +89238,8 @@
       "lastModifiedDate": "2025-06-24T13:55:34.477000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "helmholz",
-        "mb connect line"
+        "mb connect line",
+        "helmholz"
       ],
       "tags": [
         "CWE-204"
@@ -91761,8 +91761,8 @@
       "lastModifiedDate": "2025-07-21T20:36:45.460000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "helmholz",
-        "mb connect line"
+        "mb connect line",
+        "helmholz"
       ],
       "tags": [
         "CWE-78"
@@ -91870,8 +91870,8 @@
       "lastModifiedDate": "2025-07-21T17:06:11.768000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "helmholz",
-        "mb connect line"
+        "mb connect line",
+        "helmholz"
       ],
       "tags": [
         "CWE-78"
@@ -91889,8 +91889,8 @@
       "lastModifiedDate": "2025-07-21T17:05:33.656000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "helmholz",
-        "mb connect line"
+        "mb connect line",
+        "helmholz"
       ],
       "tags": [
         "CWE-78"
@@ -98976,8 +98976,8 @@
       "lastModifiedDate": "2024-10-16T17:47:04.737000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "helmholz",
-        "mb connect line"
+        "mb connect line",
+        "helmholz"
       ],
       "tags": [
         "CWE-261"
@@ -105316,8 +105316,8 @@
       "lastModifiedDate": "2025-03-14T14:56:10.154000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "n/a",
-        "na"
+        "na",
+        "n/a"
       ],
       "tags": []
     },
@@ -105584,8 +105584,8 @@
       "lastModifiedDate": "2024-08-07T13:17:59.476000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "webnus",
-        "webnus/"
+        "webnus/",
+        "webnus"
       ],
       "tags": [
         "CWE-918"
@@ -110381,24 +110381,6 @@
       ],
       "tags": [
         "CWE-119"
-      ]
-    },
-    {
-      "cveId": "CVE-2024-23973",
-      "title": "Silicon Labs Gecko OS HTTP GET Request Handling Stack-based Buffer Overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.06,
-      "epssPercentile": 17.199,
-      "riskScore": 43,
-      "publishedDate": "2025-01-30T23:28:55.542000+00:00",
-      "lastModifiedDate": "2025-06-30T17:53:31.238000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "silicon labs"
-      ],
-      "tags": [
-        "CWE-120"
       ]
     },
     {
@@ -125213,8 +125195,8 @@
       "lastModifiedDate": "2024-08-02T04:12:25.618000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "yt-dlp",
-        "ytdl-org"
+        "ytdl-org",
+        "yt-dlp"
       ],
       "tags": [
         "CWE-669"
@@ -133879,24 +133861,6 @@
       ]
     },
     {
-      "cveId": "CVE-2024-23969",
-      "title": "ChargePoint Home Flex wlanchnllst Out-Of-Bounds Write",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.07,
-      "epssPercentile": 22.732,
-      "riskScore": 42,
-      "publishedDate": "2025-01-30T23:37:22.462000+00:00",
-      "lastModifiedDate": "2025-06-30T17:49:02.959000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "chargepoint"
-      ],
-      "tags": [
-        "CWE-787"
-      ]
-    },
-    {
       "cveId": "CVE-2024-23475",
       "title": "SolarWinds Access Rights Manager Directory Traversal and Information Disclosure Vulnerability",
       "severity": "CRITICAL",
@@ -133912,42 +133876,6 @@
       ],
       "tags": [
         "CWE-22"
-      ]
-    },
-    {
-      "cveId": "CVE-2024-23968",
-      "title": "ChargePoint Home Flex SrvrToSmSetAutoChnlListMsg Stack-based Buffer Overflow",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.07,
-      "epssPercentile": 22.732,
-      "riskScore": 42,
-      "publishedDate": "2025-01-30T23:31:40.396000+00:00",
-      "lastModifiedDate": "2025-06-30T17:51:22.860000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "chargepoint"
-      ],
-      "tags": [
-        "CWE-120"
-      ]
-    },
-    {
-      "cveId": "CVE-2024-23921",
-      "title": "ChargePoint Home Flex Command Injection",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.39,
-      "epssPercentile": 59.386,
-      "riskScore": 42,
-      "publishedDate": "2025-01-31T00:17:52.652000+00:00",
-      "lastModifiedDate": "2025-07-01T13:34:34.362000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "chargepoint"
-      ],
-      "tags": [
-        "CWE-94"
       ]
     },
     {
@@ -134218,42 +134146,6 @@
       ],
       "tags": [
         "CWE-285"
-      ]
-    },
-    {
-      "cveId": "CVE-2024-23971",
-      "title": "ChargePoint Home Flex OCPP bswitch Command Injection",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.13,
-      "epssPercentile": 32.647,
-      "riskScore": 42,
-      "publishedDate": "2025-01-30T23:42:57.796000+00:00",
-      "lastModifiedDate": "2025-06-30T17:43:13.112000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "chargepoint"
-      ],
-      "tags": [
-        "CWE-77"
-      ]
-    },
-    {
-      "cveId": "CVE-2024-23920",
-      "title": "ChargePoint Home Flex Improper Access Control",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.1,
-      "epssPercentile": 27.943,
-      "riskScore": 42,
-      "publishedDate": "2025-01-31T00:15:11.427000+00:00",
-      "lastModifiedDate": "2025-07-01T13:35:46.718000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "chargepoint"
-      ],
-      "tags": [
-        "CWE-284"
       ]
     },
     {
@@ -142461,22 +142353,6 @@
       ]
     },
     {
-      "cveId": "CVE-2025-32887",
-      "title": "CVE-2025-32887: An issue was discovered on goTenna v1 devices with app 5.5.3 and firmware 0.25.5. A command channel ...",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.02,
-      "epssPercentile": 2.37,
-      "riskScore": 41,
-      "publishedDate": "2025-05-01T00:00:00+00:00",
-      "lastModifiedDate": "2025-05-01T19:19:41.743000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "n/a"
-      ],
-      "tags": []
-    },
-    {
       "cveId": "CVE-2025-32442",
       "title": "Fastify vulnerable to invalid content-type parsing, which could lead to validation bypass",
       "severity": "HIGH",
@@ -142891,22 +142767,6 @@
       ]
     },
     {
-      "cveId": "CVE-2025-32889",
-      "title": "CVE-2025-32889: An issue was discovered on goTenna v1 devices with app 5.5.3 and firmware 0.25.5. The verification t...",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.222,
-      "riskScore": 41,
-      "publishedDate": "2025-05-01T00:00:00+00:00",
-      "lastModifiedDate": "2025-05-01T18:52:25.319000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "n/a"
-      ],
-      "tags": []
-    },
-    {
       "cveId": "CVE-2025-32405",
       "title": "CVE-2025-32405: An Out-of-bounds Write in RT-Labs P-Net version 1.0.1 or earlier allows an attacker to induce a cras...",
       "severity": "HIGH",
@@ -143013,22 +142873,6 @@
       "tags": [
         "CWE-98"
       ]
-    },
-    {
-      "cveId": "CVE-2025-32888",
-      "title": "CVE-2025-32888: An issue was discovered on goTenna Mesh devices with app 5.5.3 and firmware 1.1.12. The verification...",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 6.222,
-      "riskScore": 41,
-      "publishedDate": "2025-05-01T00:00:00+00:00",
-      "lastModifiedDate": "2025-05-01T19:11:36.218000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "n/a"
-      ],
-      "tags": []
     },
     {
       "cveId": "CVE-2025-32308",
@@ -146085,8 +145929,8 @@
       "lastModifiedDate": "2024-10-16T17:49:30.446000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "helmholz",
-        "mb connect line"
+        "mb connect line",
+        "helmholz"
       ],
       "tags": [
         "CWE-20"
@@ -154957,6 +154801,24 @@
       ]
     },
     {
+      "cveId": "CVE-2024-23973",
+      "title": "Silicon Labs Gecko OS HTTP GET Request Handling Stack-based Buffer Overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.06,
+      "epssPercentile": 17.199,
+      "riskScore": 41,
+      "publishedDate": "2025-01-30T23:28:55.542000+00:00",
+      "lastModifiedDate": "2025-06-30T17:53:31.238000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "silicon labs"
+      ],
+      "tags": [
+        "CWE-120"
+      ]
+    },
+    {
       "cveId": "CVE-2024-28107",
       "title": "phpMyFAQ SQL injections at insertentry & saveentry",
       "severity": "HIGH",
@@ -159995,25 +159857,6 @@
       ],
       "tags": [
         "CWE-416"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-24886",
-      "title": "pwn.college has Symlink LFI in Dojo repos",
-      "severity": "HIGH",
-      "cvssScore": 7.7,
-      "epssScore": 0.06,
-      "epssPercentile": 19.573,
-      "riskScore": 40,
-      "publishedDate": "2025-01-30T22:40:10.799000+00:00",
-      "lastModifiedDate": "2025-01-31T16:06:07.620000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "pwncollege"
-      ],
-      "tags": [
-        "CWE-61",
-        "CWE-200"
       ]
     },
     {
@@ -167893,8 +167736,8 @@
       "lastModifiedDate": "2024-11-06T15:50:04.628000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "mitsubishi electric corporation",
-        "iconics"
+        "iconics",
+        "mitsubishi electric corporation"
       ],
       "tags": [
         "CWE-276"
@@ -171455,8 +171298,8 @@
       "lastModifiedDate": "2024-12-06T05:18:03.652000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "mitsubishi electric corporation",
-        "iconics"
+        "iconics",
+        "mitsubishi electric corporation"
       ],
       "tags": [
         "CWE-427"
@@ -172801,24 +172644,6 @@
       ],
       "tags": [
         "CWE-787"
-      ]
-    },
-    {
-      "cveId": "CVE-2024-24731",
-      "title": "Silicon Labs Gecko OS http_download Stack-based Buffer Overflow",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.03,
-      "epssPercentile": 6.659,
-      "riskScore": 40,
-      "publishedDate": "2025-01-30T23:25:00.944000+00:00",
-      "lastModifiedDate": "2025-06-30T17:55:40.839000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "silicon labs"
-      ],
-      "tags": [
-        "CWE-120"
       ]
     },
     {
@@ -175012,8 +174837,8 @@
       "lastModifiedDate": "2024-12-06T05:23:50.441000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "mitsubishi electric corporation",
-        "iconics"
+        "iconics",
+        "mitsubishi electric corporation"
       ],
       "tags": [
         "CWE-427"
@@ -178031,6 +177856,24 @@
       ]
     },
     {
+      "cveId": "CVE-2024-23969",
+      "title": "ChargePoint Home Flex wlanchnllst Out-Of-Bounds Write",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.07,
+      "epssPercentile": 22.732,
+      "riskScore": 40,
+      "publishedDate": "2025-01-30T23:37:22.462000+00:00",
+      "lastModifiedDate": "2025-06-30T17:49:02.959000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "chargepoint"
+      ],
+      "tags": [
+        "CWE-787"
+      ]
+    },
+    {
       "cveId": "CVE-2024-23981",
       "title": "CVE-2024-23981: Wrap-around error in Linux kernel mode driver for some Intel(R) Ethernet Network Controllers and Ada...",
       "severity": "HIGH",
@@ -178085,18 +177928,36 @@
       ]
     },
     {
-      "cveId": "CVE-2024-23963",
-      "title": "Alpine Halo9 Stack-based Buffer Overflow",
+      "cveId": "CVE-2024-23968",
+      "title": "ChargePoint Home Flex SrvrToSmSetAutoChnlListMsg Stack-based Buffer Overflow",
       "severity": "HIGH",
-      "cvssScore": 8.0,
-      "epssScore": 0.11,
-      "epssPercentile": 30.572,
+      "cvssScore": 8.8,
+      "epssScore": 0.07,
+      "epssPercentile": 22.732,
       "riskScore": 40,
-      "publishedDate": "2025-01-30T23:57:24.401000+00:00",
-      "lastModifiedDate": "2025-07-01T13:41:46.822000+00:00",
+      "publishedDate": "2025-01-30T23:31:40.396000+00:00",
+      "lastModifiedDate": "2025-06-30T17:51:22.860000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "alpine"
+        "chargepoint"
+      ],
+      "tags": [
+        "CWE-120"
+      ]
+    },
+    {
+      "cveId": "CVE-2024-23921",
+      "title": "ChargePoint Home Flex Command Injection",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.39,
+      "epssPercentile": 59.386,
+      "riskScore": 40,
+      "publishedDate": "2025-01-31T00:17:52.652000+00:00",
+      "lastModifiedDate": "2025-07-01T13:34:34.362000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "chargepoint"
       ],
       "tags": [
         "CWE-94"
@@ -178338,6 +178199,24 @@
       ]
     },
     {
+      "cveId": "CVE-2024-23971",
+      "title": "ChargePoint Home Flex OCPP bswitch Command Injection",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.13,
+      "epssPercentile": 32.647,
+      "riskScore": 40,
+      "publishedDate": "2025-01-30T23:42:57.796000+00:00",
+      "lastModifiedDate": "2025-06-30T17:43:13.112000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "chargepoint"
+      ],
+      "tags": [
+        "CWE-77"
+      ]
+    },
+    {
       "cveId": "CVE-2024-23129",
       "title": "Multiple Vulnerabilities in the Autodesk AutoCAD Desktop Software",
       "severity": "HIGH",
@@ -178407,6 +178286,24 @@
       ],
       "tags": [
         "CWE-269"
+      ]
+    },
+    {
+      "cveId": "CVE-2024-23920",
+      "title": "ChargePoint Home Flex Improper Access Control",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.1,
+      "epssPercentile": 27.943,
+      "riskScore": 40,
+      "publishedDate": "2025-01-31T00:15:11.427000+00:00",
+      "lastModifiedDate": "2025-07-01T13:35:46.718000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "chargepoint"
+      ],
+      "tags": [
+        "CWE-284"
       ]
     },
     {
@@ -182458,25 +182355,6 @@
       "tags": []
     },
     {
-      "cveId": "CVE-2025-24885",
-      "title": "pwn.college has a XSS on dojo pages",
-      "severity": "HIGH",
-      "cvssScore": 7.6,
-      "epssScore": 0.03,
-      "epssPercentile": 6.935,
-      "riskScore": 39,
-      "publishedDate": "2025-01-30T22:41:38.829000+00:00",
-      "lastModifiedDate": "2025-01-31T16:56:33.258000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "pwncollege"
-      ],
-      "tags": [
-        "CWE-284",
-        "CWE-79"
-      ]
-    },
-    {
       "cveId": "CVE-2025-24836",
       "title": "Qardio Heart Health IOS and Android Application and QardioARM A100 Uncaught Exception",
       "severity": "HIGH",
@@ -184008,6 +183886,22 @@
       ]
     },
     {
+      "cveId": "CVE-2025-32887",
+      "title": "CVE-2025-32887: An issue was discovered on goTenna v1 devices with app 5.5.3 and firmware 0.25.5. A command channel ...",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.02,
+      "epssPercentile": 2.37,
+      "riskScore": 39,
+      "publishedDate": "2025-05-01T00:00:00+00:00",
+      "lastModifiedDate": "2025-05-01T19:19:41.743000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "n/a"
+      ],
+      "tags": []
+    },
+    {
       "cveId": "CVE-2025-32122",
       "title": "WordPress uListing plugin <= 2.1.9 - SQL Injection vulnerability",
       "severity": "HIGH",
@@ -184418,6 +184312,22 @@
       ]
     },
     {
+      "cveId": "CVE-2025-32889",
+      "title": "CVE-2025-32889: An issue was discovered on goTenna v1 devices with app 5.5.3 and firmware 0.25.5. The verification t...",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.222,
+      "riskScore": 39,
+      "publishedDate": "2025-05-01T00:00:00+00:00",
+      "lastModifiedDate": "2025-05-01T18:52:25.319000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "n/a"
+      ],
+      "tags": []
+    },
+    {
       "cveId": "CVE-2025-32948",
       "title": "PeerTube ActivityPub Playlist Creation Blind SSRF and DoS",
       "severity": "HIGH",
@@ -184576,6 +184486,22 @@
       "tags": [
         "CWE-89"
       ]
+    },
+    {
+      "cveId": "CVE-2025-32888",
+      "title": "CVE-2025-32888: An issue was discovered on goTenna Mesh devices with app 5.5.3 and firmware 1.1.12. The verification...",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 6.222,
+      "riskScore": 39,
+      "publishedDate": "2025-05-01T00:00:00+00:00",
+      "lastModifiedDate": "2025-05-01T19:11:36.218000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "n/a"
+      ],
+      "tags": []
     },
     {
       "cveId": "CVE-2025-32203",
@@ -189245,8 +189171,8 @@
       "lastModifiedDate": "2025-01-24T06:32:08.237000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "helmholz",
-        "mb connect line"
+        "mb connect line",
+        "helmholz"
       ],
       "tags": [
         "CWE-306"
@@ -189264,8 +189190,8 @@
       "lastModifiedDate": "2024-10-16T17:36:22.123000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "helmholz",
-        "mb connect line"
+        "mb connect line",
+        "helmholz"
       ],
       "tags": [
         "CWE-1391"
@@ -201608,24 +201534,6 @@
       ]
     },
     {
-      "cveId": "CVE-2024-23929",
-      "title": "Pioneer DMH-WT7600NEX Telematics Directory Traversal",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.07,
-      "epssPercentile": 21.871,
-      "riskScore": 39,
-      "publishedDate": "2025-01-31T00:13:03.982000+00:00",
-      "lastModifiedDate": "2025-07-01T13:37:17.684000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "pioneer"
-      ],
-      "tags": [
-        "CWE-863"
-      ]
-    },
-    {
       "cveId": "CVE-2024-23881",
       "title": "Cross-Site Scripting (XSS) vulnerability in Cups Easy",
       "severity": "HIGH",
@@ -209383,6 +209291,25 @@
       ],
       "tags": [
         "CWE-419"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-24886",
+      "title": "pwn.college has Symlink LFI in Dojo repos",
+      "severity": "HIGH",
+      "cvssScore": 7.7,
+      "epssScore": 0.06,
+      "epssPercentile": 19.573,
+      "riskScore": 38,
+      "publishedDate": "2025-01-30T22:40:10.799000+00:00",
+      "lastModifiedDate": "2025-01-31T16:06:07.620000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "pwncollege"
+      ],
+      "tags": [
+        "CWE-61",
+        "CWE-200"
       ]
     },
     {
@@ -229634,8 +229561,8 @@
       "lastModifiedDate": "2024-12-06T05:21:38.917000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "mitsubishi electric corporation",
-        "iconics"
+        "iconics",
+        "mitsubishi electric corporation"
       ],
       "tags": [
         "CWE-561"
@@ -231573,6 +231500,24 @@
       ],
       "tags": [
         "CWE-125"
+      ]
+    },
+    {
+      "cveId": "CVE-2024-24731",
+      "title": "Silicon Labs Gecko OS http_download Stack-based Buffer Overflow",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.03,
+      "epssPercentile": 6.659,
+      "riskScore": 38,
+      "publishedDate": "2025-01-30T23:25:00.944000+00:00",
+      "lastModifiedDate": "2025-06-30T17:55:40.839000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "silicon labs"
+      ],
+      "tags": [
+        "CWE-120"
       ]
     },
     {
@@ -235947,8 +235892,8 @@
       "lastModifiedDate": "2024-08-19T15:25:49.496000+00:00",
       "exploitationStatus": "UNKNOWN",
       "vendors": [
-        "mitsubishi electric corporation",
-        "iconics"
+        "iconics",
+        "mitsubishi electric corporation"
       ],
       "tags": [
         "CWE-427"
@@ -237068,6 +237013,24 @@
       ],
       "tags": [
         "CWE-362"
+      ]
+    },
+    {
+      "cveId": "CVE-2024-23963",
+      "title": "Alpine Halo9 Stack-based Buffer Overflow",
+      "severity": "HIGH",
+      "cvssScore": 8.0,
+      "epssScore": 0.11,
+      "epssPercentile": 30.572,
+      "riskScore": 38,
+      "publishedDate": "2025-01-30T23:57:24.401000+00:00",
+      "lastModifiedDate": "2025-07-01T13:41:46.822000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "alpine"
+      ],
+      "tags": [
+        "CWE-94"
       ]
     },
     {
@@ -241067,6 +241030,25 @@
       ],
       "tags": [
         "CWE-22"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-24885",
+      "title": "pwn.college has a XSS on dojo pages",
+      "severity": "HIGH",
+      "cvssScore": 7.6,
+      "epssScore": 0.03,
+      "epssPercentile": 6.935,
+      "riskScore": 37,
+      "publishedDate": "2025-01-30T22:41:38.829000+00:00",
+      "lastModifiedDate": "2025-01-31T16:56:33.258000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "pwncollege"
+      ],
+      "tags": [
+        "CWE-284",
+        "CWE-79"
       ]
     },
     {
@@ -254670,6 +254652,24 @@
       ],
       "tags": [
         "CWE-617"
+      ]
+    },
+    {
+      "cveId": "CVE-2024-23929",
+      "title": "Pioneer DMH-WT7600NEX Telematics Directory Traversal",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.07,
+      "epssPercentile": 21.871,
+      "riskScore": 37,
+      "publishedDate": "2025-01-31T00:13:03.982000+00:00",
+      "lastModifiedDate": "2025-07-01T13:37:17.684000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "pioneer"
+      ],
+      "tags": [
+        "CWE-863"
       ]
     },
     {
