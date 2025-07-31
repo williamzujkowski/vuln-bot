@@ -720,7 +720,7 @@
                 const field = event.detail.elt.dataset.sort || 'epss_percentile';
                 const currentOrder = event.detail.elt.textContent.includes('↓') ? 'desc' : 'asc';
                 const newOrder = currentOrder === 'desc' ? 'asc' : 'desc';
-                url = url.replace('{field}', field).replace('{order}', newOrder);
+                url = url.replace('{field}_{order}', field + '_' + newOrder);
             }
 
             event.detail.path = url;
