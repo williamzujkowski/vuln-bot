@@ -29,7 +29,7 @@ class BaseAgent(abc.ABC):
         """
         self.name = name
         self.logger = structlog.get_logger(self.__class__.__name__, agent=name)
-        self.cache_dir = cache_dir or Path('.cache/agents')
+        self.cache_dir = cache_dir or Path(".cache/agents")
         self.cache_dir.mkdir(parents=True, exist_ok=True)
 
         # Agent state
@@ -125,16 +125,20 @@ class BaseAgent(abc.ABC):
                 return True
 
             if current_hash != self._last_state_hash:
-                self.logger.debug("State change detected",
-                                old_hash=self._last_state_hash,
-                                new_hash=current_hash)
+                self.logger.debug(
+                    "State change detected",
+                    old_hash=self._last_state_hash,
+                    new_hash=current_hash,
+                )
                 self._last_state_hash = current_hash
                 return True
 
             return False
 
         except Exception as e:
-            self.logger.warning("Change detection failed, forcing execution", error=str(e))
+            self.logger.warning(
+                "Change detection failed, forcing execution", error=str(e)
+            )
             return True
 
     async def _calculate_state_hash(self) -> str:
@@ -173,7 +177,7 @@ class BaseAgent(abc.ABC):
             if cache_file.exists():
                 data = json.loads(cache_file.read_text())
                 self.logger.debug("Loaded cached result", cache_file=str(cache_file))
-                return data.get('result', {})
+                return data.get("result", {})
         except Exception as e:
             self.logger.warning("Failed to load cached result", error=str(e))
 
@@ -185,11 +189,11 @@ class BaseAgent(abc.ABC):
 
         try:
             cache_data = {
-                'result': result,
-                'timestamp': datetime.now(timezone.utc).isoformat(),
-                'agent': self.name,
-                'run_count': self.run_count,
-                'state_hash': self._last_state_hash,
+                "result": result,
+                "timestamp": datetime.now(timezone.utc).isoformat(),
+                "agent": self.name,
+                "run_count": self.run_count,
+                "state_hash": self._last_state_hash,
             }
 
             cache_file.write_text(json.dumps(cache_data, indent=2))
@@ -204,23 +208,25 @@ class BaseAgent(abc.ABC):
         self.run_count += 1
 
         if not success and error:
-            self.errors.append({
-                'timestamp': self.last_run.isoformat(),
-                'error': error,
-                'run_count': self.run_count,
-            })
+            self.errors.append(
+                {
+                    "timestamp": self.last_run.isoformat(),
+                    "error": error,
+                    "run_count": self.run_count,
+                }
+            )
             # Keep only last 10 errors
             self.errors = self.errors[-10:]
 
     def get_status(self) -> Dict[str, Any]:
         """Get agent status information."""
         return {
-            'name': self.name,
-            'is_running': self.is_running,
-            'last_run': self.last_run.isoformat() if self.last_run else None,
-            'run_count': self.run_count,
-            'error_count': len(self.errors),
-            'recent_errors': self.errors[-3:],  # Last 3 errors
-            'dependencies': list(self.get_dependencies()),
-            'state_hash': self._last_state_hash,
+            "name": self.name,
+            "is_running": self.is_running,
+            "last_run": self.last_run.isoformat() if self.last_run else None,
+            "run_count": self.run_count,
+            "error_count": len(self.errors),
+            "recent_errors": self.errors[-3:],  # Last 3 errors
+            "dependencies": list(self.get_dependencies()),
+            "state_hash": self._last_state_hash,
         }

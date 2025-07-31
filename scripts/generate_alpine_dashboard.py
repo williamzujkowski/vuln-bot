@@ -54,7 +54,9 @@ class AlpineDashboardGenerator:
 
                 # Extract EPSS percentile
                 epss_percentile = 0
-                if vuln_data.get("epss_score") and isinstance(vuln_data["epss_score"], dict):
+                if vuln_data.get("epss_score") and isinstance(
+                    vuln_data["epss_score"], dict
+                ):
                     epss_percentile = vuln_data["epss_score"].get("percentile", 0)
 
                 # Create vulnerability dict with both cache fields and parsed data

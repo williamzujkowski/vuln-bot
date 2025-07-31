@@ -15,6 +15,7 @@ import structlog
 
 logger = structlog.get_logger(__name__)
 
+
 class IncrementalGenerator:
     """Manages incremental generation of CVE pages and dashboard."""
 
@@ -62,7 +63,7 @@ class IncrementalGenerator:
         metadata["last_run"] = datetime.now(timezone.utc).isoformat()
 
         try:
-            with open(self.last_generation_file, 'w') as f:
+            with open(self.last_generation_file, "w") as f:
                 json.dump(metadata, f, indent=2)
         except OSError as e:
             logger.error(f"Failed to save generation metadata: {e}")
@@ -71,25 +72,29 @@ class IncrementalGenerator:
         """Calculate a hash of CVE data to detect changes."""
         # Include relevant fields that would affect the generated page
         relevant_fields = {
-            'cve_id': cve_data.get('cve_id'),
-            'description': cve_data.get('description'),
-            'cvss_score': cve_data.get('cvss_score'),
-            'epss_percentile': cve_data.get('epss_percentile'),
-            'severity': cve_data.get('severity'),
-            'risk_score': cve_data.get('risk_score'),
-            'published_date': cve_data.get('published_date'),
-            'last_modified_date': cve_data.get('last_modified_date'),
-            'affected_vendors': cve_data.get('affected_vendors', cve_data.get('vendors', [])),
-            'affected_products': cve_data.get('affected_products', cve_data.get('products', [])),
-            'tags': cve_data.get('tags', []),
-            'attack_vector': cve_data.get('attack_vector'),
-            'attack_complexity': cve_data.get('attack_complexity'),
-            'privileges_required': cve_data.get('privileges_required'),
-            'user_interaction': cve_data.get('user_interaction'),
+            "cve_id": cve_data.get("cve_id"),
+            "description": cve_data.get("description"),
+            "cvss_score": cve_data.get("cvss_score"),
+            "epss_percentile": cve_data.get("epss_percentile"),
+            "severity": cve_data.get("severity"),
+            "risk_score": cve_data.get("risk_score"),
+            "published_date": cve_data.get("published_date"),
+            "last_modified_date": cve_data.get("last_modified_date"),
+            "affected_vendors": cve_data.get(
+                "affected_vendors", cve_data.get("vendors", [])
+            ),
+            "affected_products": cve_data.get(
+                "affected_products", cve_data.get("products", [])
+            ),
+            "tags": cve_data.get("tags", []),
+            "attack_vector": cve_data.get("attack_vector"),
+            "attack_complexity": cve_data.get("attack_complexity"),
+            "privileges_required": cve_data.get("privileges_required"),
+            "user_interaction": cve_data.get("user_interaction"),
         }
 
         # Create a stable string representation
-        data_str = json.dumps(relevant_fields, sort_keys=True, separators=(',', ':'))
+        data_str = json.dumps(relevant_fields, sort_keys=True, separators=(",", ":"))
         return hashlib.sha256(data_str.encode()).hexdigest()
 
     def load_vulnerabilities_from_db(self) -> List[Dict]:
@@ -122,7 +127,9 @@ class IncrementalGenerator:
 
                 # Extract EPSS percentile
                 epss_percentile = 0
-                if vuln_data.get("epss_score") and isinstance(vuln_data["epss_score"], dict):
+                if vuln_data.get("epss_score") and isinstance(
+                    vuln_data["epss_score"], dict
+                ):
                     epss_percentile = vuln_data["epss_score"].get("percentile", 0)
 
                 vuln = {
@@ -155,8 +162,9 @@ class IncrementalGenerator:
         db.close()
         return vulnerabilities
 
-    def identify_changed_cves(self, vulnerabilities: List[Dict],
-                             last_metadata: Dict) -> Tuple[List[Dict], List[str]]:
+    def identify_changed_cves(
+        self, vulnerabilities: List[Dict], last_metadata: Dict
+    ) -> Tuple[List[Dict], List[str]]:
         """Identify CVEs that have changed since last generation.
 
         Returns:
@@ -183,7 +191,9 @@ class IncrementalGenerator:
         removed_cve_ids = list(last_cve_ids - current_cve_ids)
 
         if removed_cve_ids:
-            logger.info(f"Found {len(removed_cve_ids)} removed CVEs: {removed_cve_ids[:5]}...")
+            logger.info(
+                f"Found {len(removed_cve_ids)} removed CVEs: {removed_cve_ids[:5]}..."
+            )
 
         return changed_cves, removed_cve_ids, current_cve_hashes
 
@@ -412,8 +422,12 @@ class IncrementalGenerator:
         <div class="cve-header">
             <h1>{cve_id}</h1>
             <div class="badges">
-                <span class="badge severity-{vuln["severity"].lower()}">{vuln["severity"]}</span>
-                {'<span class="badge kev-badge">🚨 Known Exploited</span>' if is_kev else ""}
+                <span class="badge severity-{vuln["severity"].lower()}">{
+            vuln["severity"]
+        }</span>
+                {
+            '<span class="badge kev-badge">🚨 Known Exploited</span>' if is_kev else ""
+        }
             </div>
             <div class="info-grid">
                 <div class="info-item">
@@ -449,20 +463,27 @@ class IncrementalGenerator:
                 </div>
                 <div class="info-item">
                     <div class="info-label">Attack Complexity</div>
-                    <div class="info-value">{str(vuln.get("attack_complexity", "Unknown"))}</div>
+                    <div class="info-value">{
+            str(vuln.get("attack_complexity", "Unknown"))
+        }</div>
                 </div>
                 <div class="info-item">
                     <div class="info-label">Privileges Required</div>
-                    <div class="info-value">{str(vuln.get("privileges_required", "Unknown"))}</div>
+                    <div class="info-value">{
+            str(vuln.get("privileges_required", "Unknown"))
+        }</div>
                 </div>
                 <div class="info-item">
                     <div class="info-label">User Interaction</div>
-                    <div class="info-value">{str(vuln.get("user_interaction", "Unknown"))}</div>
+                    <div class="info-value">{
+            str(vuln.get("user_interaction", "Unknown"))
+        }</div>
                 </div>
             </div>
         </div>
 
-        {f'''<div class="section">
+        {
+            f'''<div class="section">
             <h2>Affected Products</h2>
             <h3>Vendors</h3>
             <div class="vendor-list">
@@ -472,12 +493,17 @@ class IncrementalGenerator:
             <div class="product-list">
                 {"".join(f'<span class="product-tag">{str(p)}</span>' for p in products) if products else '<span class="product-tag">Unknown</span>'}
             </div>
-        </div>''' if vendors or products else ""}
+        </div>'''
+            if vendors or products
+            else ""
+        }
 
         <div class="section">
             <h2>References</h2>
             <p>
-                <a href="https://nvd.nist.gov/vuln/detail/{cve_id}" target="_blank" rel="noopener">
+                <a href="https://nvd.nist.gov/vuln/detail/{
+            cve_id
+        }" target="_blank" rel="noopener">
                     View on NVD →
                 </a>
             </p>
@@ -540,6 +566,7 @@ class IncrementalGenerator:
                 try:
                     # Remove the entire CVE directory
                     import shutil
+
                     shutil.rmtree(cve_dir)
                     removed_count += 1
                     logger.info(f"Removed CVE page for {cve_id}")
@@ -549,8 +576,9 @@ class IncrementalGenerator:
         logger.info(f"Removed {removed_count} CVE pages")
         return removed_count
 
-    def should_regenerate_dashboard(self, vulnerabilities: List[Dict],
-                                   last_metadata: Dict) -> bool:
+    def should_regenerate_dashboard(
+        self, vulnerabilities: List[Dict], last_metadata: Dict
+    ) -> bool:
         """Check if dashboard needs regeneration based on data changes."""
         # Calculate hash of current vulnerability data
         dashboard_data = []
@@ -572,7 +600,7 @@ class IncrementalGenerator:
         dashboard_data.sort(key=lambda x: x["risk_score"], reverse=True)
 
         # Calculate hash
-        data_str = json.dumps(dashboard_data, sort_keys=True, separators=(',', ':'))
+        data_str = json.dumps(dashboard_data, sort_keys=True, separators=(",", ":"))
         current_hash = hashlib.sha256(data_str.encode()).hexdigest()
 
         last_hash = last_metadata.get("dashboard_hash")
@@ -617,11 +645,14 @@ class IncrementalGenerator:
             logger.info("Force regeneration requested - will regenerate all files")
             changed_cves = vulnerabilities
             removed_cve_ids = []
-            current_cve_hashes = {vuln["cve_id"]: self.calculate_cve_hash(vuln) for vuln in vulnerabilities}
+            current_cve_hashes = {
+                vuln["cve_id"]: self.calculate_cve_hash(vuln)
+                for vuln in vulnerabilities
+            }
         else:
             # Identify changes
-            changed_cves, removed_cve_ids, current_cve_hashes = self.identify_changed_cves(
-                vulnerabilities, last_metadata
+            changed_cves, removed_cve_ids, current_cve_hashes = (
+                self.identify_changed_cves(vulnerabilities, last_metadata)
             )
 
         stats["changed_cves"] = len(changed_cves)
@@ -664,23 +695,23 @@ def main():
     """Main entry point for incremental generation."""
     import argparse
 
-    parser = argparse.ArgumentParser(description="Incremental CVE page and dashboard generator")
+    parser = argparse.ArgumentParser(
+        description="Incremental CVE page and dashboard generator"
+    )
     parser.add_argument(
         "--db-path",
         type=Path,
         default=Path(".cache/vulns.db"),
-        help="Path to vulnerability cache database"
+        help="Path to vulnerability cache database",
     )
     parser.add_argument(
         "--output-dir",
         type=Path,
         default=Path("public"),
-        help="Output directory for generated files"
+        help="Output directory for generated files",
     )
     parser.add_argument(
-        "--force-all",
-        action="store_true",
-        help="Force regeneration of all files"
+        "--force-all", action="store_true", help="Force regeneration of all files"
     )
 
     args = parser.parse_args()
@@ -688,7 +719,7 @@ def main():
     # Configure logging
     logging.basicConfig(
         level=logging.INFO,
-        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     )
 
     generator = IncrementalGenerator(args.db_path, args.output_dir)
@@ -713,4 +744,5 @@ def main():
 if __name__ == "__main__":
     import logging
     import sys
+
     sys.exit(main())

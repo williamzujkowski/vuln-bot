@@ -73,82 +73,85 @@ class VendorProductExtractor:
         # Patterns for extracting vendor/product from descriptions
         self.description_patterns = [
             # Microsoft products
-            (r"\b(microsoft)\s+(outlook|office|windows|exchange|sharepoint|teams|edge|azure)\b", "Microsoft", r"\2"),
+            (
+                r"\b(microsoft)\s+(outlook|office|windows|exchange|sharepoint|teams|edge|azure)\b",
+                "Microsoft",
+                r"\2",
+            ),
             (r"\b(ms)\s+(office|outlook|word|excel|powerpoint)\b", "Microsoft", r"\2"),
-            (r"\b(windows)\s+(\d+|server|vista|xp|7|8|10|11)\b", "Microsoft", "Windows"),
+            (
+                r"\b(windows)\s+(\d+|server|vista|xp|7|8|10|11)\b",
+                "Microsoft",
+                "Windows",
+            ),
             (r"\b(internet explorer|ie)\s*(\d+)?\b", "Microsoft", "Internet Explorer"),
-
             # Apple products
             (r"\b(apple)\s+(safari|ios|macos|watchos|tvos)\b", "Apple", r"\2"),
             (r"\b(safari)\s+(\d+(?:\.\d+)*)\b", "Apple", "Safari"),
             (r"\b(ios)\s+(\d+(?:\.\d+)*)\b", "Apple", "iOS"),
             (r"\b(macos)\s+(\w+)\b", "Apple", "macOS"),
-
             # Google products
             (r"\b(google)\s+(chrome|android|firebase|cloud)\b", "Google", r"\2"),
             (r"\b(chrome)\s+(\d+(?:\.\d+)*)\b", "Google", "Chrome"),
             (r"\b(android)\s+(\d+(?:\.\d+)*)\b", "Google", "Android"),
-
             # Adobe products
-            (r"\b(adobe)\s+(flash|reader|acrobat|photoshop|illustrator)\b", "Adobe", r"\2"),
+            (
+                r"\b(adobe)\s+(flash|reader|acrobat|photoshop|illustrator)\b",
+                "Adobe",
+                r"\2",
+            ),
             (r"\b(flash player)\b", "Adobe", "Flash Player"),
-
             # Oracle products
             (r"\b(oracle)\s+(database|weblogic|java|mysql)\b", "Oracle", r"\2"),
             (r"\b(java)\s+(se|ee|runtime|jre|jdk)\b", "Oracle", "Java"),
-
             # Cisco products
             (r"\b(cisco)\s+(ios|asa|firepower|webex)\b", "Cisco", r"\2"),
-
             # VMware products
             (r"\b(vmware)\s+(vsphere|vcenter|workstation|fusion)\b", "VMware", r"\2"),
-
             # Linux distributions
-            (r"\b(red hat|redhat)\s+(enterprise|linux|rhel)\b", "Red Hat", "Red Hat Enterprise Linux"),
+            (
+                r"\b(red hat|redhat)\s+(enterprise|linux|rhel)\b",
+                "Red Hat",
+                "Red Hat Enterprise Linux",
+            ),
             (r"\b(ubuntu)\s+(\d+\.\d+)\b", "Canonical", "Ubuntu"),
             (r"\b(debian)\s+(\d+)\b", "Debian", "Debian"),
             (r"\b(centos)\s+(\d+)\b", "CentOS", "CentOS"),
             (r"\b(suse)\s+(linux|enterprise)\b", "SUSE", "SUSE Linux"),
-
             # Web browsers
             (r"\b(firefox)\s+(\d+(?:\.\d+)*)\b", "Mozilla", "Firefox"),
             (r"\b(mozilla)\s+(firefox)\b", "Mozilla", "Firefox"),
-
             # Web frameworks and applications
             (r"\b(wordpress)\b", "WordPress", "WordPress"),
             (r"\b(drupal)\s+(\d+(?:\.\d+)*)\b", "Drupal", "Drupal"),
             (r"\b(joomla)\s+(\d+(?:\.\d+)*)\b", "Joomla", "Joomla"),
-
             # Databases
             (r"\b(postgresql)\s+(\d+(?:\.\d+)*)\b", "PostgreSQL", "PostgreSQL"),
             (r"\b(mysql)\s+(\d+(?:\.\d+)*)\b", "MySQL", "MySQL"),
             (r"\b(mongodb)\s+(\d+(?:\.\d+)*)\b", "MongoDB", "MongoDB"),
             (r"\b(elasticsearch)\b", "Elastic", "Elasticsearch"),
-
             # Development tools
             (r"\b(jenkins)\s+(\d+(?:\.\d+)*)\b", "Jenkins", "Jenkins"),
             (r"\b(docker|docker engine)\b", "Docker", "Docker"),
             (r"\b(kubernetes|k8s)\b", "Kubernetes", "Kubernetes"),
-
             # Programming languages/runtimes
             (r"\b(node\.?js)\s+(\d+(?:\.\d+)*)\b", "Node.js", "Node.js"),
             (r"\b(python)\s+(\d+(?:\.\d+)*)\b", "Python", "Python"),
             (r"\b(php)\s+(\d+(?:\.\d+)*)\b", "PHP", "PHP"),
             (r"\b(ruby)\s+(\d+(?:\.\d+)*)\b", "Ruby", "Ruby"),
             (r"\b(go|golang)\s+(\d+(?:\.\d+)*)\b", "Go", "Go"),
-
             # Apache specific improvements
             (r"\b(apache)\s+(http\s+server)\b", "Apache", "Apache HTTP Server"),
-
             # Generic patterns (more conservative)
-            (r"\b([A-Z][a-z]+)\s+(Server|Database|Framework|Engine|Browser)\b", r"\1", r"\1 \2"),
+            (
+                r"\b([A-Z][a-z]+)\s+(Server|Database|Framework|Engine|Browser)\b",
+                r"\1",
+                r"\1 \2",
+            ),
         ]
 
     def extract_vendors_products(
-        self,
-        cve_data: Dict,
-        description: str = "",
-        title: str = ""
+        self, cve_data: Dict, description: str = "", title: str = ""
     ) -> Tuple[List[str], List[str]]:
         """Extract vendor and product information from CVE data.
 
@@ -196,7 +199,9 @@ class VendorProductExtractor:
 
         return normalized_vendors, normalized_products
 
-    def _extract_from_affected_data(self, cve_data: Dict) -> Tuple[List[str], List[str]]:
+    def _extract_from_affected_data(
+        self, cve_data: Dict
+    ) -> Tuple[List[str], List[str]]:
         """Extract from structured affected data in CVE."""
         vendors = set()
         products = set()
@@ -263,21 +268,33 @@ class VendorProductExtractor:
             for match in matches:
                 try:
                     # Process vendor
-                    if isinstance(vendor_template, str) and not vendor_template.startswith("\\"):
+                    if isinstance(
+                        vendor_template, str
+                    ) and not vendor_template.startswith("\\"):
                         vendor = vendor_template
                     else:
                         vendor = match.expand(vendor_template)
 
                     # Process product
-                    if isinstance(product_template, str) and not product_template.startswith("\\"):
+                    if isinstance(
+                        product_template, str
+                    ) and not product_template.startswith("\\"):
                         product = product_template
                     else:
                         product = match.expand(product_template)
 
                     # Filter out common false positives
-                    if vendor and len(vendor) > 1 and not vendor.lower().startswith("vulnerability"):
+                    if (
+                        vendor
+                        and len(vendor) > 1
+                        and not vendor.lower().startswith("vulnerability")
+                    ):
                         vendors.add(vendor.lower())
-                    if product and len(product) > 1 and not product.lower().startswith("vulnerability"):
+                    if (
+                        product
+                        and len(product) > 1
+                        and not product.lower().startswith("vulnerability")
+                    ):
                         products.add(product.lower())
 
                 except Exception:
@@ -338,7 +355,9 @@ class VendorProductExtractor:
                     normalized.append(normalized_vendor)
             elif len(vendor_lower) > 1:
                 # Capitalize first letter of each word
-                capitalized = " ".join(word.capitalize() for word in vendor_lower.split())
+                capitalized = " ".join(
+                    word.capitalize() for word in vendor_lower.split()
+                )
                 if capitalized not in normalized:
                     normalized.append(capitalized)
 
@@ -351,7 +370,9 @@ class VendorProductExtractor:
             product_lower = product.lower().strip()
             if len(product_lower) > 1:
                 # Capitalize first letter of each word
-                capitalized = " ".join(word.capitalize() for word in product_lower.split())
+                capitalized = " ".join(
+                    word.capitalize() for word in product_lower.split()
+                )
                 if capitalized not in normalized:
                     normalized.append(capitalized)
 

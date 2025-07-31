@@ -388,11 +388,19 @@ class CVEListClient(BaseAPIClient):
 
                     # Parse CVSS vector for attack details (use first/primary metric)
                     if len(cvss_metrics) == 1 and cvss_metric.vector_string:
-                        parsed_vector = self.cvss_parser.parse_cvss_vector(cvss_metric.vector_string)
+                        parsed_vector = self.cvss_parser.parse_cvss_vector(
+                            cvss_metric.vector_string
+                        )
                         attack_vector = parsed_vector.get("attack_vector", "Unknown")
-                        attack_complexity = parsed_vector.get("attack_complexity", "Unknown")
-                        privileges_required = parsed_vector.get("privileges_required", "Unknown")
-                        user_interaction = parsed_vector.get("user_interaction", "Unknown")
+                        attack_complexity = parsed_vector.get(
+                            "attack_complexity", "Unknown"
+                        )
+                        privileges_required = parsed_vector.get(
+                            "privileges_required", "Unknown"
+                        )
+                        user_interaction = parsed_vector.get(
+                            "user_interaction", "Unknown"
+                        )
 
             # Enhanced vendor/product extraction
             vendors, products = self.vendor_product_extractor.extract_vendors_products(

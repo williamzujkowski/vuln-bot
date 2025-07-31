@@ -19,40 +19,40 @@ class CVSSVectorParser:
                 "N": "Network",
                 "A": "Adjacent Network",
                 "L": "Local",
-                "P": "Physical"
+                "P": "Physical",
             },
             "AC": {  # Attack Complexity
                 "L": "Low",
-                "H": "High"
+                "H": "High",
             },
             "PR": {  # Privileges Required
                 "N": "None",
                 "L": "Low",
-                "H": "High"
+                "H": "High",
             },
             "UI": {  # User Interaction
                 "N": "None",
-                "R": "Required"
+                "R": "Required",
             },
-            "S": {   # Scope
+            "S": {  # Scope
                 "U": "Unchanged",
-                "C": "Changed"
+                "C": "Changed",
             },
-            "C": {   # Confidentiality Impact
+            "C": {  # Confidentiality Impact
                 "N": "None",
                 "L": "Low",
-                "H": "High"
+                "H": "High",
             },
-            "I": {   # Integrity Impact
+            "I": {  # Integrity Impact
                 "N": "None",
                 "L": "Low",
-                "H": "High"
+                "H": "High",
             },
-            "A": {   # Availability Impact
+            "A": {  # Availability Impact
                 "N": "None",
                 "L": "Low",
-                "H": "High"
-            }
+                "H": "High",
+            },
         }
 
         # CVSS v2 metric mappings
@@ -60,33 +60,33 @@ class CVSSVectorParser:
             "AV": {  # Access Vector
                 "L": "Local",
                 "A": "Adjacent Network",
-                "N": "Network"
+                "N": "Network",
             },
             "AC": {  # Access Complexity
                 "H": "High",
                 "M": "Medium",
-                "L": "Low"
+                "L": "Low",
             },
             "Au": {  # Authentication
                 "M": "Multiple",
                 "S": "Single",
-                "N": "None"
+                "N": "None",
             },
-            "C": {   # Confidentiality Impact
+            "C": {  # Confidentiality Impact
                 "N": "None",
                 "P": "Partial",
-                "C": "Complete"
+                "C": "Complete",
             },
-            "I": {   # Integrity Impact
+            "I": {  # Integrity Impact
                 "N": "None",
                 "P": "Partial",
-                "C": "Complete"
+                "C": "Complete",
             },
-            "A": {   # Availability Impact
+            "A": {  # Availability Impact
                 "N": "None",
                 "P": "Partial",
-                "C": "Complete"
-            }
+                "C": "Complete",
+            },
         }
 
     def parse_cvss_vector(self, vector_string: str) -> Dict[str, str]:
@@ -107,7 +107,7 @@ class CVSSVectorParser:
             "confidentiality_impact": "Unknown",
             "integrity_impact": "Unknown",
             "availability_impact": "Unknown",
-            "version": "Unknown"
+            "version": "Unknown",
         }
 
         if not vector_string:
@@ -128,9 +128,7 @@ class CVSSVectorParser:
 
         except Exception as e:
             self.logger.error(
-                "Failed to parse CVSS vector",
-                vector=vector_string,
-                error=str(e)
+                "Failed to parse CVSS vector", vector=vector_string, error=str(e)
             )
             return result
 
@@ -155,52 +153,84 @@ class CVSSVectorParser:
 
         return "Unknown"
 
-    def _parse_cvss3_vector(self, vector_string: str, result: Dict[str, str]) -> Dict[str, str]:
+    def _parse_cvss3_vector(
+        self, vector_string: str, result: Dict[str, str]
+    ) -> Dict[str, str]:
         """Parse CVSS v3.x vector string."""
         # Extract metric values using regex
         metrics = re.findall(r"([A-Z]+):([A-Z])", vector_string)
 
         for metric, value in metrics:
             if metric == "AV":
-                result["attack_vector"] = self.cvss3_mappings["AV"].get(value, f"Unknown ({value})")
+                result["attack_vector"] = self.cvss3_mappings["AV"].get(
+                    value, f"Unknown ({value})"
+                )
             elif metric == "AC":
-                result["attack_complexity"] = self.cvss3_mappings["AC"].get(value, f"Unknown ({value})")
+                result["attack_complexity"] = self.cvss3_mappings["AC"].get(
+                    value, f"Unknown ({value})"
+                )
             elif metric == "PR":
-                result["privileges_required"] = self.cvss3_mappings["PR"].get(value, f"Unknown ({value})")
+                result["privileges_required"] = self.cvss3_mappings["PR"].get(
+                    value, f"Unknown ({value})"
+                )
             elif metric == "UI":
-                result["user_interaction"] = self.cvss3_mappings["UI"].get(value, f"Unknown ({value})")
+                result["user_interaction"] = self.cvss3_mappings["UI"].get(
+                    value, f"Unknown ({value})"
+                )
             elif metric == "S":
-                result["scope"] = self.cvss3_mappings["S"].get(value, f"Unknown ({value})")
+                result["scope"] = self.cvss3_mappings["S"].get(
+                    value, f"Unknown ({value})"
+                )
             elif metric == "C":
-                result["confidentiality_impact"] = self.cvss3_mappings["C"].get(value, f"Unknown ({value})")
+                result["confidentiality_impact"] = self.cvss3_mappings["C"].get(
+                    value, f"Unknown ({value})"
+                )
             elif metric == "I":
-                result["integrity_impact"] = self.cvss3_mappings["I"].get(value, f"Unknown ({value})")
+                result["integrity_impact"] = self.cvss3_mappings["I"].get(
+                    value, f"Unknown ({value})"
+                )
             elif metric == "A":
-                result["availability_impact"] = self.cvss3_mappings["A"].get(value, f"Unknown ({value})")
+                result["availability_impact"] = self.cvss3_mappings["A"].get(
+                    value, f"Unknown ({value})"
+                )
 
         return result
 
-    def _parse_cvss2_vector(self, vector_string: str, result: Dict[str, str]) -> Dict[str, str]:
+    def _parse_cvss2_vector(
+        self, vector_string: str, result: Dict[str, str]
+    ) -> Dict[str, str]:
         """Parse CVSS v2.0 vector string."""
         # Extract metric values using regex
         metrics = re.findall(r"([A-Z][a-z]?):([A-Z])", vector_string)
 
         for metric, value in metrics:
             if metric == "AV":
-                result["attack_vector"] = self.cvss2_mappings["AV"].get(value, f"Unknown ({value})")
+                result["attack_vector"] = self.cvss2_mappings["AV"].get(
+                    value, f"Unknown ({value})"
+                )
             elif metric == "AC":
-                result["attack_complexity"] = self.cvss2_mappings["AC"].get(value, f"Unknown ({value})")
+                result["attack_complexity"] = self.cvss2_mappings["AC"].get(
+                    value, f"Unknown ({value})"
+                )
             elif metric == "Au":
                 # Map authentication to privileges required for consistency
-                result["privileges_required"] = self.cvss2_mappings["Au"].get(value, f"Unknown ({value})")
+                result["privileges_required"] = self.cvss2_mappings["Au"].get(
+                    value, f"Unknown ({value})"
+                )
                 # CVSS v2 doesn't have user interaction, so infer from authentication
                 result["user_interaction"] = "Required" if value != "N" else "None"
             elif metric == "C":
-                result["confidentiality_impact"] = self.cvss2_mappings["C"].get(value, f"Unknown ({value})")
+                result["confidentiality_impact"] = self.cvss2_mappings["C"].get(
+                    value, f"Unknown ({value})"
+                )
             elif metric == "I":
-                result["integrity_impact"] = self.cvss2_mappings["I"].get(value, f"Unknown ({value})")
+                result["integrity_impact"] = self.cvss2_mappings["I"].get(
+                    value, f"Unknown ({value})"
+                )
             elif metric == "A":
-                result["availability_impact"] = self.cvss2_mappings["A"].get(value, f"Unknown ({value})")
+                result["availability_impact"] = self.cvss2_mappings["A"].get(
+                    value, f"Unknown ({value})"
+                )
 
         # CVSS v2 doesn't have scope, set default
         result["scope"] = "Not Applicable"
@@ -214,18 +244,13 @@ class CVSSVectorParser:
             "Adjacent Network": 3,
             "Local": 2,
             "Physical": 1,
-            "Unknown": 0
+            "Unknown": 0,
         }
         return priority_map.get(attack_vector, 0)
 
     def get_complexity_priority(self, complexity: str) -> int:
         """Get priority score for attack complexity (higher = easier to exploit)."""
-        priority_map = {
-            "Low": 3,
-            "Medium": 2,
-            "High": 1,
-            "Unknown": 0
-        }
+        priority_map = {"Low": 3, "Medium": 2, "High": 1, "Unknown": 0}
         return priority_map.get(complexity, 0)
 
     def get_privileges_priority(self, privileges: str) -> int:
@@ -236,15 +261,25 @@ class CVSSVectorParser:
             "Single": 2,
             "High": 1,
             "Multiple": 1,
-            "Unknown": 0
+            "Unknown": 0,
         }
         return priority_map.get(privileges, 0)
 
-    def calculate_exploitability_factors(self, parsed_vector: Dict[str, str]) -> Dict[str, int]:
+    def calculate_exploitability_factors(
+        self, parsed_vector: Dict[str, str]
+    ) -> Dict[str, int]:
         """Calculate exploitability factor scores from parsed CVSS vector."""
         return {
-            "attack_vector_score": self.get_attack_vector_priority(parsed_vector["attack_vector"]),
-            "complexity_score": self.get_complexity_priority(parsed_vector["attack_complexity"]),
-            "privileges_score": self.get_privileges_priority(parsed_vector["privileges_required"]),
-            "user_interaction_score": 2 if parsed_vector["user_interaction"] == "None" else 1
+            "attack_vector_score": self.get_attack_vector_priority(
+                parsed_vector["attack_vector"]
+            ),
+            "complexity_score": self.get_complexity_priority(
+                parsed_vector["attack_complexity"]
+            ),
+            "privileges_score": self.get_privileges_priority(
+                parsed_vector["privileges_required"]
+            ),
+            "user_interaction_score": 2
+            if parsed_vector["user_interaction"] == "None"
+            else 1,
         }

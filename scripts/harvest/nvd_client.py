@@ -34,7 +34,7 @@ class NVDClient(BaseAPIClient):
         """
         # Check for API key in environment if not provided
         if api_key is None:
-            api_key = os.environ.get('NVD_API_KEY')
+            api_key = os.environ.get("NVD_API_KEY")
 
         # Set api_key first before calling parent constructor
         self.api_key = api_key
@@ -267,10 +267,14 @@ class NVDClient(BaseAPIClient):
                 )
                 continue
 
-        self.logger.info(f"Successfully fetched {len(all_cves)} out of {len(cve_ids)} requested CVEs")
+        self.logger.info(
+            f"Successfully fetched {len(all_cves)} out of {len(cve_ids)} requested CVEs"
+        )
         return all_cves
 
-    def parse_nvd_cve_record(self, cve_record: Dict[str, Any]) -> Optional[Vulnerability]:
+    def parse_nvd_cve_record(
+        self, cve_record: Dict[str, Any]
+    ) -> Optional[Vulnerability]:
         """Parse NVD CVE record into Vulnerability object.
 
         Args:
@@ -300,14 +304,26 @@ class NVDClient(BaseAPIClient):
                 description = descriptions[0].get("value", "")
 
             # Create title from CVE ID and description
-            title = f"{cve_id}: {description[:100]}..." if len(description) > 100 else f"{cve_id}: {description}"
+            title = (
+                f"{cve_id}: {description[:100]}..."
+                if len(description) > 100
+                else f"{cve_id}: {description}"
+            )
 
             # Parse dates
             published_str = cve_data.get("published", "")
             modified_str = cve_data.get("lastModified", published_str)
 
-            published_date = datetime.fromisoformat(published_str.replace("Z", "+00:00")) if published_str else datetime.now(timezone.utc)
-            last_modified_date = datetime.fromisoformat(modified_str.replace("Z", "+00:00")) if modified_str else published_date
+            published_date = (
+                datetime.fromisoformat(published_str.replace("Z", "+00:00"))
+                if published_str
+                else datetime.now(timezone.utc)
+            )
+            last_modified_date = (
+                datetime.fromisoformat(modified_str.replace("Z", "+00:00"))
+                if modified_str
+                else published_date
+            )
 
             # Parse CVSS metrics and determine severity
             cvss_metrics = []
@@ -327,7 +343,9 @@ class NVDClient(BaseAPIClient):
                         version="3.1",
                         vector_string=cvss_data.get("vectorString", ""),
                         base_score=cvss_data.get("baseScore", 0.0),
-                        base_severity=SeverityLevel[cvss_data.get("baseSeverity", "NONE").upper()],
+                        base_severity=SeverityLevel[
+                            cvss_data.get("baseSeverity", "NONE").upper()
+                        ],
                         exploitability_score=cvss_data.get("exploitabilityScore"),
                         impact_score=cvss_data.get("impactScore"),
                     )
@@ -335,14 +353,24 @@ class NVDClient(BaseAPIClient):
 
                     # Enhanced CVSS vector parsing for attack details (use first/primary metric)
                     if len(cvss_metrics) == 1 and cvss_metric.vector_string:
-                        parsed_vector = self.cvss_parser.parse_cvss_vector(cvss_metric.vector_string)
+                        parsed_vector = self.cvss_parser.parse_cvss_vector(
+                            cvss_metric.vector_string
+                        )
                         attack_vector = parsed_vector.get("attack_vector", "Unknown")
-                        attack_complexity = parsed_vector.get("attack_complexity", "Unknown")
-                        privileges_required = parsed_vector.get("privileges_required", "Unknown")
-                        user_interaction = parsed_vector.get("user_interaction", "Unknown")
+                        attack_complexity = parsed_vector.get(
+                            "attack_complexity", "Unknown"
+                        )
+                        privileges_required = parsed_vector.get(
+                            "privileges_required", "Unknown"
+                        )
+                        user_interaction = parsed_vector.get(
+                            "user_interaction", "Unknown"
+                        )
 
                     # Update severity to highest found
-                    if self._severity_order(cvss_metric.base_severity) > self._severity_order(severity):
+                    if self._severity_order(
+                        cvss_metric.base_severity
+                    ) > self._severity_order(severity):
                         severity = cvss_metric.base_severity
 
             # Process CVSS v3.0 metrics if no v3.1 found
@@ -354,7 +382,9 @@ class NVDClient(BaseAPIClient):
                             version="3.0",
                             vector_string=cvss_data.get("vectorString", ""),
                             base_score=cvss_data.get("baseScore", 0.0),
-                            base_severity=SeverityLevel[cvss_data.get("baseSeverity", "NONE").upper()],
+                            base_severity=SeverityLevel[
+                                cvss_data.get("baseSeverity", "NONE").upper()
+                            ],
                             exploitability_score=cvss_data.get("exploitabilityScore"),
                             impact_score=cvss_data.get("impactScore"),
                         )
@@ -362,13 +392,25 @@ class NVDClient(BaseAPIClient):
 
                         # Enhanced CVSS vector parsing for attack details (use first/primary metric)
                         if len(cvss_metrics) == 1 and cvss_metric.vector_string:
-                            parsed_vector = self.cvss_parser.parse_cvss_vector(cvss_metric.vector_string)
-                            attack_vector = parsed_vector.get("attack_vector", "Unknown")
-                            attack_complexity = parsed_vector.get("attack_complexity", "Unknown")
-                            privileges_required = parsed_vector.get("privileges_required", "Unknown")
-                            user_interaction = parsed_vector.get("user_interaction", "Unknown")
+                            parsed_vector = self.cvss_parser.parse_cvss_vector(
+                                cvss_metric.vector_string
+                            )
+                            attack_vector = parsed_vector.get(
+                                "attack_vector", "Unknown"
+                            )
+                            attack_complexity = parsed_vector.get(
+                                "attack_complexity", "Unknown"
+                            )
+                            privileges_required = parsed_vector.get(
+                                "privileges_required", "Unknown"
+                            )
+                            user_interaction = parsed_vector.get(
+                                "user_interaction", "Unknown"
+                            )
 
-                        if self._severity_order(cvss_metric.base_severity) > self._severity_order(severity):
+                        if self._severity_order(
+                            cvss_metric.base_severity
+                        ) > self._severity_order(severity):
                             severity = cvss_metric.base_severity
 
             # Enhanced vendor/product extraction using multiple methods
@@ -483,16 +525,23 @@ class NVDClient(BaseAPIClient):
             year_cves = self.fetch_cves_by_published_date(
                 start_date=start_date,
                 end_date=end_date,
-                max_results=max_vulnerabilities - len(all_vulnerabilities) if max_vulnerabilities else None,
+                max_results=max_vulnerabilities - len(all_vulnerabilities)
+                if max_vulnerabilities
+                else None,
             )
 
             # Parse and filter CVEs
             for cve_record in year_cves:
                 vulnerability = self.parse_nvd_cve_record(cve_record)
-                if vulnerability and self._meets_severity_threshold(vulnerability, min_severity):
+                if vulnerability and self._meets_severity_threshold(
+                    vulnerability, min_severity
+                ):
                     all_vulnerabilities.append(vulnerability)
 
-                    if max_vulnerabilities and len(all_vulnerabilities) >= max_vulnerabilities:
+                    if (
+                        max_vulnerabilities
+                        and len(all_vulnerabilities) >= max_vulnerabilities
+                    ):
                         break
 
             self.logger.info(
@@ -502,10 +551,15 @@ class NVDClient(BaseAPIClient):
             if max_vulnerabilities and len(all_vulnerabilities) >= max_vulnerabilities:
                 break
 
-        self.logger.info(f"Total harvested: {len(all_vulnerabilities)} vulnerabilities from NVD")
+        self.logger.info(
+            f"Total harvested: {len(all_vulnerabilities)} vulnerabilities from NVD"
+        )
         return all_vulnerabilities
 
-    def _meets_severity_threshold(self, vulnerability: Vulnerability, min_severity: SeverityLevel) -> bool:
+    def _meets_severity_threshold(
+        self, vulnerability: Vulnerability, min_severity: SeverityLevel
+    ) -> bool:
         """Check if vulnerability meets minimum severity threshold."""
-        return self._severity_order(vulnerability.severity) >= self._severity_order(min_severity)
-
+        return self._severity_order(vulnerability.severity) >= self._severity_order(
+            min_severity
+        )

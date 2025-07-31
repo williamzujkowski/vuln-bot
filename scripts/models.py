@@ -195,7 +195,9 @@ class Vulnerability(BaseModel):
 
         # If no vendor/product info, fall back to original title (truncated)
         if len(components) == 1:  # Only severity
-            fallback_title = self.title[:80] + "..." if len(self.title) > 80 else self.title
+            fallback_title = (
+                self.title[:80] + "..." if len(self.title) > 80 else self.title
+            )
             return f"{components[0]} {fallback_title}"
 
         return " ".join(components)
@@ -228,10 +230,11 @@ class Vulnerability(BaseModel):
 
         # Extract version patterns from title as fallback
         import re
+
         version_patterns = [
-            r'\bv?(\d+\.\d+(?:\.\d+)*)\b',
-            r'\bversion\s+(\d+\.\d+(?:\.\d+)*)\b',
-            r'\bbefore\s+(\d+\.\d+(?:\.\d+)*)\b',
+            r"\bv?(\d+\.\d+(?:\.\d+)*)\b",
+            r"\bversion\s+(\d+\.\d+(?:\.\d+)*)\b",
+            r"\bbefore\s+(\d+\.\d+(?:\.\d+)*)\b",
         ]
 
         for pattern in version_patterns:
