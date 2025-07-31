@@ -3,15 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vulnerability Intelligence Dashboard - HTMX Version</title>
+    <title>Vulnerability Intelligence Dashboard</title>
     
-    <!-- HTMX -->
-    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
-    <!-- HTMX Extensions -->
-    <script src="https://unpkg.com/htmx.org@1.9.10/dist/ext/json-enc.js"></script>
-    <script src="https://unpkg.com/htmx.org@1.9.10/dist/ext/client-side-templates.js"></script>
-    
-    <!-- Alpine.js for light interactivity -->
+    <!-- Alpine.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
     <!-- Chart.js -->
@@ -310,31 +304,16 @@
             border: 1px solid rgba(239, 68, 68, 0.3);
         }
         
-        /* Loading States */
-        .htmx-indicator {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 1000;
+        .severity-medium {
+            background: rgba(245, 158, 11, 0.2);
+            color: #f59e0b;
+            border: 1px solid rgba(245, 158, 11, 0.3);
         }
         
-        .htmx-request .htmx-indicator {
-            display: block;
-        }
-        
-        .spinner {
-            width: 60px;
-            height: 60px;
-            border: 3px solid rgba(0, 212, 255, 0.1);
-            border-top-color: var(--accent-primary);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+        .severity-low {
+            background: rgba(59, 130, 246, 0.2);
+            color: #3b82f6;
+            border: 1px solid rgba(59, 130, 246, 0.3);
         }
         
         /* Pagination */
@@ -392,29 +371,95 @@
             height: 300px;
         }
         
-        /* HTMX Loading States */
-        .htmx-swapping {
-            opacity: 0.5;
-            transition: opacity 200ms ease-out;
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
         }
         
-        /* Skeleton Loading */
-        .skeleton {
-            background: linear-gradient(90deg, 
-                rgba(255, 255, 255, 0.05) 25%, 
-                rgba(255, 255, 255, 0.1) 50%, 
-                rgba(255, 255, 255, 0.05) 75%);
-            background-size: 200% 100%;
-            animation: loading 1.5s infinite;
+        .modal.show {
+            display: flex;
         }
         
-        @keyframes loading {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
+        .modal-content {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .modal h2 {
+            margin-bottom: 1rem;
+            color: var(--accent-primary);
+        }
+        
+        .modal-close {
+            background: var(--accent-primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .main {
+                padding: 1rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .filter-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .quick-filters {
+                justify-content: center;
+            }
+            
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .truncate {
+            max-width: 200px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .cve-link {
+            color: var(--accent-primary);
+            text-decoration: none;
+        }
+        
+        .cve-link:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
-<body>
+<body x-data="dashboard()">
     <div class="dashboard">
         <!-- Header -->
         <header class="header">
@@ -429,9 +474,7 @@
                     </div>
                 </div>
                 <div style="display: flex; gap: 1rem;">
-                    <button class="filter-chip" 
-                            hx-get="/vuln-bot/data/vulnerabilities.csv" 
-                            hx-include="#filters-form">
+                    <button class="filter-chip" @click="exportCSV()">
                         Export CSV
                     </button>
                 </div>
@@ -440,55 +483,70 @@
         
         <!-- Main Content -->
         <main class="main">
-            <!-- Stats Section - Loaded via HTMX -->
-            <div id="stats-container" 
-                 hx-get="/vuln-bot/fragments/stats.html" 
-                 hx-trigger="load, filter-change from:body"
-                 hx-swap="innerHTML">
-                <!-- Stats will be loaded here -->
-                <div class="stats-grid">
-                    <div class="stat-card skeleton" style="height: 150px;"></div>
-                    <div class="stat-card skeleton" style="height: 150px;"></div>
-                    <div class="stat-card skeleton" style="height: 150px;"></div>
-                    <div class="stat-card skeleton" style="height: 150px;"></div>
+            <!-- Stats Section -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" x-text="stats.total"></div>
+                    <div class="stat-label">Total Vulnerabilities</div>
+                    <div class="stat-change negative">
+                        <span x-text="`+${stats.week_count}`"></span>
+                        <span>from last week</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-value" x-text="stats.critical"></div>
+                    <div class="stat-label">Critical Severity</div>
+                    <div class="stat-change negative">
+                        <span x-text="`+${stats.today_count}`"></span>
+                        <span>new today</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-value" x-text="stats.high"></div>
+                    <div class="stat-label">High Severity</div>
+                    <div class="stat-trend">
+                        <span x-text="`${Math.round(stats.high / stats.total * 100)}%`"></span>
+                        <span>of total</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-value" x-text="stats.kev_count"></div>
+                    <div class="stat-label">KEV Listed</div>
+                    <div class="stat-trend">
+                        <span>Known</span>
+                        <span>Exploited</span>
+                    </div>
                 </div>
             </div>
             
             <!-- Quick Filters -->
             <div class="quick-filters">
                 <button class="filter-chip" 
-                        hx-get="/vuln-bot/fragments/filter/{filter}.html" 
-                        hx-vals='{"filter": "all"}'
-                        hx-target="#vulnerabilities-table"
-                        hx-indicator=".htmx-indicator">
+                        :class="{ 'active': quickFilter === 'all' }"
+                        @click="setQuickFilter('all')">
                     All Vulnerabilities
                 </button>
                 <button class="filter-chip" 
-                        hx-get="/vuln-bot/fragments/filter/{filter}.html" 
-                        hx-vals='{"filter": "critical"}'
-                        hx-target="#vulnerabilities-table"
-                        hx-indicator=".htmx-indicator">
+                        :class="{ 'active': quickFilter === 'critical' }"
+                        @click="setQuickFilter('critical')">
                     <span class="severity-badge severity-critical">Critical</span>
                 </button>
                 <button class="filter-chip" 
-                        hx-get="/vuln-bot/fragments/filter/{filter}.html" 
-                        hx-vals='{"filter": "today"}'
-                        hx-target="#vulnerabilities-table"
-                        hx-indicator=".htmx-indicator">
+                        :class="{ 'active': quickFilter === 'today' }"
+                        @click="setQuickFilter('today')">
                     📅 Today's CVEs
                 </button>
                 <button class="filter-chip" 
-                        hx-get="/vuln-bot/fragments/filter/{filter}.html" 
-                        hx-vals='{"filter": "kev"}'
-                        hx-target="#vulnerabilities-table"
-                        hx-indicator=".htmx-indicator">
+                        :class="{ 'active': quickFilter === 'kev' }"
+                        @click="setQuickFilter('kev')">
                     ⭐ KEV Listed
                 </button>
                 <button class="filter-chip" 
-                        hx-get="/vuln-bot/fragments/filter/{filter}.html" 
-                        hx-vals='{"filter": "network"}'
-                        hx-target="#vulnerabilities-table"
-                        hx-indicator=".htmx-indicator">
+                        :class="{ 'active': quickFilter === 'network' }"
+                        @click="setQuickFilter('network')">
                     🌐 Network Vector
                 </button>
             </div>
@@ -504,289 +562,3177 @@
                 </div>
                 
                 <div x-show="expanded" x-transition>
-                    <form id="filters-form" 
-                          hx-post="/api/filter" 
-                          hx-trigger="change delay:500ms, submit" 
-                          hx-target="#vulnerabilities-table"
-                          hx-indicator=".htmx-indicator">
-                        
-                        <!-- Search -->
-                        <div class="search-box">
-                            <input type="text" 
-                                   name="search" 
-                                   class="search-input" 
-                                   placeholder="Search CVE ID, vendor, or keyword..."
-                                   hx-post="/api/search"
-                                   hx-trigger="input changed delay:500ms"
-                                   hx-target="#vulnerabilities-table"
-                                   hx-indicator=".htmx-indicator">
+                    <!-- Search -->
+                    <div class="search-box">
+                        <input type="text" 
+                               x-model="search"
+                               class="search-input" 
+                               placeholder="Search CVE ID, vendor, or keyword..."
+                               @keydown.slash.window.prevent="$el.focus()">
+                    </div>
+                    
+                    <!-- Filter Grid -->
+                    <div class="filter-grid">
+                        <div class="filter-group">
+                            <label>Severity</label>
+                            <select x-model="filters.severity">
+                                <option value="">All</option>
+                                <option value="CRITICAL">Critical</option>
+                                <option value="HIGH">High</option>
+                                <option value="MEDIUM">Medium</option>
+                                <option value="LOW">Low</option>
+                            </select>
                         </div>
                         
-                        <!-- Filter Grid -->
-                        <div class="filter-grid">
-                            <div class="filter-group">
-                                <label>Severity</label>
-                                <select name="severity">
-                                    <option value="">All</option>
-                                    <option value="CRITICAL">Critical</option>
-                                    <option value="HIGH">High</option>
-                                    <option value="MEDIUM">Medium</option>
-                                    <option value="LOW">Low</option>
-                                </select>
-                            </div>
-                            
-                            <div class="filter-group">
-                                <label>CVSS Score</label>
-                                <div style="display: flex; gap: 0.5rem;">
-                                    <input type="number" name="cvss_min" placeholder="Min" min="0" max="10" step="0.1">
-                                    <input type="number" name="cvss_max" placeholder="Max" min="0" max="10" step="0.1">
-                                </div>
-                            </div>
-                            
-                            <div class="filter-group">
-                                <label>EPSS %</label>
-                                <div style="display: flex; gap: 0.5rem;">
-                                    <input type="number" name="epss_min" placeholder="Min" min="0" max="100" value="70">
-                                    <input type="number" name="epss_max" placeholder="Max" min="0" max="100" value="100">
-                                </div>
-                            </div>
-                            
-                            <div class="filter-group">
-                                <label>Published Date</label>
-                                <div style="display: flex; gap: 0.5rem;">
-                                    <input type="date" name="published_from">
-                                    <input type="date" name="published_to">
-                                </div>
-                            </div>
-                            
-                            <div class="filter-group">
-                                <label>Vendor</label>
-                                <input type="text" name="vendor" placeholder="e.g., Microsoft">
+                        <div class="filter-group">
+                            <label>CVSS Score</label>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <input type="number" x-model.number="filters.cvss_min" placeholder="Min" min="0" max="10" step="0.1">
+                                <input type="number" x-model.number="filters.cvss_max" placeholder="Max" min="0" max="10" step="0.1">
                             </div>
                         </div>
                         
-                        <div style="display: flex; gap: 1rem; margin-top: 1rem;">
-                            <button type="submit" class="filter-chip active">Apply Filters</button>
-                            <button type="reset" class="filter-chip"
-                                    hx-get="/vuln-bot/fragments/vulnerabilities.html"
-                                    hx-target="#vulnerabilities-table">
-                                Reset
-                            </button>
+                        <div class="filter-group">
+                            <label>EPSS %</label>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <input type="number" x-model.number="filters.epss_min" placeholder="Min" min="0" max="100" value="70">
+                                <input type="number" x-model.number="filters.epss_max" placeholder="Max" min="0" max="100" value="100">
+                            </div>
                         </div>
-                    </form>
+                        
+                        <div class="filter-group">
+                            <label>Published Date</label>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <input type="date" x-model="filters.published_from">
+                                <input type="date" x-model="filters.published_to">
+                            </div>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label>Vendor</label>
+                            <input type="text" x-model="filters.vendor" placeholder="e.g., Microsoft">
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                        <button class="filter-chip active" @click="resetFilters()" @keydown.r.window.prevent="resetFilters()">
+                            Reset
+                        </button>
+                    </div>
                 </div>
             </div>
             
             <!-- Charts Section -->
-            <div id="charts-container" 
-                 hx-get="/vuln-bot/fragments/charts.html" 
-                 hx-trigger="load, filter-change from:body"
-                 hx-swap="innerHTML"
-                 class="charts-grid">
-                <!-- Charts will be loaded here -->
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <h3 class="chart-title">Severity Distribution</h3>
+                    <div class="chart-container">
+                        <canvas x-ref="severityChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <h3 class="chart-title">EPSS Score Distribution</h3>
+                    <div class="chart-container">
+                        <canvas x-ref="epssChart"></canvas>
+                    </div>
+                </div>
             </div>
             
             <!-- Data Table -->
             <div class="data-section">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
                     <h2 style="font-size: 1.5rem;">Vulnerabilities</h2>
-                    <div id="result-count" style="color: var(--text-secondary);">
-                        <!-- Count will be updated via HTMX -->
-                    </div>
+                    <div x-text="`Showing ${Math.min(perPage, filteredVulns.length)} of ${filteredVulns.length} results`" 
+                         style="color: var(--text-secondary);"></div>
                 </div>
                 
-                <div id="vulnerabilities-table" 
-                     hx-get="/vuln-bot/fragments/vulnerabilities.html" 
-                     hx-trigger="load"
-                     hx-indicator=".htmx-indicator">
-                    <!-- Table will be loaded here -->
-                    <div class="table-wrapper">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>CVE ID</th>
-                                    <th>Severity</th>
-                                    <th>CVSS</th>
-                                    <th>EPSS %</th>
-                                    <th>Title</th>
-                                    <th>Published</th>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th @click="sort('cve_id')" style="cursor: pointer;">
+                                    CVE ID <span x-show="sortField === 'cve_id'" x-text="sortOrder === 'asc' ? '↑' : '↓'"></span>
+                                </th>
+                                <th @click="sort('severity')" style="cursor: pointer;">
+                                    Severity <span x-show="sortField === 'severity'" x-text="sortOrder === 'asc' ? '↑' : '↓'"></span>
+                                </th>
+                                <th @click="sort('cvss_score')" style="cursor: pointer;">
+                                    CVSS <span x-show="sortField === 'cvss_score'" x-text="sortOrder === 'asc' ? '↑' : '↓'"></span>
+                                </th>
+                                <th @click="sort('epss_percentile')" style="cursor: pointer;">
+                                    EPSS % <span x-show="sortField === 'epss_percentile'" x-text="sortOrder === 'asc' ? '↑' : '↓'"></span>
+                                </th>
+                                <th @click="sort('risk_score')" style="cursor: pointer;">
+                                    Risk Score <span x-show="sortField === 'risk_score'" x-text="sortOrder === 'asc' ? '↑' : '↓'"></span>
+                                </th>
+                                <th>Title</th>
+                                <th>Vendors</th>
+                                <th @click="sort('published_date')" style="cursor: pointer;">
+                                    Published <span x-show="sortField === 'published_date'" x-text="sortOrder === 'asc' ? '↑' : '↓'"></span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template x-for="vuln in paginatedVulns" :key="vuln.cve_id">
+                                <tr class="vulnerability-row" :data-cve="vuln.cve_id">
+                                    <td>
+                                        <a href="#" @click.prevent="openModal(vuln)" class="cve-link" x-text="vuln.cve_id"></a>
+                                    </td>
+                                    <td>
+                                        <span class="severity-badge" :class="`severity-${vuln.severity.toLowerCase()}`" x-text="vuln.severity"></span>
+                                    </td>
+                                    <td x-text="vuln.cvss_score"></td>
+                                    <td x-text="vuln.epss_percentile"></td>
+                                    <td x-text="vuln.risk_score"></td>
+                                    <td class="truncate" x-text="vuln.title"></td>
+                                    <td class="truncate" x-text="vuln.vendors.join(', ') || 'Unknown'"></td>
+                                    <td x-text="vuln.published_short"></td>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                <!-- Skeleton rows -->
-                                <tr><td colspan="6" class="skeleton" style="height: 50px;"></td></tr>
-                                <tr><td colspan="6" class="skeleton" style="height: 50px;"></td></tr>
-                                <tr><td colspan="6" class="skeleton" style="height: 50px;"></td></tr>
-                            </tbody>
-                        </table>
+                            </template>
+                        </tbody>
+                    </table>
+
+                    <div class="pagination">
+                        <button class="page-btn" 
+                                @click="currentPage--" 
+                                :disabled="currentPage <= 1">
+                            Previous
+                        </button>
+                        <span x-text="`Page ${currentPage} of ${totalPages} • ${filteredVulns.length} vulnerabilities`"></span>
+                        <button class="page-btn" 
+                                @click="currentPage++" 
+                                :disabled="currentPage >= totalPages">
+                            Next
+                        </button>
                     </div>
                 </div>
             </div>
         </main>
         
-        <!-- Loading Indicator -->
-        <div class="htmx-indicator">
-            <div class="spinner"></div>
+        <!-- CVE Modal -->
+        <div x-ref="modal" class="modal" :class="{ 'show': showModal }" @click.self="closeModal()">
+            <div class="modal-content">
+                <template x-if="selectedVuln">
+                    <div>
+                        <h2 x-text="selectedVuln.cve_id"></h2>
+                        <p><strong>Severity:</strong> <span x-text="selectedVuln.severity"></span></p>
+                        <p><strong>CVSS Score:</strong> <span x-text="selectedVuln.cvss_score"></span></p>
+                        <p><strong>EPSS:</strong> <span x-text="selectedVuln.epss_percentile + '%'"></span></p>
+                        <p><strong>Risk Score:</strong> <span x-text="selectedVuln.risk_score"></span></p>
+                        <p><strong>Title:</strong> <span x-text="selectedVuln.title"></span></p>
+                        <p><strong>Vendors:</strong> <span x-text="selectedVuln.vendors.join(', ') || 'Unknown'"></span></p>
+                        <p><strong>Published:</strong> <span x-text="selectedVuln.published_short"></span></p>
+                        <template x-if="selectedVuln.description">
+                            <p><strong>Description:</strong> <span x-text="selectedVuln.description"></span></p>
+                        </template>
+                        <button class="modal-close" @click="closeModal()">Close</button>
+                    </div>
+                </template>
+            </div>
         </div>
     </div>
-    
+
     <script>
-        // HTMX Configuration
-        document.body.addEventListener('htmx:configRequest', (event) => {
-            // Add custom headers if needed
-            event.detail.headers['X-Requested-With'] = 'HTMX';
-        });
-        
-        // Handle filter changes
-        document.body.addEventListener('htmx:afterSwap', (event) => {
-            // Trigger custom event for other components
-            if (event.detail.target.id === 'vulnerabilities-table') {
-                document.body.dispatchEvent(new Event('filter-change'));
-            }
-            
-            // Initialize any charts if they were loaded
-            if (event.detail.target.id === 'charts-container') {
-                initializeCharts();
-            }
-        });
-        
-        // Initialize charts function
-        function initializeCharts() {
-            // This would be called after charts HTML is loaded
-            // Initialize Chart.js charts here
-            const severityCanvas = document.getElementById('severity-chart');
-            if (severityCanvas && window.chartData) {
-                new Chart(severityCanvas, {
-                    type: 'doughnut',
-                    data: window.chartData.severity,
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: {
-                            legend: {
-                                labels: { color: '#cbd5e1' }
-                            }
-                        }
+        // Embed vulnerability data
+        const vulnerabilityData = [
+  {
+    "cve_id": "CVE-2025-40107",
+    "title": "CRITICAL vulnerability in Oracle Service",
+    "severity": "CRITICAL",
+    "cvss_score": 9.4,
+    "epss_percentile": 99,
+    "risk_score": 96,
+    "vendors": [
+      "Google"
+    ],
+    "tags": [
+      "remote"
+    ],
+    "published_date": "2025-07-10T10:03:50.871727",
+    "published_short": "2025-07-10",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40107"
+  },
+  {
+    "cve_id": "CVE-2025-40131",
+    "title": "HIGH vulnerability in Cisco Service",
+    "severity": "HIGH",
+    "cvss_score": 7.5,
+    "epss_percentile": 99,
+    "risk_score": 87,
+    "vendors": [
+      "Apache"
+    ],
+    "tags": [],
+    "published_date": "2025-07-13T10:03:50.871981",
+    "published_short": "2025-07-13",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40131"
+  },
+  {
+    "cve_id": "CVE-2025-40050",
+    "title": "CRITICAL vulnerability in Cisco Client",
+    "severity": "CRITICAL",
+    "cvss_score": 9.7,
+    "epss_percentile": 98,
+    "risk_score": 97,
+    "vendors": [
+      "Microsoft"
+    ],
+    "tags": [
+      "network"
+    ],
+    "published_date": "2025-07-03T10:03:50.871130",
+    "published_short": "2025-07-03",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40050"
+  },
+  {
+    "cve_id": "CVE-2025-40134",
+    "title": "CRITICAL vulnerability in Microsoft Service",
+    "severity": "CRITICAL",
+    "cvss_score": 9.7,
+    "epss_percentile": 98,
+    "risk_score": 97,
+    "vendors": [
+      "Mozilla"
+    ],
+    "tags": [
+      "remote"
+    ],
+    "published_date": "2025-07-19T10:03:50.872011",
+    "published_short": "2025-07-19",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40134"
+  },
+  {
+    "cve_id": "CVE-2025-40049",
+    "title": "HIGH vulnerability in Google Client",
+    "severity": "HIGH",
+    "cvss_score": 8.1,
+    "epss_percentile": 98,
+    "risk_score": 89,
+    "vendors": [
+      "VMware"
+    ],
+    "tags": [],
+    "published_date": "2025-07-06T10:03:50.871121",
+    "published_short": "2025-07-06",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40049"
+  },
+  {
+    "cve_id": "CVE-2025-40106",
+    "title": "MEDIUM vulnerability in VMware Library",
+    "severity": "MEDIUM",
+    "cvss_score": 6.4,
+    "epss_percentile": 98,
+    "risk_score": 81,
+    "vendors": [
+      "Microsoft"
+    ],
+    "tags": [
+      "KEV"
+    ],
+    "published_date": "2025-07-18T10:03:50.871716",
+    "published_short": "2025-07-18",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40106"
+  },
+  {
+    "cve_id": "CVE-2025-40099",
+    "title": "MEDIUM vulnerability in Oracle Client",
+    "severity": "MEDIUM",
+    "cvss_score": 5.8,
+    "epss_percentile": 98,
+    "risk_score": 78,
+    "vendors": [
+      "Cisco"
+    ],
+    "tags": [
+      "remote"
+    ],
+    "published_date": "2025-07-22T10:03:50.871644",
+    "published_short": "2025-07-22",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40099"
+  },
+  {
+    "cve_id": "CVE-2025-40144",
+    "title": "CRITICAL vulnerability in Microsoft Client",
+    "severity": "CRITICAL",
+    "cvss_score": 9.2,
+    "epss_percentile": 97,
+    "risk_score": 94,
+    "vendors": [
+      "Apache"
+    ],
+    "tags": [
+      "KEV"
+    ],
+    "published_date": "2025-07-15T10:03:50.872116",
+    "published_short": "2025-07-15",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40144"
+  },
+  {
+    "cve_id": "CVE-2025-40095",
+    "title": "CRITICAL vulnerability in Mozilla Library",
+    "severity": "CRITICAL",
+    "cvss_score": 9.1,
+    "epss_percentile": 97,
+    "risk_score": 94,
+    "vendors": [
+      "Cisco"
+    ],
+    "tags": [
+      "network"
+    ],
+    "published_date": "2025-07-19T10:03:50.871605",
+    "published_short": "2025-07-19",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40095"
+  },
+  {
+    "cve_id": "CVE-2025-40145",
+    "title": "CRITICAL vulnerability in Mozilla Server",
+    "severity": "CRITICAL",
+    "cvss_score": 9.1,
+    "epss_percentile": 97,
+    "risk_score": 94,
+    "vendors": [
+      "Oracle"
+    ],
+    "tags": [],
+    "published_date": "2025-07-15T10:03:50.872126",
+    "published_short": "2025-07-15",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40145"
+  },
+  {
+    "cve_id": "CVE-2025-40053",
+    "title": "MEDIUM vulnerability in Apache Service",
+    "severity": "MEDIUM",
+    "cvss_score": 6.1,
+    "epss_percentile": 97,
+    "risk_score": 79,
+    "vendors": [
+      "Oracle"
+    ],
+    "tags": [
+      "KEV"
+    ],
+    "published_date": "2025-07-22T10:03:50.871163",
+    "published_short": "2025-07-22",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40053"
+  },
+  {
+    "cve_id": "CVE-2025-40133",
+    "title": "MEDIUM vulnerability in Microsoft Service",
+    "severity": "MEDIUM",
+    "cvss_score": 5.8,
+    "epss_percentile": 97,
+    "risk_score": 77,
+    "vendors": [
+      "Mozilla"
+    ],
+    "tags": [
+      "KEV"
+    ],
+    "published_date": "2025-07-21T10:03:50.872001",
+    "published_short": "2025-07-21",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40133"
+  },
+  {
+    "cve_id": "CVE-2025-40085",
+    "title": "CRITICAL vulnerability in VMware Service",
+    "severity": "CRITICAL",
+    "cvss_score": 9.3,
+    "epss_percentile": 96,
+    "risk_score": 94,
+    "vendors": [
+      "Google"
+    ],
+    "tags": [
+      "network"
+    ],
+    "published_date": "2025-07-08T10:03:50.871503",
+    "published_short": "2025-07-08",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40085"
+  },
+  {
+    "cve_id": "CVE-2025-40064",
+    "title": "CRITICAL vulnerability in Mozilla Library",
+    "severity": "CRITICAL",
+    "cvss_score": 9.2,
+    "epss_percentile": 96,
+    "risk_score": 94,
+    "vendors": [
+      "Google"
+    ],
+    "tags": [
+      "KEV",
+      "network"
+    ],
+    "published_date": "2025-07-01T10:03:50.871279",
+    "published_short": "2025-07-01",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40064"
+  },
+  {
+    "cve_id": "CVE-2025-40043",
+    "title": "CRITICAL vulnerability in Microsoft Framework",
+    "severity": "CRITICAL",
+    "cvss_score": 9.0,
+    "epss_percentile": 96,
+    "risk_score": 93,
+    "vendors": [
+      "VMware"
+    ],
+    "tags": [
+      "KEV",
+      "network"
+    ],
+    "published_date": "2025-07-14T10:03:50.871063",
+    "published_short": "2025-07-14",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40043"
+  },
+  {
+    "cve_id": "CVE-2025-40127",
+    "title": "CRITICAL vulnerability in Oracle Library",
+    "severity": "CRITICAL",
+    "cvss_score": 9.0,
+    "epss_percentile": 96,
+    "risk_score": 93,
+    "vendors": [
+      "Mozilla"
+    ],
+    "tags": [
+      "KEV",
+      "network"
+    ],
+    "published_date": "2025-07-06T10:03:50.871937",
+    "published_short": "2025-07-06",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40127"
+  },
+  {
+    "cve_id": "CVE-2025-40092",
+    "title": "HIGH vulnerability in Oracle Server",
+    "severity": "HIGH",
+    "cvss_score": 8.0,
+    "epss_percentile": 96,
+    "risk_score": 88,
+    "vendors": [
+      "Apache"
+    ],
+    "tags": [
+      "network"
+    ],
+    "published_date": "2025-07-15T10:03:50.871573",
+    "published_short": "2025-07-15",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40092"
+  },
+  {
+    "cve_id": "CVE-2025-40010",
+    "title": "HIGH vulnerability in Google Service",
+    "severity": "HIGH",
+    "cvss_score": 7.0,
+    "epss_percentile": 96,
+    "risk_score": 83,
+    "vendors": [
+      "Google"
+    ],
+    "tags": [],
+    "published_date": "2025-07-15T10:03:50.870737",
+    "published_short": "2025-07-15",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40010"
+  },
+  {
+    "cve_id": "CVE-2025-40114",
+    "title": "CRITICAL vulnerability in Mozilla Service",
+    "severity": "CRITICAL",
+    "cvss_score": 9.5,
+    "epss_percentile": 95,
+    "risk_score": 95,
+    "vendors": [
+      "Microsoft"
+    ],
+    "tags": [
+      "KEV"
+    ],
+    "published_date": "2025-07-26T10:03:50.871802",
+    "published_short": "2025-07-26",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40114"
+  },
+  {
+    "cve_id": "CVE-2025-40139",
+    "title": "HIGH vulnerability in Cisco Client",
+    "severity": "HIGH",
+    "cvss_score": 8.5,
+    "epss_percentile": 95,
+    "risk_score": 90,
+    "vendors": [
+      "Cisco"
+    ],
+    "tags": [
+      "network"
+    ],
+    "published_date": "2025-07-05T10:03:50.872064",
+    "published_short": "2025-07-05",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40139"
+  },
+  {
+    "cve_id": "CVE-2025-40004",
+    "title": "MEDIUM vulnerability in Microsoft Service",
+    "severity": "MEDIUM",
+    "cvss_score": 6.6,
+    "epss_percentile": 95,
+    "risk_score": 80,
+    "vendors": [
+      "VMware"
+    ],
+    "tags": [
+      "network"
+    ],
+    "published_date": "2025-07-16T10:03:50.870678",
+    "published_short": "2025-07-16",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40004"
+  },
+  {
+    "cve_id": "CVE-2025-40122",
+    "title": "MEDIUM vulnerability in Adobe Client",
+    "severity": "MEDIUM",
+    "cvss_score": 6.2,
+    "epss_percentile": 95,
+    "risk_score": 78,
+    "vendors": [
+      "Google"
+    ],
+    "tags": [
+      "KEV"
+    ],
+    "published_date": "2025-07-23T10:03:50.871886",
+    "published_short": "2025-07-23",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40122"
+  },
+  {
+    "cve_id": "CVE-2025-40025",
+    "title": "CRITICAL vulnerability in Cisco Client",
+    "severity": "CRITICAL",
+    "cvss_score": 9.7,
+    "epss_percentile": 94,
+    "risk_score": 95,
+    "vendors": [
+      "Mozilla"
+    ],
+    "tags": [
+      "remote"
+    ],
+    "published_date": "2025-07-16T10:03:50.870888",
+    "published_short": "2025-07-16",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40025"
+  },
+  {
+    "cve_id": "CVE-2025-40079",
+    "title": "HIGH vulnerability in Adobe Framework",
+    "severity": "HIGH",
+    "cvss_score": 8.0,
+    "epss_percentile": 94,
+    "risk_score": 87,
+    "vendors": [
+      "Google"
+    ],
+    "tags": [
+      "network"
+    ],
+    "published_date": "2025-07-25T10:03:50.871442",
+    "published_short": "2025-07-25",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40079"
+  },
+  {
+    "cve_id": "CVE-2025-40082",
+    "title": "HIGH vulnerability in Apache Library",
+    "severity": "HIGH",
+    "cvss_score": 7.8,
+    "epss_percentile": 94,
+    "risk_score": 86,
+    "vendors": [
+      "VMware"
+    ],
+    "tags": [
+      "KEV"
+    ],
+    "published_date": "2025-07-19T10:03:50.871472",
+    "published_short": "2025-07-19",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40082"
+  },
+  {
+    "cve_id": "CVE-2025-40061",
+    "title": "MEDIUM vulnerability in Microsoft Service",
+    "severity": "MEDIUM",
+    "cvss_score": 5.7,
+    "epss_percentile": 94,
+    "risk_score": 75,
+    "vendors": [
+      "Microsoft"
+    ],
+    "tags": [
+      "KEV"
+    ],
+    "published_date": "2025-07-15T10:03:50.871246",
+    "published_short": "2025-07-15",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40061"
+  },
+  {
+    "cve_id": "CVE-2025-40091",
+    "title": "CRITICAL vulnerability in Mozilla Server",
+    "severity": "CRITICAL",
+    "cvss_score": 9.6,
+    "epss_percentile": 93,
+    "risk_score": 94,
+    "vendors": [
+      "Microsoft"
+    ],
+    "tags": [
+      "KEV"
+    ],
+    "published_date": "2025-07-26T10:03:50.871563",
+    "published_short": "2025-07-26",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40091"
+  },
+  {
+    "cve_id": "CVE-2025-40141",
+    "title": "CRITICAL vulnerability in Oracle Server",
+    "severity": "CRITICAL",
+    "cvss_score": 9.6,
+    "epss_percentile": 93,
+    "risk_score": 94,
+    "vendors": [
+      "VMware"
+    ],
+    "tags": [
+      "remote"
+    ],
+    "published_date": "2025-07-27T10:03:50.872085",
+    "published_short": "2025-07-27",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40141"
+  },
+  {
+    "cve_id": "CVE-2025-40060",
+    "title": "MEDIUM vulnerability in VMware Server",
+    "severity": "MEDIUM",
+    "cvss_score": 6.6,
+    "epss_percentile": 93,
+    "risk_score": 79,
+    "vendors": [
+      "Cisco"
+    ],
+    "tags": [
+      "network"
+    ],
+    "published_date": "2025-07-19T10:03:50.871235",
+    "published_short": "2025-07-19",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40060"
+  },
+  {
+    "cve_id": "CVE-2025-40027",
+    "title": "MEDIUM vulnerability in Cisco Library",
+    "severity": "MEDIUM",
+    "cvss_score": 5.6,
+    "epss_percentile": 93,
+    "risk_score": 74,
+    "vendors": [
+      "Oracle"
+    ],
+    "tags": [
+      "KEV"
+    ],
+    "published_date": "2025-07-29T10:03:50.870908",
+    "published_short": "2025-07-29",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40027"
+  },
+  {
+    "cve_id": "CVE-2025-40143",
+    "title": "CRITICAL vulnerability in Apache Server",
+    "severity": "CRITICAL",
+    "cvss_score": 10.0,
+    "epss_percentile": 92,
+    "risk_score": 96,
+    "vendors": [
+      "Oracle"
+    ],
+    "tags": [],
+    "published_date": "2025-07-14T10:03:50.872106",
+    "published_short": "2025-07-14",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40143"
+  },
+  {
+    "cve_id": "CVE-2025-40113",
+    "title": "CRITICAL vulnerability in Adobe Service",
+    "severity": "CRITICAL",
+    "cvss_score": 9.9,
+    "epss_percentile": 92,
+    "risk_score": 95,
+    "vendors": [
+      "Mozilla"
+    ],
+    "tags": [
+      "KEV",
+      "network"
+    ],
+    "published_date": "2025-07-19T10:03:50.871792",
+    "published_short": "2025-07-19",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40113"
+  },
+  {
+    "cve_id": "CVE-2025-40116",
+    "title": "HIGH vulnerability in Adobe Client",
+    "severity": "HIGH",
+    "cvss_score": 8.9,
+    "epss_percentile": 91,
+    "risk_score": 90,
+    "vendors": [
+      "Microsoft"
+    ],
+    "tags": [
+      "network"
+    ],
+    "published_date": "2025-07-17T10:03:50.871821",
+    "published_short": "2025-07-17",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40116"
+  },
+  {
+    "cve_id": "CVE-2025-40054",
+    "title": "HIGH vulnerability in Adobe Service",
+    "severity": "HIGH",
+    "cvss_score": 8.4,
+    "epss_percentile": 91,
+    "risk_score": 87,
+    "vendors": [
+      "Microsoft"
+    ],
+    "tags": [
+      "KEV"
+    ],
+    "published_date": "2025-07-23T10:03:50.871172",
+    "published_short": "2025-07-23",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40054"
+  },
+  {
+    "cve_id": "CVE-2025-40055",
+    "title": "HIGH vulnerability in Mozilla Framework",
+    "severity": "HIGH",
+    "cvss_score": 8.0,
+    "epss_percentile": 91,
+    "risk_score": 85,
+    "vendors": [
+      "Microsoft"
+    ],
+    "tags": [
+      "remote"
+    ],
+    "published_date": "2025-07-17T10:03:50.871181",
+    "published_short": "2025-07-17",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40055"
+  },
+  {
+    "cve_id": "CVE-2025-40102",
+    "title": "HIGH vulnerability in Apache Framework",
+    "severity": "HIGH",
+    "cvss_score": 7.4,
+    "epss_percentile": 91,
+    "risk_score": 82,
+    "vendors": [
+      "Apache"
+    ],
+    "tags": [
+      "network"
+    ],
+    "published_date": "2025-07-23T10:03:50.871676",
+    "published_short": "2025-07-23",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40102"
+  },
+  {
+    "cve_id": "CVE-2025-40045",
+    "title": "HIGH vulnerability in Oracle Framework",
+    "severity": "HIGH",
+    "cvss_score": 7.2,
+    "epss_percentile": 91,
+    "risk_score": 81,
+    "vendors": [
+      "VMware"
+    ],
+    "tags": [],
+    "published_date": "2025-07-30T10:03:50.871083",
+    "published_short": "2025-07-30",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40045"
+  },
+  {
+    "cve_id": "CVE-2025-40117",
+    "title": "MEDIUM vulnerability in Microsoft Framework",
+    "severity": "MEDIUM",
+    "cvss_score": 7.0,
+    "epss_percentile": 91,
+    "risk_score": 80,
+    "vendors": [
+      "Microsoft"
+    ],
+    "tags": [
+      "KEV",
+      "network"
+    ],
+    "published_date": "2025-07-06T10:03:50.871831",
+    "published_short": "2025-07-06",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40117"
+  },
+  {
+    "cve_id": "CVE-2025-40084",
+    "title": "MEDIUM vulnerability in Apache Service",
+    "severity": "MEDIUM",
+    "cvss_score": 6.8,
+    "epss_percentile": 91,
+    "risk_score": 79,
+    "vendors": [
+      "VMware"
+    ],
+    "tags": [
+      "remote"
+    ],
+    "published_date": "2025-07-29T10:03:50.871493",
+    "published_short": "2025-07-29",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40084"
+  },
+  {
+    "cve_id": "CVE-2025-40090",
+    "title": "MEDIUM vulnerability in Google Service",
+    "severity": "MEDIUM",
+    "cvss_score": 6.4,
+    "epss_percentile": 91,
+    "risk_score": 77,
+    "vendors": [
+      "Oracle"
+    ],
+    "tags": [
+      "KEV",
+      "network"
+    ],
+    "published_date": "2025-07-22T10:03:50.871552",
+    "published_short": "2025-07-22",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40090"
+  },
+  {
+    "cve_id": "CVE-2025-40129",
+    "title": "MEDIUM vulnerability in VMware Framework",
+    "severity": "MEDIUM",
+    "cvss_score": 5.4,
+    "epss_percentile": 91,
+    "risk_score": 72,
+    "vendors": [
+      "Mozilla"
+    ],
+    "tags": [
+      "remote"
+    ],
+    "published_date": "2025-07-10T10:03:50.871959",
+    "published_short": "2025-07-10",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40129"
+  },
+  {
+    "cve_id": "CVE-2025-40033",
+    "title": "HIGH vulnerability in Adobe Framework",
+    "severity": "HIGH",
+    "cvss_score": 7.1,
+    "epss_percentile": 90,
+    "risk_score": 80,
+    "vendors": [
+      "Oracle"
+    ],
+    "tags": [
+      "remote"
+    ],
+    "published_date": "2025-07-28T10:03:50.870967",
+    "published_short": "2025-07-28",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40033"
+  },
+  {
+    "cve_id": "CVE-2025-40026",
+    "title": "CRITICAL vulnerability in Microsoft Library",
+    "severity": "CRITICAL",
+    "cvss_score": 9.6,
+    "epss_percentile": 89,
+    "risk_score": 92,
+    "vendors": [
+      "Mozilla"
+    ],
+    "tags": [
+      "remote"
+    ],
+    "published_date": "2025-07-01T10:03:50.870897",
+    "published_short": "2025-07-01",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40026"
+  },
+  {
+    "cve_id": "CVE-2025-40110",
+    "title": "CRITICAL vulnerability in VMware Framework",
+    "severity": "CRITICAL",
+    "cvss_score": 9.1,
+    "epss_percentile": 89,
+    "risk_score": 90,
+    "vendors": [
+      "Microsoft"
+    ],
+    "tags": [
+      "network"
+    ],
+    "published_date": "2025-07-24T10:03:50.871759",
+    "published_short": "2025-07-24",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40110"
+  },
+  {
+    "cve_id": "CVE-2025-40136",
+    "title": "HIGH vulnerability in VMware Framework",
+    "severity": "HIGH",
+    "cvss_score": 8.6,
+    "epss_percentile": 89,
+    "risk_score": 87,
+    "vendors": [
+      "Oracle"
+    ],
+    "tags": [
+      "KEV",
+      "network"
+    ],
+    "published_date": "2025-07-11T10:03:50.872034",
+    "published_short": "2025-07-11",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40136"
+  },
+  {
+    "cve_id": "CVE-2025-40020",
+    "title": "HIGH vulnerability in Apache Framework",
+    "severity": "HIGH",
+    "cvss_score": 7.9,
+    "epss_percentile": 89,
+    "risk_score": 84,
+    "vendors": [
+      "Adobe"
+    ],
+    "tags": [
+      "remote"
+    ],
+    "published_date": "2025-07-06T10:03:50.870839",
+    "published_short": "2025-07-06",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40020"
+  },
+  {
+    "cve_id": "CVE-2025-40039",
+    "title": "HIGH vulnerability in Adobe Library",
+    "severity": "HIGH",
+    "cvss_score": 7.7,
+    "epss_percentile": 89,
+    "risk_score": 83,
+    "vendors": [
+      "Adobe"
+    ],
+    "tags": [
+      "KEV"
+    ],
+    "published_date": "2025-07-03T10:03:50.871024",
+    "published_short": "2025-07-03",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40039"
+  },
+  {
+    "cve_id": "CVE-2025-40086",
+    "title": "HIGH vulnerability in Oracle Framework",
+    "severity": "HIGH",
+    "cvss_score": 7.5,
+    "epss_percentile": 89,
+    "risk_score": 82,
+    "vendors": [
+      "Mozilla"
+    ],
+    "tags": [
+      "network"
+    ],
+    "published_date": "2025-07-16T10:03:50.871512",
+    "published_short": "2025-07-16",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40086"
+  },
+  {
+    "cve_id": "CVE-2025-40052",
+    "title": "MEDIUM vulnerability in Oracle Server",
+    "severity": "MEDIUM",
+    "cvss_score": 6.8,
+    "epss_percentile": 89,
+    "risk_score": 78,
+    "vendors": [
+      "Apache"
+    ],
+    "tags": [
+      "KEV"
+    ],
+    "published_date": "2025-07-29T10:03:50.871153",
+    "published_short": "2025-07-29",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40052"
+  },
+  {
+    "cve_id": "CVE-2025-40021",
+    "title": "MEDIUM vulnerability in Oracle Client",
+    "severity": "MEDIUM",
+    "cvss_score": 6.7,
+    "epss_percentile": 89,
+    "risk_score": 78,
+    "vendors": [
+      "Mozilla"
+    ],
+    "tags": [
+      "KEV"
+    ],
+    "published_date": "2025-07-04T10:03:50.870849",
+    "published_short": "2025-07-04",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40021"
+  },
+  {
+    "cve_id": "CVE-2025-40067",
+    "title": "MEDIUM vulnerability in Oracle Library",
+    "severity": "MEDIUM",
+    "cvss_score": 5.3,
+    "epss_percentile": 89,
+    "risk_score": 71,
+    "vendors": [
+      "Adobe"
+    ],
+    "tags": [
+      "KEV"
+    ],
+    "published_date": "2025-07-24T10:03:50.871317",
+    "published_short": "2025-07-24",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40067"
+  },
+  {
+    "cve_id": "CVE-2025-40097",
+    "title": "CRITICAL vulnerability in VMware Client",
+    "severity": "CRITICAL",
+    "cvss_score": 9.7,
+    "epss_percentile": 88,
+    "risk_score": 92,
+    "vendors": [
+      "Mozilla"
+    ],
+    "tags": [
+      "network"
+    ],
+    "published_date": "2025-07-23T10:03:50.871624",
+    "published_short": "2025-07-23",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40097"
+  },
+  {
+    "cve_id": "CVE-2025-40005",
+    "title": "CRITICAL vulnerability in Google Client",
+    "severity": "CRITICAL",
+    "cvss_score": 9.6,
+    "epss_percentile": 88,
+    "risk_score": 92,
+    "vendors": [
+      "Mozilla"
+    ],
+    "tags": [
+      "network"
+    ],
+    "published_date": "2025-07-24T10:03:50.870688",
+    "published_short": "2025-07-24",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40005"
+  },
+  {
+    "cve_id": "CVE-2025-40003",
+    "title": "HIGH vulnerability in Microsoft Client",
+    "severity": "HIGH",
+    "cvss_score": 7.3,
+    "epss_percentile": 88,
+    "risk_score": 80,
+    "vendors": [
+      "Mozilla"
+    ],
+    "tags": [
+      "remote"
+    ],
+    "published_date": "2025-07-18T10:03:50.870668",
+    "published_short": "2025-07-18",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40003"
+  },
+  {
+    "cve_id": "CVE-2025-40038",
+    "title": "CRITICAL vulnerability in VMware Library",
+    "severity": "CRITICAL",
+    "cvss_score": 9.9,
+    "epss_percentile": 87,
+    "risk_score": 93,
+    "vendors": [
+      "Oracle"
+    ],
+    "tags": [
+      "KEV"
+    ],
+    "published_date": "2025-07-25T10:03:50.871015",
+    "published_short": "2025-07-25",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40038"
+  },
+  {
+    "cve_id": "CVE-2025-40088",
+    "title": "CRITICAL vulnerability in Oracle Library",
+    "severity": "CRITICAL",
+    "cvss_score": 9.4,
+    "epss_percentile": 87,
+    "risk_score": 90,
+    "vendors": [
+      "Mozilla"
+    ],
+    "tags": [
+      "network"
+    ],
+    "published_date": "2025-07-09T10:03:50.871531",
+    "published_short": "2025-07-09",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40088"
+  },
+  {
+    "cve_id": "CVE-2025-40119",
+    "title": "HIGH vulnerability in Cisco Service",
+    "severity": "HIGH",
+    "cvss_score": 8.1,
+    "epss_percentile": 87,
+    "risk_score": 84,
+    "vendors": [
+      "Cisco"
+    ],
+    "tags": [
+      "KEV"
+    ],
+    "published_date": "2025-07-25T10:03:50.871851",
+    "published_short": "2025-07-25",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40119"
+  },
+  {
+    "cve_id": "CVE-2025-40126",
+    "title": "HIGH vulnerability in Adobe Library",
+    "severity": "HIGH",
+    "cvss_score": 7.9,
+    "epss_percentile": 87,
+    "risk_score": 83,
+    "vendors": [
+      "Cisco"
+    ],
+    "tags": [
+      "remote"
+    ],
+    "published_date": "2025-06-30T10:03:50.871927",
+    "published_short": "2025-06-30",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40126"
+  },
+  {
+    "cve_id": "CVE-2025-40007",
+    "title": "MEDIUM vulnerability in Cisco Service",
+    "severity": "MEDIUM",
+    "cvss_score": 6.9,
+    "epss_percentile": 87,
+    "risk_score": 78,
+    "vendors": [
+      "Cisco"
+    ],
+    "tags": [
+      "network"
+    ],
+    "published_date": "2025-07-17T10:03:50.870708",
+    "published_short": "2025-07-17",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40007"
+  },
+  {
+    "cve_id": "CVE-2025-40059",
+    "title": "MEDIUM vulnerability in VMware Library",
+    "severity": "MEDIUM",
+    "cvss_score": 6.2,
+    "epss_percentile": 87,
+    "risk_score": 74,
+    "vendors": [
+      "Apache"
+    ],
+    "tags": [],
+    "published_date": "2025-07-22T10:03:50.871225",
+    "published_short": "2025-07-22",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40059"
+  },
+  {
+    "cve_id": "CVE-2025-40080",
+    "title": "MEDIUM vulnerability in Apache Framework",
+    "severity": "MEDIUM",
+    "cvss_score": 5.9,
+    "epss_percentile": 87,
+    "risk_score": 73,
+    "vendors": [
+      "VMware"
+    ],
+    "tags": [
+      "remote"
+    ],
+    "published_date": "2025-07-01T10:03:50.871453",
+    "published_short": "2025-07-01",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40080"
+  },
+  {
+    "cve_id": "CVE-2025-40048",
+    "title": "MEDIUM vulnerability in Adobe Framework",
+    "severity": "MEDIUM",
+    "cvss_score": 5.4,
+    "epss_percentile": 87,
+    "risk_score": 70,
+    "vendors": [
+      "Google"
+    ],
+    "tags": [
+      "remote"
+    ],
+    "published_date": "2025-07-26T10:03:50.871111",
+    "published_short": "2025-07-26",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40048"
+  },
+  {
+    "cve_id": "CVE-2025-40031",
+    "title": "CRITICAL vulnerability in Google Client",
+    "severity": "CRITICAL",
+    "cvss_score": 10.0,
+    "epss_percentile": 86,
+    "risk_score": 93,
+    "vendors": [
+      "Mozilla"
+    ],
+    "tags": [
+      "KEV",
+      "network"
+    ],
+    "published_date": "2025-07-21T10:03:50.870947",
+    "published_short": "2025-07-21",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40031"
+  },
+  {
+    "cve_id": "CVE-2025-40037",
+    "title": "CRITICAL vulnerability in Apache Service",
+    "severity": "CRITICAL",
+    "cvss_score": 9.8,
+    "epss_percentile": 86,
+    "risk_score": 92,
+    "vendors": [
+      "VMware"
+    ],
+    "tags": [],
+    "published_date": "2025-07-28T10:03:50.871005",
+    "published_short": "2025-07-28",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40037"
+  },
+  {
+    "cve_id": "CVE-2025-40135",
+    "title": "CRITICAL vulnerability in Mozilla Service",
+    "severity": "CRITICAL",
+    "cvss_score": 10.0,
+    "epss_percentile": 85,
+    "risk_score": 92,
+    "vendors": [
+      "Oracle"
+    ],
+    "tags": [
+      "network"
+    ],
+    "published_date": "2025-07-06T10:03:50.872023",
+    "published_short": "2025-07-06",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40135"
+  },
+  {
+    "cve_id": "CVE-2025-40046",
+    "title": "CRITICAL vulnerability in Google Service",
+    "severity": "CRITICAL",
+    "cvss_score": 9.5,
+    "epss_percentile": 85,
+    "risk_score": 90,
+    "vendors": [
+      "Apache"
+    ],
+    "tags": [
+      "KEV"
+    ],
+    "published_date": "2025-07-07T10:03:50.871092",
+    "published_short": "2025-07-07",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40046"
+  },
+  {
+    "cve_id": "CVE-2025-40124",
+    "title": "HIGH vulnerability in Oracle Service",
+    "severity": "HIGH",
+    "cvss_score": 8.5,
+    "epss_percentile": 85,
+    "risk_score": 85,
+    "vendors": [
+      "Apache"
+    ],
+    "tags": [
+      "remote"
+    ],
+    "published_date": "2025-07-14T10:03:50.871906",
+    "published_short": "2025-07-14",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40124"
+  },
+  {
+    "cve_id": "CVE-2025-40019",
+    "title": "HIGH vulnerability in Google Library",
+    "severity": "HIGH",
+    "cvss_score": 8.1,
+    "epss_percentile": 85,
+    "risk_score": 83,
+    "vendors": [
+      "Oracle"
+    ],
+    "tags": [
+      "network"
+    ],
+    "published_date": "2025-07-01T10:03:50.870829",
+    "published_short": "2025-07-01",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40019"
+  },
+  {
+    "cve_id": "CVE-2025-40149",
+    "title": "HIGH vulnerability in VMware Client",
+    "severity": "HIGH",
+    "cvss_score": 7.8,
+    "epss_percentile": 85,
+    "risk_score": 81,
+    "vendors": [
+      "Oracle"
+    ],
+    "tags": [
+      "remote"
+    ],
+    "published_date": "2025-07-24T10:03:50.872187",
+    "published_short": "2025-07-24",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40149"
+  },
+  {
+    "cve_id": "CVE-2025-40040",
+    "title": "HIGH vulnerability in VMware Framework",
+    "severity": "HIGH",
+    "cvss_score": 7.6,
+    "epss_percentile": 85,
+    "risk_score": 80,
+    "vendors": [
+      "Microsoft"
+    ],
+    "tags": [
+      "remote"
+    ],
+    "published_date": "2025-07-28T10:03:50.871033",
+    "published_short": "2025-07-28",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40040"
+  },
+  {
+    "cve_id": "CVE-2025-40128",
+    "title": "MEDIUM vulnerability in Cisco Framework",
+    "severity": "MEDIUM",
+    "cvss_score": 6.5,
+    "epss_percentile": 85,
+    "risk_score": 75,
+    "vendors": [
+      "VMware"
+    ],
+    "tags": [
+      "remote"
+    ],
+    "published_date": "2025-07-02T10:03:50.871947",
+    "published_short": "2025-07-02",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40128"
+  },
+  {
+    "cve_id": "CVE-2025-40063",
+    "title": "MEDIUM vulnerability in Cisco Service",
+    "severity": "MEDIUM",
+    "cvss_score": 6.2,
+    "epss_percentile": 85,
+    "risk_score": 73,
+    "vendors": [
+      "Google"
+    ],
+    "tags": [
+      "KEV",
+      "network"
+    ],
+    "published_date": "2025-07-18T10:03:50.871267",
+    "published_short": "2025-07-18",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40063"
+  },
+  {
+    "cve_id": "CVE-2025-40001",
+    "title": "MEDIUM vulnerability in Adobe Library",
+    "severity": "MEDIUM",
+    "cvss_score": 5.1,
+    "epss_percentile": 85,
+    "risk_score": 68,
+    "vendors": [
+      "VMware"
+    ],
+    "tags": [
+      "KEV",
+      "network"
+    ],
+    "published_date": "2025-07-08T10:03:50.870642",
+    "published_short": "2025-07-08",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40001"
+  },
+  {
+    "cve_id": "CVE-2025-40047",
+    "title": "CRITICAL vulnerability in Cisco Service",
+    "severity": "CRITICAL",
+    "cvss_score": 9.4,
+    "epss_percentile": 84,
+    "risk_score": 89,
+    "vendors": [
+      "Google"
+    ],
+    "tags": [
+      "network"
+    ],
+    "published_date": "2025-07-16T10:03:50.871102",
+    "published_short": "2025-07-16",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40047"
+  },
+  {
+    "cve_id": "CVE-2025-40015",
+    "title": "HIGH vulnerability in Oracle Library",
+    "severity": "HIGH",
+    "cvss_score": 8.6,
+    "epss_percentile": 84,
+    "risk_score": 85,
+    "vendors": [
+      "Adobe"
+    ],
+    "tags": [
+      "KEV",
+      "network"
+    ],
+    "published_date": "2025-07-16T10:03:50.870791",
+    "published_short": "2025-07-16",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40015"
+  },
+  {
+    "cve_id": "CVE-2025-40118",
+    "title": "HIGH vulnerability in VMware Server",
+    "severity": "HIGH",
+    "cvss_score": 8.5,
+    "epss_percentile": 84,
+    "risk_score": 84,
+    "vendors": [
+      "VMware"
+    ],
+    "tags": [
+      "network"
+    ],
+    "published_date": "2025-07-26T10:03:50.871841",
+    "published_short": "2025-07-26",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40118"
+  },
+  {
+    "cve_id": "CVE-2025-40044",
+    "title": "MEDIUM vulnerability in Cisco Client",
+    "severity": "MEDIUM",
+    "cvss_score": 6.0,
+    "epss_percentile": 84,
+    "risk_score": 72,
+    "vendors": [
+      "Mozilla"
+    ],
+    "tags": [],
+    "published_date": "2025-07-29T10:03:50.871073",
+    "published_short": "2025-07-29",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40044"
+  },
+  {
+    "cve_id": "CVE-2025-40121",
+    "title": "MEDIUM vulnerability in Mozilla Client",
+    "severity": "MEDIUM",
+    "cvss_score": 5.8,
+    "epss_percentile": 84,
+    "risk_score": 71,
+    "vendors": [
+      "Apache"
+    ],
+    "tags": [
+      "remote"
+    ],
+    "published_date": "2025-07-25T10:03:50.871875",
+    "published_short": "2025-07-25",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40121"
+  },
+  {
+    "cve_id": "CVE-2025-40006",
+    "title": "MEDIUM vulnerability in Mozilla Service",
+    "severity": "MEDIUM",
+    "cvss_score": 5.2,
+    "epss_percentile": 84,
+    "risk_score": 68,
+    "vendors": [
+      "Cisco"
+    ],
+    "tags": [],
+    "published_date": "2025-07-10T10:03:50.870698",
+    "published_short": "2025-07-10",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40006"
+  },
+  {
+    "cve_id": "CVE-2025-40009",
+    "title": "MEDIUM vulnerability in Apache Client",
+    "severity": "MEDIUM",
+    "cvss_score": 5.1,
+    "epss_percentile": 84,
+    "risk_score": 67,
+    "vendors": [
+      "Google"
+    ],
+    "tags": [
+      "network"
+    ],
+    "published_date": "2025-07-12T10:03:50.870727",
+    "published_short": "2025-07-12",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40009"
+  },
+  {
+    "cve_id": "CVE-2025-40081",
+    "title": "CRITICAL vulnerability in Mozilla Service",
+    "severity": "CRITICAL",
+    "cvss_score": 9.9,
+    "epss_percentile": 83,
+    "risk_score": 91,
+    "vendors": [
+      "Cisco"
+    ],
+    "tags": [],
+    "published_date": "2025-07-02T10:03:50.871463",
+    "published_short": "2025-07-02",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40081"
+  },
+  {
+    "cve_id": "CVE-2025-40069",
+    "title": "CRITICAL vulnerability in Microsoft Framework",
+    "severity": "CRITICAL",
+    "cvss_score": 9.6,
+    "epss_percentile": 83,
+    "risk_score": 89,
+    "vendors": [
+      "Mozilla"
+    ],
+    "tags": [
+      "KEV",
+      "network"
+    ],
+    "published_date": "2025-07-24T10:03:50.871339",
+    "published_short": "2025-07-24",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40069"
+  },
+  {
+    "cve_id": "CVE-2025-40108",
+    "title": "CRITICAL vulnerability in Microsoft Client",
+    "severity": "CRITICAL",
+    "cvss_score": 9.3,
+    "epss_percentile": 83,
+    "risk_score": 88,
+    "vendors": [
+      "Apache"
+    ],
+    "tags": [
+      "remote"
+    ],
+    "published_date": "2025-07-05T10:03:50.871737",
+    "published_short": "2025-07-05",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40108"
+  },
+  {
+    "cve_id": "CVE-2025-40100",
+    "title": "MEDIUM vulnerability in Cisco Library",
+    "severity": "MEDIUM",
+    "cvss_score": 6.9,
+    "epss_percentile": 83,
+    "risk_score": 76,
+    "vendors": [
+      "Cisco"
+    ],
+    "tags": [
+      "remote"
+    ],
+    "published_date": "2025-07-10T10:03:50.871655",
+    "published_short": "2025-07-10",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40100"
+  },
+  {
+    "cve_id": "CVE-2025-40094",
+    "title": "HIGH vulnerability in VMware Server",
+    "severity": "HIGH",
+    "cvss_score": 8.6,
+    "epss_percentile": 82,
+    "risk_score": 84,
+    "vendors": [
+      "Google"
+    ],
+    "tags": [
+      "KEV",
+      "network"
+    ],
+    "published_date": "2025-07-02T10:03:50.871594",
+    "published_short": "2025-07-02",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40094"
+  },
+  {
+    "cve_id": "CVE-2025-40125",
+    "title": "HIGH vulnerability in Mozilla Server",
+    "severity": "HIGH",
+    "cvss_score": 8.2,
+    "epss_percentile": 82,
+    "risk_score": 82,
+    "vendors": [
+      "Adobe"
+    ],
+    "tags": [
+      "remote"
+    ],
+    "published_date": "2025-07-29T10:03:50.871916",
+    "published_short": "2025-07-29",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40125"
+  },
+  {
+    "cve_id": "CVE-2025-40073",
+    "title": "HIGH vulnerability in Oracle Client",
+    "severity": "HIGH",
+    "cvss_score": 7.7,
+    "epss_percentile": 82,
+    "risk_score": 79,
+    "vendors": [
+      "Microsoft"
+    ],
+    "tags": [
+      "KEV",
+      "network"
+    ],
+    "published_date": "2025-07-16T10:03:50.871385",
+    "published_short": "2025-07-16",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40073"
+  },
+  {
+    "cve_id": "CVE-2025-40017",
+    "title": "HIGH vulnerability in Microsoft Library",
+    "severity": "HIGH",
+    "cvss_score": 7.1,
+    "epss_percentile": 82,
+    "risk_score": 76,
+    "vendors": [
+      "Adobe"
+    ],
+    "tags": [
+      "KEV"
+    ],
+    "published_date": "2025-07-21T10:03:50.870810",
+    "published_short": "2025-07-21",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40017"
+  },
+  {
+    "cve_id": "CVE-2025-40051",
+    "title": "HIGH vulnerability in VMware Framework",
+    "severity": "HIGH",
+    "cvss_score": 7.0,
+    "epss_percentile": 82,
+    "risk_score": 76,
+    "vendors": [
+      "VMware"
+    ],
+    "tags": [
+      "network"
+    ],
+    "published_date": "2025-07-11T10:03:50.871141",
+    "published_short": "2025-07-11",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40051"
+  },
+  {
+    "cve_id": "CVE-2025-40096",
+    "title": "CRITICAL vulnerability in VMware Service",
+    "severity": "CRITICAL",
+    "cvss_score": 9.6,
+    "epss_percentile": 81,
+    "risk_score": 88,
+    "vendors": [
+      "Adobe"
+    ],
+    "tags": [
+      "KEV",
+      "network"
+    ],
+    "published_date": "2025-07-06T10:03:50.871615",
+    "published_short": "2025-07-06",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40096"
+  },
+  {
+    "cve_id": "CVE-2025-40018",
+    "title": "CRITICAL vulnerability in Microsoft Service",
+    "severity": "CRITICAL",
+    "cvss_score": 9.4,
+    "epss_percentile": 81,
+    "risk_score": 87,
+    "vendors": [
+      "Cisco"
+    ],
+    "tags": [
+      "KEV"
+    ],
+    "published_date": "2025-07-28T10:03:50.870820",
+    "published_short": "2025-07-28",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40018"
+  },
+  {
+    "cve_id": "CVE-2025-40142",
+    "title": "CRITICAL vulnerability in Mozilla Service",
+    "severity": "CRITICAL",
+    "cvss_score": 9.3,
+    "epss_percentile": 81,
+    "risk_score": 87,
+    "vendors": [
+      "VMware"
+    ],
+    "tags": [
+      "network"
+    ],
+    "published_date": "2025-07-09T10:03:50.872096",
+    "published_short": "2025-07-09",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40142"
+  },
+  {
+    "cve_id": "CVE-2025-40070",
+    "title": "HIGH vulnerability in Mozilla Client",
+    "severity": "HIGH",
+    "cvss_score": 8.6,
+    "epss_percentile": 81,
+    "risk_score": 83,
+    "vendors": [
+      "Mozilla"
+    ],
+    "tags": [
+      "remote"
+    ],
+    "published_date": "2025-07-21T10:03:50.871350",
+    "published_short": "2025-07-21",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40070"
+  },
+  {
+    "cve_id": "CVE-2025-40032",
+    "title": "MEDIUM vulnerability in Oracle Framework",
+    "severity": "MEDIUM",
+    "cvss_score": 6.6,
+    "epss_percentile": 81,
+    "risk_score": 73,
+    "vendors": [
+      "VMware"
+    ],
+    "tags": [
+      "remote"
+    ],
+    "published_date": "2025-07-15T10:03:50.870956",
+    "published_short": "2025-07-15",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40032"
+  },
+  {
+    "cve_id": "CVE-2025-40034",
+    "title": "MEDIUM vulnerability in Oracle Service",
+    "severity": "MEDIUM",
+    "cvss_score": 5.4,
+    "epss_percentile": 81,
+    "risk_score": 67,
+    "vendors": [
+      "Microsoft"
+    ],
+    "tags": [
+      "remote"
+    ],
+    "published_date": "2025-07-10T10:03:50.870976",
+    "published_short": "2025-07-10",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40034"
+  },
+  {
+    "cve_id": "CVE-2025-40016",
+    "title": "MEDIUM vulnerability in Adobe Service",
+    "severity": "MEDIUM",
+    "cvss_score": 5.1,
+    "epss_percentile": 81,
+    "risk_score": 66,
+    "vendors": [
+      "Microsoft"
+    ],
+    "tags": [
+      "KEV"
+    ],
+    "published_date": "2025-07-01T10:03:50.870801",
+    "published_short": "2025-07-01",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40016"
+  },
+  {
+    "cve_id": "CVE-2025-40147",
+    "title": "CRITICAL vulnerability in Mozilla Framework",
+    "severity": "CRITICAL",
+    "cvss_score": 9.1,
+    "epss_percentile": 80,
+    "risk_score": 85,
+    "vendors": [
+      "Oracle"
+    ],
+    "tags": [
+      "remote"
+    ],
+    "published_date": "2025-07-21T10:03:50.872147",
+    "published_short": "2025-07-21",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40147"
+  },
+  {
+    "cve_id": "CVE-2025-40112",
+    "title": "HIGH vulnerability in Microsoft Framework",
+    "severity": "HIGH",
+    "cvss_score": 7.7,
+    "epss_percentile": 80,
+    "risk_score": 78,
+    "vendors": [
+      "Google"
+    ],
+    "tags": [
+      "KEV"
+    ],
+    "published_date": "2025-07-14T10:03:50.871782",
+    "published_short": "2025-07-14",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40112"
+  },
+  {
+    "cve_id": "CVE-2025-40077",
+    "title": "HIGH vulnerability in VMware Service",
+    "severity": "HIGH",
+    "cvss_score": 7.6,
+    "epss_percentile": 80,
+    "risk_score": 78,
+    "vendors": [
+      "Microsoft"
+    ],
+    "tags": [
+      "KEV",
+      "network"
+    ],
+    "published_date": "2025-07-22T10:03:50.871423",
+    "published_short": "2025-07-22",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40077"
+  },
+  {
+    "cve_id": "CVE-2025-40104",
+    "title": "MEDIUM vulnerability in Oracle Client",
+    "severity": "MEDIUM",
+    "cvss_score": 5.3,
+    "epss_percentile": 80,
+    "risk_score": 66,
+    "vendors": [
+      "Apache"
+    ],
+    "tags": [
+      "KEV"
+    ],
+    "published_date": "2025-07-04T10:03:50.871696",
+    "published_short": "2025-07-04",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40104"
+  },
+  {
+    "cve_id": "CVE-2025-40146",
+    "title": "CRITICAL vulnerability in Microsoft Client",
+    "severity": "CRITICAL",
+    "cvss_score": 9.4,
+    "epss_percentile": 79,
+    "risk_score": 86,
+    "vendors": [
+      "Adobe"
+    ],
+    "tags": [
+      "remote"
+    ],
+    "published_date": "2025-07-01T10:03:50.872136",
+    "published_short": "2025-07-01",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40146"
+  },
+  {
+    "cve_id": "CVE-2025-40028",
+    "title": "HIGH vulnerability in Oracle Server",
+    "severity": "HIGH",
+    "cvss_score": 7.7,
+    "epss_percentile": 79,
+    "risk_score": 78,
+    "vendors": [
+      "Mozilla"
+    ],
+    "tags": [
+      "KEV"
+    ],
+    "published_date": "2025-06-30T10:03:50.870917",
+    "published_short": "2025-06-30",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40028"
+  },
+  {
+    "cve_id": "CVE-2025-40024",
+    "title": "MEDIUM vulnerability in VMware Client",
+    "severity": "MEDIUM",
+    "cvss_score": 5.5,
+    "epss_percentile": 79,
+    "risk_score": 67,
+    "vendors": [
+      "Apache"
+    ],
+    "tags": [],
+    "published_date": "2025-07-18T10:03:50.870877",
+    "published_short": "2025-07-18",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40024"
+  },
+  {
+    "cve_id": "CVE-2025-40089",
+    "title": "CRITICAL vulnerability in Mozilla Service",
+    "severity": "CRITICAL",
+    "cvss_score": 9.2,
+    "epss_percentile": 78,
+    "risk_score": 85,
+    "vendors": [
+      "Microsoft"
+    ],
+    "tags": [
+      "KEV",
+      "network"
+    ],
+    "published_date": "2025-07-03T10:03:50.871541",
+    "published_short": "2025-07-03",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40089"
+  },
+  {
+    "cve_id": "CVE-2025-40120",
+    "title": "HIGH vulnerability in Adobe Library",
+    "severity": "HIGH",
+    "cvss_score": 8.8,
+    "epss_percentile": 78,
+    "risk_score": 83,
+    "vendors": [
+      "Google"
+    ],
+    "tags": [
+      "KEV"
+    ],
+    "published_date": "2025-07-03T10:03:50.871861",
+    "published_short": "2025-07-03",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40120"
+  },
+  {
+    "cve_id": "CVE-2025-40072",
+    "title": "HIGH vulnerability in Mozilla Client",
+    "severity": "HIGH",
+    "cvss_score": 7.5,
+    "epss_percentile": 78,
+    "risk_score": 76,
+    "vendors": [
+      "Adobe"
+    ],
+    "tags": [
+      "KEV"
+    ],
+    "published_date": "2025-07-10T10:03:50.871375",
+    "published_short": "2025-07-10",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40072"
+  },
+  {
+    "cve_id": "CVE-2025-40075",
+    "title": "CRITICAL vulnerability in Mozilla Service",
+    "severity": "CRITICAL",
+    "cvss_score": 9.7,
+    "epss_percentile": 77,
+    "risk_score": 87,
+    "vendors": [
+      "Adobe"
+    ],
+    "tags": [
+      "network"
+    ],
+    "published_date": "2025-07-16T10:03:50.871404",
+    "published_short": "2025-07-16",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40075"
+  },
+  {
+    "cve_id": "CVE-2025-40062",
+    "title": "HIGH vulnerability in Microsoft Library",
+    "severity": "HIGH",
+    "cvss_score": 8.1,
+    "epss_percentile": 77,
+    "risk_score": 79,
+    "vendors": [
+      "VMware"
+    ],
+    "tags": [],
+    "published_date": "2025-07-22T10:03:50.871256",
+    "published_short": "2025-07-22",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40062"
+  },
+  {
+    "cve_id": "CVE-2025-40041",
+    "title": "HIGH vulnerability in Oracle Service",
+    "severity": "HIGH",
+    "cvss_score": 7.6,
+    "epss_percentile": 77,
+    "risk_score": 76,
+    "vendors": [
+      "Cisco"
+    ],
+    "tags": [
+      "network"
+    ],
+    "published_date": "2025-07-11T10:03:50.871044",
+    "published_short": "2025-07-11",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40041"
+  },
+  {
+    "cve_id": "CVE-2025-40076",
+    "title": "MEDIUM vulnerability in Google Framework",
+    "severity": "MEDIUM",
+    "cvss_score": 5.8,
+    "epss_percentile": 77,
+    "risk_score": 67,
+    "vendors": [
+      "Google"
+    ],
+    "tags": [
+      "remote"
+    ],
+    "published_date": "2025-07-01T10:03:50.871413",
+    "published_short": "2025-07-01",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40076"
+  },
+  {
+    "cve_id": "CVE-2025-40065",
+    "title": "CRITICAL vulnerability in Apache Library",
+    "severity": "CRITICAL",
+    "cvss_score": 9.7,
+    "epss_percentile": 76,
+    "risk_score": 86,
+    "vendors": [
+      "Google"
+    ],
+    "tags": [
+      "KEV",
+      "network"
+    ],
+    "published_date": "2025-07-11T10:03:50.871292",
+    "published_short": "2025-07-11",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40065"
+  },
+  {
+    "cve_id": "CVE-2025-40140",
+    "title": "CRITICAL vulnerability in Microsoft Service",
+    "severity": "CRITICAL",
+    "cvss_score": 9.5,
+    "epss_percentile": 76,
+    "risk_score": 85,
+    "vendors": [
+      "VMware"
+    ],
+    "tags": [],
+    "published_date": "2025-07-12T10:03:50.872074",
+    "published_short": "2025-07-12",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40140"
+  },
+  {
+    "cve_id": "CVE-2025-40013",
+    "title": "CRITICAL vulnerability in Mozilla Framework",
+    "severity": "CRITICAL",
+    "cvss_score": 9.1,
+    "epss_percentile": 76,
+    "risk_score": 83,
+    "vendors": [
+      "Mozilla"
+    ],
+    "tags": [],
+    "published_date": "2025-07-29T10:03:50.870771",
+    "published_short": "2025-07-29",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40013"
+  },
+  {
+    "cve_id": "CVE-2025-40148",
+    "title": "CRITICAL vulnerability in Adobe Framework",
+    "severity": "CRITICAL",
+    "cvss_score": 9.1,
+    "epss_percentile": 76,
+    "risk_score": 83,
+    "vendors": [
+      "Google"
+    ],
+    "tags": [
+      "KEV"
+    ],
+    "published_date": "2025-07-20T10:03:50.872157",
+    "published_short": "2025-07-20",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40148"
+  },
+  {
+    "cve_id": "CVE-2025-40068",
+    "title": "HIGH vulnerability in Google Framework",
+    "severity": "HIGH",
+    "cvss_score": 7.7,
+    "epss_percentile": 76,
+    "risk_score": 76,
+    "vendors": [
+      "VMware"
+    ],
+    "tags": [
+      "KEV",
+      "network"
+    ],
+    "published_date": "2025-07-30T10:03:50.871328",
+    "published_short": "2025-07-30",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40068"
+  },
+  {
+    "cve_id": "CVE-2025-40071",
+    "title": "HIGH vulnerability in Apache Server",
+    "severity": "HIGH",
+    "cvss_score": 7.7,
+    "epss_percentile": 76,
+    "risk_score": 76,
+    "vendors": [
+      "Mozilla"
+    ],
+    "tags": [],
+    "published_date": "2025-07-05T10:03:50.871364",
+    "published_short": "2025-07-05",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40071"
+  },
+  {
+    "cve_id": "CVE-2025-40002",
+    "title": "HIGH vulnerability in Cisco Server",
+    "severity": "HIGH",
+    "cvss_score": 7.6,
+    "epss_percentile": 76,
+    "risk_score": 76,
+    "vendors": [
+      "Oracle"
+    ],
+    "tags": [
+      "KEV",
+      "network"
+    ],
+    "published_date": "2025-07-10T10:03:50.870657",
+    "published_short": "2025-07-10",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40002"
+  },
+  {
+    "cve_id": "CVE-2025-40130",
+    "title": "MEDIUM vulnerability in Oracle Client",
+    "severity": "MEDIUM",
+    "cvss_score": 5.9,
+    "epss_percentile": 76,
+    "risk_score": 67,
+    "vendors": [
+      "Google"
+    ],
+    "tags": [
+      "KEV"
+    ],
+    "published_date": "2025-07-17T10:03:50.871970",
+    "published_short": "2025-07-17",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40130"
+  },
+  {
+    "cve_id": "CVE-2025-40057",
+    "title": "CRITICAL vulnerability in VMware Library",
+    "severity": "CRITICAL",
+    "cvss_score": 9.6,
+    "epss_percentile": 75,
+    "risk_score": 85,
+    "vendors": [
+      "Google"
+    ],
+    "tags": [],
+    "published_date": "2025-07-08T10:03:50.871201",
+    "published_short": "2025-07-08",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40057"
+  },
+  {
+    "cve_id": "CVE-2025-40111",
+    "title": "CRITICAL vulnerability in Microsoft Service",
+    "severity": "CRITICAL",
+    "cvss_score": 9.6,
+    "epss_percentile": 75,
+    "risk_score": 85,
+    "vendors": [
+      "Cisco"
+    ],
+    "tags": [],
+    "published_date": "2025-07-18T10:03:50.871772",
+    "published_short": "2025-07-18",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40111"
+  },
+  {
+    "cve_id": "CVE-2025-40056",
+    "title": "CRITICAL vulnerability in VMware Library",
+    "severity": "CRITICAL",
+    "cvss_score": 9.4,
+    "epss_percentile": 75,
+    "risk_score": 84,
+    "vendors": [
+      "Mozilla"
+    ],
+    "tags": [
+      "KEV",
+      "network"
+    ],
+    "published_date": "2025-07-22T10:03:50.871191",
+    "published_short": "2025-07-22",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40056"
+  },
+  {
+    "cve_id": "CVE-2025-40014",
+    "title": "HIGH vulnerability in Mozilla Service",
+    "severity": "HIGH",
+    "cvss_score": 8.5,
+    "epss_percentile": 75,
+    "risk_score": 80,
+    "vendors": [
+      "Mozilla"
+    ],
+    "tags": [
+      "KEV"
+    ],
+    "published_date": "2025-07-18T10:03:50.870780",
+    "published_short": "2025-07-18",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40014"
+  },
+  {
+    "cve_id": "CVE-2025-40105",
+    "title": "HIGH vulnerability in Apache Library",
+    "severity": "HIGH",
+    "cvss_score": 8.4,
+    "epss_percentile": 75,
+    "risk_score": 79,
+    "vendors": [
+      "Mozilla"
+    ],
+    "tags": [
+      "network"
+    ],
+    "published_date": "2025-07-28T10:03:50.871706",
+    "published_short": "2025-07-28",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40105"
+  },
+  {
+    "cve_id": "CVE-2025-40109",
+    "title": "MEDIUM vulnerability in VMware Framework",
+    "severity": "MEDIUM",
+    "cvss_score": 6.4,
+    "epss_percentile": 75,
+    "risk_score": 69,
+    "vendors": [
+      "Microsoft"
+    ],
+    "tags": [
+      "KEV"
+    ],
+    "published_date": "2025-07-08T10:03:50.871748",
+    "published_short": "2025-07-08",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40109"
+  },
+  {
+    "cve_id": "CVE-2025-40030",
+    "title": "MEDIUM vulnerability in Cisco Service",
+    "severity": "MEDIUM",
+    "cvss_score": 5.7,
+    "epss_percentile": 75,
+    "risk_score": 66,
+    "vendors": [
+      "Microsoft"
+    ],
+    "tags": [
+      "network"
+    ],
+    "published_date": "2025-07-15T10:03:50.870936",
+    "published_short": "2025-07-15",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40030"
+  },
+  {
+    "cve_id": "CVE-2025-40138",
+    "title": "MEDIUM vulnerability in VMware Framework",
+    "severity": "MEDIUM",
+    "cvss_score": 5.5,
+    "epss_percentile": 75,
+    "risk_score": 65,
+    "vendors": [
+      "Microsoft"
+    ],
+    "tags": [
+      "KEV",
+      "network"
+    ],
+    "published_date": "2025-07-17T10:03:50.872054",
+    "published_short": "2025-07-17",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40138"
+  },
+  {
+    "cve_id": "CVE-2025-40083",
+    "title": "CRITICAL vulnerability in Microsoft Library",
+    "severity": "CRITICAL",
+    "cvss_score": 9.7,
+    "epss_percentile": 74,
+    "risk_score": 85,
+    "vendors": [
+      "Google"
+    ],
+    "tags": [
+      "KEV",
+      "network"
+    ],
+    "published_date": "2025-07-17T10:03:50.871483",
+    "published_short": "2025-07-17",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40083"
+  },
+  {
+    "cve_id": "CVE-2025-40036",
+    "title": "CRITICAL vulnerability in Microsoft Service",
+    "severity": "CRITICAL",
+    "cvss_score": 9.6,
+    "epss_percentile": 74,
+    "risk_score": 85,
+    "vendors": [
+      "Oracle"
+    ],
+    "tags": [
+      "network"
+    ],
+    "published_date": "2025-07-05T10:03:50.870995",
+    "published_short": "2025-07-05",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40036"
+  },
+  {
+    "cve_id": "CVE-2025-40058",
+    "title": "HIGH vulnerability in Oracle Client",
+    "severity": "HIGH",
+    "cvss_score": 8.8,
+    "epss_percentile": 74,
+    "risk_score": 81,
+    "vendors": [
+      "Cisco"
+    ],
+    "tags": [
+      "KEV"
+    ],
+    "published_date": "2025-07-02T10:03:50.871210",
+    "published_short": "2025-07-02",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40058"
+  },
+  {
+    "cve_id": "CVE-2025-40035",
+    "title": "HIGH vulnerability in Cisco Service",
+    "severity": "HIGH",
+    "cvss_score": 8.5,
+    "epss_percentile": 74,
+    "risk_score": 79,
+    "vendors": [
+      "Adobe"
+    ],
+    "tags": [
+      "network"
+    ],
+    "published_date": "2025-07-07T10:03:50.870986",
+    "published_short": "2025-07-07",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40035"
+  },
+  {
+    "cve_id": "CVE-2025-40074",
+    "title": "MEDIUM vulnerability in Adobe Framework",
+    "severity": "MEDIUM",
+    "cvss_score": 6.2,
+    "epss_percentile": 74,
+    "risk_score": 68,
+    "vendors": [
+      "Adobe"
+    ],
+    "tags": [
+      "network"
+    ],
+    "published_date": "2025-07-11T10:03:50.871394",
+    "published_short": "2025-07-11",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40074"
+  },
+  {
+    "cve_id": "CVE-2025-40115",
+    "title": "MEDIUM vulnerability in Microsoft Service",
+    "severity": "MEDIUM",
+    "cvss_score": 5.1,
+    "epss_percentile": 74,
+    "risk_score": 62,
+    "vendors": [
+      "Google"
+    ],
+    "tags": [],
+    "published_date": "2025-07-04T10:03:50.871811",
+    "published_short": "2025-07-04",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40115"
+  },
+  {
+    "cve_id": "CVE-2025-40012",
+    "title": "MEDIUM vulnerability in VMware Server",
+    "severity": "MEDIUM",
+    "cvss_score": 6.2,
+    "epss_percentile": 73,
+    "risk_score": 67,
+    "vendors": [
+      "Adobe"
+    ],
+    "tags": [
+      "network"
+    ],
+    "published_date": "2025-07-14T10:03:50.870761",
+    "published_short": "2025-07-14",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40012"
+  },
+  {
+    "cve_id": "CVE-2025-40042",
+    "title": "MEDIUM vulnerability in Mozilla Server",
+    "severity": "MEDIUM",
+    "cvss_score": 6.0,
+    "epss_percentile": 73,
+    "risk_score": 66,
+    "vendors": [
+      "Cisco"
+    ],
+    "tags": [
+      "remote"
+    ],
+    "published_date": "2025-07-03T10:03:50.871053",
+    "published_short": "2025-07-03",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40042"
+  },
+  {
+    "cve_id": "CVE-2025-40066",
+    "title": "MEDIUM vulnerability in VMware Client",
+    "severity": "MEDIUM",
+    "cvss_score": 5.7,
+    "epss_percentile": 73,
+    "risk_score": 65,
+    "vendors": [
+      "VMware"
+    ],
+    "tags": [
+      "KEV"
+    ],
+    "published_date": "2025-07-04T10:03:50.871305",
+    "published_short": "2025-07-04",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40066"
+  },
+  {
+    "cve_id": "CVE-2025-40008",
+    "title": "CRITICAL vulnerability in Cisco Client",
+    "severity": "CRITICAL",
+    "cvss_score": 9.7,
+    "epss_percentile": 72,
+    "risk_score": 84,
+    "vendors": [
+      "Adobe"
+    ],
+    "tags": [
+      "network"
+    ],
+    "published_date": "2025-07-19T10:03:50.870717",
+    "published_short": "2025-07-19",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40008"
+  },
+  {
+    "cve_id": "CVE-2025-40078",
+    "title": "HIGH vulnerability in Microsoft Client",
+    "severity": "HIGH",
+    "cvss_score": 7.2,
+    "epss_percentile": 72,
+    "risk_score": 72,
+    "vendors": [
+      "Oracle"
+    ],
+    "tags": [
+      "KEV"
+    ],
+    "published_date": "2025-07-28T10:03:50.871433",
+    "published_short": "2025-07-28",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40078"
+  },
+  {
+    "cve_id": "CVE-2025-40103",
+    "title": "MEDIUM vulnerability in Apache Library",
+    "severity": "MEDIUM",
+    "cvss_score": 6.2,
+    "epss_percentile": 72,
+    "risk_score": 67,
+    "vendors": [
+      "Microsoft"
+    ],
+    "tags": [
+      "network"
+    ],
+    "published_date": "2025-07-06T10:03:50.871686",
+    "published_short": "2025-07-06",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40103"
+  },
+  {
+    "cve_id": "CVE-2025-40101",
+    "title": "MEDIUM vulnerability in Oracle Library",
+    "severity": "MEDIUM",
+    "cvss_score": 5.8,
+    "epss_percentile": 72,
+    "risk_score": 65,
+    "vendors": [
+      "Microsoft"
+    ],
+    "tags": [
+      "network"
+    ],
+    "published_date": "2025-07-29T10:03:50.871666",
+    "published_short": "2025-07-29",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40101"
+  },
+  {
+    "cve_id": "CVE-2025-40000",
+    "title": "MEDIUM vulnerability in Cisco Client",
+    "severity": "MEDIUM",
+    "cvss_score": 5.6,
+    "epss_percentile": 72,
+    "risk_score": 64,
+    "vendors": [
+      "Apache"
+    ],
+    "tags": [],
+    "published_date": "2025-07-13T10:03:50.870602",
+    "published_short": "2025-07-13",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40000"
+  },
+  {
+    "cve_id": "CVE-2025-40022",
+    "title": "CRITICAL vulnerability in Adobe Library",
+    "severity": "CRITICAL",
+    "cvss_score": 9.6,
+    "epss_percentile": 71,
+    "risk_score": 83,
+    "vendors": [
+      "Oracle"
+    ],
+    "tags": [
+      "KEV",
+      "network"
+    ],
+    "published_date": "2025-07-09T10:03:50.870858",
+    "published_short": "2025-07-09",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40022"
+  },
+  {
+    "cve_id": "CVE-2025-40132",
+    "title": "HIGH vulnerability in Apache Library",
+    "severity": "HIGH",
+    "cvss_score": 9.0,
+    "epss_percentile": 71,
+    "risk_score": 80,
+    "vendors": [
+      "Mozilla"
+    ],
+    "tags": [
+      "network"
+    ],
+    "published_date": "2025-07-09T10:03:50.871991",
+    "published_short": "2025-07-09",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40132"
+  },
+  {
+    "cve_id": "CVE-2025-40137",
+    "title": "HIGH vulnerability in Apache Service",
+    "severity": "HIGH",
+    "cvss_score": 8.1,
+    "epss_percentile": 71,
+    "risk_score": 76,
+    "vendors": [
+      "Adobe"
+    ],
+    "tags": [
+      "KEV"
+    ],
+    "published_date": "2025-07-12T10:03:50.872044",
+    "published_short": "2025-07-12",
+    "attack_vector": "LOCAL",
+    "description": "This is a test vulnerability description for CVE-2025-40137"
+  },
+  {
+    "cve_id": "CVE-2025-40087",
+    "title": "HIGH vulnerability in Mozilla Client",
+    "severity": "HIGH",
+    "cvss_score": 8.0,
+    "epss_percentile": 71,
+    "risk_score": 75,
+    "vendors": [
+      "Microsoft"
+    ],
+    "tags": [
+      "network"
+    ],
+    "published_date": "2025-07-28T10:03:50.871522",
+    "published_short": "2025-07-28",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40087"
+  },
+  {
+    "cve_id": "CVE-2025-40011",
+    "title": "CRITICAL vulnerability in Cisco Library",
+    "severity": "CRITICAL",
+    "cvss_score": 9.5,
+    "epss_percentile": 70,
+    "risk_score": 82,
+    "vendors": [
+      "Microsoft"
+    ],
+    "tags": [
+      "KEV"
+    ],
+    "published_date": "2025-07-27T10:03:50.870751",
+    "published_short": "2025-07-27",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40011"
+  },
+  {
+    "cve_id": "CVE-2025-40098",
+    "title": "HIGH vulnerability in VMware Server",
+    "severity": "HIGH",
+    "cvss_score": 7.2,
+    "epss_percentile": 70,
+    "risk_score": 71,
+    "vendors": [
+      "Adobe"
+    ],
+    "tags": [
+      "KEV"
+    ],
+    "published_date": "2025-07-13T10:03:50.871634",
+    "published_short": "2025-07-13",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40098"
+  },
+  {
+    "cve_id": "CVE-2025-40023",
+    "title": "HIGH vulnerability in Adobe Framework",
+    "severity": "HIGH",
+    "cvss_score": 7.1,
+    "epss_percentile": 70,
+    "risk_score": 70,
+    "vendors": [
+      "Cisco"
+    ],
+    "tags": [
+      "remote"
+    ],
+    "published_date": "2025-07-13T10:03:50.870868",
+    "published_short": "2025-07-13",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40023"
+  },
+  {
+    "cve_id": "CVE-2025-40123",
+    "title": "MEDIUM vulnerability in Google Server",
+    "severity": "MEDIUM",
+    "cvss_score": 6.9,
+    "epss_percentile": 70,
+    "risk_score": 69,
+    "vendors": [
+      "Google"
+    ],
+    "tags": [
+      "remote"
+    ],
+    "published_date": "2025-07-16T10:03:50.871896",
+    "published_short": "2025-07-16",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40123"
+  },
+  {
+    "cve_id": "CVE-2025-40029",
+    "title": "MEDIUM vulnerability in VMware Library",
+    "severity": "MEDIUM",
+    "cvss_score": 5.3,
+    "epss_percentile": 70,
+    "risk_score": 61,
+    "vendors": [
+      "Adobe"
+    ],
+    "tags": [
+      "network"
+    ],
+    "published_date": "2025-07-13T10:03:50.870927",
+    "published_short": "2025-07-13",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40029"
+  },
+  {
+    "cve_id": "CVE-2025-40093",
+    "title": "MEDIUM vulnerability in VMware Client",
+    "severity": "MEDIUM",
+    "cvss_score": 5.1,
+    "epss_percentile": 70,
+    "risk_score": 60,
+    "vendors": [
+      "Oracle"
+    ],
+    "tags": [
+      "remote"
+    ],
+    "published_date": "2025-07-04T10:03:50.871583",
+    "published_short": "2025-07-04",
+    "attack_vector": "NETWORK",
+    "description": "This is a test vulnerability description for CVE-2025-40093"
+  }
+];
+        const statsData = {
+  "total": 150,
+  "critical": 49,
+  "high": 52,
+  "medium": 49,
+  "low": 0,
+  "today_count": 2,
+  "week_count": 35,
+  "kev_count": 60,
+  "severity_distribution": {
+    "CRITICAL": 49,
+    "HIGH": 52,
+    "MEDIUM": 49,
+    "LOW": 0
+  },
+  "epss_distribution": {
+    "90-100%": 42,
+    "70-89%": 108,
+    "50-69%": 0,
+    "<50%": 0
+  }
+};
+
+        function dashboard() {
+            return {
+                // Data
+                vulnerabilities: vulnerabilityData,
+                stats: statsData,
+                
+                // UI State
+                search: '',
+                quickFilter: 'all',
+                sortField: 'epss_percentile',
+                sortOrder: 'desc',
+                currentPage: 1,
+                perPage: 50,
+                showModal: false,
+                selectedVuln: null,
+                
+                // Filters
+                filters: {
+                    severity: '',
+                    cvss_min: null,
+                    cvss_max: null,
+                    epss_min: 70,
+                    epss_max: 100,
+                    published_from: '',
+                    published_to: '',
+                    vendor: ''
+                },
+
+                // Initialization
+                init() {
+                    this.$nextTick(() => {
+                        this.initCharts();
+                        this.setupKeyboardShortcuts();
+                    });
+                },
+
+                // Computed Properties
+                get filteredVulns() {
+                    let vulns = [...this.vulnerabilities];
+                    
+                    // Quick filter
+                    if (this.quickFilter === 'critical') {
+                        vulns = vulns.filter(v => v.severity === 'CRITICAL');
+                    } else if (this.quickFilter === 'today') {
+                        const today = new Date().toISOString().split('T')[0];
+                        vulns = vulns.filter(v => v.published_date && v.published_date.startsWith(today));
+                    } else if (this.quickFilter === 'kev') {
+                        vulns = vulns.filter(v => v.tags.includes('KEV'));
+                    } else if (this.quickFilter === 'network') {
+                        vulns = vulns.filter(v => v.attack_vector === 'NETWORK');
                     }
-                });
-            }
-        }
-        
-        // Enhanced interactivity with Alpine.js
-        document.addEventListener('alpine:init', () => {
-            // Any Alpine.js components can be defined here
-        });
-        
-        // Keyboard shortcuts
-        document.addEventListener('keydown', (e) => {
-            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-            
-            switch(e.key) {
-                case '/':
-                    e.preventDefault();
-                    document.querySelector('.search-input').focus();
-                    break;
-                case 'r':
-                    e.preventDefault();
-                    document.querySelector('[type="reset"]').click();
-                    break;
-                case 'e':
-                    e.preventDefault();
-                    document.querySelector('[hx-get="/vuln-bot/data/vulnerabilities.csv"]').click();
-                    break;
-            }
-        });
-    </script>
+                    
+                    // Search
+                    if (this.search) {
+                        const searchLower = this.search.toLowerCase();
+                        vulns = vulns.filter(v => 
+                            v.cve_id.toLowerCase().includes(searchLower) ||
+                            v.title.toLowerCase().includes(searchLower) ||
+                            v.vendors.some(vendor => vendor.toLowerCase().includes(searchLower))
+                        );
+                    }
+                    
+                    // Advanced filters
+                    if (this.filters.severity) {
+                        vulns = vulns.filter(v => v.severity === this.filters.severity);
+                    }
+                    
+                    if (this.filters.cvss_min !== null) {
+                        vulns = vulns.filter(v => v.cvss_score >= this.filters.cvss_min);
+                    }
+                    
+                    if (this.filters.cvss_max !== null) {
+                        vulns = vulns.filter(v => v.cvss_score <= this.filters.cvss_max);
+                    }
+                    
+                    if (this.filters.epss_min !== null) {
+                        vulns = vulns.filter(v => v.epss_percentile >= this.filters.epss_min);
+                    }
+                    
+                    if (this.filters.epss_max !== null) {
+                        vulns = vulns.filter(v => v.epss_percentile <= this.filters.epss_max);
+                    }
+                    
+                    if (this.filters.published_from) {
+                        vulns = vulns.filter(v => v.published_date >= this.filters.published_from);
+                    }
+                    
+                    if (this.filters.published_to) {
+                        vulns = vulns.filter(v => v.published_date <= this.filters.published_to);
+                    }
+                    
+                    if (this.filters.vendor) {
+                        const vendorLower = this.filters.vendor.toLowerCase();
+                        vulns = vulns.filter(v => 
+                            v.vendors.some(vendor => vendor.toLowerCase().includes(vendorLower))
+                        );
+                    }
+                    
+                    // Sorting
+                    vulns.sort((a, b) => {
+                        let aVal = a[this.sortField];
+                        let bVal = b[this.sortField];
+                        
+                        // Handle special cases
+                        if (this.sortField === 'severity') {
+                            const severityOrder = { 'CRITICAL': 4, 'HIGH': 3, 'MEDIUM': 2, 'LOW': 1 };
+                            aVal = severityOrder[aVal] || 0;
+                            bVal = severityOrder[bVal] || 0;
+                        }
+                        
+                        if (aVal < bVal) return this.sortOrder === 'asc' ? -1 : 1;
+                        if (aVal > bVal) return this.sortOrder === 'asc' ? 1 : -1;
+                        return 0;
+                    });
+                    
+                    return vulns;
+                },
 
-        <script>
-        // HTMX Configuration and Static Adapter for GitHub Pages
-        document.body.addEventListener('htmx:configRequest', (event) => {
-            // Add custom headers if needed
-            if (event.detail.headers) {
-                event.detail.headers['X-Requested-With'] = 'HTMX';
-            }
-            
-            // Handle dynamic URLs for GitHub Pages
-            let url = event.detail.path;
-            console.log('Original URL:', url);
+                get totalPages() {
+                    return Math.ceil(this.filteredVulns.length / this.perPage);
+                },
 
-            // Handle quick filters
-            if (url.includes('{filter}')) {
-                const filterMatch = event.detail.elt.getAttribute('hx-vals');
-                if (filterMatch) {
-                    const filter = JSON.parse(filterMatch).filter;
-                    url = url.replace('{filter}', filter);
-                    console.log('Filter URL:', url);
+                get paginatedVulns() {
+                    const start = (this.currentPage - 1) * this.perPage;
+                    const end = start + this.perPage;
+                    return this.filteredVulns.slice(start, end);
+                },
+
+                // Methods
+                setQuickFilter(filter) {
+                    this.quickFilter = filter;
+                    this.currentPage = 1;
+                },
+
+                sort(field) {
+                    if (this.sortField === field) {
+                        this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc';
+                    } else {
+                        this.sortField = field;
+                        this.sortOrder = 'desc';
+                    }
+                    this.currentPage = 1;
+                },
+
+                resetFilters() {
+                    this.search = '';
+                    this.quickFilter = 'all';
+                    this.filters = {
+                        severity: '',
+                        cvss_min: null,
+                        cvss_max: null,
+                        epss_min: 70,
+                        epss_max: 100,
+                        published_from: '',
+                        published_to: '',
+                        vendor: ''
+                    };
+                    this.currentPage = 1;
+                },
+
+                openModal(vuln) {
+                    this.selectedVuln = vuln;
+                    this.showModal = true;
+                },
+
+                closeModal() {
+                    this.showModal = false;
+                    this.selectedVuln = null;
+                },
+
+                exportCSV() {
+                    const headers = ['CVE ID', 'Severity', 'CVSS', 'EPSS %', 'Risk Score', 'Title', 'Vendors', 'Published'];
+                    const csvContent = [
+                        headers.join(','),
+                        ...this.filteredVulns.map(v => [
+                            v.cve_id,
+                            v.severity,
+                            v.cvss_score,
+                            v.epss_percentile,
+                            v.risk_score,
+                            `"${v.title.replace(/"/g, '""')}"`,
+                            `"${v.vendors.join(', ')}"`,
+                            v.published_short
+                        ].join(','))
+                    ].join('\n');
+                    
+                    const blob = new Blob([csvContent], { type: 'text/csv' });
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'vulnerabilities.csv';
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                },
+
+                setupKeyboardShortcuts() {
+                    document.addEventListener('keydown', (e) => {
+                        // Only trigger shortcuts when not in input fields
+                        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT') {
+                            return;
+                        }
+                        
+                        switch(e.key) {
+                            case '/':
+                                e.preventDefault();
+                                document.querySelector('.search-input').focus();
+                                break;
+                            case 'r':
+                                e.preventDefault();
+                                this.resetFilters();
+                                break;
+                            case 'e':
+                                e.preventDefault();
+                                this.exportCSV();
+                                break;
+                            case 'Escape':
+                                if (this.showModal) {
+                                    this.closeModal();
+                                }
+                                break;
+                        }
+                    });
+                },
+
+                initCharts() {
+                    // Severity Chart
+                    if (this.$refs.severityChart) {
+                        new Chart(this.$refs.severityChart, {
+                            type: 'doughnut',
+                            data: {
+                                labels: ['Critical', 'High', 'Medium', 'Low'],
+                                datasets: [{
+                                    data: [
+                                        this.stats.severity_distribution.CRITICAL,
+                                        this.stats.severity_distribution.HIGH,
+                                        this.stats.severity_distribution.MEDIUM,
+                                        this.stats.severity_distribution.LOW
+                                    ],
+                                    backgroundColor: ['#dc2626', '#ef4444', '#f59e0b', '#3b82f6']
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                plugins: {
+                                    legend: {
+                                        labels: { color: '#cbd5e1' }
+                                    }
+                                }
+                            }
+                        });
+                    }
+
+                    // EPSS Chart
+                    if (this.$refs.epssChart) {
+                        new Chart(this.$refs.epssChart, {
+                            type: 'bar',
+                            data: {
+                                labels: ['90-100%', '70-89%', '50-69%', '<50%'],
+                                datasets: [{
+                                    data: [
+                                        this.stats.epss_distribution['90-100%'],
+                                        this.stats.epss_distribution['70-89%'],
+                                        this.stats.epss_distribution['50-69%'],
+                                        this.stats.epss_distribution['<50%']
+                                    ],
+                                    backgroundColor: ['#dc2626', '#ef4444', '#f59e0b', '#10b981']
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                plugins: {
+                                    legend: { display: false },
+                                },
+                                scales: {
+                                    y: {
+                                        ticks: { color: '#cbd5e1' }
+                                    },
+                                    x: {
+                                        ticks: { color: '#cbd5e1' }
+                                    }
+                                }
+                            }
+                        });
+                    }
                 }
             }
-
-            // Handle sorting
-            if (url.includes('{field}_{order}')) {
-                const element = event.detail.elt;
-                const field = element.dataset.sort || 'epss_percentile';
-                const currentOrder = element.textContent.includes('↓') ? 'desc' : 'asc';
-                const newOrder = currentOrder === 'desc' ? 'asc' : 'desc';
-                const replacement = field + '_' + newOrder;
-                console.log('Sorting - Field:', field, 'Current Order:', currentOrder, 'New Order:', newOrder, 'Replacement:', replacement);
-                url = url.replace('{field}_{order}', replacement);
-                console.log('Sort URL:', url);
-            }
-
-            console.log('Final URL:', url);
-            event.detail.path = url;
-        });
-
-        // CVE Modal function
-        function openCveModal(cveId) {
-            // For static version, we'll show a simple modal with basic info
-            const modal = document.getElementById('cve-modal') || createCveModal();
-            const modalContent = modal.querySelector('.modal-content');
-
-            // Find vulnerability data from table
-            const row = document.querySelector(`tr[data-cve="${cveId}"]`);
-            if (row) {
-                const cells = row.querySelectorAll('td');
-                modalContent.innerHTML = `
-                    <h2>${cveId}</h2>
-                    <p><strong>Severity:</strong> ${cells[1].textContent}</p>
-                    <p><strong>CVSS Score:</strong> ${cells[2].textContent}</p>
-                    <p><strong>EPSS:</strong> ${cells[3].textContent}</p>
-                    <p><strong>Risk Score:</strong> ${cells[4].textContent}</p>
-                    <p><strong>Title:</strong> ${cells[5].textContent}</p>
-                    <p><strong>Vendors:</strong> ${cells[6].textContent}</p>
-                    <p><strong>Published:</strong> ${cells[7].textContent}</p>
-                    <button onclick="document.getElementById('cve-modal').style.display='none'">Close</button>
-                `;
-            }
-
-            modal.style.display = 'block';
         }
-
-        function createCveModal() {
-            const modal = document.createElement('div');
-            modal.id = 'cve-modal';
-            modal.className = 'modal';
-            modal.innerHTML = '<div class="modal-content"></div>';
-            modal.style.cssText = `
-                display: none;
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0,0,0,0.8);
-                z-index: 1000;
-            `;
-            document.body.appendChild(modal);
-
-            // Close on background click
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) modal.style.display = 'none';
-            });
-
-            return modal;
-        }
-        </script>
-        
+    </script>
 </body>
 </html>
