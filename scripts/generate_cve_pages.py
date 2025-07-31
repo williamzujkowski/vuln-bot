@@ -34,12 +34,27 @@ class CvePageGenerator:
         for row in rows:
             try:
                 vuln_data = json.loads(row["data"])
+                
+                # Extract CVSS score from cvss_metrics
+                cvss_score = 0
+                if vuln_data.get("cvss_metrics"):
+                    for metric in vuln_data["cvss_metrics"]:
+                        if metric.get("base_score"):
+                            cvss_score = max(cvss_score, metric["base_score"])
+                
+                # Extract EPSS percentile
+                epss_percentile = 0
+                if vuln_data.get("epss_score") and isinstance(vuln_data["epss_score"], dict):
+                    epss_percentile = vuln_data["epss_score"].get("percentile", 0)
+                
                 vuln = {
                     "cve_id": row["cve_id"],
                     "risk_score": row["risk_score"],
                     "severity": row["severity"],
                     "published_date": row["published_date"],
                     "last_modified_date": row["last_modified_date"],
+                    "cvss_score": cvss_score,
+                    "epss_percentile": epss_percentile,
                     **vuln_data,
                 }
                 vulnerabilities.append(vuln)

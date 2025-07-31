@@ -45,6 +45,18 @@ class AlpineDashboardGenerator:
                 # Parse the JSON data from cache
                 vuln_data = json.loads(row["data"])
 
+                # Extract CVSS score from cvss_metrics
+                cvss_score = 0
+                if vuln_data.get("cvss_metrics"):
+                    for metric in vuln_data["cvss_metrics"]:
+                        if metric.get("base_score"):
+                            cvss_score = max(cvss_score, metric["base_score"])
+                
+                # Extract EPSS percentile
+                epss_percentile = 0
+                if vuln_data.get("epss_score") and isinstance(vuln_data["epss_score"], dict):
+                    epss_percentile = vuln_data["epss_score"].get("percentile", 0)
+                
                 # Create vulnerability dict with both cache fields and parsed data
                 vuln = {
                     "cve_id": row["cve_id"],
@@ -52,13 +64,13 @@ class AlpineDashboardGenerator:
                     "severity": row["severity"],
                     "published_date": row["published_date"],
                     "last_modified_date": row["last_modified_date"],
+                    "cvss_score": cvss_score,
+                    "epss_percentile": epss_percentile,
                     **vuln_data,  # Merge in all the JSON data
                 }
 
                 # Ensure required fields exist with defaults
                 vuln.setdefault("title", vuln.get("cve_id", "Unknown"))
-                vuln.setdefault("cvss_score", 0)
-                vuln.setdefault("epss_percentile", 0)
                 vuln.setdefault("description", "No description available")
                 vuln.setdefault("vendors", [])
                 vuln.setdefault("products", [])
