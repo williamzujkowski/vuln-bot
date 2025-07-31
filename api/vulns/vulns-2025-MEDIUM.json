@@ -1,7 +1,7 @@
 {
   "chunk": "2025-MEDIUM",
   "count": 2,
-  "generated": "2025-07-31T12:10:19.557288",
+  "generated": "2025-07-31T20:07:00.143227",
   "vulnerabilities": [
     {
       "cveId": "CVE-2025-29088",
@@ -20,17 +20,17 @@
       ],
       "epss": {
         "score": 0.0005,
-        "percentile": 14.354
+        "percentile": 14.335
       },
       "riskScore": 38,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
-          "sqlite"
+          "Sqlite"
         ],
         "products": [
-          "sqlite"
+          "Sqlite"
         ]
       },
       "references": [
@@ -67,7 +67,10 @@
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
-        "attackVector": null,
+        "attackVector": "Local",
+        "attackComplexity": "High",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
         "sources": [
           {
             "name": "CVEList",
@@ -99,18 +102,18 @@
         }
       ],
       "epss": {
-        "score": 0.0004,
-        "percentile": 11.704
+        "score": 0.0003,
+        "percentile": 5.701
       },
       "riskScore": 33,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
-          "n/a"
+          "N/a"
         ],
         "products": [
-          "shishuocms"
+          "Shishuocms"
         ]
       },
       "references": [
@@ -152,7 +155,10 @@
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
-        "attackVector": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "Required",
         "sources": [
           {
             "name": "CVEList",

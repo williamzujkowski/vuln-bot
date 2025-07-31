@@ -1,7 +1,7 @@
 {
   "chunk": "2024-MEDIUM",
   "count": 15,
-  "generated": "2025-07-31T12:10:19.557288",
+  "generated": "2025-07-31T20:07:00.143227",
   "vulnerabilities": [
     {
       "cveId": "CVE-2024-52531",
@@ -20,17 +20,17 @@
       ],
       "epss": {
         "score": 0.0012,
-        "percentile": 32.182
+        "percentile": 32.195
       },
       "riskScore": 37,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
-          "gnome"
+          "Gnome"
         ],
         "products": [
-          "libsoup"
+          "Libsoup"
         ]
       },
       "references": [
@@ -62,72 +62,15 @@
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
-        "attackVector": null,
+        "attackVector": "Network",
+        "attackComplexity": "High",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
         "sources": [
           {
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/52xxx/CVE-2024-52531.json",
             "lastModified": "2025-04-14T15:13:46.136000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2024-26258",
-      "title": "CVE-2024-26258: OS command injection vulnerability in ELECOM wireless LAN routers allows a network-adjacent attacker...",
-      "description": "OS command injection vulnerability in ELECOM wireless LAN routers allows a network-adjacent attacker with credentials to execute arbitrary OS commands by sending a specially crafted request to the product.",
-      "publishedDate": "2024-04-04T00:03:41.930000+00:00",
-      "lastModifiedDate": "2024-11-26T08:00:41.733000+00:00",
-      "severity": "MEDIUM",
-      "cvssMetrics": [
-        {
-          "version": "3.0",
-          "vectorString": "CVSS:3.0/AV:A/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 6.8,
-          "baseSeverity": "MEDIUM"
-        }
-      ],
-      "epss": {
-        "score": 0.0016,
-        "percentile": 37.638
-      },
-      "riskScore": 36,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "elecom co.,ltd."
-        ],
-        "products": [
-          "wrc-2533gst2",
-          "wrc-x3200gst3-b",
-          "wrc-g01-w",
-          "wrc-1167gst2"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://www.elecom.co.jp/news/security/20240326-01/",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://jvn.jp/en/vu/JVNVU95381465/",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": null,
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/26xxx/CVE-2024-26258.json",
-            "lastModified": "2024-11-26T08:00:41.733000+00:00"
           }
         ]
       }
@@ -149,17 +92,19 @@
       ],
       "epss": {
         "score": 0.0028,
-        "percentile": 51.385
+        "percentile": 51.393
       },
-      "riskScore": 35,
+      "riskScore": 36,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
-          "piotnet"
+          "Piotnet",
+          "WordPress"
         ],
         "products": [
-          "piotnet addons for elementor pro"
+          "Piotnet Addons For Elementor Pro",
+          "Wordpress"
         ]
       },
       "references": [
@@ -178,12 +123,78 @@
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
-        "attackVector": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "Low",
+        "userInteraction": "Required",
         "sources": [
           {
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/33xxx/CVE-2024-33631.json",
             "lastModified": "2024-08-02T02:36:04.417000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2024-26258",
+      "title": "CVE-2024-26258: OS command injection vulnerability in ELECOM wireless LAN routers allows a network-adjacent attacker...",
+      "description": "OS command injection vulnerability in ELECOM wireless LAN routers allows a network-adjacent attacker with credentials to execute arbitrary OS commands by sending a specially crafted request to the product.",
+      "publishedDate": "2024-04-04T00:03:41.930000+00:00",
+      "lastModifiedDate": "2024-11-26T08:00:41.733000+00:00",
+      "severity": "MEDIUM",
+      "cvssMetrics": [
+        {
+          "version": "3.0",
+          "vectorString": "CVSS:3.0/AV:A/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 6.8,
+          "baseSeverity": "MEDIUM"
+        }
+      ],
+      "epss": {
+        "score": 0.0016,
+        "percentile": 37.646
+      },
+      "riskScore": 36,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Elecom Co.,ltd."
+        ],
+        "products": [
+          "Wrc-1167gst2",
+          "Wrc-2533gst2",
+          "Wrc-g01-w",
+          "Wrc-x3200gst3-b"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.elecom.co.jp/news/security/20240326-01/",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://jvn.jp/en/vu/JVNVU95381465/",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Adjacent Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "High",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/26xxx/CVE-2024-26258.json",
+            "lastModified": "2024-11-26T08:00:41.733000+00:00"
           }
         ]
       }
@@ -205,17 +216,17 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 11.507
+        "percentile": 11.498
       },
       "riskScore": 35,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
-          "n/a"
+          "N/a"
         ],
         "products": [
-          "n/a"
+          "N/a"
         ]
       },
       "references": [
@@ -230,7 +241,10 @@
         "tags": [],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
-        "attackVector": null,
+        "attackVector": "Local",
+        "attackComplexity": "Low",
+        "privilegesRequired": "High",
+        "userInteraction": "None",
         "sources": [
           {
             "name": "CVEList",
@@ -257,17 +271,17 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 18.642
+        "percentile": 18.632
       },
       "riskScore": 33,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
-          "hewlett packard enterprise (hpe)"
+          "Hewlett Packard Enterprise (hpe)"
         ],
         "products": [
-          "hpe athonet core"
+          "Hpe Athonet Core"
         ]
       },
       "references": [
@@ -282,7 +296,10 @@
         "tags": [],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
-        "attackVector": null,
+        "attackVector": "Network",
+        "attackComplexity": "High",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
         "sources": [
           {
             "name": "CVEList",
@@ -309,17 +326,17 @@
       ],
       "epss": {
         "score": 0.0009,
-        "percentile": 26.837
+        "percentile": 26.844
       },
       "riskScore": 33,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
-          "hewlett packard enterprise (hpe)"
+          "Hewlett Packard Enterprise (hpe)"
         ],
         "products": [
-          "hpe athonet core"
+          "Hpe Athonet Core"
         ]
       },
       "references": [
@@ -334,7 +351,10 @@
         "tags": [],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
-        "attackVector": null,
+        "attackVector": "Network",
+        "attackComplexity": "High",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
         "sources": [
           {
             "name": "CVEList",
@@ -361,17 +381,17 @@
       ],
       "epss": {
         "score": 0.0009,
-        "percentile": 26.837
+        "percentile": 26.844
       },
       "riskScore": 33,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
-          "hewlett packard enterprise (hpe)"
+          "Hewlett Packard Enterprise (hpe)"
         ],
         "products": [
-          "hpe athonet core"
+          "Hpe Athonet Core"
         ]
       },
       "references": [
@@ -386,7 +406,10 @@
         "tags": [],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
-        "attackVector": null,
+        "attackVector": "Network",
+        "attackComplexity": "High",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
         "sources": [
           {
             "name": "CVEList",
@@ -413,17 +436,17 @@
       ],
       "epss": {
         "score": 0.0009,
-        "percentile": 26.837
+        "percentile": 26.844
       },
       "riskScore": 33,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
-          "hewlett packard enterprise (hpe)"
+          "Hewlett Packard Enterprise (hpe)"
         ],
         "products": [
-          "hpe athonet core"
+          "Hpe Athonet Core"
         ]
       },
       "references": [
@@ -438,7 +461,10 @@
         "tags": [],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
-        "attackVector": null,
+        "attackVector": "Network",
+        "attackComplexity": "High",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
         "sources": [
           {
             "name": "CVEList",
@@ -465,17 +491,17 @@
       ],
       "epss": {
         "score": 0.0009,
-        "percentile": 26.837
+        "percentile": 26.844
       },
       "riskScore": 33,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
-          "hewlett packard enterprise (hpe)"
+          "Hewlett Packard Enterprise (hpe)"
         ],
         "products": [
-          "hpe athonet core"
+          "Hpe Athonet Core"
         ]
       },
       "references": [
@@ -490,7 +516,10 @@
         "tags": [],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
-        "attackVector": null,
+        "attackVector": "Network",
+        "attackComplexity": "High",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
         "sources": [
           {
             "name": "CVEList",
@@ -517,17 +546,17 @@
       ],
       "epss": {
         "score": 0.0009,
-        "percentile": 26.837
+        "percentile": 26.844
       },
       "riskScore": 33,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
-          "hewlett packard enterprise (hpe)"
+          "Hewlett Packard Enterprise (hpe)"
         ],
         "products": [
-          "hpe athonet core"
+          "Hpe Athonet Core"
         ]
       },
       "references": [
@@ -542,7 +571,10 @@
         "tags": [],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
-        "attackVector": null,
+        "attackVector": "Network",
+        "attackComplexity": "High",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
         "sources": [
           {
             "name": "CVEList",
@@ -569,17 +601,17 @@
       ],
       "epss": {
         "score": 0.0009,
-        "percentile": 26.837
+        "percentile": 26.844
       },
       "riskScore": 33,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
-          "hewlett packard enterprise (hpe)"
+          "Hewlett Packard Enterprise (hpe)"
         ],
         "products": [
-          "hpe athonet core"
+          "Hpe Athonet Core"
         ]
       },
       "references": [
@@ -594,12 +626,77 @@
         "tags": [],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
-        "attackVector": null,
+        "attackVector": "Network",
+        "attackComplexity": "High",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
         "sources": [
           {
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/24xxx/CVE-2024-24452.json",
             "lastModified": "2025-03-31T20:27:14.430000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2024-29169",
+      "title": "CVE-2024-29169: Dell SCG, versions prior to 5.22.00.00, contain a SQL Injection Vulnerability in the SCG UI for an i...",
+      "description": "Dell SCG, versions prior to 5.22.00.00, contain a SQL Injection Vulnerability in the SCG UI for an internal audit REST API. A remote authenticated attacker could potentially exploit this vulnerability, leading to the execution of certain SQL commands on the application's backend database causing potential unauthorized access and modification of application data.",
+      "publishedDate": "2024-06-13T15:13:44.030000+00:00",
+      "lastModifiedDate": "2024-08-02T01:10:54.105000+00:00",
+      "severity": "MEDIUM",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N",
+          "baseScore": 5.4,
+          "baseSeverity": "MEDIUM"
+        }
+      ],
+      "epss": {
+        "score": 0.0086,
+        "percentile": 74.082
+      },
+      "riskScore": 33,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Backend",
+          "Dell"
+        ],
+        "products": [
+          "Backend Database",
+          "Secure Connect Gateway-appliance",
+          "Secure Connect Gateway-application"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.dell.com/support/kbdoc/en-us/000225910/dsa-2024-181-security-update-for-dell-secure-connect-gateway-application-and-appliance-vulnerabilities",
+          "source": "",
+          "tags": [
+            "vendor-advisory"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-89"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "Low",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/29xxx/CVE-2024-29169.json",
+            "lastModified": "2024-08-02T01:10:54.105000+00:00"
           }
         ]
       }
@@ -621,17 +718,17 @@
       ],
       "epss": {
         "score": 0.0049,
-        "percentile": 64.532
+        "percentile": 64.545
       },
       "riskScore": 33,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
-          "n/a"
+          "N/a"
         ],
         "products": [
-          "n/a"
+          "N/a"
         ]
       },
       "references": [
@@ -646,7 +743,10 @@
         "tags": [],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
-        "attackVector": null,
+        "attackVector": "Network",
+        "attackComplexity": "High",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
         "sources": [
           {
             "name": "CVEList",
@@ -673,17 +773,17 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 19.429
+        "percentile": 19.419
       },
       "riskScore": 32,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
-          "measuresoft"
+          "Measuresoft"
         ],
         "products": [
-          "scadapro"
+          "Scadapro"
         ]
       },
       "references": [
@@ -700,7 +800,10 @@
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
-        "attackVector": null,
+        "attackVector": "Local",
+        "attackComplexity": "Low",
+        "privilegesRequired": "Low",
+        "userInteraction": "None",
         "sources": [
           {
             "name": "CVEList",
@@ -727,17 +830,17 @@
       ],
       "epss": {
         "score": 0.0036,
-        "percentile": 57.3
+        "percentile": 57.307
       },
       "riskScore": 32,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
-          "checkmk gmbh"
+          "Checkmk Gmbh"
         ],
         "products": [
-          "checkmk"
+          "Checkmk"
         ]
       },
       "references": [
@@ -754,69 +857,15 @@
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
-        "attackVector": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
         "sources": [
           {
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/6xxx/CVE-2024-6163.json",
             "lastModified": "2024-08-02T14:54:45.554000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2024-29169",
-      "title": "CVE-2024-29169: Dell SCG, versions prior to 5.22.00.00, contain a SQL Injection Vulnerability in the SCG UI for an i...",
-      "description": "Dell SCG, versions prior to 5.22.00.00, contain a SQL Injection Vulnerability in the SCG UI for an internal audit REST API. A remote authenticated attacker could potentially exploit this vulnerability, leading to the execution of certain SQL commands on the application's backend database causing potential unauthorized access and modification of application data.",
-      "publishedDate": "2024-06-13T15:13:44.030000+00:00",
-      "lastModifiedDate": "2024-08-02T01:10:54.105000+00:00",
-      "severity": "MEDIUM",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N",
-          "baseScore": 5.4,
-          "baseSeverity": "MEDIUM"
-        }
-      ],
-      "epss": {
-        "score": 0.0086,
-        "percentile": 74.084
-      },
-      "riskScore": 32,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "dell"
-        ],
-        "products": [
-          "secure connect gateway-application",
-          "secure connect gateway-appliance"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://www.dell.com/support/kbdoc/en-us/000225910/dsa-2024-181-security-update-for-dell-secure-connect-gateway-application-and-appliance-vulnerabilities",
-          "source": "",
-          "tags": [
-            "vendor-advisory"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-89"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": null,
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/29xxx/CVE-2024-29169.json",
-            "lastModified": "2024-08-02T01:10:54.105000+00:00"
           }
         ]
       }
