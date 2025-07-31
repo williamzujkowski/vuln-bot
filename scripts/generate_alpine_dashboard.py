@@ -322,8 +322,7 @@ class AlpineDashboardGenerator:
                 }
             )
 
-        # nosec B608 - This is HTML template generation, not SQL
-        html_content = f"""<!DOCTYPE html>  # nosec
+        html_content = f"""<!DOCTYPE html>  # nosec B608
 <html lang="en">
 <head>
     <meta charset="UTF-8">
