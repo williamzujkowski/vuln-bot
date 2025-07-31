@@ -65,9 +65,9 @@ class HTMXDashboardGenerator:
         for row in rows:
             vuln = dict(row)
             # Calculate risk score (simplified formula)
-            cvss = vuln.get('cvss_score', 0) or 0
-            epss = vuln.get('epss_percentile', 0) or 0
-            vuln['risk_score'] = int((cvss * 10 + epss) / 2)
+            cvss = vuln.get("cvss_score", 0) or 0
+            epss = vuln.get("epss_percentile", 0) or 0
+            vuln["risk_score"] = int((cvss * 10 + epss) / 2)
             self.vulnerabilities.append(vuln)
 
     def generate_stats_fragment(self) -> str:
@@ -123,7 +123,7 @@ class HTMXDashboardGenerator:
                 <div class="stat-value">{high}</div>
                 <div class="stat-label">High Severity</div>
                 <div class="stat-trend">
-                    <span>{round(high/total*100)}%</span>
+                    <span>{round(high / total * 100)}%</span>
                     <span>of total</span>
                 </div>
             </div>
@@ -144,7 +144,9 @@ class HTMXDashboardGenerator:
         """Generate charts fragment with data"""
         # Prepare chart data
         severity_counts = {
-            "CRITICAL": sum(1 for v in self.vulnerabilities if v["severity"] == "CRITICAL"),
+            "CRITICAL": sum(
+                1 for v in self.vulnerabilities if v["severity"] == "CRITICAL"
+            ),
             "HIGH": sum(1 for v in self.vulnerabilities if v["severity"] == "HIGH"),
             "MEDIUM": sum(1 for v in self.vulnerabilities if v["severity"] == "MEDIUM"),
             "LOW": sum(1 for v in self.vulnerabilities if v["severity"] == "LOW"),
@@ -152,7 +154,9 @@ class HTMXDashboardGenerator:
 
         # EPSS distribution
         epss_ranges = {
-            "90-100%": sum(1 for v in self.vulnerabilities if v["epss_percentile"] >= 90),
+            "90-100%": sum(
+                1 for v in self.vulnerabilities if v["epss_percentile"] >= 90
+            ),
             "70-89%": sum(
                 1 for v in self.vulnerabilities if 70 <= v["epss_percentile"] < 90
             ),
@@ -213,7 +217,9 @@ class HTMXDashboardGenerator:
         if sort_field in ["severity"]:
             severity_order = {"CRITICAL": 4, "HIGH": 3, "MEDIUM": 2, "LOW": 1}
             vulns = sorted(
-                vulns, key=lambda v: severity_order.get(v[sort_field], 0), reverse=reverse
+                vulns,
+                key=lambda v: severity_order.get(v[sort_field], 0),
+                reverse=reverse,
             )
         else:
             vulns = sorted(vulns, key=lambda v: v[sort_field] or 0, reverse=reverse)
@@ -234,19 +240,21 @@ class HTMXDashboardGenerator:
                 if vuln["vendors"]
                 else "Unknown"
             )
-            pub_date = vuln["published_date"][:10] if vuln["published_date"] else "Unknown"
+            pub_date = (
+                vuln["published_date"][:10] if vuln["published_date"] else "Unknown"
+            )
 
             rows_html += f"""
-        <tr class="vulnerability-row" data-cve="{vuln['cve_id']}">
+        <tr class="vulnerability-row" data-cve="{vuln["cve_id"]}">
             <td>
-                <a href="#" onclick="openCveModal('{vuln['cve_id']}'); return false;"
-                   class="cve-link">{vuln['cve_id']}</a>
+                <a href="#" onclick="openCveModal('{vuln["cve_id"]}'); return false;"
+                   class="cve-link">{vuln["cve_id"]}</a>
             </td>
-            <td><span class="severity-badge {severity_class}">{vuln['severity']}</span></td>
-            <td>{vuln['cvss_score']}</td>
-            <td>{vuln['epss_percentile']}</td>
-            <td>{vuln['risk_score']}</td>
-            <td class="truncate">{vuln['title'] or 'No title available'}</td>
+            <td><span class="severity-badge {severity_class}">{vuln["severity"]}</span></td>
+            <td>{vuln["cvss_score"]}</td>
+            <td>{vuln["epss_percentile"]}</td>
+            <td>{vuln["risk_score"]}</td>
+            <td class="truncate">{vuln["title"] or "No title available"}</td>
             <td class="truncate">{vendors}</td>
             <td>{pub_date}</td>
         </tr>
@@ -254,7 +262,14 @@ class HTMXDashboardGenerator:
 
         # Sort indicators
         sort_indicators = {}
-        for field in ["cve_id", "severity", "cvss_score", "epss_percentile", "risk_score", "published_date"]:
+        for field in [
+            "cve_id",
+            "severity",
+            "cvss_score",
+            "epss_percentile",
+            "risk_score",
+            "published_date",
+        ]:
             if field == sort_field:
                 sort_indicators[field] = " ↓" if sort_order == "desc" else " ↑"
             else:
@@ -269,31 +284,31 @@ class HTMXDashboardGenerator:
                             hx-get="{self.base_path}/fragments/sort/cve_id.html"
                             hx-target="#vulnerabilities-table"
                             hx-swap="outerHTML">
-                            CVE ID{sort_indicators.get('cve_id', '')}
+                            CVE ID{sort_indicators.get("cve_id", "")}
                         </th>
                         <th class="sortable" data-sort="severity"
                             hx-get="{self.base_path}/fragments/sort/severity.html"
                             hx-target="#vulnerabilities-table"
                             hx-swap="outerHTML">
-                            Severity{sort_indicators.get('severity', '')}
+                            Severity{sort_indicators.get("severity", "")}
                         </th>
                         <th class="sortable" data-sort="cvss_score"
                             hx-get="{self.base_path}/fragments/sort/cvss_score.html"
                             hx-target="#vulnerabilities-table"
                             hx-swap="outerHTML">
-                            CVSS{sort_indicators.get('cvss_score', '')}
+                            CVSS{sort_indicators.get("cvss_score", "")}
                         </th>
                         <th class="sortable" data-sort="epss_percentile"
                             hx-get="{self.base_path}/fragments/sort/epss_percentile.html"
                             hx-target="#vulnerabilities-table"
                             hx-swap="outerHTML">
-                            EPSS %{sort_indicators.get('epss_percentile', '')}
+                            EPSS %{sort_indicators.get("epss_percentile", "")}
                         </th>
                         <th class="sortable" data-sort="risk_score"
                             hx-get="{self.base_path}/fragments/sort/risk_score.html"
                             hx-target="#vulnerabilities-table"
                             hx-swap="outerHTML">
-                            Risk Score{sort_indicators.get('risk_score', '')}
+                            Risk Score{sort_indicators.get("risk_score", "")}
                         </th>
                         <th>Title</th>
                         <th>Vendors</th>
@@ -301,7 +316,7 @@ class HTMXDashboardGenerator:
                             hx-get="{self.base_path}/fragments/sort/published_date.html"
                             hx-target="#vulnerabilities-table"
                             hx-swap="outerHTML">
-                            Published{sort_indicators.get('published_date', '')}
+                            Published{sort_indicators.get("published_date", "")}
                         </th>
                     </tr>
                 </thead>
@@ -313,7 +328,7 @@ class HTMXDashboardGenerator:
             <div class="pagination">
                 <button class="page-btn"
                         {"disabled" if page <= 1 else ""}
-                        {'hx-get="' + self.base_path + '/fragments/page/' + str(page - 1) + '.html" hx-target="#vulnerabilities-table" hx-swap="outerHTML"' if page > 1 else ""}>
+                        {'hx-get="' + self.base_path + "/fragments/page/" + str(page - 1) + '.html" hx-target="#vulnerabilities-table" hx-swap="outerHTML"' if page > 1 else ""}>
                     Previous
                 </button>
                 <span class="page-info">
@@ -321,7 +336,7 @@ class HTMXDashboardGenerator:
                 </span>
                 <button class="page-btn"
                         {"disabled" if page >= total_pages else ""}
-                        {'hx-get="' + self.base_path + '/fragments/page/' + str(page + 1) + '.html" hx-target="#vulnerabilities-table" hx-swap="outerHTML"' if page < total_pages else ""}>
+                        {'hx-get="' + self.base_path + "/fragments/page/" + str(page + 1) + '.html" hx-target="#vulnerabilities-table" hx-swap="outerHTML"' if page < total_pages else ""}>
                     Next
                 </button>
             </div>
@@ -408,7 +423,9 @@ class HTMXDashboardGenerator:
         # Pagination fragments (first 10 pages)
         for page_num in range(1, min(11, (len(self.vulnerabilities) // 50) + 2)):
             with open(FRAGMENTS_DIR / "page" / f"{page_num}.html", "w") as f:
-                f.write(self.generate_table_fragment(self.vulnerabilities, page=page_num))
+                f.write(
+                    self.generate_table_fragment(self.vulnerabilities, page=page_num)
+                )
         print("✓ Generated pagination fragments")
 
     def export_data(self):
