@@ -210,6 +210,7 @@ class HTMXDashboardGenerator:
         per_page: int = 50,
         sort_field: str = "epss_percentile",
         sort_order: str = "desc",
+        use_relative_paths: bool = True,
     ) -> str:
         """Generate vulnerability table fragment"""
         # Sort vulnerabilities
@@ -274,6 +275,9 @@ class HTMXDashboardGenerator:
                 sort_indicators[field] = " ↓" if sort_order == "desc" else " ↑"
             else:
                 sort_indicators[field] = ""
+        
+        # Use relative paths for fragments
+        base_prefix = "../" if use_relative_paths else self.base_path + "/fragments/"
 
         return f"""
         <div class="table-container" id="vulnerabilities-table">
@@ -281,31 +285,31 @@ class HTMXDashboardGenerator:
                 <thead>
                     <tr>
                         <th class="sortable" data-sort="cve_id"
-                            hx-get="{self.base_path}/fragments/sort/cve_id.html"
+                            hx-get="{base_prefix}sort/cve_id.html"
                             hx-target="#vulnerabilities-table"
                             hx-swap="outerHTML">
                             CVE ID{sort_indicators.get("cve_id", "")}
                         </th>
                         <th class="sortable" data-sort="severity"
-                            hx-get="{self.base_path}/fragments/sort/severity.html"
+                            hx-get="{base_prefix}sort/severity.html"
                             hx-target="#vulnerabilities-table"
                             hx-swap="outerHTML">
                             Severity{sort_indicators.get("severity", "")}
                         </th>
                         <th class="sortable" data-sort="cvss_score"
-                            hx-get="{self.base_path}/fragments/sort/cvss_score.html"
+                            hx-get="{base_prefix}sort/cvss_score.html"
                             hx-target="#vulnerabilities-table"
                             hx-swap="outerHTML">
                             CVSS{sort_indicators.get("cvss_score", "")}
                         </th>
                         <th class="sortable" data-sort="epss_percentile"
-                            hx-get="{self.base_path}/fragments/sort/epss_percentile.html"
+                            hx-get="{base_prefix}sort/epss_percentile.html"
                             hx-target="#vulnerabilities-table"
                             hx-swap="outerHTML">
                             EPSS %{sort_indicators.get("epss_percentile", "")}
                         </th>
                         <th class="sortable" data-sort="risk_score"
-                            hx-get="{self.base_path}/fragments/sort/risk_score.html"
+                            hx-get="{base_prefix}sort/risk_score.html"
                             hx-target="#vulnerabilities-table"
                             hx-swap="outerHTML">
                             Risk Score{sort_indicators.get("risk_score", "")}
@@ -313,7 +317,7 @@ class HTMXDashboardGenerator:
                         <th>Title</th>
                         <th>Vendors</th>
                         <th class="sortable" data-sort="published_date"
-                            hx-get="{self.base_path}/fragments/sort/published_date.html"
+                            hx-get="{base_prefix}sort/published_date.html"
                             hx-target="#vulnerabilities-table"
                             hx-swap="outerHTML">
                             Published{sort_indicators.get("published_date", "")}
@@ -328,7 +332,7 @@ class HTMXDashboardGenerator:
             <div class="pagination">
                 <button class="page-btn"
                         {"disabled" if page <= 1 else ""}
-                        {'hx-get="' + self.base_path + "/fragments/page/" + str(page - 1) + '.html" hx-target="#vulnerabilities-table" hx-swap="outerHTML"' if page > 1 else ""}>
+                        {'hx-get="' + base_prefix + "page/" + str(page - 1) + '.html" hx-target="#vulnerabilities-table" hx-swap="outerHTML"' if page > 1 else ""}>
                     Previous
                 </button>
                 <span class="page-info">
@@ -336,7 +340,7 @@ class HTMXDashboardGenerator:
                 </span>
                 <button class="page-btn"
                         {"disabled" if page >= total_pages else ""}
-                        {'hx-get="' + self.base_path + "/fragments/page/" + str(page + 1) + '.html" hx-target="#vulnerabilities-table" hx-swap="outerHTML"' if page < total_pages else ""}>
+                        {'hx-get="' + base_prefix + "page/" + str(page + 1) + '.html" hx-target="#vulnerabilities-table" hx-swap="outerHTML"' if page < total_pages else ""}>
                     Next
                 </button>
             </div>
@@ -388,9 +392,9 @@ class HTMXDashboardGenerator:
             f.write(self.generate_charts_fragment())
         print("✓ Generated charts fragment")
 
-        # Main vulnerabilities table
+        # Main vulnerabilities table - called from index.html, use absolute paths
         with open(FRAGMENTS_DIR / "vulnerabilities.html", "w") as f:
-            f.write(self.generate_table_fragment(self.vulnerabilities))
+            f.write(self.generate_table_fragment(self.vulnerabilities, use_relative_paths=False))
         print("✓ Generated main vulnerabilities table")
 
         # Filter fragments
@@ -398,7 +402,7 @@ class HTMXDashboardGenerator:
         for filter_type in filters:
             filtered_vulns = self.filter_vulnerabilities(filter_type)
             with open(FRAGMENTS_DIR / "filter" / f"{filter_type}.html", "w") as f:
-                f.write(self.generate_table_fragment(filtered_vulns))
+                f.write(self.generate_table_fragment(filtered_vulns, use_relative_paths=True))
         print(f"✓ Generated {len(filters)} filter fragments")
 
         # Sort fragments
@@ -415,7 +419,7 @@ class HTMXDashboardGenerator:
                 with open(FRAGMENTS_DIR / "sort" / f"{field}_{order}.html", "w") as f:
                     f.write(
                         self.generate_table_fragment(
-                            self.vulnerabilities, sort_field=field, sort_order=order
+                            self.vulnerabilities, sort_field=field, sort_order=order, use_relative_paths=True
                         )
                     )
         print(f"✓ Generated {len(sort_fields) * 2} sort fragments")
@@ -424,7 +428,7 @@ class HTMXDashboardGenerator:
         for page_num in range(1, min(11, (len(self.vulnerabilities) // 50) + 2)):
             with open(FRAGMENTS_DIR / "page" / f"{page_num}.html", "w") as f:
                 f.write(
-                    self.generate_table_fragment(self.vulnerabilities, page=page_num)
+                    self.generate_table_fragment(self.vulnerabilities, page=page_num, use_relative_paths=True)
                 )
         print("✓ Generated pagination fragments")
 
@@ -509,11 +513,11 @@ class HTMXDashboardGenerator:
             "/api/filter/quick": f"{self.base_path}/fragments/filter/{{filter}}.html",
             "/api/sort": f"{self.base_path}/fragments/sort/{{field}}_{{order}}.html",
             "/api/export/csv": f"{self.base_path}/data/vulnerabilities.csv",
-            "/fragments/stats.html": f"{self.base_path}/fragments/stats.html",
-            "/fragments/vulnerabilities.html": f"{self.base_path}/fragments/vulnerabilities.html",
-            "/fragments/charts.html": f"{self.base_path}/fragments/charts.html",
-            "/fragments/filter/": f"{self.base_path}/fragments/filter/",
-            "/data/vulnerabilities.csv": f"{self.base_path}/data/vulnerabilities.csv",
+            "/fragments/stats.html": "fragments/stats.html",
+            "/fragments/vulnerabilities.html": "fragments/vulnerabilities.html",
+            "/fragments/charts.html": "fragments/charts.html",
+            "/fragments/filter/": "fragments/filter/",
+            "/data/vulnerabilities.csv": "data/vulnerabilities.csv",
         }
 
         for old, new in replacements.items():
