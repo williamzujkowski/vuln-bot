@@ -59,7 +59,7 @@ class HTMXDashboardGenerator:
             FROM vulnerabilities
             ORDER BY epss_percentile DESC, cvss_score DESC
         """).fetchall()
-        
+
         # Convert to list of dicts and add risk_score
         self.vulnerabilities = []
         for row in rows:
@@ -76,7 +76,6 @@ class HTMXDashboardGenerator:
         total = len(self.vulnerabilities)
         critical = sum(1 for v in self.vulnerabilities if v["severity"] == "CRITICAL")
         high = sum(1 for v in self.vulnerabilities if v["severity"] == "HIGH")
-        medium = sum(1 for v in self.vulnerabilities if v["severity"] == "MEDIUM")
 
         # Get today's count
         today = datetime.now().date().isoformat()
@@ -240,7 +239,7 @@ class HTMXDashboardGenerator:
             rows_html += f"""
         <tr class="vulnerability-row" data-cve="{vuln['cve_id']}">
             <td>
-                <a href="#" onclick="openCveModal('{vuln['cve_id']}'); return false;" 
+                <a href="#" onclick="openCveModal('{vuln['cve_id']}'); return false;"
                    class="cve-link">{vuln['cve_id']}</a>
             </td>
             <td><span class="severity-badge {severity_class}">{vuln['severity']}</span></td>
@@ -410,7 +409,7 @@ class HTMXDashboardGenerator:
         for page_num in range(1, min(11, (len(self.vulnerabilities) // 50) + 2)):
             with open(FRAGMENTS_DIR / "page" / f"{page_num}.html", "w") as f:
                 f.write(self.generate_table_fragment(self.vulnerabilities, page=page_num))
-        print(f"✓ Generated pagination fragments")
+        print("✓ Generated pagination fragments")
 
     def export_data(self):
         """Export vulnerability data as JSON and CSV"""
@@ -479,7 +478,7 @@ class HTMXDashboardGenerator:
         """Create the main dashboard HTML with HTMX"""
         dashboard_template = Path("src/dashboard-htmx.html")
         if dashboard_template.exists():
-            with open(dashboard_template, "r") as f:
+            with open(dashboard_template) as f:
                 html = f.read()
         else:
             # Fallback to embedded template
@@ -648,7 +647,7 @@ def main():
 
     print("\n✅ HTMX dashboard generated successfully!")
     print(f"📁 Output directory: {OUTPUT_DIR}")
-    print(f"🚀 Ready to deploy to GitHub Pages")
+    print("🚀 Ready to deploy to GitHub Pages")
 
 
 if __name__ == "__main__":
