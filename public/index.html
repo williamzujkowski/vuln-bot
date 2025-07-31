@@ -634,7 +634,9 @@
         // HTMX Configuration
         document.body.addEventListener('htmx:configRequest', (event) => {
             // Add custom headers if needed
-            event.detail.headers['X-Requested-With'] = 'HTMX';
+            if (event.detail.headers) {
+                event.detail.headers['X-Requested-With'] = 'HTMX';
+            }
         });
         
         // Handle filter changes
