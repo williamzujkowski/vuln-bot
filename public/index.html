@@ -505,7 +505,7 @@
                 
                 <div x-show="expanded" x-transition>
                     <form id="filters-form" 
-                          hx-post="/vuln-bot/api/filter" 
+                          hx-post="/api/filter" 
                           hx-trigger="change delay:500ms, submit" 
                           hx-target="#vulnerabilities-table"
                           hx-indicator=".htmx-indicator">
@@ -516,7 +516,7 @@
                                    name="search" 
                                    class="search-input" 
                                    placeholder="Search CVE ID, vendor, or keyword..."
-                                   hx-post="/vuln-bot/api/search"
+                                   hx-post="/api/search"
                                    hx-trigger="input changed delay:500ms"
                                    hx-target="#vulnerabilities-table"
                                    hx-indicator=".htmx-indicator">
