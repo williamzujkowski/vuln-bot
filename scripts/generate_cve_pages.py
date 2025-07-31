@@ -14,12 +14,13 @@ OUTPUT_DIR = Path("public/cves")
 DB_PATH = Path(".cache/vulns.db")
 BASE_PATH = "/vuln-bot"
 
+
 class CvePageGenerator:
     def __init__(self, db_path: Path):
         self.db = sqlite3.connect(db_path)
         self.db.row_factory = sqlite3.Row
         self.base_path = BASE_PATH
-        
+
     def load_vulnerabilities(self):
         """Load all vulnerabilities from cache database"""
         cursor = self.db.cursor()
@@ -28,7 +29,7 @@ class CvePageGenerator:
             FROM vulnerability_cache
             ORDER BY risk_score DESC
         """).fetchall()
-        
+
         vulnerabilities = []
         for row in rows:
             try:
@@ -39,21 +40,20 @@ class CvePageGenerator:
                     "severity": row["severity"],
                     "published_date": row["published_date"],
                     "last_modified_date": row["last_modified_date"],
-                    **vuln_data
+                    **vuln_data,
                 }
                 vulnerabilities.append(vuln)
             except (json.JSONDecodeError, KeyError) as e:
                 print(f"Warning: Failed to parse {row.get('cve_id', 'unknown')}: {e}")
                 continue
-        
+
         return vulnerabilities
-    
+
     def generate_cve_page(self, vuln):
         """Generate a single CVE detail page"""
         cve_id = vuln["cve_id"]
-        
+
         # Ensure default values
-        title = vuln.get("title", cve_id)
         description = vuln.get("description", "No description available")
         cvss_score = vuln.get("cvss_score", 0)
         epss_percentile = vuln.get("epss_percentile", 0)
@@ -61,21 +61,23 @@ class CvePageGenerator:
         vendors = vuln.get("vendors", [])
         products = vuln.get("products", [])
         tags = vuln.get("tags", [])
-        
+
         # Format dates
         published_date = vuln.get("published_date", "Unknown")
         if published_date and published_date != "Unknown":
             try:
-                pub_dt = datetime.fromisoformat(published_date.replace('Z', '+00:00'))
+                pub_dt = datetime.fromisoformat(published_date.replace("Z", "+00:00"))
                 published_formatted = pub_dt.strftime("%B %d, %Y")
-            except:
+            except (ValueError, AttributeError):
                 published_formatted = published_date
         else:
             published_formatted = "Unknown"
-            
+
         # Check KEV status
-        is_kev = any("kev" in tag.lower() or "known exploited" in tag.lower() for tag in tags)
-        
+        is_kev = any(
+            "kev" in tag.lower() or "known exploited" in tag.lower() for tag in tags
+        )
+
         html_content = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -272,8 +274,12 @@ class CvePageGenerator:
         <div class="cve-header">
             <h1>{html.escape(cve_id)}</h1>
             <div class="badges">
-                <span class="badge severity-{vuln['severity'].lower()}">{vuln['severity']}</span>
-                {'<span class="badge kev-badge">🚨 Known Exploited</span>' if is_kev else ''}
+                <span class="badge severity-{vuln["severity"].lower()}">{
+            vuln["severity"]
+        }</span>
+                {
+            '<span class="badge kev-badge">🚨 Known Exploited</span>' if is_kev else ""
+        }
             </div>
             <div class="info-grid">
                 <div class="info-item">
@@ -286,7 +292,7 @@ class CvePageGenerator:
                 </div>
                 <div class="info-item">
                     <div class="info-label">Risk Score</div>
-                    <div class="info-value">{vuln['risk_score']}</div>
+                    <div class="info-value">{vuln["risk_score"]}</div>
                 </div>
                 <div class="info-item">
                     <div class="info-label">Published</div>
@@ -309,35 +315,47 @@ class CvePageGenerator:
                 </div>
                 <div class="info-item">
                     <div class="info-label">Attack Complexity</div>
-                    <div class="info-value">{html.escape(str(vuln.get('attack_complexity', 'Unknown')))}</div>
+                    <div class="info-value">{
+            html.escape(str(vuln.get("attack_complexity", "Unknown")))
+        }</div>
                 </div>
                 <div class="info-item">
                     <div class="info-label">Privileges Required</div>
-                    <div class="info-value">{html.escape(str(vuln.get('privileges_required', 'Unknown')))}</div>
+                    <div class="info-value">{
+            html.escape(str(vuln.get("privileges_required", "Unknown")))
+        }</div>
                 </div>
                 <div class="info-item">
                     <div class="info-label">User Interaction</div>
-                    <div class="info-value">{html.escape(str(vuln.get('user_interaction', 'Unknown')))}</div>
+                    <div class="info-value">{
+            html.escape(str(vuln.get("user_interaction", "Unknown")))
+        }</div>
                 </div>
             </div>
         </div>
         
-        {f'''<div class="section">
+        {
+            f'''<div class="section">
             <h2>Affected Products</h2>
             <h3>Vendors</h3>
             <div class="vendor-list">
-                {''.join(f'<span class="vendor-tag">{html.escape(str(v))}</span>' for v in vendors) if vendors else '<span class="vendor-tag">Unknown</span>'}
+                {"".join(f'<span class="vendor-tag">{html.escape(str(v))}</span>' for v in vendors) if vendors else '<span class="vendor-tag">Unknown</span>'}
             </div>
             <h3>Products</h3>
             <div class="product-list">
-                {''.join(f'<span class="product-tag">{html.escape(str(p))}</span>' for p in products) if products else '<span class="product-tag">Unknown</span>'}
+                {"".join(f'<span class="product-tag">{html.escape(str(p))}</span>' for p in products) if products else '<span class="product-tag">Unknown</span>'}
             </div>
-        </div>''' if vendors or products else ''}
+        </div>'''
+            if vendors or products
+            else ""
+        }
         
         <div class="section">
             <h2>References</h2>
             <p>
-                <a href="https://nvd.nist.gov/vuln/detail/{cve_id}" target="_blank" rel="noopener">
+                <a href="https://nvd.nist.gov/vuln/detail/{
+            cve_id
+        }" target="_blank" rel="noopener">
                     View on NVD →
                 </a>
             </p>
@@ -345,34 +363,35 @@ class CvePageGenerator:
     </div>
 </body>
 </html>"""
-        
+
         return html_content
-    
+
     def generate_all_pages(self):
         """Generate all CVE detail pages"""
         # Ensure output directory exists
         OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-        
+
         # Load vulnerabilities
         vulnerabilities = self.load_vulnerabilities()
         print(f"Generating {len(vulnerabilities)} CVE detail pages...")
-        
+
         # Generate each page
         for i, vuln in enumerate(vulnerabilities):
             cve_id = vuln["cve_id"]
             cve_dir = OUTPUT_DIR / cve_id
             cve_dir.mkdir(exist_ok=True)
-            
+
             html_content = self.generate_cve_page(vuln)
-            
+
             with open(cve_dir / "index.html", "w") as f:
                 f.write(html_content)
-            
+
             if (i + 1) % 100 == 0:
                 print(f"  Generated {i + 1} pages...")
-        
+
         print(f"✓ Generated {len(vulnerabilities)} CVE detail pages")
-        
+
+
 def main():
     """Main function"""
     # Check if database exists
@@ -380,10 +399,11 @@ def main():
         print(f"Error: Database not found at {DB_PATH}")
         print("Please run the vulnerability harvest first")
         return
-    
+
     # Generate CVE pages
     generator = CvePageGenerator(DB_PATH)
     generator.generate_all_pages()
-    
+
+
 if __name__ == "__main__":
     main()

@@ -44,7 +44,7 @@ class AlpineDashboardGenerator:
             try:
                 # Parse the JSON data from cache
                 vuln_data = json.loads(row["data"])
-                
+
                 # Create vulnerability dict with both cache fields and parsed data
                 vuln = {
                     "cve_id": row["cve_id"],
@@ -52,9 +52,9 @@ class AlpineDashboardGenerator:
                     "severity": row["severity"],
                     "published_date": row["published_date"],
                     "last_modified_date": row["last_modified_date"],
-                    **vuln_data  # Merge in all the JSON data
+                    **vuln_data,  # Merge in all the JSON data
                 }
-                
+
                 # Ensure required fields exist with defaults
                 vuln.setdefault("title", vuln.get("cve_id", "Unknown"))
                 vuln.setdefault("cvss_score", 0)
@@ -63,18 +63,22 @@ class AlpineDashboardGenerator:
                 vuln.setdefault("vendors", [])
                 vuln.setdefault("products", [])
                 vuln.setdefault("tags", [])
-                
+
                 # Ensure lists are properly formatted
                 if isinstance(vuln["vendors"], str):
-                    vuln["vendors_list"] = json.loads(vuln["vendors"]) if vuln["vendors"] else []
+                    vuln["vendors_list"] = (
+                        json.loads(vuln["vendors"]) if vuln["vendors"] else []
+                    )
                 else:
                     vuln["vendors_list"] = vuln["vendors"] if vuln["vendors"] else []
-                    
+
                 if isinstance(vuln["products"], str):
-                    vuln["products_list"] = json.loads(vuln["products"]) if vuln["products"] else []
+                    vuln["products_list"] = (
+                        json.loads(vuln["products"]) if vuln["products"] else []
+                    )
                 else:
                     vuln["products_list"] = vuln["products"] if vuln["products"] else []
-                    
+
                 if isinstance(vuln["tags"], str):
                     vuln["tags_list"] = json.loads(vuln["tags"]) if vuln["tags"] else []
                 else:
@@ -87,9 +91,11 @@ class AlpineDashboardGenerator:
                     vuln["published_short"] = "Unknown"
 
                 self.vulnerabilities.append(vuln)
-                
+
             except (json.JSONDecodeError, KeyError, TypeError) as e:
-                print(f"Warning: Failed to parse vulnerability {row.get('cve_id', 'unknown')}: {e}")
+                print(
+                    f"Warning: Failed to parse vulnerability {row.get('cve_id', 'unknown')}: {e}"
+                )
                 continue
 
     def _create_enhanced_title(self, vuln) -> str:
@@ -118,7 +124,11 @@ class AlpineDashboardGenerator:
 
         # If no vendor/product info, fall back to original title (truncated)
         if len(components) == 1:  # Only severity
-            fallback_title = vuln["title"][:80] + "..." if len(vuln.get("title", "")) > 80 else vuln.get("title", "")
+            fallback_title = (
+                vuln["title"][:80] + "..."
+                if len(vuln.get("title", "")) > 80
+                else vuln.get("title", "")
+            )
             return f"{components[0]} {fallback_title}"
 
         return " ".join(components)
@@ -140,11 +150,12 @@ class AlpineDashboardGenerator:
     def _extract_version_info(self, vuln) -> str:
         """Extract version information from title"""
         import re
+
         title = vuln.get("title", "")
         version_patterns = [
-            r'\bv?(\d+\.\d+(?:\.\d+)*)\b',
-            r'\bversion\s+(\d+\.\d+(?:\.\d+)*)\b',
-            r'\bbefore\s+(\d+\.\d+(?:\.\d+)*)\b',
+            r"\bv?(\d+\.\d+(?:\.\d+)*)\b",
+            r"\bversion\s+(\d+\.\d+(?:\.\d+)*)\b",
+            r"\bbefore\s+(\d+\.\d+(?:\.\d+)*)\b",
         ]
 
         for pattern in version_patterns:
@@ -157,15 +168,18 @@ class AlpineDashboardGenerator:
     def _extract_cwe_ids(self, vuln) -> list:
         """Extract CWE IDs from description or other fields"""
         import re
+
         text = f"{vuln.get('title', '')} {vuln.get('description', '')}"
-        cwe_pattern = r'CWE-(\d+)'
+        cwe_pattern = r"CWE-(\d+)"
         matches = re.findall(cwe_pattern, text)
         return [f"CWE-{match}" for match in matches[:3]]  # Limit to first 3
 
     def _get_kev_status(self, vuln) -> bool:
         """Check if vulnerability is in CISA KEV catalog"""
         tags = vuln.get("tags_list", [])
-        return any("kev" in tag.lower() or "known exploited" in tag.lower() for tag in tags)
+        return any(
+            "kev" in tag.lower() or "known exploited" in tag.lower() for tag in tags
+        )
 
     def _detect_patch_status(self, vuln) -> str:
         """Detect patch availability from description/title"""
