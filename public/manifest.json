@@ -1,0 +1,57 @@
+{
+  "name": "Morning Vuln Briefing",
+  "short_name": "VulnBrief",
+  "description": "Daily vulnerability intelligence platform with automated harvesting and risk scoring",
+  "start_url": "/vuln-bot/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "orientation": "portrait-primary",
+  "scope": "/vuln-bot/",
+  "lang": "en",
+  "categories": ["security", "productivity", "business"],
+  "icons": [
+    {
+      "src": "/vuln-bot/assets/icons/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/vuln-bot/assets/icons/favicon.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/vuln-bot/assets/icons/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/vuln-bot/assets/screenshots/desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Vulnerability Dashboard - Desktop View"
+    },
+    {
+      "src": "/vuln-bot/assets/screenshots/mobile.png",
+      "sizes": "375x812",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Vulnerability Dashboard - Mobile View"
+    }
+  ],
+  "features": ["Cross Platform", "fast", "simple"],
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "launch_handler": {
+    "client_mode": "focus-existing"
+  },
+  "handle_links": "preferred",
+  "related_applications": [],
+  "prefer_related_applications": false
+}

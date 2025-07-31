@@ -12,6 +12,7 @@ import yaml
 from scripts.harvest.cvelist_client import CVEListClient
 from scripts.harvest.epss_client import EPSSClient
 from scripts.harvest.github_advisory_client import GitHubAdvisoryClient
+from scripts.harvest.nvd_client import NVDClient
 from scripts.metrics import MetricsCollector
 from scripts.models import Vulnerability, VulnerabilityBatch
 from scripts.processing.cache_manager import CacheManager
@@ -57,6 +58,10 @@ class HarvestOrchestrator:
             use_github_api=True,
             use_releases=True,  # Use new release-based approach by default
             cache_manager=self.cache_manager,
+        )
+        self.nvd_client = NVDClient(
+            api_key=self.api_keys.get("NVD_API_KEY"),
+            cache_dir=cache_dir / "api_cache",
         )
         self.epss_client = EPSSClient(
             cache_dir=cache_dir / "api_cache",
@@ -155,6 +160,48 @@ class HarvestOrchestrator:
             self.logger.error("Failed to harvest GitHub Advisory data", error=str(e))
             return []
 
+    def harvest_nvd_data(
+        self,
+        years: Optional[List[int]] = None,
+        min_severity: str = "HIGH",
+        max_vulnerabilities: Optional[int] = None,
+    ) -> List[Vulnerability]:
+        """Harvest vulnerability data from NIST National Vulnerability Database.
+
+        Args:
+            years: List of years to harvest (default: [2024, 2025])
+            min_severity: Minimum severity level (HIGH or CRITICAL)
+            max_vulnerabilities: Maximum number of vulnerabilities to return
+
+        Returns:
+            List of vulnerabilities from NVD
+        """
+        if years is None:
+            years = [2024, 2025]
+
+        self.logger.info(
+            "Harvesting NVD data",
+            years=years,
+            min_severity=min_severity,
+            max_vulnerabilities=max_vulnerabilities,
+        )
+
+        try:
+            from scripts.models import SeverityLevel
+
+            severity_enum = SeverityLevel[min_severity.upper()]
+
+            vulnerabilities = self.nvd_client.harvest(
+                years=years,
+                min_severity=severity_enum,
+                max_vulnerabilities=max_vulnerabilities,
+            )
+            self.logger.info("Harvested NVD data", count=len(vulnerabilities))
+            return vulnerabilities
+        except Exception as e:
+            self.logger.error("Failed to harvest NVD data", error=str(e))
+            return []
+
     def enrich_with_epss(self, vulnerabilities: List[Vulnerability]) -> None:
         """Enrich vulnerabilities with EPSS scores.
 
@@ -246,6 +293,13 @@ class HarvestOrchestrator:
         # Define harvest tasks
         harvest_tasks = []
 
+        # Use NVD as primary source for complete vendor/product data
+        if not include_sources or "nvd" in include_sources:
+            harvest_tasks.append(
+                ("NVD", self.harvest_nvd_data, years, min_severity, None)
+            )
+
+        # Keep CVEList as fallback/secondary source
         if not include_sources or "cve" in include_sources:
             harvest_tasks.append(
                 ("CVEList", self.harvest_cve_data, years, min_severity, incremental)

@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You&#39;re Offline | Vulnerability Intelligence Dashboard</title>
+    <meta name="description" content="This page is available offline. Some features may be limited without an internet connection.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://localhost:8080/offline.html">
+    <meta property="og:title" content="You&#39;re Offline | Vulnerability Intelligence Dashboard">
+    <meta property="og:description" content="This page is available offline. Some features may be limited without an internet connection.">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:url" content="http://localhost:8080/offline.html">
+    <meta property="twitter:title" content="You&#39;re Offline | Vulnerability Intelligence Dashboard">
+    <meta property="twitter:description" content="This page is available offline. Some features may be limited without an internet connection.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg">
+    
+    <!-- Styles -->
+    <style>
+        /* CSS Custom Properties */
+        :root {
+            --color-primary: #0369a1;
+            --color-primary-light: #0ea5e9;
+            --color-secondary: #64748b;
+            --color-success: #059669;
+            --color-warning: #d97706;
+            --color-danger: #dc2626;
+            --color-dark: #1e293b;
+            --color-light: #f8fafc;
+            --color-border: #e2e8f0;
+            --color-muted: #94a3b8;
+            
+            /* Severity colors */
+            --severity-critical: #dc2626;
+            --severity-high: #ea580c;
+            --severity-medium: #d97706;
+            --severity-low: #64748b;
+            
+            /* Typography */
+            --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-family-mono: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            
+            /* Spacing */
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-2xl: 3rem;
+            
+            /* Border radius */
+            --radius-sm: 4px;
+            --radius-md: 6px;
+            --radius-lg: 8px;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Reset and base styles */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-family-base);
+            line-height: 1.6;
+            color: var(--color-dark);
+            background-color: var(--color-light);
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            margin: 0 0 var(--spacing-md) 0;
+            line-height: 1.2;
+            color: var(--color-dark);
+        }
+        
+        h1 { font-size: 2.25rem; font-weight: 700; }
+        h2 { font-size: 1.875rem; font-weight: 600; }
+        h3 { font-size: 1.5rem; font-weight: 600; }
+        h4 { font-size: 1.25rem; font-weight: 600; }
+        h5 { font-size: 1.125rem; font-weight: 600; }
+        h6 { font-size: 1rem; font-weight: 600; }
+        
+        p {
+            margin: 0 0 var(--spacing-md) 0;
+        }
+        
+        a {
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+        
+        a:hover {
+            color: var(--color-primary-light);
+            text-decoration: underline;
+        }
+        
+        code {
+            font-family: var(--font-family-mono);
+            font-size: 0.875em;
+            background-color: var(--color-border);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--radius-sm);
+        }
+        
+        pre {
+            background-color: var(--color-dark);
+            color: var(--color-light);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            overflow-x: auto;
+            margin: var(--spacing-md) 0;
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+        }
+        
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+        
+        .container-sm {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+        
+        .header {
+            background: white;
+            border-bottom: 1px solid var(--color-border);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--spacing-md) 0;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: var(--color-primary);
+        }
+        
+        .nav {
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+        
+        .nav a {
+            font-weight: 500;
+            color: var(--color-secondary);
+            transition: color 0.2s;
+        }
+        
+        .nav a:hover,
+        .nav a[aria-current="page"] {
+            color: var(--color-primary);
+        }
+        
+        .main {
+            padding: var(--spacing-xl) 0;
+        }
+        
+        .footer {
+            background: var(--color-dark);
+            color: var(--color-light);
+            padding: var(--spacing-xl) 0;
+            margin-top: var(--spacing-2xl);
+        }
+        
+        .footer a {
+            color: var(--color-light);
+        }
+        
+        /* Utility classes */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
+        .text-center { text-align: center; }
+        .text-right { text-align: right; }
+        .text-muted { color: var(--color-muted); }
+        .text-sm { font-size: 0.875rem; }
+        .text-lg { font-size: 1.125rem; }
+        
+        .font-mono { font-family: var(--font-family-mono); }
+        .font-semibold { font-weight: 600; }
+        .font-bold { font-weight: 700; }
+        
+        .mb-0 { margin-bottom: 0; }
+        .mb-sm { margin-bottom: var(--spacing-sm); }
+        .mb-md { margin-bottom: var(--spacing-md); }
+        .mb-lg { margin-bottom: var(--spacing-lg); }
+        .mb-xl { margin-bottom: var(--spacing-xl); }
+        
+        .mt-0 { margin-top: 0; }
+        .mt-sm { margin-top: var(--spacing-sm); }
+        .mt-md { margin-top: var(--spacing-md); }
+        .mt-lg { margin-top: var(--spacing-lg); }
+        .mt-xl { margin-top: var(--spacing-xl); }
+        
+        /* Severity indicators */
+        .severity-critical { color: var(--severity-critical); }
+        .severity-high { color: var(--severity-high); }
+        .severity-medium { color: var(--severity-medium); }
+        .severity-low { color: var(--severity-low); }
+        
+        .severity-badge {
+            display: inline-block;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: white;
+        }
+        
+        .severity-badge.critical { background-color: var(--severity-critical); }
+        .severity-badge.high { background-color: var(--severity-high); }
+        .severity-badge.medium { background-color: var(--severity-medium); }
+        .severity-badge.low { background-color: var(--severity-low); }
+        
+        /* Cards */
+        .card {
+            background: white;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .card h2:first-child,
+        .card h3:first-child {
+            margin-top: 0;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container,
+            .container-sm {
+                padding: 0 var(--spacing-sm);
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+            
+            .nav {
+                gap: var(--spacing-md);
+            }
+            
+            h1 { font-size: 1.875rem; }
+            h2 { font-size: 1.5rem; }
+            h3 { font-size: 1.25rem; }
+        }
+        
+        /* Offline styles */
+        body.offline {
+            border-top: 3px solid var(--color-warning);
+        }
+        
+        body.offline::before {
+            content: "⚠️ You're currently offline. Some features may be limited.";
+            display: block;
+            background: var(--color-warning);
+            color: white;
+            text-align: center;
+            padding: var(--spacing-sm);
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        .offline-indicator {
+            display: none;
+        }
+        
+        body.offline .offline-indicator {
+            display: inline-block;
+            background: var(--color-warning);
+            color: white;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            margin-left: var(--spacing-sm);
+        }
+        
+        /* Print styles */
+        @media print {
+            .header,
+            .nav,
+            .footer {
+                display: none;
+            }
+            
+            body {
+                background: white;
+                color: black;
+            }
+            
+            a {
+                color: black;
+                text-decoration: underline;
+            }
+            
+            .card {
+                border: 1px solid #ccc;
+                box-shadow: none;
+            }
+            
+            body.offline::before {
+                display: none;
+            }
+        }
+    </style>
+    
+    <!-- Additional page-specific styles -->
+    
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1>
+                    <a href="/">🛡️ Vulnerability Intelligence Dashboard</a>
+                </h1>
+                <nav class="nav" role="navigation" aria-label="Main navigation">
+                    <a href="/" >Dashboard</a>
+                    <a href="/cves/" >CVE Database</a>
+                    <a href="/about/" >About</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <main class="main" role="main">
+        
+
+<style>
+    .offline-container {
+        text-align: center;
+        padding: var(--spacing-2xl) 0;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .offline-icon {
+        font-size: 4rem;
+        margin-bottom: var(--spacing-lg);
+        opacity: 0.7;
+    }
+    
+    .offline-title {
+        font-size: 2.5rem;
+        margin-bottom: var(--spacing-md);
+        color: var(--color-secondary);
+    }
+    
+    .offline-message {
+        font-size: 1.125rem;
+        margin-bottom: var(--spacing-xl);
+        color: var(--color-muted);
+        line-height: 1.6;
+    }
+    
+    .offline-features {
+        background: white;
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-lg);
+        padding: var(--spacing-xl);
+        margin: var(--spacing-xl) 0;
+        text-align: left;
+        box-shadow: var(--shadow-sm);
+    }
+    
+    .offline-features h3 {
+        margin-top: 0;
+        color: var(--color-primary);
+        text-align: center;
+    }
+    
+    .feature-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .feature-list li {
+        padding: var(--spacing-sm) 0;
+        border-bottom: 1px solid var(--color-border);
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-md);
+    }
+    
+    .feature-list li:last-child {
+        border-bottom: none;
+    }
+    
+    .feature-icon {
+        font-size: 1.25rem;
+        width: 2rem;
+        text-align: center;
+    }
+    
+    .feature-available {
+        color: var(--color-success);
+    }
+    
+    .feature-unavailable {
+        color: var(--color-muted);
+        opacity: 0.6;
+    }
+    
+    .retry-section {
+        margin-top: var(--spacing-xl);
+    }
+    
+    .retry-button {
+        background: var(--color-primary);
+        color: white;
+        border: none;
+        padding: var(--spacing-md) var(--spacing-xl);
+        border-radius: var(--radius-md);
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.2s;
+    }
+    
+    .retry-button:hover {
+        background: var(--color-primary-light);
+    }
+    
+    .retry-button:disabled {
+        background: var(--color-secondary);
+        cursor: not-allowed;
+    }
+    
+    .connection-status {
+        margin-top: var(--spacing-md);
+        padding: var(--spacing-md);
+        border-radius: var(--radius-md);
+        font-weight: 500;
+    }
+    
+    .status-online {
+        background: #d1fae5;
+        color: #065f46;
+        border: 1px solid #a7f3d0;
+    }
+    
+    .status-offline {
+        background: #fee2e2;
+        color: #991b1b;
+        border: 1px solid #fca5a5;
+    }
+    
+    .cached-data-info {
+        background: var(--color-light);
+        padding: var(--spacing-lg);
+        border-radius: var(--radius-md);
+        margin-top: var(--spacing-xl);
+        border-left: 4px solid var(--color-primary);
+    }
+    
+    .cached-data-info h4 {
+        margin-top: 0;
+        color: var(--color-primary);
+    }
+    
+    @media (max-width: 768px) {
+        .offline-title {
+            font-size: 2rem;
+        }
+        
+        .feature-list li {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: var(--spacing-sm);
+        }
+        
+        .feature-icon {
+            width: auto;
+        }
+    }
+</style>
+
+
+<div class="container">
+    <div class="offline-container">
+        <div class="offline-icon">📡</div>
+        <h1 class="offline-title">You're Offline</h1>
+        <p class="offline-message">
+            No internet connection detected. Don't worry - some features are still available 
+            thanks to cached data from your previous visits.
+        </p>
+        
+        <div class="offline-features">
+            <h3>Available Features</h3>
+            <ul class="feature-list">
+                <li>
+                    <span class="feature-icon feature-available">✅</span>
+                    <div>
+                        <strong>Browse Cached Vulnerabilities</strong><br>
+                        <small>View previously loaded CVE data and details</small>
+                    </div>
+                </li>
+                <li>
+                    <span class="feature-icon feature-available">✅</span>
+                    <div>
+                        <strong>Search & Filter</strong><br>
+                        <small>Search through cached vulnerability data</small>
+                    </div>
+                </li>
+                <li>
+                    <span class="feature-icon feature-available">✅</span>
+                    <div>
+                        <strong>Dashboard Statistics</strong><br>
+                        <small>View severity breakdown and risk metrics</small>
+                    </div>
+                </li>
+                <li>
+                    <span class="feature-icon feature-unavailable">❌</span>
+                    <div>
+                        <strong>Real-time Updates</strong><br>
+                        <small>Latest vulnerability data requires internet connection</small>
+                    </div>
+                </li>
+                <li>
+                    <span class="feature-icon feature-unavailable">❌</span>
+                    <div>
+                        <strong>External Links</strong><br>
+                        <small>Links to NVD, MITRE, and other external resources</small>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="retry-section">
+            <button class="retry-button" onclick="checkConnection()">
+                Check Connection
+            </button>
+            <div id="connection-status" class="connection-status status-offline">
+                🔴 Currently offline
+            </div>
+        </div>
+        
+        <div class="cached-data-info">
+            <h4>📦 Cached Data Information</h4>
+            <p>
+                This application caches vulnerability data for offline access. 
+                Cached data is automatically updated when you're online to ensure 
+                you have the latest security intelligence.
+            </p>
+            <p>
+                <strong>Last Updated:</strong> <span id="last-updated">Checking...</span>
+            </p>
+        </div>
+    </div>
+</div>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    updateConnectionStatus();
+    updateLastUpdated();
+    
+    // Monitor connection changes
+    window.addEventListener('online', updateConnectionStatus);
+    window.addEventListener('offline', updateConnectionStatus);
+    
+    // Auto-check connection periodically
+    setInterval(checkConnection, 30000); // Check every 30 seconds
+});
+
+function updateConnectionStatus() {
+    const statusEl = document.getElementById('connection-status');
+    const retryBtn = document.querySelector('.retry-button');
+    
+    if (navigator.onLine) {
+        statusEl.textContent = '🟢 Connection restored';
+        statusEl.className = 'connection-status status-online';
+        retryBtn.textContent = 'Go Online';
+        retryBtn.disabled = false;
+        
+        // Automatically redirect to main page after a short delay
+        setTimeout(() => {
+            window.location.href = '/';
+        }, 2000);
+    } else {
+        statusEl.textContent = '🔴 Currently offline';
+        statusEl.className = 'connection-status status-offline';
+        retryBtn.textContent = 'Check Connection';
+        retryBtn.disabled = false;
+    }
+}
+
+async function checkConnection() {
+    const retryBtn = document.querySelector('.retry-button');
+    const statusEl = document.getElementById('connection-status');
+    
+    retryBtn.disabled = true;
+    retryBtn.textContent = 'Checking...';
+    statusEl.textContent = '🔄 Checking connection...';
+    statusEl.className = 'connection-status';
+    
+    try {
+        // Try to fetch a small resource to test connectivity
+        const response = await fetch('/api/vulns/index.json', {
+            cache: 'no-cache',
+            mode: 'cors'
+        });
+        
+        if (response.ok) {
+            statusEl.textContent = '🟢 Connection restored!';
+            statusEl.className = 'connection-status status-online';
+            retryBtn.textContent = 'Go Online';
+            
+            setTimeout(() => {
+                window.location.href = '/';
+            }, 1000);
+        } else {
+            throw new Error('Network response not ok');
+        }
+    } catch (error) {
+        console.log('Still offline:', error);
+        statusEl.textContent = '🔴 Still offline';
+        statusEl.className = 'connection-status status-offline';
+        retryBtn.textContent = 'Try Again';
+    }
+    
+    retryBtn.disabled = false;
+}
+
+async function updateLastUpdated() {
+    const lastUpdatedEl = document.getElementById('last-updated');
+    
+    try {
+        // Try to get cached data info
+        const cache = await caches.open('vuln-data-v1');
+        const cachedResponse = await cache.match('/api/vulns/index.json');
+        
+        if (cachedResponse) {
+            const data = await cachedResponse.json();
+            if (data.metadata && data.metadata.generated_at) {
+                const date = new Date(data.metadata.generated_at);
+                lastUpdatedEl.textContent = date.toLocaleString();
+            } else {
+                lastUpdatedEl.textContent = 'Information not available';
+            }
+        } else {
+            lastUpdatedEl.textContent = 'No cached data found';
+        }
+    } catch (error) {
+        console.error('Failed to get cache info:', error);
+        lastUpdatedEl.textContent = 'Unable to determine';
+    }
+}
+
+// Register service worker if not already registered
+if ('serviceWorker' in navigator && !navigator.serviceWorker.controller) {
+    navigator.serviceWorker.register('/sw.js')
+        .then(registration => {
+            console.log('Service Worker registered:', registration);
+        })
+        .catch(error => {
+            console.error('Service Worker registration failed:', error);
+        });
+}
+</script>
+
+    </main>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="text-center">
+                <p class="mb-sm">
+                    <strong>Vulnerability Intelligence Dashboard</strong> - High-risk CVE intelligence platform tracking Critical &amp; High severity vulnerabilities with EPSS ≥ 70% exploitation probability
+                </p>
+                <p class="text-sm text-muted mb-0">
+                    Last updated: July 31, 2025 | 
+                    Data sources: CVEProject, GitHub Advisory Database, EPSS API
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    
+    
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js', {
+                    scope: '/'
+                }).then(function(registration) {
+                    console.log('Service Worker registered with scope:', registration.scope);
+                    
+                    // Check for updates
+                    registration.addEventListener('updatefound', function() {
+                        const newWorker = registration.installing;
+                        newWorker.addEventListener('statechange', function() {
+                            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                // New content is available, prompt user to refresh
+                                if (confirm('New vulnerability data is available. Refresh to get the latest information?')) {
+                                    window.location.reload();
+                                }
+                            }
+                        });
+                    });
+                }).catch(function(error) {
+                    console.log('Service Worker registration failed:', error);
+                });
+            });
+            
+            // Handle offline/online events
+            window.addEventListener('offline', function() {
+                document.body.classList.add('offline');
+                console.log('Application is now offline');
+            });
+            
+            window.addEventListener('online', function() {
+                document.body.classList.remove('offline');
+                console.log('Application is back online');
+            });
+        }
+    </script>
+    
+    <!-- Analytics -->
+    
+</body>
+</html>

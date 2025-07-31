@@ -176,6 +176,7 @@ def harvest(
     api_keys = {
         "GITHUB_TOKEN": os.getenv("GITHUB_TOKEN"),
         "EPSS_API_KEY": os.getenv("EPSS_API_KEY"),
+        "NVD_API_KEY": os.getenv("NVD_API_KEY"),
     }
 
     # Initialize orchestrator

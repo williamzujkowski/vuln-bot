@@ -1,0 +1,342 @@
+---
+layout: base.njk
+title: You're Offline
+description: This page is available offline. Some features may be limited without an internet connection.
+permalink: /offline.html
+---
+
+{% block styles %}
+<style>
+    .offline-container {
+        text-align: center;
+        padding: var(--spacing-2xl) 0;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .offline-icon {
+        font-size: 4rem;
+        margin-bottom: var(--spacing-lg);
+        opacity: 0.7;
+    }
+    
+    .offline-title {
+        font-size: 2.5rem;
+        margin-bottom: var(--spacing-md);
+        color: var(--color-secondary);
+    }
+    
+    .offline-message {
+        font-size: 1.125rem;
+        margin-bottom: var(--spacing-xl);
+        color: var(--color-muted);
+        line-height: 1.6;
+    }
+    
+    .offline-features {
+        background: white;
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-lg);
+        padding: var(--spacing-xl);
+        margin: var(--spacing-xl) 0;
+        text-align: left;
+        box-shadow: var(--shadow-sm);
+    }
+    
+    .offline-features h3 {
+        margin-top: 0;
+        color: var(--color-primary);
+        text-align: center;
+    }
+    
+    .feature-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .feature-list li {
+        padding: var(--spacing-sm) 0;
+        border-bottom: 1px solid var(--color-border);
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-md);
+    }
+    
+    .feature-list li:last-child {
+        border-bottom: none;
+    }
+    
+    .feature-icon {
+        font-size: 1.25rem;
+        width: 2rem;
+        text-align: center;
+    }
+    
+    .feature-available {
+        color: var(--color-success);
+    }
+    
+    .feature-unavailable {
+        color: var(--color-muted);
+        opacity: 0.6;
+    }
+    
+    .retry-section {
+        margin-top: var(--spacing-xl);
+    }
+    
+    .retry-button {
+        background: var(--color-primary);
+        color: white;
+        border: none;
+        padding: var(--spacing-md) var(--spacing-xl);
+        border-radius: var(--radius-md);
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.2s;
+    }
+    
+    .retry-button:hover {
+        background: var(--color-primary-light);
+    }
+    
+    .retry-button:disabled {
+        background: var(--color-secondary);
+        cursor: not-allowed;
+    }
+    
+    .connection-status {
+        margin-top: var(--spacing-md);
+        padding: var(--spacing-md);
+        border-radius: var(--radius-md);
+        font-weight: 500;
+    }
+    
+    .status-online {
+        background: #d1fae5;
+        color: #065f46;
+        border: 1px solid #a7f3d0;
+    }
+    
+    .status-offline {
+        background: #fee2e2;
+        color: #991b1b;
+        border: 1px solid #fca5a5;
+    }
+    
+    .cached-data-info {
+        background: var(--color-light);
+        padding: var(--spacing-lg);
+        border-radius: var(--radius-md);
+        margin-top: var(--spacing-xl);
+        border-left: 4px solid var(--color-primary);
+    }
+    
+    .cached-data-info h4 {
+        margin-top: 0;
+        color: var(--color-primary);
+    }
+    
+    @media (max-width: 768px) {
+        .offline-title {
+            font-size: 2rem;
+        }
+        
+        .feature-list li {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: var(--spacing-sm);
+        }
+        
+        .feature-icon {
+            width: auto;
+        }
+    }
+</style>
+{% endblock %}
+
+<div class="container">
+    <div class="offline-container">
+        <div class="offline-icon">📡</div>
+        <h1 class="offline-title">You're Offline</h1>
+        <p class="offline-message">
+            No internet connection detected. Don't worry - some features are still available 
+            thanks to cached data from your previous visits.
+        </p>
+        
+        <div class="offline-features">
+            <h3>Available Features</h3>
+            <ul class="feature-list">
+                <li>
+                    <span class="feature-icon feature-available">✅</span>
+                    <div>
+                        <strong>Browse Cached Vulnerabilities</strong><br>
+                        <small>View previously loaded CVE data and details</small>
+                    </div>
+                </li>
+                <li>
+                    <span class="feature-icon feature-available">✅</span>
+                    <div>
+                        <strong>Search & Filter</strong><br>
+                        <small>Search through cached vulnerability data</small>
+                    </div>
+                </li>
+                <li>
+                    <span class="feature-icon feature-available">✅</span>
+                    <div>
+                        <strong>Dashboard Statistics</strong><br>
+                        <small>View severity breakdown and risk metrics</small>
+                    </div>
+                </li>
+                <li>
+                    <span class="feature-icon feature-unavailable">❌</span>
+                    <div>
+                        <strong>Real-time Updates</strong><br>
+                        <small>Latest vulnerability data requires internet connection</small>
+                    </div>
+                </li>
+                <li>
+                    <span class="feature-icon feature-unavailable">❌</span>
+                    <div>
+                        <strong>External Links</strong><br>
+                        <small>Links to NVD, MITRE, and other external resources</small>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="retry-section">
+            <button class="retry-button" onclick="checkConnection()">
+                Check Connection
+            </button>
+            <div id="connection-status" class="connection-status status-offline">
+                🔴 Currently offline
+            </div>
+        </div>
+        
+        <div class="cached-data-info">
+            <h4>📦 Cached Data Information</h4>
+            <p>
+                This application caches vulnerability data for offline access. 
+                Cached data is automatically updated when you're online to ensure 
+                you have the latest security intelligence.
+            </p>
+            <p>
+                <strong>Last Updated:</strong> <span id="last-updated">Checking...</span>
+            </p>
+        </div>
+    </div>
+</div>
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    updateConnectionStatus();
+    updateLastUpdated();
+    
+    // Monitor connection changes
+    window.addEventListener('online', updateConnectionStatus);
+    window.addEventListener('offline', updateConnectionStatus);
+    
+    // Auto-check connection periodically
+    setInterval(checkConnection, 30000); // Check every 30 seconds
+});
+
+function updateConnectionStatus() {
+    const statusEl = document.getElementById('connection-status');
+    const retryBtn = document.querySelector('.retry-button');
+    
+    if (navigator.onLine) {
+        statusEl.textContent = '🟢 Connection restored';
+        statusEl.className = 'connection-status status-online';
+        retryBtn.textContent = 'Go Online';
+        retryBtn.disabled = false;
+        
+        // Automatically redirect to main page after a short delay
+        setTimeout(() => {
+            window.location.href = '/';
+        }, 2000);
+    } else {
+        statusEl.textContent = '🔴 Currently offline';
+        statusEl.className = 'connection-status status-offline';
+        retryBtn.textContent = 'Check Connection';
+        retryBtn.disabled = false;
+    }
+}
+
+async function checkConnection() {
+    const retryBtn = document.querySelector('.retry-button');
+    const statusEl = document.getElementById('connection-status');
+    
+    retryBtn.disabled = true;
+    retryBtn.textContent = 'Checking...';
+    statusEl.textContent = '🔄 Checking connection...';
+    statusEl.className = 'connection-status';
+    
+    try {
+        // Try to fetch a small resource to test connectivity
+        const response = await fetch('/api/vulns/index.json', {
+            cache: 'no-cache',
+            mode: 'cors'
+        });
+        
+        if (response.ok) {
+            statusEl.textContent = '🟢 Connection restored!';
+            statusEl.className = 'connection-status status-online';
+            retryBtn.textContent = 'Go Online';
+            
+            setTimeout(() => {
+                window.location.href = '/';
+            }, 1000);
+        } else {
+            throw new Error('Network response not ok');
+        }
+    } catch (error) {
+        console.log('Still offline:', error);
+        statusEl.textContent = '🔴 Still offline';
+        statusEl.className = 'connection-status status-offline';
+        retryBtn.textContent = 'Try Again';
+    }
+    
+    retryBtn.disabled = false;
+}
+
+async function updateLastUpdated() {
+    const lastUpdatedEl = document.getElementById('last-updated');
+    
+    try {
+        // Try to get cached data info
+        const cache = await caches.open('vuln-data-v1');
+        const cachedResponse = await cache.match('/api/vulns/index.json');
+        
+        if (cachedResponse) {
+            const data = await cachedResponse.json();
+            if (data.metadata && data.metadata.generated_at) {
+                const date = new Date(data.metadata.generated_at);
+                lastUpdatedEl.textContent = date.toLocaleString();
+            } else {
+                lastUpdatedEl.textContent = 'Information not available';
+            }
+        } else {
+            lastUpdatedEl.textContent = 'No cached data found';
+        }
+    } catch (error) {
+        console.error('Failed to get cache info:', error);
+        lastUpdatedEl.textContent = 'Unable to determine';
+    }
+}
+
+// Register service worker if not already registered
+if ('serviceWorker' in navigator && !navigator.serviceWorker.controller) {
+    navigator.serviceWorker.register('/sw.js')
+        .then(registration => {
+            console.log('Service Worker registered:', registration);
+        })
+        .catch(error => {
+            console.error('Service Worker registration failed:', error);
+        });
+}
+</script>
+{% endblock %}

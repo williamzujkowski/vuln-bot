@@ -125,6 +125,9 @@ class Vulnerability(BaseModel):
     requires_user_interaction: Optional[bool] = None
     requires_privileges: Optional[str] = None
     attack_vector: Optional[str] = None
+    attack_complexity: Optional[str] = None
+    privileges_required: Optional[str] = None
+    user_interaction: Optional[str] = None
 
     # Data quality score (calculated during validation)
     quality_score: Optional[float] = None
