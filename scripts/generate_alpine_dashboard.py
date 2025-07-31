@@ -6,6 +6,7 @@ This creates a single HTML file with embedded data and client-side functionality
 
 import json
 import sqlite3
+import sys
 from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any, Dict
