@@ -665,111 +665,6 @@ class AlpineDashboardGenerator:
             height: 300px;
         }}
 
-        /* Modal */
-        .modal {{
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-        }}
-
-        .modal.show {{
-            display: flex;
-        }}
-
-        .modal-content {{
-            background: var(--bg-card);
-            border-radius: 20px;
-            padding: 2rem;
-            max-width: 600px;
-            width: 90%;
-            max-height: 80vh;
-            overflow-y: auto;
-        }}
-
-        .modal h2 {{
-            margin-bottom: 1rem;
-            color: var(--accent-primary);
-        }}
-
-        .modal-close {{
-            background: var(--accent-primary);
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            cursor: pointer;
-            margin-top: 1rem;
-        }}
-
-        .modal-section {{
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }}
-
-        .modal-section:last-of-type {{
-            border-bottom: none;
-        }}
-
-        .modal-section h3 {{
-            color: var(--accent-secondary);
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }}
-
-        .kev-badge {{
-            background: var(--accent-danger);
-            color: white;
-            padding: 0.25rem 0.5rem;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }}
-
-        .cwe-link {{
-            background: var(--bg-secondary);
-            color: var(--accent-primary);
-            padding: 0.2rem 0.4rem;
-            border-radius: 4px;
-            text-decoration: none;
-            margin-right: 0.3rem;
-            font-size: 0.8rem;
-            border: 1px solid var(--accent-primary);
-        }}
-
-        .cwe-link:hover {{
-            background: var(--accent-primary);
-            color: white;
-        }}
-
-        .patch-status {{
-            padding: 0.25rem 0.5rem;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }}
-
-        .patch-status.available {{
-            background: var(--accent-success);
-            color: white;
-        }}
-
-        .patch-status.unavailable {{
-            background: var(--accent-danger);
-            color: white;
-        }}
-
-        .patch-status.unknown {{
-            background: var(--text-muted);
-            color: white;
-        }}
 
         /* Responsive */
         @media (max-width: 768px) {{
@@ -1034,7 +929,7 @@ class AlpineDashboardGenerator:
                             <template x-for="vuln in paginatedVulns" :key="vuln.cve_id">
                                 <tr class="vulnerability-row" :data-cve="vuln.cve_id">
                                     <td>
-                                        <a href="#" @click.prevent="openModal(vuln)" class="cve-link" x-text="vuln.cve_id"></a>
+                                        <a :href="`/vuln-bot/cves/${{vuln.cve_id}}/`" class="cve-link" x-text="vuln.cve_id"></a>
                                     </td>
                                     <td>
                                         <span class="severity-badge" :class="`severity-${{vuln.severity.toLowerCase()}}`" x-text="vuln.severity"></span>
@@ -1067,81 +962,6 @@ class AlpineDashboardGenerator:
             </div>
         </main>
 
-        <!-- CVE Modal -->
-        <div x-ref="modal" class="modal" :class="{{ 'show': showModal }}" @click.self="closeModal()">
-            <div class="modal-content">
-                <template x-if="selectedVuln">
-                    <div>
-                        <h2 x-text="selectedVuln.cve_id"></h2>
-
-                        <!-- Risk Assessment Section -->
-                        <div class="modal-section">
-                            <h3>Risk Assessment</h3>
-                            <p><strong>Severity:</strong> <span class="severity-badge" :class="`severity-${{selectedVuln.severity.toLowerCase()}}`" x-text="selectedVuln.severity"></span></p>
-                            <p><strong>CVSS Score:</strong> <span x-text="selectedVuln.cvss_score"></span></p>
-                            <p><strong>EPSS:</strong> <span x-text="selectedVuln.epss_percentile + '%'"></span></p>
-                            <p><strong>Risk Score:</strong> <span x-text="selectedVuln.risk_score"></span></p>
-                            <template x-if="selectedVuln.kev_status">
-                                <p><strong>KEV Status:</strong> <span class="kev-badge">🚨 Known Exploited</span></p>
-                            </template>
-                            <p><strong>Exploitation Status:</strong> <span x-text="selectedVuln.exploitation_status"></span></p>
-                        </div>
-
-                        <!-- Vulnerability Details Section -->
-                        <div class="modal-section">
-                            <h3>Vulnerability Details</h3>
-                            <p><strong>Title:</strong> <span x-text="selectedVuln.title"></span></p>
-                            <p><strong>Product:</strong> <span x-text="selectedVuln.products"></span></p>
-                            <p><strong>Vendors:</strong> <span x-text="selectedVuln.vendors.join(', ') || 'Unknown'"></span></p>
-                            <p><strong>Published:</strong> <span x-text="selectedVuln.published_short"></span></p>
-                            <template x-if="selectedVuln.last_modified_date">
-                                <p><strong>Updated:</strong> <span x-text="selectedVuln.last_modified_date"></span></p>
-                            </template>
-                            <template x-if="selectedVuln.cwe_ids && selectedVuln.cwe_ids.length > 0">
-                                <p><strong>CWE:</strong>
-                                    <template x-for="cwe in selectedVuln.cwe_ids" :key="cwe">
-                                        <a :href="`https://cwe.mitre.org/data/definitions/${{cwe.replace('CWE-', '')}}.html`" target="_blank" class="cwe-link" x-text="cwe"></a>
-                                    </template>
-                                </p>
-                            </template>
-                            <p><strong>Patch Status:</strong>
-                                <span class="patch-status" :class="selectedVuln.patch_status.toLowerCase()" x-text="selectedVuln.patch_status"></span>
-                            </p>
-                        </div>
-
-                        <!-- Description -->
-                        <template x-if="selectedVuln.description">
-                            <div class="modal-section">
-                                <h3>Description</h3>
-                                <p x-text="selectedVuln.description"></p>
-                            </div>
-                        </template>
-
-                        <!-- Technical Details -->
-                        <div class="modal-section">
-                            <h3>Technical Details</h3>
-                            <template x-if="selectedVuln.attack_vector">
-                                <p><strong>Attack Vector:</strong> <span x-text="selectedVuln.attack_vector"></span></p>
-                            </template>
-                            <template x-if="selectedVuln.attack_complexity">
-                                <p><strong>Attack Complexity:</strong> <span x-text="selectedVuln.attack_complexity"></span></p>
-                            </template>
-                            <template x-if="selectedVuln.user_interaction">
-                                <p><strong>User Interaction:</strong> <span x-text="selectedVuln.user_interaction"></span></p>
-                            </template>
-                            <template x-if="selectedVuln.privileges_required">
-                                <p><strong>Privileges Required:</strong> <span x-text="selectedVuln.privileges_required"></span></p>
-                            </template>
-                            <template x-if="selectedVuln.scope">
-                                <p><strong>Scope:</strong> <span x-text="selectedVuln.scope"></span></p>
-                            </template>
-                        </div>
-
-                        <button class="modal-close" @click="closeModal()">Close</button>
-                    </div>
-                </template>
-            </div>
-        </div>
     </div>
 
     <script>
@@ -1162,8 +982,6 @@ class AlpineDashboardGenerator:
                 sortOrder: 'desc',
                 currentPage: 1,
                 perPage: 50,
-                showModal: false,
-                selectedVuln: null,
 
                 // Filters
                 filters: {{
@@ -1309,15 +1127,6 @@ class AlpineDashboardGenerator:
                     this.currentPage = 1;
                 }},
 
-                openModal(vuln) {{
-                    this.selectedVuln = vuln;
-                    this.showModal = true;
-                }},
-
-                closeModal() {{
-                    this.showModal = false;
-                    this.selectedVuln = null;
-                }},
 
                 exportCSV() {{
                     const headers = ['CVE ID', 'Severity', 'CVSS', 'EPSS %', 'Risk Score', 'Product', 'Vendors', 'Published'];
@@ -1363,11 +1172,6 @@ class AlpineDashboardGenerator:
                             case 'e':
                                 e.preventDefault();
                                 this.exportCSV();
-                                break;
-                            case 'Escape':
-                                if (this.showModal) {{
-                                    this.closeModal();
-                                }}
                                 break;
                         }}
                     }});

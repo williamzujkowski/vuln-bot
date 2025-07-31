@@ -106,6 +106,9 @@ jobs:
           # Generate the Alpine.js dashboard
           python scripts/generate_alpine_dashboard.py
           
+          # Generate static CVE detail pages
+          python scripts/generate_cve_pages.py
+          
           # Copy service worker if it doesn't exist
           if [ ! -f public/sw.js ] && [ -f src/sw.js ]; then
             cp src/sw.js public/
