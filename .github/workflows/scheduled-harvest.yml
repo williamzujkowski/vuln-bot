@@ -101,7 +101,7 @@ jobs:
           mkdir -p .cache
           
           # Copy the database to the expected location
-          cp actions-cache/vulns.db .cache/vulns.db || true
+          cp actions-cache/vulnerability_cache.db .cache/vulns.db || true
           
           # Generate the Alpine.js dashboard
           python scripts/generate_alpine_dashboard.py
