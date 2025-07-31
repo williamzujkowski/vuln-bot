@@ -51,12 +51,12 @@ class AlpineDashboardGenerator:
                     for metric in vuln_data["cvss_metrics"]:
                         if metric.get("base_score"):
                             cvss_score = max(cvss_score, metric["base_score"])
-                
+
                 # Extract EPSS percentile
                 epss_percentile = 0
                 if vuln_data.get("epss_score") and isinstance(vuln_data["epss_score"], dict):
                     epss_percentile = vuln_data["epss_score"].get("percentile", 0)
-                
+
                 # Create vulnerability dict with both cache fields and parsed data
                 vuln = {
                     "cve_id": row["cve_id"],

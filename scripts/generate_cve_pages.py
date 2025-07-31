@@ -3,11 +3,11 @@
 Generate static CVE detail pages for each vulnerability
 """
 
+import html
 import json
 import sqlite3
-from pathlib import Path
 from datetime import datetime
-import html
+from pathlib import Path
 
 # Configuration
 OUTPUT_DIR = Path("public/cves")
@@ -34,19 +34,19 @@ class CvePageGenerator:
         for row in rows:
             try:
                 vuln_data = json.loads(row["data"])
-                
+
                 # Extract CVSS score from cvss_metrics
                 cvss_score = 0
                 if vuln_data.get("cvss_metrics"):
                     for metric in vuln_data["cvss_metrics"]:
                         if metric.get("base_score"):
                             cvss_score = max(cvss_score, metric["base_score"])
-                
+
                 # Extract EPSS percentile
                 epss_percentile = 0
                 if vuln_data.get("epss_score") and isinstance(vuln_data["epss_score"], dict):
                     epss_percentile = vuln_data["epss_score"].get("percentile", 0)
-                
+
                 vuln = {
                     "cve_id": row["cve_id"],
                     "risk_score": row["risk_score"],
@@ -110,7 +110,7 @@ class CvePageGenerator:
             --text-primary: #ffffff;
             --text-secondary: #a3a3b8;
         }}
-        
+
         body {{
             background: var(--bg-primary);
             color: var(--text-primary);
@@ -119,135 +119,135 @@ class CvePageGenerator:
             margin: 0;
             padding: 0;
         }}
-        
+
         .container {{
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
         }}
-        
+
         .header {{
             background: var(--bg-secondary);
             padding: 1rem 0;
             margin-bottom: 2rem;
         }}
-        
+
         .breadcrumb {{
             margin-bottom: 2rem;
         }}
-        
+
         .breadcrumb a {{
             color: var(--accent-primary);
             text-decoration: none;
         }}
-        
+
         .breadcrumb a:hover {{
             text-decoration: underline;
         }}
-        
+
         .cve-header {{
             background: var(--bg-card);
             padding: 2rem;
             border-radius: 12px;
             margin-bottom: 2rem;
         }}
-        
+
         .cve-header h1 {{
             margin: 0 0 1rem 0;
             color: var(--accent-primary);
         }}
-        
+
         .badges {{
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
             margin-bottom: 1rem;
         }}
-        
+
         .badge {{
             padding: 0.25rem 0.75rem;
             border-radius: 20px;
             font-size: 0.875rem;
             font-weight: 600;
         }}
-        
+
         .severity-critical {{
             background: rgba(220, 38, 38, 0.2);
             color: #dc2626;
             border: 1px solid rgba(220, 38, 38, 0.3);
         }}
-        
+
         .severity-high {{
             background: rgba(239, 68, 68, 0.2);
             color: #ef4444;
             border: 1px solid rgba(239, 68, 68, 0.3);
         }}
-        
+
         .severity-medium {{
             background: rgba(245, 158, 11, 0.2);
             color: #f59e0b;
             border: 1px solid rgba(245, 158, 11, 0.3);
         }}
-        
+
         .severity-low {{
             background: rgba(59, 130, 246, 0.2);
             color: #3b82f6;
             border: 1px solid rgba(59, 130, 246, 0.3);
         }}
-        
+
         .kev-badge {{
             background: var(--accent-danger);
             color: white;
         }}
-        
+
         .info-grid {{
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1rem;
             margin-top: 1rem;
         }}
-        
+
         .info-item {{
             background: rgba(255, 255, 255, 0.05);
             padding: 1rem;
             border-radius: 8px;
         }}
-        
+
         .info-label {{
             color: var(--text-secondary);
             font-size: 0.875rem;
         }}
-        
+
         .info-value {{
             font-size: 1.125rem;
             font-weight: 600;
             margin-top: 0.25rem;
         }}
-        
+
         .section {{
             background: var(--bg-card);
             padding: 2rem;
             border-radius: 12px;
             margin-bottom: 2rem;
         }}
-        
+
         .section h2 {{
             margin-top: 0;
             color: var(--accent-primary);
         }}
-        
+
         .description {{
             line-height: 1.8;
             color: var(--text-secondary);
         }}
-        
+
         .vendor-list, .product-list {{
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
             margin-top: 0.5rem;
         }}
-        
+
         .vendor-tag, .product-tag {{
             background: rgba(0, 212, 255, 0.1);
             color: var(--accent-primary);
@@ -255,7 +255,7 @@ class CvePageGenerator:
             border-radius: 16px;
             font-size: 0.875rem;
         }}
-        
+
         .back-link {{
             display: inline-flex;
             align-items: center;
@@ -264,7 +264,7 @@ class CvePageGenerator:
             margin-bottom: 2rem;
             gap: 0.5rem;
         }}
-        
+
         .back-link:hover {{
             text-decoration: underline;
         }}
@@ -274,18 +274,18 @@ class CvePageGenerator:
     <div class="header">
         <div class="container">
             <div class="breadcrumb">
-                <a href="{self.base_path}/">Home</a> / 
-                <a href="{self.base_path}/#vulnerabilities">Vulnerabilities</a> / 
+                <a href="{self.base_path}/">Home</a> /
+                <a href="{self.base_path}/#vulnerabilities">Vulnerabilities</a> /
                 <span>{html.escape(cve_id)}</span>
             </div>
         </div>
     </div>
-    
+
     <div class="container">
         <a href="{self.base_path}/" class="back-link">
             ← Back to Dashboard
         </a>
-        
+
         <div class="cve-header">
             <h1>{html.escape(cve_id)}</h1>
             <div class="badges">
@@ -315,12 +315,12 @@ class CvePageGenerator:
                 </div>
             </div>
         </div>
-        
+
         <div class="section">
             <h2>Description</h2>
             <p class="description">{html.escape(description)}</p>
         </div>
-        
+
         <div class="section">
             <h2>Technical Details</h2>
             <div class="info-grid">
@@ -348,7 +348,7 @@ class CvePageGenerator:
                 </div>
             </div>
         </div>
-        
+
         {
             f'''<div class="section">
             <h2>Affected Products</h2>
@@ -364,7 +364,7 @@ class CvePageGenerator:
             if vendors or products
             else ""
         }
-        
+
         <div class="section">
             <h2>References</h2>
             <p>

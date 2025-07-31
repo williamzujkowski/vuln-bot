@@ -12,11 +12,11 @@ from scripts.processing.cache_manager import CacheManager
 
 class DashboardAgent(BaseAgent):
     """Agent responsible for generating the vulnerability dashboard."""
-    
+
     def __init__(self, cache_dir: Path = None):
         super().__init__("dashboard", cache_dir)
         self.cache_manager = None
-        
+
         # Configuration
         self.config = {
             'output_dir': 'public',
@@ -26,10 +26,10 @@ class DashboardAgent(BaseAgent):
             'generate_search_index': True,
             'dashboard_template': 'src/index.njk'
         }
-    
+
     async def execute(self, **kwargs) -> Dict[str, Any]:
         """Execute dashboard generation.
-        
+
         Returns:
             Results from dashboard generation
         """
@@ -37,9 +37,9 @@ class DashboardAgent(BaseAgent):
         if not self.cache_manager:
             cache_db_path = self.cache_dir / "vulns.db"
             self.cache_manager = CacheManager(db_path=str(cache_db_path))
-        
+
         config = {**self.config, **kwargs}
-        
+
         results = {
             'started_at': datetime.now(timezone.utc).isoformat(),
             'config': config,
@@ -49,7 +49,7 @@ class DashboardAgent(BaseAgent):
             'errors': [],
             'metrics': {}
         }
-        
+
         try:
             # Get vulnerabilities from cache
             vulnerabilities = await asyncio.to_thread(
@@ -57,30 +57,30 @@ class DashboardAgent(BaseAgent):
                 limit=config['max_vulnerabilities'],
                 min_risk_score=70
             )
-            
+
             self.logger.info(
                 "Generating dashboard",
                 vulnerability_count=len(vulnerabilities),
                 max_vulnerabilities=config['max_vulnerabilities']
             )
-            
+
             # Generate API data files
             api_files = await self._generate_api_files(vulnerabilities, config)
             results['api_files'] = api_files
-            
+
             # Generate dashboard HTML
             dashboard_file = await self._generate_dashboard_html(vulnerabilities, config)
             results['files_generated'].append(dashboard_file)
-            
+
             # Generate search index
             if config.get('generate_search_index'):
                 search_index = await self._generate_search_index(vulnerabilities, config)
                 results['files_generated'].append(search_index)
-            
+
             # Calculate metrics
             from collections import Counter
             severity_dist = Counter(v.severity.value for v in vulnerabilities)
-            
+
             results['metrics'] = {
                 'vulnerabilities_processed': len(vulnerabilities),
                 'severity_distribution': dict(severity_dist),
@@ -90,73 +90,73 @@ class DashboardAgent(BaseAgent):
                     vendor for v in vulnerabilities for vendor in v.affected_vendors[:3]
                 ).most_common(10)]
             }
-            
+
             results['completed_at'] = datetime.now(timezone.utc).isoformat()
-            
+
             self.logger.info(
                 "Dashboard generation completed",
                 vulnerabilities_processed=len(vulnerabilities),
                 files_generated=len(results['files_generated']) + len(results['api_files'])
             )
-            
+
             return results
-            
+
         except Exception as e:
             results['success'] = False
             results['errors'].append(str(e))
             results['completed_at'] = datetime.now(timezone.utc).isoformat()
-            
+
             self.logger.error("Dashboard generation failed", error=str(e))
             raise
-    
+
     async def _generate_api_files(self, vulnerabilities: List, config: Dict[str, Any]) -> List[str]:
         """Generate API data files for the dashboard.
-        
+
         Args:
             vulnerabilities: List of vulnerability objects
             config: Generation configuration
-            
+
         Returns:
             List of generated file paths
         """
         api_dir = Path(config['api_dir'])
         api_dir.mkdir(parents=True, exist_ok=True)
-        
+
         generated_files = []
-        
+
         if config.get('chunk_by_severity'):
             # Group by severity and year
             from collections import defaultdict
             chunks = defaultdict(list)
-            
+
             for vuln in vulnerabilities:
                 year = vuln.published_date.year
                 severity = vuln.severity.value
                 chunk_key = f"{year}-{severity}"
                 chunks[chunk_key].append(vuln.to_summary_dict())
-            
+
             # Generate chunk files
             chunk_index = {}
             for chunk_key, vulns in chunks.items():
                 chunk_file = api_dir / f"vulns-{chunk_key}.json"
-                
+
                 chunk_data = {
                     'chunk_id': chunk_key,
                     'count': len(vulns),
                     'vulnerabilities': vulns,
                     'generated_at': datetime.now(timezone.utc).isoformat()
                 }
-                
+
                 chunk_file.write_text(json.dumps(chunk_data, indent=2))
                 generated_files.append(str(chunk_file))
-                
+
                 chunk_index[chunk_key] = {
                     'file': f"vulns-{chunk_key}.json",
                     'count': len(vulns),
                     'year': chunk_key.split('-')[0],
                     'severity': chunk_key.split('-')[1]
                 }
-            
+
             # Generate chunk index
             chunk_index_file = api_dir / "chunk-index.json"
             chunk_index_data = {
@@ -165,40 +165,40 @@ class DashboardAgent(BaseAgent):
                 'total_vulnerabilities': len(vulnerabilities),
                 'generated_at': datetime.now(timezone.utc).isoformat()
             }
-            
+
             chunk_index_file.write_text(json.dumps(chunk_index_data, indent=2))
             generated_files.append(str(chunk_index_file))
-        
+
         else:
             # Single file approach
             api_file = api_dir / "vulnerabilities.json"
-            
+
             api_data = {
                 'vulnerabilities': [v.to_summary_dict() for v in vulnerabilities],
                 'count': len(vulnerabilities),
                 'generated_at': datetime.now(timezone.utc).isoformat()
             }
-            
+
             api_file.write_text(json.dumps(api_data, indent=2))
             generated_files.append(str(api_file))
-        
+
         return generated_files
-    
+
     async def _generate_dashboard_html(self, vulnerabilities: List, config: Dict[str, Any]) -> str:
         """Generate the main dashboard HTML file.
-        
+
         Args:
             vulnerabilities: List of vulnerability objects
             config: Generation configuration
-            
+
         Returns:
             Path to generated dashboard file
         """
         output_dir = Path(config['output_dir'])
         output_dir.mkdir(parents=True, exist_ok=True)
-        
+
         dashboard_file = output_dir / "index.html"
-        
+
         # Prepare dashboard data
         dashboard_data = {
             'vulnerabilities': [v.to_summary_dict() for v in vulnerabilities],
@@ -209,10 +209,10 @@ class DashboardAgent(BaseAgent):
                 'data_source': 'cache'
             }
         }
-        
+
         # Calculate statistics for dashboard
-        from collections import Counter, defaultdict
-        
+        from collections import Counter
+
         stats = {
             'severity_distribution': dict(Counter(v.severity.value for v in vulnerabilities)),
             'vendor_distribution': dict(Counter(
@@ -226,21 +226,21 @@ class DashboardAgent(BaseAgent):
                 'low': len([v for v in vulnerabilities if v.risk_score < 50])
             }
         }
-        
+
         # Generate HTML with embedded data
         html_content = self._build_dashboard_html(dashboard_data, stats)
-        
+
         dashboard_file.write_text(html_content)
-        
+
         return str(dashboard_file)
-    
+
     def _build_dashboard_html(self, dashboard_data: Dict[str, Any], stats: Dict[str, Any]) -> str:
         """Build the complete dashboard HTML.
-        
+
         Args:
             dashboard_data: Dashboard data including vulnerabilities
             stats: Calculated statistics
-            
+
         Returns:
             Complete HTML content
         """
@@ -251,13 +251,13 @@ class DashboardAgent(BaseAgent):
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vulnerability Intelligence Dashboard</title>
     <meta name="description" content="High-risk CVE intelligence platform tracking {dashboard_data['metadata']['total_count']} vulnerabilities">
-    
+
     <!-- Alpine.js -->
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    
+
     <!-- Fuse.js for search -->
     <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0"></script>
-    
+
     <style>
         /* Modern CSS Variables */
         :root {{
@@ -270,9 +270,9 @@ class DashboardAgent(BaseAgent):
             --light: #f8fafc;
             --border: #e2e8f0;
         }}
-        
+
         * {{ box-sizing: border-box; }}
-        
+
         body {{
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             margin: 0;
@@ -281,27 +281,27 @@ class DashboardAgent(BaseAgent):
             color: var(--dark);
             line-height: 1.6;
         }}
-        
+
         .header {{
             background: white;
             border-bottom: 1px solid var(--border);
             padding: 1rem;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }}
-        
+
         .header h1 {{
             margin: 0;
             color: var(--primary);
             font-size: 1.8rem;
         }}
-        
+
         .stats {{
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1rem;
             margin: 1rem;
         }}
-        
+
         .stat-card {{
             background: white;
             padding: 1.5rem;
@@ -309,13 +309,13 @@ class DashboardAgent(BaseAgent):
             border: 1px solid var(--border);
             text-align: center;
         }}
-        
+
         .stat-number {{
             font-size: 2rem;
             font-weight: bold;
             color: var(--primary);
         }}
-        
+
         .controls {{
             background: white;
             padding: 1rem;
@@ -323,7 +323,7 @@ class DashboardAgent(BaseAgent):
             border-radius: 8px;
             border: 1px solid var(--border);
         }}
-        
+
         .search-box {{
             width: 100%;
             padding: 0.75rem;
@@ -331,21 +331,21 @@ class DashboardAgent(BaseAgent):
             border-radius: 6px;
             font-size: 1rem;
         }}
-        
+
         .filters {{
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 1rem;
             margin-top: 1rem;
         }}
-        
+
         .filter-group select {{
             width: 100%;
             padding: 0.5rem;
             border: 1px solid var(--border);
             border-radius: 4px;
         }}
-        
+
         .vulnerability-table {{
             background: white;
             margin: 1rem;
@@ -353,45 +353,45 @@ class DashboardAgent(BaseAgent):
             border: 1px solid var(--border);
             overflow: hidden;
         }}
-        
+
         table {{
             width: 100%;
             border-collapse: collapse;
         }}
-        
+
         th, td {{
             padding: 0.75rem;
             text-align: left;
             border-bottom: 1px solid var(--border);
         }}
-        
+
         th {{
             background: var(--light);
             font-weight: 600;
             cursor: pointer;
         }}
-        
+
         th:hover {{
             background: #e2e8f0;
         }}
-        
+
         .severity-critical {{ color: var(--danger); font-weight: bold; }}
         .severity-high {{ color: #ea580c; font-weight: bold; }}
         .severity-medium {{ color: var(--warning); }}
         .severity-low {{ color: var(--secondary); }}
-        
+
         .risk-score {{
             padding: 0.25rem 0.5rem;
             border-radius: 4px;
             font-weight: bold;
             color: white;
         }}
-        
+
         .risk-critical {{ background: var(--danger); }}
         .risk-high {{ background: #ea580c; }}
         .risk-medium {{ background: var(--warning); }}
         .risk-low {{ background: var(--secondary); }}
-        
+
         .pagination {{
             display: flex;
             justify-content: center;
@@ -399,7 +399,7 @@ class DashboardAgent(BaseAgent):
             gap: 1rem;
             margin: 1rem;
         }}
-        
+
         .pagination button {{
             padding: 0.5rem 1rem;
             border: 1px solid var(--border);
@@ -407,10 +407,10 @@ class DashboardAgent(BaseAgent):
             cursor: pointer;
             border-radius: 4px;
         }}
-        
+
         .pagination button:hover {{ background: var(--light); }}
         .pagination button:disabled {{ opacity: 0.5; cursor: not-allowed; }}
-        
+
         @media (max-width: 768px) {{
             .stats {{ grid-template-columns: 1fr 1fr; }}
             .filters {{ grid-template-columns: 1fr; }}
@@ -424,10 +424,10 @@ class DashboardAgent(BaseAgent):
         <!-- Header -->
         <header class="header">
             <h1>🛡️ Vulnerability Intelligence Dashboard</h1>
-            <p>Tracking <span x-text="totalVulnerabilities"></span> high-risk vulnerabilities 
+            <p>Tracking <span x-text="totalVulnerabilities"></span> high-risk vulnerabilities
                | Last updated: <span x-text="formatDate(metadata.generated_at)"></span></p>
         </header>
-        
+
         <!-- Statistics -->
         <div class="stats">
             <div class="stat-card">
@@ -447,15 +447,15 @@ class DashboardAgent(BaseAgent):
                 <div>Affected Vendors</div>
             </div>
         </div>
-        
+
         <!-- Search and Filters -->
         <div class="controls">
-            <input type="text" 
-                   class="search-box" 
-                   placeholder="Search CVEs, vendors, products..." 
+            <input type="text"
+                   class="search-box"
+                   placeholder="Search CVEs, vendors, products..."
                    x-model="searchQuery"
                    @input.debounce.300ms="performSearch()">
-            
+
             <div class="filters">
                 <div class="filter-group">
                     <label>Severity</label>
@@ -467,7 +467,7 @@ class DashboardAgent(BaseAgent):
                         <option value="LOW">Low</option>
                     </select>
                 </div>
-                
+
                 <div class="filter-group">
                     <label>Risk Score</label>
                     <select x-model="filters.riskScore" @change="applyFilters()">
@@ -477,7 +477,7 @@ class DashboardAgent(BaseAgent):
                         <option value="50">≥ 50 (Medium)</option>
                     </select>
                 </div>
-                
+
                 <div class="filter-group">
                     <label>Sort By</label>
                     <select x-model="sortBy" @change="applySorting()">
@@ -487,7 +487,7 @@ class DashboardAgent(BaseAgent):
                         <option value="cveId">CVE ID</option>
                     </select>
                 </div>
-                
+
                 <div class="filter-group">
                     <label>Per Page</label>
                     <select x-model="perPage" @change="changePerPage()">
@@ -498,7 +498,7 @@ class DashboardAgent(BaseAgent):
                 </div>
             </div>
         </div>
-        
+
         <!-- Vulnerabilities Table -->
         <div class="vulnerability-table">
             <table>
@@ -517,20 +517,20 @@ class DashboardAgent(BaseAgent):
                     <template x-for="vuln in paginatedResults" :key="vuln.cveId">
                         <tr>
                             <td>
-                                <a :href="'/cves/' + vuln.cveId + '.html'" 
-                                   x-text="vuln.cveId" 
+                                <a :href="'/cves/' + vuln.cveId + '.html'"
+                                   x-text="vuln.cveId"
                                    class="cve-link"></a>
                             </td>
                             <td x-text="vuln.title.length > 60 ? vuln.title.substring(0, 60) + '...' : vuln.title"></td>
                             <td>
-                                <span :class="'severity-' + vuln.severity.toLowerCase()" 
+                                <span :class="'severity-' + vuln.severity.toLowerCase()"
                                       x-text="vuln.severity"></span>
                             </td>
                             <td x-text="vuln.cvssScore || 'N/A'"></td>
                             <td x-text="vuln.epssScore || 'N/A'"></td>
                             <td>
-                                <span :class="getRiskScoreClass(vuln.riskScore)" 
-                                      class="risk-score" 
+                                <span :class="getRiskScoreClass(vuln.riskScore)"
+                                      class="risk-score"
                                       x-text="vuln.riskScore"></span>
                             </td>
                             <td x-text="formatDate(vuln.publishedDate)"></td>
@@ -539,7 +539,7 @@ class DashboardAgent(BaseAgent):
                 </tbody>
             </table>
         </div>
-        
+
         <!-- Pagination -->
         <div class="pagination">
             <button @click="previousPage()" :disabled="currentPage === 1">Previous</button>
@@ -547,7 +547,7 @@ class DashboardAgent(BaseAgent):
             <button @click="nextPage()" :disabled="currentPage === totalPages">Next</button>
         </div>
     </div>
-    
+
     <script>
         function vulnerabilityDashboard() {{
             return {{
@@ -557,7 +557,7 @@ class DashboardAgent(BaseAgent):
                 paginatedResults: [],
                 metadata: {json.dumps(dashboard_data['metadata'])},
                 stats: {json.dumps(stats)},
-                
+
                 // State
                 searchQuery: '',
                 filters: {{
@@ -569,22 +569,22 @@ class DashboardAgent(BaseAgent):
                 currentPage: 1,
                 perPage: 50,
                 totalVulnerabilities: {dashboard_data['metadata']['total_count']},
-                
+
                 // Search
                 fuse: null,
-                
+
                 init() {{
                     this.filteredResults = [...this.allVulnerabilities];
                     this.applySorting();
                     this.updatePagination();
-                    
+
                     // Initialize Fuse.js for search
                     this.fuse = new Fuse(this.allVulnerabilities, {{
                         keys: ['cveId', 'title', 'vendors', 'products'],
                         threshold: 0.3
                     }});
                 }},
-                
+
                 performSearch() {{
                     if (!this.searchQuery.trim()) {{
                         this.filteredResults = [...this.allVulnerabilities];
@@ -594,82 +594,82 @@ class DashboardAgent(BaseAgent):
                     }}
                     this.applyFilters();
                 }},
-                
+
                 applyFilters() {{
                     let results = this.searchQuery.trim() ? this.filteredResults : [...this.allVulnerabilities];
-                    
+
                     if (this.filters.severity) {{
                         results = results.filter(v => v.severity === this.filters.severity);
                     }}
-                    
+
                     if (this.filters.riskScore) {{
                         const minScore = parseInt(this.filters.riskScore);
                         results = results.filter(v => v.riskScore >= minScore);
                     }}
-                    
+
                     this.filteredResults = results;
                     this.currentPage = 1;
                     this.applySorting();
                 }},
-                
+
                 applySorting() {{
                     this.filteredResults.sort((a, b) => {{
                         let aVal = a[this.sortBy];
                         let bVal = b[this.sortBy];
-                        
+
                         // Handle dates
                         if (this.sortBy === 'publishedDate') {{
                             aVal = new Date(aVal);
                             bVal = new Date(bVal);
                         }}
-                        
+
                         // Handle null values
                         if (aVal === null || aVal === undefined) aVal = 0;
                         if (bVal === null || bVal === undefined) bVal = 0;
-                        
+
                         if (this.sortDirection === 'asc') {{
                             return aVal > bVal ? 1 : -1;
                         }} else {{
                             return aVal < bVal ? 1 : -1;
                         }}
                     }});
-                    
+
                     this.updatePagination();
                 }},
-                
+
                 updatePagination() {{
                     const start = (this.currentPage - 1) * this.perPage;
                     const end = start + this.perPage;
                     this.paginatedResults = this.filteredResults.slice(start, end);
                 }},
-                
+
                 get totalPages() {{
                     return Math.ceil(this.filteredResults.length / this.perPage);
                 }},
-                
+
                 nextPage() {{
                     if (this.currentPage < this.totalPages) {{
                         this.currentPage++;
                         this.updatePagination();
                     }}
                 }},
-                
+
                 previousPage() {{
                     if (this.currentPage > 1) {{
                         this.currentPage--;
                         this.updatePagination();
                     }}
                 }},
-                
+
                 changePerPage() {{
                     this.currentPage = 1;
                     this.updatePagination();
                 }},
-                
+
                 formatDate(dateStr) {{
                     return new Date(dateStr).toLocaleDateString();
                 }},
-                
+
                 getRiskScoreClass(score) {{
                     if (score >= 90) return 'risk-critical';
                     if (score >= 70) return 'risk-high';
@@ -681,20 +681,20 @@ class DashboardAgent(BaseAgent):
     </script>
 </body>
 </html>'''
-    
+
     async def _generate_search_index(self, vulnerabilities: List, config: Dict[str, Any]) -> str:
         """Generate search index for client-side search.
-        
+
         Args:
             vulnerabilities: List of vulnerability objects
             config: Generation configuration
-            
+
         Returns:
             Path to generated search index file
         """
         api_dir = Path(config['api_dir'])
         search_index_file = api_dir / "search-index.json"
-        
+
         # Build lightweight search index
         search_data = []
         for vuln in vulnerabilities:
@@ -711,17 +711,17 @@ class DashboardAgent(BaseAgent):
                 'epss_score': vuln.epss_probability,
                 'published': vuln.published_date.isoformat()
             })
-        
+
         search_index = {
             'data': search_data,
             'count': len(search_data),
             'generated_at': datetime.now(timezone.utc).isoformat()
         }
-        
+
         search_index_file.write_text(json.dumps(search_index, indent=2))
-        
+
         return str(search_index_file)
-    
+
     def get_dependencies(self) -> Set[str]:
         """Get dependencies for change detection."""
         return {
