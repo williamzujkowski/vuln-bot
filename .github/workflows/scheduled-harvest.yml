@@ -94,17 +94,17 @@ jobs:
             --cache-dir actions-cache/ \
             --output-dir .
       
-      - name: Generate HTMX dashboard
+      - name: Generate Alpine.js dashboard
         run: |
-          echo "Building static HTMX dashboard..."
+          echo "Building static Alpine.js dashboard..."
           # Create cache directory
           mkdir -p .cache
           
           # Copy the database to the expected location
           cp actions-cache/vulns.db .cache/vulns.db || true
           
-          # Generate the HTMX dashboard
-          python scripts/generate_htmx_dashboard.py
+          # Generate the Alpine.js dashboard
+          python scripts/generate_alpine_dashboard.py
           
           # Copy service worker if it doesn't exist
           if [ ! -f public/sw.js ] && [ -f src/sw.js ]; then
