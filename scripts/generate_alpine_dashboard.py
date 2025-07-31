@@ -76,20 +76,22 @@ class AlpineDashboardGenerator:
                 vuln.setdefault("products", [])
                 vuln.setdefault("tags", [])
 
-                # Ensure lists are properly formatted
-                if isinstance(vuln["vendors"], str):
+                # Ensure lists are properly formatted - use correct field names
+                vendors_raw = vuln.get("affected_vendors", vuln.get("vendors", []))
+                if isinstance(vendors_raw, str):
                     vuln["vendors_list"] = (
-                        json.loads(vuln["vendors"]) if vuln["vendors"] else []
+                        json.loads(vendors_raw) if vendors_raw else []
                     )
                 else:
-                    vuln["vendors_list"] = vuln["vendors"] if vuln["vendors"] else []
+                    vuln["vendors_list"] = vendors_raw if vendors_raw else []
 
-                if isinstance(vuln["products"], str):
+                products_raw = vuln.get("affected_products", vuln.get("products", []))
+                if isinstance(products_raw, str):
                     vuln["products_list"] = (
-                        json.loads(vuln["products"]) if vuln["products"] else []
+                        json.loads(products_raw) if products_raw else []
                     )
                 else:
-                    vuln["products_list"] = vuln["products"] if vuln["products"] else []
+                    vuln["products_list"] = products_raw if products_raw else []
 
                 if isinstance(vuln["tags"], str):
                     vuln["tags_list"] = json.loads(vuln["tags"]) if vuln["tags"] else []

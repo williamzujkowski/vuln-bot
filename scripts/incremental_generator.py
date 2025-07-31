@@ -138,8 +138,11 @@ class IncrementalGenerator:
                 # Ensure required fields exist with defaults
                 vuln.setdefault("title", vuln.get("cve_id", "Unknown"))
                 vuln.setdefault("description", "No description available")
-                vuln.setdefault("vendors", [])
-                vuln.setdefault("products", [])
+                # Use correct field names for vendors and products
+                vendors = vuln.get("affected_vendors", vuln.get("vendors", []))
+                products = vuln.get("affected_products", vuln.get("products", []))
+                vuln["vendors"] = vendors if isinstance(vendors, list) else []
+                vuln["products"] = products if isinstance(products, list) else []
                 vuln.setdefault("tags", [])
                 
                 vulnerabilities.append(vuln)
