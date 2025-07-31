@@ -1,11 +1,11 @@
 {
   "name": "vuln-bot",
   "version": "2.0.0",
-  "description": "High-risk CVE intelligence platform with HTMX dashboard",
+  "description": "High-risk CVE intelligence platform with Alpine.js dashboard",
   "private": true,
   "scripts": {
     "test": "echo 'No tests for static site'",
-    "serve": "python test-htmx-dashboard.py",
+    "serve": "echo 'Use npm run build or python scripts/generate_alpine_dashboard.py'",
     "lint": "echo 'Linting disabled for generated files'",
     "format": "echo 'Formatting disabled for generated files'",
     "precommit": "echo 'Pre-commit checks passed'"
@@ -19,7 +19,7 @@
     "cve",
     "security",
     "intelligence",
-    "htmx"
+    "alpine.js"
   ],
   "author": "",
   "license": "MIT",

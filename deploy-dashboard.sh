@@ -1,11 +1,11 @@
 #!/bin/bash
-# Deploy HTMX dashboard to GitHub Pages manually
+# Deploy Alpine.js dashboard to GitHub Pages manually
 # This script generates and deploys the dashboard without waiting for scheduled harvest
 
 set -e
 
-echo "🚀 Manual HTMX Dashboard Deployment"
-echo "=================================="
+echo "🚀 Manual Alpine.js Dashboard Deployment"
+echo "======================================="
 
 # Check if database exists
 if [ ! -f ".cache/vulns.db" ]; then
@@ -14,9 +14,9 @@ if [ ! -f ".cache/vulns.db" ]; then
     exit 1
 fi
 
-# Generate HTMX dashboard
-echo "📦 Generating HTMX dashboard..."
-python scripts/generate_htmx_dashboard.py
+# Generate Alpine.js dashboard
+echo "📦 Generating Alpine.js dashboard..."
+python scripts/generate_alpine_dashboard.py
 
 # Copy service worker if needed
 if [ ! -f "public/sw.js" ] && [ -f "src/sw.js" ]; then
@@ -34,7 +34,7 @@ git add -f public/
 
 # Commit
 echo "💾 Committing dashboard..."
-git commit -m "Deploy HTMX dashboard" || echo "No changes to commit"
+git commit -m "Deploy Alpine.js dashboard" || echo "No changes to commit"
 
 # Push to gh-pages branch
 echo "🚀 Pushing to gh-pages branch..."

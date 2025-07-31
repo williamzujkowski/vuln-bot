@@ -1479,14 +1479,9 @@ def main():
     # Check if database exists
     if not DB_PATH.exists():
         print(f"Error: Database not found at {DB_PATH}")
-        print("Creating test database...")
-        import sys
-
-        sys.path.insert(0, "scripts")
-        from create_test_db import create_test_database
-
-        create_test_database()
-        print("✓ Created test database")
+        print("Please run the vulnerability harvest first to create the database:")
+        print("python -m scripts.main harvest --cache-dir .cache/")
+        sys.exit(1)
 
     # Generate dashboard
     generator = AlpineDashboardGenerator(DB_PATH)
