@@ -275,7 +275,7 @@ class HTMXDashboardGenerator:
                 sort_indicators[field] = " ↓" if sort_order == "desc" else " ↑"
             else:
                 sort_indicators[field] = ""
-        
+
         # Use relative paths for fragments
         base_prefix = "../" if use_relative_paths else self.base_path + "/fragments/"
 
@@ -394,7 +394,11 @@ class HTMXDashboardGenerator:
 
         # Main vulnerabilities table - called from index.html, use absolute paths
         with open(FRAGMENTS_DIR / "vulnerabilities.html", "w") as f:
-            f.write(self.generate_table_fragment(self.vulnerabilities, use_relative_paths=False))
+            f.write(
+                self.generate_table_fragment(
+                    self.vulnerabilities, use_relative_paths=False
+                )
+            )
         print("✓ Generated main vulnerabilities table")
 
         # Filter fragments
@@ -402,7 +406,11 @@ class HTMXDashboardGenerator:
         for filter_type in filters:
             filtered_vulns = self.filter_vulnerabilities(filter_type)
             with open(FRAGMENTS_DIR / "filter" / f"{filter_type}.html", "w") as f:
-                f.write(self.generate_table_fragment(filtered_vulns, use_relative_paths=True))
+                f.write(
+                    self.generate_table_fragment(
+                        filtered_vulns, use_relative_paths=True
+                    )
+                )
         print(f"✓ Generated {len(filters)} filter fragments")
 
         # Sort fragments
@@ -419,7 +427,10 @@ class HTMXDashboardGenerator:
                 with open(FRAGMENTS_DIR / "sort" / f"{field}_{order}.html", "w") as f:
                     f.write(
                         self.generate_table_fragment(
-                            self.vulnerabilities, sort_field=field, sort_order=order, use_relative_paths=True
+                            self.vulnerabilities,
+                            sort_field=field,
+                            sort_order=order,
+                            use_relative_paths=True,
                         )
                     )
         print(f"✓ Generated {len(sort_fields) * 2} sort fragments")
@@ -428,7 +439,9 @@ class HTMXDashboardGenerator:
         for page_num in range(1, min(11, (len(self.vulnerabilities) // 50) + 2)):
             with open(FRAGMENTS_DIR / "page" / f"{page_num}.html", "w") as f:
                 f.write(
-                    self.generate_table_fragment(self.vulnerabilities, page=page_num, use_relative_paths=True)
+                    self.generate_table_fragment(
+                        self.vulnerabilities, page=page_num, use_relative_paths=True
+                    )
                 )
         print("✓ Generated pagination fragments")
 
