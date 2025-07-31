@@ -82,6 +82,105 @@ class AlpineDashboardGenerator:
 
             self.vulnerabilities.append(vuln)
 
+    def _create_enhanced_title(self, vuln) -> str:
+        """Create enhanced title format: [SEVERITY] Vendor Product vVersion"""
+        components = []
+
+        # Add severity
+        components.append(f"[{vuln['severity']}]")
+
+        # Add primary vendor
+        vendors = vuln.get("vendors_list", [])
+        if vendors:
+            vendor = vendors[0].title()
+            components.append(vendor)
+
+        # Add primary product
+        products = vuln.get("products_list", [])
+        if products:
+            product = products[0].title()
+            components.append(product)
+
+        # Extract version information (simplified)
+        version_info = self._extract_version_info(vuln)
+        if version_info:
+            components.append(version_info)
+
+        # If no vendor/product info, fall back to original title (truncated)
+        if len(components) == 1:  # Only severity
+            fallback_title = vuln["title"][:80] + "..." if len(vuln.get("title", "")) > 80 else vuln.get("title", "")
+            return f"{components[0]} {fallback_title}"
+
+        return " ".join(components)
+
+    def _extract_products(self, vuln) -> str:
+        """Extract primary product name for Product column"""
+        products = vuln.get("products_list", [])
+        vendors = vuln.get("vendors_list", [])
+
+        if products and vendors:
+            return f"{vendors[0]}/{products[0]}"
+        elif products:
+            return products[0]
+        elif vendors:
+            return vendors[0]
+        else:
+            return "Unknown Product"
+
+    def _extract_version_info(self, vuln) -> str:
+        """Extract version information from title"""
+        import re
+        title = vuln.get("title", "")
+        version_patterns = [
+            r'\bv?(\d+\.\d+(?:\.\d+)*)\b',
+            r'\bversion\s+(\d+\.\d+(?:\.\d+)*)\b',
+            r'\bbefore\s+(\d+\.\d+(?:\.\d+)*)\b',
+        ]
+
+        for pattern in version_patterns:
+            matches = re.findall(pattern, title.lower())
+            if matches:
+                return f"v{matches[0]}"
+
+        return ""
+
+    def _extract_cwe_ids(self, vuln) -> list:
+        """Extract CWE IDs from description or other fields"""
+        import re
+        text = f"{vuln.get('title', '')} {vuln.get('description', '')}"
+        cwe_pattern = r'CWE-(\d+)'
+        matches = re.findall(cwe_pattern, text)
+        return [f"CWE-{match}" for match in matches[:3]]  # Limit to first 3
+
+    def _get_kev_status(self, vuln) -> bool:
+        """Check if vulnerability is in CISA KEV catalog"""
+        tags = vuln.get("tags_list", [])
+        return any("kev" in tag.lower() or "known exploited" in tag.lower() for tag in tags)
+
+    def _detect_patch_status(self, vuln) -> str:
+        """Detect patch availability from description/title"""
+        text = f"{vuln.get('title', '')} {vuln.get('description', '')}".lower()
+        if any(word in text for word in ["patch", "update", "fixed", "patched"]):
+            return "Available"
+        elif any(word in text for word in ["no patch", "unpatched", "0-day"]):
+            return "Unavailable"
+        else:
+            return "Unknown"
+
+    def _get_exploitation_status(self, vuln) -> str:
+        """Determine exploitation status"""
+        tags = vuln.get("tags_list", [])
+        title_desc = f"{vuln.get('title', '')} {vuln.get('description', '')}".lower()
+
+        if any("exploit" in tag.lower() or "active" in tag.lower() for tag in tags):
+            return "Active"
+        elif any(word in title_desc for word in ["exploit", "poc", "proof of concept"]):
+            return "PoC Available"
+        elif any(word in title_desc for word in ["weaponized", "malware"]):
+            return "Weaponized"
+        else:
+            return "Unknown"
+
     def generate_stats(self) -> Dict[str, Any]:
         """Generate dashboard statistics"""
         total = len(self.vulnerabilities)
@@ -144,13 +243,19 @@ class AlpineDashboardGenerator:
         """Create the complete Alpine.js dashboard"""
         stats = self.generate_stats()
 
-        # Prepare vulnerability data for JSON embedding (only essential fields)
+        # Prepare vulnerability data for JSON embedding with enhanced fields
         vuln_data = []
         for vuln in self.vulnerabilities:
+            # Create enhanced title format: [SEVERITY] Vendor Product vVersion
+            enhanced_title = self._create_enhanced_title(vuln)
+            products_display = self._extract_products(vuln)
+
             vuln_data.append(
                 {
                     "cve_id": vuln["cve_id"],
-                    "title": vuln["title"] or "No title available",
+                    "title": enhanced_title,
+                    "originalTitle": vuln["title"] or "No title available",
+                    "products": products_display,  # New field for Product column
                     "severity": vuln["severity"],
                     "cvss_score": vuln["cvss_score"],
                     "epss_percentile": vuln["epss_percentile"],
@@ -159,8 +264,21 @@ class AlpineDashboardGenerator:
                     "tags": vuln["tags_list"],
                     "published_date": vuln["published_date"],
                     "published_short": vuln["published_short"],
+                    "last_modified_date": vuln.get("last_modified_date"),
                     "attack_vector": vuln["attack_vector"],
-                    "description": vuln["description"],
+                    "description": vuln["description"] or "No description available",
+                    # Enhanced modal fields
+                    "attack_complexity": vuln.get("attack_complexity"),
+                    "scope": vuln.get("scope"),
+                    "user_interaction": vuln.get("user_interaction"),
+                    "privileges_required": vuln.get("privileges_required"),
+                    "confidentiality_impact": vuln.get("confidentiality_impact"),
+                    "integrity_impact": vuln.get("integrity_impact"),
+                    "availability_impact": vuln.get("availability_impact"),
+                    "cwe_ids": self._extract_cwe_ids(vuln),
+                    "kev_status": self._get_kev_status(vuln),
+                    "patch_status": self._detect_patch_status(vuln),
+                    "exploitation_status": self._get_exploitation_status(vuln),
                 }
             )
 
@@ -580,6 +698,69 @@ class AlpineDashboardGenerator:
             margin-top: 1rem;
         }}
 
+        .modal-section {{
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }}
+
+        .modal-section:last-of-type {{
+            border-bottom: none;
+        }}
+
+        .modal-section h3 {{
+            color: var(--accent-secondary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }}
+
+        .kev-badge {{
+            background: var(--accent-danger);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }}
+
+        .cwe-link {{
+            background: var(--bg-secondary);
+            color: var(--accent-primary);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-right: 0.3rem;
+            font-size: 0.8rem;
+            border: 1px solid var(--accent-primary);
+        }}
+
+        .cwe-link:hover {{
+            background: var(--accent-primary);
+            color: white;
+        }}
+
+        .patch-status {{
+            padding: 0.25rem 0.5rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }}
+
+        .patch-status.available {{
+            background: var(--accent-success);
+            color: white;
+        }}
+
+        .patch-status.unavailable {{
+            background: var(--accent-danger);
+            color: white;
+        }}
+
+        .patch-status.unknown {{
+            background: var(--text-muted);
+            color: white;
+        }}
+
         /* Responsive */
         @media (max-width: 768px) {{
             .header-content {{
@@ -832,7 +1013,7 @@ class AlpineDashboardGenerator:
                                 <th @click="sort('risk_score')" style="cursor: pointer;">
                                     Risk Score <span x-show="sortField === 'risk_score'" x-text="sortOrder === 'asc' ? '↑' : '↓'"></span>
                                 </th>
-                                <th>Title</th>
+                                <th>Product</th>
                                 <th>Vendors</th>
                                 <th @click="sort('published_date')" style="cursor: pointer;">
                                     Published <span x-show="sortField === 'published_date'" x-text="sortOrder === 'asc' ? '↑' : '↓'"></span>
@@ -851,7 +1032,7 @@ class AlpineDashboardGenerator:
                                     <td x-text="vuln.cvss_score"></td>
                                     <td x-text="vuln.epss_percentile"></td>
                                     <td x-text="vuln.risk_score"></td>
-                                    <td class="truncate" x-text="vuln.title"></td>
+                                    <td class="truncate" x-text="vuln.products"></td>
                                     <td class="truncate" x-text="vuln.vendors.join(', ') || 'Unknown'"></td>
                                     <td x-text="vuln.published_short"></td>
                                 </tr>
@@ -882,16 +1063,70 @@ class AlpineDashboardGenerator:
                 <template x-if="selectedVuln">
                     <div>
                         <h2 x-text="selectedVuln.cve_id"></h2>
-                        <p><strong>Severity:</strong> <span x-text="selectedVuln.severity"></span></p>
-                        <p><strong>CVSS Score:</strong> <span x-text="selectedVuln.cvss_score"></span></p>
-                        <p><strong>EPSS:</strong> <span x-text="selectedVuln.epss_percentile + '%'"></span></p>
-                        <p><strong>Risk Score:</strong> <span x-text="selectedVuln.risk_score"></span></p>
-                        <p><strong>Title:</strong> <span x-text="selectedVuln.title"></span></p>
-                        <p><strong>Vendors:</strong> <span x-text="selectedVuln.vendors.join(', ') || 'Unknown'"></span></p>
-                        <p><strong>Published:</strong> <span x-text="selectedVuln.published_short"></span></p>
+
+                        <!-- Risk Assessment Section -->
+                        <div class="modal-section">
+                            <h3>Risk Assessment</h3>
+                            <p><strong>Severity:</strong> <span class="severity-badge" :class="`severity-${{selectedVuln.severity.toLowerCase()}}`" x-text="selectedVuln.severity"></span></p>
+                            <p><strong>CVSS Score:</strong> <span x-text="selectedVuln.cvss_score"></span></p>
+                            <p><strong>EPSS:</strong> <span x-text="selectedVuln.epss_percentile + '%'"></span></p>
+                            <p><strong>Risk Score:</strong> <span x-text="selectedVuln.risk_score"></span></p>
+                            <template x-if="selectedVuln.kev_status">
+                                <p><strong>KEV Status:</strong> <span class="kev-badge">🚨 Known Exploited</span></p>
+                            </template>
+                            <p><strong>Exploitation Status:</strong> <span x-text="selectedVuln.exploitation_status"></span></p>
+                        </div>
+
+                        <!-- Vulnerability Details Section -->
+                        <div class="modal-section">
+                            <h3>Vulnerability Details</h3>
+                            <p><strong>Title:</strong> <span x-text="selectedVuln.title"></span></p>
+                            <p><strong>Product:</strong> <span x-text="selectedVuln.products"></span></p>
+                            <p><strong>Vendors:</strong> <span x-text="selectedVuln.vendors.join(', ') || 'Unknown'"></span></p>
+                            <p><strong>Published:</strong> <span x-text="selectedVuln.published_short"></span></p>
+                            <template x-if="selectedVuln.last_modified_date">
+                                <p><strong>Updated:</strong> <span x-text="selectedVuln.last_modified_date"></span></p>
+                            </template>
+                            <template x-if="selectedVuln.cwe_ids && selectedVuln.cwe_ids.length > 0">
+                                <p><strong>CWE:</strong>
+                                    <template x-for="cwe in selectedVuln.cwe_ids" :key="cwe">
+                                        <a :href="`https://cwe.mitre.org/data/definitions/${{cwe.replace('CWE-', '')}}.html`" target="_blank" class="cwe-link" x-text="cwe"></a>
+                                    </template>
+                                </p>
+                            </template>
+                            <p><strong>Patch Status:</strong>
+                                <span class="patch-status" :class="selectedVuln.patch_status.toLowerCase()" x-text="selectedVuln.patch_status"></span>
+                            </p>
+                        </div>
+
+                        <!-- Description -->
                         <template x-if="selectedVuln.description">
-                            <p><strong>Description:</strong> <span x-text="selectedVuln.description"></span></p>
+                            <div class="modal-section">
+                                <h3>Description</h3>
+                                <p x-text="selectedVuln.description"></p>
+                            </div>
                         </template>
+
+                        <!-- Technical Details -->
+                        <div class="modal-section">
+                            <h3>Technical Details</h3>
+                            <template x-if="selectedVuln.attack_vector">
+                                <p><strong>Attack Vector:</strong> <span x-text="selectedVuln.attack_vector"></span></p>
+                            </template>
+                            <template x-if="selectedVuln.attack_complexity">
+                                <p><strong>Attack Complexity:</strong> <span x-text="selectedVuln.attack_complexity"></span></p>
+                            </template>
+                            <template x-if="selectedVuln.user_interaction">
+                                <p><strong>User Interaction:</strong> <span x-text="selectedVuln.user_interaction"></span></p>
+                            </template>
+                            <template x-if="selectedVuln.privileges_required">
+                                <p><strong>Privileges Required:</strong> <span x-text="selectedVuln.privileges_required"></span></p>
+                            </template>
+                            <template x-if="selectedVuln.scope">
+                                <p><strong>Scope:</strong> <span x-text="selectedVuln.scope"></span></p>
+                            </template>
+                        </div>
+
                         <button class="modal-close" @click="closeModal()">Close</button>
                     </div>
                 </template>
@@ -1075,7 +1310,7 @@ class AlpineDashboardGenerator:
                 }},
 
                 exportCSV() {{
-                    const headers = ['CVE ID', 'Severity', 'CVSS', 'EPSS %', 'Risk Score', 'Title', 'Vendors', 'Published'];
+                    const headers = ['CVE ID', 'Severity', 'CVSS', 'EPSS %', 'Risk Score', 'Product', 'Vendors', 'Published'];
                     const csvContent = [
                         headers.join(','),
                         ...this.filteredVulns.map(v => [
@@ -1084,7 +1319,7 @@ class AlpineDashboardGenerator:
                             v.cvss_score,
                             v.epss_percentile,
                             v.risk_score,
-                            `"${{v.title.replace(/"/g, '""')}}"`,
+                            `"${{v.products.replace(/"/g, '""')}}"`,
                             `"${{v.vendors.join(', ')}}"`,
                             v.published_short
                         ].join(','))
