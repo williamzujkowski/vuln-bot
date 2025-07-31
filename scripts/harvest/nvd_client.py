@@ -30,6 +30,9 @@ class NVDClient(BaseAPIClient):
             api_key: Optional NVD API key for higher rate limits
             **kwargs: Additional arguments for BaseAPIClient
         """
+        # Set api_key first before calling parent constructor
+        self.api_key = api_key
+        
         # NVD rate limits: 
         # - Without API key: 5 requests per 30 seconds, 10,000 CVEs per request
         # - With API key: 50 requests per 30 seconds, 10,000 CVEs per request
@@ -43,7 +46,6 @@ class NVDClient(BaseAPIClient):
             **kwargs,
         )
         
-        self.api_key = api_key
         self.logger = structlog.get_logger(self.__class__.__name__)
         
     def get_headers(self) -> Dict[str, str]:
@@ -99,7 +101,7 @@ class NVDClient(BaseAPIClient):
                     "startIndex": start_index,
                 }
                 
-                response = self.make_request("GET", "", params=params)
+                response = self._make_request("GET", "", params=params)
                 data = response.json()
                 
                 vulnerabilities = data.get("vulnerabilities", [])
@@ -178,7 +180,7 @@ class NVDClient(BaseAPIClient):
                     "startIndex": start_index,
                 }
                 
-                response = self.make_request("GET", "", params=params)
+                response = self._make_request("GET", "", params=params)
                 data = response.json()
                 
                 vulnerabilities = data.get("vulnerabilities", [])
@@ -235,7 +237,7 @@ class NVDClient(BaseAPIClient):
         for i, cve_id in enumerate(cve_ids):
             try:
                 params = {"cveId": cve_id}
-                response = self.make_request("GET", "", params=params)
+                response = self._make_request("GET", "", params=params)
                 data = response.json()
                 
                 vulnerabilities = data.get("vulnerabilities", [])
