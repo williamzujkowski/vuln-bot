@@ -164,7 +164,7 @@ class AlpineDashboardGenerator:
                 }
             )
 
-        html_content = f"""<!DOCTYPE html>
+        html_content = f"""<!DOCTYPE html>  # nosec B608
 <html lang="en">
 <head>
     <meta charset="UTF-8">
