@@ -168,11 +168,85 @@ class Vulnerability(BaseModel):
             ExploitationStatus.WEAPONIZED,
         ]
 
+    def _create_enhanced_title(self) -> str:
+        """Create enhanced title format: Severity, Vendor, Product, Version(s)."""
+        components = []
+        
+        # Add severity
+        components.append(f"[{self.severity.value}]")
+        
+        # Add primary vendor
+        if self.affected_vendors:
+            vendor = self.affected_vendors[0].title()
+            components.append(vendor)
+        
+        # Add primary product
+        if self.affected_products:
+            product = self.affected_products[0].title()
+            components.append(product)
+        
+        # Extract version information from CPE matches or title
+        version_info = self._extract_version_info()
+        if version_info:
+            components.append(version_info)
+        
+        # If no vendor/product info, fall back to original title (truncated)
+        if len(components) == 1:  # Only severity
+            fallback_title = self.title[:80] + "..." if len(self.title) > 80 else self.title
+            return f"{components[0]} {fallback_title}"
+        
+        return " ".join(components)
+    
+    def _extract_version_info(self) -> str:
+        """Extract version information from CPE matches or title."""
+        # Extract from CPE matches if available
+        if self.cpe_matches:
+            versions = set()
+            for cpe in self.cpe_matches[:3]:  # Limit to first 3 CPE matches
+                # Parse CPE URI: cpe:2.3:a:vendor:product:version:update:edition:language:sw_edition:target_sw:target_hw:other
+                parts = cpe.cpe23_uri.split(":")
+                if len(parts) >= 6 and parts[5] != "*":
+                    versions.add(parts[5])
+                
+                # Also check version range info
+                if cpe.version_start_including or cpe.version_end_including:
+                    start = cpe.version_start_including or cpe.version_start_excluding
+                    end = cpe.version_end_including or cpe.version_end_excluding
+                    if start and end:
+                        versions.add(f"{start}-{end}")
+                    elif start:
+                        versions.add(f">={start}")
+                    elif end:
+                        versions.add(f"<={end}")
+            
+            if versions:
+                version_list = sorted(versions)[:2]  # Limit to 2 versions
+                return f"v{', '.join(version_list)}"
+        
+        # Extract version patterns from title as fallback
+        import re
+        version_patterns = [
+            r'\bv?(\d+\.\d+(?:\.\d+)*)\b',
+            r'\bversion\s+(\d+\.\d+(?:\.\d+)*)\b',
+            r'\bbefore\s+(\d+\.\d+(?:\.\d+)*)\b',
+        ]
+        
+        for pattern in version_patterns:
+            matches = re.findall(pattern, self.title.lower())
+            if matches:
+                return f"v{matches[0]}"
+        
+        return ""
+
     def to_summary_dict(self) -> Dict[str, Any]:
         """Convert to summary dictionary for index."""
+        # Create enhanced title format: Severity, Vendor, Product, Version(s)
+        enhanced_title = self._create_enhanced_title()
+        
         return {
             "cveId": self.cve_id,
-            "title": self.title,
+            "title": enhanced_title,
+            "originalTitle": self.title,  # Keep original for fallback
             "severity": self.severity.value,
             "cvssScore": self.cvss_base_score,
             "epssScore": self.epss_probability,
@@ -182,6 +256,7 @@ class Vulnerability(BaseModel):
             "lastModifiedDate": self.last_modified_date.isoformat(),
             "exploitationStatus": self.exploitation_status.value,
             "vendors": self.affected_vendors[:5],  # Top 5 vendors
+            "products": self.affected_products[:3],  # Top 3 products for display
             "tags": self.tags,
         }
 

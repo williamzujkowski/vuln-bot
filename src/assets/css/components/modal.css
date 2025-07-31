@@ -955,3 +955,235 @@ body.modal-open {
     padding: calc(var(--spacing-unit) * 2);
   }
 }
+
+/* Enhanced CVE Modal Components */
+.product-info {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--spacing-unit) * 0.5);
+}
+
+.vendor-product {
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.vendor {
+  text-transform: capitalize;
+  color: var(--color-info);
+}
+
+.product {
+  text-transform: capitalize;
+  color: var(--color-text-secondary);
+}
+
+.fallback-title {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+/* CWE Information Styles */
+.cwe-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--spacing-unit) * 0.5);
+  padding: calc(var(--spacing-unit) * 0.5) calc(var(--spacing-unit) * 1);
+  background: var(--color-blue-50);
+  color: var(--color-blue-700);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  border: 1px solid var(--color-blue-200);
+  transition: all 0.2s ease;
+}
+
+.cwe-tag:hover {
+  background: var(--color-blue-100);
+  color: var(--color-blue-800);
+  transform: translateY(-1px);
+}
+
+.cwe-tag:focus {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+/* Patch Status Styles */
+.patch-status {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--spacing-unit) * 1);
+}
+
+.patch-available {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--spacing-unit) * 0.5);
+  color: var(--color-low);
+  font-weight: 500;
+}
+
+.patch-unknown {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--spacing-unit) * 0.5);
+  color: var(--color-medium);
+  font-weight: 500;
+}
+
+.status-icon {
+  font-size: var(--text-sm);
+}
+
+/* KEV Status Styles */
+.kev-status {
+  border-left: 3px solid var(--color-medium);
+  padding-left: calc(var(--spacing-unit) * 1);
+}
+
+.kev-indicator {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--spacing-unit) * 0.5);
+}
+
+.kev-listed {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--spacing-unit) * 0.5);
+  color: var(--color-critical);
+  font-weight: 600;
+}
+
+.kev-not-listed {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--spacing-unit) * 0.5);
+  color: var(--color-text-muted);
+}
+
+.kev-active {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Exploitation Status Styles */
+.exploitation-status {
+  border-left: 3px solid var(--color-critical);
+  padding-left: calc(var(--spacing-unit) * 1);
+}
+
+.exploitation-indicator {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--spacing-unit) * 0.5);
+}
+
+.exploitation-active {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--spacing-unit) * 0.5);
+  color: var(--color-critical);
+  font-weight: 600;
+}
+
+.exploitation-poc {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--spacing-unit) * 0.5);
+  color: var(--color-medium);
+  font-weight: 500;
+}
+
+.exploitation-weaponized {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--spacing-unit) * 0.5);
+  color: var(--color-critical);
+  font-weight: 600;
+  animation: blink 1.5s infinite;
+}
+
+.exploitation-unknown {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--spacing-unit) * 0.5);
+  color: var(--color-text-muted);
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0.5; }
+}
+
+/* Enhanced Risk Metrics Grid */
+.risk-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: calc(var(--spacing-unit) * 2);
+  margin-top: calc(var(--spacing-unit) * 2);
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--spacing-unit) * 0.5);
+  padding: calc(var(--spacing-unit) * 2);
+  background: var(--color-gray-50);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-gray-200);
+}
+
+.metric-label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.metric-value {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.metric-description {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+/* Responsive adjustments for new components */
+@media (max-width: 768px) {
+  .risk-metrics {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+  
+  .kev-status,
+  .exploitation-status {
+    border-left: none;
+    border-top: 3px solid var(--color-medium);
+    padding-left: 0;
+    padding-top: calc(var(--spacing-unit) * 1);
+  }
+}
+
+@media (max-width: 480px) {
+  .product-info {
+    font-size: var(--text-sm);
+  }
+  
+  .metric {
+    padding: calc(var(--spacing-unit) * 1.5);
+  }
+  
+  .metric-value {
+    font-size: var(--text-lg);
+  }
+}
