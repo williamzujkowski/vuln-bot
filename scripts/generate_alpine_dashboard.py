@@ -322,6 +322,7 @@ class AlpineDashboardGenerator:
                 }
             )
 
+        # B608 is false positive - generating HTML not SQL
         html_content = f"""<!DOCTYPE html>  # nosec
 <html lang="en">
 <head>
@@ -705,11 +706,11 @@ class AlpineDashboardGenerator:
                 margin: 0 -1rem;
                 padding: 0 1rem;
             }}
-            
+
             table {{
                 min-width: 600px;
             }}
-            
+
             /* Add scroll indicator */
             .table-wrapper::after {{
                 content: '→ Scroll for more';
@@ -725,39 +726,39 @@ class AlpineDashboardGenerator:
                 opacity: 0;
                 transition: opacity 0.3s;
             }}
-            
+
             .table-wrapper:not(:hover)::after {{
                 opacity: 1;
             }}
-            
+
             /* Responsive table cells */
             td, th {{
                 white-space: nowrap;
                 min-width: 100px;
             }}
-            
+
             /* Hide less important columns on mobile */
             th:nth-child(5), td:nth-child(5) {{ /* Risk Score */
                 display: none;
             }}
-            
+
             .stats-card {{
                 padding: 1rem;
             }}
-            
+
             .stat-value {{
                 font-size: 1.75rem;
             }}
-            
+
             .filter-grid {{
                 grid-template-columns: 1fr;
             }}
-            
+
             .quick-filters {{
                 flex-wrap: wrap;
                 justify-content: center;
             }}
-            
+
             .filter-chip {{
                 font-size: 0.875rem;
                 padding: 0.375rem 0.75rem;

@@ -25,11 +25,11 @@ def fix_mobile_responsiveness():
                 margin: 0 -1rem;
                 padding: 0 1rem;
             }
-            
+
             table {
                 min-width: 600px;
             }
-            
+
             /* Add scroll indicator */
             .table-wrapper::after {
                 content: '→ Scroll for more';
@@ -45,39 +45,39 @@ def fix_mobile_responsiveness():
                 opacity: 0;
                 transition: opacity 0.3s;
             }
-            
+
             .table-wrapper:not(:hover)::after {
                 opacity: 1;
             }
-            
+
             /* Responsive table cells */
             td, th {
                 white-space: nowrap;
                 min-width: 100px;
             }
-            
+
             /* Hide less important columns on mobile */
             th:nth-child(5), td:nth-child(5) { /* Risk Score */
                 display: none;
             }
-            
+
             .stats-card {
                 padding: 1rem;
             }
-            
+
             .stat-value {
                 font-size: 1.75rem;
             }
-            
+
             .filter-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .quick-filters {
                 flex-wrap: wrap;
                 justify-content: center;
             }
-            
+
             .filter-chip {
                 font-size: 0.875rem;
                 padding: 0.375rem 0.75rem;
@@ -85,7 +85,9 @@ def fix_mobile_responsiveness():
         }"""
 
     # Insert mobile styles before the closing style tag
-    content = content.replace("        /* Responsive */", mobile_styles + "\n\n        /* Responsive */")
+    content = content.replace(
+        "        /* Responsive */", mobile_styles + "\n\n        /* Responsive */"
+    )
 
     dashboard_script.write_text(content)
     print("✅ Mobile responsiveness fixed")
@@ -113,12 +115,12 @@ def fix_export_functionality():
                         v.attack_vector || 'Unknown',
                         v.published_date
                     ]);
-                    
+
                     let csv = headers.join(',') + '\\n';
                     rows.forEach(row => {
                         csv += row.map(cell => `"${String(cell).replace(/"/g, '""')}"`).join(',') + '\\n';
                     });
-                    
+
                     const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
                     const link = document.createElement('a');
                     const url = URL.createObjectURL(blob);
@@ -128,7 +130,7 @@ def fix_export_functionality():
                     document.body.appendChild(link);
                     link.click();
                     document.body.removeChild(link);
-                    
+
                     // Analytics tracking
                     if (typeof gtag !== 'undefined') {
                         gtag('event', 'export', {
@@ -150,20 +152,16 @@ def fix_export_functionality():
             end = start
 
             for i in range(start, len(content)):
-                if content[i] == '{':
+                if content[i] == "{":
                     brace_count += 1
                     in_function = True
-                elif content[i] == '}' and in_function:
+                elif content[i] == "}" and in_function:
                     brace_count -= 1
                     if brace_count == 0:
                         end = i + 1
                         break
 
             if end > start:
-                # Get the indentation
-                line_start = content.rfind('\n', 0, start) + 1
-                indent = ' ' * (start - line_start)
-
                 # Replace the function
                 content = content[:start] + alpine_component.strip() + content[end:]
     else:
@@ -176,7 +174,7 @@ def fix_export_functionality():
             content = content[:end_pos] + "\n\n" + alpine_component + content[end_pos:]
 
     # Also ensure the Export button is in the header
-    if 'Export CSV' not in content:
+    if "Export CSV" not in content:
         export_button = """
                     <button class="export-btn" @click="exportCSV()">Export CSV</button>"""
 
@@ -235,15 +233,15 @@ def update_test_expectations():
         # Check table is still accessible
         table = page.locator("table").first
         assert await table.is_visible(), "Table not visible on mobile"
-        
+
         # Check for horizontal scroll or responsive wrapper
         table_parent = page.locator("table").locator("..")
         parent_styles = await table_parent.evaluate("el => getComputedStyle(el)")
-        
+
         # Table should be in a scrollable container or be responsive
         is_scrollable = parent_styles.get("overflow-x") in ["auto", "scroll"]
         is_responsive = "responsive" in await table_parent.get_attribute("class") or ""
-        
+
         assert is_scrollable or is_responsive, "Table not properly responsive on mobile\""""
 
     new_test = """    async def _test_mobile_layout(self, page: Page):
@@ -251,7 +249,7 @@ def update_test_expectations():
         # Check table is still accessible
         table = page.locator("table").first
         assert await table.is_visible(), "Table not visible on mobile"
-        
+
         # Check for table-wrapper with horizontal scroll
         table_wrapper = page.locator(".table-wrapper").first
         if await table_wrapper.count() > 0:
