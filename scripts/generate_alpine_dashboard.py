@@ -1062,15 +1062,15 @@ class AlpineDashboardGenerator:
     </div>
 
     <script>
-        // Embed vulnerability data
-        const vulnerabilityData = VULN_DATA_PLACEHOLDER;
-        const statsData = STATS_DATA_PLACEHOLDER;
+        // Embed vulnerability data (using window to ensure global scope)
+        window.vulnerabilityData = VULN_DATA_PLACEHOLDER;
+        window.statsData = STATS_DATA_PLACEHOLDER;
 
         window.dashboard = function() __OPEN_BRACE__
             return __OPEN_BRACE__
                 // Data
-                vulnerabilities: vulnerabilityData,
-                stats: statsData,
+                vulnerabilities: window.vulnerabilityData,
+                stats: window.statsData,
 
                 // UI State
                 search: '',

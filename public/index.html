@@ -736,8 +736,8 @@
     </div>
 
     <script>
-        // Embed vulnerability data
-        const vulnerabilityData = [
+        // Embed vulnerability data (using window to ensure global scope)
+        window.vulnerabilityData = [
   {
     "cve_id": "CVE-2025-49113",
     "title": "[CRITICAL] Roundcube Webmail v1.5.10",
@@ -274205,7 +274205,7 @@
     "exploitation_status": "PoC Available"
   }
 ];
-        const statsData = {
+        window.statsData = {
   "total": 8511,
   "critical": 2449,
   "high": 5355,
@@ -274231,8 +274231,8 @@
         window.dashboard = function() {
             return {
                 // Data
-                vulnerabilities: vulnerabilityData,
-                stats: statsData,
+                vulnerabilities: window.vulnerabilityData,
+                stats: window.statsData,
 
                 // UI State
                 search: '',
