@@ -1,7 +1,7 @@
 {
   "chunk": "2025-CRITICAL",
   "count": 1061,
-  "generated": "2025-08-01T12:10:24.011293",
+  "generated": "2025-08-01T16:07:42.038259",
   "vulnerabilities": [
     {
       "cveId": "CVE-2025-47812",
@@ -20,7 +20,7 @@
       ],
       "epss": {
         "score": 0.9099,
-        "percentile": 99.612
+        "percentile": 99.628
       },
       "riskScore": 70,
       "exploitationStatus": "UNKNOWN",
@@ -85,10 +85,10 @@
         }
       ],
       "epss": {
-        "score": 0.8562,
-        "percentile": 99.327
+        "score": 0.8814,
+        "percentile": 99.466
       },
-      "riskScore": 68,
+      "riskScore": 69,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
@@ -245,8 +245,8 @@
         }
       ],
       "epss": {
-        "score": 0.9004,
-        "percentile": 99.557
+        "score": 0.9016,
+        "percentile": 99.573
       },
       "riskScore": 67,
       "exploitationStatus": "UNKNOWN",
@@ -310,7 +310,7 @@
       ],
       "epss": {
         "score": 0.9331,
-        "percentile": 99.801
+        "percentile": 99.807
       },
       "riskScore": 67,
       "exploitationStatus": "UNKNOWN",
@@ -472,8 +472,8 @@
         }
       ],
       "epss": {
-        "score": 0.936,
-        "percentile": 99.829
+        "score": 0.9363,
+        "percentile": 99.836
       },
       "riskScore": 66,
       "exploitationStatus": "UNKNOWN",
@@ -619,8 +619,8 @@
         }
       ],
       "epss": {
-        "score": 0.9253,
-        "percentile": 99.731
+        "score": 0.9215,
+        "percentile": 99.708
       },
       "riskScore": 65,
       "exploitationStatus": "UNKNOWN",
@@ -1511,7 +1511,7 @@
       ],
       "epss": {
         "score": 0.7344,
-        "percentile": 98.738
+        "percentile": 98.753
       },
       "riskScore": 64,
       "exploitationStatus": "UNKNOWN",
@@ -1708,7 +1708,7 @@
       ],
       "epss": {
         "score": 0.9165,
-        "percentile": 99.66
+        "percentile": 99.67
       },
       "riskScore": 63,
       "exploitationStatus": "UNKNOWN",
@@ -1855,7 +1855,7 @@
       ],
       "epss": {
         "score": 0.7056,
-        "percentile": 98.619
+        "percentile": 98.634
       },
       "riskScore": 62,
       "exploitationStatus": "UNKNOWN",
@@ -1938,7 +1938,7 @@
       ],
       "epss": {
         "score": 0.786,
-        "percentile": 98.989
+        "percentile": 98.997
       },
       "riskScore": 62,
       "exploitationStatus": "UNKNOWN",
@@ -2146,7 +2146,7 @@
       ],
       "epss": {
         "score": 0.6466,
-        "percentile": 98.37
+        "percentile": 98.387
       },
       "riskScore": 61,
       "exploitationStatus": "UNKNOWN",
@@ -2457,7 +2457,7 @@
       ],
       "epss": {
         "score": 0.6734,
-        "percentile": 98.481
+        "percentile": 98.5
       },
       "riskScore": 60,
       "exploitationStatus": "UNKNOWN",
@@ -2521,7 +2521,7 @@
       ],
       "epss": {
         "score": 0.6409,
-        "percentile": 98.341
+        "percentile": 98.36
       },
       "riskScore": 60,
       "exploitationStatus": "UNKNOWN",
@@ -2784,6 +2784,63 @@
       }
     },
     {
+      "cveId": "CVE-2025-4632",
+      "title": "CVE-2025-4632: Improper limitation of a pathname to a restricted directory vulnerability in Samsung MagicINFO 9 Ser...",
+      "description": "Improper limitation of a pathname to a restricted directory vulnerability in Samsung MagicINFO 9 Server version before 21.1052 allows attackers to write arbitrary file as system authority.",
+      "publishedDate": "2025-05-13T05:19:19.254000+00:00",
+      "lastModifiedDate": "2025-07-30T01:36:13.180000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 9.8,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.5857,
+        "percentile": 98.126
+      },
+      "riskScore": 59,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Samsung Electronics"
+        ],
+        "products": [
+          "Magicinfo 9 Server"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://security.samsungtv.com/securityUpdates#SVP-MAY-2025",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-22"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/4xxx/CVE-2025-4632.json",
+            "lastModified": "2025-07-30T01:36:13.180000+00:00"
+          }
+        ]
+      }
+    },
+    {
       "cveId": "CVE-2025-27520",
       "title": "BentoML Allows Remote Code Execution (RCE) via Insecure Deserialization",
       "description": "BentoML is a Python library for building online serving systems optimized for AI apps and model inference. A Remote Code Execution (RCE) vulnerability caused by insecure deserialization has been identified in the latest version (v1.4.2) of BentoML. It allows any unauthenticated user to execute arbitrary code on the server. It exists an unsafe code segment in serde.py. This vulnerability is fixed in 1.4.3.",
@@ -2800,7 +2857,7 @@
       ],
       "epss": {
         "score": 0.6117,
-        "percentile": 98.222
+        "percentile": 98.245
       },
       "riskScore": 59,
       "exploitationStatus": "UNKNOWN",
@@ -2927,7 +2984,7 @@
       ],
       "epss": {
         "score": 0.5588,
-        "percentile": 97.98
+        "percentile": 97.999
       },
       "riskScore": 58,
       "exploitationStatus": "UNKNOWN",
@@ -2993,7 +3050,7 @@
       ],
       "epss": {
         "score": 0.3531,
-        "percentile": 96.889
+        "percentile": 96.917
       },
       "riskScore": 58,
       "exploitationStatus": "UNKNOWN",
@@ -3054,63 +3111,6 @@
       }
     },
     {
-      "cveId": "CVE-2025-4632",
-      "title": "CVE-2025-4632: Improper limitation of a pathname to a restricted directory vulnerability in Samsung MagicINFO 9 Ser...",
-      "description": "Improper limitation of a pathname to a restricted directory vulnerability in Samsung MagicINFO 9 Server version before 21.1052 allows attackers to write arbitrary file as system authority.",
-      "publishedDate": "2025-05-13T05:19:19.254000+00:00",
-      "lastModifiedDate": "2025-07-30T01:36:13.180000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 9.8,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.5371,
-        "percentile": 97.879
-      },
-      "riskScore": 58,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Samsung Electronics"
-        ],
-        "products": [
-          "Magicinfo 9 Server"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://security.samsungtv.com/securityUpdates#SVP-MAY-2025",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-22"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/4xxx/CVE-2025-4632.json",
-            "lastModified": "2025-07-30T01:36:13.180000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2025-50201",
       "title": "WeGIA OS Command Injection in debug_info.php parameter 'branch'",
       "description": "WeGIA is a web manager for charitable institutions. Prior to version 3.4.2, an OS Command Injection vulnerability was identified in the /html/configuracao/debug_info.php endpoint. The branch parameter is not properly sanitized before being concatenated and executed in a shell command on the server's operating system. This flaw allows an unauthenticated attacker to execute arbitrary commands on the server with the privileges of the web server user (www-data). This issue has been patched in version 3.4.2.",
@@ -3127,7 +3127,7 @@
       ],
       "epss": {
         "score": 0.4313,
-        "percentile": 97.38
+        "percentile": 97.403
       },
       "riskScore": 58,
       "exploitationStatus": "UNKNOWN",
@@ -3197,7 +3197,7 @@
       ],
       "epss": {
         "score": 0.1673,
-        "percentile": 94.658
+        "percentile": 94.701
       },
       "riskScore": 58,
       "exploitationStatus": "UNKNOWN",
@@ -3267,7 +3267,7 @@
       ],
       "epss": {
         "score": 0.4373,
-        "percentile": 97.411
+        "percentile": 97.434
       },
       "riskScore": 57,
       "exploitationStatus": "UNKNOWN",
@@ -3357,7 +3357,7 @@
       ],
       "epss": {
         "score": 0.4877,
-        "percentile": 97.663
+        "percentile": 97.688
       },
       "riskScore": 57,
       "exploitationStatus": "UNKNOWN",
@@ -3425,7 +3425,7 @@
       ],
       "epss": {
         "score": 0.1649,
-        "percentile": 94.616
+        "percentile": 94.659
       },
       "riskScore": 57,
       "exploitationStatus": "UNKNOWN",
@@ -3561,7 +3561,7 @@
       ],
       "epss": {
         "score": 0.433,
-        "percentile": 97.392
+        "percentile": 97.415
       },
       "riskScore": 56,
       "exploitationStatus": "UNKNOWN",
@@ -3691,7 +3691,7 @@
       ],
       "epss": {
         "score": 0.0023,
-        "percentile": 45.749
+        "percentile": 45.913
       },
       "riskScore": 56,
       "exploitationStatus": "UNKNOWN",
@@ -3736,6 +3736,63 @@
       }
     },
     {
+      "cveId": "CVE-2025-22467",
+      "title": "CVE-2025-22467: A stack-based buffer overflow in Ivanti Connect Secure before version 22.7R2.6 allows a remote authe...",
+      "description": "A stack-based buffer overflow in Ivanti Connect Secure before version 22.7R2.6 allows a remote authenticated attacker to achieve remote code execution.",
+      "publishedDate": "2025-02-11T15:20:16.514000+00:00",
+      "lastModifiedDate": "2025-02-13T04:55:15.282000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H",
+          "baseScore": 9.9,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.509,
+        "percentile": 97.779
+      },
+      "riskScore": 55,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Ivanti"
+        ],
+        "products": [
+          "Connect Secure"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://forums.ivanti.com/s/article/February-Security-Advisory-Ivanti-Connect-Secure-ICS-Ivanti-Policy-Secure-IPS-and-Ivanti-Secure-Access-Client-ISAC-Multiple-CVEs",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-121"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "Low",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/22xxx/CVE-2025-22467.json",
+            "lastModified": "2025-02-13T04:55:15.282000+00:00"
+          }
+        ]
+      }
+    },
+    {
       "cveId": "CVE-2025-20337",
       "title": "Cisco ISE API Unauthenticated Remote Code Execution Vulnerability",
       "description": "A vulnerability in a specific API of Cisco ISE and Cisco ISE-PIC could allow an unauthenticated, remote attacker to execute arbitrary code on the underlying operating system as root. The attacker does not require any valid credentials to exploit this vulnerability.\r\n\r\nThis vulnerability is due to insufficient validation of user-supplied input. An attacker could exploit this vulnerability by submitting a crafted API request. A successful exploit could allow the attacker to obtain root privileges on an affected device.",
@@ -3752,7 +3809,7 @@
       ],
       "epss": {
         "score": 0.014,
-        "percentile": 79.625
+        "percentile": 79.714
       },
       "riskScore": 55,
       "exploitationStatus": "UNKNOWN",
@@ -3808,7 +3865,7 @@
       ],
       "epss": {
         "score": 0.3469,
-        "percentile": 96.851
+        "percentile": 96.878
       },
       "riskScore": 55,
       "exploitationStatus": "UNKNOWN",
@@ -3866,8 +3923,8 @@
         }
       ],
       "epss": {
-        "score": 0.0017,
-        "percentile": 38.705
+        "score": 0.002,
+        "percentile": 42.746
       },
       "riskScore": 55,
       "exploitationStatus": "UNKNOWN",
@@ -4075,7 +4132,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 20.315
+        "percentile": 20.374
       },
       "riskScore": 54,
       "exploitationStatus": "UNKNOWN",
@@ -4134,7 +4191,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 20.315
+        "percentile": 20.374
       },
       "riskScore": 54,
       "exploitationStatus": "UNKNOWN",
@@ -4193,7 +4250,7 @@
       ],
       "epss": {
         "score": 0.0019,
-        "percentile": 41.645
+        "percentile": 41.798
       },
       "riskScore": 54,
       "exploitationStatus": "UNKNOWN",
@@ -4275,7 +4332,7 @@
       ],
       "epss": {
         "score": 0.0013,
-        "percentile": 33.318
+        "percentile": 33.463
       },
       "riskScore": 54,
       "exploitationStatus": "UNKNOWN",
@@ -4356,7 +4413,7 @@
       ],
       "epss": {
         "score": 0.0285,
-        "percentile": 85.697
+        "percentile": 85.78
       },
       "riskScore": 54,
       "exploitationStatus": "UNKNOWN",
@@ -4413,7 +4470,7 @@
       ],
       "epss": {
         "score": 0.0017,
-        "percentile": 39.266
+        "percentile": 39.417
       },
       "riskScore": 54,
       "exploitationStatus": "UNKNOWN",
@@ -4468,7 +4525,7 @@
       ],
       "epss": {
         "score": 0.0009,
-        "percentile": 27.315
+        "percentile": 27.418
       },
       "riskScore": 54,
       "exploitationStatus": "UNKNOWN",
@@ -4599,7 +4656,7 @@
       ],
       "epss": {
         "score": 0.0031,
-        "percentile": 53.708
+        "percentile": 53.897
       },
       "riskScore": 53,
       "exploitationStatus": "UNKNOWN",
@@ -4675,7 +4732,7 @@
       ],
       "epss": {
         "score": 0.3735,
-        "percentile": 97.025
+        "percentile": 97.05
       },
       "riskScore": 53,
       "exploitationStatus": "UNKNOWN",
@@ -4732,7 +4789,7 @@
       ],
       "epss": {
         "score": 0.0005,
-        "percentile": 15.136
+        "percentile": 15.161
       },
       "riskScore": 53,
       "exploitationStatus": "UNKNOWN",
@@ -4800,7 +4857,7 @@
       ],
       "epss": {
         "score": 0.0003,
-        "percentile": 8.083
+        "percentile": 8.135
       },
       "riskScore": 53,
       "exploitationStatus": "UNKNOWN",
@@ -4874,7 +4931,7 @@
       ],
       "epss": {
         "score": 0.0003,
-        "percentile": 5.982
+        "percentile": 6.027
       },
       "riskScore": 53,
       "exploitationStatus": "UNKNOWN",
@@ -4942,7 +4999,7 @@
       ],
       "epss": {
         "score": 0.241,
-        "percentile": 95.824
+        "percentile": 95.867
       },
       "riskScore": 53,
       "exploitationStatus": "UNKNOWN",
@@ -5006,7 +5063,7 @@
       ],
       "epss": {
         "score": 0.0009,
-        "percentile": 26.49
+        "percentile": 26.599
       },
       "riskScore": 53,
       "exploitationStatus": "UNKNOWN",
@@ -5083,7 +5140,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 18.333
+        "percentile": 18.368
       },
       "riskScore": 53,
       "exploitationStatus": "UNKNOWN",
@@ -5142,7 +5199,7 @@
       ],
       "epss": {
         "score": 0.05,
-        "percentile": 89.302
+        "percentile": 89.373
       },
       "riskScore": 53,
       "exploitationStatus": "UNKNOWN",
@@ -5198,7 +5255,7 @@
       ],
       "epss": {
         "score": 0.0744,
-        "percentile": 91.36
+        "percentile": 91.419
       },
       "riskScore": 53,
       "exploitationStatus": "UNKNOWN",
@@ -5267,7 +5324,7 @@
       ],
       "epss": {
         "score": 0.0002,
-        "percentile": 4.098
+        "percentile": 4.182
       },
       "riskScore": 53,
       "exploitationStatus": "UNKNOWN",
@@ -5329,7 +5386,7 @@
       ],
       "epss": {
         "score": 0.0002,
-        "percentile": 4.098
+        "percentile": 4.182
       },
       "riskScore": 53,
       "exploitationStatus": "UNKNOWN",
@@ -5392,7 +5449,7 @@
       ],
       "epss": {
         "score": 0.0002,
-        "percentile": 4.098
+        "percentile": 4.182
       },
       "riskScore": 53,
       "exploitationStatus": "UNKNOWN",
@@ -5628,7 +5685,7 @@
       ],
       "epss": {
         "score": 0.0027,
-        "percentile": 49.838
+        "percentile": 50.011
       },
       "riskScore": 53,
       "exploitationStatus": "UNKNOWN",
@@ -5691,6 +5748,73 @@
       }
     },
     {
+      "cveId": "CVE-2025-45854",
+      "title": "CVE-2025-45854: /server/executeExec of JEHC-BPM 2.0.1 allows attackers to execute arbitrary code via execParams....",
+      "description": "/server/executeExec of JEHC-BPM 2.0.1 allows attackers to execute arbitrary code via execParams.",
+      "publishedDate": "2025-06-03T00:00:00+00:00",
+      "lastModifiedDate": "2025-06-04T13:56:06.296000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+          "baseScore": 10.0,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.1332,
+        "percentile": 93.918
+      },
+      "riskScore": 52,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Jehc"
+        ],
+        "products": [
+          "Jehc-bpm"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://gitee.com/jehc/JEHC-BPM",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://gist.github.com/Cafe-Tea/bc14b38f4bfd951de2979a24c3358460",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://web.archive.org/web/20250604134020/https://gist.github.com/Cafe-Tea/bc14b38f4bfd951de2979a24c3358460/revisions",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-862"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/45xxx/CVE-2025-45854.json",
+            "lastModified": "2025-06-04T13:56:06.296000+00:00"
+          }
+        ]
+      }
+    },
+    {
       "cveId": "CVE-2025-5746",
       "title": "Drag and Drop Multiple File Upload (Pro) - WooCommerce <= 1.7.1 and 5.0 - 5.0.5 - Unauthenticated Arbitrary File Upload",
       "description": "The Drag and Drop Multiple File Upload (Pro) - WooCommerce plugin for WordPress is vulnerable to arbitrary file uploads due to missing file type validation in the dnd_upload_cf7_upload_chunks() function in version 5.0 - 5.0.5 (when bundled with the PrintSpace theme) and all versions up to, and including, 1.7.1 (in the standalone version). This makes it possible for unauthenticated attackers to upload arbitrary files on the affected site's server which may make remote code execution possible. The execution of PHP is disabled via a .htaccess file but is still possible in certain server configurations.",
@@ -5707,7 +5831,7 @@
       ],
       "epss": {
         "score": 0.002,
-        "percentile": 42.082
+        "percentile": 42.233
       },
       "riskScore": 52,
       "exploitationStatus": "UNKNOWN",
@@ -5757,68 +5881,6 @@
       }
     },
     {
-      "cveId": "CVE-2025-5243",
-      "title": "Arbitrary File Upload in SMG Software's Information Portal",
-      "description": "Unrestricted Upload of File with Dangerous Type, Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability in SMG Software Information Portal allows Code Injection, Upload a Web Shell to a Web Server, Code Inclusion.This issue affects Information Portal: before 13.06.2025.",
-      "publishedDate": "2025-07-24T12:45:22.450000+00:00",
-      "lastModifiedDate": "2025-07-24T13:36:01.931000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
-          "baseScore": 10.0,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0039,
-        "percentile": 58.975
-      },
-      "riskScore": 52,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Smg Software",
-          "Web"
-        ],
-        "products": [
-          "Information Portal",
-          "Web Server"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://www.usom.gov.tr/bildirim/tr-25-0174",
-          "source": "",
-          "tags": [
-            "third-party-advisory"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-434",
-          "CWE-78"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/5xxx/CVE-2025-5243.json",
-            "lastModified": "2025-07-24T13:36:01.931000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2025-5396",
       "title": "Bears Backup <= 2.0.0 - Unauthenticated Remote Code Execution",
       "description": "The Bears Backup plugin for WordPress is vulnerable to Remote Code Execution in all versions up to, and including, 2.0.0. This is due to the bbackup_ajax_handle() function not having a capability check, nor validating user supplied input passed directly to call_user_func(). This makes it possible for unauthenticated attackers to execute code on the server which can be leverage to inject backdoors or create new administrative user accounts to name a few things. On WordPress sites running the Alone theme versions 7.8.4 and older, this can be chained with CVE-2025-5394 to install the Bears Backup plugin and achieve the same impact.",
@@ -5835,7 +5897,7 @@
       ],
       "epss": {
         "score": 0.0034,
-        "percentile": 55.676
+        "percentile": 55.86
       },
       "riskScore": 52,
       "exploitationStatus": "UNKNOWN",
@@ -5901,7 +5963,7 @@
       ],
       "epss": {
         "score": 0.0008,
-        "percentile": 23.951
+        "percentile": 24.056
       },
       "riskScore": 52,
       "exploitationStatus": "UNKNOWN",
@@ -6000,8 +6062,8 @@
         }
       ],
       "epss": {
-        "score": 0.001,
-        "percentile": 28.486
+        "score": 0.0013,
+        "percentile": 34.094
       },
       "riskScore": 52,
       "exploitationStatus": "UNKNOWN",
@@ -6092,7 +6154,7 @@
       ],
       "epss": {
         "score": 0.0078,
-        "percentile": 72.829
+        "percentile": 72.96
       },
       "riskScore": 52,
       "exploitationStatus": "UNKNOWN",
@@ -6172,7 +6234,7 @@
       ],
       "epss": {
         "score": 0.0011,
-        "percentile": 30.786
+        "percentile": 30.914
       },
       "riskScore": 52,
       "exploitationStatus": "UNKNOWN",
@@ -6266,7 +6328,7 @@
       ],
       "epss": {
         "score": 0.0078,
-        "percentile": 72.829
+        "percentile": 72.96
       },
       "riskScore": 52,
       "exploitationStatus": "UNKNOWN",
@@ -6340,7 +6402,7 @@
       ],
       "epss": {
         "score": 0.0013,
-        "percentile": 33.498
+        "percentile": 33.64
       },
       "riskScore": 52,
       "exploitationStatus": "UNKNOWN",
@@ -6399,7 +6461,7 @@
       ],
       "epss": {
         "score": 0.0008,
-        "percentile": 23.856
+        "percentile": 23.962
       },
       "riskScore": 52,
       "exploitationStatus": "UNKNOWN",
@@ -6460,7 +6522,7 @@
       ],
       "epss": {
         "score": 0.0002,
-        "percentile": 3.42
+        "percentile": 3.552
       },
       "riskScore": 52,
       "exploitationStatus": "UNKNOWN",
@@ -6528,7 +6590,7 @@
       ],
       "epss": {
         "score": 0.002,
-        "percentile": 42.755
+        "percentile": 42.91
       },
       "riskScore": 52,
       "exploitationStatus": "UNKNOWN",
@@ -6594,7 +6656,7 @@
       ],
       "epss": {
         "score": 0.0105,
-        "percentile": 76.659
+        "percentile": 76.764
       },
       "riskScore": 52,
       "exploitationStatus": "UNKNOWN",
@@ -6660,7 +6722,7 @@
       ],
       "epss": {
         "score": 0.0043,
-        "percentile": 61.72
+        "percentile": 61.884
       },
       "riskScore": 52,
       "exploitationStatus": "UNKNOWN",
@@ -6719,7 +6781,7 @@
       ],
       "epss": {
         "score": 0.001,
-        "percentile": 29.165
+        "percentile": 29.277
       },
       "riskScore": 52,
       "exploitationStatus": "UNKNOWN",
@@ -6783,7 +6845,7 @@
       ],
       "epss": {
         "score": 0.0015,
-        "percentile": 36.352
+        "percentile": 36.499
       },
       "riskScore": 52,
       "exploitationStatus": "UNKNOWN",
@@ -6838,7 +6900,7 @@
       ],
       "epss": {
         "score": 0.0048,
-        "percentile": 64.299
+        "percentile": 64.473
       },
       "riskScore": 52,
       "exploitationStatus": "UNKNOWN",
@@ -6893,7 +6955,7 @@
       ],
       "epss": {
         "score": 0.0015,
-        "percentile": 36.153
+        "percentile": 36.307
       },
       "riskScore": 52,
       "exploitationStatus": "UNKNOWN",
@@ -6948,7 +7010,7 @@
       ],
       "epss": {
         "score": 0.0008,
-        "percentile": 23.517
+        "percentile": 23.627
       },
       "riskScore": 52,
       "exploitationStatus": "UNKNOWN",
@@ -7005,7 +7067,7 @@
       ],
       "epss": {
         "score": 0.0025,
-        "percentile": 48.461
+        "percentile": 48.636
       },
       "riskScore": 52,
       "exploitationStatus": "UNKNOWN",
@@ -7079,7 +7141,7 @@
       ],
       "epss": {
         "score": 0.0008,
-        "percentile": 23.994
+        "percentile": 24.096
       },
       "riskScore": 52,
       "exploitationStatus": "UNKNOWN",
@@ -7138,7 +7200,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 18.641
+        "percentile": 18.677
       },
       "riskScore": 52,
       "exploitationStatus": "UNKNOWN",
@@ -7213,7 +7275,7 @@
       ],
       "epss": {
         "score": 0.0031,
-        "percentile": 53.528
+        "percentile": 53.717
       },
       "riskScore": 52,
       "exploitationStatus": "UNKNOWN",
@@ -7272,7 +7334,7 @@
       ],
       "epss": {
         "score": 0.0013,
-        "percentile": 33.252
+        "percentile": 33.397
       },
       "riskScore": 52,
       "exploitationStatus": "UNKNOWN",
@@ -7331,7 +7393,7 @@
       ],
       "epss": {
         "score": 0.0015,
-        "percentile": 35.92
+        "percentile": 36.071
       },
       "riskScore": 52,
       "exploitationStatus": "UNKNOWN",
@@ -7390,7 +7452,7 @@
       ],
       "epss": {
         "score": 0.0031,
-        "percentile": 53.299
+        "percentile": 53.484
       },
       "riskScore": 52,
       "exploitationStatus": "UNKNOWN",
@@ -7467,7 +7529,7 @@
       ],
       "epss": {
         "score": 0.0099,
-        "percentile": 75.94
+        "percentile": 76.051
       },
       "riskScore": 52,
       "exploitationStatus": "UNKNOWN",
@@ -7548,7 +7610,7 @@
       ],
       "epss": {
         "score": 0.0014,
-        "percentile": 34.271
+        "percentile": 34.419
       },
       "riskScore": 52,
       "exploitationStatus": "UNKNOWN",
@@ -7864,7 +7926,7 @@
       ],
       "epss": {
         "score": 0.0018,
-        "percentile": 40.461
+        "percentile": 40.611
       },
       "riskScore": 52,
       "exploitationStatus": "UNKNOWN",
@@ -7938,7 +8000,7 @@
       ],
       "epss": {
         "score": 0.001,
-        "percentile": 28.419
+        "percentile": 28.523
       },
       "riskScore": 52,
       "exploitationStatus": "UNKNOWN",
@@ -8010,7 +8072,10 @@
           "baseSeverity": "CRITICAL"
         }
       ],
-      "epss": null,
+      "epss": {
+        "score": 0.0004,
+        "percentile": 11.723
+      },
       "riskScore": 51,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
@@ -8066,7 +8131,7 @@
       ],
       "epss": {
         "score": 0.0035,
-        "percentile": 56.832
+        "percentile": 57.009
       },
       "riskScore": 51,
       "exploitationStatus": "UNKNOWN",
@@ -8145,7 +8210,7 @@
       ],
       "epss": {
         "score": 0.0024,
-        "percentile": 47.342
+        "percentile": 47.51
       },
       "riskScore": 51,
       "exploitationStatus": "UNKNOWN",
@@ -8209,7 +8274,7 @@
       ],
       "epss": {
         "score": 0.1249,
-        "percentile": 93.639
+        "percentile": 93.68
       },
       "riskScore": 51,
       "exploitationStatus": "UNKNOWN",
@@ -8280,7 +8345,7 @@
       ],
       "epss": {
         "score": 0.0019,
-        "percentile": 40.986
+        "percentile": 41.137
       },
       "riskScore": 51,
       "exploitationStatus": "UNKNOWN",
@@ -8369,7 +8434,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 11.546
+        "percentile": 11.596
       },
       "riskScore": 51,
       "exploitationStatus": "UNKNOWN",
@@ -8450,7 +8515,7 @@
       ],
       "epss": {
         "score": 0.0015,
-        "percentile": 35.841
+        "percentile": 35.991
       },
       "riskScore": 51,
       "exploitationStatus": "UNKNOWN",
@@ -8512,8 +8577,8 @@
         }
       ],
       "epss": {
-        "score": 0.0006,
-        "percentile": 20.391
+        "score": 0.0007,
+        "percentile": 22.676
       },
       "riskScore": 51,
       "exploitationStatus": "UNKNOWN",
@@ -8570,73 +8635,6 @@
       }
     },
     {
-      "cveId": "CVE-2025-45854",
-      "title": "CVE-2025-45854: /server/executeExec of JEHC-BPM 2.0.1 allows attackers to execute arbitrary code via execParams....",
-      "description": "/server/executeExec of JEHC-BPM 2.0.1 allows attackers to execute arbitrary code via execParams.",
-      "publishedDate": "2025-06-03T00:00:00+00:00",
-      "lastModifiedDate": "2025-06-04T13:56:06.296000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
-          "baseScore": 10.0,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.1117,
-        "percentile": 93.205
-      },
-      "riskScore": 51,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Jehc"
-        ],
-        "products": [
-          "Jehc-bpm"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://gitee.com/jehc/JEHC-BPM",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://gist.github.com/Cafe-Tea/bc14b38f4bfd951de2979a24c3358460",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://web.archive.org/web/20250604134020/https://gist.github.com/Cafe-Tea/bc14b38f4bfd951de2979a24c3358460/revisions",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-862"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/45xxx/CVE-2025-45854.json",
-            "lastModified": "2025-06-04T13:56:06.296000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2025-7401",
       "title": "Premium Age Verification / Restriction for WordPress <= 3.0.2 - Unauthenticated Arbitrary File Read and Write via remote_tunnel.php",
       "description": "The Premium Age Verification / Restriction for WordPress plugin for WordPress is vulnerable to arbitrary file read and write due to the existence of an insufficiently protected remote support functionality in remote_tunnel.php in all versions up to, and including, 3.0.2. This makes it possible for unauthenticated attackers to read from or write to arbitrary files on the affected site's server which may make the exposure of sensitive information or remote code execution possible.",
@@ -8653,7 +8651,7 @@
       ],
       "epss": {
         "score": 0.0025,
-        "percentile": 48.535
+        "percentile": 48.707
       },
       "riskScore": 51,
       "exploitationStatus": "UNKNOWN",
@@ -8717,7 +8715,7 @@
       ],
       "epss": {
         "score": 0.0053,
-        "percentile": 66.33
+        "percentile": 66.498
       },
       "riskScore": 51,
       "exploitationStatus": "UNKNOWN",
@@ -8785,7 +8783,7 @@
       ],
       "epss": {
         "score": 0.0011,
-        "percentile": 29.441
+        "percentile": 29.553
       },
       "riskScore": 51,
       "exploitationStatus": "UNKNOWN",
@@ -8853,7 +8851,7 @@
       ],
       "epss": {
         "score": 0.0039,
-        "percentile": 59.522
+        "percentile": 59.686
       },
       "riskScore": 51,
       "exploitationStatus": "UNKNOWN",
@@ -8924,7 +8922,7 @@
       ],
       "epss": {
         "score": 0.0022,
-        "percentile": 44.89
+        "percentile": 45.045
       },
       "riskScore": 51,
       "exploitationStatus": "UNKNOWN",
@@ -8988,7 +8986,7 @@
       ],
       "epss": {
         "score": 0.0062,
-        "percentile": 69.166
+        "percentile": 69.308
       },
       "riskScore": 51,
       "exploitationStatus": "UNKNOWN",
@@ -9059,7 +9057,7 @@
       ],
       "epss": {
         "score": 0.0037,
-        "percentile": 57.79
+        "percentile": 57.96
       },
       "riskScore": 51,
       "exploitationStatus": "UNKNOWN",
@@ -9130,7 +9128,7 @@
       ],
       "epss": {
         "score": 0.001,
-        "percentile": 28.256
+        "percentile": 28.359
       },
       "riskScore": 51,
       "exploitationStatus": "UNKNOWN",
@@ -9205,7 +9203,7 @@
       ],
       "epss": {
         "score": 0.002,
-        "percentile": 42.843
+        "percentile": 42.998
       },
       "riskScore": 51,
       "exploitationStatus": "UNKNOWN",
@@ -9274,7 +9272,7 @@
       ],
       "epss": {
         "score": 0.1391,
-        "percentile": 94.029
+        "percentile": 94.069
       },
       "riskScore": 51,
       "exploitationStatus": "UNKNOWN",
@@ -9335,7 +9333,7 @@
       ],
       "epss": {
         "score": 0.0009,
-        "percentile": 26.68
+        "percentile": 26.789
       },
       "riskScore": 51,
       "exploitationStatus": "UNKNOWN",
@@ -9395,7 +9393,7 @@
       ],
       "epss": {
         "score": 0.001,
-        "percentile": 27.953
+        "percentile": 28.05
       },
       "riskScore": 51,
       "exploitationStatus": "UNKNOWN",
@@ -9443,65 +9441,6 @@
       }
     },
     {
-      "cveId": "CVE-2025-4784",
-      "title": "SQLi in Moderec's Tourtella",
-      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in Moderec Tourtella allows SQL Injection.This issue affects Tourtella: before 26.05.2025.",
-      "publishedDate": "2025-07-24T13:27:16.922000+00:00",
-      "lastModifiedDate": "2025-07-24T14:01:07.957000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 9.8,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0004,
-        "percentile": 11.212
-      },
-      "riskScore": 51,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Moderec"
-        ],
-        "products": [
-          "Tourtella"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://www.usom.gov.tr/bildirim/tr-25-0176",
-          "source": "",
-          "tags": [
-            "third-party-advisory"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-89"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/4xxx/CVE-2025-4784.json",
-            "lastModified": "2025-07-24T14:01:07.957000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2025-4607",
       "title": "PSW Front-end Login & Registration <= 1.12 - Insufficiently Random Values to Unauthenticated Account Takeover/Privilege Escalation via customer_registration Function",
       "description": "The PSW Front-end Login & Registration plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 1.12 via the customer_registration() function. This is due to the use of a weak, low-entropy OTP mechanism in the forget() function. This makes it possible for unauthenticated attackers to initiate a password reset for any user, including administrators, and elevate their privileges for full site takeover.",
@@ -9518,7 +9457,7 @@
       ],
       "epss": {
         "score": 0.0016,
-        "percentile": 37.145
+        "percentile": 37.296
       },
       "riskScore": 51,
       "exploitationStatus": "UNKNOWN",
@@ -9581,65 +9520,6 @@
       }
     },
     {
-      "cveId": "CVE-2025-4822",
-      "title": "SQLi in Bayraktar Solar Energies' ScadaWatt Otopilot",
-      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in Bayraktar Solar Energies ScadaWatt Otopilot allows SQL Injection.This issue affects ScadaWatt Otopilot: before 27.05.2025.",
-      "publishedDate": "2025-07-24T12:56:42.961000+00:00",
-      "lastModifiedDate": "2025-07-24T13:35:56.639000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 9.8,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0001,
-        "percentile": 1.721
-      },
-      "riskScore": 51,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Bayraktar Solar Energies"
-        ],
-        "products": [
-          "Scadawatt Otopilot"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://www.usom.gov.tr/bildirim/tr-25-0175",
-          "source": "",
-          "tags": [
-            "third-party-advisory"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-89"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/4xxx/CVE-2025-4822.json",
-            "lastModified": "2025-07-24T13:35:56.639000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2025-4104",
       "title": "Frontend Dashboard 1.0 - 2.2.6 - Missing Authorization to Unauthenticated Privilege Escalation via fed_wp_ajax_fed_login_form_post Function",
       "description": "The Frontend Dashboard plugin for WordPress is vulnerable to Privilege Escalation due to a missing capability check on the fed_wp_ajax_fed_login_form_post() function in versions 1.0 to 2.2.6. This makes it possible for unauthenticated attackers to reset the administrator’s email and password, and elevate their privileges to that of an administrator.",
@@ -9656,7 +9536,7 @@
       ],
       "epss": {
         "score": 0.0019,
-        "percentile": 40.995
+        "percentile": 41.146
       },
       "riskScore": 51,
       "exploitationStatus": "UNKNOWN",
@@ -9740,7 +9620,7 @@
       ],
       "epss": {
         "score": 0.009,
-        "percentile": 74.759
+        "percentile": 74.876
       },
       "riskScore": 51,
       "exploitationStatus": "UNKNOWN",
@@ -9811,7 +9691,7 @@
       ],
       "epss": {
         "score": 0.001,
-        "percentile": 28.477
+        "percentile": 28.583
       },
       "riskScore": 51,
       "exploitationStatus": "UNKNOWN",
@@ -9875,7 +9755,7 @@
       ],
       "epss": {
         "score": 0.0018,
-        "percentile": 40.02
+        "percentile": 40.172
       },
       "riskScore": 51,
       "exploitationStatus": "UNKNOWN",
@@ -9959,7 +9839,7 @@
       ],
       "epss": {
         "score": 0.0028,
-        "percentile": 51.053
+        "percentile": 51.23
       },
       "riskScore": 51,
       "exploitationStatus": "UNKNOWN",
@@ -10038,7 +9918,7 @@
       ],
       "epss": {
         "score": 0.0014,
-        "percentile": 34.776
+        "percentile": 34.928
       },
       "riskScore": 51,
       "exploitationStatus": "UNKNOWN",
@@ -10176,7 +10056,7 @@
       ],
       "epss": {
         "score": 0.0094,
-        "percentile": 75.298
+        "percentile": 75.415
       },
       "riskScore": 51,
       "exploitationStatus": "UNKNOWN",
@@ -10262,7 +10142,7 @@
       ],
       "epss": {
         "score": 0.4057,
-        "percentile": 97.232
+        "percentile": 97.259
       },
       "riskScore": 51,
       "exploitationStatus": "UNKNOWN",
@@ -10330,7 +10210,7 @@
       ],
       "epss": {
         "score": 0.002,
-        "percentile": 42.082
+        "percentile": 42.233
       },
       "riskScore": 51,
       "exploitationStatus": "UNKNOWN",
@@ -10394,7 +10274,7 @@
       ],
       "epss": {
         "score": 0.0003,
-        "percentile": 6.894
+        "percentile": 6.931
       },
       "riskScore": 51,
       "exploitationStatus": "UNKNOWN",
@@ -10451,7 +10331,7 @@
       ],
       "epss": {
         "score": 0.1876,
-        "percentile": 95.017
+        "percentile": 95.061
       },
       "riskScore": 51,
       "exploitationStatus": "UNKNOWN",
@@ -10515,7 +10395,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 17.61
+        "percentile": 17.632
       },
       "riskScore": 51,
       "exploitationStatus": "UNKNOWN",
@@ -10578,7 +10458,7 @@
       ],
       "epss": {
         "score": 0.0633,
-        "percentile": 90.591
+        "percentile": 90.654
       },
       "riskScore": 51,
       "exploitationStatus": "UNKNOWN",
@@ -10644,7 +10524,7 @@
       ],
       "epss": {
         "score": 0.1647,
-        "percentile": 94.611
+        "percentile": 94.653
       },
       "riskScore": 51,
       "exploitationStatus": "UNKNOWN",
@@ -10711,7 +10591,7 @@
       ],
       "epss": {
         "score": 0.0014,
-        "percentile": 34.62
+        "percentile": 34.769
       },
       "riskScore": 51,
       "exploitationStatus": "UNKNOWN",
@@ -11460,7 +11340,7 @@
       ],
       "epss": {
         "score": 0.0017,
-        "percentile": 38.713
+        "percentile": 38.865
       },
       "riskScore": 51,
       "exploitationStatus": "UNKNOWN",
@@ -11529,7 +11409,7 @@
       ],
       "epss": {
         "score": 0.0007,
-        "percentile": 20.993
+        "percentile": 21.074
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -11594,7 +11474,7 @@
       ],
       "epss": {
         "score": 0.0037,
-        "percentile": 57.9
+        "percentile": 58.07
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -11684,7 +11564,7 @@
       ],
       "epss": {
         "score": 0.0034,
-        "percentile": 55.961
+        "percentile": 56.145
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -11756,7 +11636,7 @@
       ],
       "epss": {
         "score": 0.0027,
-        "percentile": 50.271
+        "percentile": 50.446
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -11852,7 +11732,7 @@
       ],
       "epss": {
         "score": 0.0037,
-        "percentile": 57.9
+        "percentile": 58.07
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -11948,7 +11828,7 @@
       ],
       "epss": {
         "score": 0.0037,
-        "percentile": 57.9
+        "percentile": 58.07
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -12038,7 +11918,7 @@
       ],
       "epss": {
         "score": 0.0015,
-        "percentile": 36.201
+        "percentile": 36.355
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -12118,7 +11998,7 @@
       ],
       "epss": {
         "score": 0.0035,
-        "percentile": 56.738
+        "percentile": 56.918
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -12208,7 +12088,7 @@
       ],
       "epss": {
         "score": 0.0005,
-        "percentile": 15.753
+        "percentile": 15.78
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -12267,7 +12147,7 @@
       ],
       "epss": {
         "score": 0.0005,
-        "percentile": 17.081
+        "percentile": 17.104
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -12328,7 +12208,7 @@
       ],
       "epss": {
         "score": 0.0516,
-        "percentile": 89.495
+        "percentile": 89.567
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -12387,7 +12267,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 19.843
+        "percentile": 19.879
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -12448,7 +12328,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 17.61
+        "percentile": 17.632
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -12509,7 +12389,7 @@
       ],
       "epss": {
         "score": 0.0005,
-        "percentile": 16.905
+        "percentile": 16.929
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -12570,7 +12450,7 @@
       ],
       "epss": {
         "score": 0.0007,
-        "percentile": 21.343
+        "percentile": 21.426
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -12629,7 +12509,7 @@
       ],
       "epss": {
         "score": 0.0003,
-        "percentile": 7.865
+        "percentile": 7.912
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -12695,7 +12575,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 20.617
+        "percentile": 20.696
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -12754,7 +12634,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 20.617
+        "percentile": 20.696
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -12813,7 +12693,7 @@
       ],
       "epss": {
         "score": 0.0746,
-        "percentile": 91.37
+        "percentile": 91.429
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -12880,7 +12760,7 @@
       ],
       "epss": {
         "score": 0.0129,
-        "percentile": 78.845
+        "percentile": 78.936
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -12946,7 +12826,7 @@
       ],
       "epss": {
         "score": 0.0129,
-        "percentile": 78.845
+        "percentile": 78.936
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -13012,7 +12892,7 @@
       ],
       "epss": {
         "score": 0.0021,
-        "percentile": 43.638
+        "percentile": 43.795
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -13079,7 +12959,7 @@
       ],
       "epss": {
         "score": 0.0096,
-        "percentile": 75.497
+        "percentile": 75.613
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -13140,7 +13020,7 @@
       ],
       "epss": {
         "score": 0.0001,
-        "percentile": 1.411
+        "percentile": 1.48
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -13197,7 +13077,7 @@
       ],
       "epss": {
         "score": 0.0026,
-        "percentile": 49.324
+        "percentile": 49.493
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -13292,7 +13172,7 @@
       ],
       "epss": {
         "score": 0.0015,
-        "percentile": 36.745
+        "percentile": 36.9
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -13351,7 +13231,7 @@
       ],
       "epss": {
         "score": 0.0007,
-        "percentile": 22.197
+        "percentile": 22.291
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -13433,7 +13313,7 @@
       ],
       "epss": {
         "score": 0.0019,
-        "percentile": 40.879
+        "percentile": 41.033
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -13494,7 +13374,7 @@
       ],
       "epss": {
         "score": 0.0039,
-        "percentile": 59.436
+        "percentile": 59.6
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -13580,7 +13460,7 @@
       ],
       "epss": {
         "score": 0.0051,
-        "percentile": 65.515
+        "percentile": 65.688
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -13652,7 +13532,7 @@
       ],
       "epss": {
         "score": 0.0097,
-        "percentile": 75.758
+        "percentile": 75.873
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -13740,7 +13620,7 @@
       ],
       "epss": {
         "score": 0.0008,
-        "percentile": 25.188
+        "percentile": 25.284
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -13801,7 +13681,7 @@
       ],
       "epss": {
         "score": 0.0001,
-        "percentile": 1.328
+        "percentile": 1.398
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -13842,63 +13722,6 @@
       }
     },
     {
-      "cveId": "CVE-2025-46410",
-      "title": "CVE-2025-46410: A cross-site scripting (xss) vulnerability exists in the managerPlaylists PlaylistOwnerUsersId param...",
-      "description": "A cross-site scripting (xss) vulnerability exists in the managerPlaylists PlaylistOwnerUsersId parameter functionality of WWBN AVideo 14.4 and dev master commit 8a8954ff. A specially crafted HTTP request can lead to arbitrary Javascript execution. An attacker can get a user to visit a webpage to trigger this vulnerability.",
-      "publishedDate": "2025-07-24T15:11:06.165000+00:00",
-      "lastModifiedDate": "2025-07-24T15:29:21.895000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H",
-          "baseScore": 9.6,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0007,
-        "percentile": 22.861
-      },
-      "riskScore": 50,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Wwbn"
-        ],
-        "products": [
-          "Avideo"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://talosintelligence.com/vulnerability_reports/TALOS-2025-2205",
-          "source": "https://talosintelligence.com/vulnerability_reports/TALOS-2025-2205",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-79"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "Required",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/46xxx/CVE-2025-46410.json",
-            "lastModified": "2025-07-24T15:29:21.895000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2025-20156",
       "title": "Cisco Meeting Management Client-Server Privilege Escalation Vulnerability",
       "description": "A vulnerability in the REST API of Cisco Meeting Management could allow a remote, authenticated attacker with low privileges to elevate privileges to administrator on an affected device.\r\n\r\nThis vulnerability exists because proper authorization is not enforced upon&nbsp;REST API users. An attacker could exploit this vulnerability by sending API requests to a specific endpoint. A successful exploit could allow the attacker to gain administrator-level control over edge nodes that are managed by Cisco Meeting Management.",
@@ -13915,7 +13738,7 @@
       ],
       "epss": {
         "score": 0.0013,
-        "percentile": 33.678
+        "percentile": 33.819
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -13980,7 +13803,7 @@
       ],
       "epss": {
         "score": 0.0023,
-        "percentile": 45.544
+        "percentile": 45.706
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -14022,120 +13845,6 @@
       }
     },
     {
-      "cveId": "CVE-2025-50128",
-      "title": "CVE-2025-50128: A cross-site scripting (xss) vulnerability exists in the videoNotFound 404ErrorMsg parameter functio...",
-      "description": "A cross-site scripting (xss) vulnerability exists in the videoNotFound 404ErrorMsg parameter functionality of WWBN AVideo 14.4 and dev master commit 8a8954ff. A specially crafted HTTP request can lead to arbitrary Javascript execution. An attacker can get a user to visit a webpage to trigger this vulnerability.",
-      "publishedDate": "2025-07-24T15:11:03.304000+00:00",
-      "lastModifiedDate": "2025-07-24T15:27:57.056000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H",
-          "baseScore": 9.6,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0007,
-        "percentile": 22.861
-      },
-      "riskScore": 50,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Wwbn"
-        ],
-        "products": [
-          "Avideo"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://talosintelligence.com/vulnerability_reports/TALOS-2025-2207",
-          "source": "https://talosintelligence.com/vulnerability_reports/TALOS-2025-2207",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-79"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "Required",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/50xxx/CVE-2025-50128.json",
-            "lastModified": "2025-07-24T15:27:57.056000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-22467",
-      "title": "CVE-2025-22467: A stack-based buffer overflow in Ivanti Connect Secure before version 22.7R2.6 allows a remote authe...",
-      "description": "A stack-based buffer overflow in Ivanti Connect Secure before version 22.7R2.6 allows a remote authenticated attacker to achieve remote code execution.",
-      "publishedDate": "2025-02-11T15:20:16.514000+00:00",
-      "lastModifiedDate": "2025-02-13T04:55:15.282000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H",
-          "baseScore": 9.9,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.2561,
-        "percentile": 96.002
-      },
-      "riskScore": 50,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Ivanti"
-        ],
-        "products": [
-          "Connect Secure"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://forums.ivanti.com/s/article/February-Security-Advisory-Ivanti-Connect-Secure-ICS-Ivanti-Policy-Secure-IPS-and-Ivanti-Secure-Access-Client-ISAC-Multiple-CVEs",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-121"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "Low",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/22xxx/CVE-2025-22467.json",
-            "lastModified": "2025-02-13T04:55:15.282000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2025-22252",
       "title": "CVE-2025-22252: A missing authentication for critical function in Fortinet FortiProxy versions 7.6.0 through 7.6.1, ...",
       "description": "A missing authentication for critical function in Fortinet FortiProxy versions 7.6.0 through 7.6.1, FortiSwitchManager version 7.2.5, and FortiOS versions 7.4.4 through 7.4.6 and version 7.6.0 may allow an attacker with knowledge of an existing admin account to access the device as a valid admin via an authentication bypass.",
@@ -14152,7 +13861,7 @@
       ],
       "epss": {
         "score": 0.0008,
-        "percentile": 24.086
+        "percentile": 24.192
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -14217,7 +13926,7 @@
       ],
       "epss": {
         "score": 0.0025,
-        "percentile": 48.171
+        "percentile": 48.346
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -14320,7 +14029,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 19.752
+        "percentile": 19.789
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -14410,7 +14119,7 @@
       ],
       "epss": {
         "score": 0.0029,
-        "percentile": 52.157
+        "percentile": 52.342
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -14472,7 +14181,7 @@
       ],
       "epss": {
         "score": 0.0003,
-        "percentile": 8.096
+        "percentile": 8.149
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -14558,7 +14267,7 @@
       ],
       "epss": {
         "score": 0.0785,
-        "percentile": 91.616
+        "percentile": 91.68
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -14617,7 +14326,7 @@
       ],
       "epss": {
         "score": 0.0009,
-        "percentile": 26.288
+        "percentile": 26.398
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -14684,7 +14393,7 @@
       ],
       "epss": {
         "score": 0.017,
-        "percentile": 81.534
+        "percentile": 81.624
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -14755,7 +14464,7 @@
       ],
       "epss": {
         "score": 0.0005,
-        "percentile": 17.081
+        "percentile": 17.104
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -14816,7 +14525,7 @@
       ],
       "epss": {
         "score": 0.001,
-        "percentile": 28.419
+        "percentile": 28.523
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -14883,7 +14592,7 @@
       ],
       "epss": {
         "score": 0.0012,
-        "percentile": 31.807
+        "percentile": 31.942
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -14949,7 +14658,7 @@
       ],
       "epss": {
         "score": 0.0007,
-        "percentile": 20.899
+        "percentile": 20.979
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -14992,63 +14701,6 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/41xxx/CVE-2025-41672.json",
             "lastModified": "2025-07-07T16:34:52.794000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-41420",
-      "title": "CVE-2025-41420: A cross-site scripting (xss) vulnerability exists in the userLogin cancelUri parameter functionality...",
-      "description": "A cross-site scripting (xss) vulnerability exists in the userLogin cancelUri parameter functionality of WWBN AVideo 14.4 and dev master commit 8a8954ff. A specially crafted HTTP request can lead to arbitrary Javascript execution. An attacker can get a user to visit a webpage to trigger this vulnerability.",
-      "publishedDate": "2025-07-24T15:11:00.461000+00:00",
-      "lastModifiedDate": "2025-07-24T15:41:31.945000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H",
-          "baseScore": 9.6,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0015,
-        "percentile": 36.633
-      },
-      "riskScore": 50,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Wwbn"
-        ],
-        "products": [
-          "Avideo"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://talosintelligence.com/vulnerability_reports/TALOS-2025-2209",
-          "source": "https://talosintelligence.com/vulnerability_reports/TALOS-2025-2209",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-79"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "Required",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/41xxx/CVE-2025-41420.json",
-            "lastModified": "2025-07-24T15:41:31.945000+00:00"
           }
         ]
       }
@@ -16124,6 +15776,68 @@
       }
     },
     {
+      "cveId": "CVE-2025-5243",
+      "title": "Arbitrary File Upload in SMG Software's Information Portal",
+      "description": "Unrestricted Upload of File with Dangerous Type, Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability in SMG Software Information Portal allows Code Injection, Upload a Web Shell to a Web Server, Code Inclusion.This issue affects Information Portal: before 13.06.2025.",
+      "publishedDate": "2025-07-24T12:45:22.450000+00:00",
+      "lastModifiedDate": "2025-07-24T13:36:01.931000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+          "baseScore": 10.0,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0039,
+        "percentile": 59.144
+      },
+      "riskScore": 50,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Smg Software",
+          "Web"
+        ],
+        "products": [
+          "Information Portal",
+          "Web Server"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.usom.gov.tr/bildirim/tr-25-0174",
+          "source": "",
+          "tags": [
+            "third-party-advisory"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-434",
+          "CWE-78"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/5xxx/CVE-2025-5243.json",
+            "lastModified": "2025-07-24T13:36:01.931000+00:00"
+          }
+        ]
+      }
+    },
+    {
       "cveId": "CVE-2025-6934",
       "title": "Opal Estate Pro <= 1.7.5 - Unauthenticated Privilege Escalation via 'on_regiser_user'",
       "description": "The Opal Estate Pro – Property Management and Submission plugin for WordPress, used by the FullHouse - Real Estate Responsive WordPress Theme, is vulnerable to privilege escalation via in all versions up to, and including, 1.7.5. This is due to a lack of role restriction during registration in the 'on_regiser_user' function. This makes it possible for unauthenticated attackers to arbitrarily choose the role, including the Administrator role, assigned when registering.",
@@ -16140,7 +15854,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 9.967
+        "percentile": 10.041
       },
       "riskScore": 50,
       "exploitationStatus": "UNKNOWN",
@@ -16214,7 +15928,7 @@
       ],
       "epss": {
         "score": 0.0013,
-        "percentile": 33.766
+        "percentile": 33.91
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -16283,7 +15997,7 @@
       ],
       "epss": {
         "score": 0.0014,
-        "percentile": 34.893
+        "percentile": 35.04
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -16347,7 +16061,7 @@
       ],
       "epss": {
         "score": 0.0005,
-        "percentile": 16.366
+        "percentile": 16.397
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -16411,7 +16125,7 @@
       ],
       "epss": {
         "score": 0.0025,
-        "percentile": 48.003
+        "percentile": 48.176
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -16483,7 +16197,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 18.766
+        "percentile": 18.805
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -16572,7 +16286,7 @@
       ],
       "epss": {
         "score": 0.1313,
-        "percentile": 93.831
+        "percentile": 93.871
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -16637,8 +16351,8 @@
         }
       ],
       "epss": {
-        "score": 0.0023,
-        "percentile": 45.979
+        "score": 0.0018,
+        "percentile": 40.249
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -16754,7 +16468,7 @@
       ],
       "epss": {
         "score": 0.0658,
-        "percentile": 90.772
+        "percentile": 90.832
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -16816,7 +16530,7 @@
       ],
       "epss": {
         "score": 0.0755,
-        "percentile": 91.424
+        "percentile": 91.482
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -16899,7 +16613,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 19.41
+        "percentile": 19.445
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -16962,7 +16676,7 @@
       ],
       "epss": {
         "score": 0.0013,
-        "percentile": 33.632
+        "percentile": 33.774
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -17134,7 +16848,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 19.41
+        "percentile": 19.445
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -17197,7 +16911,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 19.41
+        "percentile": 19.445
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -17260,7 +16974,7 @@
       ],
       "epss": {
         "score": 0.0013,
-        "percentile": 33.475
+        "percentile": 33.618
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -17432,7 +17146,7 @@
       ],
       "epss": {
         "score": 0.0008,
-        "percentile": 24.03
+        "percentile": 24.135
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -17493,7 +17207,7 @@
       ],
       "epss": {
         "score": 0.0005,
-        "percentile": 15.901
+        "percentile": 15.933
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -17556,7 +17270,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 20.591
+        "percentile": 20.669
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -17613,7 +17327,7 @@
       ],
       "epss": {
         "score": 0.0002,
-        "percentile": 3.275
+        "percentile": 3.399
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -17674,7 +17388,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 18.759
+        "percentile": 18.799
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -17731,7 +17445,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 18.759
+        "percentile": 18.799
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -17788,7 +17502,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 18.759
+        "percentile": 18.799
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -17845,7 +17559,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 18.759
+        "percentile": 18.799
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -17902,7 +17616,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 17.61
+        "percentile": 17.632
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -17959,7 +17673,7 @@
       ],
       "epss": {
         "score": 0.0007,
-        "percentile": 23.059
+        "percentile": 23.164
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -18016,7 +17730,7 @@
       ],
       "epss": {
         "score": 0.0005,
-        "percentile": 15.004
+        "percentile": 15.024
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -18079,7 +17793,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 17.108
+        "percentile": 17.131
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -18142,7 +17856,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 20.048
+        "percentile": 20.083
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -18205,7 +17919,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 17.108
+        "percentile": 17.131
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -18268,7 +17982,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 20.048
+        "percentile": 20.083
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -18331,7 +18045,7 @@
       ],
       "epss": {
         "score": 0.0466,
-        "percentile": 88.91
+        "percentile": 88.987
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -18392,7 +18106,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 20.234
+        "percentile": 20.293
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -18455,7 +18169,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 20.234
+        "percentile": 20.293
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -18518,7 +18232,7 @@
       ],
       "epss": {
         "score": 0.0002,
-        "percentile": 4.857
+        "percentile": 4.907
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -18614,7 +18328,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 20.234
+        "percentile": 20.293
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -18677,7 +18391,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 20.234
+        "percentile": 20.293
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -18740,7 +18454,7 @@
       ],
       "epss": {
         "score": 0.0008,
-        "percentile": 25.654
+        "percentile": 25.753
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -18821,7 +18535,7 @@
       ],
       "epss": {
         "score": 0.0023,
-        "percentile": 46.132
+        "percentile": 46.297
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -18881,7 +18595,7 @@
       ],
       "epss": {
         "score": 0.0015,
-        "percentile": 36.62
+        "percentile": 36.773
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -18945,7 +18659,7 @@
       ],
       "epss": {
         "score": 0.0044,
-        "percentile": 62.482
+        "percentile": 62.656
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -19009,7 +18723,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 11.212
+        "percentile": 11.263
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -19068,7 +18782,7 @@
       ],
       "epss": {
         "score": 0.0014,
-        "percentile": 34.893
+        "percentile": 35.04
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -19132,7 +18846,7 @@
       ],
       "epss": {
         "score": 0.0022,
-        "percentile": 45.162
+        "percentile": 45.322
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -19196,7 +18910,7 @@
       ],
       "epss": {
         "score": 0.0022,
-        "percentile": 45.162
+        "percentile": 45.322
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -19260,7 +18974,7 @@
       ],
       "epss": {
         "score": 0.0009,
-        "percentile": 25.819
+        "percentile": 25.918
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -19440,7 +19154,7 @@
       ],
       "epss": {
         "score": 0.0014,
-        "percentile": 34.893
+        "percentile": 35.04
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -19504,7 +19218,7 @@
       ],
       "epss": {
         "score": 0.0012,
-        "percentile": 31.998
+        "percentile": 32.134
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -19572,7 +19286,7 @@
       ],
       "epss": {
         "score": 0.0029,
-        "percentile": 51.855
+        "percentile": 52.039
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -19640,7 +19354,7 @@
       ],
       "epss": {
         "score": 0.0011,
-        "percentile": 30.093
+        "percentile": 30.205
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -19704,7 +19418,7 @@
       ],
       "epss": {
         "score": 0.0058,
-        "percentile": 67.922
+        "percentile": 68.074
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -19766,7 +19480,7 @@
       ],
       "epss": {
         "score": 0.0011,
-        "percentile": 30.093
+        "percentile": 30.205
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -19830,7 +19544,7 @@
       ],
       "epss": {
         "score": 0.0045,
-        "percentile": 62.81
+        "percentile": 62.983
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -19889,7 +19603,7 @@
       ],
       "epss": {
         "score": 0.0019,
-        "percentile": 41.529
+        "percentile": 41.68
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -19958,7 +19672,7 @@
       ],
       "epss": {
         "score": 0.0009,
-        "percentile": 27.227
+        "percentile": 27.329
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -20037,7 +19751,7 @@
       ],
       "epss": {
         "score": 0.0308,
-        "percentile": 86.261
+        "percentile": 86.352
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -20101,7 +19815,7 @@
       ],
       "epss": {
         "score": 0.0014,
-        "percentile": 34.654
+        "percentile": 34.803
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -20170,7 +19884,7 @@
       ],
       "epss": {
         "score": 0.0048,
-        "percentile": 63.947
+        "percentile": 64.122
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -20239,7 +19953,7 @@
       ],
       "epss": {
         "score": 0.0374,
-        "percentile": 87.571
+        "percentile": 87.66
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -20282,128 +19996,6 @@
       }
     },
     {
-      "cveId": "CVE-2025-27407",
-      "title": "Remote code execution when loading a crafted GraphQL schema",
-      "description": "graphql-ruby is a Ruby implementation of GraphQL. Starting in version 1.11.5 and prior to versions 1.11.8, 1.12.25, 1.13.24, 2.0.32, 2.1.14, 2.2.17, and 2.3.21, loading a malicious schema definition in `GraphQL::Schema.from_introspection` (or `GraphQL::Schema::Loader.load`) can result in remote code execution. Any system which loads a schema by JSON from an untrusted source is vulnerable, including those that use GraphQL::Client to load external schemas via GraphQL introspection. Versions 1.11.8, 1.12.25, 1.13.24, 2.0.32, 2.1.14, 2.2.17, and 2.3.21 contain a patch for the issue.",
-      "publishedDate": "2025-03-12T18:15:57.957000+00:00",
-      "lastModifiedDate": "2025-03-12T20:47:41.948000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:H/I:H/A:H",
-          "baseScore": 9.1,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0657,
-        "percentile": 90.764
-      },
-      "riskScore": 49,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Rmosolgo"
-        ],
-        "products": [
-          "Graphql-ruby"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://github.com/rmosolgo/graphql-ruby/security/advisories/GHSA-q92j-grw3-h492",
-          "source": "https://github.com/rmosolgo/graphql-ruby/security/advisories/GHSA-q92j-grw3-h492",
-          "tags": [
-            "x_refsource_CONFIRM"
-          ]
-        },
-        {
-          "url": "https://github.com/rmosolgo/graphql-ruby/commit/28233b16c0eb9d0fb7808f4980e061dc7507c4cd",
-          "source": "https://github.com/rmosolgo/graphql-ruby/commit/28233b16c0eb9d0fb7808f4980e061dc7507c4cd",
-          "tags": [
-            "x_refsource_MISC"
-          ]
-        },
-        {
-          "url": "https://github.com/rmosolgo/graphql-ruby/commit/2d2f4ed1f79472f8eed29c864b039649e1de238f",
-          "source": "https://github.com/rmosolgo/graphql-ruby/commit/2d2f4ed1f79472f8eed29c864b039649e1de238f",
-          "tags": [
-            "x_refsource_MISC"
-          ]
-        },
-        {
-          "url": "https://github.com/rmosolgo/graphql-ruby/commit/5c5a7b9a9bdce143be048074aea50edb7bb747be",
-          "source": "https://github.com/rmosolgo/graphql-ruby/commit/5c5a7b9a9bdce143be048074aea50edb7bb747be",
-          "tags": [
-            "x_refsource_MISC"
-          ]
-        },
-        {
-          "url": "https://github.com/rmosolgo/graphql-ruby/commit/6eca16b9fa553aa957099a30dbde64ddcdac52ca",
-          "source": "https://github.com/rmosolgo/graphql-ruby/commit/6eca16b9fa553aa957099a30dbde64ddcdac52ca",
-          "tags": [
-            "x_refsource_MISC"
-          ]
-        },
-        {
-          "url": "https://github.com/rmosolgo/graphql-ruby/commit/d0963289e0dab4ea893bbecf12bb7d89294957bb",
-          "source": "https://github.com/rmosolgo/graphql-ruby/commit/d0963289e0dab4ea893bbecf12bb7d89294957bb",
-          "tags": [
-            "x_refsource_MISC"
-          ]
-        },
-        {
-          "url": "https://github.com/rmosolgo/graphql-ruby/commit/d1117ae0361d9ed67e0795b07f5c3e98e62f3c7c",
-          "source": "https://github.com/rmosolgo/graphql-ruby/commit/d1117ae0361d9ed67e0795b07f5c3e98e62f3c7c",
-          "tags": [
-            "x_refsource_MISC"
-          ]
-        },
-        {
-          "url": "https://github.com/rmosolgo/graphql-ruby/commit/e3b33ace05391da2871c75ab4d3b66e29133b367",
-          "source": "https://github.com/rmosolgo/graphql-ruby/commit/e3b33ace05391da2871c75ab4d3b66e29133b367",
-          "tags": [
-            "x_refsource_MISC"
-          ]
-        },
-        {
-          "url": "https://about.gitlab.com/releases/2025/03/12/patch-release-gitlab-17-9-2-released",
-          "source": "https://about.gitlab.com/releases/2025/03/12/patch-release-gitlab-17-9-2-released",
-          "tags": [
-            "x_refsource_MISC"
-          ]
-        },
-        {
-          "url": "https://github.com/github-community-projects/graphql-client",
-          "source": "https://github.com/github-community-projects/graphql-client",
-          "tags": [
-            "x_refsource_MISC"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-94"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "High",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/27xxx/CVE-2025-27407.json",
-            "lastModified": "2025-03-12T20:47:41.948000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2025-40736",
       "title": "CVE-2025-40736: A vulnerability has been identified in SINEC NMS (All versions < V4.0). The affected application exp...",
       "description": "A vulnerability has been identified in SINEC NMS (All versions < V4.0). The affected application exposes an endpoint that allows an unauthorized modification of administrative credentials. This could allow an unauthenticated attacker to reset the superadmin password and gain full control of the application (ZDI-CAN-26569).",
@@ -20420,7 +20012,7 @@
       ],
       "epss": {
         "score": 0.001,
-        "percentile": 27.953
+        "percentile": 28.05
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -20477,7 +20069,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 18.785
+        "percentile": 18.824
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -20541,7 +20133,7 @@
       ],
       "epss": {
         "score": 0.0007,
-        "percentile": 22.413
+        "percentile": 22.51
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -20618,7 +20210,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 20.048
+        "percentile": 20.083
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -20681,7 +20273,7 @@
       ],
       "epss": {
         "score": 0.0008,
-        "percentile": 24.382
+        "percentile": 24.489
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -20749,7 +20341,7 @@
       ],
       "epss": {
         "score": 0.0011,
-        "percentile": 31.021
+        "percentile": 31.15
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -20817,7 +20409,7 @@
       ],
       "epss": {
         "score": 0.0118,
-        "percentile": 77.92
+        "percentile": 78.016
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -20888,7 +20480,7 @@
       ],
       "epss": {
         "score": 0.006,
-        "percentile": 68.657
+        "percentile": 68.805
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -20967,7 +20559,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 12.799
+        "percentile": 12.849
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -21036,7 +20628,7 @@
       ],
       "epss": {
         "score": 0.0003,
-        "percentile": 8.651
+        "percentile": 8.709
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -21101,7 +20693,7 @@
       ],
       "epss": {
         "score": 0.0044,
-        "percentile": 62.482
+        "percentile": 62.656
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -21165,7 +20757,7 @@
       ],
       "epss": {
         "score": 0.0011,
-        "percentile": 30.914
+        "percentile": 31.04
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -21222,7 +20814,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 18.4
+        "percentile": 18.435
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -21286,7 +20878,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 10.763
+        "percentile": 10.83
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -21347,7 +20939,7 @@
       ],
       "epss": {
         "score": 0.0038,
-        "percentile": 58.7
+        "percentile": 58.869
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -21425,7 +21017,7 @@
       ],
       "epss": {
         "score": 0.0036,
-        "percentile": 57.61
+        "percentile": 57.782
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -21486,7 +21078,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 10.763
+        "percentile": 10.83
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -21547,7 +21139,7 @@
       ],
       "epss": {
         "score": 0.0007,
-        "percentile": 22.746
+        "percentile": 22.848
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -21611,7 +21203,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 10.763
+        "percentile": 10.83
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -21672,7 +21264,7 @@
       ],
       "epss": {
         "score": 0.0002,
-        "percentile": 3.933
+        "percentile": 4.033
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -21742,7 +21334,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 10.763
+        "percentile": 10.83
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -21803,7 +21395,7 @@
       ],
       "epss": {
         "score": 0.0037,
-        "percentile": 57.972
+        "percentile": 58.141
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -21871,7 +21463,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 10.763
+        "percentile": 10.83
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -21932,7 +21524,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 10.763
+        "percentile": 10.83
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -21993,7 +21585,7 @@
       ],
       "epss": {
         "score": 0.0024,
-        "percentile": 47.483
+        "percentile": 47.652
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -22048,7 +21640,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 20.234
+        "percentile": 20.293
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -22111,7 +21703,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 20.234
+        "percentile": 20.293
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -22174,7 +21766,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 20.048
+        "percentile": 20.083
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -22237,7 +21829,7 @@
       ],
       "epss": {
         "score": 0.0032,
-        "percentile": 54.468
+        "percentile": 54.662
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -22303,7 +21895,7 @@
       ],
       "epss": {
         "score": 0.0059,
-        "percentile": 68.218
+        "percentile": 68.372
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -22361,63 +21953,6 @@
       }
     },
     {
-      "cveId": "CVE-2025-53084",
-      "title": "CVE-2025-53084: A cross-site scripting (xss) vulnerability exists in the videosList page parameter functionality of ...",
-      "description": "A cross-site scripting (xss) vulnerability exists in the videosList page parameter functionality of WWBN AVideo 14.4 and dev master commit 8a8954ff. A specially crafted HTTP request can lead to arbitrary Javascript execution. An attacker can get a user to visit a webpage to trigger this vulnerability.",
-      "publishedDate": "2025-07-24T15:11:04.747000+00:00",
-      "lastModifiedDate": "2025-07-24T15:28:31.965000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:C/C:H/I:H/A:H",
-          "baseScore": 9.0,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0008,
-        "percentile": 24.046
-      },
-      "riskScore": 49,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Wwbn"
-        ],
-        "products": [
-          "Avideo"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://talosintelligence.com/vulnerability_reports/TALOS-2025-2206",
-          "source": "https://talosintelligence.com/vulnerability_reports/TALOS-2025-2206",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-79"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "Low",
-        "userInteraction": "Required",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/53xxx/CVE-2025-53084.json",
-            "lastModified": "2025-07-24T15:28:31.965000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2025-53371",
       "title": "DiscordNotifications allows DOS, SSRF, and possible RCE through requests to user-controlled URLs",
       "description": "DiscordNotifications is an extension for MediaWiki that sends notifications of actions in your Wiki to a Discord channel. DiscordNotifications allows sending requests via curl and file_get_contents to arbitrary URLs set via $wgDiscordIncomingWebhookUrl and $wgDiscordAdditionalIncomingWebhookUrls. This allows for DOS by causing the server to read large files. SSRF is also possible if there are internal unprotected APIs that can be accessed using HTTP POST requests, which could also possibly lead to RCE. This vulnerability is fixed in commit 1f20d850cbcce5b15951c7c6127b87b927a5415e.",
@@ -22434,7 +21969,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 10.608
+        "percentile": 10.679
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -22503,7 +22038,7 @@
       ],
       "epss": {
         "score": 0.001,
-        "percentile": 29.299
+        "percentile": 29.411
       },
       "riskScore": 49,
       "exploitationStatus": "UNKNOWN",
@@ -23810,6 +23345,124 @@
       }
     },
     {
+      "cveId": "CVE-2025-4784",
+      "title": "SQLi in Moderec's Tourtella",
+      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in Moderec Tourtella allows SQL Injection.This issue affects Tourtella: before 26.05.2025.",
+      "publishedDate": "2025-07-24T13:27:16.922000+00:00",
+      "lastModifiedDate": "2025-07-24T14:01:07.957000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 9.8,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0004,
+        "percentile": 11.263
+      },
+      "riskScore": 49,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Moderec"
+        ],
+        "products": [
+          "Tourtella"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.usom.gov.tr/bildirim/tr-25-0176",
+          "source": "",
+          "tags": [
+            "third-party-advisory"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-89"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/4xxx/CVE-2025-4784.json",
+            "lastModified": "2025-07-24T14:01:07.957000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-4822",
+      "title": "SQLi in Bayraktar Solar Energies' ScadaWatt Otopilot",
+      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in Bayraktar Solar Energies ScadaWatt Otopilot allows SQL Injection.This issue affects ScadaWatt Otopilot: before 27.05.2025.",
+      "publishedDate": "2025-07-24T12:56:42.961000+00:00",
+      "lastModifiedDate": "2025-07-24T13:35:56.639000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 9.8,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0001,
+        "percentile": 1.801
+      },
+      "riskScore": 49,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Bayraktar Solar Energies"
+        ],
+        "products": [
+          "Scadawatt Otopilot"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.usom.gov.tr/bildirim/tr-25-0175",
+          "source": "",
+          "tags": [
+            "third-party-advisory"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-89"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/4xxx/CVE-2025-4822.json",
+            "lastModified": "2025-07-24T13:35:56.639000+00:00"
+          }
+        ]
+      }
+    },
+    {
       "cveId": "CVE-2025-33024",
       "title": "CVE-2025-33024: A vulnerability has been identified in RUGGEDCOM ROX MX5000 (All versions < V2.16.5), RUGGEDCOM ROX ...",
       "description": "A vulnerability has been identified in RUGGEDCOM ROX MX5000 (All versions < V2.16.5), RUGGEDCOM ROX MX5000RE (All versions < V2.16.5), RUGGEDCOM ROX RX1400 (All versions < V2.16.5), RUGGEDCOM ROX RX1500 (All versions < V2.16.5), RUGGEDCOM ROX RX1501 (All versions < V2.16.5), RUGGEDCOM ROX RX1510 (All versions < V2.16.5), RUGGEDCOM ROX RX1511 (All versions < V2.16.5), RUGGEDCOM ROX RX1512 (All versions < V2.16.5), RUGGEDCOM ROX RX1524 (All versions < V2.16.5), RUGGEDCOM ROX RX1536 (All versions < V2.16.5), RUGGEDCOM ROX RX5000 (All versions < V2.16.5). The 'tcpdump' tool in the web interface of affected devices is vulnerable to command injection due to missing server side input sanitation. This could allow an authenticated remote attacker to execute arbitrary code with root privileges.",
@@ -23826,7 +23479,7 @@
       ],
       "epss": {
         "score": 0.0019,
-        "percentile": 41.491
+        "percentile": 41.64
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -23895,7 +23548,7 @@
       ],
       "epss": {
         "score": 0.0019,
-        "percentile": 41.491
+        "percentile": 41.64
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -23964,7 +23617,7 @@
       ],
       "epss": {
         "score": 0.0012,
-        "percentile": 32.307
+        "percentile": 32.443
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -24026,7 +23679,7 @@
       ],
       "epss": {
         "score": 0.0012,
-        "percentile": 31.938
+        "percentile": 32.073
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -24093,7 +23746,7 @@
       ],
       "epss": {
         "score": 0.158,
-        "percentile": 94.455
+        "percentile": 94.493
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -24156,7 +23809,7 @@
       ],
       "epss": {
         "score": 0.0042,
-        "percentile": 61.245
+        "percentile": 61.413
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -24252,7 +23905,7 @@
       ],
       "epss": {
         "score": 0.0042,
-        "percentile": 61.245
+        "percentile": 61.413
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -24342,7 +23995,7 @@
       ],
       "epss": {
         "score": 0.0011,
-        "percentile": 30.093
+        "percentile": 30.205
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -24404,7 +24057,7 @@
       ],
       "epss": {
         "score": 0.0017,
-        "percentile": 38.639
+        "percentile": 38.792
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -24482,7 +24135,7 @@
       ],
       "epss": {
         "score": 0.0038,
-        "percentile": 58.437
+        "percentile": 58.606
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -24553,7 +24206,7 @@
       ],
       "epss": {
         "score": 0.0027,
-        "percentile": 49.865
+        "percentile": 50.039
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -24619,7 +24272,7 @@
       ],
       "epss": {
         "score": 0.0038,
-        "percentile": 58.464
+        "percentile": 58.635
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -24696,7 +24349,7 @@
       ],
       "epss": {
         "score": 0.0042,
-        "percentile": 61.245
+        "percentile": 61.413
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -24786,7 +24439,7 @@
       ],
       "epss": {
         "score": 0.0047,
-        "percentile": 63.906
+        "percentile": 64.081
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -24846,7 +24499,7 @@
       ],
       "epss": {
         "score": 0.007,
-        "percentile": 71.055
+        "percentile": 71.193
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -24905,7 +24558,7 @@
       ],
       "epss": {
         "score": 0.0021,
-        "percentile": 43.147
+        "percentile": 43.305
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -24965,7 +24618,7 @@
       ],
       "epss": {
         "score": 0.0024,
-        "percentile": 47.72
+        "percentile": 47.892
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -25022,7 +24675,7 @@
       ],
       "epss": {
         "score": 0.002,
-        "percentile": 42.517
+        "percentile": 42.67
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -25081,7 +24734,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 19.41
+        "percentile": 19.445
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -25142,7 +24795,7 @@
       ],
       "epss": {
         "score": 0.0048,
-        "percentile": 64.097
+        "percentile": 64.271
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -25204,7 +24857,7 @@
       ],
       "epss": {
         "score": 0.0007,
-        "percentile": 22.918
+        "percentile": 23.02
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -25266,7 +24919,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 18.386
+        "percentile": 18.421
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -25327,7 +24980,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 18.386
+        "percentile": 18.421
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -25388,7 +25041,7 @@
       ],
       "epss": {
         "score": 0.0048,
-        "percentile": 64.097
+        "percentile": 64.271
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -25450,7 +25103,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 18.386
+        "percentile": 18.421
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -25495,67 +25148,6 @@
       }
     },
     {
-      "cveId": "CVE-2025-49029",
-      "title": "WordPress Custom Login And Signup Widget plugin <= 1.0 - Arbitrary Code Execution vulnerability",
-      "description": "Improper Control of Generation of Code ('Code Injection') vulnerability in bitto.Kazi Custom Login And Signup Widget allows Code Injection.This issue affects Custom Login And Signup Widget: from n/a through 1.0.",
-      "publishedDate": "2025-07-01T13:27:47.139000+00:00",
-      "lastModifiedDate": "2025-07-01T13:40:20.458000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H",
-          "baseScore": 9.1,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0035,
-        "percentile": 56.961
-      },
-      "riskScore": 48,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Bitto.kazi",
-          "WordPress"
-        ],
-        "products": [
-          "Custom Login And Signup Widget",
-          "Wordpress"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://patchstack.com/database/wordpress/plugin/custom-login-and-signup-widget/vulnerability/wordpress-custom-login-and-signup-widget-plugin-1-0-arbitrary-code-execution-vulnerability?_s_id=cve",
-          "source": "",
-          "tags": [
-            "vdb-entry"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-94"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "High",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/49xxx/CVE-2025-49029.json",
-            "lastModified": "2025-07-01T13:40:20.458000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2025-49219",
       "title": "CVE-2025-49219: An insecure deserialization operation in Trend Micro Apex Central below versions 8.0.7007 could lead...",
       "description": "An insecure deserialization operation in Trend Micro Apex Central below versions 8.0.7007 could lead to a pre-authentication remote code execution on affected installations. Note that this vulnerability is similar to CVE-2025-49220 but is in a different method.",
@@ -25572,7 +25164,7 @@
       ],
       "epss": {
         "score": 0.0112,
-        "percentile": 77.368
+        "percentile": 77.471
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -25634,7 +25226,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 18.386
+        "percentile": 18.421
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -25695,7 +25287,7 @@
       ],
       "epss": {
         "score": 0.0005,
-        "percentile": 16.5
+        "percentile": 16.527
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -25754,7 +25346,7 @@
       ],
       "epss": {
         "score": 0.0035,
-        "percentile": 56.71
+        "percentile": 56.89
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -25816,7 +25408,7 @@
       ],
       "epss": {
         "score": 0.0112,
-        "percentile": 77.368
+        "percentile": 77.471
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -25878,7 +25470,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 18.386
+        "percentile": 18.421
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -25939,7 +25531,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 19.304
+        "percentile": 19.337
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -26000,7 +25592,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 18.386
+        "percentile": 18.421
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -26061,7 +25653,7 @@
       ],
       "epss": {
         "score": 0.0002,
-        "percentile": 3.894
+        "percentile": 4.0
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -26122,7 +25714,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 19.304
+        "percentile": 19.337
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -26183,7 +25775,7 @@
       ],
       "epss": {
         "score": 0.0003,
-        "percentile": 6.299
+        "percentile": 6.336
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -26244,7 +25836,7 @@
       ],
       "epss": {
         "score": 0.0007,
-        "percentile": 21.501
+        "percentile": 21.588
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -26305,7 +25897,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 19.346
+        "percentile": 19.38
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -26366,7 +25958,7 @@
       ],
       "epss": {
         "score": 0.0002,
-        "percentile": 2.398
+        "percentile": 2.514
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -26423,7 +26015,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 20.048
+        "percentile": 20.083
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -26484,7 +26076,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 20.048
+        "percentile": 20.083
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -26545,7 +26137,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 19.304
+        "percentile": 19.337
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -26606,7 +26198,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 19.304
+        "percentile": 19.337
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -26667,7 +26259,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 19.304
+        "percentile": 19.337
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -26728,7 +26320,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 19.304
+        "percentile": 19.337
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -26789,7 +26381,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 19.304
+        "percentile": 19.337
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -26850,7 +26442,7 @@
       ],
       "epss": {
         "score": 0.1644,
-        "percentile": 94.603
+        "percentile": 94.645
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -26907,7 +26499,7 @@
       ],
       "epss": {
         "score": 0.0013,
-        "percentile": 32.843
+        "percentile": 32.984
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -26973,7 +26565,7 @@
       ],
       "epss": {
         "score": 0.0021,
-        "percentile": 43.729
+        "percentile": 43.889
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -27039,7 +26631,7 @@
       ],
       "epss": {
         "score": 0.0029,
-        "percentile": 52.185
+        "percentile": 52.373
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -27138,7 +26730,7 @@
       ],
       "epss": {
         "score": 0.0073,
-        "percentile": 71.794
+        "percentile": 71.925
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -27207,7 +26799,7 @@
       ],
       "epss": {
         "score": 0.0009,
-        "percentile": 26.796
+        "percentile": 26.901
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -27266,7 +26858,7 @@
       ],
       "epss": {
         "score": 0.0024,
-        "percentile": 47.005
+        "percentile": 47.17
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -27332,7 +26924,7 @@
       ],
       "epss": {
         "score": 0.0024,
-        "percentile": 47.005
+        "percentile": 47.17
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -27398,7 +26990,7 @@
       ],
       "epss": {
         "score": 0.0024,
-        "percentile": 47.005
+        "percentile": 47.17
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -27460,7 +27052,7 @@
       ],
       "epss": {
         "score": 0.0027,
-        "percentile": 50.318
+        "percentile": 50.491
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -27529,7 +27121,7 @@
       ],
       "epss": {
         "score": 0.0008,
-        "percentile": 24.754
+        "percentile": 24.855
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -27631,7 +27223,7 @@
       ],
       "epss": {
         "score": 0.0011,
-        "percentile": 30.946
+        "percentile": 31.073
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -27694,7 +27286,7 @@
       ],
       "epss": {
         "score": 0.0017,
-        "percentile": 39.184
+        "percentile": 39.336
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -27755,7 +27347,7 @@
       ],
       "epss": {
         "score": 0.001,
-        "percentile": 28.374
+        "percentile": 28.479
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -27813,7 +27405,7 @@
       ],
       "epss": {
         "score": 0.0721,
-        "percentile": 91.215
+        "percentile": 91.273
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -27875,7 +27467,7 @@
       ],
       "epss": {
         "score": 0.2816,
-        "percentile": 96.297
+        "percentile": 96.338
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -27934,7 +27526,7 @@
       ],
       "epss": {
         "score": 0.0012,
-        "percentile": 31.938
+        "percentile": 32.073
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -28011,7 +27603,7 @@
       ],
       "epss": {
         "score": 0.0012,
-        "percentile": 31.938
+        "percentile": 32.073
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -28079,7 +27671,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 18.4
+        "percentile": 18.435
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -28141,7 +27733,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 20.634
+        "percentile": 20.713
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -28203,7 +27795,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 20.634
+        "percentile": 20.713
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -28265,7 +27857,7 @@
       ],
       "epss": {
         "score": 0.0005,
-        "percentile": 14.22
+        "percentile": 14.23
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -28329,7 +27921,7 @@
       ],
       "epss": {
         "score": 0.0011,
-        "percentile": 29.842
+        "percentile": 29.953
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -28389,7 +27981,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 18.386
+        "percentile": 18.421
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -28450,7 +28042,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 18.386
+        "percentile": 18.421
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -28511,7 +28103,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 12.215
+        "percentile": 12.259
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -28586,7 +28178,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 18.386
+        "percentile": 18.421
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -28647,7 +28239,7 @@
       ],
       "epss": {
         "score": 0.0011,
-        "percentile": 29.489
+        "percentile": 29.602
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -28715,7 +28307,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 18.436
+        "percentile": 18.472
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -28777,7 +28369,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 11.411
+        "percentile": 11.462
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -28836,7 +28428,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 19.304
+        "percentile": 19.337
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -28897,7 +28489,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 19.304
+        "percentile": 19.337
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -28958,7 +28550,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 19.304
+        "percentile": 19.337
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -29019,7 +28611,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 19.649
+        "percentile": 19.686
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -29080,7 +28672,7 @@
       ],
       "epss": {
         "score": 0.0017,
-        "percentile": 39.184
+        "percentile": 39.336
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -29141,7 +28733,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 19.304
+        "percentile": 19.337
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -29202,7 +28794,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 19.304
+        "percentile": 19.337
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -29263,7 +28855,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 19.304
+        "percentile": 19.337
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -29324,7 +28916,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 19.304
+        "percentile": 19.337
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -29385,7 +28977,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 19.304
+        "percentile": 19.337
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -29446,7 +29038,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 19.304
+        "percentile": 19.337
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -29507,7 +29099,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 19.304
+        "percentile": 19.337
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -29568,7 +29160,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 19.304
+        "percentile": 19.337
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -29629,7 +29221,7 @@
       ],
       "epss": {
         "score": 0.003,
-        "percentile": 52.802
+        "percentile": 52.99
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -29695,7 +29287,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 11.325
+        "percentile": 11.376
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -29761,7 +29353,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 19.878
+        "percentile": 19.916
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -29823,7 +29415,7 @@
       ],
       "epss": {
         "score": 0.0012,
-        "percentile": 31.13
+        "percentile": 31.259
       },
       "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
@@ -32682,60 +32274,294 @@
       }
     },
     {
-      "cveId": "CVE-2025-2605",
-      "title": "Authenticated command injection",
-      "description": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability in Honeywell MB-Secure allows Privilege Abuse. This issue affects MB-Secure: from V11.04 before V12.53 and MB-Secure PRO from V01.06 before V03.09.Honeywell also recommends updating to the most recent version of this product.",
-      "publishedDate": "2025-05-02T12:39:39.979000+00:00",
-      "lastModifiedDate": "2025-05-17T06:03:36.347000+00:00",
+      "cveId": "CVE-2025-27407",
+      "title": "Remote code execution when loading a crafted GraphQL schema",
+      "description": "graphql-ruby is a Ruby implementation of GraphQL. Starting in version 1.11.5 and prior to versions 1.11.8, 1.12.25, 1.13.24, 2.0.32, 2.1.14, 2.2.17, and 2.3.21, loading a malicious schema definition in `GraphQL::Schema.from_introspection` (or `GraphQL::Schema::Loader.load`) can result in remote code execution. Any system which loads a schema by JSON from an untrusted source is vulnerable, including those that use GraphQL::Client to load external schemas via GraphQL introspection. Versions 1.11.8, 1.12.25, 1.13.24, 2.0.32, 2.1.14, 2.2.17, and 2.3.21 contain a patch for the issue.",
+      "publishedDate": "2025-03-12T18:15:57.957000+00:00",
+      "lastModifiedDate": "2025-03-12T20:47:41.948000+00:00",
       "severity": "CRITICAL",
       "cvssMetrics": [
         {
           "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H",
-          "baseScore": 9.9,
+          "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:H/I:H/A:H",
+          "baseScore": 9.1,
           "baseSeverity": "CRITICAL"
         }
       ],
       "epss": {
-        "score": 0.002,
-        "percentile": 42.092
+        "score": 0.0135,
+        "percentile": 79.349
       },
-      "riskScore": 47,
+      "riskScore": 48,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
-          "Honeywell"
+          "Rmosolgo"
         ],
         "products": [
-          "Mb-secure"
+          "Graphql-ruby"
         ]
       },
       "references": [
         {
-          "url": "https://www.honeywell.com/us/en/product-security#security-notices",
-          "source": "",
+          "url": "https://github.com/rmosolgo/graphql-ruby/security/advisories/GHSA-q92j-grw3-h492",
+          "source": "https://github.com/rmosolgo/graphql-ruby/security/advisories/GHSA-q92j-grw3-h492",
           "tags": [
-            "vendor-advisory"
+            "x_refsource_CONFIRM"
+          ]
+        },
+        {
+          "url": "https://github.com/rmosolgo/graphql-ruby/commit/28233b16c0eb9d0fb7808f4980e061dc7507c4cd",
+          "source": "https://github.com/rmosolgo/graphql-ruby/commit/28233b16c0eb9d0fb7808f4980e061dc7507c4cd",
+          "tags": [
+            "x_refsource_MISC"
+          ]
+        },
+        {
+          "url": "https://github.com/rmosolgo/graphql-ruby/commit/2d2f4ed1f79472f8eed29c864b039649e1de238f",
+          "source": "https://github.com/rmosolgo/graphql-ruby/commit/2d2f4ed1f79472f8eed29c864b039649e1de238f",
+          "tags": [
+            "x_refsource_MISC"
+          ]
+        },
+        {
+          "url": "https://github.com/rmosolgo/graphql-ruby/commit/5c5a7b9a9bdce143be048074aea50edb7bb747be",
+          "source": "https://github.com/rmosolgo/graphql-ruby/commit/5c5a7b9a9bdce143be048074aea50edb7bb747be",
+          "tags": [
+            "x_refsource_MISC"
+          ]
+        },
+        {
+          "url": "https://github.com/rmosolgo/graphql-ruby/commit/6eca16b9fa553aa957099a30dbde64ddcdac52ca",
+          "source": "https://github.com/rmosolgo/graphql-ruby/commit/6eca16b9fa553aa957099a30dbde64ddcdac52ca",
+          "tags": [
+            "x_refsource_MISC"
+          ]
+        },
+        {
+          "url": "https://github.com/rmosolgo/graphql-ruby/commit/d0963289e0dab4ea893bbecf12bb7d89294957bb",
+          "source": "https://github.com/rmosolgo/graphql-ruby/commit/d0963289e0dab4ea893bbecf12bb7d89294957bb",
+          "tags": [
+            "x_refsource_MISC"
+          ]
+        },
+        {
+          "url": "https://github.com/rmosolgo/graphql-ruby/commit/d1117ae0361d9ed67e0795b07f5c3e98e62f3c7c",
+          "source": "https://github.com/rmosolgo/graphql-ruby/commit/d1117ae0361d9ed67e0795b07f5c3e98e62f3c7c",
+          "tags": [
+            "x_refsource_MISC"
+          ]
+        },
+        {
+          "url": "https://github.com/rmosolgo/graphql-ruby/commit/e3b33ace05391da2871c75ab4d3b66e29133b367",
+          "source": "https://github.com/rmosolgo/graphql-ruby/commit/e3b33ace05391da2871c75ab4d3b66e29133b367",
+          "tags": [
+            "x_refsource_MISC"
+          ]
+        },
+        {
+          "url": "https://about.gitlab.com/releases/2025/03/12/patch-release-gitlab-17-9-2-released",
+          "source": "https://about.gitlab.com/releases/2025/03/12/patch-release-gitlab-17-9-2-released",
+          "tags": [
+            "x_refsource_MISC"
+          ]
+        },
+        {
+          "url": "https://github.com/github-community-projects/graphql-client",
+          "source": "https://github.com/github-community-projects/graphql-client",
+          "tags": [
+            "x_refsource_MISC"
           ]
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-78"
+          "CWE-94"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "High",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/27xxx/CVE-2025-27407.json",
+            "lastModified": "2025-03-12T20:47:41.948000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-46410",
+      "title": "CVE-2025-46410: A cross-site scripting (xss) vulnerability exists in the managerPlaylists PlaylistOwnerUsersId param...",
+      "description": "A cross-site scripting (xss) vulnerability exists in the managerPlaylists PlaylistOwnerUsersId parameter functionality of WWBN AVideo 14.4 and dev master commit 8a8954ff. A specially crafted HTTP request can lead to arbitrary Javascript execution. An attacker can get a user to visit a webpage to trigger this vulnerability.",
+      "publishedDate": "2025-07-24T15:11:06.165000+00:00",
+      "lastModifiedDate": "2025-07-24T15:29:21.895000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H",
+          "baseScore": 9.6,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0007,
+        "percentile": 22.964
+      },
+      "riskScore": 48,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Wwbn"
+        ],
+        "products": [
+          "Avideo"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://talosintelligence.com/vulnerability_reports/TALOS-2025-2205",
+          "source": "https://talosintelligence.com/vulnerability_reports/TALOS-2025-2205",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-79"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
         "attackVector": "Network",
         "attackComplexity": "Low",
-        "privilegesRequired": "Low",
-        "userInteraction": "None",
+        "privilegesRequired": "None",
+        "userInteraction": "Required",
         "sources": [
           {
             "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/2xxx/CVE-2025-2605.json",
-            "lastModified": "2025-05-17T06:03:36.347000+00:00"
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/46xxx/CVE-2025-46410.json",
+            "lastModified": "2025-07-24T15:29:21.895000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-50128",
+      "title": "CVE-2025-50128: A cross-site scripting (xss) vulnerability exists in the videoNotFound 404ErrorMsg parameter functio...",
+      "description": "A cross-site scripting (xss) vulnerability exists in the videoNotFound 404ErrorMsg parameter functionality of WWBN AVideo 14.4 and dev master commit 8a8954ff. A specially crafted HTTP request can lead to arbitrary Javascript execution. An attacker can get a user to visit a webpage to trigger this vulnerability.",
+      "publishedDate": "2025-07-24T15:11:03.304000+00:00",
+      "lastModifiedDate": "2025-07-24T15:27:57.056000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H",
+          "baseScore": 9.6,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0007,
+        "percentile": 22.964
+      },
+      "riskScore": 48,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Wwbn"
+        ],
+        "products": [
+          "Avideo"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://talosintelligence.com/vulnerability_reports/TALOS-2025-2207",
+          "source": "https://talosintelligence.com/vulnerability_reports/TALOS-2025-2207",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-79"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "Required",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/50xxx/CVE-2025-50128.json",
+            "lastModified": "2025-07-24T15:27:57.056000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-41420",
+      "title": "CVE-2025-41420: A cross-site scripting (xss) vulnerability exists in the userLogin cancelUri parameter functionality...",
+      "description": "A cross-site scripting (xss) vulnerability exists in the userLogin cancelUri parameter functionality of WWBN AVideo 14.4 and dev master commit 8a8954ff. A specially crafted HTTP request can lead to arbitrary Javascript execution. An attacker can get a user to visit a webpage to trigger this vulnerability.",
+      "publishedDate": "2025-07-24T15:11:00.461000+00:00",
+      "lastModifiedDate": "2025-07-24T15:41:31.945000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H",
+          "baseScore": 9.6,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0015,
+        "percentile": 36.787
+      },
+      "riskScore": 48,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Wwbn"
+        ],
+        "products": [
+          "Avideo"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://talosintelligence.com/vulnerability_reports/TALOS-2025-2209",
+          "source": "https://talosintelligence.com/vulnerability_reports/TALOS-2025-2209",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-79"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "Required",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/41xxx/CVE-2025-41420.json",
+            "lastModified": "2025-07-24T15:41:31.945000+00:00"
           }
         ]
       }
@@ -32757,7 +32583,7 @@
       ],
       "epss": {
         "score": 0.0017,
-        "percentile": 38.421
+        "percentile": 38.571
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -32833,7 +32659,7 @@
       ],
       "epss": {
         "score": 0.004,
-        "percentile": 59.687
+        "percentile": 59.85
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -32902,7 +32728,7 @@
       ],
       "epss": {
         "score": 0.0041,
-        "percentile": 60.593
+        "percentile": 60.756
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -32971,7 +32797,7 @@
       ],
       "epss": {
         "score": 0.0033,
-        "percentile": 55.558
+        "percentile": 55.742
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -33041,7 +32867,7 @@
       ],
       "epss": {
         "score": 0.0011,
-        "percentile": 29.899
+        "percentile": 30.009
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -33124,7 +32950,7 @@
       ],
       "epss": {
         "score": 0.0024,
-        "percentile": 47.037
+        "percentile": 47.201
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -33181,7 +33007,7 @@
       ],
       "epss": {
         "score": 0.003,
-        "percentile": 52.941
+        "percentile": 53.128
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -33244,8 +33070,8 @@
         }
       ],
       "epss": {
-        "score": 0.0045,
-        "percentile": 62.558
+        "score": 0.0052,
+        "percentile": 66.037
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -33309,7 +33135,7 @@
       ],
       "epss": {
         "score": 0.0018,
-        "percentile": 39.723
+        "percentile": 39.875
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -33378,7 +33204,7 @@
       ],
       "epss": {
         "score": 0.0015,
-        "percentile": 35.891
+        "percentile": 36.042
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -33442,7 +33268,7 @@
       ],
       "epss": {
         "score": 0.001,
-        "percentile": 27.722
+        "percentile": 27.825
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -33506,7 +33332,7 @@
       ],
       "epss": {
         "score": 0.0127,
-        "percentile": 78.678
+        "percentile": 78.767
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -33567,7 +33393,7 @@
       ],
       "epss": {
         "score": 0.0003,
-        "percentile": 7.0
+        "percentile": 7.039
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -33624,7 +33450,7 @@
       ],
       "epss": {
         "score": 0.0011,
-        "percentile": 29.458
+        "percentile": 29.57
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -33683,7 +33509,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 12.143
+        "percentile": 12.185
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -33744,7 +33570,7 @@
       ],
       "epss": {
         "score": 0.0003,
-        "percentile": 7.099
+        "percentile": 7.137
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -33817,7 +33643,7 @@
       ],
       "epss": {
         "score": 0.0007,
-        "percentile": 21.701
+        "percentile": 21.793
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -33874,7 +33700,7 @@
       ],
       "epss": {
         "score": 0.003,
-        "percentile": 52.524
+        "percentile": 52.712
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -33931,7 +33757,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 12.143
+        "percentile": 12.185
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -33992,7 +33818,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 12.143
+        "percentile": 12.185
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -34053,7 +33879,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 12.143
+        "percentile": 12.185
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -34114,7 +33940,7 @@
       ],
       "epss": {
         "score": 0.0003,
-        "percentile": 6.372
+        "percentile": 6.411
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -34188,7 +34014,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 13.01
+        "percentile": 13.054
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -34249,7 +34075,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 9.871
+        "percentile": 9.946
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -34310,7 +34136,7 @@
       ],
       "epss": {
         "score": 0.0007,
-        "percentile": 22.73
+        "percentile": 22.831
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -34370,7 +34196,7 @@
       ],
       "epss": {
         "score": 0.0005,
-        "percentile": 16.775
+        "percentile": 16.799
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -34427,7 +34253,7 @@
       ],
       "epss": {
         "score": 0.0005,
-        "percentile": 16.775
+        "percentile": 16.799
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -34484,7 +34310,7 @@
       ],
       "epss": {
         "score": 0.0025,
-        "percentile": 48.6
+        "percentile": 48.769
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -34556,7 +34382,7 @@
       ],
       "epss": {
         "score": 0.0008,
-        "percentile": 24.307
+        "percentile": 24.411
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -34619,7 +34445,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 20.234
+        "percentile": 20.293
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -34682,7 +34508,7 @@
       ],
       "epss": {
         "score": 0.001,
-        "percentile": 27.935
+        "percentile": 28.033
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -34740,7 +34566,7 @@
       ],
       "epss": {
         "score": 0.0011,
-        "percentile": 30.203
+        "percentile": 30.317
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -34802,7 +34628,7 @@
       ],
       "epss": {
         "score": 0.0032,
-        "percentile": 54.441
+        "percentile": 54.633
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -34860,7 +34686,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 13.01
+        "percentile": 13.054
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -34921,7 +34747,7 @@
       ],
       "epss": {
         "score": 0.0024,
-        "percentile": 47.77
+        "percentile": 47.943
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -34995,7 +34821,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 12.143
+        "percentile": 12.185
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -35056,7 +34882,7 @@
       ],
       "epss": {
         "score": 0.0028,
-        "percentile": 51.429
+        "percentile": 51.606
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -35115,7 +34941,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 13.01
+        "percentile": 13.054
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -35176,7 +35002,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 12.143
+        "percentile": 12.185
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -35237,7 +35063,7 @@
       ],
       "epss": {
         "score": 0.0005,
-        "percentile": 13.766
+        "percentile": 13.774
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -35298,7 +35124,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 13.01
+        "percentile": 13.054
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -35359,7 +35185,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 12.512
+        "percentile": 12.558
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -35432,7 +35258,7 @@
       ],
       "epss": {
         "score": 0.0008,
-        "percentile": 24.9
+        "percentile": 24.997
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -35504,7 +35330,7 @@
       ],
       "epss": {
         "score": 0.0051,
-        "percentile": 65.282
+        "percentile": 65.454
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -35571,7 +35397,7 @@
       ],
       "epss": {
         "score": 0.0026,
-        "percentile": 49.751
+        "percentile": 49.924
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -35628,7 +35454,7 @@
       ],
       "epss": {
         "score": 0.0003,
-        "percentile": 7.02
+        "percentile": 7.056
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -35686,7 +35512,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 12.649
+        "percentile": 12.696
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -35743,7 +35569,7 @@
       ],
       "epss": {
         "score": 0.0063,
-        "percentile": 69.317
+        "percentile": 69.46
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -35812,7 +35638,7 @@
       ],
       "epss": {
         "score": 0.0015,
-        "percentile": 35.891
+        "percentile": 36.042
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -35876,7 +35702,7 @@
       ],
       "epss": {
         "score": 0.0063,
-        "percentile": 69.317
+        "percentile": 69.46
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -35945,7 +35771,7 @@
       ],
       "epss": {
         "score": 0.0114,
-        "percentile": 77.543
+        "percentile": 77.641
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -36016,7 +35842,7 @@
       ],
       "epss": {
         "score": 0.0015,
-        "percentile": 35.891
+        "percentile": 36.042
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -36080,7 +35906,7 @@
       ],
       "epss": {
         "score": 0.0063,
-        "percentile": 69.317
+        "percentile": 69.46
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -36149,7 +35975,7 @@
       ],
       "epss": {
         "score": 0.0035,
-        "percentile": 56.82
+        "percentile": 56.998
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -36206,7 +36032,7 @@
       ],
       "epss": {
         "score": 0.0015,
-        "percentile": 35.891
+        "percentile": 36.042
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -36270,7 +36096,7 @@
       ],
       "epss": {
         "score": 0.0014,
-        "percentile": 35.286
+        "percentile": 35.438
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -36338,7 +36164,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 19.79
+        "percentile": 19.826
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -36440,7 +36266,7 @@
       ],
       "epss": {
         "score": 0.0005,
-        "percentile": 15.924
+        "percentile": 15.954
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -36497,7 +36323,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 13.01
+        "percentile": 13.054
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -36558,7 +36384,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 13.01
+        "percentile": 13.054
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -36619,7 +36445,7 @@
       ],
       "epss": {
         "score": 0.0015,
-        "percentile": 36.811
+        "percentile": 36.965
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -36683,7 +36509,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 20.048
+        "percentile": 20.083
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -36746,7 +36572,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 13.01
+        "percentile": 13.054
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -36807,7 +36633,7 @@
       ],
       "epss": {
         "score": 0.0169,
-        "percentile": 81.495
+        "percentile": 81.585
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -36864,7 +36690,7 @@
       ],
       "epss": {
         "score": 0.0293,
-        "percentile": 85.889
+        "percentile": 85.976
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -36925,7 +36751,7 @@
       ],
       "epss": {
         "score": 0.0002,
-        "percentile": 2.978
+        "percentile": 3.111
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -36984,7 +36810,7 @@
       ],
       "epss": {
         "score": 0.0007,
-        "percentile": 21.501
+        "percentile": 21.588
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -37041,7 +36867,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 12.143
+        "percentile": 12.185
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -37102,7 +36928,7 @@
       ],
       "epss": {
         "score": 0.1799,
-        "percentile": 94.885
+        "percentile": 94.929
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -37161,7 +36987,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 12.143
+        "percentile": 12.185
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -37222,7 +37048,7 @@
       ],
       "epss": {
         "score": 0.0009,
-        "percentile": 27.183
+        "percentile": 27.285
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -37286,7 +37112,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 12.143
+        "percentile": 12.185
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -37347,7 +37173,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 12.143
+        "percentile": 12.185
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -37408,7 +37234,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 12.649
+        "percentile": 12.696
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -37469,7 +37295,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 12.143
+        "percentile": 12.185
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -37530,7 +37356,7 @@
       ],
       "epss": {
         "score": 0.0008,
-        "percentile": 24.445
+        "percentile": 24.538
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -37585,7 +37411,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 12.143
+        "percentile": 12.185
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -37646,7 +37472,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 12.143
+        "percentile": 12.185
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -37707,7 +37533,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 13.01
+        "percentile": 13.054
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -37768,7 +37594,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 13.01
+        "percentile": 13.054
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -37829,7 +37655,7 @@
       ],
       "epss": {
         "score": 0.0005,
-        "percentile": 13.766
+        "percentile": 13.774
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -37890,7 +37716,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 13.01
+        "percentile": 13.054
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -37951,7 +37777,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 13.01
+        "percentile": 13.054
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -38012,7 +37838,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 13.01
+        "percentile": 13.054
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -38073,7 +37899,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 13.01
+        "percentile": 13.054
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -38134,7 +37960,7 @@
       ],
       "epss": {
         "score": 0.0002,
-        "percentile": 3.121
+        "percentile": 3.252
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -38195,7 +38021,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 17.573
+        "percentile": 17.596
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -38258,7 +38084,7 @@
       ],
       "epss": {
         "score": 0.0002,
-        "percentile": 2.424
+        "percentile": 2.537
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -38325,7 +38151,7 @@
       ],
       "epss": {
         "score": 0.0018,
-        "percentile": 39.847
+        "percentile": 40.0
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -38394,7 +38220,7 @@
       ],
       "epss": {
         "score": 0.0013,
-        "percentile": 33.151
+        "percentile": 33.295
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -42753,7 +42579,7 @@
       ],
       "epss": {
         "score": 0.0027,
-        "percentile": 50.271
+        "percentile": 50.446
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -42817,7 +42643,7 @@
       ],
       "epss": {
         "score": 0.0012,
-        "percentile": 31.998
+        "percentile": 32.134
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -42885,7 +42711,7 @@
       ],
       "epss": {
         "score": 0.0016,
-        "percentile": 37.53
+        "percentile": 37.675
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -42933,6 +42759,63 @@
       }
     },
     {
+      "cveId": "CVE-2025-53084",
+      "title": "CVE-2025-53084: A cross-site scripting (xss) vulnerability exists in the videosList page parameter functionality of ...",
+      "description": "A cross-site scripting (xss) vulnerability exists in the videosList page parameter functionality of WWBN AVideo 14.4 and dev master commit 8a8954ff. A specially crafted HTTP request can lead to arbitrary Javascript execution. An attacker can get a user to visit a webpage to trigger this vulnerability.",
+      "publishedDate": "2025-07-24T15:11:04.747000+00:00",
+      "lastModifiedDate": "2025-07-24T15:28:31.965000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:C/C:H/I:H/A:H",
+          "baseScore": 9.0,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0008,
+        "percentile": 24.151
+      },
+      "riskScore": 47,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Wwbn"
+        ],
+        "products": [
+          "Avideo"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://talosintelligence.com/vulnerability_reports/TALOS-2025-2206",
+          "source": "https://talosintelligence.com/vulnerability_reports/TALOS-2025-2206",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-79"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "Low",
+        "userInteraction": "Required",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/53xxx/CVE-2025-53084.json",
+            "lastModified": "2025-07-24T15:28:31.965000+00:00"
+          }
+        ]
+      }
+    },
+    {
       "cveId": "CVE-2025-53095",
       "title": "Sunshine application-wide CSRF in the UI leads to command injection as Administrator",
       "description": "Sunshine is a self-hosted game stream host for Moonlight. Prior to version 2025.628.4510, the web UI of Sunshine lacks protection against Cross-Site Request Forgery (CSRF) attacks. This vulnerability allows an attacker to craft a malicious web page that, when visited by an authenticated user, can trigger unintended actions within the Sunshine application on behalf of that user. Specifically, since the application does OS command execution by design, this issue can be exploited to abuse the \"Command Preparations\" feature, enabling an attacker to inject arbitrary commands that will be executed with Administrator privileges when an application is launched. This issue has been patched in version 2025.628.4510.",
@@ -42949,7 +42832,7 @@
       ],
       "epss": {
         "score": 0.0002,
-        "percentile": 3.629
+        "percentile": 3.747
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -43015,7 +42898,7 @@
       ],
       "epss": {
         "score": 0.0008,
-        "percentile": 24.301
+        "percentile": 24.406
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -43072,7 +42955,7 @@
       ],
       "epss": {
         "score": 0.0013,
-        "percentile": 32.979
+        "percentile": 33.121
       },
       "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
@@ -43129,7 +43012,7 @@
       ],
       "epss": {
         "score": 0.0039,
-        "percentile": 58.938
+        "percentile": 59.106
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -43195,7 +43078,7 @@
       ],
       "epss": {
         "score": 0.0009,
-        "percentile": 25.86
+        "percentile": 25.962
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -43256,7 +43139,7 @@
       ],
       "epss": {
         "score": 0.004,
-        "percentile": 60.123
+        "percentile": 60.284
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -43322,7 +43205,7 @@
       ],
       "epss": {
         "score": 0.0014,
-        "percentile": 34.778
+        "percentile": 34.93
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -43379,7 +43262,7 @@
       ],
       "epss": {
         "score": 0.0833,
-        "percentile": 91.908
+        "percentile": 91.97
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -43447,7 +43330,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 18.619
+        "percentile": 18.655
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -43509,7 +43392,7 @@
       ],
       "epss": {
         "score": 0.0015,
-        "percentile": 36.332
+        "percentile": 36.481
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -43570,7 +43453,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 19.328
+        "percentile": 19.362
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -43632,7 +43515,7 @@
       ],
       "epss": {
         "score": 0.0011,
-        "percentile": 29.926
+        "percentile": 30.037
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -43694,7 +43577,7 @@
       ],
       "epss": {
         "score": 0.0009,
-        "percentile": 27.485
+        "percentile": 27.589
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -43755,7 +43638,7 @@
       ],
       "epss": {
         "score": 0.0007,
-        "percentile": 22.588
+        "percentile": 22.689
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -43816,7 +43699,7 @@
       ],
       "epss": {
         "score": 0.0009,
-        "percentile": 25.764
+        "percentile": 25.861
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -43875,7 +43758,7 @@
       ],
       "epss": {
         "score": 0.0007,
-        "percentile": 22.808
+        "percentile": 22.911
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -43934,7 +43817,7 @@
       ],
       "epss": {
         "score": 0.0009,
-        "percentile": 27.485
+        "percentile": 27.589
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -43995,7 +43878,7 @@
       ],
       "epss": {
         "score": 0.0012,
-        "percentile": 31.845
+        "percentile": 31.98
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -44057,7 +43940,7 @@
       ],
       "epss": {
         "score": 0.0016,
-        "percentile": 38.18
+        "percentile": 38.323
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -44118,7 +44001,7 @@
       ],
       "epss": {
         "score": 0.0019,
-        "percentile": 41.027
+        "percentile": 41.178
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -44186,7 +44069,7 @@
       ],
       "epss": {
         "score": 0.0042,
-        "percentile": 60.946
+        "percentile": 61.11
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -44253,7 +44136,7 @@
       ],
       "epss": {
         "score": 0.0007,
-        "percentile": 22.276
+        "percentile": 22.372
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -44310,7 +44193,7 @@
       ],
       "epss": {
         "score": 0.0021,
-        "percentile": 44.123
+        "percentile": 44.283
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -44376,7 +44259,7 @@
       ],
       "epss": {
         "score": 0.001,
-        "percentile": 29.264
+        "percentile": 29.377
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -44438,7 +44321,7 @@
       ],
       "epss": {
         "score": 0.0017,
-        "percentile": 39.39
+        "percentile": 39.544
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -44495,7 +44378,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 8.897
+        "percentile": 8.971
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -44632,7 +44515,7 @@
       ],
       "epss": {
         "score": 0.0008,
-        "percentile": 24.612
+        "percentile": 24.71
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -44698,7 +44581,7 @@
       ],
       "epss": {
         "score": 0.0015,
-        "percentile": 36.671
+        "percentile": 36.826
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -44757,7 +44640,7 @@
       ],
       "epss": {
         "score": 0.0008,
-        "percentile": 23.71
+        "percentile": 23.815
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -44818,7 +44701,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 19.304
+        "percentile": 19.337
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -44879,7 +44762,7 @@
       ],
       "epss": {
         "score": 0.0015,
-        "percentile": 36.671
+        "percentile": 36.826
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -44938,7 +44821,7 @@
       ],
       "epss": {
         "score": 0.0007,
-        "percentile": 22.263
+        "percentile": 22.359
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -45000,7 +44883,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 19.304
+        "percentile": 19.337
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -45061,7 +44944,7 @@
       ],
       "epss": {
         "score": 0.0015,
-        "percentile": 36.671
+        "percentile": 36.826
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -45120,7 +45003,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 20.048
+        "percentile": 20.083
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -45181,7 +45064,7 @@
       ],
       "epss": {
         "score": 0.0039,
-        "percentile": 59.07
+        "percentile": 59.24
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -45248,7 +45131,7 @@
       ],
       "epss": {
         "score": 0.0005,
-        "percentile": 16.375
+        "percentile": 16.406
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -45323,7 +45206,7 @@
       ],
       "epss": {
         "score": 0.0015,
-        "percentile": 35.891
+        "percentile": 36.042
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -45382,7 +45265,7 @@
       ],
       "epss": {
         "score": 0.0015,
-        "percentile": 36.075
+        "percentile": 36.227
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -45449,7 +45332,7 @@
       ],
       "epss": {
         "score": 0.0037,
-        "percentile": 57.965
+        "percentile": 58.133
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -45510,7 +45393,7 @@
       ],
       "epss": {
         "score": 0.001,
-        "percentile": 28.075
+        "percentile": 28.174
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -45571,7 +45454,7 @@
       ],
       "epss": {
         "score": 0.0007,
-        "percentile": 22.422
+        "percentile": 22.519
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -45630,7 +45513,7 @@
       ],
       "epss": {
         "score": 0.0009,
-        "percentile": 26.458
+        "percentile": 26.567
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -45691,7 +45574,7 @@
       ],
       "epss": {
         "score": 0.0003,
-        "percentile": 5.992
+        "percentile": 6.035
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -45759,7 +45642,7 @@
       ],
       "epss": {
         "score": 0.0009,
-        "percentile": 27.641
+        "percentile": 27.744
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -45820,7 +45703,7 @@
       ],
       "epss": {
         "score": 0.0019,
-        "percentile": 41.194
+        "percentile": 41.346
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -45887,7 +45770,7 @@
       ],
       "epss": {
         "score": 0.0075,
-        "percentile": 72.087
+        "percentile": 72.218
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -45962,7 +45845,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 19.304
+        "percentile": 19.337
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -46023,7 +45906,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 19.304
+        "percentile": 19.337
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -46084,7 +45967,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 19.304
+        "percentile": 19.337
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -46145,7 +46028,7 @@
       ],
       "epss": {
         "score": 0.0009,
-        "percentile": 26.837
+        "percentile": 26.941
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -50400,7 +50283,7 @@
       ],
       "epss": {
         "score": 0.0005,
-        "percentile": 13.766
+        "percentile": 13.774
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -50450,6 +50333,67 @@
       }
     },
     {
+      "cveId": "CVE-2025-49029",
+      "title": "WordPress Custom Login And Signup Widget plugin <= 1.0 - Arbitrary Code Execution vulnerability",
+      "description": "Improper Control of Generation of Code ('Code Injection') vulnerability in bitto.Kazi Custom Login And Signup Widget allows Code Injection.This issue affects Custom Login And Signup Widget: from n/a through 1.0.",
+      "publishedDate": "2025-07-01T13:27:47.139000+00:00",
+      "lastModifiedDate": "2025-07-01T13:40:20.458000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:C/C:H/I:H/A:H",
+          "baseScore": 9.1,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0035,
+        "percentile": 57.136
+      },
+      "riskScore": 46,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Bitto.kazi",
+          "WordPress"
+        ],
+        "products": [
+          "Custom Login And Signup Widget",
+          "Wordpress"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://patchstack.com/database/wordpress/plugin/custom-login-and-signup-widget/vulnerability/wordpress-custom-login-and-signup-widget-plugin-1-0-arbitrary-code-execution-vulnerability?_s_id=cve",
+          "source": "",
+          "tags": [
+            "vdb-entry"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-94"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "High",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/49xxx/CVE-2025-49029.json",
+            "lastModified": "2025-07-01T13:40:20.458000+00:00"
+          }
+        ]
+      }
+    },
+    {
       "cveId": "CVE-2025-3709",
       "title": "Flowring Technology Agentflow - Account Lockout Bypass",
       "description": "Agentflow from Flowring Technology has an Account Lockout Bypass vulnerability, allowing unauthenticated remote attackers to exploit this vulnerability to perform password brute force attack.",
@@ -50466,7 +50410,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 19.218
+        "percentile": 19.252
       },
       "riskScore": 46,
       "exploitationStatus": "UNKNOWN",
@@ -50594,7 +50538,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 18.516
+        "percentile": 18.553
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -50653,7 +50597,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 19.649
+        "percentile": 19.686
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -50710,7 +50654,7 @@
       ],
       "epss": {
         "score": 0.0015,
-        "percentile": 35.897
+        "percentile": 36.048
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -50767,7 +50711,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 20.668
+        "percentile": 20.746
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -50826,7 +50770,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 13.525
+        "percentile": 13.547
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -50885,7 +50829,7 @@
       ],
       "epss": {
         "score": 0.0009,
-        "percentile": 27.528
+        "percentile": 27.632
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -50942,7 +50886,7 @@
       ],
       "epss": {
         "score": 0.0015,
-        "percentile": 36.304
+        "percentile": 36.453
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -50999,7 +50943,7 @@
       ],
       "epss": {
         "score": 0.0015,
-        "percentile": 36.304
+        "percentile": 36.453
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -51056,7 +51000,7 @@
       ],
       "epss": {
         "score": 0.0007,
-        "percentile": 21.609
+        "percentile": 21.696
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -51117,7 +51061,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 20.503
+        "percentile": 20.588
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -51178,7 +51122,7 @@
       ],
       "epss": {
         "score": 0.0013,
-        "percentile": 33.125
+        "percentile": 33.268
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -51235,7 +51179,7 @@
       ],
       "epss": {
         "score": 0.0015,
-        "percentile": 36.304
+        "percentile": 36.453
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -51292,7 +51236,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 13.36
+        "percentile": 13.381
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -51353,7 +51297,7 @@
       ],
       "epss": {
         "score": 0.0021,
-        "percentile": 44.03
+        "percentile": 44.188
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -51410,7 +51354,7 @@
       ],
       "epss": {
         "score": 0.0015,
-        "percentile": 36.304
+        "percentile": 36.453
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -51467,7 +51411,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 18.074
+        "percentile": 18.107
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -51528,7 +51472,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 9.808
+        "percentile": 9.881
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -51589,7 +51533,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 13.36
+        "percentile": 13.381
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -51650,7 +51594,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 13.36
+        "percentile": 13.381
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -51711,7 +51655,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 18.713
+        "percentile": 18.753
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -51772,7 +51716,7 @@
       ],
       "epss": {
         "score": 0.0015,
-        "percentile": 35.803
+        "percentile": 35.954
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -51829,7 +51773,7 @@
       ],
       "epss": {
         "score": 0.0003,
-        "percentile": 6.994
+        "percentile": 7.033
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -51890,7 +51834,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 13.36
+        "percentile": 13.381
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -51951,7 +51895,7 @@
       ],
       "epss": {
         "score": 0.0003,
-        "percentile": 6.994
+        "percentile": 7.033
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -52012,7 +51956,7 @@
       ],
       "epss": {
         "score": 0.0056,
-        "percentile": 67.342
+        "percentile": 67.495
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -52073,7 +52017,7 @@
       ],
       "epss": {
         "score": 0.0036,
-        "percentile": 57.121
+        "percentile": 57.295
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -52129,8 +52073,8 @@
         }
       ],
       "epss": {
-        "score": 0.0021,
-        "percentile": 43.553
+        "score": 0.001,
+        "percentile": 28.438
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -52187,7 +52131,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 11.243
+        "percentile": 11.295
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -52244,7 +52188,7 @@
       ],
       "epss": {
         "score": 0.0009,
-        "percentile": 26.352
+        "percentile": 26.463
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -52299,7 +52243,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 13.36
+        "percentile": 13.381
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -52360,7 +52304,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 13.01
+        "percentile": 13.054
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -52421,7 +52365,7 @@
       ],
       "epss": {
         "score": 0.0012,
-        "percentile": 31.831
+        "percentile": 31.967
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -52480,7 +52424,7 @@
       ],
       "epss": {
         "score": 0.0015,
-        "percentile": 35.891
+        "percentile": 36.042
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -52537,7 +52481,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 13.01
+        "percentile": 13.054
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -52598,7 +52542,7 @@
       ],
       "epss": {
         "score": 0.0028,
-        "percentile": 50.709
+        "percentile": 50.882
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -52655,7 +52599,7 @@
       ],
       "epss": {
         "score": 0.0009,
-        "percentile": 26.837
+        "percentile": 26.941
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -52713,7 +52657,7 @@
       ],
       "epss": {
         "score": 0.0012,
-        "percentile": 31.546
+        "percentile": 31.68
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -52770,7 +52714,7 @@
       ],
       "epss": {
         "score": 0.0015,
-        "percentile": 36.347
+        "percentile": 36.495
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -52833,7 +52777,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 17.947
+        "percentile": 17.976
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -52894,7 +52838,7 @@
       ],
       "epss": {
         "score": 0.0153,
-        "percentile": 80.527
+        "percentile": 80.619
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -52953,7 +52897,7 @@
       ],
       "epss": {
         "score": 0.001,
-        "percentile": 28.073
+        "percentile": 28.171
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -53016,7 +52960,7 @@
       ],
       "epss": {
         "score": 0.001,
-        "percentile": 28.552
+        "percentile": 28.658
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -53079,7 +53023,7 @@
       ],
       "epss": {
         "score": 0.0023,
-        "percentile": 45.368
+        "percentile": 45.528
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -53148,7 +53092,7 @@
       ],
       "epss": {
         "score": 0.0013,
-        "percentile": 33.886
+        "percentile": 34.029
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -53212,7 +53156,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 18.074
+        "percentile": 18.107
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -53273,7 +53217,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 13.01
+        "percentile": 13.054
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -53334,7 +53278,7 @@
       ],
       "epss": {
         "score": 0.0017,
-        "percentile": 38.897
+        "percentile": 39.048
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -53410,7 +53354,7 @@
       ],
       "epss": {
         "score": 0.0019,
-        "percentile": 41.201
+        "percentile": 41.354
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -53467,7 +53411,7 @@
       ],
       "epss": {
         "score": 0.0003,
-        "percentile": 8.002
+        "percentile": 8.051
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -53526,7 +53470,7 @@
       ],
       "epss": {
         "score": 0.0017,
-        "percentile": 39.275
+        "percentile": 39.427
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -53599,7 +53543,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 13.01
+        "percentile": 13.054
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -53660,7 +53604,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 13.01
+        "percentile": 13.054
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -53721,7 +53665,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 18.516
+        "percentile": 18.553
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -53784,7 +53728,7 @@
       ],
       "epss": {
         "score": 0.0001,
-        "percentile": 0.552
+        "percentile": 0.56
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -53845,7 +53789,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 13.01
+        "percentile": 13.054
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -53906,7 +53850,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 18.978
+        "percentile": 19.012
       },
       "riskScore": 45,
       "exploitationStatus": "UNKNOWN",
@@ -59660,6 +59604,65 @@
       }
     },
     {
+      "cveId": "CVE-2025-2605",
+      "title": "Authenticated command injection",
+      "description": "Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability in Honeywell MB-Secure allows Privilege Abuse. This issue affects MB-Secure: from V11.04 before V12.53 and MB-Secure PRO from V01.06 before V03.09.Honeywell also recommends updating to the most recent version of this product.",
+      "publishedDate": "2025-05-02T12:39:39.979000+00:00",
+      "lastModifiedDate": "2025-05-17T06:03:36.347000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H",
+          "baseScore": 9.9,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.002,
+        "percentile": 42.243
+      },
+      "riskScore": 45,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Honeywell"
+        ],
+        "products": [
+          "Mb-secure"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.honeywell.com/us/en/product-security#security-notices",
+          "source": "",
+          "tags": [
+            "vendor-advisory"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-78"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "Low",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/2xxx/CVE-2025-2605.json",
+            "lastModified": "2025-05-17T06:03:36.347000+00:00"
+          }
+        ]
+      }
+    },
+    {
       "cveId": "CVE-2025-35996",
       "title": "KUNBUS Revolution Pi Improper Neutralization of Server-Side Includes (SSI) Within a Web Page",
       "description": "KUNBUS PiCtory version 2.11.1 and earlier are vulnerable when an authenticated remote attacker crafts a special filename that can be stored by API endpoints. That filename is later transmitted to the client in order to show a list of configuration files. Due to a missing escape or sanitization, the filename could be executed as HTML script tag resulting in a cross-site-scripting attack.",
@@ -59740,7 +59743,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 9.974
+        "percentile": 10.049
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -59799,7 +59802,7 @@
       ],
       "epss": {
         "score": 0.0022,
-        "percentile": 45.096
+        "percentile": 45.255
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -59860,7 +59863,7 @@
       ],
       "epss": {
         "score": 0.001,
-        "percentile": 28.075
+        "percentile": 28.174
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -59921,7 +59924,7 @@
       ],
       "epss": {
         "score": 0.0023,
-        "percentile": 45.359
+        "percentile": 45.52
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -59988,7 +59991,7 @@
       ],
       "epss": {
         "score": 0.0003,
-        "percentile": 6.016
+        "percentile": 6.06
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -60056,7 +60059,7 @@
       ],
       "epss": {
         "score": 0.004,
-        "percentile": 60.15
+        "percentile": 60.311
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -60117,8 +60120,8 @@
         }
       ],
       "epss": {
-        "score": 0.0021,
-        "percentile": 43.211
+        "score": 0.0023,
+        "percentile": 45.971
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -60184,7 +60187,7 @@
       ],
       "epss": {
         "score": 0.0015,
-        "percentile": 37.03
+        "percentile": 37.179
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -60250,7 +60253,7 @@
       ],
       "epss": {
         "score": 0.0396,
-        "percentile": 87.923
+        "percentile": 88.006
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -60308,7 +60311,7 @@
       ],
       "epss": {
         "score": 0.012,
-        "percentile": 78.052
+        "percentile": 78.146
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -60371,7 +60374,7 @@
       ],
       "epss": {
         "score": 0.0014,
-        "percentile": 34.656
+        "percentile": 34.805
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -60432,7 +60435,7 @@
       ],
       "epss": {
         "score": 0.0004,
-        "percentile": 12.842
+        "percentile": 12.89
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -60493,7 +60496,7 @@
       ],
       "epss": {
         "score": 0.001,
-        "percentile": 29.144
+        "percentile": 29.256
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -60554,7 +60557,7 @@
       ],
       "epss": {
         "score": 0.0575,
-        "percentile": 90.106
+        "percentile": 90.174
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -60613,7 +60616,7 @@
       ],
       "epss": {
         "score": 0.001,
-        "percentile": 29.144
+        "percentile": 29.256
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -60674,7 +60677,7 @@
       ],
       "epss": {
         "score": 0.001,
-        "percentile": 27.897
+        "percentile": 28.006
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -60749,7 +60752,7 @@
       ],
       "epss": {
         "score": 0.0044,
-        "percentile": 62.488
+        "percentile": 62.662
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -60809,7 +60812,7 @@
       ],
       "epss": {
         "score": 0.0002,
-        "percentile": 3.813
+        "percentile": 3.921
       },
       "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
@@ -62483,7 +62486,7 @@
       ],
       "epss": {
         "score": 0.0003,
-        "percentile": 6.588
+        "percentile": 6.629
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -62544,7 +62547,7 @@
       ],
       "epss": {
         "score": 0.002,
-        "percentile": 42.708
+        "percentile": 42.864
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -62601,7 +62604,7 @@
       ],
       "epss": {
         "score": 0.0002,
-        "percentile": 3.747
+        "percentile": 3.857
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -62662,7 +62665,7 @@
       ],
       "epss": {
         "score": 0.0013,
-        "percentile": 32.848
+        "percentile": 32.989
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -62720,7 +62723,7 @@
       ],
       "epss": {
         "score": 0.01,
-        "percentile": 76.113
+        "percentile": 76.221
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -62777,7 +62780,7 @@
       ],
       "epss": {
         "score": 0.0013,
-        "percentile": 33.495
+        "percentile": 33.638
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -62835,7 +62838,7 @@
       ],
       "epss": {
         "score": 0.0013,
-        "percentile": 33.495
+        "percentile": 33.638
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -62893,7 +62896,7 @@
       ],
       "epss": {
         "score": 0.001,
-        "percentile": 28.756
+        "percentile": 28.867
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -62960,7 +62963,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 17.947
+        "percentile": 17.976
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -63021,7 +63024,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 17.947
+        "percentile": 17.976
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -63082,7 +63085,7 @@
       ],
       "epss": {
         "score": 0.0016,
-        "percentile": 37.479
+        "percentile": 37.624
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -63143,7 +63146,7 @@
       ],
       "epss": {
         "score": 0.0009,
-        "percentile": 25.895
+        "percentile": 25.997
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -63202,7 +63205,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 17.947
+        "percentile": 17.976
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -63263,7 +63266,7 @@
       ],
       "epss": {
         "score": 0.0009,
-        "percentile": 27.543
+        "percentile": 27.646
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -63326,7 +63329,7 @@
       ],
       "epss": {
         "score": 0.0031,
-        "percentile": 53.987
+        "percentile": 54.179
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -63385,7 +63388,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 17.947
+        "percentile": 17.976
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -63446,7 +63449,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 17.947
+        "percentile": 17.976
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -63507,7 +63510,7 @@
       ],
       "epss": {
         "score": 0.0023,
-        "percentile": 45.547
+        "percentile": 45.708
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -63566,7 +63569,7 @@
       ],
       "epss": {
         "score": 0.0117,
-        "percentile": 77.802
+        "percentile": 77.899
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -63625,7 +63628,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 17.947
+        "percentile": 17.976
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -63686,7 +63689,7 @@
       ],
       "epss": {
         "score": 0.0031,
-        "percentile": 53.987
+        "percentile": 54.179
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -63745,7 +63748,7 @@
       ],
       "epss": {
         "score": 0.0009,
-        "percentile": 27.543
+        "percentile": 27.646
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -63808,7 +63811,7 @@
       ],
       "epss": {
         "score": 0.0006,
-        "percentile": 17.947
+        "percentile": 17.976
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -63869,7 +63872,7 @@
       ],
       "epss": {
         "score": 0.0007,
-        "percentile": 22.917
+        "percentile": 23.019
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -65708,7 +65711,7 @@
       ],
       "epss": {
         "score": 0.0027,
-        "percentile": 50.325
+        "percentile": 50.498
       },
       "riskScore": 43,
       "exploitationStatus": "UNKNOWN",
@@ -65775,7 +65778,7 @@
       ],
       "epss": {
         "score": 0.0012,
-        "percentile": 32.114
+        "percentile": 32.251
       },
       "riskScore": 42,
       "exploitationStatus": "UNKNOWN",
@@ -65841,7 +65844,7 @@
       ],
       "epss": {
         "score": 0.0008,
-        "percentile": 24.572
+        "percentile": 23.509
       },
       "riskScore": 42,
       "exploitationStatus": "UNKNOWN",
