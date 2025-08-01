@@ -1,7 +1,7 @@
 {
   "chunk": "2025-CRITICAL",
   "count": 1061,
-  "generated": "2025-08-01T08:08:36.939961",
+  "generated": "2025-08-01T12:10:24.011293",
   "vulnerabilities": [
     {
       "cveId": "CVE-2025-47812",
@@ -3930,85 +3930,6 @@
       }
     },
     {
-      "cveId": "CVE-2025-6441",
-      "title": "Webinar Solution: Create live/evergreen/automated/instant webinars, stream & Zoom Meetings | WebinarIgnition <= 4.03.31 - Unauthenticated Login Token Generation to Authentication Bypass",
-      "description": "The Webinar Solution: Create live/evergreen/automated/instant webinars, stream & Zoom Meetings | WebinarIgnition plugin for WordPress is vulnerable to unauthenticated login token generation due to a missing capability check on the `webinarignition_sign_in_support_staff` and `webinarignition_register_support` functions in all versions up to, and including, 4.03.31. This makes it possible for unauthenticated attackers to generate login tokens for arbitrary WordPress users under certain circumstances, issuing authorization cookies which can lead to authentication bypass.",
-      "publishedDate": "2025-07-24T09:22:16.616000+00:00",
-      "lastModifiedDate": "2025-07-24T13:15:02.281000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 9.8,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0027,
-        "percentile": 49.838
-      },
-      "riskScore": 55,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Tobias_conrad",
-          "WordPress"
-        ],
-        "products": [
-          "Webinar Solution: Create Live/evergreen/automated/instant Webinars, Stream & Zoom Meetings | Webinarignition",
-          "Wordpress"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/52c19707-df18-4239-af46-12ea5ee86a4b?source=cve",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://plugins.trac.wordpress.org/browser/webinar-ignition/trunk/inc/class-webinarignition.php#L549",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://plugins.trac.wordpress.org/browser/webinar-ignition/trunk/inc/class.WebinarignitionManager.php#L53",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://plugins.trac.wordpress.org/browser/webinar-ignition/trunk/inc/class.WebinarignitionManager.php#L1040",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://plugins.trac.wordpress.org/browser/webinar-ignition/trunk/inc/class.WebinarignitionAjax.php#L769",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-862"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/6xxx/CVE-2025-6441.json",
-            "lastModified": "2025-07-24T13:15:02.281000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2025-32375",
       "title": "Insecure Deserialization leads to RCE in BentoML's runner server",
       "description": "BentoML is a Python library for building online serving systems optimized for AI apps and model inference. Prior to 1.4.8, there was an insecure deserialization in BentoML's runner server. By setting specific headers and parameters in the POST request, it is possible to execute any unauthorized arbitrary code on the server, which will grant the attackers to have the initial access and information disclosure on the server. This vulnerability is fixed in 1.4.8.",
@@ -4526,80 +4447,6 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/20xxx/CVE-2025-20309.json",
             "lastModified": "2025-07-03T03:55:36.870000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-6380",
-      "title": "ONLYOFFICE Docs 1.1.0 - 2.2.0 - Missing Authorization to Unauthenticated Privilege Escalation via callback Function",
-      "description": "The ONLYOFFICE Docs plugin for WordPress is vulnerable to Privilege Escalation due to missing authorization within its oo.callback REST endpoint in versions 1.1.0 to 2.2.0. The plugin’s permission callback only verifies that the supplied, encrypted attachment ID maps to an existing attachment post, but does not verify the requester’s identity or capabilities. This makes it possible for unauthenticated attackers to log in as an arbitrary user.",
-      "publishedDate": "2025-07-24T09:22:17.749000+00:00",
-      "lastModifiedDate": "2025-07-24T13:44:39.011000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 9.8,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.001,
-        "percentile": 28.419
-      },
-      "riskScore": 54,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Onlyoffice",
-          "WordPress"
-        ],
-        "products": [
-          "Onlyoffice Docs",
-          "Wordpress"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/608b0506-074b-4df3-8c30-57cfb090f553?source=cve",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://plugins.trac.wordpress.org/browser/onlyoffice/tags/2.2.0/public/views/class-onlyoffice-plugin-callback.php#L57",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://wordpress.org/plugins/onlyoffice/#developers",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://plugins.trac.wordpress.org/browser/onlyoffice/tags/2.2.0/public/class-onlyoffice-plugin-public.php#L111",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-862"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/6xxx/CVE-2025-6380.json",
-            "lastModified": "2025-07-24T13:44:39.011000+00:00"
           }
         ]
       }
@@ -5760,6 +5607,85 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/30xxx/CVE-2025-30220.json",
             "lastModified": "2025-06-10T17:13:09.180000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-6441",
+      "title": "Webinar Solution: Create live/evergreen/automated/instant webinars, stream & Zoom Meetings | WebinarIgnition <= 4.03.31 - Unauthenticated Login Token Generation to Authentication Bypass",
+      "description": "The Webinar Solution: Create live/evergreen/automated/instant webinars, stream & Zoom Meetings | WebinarIgnition plugin for WordPress is vulnerable to unauthenticated login token generation due to a missing capability check on the `webinarignition_sign_in_support_staff` and `webinarignition_register_support` functions in all versions up to, and including, 4.03.31. This makes it possible for unauthenticated attackers to generate login tokens for arbitrary WordPress users under certain circumstances, issuing authorization cookies which can lead to authentication bypass.",
+      "publishedDate": "2025-07-24T09:22:16.616000+00:00",
+      "lastModifiedDate": "2025-07-24T13:15:02.281000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 9.8,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0027,
+        "percentile": 49.838
+      },
+      "riskScore": 53,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Tobias_conrad",
+          "WordPress"
+        ],
+        "products": [
+          "Webinar Solution: Create Live/evergreen/automated/instant Webinars, Stream & Zoom Meetings | Webinarignition",
+          "Wordpress"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/52c19707-df18-4239-af46-12ea5ee86a4b?source=cve",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://plugins.trac.wordpress.org/browser/webinar-ignition/trunk/inc/class-webinarignition.php#L549",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://plugins.trac.wordpress.org/browser/webinar-ignition/trunk/inc/class.WebinarignitionManager.php#L53",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://plugins.trac.wordpress.org/browser/webinar-ignition/trunk/inc/class.WebinarignitionManager.php#L1040",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://plugins.trac.wordpress.org/browser/webinar-ignition/trunk/inc/class.WebinarignitionAjax.php#L769",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-862"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/6xxx/CVE-2025-6441.json",
+            "lastModified": "2025-07-24T13:15:02.281000+00:00"
           }
         ]
       }
@@ -7991,6 +7917,80 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/7xxx/CVE-2025-7852.json",
             "lastModified": "2025-07-24T13:36:47.798000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-6380",
+      "title": "ONLYOFFICE Docs 1.1.0 - 2.2.0 - Missing Authorization to Unauthenticated Privilege Escalation via callback Function",
+      "description": "The ONLYOFFICE Docs plugin for WordPress is vulnerable to Privilege Escalation due to missing authorization within its oo.callback REST endpoint in versions 1.1.0 to 2.2.0. The plugin’s permission callback only verifies that the supplied, encrypted attachment ID maps to an existing attachment post, but does not verify the requester’s identity or capabilities. This makes it possible for unauthenticated attackers to log in as an arbitrary user.",
+      "publishedDate": "2025-07-24T09:22:17.749000+00:00",
+      "lastModifiedDate": "2025-07-24T13:44:39.011000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 9.8,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.001,
+        "percentile": 28.419
+      },
+      "riskScore": 52,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Onlyoffice",
+          "WordPress"
+        ],
+        "products": [
+          "Onlyoffice Docs",
+          "Wordpress"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/608b0506-074b-4df3-8c30-57cfb090f553?source=cve",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://plugins.trac.wordpress.org/browser/onlyoffice/tags/2.2.0/public/views/class-onlyoffice-plugin-callback.php#L57",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://wordpress.org/plugins/onlyoffice/#developers",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://plugins.trac.wordpress.org/browser/onlyoffice/tags/2.2.0/public/class-onlyoffice-plugin-public.php#L111",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-862"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/6xxx/CVE-2025-6380.json",
+            "lastModified": "2025-07-24T13:44:39.011000+00:00"
           }
         ]
       }
@@ -22546,120 +22546,6 @@
       }
     },
     {
-      "cveId": "CVE-2025-41648",
-      "title": "Pilz: Authentication Bypass in IndustrialPI Webstatus",
-      "description": "An unauthenticated remote attacker can bypass the login to the web application of the affected devices making it possible to access and change all available settings of the IndustrialPI.",
-      "publishedDate": "2025-07-01T08:10:24.679000+00:00",
-      "lastModifiedDate": "2025-07-02T13:24:37.115000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 9.8,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0008,
-        "percentile": 24.301
-      },
-      "riskScore": 49,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Pilz"
-        ],
-        "products": [
-          "Industrialpi 4 With Industrialpi Webstatus"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://certvde.com/en/advisories/VDE-2025-039",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-704"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/41xxx/CVE-2025-41648.json",
-            "lastModified": "2025-07-02T13:24:37.115000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-41656",
-      "title": "Pilz: Missing Authentication in Node-RED integration",
-      "description": "An unauthenticated remote attacker can run arbitrary commands on the affected devices with high privileges because the authentication for the Node_RED server is not configured by default.",
-      "publishedDate": "2025-07-01T08:10:06.208000+00:00",
-      "lastModifiedDate": "2025-07-01T14:32:08.516000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
-          "baseScore": 10.0,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0013,
-        "percentile": 32.979
-      },
-      "riskScore": 49,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Pilz"
-        ],
-        "products": [
-          "Industrialpi 4 With Firmware Bullseye"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://certvde.com/en/advisories/VDE-2025-045",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-306"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/41xxx/CVE-2025-41656.json",
-            "lastModified": "2025-07-01T14:32:08.516000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2025-1128",
       "title": "Everest Forms <= 3.0.9.4 - Unauthenticated Arbitrary File Upload, Read, and Deletion",
       "description": "The Everest Forms – Contact Forms, Quiz, Survey, Newsletter & Payment Form Builder for WordPress plugin for WordPress is vulnerable to arbitrary file upload, read, and deletion due to missing file type and path validation in the 'format' method of the EVF_Form_Fields_Upload class in all versions up to, and including, 3.0.9.4. This makes it possible for unauthenticated attackers to upload, read, and delete arbitrary files on the affected site's server which may make remote code execution, sensitive information disclosure, or a site takeover possible.",
@@ -24783,72 +24669,6 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/2xxx/CVE-2025-2505.json",
             "lastModified": "2025-03-20T14:51:26.885000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-2812",
-      "title": "SQLi in Mydata Informatics' Ticket Sales Automation",
-      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in Mydata Informatics Ticket Sales Automation allows Blind SQL Injection.This issue affects Ticket Sales Automation: before 03.04.2025 (DD.MM.YYYY).",
-      "publishedDate": "2025-05-02T08:24:39.851000+00:00",
-      "lastModifiedDate": "2025-05-28T18:05:49.919000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 9.8,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0005,
-        "percentile": 13.766
-      },
-      "riskScore": 48,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Mydata Informatics"
-        ],
-        "products": [
-          "Ticket Sales Automation"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://www.usom.gov.tr/bildirim/tr-25-0099",
-          "source": "",
-          "tags": [
-            "third-party-advisory"
-          ]
-        },
-        {
-          "url": "https://github.com/sahici/CVE-2025-2812/",
-          "source": "",
-          "tags": [
-            "technical-description"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-89"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/2xxx/CVE-2025-2812.json",
-            "lastModified": "2025-05-28T18:05:49.919000+00:00"
           }
         ]
       }
@@ -43179,6 +42999,120 @@
       }
     },
     {
+      "cveId": "CVE-2025-41648",
+      "title": "Pilz: Authentication Bypass in IndustrialPI Webstatus",
+      "description": "An unauthenticated remote attacker can bypass the login to the web application of the affected devices making it possible to access and change all available settings of the IndustrialPI.",
+      "publishedDate": "2025-07-01T08:10:24.679000+00:00",
+      "lastModifiedDate": "2025-07-02T13:24:37.115000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 9.8,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0008,
+        "percentile": 24.301
+      },
+      "riskScore": 47,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Pilz"
+        ],
+        "products": [
+          "Industrialpi 4 With Industrialpi Webstatus"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://certvde.com/en/advisories/VDE-2025-039",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-704"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/41xxx/CVE-2025-41648.json",
+            "lastModified": "2025-07-02T13:24:37.115000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-41656",
+      "title": "Pilz: Missing Authentication in Node-RED integration",
+      "description": "An unauthenticated remote attacker can run arbitrary commands on the affected devices with high privileges because the authentication for the Node_RED server is not configured by default.",
+      "publishedDate": "2025-07-01T08:10:06.208000+00:00",
+      "lastModifiedDate": "2025-07-01T14:32:08.516000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+          "baseScore": 10.0,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0013,
+        "percentile": 32.979
+      },
+      "riskScore": 47,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Pilz"
+        ],
+        "products": [
+          "Industrialpi 4 With Firmware Bullseye"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://certvde.com/en/advisories/VDE-2025-045",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-306"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/41xxx/CVE-2025-41656.json",
+            "lastModified": "2025-07-01T14:32:08.516000+00:00"
+          }
+        ]
+      }
+    },
+    {
       "cveId": "CVE-2025-2004",
       "title": "Simple WP Events <= 1.8.17 - Unauthenticated Arbitrary File Deletion",
       "description": "The Simple WP Events plugin for WordPress is vulnerable to arbitrary file deletion due to insufficient file path validation in the wpe_delete_file AJAX action in all versions up to, and including, 1.8.17. This makes it possible for unauthenticated attackers to delete arbitrary files on the server, which can easily lead to remote code execution when the right file is deleted (such as wp-config.php).",
@@ -50445,6 +50379,72 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/41xxx/CVE-2024-41783.json",
             "lastModified": "2025-01-21T15:06:04.573000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-2812",
+      "title": "SQLi in Mydata Informatics' Ticket Sales Automation",
+      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in Mydata Informatics Ticket Sales Automation allows Blind SQL Injection.This issue affects Ticket Sales Automation: before 03.04.2025 (DD.MM.YYYY).",
+      "publishedDate": "2025-05-02T08:24:39.851000+00:00",
+      "lastModifiedDate": "2025-05-28T18:05:49.919000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 9.8,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0005,
+        "percentile": 13.766
+      },
+      "riskScore": 46,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Mydata Informatics"
+        ],
+        "products": [
+          "Ticket Sales Automation"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.usom.gov.tr/bildirim/tr-25-0099",
+          "source": "",
+          "tags": [
+            "third-party-advisory"
+          ]
+        },
+        {
+          "url": "https://github.com/sahici/CVE-2025-2812/",
+          "source": "",
+          "tags": [
+            "technical-description"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-89"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/2xxx/CVE-2025-2812.json",
+            "lastModified": "2025-05-28T18:05:49.919000+00:00"
           }
         ]
       }

@@ -1,5 +1,5 @@
 {
-  "generated": "2025-08-01T08:08:36.939961",
+  "generated": "2025-08-01T12:10:24.011293",
   "count": 15657,
   "vulnerabilities": [
     {
@@ -7675,34 +7675,6 @@
       ]
     },
     {
-      "cveId": "CVE-2025-6441",
-      "title": "[CRITICAL] Tobias_Conrad Webinar Solution: Create Live/Evergreen/Automated/Instant Webinars, Stream & Zoom Meetings | Webinarignition v4.03.31",
-      "originalTitle": "Webinar Solution: Create live/evergreen/automated/instant webinars, stream & Zoom Meetings | WebinarIgnition <= 4.03.31 - Unauthenticated Login Token Generation to Authentication Bypass",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 0.27,
-      "epssPercentile": 49.838,
-      "riskScore": 55,
-      "publishedDate": "2025-07-24T09:22:16.616000+00:00",
-      "lastModifiedDate": "2025-07-24T13:15:02.281000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "Tobias_conrad",
-        "WordPress"
-      ],
-      "products": [
-        "Webinar Solution: Create Live/evergreen/automated/instant Webinars, Stream & Zoom Meetings | Webinarignition",
-        "Wordpress"
-      ],
-      "attackVector": "Network",
-      "attackComplexity": "Low",
-      "privilegesRequired": "None",
-      "userInteraction": "None",
-      "tags": [
-        "CWE-862"
-      ]
-    },
-    {
       "cveId": "CVE-2025-1098",
       "title": "[HIGH] Kubernetes Ingress-Nginx",
       "originalTitle": "ingress-nginx controller - configuration injection via unsanitized mirror annotations",
@@ -8534,34 +8506,6 @@
       "tags": []
     },
     {
-      "cveId": "CVE-2025-6380",
-      "title": "[CRITICAL] Onlyoffice Onlyoffice Docs v1.1.0",
-      "originalTitle": "ONLYOFFICE Docs 1.1.0 - 2.2.0 - Missing Authorization to Unauthenticated Privilege Escalation via callback Function",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 0.1,
-      "epssPercentile": 28.419,
-      "riskScore": 54,
-      "publishedDate": "2025-07-24T09:22:17.749000+00:00",
-      "lastModifiedDate": "2025-07-24T13:44:39.011000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "Onlyoffice",
-        "WordPress"
-      ],
-      "products": [
-        "Onlyoffice Docs",
-        "Wordpress"
-      ],
-      "attackVector": "Network",
-      "attackComplexity": "Low",
-      "privilegesRequired": "None",
-      "userInteraction": "None",
-      "tags": [
-        "CWE-862"
-      ]
-    },
-    {
       "cveId": "CVE-2025-24514",
       "title": "[HIGH] Kubernetes Ingress-Nginx",
       "originalTitle": "ingress-nginx controller - configuration injection via unsanitized auth-url annotation",
@@ -9359,34 +9303,6 @@
       "userInteraction": "None",
       "tags": [
         "CWE-918"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-7695",
-      "title": "[HIGH] Alexacrm Dataverse Integration v2.77",
-      "originalTitle": "Dataverse Integration 2.77 - 2.81 - Missing Authorization to Authenticated (Subscriber+) Privilege Escalation via reset_password_link REST Route",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.05,
-      "epssPercentile": 14.235,
-      "riskScore": 53,
-      "publishedDate": "2025-07-24T09:22:21.270000+00:00",
-      "lastModifiedDate": "2025-07-24T13:13:39.837000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "Alexacrm",
-        "WordPress"
-      ],
-      "products": [
-        "Dataverse Integration",
-        "Wordpress"
-      ],
-      "attackVector": "Network",
-      "attackComplexity": "Low",
-      "privilegesRequired": "Low",
-      "userInteraction": "None",
-      "tags": [
-        "CWE-862"
       ]
     },
     {
@@ -10363,6 +10279,34 @@
       "attackVector": "Network",
       "attackComplexity": "Low",
       "privilegesRequired": "Low",
+      "userInteraction": "None",
+      "tags": [
+        "CWE-862"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-6441",
+      "title": "[CRITICAL] Tobias_Conrad Webinar Solution: Create Live/Evergreen/Automated/Instant Webinars, Stream & Zoom Meetings | Webinarignition v4.03.31",
+      "originalTitle": "Webinar Solution: Create live/evergreen/automated/instant webinars, stream & Zoom Meetings | WebinarIgnition <= 4.03.31 - Unauthenticated Login Token Generation to Authentication Bypass",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.27,
+      "epssPercentile": 49.838,
+      "riskScore": 53,
+      "publishedDate": "2025-07-24T09:22:16.616000+00:00",
+      "lastModifiedDate": "2025-07-24T13:15:02.281000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "Tobias_conrad",
+        "WordPress"
+      ],
+      "products": [
+        "Webinar Solution: Create Live/evergreen/automated/instant Webinars, Stream & Zoom Meetings | Webinarignition",
+        "Wordpress"
+      ],
+      "attackVector": "Network",
+      "attackComplexity": "Low",
+      "privilegesRequired": "None",
       "userInteraction": "None",
       "tags": [
         "CWE-862"
@@ -12840,6 +12784,34 @@
       "userInteraction": "None",
       "tags": [
         "CWE-434"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-6380",
+      "title": "[CRITICAL] Onlyoffice Onlyoffice Docs v1.1.0",
+      "originalTitle": "ONLYOFFICE Docs 1.1.0 - 2.2.0 - Missing Authorization to Unauthenticated Privilege Escalation via callback Function",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.1,
+      "epssPercentile": 28.419,
+      "riskScore": 52,
+      "publishedDate": "2025-07-24T09:22:17.749000+00:00",
+      "lastModifiedDate": "2025-07-24T13:44:39.011000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "Onlyoffice",
+        "WordPress"
+      ],
+      "products": [
+        "Onlyoffice Docs",
+        "Wordpress"
+      ],
+      "attackVector": "Network",
+      "attackComplexity": "Low",
+      "privilegesRequired": "None",
+      "userInteraction": "None",
+      "tags": [
+        "CWE-862"
       ]
     },
     {
@@ -16133,6 +16105,34 @@
       "tags": []
     },
     {
+      "cveId": "CVE-2025-7695",
+      "title": "[HIGH] Alexacrm Dataverse Integration v2.77",
+      "originalTitle": "Dataverse Integration 2.77 - 2.81 - Missing Authorization to Authenticated (Subscriber+) Privilege Escalation via reset_password_link REST Route",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.05,
+      "epssPercentile": 14.235,
+      "riskScore": 51,
+      "publishedDate": "2025-07-24T09:22:21.270000+00:00",
+      "lastModifiedDate": "2025-07-24T13:13:39.837000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "Alexacrm",
+        "WordPress"
+      ],
+      "products": [
+        "Dataverse Integration",
+        "Wordpress"
+      ],
+      "attackVector": "Network",
+      "attackComplexity": "Low",
+      "privilegesRequired": "Low",
+      "userInteraction": "None",
+      "tags": [
+        "CWE-862"
+      ]
+    },
+    {
       "cveId": "CVE-2025-7437",
       "title": "[CRITICAL] Motovnet Ebook Store v5.8012",
       "originalTitle": "Ebook Store <= 5.8012 - Unauthenticated Arbitrary File Upload",
@@ -17744,36 +17744,6 @@
       "tags": [
         "CWE-120",
         "CWE-119"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-7640",
-      "title": "[HIGH] Den-Media Hiweb Export Posts v0.9.0.0",
-      "originalTitle": "hiWeb Export Posts <= 0.9.0.0 - Cross-Site Request Forgery to Arbitrary File Deletion",
-      "severity": "HIGH",
-      "cvssScore": 8.1,
-      "epssScore": 0.27,
-      "epssPercentile": 50.057,
-      "riskScore": 50,
-      "publishedDate": "2025-07-24T09:22:15.857000+00:00",
-      "lastModifiedDate": "2025-07-24T13:15:30.942000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "Den-media",
-        "The",
-        "WordPress"
-      ],
-      "products": [
-        "Hiweb Export Posts",
-        "The Server",
-        "Wordpress"
-      ],
-      "attackVector": "Network",
-      "attackComplexity": "Low",
-      "privilegesRequired": "None",
-      "userInteraction": "Required",
-      "tags": [
-        "CWE-22"
       ]
     },
     {
@@ -27997,32 +27967,6 @@
       "tags": []
     },
     {
-      "cveId": "CVE-2025-41648",
-      "title": "[CRITICAL] Pilz Industrialpi 4 With Industrialpi Webstatus",
-      "originalTitle": "Pilz: Authentication Bypass in IndustrialPI Webstatus",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 0.08,
-      "epssPercentile": 24.301,
-      "riskScore": 49,
-      "publishedDate": "2025-07-01T08:10:24.679000+00:00",
-      "lastModifiedDate": "2025-07-02T13:24:37.115000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "Pilz"
-      ],
-      "products": [
-        "Industrialpi 4 With Industrialpi Webstatus"
-      ],
-      "attackVector": "Network",
-      "attackComplexity": "Low",
-      "privilegesRequired": "None",
-      "userInteraction": "None",
-      "tags": [
-        "CWE-704"
-      ]
-    },
-    {
       "cveId": "CVE-2025-41661",
       "title": "[HIGH] Microsoft Ie-Sr-2Tx-Wl",
       "originalTitle": "Weidmueller: Security routers IE-SR-2TX are affected by CSRF",
@@ -28078,32 +28022,6 @@
       "userInteraction": "None",
       "tags": [
         "CWE-78"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-41656",
-      "title": "[CRITICAL] Pilz Industrialpi 4 With Firmware Bullseye",
-      "originalTitle": "Pilz: Missing Authentication in Node-RED integration",
-      "severity": "CRITICAL",
-      "cvssScore": 10.0,
-      "epssScore": 0.13,
-      "epssPercentile": 32.979,
-      "riskScore": 49,
-      "publishedDate": "2025-07-01T08:10:06.208000+00:00",
-      "lastModifiedDate": "2025-07-01T14:32:08.516000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "Pilz"
-      ],
-      "products": [
-        "Industrialpi 4 With Firmware Bullseye"
-      ],
-      "attackVector": "Network",
-      "attackComplexity": "Low",
-      "privilegesRequired": "None",
-      "userInteraction": "None",
-      "tags": [
-        "CWE-306"
       ]
     },
     {
@@ -32824,32 +32742,6 @@
       "userInteraction": "None",
       "tags": [
         "CWE-22"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-2812",
-      "title": "[CRITICAL] Mydata Informatics Ticket Sales Automation",
-      "originalTitle": "SQLi in Mydata Informatics' Ticket Sales Automation",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 0.05,
-      "epssPercentile": 13.766,
-      "riskScore": 48,
-      "publishedDate": "2025-05-02T08:24:39.851000+00:00",
-      "lastModifiedDate": "2025-05-28T18:05:49.919000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "Mydata Informatics"
-      ],
-      "products": [
-        "Ticket Sales Automation"
-      ],
-      "attackVector": "Network",
-      "attackComplexity": "Low",
-      "privilegesRequired": "None",
-      "userInteraction": "None",
-      "tags": [
-        "CWE-89"
       ]
     },
     {
@@ -45549,6 +45441,36 @@
       "tags": [
         "CWE-79",
         "CWE-116"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-7640",
+      "title": "[HIGH] Den-Media Hiweb Export Posts v0.9.0.0",
+      "originalTitle": "hiWeb Export Posts <= 0.9.0.0 - Cross-Site Request Forgery to Arbitrary File Deletion",
+      "severity": "HIGH",
+      "cvssScore": 8.1,
+      "epssScore": 0.27,
+      "epssPercentile": 50.057,
+      "riskScore": 48,
+      "publishedDate": "2025-07-24T09:22:15.857000+00:00",
+      "lastModifiedDate": "2025-07-24T13:15:30.942000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "Den-media",
+        "The",
+        "WordPress"
+      ],
+      "products": [
+        "Hiweb Export Posts",
+        "The Server",
+        "Wordpress"
+      ],
+      "attackVector": "Network",
+      "attackComplexity": "Low",
+      "privilegesRequired": "None",
+      "userInteraction": "Required",
+      "tags": [
+        "CWE-22"
       ]
     },
     {
@@ -60366,6 +60288,58 @@
       "userInteraction": "Required",
       "tags": [
         "CWE-352"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-41648",
+      "title": "[CRITICAL] Pilz Industrialpi 4 With Industrialpi Webstatus",
+      "originalTitle": "Pilz: Authentication Bypass in IndustrialPI Webstatus",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.08,
+      "epssPercentile": 24.301,
+      "riskScore": 47,
+      "publishedDate": "2025-07-01T08:10:24.679000+00:00",
+      "lastModifiedDate": "2025-07-02T13:24:37.115000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "Pilz"
+      ],
+      "products": [
+        "Industrialpi 4 With Industrialpi Webstatus"
+      ],
+      "attackVector": "Network",
+      "attackComplexity": "Low",
+      "privilegesRequired": "None",
+      "userInteraction": "None",
+      "tags": [
+        "CWE-704"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-41656",
+      "title": "[CRITICAL] Pilz Industrialpi 4 With Firmware Bullseye",
+      "originalTitle": "Pilz: Missing Authentication in Node-RED integration",
+      "severity": "CRITICAL",
+      "cvssScore": 10.0,
+      "epssScore": 0.13,
+      "epssPercentile": 32.979,
+      "riskScore": 47,
+      "publishedDate": "2025-07-01T08:10:06.208000+00:00",
+      "lastModifiedDate": "2025-07-01T14:32:08.516000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "Pilz"
+      ],
+      "products": [
+        "Industrialpi 4 With Firmware Bullseye"
+      ],
+      "attackVector": "Network",
+      "attackComplexity": "Low",
+      "privilegesRequired": "None",
+      "userInteraction": "None",
+      "tags": [
+        "CWE-306"
       ]
     },
     {
@@ -83888,6 +83862,32 @@
       "privilegesRequired": "None",
       "userInteraction": "None",
       "tags": []
+    },
+    {
+      "cveId": "CVE-2025-2812",
+      "title": "[CRITICAL] Mydata Informatics Ticket Sales Automation",
+      "originalTitle": "SQLi in Mydata Informatics' Ticket Sales Automation",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.05,
+      "epssPercentile": 13.766,
+      "riskScore": 46,
+      "publishedDate": "2025-05-02T08:24:39.851000+00:00",
+      "lastModifiedDate": "2025-05-28T18:05:49.919000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "Mydata Informatics"
+      ],
+      "products": [
+        "Ticket Sales Automation"
+      ],
+      "attackVector": "Network",
+      "attackComplexity": "Low",
+      "privilegesRequired": "None",
+      "userInteraction": "None",
+      "tags": [
+        "CWE-89"
+      ]
     },
     {
       "cveId": "CVE-2025-49521",
@@ -112626,32 +112626,6 @@
       "tags": [
         "CWE-77",
         "CWE-74"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-2421",
-      "title": "[HIGH] Profelis Informatics Sambabox",
-      "originalTitle": "Remote Code Execution in Profelis Informatics' SambaBox",
-      "severity": "HIGH",
-      "cvssScore": 8.2,
-      "epssScore": 0.06,
-      "epssPercentile": 17.813,
-      "riskScore": 44,
-      "publishedDate": "2025-05-02T11:27:49.395000+00:00",
-      "lastModifiedDate": "2025-05-02T12:01:57.062000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "Profelis Informatics"
-      ],
-      "products": [
-        "Sambabox"
-      ],
-      "attackVector": "Local",
-      "attackComplexity": "Low",
-      "privilegesRequired": "High",
-      "userInteraction": "None",
-      "tags": [
-        "CWE-94"
       ]
     },
     {
@@ -154595,32 +154569,6 @@
       ]
     },
     {
-      "cveId": "CVE-2025-49480",
-      "title": "[HIGH] Asr Falcon_Linux、Kestrel、Lapwing_Linux",
-      "originalTitle": "Out-of-bounds access in lte-telephony",
-      "severity": "HIGH",
-      "cvssScore": 7.4,
-      "epssScore": 0.04,
-      "epssPercentile": 11.568,
-      "riskScore": 43,
-      "publishedDate": "2025-07-01T11:13:19.134000+00:00",
-      "lastModifiedDate": "2025-07-01T14:26:42.120000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "Asr"
-      ],
-      "products": [
-        "Falcon_linux、kestrel、lapwing_linux"
-      ],
-      "attackVector": "Network",
-      "attackComplexity": "Low",
-      "privilegesRequired": "Low",
-      "userInteraction": "None",
-      "tags": [
-        "CWE-125"
-      ]
-    },
-    {
       "cveId": "CVE-2025-49308",
       "title": "[HIGH] Travel Travel Engine v6.5.1",
       "originalTitle": "WordPress WP Travel Engine <= 6.5.1 - Local File Inclusion Vulnerability",
@@ -154786,32 +154734,6 @@
       "userInteraction": "None",
       "tags": [
         "CWE-770"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-49492",
-      "title": "[HIGH] Asr Falcon_Linux、Kestrel、Lapwing_Linux",
-      "originalTitle": "Out-of-bounds write in lte-telephony",
-      "severity": "HIGH",
-      "cvssScore": 7.4,
-      "epssScore": 0.04,
-      "epssPercentile": 11.568,
-      "riskScore": 43,
-      "publishedDate": "2025-07-01T10:52:32.715000+00:00",
-      "lastModifiedDate": "2025-07-01T14:29:53.421000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "Asr"
-      ],
-      "products": [
-        "Falcon_linux、kestrel、lapwing_linux"
-      ],
-      "attackVector": "Network",
-      "attackComplexity": "Low",
-      "privilegesRequired": "Low",
-      "userInteraction": "None",
-      "tags": [
-        "CWE-787"
       ]
     },
     {
@@ -227197,6 +227119,32 @@
       ]
     },
     {
+      "cveId": "CVE-2025-2421",
+      "title": "[HIGH] Profelis Informatics Sambabox",
+      "originalTitle": "Remote Code Execution in Profelis Informatics' SambaBox",
+      "severity": "HIGH",
+      "cvssScore": 8.2,
+      "epssScore": 0.06,
+      "epssPercentile": 17.813,
+      "riskScore": 42,
+      "publishedDate": "2025-05-02T11:27:49.395000+00:00",
+      "lastModifiedDate": "2025-05-02T12:01:57.062000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "Profelis Informatics"
+      ],
+      "products": [
+        "Sambabox"
+      ],
+      "attackVector": "Local",
+      "attackComplexity": "Low",
+      "privilegesRequired": "High",
+      "userInteraction": "None",
+      "tags": [
+        "CWE-94"
+      ]
+    },
+    {
       "cveId": "CVE-2025-4181",
       "title": "[HIGH] Ftp Ftp Server",
       "originalTitle": "PCMan FTP Server SEND Command buffer overflow",
@@ -236337,32 +236285,6 @@
       "tags": [
         "CWE-434",
         "CWE-284"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-1301",
-      "title": "[HIGH] Yordam Informatics Library Automation System",
-      "originalTitle": "Reflected XSS in Yordam Informatics' Library Automation System",
-      "severity": "HIGH",
-      "cvssScore": 7.4,
-      "epssScore": 0.04,
-      "epssPercentile": 11.985,
-      "riskScore": 41,
-      "publishedDate": "2025-05-02T10:59:41.412000+00:00",
-      "lastModifiedDate": "2025-05-02T12:07:01.790000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "Yordam Informatics"
-      ],
-      "products": [
-        "Library Automation System"
-      ],
-      "attackVector": "Network",
-      "attackComplexity": "Low",
-      "privilegesRequired": "None",
-      "userInteraction": "Required",
-      "tags": [
-        "CWE-79"
       ]
     },
     {
@@ -260355,6 +260277,58 @@
       "userInteraction": "None",
       "tags": [
         "CWE-770"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-49480",
+      "title": "[HIGH] Asr Falcon_Linux、Kestrel、Lapwing_Linux",
+      "originalTitle": "Out-of-bounds access in lte-telephony",
+      "severity": "HIGH",
+      "cvssScore": 7.4,
+      "epssScore": 0.04,
+      "epssPercentile": 11.568,
+      "riskScore": 41,
+      "publishedDate": "2025-07-01T11:13:19.134000+00:00",
+      "lastModifiedDate": "2025-07-01T14:26:42.120000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "Asr"
+      ],
+      "products": [
+        "Falcon_linux、kestrel、lapwing_linux"
+      ],
+      "attackVector": "Network",
+      "attackComplexity": "Low",
+      "privilegesRequired": "Low",
+      "userInteraction": "None",
+      "tags": [
+        "CWE-125"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-49492",
+      "title": "[HIGH] Asr Falcon_Linux、Kestrel、Lapwing_Linux",
+      "originalTitle": "Out-of-bounds write in lte-telephony",
+      "severity": "HIGH",
+      "cvssScore": 7.4,
+      "epssScore": 0.04,
+      "epssPercentile": 11.568,
+      "riskScore": 41,
+      "publishedDate": "2025-07-01T10:52:32.715000+00:00",
+      "lastModifiedDate": "2025-07-01T14:29:53.421000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "Asr"
+      ],
+      "products": [
+        "Falcon_linux、kestrel、lapwing_linux"
+      ],
+      "attackVector": "Network",
+      "attackComplexity": "Low",
+      "privilegesRequired": "Low",
+      "userInteraction": "None",
+      "tags": [
+        "CWE-787"
       ]
     },
     {
@@ -341525,6 +341499,32 @@
       "userInteraction": "None",
       "tags": [
         "CWE-89"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-1301",
+      "title": "[HIGH] Yordam Informatics Library Automation System",
+      "originalTitle": "Reflected XSS in Yordam Informatics' Library Automation System",
+      "severity": "HIGH",
+      "cvssScore": 7.4,
+      "epssScore": 0.04,
+      "epssPercentile": 11.985,
+      "riskScore": 39,
+      "publishedDate": "2025-05-02T10:59:41.412000+00:00",
+      "lastModifiedDate": "2025-05-02T12:07:01.790000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "Yordam Informatics"
+      ],
+      "products": [
+        "Library Automation System"
+      ],
+      "attackVector": "Network",
+      "attackComplexity": "Low",
+      "privilegesRequired": "None",
+      "userInteraction": "Required",
+      "tags": [
+        "CWE-79"
       ]
     },
     {

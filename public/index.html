@@ -9819,39 +9819,6 @@
     "exploitation_status": "Unknown"
   },
   {
-    "cve_id": "CVE-2025-6441",
-    "title": "[CRITICAL] Tobias_Conrad Webinar Solution: Create Live/Evergreen/Automated/Instant Webinars, Stream & Zoom Meetings | Webinarignition v4.03.31",
-    "originalTitle": "Webinar Solution: Create live/evergreen/automated/instant webinars, stream & Zoom Meetings | WebinarIgnition <= 4.03.31 - Unauthenticated Login Token Generation to Authentication Bypass",
-    "products": "Tobias_conrad/Webinar Solution: Create Live/evergreen/automated/instant Webinars, Stream & Zoom Meetings | Webinarignition",
-    "severity": "CRITICAL",
-    "cvss_score": 9.8,
-    "epss_percentile": 49.838,
-    "risk_score": 55,
-    "vendors": [
-      "Tobias_conrad",
-      "WordPress"
-    ],
-    "tags": [
-      "CWE-862"
-    ],
-    "published_date": "2025-07-24T09:22:16.616000+00:00",
-    "published_short": "2025-07-24",
-    "last_modified_date": "2025-07-24T13:15:02.281000+00:00",
-    "attack_vector": "Network",
-    "description": "The Webinar Solution: Create live/evergreen/automated/instant webinars, stream & Zoom Meetings | WebinarIgnition plugin for WordPress is vulnerable to unauthenticated login token generation due to a missing capability check on the `webinarignition_sign_in_support_staff` and `webinarignition_register_support` functions in all versions up to, and including, 4.03.31. This makes it possible for unauthenticated attackers to generate login tokens for arbitrary WordPress users under certain circumstances, issuing authorization cookies which can lead to authentication bypass.",
-    "attack_complexity": "Low",
-    "scope": null,
-    "user_interaction": "None",
-    "privileges_required": "None",
-    "confidentiality_impact": null,
-    "integrity_impact": null,
-    "availability_impact": null,
-    "cwe_ids": [],
-    "kev_status": false,
-    "patch_status": "Unknown",
-    "exploitation_status": "Unknown"
-  },
-  {
     "cve_id": "CVE-2025-1098",
     "title": "[HIGH] Kubernetes Ingress-Nginx",
     "originalTitle": "ingress-nginx controller - configuration injection via unsanitized mirror annotations",
@@ -10831,39 +10798,6 @@
     "exploitation_status": "PoC Available"
   },
   {
-    "cve_id": "CVE-2025-6380",
-    "title": "[CRITICAL] Onlyoffice Onlyoffice Docs v1.1.0",
-    "originalTitle": "ONLYOFFICE Docs 1.1.0 - 2.2.0 - Missing Authorization to Unauthenticated Privilege Escalation via callback Function",
-    "products": "Onlyoffice/Onlyoffice Docs",
-    "severity": "CRITICAL",
-    "cvss_score": 9.8,
-    "epss_percentile": 28.419,
-    "risk_score": 54,
-    "vendors": [
-      "Onlyoffice",
-      "WordPress"
-    ],
-    "tags": [
-      "CWE-862"
-    ],
-    "published_date": "2025-07-24T09:22:17.749000+00:00",
-    "published_short": "2025-07-24",
-    "last_modified_date": "2025-07-24T13:44:39.011000+00:00",
-    "attack_vector": "Network",
-    "description": "The ONLYOFFICE Docs plugin for WordPress is vulnerable to Privilege Escalation due to missing authorization within its oo.callback REST endpoint in versions 1.1.0 to 2.2.0. The plugin\u2019s permission callback only verifies that the supplied, encrypted attachment ID maps to an existing attachment post, but does not verify the requester\u2019s identity or capabilities. This makes it possible for unauthenticated attackers to log in as an arbitrary user.",
-    "attack_complexity": "Low",
-    "scope": null,
-    "user_interaction": "None",
-    "privileges_required": "None",
-    "confidentiality_impact": null,
-    "integrity_impact": null,
-    "availability_impact": null,
-    "cwe_ids": [],
-    "kev_status": false,
-    "patch_status": "Unknown",
-    "exploitation_status": "Unknown"
-  },
-  {
     "cve_id": "CVE-2025-24514",
     "title": "[HIGH] Kubernetes Ingress-Nginx",
     "originalTitle": "ingress-nginx controller - configuration injection via unsanitized auth-url annotation",
@@ -11806,39 +11740,6 @@
     "cwe_ids": [],
     "kev_status": false,
     "patch_status": "Available",
-    "exploitation_status": "Unknown"
-  },
-  {
-    "cve_id": "CVE-2025-7695",
-    "title": "[HIGH] Alexacrm Dataverse Integration v2.77",
-    "originalTitle": "Dataverse Integration 2.77 - 2.81 - Missing Authorization to Authenticated (Subscriber+) Privilege Escalation via reset_password_link REST Route",
-    "products": "Alexacrm/Dataverse Integration",
-    "severity": "HIGH",
-    "cvss_score": 8.8,
-    "epss_percentile": 14.235,
-    "risk_score": 53,
-    "vendors": [
-      "Alexacrm",
-      "WordPress"
-    ],
-    "tags": [
-      "CWE-862"
-    ],
-    "published_date": "2025-07-24T09:22:21.270000+00:00",
-    "published_short": "2025-07-24",
-    "last_modified_date": "2025-07-24T13:13:39.837000+00:00",
-    "attack_vector": "Network",
-    "description": "The Dataverse Integration plugin for WordPress is vulnerable to Privilege Escalation due to missing authorization checks within its reset_password_link REST endpoint in versions 2.77 through 2.81. The endpoint\u2019s handler accepts a client-supplied id, email, or login, looks up that user, and calls get_password_reset_key() unconditionally. Because it only checks that the caller is authenticated, and not that they own or may edit the target account, any authenticated attacker, with Subscriber-level access and above, can obtain a password reset link for an administrator and hijack that account.",
-    "attack_complexity": "Low",
-    "scope": null,
-    "user_interaction": "None",
-    "privileges_required": "Low",
-    "confidentiality_impact": null,
-    "integrity_impact": null,
-    "availability_impact": null,
-    "cwe_ids": [],
-    "kev_status": false,
-    "patch_status": "Unknown",
     "exploitation_status": "Unknown"
   },
   {
@@ -13001,6 +12902,39 @@
     "kev_status": false,
     "patch_status": "Available",
     "exploitation_status": "PoC Available"
+  },
+  {
+    "cve_id": "CVE-2025-6441",
+    "title": "[CRITICAL] Tobias_Conrad Webinar Solution: Create Live/Evergreen/Automated/Instant Webinars, Stream & Zoom Meetings | Webinarignition v4.03.31",
+    "originalTitle": "Webinar Solution: Create live/evergreen/automated/instant webinars, stream & Zoom Meetings | WebinarIgnition <= 4.03.31 - Unauthenticated Login Token Generation to Authentication Bypass",
+    "products": "Tobias_conrad/Webinar Solution: Create Live/evergreen/automated/instant Webinars, Stream & Zoom Meetings | Webinarignition",
+    "severity": "CRITICAL",
+    "cvss_score": 9.8,
+    "epss_percentile": 49.838,
+    "risk_score": 53,
+    "vendors": [
+      "Tobias_conrad",
+      "WordPress"
+    ],
+    "tags": [
+      "CWE-862"
+    ],
+    "published_date": "2025-07-24T09:22:16.616000+00:00",
+    "published_short": "2025-07-24",
+    "last_modified_date": "2025-07-24T13:15:02.281000+00:00",
+    "attack_vector": "Network",
+    "description": "The Webinar Solution: Create live/evergreen/automated/instant webinars, stream & Zoom Meetings | WebinarIgnition plugin for WordPress is vulnerable to unauthenticated login token generation due to a missing capability check on the `webinarignition_sign_in_support_staff` and `webinarignition_register_support` functions in all versions up to, and including, 4.03.31. This makes it possible for unauthenticated attackers to generate login tokens for arbitrary WordPress users under certain circumstances, issuing authorization cookies which can lead to authentication bypass.",
+    "attack_complexity": "Low",
+    "scope": null,
+    "user_interaction": "None",
+    "privileges_required": "None",
+    "confidentiality_impact": null,
+    "integrity_impact": null,
+    "availability_impact": null,
+    "cwe_ids": [],
+    "kev_status": false,
+    "patch_status": "Unknown",
+    "exploitation_status": "Unknown"
   },
   {
     "cve_id": "CVE-2025-5746",
@@ -15935,6 +15869,39 @@
     "last_modified_date": "2025-07-24T13:36:47.798000+00:00",
     "attack_vector": "Network",
     "description": "The WPBookit plugin for WordPress is vulnerable to arbitrary file uploads due to missing file type validation in the image_upload_handle() function hooked via the 'add_new_customer' route in all versions up to, and including, 1.0.6. The plugin\u2019s image\u2010upload handler calls move_uploaded_file() on client\u2010supplied files without restricting allowed extensions or MIME types, nor sanitizing the filename. This makes it possible for unauthenticated attackers to upload arbitrary files on the affected site's server which may make remote code execution possible.",
+    "attack_complexity": "Low",
+    "scope": null,
+    "user_interaction": "None",
+    "privileges_required": "None",
+    "confidentiality_impact": null,
+    "integrity_impact": null,
+    "availability_impact": null,
+    "cwe_ids": [],
+    "kev_status": false,
+    "patch_status": "Unknown",
+    "exploitation_status": "Unknown"
+  },
+  {
+    "cve_id": "CVE-2025-6380",
+    "title": "[CRITICAL] Onlyoffice Onlyoffice Docs v1.1.0",
+    "originalTitle": "ONLYOFFICE Docs 1.1.0 - 2.2.0 - Missing Authorization to Unauthenticated Privilege Escalation via callback Function",
+    "products": "Onlyoffice/Onlyoffice Docs",
+    "severity": "CRITICAL",
+    "cvss_score": 9.8,
+    "epss_percentile": 28.419,
+    "risk_score": 52,
+    "vendors": [
+      "Onlyoffice",
+      "WordPress"
+    ],
+    "tags": [
+      "CWE-862"
+    ],
+    "published_date": "2025-07-24T09:22:17.749000+00:00",
+    "published_short": "2025-07-24",
+    "last_modified_date": "2025-07-24T13:44:39.011000+00:00",
+    "attack_vector": "Network",
+    "description": "The ONLYOFFICE Docs plugin for WordPress is vulnerable to Privilege Escalation due to missing authorization within its oo.callback REST endpoint in versions 1.1.0 to 2.2.0. The plugin\u2019s permission callback only verifies that the supplied, encrypted attachment ID maps to an existing attachment post, but does not verify the requester\u2019s identity or capabilities. This makes it possible for unauthenticated attackers to log in as an arbitrary user.",
     "attack_complexity": "Low",
     "scope": null,
     "user_interaction": "None",
@@ -19807,6 +19774,39 @@
     "exploitation_status": "Unknown"
   },
   {
+    "cve_id": "CVE-2025-7695",
+    "title": "[HIGH] Alexacrm Dataverse Integration v2.77",
+    "originalTitle": "Dataverse Integration 2.77 - 2.81 - Missing Authorization to Authenticated (Subscriber+) Privilege Escalation via reset_password_link REST Route",
+    "products": "Alexacrm/Dataverse Integration",
+    "severity": "HIGH",
+    "cvss_score": 8.8,
+    "epss_percentile": 14.235,
+    "risk_score": 51,
+    "vendors": [
+      "Alexacrm",
+      "WordPress"
+    ],
+    "tags": [
+      "CWE-862"
+    ],
+    "published_date": "2025-07-24T09:22:21.270000+00:00",
+    "published_short": "2025-07-24",
+    "last_modified_date": "2025-07-24T13:13:39.837000+00:00",
+    "attack_vector": "Network",
+    "description": "The Dataverse Integration plugin for WordPress is vulnerable to Privilege Escalation due to missing authorization checks within its reset_password_link REST endpoint in versions 2.77 through 2.81. The endpoint\u2019s handler accepts a client-supplied id, email, or login, looks up that user, and calls get_password_reset_key() unconditionally. Because it only checks that the caller is authenticated, and not that they own or may edit the target account, any authenticated attacker, with Subscriber-level access and above, can obtain a password reset link for an administrator and hijack that account.",
+    "attack_complexity": "Low",
+    "scope": null,
+    "user_interaction": "None",
+    "privileges_required": "Low",
+    "confidentiality_impact": null,
+    "integrity_impact": null,
+    "availability_impact": null,
+    "cwe_ids": [],
+    "kev_status": false,
+    "patch_status": "Unknown",
+    "exploitation_status": "Unknown"
+  },
+  {
     "cve_id": "CVE-2025-7437",
     "title": "[CRITICAL] Motovnet Ebook Store v5.8012",
     "originalTitle": "Ebook Store <= 5.8012 - Unauthenticated Arbitrary File Upload",
@@ -21739,40 +21739,6 @@
     "scope": null,
     "user_interaction": "None",
     "privileges_required": "Low",
-    "confidentiality_impact": null,
-    "integrity_impact": null,
-    "availability_impact": null,
-    "cwe_ids": [],
-    "kev_status": false,
-    "patch_status": "Unknown",
-    "exploitation_status": "Unknown"
-  },
-  {
-    "cve_id": "CVE-2025-7640",
-    "title": "[HIGH] Den-Media Hiweb Export Posts v0.9.0.0",
-    "originalTitle": "hiWeb Export Posts <= 0.9.0.0 - Cross-Site Request Forgery to Arbitrary File Deletion",
-    "products": "Den-media/Hiweb Export Posts",
-    "severity": "HIGH",
-    "cvss_score": 8.1,
-    "epss_percentile": 50.057,
-    "risk_score": 50,
-    "vendors": [
-      "Den-media",
-      "The",
-      "WordPress"
-    ],
-    "tags": [
-      "CWE-22"
-    ],
-    "published_date": "2025-07-24T09:22:15.857000+00:00",
-    "published_short": "2025-07-24",
-    "last_modified_date": "2025-07-24T13:15:30.942000+00:00",
-    "attack_vector": "Network",
-    "description": "The hiWeb Export Posts plugin for WordPress is vulnerable to Cross-Site Request Forgery in all versions up to, and including, 0.9.0.0. This is due to missing or incorrect nonce validation on the tool-dashboard-history.php file. This makes it possible for unauthenticated attackers to delete arbitrary files on the server, which can easily lead to remote code execution when the right file is deleted (such as wp-config.php), via a forged request granted they can trick a site administrator into performing an action such as clicking on a link.",
-    "attack_complexity": "Low",
-    "scope": null,
-    "user_interaction": "Required",
-    "privileges_required": "None",
     "confidentiality_impact": null,
     "integrity_impact": null,
     "availability_impact": null,
@@ -33840,38 +33806,6 @@
     "exploitation_status": "Unknown"
   },
   {
-    "cve_id": "CVE-2025-41648",
-    "title": "[CRITICAL] Pilz Industrialpi 4 With Industrialpi Webstatus",
-    "originalTitle": "Pilz: Authentication Bypass in IndustrialPI Webstatus",
-    "products": "Pilz/Industrialpi 4 With Industrialpi Webstatus",
-    "severity": "CRITICAL",
-    "cvss_score": 9.8,
-    "epss_percentile": 24.301,
-    "risk_score": 49,
-    "vendors": [
-      "Pilz"
-    ],
-    "tags": [
-      "CWE-704"
-    ],
-    "published_date": "2025-07-01T08:10:24.679000+00:00",
-    "published_short": "2025-07-01",
-    "last_modified_date": "2025-07-02T13:24:37.115000+00:00",
-    "attack_vector": "Network",
-    "description": "An unauthenticated remote attacker can bypass the login to the web application of the affected devices making it possible to access and change all available settings of the IndustrialPI.",
-    "attack_complexity": "Low",
-    "scope": null,
-    "user_interaction": "None",
-    "privileges_required": "None",
-    "confidentiality_impact": null,
-    "integrity_impact": null,
-    "availability_impact": null,
-    "cwe_ids": [],
-    "kev_status": false,
-    "patch_status": "Unknown",
-    "exploitation_status": "Unknown"
-  },
-  {
     "cve_id": "CVE-2025-41661",
     "title": "[HIGH] Microsoft Ie-Sr-2Tx-Wl",
     "originalTitle": "Weidmueller: Security routers IE-SR-2TX are affected by CSRF",
@@ -33936,38 +33870,6 @@
     "kev_status": false,
     "patch_status": "Unknown",
     "exploitation_status": "PoC Available"
-  },
-  {
-    "cve_id": "CVE-2025-41656",
-    "title": "[CRITICAL] Pilz Industrialpi 4 With Firmware Bullseye",
-    "originalTitle": "Pilz: Missing Authentication in Node-RED integration",
-    "products": "Pilz/Industrialpi 4 With Firmware Bullseye",
-    "severity": "CRITICAL",
-    "cvss_score": 10.0,
-    "epss_percentile": 32.979,
-    "risk_score": 49,
-    "vendors": [
-      "Pilz"
-    ],
-    "tags": [
-      "CWE-306"
-    ],
-    "published_date": "2025-07-01T08:10:06.208000+00:00",
-    "published_short": "2025-07-01",
-    "last_modified_date": "2025-07-01T14:32:08.516000+00:00",
-    "attack_vector": "Network",
-    "description": "An unauthenticated remote attacker can run arbitrary commands on the affected devices with high privileges because the authentication for the Node_RED server is not configured by default.",
-    "attack_complexity": "Low",
-    "scope": null,
-    "user_interaction": "None",
-    "privileges_required": "None",
-    "confidentiality_impact": null,
-    "integrity_impact": null,
-    "availability_impact": null,
-    "cwe_ids": [],
-    "kev_status": false,
-    "patch_status": "Unknown",
-    "exploitation_status": "Unknown"
   },
   {
     "cve_id": "CVE-2025-1128",
@@ -39623,38 +39525,6 @@
     "last_modified_date": "2025-03-20T14:51:26.885000+00:00",
     "attack_vector": "Network",
     "description": "The Age Gate plugin for WordPress is vulnerable to Local PHP File Inclusion in all versions up to, and including, 3.5.3 via the 'lang' parameter. This makes it possible for unauthenticated attackers to include and execute arbitrary PHP files on the server, allowing the execution of code in those files. This can be used to bypass access controls, obtain sensitive data, or achieve code execution in cases where images and other \u201csafe\u201d file types can be uploaded and included.",
-    "attack_complexity": "Low",
-    "scope": null,
-    "user_interaction": "None",
-    "privileges_required": "None",
-    "confidentiality_impact": null,
-    "integrity_impact": null,
-    "availability_impact": null,
-    "cwe_ids": [],
-    "kev_status": false,
-    "patch_status": "Unknown",
-    "exploitation_status": "Unknown"
-  },
-  {
-    "cve_id": "CVE-2025-2812",
-    "title": "[CRITICAL] Mydata Informatics Ticket Sales Automation",
-    "originalTitle": "SQLi in Mydata Informatics' Ticket Sales Automation",
-    "products": "Mydata Informatics/Ticket Sales Automation",
-    "severity": "CRITICAL",
-    "cvss_score": 9.8,
-    "epss_percentile": 13.766,
-    "risk_score": 48,
-    "vendors": [
-      "Mydata Informatics"
-    ],
-    "tags": [
-      "CWE-89"
-    ],
-    "published_date": "2025-05-02T08:24:39.851000+00:00",
-    "published_short": "2025-05-02",
-    "last_modified_date": "2025-05-28T18:05:49.919000+00:00",
-    "attack_vector": "Network",
-    "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in Mydata Informatics Ticket Sales Automation allows Blind SQL Injection.This issue affects Ticket Sales Automation: before 03.04.2025 (DD.MM.YYYY).",
     "attack_complexity": "Low",
     "scope": null,
     "user_interaction": "None",
@@ -54774,6 +54644,40 @@
     "cwe_ids": [],
     "kev_status": false,
     "patch_status": "Available",
+    "exploitation_status": "Unknown"
+  },
+  {
+    "cve_id": "CVE-2025-7640",
+    "title": "[HIGH] Den-Media Hiweb Export Posts v0.9.0.0",
+    "originalTitle": "hiWeb Export Posts <= 0.9.0.0 - Cross-Site Request Forgery to Arbitrary File Deletion",
+    "products": "Den-media/Hiweb Export Posts",
+    "severity": "HIGH",
+    "cvss_score": 8.1,
+    "epss_percentile": 50.057,
+    "risk_score": 48,
+    "vendors": [
+      "Den-media",
+      "The",
+      "WordPress"
+    ],
+    "tags": [
+      "CWE-22"
+    ],
+    "published_date": "2025-07-24T09:22:15.857000+00:00",
+    "published_short": "2025-07-24",
+    "last_modified_date": "2025-07-24T13:15:30.942000+00:00",
+    "attack_vector": "Network",
+    "description": "The hiWeb Export Posts plugin for WordPress is vulnerable to Cross-Site Request Forgery in all versions up to, and including, 0.9.0.0. This is due to missing or incorrect nonce validation on the tool-dashboard-history.php file. This makes it possible for unauthenticated attackers to delete arbitrary files on the server, which can easily lead to remote code execution when the right file is deleted (such as wp-config.php), via a forged request granted they can trick a site administrator into performing an action such as clicking on a link.",
+    "attack_complexity": "Low",
+    "scope": null,
+    "user_interaction": "Required",
+    "privileges_required": "None",
+    "confidentiality_impact": null,
+    "integrity_impact": null,
+    "availability_impact": null,
+    "cwe_ids": [],
+    "kev_status": false,
+    "patch_status": "Unknown",
     "exploitation_status": "Unknown"
   },
   {
@@ -72150,6 +72054,70 @@
     "kev_status": false,
     "patch_status": "Available",
     "exploitation_status": "PoC Available"
+  },
+  {
+    "cve_id": "CVE-2025-41648",
+    "title": "[CRITICAL] Pilz Industrialpi 4 With Industrialpi Webstatus",
+    "originalTitle": "Pilz: Authentication Bypass in IndustrialPI Webstatus",
+    "products": "Pilz/Industrialpi 4 With Industrialpi Webstatus",
+    "severity": "CRITICAL",
+    "cvss_score": 9.8,
+    "epss_percentile": 24.301,
+    "risk_score": 47,
+    "vendors": [
+      "Pilz"
+    ],
+    "tags": [
+      "CWE-704"
+    ],
+    "published_date": "2025-07-01T08:10:24.679000+00:00",
+    "published_short": "2025-07-01",
+    "last_modified_date": "2025-07-02T13:24:37.115000+00:00",
+    "attack_vector": "Network",
+    "description": "An unauthenticated remote attacker can bypass the login to the web application of the affected devices making it possible to access and change all available settings of the IndustrialPI.",
+    "attack_complexity": "Low",
+    "scope": null,
+    "user_interaction": "None",
+    "privileges_required": "None",
+    "confidentiality_impact": null,
+    "integrity_impact": null,
+    "availability_impact": null,
+    "cwe_ids": [],
+    "kev_status": false,
+    "patch_status": "Unknown",
+    "exploitation_status": "Unknown"
+  },
+  {
+    "cve_id": "CVE-2025-41656",
+    "title": "[CRITICAL] Pilz Industrialpi 4 With Firmware Bullseye",
+    "originalTitle": "Pilz: Missing Authentication in Node-RED integration",
+    "products": "Pilz/Industrialpi 4 With Firmware Bullseye",
+    "severity": "CRITICAL",
+    "cvss_score": 10.0,
+    "epss_percentile": 32.979,
+    "risk_score": 47,
+    "vendors": [
+      "Pilz"
+    ],
+    "tags": [
+      "CWE-306"
+    ],
+    "published_date": "2025-07-01T08:10:06.208000+00:00",
+    "published_short": "2025-07-01",
+    "last_modified_date": "2025-07-01T14:32:08.516000+00:00",
+    "attack_vector": "Network",
+    "description": "An unauthenticated remote attacker can run arbitrary commands on the affected devices with high privileges because the authentication for the Node_RED server is not configured by default.",
+    "attack_complexity": "Low",
+    "scope": null,
+    "user_interaction": "None",
+    "privileges_required": "None",
+    "confidentiality_impact": null,
+    "integrity_impact": null,
+    "availability_impact": null,
+    "cwe_ids": [],
+    "kev_status": false,
+    "patch_status": "Unknown",
+    "exploitation_status": "Unknown"
   },
   {
     "cve_id": "CVE-2025-41688",
@@ -99906,6 +99874,38 @@
     "last_modified_date": "2024-10-21T11:34:10.338000+00:00",
     "attack_vector": "Network",
     "description": "The Stripe Payment Plugin for WooCommerce plugin for WordPress is vulnerable to SQL Injection via the 'id' parameter in all versions up to, and including, 3.7.9 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
+    "attack_complexity": "Low",
+    "scope": null,
+    "user_interaction": "None",
+    "privileges_required": "None",
+    "confidentiality_impact": null,
+    "integrity_impact": null,
+    "availability_impact": null,
+    "cwe_ids": [],
+    "kev_status": false,
+    "patch_status": "Unknown",
+    "exploitation_status": "Unknown"
+  },
+  {
+    "cve_id": "CVE-2025-2812",
+    "title": "[CRITICAL] Mydata Informatics Ticket Sales Automation",
+    "originalTitle": "SQLi in Mydata Informatics' Ticket Sales Automation",
+    "products": "Mydata Informatics/Ticket Sales Automation",
+    "severity": "CRITICAL",
+    "cvss_score": 9.8,
+    "epss_percentile": 13.766,
+    "risk_score": 46,
+    "vendors": [
+      "Mydata Informatics"
+    ],
+    "tags": [
+      "CWE-89"
+    ],
+    "published_date": "2025-05-02T08:24:39.851000+00:00",
+    "published_short": "2025-05-02",
+    "last_modified_date": "2025-05-28T18:05:49.919000+00:00",
+    "attack_vector": "Network",
+    "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in Mydata Informatics Ticket Sales Automation allows Blind SQL Injection.This issue affects Ticket Sales Automation: before 03.04.2025 (DD.MM.YYYY).",
     "attack_complexity": "Low",
     "scope": null,
     "user_interaction": "None",
@@ -133940,38 +133940,6 @@
     "kev_status": false,
     "patch_status": "Unknown",
     "exploitation_status": "PoC Available"
-  },
-  {
-    "cve_id": "CVE-2025-2421",
-    "title": "[HIGH] Profelis Informatics Sambabox",
-    "originalTitle": "Remote Code Execution in Profelis Informatics' SambaBox",
-    "products": "Profelis Informatics/Sambabox",
-    "severity": "HIGH",
-    "cvss_score": 8.2,
-    "epss_percentile": 17.813,
-    "risk_score": 44,
-    "vendors": [
-      "Profelis Informatics"
-    ],
-    "tags": [
-      "CWE-94"
-    ],
-    "published_date": "2025-05-02T11:27:49.395000+00:00",
-    "published_short": "2025-05-02",
-    "last_modified_date": "2025-05-02T12:01:57.062000+00:00",
-    "attack_vector": "Local",
-    "description": "Improper Control of Generation of Code ('Code Injection') vulnerability in Profelis Informatics SambaBox allows Code Injection.This issue affects SambaBox: before 5.1.",
-    "attack_complexity": "Low",
-    "scope": null,
-    "user_interaction": "None",
-    "privileges_required": "High",
-    "confidentiality_impact": null,
-    "integrity_impact": null,
-    "availability_impact": null,
-    "cwe_ids": [],
-    "kev_status": false,
-    "patch_status": "Unknown",
-    "exploitation_status": "Unknown"
   },
   {
     "cve_id": "CVE-2025-2933",
@@ -184149,38 +184117,6 @@
     "exploitation_status": "Unknown"
   },
   {
-    "cve_id": "CVE-2025-49480",
-    "title": "[HIGH] Asr Falcon_Linux\u3001Kestrel\u3001Lapwing_Linux",
-    "originalTitle": "Out-of-bounds access in lte-telephony",
-    "products": "Asr/Falcon_linux\u3001kestrel\u3001lapwing_linux",
-    "severity": "HIGH",
-    "cvss_score": 7.4,
-    "epss_percentile": 11.568,
-    "risk_score": 43,
-    "vendors": [
-      "Asr"
-    ],
-    "tags": [
-      "CWE-125"
-    ],
-    "published_date": "2025-07-01T11:13:19.134000+00:00",
-    "published_short": "2025-07-01",
-    "last_modified_date": "2025-07-01T14:26:42.120000+00:00",
-    "attack_vector": "Network",
-    "description": "Out-of-bounds access in ASR180x \u3001ASR190x  in lte-telephony,  This vulnerability is associated with program files apps/lzma/src/LzmaEnc.c.\n\nThis issue affects Falcon_Linux\u3001Kestrel\u3001Lapwing_Linux: before v1536.",
-    "attack_complexity": "Low",
-    "scope": null,
-    "user_interaction": "None",
-    "privileges_required": "Low",
-    "confidentiality_impact": null,
-    "integrity_impact": null,
-    "availability_impact": null,
-    "cwe_ids": [],
-    "kev_status": false,
-    "patch_status": "Unknown",
-    "exploitation_status": "Unknown"
-  },
-  {
     "cve_id": "CVE-2025-49308",
     "title": "[HIGH] Travel Travel Engine v6.5.1",
     "originalTitle": "WordPress WP Travel Engine <= 6.5.1 - Local File Inclusion Vulnerability",
@@ -184378,38 +184314,6 @@
     "kev_status": false,
     "patch_status": "Available",
     "exploitation_status": "PoC Available"
-  },
-  {
-    "cve_id": "CVE-2025-49492",
-    "title": "[HIGH] Asr Falcon_Linux\u3001Kestrel\u3001Lapwing_Linux",
-    "originalTitle": "Out-of-bounds write in lte-telephony",
-    "products": "Asr/Falcon_linux\u3001kestrel\u3001lapwing_linux",
-    "severity": "HIGH",
-    "cvss_score": 7.4,
-    "epss_percentile": 11.568,
-    "risk_score": 43,
-    "vendors": [
-      "Asr"
-    ],
-    "tags": [
-      "CWE-787"
-    ],
-    "published_date": "2025-07-01T10:52:32.715000+00:00",
-    "published_short": "2025-07-01",
-    "last_modified_date": "2025-07-01T14:29:53.421000+00:00",
-    "attack_vector": "Network",
-    "description": "Out-of-bounds write in ASR180x  in lte-telephony, May cause a buffer underrun.\u00a0 This vulnerability is associated with program files apps/atcmd_server/src/dev_api.C.\n\nThis issue affects Falcon_Linux\u3001Kestrel\u3001Lapwing_Linux: before v1536.",
-    "attack_complexity": "Low",
-    "scope": null,
-    "user_interaction": "None",
-    "privileges_required": "Low",
-    "confidentiality_impact": null,
-    "integrity_impact": null,
-    "availability_impact": null,
-    "cwe_ids": [],
-    "kev_status": false,
-    "patch_status": "Unknown",
-    "exploitation_status": "Unknown"
   },
   {
     "cve_id": "CVE-2025-49888",
@@ -271115,6 +271019,38 @@
     "exploitation_status": "PoC Available"
   },
   {
+    "cve_id": "CVE-2025-2421",
+    "title": "[HIGH] Profelis Informatics Sambabox",
+    "originalTitle": "Remote Code Execution in Profelis Informatics' SambaBox",
+    "products": "Profelis Informatics/Sambabox",
+    "severity": "HIGH",
+    "cvss_score": 8.2,
+    "epss_percentile": 17.813,
+    "risk_score": 42,
+    "vendors": [
+      "Profelis Informatics"
+    ],
+    "tags": [
+      "CWE-94"
+    ],
+    "published_date": "2025-05-02T11:27:49.395000+00:00",
+    "published_short": "2025-05-02",
+    "last_modified_date": "2025-05-02T12:01:57.062000+00:00",
+    "attack_vector": "Local",
+    "description": "Improper Control of Generation of Code ('Code Injection') vulnerability in Profelis Informatics SambaBox allows Code Injection.This issue affects SambaBox: before 5.1.",
+    "attack_complexity": "Low",
+    "scope": null,
+    "user_interaction": "None",
+    "privileges_required": "High",
+    "confidentiality_impact": null,
+    "integrity_impact": null,
+    "availability_impact": null,
+    "cwe_ids": [],
+    "kev_status": false,
+    "patch_status": "Unknown",
+    "exploitation_status": "Unknown"
+  },
+  {
     "cve_id": "CVE-2025-4181",
     "title": "[HIGH] Ftp Ftp Server",
     "originalTitle": "PCMan FTP Server SEND Command buffer overflow",
@@ -282104,38 +282040,6 @@
     "kev_status": false,
     "patch_status": "Unknown",
     "exploitation_status": "PoC Available"
-  },
-  {
-    "cve_id": "CVE-2025-1301",
-    "title": "[HIGH] Yordam Informatics Library Automation System",
-    "originalTitle": "Reflected XSS in Yordam Informatics' Library Automation System",
-    "products": "Yordam Informatics/Library Automation System",
-    "severity": "HIGH",
-    "cvss_score": 7.4,
-    "epss_percentile": 11.985,
-    "risk_score": 41,
-    "vendors": [
-      "Yordam Informatics"
-    ],
-    "tags": [
-      "CWE-79"
-    ],
-    "published_date": "2025-05-02T10:59:41.412000+00:00",
-    "published_short": "2025-05-02",
-    "last_modified_date": "2025-05-02T12:07:01.790000+00:00",
-    "attack_vector": "Network",
-    "description": "Improper Neutralization of Input During Web Page Generation (XSS or 'Cross-site Scripting') vulnerability in Yordam Informatics Library Automation System allows Reflected XSS.This issue affects Library Automation System: before 21.6.",
-    "attack_complexity": "Low",
-    "scope": null,
-    "user_interaction": "Required",
-    "privileges_required": "None",
-    "confidentiality_impact": null,
-    "integrity_impact": null,
-    "availability_impact": null,
-    "cwe_ids": [],
-    "kev_status": false,
-    "patch_status": "Unknown",
-    "exploitation_status": "Unknown"
   },
   {
     "cve_id": "CVE-2025-1963",
@@ -310808,6 +310712,70 @@
     "kev_status": false,
     "patch_status": "Unknown",
     "exploitation_status": "PoC Available"
+  },
+  {
+    "cve_id": "CVE-2025-49480",
+    "title": "[HIGH] Asr Falcon_Linux\u3001Kestrel\u3001Lapwing_Linux",
+    "originalTitle": "Out-of-bounds access in lte-telephony",
+    "products": "Asr/Falcon_linux\u3001kestrel\u3001lapwing_linux",
+    "severity": "HIGH",
+    "cvss_score": 7.4,
+    "epss_percentile": 11.568,
+    "risk_score": 41,
+    "vendors": [
+      "Asr"
+    ],
+    "tags": [
+      "CWE-125"
+    ],
+    "published_date": "2025-07-01T11:13:19.134000+00:00",
+    "published_short": "2025-07-01",
+    "last_modified_date": "2025-07-01T14:26:42.120000+00:00",
+    "attack_vector": "Network",
+    "description": "Out-of-bounds access in ASR180x \u3001ASR190x  in lte-telephony,  This vulnerability is associated with program files apps/lzma/src/LzmaEnc.c.\n\nThis issue affects Falcon_Linux\u3001Kestrel\u3001Lapwing_Linux: before v1536.",
+    "attack_complexity": "Low",
+    "scope": null,
+    "user_interaction": "None",
+    "privileges_required": "Low",
+    "confidentiality_impact": null,
+    "integrity_impact": null,
+    "availability_impact": null,
+    "cwe_ids": [],
+    "kev_status": false,
+    "patch_status": "Unknown",
+    "exploitation_status": "Unknown"
+  },
+  {
+    "cve_id": "CVE-2025-49492",
+    "title": "[HIGH] Asr Falcon_Linux\u3001Kestrel\u3001Lapwing_Linux",
+    "originalTitle": "Out-of-bounds write in lte-telephony",
+    "products": "Asr/Falcon_linux\u3001kestrel\u3001lapwing_linux",
+    "severity": "HIGH",
+    "cvss_score": 7.4,
+    "epss_percentile": 11.568,
+    "risk_score": 41,
+    "vendors": [
+      "Asr"
+    ],
+    "tags": [
+      "CWE-787"
+    ],
+    "published_date": "2025-07-01T10:52:32.715000+00:00",
+    "published_short": "2025-07-01",
+    "last_modified_date": "2025-07-01T14:29:53.421000+00:00",
+    "attack_vector": "Network",
+    "description": "Out-of-bounds write in ASR180x  in lte-telephony, May cause a buffer underrun.\u00a0 This vulnerability is associated with program files apps/atcmd_server/src/dev_api.C.\n\nThis issue affects Falcon_Linux\u3001Kestrel\u3001Lapwing_Linux: before v1536.",
+    "attack_complexity": "Low",
+    "scope": null,
+    "user_interaction": "None",
+    "privileges_required": "Low",
+    "confidentiality_impact": null,
+    "integrity_impact": null,
+    "availability_impact": null,
+    "cwe_ids": [],
+    "kev_status": false,
+    "patch_status": "Unknown",
+    "exploitation_status": "Unknown"
   },
   {
     "cve_id": "CVE-2025-43595",
@@ -408250,6 +408218,38 @@
     "scope": null,
     "user_interaction": "None",
     "privileges_required": "Low",
+    "confidentiality_impact": null,
+    "integrity_impact": null,
+    "availability_impact": null,
+    "cwe_ids": [],
+    "kev_status": false,
+    "patch_status": "Unknown",
+    "exploitation_status": "Unknown"
+  },
+  {
+    "cve_id": "CVE-2025-1301",
+    "title": "[HIGH] Yordam Informatics Library Automation System",
+    "originalTitle": "Reflected XSS in Yordam Informatics' Library Automation System",
+    "products": "Yordam Informatics/Library Automation System",
+    "severity": "HIGH",
+    "cvss_score": 7.4,
+    "epss_percentile": 11.985,
+    "risk_score": 39,
+    "vendors": [
+      "Yordam Informatics"
+    ],
+    "tags": [
+      "CWE-79"
+    ],
+    "published_date": "2025-05-02T10:59:41.412000+00:00",
+    "published_short": "2025-05-02",
+    "last_modified_date": "2025-05-02T12:07:01.790000+00:00",
+    "attack_vector": "Network",
+    "description": "Improper Neutralization of Input During Web Page Generation (XSS or 'Cross-site Scripting') vulnerability in Yordam Informatics Library Automation System allows Reflected XSS.This issue affects Library Automation System: before 21.6.",
+    "attack_complexity": "Low",
+    "scope": null,
+    "user_interaction": "Required",
+    "privileges_required": "None",
     "confidentiality_impact": null,
     "integrity_impact": null,
     "availability_impact": null,

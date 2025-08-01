@@ -1,6 +1,6 @@
 ---
 title: Morning Vulnerability Briefing - 2025-08-01
-date: 2025-08-01T08:08:36.939961
+date: 2025-08-01T12:10:24.011293
 layout: layouts/post.njk
 tags: [vulnerability, briefing, security]
 vulnerabilityCount: 15657
@@ -16,8 +16,8 @@ Today's briefing covers **15657 vulnerabilities** from 0 sources.
 
 - 🔴 **Critical Risk**: 0 vulnerabilities
 - 🟠 **High Risk**: 2 vulnerabilities
-- 🟡 **Medium Risk**: 10677 vulnerabilities
-- 🟢 **Low Risk**: 4978 vulnerabilities
+- 🟡 **Medium Risk**: 10676 vulnerabilities
+- 🟢 **Low Risk**: 4979 vulnerabilities
 
 ## Top Vulnerabilities
 
