@@ -1,7 +1,7 @@
 {
   "chunk": "2025-HIGH",
   "count": 6538,
-  "generated": "2025-08-01T16:07:42.038259",
+  "generated": "2025-08-01T20:06:52.102351",
   "vulnerabilities": [
     {
       "cveId": "CVE-2025-30066",
@@ -67074,83 +67074,6 @@
       }
     },
     {
-      "cveId": "CVE-2025-53107",
-      "title": "@cyanheads/git-mcp-server vulnerable to command injection in several tools",
-      "description": "@cyanheads/git-mcp-server is an MCP server designed to interact with Git repositories. Prior to version 2.1.5, there is a command injection vulnerability caused by the unsanitized use of input parameters within a call to child_process.exec, enabling an attacker to inject arbitrary system commands. Successful exploitation can lead to remote code execution under the server process's privileges. The server constructs and executes shell commands using unvalidated user input directly within command-line strings. This introduces the possibility of shell metacharacter injection (|, >, &&, etc.). An MCP Client can be instructed to execute additional actions for example via indirect prompt injection when asked to read git logs. This issue has been patched in version 2.1.5.",
-      "publishedDate": "2025-07-01T17:55:30.726000+00:00",
-      "lastModifiedDate": "2025-07-01T18:48:11.222000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
-          "baseScore": 7.5,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.0015,
-        "percentile": 36.813
-      },
-      "riskScore": 47,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Cyanheads",
-          "Mcp",
-          "The"
-        ],
-        "products": [
-          "Git-mcp-server",
-          "Mcp Server",
-          "The Server"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://github.com/cyanheads/git-mcp-server/security/advisories/GHSA-3q26-f695-pp76",
-          "source": "https://github.com/cyanheads/git-mcp-server/security/advisories/GHSA-3q26-f695-pp76",
-          "tags": [
-            "x_refsource_CONFIRM"
-          ]
-        },
-        {
-          "url": "https://github.com/cyanheads/git-mcp-server/commit/0dbd6995ccdf76ab770b58013034365b2d06c4d9",
-          "source": "https://github.com/cyanheads/git-mcp-server/commit/0dbd6995ccdf76ab770b58013034365b2d06c4d9",
-          "tags": [
-            "x_refsource_MISC"
-          ]
-        },
-        {
-          "url": "https://github.com/cyanheads/git-mcp-server/releases/tag/v2.1.5",
-          "source": "https://github.com/cyanheads/git-mcp-server/releases/tag/v2.1.5",
-          "tags": [
-            "x_refsource_MISC"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-77"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "High",
-        "privilegesRequired": "None",
-        "userInteraction": "Required",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/53xxx/CVE-2025-53107.json",
-            "lastModified": "2025-07-01T18:48:11.222000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2025-41239",
       "title": "vSockets information-disclosure vulnerability",
       "description": "VMware ESXi, Workstation, Fusion, and VMware Tools contains an information disclosure vulnerability due to the usage of an uninitialised memory in vSockets. A malicious actor with local administrative privileges on a virtual machine may be able to exploit this issue to leak memory from processes communicating with vSockets.",
@@ -71999,63 +71922,6 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/5xxx/CVE-2025-5817.json",
             "lastModified": "2025-07-02T13:18:38.235000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-5039",
-      "title": "Privilege Ecalation due to Untrusted Search Path Vulnerability",
-      "description": "A maliciously crafted binary file, when present while loading files in certain Autodesk applications, could lead to execution of arbitrary code in the context of the current process due to an untrusted search path being utilized.",
-      "publishedDate": "2025-07-24T17:11:14.714000+00:00",
-      "lastModifiedDate": "2025-07-25T03:55:30.703000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
-          "baseScore": 7.8,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.0002,
-        "percentile": 2.158
-      },
-      "riskScore": 46,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Autodesk"
-        ],
-        "products": [
-          "Realdwg"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://www.autodesk.com/trust/security-advisories/adsk-sa-2025-0014",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-426"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Local",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "Required",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/5xxx/CVE-2025-5039.json",
-            "lastModified": "2025-07-25T03:55:30.703000+00:00"
           }
         ]
       }
@@ -131109,6 +130975,83 @@
       }
     },
     {
+      "cveId": "CVE-2025-53107",
+      "title": "@cyanheads/git-mcp-server vulnerable to command injection in several tools",
+      "description": "@cyanheads/git-mcp-server is an MCP server designed to interact with Git repositories. Prior to version 2.1.5, there is a command injection vulnerability caused by the unsanitized use of input parameters within a call to child_process.exec, enabling an attacker to inject arbitrary system commands. Successful exploitation can lead to remote code execution under the server process's privileges. The server constructs and executes shell commands using unvalidated user input directly within command-line strings. This introduces the possibility of shell metacharacter injection (|, >, &&, etc.). An MCP Client can be instructed to execute additional actions for example via indirect prompt injection when asked to read git logs. This issue has been patched in version 2.1.5.",
+      "publishedDate": "2025-07-01T17:55:30.726000+00:00",
+      "lastModifiedDate": "2025-07-01T18:48:11.222000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "baseScore": 7.5,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.0015,
+        "percentile": 36.813
+      },
+      "riskScore": 45,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Cyanheads",
+          "Mcp",
+          "The"
+        ],
+        "products": [
+          "Git-mcp-server",
+          "Mcp Server",
+          "The Server"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://github.com/cyanheads/git-mcp-server/security/advisories/GHSA-3q26-f695-pp76",
+          "source": "https://github.com/cyanheads/git-mcp-server/security/advisories/GHSA-3q26-f695-pp76",
+          "tags": [
+            "x_refsource_CONFIRM"
+          ]
+        },
+        {
+          "url": "https://github.com/cyanheads/git-mcp-server/commit/0dbd6995ccdf76ab770b58013034365b2d06c4d9",
+          "source": "https://github.com/cyanheads/git-mcp-server/commit/0dbd6995ccdf76ab770b58013034365b2d06c4d9",
+          "tags": [
+            "x_refsource_MISC"
+          ]
+        },
+        {
+          "url": "https://github.com/cyanheads/git-mcp-server/releases/tag/v2.1.5",
+          "source": "https://github.com/cyanheads/git-mcp-server/releases/tag/v2.1.5",
+          "tags": [
+            "x_refsource_MISC"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-77"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "High",
+        "privilegesRequired": "None",
+        "userInteraction": "Required",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/53xxx/CVE-2025-53107.json",
+            "lastModified": "2025-07-01T18:48:11.222000+00:00"
+          }
+        ]
+      }
+    },
+    {
       "cveId": "CVE-2024-13322",
       "title": "Ads Pro Plugin - Multi-Purpose WordPress Advertising Manager <= 4.88 - Unauthenticated SQL Injection",
       "description": "The Ads Pro Plugin - Multi-Purpose WordPress Advertising Manager plugin for WordPress is vulnerable to SQL Injection via the 'a_id' parameter in all versions up to, and including, 4.88 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
@@ -152179,86 +152122,6 @@
       }
     },
     {
-      "cveId": "CVE-2025-48379",
-      "title": "Pillow Vulnerable to Write Buffer Overflow on BCn encoding",
-      "description": "Pillow is a Python imaging library. In versions 11.2.0 to before 11.3.0, there is a heap buffer overflow when writing a sufficiently large (>64k encoded with default settings) image in the DDS format due to writing into a buffer without checking for available space. This only affects users who save untrusted data as a compressed DDS image. This issue has been patched in version 11.3.0.",
-      "publishedDate": "2025-07-01T18:33:30.687000+00:00",
-      "lastModifiedDate": "2025-07-01T19:42:22.348000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:H",
-          "baseScore": 7.1,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.0001,
-        "percentile": 1.466
-      },
-      "riskScore": 44,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Python-pillow"
-        ],
-        "products": [
-          "Pillow"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://github.com/python-pillow/Pillow/security/advisories/GHSA-xg8h-j46f-w952",
-          "source": "https://github.com/python-pillow/Pillow/security/advisories/GHSA-xg8h-j46f-w952",
-          "tags": [
-            "x_refsource_CONFIRM"
-          ]
-        },
-        {
-          "url": "https://github.com/python-pillow/Pillow/pull/9041",
-          "source": "https://github.com/python-pillow/Pillow/pull/9041",
-          "tags": [
-            "x_refsource_MISC"
-          ]
-        },
-        {
-          "url": "https://github.com/python-pillow/Pillow/commit/ef98b3510e3e4f14b547762764813d7e5ca3c5a4",
-          "source": "https://github.com/python-pillow/Pillow/commit/ef98b3510e3e4f14b547762764813d7e5ca3c5a4",
-          "tags": [
-            "x_refsource_MISC"
-          ]
-        },
-        {
-          "url": "https://github.com/python-pillow/Pillow/releases/tag/11.3.0",
-          "source": "https://github.com/python-pillow/Pillow/releases/tag/11.3.0",
-          "tags": [
-            "x_refsource_MISC"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-122"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Local",
-        "attackComplexity": "Low",
-        "privilegesRequired": "Low",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/48xxx/CVE-2025-48379.json",
-            "lastModified": "2025-07-01T19:42:22.348000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2025-48126",
       "title": "WordPress Essential Real Estate <= 5.2.1 - Local File Inclusion Vulnerability",
       "description": "Improper Control of Filename for Include/Require Statement in PHP Program ('PHP Remote File Inclusion') vulnerability in g5theme Essential Real Estate allows PHP Local File Inclusion. This issue affects Essential Real Estate: from n/a through 5.2.1.",
@@ -169945,103 +169808,6 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/4xxx/CVE-2025-4709.json",
             "lastModified": "2025-05-15T18:36:00.795000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-4213",
-      "title": "PHPGurukul Online Birth Certificate System search.php sql injection",
-      "description": "A vulnerability has been found in PHPGurukul Online Birth Certificate System 1.0 and classified as critical. This vulnerability affects unknown code of the file /admin/search.php. The manipulation of the argument searchdata leads to sql injection. The attack can be initiated remotely. The exploit has been disclosed to the public and may be used.",
-      "publishedDate": "2025-05-02T18:00:09.213000+00:00",
-      "lastModifiedDate": "2025-05-02T18:23:10.239000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
-          "baseScore": 7.3,
-          "baseSeverity": "HIGH"
-        },
-        {
-          "version": "3.0",
-          "vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
-          "baseScore": 7.3,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.0003,
-        "percentile": 5.406
-      },
-      "riskScore": 44,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Phpgurukul"
-        ],
-        "products": [
-          "Online Birth Certificate System"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://vuldb.com/?id.307192",
-          "source": "VDB-307192 | PHPGurukul Online Birth Certificate System search.php sql injection",
-          "tags": [
-            "vdb-entry",
-            "technical-description"
-          ]
-        },
-        {
-          "url": "https://vuldb.com/?ctiid.307192",
-          "source": "VDB-307192 | CTI Indicators (IOB, IOC, TTP, IOA)",
-          "tags": [
-            "signature",
-            "permissions-required"
-          ]
-        },
-        {
-          "url": "https://vuldb.com/?submit.562291",
-          "source": "Submit #562291 | PHPGurukul Online Birth Certificate System v1.0 SQL Injection",
-          "tags": [
-            "third-party-advisory"
-          ]
-        },
-        {
-          "url": "https://github.com/LoovvvE18/CVE/issues/1",
-          "source": "",
-          "tags": [
-            "exploit",
-            "issue-tracking"
-          ]
-        },
-        {
-          "url": "https://phpgurukul.com/",
-          "source": "",
-          "tags": [
-            "product"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-89",
-          "CWE-74"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/4xxx/CVE-2025-4213.json",
-            "lastModified": "2025-05-02T18:23:10.239000+00:00"
           }
         ]
       }
@@ -207848,6 +207614,63 @@
       }
     },
     {
+      "cveId": "CVE-2025-5039",
+      "title": "Privilege Ecalation due to Untrusted Search Path Vulnerability",
+      "description": "A maliciously crafted binary file, when present while loading files in certain Autodesk applications, could lead to execution of arbitrary code in the context of the current process due to an untrusted search path being utilized.",
+      "publishedDate": "2025-07-24T17:11:14.714000+00:00",
+      "lastModifiedDate": "2025-07-25T03:55:30.703000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "baseScore": 7.8,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.0002,
+        "percentile": 2.158
+      },
+      "riskScore": 44,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Autodesk"
+        ],
+        "products": [
+          "Realdwg"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.autodesk.com/trust/security-advisories/adsk-sa-2025-0014",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-426"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Local",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "Required",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/5xxx/CVE-2025-5039.json",
+            "lastModified": "2025-07-25T03:55:30.703000+00:00"
+          }
+        ]
+      }
+    },
+    {
       "cveId": "CVE-2025-36593",
       "title": "CVE-2025-36593: Dell OpenManage Network Integration, versions prior to 3.8, contains an Authentication Bypass by Cap...",
       "description": "Dell OpenManage Network Integration, versions prior to 3.8, contains an Authentication Bypass by Capture-replay vulnerability in the RADIUS protocol.  An attacker with local network access could potentially exploit this vulnerability to forge a valid protocol accept message in response to a failed authentication request.",
@@ -221320,96 +221143,6 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/4xxx/CVE-2025-4931.json",
             "lastModified": "2025-05-19T13:31:06.714000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-4214",
-      "title": "PHPGuruku Online DJ Booking Management System booking-bwdates-reports-details.php sql injection",
-      "description": "A vulnerability was found in PHPGuruku Online DJ Booking Management System 1.0 and classified as critical. This issue affects some unknown processing of the file /admin/booking-bwdates-reports-details.php. The manipulation of the argument fromdate leads to sql injection. The attack may be initiated remotely. The exploit has been disclosed to the public and may be used. Other parameters might be affected as well.",
-      "publishedDate": "2025-05-02T19:31:04.377000+00:00",
-      "lastModifiedDate": "2025-05-02T20:08:28.595000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
-          "baseScore": 7.3,
-          "baseSeverity": "HIGH"
-        },
-        {
-          "version": "3.0",
-          "vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
-          "baseScore": 7.3,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.0004,
-        "percentile": 10.578
-      },
-      "riskScore": 43,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Phpguruku"
-        ],
-        "products": [
-          "Online Dj Booking Management System"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://vuldb.com/?id.307193",
-          "source": "VDB-307193 | PHPGuruku Online DJ Booking Management System booking-bwdates-reports-details.php sql injection",
-          "tags": [
-            "vdb-entry",
-            "technical-description"
-          ]
-        },
-        {
-          "url": "https://vuldb.com/?ctiid.307193",
-          "source": "VDB-307193 | CTI Indicators (IOB, IOC, TTP, IOA)",
-          "tags": [
-            "signature",
-            "permissions-required"
-          ]
-        },
-        {
-          "url": "https://vuldb.com/?submit.562295",
-          "source": "Submit #562295 | PHPGurukul Online DJ Booking Management System v1.0 SQL Injection",
-          "tags": [
-            "third-party-advisory"
-          ]
-        },
-        {
-          "url": "https://github.com/LoovvvE18/CVE/issues/2",
-          "source": "",
-          "tags": [
-            "exploit",
-            "issue-tracking"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-89",
-          "CWE-74"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/4xxx/CVE-2025-4214.json",
-            "lastModified": "2025-05-02T20:08:28.595000+00:00"
           }
         ]
       }
@@ -297366,6 +297099,86 @@
       }
     },
     {
+      "cveId": "CVE-2025-48379",
+      "title": "Pillow Vulnerable to Write Buffer Overflow on BCn encoding",
+      "description": "Pillow is a Python imaging library. In versions 11.2.0 to before 11.3.0, there is a heap buffer overflow when writing a sufficiently large (>64k encoded with default settings) image in the DDS format due to writing into a buffer without checking for available space. This only affects users who save untrusted data as a compressed DDS image. This issue has been patched in version 11.3.0.",
+      "publishedDate": "2025-07-01T18:33:30.687000+00:00",
+      "lastModifiedDate": "2025-07-01T19:42:22.348000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:H",
+          "baseScore": 7.1,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.0001,
+        "percentile": 1.466
+      },
+      "riskScore": 42,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Python-pillow"
+        ],
+        "products": [
+          "Pillow"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://github.com/python-pillow/Pillow/security/advisories/GHSA-xg8h-j46f-w952",
+          "source": "https://github.com/python-pillow/Pillow/security/advisories/GHSA-xg8h-j46f-w952",
+          "tags": [
+            "x_refsource_CONFIRM"
+          ]
+        },
+        {
+          "url": "https://github.com/python-pillow/Pillow/pull/9041",
+          "source": "https://github.com/python-pillow/Pillow/pull/9041",
+          "tags": [
+            "x_refsource_MISC"
+          ]
+        },
+        {
+          "url": "https://github.com/python-pillow/Pillow/commit/ef98b3510e3e4f14b547762764813d7e5ca3c5a4",
+          "source": "https://github.com/python-pillow/Pillow/commit/ef98b3510e3e4f14b547762764813d7e5ca3c5a4",
+          "tags": [
+            "x_refsource_MISC"
+          ]
+        },
+        {
+          "url": "https://github.com/python-pillow/Pillow/releases/tag/11.3.0",
+          "source": "https://github.com/python-pillow/Pillow/releases/tag/11.3.0",
+          "tags": [
+            "x_refsource_MISC"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-122"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Local",
+        "attackComplexity": "Low",
+        "privilegesRequired": "Low",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/48xxx/CVE-2025-48379.json",
+            "lastModified": "2025-07-01T19:42:22.348000+00:00"
+          }
+        ]
+      }
+    },
+    {
       "cveId": "CVE-2025-4204",
       "title": "Ultimate Auction Pro <= 1.5.2 - Unauthenticated SQL Injection via 'auction_id'",
       "description": "The Ultimate Auction Pro plugin for WordPress is vulnerable to SQL Injection via the ‘auction_id’ parameter in all versions up to, and including, 1.5.2 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
@@ -298278,6 +298091,103 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/4xxx/CVE-2025-4174.json",
             "lastModified": "2025-05-02T12:46:07.899000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-4213",
+      "title": "PHPGurukul Online Birth Certificate System search.php sql injection",
+      "description": "A vulnerability has been found in PHPGurukul Online Birth Certificate System 1.0 and classified as critical. This vulnerability affects unknown code of the file /admin/search.php. The manipulation of the argument searchdata leads to sql injection. The attack can be initiated remotely. The exploit has been disclosed to the public and may be used.",
+      "publishedDate": "2025-05-02T18:00:09.213000+00:00",
+      "lastModifiedDate": "2025-05-02T18:23:10.239000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+          "baseScore": 7.3,
+          "baseSeverity": "HIGH"
+        },
+        {
+          "version": "3.0",
+          "vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+          "baseScore": 7.3,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.0003,
+        "percentile": 5.406
+      },
+      "riskScore": 42,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Phpgurukul"
+        ],
+        "products": [
+          "Online Birth Certificate System"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://vuldb.com/?id.307192",
+          "source": "VDB-307192 | PHPGurukul Online Birth Certificate System search.php sql injection",
+          "tags": [
+            "vdb-entry",
+            "technical-description"
+          ]
+        },
+        {
+          "url": "https://vuldb.com/?ctiid.307192",
+          "source": "VDB-307192 | CTI Indicators (IOB, IOC, TTP, IOA)",
+          "tags": [
+            "signature",
+            "permissions-required"
+          ]
+        },
+        {
+          "url": "https://vuldb.com/?submit.562291",
+          "source": "Submit #562291 | PHPGurukul Online Birth Certificate System v1.0 SQL Injection",
+          "tags": [
+            "third-party-advisory"
+          ]
+        },
+        {
+          "url": "https://github.com/LoovvvE18/CVE/issues/1",
+          "source": "",
+          "tags": [
+            "exploit",
+            "issue-tracking"
+          ]
+        },
+        {
+          "url": "https://phpgurukul.com/",
+          "source": "",
+          "tags": [
+            "product"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-89",
+          "CWE-74"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/4xxx/CVE-2025-4213.json",
+            "lastModified": "2025-05-02T18:23:10.239000+00:00"
           }
         ]
       }
@@ -335766,6 +335676,96 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/49xxx/CVE-2025-49492.json",
             "lastModified": "2025-07-01T14:29:53.421000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-4214",
+      "title": "PHPGuruku Online DJ Booking Management System booking-bwdates-reports-details.php sql injection",
+      "description": "A vulnerability was found in PHPGuruku Online DJ Booking Management System 1.0 and classified as critical. This issue affects some unknown processing of the file /admin/booking-bwdates-reports-details.php. The manipulation of the argument fromdate leads to sql injection. The attack may be initiated remotely. The exploit has been disclosed to the public and may be used. Other parameters might be affected as well.",
+      "publishedDate": "2025-05-02T19:31:04.377000+00:00",
+      "lastModifiedDate": "2025-05-02T20:08:28.595000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+          "baseScore": 7.3,
+          "baseSeverity": "HIGH"
+        },
+        {
+          "version": "3.0",
+          "vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+          "baseScore": 7.3,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.0004,
+        "percentile": 10.578
+      },
+      "riskScore": 41,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Phpguruku"
+        ],
+        "products": [
+          "Online Dj Booking Management System"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://vuldb.com/?id.307193",
+          "source": "VDB-307193 | PHPGuruku Online DJ Booking Management System booking-bwdates-reports-details.php sql injection",
+          "tags": [
+            "vdb-entry",
+            "technical-description"
+          ]
+        },
+        {
+          "url": "https://vuldb.com/?ctiid.307193",
+          "source": "VDB-307193 | CTI Indicators (IOB, IOC, TTP, IOA)",
+          "tags": [
+            "signature",
+            "permissions-required"
+          ]
+        },
+        {
+          "url": "https://vuldb.com/?submit.562295",
+          "source": "Submit #562295 | PHPGurukul Online DJ Booking Management System v1.0 SQL Injection",
+          "tags": [
+            "third-party-advisory"
+          ]
+        },
+        {
+          "url": "https://github.com/LoovvvE18/CVE/issues/2",
+          "source": "",
+          "tags": [
+            "exploit",
+            "issue-tracking"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-89",
+          "CWE-74"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/4xxx/CVE-2025-4214.json",
+            "lastModified": "2025-05-02T20:08:28.595000+00:00"
           }
         ]
       }

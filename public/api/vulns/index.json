@@ -1,5 +1,5 @@
 {
-  "generated": "2025-08-01T16:07:42.038259",
+  "generated": "2025-08-01T20:06:52.102351",
   "count": 15657,
   "vulnerabilities": [
     {
@@ -40452,32 +40452,6 @@
       ]
     },
     {
-      "cveId": "CVE-2025-53104",
-      "title": "[CRITICAL] Gluestack Gluestack-Ui",
-      "originalTitle": "gluestack-ui Command Injection Vulnerability via discussion-to-slack GitHub Action Workflow",
-      "severity": "CRITICAL",
-      "cvssScore": 9.1,
-      "epssScore": 0.3,
-      "epssPercentile": 52.99,
-      "riskScore": 48,
-      "publishedDate": "2025-07-01T18:17:01.667000+00:00",
-      "lastModifiedDate": "2025-07-01T19:18:51.273000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "Gluestack"
-      ],
-      "products": [
-        "Gluestack-ui"
-      ],
-      "attackVector": "Network",
-      "attackComplexity": "Low",
-      "privilegesRequired": "None",
-      "userInteraction": "None",
-      "tags": [
-        "CWE-77"
-      ]
-    },
-    {
       "cveId": "CVE-2025-53546",
       "title": "[CRITICAL] Rssnext Folo",
       "originalTitle": "Folo allows secrets exfiltration via `pull_request_target`",
@@ -51766,36 +51740,6 @@
       ]
     },
     {
-      "cveId": "CVE-2025-53107",
-      "title": "[HIGH] Cyanheads Git-Mcp-Server",
-      "originalTitle": "@cyanheads/git-mcp-server vulnerable to command injection in several tools",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.15,
-      "epssPercentile": 36.813,
-      "riskScore": 47,
-      "publishedDate": "2025-07-01T17:55:30.726000+00:00",
-      "lastModifiedDate": "2025-07-01T18:48:11.222000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "Cyanheads",
-        "Mcp",
-        "The"
-      ],
-      "products": [
-        "Git-mcp-server",
-        "Mcp Server",
-        "The Server"
-      ],
-      "attackVector": "Network",
-      "attackComplexity": "High",
-      "privilegesRequired": "None",
-      "userInteraction": "Required",
-      "tags": [
-        "CWE-77"
-      ]
-    },
-    {
       "cveId": "CVE-2025-53391",
       "title": "[CRITICAL] Debian Zulucrypt v2.0",
       "originalTitle": "CVE-2025-53391: The Debian zuluPolkit/CMakeLists.txt file for zuluCrypt through the zulucrypt_6.2.0-1 package has in...",
@@ -60486,32 +60430,6 @@
       "userInteraction": "None",
       "tags": [
         "CWE-918"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-5039",
-      "title": "[HIGH] Autodesk Realdwg",
-      "originalTitle": "Privilege Ecalation due to Untrusted Search Path Vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.8,
-      "epssScore": 0.02,
-      "epssPercentile": 2.158,
-      "riskScore": 46,
-      "publishedDate": "2025-07-24T17:11:14.714000+00:00",
-      "lastModifiedDate": "2025-07-25T03:55:30.703000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "Autodesk"
-      ],
-      "products": [
-        "Realdwg"
-      ],
-      "attackVector": "Local",
-      "attackComplexity": "Low",
-      "privilegesRequired": "None",
-      "userInteraction": "Required",
-      "tags": [
-        "CWE-426"
       ]
     },
     {
@@ -83699,6 +83617,32 @@
       "attackVector": "Network",
       "attackComplexity": "High",
       "privilegesRequired": "High",
+      "userInteraction": "None",
+      "tags": [
+        "CWE-77"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-53104",
+      "title": "[CRITICAL] Gluestack Gluestack-Ui",
+      "originalTitle": "gluestack-ui Command Injection Vulnerability via discussion-to-slack GitHub Action Workflow",
+      "severity": "CRITICAL",
+      "cvssScore": 9.1,
+      "epssScore": 0.3,
+      "epssPercentile": 52.99,
+      "riskScore": 46,
+      "publishedDate": "2025-07-01T18:17:01.667000+00:00",
+      "lastModifiedDate": "2025-07-01T19:18:51.273000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "Gluestack"
+      ],
+      "products": [
+        "Gluestack-ui"
+      ],
+      "attackVector": "Network",
+      "attackComplexity": "Low",
+      "privilegesRequired": "None",
       "userInteraction": "None",
       "tags": [
         "CWE-77"
@@ -107960,6 +107904,36 @@
       ]
     },
     {
+      "cveId": "CVE-2025-53107",
+      "title": "[HIGH] Cyanheads Git-Mcp-Server",
+      "originalTitle": "@cyanheads/git-mcp-server vulnerable to command injection in several tools",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.15,
+      "epssPercentile": 36.813,
+      "riskScore": 45,
+      "publishedDate": "2025-07-01T17:55:30.726000+00:00",
+      "lastModifiedDate": "2025-07-01T18:48:11.222000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "Cyanheads",
+        "Mcp",
+        "The"
+      ],
+      "products": [
+        "Git-mcp-server",
+        "Mcp Server",
+        "The Server"
+      ],
+      "attackVector": "Network",
+      "attackComplexity": "High",
+      "privilegesRequired": "None",
+      "userInteraction": "Required",
+      "tags": [
+        "CWE-77"
+      ]
+    },
+    {
       "cveId": "CVE-2025-35996",
       "title": "[CRITICAL] Kunbus Gmbh Of Server",
       "originalTitle": "KUNBUS Revolution Pi Improper Neutralization of Server-Side Includes (SSI) Within a Web Page",
@@ -115078,32 +115052,6 @@
       ]
     },
     {
-      "cveId": "CVE-2025-48379",
-      "title": "[HIGH] Python-Pillow Pillow",
-      "originalTitle": "Pillow Vulnerable to Write Buffer Overflow on BCn encoding",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.01,
-      "epssPercentile": 1.466,
-      "riskScore": 44,
-      "publishedDate": "2025-07-01T18:33:30.687000+00:00",
-      "lastModifiedDate": "2025-07-01T19:42:22.348000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "Python-pillow"
-      ],
-      "products": [
-        "Pillow"
-      ],
-      "attackVector": "Local",
-      "attackComplexity": "Low",
-      "privilegesRequired": "Low",
-      "userInteraction": "None",
-      "tags": [
-        "CWE-122"
-      ]
-    },
-    {
       "cveId": "CVE-2025-48126",
       "title": "[HIGH] G5Theme Essential Real Estate v5.2.1",
       "originalTitle": "WordPress Essential Real Estate <= 5.2.1 - Local File Inclusion Vulnerability",
@@ -120674,33 +120622,6 @@
       ],
       "products": [
         "Sales And Inventory System"
-      ],
-      "attackVector": "Network",
-      "attackComplexity": "Low",
-      "privilegesRequired": "None",
-      "userInteraction": "None",
-      "tags": [
-        "CWE-89",
-        "CWE-74"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-4213",
-      "title": "[HIGH] Phpgurukul Online Birth Certificate System",
-      "originalTitle": "PHPGurukul Online Birth Certificate System search.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.03,
-      "epssPercentile": 5.406,
-      "riskScore": 44,
-      "publishedDate": "2025-05-02T18:00:09.213000+00:00",
-      "lastModifiedDate": "2025-05-02T18:23:10.239000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "Phpgurukul"
-      ],
-      "products": [
-        "Online Birth Certificate System"
       ],
       "attackVector": "Network",
       "attackComplexity": "Low",
@@ -151520,6 +151441,32 @@
       ]
     },
     {
+      "cveId": "CVE-2025-5039",
+      "title": "[HIGH] Autodesk Realdwg",
+      "originalTitle": "Privilege Ecalation due to Untrusted Search Path Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.8,
+      "epssScore": 0.02,
+      "epssPercentile": 2.158,
+      "riskScore": 44,
+      "publishedDate": "2025-07-24T17:11:14.714000+00:00",
+      "lastModifiedDate": "2025-07-25T03:55:30.703000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "Autodesk"
+      ],
+      "products": [
+        "Realdwg"
+      ],
+      "attackVector": "Local",
+      "attackComplexity": "Low",
+      "privilegesRequired": "None",
+      "userInteraction": "Required",
+      "tags": [
+        "CWE-426"
+      ]
+    },
+    {
       "cveId": "CVE-2025-36593",
       "title": "[HIGH] Dell Openmanage Network Integration v3.8",
       "originalTitle": "CVE-2025-36593: Dell OpenManage Network Integration, versions prior to 3.8, contains an Authentication Bypass by Cap...",
@@ -156745,33 +156692,6 @@
       ],
       "products": [
         "Online Lawyer Management System"
-      ],
-      "attackVector": "Network",
-      "attackComplexity": "Low",
-      "privilegesRequired": "None",
-      "userInteraction": "None",
-      "tags": [
-        "CWE-89",
-        "CWE-74"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-4214",
-      "title": "[HIGH] Phpguruku Online Dj Booking Management System",
-      "originalTitle": "PHPGuruku Online DJ Booking Management System booking-bwdates-reports-details.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 10.578,
-      "riskScore": 43,
-      "publishedDate": "2025-05-02T19:31:04.377000+00:00",
-      "lastModifiedDate": "2025-05-02T20:08:28.595000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "Phpguruku"
-      ],
-      "products": [
-        "Online Dj Booking Management System"
       ],
       "attackVector": "Network",
       "attackComplexity": "Low",
@@ -227036,6 +226956,32 @@
       ]
     },
     {
+      "cveId": "CVE-2025-48379",
+      "title": "[HIGH] Python-Pillow Pillow",
+      "originalTitle": "Pillow Vulnerable to Write Buffer Overflow on BCn encoding",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.01,
+      "epssPercentile": 1.466,
+      "riskScore": 42,
+      "publishedDate": "2025-07-01T18:33:30.687000+00:00",
+      "lastModifiedDate": "2025-07-01T19:42:22.348000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "Python-pillow"
+      ],
+      "products": [
+        "Pillow"
+      ],
+      "attackVector": "Local",
+      "attackComplexity": "Low",
+      "privilegesRequired": "Low",
+      "userInteraction": "None",
+      "tags": [
+        "CWE-122"
+      ]
+    },
+    {
       "cveId": "CVE-2025-4204",
       "title": "[HIGH] Inception Software Llp The Database v1.5.2",
       "originalTitle": "Ultimate Auction Pro <= 1.5.2 - Unauthenticated SQL Injection via 'auction_id'",
@@ -227302,6 +227248,33 @@
       ],
       "products": [
         "Covid19 Testing Management System"
+      ],
+      "attackVector": "Network",
+      "attackComplexity": "Low",
+      "privilegesRequired": "None",
+      "userInteraction": "None",
+      "tags": [
+        "CWE-89",
+        "CWE-74"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-4213",
+      "title": "[HIGH] Phpgurukul Online Birth Certificate System",
+      "originalTitle": "PHPGurukul Online Birth Certificate System search.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.03,
+      "epssPercentile": 5.406,
+      "riskScore": 42,
+      "publishedDate": "2025-05-02T18:00:09.213000+00:00",
+      "lastModifiedDate": "2025-05-02T18:23:10.239000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "Phpgurukul"
+      ],
+      "products": [
+        "Online Birth Certificate System"
       ],
       "attackVector": "Network",
       "attackComplexity": "Low",
@@ -260277,6 +260250,33 @@
       "userInteraction": "None",
       "tags": [
         "CWE-787"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-4214",
+      "title": "[HIGH] Phpguruku Online Dj Booking Management System",
+      "originalTitle": "PHPGuruku Online DJ Booking Management System booking-bwdates-reports-details.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 10.578,
+      "riskScore": 41,
+      "publishedDate": "2025-05-02T19:31:04.377000+00:00",
+      "lastModifiedDate": "2025-05-02T20:08:28.595000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "Phpguruku"
+      ],
+      "products": [
+        "Online Dj Booking Management System"
+      ],
+      "attackVector": "Network",
+      "attackComplexity": "Low",
+      "privilegesRequired": "None",
+      "userInteraction": "None",
+      "tags": [
+        "CWE-89",
+        "CWE-74"
       ]
     },
     {
