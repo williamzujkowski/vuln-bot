@@ -436,50 +436,120 @@ class StaticPageAgent(BaseAgent):
                 content_parts.append(f"- `{cpe}`")
             content_parts.append("")
         
-        # Impacted Projects from deps.dev
-        if deps_dev_data and deps_dev_data.get("packages"):
+        # Impacted Projects from deps.dev (using enhanced format)
+        package_impact = enrichment.get("package_impact", [])
+        if package_impact:
             content_parts.append("## Impacted Open Source Projects")
             content_parts.append("")
+            
+            # Summary with patch availability
+            impact_summary = enrichment.get("impact_summary", {})
+            patch_info = impact_summary.get("patch_availability", {})
+            
             content_parts.append(
-                f"*This vulnerability affects {deps_dev_data['total_affected']} packages "
-                f"across {len(deps_dev_data['ecosystems'])} ecosystems.*"
+                f"*This vulnerability affects **{impact_summary.get('total_affected_packages', 0)}** packages "
+                f"across **{len(impact_summary.get('affected_ecosystems', []))}** ecosystems.*"
             )
+            
+            if patch_info.get("percentage", 0) > 0:
+                content_parts.append(
+                    f"*Patches available for **{patch_info['patched']}/{patch_info['total']}** "
+                    f"({patch_info['percentage']}%) of affected packages.*"
+                )
             content_parts.append("")
             
-            # Group by ecosystem
+            # Group packages by ecosystem for display
             packages_by_ecosystem = {}
-            for pkg in deps_dev_data["packages"]:
+            for pkg in package_impact:
                 ecosystem = pkg.get("ecosystem", "Unknown")
                 if ecosystem not in packages_by_ecosystem:
                     packages_by_ecosystem[ecosystem] = []
                 packages_by_ecosystem[ecosystem].append(pkg)
             
-            for ecosystem, packages in packages_by_ecosystem.items():
-                content_parts.append(f"### {ecosystem}")
+            # Display by ecosystem
+            for ecosystem, packages in sorted(packages_by_ecosystem.items()):
+                content_parts.append(f"### {ecosystem.upper()}")
                 content_parts.append("")
                 
-                for pkg in packages[:5]:  # Limit to 5 per ecosystem
-                    name = pkg.get("name", "Unknown")
-                    content_parts.append(f"#### {name}")
-                    
-                    versions = pkg.get("versions", [])
-                    if versions:
-                        content_parts.append("**Affected Versions:**")
-                        for ver in versions[:10]:  # Limit versions shown
-                            content_parts.append(f"- {ver}")
-                    
-                    severity_list = pkg.get("severity", [])
-                    if severity_list:
-                        content_parts.append(f"**Severity:** {', '.join(severity_list)}")
-                    
-                    content_parts.append("")
+                # Create a table for better formatting
+                content_parts.append("| Package | Version Range | Severity | Patch Available |")
+                content_parts.append("|---------|---------------|----------|-----------------|")
                 
-                if len(packages) > 5:
-                    content_parts.append(f"*... and {len(packages) - 5} more {ecosystem} packages*")
-                    content_parts.append("")
+                for pkg in packages[:10]:  # Show top 10 per ecosystem
+                    name = pkg.get("name", "Unknown")
+                    version_range = pkg.get("version_range", "Unknown")
+                    severity = pkg.get("severity", "UNKNOWN")
+                    patch_available = "✅" if pkg.get("patch_available") else "❌"
+                    
+                    # Add latest safe version if available
+                    if pkg.get("latest_safe_version"):
+                        patch_available += f" ({pkg['latest_safe_version']})"
+                    
+                    content_parts.append(f"| {name} | {version_range} | {severity} | {patch_available} |")
+                
+                if len(packages) > 10:
+                    content_parts.append(f"\n*... and {len(packages) - 10} more {ecosystem} packages*")
+                content_parts.append("")
         
-        # References (categorized)
-        if all_references:
+        # Exploitation Intelligence Section
+        exploitation_intel = enrichment.get("exploitation_intel", {})
+        if exploitation_intel:
+            content_parts.append("## Exploitation Intelligence")
+            content_parts.append("")
+            
+            risk_level = exploitation_intel.get("risk_level", "UNKNOWN")
+            risk_emoji = {
+                "CRITICAL": "🔴",
+                "HIGH": "🟠",
+                "MEDIUM": "🟡",
+                "LOW": "🟢",
+                "UNKNOWN": "⚪"
+            }.get(risk_level, "⚪")
+            
+            content_parts.append(f"**Risk Level:** {risk_emoji} {risk_level}")
+            content_parts.append("")
+            
+            risk_factors = exploitation_intel.get("risk_factors", [])
+            if risk_factors:
+                content_parts.append("**Risk Factors:**")
+                for factor in risk_factors:
+                    content_parts.append(f"- {factor}")
+                content_parts.append("")
+            
+            recommendation = exploitation_intel.get("recommendation", "")
+            if recommendation:
+                content_parts.append(f"**Recommendation:** {recommendation}")
+                content_parts.append("")
+        
+        # References (using enhanced categorized format)
+        categorized_refs = enrichment.get("categorized_references", {})
+        if categorized_refs:
+            content_parts.append("## References")
+            content_parts.append("")
+            
+            # Display references by category with better naming
+            category_display = {
+                "vendor_advisories": "### Vendor Advisories",
+                "patches": "### Patches",
+                "exploits": "### 🚨 Exploits",
+                "technical_details": "### Technical Details",
+                "media_coverage": "### Media Coverage",
+                "other": "### Other References"
+            }
+            
+            for category, refs in categorized_refs.items():
+                if refs:
+                    content_parts.append(category_display.get(category, f"### {category.replace('_', ' ').title()}"))
+                    for ref in refs[:10]:  # Limit to 10 per category
+                        url = ref.get("url", "")
+                        source = ref.get("source", "")
+                        content_parts.append(f"- [{url}]({url}) (from {source})")
+                    
+                    if len(refs) > 10:
+                        content_parts.append(f"*... and {len(refs) - 10} more {category.replace('_', ' ')}*")
+                    content_parts.append("")
+        elif all_references:
+            # Fallback to simple reference list
             content_parts.append("## References")
             content_parts.append("")
             

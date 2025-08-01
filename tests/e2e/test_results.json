@@ -1,0 +1,35 @@
+{
+  "passed": 3,
+  "failed": 7,
+  "errors": [
+    {
+      "test": "Homepage Load Test",
+      "error": "Locator expected to be visible\nActual value: <element(s) not found> \nCall log:\n  - Expect \"to_be_visible\" with timeout 5000ms\n  - waiting for locator(\".dashboard-header\")\n"
+    },
+    {
+      "test": "Data Quality Test",
+      "error": "expected string or bytes-like object, got 'NoneType'"
+    },
+    {
+      "test": "Table Functionality Test",
+      "error": "Missing expected header: CVE ID"
+    },
+    {
+      "test": "Search and Filters Test",
+      "error": "Locator.text_content: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator(\".results-count span\").first\n"
+    },
+    {
+      "test": "CVE Detail Pages Test",
+      "error": "Locator.text_content: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator(\"#vulnerability-table .cve-button\").first\n"
+    },
+    {
+      "test": "Responsive Design Test",
+      "error": "Locator expected to be visible\nActual value: <element(s) not found> \nCall log:\n  - Expect \"to_be_visible\" with timeout 5000ms\n  - waiting for locator(\".dashboard-header\")\n"
+    },
+    {
+      "test": "Accessibility Test",
+      "error": "Locator.get_attribute: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator(\"#vulnerability-table\")\n"
+    }
+  ],
+  "timestamp": "2025-08-01T14:32:59.962102"
+}
