@@ -11,10 +11,10 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 def fix_mobile_responsiveness():
     """Fix mobile responsiveness issue with table."""
     print("🔧 Fixing mobile responsiveness...")
-    
+
     dashboard_script = Path("scripts/generate_alpine_dashboard.py")
     content = dashboard_script.read_text()
-    
+
     # Add better mobile styles
     mobile_styles = """
         /* Enhanced Mobile Responsiveness */
@@ -83,10 +83,10 @@ def fix_mobile_responsiveness():
                 padding: 0.375rem 0.75rem;
             }
         }"""
-    
+
     # Insert mobile styles before the closing style tag
     content = content.replace("        /* Responsive */", mobile_styles + "\n\n        /* Responsive */")
-    
+
     dashboard_script.write_text(content)
     print("✅ Mobile responsiveness fixed")
 
@@ -94,10 +94,10 @@ def fix_mobile_responsiveness():
 def fix_export_functionality():
     """Fix CSV export functionality."""
     print("🔧 Fixing export functionality...")
-    
+
     dashboard_script = Path("scripts/generate_alpine_dashboard.py")
     content = dashboard_script.read_text()
-    
+
     # Find the Alpine.js component section
     alpine_component = """
                 exportCSV() {
@@ -138,7 +138,7 @@ def fix_export_functionality():
                         });
                     }
                 },"""
-    
+
     # Replace the exportCSV function
     if "exportCSV()" in content:
         # Find the existing exportCSV function and replace it
@@ -148,7 +148,7 @@ def fix_export_functionality():
             brace_count = 0
             in_function = False
             end = start
-            
+
             for i in range(start, len(content)):
                 if content[i] == '{':
                     brace_count += 1
@@ -158,12 +158,12 @@ def fix_export_functionality():
                     if brace_count == 0:
                         end = i + 1
                         break
-                        
+
             if end > start:
                 # Get the indentation
                 line_start = content.rfind('\n', 0, start) + 1
                 indent = ' ' * (start - line_start)
-                
+
                 # Replace the function
                 content = content[:start] + alpine_component.strip() + content[end:]
     else:
@@ -174,17 +174,17 @@ def fix_export_functionality():
             # Find the end of resetFilters
             end_pos = content.find("},", insert_pos) + 2
             content = content[:end_pos] + "\n\n" + alpine_component + content[end_pos:]
-    
+
     # Also ensure the Export button is in the header
     if 'Export CSV' not in content:
         export_button = """
                     <button class="export-btn" @click="exportCSV()">Export CSV</button>"""
-        
+
         # Find where to insert the button (in the header)
         header_end = content.find("</div>", content.find("header-content"))
         if header_end > 0:
             content = content[:header_end] + export_button + "\n" + content[header_end:]
-    
+
     dashboard_script.write_text(content)
     print("✅ Export functionality fixed")
 
@@ -192,12 +192,12 @@ def fix_export_functionality():
 def add_epss_filter():
     """Add EPSS filter input to the dashboard."""
     print("🔧 Adding EPSS filter...")
-    
+
     # The EPSS filter already exists in the code (lines 877-883)
     # But let's make sure it's properly labeled and visible
     dashboard_script = Path("scripts/generate_alpine_dashboard.py")
     content = dashboard_script.read_text()
-    
+
     # Check if EPSS filter exists
     if "EPSS %" in content and "filters.epss_min" in content:
         print("✅ EPSS filter already exists")
@@ -211,13 +211,13 @@ def add_epss_filter():
                                 <input type="number" x-model.number="filters.epss_max" placeholder="Max" min="0" max="100" step="1">
                             </div>
                         </div>"""
-        
+
         # Insert after CVSS filter
         cvss_pos = content.find("</div>", content.find("CVSS Score"))
         if cvss_pos > 0:
             insert_pos = content.find("</div>", cvss_pos + 1) + 6
             content = content[:insert_pos] + "\n" + epss_filter + content[insert_pos:]
-            
+
         dashboard_script.write_text(content)
         print("✅ EPSS filter added")
 
@@ -225,10 +225,10 @@ def add_epss_filter():
 def update_test_expectations():
     """Update test to handle table-wrapper for mobile check."""
     print("🔧 Updating test expectations...")
-    
+
     test_file = Path("tests/e2e/comprehensive_live_test.py")
     content = test_file.read_text()
-    
+
     # Update the mobile layout test
     old_test = """    async def _test_mobile_layout(self, page: Page):
         \"\"\"Test mobile layout.\"\"\"
@@ -245,7 +245,7 @@ def update_test_expectations():
         is_responsive = "responsive" in await table_parent.get_attribute("class") or ""
         
         assert is_scrollable or is_responsive, "Table not properly responsive on mobile\""""
-    
+
     new_test = """    async def _test_mobile_layout(self, page: Page):
         \"\"\"Test mobile layout.\"\"\"
         # Check table is still accessible
@@ -265,7 +265,7 @@ def update_test_expectations():
             is_scrollable = parent_styles.get("overflow-x") in ["auto", "scroll"]
             is_responsive = "responsive" in (await table_parent.get_attribute("class") or "")
             assert is_scrollable or is_responsive, "Table not properly responsive on mobile\""""
-    
+
     content = content.replace(old_test, new_test)
     test_file.write_text(content)
     print("✅ Test expectations updated")
@@ -274,12 +274,12 @@ def update_test_expectations():
 def main():
     """Run all fixes."""
     print("🚀 Fixing identified issues...\n")
-    
+
     fix_mobile_responsiveness()
     fix_export_functionality()
     add_epss_filter()
     update_test_expectations()
-    
+
     print("\n✅ All fixes applied!")
     print("\nNext steps:")
     print("1. Regenerate the dashboard: python scripts/generate_alpine_dashboard.py")

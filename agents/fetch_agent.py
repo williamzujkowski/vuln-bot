@@ -5,19 +5,20 @@ import asyncio
 import json
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Dict, List, Any, Optional
+from typing import Any, Dict, Optional
+
 import structlog
 
 from scripts.harvest.cvelist_client import CVEListClient
-from scripts.harvest.nvd_client import NVDClient
-from scripts.harvest.github_advisory_client import GitHubAdvisoryClient
 from scripts.harvest.epss_client import EPSSClient
+from scripts.harvest.github_advisory_client import GitHubAdvisoryClient
+from scripts.harvest.nvd_client import NVDClient
 from scripts.processing.cache_manager import CacheManager
 
 
 class FetchAgent:
     """Agent responsible for fetching vulnerability data from various sources."""
-    
+
     def __init__(
         self,
         cache_dir: Path = Path(".cache"),
@@ -33,10 +34,10 @@ class FetchAgent:
         self.cache_dir = cache_dir
         self.api_keys = api_keys or {}
         self.cache_manager = CacheManager(cache_dir)
-        
+
         # Initialize clients
         self._init_clients()
-        
+
     def _init_clients(self):
         """Initialize data source clients."""
         # CVEList client
@@ -46,26 +47,26 @@ class FetchAgent:
             use_releases=True,
             cache_manager=self.cache_manager
         )
-        
+
         # NVD client
         self.nvd_client = NVDClient(
             api_key=self.api_keys.get("nvd_api_key"),
             cache_dir=self.cache_dir / "api_cache",
             cache_manager=self.cache_manager
         )
-        
+
         # GitHub Advisory client
         self.github_advisory_client = GitHubAdvisoryClient(
             github_token=self.api_keys.get("github_token"),
             cache_dir=self.cache_dir / "api_cache"
         )
-        
+
         # EPSS client
         self.epss_client = EPSSClient(
             api_key=self.api_keys.get("epss_api_key"),
             cache_dir=self.cache_dir / "api_cache"
         )
-        
+
     async def fetch_from_source(self, source: str) -> Dict[str, Any]:
         """Fetch data from a specific source.
         
@@ -76,7 +77,7 @@ class FetchAgent:
             Fetch results with vulnerabilities and metadata
         """
         start_time = datetime.now(timezone.utc)
-        
+
         try:
             if source == "cvelist":
                 result = await self._fetch_cvelist()
@@ -88,9 +89,9 @@ class FetchAgent:
                 result = await self._fetch_epss()
             else:
                 raise ValueError(f"Unknown source: {source}")
-                
+
             duration = (datetime.now(timezone.utc) - start_time).total_seconds()
-            
+
             return {
                 "source": source,
                 "vulnerabilities": result["vulnerabilities"],
@@ -98,22 +99,22 @@ class FetchAgent:
                 "duration": duration,
                 "timestamp": datetime.now(timezone.utc).isoformat()
             }
-            
+
         except Exception as e:
             self.logger.error(f"Failed to fetch from {source}: {str(e)}")
             raise
-            
+
     async def _fetch_cvelist(self) -> Dict[str, Any]:
         """Fetch from CVEList (CVE.org)."""
         self.logger.info("Fetching from CVEList")
-        
+
         # Use harvest method which handles years and severity filtering
         vulnerabilities = self.cvelist_client.harvest(
             years=[2024, 2025],
             min_severity="HIGH",
             min_epss=0.7
         )
-        
+
         # Convert to standard format
         formatted_vulns = []
         for vuln in vulnerabilities:
@@ -130,7 +131,7 @@ class FetchAgent:
                 "references": vuln.references,
                 "source": "cvelist"
             })
-            
+
         return {
             "vulnerabilities": formatted_vulns,
             "metadata": {
@@ -139,18 +140,18 @@ class FetchAgent:
                 "min_severity": "HIGH"
             }
         }
-        
+
     async def _fetch_nvd(self) -> Dict[str, Any]:
         """Fetch from NVD (NIST)."""
         self.logger.info("Fetching from NVD")
-        
+
         # Use harvest method
         vulnerabilities = self.nvd_client.harvest(
             years=[2024, 2025],
             min_severity="HIGH",
             min_epss=0.7
         )
-        
+
         # Convert to standard format
         formatted_vulns = []
         for vuln in vulnerabilities:
@@ -167,7 +168,7 @@ class FetchAgent:
                 "references": vuln.references,
                 "source": "nvd"
             })
-            
+
         return {
             "vulnerabilities": formatted_vulns,
             "metadata": {
@@ -175,18 +176,18 @@ class FetchAgent:
                 "api_version": "2.0"
             }
         }
-        
+
     async def _fetch_github_advisory(self) -> Dict[str, Any]:
         """Fetch from GitHub Security Advisory Database."""
         self.logger.info("Fetching from GitHub Advisory")
-        
+
         # Use harvest method
         vulnerabilities = self.github_advisory_client.harvest(
             min_severity="HIGH",
             published_since=datetime(2024, 1, 1, tzinfo=timezone.utc),
             limit=1000
         )
-        
+
         # Convert to standard format
         formatted_vulns = []
         for vuln in vulnerabilities:
@@ -203,7 +204,7 @@ class FetchAgent:
                 "references": vuln.references,
                 "source": "github_advisory"
             })
-            
+
         return {
             "vulnerabilities": formatted_vulns,
             "metadata": {
@@ -211,21 +212,21 @@ class FetchAgent:
                 "database": "GitHub Security Advisory"
             }
         }
-        
+
     async def _fetch_epss(self) -> Dict[str, Any]:
         """Fetch EPSS scores for known CVEs."""
         self.logger.info("Fetching EPSS scores")
-        
+
         # Get CVEs that need EPSS scores
         recent_vulns = self.cache_manager.get_recent_vulnerabilities(limit=1000)
         cve_ids = [v.cve_id for v in recent_vulns if v.cve_id]
-        
+
         if not cve_ids:
             return {"vulnerabilities": [], "metadata": {"updated": 0}}
-            
+
         # Fetch EPSS scores in bulk
         epss_data = self.epss_client.fetch_epss_scores_bulk(cve_ids)
-        
+
         # Format as vulnerability updates
         formatted_vulns = []
         for cve_id, score_data in epss_data.items():
@@ -236,7 +237,7 @@ class FetchAgent:
                     "epss_percentile": score_data.get("percentile", 0) * 100,
                     "source": "epss"
                 })
-                
+
         return {
             "vulnerabilities": formatted_vulns,
             "metadata": {
@@ -244,21 +245,21 @@ class FetchAgent:
                 "total_requested": len(cve_ids)
             }
         }
-        
+
     async def fetch_all_sources(self) -> Dict[str, Any]:
         """Fetch from all configured sources concurrently."""
         sources = ["cvelist", "nvd", "github_advisory", "epss"]
-        
+
         # Create tasks for concurrent execution
         tasks = []
         for source in sources:
             task = asyncio.create_task(self.fetch_from_source(source))
             tasks.append((source, task))
-            
+
         # Wait for all tasks to complete
         results = {}
         all_vulnerabilities = []
-        
+
         for source, task in tasks:
             try:
                 result = await task
@@ -274,7 +275,7 @@ class FetchAgent:
                     "success": False,
                     "error": str(e)
                 }
-                
+
         return {
             "vulnerabilities": all_vulnerabilities,
             "source_results": results,
@@ -288,7 +289,7 @@ async def main():
     """Main CLI entry point."""
     import argparse
     import os
-    
+
     parser = argparse.ArgumentParser(description="Fetch vulnerability data")
     parser.add_argument(
         "source",
@@ -297,23 +298,23 @@ async def main():
     )
     parser.add_argument("--cache-dir", type=Path, default=Path(".cache"))
     parser.add_argument("--output", type=Path, help="Output file path")
-    
+
     args = parser.parse_args()
-    
+
     # Get API keys from environment
     api_keys = {
         "github_token": os.getenv("GITHUB_TOKEN"),
         "nvd_api_key": os.getenv("NVD_API_KEY"),
         "epss_api_key": os.getenv("EPSS_API_KEY")
     }
-    
+
     agent = FetchAgent(cache_dir=args.cache_dir, api_keys=api_keys)
-    
+
     if args.source == "all":
         result = await agent.fetch_all_sources()
     else:
         result = await agent.fetch_from_source(args.source)
-        
+
     # Output results
     if args.output:
         with open(args.output, "w") as f:

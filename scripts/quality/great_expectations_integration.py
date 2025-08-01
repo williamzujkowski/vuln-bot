@@ -1,6 +1,5 @@
 """Great Expectations integration for vulnerability data quality validation."""
 
-import json
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List, Optional
@@ -11,8 +10,10 @@ import structlog
 try:
     import great_expectations as gx
     from great_expectations.core.batch import RuntimeBatchRequest
-    from great_expectations.core.expectation_configuration import ExpectationConfiguration
-    
+    from great_expectations.core.expectation_configuration import (
+        ExpectationConfiguration,
+    )
+
     HAS_GX = True
 except ImportError:
     HAS_GX = False
@@ -23,7 +24,7 @@ from scripts.quality.validator import DataQualityValidator
 
 class GreatExpectationsValidator:
     """Validates vulnerability data using Great Expectations."""
-    
+
     def __init__(self, base_dir: Optional[Path] = None):
         """Initialize GX validator.
         
@@ -31,23 +32,23 @@ class GreatExpectationsValidator:
             base_dir: Base directory for GX context (defaults to project root)
         """
         self.logger = structlog.get_logger(self.__class__.__name__)
-        
+
         if not HAS_GX:
             self.logger.warning(
                 "Great Expectations not installed. Install with: uv pip install great-expectations"
             )
             self.context = None
             return
-            
+
         self.base_dir = base_dir or Path(__file__).parent.parent.parent
         self.gx_dir = self.base_dir / "great_expectations"
-        
+
         # Initialize or get existing context
         self.context = self._init_context()
-        
+
         # Create expectations suites
         self._create_expectation_suites()
-        
+
     def _init_context(self) -> Optional[Any]:
         """Initialize Great Expectations context."""
         try:
@@ -64,20 +65,20 @@ class GreatExpectationsValidator:
             except Exception as e:
                 self.logger.error(f"Failed to create GX context: {e}")
                 return None
-                
+
         return context
-        
+
     def _create_expectation_suites(self):
         """Create expectation suites for vulnerability data."""
         if not self.context:
             return
-            
+
         # Core vulnerability expectations
         try:
             core_suite = self.context.add_or_update_expectation_suite(
                 expectation_suite_name="vulnerability_core"
             )
-            
+
             # CVE ID validation
             core_suite.add_expectation(
                 ExpectationConfiguration(
@@ -85,7 +86,7 @@ class GreatExpectationsValidator:
                     kwargs={"column": "cve_id"}
                 )
             )
-            
+
             core_suite.add_expectation(
                 ExpectationConfiguration(
                     expectation_type="expect_column_values_to_match_regex",
@@ -95,7 +96,7 @@ class GreatExpectationsValidator:
                     }
                 )
             )
-            
+
             # Severity validation
             core_suite.add_expectation(
                 ExpectationConfiguration(
@@ -106,7 +107,7 @@ class GreatExpectationsValidator:
                     }
                 )
             )
-            
+
             # Score validation
             core_suite.add_expectation(
                 ExpectationConfiguration(
@@ -119,7 +120,7 @@ class GreatExpectationsValidator:
                     }
                 )
             )
-            
+
             core_suite.add_expectation(
                 ExpectationConfiguration(
                     expectation_type="expect_column_values_to_be_between",
@@ -131,7 +132,7 @@ class GreatExpectationsValidator:
                     }
                 )
             )
-            
+
             # Risk score validation
             core_suite.add_expectation(
                 ExpectationConfiguration(
@@ -143,16 +144,16 @@ class GreatExpectationsValidator:
                     }
                 )
             )
-            
+
             # Save suite
             self.context.save_expectation_suite(core_suite)
             self.logger.info("Created vulnerability_core expectation suite")
-            
+
         except Exception as e:
             self.logger.error(f"Failed to create expectation suites: {e}")
-            
+
     def validate_vulnerabilities(
-        self, 
+        self,
         vulnerabilities: List[Vulnerability],
         suite_name: str = "vulnerability_core"
     ) -> Dict[str, Any]:
@@ -182,7 +183,7 @@ class GreatExpectationsValidator:
                 "results": results,
                 "validator": "basic"
             }
-            
+
         # Convert vulnerabilities to DataFrame
         data = []
         for vuln in vulnerabilities:
@@ -200,9 +201,9 @@ class GreatExpectationsValidator:
                 "description": vuln.description,
                 "references": len(vuln.references) if vuln.references else 0
             })
-            
+
         df = pd.DataFrame(data)
-        
+
         # Create batch request
         batch_request = RuntimeBatchRequest(
             datasource_name="pandas_datasource",
@@ -214,7 +215,7 @@ class GreatExpectationsValidator:
                 "count": len(df)
             }
         )
-        
+
         # Get validator
         try:
             # Add datasource if it doesn't exist
@@ -230,15 +231,15 @@ class GreatExpectationsValidator:
                         }
                     }
                 )
-                
+
             validator = self.context.get_validator(
                 batch_request=batch_request,
                 expectation_suite_name=suite_name
             )
-            
+
             # Run validation
             results = validator.validate()
-            
+
             # Build detailed report
             report = {
                 "success": results.success,
@@ -249,7 +250,7 @@ class GreatExpectationsValidator:
                 "timestamp": datetime.now().isoformat(),
                 "data_quality_metrics": self._calculate_quality_metrics(df, results)
             }
-            
+
             # Add failed expectation details
             if not results.success:
                 report["failures"] = []
@@ -260,9 +261,9 @@ class GreatExpectationsValidator:
                             "column": result.expectation_config.kwargs.get("column"),
                             "details": result.result
                         })
-                        
+
             return report
-            
+
         except Exception as e:
             self.logger.error(f"Validation failed: {e}")
             return {
@@ -270,7 +271,7 @@ class GreatExpectationsValidator:
                 "error": str(e),
                 "validator": "great_expectations"
             }
-            
+
     def _calculate_quality_metrics(self, df: pd.DataFrame, results: Any) -> Dict[str, float]:
         """Calculate data quality metrics from validation results."""
         metrics = {
@@ -278,28 +279,28 @@ class GreatExpectationsValidator:
             "validity": {},
             "consistency": {}
         }
-        
+
         # Completeness metrics
         for col in ["cve_id", "severity", "cvss_base_score", "epss_probability", "vendor", "product"]:
             if col in df.columns:
                 metrics["completeness"][col] = 1.0 - (df[col].isna().sum() / len(df))
-                
+
         # Validity metrics
         if "vendor" in df.columns:
             metrics["validity"]["vendor_not_unknown"] = 1.0 - ((df["vendor"] == "Unknown").sum() / len(df))
-            
+
         if "product" in df.columns:
             metrics["validity"]["product_not_unknown"] = 1.0 - ((df["product"] == "Unknown").sum() / len(df))
-            
+
         # Overall quality score
         all_scores = []
         for category in metrics.values():
             all_scores.extend(category.values())
-            
+
         metrics["overall_quality_score"] = sum(all_scores) / len(all_scores) if all_scores else 0.0
-        
+
         return metrics
-        
+
     def create_checkpoint(self, name: str, batch_request_config: Dict[str, Any]) -> Optional[Any]:
         """Create a validation checkpoint for automated runs.
         
@@ -312,7 +313,7 @@ class GreatExpectationsValidator:
         """
         if not self.context:
             return None
-            
+
         try:
             checkpoint = self.context.add_checkpoint(
                 name=name,
@@ -335,25 +336,25 @@ class GreatExpectationsValidator:
                     ]
                 }
             )
-            
+
             self.logger.info(f"Created checkpoint: {name}")
             return checkpoint
-            
+
         except Exception as e:
             self.logger.error(f"Failed to create checkpoint: {e}")
             return None
-            
+
     def generate_data_docs(self):
         """Generate and open data documentation."""
         if not self.context:
             return
-            
+
         try:
             self.context.build_data_docs()
             self.logger.info("Generated data documentation")
         except Exception as e:
             self.logger.error(f"Failed to generate data docs: {e}")
-            
+
     def profile_vulnerability_data(self, vulnerabilities: List[Vulnerability]) -> Dict[str, Any]:
         """Profile vulnerability data to suggest expectations.
         
@@ -365,16 +366,16 @@ class GreatExpectationsValidator:
         """
         if not HAS_GX:
             return {"error": "Great Expectations not installed"}
-            
+
         # Convert to DataFrame
         df = pd.DataFrame([v.to_dict() for v in vulnerabilities])
-        
+
         profile = {
             "row_count": len(df),
             "column_count": len(df.columns),
             "columns": {}
         }
-        
+
         # Profile each column
         for col in df.columns:
             col_profile = {
@@ -384,7 +385,7 @@ class GreatExpectationsValidator:
                 "unique_count": int(df[col].nunique()),
                 "unique_percentage": float(df[col].nunique() / len(df) * 100)
             }
-            
+
             # Add statistics for numeric columns
             if df[col].dtype in ["int64", "float64"]:
                 col_profile.update({
@@ -393,25 +394,25 @@ class GreatExpectationsValidator:
                     "mean": float(df[col].mean()) if not df[col].isna().all() else None,
                     "std": float(df[col].std()) if not df[col].isna().all() else None
                 })
-                
+
             # Sample values for categorical columns
             if df[col].dtype == "object":
                 value_counts = df[col].value_counts().head(10)
                 col_profile["top_values"] = {
                     str(k): int(v) for k, v in value_counts.items()
                 }
-                
+
             profile["columns"][col] = col_profile
-            
+
         # Suggest expectations based on profile
         profile["suggested_expectations"] = self._suggest_expectations(df, profile)
-        
+
         return profile
-        
+
     def _suggest_expectations(self, df: pd.DataFrame, profile: Dict[str, Any]) -> List[Dict[str, Any]]:
         """Suggest expectations based on data profile."""
         suggestions = []
-        
+
         for col, col_profile in profile["columns"].items():
             # Suggest not-null expectations for low null columns
             if col_profile["null_percentage"] < 5:
@@ -420,7 +421,7 @@ class GreatExpectationsValidator:
                     "expectation": "expect_column_values_to_not_be_null",
                     "reason": f"Column has only {col_profile['null_percentage']:.1f}% null values"
                 })
-                
+
             # Suggest uniqueness expectations
             if col_profile["unique_percentage"] > 95 and col in ["cve_id"]:
                 suggestions.append({
@@ -428,7 +429,7 @@ class GreatExpectationsValidator:
                     "expectation": "expect_column_values_to_be_unique",
                     "reason": f"Column has {col_profile['unique_percentage']:.1f}% unique values"
                 })
-                
+
             # Suggest set expectations for categorical columns
             if col in ["severity", "attack_vector", "attack_complexity"] and "top_values" in col_profile:
                 if len(col_profile["top_values"]) < 10:
@@ -438,5 +439,5 @@ class GreatExpectationsValidator:
                         "value_set": list(col_profile["top_values"].keys()),
                         "reason": f"Column has only {len(col_profile['top_values'])} distinct values"
                     })
-                    
+
         return suggestions
