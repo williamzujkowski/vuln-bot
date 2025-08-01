@@ -272,7 +272,7 @@ title: Vulnerability Intelligence Dashboard - Vuln-Bot
         </div>
         
         <div class="table-wrapper">
-          <table class="data-table">
+          <table class="data-table" id="vulnerability-table">
             <thead>
               <tr>
                 <th @click="sort('cveId')" class="sortable">
@@ -282,6 +282,7 @@ title: Vulnerability Intelligence Dashboard - Vuln-Bot
                     <span x-show="sortDirection === 'desc'">↓</span>
                   </span>
                 </th>
+                <th>Description</th>
                 <th @click="sort('severity')" class="sortable">
                   Severity
                   <span class="sort-indicator" x-show="sortField === 'severity'">
@@ -297,21 +298,20 @@ title: Vulnerability Intelligence Dashboard - Vuln-Bot
                   </span>
                 </th>
                 <th @click="sort('epssPercentile')" class="sortable">
-                  EPSS %
+                  EPSS
                   <span class="sort-indicator" x-show="sortField === 'epssPercentile'">
                     <span x-show="sortDirection === 'asc'">↑</span>
                     <span x-show="sortDirection === 'desc'">↓</span>
                   </span>
                 </th>
                 <th @click="sort('riskScore')" class="sortable">
-                  Risk Score
+                  Risk
                   <span class="sort-indicator" x-show="sortField === 'riskScore'">
                     <span x-show="sortDirection === 'asc'">↑</span>
                     <span x-show="sortDirection === 'desc'">↓</span>
                   </span>
                 </th>
-                <th>Title</th>
-                <th>Vendors</th>
+                <th>Product</th>
                 <th @click="sort('publishedDate')" class="sortable">
                   Published
                   <span class="sort-indicator" x-show="sortField === 'publishedDate'">
@@ -328,38 +328,25 @@ title: Vulnerability Intelligence Dashboard - Vuln-Bot
                   <td>
                     <button @click="openCveModal(vuln.cveId)" class="cve-button" x-text="vuln.cveId"></button>
                   </td>
+                  <td class="title-cell">
+                    <span x-text="vuln.title.substring(0, 80) + (vuln.title.length > 80 ? '...' : '')" :title="vuln.title"></span>
+                  </td>
                   <td>
                     <span class="severity-badge" :class="'severity-' + vuln.severity.toLowerCase()" x-text="vuln.severity"></span>
                   </td>
                   <td>
-                    <div class="score-cell">
-                      <span class="score-value" x-text="vuln.cvssScore || 'N/A'"></span>
-                      <div class="score-bar">
-                        <div class="score-fill" :style="`width: ${(vuln.cvssScore || 0) * 10}%`"></div>
-                      </div>
-                    </div>
+                    <span class="score-value" x-text="vuln.cvssScore || 'N/A'"></span>
                   </td>
                   <td>
-                    <div class="epss-cell">
-                      <span class="epss-value" x-text="vuln.epssPercentile + '%'"></span>
-                      <div class="epss-indicator" :class="vuln.epssPercentile >= 90 ? 'high' : vuln.epssPercentile >= 70 ? 'medium' : 'low'"></div>
-                    </div>
+                    <span class="epss-value" x-text="vuln.epssPercentile + '%'"></span>
                   </td>
                   <td>
-                    <div class="risk-score" :data-score="vuln.riskScore">
-                      <span x-text="vuln.riskScore || 0"></span>
-                    </div>
-                  </td>
-                  <td class="title-cell">
-                    <span x-text="vuln.title" :title="vuln.title"></span>
+                    <span x-text="vuln.riskScore || 0"></span>
                   </td>
                   <td>
-                    <div class="vendor-tags">
-                      <template x-for="vendor in vuln.vendors.slice(0, 3)" :key="vendor">
-                        <span class="vendor-tag" x-text="vendor"></span>
-                      </template>
-                      <span x-show="vuln.vendors.length > 3" class="vendor-more">+<span x-text="vuln.vendors.length - 3"></span></span>
-                    </div>
+                    <span x-show="vuln.products && vuln.products.length > 0" x-text="vuln.products[0]"></span>
+                    <span x-show="(!vuln.products || vuln.products.length === 0) && vuln.vendors && vuln.vendors.length > 0" x-text="vuln.vendors[0]"></span>
+                    <span x-show="(!vuln.products || vuln.products.length === 0) && (!vuln.vendors || vuln.vendors.length === 0)">Unknown</span>
                   </td>
                   <td>
                     <time :datetime="vuln.publishedDate" x-text="formatDate(vuln.publishedDate)"></time>
