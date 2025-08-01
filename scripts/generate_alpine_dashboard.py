@@ -1350,7 +1350,7 @@ class AlpineDashboardGenerator:
         html_content = html_content.replace(
             "STATS_DATA_PLACEHOLDER", json.dumps(stats, indent=2)
         )
-        
+
         # Replace brace placeholders with actual braces
         html_content = html_content.replace("__OPEN_BRACE__", "{")
         html_content = html_content.replace("__CLOSE_BRACE__", "}")

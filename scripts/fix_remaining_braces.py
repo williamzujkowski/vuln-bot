@@ -14,50 +14,48 @@ def fix_remaining_braces():
     # Fix specific patterns where we have }} in JavaScript control flow
     replacements = [
         # Fix }} else patterns
-        ('}} else if', '} else if'),
-        ('}} else {', '} else {'),
-        
+        ("}} else if", "} else if"),
+        ("}} else {", "} else {"),
         # Fix closing braces followed by }
-        ('}}]', '}]'),
-        ('}});', '});'),
-        ('}})', '})'),
-        
+        ("}}]", "}]"),
+        ("}});", "});"),
+        ("}})", "})"),
         # Fix specific filter/if statement closures
-        ("vulns = vulns.filter(v => v.severity === 'CRITICAL');", 
-         "vulns = vulns.filter(v => v.severity === 'CRITICAL');"),
-        
+        (
+            "vulns = vulns.filter(v => v.severity === 'CRITICAL');",
+            "vulns = vulns.filter(v => v.severity === 'CRITICAL');",
+        ),
         # Fix the if statements that have }} at the end
         ("'CRITICAL');", "'CRITICAL');"),
-        
         # Fix lines that have }} right after a semicolon or parenthesis
-        (');}}', ');}'),
+        (");}}", ");}"),
         ("'];}}", "'];}"),
-        
         # Fix specific problem areas
-        ("if (this.quickFilter === 'critical') {\n                        vulns = vulns.filter(v => v.severity === 'CRITICAL');\n                    }} else",
-         "if (this.quickFilter === 'critical') {\n                        vulns = vulns.filter(v => v.severity === 'CRITICAL');\n                    } else"),
-         
+        (
+            "if (this.quickFilter === 'critical') {\n                        vulns = vulns.filter(v => v.severity === 'CRITICAL');\n                    }} else",
+            "if (this.quickFilter === 'critical') {\n                        vulns = vulns.filter(v => v.severity === 'CRITICAL');\n                    } else",
+        ),
         # Fix closing braces in conditional blocks
-        ('}}', '}},'),  # This might catch CSS, so we'll be careful
+        ("}}", "}},"),  # This might catch CSS, so we'll be careful
     ]
-    
+
     # Apply replacements carefully
     for old, new in replacements:
         content = content.replace(old, new)
-    
+
     # Now fix specific line patterns using regex
     # Fix lines that have }} at the end but should just have }
     # This pattern looks for JavaScript code lines ending with }}
-    js_double_brace_pattern = r'(\s+)(.*[;)])\s*}}'
-    content = re.sub(js_double_brace_pattern, r'\1\2 }', content, flags=re.MULTILINE)
-    
+    js_double_brace_pattern = r"(\s+)(.*[;)])\s*}}"
+    content = re.sub(js_double_brace_pattern, r"\1\2 }", content, flags=re.MULTILINE)
+
     # Fix specific problematic patterns in the filters section
     # Look for filter closing braces
-    content = re.sub(r'(\s+)\}\}(\s*//)', r'\1}\2', content)
-    
+    content = re.sub(r"(\s+)\}\}(\s*//)", r"\1}\2", content)
+
     # Fix Chart.js object closing - these should have double closing braces but proper formatting
     # Leave Chart configuration objects alone as they need the double braces
-    
+
     # Write the fixed content
     file_path.write_text(content)
     print("✅ Fixed remaining JavaScript brace issues")

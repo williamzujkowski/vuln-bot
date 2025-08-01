@@ -14,58 +14,56 @@ def fix_js_braces():
     # In the JavaScript sections within the Python string, we need single braces
     # But Python requires double braces to escape them in strings
     # So we need to ensure JavaScript object/function syntax uses single pairs
-    
+
     # Fix patterns where we have {{ in JavaScript contexts that should be {
     replacements = [
         # Function definitions
-        ('window.dashboard = function() {{', 'window.dashboard = function() {'),
-        ('return {{', 'return {'),
-        
+        ("window.dashboard = function() {{", "window.dashboard = function() {"),
+        ("return {{", "return {"),
         # Object properties in filters
-        ('filters: {{', 'filters: {'),
-        
+        ("filters: {{", "filters: {"),
         # Computed properties
-        ('get filteredVulns() {{', 'get filteredVulns() {'),
-        ('get totalPages() {{', 'get totalPages() {'),
-        ('get paginatedVulns() {{', 'get paginatedVulns() {'),
-        
+        ("get filteredVulns() {{", "get filteredVulns() {"),
+        ("get totalPages() {{", "get totalPages() {"),
+        ("get paginatedVulns() {{", "get paginatedVulns() {"),
         # Methods
-        ('init() {{', 'init() {'),
-        ('setQuickFilter(filter) {{', 'setQuickFilter(filter) {'),
-        ('sort(field) {{', 'sort(field) {'),
-        ('resetFilters() {{', 'resetFilters() {'),
-        ('exportCSV() {{', 'exportCSV() {'),
-        ('setupKeyboardShortcuts() {{', 'setupKeyboardShortcuts() {'),
-        ('initCharts() {{', 'initCharts() {'),
-        
+        ("init() {{", "init() {"),
+        ("setQuickFilter(filter) {{", "setQuickFilter(filter) {"),
+        ("sort(field) {{", "sort(field) {"),
+        ("resetFilters() {{", "resetFilters() {"),
+        ("exportCSV() {{", "exportCSV() {"),
+        ("setupKeyboardShortcuts() {{", "setupKeyboardShortcuts() {"),
+        ("initCharts() {{", "initCharts() {"),
         # Conditionals and loops
-        ('vulns.sort((a, b) => {{', 'vulns.sort((a, b) => {'),
-        ('this.$nextTick(() => {{', 'this.$nextTick(() => {'),
-        ('document.addEventListener(\'keydown\', (e) => {{', 'document.addEventListener(\'keydown\', (e) => {'),
-        
+        ("vulns.sort((a, b) => {{", "vulns.sort((a, b) => {"),
+        ("this.$nextTick(() => {{", "this.$nextTick(() => {"),
+        (
+            "document.addEventListener('keydown', (e) => {{",
+            "document.addEventListener('keydown', (e) => {",
+        ),
         # Chart.js options need special handling - they should keep double braces
         # because they're within Python string literals
     ]
-    
+
     # Apply replacements
     for old, new in replacements:
         content = content.replace(old, new)
-    
+
     # Fix closing braces that are doubled
     # Look for patterns like }}; or }}, or }}) at end of lines
-    content = re.sub(r'\}\}(\s*[;,\)])', r'}\1', content)
-    
+    content = re.sub(r"\}\}(\s*[;,\)])", r"}\1", content)
+
     # Special handling for if statements and other control structures
     if_patterns = [
-        (r'if \(([^)]+)\) \{\{', r'if (\1) {'),
-        (r'else if \(([^)]+)\) \{\{', r'else if (\1) {'),
-        (r'else \{\{', r'else {'),
-        (r'switch\(([^)]+)\) \{\{', r'switch(\1) {'),
+        (r"if \(([^)]+)\) \{\{", r"if (\1) {"),
+        (r"else if \(([^)]+)\) \{\{", r"else if (\1) {"),
+        (r"else \{\{", r"else {"),
+        (r"switch\(([^)]+)\) \{\{", r"switch(\1) {"),
     ]
-    
+
     for pattern, replacement in if_patterns:
         content = re.sub(pattern, replacement, content)
-    
+
     # Write the fixed content
     file_path.write_text(content)
     print("✅ Fixed JavaScript brace issues")
