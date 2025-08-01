@@ -339,7 +339,7 @@ class AlpineDashboardGenerator:
 
     <style>
         /* Modern Dark Theme */
-        :root {{
+        :root __OPEN_BRACE__
             --bg-primary: #0a0a0f;
             --bg-secondary: #12121a;
             --bg-card: #1e1e2a;
@@ -358,29 +358,29 @@ class AlpineDashboardGenerator:
             --shadow-glow: 0 0 40px rgba(0, 212, 255, 0.3);
 
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }}
+        __CLOSE_BRACE__
 
-        * {{
+        * __OPEN_BRACE__
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-        }}
+        __CLOSE_BRACE__
 
-        body {{
+        body __OPEN_BRACE__
             background: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.6;
-        }}
+        __CLOSE_BRACE__
 
         /* Layout */
-        .dashboard {{
+        .dashboard __OPEN_BRACE__
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-        }}
+        __CLOSE_BRACE__
 
         /* Header */
-        .header {{
+        .header __OPEN_BRACE__
             background: rgba(18, 18, 26, 0.9);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -388,23 +388,23 @@ class AlpineDashboardGenerator:
             position: sticky;
             top: 0;
             z-index: 100;
-        }}
+        __CLOSE_BRACE__
 
-        .header-content {{
+        .header-content __OPEN_BRACE__
             max-width: 1600px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }}
+        __CLOSE_BRACE__
 
-        .brand {{
+        .brand __OPEN_BRACE__
             display: flex;
             align-items: center;
             gap: 1rem;
-        }}
+        __CLOSE_BRACE__
 
-        .brand-icon {{
+        .brand-icon __OPEN_BRACE__
             width: 48px;
             height: 48px;
             background: var(--gradient-primary);
@@ -414,111 +414,111 @@ class AlpineDashboardGenerator:
             justify-content: center;
             font-weight: 700;
             font-size: 1.5rem;
-        }}
+        __CLOSE_BRACE__
 
-        .brand h1 {{
+        .brand h1 __OPEN_BRACE__
             font-size: 1.75rem;
             background: var(--gradient-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-        }}
+        __CLOSE_BRACE__
 
         /* Main Content */
-        .main {{
+        .main __OPEN_BRACE__
             flex: 1;
             padding: 2rem;
             max-width: 1600px;
             margin: 0 auto;
             width: 100%;
-        }}
+        __CLOSE_BRACE__
 
         /* Stats Grid */
-        .stats-grid {{
+        .stats-grid __OPEN_BRACE__
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
             margin-bottom: 2rem;
-        }}
+        __CLOSE_BRACE__
 
-        .stat-card {{
+        .stat-card __OPEN_BRACE__
             background: var(--bg-card);
             border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 20px;
             padding: 2rem;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }}
+        __CLOSE_BRACE__
 
-        .stat-card:hover {{
+        .stat-card:hover __OPEN_BRACE__
             transform: translateY(-4px);
             box-shadow: var(--shadow-glow);
-        }}
+        __CLOSE_BRACE__
 
-        .stat-value {{
+        .stat-value __OPEN_BRACE__
             font-size: 2.5rem;
             font-weight: 700;
             background: var(--gradient-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-        }}
+        __CLOSE_BRACE__
 
-        .stat-label {{
+        .stat-label __OPEN_BRACE__
             color: var(--text-secondary);
             margin-bottom: 0.5rem;
-        }}
+        __CLOSE_BRACE__
 
         /* Filters */
-        .filters-section {{
+        .filters-section __OPEN_BRACE__
             background: var(--bg-card);
             border-radius: 20px;
             padding: 2rem;
             margin-bottom: 2rem;
-        }}
+        __CLOSE_BRACE__
 
-        .filter-grid {{
+        .filter-grid __OPEN_BRACE__
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1rem;
             margin-bottom: 1rem;
-        }}
+        __CLOSE_BRACE__
 
-        .filter-group {{
+        .filter-group __OPEN_BRACE__
             display: flex;
             flex-direction: column;
             gap: 0.5rem;
-        }}
+        __CLOSE_BRACE__
 
-        .filter-group label {{
+        .filter-group label __OPEN_BRACE__
             color: var(--text-secondary);
             font-size: 0.875rem;
             font-weight: 500;
-        }}
+        __CLOSE_BRACE__
 
         .filter-group input,
-        .filter-group select {{
+        .filter-group select __OPEN_BRACE__
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 8px;
             padding: 0.75rem;
             color: var(--text-primary);
             transition: all 0.3s ease;
-        }}
+        __CLOSE_BRACE__
 
         .filter-group input:focus,
-        .filter-group select:focus {{
+        .filter-group select:focus __OPEN_BRACE__
             outline: none;
             border-color: var(--accent-primary);
             box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
-        }}
+        __CLOSE_BRACE__
 
         /* Search */
-        .search-box {{
+        .search-box __OPEN_BRACE__
             position: relative;
             margin-bottom: 1rem;
-        }}
+        __CLOSE_BRACE__
 
-        .search-input {{
+        .search-input __OPEN_BRACE__
             width: 100%;
             padding: 1rem 3rem 1rem 1.5rem;
             background: rgba(255, 255, 255, 0.05);
@@ -526,23 +526,23 @@ class AlpineDashboardGenerator:
             border-radius: 16px;
             font-size: 1rem;
             color: var(--text-primary);
-        }}
+        __CLOSE_BRACE__
 
-        .search-input:focus {{
+        .search-input:focus __OPEN_BRACE__
             outline: none;
             border-color: var(--accent-primary);
             background: rgba(0, 212, 255, 0.05);
-        }}
+        __CLOSE_BRACE__
 
         /* Quick Filters */
-        .quick-filters {{
+        .quick-filters __OPEN_BRACE__
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
             margin-bottom: 2rem;
-        }}
+        __CLOSE_BRACE__
 
-        .filter-chip {{
+        .filter-chip __OPEN_BRACE__
             padding: 0.75rem 1.5rem;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -550,38 +550,38 @@ class AlpineDashboardGenerator:
             color: var(--text-secondary);
             cursor: pointer;
             transition: all 0.3s ease;
-        }}
+        __CLOSE_BRACE__
 
-        .filter-chip:hover {{
+        .filter-chip:hover __OPEN_BRACE__
             background: rgba(0, 212, 255, 0.1);
             border-color: var(--accent-primary);
             color: var(--accent-primary);
-        }}
+        __CLOSE_BRACE__
 
-        .filter-chip.active {{
+        .filter-chip.active __OPEN_BRACE__
             background: var(--gradient-primary);
             color: white;
             border-color: transparent;
-        }}
+        __CLOSE_BRACE__
 
         /* Data Table */
-        .data-section {{
+        .data-section __OPEN_BRACE__
             background: var(--bg-card);
             border-radius: 20px;
             padding: 2rem;
             overflow: hidden;
-        }}
+        __CLOSE_BRACE__
 
-        .table-wrapper {{
+        .table-wrapper __OPEN_BRACE__
             overflow-x: auto;
-        }}
+        __CLOSE_BRACE__
 
-        table {{
+        table __OPEN_BRACE__
             width: 100%;
             border-collapse: collapse;
-        }}
+        __CLOSE_BRACE__
 
-        th {{
+        th __OPEN_BRACE__
             text-align: left;
             padding: 1rem;
             color: var(--text-secondary);
@@ -589,69 +589,69 @@ class AlpineDashboardGenerator:
             font-weight: 600;
             cursor: pointer;
             user-select: none;
-        }}
+        __CLOSE_BRACE__
 
-        th:hover {{
+        th:hover __OPEN_BRACE__
             color: var(--accent-primary);
-        }}
+        __CLOSE_BRACE__
 
-        td {{
+        td __OPEN_BRACE__
             padding: 1rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }}
+        __CLOSE_BRACE__
 
-        tbody tr {{
+        tbody tr __OPEN_BRACE__
             transition: background-color 0.2s ease;
-        }}
+        __CLOSE_BRACE__
 
-        tbody tr:hover {{
+        tbody tr:hover __OPEN_BRACE__
             background: rgba(0, 212, 255, 0.02);
-        }}
+        __CLOSE_BRACE__
 
         /* Severity Badges */
-        .severity-badge {{
+        .severity-badge __OPEN_BRACE__
             display: inline-flex;
             padding: 0.25rem 0.75rem;
             border-radius: 20px;
             font-size: 0.75rem;
             font-weight: 600;
             text-transform: uppercase;
-        }}
+        __CLOSE_BRACE__
 
-        .severity-critical {{
+        .severity-critical __OPEN_BRACE__
             background: rgba(220, 38, 38, 0.2);
             color: #dc2626;
             border: 1px solid rgba(220, 38, 38, 0.3);
-        }}
+        __CLOSE_BRACE__
 
-        .severity-high {{
+        .severity-high __OPEN_BRACE__
             background: rgba(239, 68, 68, 0.2);
             color: #ef4444;
             border: 1px solid rgba(239, 68, 68, 0.3);
-        }}
+        __CLOSE_BRACE__
 
-        .severity-medium {{
+        .severity-medium __OPEN_BRACE__
             background: rgba(245, 158, 11, 0.2);
             color: #f59e0b;
             border: 1px solid rgba(245, 158, 11, 0.3);
-        }}
+        __CLOSE_BRACE__
 
-        .severity-low {{
+        .severity-low __OPEN_BRACE__
             background: rgba(59, 130, 246, 0.2);
             color: #3b82f6;
             border: 1px solid rgba(59, 130, 246, 0.3);
-        }}
+        __CLOSE_BRACE__
 
         /* Pagination */
-        .pagination {{
+        .pagination __OPEN_BRACE__
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 1rem;
             margin-top: 2rem;
-        }}
+        __CLOSE_BRACE__
 
-        .page-btn {{
+        .page-btn __OPEN_BRACE__
             padding: 0.5rem 1rem;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -659,61 +659,61 @@ class AlpineDashboardGenerator:
             color: var(--text-secondary);
             cursor: pointer;
             transition: all 0.3s ease;
-        }}
+        __CLOSE_BRACE__
 
-        .page-btn:hover:not(:disabled) {{
+        .page-btn:hover:not(:disabled) __OPEN_BRACE__
             background: rgba(0, 212, 255, 0.1);
             border-color: var(--accent-primary);
             color: var(--accent-primary);
-        }}
+        __CLOSE_BRACE__
 
-        .page-btn:disabled {{
+        .page-btn:disabled __OPEN_BRACE__
             opacity: 0.5;
             cursor: not-allowed;
-        }}
+        __CLOSE_BRACE__
 
         /* Charts */
-        .charts-grid {{
+        .charts-grid __OPEN_BRACE__
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 2rem;
             margin: 2rem 0;
-        }}
+        __CLOSE_BRACE__
 
-        .chart-card {{
+        .chart-card __OPEN_BRACE__
             background: var(--bg-card);
             border-radius: 20px;
             padding: 1.5rem;
-        }}
+        __CLOSE_BRACE__
 
-        .chart-title {{
+        .chart-title __OPEN_BRACE__
             font-size: 1.25rem;
             margin-bottom: 1rem;
             color: var(--text-secondary);
-        }}
+        __CLOSE_BRACE__
 
-        .chart-container {{
+        .chart-container __OPEN_BRACE__
             position: relative;
             height: 300px;
-        }}
+        __CLOSE_BRACE__
 
 
 
         /* Enhanced Mobile Responsiveness */
-        @media (max-width: 768px) {{
-            .table-wrapper {{
+        @media (max-width: 768px) __OPEN_BRACE__
+            .table-wrapper __OPEN_BRACE__
                 overflow-x: auto;
                 -webkit-overflow-scrolling: touch;
                 margin: 0 -1rem;
                 padding: 0 1rem;
-            }}
+            __CLOSE_BRACE__
 
-            table {{
+            table __OPEN_BRACE__
                 min-width: 600px;
-            }}
+            __CLOSE_BRACE__
 
             /* Add scroll indicator */
-            .table-wrapper::after {{
+            .table-wrapper::after __OPEN_BRACE__
                 content: '→ Scroll for more';
                 position: absolute;
                 right: 1rem;
@@ -726,89 +726,89 @@ class AlpineDashboardGenerator:
                 pointer-events: none;
                 opacity: 0;
                 transition: opacity 0.3s;
-            }}
+            __CLOSE_BRACE__
 
-            .table-wrapper:not(:hover)::after {{
+            .table-wrapper:not(:hover)::after __OPEN_BRACE__
                 opacity: 1;
-            }}
+            __CLOSE_BRACE__
 
             /* Responsive table cells */
-            td, th {{
+            td, th __OPEN_BRACE__
                 white-space: nowrap;
                 min-width: 100px;
-            }}
+            __CLOSE_BRACE__
 
             /* Hide less important columns on mobile */
-            th:nth-child(5), td:nth-child(5) {{ /* Risk Score */
+            th:nth-child(5), td:nth-child(5) __OPEN_BRACE__ /* Risk Score */
                 display: none;
-            }}
+            __CLOSE_BRACE__
 
-            .stats-card {{
+            .stats-card __OPEN_BRACE__
                 padding: 1rem;
-            }}
+            __CLOSE_BRACE__
 
-            .stat-value {{
+            .stat-value __OPEN_BRACE__
                 font-size: 1.75rem;
-            }}
+            __CLOSE_BRACE__
 
-            .filter-grid {{
+            .filter-grid __OPEN_BRACE__
                 grid-template-columns: 1fr;
-            }}
+            __CLOSE_BRACE__
 
-            .quick-filters {{
+            .quick-filters __OPEN_BRACE__
                 flex-wrap: wrap;
                 justify-content: center;
-            }}
+            __CLOSE_BRACE__
 
-            .filter-chip {{
+            .filter-chip __OPEN_BRACE__
                 font-size: 0.875rem;
                 padding: 0.375rem 0.75rem;
-            }}
-        }}
+            __CLOSE_BRACE__
+        __CLOSE_BRACE__
 
         /* Responsive */
-        @media (max-width: 768px) {{
-            .header-content {{
+        @media (max-width: 768px) __OPEN_BRACE__
+            .header-content __OPEN_BRACE__
                 flex-direction: column;
                 gap: 1rem;
-            }}
+            __CLOSE_BRACE__
 
-            .main {{
+            .main __OPEN_BRACE__
                 padding: 1rem;
-            }}
+            __CLOSE_BRACE__
 
-            .stats-grid {{
+            .stats-grid __OPEN_BRACE__
                 grid-template-columns: 1fr;
-            }}
+            __CLOSE_BRACE__
 
-            .filter-grid {{
+            .filter-grid __OPEN_BRACE__
                 grid-template-columns: 1fr;
-            }}
+            __CLOSE_BRACE__
 
-            .quick-filters {{
+            .quick-filters __OPEN_BRACE__
                 justify-content: center;
-            }}
+            __CLOSE_BRACE__
 
-            .charts-grid {{
+            .charts-grid __OPEN_BRACE__
                 grid-template-columns: 1fr;
-            }}
-        }}
+            __CLOSE_BRACE__
+        __CLOSE_BRACE__
 
-        .truncate {{
+        .truncate __OPEN_BRACE__
             max-width: 200px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-        }}
+        __CLOSE_BRACE__
 
-        .cve-link {{
+        .cve-link __OPEN_BRACE__
             color: var(--accent-primary);
             text-decoration: none;
-        }}
+        __CLOSE_BRACE__
 
-        .cve-link:hover {{
+        .cve-link:hover __OPEN_BRACE__
             text-decoration: underline;
-        }}
+        __CLOSE_BRACE__
     </style>
 </head>
 <body x-data="dashboard()">
@@ -1066,8 +1066,8 @@ class AlpineDashboardGenerator:
         const vulnerabilityData = VULN_DATA_PLACEHOLDER;
         const statsData = STATS_DATA_PLACEHOLDER;
 
-        window.dashboard = function() {{
-            return {{
+        window.dashboard = function() __OPEN_BRACE__
+            return __OPEN_BRACE__
                 // Data
                 vulnerabilities: vulnerabilityData,
                 stats: statsData,
@@ -1081,7 +1081,7 @@ class AlpineDashboardGenerator:
                 perPage: 50,
 
                 // Filters
-                filters: {{
+                filters: __OPEN_BRACE__
                     severity: '',
                     cvss_min: null,
                     cvss_max: null,
@@ -1090,128 +1090,128 @@ class AlpineDashboardGenerator:
                     published_from: '',
                     published_to: '',
                     vendor: ''
-                }},
+                __CLOSE_BRACE__,
 
                 // Initialization
-                init() {{
-                    this.$nextTick(() => {{
+                init() __OPEN_BRACE__
+                    this.$nextTick(() => __OPEN_BRACE__
                         this.initCharts();
                         this.setupKeyboardShortcuts();
-                    }});
-                }},
+                    __CLOSE_BRACE__);
+                __CLOSE_BRACE__,
 
                 // Computed Properties
-                get filteredVulns() {{
+                get filteredVulns() __OPEN_BRACE__
                     let vulns = [...this.vulnerabilities];
 
                     // Quick filter
-                    if (this.quickFilter === 'critical') {{
+                    if (this.quickFilter === 'critical') __OPEN_BRACE__
                         vulns = vulns.filter(v => v.severity === 'CRITICAL');
-                    }} else if (this.quickFilter === 'today') {{
+                    __CLOSE_BRACE__ else if (this.quickFilter === 'today') __OPEN_BRACE__
                         const today = new Date().toISOString().split('T')[0];
                         vulns = vulns.filter(v => v.published_date && v.published_date.startsWith(today));
-                    }} else if (this.quickFilter === 'kev') {{
+                    __CLOSE_BRACE__ else if (this.quickFilter === 'kev') __OPEN_BRACE__
                         vulns = vulns.filter(v => v.tags.includes('KEV'));
-                    }} else if (this.quickFilter === 'network') {{
+                    __CLOSE_BRACE__ else if (this.quickFilter === 'network') __OPEN_BRACE__
                         vulns = vulns.filter(v => v.attack_vector === 'NETWORK');
-                    }}
+                    __CLOSE_BRACE__
 
                     // Search
-                    if (this.search) {{
+                    if (this.search) __OPEN_BRACE__
                         const searchLower = this.search.toLowerCase();
                         vulns = vulns.filter(v =>
                             v.cve_id.toLowerCase().includes(searchLower) ||
                             v.title.toLowerCase().includes(searchLower) ||
                             v.vendors.some(vendor => vendor.toLowerCase().includes(searchLower))
                         );
-                    }}
+                    __CLOSE_BRACE__
 
                     // Advanced filters
-                    if (this.filters.severity) {{
+                    if (this.filters.severity) __OPEN_BRACE__
                         vulns = vulns.filter(v => v.severity === this.filters.severity);
-                    }}
+                    __CLOSE_BRACE__
 
-                    if (this.filters.cvss_min !== null) {{
+                    if (this.filters.cvss_min !== null) __OPEN_BRACE__
                         vulns = vulns.filter(v => v.cvss_score >= this.filters.cvss_min);
-                    }}
+                    __CLOSE_BRACE__
 
-                    if (this.filters.cvss_max !== null) {{
+                    if (this.filters.cvss_max !== null) __OPEN_BRACE__
                         vulns = vulns.filter(v => v.cvss_score <= this.filters.cvss_max);
-                    }}
+                    __CLOSE_BRACE__
 
-                    if (this.filters.epss_min !== null) {{
+                    if (this.filters.epss_min !== null) __OPEN_BRACE__
                         vulns = vulns.filter(v => v.epss_percentile >= this.filters.epss_min);
-                    }}
+                    __CLOSE_BRACE__
 
-                    if (this.filters.epss_max !== null) {{
+                    if (this.filters.epss_max !== null) __OPEN_BRACE__
                         vulns = vulns.filter(v => v.epss_percentile <= this.filters.epss_max);
-                    }}
+                    __CLOSE_BRACE__
 
-                    if (this.filters.published_from) {{
+                    if (this.filters.published_from) __OPEN_BRACE__
                         vulns = vulns.filter(v => v.published_date >= this.filters.published_from);
-                    }}
+                    __CLOSE_BRACE__
 
-                    if (this.filters.published_to) {{
+                    if (this.filters.published_to) __OPEN_BRACE__
                         vulns = vulns.filter(v => v.published_date <= this.filters.published_to);
-                    }}
+                    __CLOSE_BRACE__
 
-                    if (this.filters.vendor) {{
+                    if (this.filters.vendor) __OPEN_BRACE__
                         const vendorLower = this.filters.vendor.toLowerCase();
                         vulns = vulns.filter(v =>
                             v.vendors.some(vendor => vendor.toLowerCase().includes(vendorLower))
                         );
-                    }}
+                    __CLOSE_BRACE__
 
                     // Sorting
-                    vulns.sort((a, b) => {{
+                    vulns.sort((a, b) => __OPEN_BRACE__
                         let aVal = a[this.sortField];
                         let bVal = b[this.sortField];
 
                         // Handle special cases
-                        if (this.sortField === 'severity') {{
-                            const severityOrder = { 'CRITICAL': 4, 'HIGH': 3, 'MEDIUM': 2, 'LOW': 1 }};
+                        if (this.sortField === 'severity') __OPEN_BRACE__
+                            const severityOrder = { 'CRITICAL': 4, 'HIGH': 3, 'MEDIUM': 2, 'LOW': 1 __CLOSE_BRACE__;
                             aVal = severityOrder[aVal] || 0;
                             bVal = severityOrder[bVal] || 0;
-                        }}
+                        __CLOSE_BRACE__
 
                         if (aVal < bVal) return this.sortOrder === 'asc' ? -1 : 1;
                         if (aVal > bVal) return this.sortOrder === 'asc' ? 1 : -1;
                         return 0;
-                    }});
+                    __CLOSE_BRACE__);
 
                     return vulns;
-                }},
+                __CLOSE_BRACE__,
 
-                get totalPages() {{
+                get totalPages() __OPEN_BRACE__
                     return Math.ceil(this.filteredVulns.length / this.perPage);
-                }},
+                __CLOSE_BRACE__,
 
-                get paginatedVulns() {{
+                get paginatedVulns() __OPEN_BRACE__
                     const start = (this.currentPage - 1) * this.perPage;
                     const end = start + this.perPage;
                     return this.filteredVulns.slice(start, end);
-                }},
+                __CLOSE_BRACE__,
 
                 // Methods
-                setQuickFilter(filter) {{
+                setQuickFilter(filter) __OPEN_BRACE__
                     this.quickFilter = filter;
                     this.currentPage = 1;
-                }},
+                __CLOSE_BRACE__,
 
-                sort(field) {{
-                    if (this.sortField === field) {{
+                sort(field) __OPEN_BRACE__
+                    if (this.sortField === field) __OPEN_BRACE__
                         this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc';
-                    }} else {{
+                    __CLOSE_BRACE__ else __OPEN_BRACE__
                         this.sortField = field;
                         this.sortOrder = 'desc';
-                    }}
+                    __CLOSE_BRACE__
                     this.currentPage = 1;
-                }},
+                __CLOSE_BRACE__,
 
-                resetFilters() {{
+                resetFilters() __OPEN_BRACE__
                     this.search = '';
                     this.quickFilter = 'all';
-                    this.filters = {{
+                    this.filters = __OPEN_BRACE__
                         severity: '',
                         cvss_min: null,
                         cvss_max: null,
@@ -1220,12 +1220,12 @@ class AlpineDashboardGenerator:
                         published_from: '',
                         published_to: '',
                         vendor: ''
-                    }};
+                    __CLOSE_BRACE__;
                     this.currentPage = 1;
-                }},
+                __CLOSE_BRACE__,
 
 
-                exportCSV() {{
+                exportCSV() __OPEN_BRACE__
                     const headers = ['CVE ID', 'Severity', 'CVSS', 'EPSS %', 'Risk Score', 'Product', 'Vendors', 'Published'];
                     const csvContent = [
                         headers.join(','),
@@ -1241,23 +1241,23 @@ class AlpineDashboardGenerator:
                         ].join(','))
                     ].join('\\n');
 
-                    const blob = new Blob([csvContent], { type: 'text/csv' }});
+                    const blob = new Blob([csvContent], { type: 'text/csv' __CLOSE_BRACE__);
                     const url = window.URL.createObjectURL(blob);
                     const a = document.createElement('a');
                     a.href = url;
                     a.download = 'vulnerabilities.csv';
                     a.click();
                     window.URL.revokeObjectURL(url);
-                }},
+                __CLOSE_BRACE__,
 
-                setupKeyboardShortcuts() {{
-                    document.addEventListener('keydown', (e) => {{
+                setupKeyboardShortcuts() __OPEN_BRACE__
+                    document.addEventListener('keydown', (e) => __OPEN_BRACE__
                         // Only trigger shortcuts when not in input fields
-                        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT') {{
+                        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT') __OPEN_BRACE__
                             return;
-                        }}
+                        __CLOSE_BRACE__
 
-                        switch(e.key) {{
+                        switch(e.key) __OPEN_BRACE__
                             case '/':
                                 e.preventDefault();
                                 document.querySelector('.search-input').focus();
@@ -1270,18 +1270,18 @@ class AlpineDashboardGenerator:
                                 e.preventDefault();
                                 this.exportCSV();
                                 break;
-                        }}
-                    }});
-                }},
+                        __CLOSE_BRACE__
+                    __CLOSE_BRACE__);
+                __CLOSE_BRACE__,
 
-                initCharts() {{
+                initCharts() __OPEN_BRACE__
                     // Severity Chart
-                    if (this.$refs.severityChart) {{
-                        new Chart(this.$refs.severityChart, {{
+                    if (this.$refs.severityChart) __OPEN_BRACE__
+                        new Chart(this.$refs.severityChart, __OPEN_BRACE__
                             type: 'doughnut',
-                            data: {{
+                            data: __OPEN_BRACE__
                                 labels: ['Critical', 'High', 'Medium', 'Low'],
-                                datasets: [{{
+                                datasets: [__OPEN_BRACE__
                                     data: [
                                         this.stats.severity_distribution.CRITICAL,
                                         this.stats.severity_distribution.HIGH,
@@ -1289,27 +1289,27 @@ class AlpineDashboardGenerator:
                                         this.stats.severity_distribution.LOW
                                     ],
                                     backgroundColor: ['#dc2626', '#ef4444', '#f59e0b', '#3b82f6']
-                                }}]
-                            }},
-                            options: {{
+                                __CLOSE_BRACE__]
+                            __CLOSE_BRACE__,
+                            options: __OPEN_BRACE__
                                 responsive: true,
                                 maintainAspectRatio: false,
-                                plugins: {{
-                                    legend: {{
-                                        labels: { color: '#cbd5e1' }}
-                                    }}
-                                }}
-                            }}
-                        }});
-                    }}
+                                plugins: __OPEN_BRACE__
+                                    legend: __OPEN_BRACE__
+                                        labels: { color: '#cbd5e1' __CLOSE_BRACE__
+                                    __CLOSE_BRACE__
+                                __CLOSE_BRACE__
+                            __CLOSE_BRACE__
+                        __CLOSE_BRACE__);
+                    __CLOSE_BRACE__
 
                     // EPSS Chart
-                    if (this.$refs.epssChart) {{
-                        new Chart(this.$refs.epssChart, {{
+                    if (this.$refs.epssChart) __OPEN_BRACE__
+                        new Chart(this.$refs.epssChart, __OPEN_BRACE__
                             type: 'bar',
-                            data: {{
+                            data: __OPEN_BRACE__
                                 labels: ['90-100%', '70-89%', '50-69%', '<50%'],
-                                datasets: [{{
+                                datasets: [__OPEN_BRACE__
                                     data: [
                                         this.stats.epss_distribution['90-100%'],
                                         this.stats.epss_distribution['70-89%'],
@@ -1317,28 +1317,28 @@ class AlpineDashboardGenerator:
                                         this.stats.epss_distribution['<50%']
                                     ],
                                     backgroundColor: ['#dc2626', '#ef4444', '#f59e0b', '#10b981']
-                                }}]
-                            }},
-                            options: {{
+                                __CLOSE_BRACE__]
+                            __CLOSE_BRACE__,
+                            options: __OPEN_BRACE__
                                 responsive: true,
                                 maintainAspectRatio: false,
-                                plugins: {{
-                                    legend: { display: false }},
-                                }},
-                                scales: {{
-                                    y: {{
-                                        ticks: { color: '#cbd5e1' }}
-                                    }},
-                                    x: {{
-                                        ticks: { color: '#cbd5e1' }}
-                                    }}
-                                }}
-                            }}
-                        }});
-                    }}
-                }}
-            }}
-        }}
+                                plugins: __OPEN_BRACE__
+                                    legend: { display: false __CLOSE_BRACE__,
+                                __CLOSE_BRACE__,
+                                scales: __OPEN_BRACE__
+                                    y: __OPEN_BRACE__
+                                        ticks: { color: '#cbd5e1' __CLOSE_BRACE__
+                                    __CLOSE_BRACE__,
+                                    x: __OPEN_BRACE__
+                                        ticks: { color: '#cbd5e1' __CLOSE_BRACE__
+                                    __CLOSE_BRACE__
+                                __CLOSE_BRACE__
+                            __CLOSE_BRACE__
+                        __CLOSE_BRACE__);
+                    __CLOSE_BRACE__
+                __CLOSE_BRACE__
+            __CLOSE_BRACE__
+        __CLOSE_BRACE__
     </script>
 </body>
 </html>"""
@@ -1350,6 +1350,10 @@ class AlpineDashboardGenerator:
         html_content = html_content.replace(
             "STATS_DATA_PLACEHOLDER", json.dumps(stats, indent=2)
         )
+        
+        # Replace brace placeholders with actual braces
+        html_content = html_content.replace("__OPEN_BRACE__", "{")
+        html_content = html_content.replace("__CLOSE_BRACE__", "}")
 
         # Write the dashboard HTML
         with open(OUTPUT_DIR / "index.html", "w") as f:
