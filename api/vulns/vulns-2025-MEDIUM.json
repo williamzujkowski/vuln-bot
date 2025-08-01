@@ -1,7 +1,7 @@
 {
   "chunk": "2025-MEDIUM",
-  "count": 2,
-  "generated": "2025-08-01T00:27:41.633789",
+  "count": 3,
+  "generated": "2025-08-01T04:28:25.072071",
   "vulnerabilities": [
     {
       "cveId": "CVE-2025-29088",
@@ -76,6 +76,63 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/29xxx/CVE-2025-29088.json",
             "lastModified": "2025-04-14T13:56:32.775000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-53882",
+      "title": "python-mailman logrotate configuration allows potential escalation from mailman to root",
+      "description": "A Improper Check for Dropped Privileges vulnerability in the logrotate setup of openSUSE Tumbleweed mailman3 allows the mailman user to create files as root, allowing for a potential privilege escalation. This issue affects openSUSE Tumbleweed: from ? before 3.3.10-2.1.",
+      "publishedDate": "2025-07-23T09:31:18.547000+00:00",
+      "lastModifiedDate": "2025-07-31T11:29:44.184000+00:00",
+      "severity": "MEDIUM",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:L",
+          "baseScore": 4.4,
+          "baseSeverity": "MEDIUM"
+        }
+      ],
+      "epss": {
+        "score": 0.0004,
+        "percentile": 8.819
+      },
+      "riskScore": 35,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Suse"
+        ],
+        "products": [
+          "Opensuse Tumbleweed"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://bugzilla.suse.com/show_bug.cgi?id=CVE-2025-53882",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-273"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Local",
+        "attackComplexity": "Low",
+        "privilegesRequired": "Low",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/53xxx/CVE-2025-53882.json",
+            "lastModified": "2025-07-31T11:29:44.184000+00:00"
           }
         ]
       }

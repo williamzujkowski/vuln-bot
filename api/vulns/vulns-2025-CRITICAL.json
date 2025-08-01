@@ -1,7 +1,7 @@
 {
   "chunk": "2025-CRITICAL",
-  "count": 1060,
-  "generated": "2025-08-01T00:27:41.633789",
+  "count": 1061,
+  "generated": "2025-08-01T04:28:25.072071",
   "vulnerabilities": [
     {
       "cveId": "CVE-2025-47812",
@@ -3185,7 +3185,7 @@
       "title": "Microsoft SharePoint Server Remote Code Execution Vulnerability",
       "description": "Deserialization of untrusted data in on-premises Microsoft SharePoint Server allows an unauthorized attacker to execute code over a network.\nMicrosoft is aware that an exploit for CVE-2025-53770 exists in the wild.\nMicrosoft is preparing and fully testing a comprehensive update to address this vulnerability.  In the meantime, please make sure that the mitigation provided in this CVE documentation is in place so that you are protected from exploitation.",
       "publishedDate": "2025-07-20T01:06:33.607000+00:00",
-      "lastModifiedDate": "2025-07-28T19:41:34.897000+00:00",
+      "lastModifiedDate": "2025-07-31T19:48:41.558000+00:00",
       "severity": "CRITICAL",
       "cvssMetrics": [
         {
@@ -3239,7 +3239,7 @@
           {
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/53xxx/CVE-2025-53770.json",
-            "lastModified": "2025-07-28T19:41:34.897000+00:00"
+            "lastModified": "2025-07-31T19:48:41.558000+00:00"
           }
         ]
       }
@@ -4142,7 +4142,7 @@
       "title": "Azure Machine Learning Elevation of Privilege Vulnerability",
       "description": "Missing authorization in Azure Machine Learning allows an authorized attacker to elevate privileges over a network.",
       "publishedDate": "2025-07-18T17:04:44.003000+00:00",
-      "lastModifiedDate": "2025-07-25T18:43:00.811000+00:00",
+      "lastModifiedDate": "2025-07-31T19:48:38.565000+00:00",
       "severity": "CRITICAL",
       "cvssMetrics": [
         {
@@ -4191,7 +4191,7 @@
           {
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/49xxx/CVE-2025-49747.json",
-            "lastModified": "2025-07-25T18:43:00.811000+00:00"
+            "lastModified": "2025-07-31T19:48:38.565000+00:00"
           }
         ]
       }
@@ -4201,7 +4201,7 @@
       "title": "Azure Machine Learning Elevation of Privilege Vulnerability",
       "description": "Improper authorization in Azure Machine Learning allows an authorized attacker to elevate privileges over a network.",
       "publishedDate": "2025-07-18T17:04:44.617000+00:00",
-      "lastModifiedDate": "2025-07-25T18:43:01.328000+00:00",
+      "lastModifiedDate": "2025-07-31T19:48:39.124000+00:00",
       "severity": "CRITICAL",
       "cvssMetrics": [
         {
@@ -4250,7 +4250,7 @@
           {
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/49xxx/CVE-2025-49746.json",
-            "lastModified": "2025-07-25T18:43:01.328000+00:00"
+            "lastModified": "2025-07-31T19:48:39.124000+00:00"
           }
         ]
       }
@@ -4338,85 +4338,11 @@
       }
     },
     {
-      "cveId": "CVE-2025-7852",
-      "title": "WPBookit <= 1.0.6 - Unauthenticated Arbitrary File Upload via image_upload_handle Function",
-      "description": "The WPBookit plugin for WordPress is vulnerable to arbitrary file uploads due to missing file type validation in the image_upload_handle() function hooked via the 'add_new_customer' route in all versions up to, and including, 1.0.6. The plugin’s image‐upload handler calls move_uploaded_file() on client‐supplied files without restricting allowed extensions or MIME types, nor sanitizing the filename. This makes it possible for unauthenticated attackers to upload arbitrary files on the affected site's server which may make remote code execution possible.",
-      "publishedDate": "2025-07-24T04:24:12.852000+00:00",
-      "lastModifiedDate": "2025-07-24T13:36:47.798000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 9.8,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0018,
-        "percentile": 40.461
-      },
-      "riskScore": 54,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Iqonicdesign",
-          "WordPress"
-        ],
-        "products": [
-          "Wordpress",
-          "Wpbookit"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/0bb11092-4367-4f51-9dd7-22fbd655a03f?source=cve",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://plugins.trac.wordpress.org/browser/wpbookit/trunk/core/admin/classes/controllers/class.wpb-customer-controller.php#L362",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://wordpress.org/plugins/wpbookit/#developers",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://plugins.trac.wordpress.org/changeset/3331165/",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-434"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/7xxx/CVE-2025-7852.json",
-            "lastModified": "2025-07-24T13:36:47.798000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2025-47981",
       "title": "SPNEGO Extended Negotiation (NEGOEX) Security Mechanism Remote Code Execution Vulnerability",
       "description": "Heap-based buffer overflow in Windows SPNEGO Extended Negotiation allows an unauthorized attacker to execute code over a network.",
       "publishedDate": "2025-07-08T16:57:31.364000+00:00",
-      "lastModifiedDate": "2025-07-25T18:42:12.903000+00:00",
+      "lastModifiedDate": "2025-07-31T19:47:51.807000+00:00",
       "severity": "CRITICAL",
       "cvssMetrics": [
         {
@@ -4487,7 +4413,7 @@
           {
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/47xxx/CVE-2025-47981.json",
-            "lastModified": "2025-07-25T18:42:12.903000+00:00"
+            "lastModified": "2025-07-31T19:47:51.807000+00:00"
           }
         ]
       }
@@ -5148,75 +5074,6 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/54xxx/CVE-2025-54381.json",
             "lastModified": "2025-07-30T15:07:10.836000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-7437",
-      "title": "Ebook Store <= 5.8012 - Unauthenticated Arbitrary File Upload",
-      "description": "The Ebook Store plugin for WordPress is vulnerable to arbitrary file uploads due to missing file type validation in the ebook_store_save_form function in all versions up to, and including, 5.8012. This makes it possible for unauthenticated attackers to upload arbitrary files on the affected site's server which may make remote code execution possible.",
-      "publishedDate": "2025-07-24T04:24:13.455000+00:00",
-      "lastModifiedDate": "2025-07-24T13:36:42.819000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 9.8,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0017,
-        "percentile": 38.713
-      },
-      "riskScore": 53,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Motovnet",
-          "WordPress"
-        ],
-        "products": [
-          "Ebook Store",
-          "Wordpress"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/0dc5c05d-51b7-4aee-bb4e-366ded45c4d8?source=cve",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://plugins.trac.wordpress.org/browser/ebook-store/trunk/functions.php#L2442",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://plugins.trac.wordpress.org/changeset/3328355",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-434"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/7xxx/CVE-2025-7437.json",
-            "lastModified": "2025-07-24T13:36:42.819000+00:00"
           }
         ]
       }
@@ -6604,7 +6461,7 @@
       "title": "Azure DevOps Server Elevation of Privilege Vulnerability",
       "description": "Authentication bypass by assumed-immutable data in Azure DevOps allows an unauthorized attacker to elevate privileges over a network.",
       "publishedDate": "2025-07-18T17:04:45.914000+00:00",
-      "lastModifiedDate": "2025-07-25T18:43:02.615000+00:00",
+      "lastModifiedDate": "2025-07-31T19:48:40.277000+00:00",
       "severity": "CRITICAL",
       "cvssMetrics": [
         {
@@ -6655,7 +6512,7 @@
           {
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/47xxx/CVE-2025-47158.json",
-            "lastModified": "2025-07-25T18:43:02.615000+00:00"
+            "lastModified": "2025-07-31T19:48:40.277000+00:00"
           }
         ]
       }
@@ -8134,6 +7991,134 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/9xxx/CVE-2024-9193.json",
             "lastModified": "2025-02-28T13:27:05.710000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-7852",
+      "title": "WPBookit <= 1.0.6 - Unauthenticated Arbitrary File Upload via image_upload_handle Function",
+      "description": "The WPBookit plugin for WordPress is vulnerable to arbitrary file uploads due to missing file type validation in the image_upload_handle() function hooked via the 'add_new_customer' route in all versions up to, and including, 1.0.6. The plugin’s image‐upload handler calls move_uploaded_file() on client‐supplied files without restricting allowed extensions or MIME types, nor sanitizing the filename. This makes it possible for unauthenticated attackers to upload arbitrary files on the affected site's server which may make remote code execution possible.",
+      "publishedDate": "2025-07-24T04:24:12.852000+00:00",
+      "lastModifiedDate": "2025-07-24T13:36:47.798000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 9.8,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0018,
+        "percentile": 40.461
+      },
+      "riskScore": 52,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Iqonicdesign",
+          "WordPress"
+        ],
+        "products": [
+          "Wordpress",
+          "Wpbookit"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/0bb11092-4367-4f51-9dd7-22fbd655a03f?source=cve",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://plugins.trac.wordpress.org/browser/wpbookit/trunk/core/admin/classes/controllers/class.wpb-customer-controller.php#L362",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://wordpress.org/plugins/wpbookit/#developers",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://plugins.trac.wordpress.org/changeset/3331165/",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-434"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/7xxx/CVE-2025-7852.json",
+            "lastModified": "2025-07-24T13:36:47.798000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-8286",
+      "title": "Güralp Systems Güralp FMUS series Missing Authentication for Critical Function",
+      "description": "Güralp FMUS series seismic monitoring devices expose an unauthenticated Telnet-based command line interface that \ncould allow an attacker to modify hardware configurations, manipulate \ndata, or factory reset the device.",
+      "publishedDate": "2025-07-31T19:23:37.557000+00:00",
+      "lastModifiedDate": "2025-07-31T19:47:19.620000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 9.8,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": null,
+      "riskScore": 51,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Güralp Systems"
+        ],
+        "products": [
+          "Güralp Fmus Series Seismic Monitoring Devices"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-25-212-01",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-306"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/8xxx/CVE-2025-8286.json",
+            "lastModified": "2025-07-31T19:47:19.620000+00:00"
           }
         ]
       }
@@ -11528,6 +11513,75 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/12xxx/CVE-2024-12252.json",
             "lastModified": "2025-01-07T16:22:45.464000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-7437",
+      "title": "Ebook Store <= 5.8012 - Unauthenticated Arbitrary File Upload",
+      "description": "The Ebook Store plugin for WordPress is vulnerable to arbitrary file uploads due to missing file type validation in the ebook_store_save_form function in all versions up to, and including, 5.8012. This makes it possible for unauthenticated attackers to upload arbitrary files on the affected site's server which may make remote code execution possible.",
+      "publishedDate": "2025-07-24T04:24:13.455000+00:00",
+      "lastModifiedDate": "2025-07-24T13:36:42.819000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 9.8,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0017,
+        "percentile": 38.713
+      },
+      "riskScore": 51,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Motovnet",
+          "WordPress"
+        ],
+        "products": [
+          "Ebook Store",
+          "Wordpress"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/0dc5c05d-51b7-4aee-bb4e-366ded45c4d8?source=cve",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://plugins.trac.wordpress.org/browser/ebook-store/trunk/functions.php#L2442",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://plugins.trac.wordpress.org/changeset/3328355",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-434"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/7xxx/CVE-2025-7437.json",
+            "lastModified": "2025-07-24T13:36:42.819000+00:00"
           }
         ]
       }
@@ -19570,70 +19624,6 @@
       }
     },
     {
-      "cveId": "CVE-2025-3746",
-      "title": "OTP-less one tap Sign in 2.0.14 - 2.0.59 - Unauthenticated Arbitrary Email Update to Account Takeover/Privilege Escalation",
-      "description": "The OTP-less one tap Sign in plugin for WordPress is vulnerable to privilege escalation via account takeover in versions 2.0.14 to 2.0.59. This is due to the plugin not properly validating a user's identity prior to updating their details, like email. This makes it possible for unauthenticated attackers to change arbitrary users' email addresses, including administrators, and leverage that to reset the user's password and gain access to their account.\r\nAdditionally, the plugin returns authentication cookies in the response, which can be used to access the account directly.",
-      "publishedDate": "2025-05-02T01:43:35.422000+00:00",
-      "lastModifiedDate": "2025-05-12T15:53:02.851000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 9.8,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0027,
-        "percentile": 50.271
-      },
-      "riskScore": 49,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Thedrifted",
-          "WordPress"
-        ],
-        "products": [
-          "Otp-less One Tap Sign In",
-          "Wordpress"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/63fab608-1a75-4b07-8d82-8ab87e197547?source=cve",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://plugins.trac.wordpress.org/browser/otpless/tags/2.0.59./includes/class-login.php",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-862"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/3xxx/CVE-2025-3746.json",
-            "lastModified": "2025-05-12T15:53:02.851000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2025-3811",
       "title": "WPBookit <= 1.0.2 - Insecure Direct Object Reference to Unauthenticated Privilege Escalation via Email Update",
       "description": "The WPBookit plugin for WordPress is vulnerable to privilege escalation via account takeover in all versions up to, and including, 1.0.2. This is due to the plugin not properly validating a user's identity prior to updating their details like email through the edit_newdata_customer_callback() function. This makes it possible for unauthenticated attackers to change arbitrary user's email addresses, including administrators, and leverage that to reset the user's password and gain access to their account.",
@@ -20228,74 +20218,6 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/3xxx/CVE-2025-3844.json",
             "lastModified": "2025-05-07T14:03:23.728000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-3708",
-      "title": "Le-show Medical Practice Management System - SQL Injection",
-      "description": "Le-show medical practice management system from Le-yan has a SQL Injection vulnerability, allowing unauthenticated remote attackers to inject arbitrary SQL commands to read, modify, and delete database contents.",
-      "publishedDate": "2025-05-02T02:55:32.493000+00:00",
-      "lastModifiedDate": "2025-05-02T16:24:42.504000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 9.8,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0012,
-        "percentile": 31.998
-      },
-      "riskScore": 49,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Delete",
-          "Le-yan"
-        ],
-        "products": [
-          "Delete Database",
-          "Le-show"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://www.twcert.org.tw/tw/cp-132-10085-69e16-1.html",
-          "source": "",
-          "tags": [
-            "third-party-advisory"
-          ]
-        },
-        {
-          "url": "https://www.twcert.org.tw/en/cp-139-10086-dbfd0-2.html",
-          "source": "",
-          "tags": [
-            "third-party-advisory"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-89"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/3xxx/CVE-2025-3708.json",
-            "lastModified": "2025-05-02T16:24:42.504000+00:00"
           }
         ]
       }
@@ -22560,72 +22482,6 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/53xxx/CVE-2025-53371.json",
             "lastModified": "2025-07-10T17:47:56.055000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-53095",
-      "title": "Sunshine application-wide CSRF in the UI leads to command injection as Administrator",
-      "description": "Sunshine is a self-hosted game stream host for Moonlight. Prior to version 2025.628.4510, the web UI of Sunshine lacks protection against Cross-Site Request Forgery (CSRF) attacks. This vulnerability allows an attacker to craft a malicious web page that, when visited by an authenticated user, can trigger unintended actions within the Sunshine application on behalf of that user. Specifically, since the application does OS command execution by design, this issue can be exploited to abuse the \"Command Preparations\" feature, enabling an attacker to inject arbitrary commands that will be executed with Administrator privileges when an application is launched. This issue has been patched in version 2025.628.4510.",
-      "publishedDate": "2025-07-01T01:33:22.331000+00:00",
-      "lastModifiedDate": "2025-07-01T13:21:15.143000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H",
-          "baseScore": 9.7,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0002,
-        "percentile": 3.629
-      },
-      "riskScore": 49,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Lizardbyte"
-        ],
-        "products": [
-          "Sunshine"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://github.com/LizardByte/Sunshine/security/advisories/GHSA-39hj-fxvw-758m",
-          "source": "https://github.com/LizardByte/Sunshine/security/advisories/GHSA-39hj-fxvw-758m",
-          "tags": [
-            "x_refsource_CONFIRM"
-          ]
-        },
-        {
-          "url": "https://github.com/LizardByte/Sunshine/commit/738ac93a0ec1cd10412d1f339968775f53bfefe0",
-          "source": "https://github.com/LizardByte/Sunshine/commit/738ac93a0ec1cd10412d1f339968775f53bfefe0",
-          "tags": [
-            "x_refsource_MISC"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-352"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "Required",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/53xxx/CVE-2025-53095.json",
-            "lastModified": "2025-07-01T13:21:15.143000+00:00"
           }
         ]
       }
@@ -27701,72 +27557,6 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/3xxx/CVE-2025-3711.json",
             "lastModified": "2025-05-28T09:48:57.781000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-3709",
-      "title": "Flowring Technology Agentflow - Account Lockout Bypass",
-      "description": "Agentflow from Flowring Technology has an Account Lockout Bypass vulnerability, allowing unauthenticated remote attackers to exploit this vulnerability to perform password brute force attack.",
-      "publishedDate": "2025-05-02T03:13:32.971000+00:00",
-      "lastModifiedDate": "2025-05-02T15:02:34.546000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 9.8,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0006,
-        "percentile": 19.218
-      },
-      "riskScore": 48,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Flowring Technology"
-        ],
-        "products": [
-          "Agentflow"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://www.twcert.org.tw/tw/cp-132-10091-12462-1.html",
-          "source": "",
-          "tags": [
-            "third-party-advisory"
-          ]
-        },
-        {
-          "url": "https://www.twcert.org.tw/en/cp-139-10090-112f7-2.html",
-          "source": "",
-          "tags": [
-            "third-party-advisory"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-307"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/3xxx/CVE-2025-3709.json",
-            "lastModified": "2025-05-02T15:02:34.546000+00:00"
           }
         ]
       }
@@ -43127,6 +42917,138 @@
       }
     },
     {
+      "cveId": "CVE-2025-3746",
+      "title": "OTP-less one tap Sign in 2.0.14 - 2.0.59 - Unauthenticated Arbitrary Email Update to Account Takeover/Privilege Escalation",
+      "description": "The OTP-less one tap Sign in plugin for WordPress is vulnerable to privilege escalation via account takeover in versions 2.0.14 to 2.0.59. This is due to the plugin not properly validating a user's identity prior to updating their details, like email. This makes it possible for unauthenticated attackers to change arbitrary users' email addresses, including administrators, and leverage that to reset the user's password and gain access to their account.\r\nAdditionally, the plugin returns authentication cookies in the response, which can be used to access the account directly.",
+      "publishedDate": "2025-05-02T01:43:35.422000+00:00",
+      "lastModifiedDate": "2025-05-12T15:53:02.851000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 9.8,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0027,
+        "percentile": 50.271
+      },
+      "riskScore": 47,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Thedrifted",
+          "WordPress"
+        ],
+        "products": [
+          "Otp-less One Tap Sign In",
+          "Wordpress"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/63fab608-1a75-4b07-8d82-8ab87e197547?source=cve",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://plugins.trac.wordpress.org/browser/otpless/tags/2.0.59./includes/class-login.php",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-862"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/3xxx/CVE-2025-3746.json",
+            "lastModified": "2025-05-12T15:53:02.851000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-3708",
+      "title": "Le-show Medical Practice Management System - SQL Injection",
+      "description": "Le-show medical practice management system from Le-yan has a SQL Injection vulnerability, allowing unauthenticated remote attackers to inject arbitrary SQL commands to read, modify, and delete database contents.",
+      "publishedDate": "2025-05-02T02:55:32.493000+00:00",
+      "lastModifiedDate": "2025-05-02T16:24:42.504000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 9.8,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0012,
+        "percentile": 31.998
+      },
+      "riskScore": 47,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Delete",
+          "Le-yan"
+        ],
+        "products": [
+          "Delete Database",
+          "Le-show"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.twcert.org.tw/tw/cp-132-10085-69e16-1.html",
+          "source": "",
+          "tags": [
+            "third-party-advisory"
+          ]
+        },
+        {
+          "url": "https://www.twcert.org.tw/en/cp-139-10086-dbfd0-2.html",
+          "source": "",
+          "tags": [
+            "third-party-advisory"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-89"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/3xxx/CVE-2025-3708.json",
+            "lastModified": "2025-05-02T16:24:42.504000+00:00"
+          }
+        ]
+      }
+    },
+    {
       "cveId": "CVE-2025-24522",
       "title": "KUNBUS Revolution Pi  Authentication Bypass by Primary Weakness",
       "description": "KUNBUS Revolution Pi OS Bookworm 01/2025 is vulnerable because authentication is not configured by default for the Node-RED server. This can give an unauthenticated remote attacker full access to the Node-RED server where they can run arbitrary commands on the underlying operating system.",
@@ -43186,6 +43108,72 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/24xxx/CVE-2025-24522.json",
             "lastModified": "2025-05-01T19:00:44.088000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-53095",
+      "title": "Sunshine application-wide CSRF in the UI leads to command injection as Administrator",
+      "description": "Sunshine is a self-hosted game stream host for Moonlight. Prior to version 2025.628.4510, the web UI of Sunshine lacks protection against Cross-Site Request Forgery (CSRF) attacks. This vulnerability allows an attacker to craft a malicious web page that, when visited by an authenticated user, can trigger unintended actions within the Sunshine application on behalf of that user. Specifically, since the application does OS command execution by design, this issue can be exploited to abuse the \"Command Preparations\" feature, enabling an attacker to inject arbitrary commands that will be executed with Administrator privileges when an application is launched. This issue has been patched in version 2025.628.4510.",
+      "publishedDate": "2025-07-01T01:33:22.331000+00:00",
+      "lastModifiedDate": "2025-07-01T13:21:15.143000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H",
+          "baseScore": 9.7,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0002,
+        "percentile": 3.629
+      },
+      "riskScore": 47,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Lizardbyte"
+        ],
+        "products": [
+          "Sunshine"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://github.com/LizardByte/Sunshine/security/advisories/GHSA-39hj-fxvw-758m",
+          "source": "https://github.com/LizardByte/Sunshine/security/advisories/GHSA-39hj-fxvw-758m",
+          "tags": [
+            "x_refsource_CONFIRM"
+          ]
+        },
+        {
+          "url": "https://github.com/LizardByte/Sunshine/commit/738ac93a0ec1cd10412d1f339968775f53bfefe0",
+          "source": "https://github.com/LizardByte/Sunshine/commit/738ac93a0ec1cd10412d1f339968775f53bfefe0",
+          "tags": [
+            "x_refsource_MISC"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-352"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "Required",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/53xxx/CVE-2025-53095.json",
+            "lastModified": "2025-07-01T13:21:15.143000+00:00"
           }
         ]
       }
@@ -50457,6 +50445,72 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/41xxx/CVE-2024-41783.json",
             "lastModified": "2025-01-21T15:06:04.573000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-3709",
+      "title": "Flowring Technology Agentflow - Account Lockout Bypass",
+      "description": "Agentflow from Flowring Technology has an Account Lockout Bypass vulnerability, allowing unauthenticated remote attackers to exploit this vulnerability to perform password brute force attack.",
+      "publishedDate": "2025-05-02T03:13:32.971000+00:00",
+      "lastModifiedDate": "2025-05-02T15:02:34.546000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 9.8,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0006,
+        "percentile": 19.218
+      },
+      "riskScore": 46,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Flowring Technology"
+        ],
+        "products": [
+          "Agentflow"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.twcert.org.tw/tw/cp-132-10091-12462-1.html",
+          "source": "",
+          "tags": [
+            "third-party-advisory"
+          ]
+        },
+        {
+          "url": "https://www.twcert.org.tw/en/cp-139-10090-112f7-2.html",
+          "source": "",
+          "tags": [
+            "third-party-advisory"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-307"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/3xxx/CVE-2025-3709.json",
+            "lastModified": "2025-05-02T15:02:34.546000+00:00"
           }
         ]
       }

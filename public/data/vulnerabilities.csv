@@ -300,13 +300,13 @@ CVE-2024-52375,CRITICAL,10.0,97.916,55,WordPress Datasets Manager by Arttia Crea
 CVE-2024-43572,HIGH,7.8,98.131,55,Microsoft Management Console Remote Code Execution Vulnerability,Microsoft,2024-10-08
 CVE-2024-31465,CRITICAL,10.0,96.889,55,XWiki Platform: Remote code execution from account via SearchSuggestSourceSheet,"The, Xwiki",2024-04-10
 CVE-2024-32030,HIGH,8.1,98.823,55,Remote code execution via JNDI resolution in JMX metrics collection in Kafka UI,Provectus,2024-06-19
+CVE-2025-7847,HIGH,8.8,44.648,54,AI Engine 2.9.3 - 2.9.4 - Authenticated (Subscriber+) Arbitrary File Upload,"Ai, Tigroumeow, WordPress",2025-07-31
 CVE-2025-33053,HIGH,8.8,95.491,54,Internet Shortcut Files Remote Code Execution Vulnerability,Microsoft,2025-06-10
 CVE-2025-2264,HIGH,7.5,98.575,54,Santesoft Sante PACS Server Path Traversal Information Disclosure,"Pacs, Santesoft",2025-03-13
 CVE-2025-21333,HIGH,7.8,98.012,54,Windows Hyper-V NT Kernel Integration VSP Elevation of Privilege Vulnerability,Microsoft,2025-01-14
 CVE-2025-49747,CRITICAL,9.9,20.315,54,Azure Machine Learning Elevation of Privilege Vulnerability,Microsoft,2025-07-18
 CVE-2025-49746,CRITICAL,9.9,20.315,54,Azure Machine Learning Elevation of Privilege Vulnerability,Microsoft,2025-07-18
 CVE-2025-54418,CRITICAL,9.8,41.645,54,CodeIgniter4's ImageMagick Handler has Command Injection Vulnerability,"Codeigniter4, Web",2025-07-28
-CVE-2025-7852,CRITICAL,9.8,40.461,54,WPBookit <= 1.0.6 - Unauthenticated Arbitrary File Upload via image_upload_handle Function,"Iqonicdesign, WordPress",2025-07-24
 CVE-2025-26794,HIGH,7.5,98.096,54,"CVE-2025-26794: Exim 4.98 before 4.98.1, when SQLite hints and ETRN serialization are used, allows remote SQL inject...",Exim,2025-02-21
 CVE-2025-47981,CRITICAL,9.8,33.318,54,SPNEGO Extended Negotiation (NEGOEX) Security Mechanism Remote Code Execution Vulnerability,Microsoft,2025-07-08
 CVE-2025-25257,CRITICAL,9.6,85.697,54,CVE-2025-25257: An improper neutralization of special elements used in an SQL command ('SQL Injection') vulnerabilit...,Fortinet,2025-07-17
@@ -343,7 +343,6 @@ CVE-2025-54428,CRITICAL,9.8,15.136,53,RevelaCode exposes Sensitive MongoDB Atlas
 CVE-2025-54419,CRITICAL,10.0,8.083,53,Node-SAML Contains SAML Signature Verification Vulnerability,Node-saml,2025-07-28
 CVE-2025-54381,CRITICAL,9.9,5.982,53,BentoML is Vulnerable to an SSRF Attack Through File Upload Processing,"Bentoml, The",2025-07-29
 CVE-2025-7695,HIGH,8.8,14.235,53,Dataverse Integration 2.77 - 2.81 - Missing Authorization to Authenticated (Subscriber+) Privilege Escalation via reset_password_link REST Route,"Alexacrm, WordPress",2025-07-24
-CVE-2025-7437,CRITICAL,9.8,38.713,53,Ebook Store <= 5.8012 - Unauthenticated Arbitrary File Upload,"Motovnet, WordPress",2025-07-24
 CVE-2025-4322,CRITICAL,9.8,95.824,53,Motors <= 5.6.67 - Unauthenticated Privilege Escalation via Password Update/Account Takeover,"Stylemixthemes, WordPress",2025-05-20
 CVE-2025-27920,HIGH,7.2,98.136,53,CVE-2025-27920: Output Messenger before 2.0.63 was vulnerable to a directory traversal attack through improper file ...,Srimax,2025-05-05
 CVE-2025-8279,HIGH,8.7,2.074,53,Missing Authentication for Critical Function in GitLab Language Server,"Gitlab, Language",2025-07-28
@@ -471,6 +470,8 @@ CVE-2024-30040,HIGH,8.8,96.575,52,Windows MSHTML Platform Security Feature Bypas
 CVE-2024-30044,HIGH,7.2,97.59,52,Microsoft SharePoint Server Remote Code Execution Vulnerability,"Microsoft, Sharepoint",2024-05-14
 CVE-2024-0778,HIGH,8.0,98.223,52,Uniview ISC 2500-S VM.php setNatConfig os command injection,Uniview,2024-01-22
 CVE-2025-49520,HIGH,8.8,26.564,52,Event-driven-ansible: authenticated argument injection in git url in eda project creation,"Kubernetes, Red Hat",2025-06-30
+CVE-2025-7852,CRITICAL,9.8,40.461,52,WPBookit <= 1.0.6 - Unauthenticated Arbitrary File Upload via image_upload_handle Function,"Iqonicdesign, WordPress",2025-07-24
+CVE-2025-8286,CRITICAL,9.8,0,51,Güralp Systems Güralp FMUS series Missing Authentication for Critical Function,Güralp Systems,2025-07-31
 CVE-2025-33077,HIGH,8.8,19.435,51,IBM Engineering Systems Design Rhapsody code execution,IBM,2025-07-23
 CVE-2025-33092,HIGH,7.8,1.542,51,IBM Db2 for Linux code execution,IBM,2025-07-29
 CVE-2025-33076,HIGH,8.8,19.435,51,IBM Engineering Systems Design Rhapsody code execution,IBM,2025-07-23
@@ -589,6 +590,7 @@ CVE-2024-30078,HIGH,8.8,96.128,51,Windows Wi-Fi Driver Remote Code Execution Vul
 CVE-2024-30485,HIGH,8.8,97.672,51,WordPress Finale Lite plugin <= 2.18.0 - Subscriber+ Arbitrary Plugin Installation/Activation vulnerability,"WordPress, Xlplugins",2024-06-09
 CVE-2024-35250,HIGH,7.8,97.167,51,Windows Kernel-Mode Driver Elevation of Privilege Vulnerability,Microsoft,2024-06-11
 CVE-2024-0324,HIGH,8.2,97.523,51,"CVE-2024-0324: The User Profile Builder – Beautiful User Registration Forms, User Profiles & User Role Editor plugi...","Reflectionmedia, WordPress",2024-02-05
+CVE-2025-7437,CRITICAL,9.8,38.713,51,Ebook Store <= 5.8012 - Unauthenticated Arbitrary File Upload,"Motovnet, WordPress",2025-07-24
 CVE-2025-33054,HIGH,8.1,20.666,50,Remote Desktop Spoofing Vulnerability,Microsoft,2025-07-08
 CVE-2025-33109,HIGH,7.5,9.0,50,IBM i privilege escalation,"IBM, Invalid, Some",2025-07-24
 CVE-2025-33117,CRITICAL,9.1,20.993,50,IBM QRadar SIEM command execution,IBM,2025-06-19
@@ -727,13 +729,11 @@ CVE-2025-50060,HIGH,8.1,15.269,50,CVE-2025-50060: Vulnerability in the Oracle BI
 CVE-2025-22467,CRITICAL,9.9,96.002,50,CVE-2025-22467: A stack-based buffer overflow in Ivanti Connect Secure before version 22.7R2.6 allows a remote authe...,Ivanti,2025-02-11
 CVE-2025-22252,CRITICAL,9.0,24.086,50,"CVE-2025-22252: A missing authentication for critical function in Fortinet FortiProxy versions 7.6.0 through 7.6.1, ...",Fortinet,2025-05-28
 CVE-2025-6057,HIGH,8.8,60.3,50,WPBookit <= 1.0.4 - Authenticated (Subscriber+) Arbitrary File Upload,"Iqonicdesign, WordPress",2025-07-12
-CVE-2025-6940,HIGH,8.8,38.416,50,TOTOLINK A702R HTTP POST Request formParentControl buffer overflow,Totolink,2025-07-01
 CVE-2025-6121,CRITICAL,9.8,48.171,50,D-Link DIR-632 HTTP POST Request get_pure_content stack-based overflow,D-link,2025-06-16
 CVE-2025-6953,HIGH,8.8,36.113,50,TOTOLINK A3002RU HTTP POST Request formParentControl buffer overflow,Totolink,2025-07-01
 CVE-2025-6624,HIGH,7.2,2.219,50,CVE-2025-6624: Versions of the package snyk before 1.1297.3 are vulnerable to Insertion of Sensitive Information in...,"Docker, N/a",2025-06-26
 CVE-2025-6098,CRITICAL,9.8,19.752,50,UTT 进取 750W API setSysAdm strcpy buffer overflow,Utt,2025-06-16
 CVE-2025-6970,HIGH,7.5,94.628,50,Events Manager <= 7.0.3 - Unauthenticated SQL Injection via `orderby` Parameter,"Netweblogic, The, WordPress",2025-07-09
-CVE-2025-6939,HIGH,8.8,34.955,50,TOTOLINK A3002RU HTTP POST Request formWlSiteSurvey buffer overflow,Totolink,2025-07-01
 CVE-2025-42967,CRITICAL,9.9,52.157,50,Code Injection vulnerability in SAP S/4HANA and SAP SCM (Characteristic Propagation),Sap_se,2025-07-08
 CVE-2025-24964,CRITICAL,9.7,8.096,50,Remote Code Execution when accessing a malicious website while Vitest API server is listening,"Api, Testing, Vitest-dev",2025-02-04
 CVE-2025-29814,CRITICAL,9.3,91.616,50,Microsoft Partner Center Elevation of Privilege Vulnerability,Microsoft,2025-03-21
@@ -822,6 +822,7 @@ CVE-2024-32964,CRITICAL,9.0,95.791,50,lobe-chat `/api/proxy` endpoint Server-Sid
 CVE-2024-30080,CRITICAL,9.8,93.142,50,Microsoft Message Queuing (MSMQ) Remote Code Execution Vulnerability,Microsoft,2024-06-11
 CVE-2024-35249,HIGH,8.8,95.545,50,Microsoft Dynamics 365 Business Central Remote Code Execution Vulnerability,Microsoft,2024-06-11
 CVE-2024-0918,HIGH,7.2,98.086,50,TRENDnet TEW-800MB POST Request os command injection,Trendnet,2024-01-26
+CVE-2025-8213,HIGH,7.2,0,49,NinjaScanner – Virus & Malware scan <= 3.2.5 - Authenticated (Administrator+) Arbitrary File Deletion,"Nintechnet, The, WordPress",2025-07-31
 CVE-2025-33103,HIGH,8.5,21.116,49,IBM i privilege escalation,IBM,2025-05-17
 CVE-2025-33064,HIGH,8.8,26.381,49,Windows Routing and Remote Access Service (RRAS) Remote Code Execution Vulnerability,Microsoft,2025-06-10
 CVE-2025-33108,HIGH,8.5,17.108,49,IBM Backup Recovery and Media Services for i code execution,IBM,2025-06-14
@@ -937,7 +938,6 @@ CVE-2025-4404,CRITICAL,9.1,25.819,49,Freeipa: idm: privilege escalation from hos
 CVE-2025-4797,CRITICAL,9.8,34.893,49,Golo <= 1.7.0 - Authentication Bypass to Account Takeover,"Uxper, WordPress",2025-06-03
 CVE-2025-4559,CRITICAL,9.8,31.998,49,Netvision ISOinsight - SQL Injection,"Delete, Netvision",2025-05-12
 CVE-2025-4556,CRITICAL,9.8,51.855,49,ZONG YU Okcat Parking Management Platform - Arbitrary File Upload,"The, Zong Yu",2025-05-12
-CVE-2025-3746,CRITICAL,9.8,50.271,49,OTP-less one tap Sign in 2.0.14 - 2.0.59 - Unauthenticated Arbitrary Email Update to Account Takeover/Privilege Escalation,"Thedrifted, WordPress",2025-05-02
 CVE-2025-3811,CRITICAL,9.8,30.093,49,WPBookit <= 1.0.2 - Insecure Direct Object Reference to Unauthenticated Privilege Escalation via Email Update,"Iqonicdesign, WordPress",2025-05-09
 CVE-2025-3621,CRITICAL,9.6,67.922,49,Remote Code Execution in ProTNS ActADUR,"Local, Protns",2025-07-15
 CVE-2025-3810,CRITICAL,9.8,30.093,49,WPBookit <= 1.0.2 - Insecure Direct Object Reference to Unauthenticated Privilege Escalation via Account Takeover,"Iqonicdesign, WordPress",2025-05-09
@@ -950,7 +950,6 @@ CVE-2025-3928,HIGH,8.8,94.14,49,Commvault Web Server unspecified vulnerability,"
 CVE-2025-3740,HIGH,8.8,31.58,49,School Management System for Wordpress <= 93.1.0 - Authenticated (Subscriber+) Local File Inclusion to Privilege Escalation via Password Update,"Dasinfomedia, The, WordPress",2025-07-18
 CVE-2025-3844,CRITICAL,9.8,63.947,49,PeproDev Ultimate Profile Solutions 1.9.1 - 7.5.2 - Authentication Bypass to Account Takeover,"Peprodev, WordPress",2025-05-07
 CVE-2025-3876,HIGH,8.8,20.59,49,SMS Alert Order Notifications – WooCommerce <= 3.8.1 - Authenticated (Subscriber+) Privilege Escalation via handleWpLoginCreateUserAction Function,"Cozyvision1, WordPress",2025-05-10
-CVE-2025-3708,CRITICAL,9.8,31.998,49,Le-show Medical Practice Management System - SQL Injection,"Delete, Le-yan",2025-05-02
 CVE-2025-27615,HIGH,8.2,29.316,49,umatiGateway's UI publicly accessible in provided docker-compose file,"Docker, Umati",2025-03-10
 CVE-2025-27203,CRITICAL,9.6,87.571,49,Adobe Connect | Deserialization of Untrusted Data (CWE-502),Adobe,2025-07-08
 CVE-2025-27407,CRITICAL,9.1,90.764,49,Remote code execution when loading a crafted GraphQL schema,Rmosolgo,2025-03-12
@@ -1018,7 +1017,6 @@ CVE-2025-53835,CRITICAL,9.1,68.218,49,XWiki Rendering is vulnerable to XSS attac
 CVE-2025-53015,HIGH,7.5,16.267,49,ImageMagick has XMP profile write that triggers hang due to unbounded loop,"Google, Imagemagick",2025-07-14
 CVE-2025-53084,CRITICAL,9.0,24.046,49,CVE-2025-53084: A cross-site scripting (xss) vulnerability exists in the videosList page parameter functionality of ...,Wwbn,2025-07-24
 CVE-2025-53371,CRITICAL,9.1,10.608,49,"DiscordNotifications allows DOS, SSRF, and possible RCE through requests to user-controlled URLs","Miraheze, The",2025-07-10
-CVE-2025-53095,CRITICAL,9.7,3.629,49,Sunshine application-wide CSRF in the UI leads to command injection as Administrator,Lizardbyte,2025-07-01
 CVE-2025-41687,CRITICAL,9.8,29.299,49,Weidmueller: Unauthenticated Stack-Based Buffer Overflow in u-link Management API,Weidmueller,2025-07-23
 CVE-2025-41235,HIGH,8.6,16.232,49,CVE-2025-41235: Spring Cloud Gateway Server Forwards Headers from Untrusted Proxies,"Gateway, VMware",2025-05-30
 CVE-2025-41648,CRITICAL,9.8,24.301,49,Pilz: Authentication Bypass in IndustrialPI Webstatus,Pilz,2025-07-01
@@ -1101,6 +1099,17 @@ CVE-2024-31996,CRITICAL,10.0,93.186,49,XWiki Commons missing escaping of `{` in 
 CVE-2024-0252,HIGH,8.8,97.366,49,Remote code execution,Manageengine,2024-01-11
 CVE-2024-0919,HIGH,8.8,96.989,49,TRENDnet TEW-815DAP POST Request do_setNTP command injection,Trendnet,2024-01-26
 CVE-2025-4439,HIGH,7.7,2.893,49,Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') in GitLab,Gitlab,2025-07-23
+CVE-2025-8372,HIGH,7.3,6.715,48,code-projects Exam Form Submission update_s7.php sql injection,Code-projects,2025-07-31
+CVE-2025-8407,HIGH,7.3,0,48,code-projects Vehicle Management filter2.php sql injection,Code-projects,2025-07-31
+CVE-2025-8378,HIGH,7.3,6.715,48,Campcodes Online Hotel Reservation System Login index.php sql injection,Campcodes,2025-07-31
+CVE-2025-8408,HIGH,7.3,0,48,code-projects Vehicle Management filter1.php sql injection,Code-projects,2025-07-31
+CVE-2025-8376,HIGH,7.3,6.715,48,code-projects Vehicle Management updatebal.php sql injection,Code-projects,2025-07-31
+CVE-2025-8374,HIGH,7.3,6.715,48,code-projects Vehicle Management addcompany.php sql injection,Code-projects,2025-07-31
+CVE-2025-8375,HIGH,7.3,6.715,48,code-projects Vehicle Management addvehicle.php sql injection,Code-projects,2025-07-31
+CVE-2025-8373,HIGH,7.3,6.715,48,code-projects Vehicle Management print.php sql injection,Code-projects,2025-07-31
+CVE-2025-8339,HIGH,7.3,6.715,48,code-projects Intern Membership Management System student_login.php sql injection,Code-projects,2025-07-31
+CVE-2025-8371,HIGH,7.3,6.715,48,code-projects Exam Form Submission update_s5.php sql injection,Code-projects,2025-07-31
+CVE-2025-8409,HIGH,7.3,0,48,code-projects Vehicle Management filter.php sql injection,Code-projects,2025-07-31
 CVE-2025-33071,HIGH,8.1,35.163,48,Windows KDC Proxy Service (KPSSVC) Remote Code Execution Vulnerability,Microsoft,2025-06-10
 CVE-2025-33093,HIGH,7.5,12.061,48,IBM Sterling Partner Engagement Manager information disclosure,"IBM, Kubernetes",2025-05-07
 CVE-2025-33072,HIGH,8.1,32.275,48,Microsoft msagsfeedback.azurewebsites.net Information Disclosure Vulnerability,Microsoft,2025-05-08
@@ -1322,7 +1331,6 @@ CVE-2025-3365,CRITICAL,9.8,26.796,48,Relative Path Traversal in OnlineSuite,"B. 
 CVE-2025-3714,CRITICAL,9.8,47.005,48,ATEN LCD KVM over IP Switch CL5708IM - Stack-based Buffer Overflow,Aten,2025-05-09
 CVE-2025-3319,HIGH,8.1,23.426,48,IBM Spectrum Protect Server authentication bypass,"IBM, Protect",2025-06-20
 CVE-2025-3711,CRITICAL,9.8,47.005,48,ATEN LCD KVM over IP Switch CL5708IM - Stack-based Buffer Overflow,Aten,2025-05-09
-CVE-2025-3709,CRITICAL,9.8,19.218,48,Flowring Technology Agentflow - Account Lockout Bypass,Flowring Technology,2025-05-02
 CVE-2025-3710,CRITICAL,9.8,47.005,48,ATEN LCD KVM over IP Switch CL5708IM - Stack-based Buffer Overflow,Aten,2025-05-09
 CVE-2025-27057,HIGH,7.5,14.806,48,Buffer Over-read in WLAN Host,"Microsoft, Qualcomm, Inc.",2025-07-08
 CVE-2025-27554,CRITICAL,9.9,50.318,48,"CVE-2025-27554: ToDesktop before 2024-10-03, as used by Cursor before 2024-10-03 and other applications, allows remo...","Build, Todesktop",2025-03-01
@@ -1653,6 +1661,10 @@ CVE-2024-32962,CRITICAL,10.0,92.637,48,XML signature verification bypass due imp
 CVE-2024-32888,CRITICAL,10.0,50.138,48,Amazon JDBC Driver for Redshift SQL Injection via line comment generation,"Aws, Provides",2024-05-15
 CVE-2024-30103,HIGH,8.8,94.262,48,Microsoft Outlook Remote Code Execution Vulnerability,Microsoft,2024-06-11
 CVE-2024-35225,CRITICAL,9.7,73.118,48,Jupyter Server Proxy has a reflected XSS issue in host parameter,"Jupyter, Jupyterhub, Notebook",2024-06-11
+CVE-2025-6940,HIGH,8.8,38.416,48,TOTOLINK A702R HTTP POST Request formParentControl buffer overflow,Totolink,2025-07-01
+CVE-2025-6939,HIGH,8.8,34.955,48,TOTOLINK A3002RU HTTP POST Request formWlSiteSurvey buffer overflow,Totolink,2025-07-01
+CVE-2025-8348,HIGH,7.3,19.482,47,Kehua Charging Pile Cloud Platform home improper authentication,Kehua,2025-07-31
+CVE-2025-7425,HIGH,7.8,2.038,47,Libxslt: heap use-after-free in libxslt caused by atype corruption in xmlattrptr,Red Hat,2025-07-10
 CVE-2025-33075,HIGH,7.8,25.851,47,Windows Installer Elevation of Privilege Vulnerability,Microsoft,2025-06-10
 CVE-2025-5190,HIGH,8.8,27.036,47,Browse As <= 0.2 - Authenticated (Subscriber+) Authentication Bypass via Cookie,"Sorich87, WordPress",2025-05-30
 CVE-2025-5503,HIGH,8.8,42.324,47,TOTOLINK X15 formMapReboot stack-based overflow,Totolink,2025-06-03
@@ -2034,9 +2046,7 @@ CVE-2024-13365,CRITICAL,9.8,74.162,47,Security & Malware scan by CleanTalk <= 2.
 CVE-2024-13410,CRITICAL,9.8,59.687,47,CozyStay <= 1.7.0 and TinySalt <= 3.9.0 - Unauthenticated PHP Object Injection in ajax_handler,"Loftocean, WordPress",2025-03-19
 CVE-2024-13913,HIGH,8.8,21.723,47,InstaWP Connect – 1-click WP Staging & Migration <= 0.1.0.83 - Cross-Site Request Forgery to Local File Inclusion,"Instawp, The, WordPress",2025-03-14
 CVE-2024-13789,CRITICAL,9.8,71.426,47,Ravpage <= 2.31 - PHP Object Injection,"Matiskiba, WordPress",2025-02-20
-CVE-2024-13322,HIGH,7.5,94.619,47,Ads Pro Plugin - Multi-Purpose WordPress Advertising Manager <= 4.88 - Unauthenticated SQL Injection,"Scripteo, The, WordPress",2025-05-02
 CVE-2024-13787,CRITICAL,9.8,41.302,47,VEDA - MultiPurpose WordPress Theme <= 4.2 - Authenticated (Subscriber+) PHP Object Injection,"Designthemes, WordPress",2025-03-05
-CVE-2024-13418,HIGH,8.8,57.023,47,Smart Framework <= Multiple Plugins - Authenticated (Subscriber+) Arbitrary File Upload,"G5theme, Smart, WordPress",2025-05-02
 CVE-2024-13645,CRITICAL,9.8,66.678,47,TagDiv Composer <= 5.3 - Unauthenticated Arbitrary PHP Object Instantiation,"Tagdiv, WordPress",2025-04-04
 CVE-2024-13442,CRITICAL,9.8,29.875,47,Service Finder Bookings <= 5.0 - Unauthenticated Privilege Escalation via Account Takeover,"Aonetheme, WordPress",2025-03-19
 CVE-2024-13771,CRITICAL,9.8,30.156,47,Civi - Job Board & Freelance Marketplace WordPress Theme <= 2.1.4 - Authentication Bypass via Password Update,"Uxper, WordPress",2025-03-14
@@ -2088,7 +2098,6 @@ CVE-2024-8420,CRITICAL,9.8,27.251,47,DHVC Form <= 2.4.7 - Unauthenticated Privil
 CVE-2024-8326,HIGH,8.8,58.746,47,"s2Member – Excellent for All Kinds of Memberships, Content Restriction Paywalls & Member Access Subscriptions <= 241114 - Authenticated (Contributor+) Sensitive Information Exposure","And, Clavaque, Dropping",2024-12-17
 CVE-2024-8425,CRITICAL,9.8,67.992,47,WooCommerce Ultimate Gift Card <= 2.6.0 - Unauthenticated Arbitrary File Upload,"WordPress, Wp Swings",2025-02-28
 CVE-2024-8621,CRITICAL,9.9,62.706,47,Daily Prayer Time <= 2024.08.26 - Authenticated (Contributor+) SQL Injection,"Mmrs151, The, WordPress",2024-09-25
-CVE-2024-46992,HIGH,7.8,0.388,47,Electron ASAR Integrity bypass by just modifying the content,"Apple, Electron, Source",2025-07-01
 CVE-2024-20351,HIGH,8.6,58.544,47,Cisco Firepower Threat Defense Software Snort Firewall Denial of Service Vulnerability,"Cisco, Detection",2024-10-23
 CVE-2024-20412,CRITICAL,9.3,14.373,47,"CVE-2024-20412: A vulnerability in Cisco Firepower Threat Defense (FTD) Software for Cisco Firepower 1000, 2100, 310...",Cisco,2024-10-23
 CVE-2024-20467,HIGH,8.6,92.338,47,CVE-2024-20467: A vulnerability in the implementation of the IPv4 fragmentation reassembly code in Cisco IOS XE Soft...,Cisco,2024-09-25
@@ -2180,7 +2189,11 @@ CVE-2024-35242,HIGH,8.8,95.062,47,Composer vulnerable to command injection via m
 CVE-2024-0760,HIGH,7.5,96.934,47,A flood of DNS messages over TCP may make the server unstable,"Isc, The",2024-07-23
 CVE-2024-0709,CRITICAL,9.8,75.577,47,CVE-2024-0709: The Cryptocurrency Widgets – Price Ticker & Coins List plugin for WordPress is vulnerable to SQL Inj...,"Narinder-singh, The, WordPress",2024-02-05
 CVE-2024-0057,CRITICAL,9.1,84.255,47,"NET, .NET Framework, and Visual Studio Security Feature Bypass Vulnerability","Microsoft, Net",2024-01-09
+CVE-2025-3746,CRITICAL,9.8,50.271,47,OTP-less one tap Sign in 2.0.14 - 2.0.59 - Unauthenticated Arbitrary Email Update to Account Takeover/Privilege Escalation,"Thedrifted, WordPress",2025-05-02
+CVE-2025-3708,CRITICAL,9.8,31.998,47,Le-show Medical Practice Management System - SQL Injection,"Delete, Le-yan",2025-05-02
 CVE-2025-24522,CRITICAL,10.0,37.53,47,KUNBUS Revolution Pi  Authentication Bypass by Primary Weakness,"Kunbus Gmbh, Red",2025-05-01
+CVE-2025-53095,CRITICAL,9.7,3.629,47,Sunshine application-wide CSRF in the UI leads to command injection as Administrator,Lizardbyte,2025-07-01
+CVE-2025-41688,HIGH,7.2,29.16,46,High Privilege RCE via LUA Sandbox Escape,"Helmholz, Mb Connect Line",2025-07-31
 CVE-2025-33056,HIGH,7.5,33.787,46,Windows Local Security Authority (LSA) Denial of Service Vulnerability,"Authority, Microsoft",2025-06-10
 CVE-2025-33122,HIGH,7.5,18.076,46,IBM i privilege escalation,IBM,2025-06-17
 CVE-2025-33050,HIGH,7.5,38.856,46,DHCP Server Service Denial of Service Vulnerability,"Dhcp, Microsoft",2025-06-10
@@ -2510,7 +2523,6 @@ CVE-2025-20210,HIGH,7.3,29.778,46,Cisco Catalyst Center Unprotected API Endpoint
 CVE-2025-22243,HIGH,7.5,8.113,46,CVE-2025-22243: VMware NSX Manager UI is vulnerable to a stored Cross-Site Scripting (XSS) attack due to improper in...,VMware,2025-06-04
 CVE-2025-22630,CRITICAL,9.9,57.965,46,WordPress Widget Options Plugin <= 4.1.0 - Arbitrary Code Execution vulnerability,"Marketingfire, WordPress",2025-02-14
 CVE-2025-22526,CRITICAL,9.8,28.075,46,WordPress PHP/MySQL CPU performance statistics Plugin <= 1.2.1 - PHP Object Injection vulnerability,"Notfound, WordPress",2025-03-28
-CVE-2025-6938,HIGH,7.3,11.304,46,code-projects Simple Pizza Ordering System editcus.php sql injection,Code-projects,2025-07-01
 CVE-2025-6961,HIGH,7.3,11.304,46,Campcodes Employee Management System mark.php sql injection,Campcodes,2025-07-01
 CVE-2025-6814,HIGH,7.5,22.791,46,Booking X 1.0 - 1.1.2 - Missing Authorization to Unauthenticated Sensitive Information Disclosure via export_now() Function,"Dunskii, WordPress",2025-07-04
 CVE-2025-6956,HIGH,7.3,11.304,46,Campcodes Employee Management System changepassemp.php sql injection,Campcodes,2025-07-01
@@ -2534,7 +2546,6 @@ CVE-2025-6963,HIGH,7.3,11.304,46,Campcodes Employee Management System myprofile.
 CVE-2025-6018,HIGH,7.8,33.532,46,Pam-config: lpe from unprivileged to allow_active in pam,Red Hat,2025-07-23
 CVE-2025-6955,HIGH,7.3,11.304,46,Campcodes Employee Management System aprocess.php sql injection,Campcodes,2025-07-01
 CVE-2025-6031,HIGH,7.5,4.68,46,Insecure device pairing in end of life Amazon Cloud Cam,Amazon,2025-06-12
-CVE-2025-6937,HIGH,7.3,11.304,46,code-projects Simple Pizza Ordering System large.php sql injection,Code-projects,2025-07-01
 CVE-2025-6959,HIGH,7.3,11.304,46,Campcodes Employee Management System eloginwel.php sql injection,Campcodes,2025-07-01
 CVE-2025-6782,HIGH,7.5,20.179,46,GoZen Forms <= 1.1.5 - Unauthenticated SQL Injection via dirGZActiveForm(),"Optinlyhq, The, WordPress",2025-07-04
 CVE-2025-6213,HIGH,7.2,52.665,46,Nginx Cache Purge Preload <= 2.1.1 - Authenticated (Administrator+) Remote Code Execution,"Psauxit, The, WordPress",2025-07-22
@@ -3034,8 +3045,11 @@ CVE-2024-0610,CRITICAL,9.8,69.243,46,CVE-2024-0610: The Piraeus Bank WooCommerce
 CVE-2024-0221,CRITICAL,9.1,77.708,46,CVE-2024-0221: The Photo Gallery by 10Web – Mobile-Friendly Image Gallery plugin for WordPress is vulnerable to Dir...,"10web, The, WordPress",2024-02-05
 CVE-2024-0705,CRITICAL,9.8,64.758,46,CVE-2024-0705: The Stripe Payment Plugin for WooCommerce plugin for WordPress is vulnerable to SQL Injection via th...,"The, Webtoffee, WordPress",2024-01-19
 CVE-2025-49521,HIGH,8.8,26.564,46,Event-driven-ansible: template injection via git branch and refspec in eda projects,Red Hat,2025-06-30
+CVE-2025-3709,CRITICAL,9.8,19.218,46,Flowring Technology Agentflow - Account Lockout Bypass,Flowring Technology,2025-05-02
 CVE-2025-52995,HIGH,8.1,20.645,46,File Browser vulnerable to command execution allowlist bypass,"File, Filebrowser, The",2025-06-30
 CVE-2025-32011,CRITICAL,9.8,55.975,46,KUNBUS Revolution Pi  Authentication Bypass by Primary Weakness,Kunbus Gmbh,2025-05-01
+CVE-2025-2813,HIGH,7.5,24.986,45,HTTP Service DoS Vulnerability,Phoenix Contact,2025-07-31
+CVE-2025-46359,HIGH,7.2,21.987,45,CVE-2025-46359: A path traversal issue exists in backup and restore feature of multiple versions of PowerCMS. A prod...,Alfasado Inc.,2025-07-31
 CVE-2025-33137,HIGH,7.1,18.22,45,IBM Aspera Faspex data modification,"IBM, Of",2025-05-22
 CVE-2025-33136,HIGH,7.1,12.954,45,IBM Aspera Faspex data modification,IBM,2025-05-22
 CVE-2025-33121,HIGH,7.1,45.683,45,IBM QRadar SIEM XML external entity injection,IBM,2025-06-19
@@ -3143,7 +3157,6 @@ CVE-2025-7338,HIGH,7.5,15.135,45,Multer vulnerable to Denial of Service via unha
 CVE-2025-7801,HIGH,7.3,9.699,45,BossSoft CRM HNDCBas_customPrmSearchDtl.jsp sql injection,Bosssoft,2025-07-18
 CVE-2025-7345,HIGH,7.5,25.173,45,Gdk‑pixbuf: heap‑buffer‑overflow in gdk‑pixbuf,Red Hat,2025-07-08
 CVE-2025-7824,HIGH,7.3,18.354,45,Jinher OA XmlHttp.aspx xml external entity reference,Jinher,2025-07-19
-CVE-2025-7425,HIGH,7.8,2.038,45,Libxslt: heap use-after-free in libxslt caused by atype corruption in xmlattrptr,Red Hat,2025-07-10
 CVE-2025-7424,HIGH,7.8,3.573,45,Libxslt: type confusion in xmlnode.psvi between stylesheet and source nodes,Red Hat,2025-07-10
 CVE-2025-7766,HIGH,8.0,14.992,45,Lantronix Provisioning Manager Improper Restriction of XML External Entity Reference,Lantronix,2025-07-22
 CVE-2025-7438,HIGH,7.5,46.179,45,"MasterStudy LMS – Online Courses, eLearning PRO Plus <= 4.7.9 - Authenticated (Subscriber+) Arbitrary File Upload","Stylemixthemes, WordPress",2025-07-18
@@ -3664,7 +3677,6 @@ CVE-2024-11016,CRITICAL,9.8,42.499,45,Grand Vice info Webopac - SQL Injection,"D
 CVE-2024-11725,HIGH,8.8,39.419,45,SMS Alert Order Notifications – WooCommerce <= 3.7.6 - Missing Authorization to Authenticated (Subscriber+) Arbitrary Options Update,"Cozyvision1, WordPress",2025-01-07
 CVE-2024-11131,CRITICAL,9.8,50.376,45,CVE-2024-11131: A vulnerability regarding out-of-bounds read is found in the video interface. This allows remote att...,Synology,2025-03-19
 CVE-2024-11018,CRITICAL,9.8,82.448,45,Grand Vice info Webopac - Arbitrary File Upload,"Grand Vice Info, The",2024-11-11
-CVE-2024-12171,HIGH,8.8,26.462,45,ELEX WordPress HelpDesk & Customer Ticketing System <= 3.2.6 - Missing Authorization to Authenticated (Subscriber+) Privilege Escalation,"Elextensions, WordPress",2025-02-01
 CVE-2024-12296,HIGH,8.8,23.363,45,Apus Framework <= 2.3 - Authenticated (Subscriber+) Arbitrary Options Update in import_page_options,"Apus, Apustheme, WordPress",2025-02-12
 CVE-2024-12287,CRITICAL,9.8,62.194,45,Biagiotti Membership <= 1.0.2 - Authentication Bypass via biagiotti_membership_check_facebook_user,"Mikado-themes, WordPress",2024-12-18
 CVE-2024-12264,CRITICAL,9.8,26.941,45,PayU CommercePro Plugin <= 3.8.3 - Unauthenticated Privilege Escalation,"Payuplugin, WordPress",2025-01-07
@@ -3918,6 +3930,9 @@ CVE-2024-0244,CRITICAL,9.8,67.983,45,CVE-2024-0244: Buffer overflow in CPCA PCFA
 CVE-2025-54377,HIGH,7.8,22.224,45,Roo Code Lacks Line Break Validation in its Command Execution Tool,Roocodeinc,2025-07-23
 CVE-2025-47281,HIGH,7.7,11.178,45,Kyverno's Improper JMESPath Variable Evaluation Leads to Denial of Service,"Kyverno, Policy",2025-07-23
 CVE-2025-35996,CRITICAL,9.0,28.879,45,KUNBUS Revolution Pi Improper Neutralization of Server-Side Includes (SSI) Within a Web Page,"Kunbus Gmbh, Of",2025-05-01
+CVE-2024-13322,HIGH,7.5,94.619,45,Ads Pro Plugin - Multi-Purpose WordPress Advertising Manager <= 4.88 - Unauthenticated SQL Injection,"Scripteo, The, WordPress",2025-05-02
+CVE-2024-13418,HIGH,8.8,57.023,45,Smart Framework <= Multiple Plugins - Authenticated (Subscriber+) Arbitrary File Upload,"G5theme, Smart, WordPress",2025-05-02
+CVE-2024-46992,HIGH,7.8,0.388,45,Electron ASAR Integrity bypass by just modifying the content,"Apple, Electron, Source",2025-07-01
 CVE-2025-33074,HIGH,7.5,6.61,44,Azure Functions Remote Code Execution Vulnerability,Microsoft,2025-04-30
 CVE-2025-5856,HIGH,7.3,9.803,44,PHPGurukul BP Monitoring Management System registration.php sql injection,Phpgurukul,2025-06-09
 CVE-2025-5105,HIGH,7.3,19.803,44,TOZED ZLT W51 Service Port 7777 heap inspection,Tozed,2025-05-23
@@ -4292,7 +4307,6 @@ CVE-2025-4311,HIGH,7.3,10.506,44,itsourcecode Content Management System update_m
 CVE-2025-4303,HIGH,7.3,16.287,44,PHPGurukul Human Metapneumovirus Testing Management System add-phlebotomist.php sql injection,Phpgurukul,2025-05-06
 CVE-2025-4263,HIGH,7.3,9.838,44,PHPGurukul Online DJ Booking Management System booking-search.php sql injection,Phpgurukul,2025-05-05
 CVE-2025-4702,HIGH,7.3,10.506,44,PHPGurukul Vehicle Parking Management System add-category.php sql injection,Phpgurukul,2025-05-15
-CVE-2025-4195,HIGH,7.3,17.328,44,itsourcecode Gym Management System ajax.php sql injection,Itsourcecode,2025-05-02
 CVE-2025-4773,HIGH,7.3,10.506,44,PHPGurukul Online Course Registration level.php sql injection,Phpgurukul,2025-05-16
 CVE-2025-4502,HIGH,7.3,10.506,44,Campcodes Sales and Inventory System creditor_add.php sql injection,Campcodes,2025-05-10
 CVE-2025-4489,HIGH,7.3,10.506,44,Campcodes Online Food Ordering System user-router.php sql injection,Campcodes,2025-05-09
@@ -4368,7 +4382,6 @@ CVE-2025-4549,HIGH,7.3,10.506,44,Campcodes Online Food Ordering System register-
 CVE-2025-4507,HIGH,7.3,10.506,44,Campcodes Online Food Ordering System add-item.php sql injection,Campcodes,2025-05-10
 CVE-2025-4741,HIGH,7.3,16.287,44,Campcodes Sales and Inventory System purchase_add.php sql injection,Campcodes,2025-05-16
 CVE-2025-4241,HIGH,7.3,16.287,44,PHPGurukul Teacher Subject Allocation Management System search.php sql injection,Phpgurukul,2025-05-03
-CVE-2025-4193,HIGH,7.3,17.328,44,itsourcecode Restaurant Management System category_update.php sql injection,Itsourcecode,2025-05-02
 CVE-2025-4940,HIGH,7.3,11.494,44,1000 Projects Daily College Class Work Report Book admin_info.php sql injection,1000 Projects,2025-05-19
 CVE-2025-4755,HIGH,7.3,60.295,44,D-Link DI-7003GV2 netconfig.asp sub_497DE4 improper authentication,D-link,2025-05-16
 CVE-2025-4242,HIGH,7.3,8.36,44,PHPGurukul Online Birth Certificate System between-dates-report.php sql injection,Phpgurukul,2025-05-03
@@ -4437,7 +4450,6 @@ CVE-2025-4466,HIGH,7.3,10.506,44,itsourcecode Gym Management System ajax.php sql
 CVE-2025-4713,HIGH,7.3,10.506,44,Campcodes Sales and Inventory System print.php sql injection,Campcodes,2025-05-15
 CVE-2025-4465,HIGH,7.3,10.506,44,itsourcecode Gym Management System ajax.php sql injection,Itsourcecode,2025-05-09
 CVE-2025-4308,HIGH,7.3,16.287,44,PHPGurukul Art Gallery Management System add-art-type.php sql injection,Phpgurukul,2025-05-06
-CVE-2025-4192,HIGH,7.3,17.328,44,itsourcecode Restaurant Management System category_save.php sql injection,Itsourcecode,2025-05-02
 CVE-2025-4698,HIGH,7.3,10.506,44,PHPGurukul Directory Management System forget-password.php sql injection,Phpgurukul,2025-05-15
 CVE-2025-4861,HIGH,7.3,16.287,44,PHPGurukul Beauty Parlour Management System admin-profile.php sql injection,Phpgurukul,2025-05-18
 CVE-2025-4880,HIGH,7.3,16.287,44,PHPGurukul News Portal aboutus.php sql injection,Phpgurukul,2025-05-18
@@ -5036,10 +5048,8 @@ CVE-2024-13129,HIGH,8.8,58.989,44,Roxy-WI roxy.py action_service os command inje
 CVE-2024-13714,HIGH,8.8,52.786,44,All-Images.ai – IA Image Bank and Custom Image creation <= 1.0.4 - Authenticated (Subscriber+) Arbitrary File Upload,"Allimages, WordPress",2025-02-12
 CVE-2024-13232,HIGH,8.8,30.228,44,WordPress Awesome Import & Export Plugin - Import & Export WordPress Data <= 4.1.1 - Missing Authorization to Authenticated (Subscriber+) Arbitrary SQL Execution/Privilege Escalation,"Ddeveloper, WordPress",2025-03-05
 CVE-2024-13359,HIGH,8.1,59.59,44,Product Input Fields for WooCommerce  <= 1.12.0 - Unauthenticated Limited File Upload,"Tychesoftwares, WordPress",2025-03-08
-CVE-2024-13344,HIGH,7.5,22.727,44,Advance Seat Reservation Management for WooCommerce <= 3.3 - Unauthenticated SQL Injection,"Smartcms, The, WordPress",2025-05-02
 CVE-2024-13376,HIGH,8.8,23.055,44,Industrial <= 1.7.8 - Missing Authorization to Authenticated (Subscriber+) Arbitrary Options Update,"Anps, WordPress",2025-03-14
 CVE-2024-13677,HIGH,8.8,23.363,44,GetBookingsWp - Appointments & Bookings Plugin Basic Version <= 1.1.27 - Authenticated (Subscriber+) Privilege Escalation via Account Takeover,"Istmoplugins, WordPress",2025-02-18
-CVE-2024-13343,HIGH,8.8,23.363,44,WooCommerce Customers Manager <= 31.3 - Missing Authorization to Authenticated (Subscriber+) Privilege Escalation,"Vanquish, WordPress",2025-02-01
 CVE-2024-13684,HIGH,8.1,2.603,44,Reset <= 1.6 - Cross-Site Request Forgery to Database Reset,"Shubhamgrover7256, The, To",2025-02-18
 CVE-2024-7909,HIGH,8.8,61.884,44,TOTOLINK EX1200L cstecgi.cgi setLanguageCfg stack-based overflow,Totolink,2024-08-18
 CVE-2024-7763,CRITICAL,9.8,74.346,44,WhatsUp Gold getReport Missing Authentication Authentication Bypass Vulnerability,Progress Software Corporation,2024-10-24
@@ -5524,9 +5534,12 @@ CVE-2024-0802,CRITICAL,9.8,49.835,44,CVE-2024-0802: Incorrect Pointer Scaling vu
 CVE-2024-0368,HIGH,8.6,82.11,44,"CVE-2024-0368: The Hustle – Email Marketing, Lead Generation, Optins, Popups plugin for WordPress is vulnerable to ...","WordPress, Wpmudev",2024-03-13
 CVE-2024-0229,HIGH,7.8,59.589,44,Xorg-x11-server: reattaching to different master device may lead to out-of-bounds memory access,"Org, Red Hat, The",2024-02-09
 CVE-2025-36593,HIGH,8.8,7.023,44,"CVE-2025-36593: Dell OpenManage Network Integration, versions prior to 3.8, contains an Authentication Bypass by Cap...",Dell,2025-06-30
+CVE-2025-6938,HIGH,7.3,11.304,44,code-projects Simple Pizza Ordering System editcus.php sql injection,Code-projects,2025-07-01
 CVE-2025-6936,HIGH,7.3,11.304,44,code-projects Simple Pizza Ordering System addpro.php sql injection,Code-projects,2025-07-01
 CVE-2025-6935,HIGH,7.3,11.304,44,Campcodes Sales and Inventory System payment_add.php sql injection,Campcodes,2025-06-30
+CVE-2025-6937,HIGH,7.3,11.304,44,code-projects Simple Pizza Ordering System large.php sql injection,Code-projects,2025-07-01
 CVE-2025-53537,HIGH,7.5,16.267,44,LibHTP's memory leak with lzma can lead to resource starvation,Oisf,2025-07-23
+CVE-2025-5222,HIGH,7.0,5.8,43,Icu: stack buffer overflow in the srbroot::addtag function,Red Hat,2025-05-27
 CVE-2025-5601,HIGH,7.8,3.321,43,Buffer Copy without Checking Size of Input ('Classic Buffer Overflow') in Wireshark,Wireshark Foundation,2025-06-04
 CVE-2025-5791,HIGH,7.1,0.292,43,Users: `root` appended to group listings,Red Hat,2025-06-06
 CVE-2025-5522,HIGH,7.3,17.012,43,jack0240 魏 bskms 蓝天幼儿园管理系统 User Creation addUser improper authorization,Jack0240 魏,2025-06-03
@@ -7012,12 +7025,12 @@ CVE-2024-0799,CRITICAL,9.8,15.068,43,Authentication Bypass via wizardLogin in Ar
 CVE-2024-0002,CRITICAL,10.0,46.284,43,CVE-2024-0002: A condition exists in FlashArray Purity whereby an attacker can employ a privileged account allowing...,Purestorage,2024-09-23
 CVE-2025-36521,HIGH,8.8,16.664,43,MicroDicom DICOM Viewer Out-of-bounds Read,Microdicom,2025-05-01
 CVE-2025-24891,CRITICAL,9.7,50.325,43,Dumb Drop has an arbitrary file overwrite and path traversal for root shell,Dumbwareio,2025-01-31
+CVE-2024-12171,HIGH,8.8,26.462,43,ELEX WordPress HelpDesk & Customer Ticketing System <= 3.2.6 - Missing Authorization to Authenticated (Subscriber+) Privilege Escalation,"Elextensions, WordPress",2025-02-01
 CVE-2025-5335,HIGH,7.8,2.832,42,Privilege Ecalation due to Untrusted Search Path Vulnerability,Autodesk,2025-06-10
 CVE-2025-5990,HIGH,7.6,15.956,42,Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') in Crafty Controller,"Arcadia Technology, Llc, The",2025-06-15
 CVE-2025-5036,HIGH,7.8,5.158,42,RFA File Parsing Use-After-Free Vulnerability,Autodesk,2025-06-02
 CVE-2025-5180,HIGH,7.0,2.897,42,Wondershare Filmora Installer NFWCHK.exe uncontrolled search path,Wondershare,2025-05-26
 CVE-2025-5176,HIGH,7.3,7.194,42,Realce Tecnologia Queue Ticket Kiosk Admin Login Page index.php sql injection,Realce Tecnologia,2025-05-26
-CVE-2025-5222,HIGH,7.0,5.8,42,Icu: stack buffer overflow in the srbroot::addtag function,Red Hat,2025-05-27
 CVE-2025-5023,HIGH,7.1,3.582,42,CVE-2025-5023: Use of Hard-coded Credentials vulnerability in Mitsubishi Electric Corporation photovoltaic system m...,Mitsubishi Electric Corporation,2025-07-10
 CVE-2025-2801,HIGH,7.3,53.998,42,Create custom forms for WordPress with a smart form plugin for smart businesses <= 1.2.4 - Unauthenticated Arbitrary Shortcode Execution,"Dorinabc, WordPress",2025-04-26
 CVE-2025-2088,HIGH,7.3,18.252,42,PHPGurukul Pre-School Enrollment System profile.php sql injection,Phpgurukul,2025-03-07
@@ -7264,7 +7277,6 @@ CVE-2025-4013,HIGH,7.3,9.838,42,PHPGurukul Art Gallery Management System aboutus
 CVE-2025-4532,HIGH,7.0,2.123,42,Shanghai Bairui Information Technology SunloginClient sunlogin_guard.exe uncontrolled search path,Shanghai Bairui Information Technology,2025-05-11
 CVE-2025-4039,HIGH,7.3,16.287,42,PHPGurukul Rail Pass Management System search-pass.php sql injection,Phpgurukul,2025-04-28
 CVE-2025-4040,HIGH,7.1,7.202,42,IDOR in Turpak's Automatic Station Monitoring System,Turpak,2025-07-21
-CVE-2025-4179,HIGH,7.3,31.273,42,Flynax Bridge <= 2.2.0 - Unauthenticated Limited Privilege Escalation,"V1rustyle, WordPress",2025-05-02
 CVE-2025-4014,HIGH,7.3,9.838,42,PHPGurukul Art Gallery Management System manage-art-medium.php sql injection,Phpgurukul,2025-04-28
 CVE-2025-3683,HIGH,7.3,20.957,42,PCMan FTP Server SIZE Command buffer overflow,"Ftp, Pcman",2025-04-16
 CVE-2025-3694,HIGH,7.3,13.649,42,SourceCodester Web-based Pharmacy Product Management System Login sql injection,Sourcecodester,2025-04-16
@@ -8312,14 +8324,19 @@ CVE-2024-0538,HIGH,8.8,34.124,42,Tenda W9 httpd formQosManage_auto stack-based o
 CVE-2024-0203,HIGH,8.8,29.522,42,"CVE-2024-0203: The Digits plugin for WordPress is vulnerable to Cross-Site Request Forgery in versions up to, and i...","Unitedover, WordPress",2024-03-07
 CVE-2024-0087,CRITICAL,9.0,38.469,42,CVE,"Inference, NVIDIA",2024-05-09
 CVE-2025-4181,HIGH,7.3,26.599,42,PCMan FTP Server SEND Command buffer overflow,"Ftp, Pcman",2025-05-01
+CVE-2025-4195,HIGH,7.3,17.328,42,itsourcecode Gym Management System ajax.php sql injection,Itsourcecode,2025-05-02
 CVE-2025-4180,HIGH,7.3,26.599,42,PCMan FTP Server TRACE Command buffer overflow,"Ftp, Pcman",2025-05-01
 CVE-2025-4184,HIGH,7.3,20.957,42,PCMan FTP Server QUOTE Command buffer overflow,"Ftp, Pcman",2025-05-01
 CVE-2025-4191,HIGH,7.3,17.328,42,PHPGurukul Employee Record Management System editmyeducation.php sql injection,Phpgurukul,2025-05-02
 CVE-2025-4183,HIGH,7.3,26.599,42,PCMan FTP Server RECV Command buffer overflow,"Ftp, Pcman",2025-05-01
+CVE-2025-4193,HIGH,7.3,17.328,42,itsourcecode Restaurant Management System category_update.php sql injection,Itsourcecode,2025-05-02
 CVE-2025-4174,HIGH,7.3,16.287,42,PHPGurukul COVID19 Testing Management System login.php sql injection,Phpgurukul,2025-05-01
+CVE-2025-4192,HIGH,7.3,17.328,42,itsourcecode Restaurant Management System category_save.php sql injection,Itsourcecode,2025-05-02
 CVE-2025-4182,HIGH,7.3,20.957,42,PCMan FTP Server BELL Command buffer overflow,"Ftp, Pcman",2025-05-01
 CVE-2025-4176,HIGH,7.3,16.287,42,PHPGurukul Blood Bank & Donor Management System request-received-bydonar.php sql injection,Phpgurukul,2025-05-01
 CVE-2025-35975,HIGH,8.8,25.335,42,MicroDicom DICOM Viewer Out-of-bounds Write,Microdicom,2025-05-01
+CVE-2024-13344,HIGH,7.5,22.727,42,Advance Seat Reservation Management for WooCommerce <= 3.3 - Unauthenticated SQL Injection,"Smartcms, The, WordPress",2025-05-02
+CVE-2024-13343,HIGH,8.8,23.363,42,WooCommerce Customers Manager <= 31.3 - Missing Authorization to Authenticated (Subscriber+) Privilege Escalation,"Vanquish, WordPress",2025-02-01
 CVE-2025-5740,HIGH,7.2,39.081,41,CVE-2025-5740: CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability...,"Schneider Electric, Web",2025-06-10
 CVE-2025-34489,HIGH,7.8,6.766,41,GFI MailEssentials Local Privilege Escalation,Gfi,2025-04-28
 CVE-2025-2809,HIGH,7.3,52.479,41,azurecurve Shortcodes in Comments <= 2.0.2 - Unauthenticated Arbitrary Shortcode Execution,"Azurecurve, WordPress",2025-04-10
@@ -10587,7 +10604,6 @@ CVE-2024-53023,HIGH,7.8,3.308,40,Use After Free in Automotive Android OS,"Qualco
 CVE-2024-53012,HIGH,7.8,6.396,40,Improper Input Validation in Automotive OS Platform,"Qualcomm, Inc.",2025-03-03
 CVE-2024-53829,HIGH,8.2,7.575,40,Cross-Site Request Forgery in CodeChecker API,"Defect, Ericsson",2025-01-21
 CVE-2024-53029,HIGH,7.8,6.396,40,Improper Input Validation in Automotive OS Platform,"Qualcomm, Inc.",2025-03-03
-CVE-2024-53295,HIGH,7.8,4.85,40,"CVE-2024-53295: Dell PowerProtect DD versions prior to 8.3.0.0, 7.10.1.50, and 7.13.1.20 contain an improper access ...",Dell,2025-02-01
 CVE-2024-41672,HIGH,7.5,54.856,40,DuckDB: sniff_csv provides filesystem access even when enable_external_access is disabled,"Duckdb, Sql",2024-07-24
 CVE-2024-41956,HIGH,8.1,51.449,40,Soft Serve allows arbitrary code execution by crafting git-lfs requests,"Charmbracelet, Git",2024-08-01
 CVE-2024-41808,HIGH,8.8,33.1,40,OpenObserve stored XSS vulnerability may lead to complete account takeover,Openobserve,2024-07-25
@@ -10726,6 +10742,7 @@ CVE-2024-0946,HIGH,7.3,20.453,40,60IndexPage Parameter index.php server-side req
 CVE-2024-0945,HIGH,7.3,26.168,40,60IndexPage Parameter file.php server-side request forgery,"N/a, PHP, To",2024-01-26
 CVE-2024-0582,HIGH,7.8,62.231,40,Kernel: io_uring: page use-after-free vulnerability via buffer ring mmap,Red Hat,2024-01-16
 CVE-2024-0842,HIGH,7.5,47.625,40,"CVE-2024-0842: The Backuply – Backup, Restore, Migrate and Clone plugin for WordPress is vulnerable to Denial of Se...","Softaculous, The, WordPress",2024-02-09
+CVE-2025-4179,HIGH,7.3,31.273,40,Flynax Bridge <= 2.2.0 - Unauthenticated Limited Privilege Escalation,"V1rustyle, WordPress",2025-05-02
 CVE-2025-2794,HIGH,7.5,30.55,39,Kentico Xperience Staging Unsafe Reflection Kentico Xperience,Kentico,2025-03-31
 CVE-2025-2630,HIGH,7.3,2.807,39,DLL Hijacking Vulnerability in NI LabVIEW,Ni,2025-04-09
 CVE-2025-2629,HIGH,7.3,2.807,39,DLL Hijacking Vulnerability in NI LabVIEW When Loading NI Error Reporting,Ni,2025-04-09
@@ -12164,7 +12181,6 @@ CVE-2024-24851,HIGH,7.5,68.885,39,CVE-2024-24851: A heap-based buffer overflow v
 CVE-2024-24892,HIGH,8.1,39.544,39,Unauthorized RCE in migration-tools,Openeuler,2024-03-25
 CVE-2024-24582,HIGH,7.5,6.788,39,CVE-2024-24582: Improper input validation in XmlCli feature for UEFI firmware for some Intel(R) processors may allow...,N/a,2025-02-12
 CVE-2024-24794,HIGH,8.1,53.178,39,CVE-2024-24794: A use-after-free vulnerability exists in the DICOM Element Parsing as implemented in Imaging Data Co...,Imaging Data Commons,2024-02-20
-CVE-2024-51534,HIGH,7.1,25.637,39,"CVE-2024-51534: Dell PowerProtect DD versions prior to DDOS 8.3.0.0, 7.10.1.50, and 7.13.1.20 contain a path travers...","Dell, The",2025-02-01
 CVE-2024-51624,HIGH,7.1,20.426,39,WordPress Já-Já Pagamentos for WooCommerce plugin <= 1.3.0 - Reflected Cross Site Scripting (XSS) vulnerability,"Jajapagamentos, WordPress",2025-03-28
 CVE-2024-51503,HIGH,8.0,82.571,39,CVE-2024-51503: A security agent manual scan command injection vulnerability in the Trend Micro Deep Security 20 Age...,"Trend Micro, Inc.",2024-11-19
 CVE-2024-51526,HIGH,8.2,0.49,39,"CVE-2024-51526: Permission control vulnerability in the hidebug module
@@ -13927,6 +13943,7 @@ CVE-2024-0170,HIGH,7.8,46.147,38,"CVE-2024-0170:
 Dell Unity, versions prior to 5.4, contains an OS Command Injection Vulnerability in its svc_cava u...",Dell,2024-02-12
 CVE-2024-0648,HIGH,7.3,23.71,38,Yunyou CMS Common.php unrestricted upload,Yunyou,2024-01-17
 CVE-2024-0297,HIGH,7.3,80.568,38,Totolink N200RE cstecgi.cgi UploadFirmwareFile os command injection,Totolink,2024-01-08
+CVE-2024-53295,HIGH,7.8,4.85,38,"CVE-2024-53295: Dell PowerProtect DD versions prior to 8.3.0.0, 7.10.1.50, and 7.13.1.20 contain an improper access ...",Dell,2025-02-01
 CVE-2025-21111,HIGH,7.5,1.81,37,"CVE-2025-21111: Dell VxRail, versions 8.0.000 through 8.0.311, contain(s) a Plaintext Storage of a Password vulnerab...",Dell,2025-01-08
 CVE-2025-21599,HIGH,7.5,35.667,37,Junos OS Evolved: Receipt of specifically malformed IPv6 packets causes kernel memory exhaustion leading to Denial of Service,Juniper Networks,2025-01-09
 CVE-2025-21102,HIGH,7.5,2.128,37,"CVE-2025-21102: Dell VxRail, versions 7.0.000 through 7.0.532, contain(s) a Plaintext Storage of a Password vulnerab...",Dell,2025-01-08
@@ -15544,6 +15561,7 @@ CVE-2024-0429,HIGH,7.3,17.478,37,Buffer overflow vulnerability on Hex Workshop,H
 CVE-2024-0097,HIGH,7.5,13.722,37,CVE,NVIDIA,2024-05-09
 CVE-2024-0122,HIGH,7.6,25.65,37,CVE-2024-0122: NVIDIA Delegated Licensing Service for all appliance platforms contains a vulnerability where an att...,NVIDIA,2024-11-22
 CVE-2024-0819,HIGH,7.3,25.115,37,Incomplete protection of personal password settings,Teamviewer,2024-02-27
+CVE-2024-51534,HIGH,7.1,25.637,37,"CVE-2024-51534: Dell PowerProtect DD versions prior to DDOS 8.3.0.0, 7.10.1.50, and 7.13.1.20 contain a path travers...","Dell, The",2025-02-01
 CVE-2025-24458,HIGH,7.1,0.015,36,CVE-2025-24458: In JetBrains YouTrack before 2024.3.55417 account takeover was possible via spoofed email and Helpde...,Jetbrains,2025-01-21
 CVE-2025-23052,HIGH,7.2,57.526,36,Authenticated Command Injection Vulnerability allows Unauthorized Command Execution in CLI Interface,Hewlett Packard Enterprise (hpe),2025-01-14
 CVE-2025-23051,HIGH,7.2,29.841,36,Authenticated Remote Code Execution in AOS Web-based Management Interface,Hewlett Packard Enterprise (hpe),2025-01-14
@@ -15755,6 +15773,7 @@ CVE-2024-0155,HIGH,7.0,29.875,36,"CVE-2024-0155: Dell Digital Delivery, versions
 CVE-2024-0556,HIGH,7.1,40.173,36,Weak Cryptography for Passwords vulnerability on WIC1200,Full Compass Systems,2024-01-16
 CVE-2024-0128,HIGH,7.1,7.781,36,CVE-2024-0128: NVIDIA vGPU software contains a vulnerability in the Virtual GPU Manager that allows a user of the g...,NVIDIA,2024-10-26
 CVE-2024-0156,HIGH,7.0,24.695,36,"CVE-2024-0156: Dell Digital Delivery, versions prior to 5.2.0.0, contain a Buffer Overflow Vulnerability. A local l...",Dell,2024-03-04
+CVE-2025-53882,MEDIUM,4.4,8.819,35,python-mailman logrotate configuration allows potential escalation from mailman to root,Suse,2025-07-23
 CVE-2024-27372,MEDIUM,6.7,11.498,35,"CVE-2024-27372: An issue was discovered in Samsung Mobile Processor Exynos 980, Exynos 850, Exynos 1280, Exynos 1380...",N/a,2024-06-05
 CVE-2024-27134,HIGH,7.0,2.002,35,Excessive directory permissions in MLflow leads to local privilege escalation when using spark_udf,,2024-11-25
 CVE-2025-1891,MEDIUM,4.3,5.701,33,shishuocms cross-site request forgery,N/a,2025-03-03
