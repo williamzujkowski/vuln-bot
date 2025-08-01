@@ -154,12 +154,12 @@ class AlpineDashboardGenerator:
         products = vuln.get("products_list", [])
         vendors = vuln.get("vendors_list", [])
 
-        if products and vendors:
-            return f"{vendors[0]}/{products[0]}"
-        elif products:
-            return products[0]
+        if products:
+            # Return just the product name, properly capitalized
+            return products[0].title()
         elif vendors:
-            return vendors[0]
+            # If no product, fall back to vendor
+            return vendors[0].title()
         else:
             return "Unknown Product"
 
