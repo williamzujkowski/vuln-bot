@@ -1,0 +1,50 @@
+[
+  {
+    "category": "Homepage",
+    "issue": "Unexpected title: Vulnerability Intelligence Dashboard",
+    "severity": "medium",
+    "timestamp": "2025-07-31 19:53:30"
+  },
+  {
+    "category": "Homepage",
+    "issue": "Vulnerability dashboard not found",
+    "severity": "critical",
+    "timestamp": "2025-07-31 19:53:35"
+  },
+  {
+    "category": "Modal",
+    "issue": "CVE modal test failed: Locator expected to be visible\nActual value: <element(s) not found> \nCall log:\n  - Expect \"to_be_visible\" with timeout 5000ms\n  - waiting for locator(\"[role=\\\"dialog\\\"], .modal, [id*=\\\"modal\\\"]\")\n",
+    "severity": "high",
+    "timestamp": "2025-07-31 19:53:46"
+  },
+  {
+    "category": "Filters",
+    "issue": "EPSS filter test failed: Locator.fill: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator(\"input[placeholder*=\\\"Min EPSS\\\" i], input[id*=\\\"epss-min\\\" i]\")\n",
+    "severity": "medium",
+    "timestamp": "2025-07-31 19:54:16"
+  },
+  {
+    "category": "Visualization",
+    "issue": "No charts found on page",
+    "severity": "low",
+    "timestamp": "2025-07-31 19:54:16"
+  },
+  {
+    "category": "Export",
+    "issue": "Export button not found",
+    "severity": "low",
+    "timestamp": "2025-07-31 19:54:16"
+  },
+  {
+    "category": "Keyboard",
+    "issue": "Keyboard shortcut test failed: 'Locator' object has no attribute 'is_focused'",
+    "severity": "low",
+    "timestamp": "2025-07-31 19:54:17"
+  },
+  {
+    "category": "Mobile",
+    "issue": "Table not visible on mobile",
+    "severity": "medium",
+    "timestamp": "2025-07-31 19:54:17"
+  }
+]

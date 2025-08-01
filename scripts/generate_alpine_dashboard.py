@@ -696,6 +696,74 @@ class AlpineDashboardGenerator:
         }}
 
 
+
+        /* Enhanced Mobile Responsiveness */
+        @media (max-width: 768px) {{
+            .table-wrapper {{
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                margin: 0 -1rem;
+                padding: 0 1rem;
+            }}
+            
+            table {{
+                min-width: 600px;
+            }}
+            
+            /* Add scroll indicator */
+            .table-wrapper::after {{
+                content: '→ Scroll for more';
+                position: absolute;
+                right: 1rem;
+                top: 1rem;
+                background: rgba(0,0,0,0.8);
+                color: white;
+                padding: 0.25rem 0.5rem;
+                border-radius: 4px;
+                font-size: 0.75rem;
+                pointer-events: none;
+                opacity: 0;
+                transition: opacity 0.3s;
+            }}
+            
+            .table-wrapper:not(:hover)::after {{
+                opacity: 1;
+            }}
+            
+            /* Responsive table cells */
+            td, th {{
+                white-space: nowrap;
+                min-width: 100px;
+            }}
+            
+            /* Hide less important columns on mobile */
+            th:nth-child(5), td:nth-child(5) {{ /* Risk Score */
+                display: none;
+            }}
+            
+            .stats-card {{
+                padding: 1rem;
+            }}
+            
+            .stat-value {{
+                font-size: 1.75rem;
+            }}
+            
+            .filter-grid {{
+                grid-template-columns: 1fr;
+            }}
+            
+            .quick-filters {{
+                flex-wrap: wrap;
+                justify-content: center;
+            }}
+            
+            .filter-chip {{
+                font-size: 0.875rem;
+                padding: 0.375rem 0.75rem;
+            }}
+        }}
+
         /* Responsive */
         @media (max-width: 768px) {{
             .header-content {{
@@ -761,16 +829,13 @@ class AlpineDashboardGenerator:
                     </button>
                 </div>
             </div>
-        </header>
 
-        <!-- Main Content -->
-        <main class="main">
             <!-- Stats Section -->
             <div class="stats-grid">
                 <div class="stat-card">
                     <div class="stat-value" x-text="stats.total"></div>
                     <div class="stat-label">Total Vulnerabilities</div>
-                    <div class="stat-change negative">
+                    <div class="stat-change positive">
                         <span x-text="`+${{stats.week_count}}`"></span>
                         <span>from last week</span>
                     </div>

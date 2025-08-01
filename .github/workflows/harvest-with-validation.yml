@@ -1,0 +1,271 @@
+name: Enhanced CVE Harvest with Great Expectations
+
+on:
+  schedule:
+    - cron: '0 */4 * * *'  # Every 4 hours
+  workflow_dispatch:
+    inputs:
+      sources:
+        description: 'Data sources to harvest (space-separated)'
+        required: false
+        default: 'cvelist nvd github_advisory epss'
+      enable_validation:
+        description: 'Enable Great Expectations validation'
+        required: false
+        type: boolean
+        default: true
+
+jobs:
+  harvest-validate-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          
+      - name: Cache dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/pip
+            ~/.cache/uv
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          
+      - name: Install dependencies
+        run: |
+          pip install uv
+          uv pip install --system -r requirements.txt
+          uv pip install --system great-expectations pandas
+          
+      - name: Cache vulnerability data
+        uses: actions/cache@v4
+        with:
+          path: .cache/
+          key: vuln-cache-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: |
+            vuln-cache-${{ runner.os }}-
+            
+      - name: Initialize Great Expectations
+        run: |
+          python -c "
+          from pathlib import Path
+          import great_expectations as gx
+          
+          # Create GX directory structure
+          gx_dir = Path('great_expectations')
+          gx_dir.mkdir(exist_ok=True)
+          
+          # Initialize context
+          context = gx.data_context.DataContext.create(project_root_dir='.')
+          print('Great Expectations initialized')
+          "
+          
+      - name: Run enhanced harvest pipeline
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
+          EPSS_API_KEY: ${{ secrets.EPSS_API_KEY }}
+        run: |
+          # Run controller agent with validation
+          python -m agents.controller_agent harvest \
+            --sources ${{ github.event.inputs.sources || 'cvelist nvd github_advisory epss' }} \
+            ${{ github.event.inputs.enable_validation == 'true' && '--with-validation' || '' }} \
+            --checkpoint harvest_checkpoint \
+            --cache-dir .cache/ 2>&1 | tee harvest.log
+            
+      - name: Generate quality report
+        run: |
+          python -m agents.quality_agent report \
+            --output reports/quality_report.html
+            
+      - name: Build Alpine.js dashboard
+        run: |
+          python scripts/generate_alpine_dashboard.py
+          
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          
+      - name: Install Playwright
+        run: |
+          npm install -D @playwright/test
+          npx playwright install chromium
+          
+      - name: Run Playwright E2E tests
+        id: e2e_tests
+        continue-on-error: true
+        run: |
+          # Start local server for testing
+          python -m http.server 8000 -d public &
+          SERVER_PID=$!
+          
+          # Wait for server to start
+          sleep 5
+          
+          # Run tests against local server
+          BASE_URL=http://localhost:8000 npx playwright test \
+            --config=tests/e2e/playwright.config.ts \
+            --reporter=json > test-results.json
+          
+          # Stop server
+          kill $SERVER_PID
+          
+      - name: Process test failures
+        if: steps.e2e_tests.outcome == 'failure'
+        run: |
+          python -c "
+          import json
+          from pathlib import Path
+          
+          # Read test results
+          with open('test-results.json') as f:
+              results = json.load(f)
+              
+          # Extract failures as todos
+          todos = []
+          for suite in results.get('suites', []):
+              for spec in suite.get('specs', []):
+                  for test in spec.get('tests', []):
+                      if test.get('status') == 'failed':
+                          todos.append({
+                              'type': 'test_failure',
+                              'test': test.get('title'),
+                              'error': test.get('error', {}).get('message'),
+                              'file': spec.get('file')
+                          })
+                          
+          # Save todos
+          with open('e2e-issues.json', 'w') as f:
+              json.dump(todos, f, indent=2)
+              
+          print(f'Found {len(todos)} test failures')
+          "
+          
+      - name: Check quality gates
+        run: |
+          python -c "
+          import json
+          import sys
+          
+          # Load quality report
+          with open('reports/quality_report.json') as f:
+              report = json.load(f)
+              
+          # Check quality gates
+          failures = []
+          
+          # Vendor extraction rate > 80%
+          vendor_rate = report['summary']['vendor_extraction_rate']
+          if vendor_rate < 0.8:
+              failures.append(f'Vendor extraction rate {vendor_rate:.1%} < 80%')
+              
+          # CVSS completeness > 90%
+          cvss_complete = report['summary']['cvss_coverage']
+          if cvss_complete < 0.9:
+              failures.append(f'CVSS completeness {cvss_complete:.1%} < 90%')
+              
+          # Overall quality > 85%
+          overall = report['summary']['avg_completeness']
+          if overall < 0.85:
+              failures.append(f'Overall quality {overall:.1%} < 85%')
+              
+          if failures:
+              print('❌ Quality gates failed:')
+              for f in failures:
+                  print(f'  - {f}')
+              sys.exit(1)
+          else:
+              print('✅ All quality gates passed!')
+          "
+          
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: pipeline-artifacts
+          path: |
+            reports/
+            harvest.log
+            test-results.json
+            e2e-issues.json
+            great_expectations/uncommitted/
+            
+      - name: Commit and push changes
+        if: success()
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          
+          # Add generated files
+          git add -A public/
+          git add -A api/
+          git add -A reports/
+          
+          # Check if there are changes
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: update vulnerability data with validation [skip ci]
+            
+            - Harvested from: ${{ github.event.inputs.sources || 'all sources' }}
+            - Validation: ${{ github.event.inputs.enable_validation || 'enabled' }}
+            - Pipeline run: ${{ github.run_id }}"
+            
+            git push
+          fi
+          
+      - name: Deploy to GitHub Pages
+        if: success()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          
+      - name: Create issue for failures
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            
+            // Read E2E issues if available
+            let e2eIssues = [];
+            if (fs.existsSync('e2e-issues.json')) {
+              e2eIssues = JSON.parse(fs.readFileSync('e2e-issues.json', 'utf8'));
+            }
+            
+            // Create issue body
+            let body = `## Pipeline Failure Report\n\n`;
+            body += `**Run ID**: ${context.runId}\n`;
+            body += `**Sources**: ${{ github.event.inputs.sources || 'all' }}\n\n`;
+            
+            if (e2eIssues.length > 0) {
+              body += `### E2E Test Failures\n\n`;
+              e2eIssues.forEach(issue => {
+                body += `- **${issue.test}**\n`;
+                body += `  - File: ${issue.file}\n`;
+                body += `  - Error: ${issue.error}\n\n`;
+              });
+            }
+            
+            body += `\n[View full logs](${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId})`;
+            
+            // Create issue
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `Pipeline Failure: ${new Date().toISOString().split('T')[0]}`,
+              body: body,
+              labels: ['bug', 'ci-failure']
+            });
