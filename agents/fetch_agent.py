@@ -44,26 +44,22 @@ class FetchAgent:
         self.cvelist_client = CVEListClient(
             cache_dir=self.cache_dir / "api_cache",
             use_github_api=True,
-            use_releases=True,
-            cache_manager=self.cache_manager
+            use_releases=True
         )
 
         # NVD client
         self.nvd_client = NVDClient(
             api_key=self.api_keys.get("nvd_api_key"),
-            cache_dir=self.cache_dir / "api_cache",
-            cache_manager=self.cache_manager
+            cache_dir=self.cache_dir / "api_cache"
         )
 
         # GitHub Advisory client
         self.github_advisory_client = GitHubAdvisoryClient(
-            github_token=self.api_keys.get("github_token"),
             cache_dir=self.cache_dir / "api_cache"
         )
 
         # EPSS client
         self.epss_client = EPSSClient(
-            api_key=self.api_keys.get("epss_api_key"),
             cache_dir=self.cache_dir / "api_cache"
         )
 
