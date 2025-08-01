@@ -838,7 +838,7 @@ class AlpineDashboardGenerator:
                     <div class="stat-value" x-text="stats.total"></div>
                     <div class="stat-label">Total Vulnerabilities</div>
                     <div class="stat-change positive">
-                        <span x-text="`+${{stats.week_count}}`"></span>
+                        <span x-text="`+${stats.week_count}`"></span>
                         <span>from last week</span>
                     </div>
                 </div>
@@ -847,7 +847,7 @@ class AlpineDashboardGenerator:
                     <div class="stat-value" x-text="stats.critical"></div>
                     <div class="stat-label">Critical Severity</div>
                     <div class="stat-change negative">
-                        <span x-text="`+${{stats.today_count}}`"></span>
+                        <span x-text="`+${stats.today_count}`"></span>
                         <span>new today</span>
                     </div>
                 </div>
@@ -856,7 +856,7 @@ class AlpineDashboardGenerator:
                     <div class="stat-value" x-text="stats.high"></div>
                     <div class="stat-label">High Severity</div>
                     <div class="stat-trend">
-                        <span x-text="`${{Math.round(stats.high / stats.total * 100)}}%`"></span>
+                        <span x-text="`${Math.round(stats.high / stats.total * 100)}%`"></span>
                         <span>of total</span>
                     </div>
                 </div>
@@ -874,34 +874,34 @@ class AlpineDashboardGenerator:
             <!-- Quick Filters -->
             <div class="quick-filters">
                 <button class="filter-chip"
-                        :class="{{ 'active': quickFilter === 'all' }}"
+                        :class="{ 'active': quickFilter === 'all' }"
                         @click="setQuickFilter('all')">
                     All Vulnerabilities
                 </button>
                 <button class="filter-chip"
-                        :class="{{ 'active': quickFilter === 'critical' }}"
+                        :class="{ 'active': quickFilter === 'critical' }"
                         @click="setQuickFilter('critical')">
                     <span class="severity-badge severity-critical">Critical</span>
                 </button>
                 <button class="filter-chip"
-                        :class="{{ 'active': quickFilter === 'today' }}"
+                        :class="{ 'active': quickFilter === 'today' }"
                         @click="setQuickFilter('today')">
                     📅 Today's CVEs
                 </button>
                 <button class="filter-chip"
-                        :class="{{ 'active': quickFilter === 'kev' }}"
+                        :class="{ 'active': quickFilter === 'kev' }"
                         @click="setQuickFilter('kev')">
                     ⭐ KEV Listed
                 </button>
                 <button class="filter-chip"
-                        :class="{{ 'active': quickFilter === 'network' }}"
+                        :class="{ 'active': quickFilter === 'network' }"
                         @click="setQuickFilter('network')">
                     🌐 Network Vector
                 </button>
             </div>
 
             <!-- Filters Section -->
-            <div class="filters-section" x-data="{{ expanded: true }}">
+            <div class="filters-section" x-data="{ expanded: true }">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
                     <h2 style="font-size: 1.25rem;">Filters</h2>
                     <button @click="expanded = !expanded"
@@ -992,7 +992,7 @@ class AlpineDashboardGenerator:
             <div class="data-section">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
                     <h2 style="font-size: 1.5rem;">Vulnerabilities</h2>
-                    <div x-text="`Showing ${{Math.min(perPage, filteredVulns.length)}} of ${{filteredVulns.length}} results`"
+                    <div x-text="`Showing ${Math.min(perPage, filteredVulns.length)} of ${filteredVulns.length} results`"
                          style="color: var(--text-secondary);"></div>
                 </div>
 
@@ -1026,10 +1026,10 @@ class AlpineDashboardGenerator:
                             <template x-for="vuln in paginatedVulns" :key="vuln.cve_id">
                                 <tr class="vulnerability-row" :data-cve="vuln.cve_id">
                                     <td>
-                                        <a :href="`/vuln-bot/cves/${{vuln.cve_id}}/`" class="cve-link" x-text="vuln.cve_id"></a>
+                                        <a :href="`/vuln-bot/cves/${vuln.cve_id}/`" class="cve-link" x-text="vuln.cve_id"></a>
                                     </td>
                                     <td>
-                                        <span class="severity-badge" :class="`severity-${{vuln.severity.toLowerCase()}}`" x-text="vuln.severity"></span>
+                                        <span class="severity-badge" :class="`severity-${vuln.severity.toLowerCase()}`" x-text="vuln.severity"></span>
                                     </td>
                                     <td x-text="vuln.cvss_score"></td>
                                     <td x-text="vuln.epss_percentile"></td>
@@ -1048,7 +1048,7 @@ class AlpineDashboardGenerator:
                                 :disabled="currentPage <= 1">
                             Previous
                         </button>
-                        <span x-text="`Page ${{currentPage}} of ${{totalPages}} • ${{filteredVulns.length}} vulnerabilities`"></span>
+                        <span x-text="`Page ${currentPage} of ${totalPages} • ${filteredVulns.length} vulnerabilities`"></span>
                         <button class="page-btn"
                                 @click="currentPage++"
                                 :disabled="currentPage >= totalPages">
@@ -1066,7 +1066,7 @@ class AlpineDashboardGenerator:
         const vulnerabilityData = VULN_DATA_PLACEHOLDER;
         const statsData = STATS_DATA_PLACEHOLDER;
 
-        function dashboard() {{
+        window.dashboard = function() {{
             return {{
                 // Data
                 vulnerabilities: vulnerabilityData,
@@ -1169,7 +1169,7 @@ class AlpineDashboardGenerator:
 
                         // Handle special cases
                         if (this.sortField === 'severity') {{
-                            const severityOrder = {{ 'CRITICAL': 4, 'HIGH': 3, 'MEDIUM': 2, 'LOW': 1 }};
+                            const severityOrder = { 'CRITICAL': 4, 'HIGH': 3, 'MEDIUM': 2, 'LOW': 1 }};
                             aVal = severityOrder[aVal] || 0;
                             bVal = severityOrder[bVal] || 0;
                         }}
@@ -1235,13 +1235,13 @@ class AlpineDashboardGenerator:
                             v.cvss_score,
                             v.epss_percentile,
                             v.risk_score,
-                            `"${{v.products.replace(/"/g, '""')}}"`,
-                            `"${{v.vendors.join(', ')}}"`,
+                            `"${v.products.replace(/"/g, '""')}"`,
+                            `"${v.vendors.join(', ')}"`,
                             v.published_short
                         ].join(','))
                     ].join('\\n');
 
-                    const blob = new Blob([csvContent], {{ type: 'text/csv' }});
+                    const blob = new Blob([csvContent], { type: 'text/csv' }});
                     const url = window.URL.createObjectURL(blob);
                     const a = document.createElement('a');
                     a.href = url;
@@ -1296,7 +1296,7 @@ class AlpineDashboardGenerator:
                                 maintainAspectRatio: false,
                                 plugins: {{
                                     legend: {{
-                                        labels: {{ color: '#cbd5e1' }}
+                                        labels: { color: '#cbd5e1' }}
                                     }}
                                 }}
                             }}
@@ -1323,14 +1323,14 @@ class AlpineDashboardGenerator:
                                 responsive: true,
                                 maintainAspectRatio: false,
                                 plugins: {{
-                                    legend: {{ display: false }},
+                                    legend: { display: false }},
                                 }},
                                 scales: {{
                                     y: {{
-                                        ticks: {{ color: '#cbd5e1' }}
+                                        ticks: { color: '#cbd5e1' }}
                                     }},
                                     x: {{
-                                        ticks: {{ color: '#cbd5e1' }}
+                                        ticks: { color: '#cbd5e1' }}
                                     }}
                                 }}
                             }}
