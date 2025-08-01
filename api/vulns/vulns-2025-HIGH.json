@@ -1,7 +1,7 @@
 {
   "chunk": "2025-HIGH",
   "count": 6521,
-  "generated": "2025-07-31T20:07:00.143227",
+  "generated": "2025-08-01T00:27:41.633789",
   "vulnerabilities": [
     {
       "cveId": "CVE-2025-30066",
@@ -1362,85 +1362,6 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/21xxx/CVE-2025-21333.json",
             "lastModified": "2025-07-30T01:36:21.722000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-49520",
-      "title": "Event-driven-ansible: authenticated argument injection in git url in eda project creation",
-      "description": "A flaw was found in Ansible Automation Platform’s EDA component where user-supplied Git URLs are passed unsanitized to the git ls-remote command. This vulnerability allows an authenticated attacker to inject arguments and execute arbitrary commands on the EDA worker. In Kubernetes/OpenShift environments, this can lead to service account token theft and cluster access.",
-      "publishedDate": "2025-06-30T20:45:28.706000+00:00",
-      "lastModifiedDate": "2025-07-02T03:55:21.471000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 8.8,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.0009,
-        "percentile": 26.564
-      },
-      "riskScore": 54,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Kubernetes",
-          "Red Hat"
-        ],
-        "products": [
-          "Kubernetes",
-          "Red Hat Ansible Automation Platform 2.5 For Rhel 8",
-          "Red Hat Ansible Automation Platform 2.5 For Rhel 9"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://access.redhat.com/errata/RHSA-2025:9986",
-          "source": "RHSA-2025:9986",
-          "tags": [
-            "vendor-advisory",
-            "x_refsource_REDHAT"
-          ]
-        },
-        {
-          "url": "https://access.redhat.com/security/cve/CVE-2025-49520",
-          "source": "",
-          "tags": [
-            "vdb-entry",
-            "x_refsource_REDHAT"
-          ]
-        },
-        {
-          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2370812",
-          "source": "RHBZ#2370812",
-          "tags": [
-            "issue-tracking",
-            "x_refsource_REDHAT"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-88"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "Low",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/49xxx/CVE-2025-49520.json",
-            "lastModified": "2025-07-02T03:55:21.471000+00:00"
           }
         ]
       }
@@ -4640,6 +4561,85 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/12xxx/CVE-2024-12471.json",
             "lastModified": "2025-01-07T16:14:42.070000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-49520",
+      "title": "Event-driven-ansible: authenticated argument injection in git url in eda project creation",
+      "description": "A flaw was found in Ansible Automation Platform’s EDA component where user-supplied Git URLs are passed unsanitized to the git ls-remote command. This vulnerability allows an authenticated attacker to inject arguments and execute arbitrary commands on the EDA worker. In Kubernetes/OpenShift environments, this can lead to service account token theft and cluster access.",
+      "publishedDate": "2025-06-30T20:45:28.706000+00:00",
+      "lastModifiedDate": "2025-07-02T03:55:21.471000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 8.8,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.0009,
+        "percentile": 26.564
+      },
+      "riskScore": 52,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Kubernetes",
+          "Red Hat"
+        ],
+        "products": [
+          "Kubernetes",
+          "Red Hat Ansible Automation Platform 2.5 For Rhel 8",
+          "Red Hat Ansible Automation Platform 2.5 For Rhel 9"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2025:9986",
+          "source": "RHSA-2025:9986",
+          "tags": [
+            "vendor-advisory",
+            "x_refsource_REDHAT"
+          ]
+        },
+        {
+          "url": "https://access.redhat.com/security/cve/CVE-2025-49520",
+          "source": "",
+          "tags": [
+            "vdb-entry",
+            "x_refsource_REDHAT"
+          ]
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2370812",
+          "source": "RHBZ#2370812",
+          "tags": [
+            "issue-tracking",
+            "x_refsource_REDHAT"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-88"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "Low",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/49xxx/CVE-2025-49520.json",
+            "lastModified": "2025-07-02T03:55:21.471000+00:00"
           }
         ]
       }
@@ -33474,83 +33474,6 @@
       }
     },
     {
-      "cveId": "CVE-2025-49521",
-      "title": "Event-driven-ansible: template injection via git branch and refspec in eda projects",
-      "description": "A flaw was found in the EDA component of the Ansible Automation Platform, where user-supplied Git branch or refspec values are evaluated as Jinja2 templates. This vulnerability allows authenticated users to inject expressions that execute commands or access sensitive files on the EDA worker. In OpenShift, it can lead to service account token theft.",
-      "publishedDate": "2025-06-30T20:45:13.138000+00:00",
-      "lastModifiedDate": "2025-07-22T16:02:06.025000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 8.8,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.0009,
-        "percentile": 26.564
-      },
-      "riskScore": 48,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Red Hat"
-        ],
-        "products": [
-          "Red Hat Ansible Automation Platform 2.5 For Rhel 8",
-          "Red Hat Ansible Automation Platform 2.5 For Rhel 9"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://access.redhat.com/errata/RHSA-2025:9986",
-          "source": "RHSA-2025:9986",
-          "tags": [
-            "vendor-advisory",
-            "x_refsource_REDHAT"
-          ]
-        },
-        {
-          "url": "https://access.redhat.com/security/cve/CVE-2025-49521",
-          "source": "",
-          "tags": [
-            "vdb-entry",
-            "x_refsource_REDHAT"
-          ]
-        },
-        {
-          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2370817",
-          "source": "RHBZ#2370817",
-          "tags": [
-            "issue-tracking",
-            "x_refsource_REDHAT"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-94"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "Low",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/49xxx/CVE-2025-49521.json",
-            "lastModified": "2025-07-22T16:02:06.025000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2025-49690",
       "title": "Capability Access Management Service (camsvc) Elevation of Privilege Vulnerability",
       "description": "Concurrent execution using shared resource with improper synchronization ('race condition') in Capability Access Management Service (camsvc) allows an unauthorized attacker to elevate privileges locally.",
@@ -58464,72 +58387,6 @@
       }
     },
     {
-      "cveId": "CVE-2025-54377",
-      "title": "Roo Code Lacks Line Break Validation in its Command Execution Tool",
-      "description": "Roo Code is an AI-powered autonomous coding agent that lives in users' editors. In versions 3.23.18 and below, RooCode does not validate line breaks (\\n) in its command input, allowing potential bypass of the allow-list mechanism. The project appears to lack parsing or validation logic to prevent multi-line command injection. When commands are evaluated for execution, only the first line or token may be considered, enabling attackers to smuggle additional commands in subsequent lines. This is fixed in version 3.23.19.",
-      "publishedDate": "2025-07-23T20:36:01.878000+00:00",
-      "lastModifiedDate": "2025-07-23T20:48:31.557000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 7.8,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.0007,
-        "percentile": 22.224
-      },
-      "riskScore": 47,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Roocodeinc"
-        ],
-        "products": [
-          "Roo-code"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://github.com/RooCodeInc/Roo-Code/security/advisories/GHSA-p278-52x9-cffx",
-          "source": "https://github.com/RooCodeInc/Roo-Code/security/advisories/GHSA-p278-52x9-cffx",
-          "tags": [
-            "x_refsource_CONFIRM"
-          ]
-        },
-        {
-          "url": "https://github.com/RooCodeInc/Roo-Code/commit/9d434c2db9b20eb5c78b698cb2b0037cd2074534",
-          "source": "https://github.com/RooCodeInc/Roo-Code/commit/9d434c2db9b20eb5c78b698cb2b0037cd2074534",
-          "tags": [
-            "x_refsource_MISC"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-77"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Local",
-        "attackComplexity": "Low",
-        "privilegesRequired": "Low",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/54xxx/CVE-2025-54377.json",
-            "lastModified": "2025-07-23T20:48:31.557000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2025-7620",
       "title": "DSIC｜Cross-browser Components for Official Document Creation - Remote Code Execution",
       "description": "The cross-browser document creation component produced by Digitware System Integration Corporation has a Remote Code Execution vulnerability. If a user visits a malicious website while the component is active, remote attackers can cause the system to download and execute arbitrary programs.",
@@ -59837,75 +59694,6 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/47xxx/CVE-2025-47165.json",
             "lastModified": "2025-07-11T16:36:44.472000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-47281",
-      "title": "Kyverno's Improper JMESPath Variable Evaluation Leads to Denial of Service",
-      "description": "Kyverno is a policy engine designed for cloud native platform engineering teams. In versions 1.14.1 and below, a Denial of Service (DoS) vulnerability exists due to improper handling of JMESPath variable substitutions. Attackers with permissions to create or update Kyverno policies can craft expressions using the {{@}} variable combined with a pipe and an invalid JMESPath function (e.g., {{@ | non_existent_function }}). This leads to a nil value being substituted into the policy structure. Subsequent processing by internal functions, specifically getValueAsStringMap, which expect string values, results in a panic due to a type assertion failure (interface {} is nil, not string). This crashes Kyverno worker threads in the admission controller and causes continuous crashes of the reports controller pod. This is fixed in version 1.14.2.",
-      "publishedDate": "2025-07-23T20:35:21.199000+00:00",
-      "lastModifiedDate": "2025-07-23T20:49:31.882000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:N/I:N/A:H",
-          "baseScore": 7.7,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.0004,
-        "percentile": 11.178
-      },
-      "riskScore": 47,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Kyverno",
-          "Policy"
-        ],
-        "products": [
-          "Kyverno",
-          "Policy Engine"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://github.com/kyverno/kyverno/security/advisories/GHSA-r5p3-955p-5ggq",
-          "source": "https://github.com/kyverno/kyverno/security/advisories/GHSA-r5p3-955p-5ggq",
-          "tags": [
-            "x_refsource_CONFIRM"
-          ]
-        },
-        {
-          "url": "https://github.com/kyverno/kyverno/commit/cbd7d4ca24de1c55396fc3295e9fc3215832be7c",
-          "source": "https://github.com/kyverno/kyverno/commit/cbd7d4ca24de1c55396fc3295e9fc3215832be7c",
-          "tags": [
-            "x_refsource_MISC"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-20",
-          "CWE-248"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "Low",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/47xxx/CVE-2025-47281.json",
-            "lastModified": "2025-07-23T20:49:31.882000+00:00"
           }
         ]
       }
@@ -97451,103 +97239,6 @@
       }
     },
     {
-      "cveId": "CVE-2025-6936",
-      "title": "code-projects Simple Pizza Ordering System addpro.php sql injection",
-      "description": "A vulnerability was found in code-projects Simple Pizza Ordering System 1.0. It has been classified as critical. This affects an unknown part of the file /addpro.php. The manipulation of the argument ID leads to sql injection. It is possible to initiate the attack remotely. The exploit has been disclosed to the public and may be used.",
-      "publishedDate": "2025-07-01T00:02:05.868000+00:00",
-      "lastModifiedDate": "2025-07-01T19:17:33.429000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L/E:P/RL:X/RC:R",
-          "baseScore": 7.3,
-          "baseSeverity": "HIGH"
-        },
-        {
-          "version": "3.0",
-          "vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L/E:P/RL:X/RC:R",
-          "baseScore": 7.3,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.0004,
-        "percentile": 11.304
-      },
-      "riskScore": 46,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Code-projects"
-        ],
-        "products": [
-          "Simple Pizza Ordering System"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://vuldb.com/?id.314457",
-          "source": "VDB-314457 | code-projects Simple Pizza Ordering System addpro.php sql injection",
-          "tags": [
-            "vdb-entry",
-            "technical-description"
-          ]
-        },
-        {
-          "url": "https://vuldb.com/?ctiid.314457",
-          "source": "VDB-314457 | CTI Indicators (IOB, IOC, TTP, IOA)",
-          "tags": [
-            "signature",
-            "permissions-required"
-          ]
-        },
-        {
-          "url": "https://vuldb.com/?submit.605728",
-          "source": "Submit #605728 | Source Code & Projects Simple Pizza Ordering System Project V1.0 SQL Injection",
-          "tags": [
-            "third-party-advisory"
-          ]
-        },
-        {
-          "url": "https://github.com/Catcheryp/CVE/issues/2",
-          "source": "",
-          "tags": [
-            "exploit",
-            "issue-tracking"
-          ]
-        },
-        {
-          "url": "https://code-projects.org/",
-          "source": "",
-          "tags": [
-            "product"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-89",
-          "CWE-74"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/6xxx/CVE-2025-6936.json",
-            "lastModified": "2025-07-01T19:17:33.429000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2025-6955",
       "title": "Campcodes Employee Management System aprocess.php sql injection",
       "description": "A vulnerability was found in Campcodes Employee Management System 1.0 and classified as critical. Affected by this issue is some unknown functionality of the file /process/aprocess.php. The manipulation of the argument mailuid leads to sql injection. The attack may be launched remotely. The exploit has been disclosed to the public and may be used.",
@@ -97699,103 +97390,6 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/6xxx/CVE-2025-6031.json",
             "lastModified": "2025-06-12T20:01:01.630000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-6935",
-      "title": "Campcodes Sales and Inventory System payment_add.php sql injection",
-      "description": "A vulnerability was found in Campcodes Sales and Inventory System 1.0 and classified as critical. Affected by this issue is some unknown functionality of the file /pages/payment_add.php. The manipulation of the argument cid leads to sql injection. The attack may be launched remotely. The exploit has been disclosed to the public and may be used.",
-      "publishedDate": "2025-06-30T23:32:06.444000+00:00",
-      "lastModifiedDate": "2025-07-01T19:18:01.287000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L/E:P/RL:X/RC:R",
-          "baseScore": 7.3,
-          "baseSeverity": "HIGH"
-        },
-        {
-          "version": "3.0",
-          "vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L/E:P/RL:X/RC:R",
-          "baseScore": 7.3,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.0004,
-        "percentile": 11.304
-      },
-      "riskScore": 46,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Campcodes"
-        ],
-        "products": [
-          "Sales And Inventory System"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://vuldb.com/?id.314456",
-          "source": "VDB-314456 | Campcodes Sales and Inventory System payment_add.php sql injection",
-          "tags": [
-            "vdb-entry",
-            "technical-description"
-          ]
-        },
-        {
-          "url": "https://vuldb.com/?ctiid.314456",
-          "source": "VDB-314456 | CTI Indicators (IOB, IOC, TTP, IOA)",
-          "tags": [
-            "signature",
-            "permissions-required"
-          ]
-        },
-        {
-          "url": "https://vuldb.com/?submit.605720",
-          "source": "Submit #605720 | SourceCodester Campcodes Complete Sales and Inventory System v1.0 SQL Injection",
-          "tags": [
-            "third-party-advisory"
-          ]
-        },
-        {
-          "url": "https://github.com/dragonghost2025/cve/issues/9",
-          "source": "",
-          "tags": [
-            "exploit",
-            "issue-tracking"
-          ]
-        },
-        {
-          "url": "https://www.campcodes.com/",
-          "source": "",
-          "tags": [
-            "product"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-89",
-          "CWE-74"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/6xxx/CVE-2025-6935.json",
-            "lastModified": "2025-07-01T19:18:01.287000+00:00"
           }
         ]
       }
@@ -99833,72 +99427,6 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/52xxx/CVE-2025-52477.json",
             "lastModified": "2025-06-27T13:16:43.418000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-53537",
-      "title": "LibHTP's memory leak with lzma can lead to resource starvation",
-      "description": "LibHTP is a security-aware parser for the HTTP protocol and its related bits and pieces. In versions 0.5.50 and below, there is a traffic-induced memory leak that can starve the process of memory, leading to loss of visibility. To workaround this issue, set `suricata.yaml app-layer.protocols.http.libhtp.default-config.lzma-enabled` to false. This issue is fixed in version 0.5.51.",
-      "publishedDate": "2025-07-23T20:35:30.824000+00:00",
-      "lastModifiedDate": "2025-07-23T20:48:59.864000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
-          "baseScore": 7.5,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.0005,
-        "percentile": 16.267
-      },
-      "riskScore": 46,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Oisf"
-        ],
-        "products": [
-          "Libhtp"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://github.com/OISF/libhtp/security/advisories/GHSA-v3qq-h8mh-vph7",
-          "source": "https://github.com/OISF/libhtp/security/advisories/GHSA-v3qq-h8mh-vph7",
-          "tags": [
-            "x_refsource_CONFIRM"
-          ]
-        },
-        {
-          "url": "https://github.com/OISF/libhtp/commit/9037ea35110a0d97be5cedf8d31fb4cd9a38c7a7",
-          "source": "https://github.com/OISF/libhtp/commit/9037ea35110a0d97be5cedf8d31fb4cd9a38c7a7",
-          "tags": [
-            "x_refsource_MISC"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-401"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/53xxx/CVE-2025-53537.json",
-            "lastModified": "2025-07-23T20:48:59.864000+00:00"
           }
         ]
       }
@@ -104630,6 +104158,83 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/31xxx/CVE-2024-31854.json",
             "lastModified": "2025-07-08T16:11:59.998000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-49521",
+      "title": "Event-driven-ansible: template injection via git branch and refspec in eda projects",
+      "description": "A flaw was found in the EDA component of the Ansible Automation Platform, where user-supplied Git branch or refspec values are evaluated as Jinja2 templates. This vulnerability allows authenticated users to inject expressions that execute commands or access sensitive files on the EDA worker. In OpenShift, it can lead to service account token theft.",
+      "publishedDate": "2025-06-30T20:45:13.138000+00:00",
+      "lastModifiedDate": "2025-07-22T16:02:06.025000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 8.8,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.0009,
+        "percentile": 26.564
+      },
+      "riskScore": 46,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Red Hat"
+        ],
+        "products": [
+          "Red Hat Ansible Automation Platform 2.5 For Rhel 8",
+          "Red Hat Ansible Automation Platform 2.5 For Rhel 9"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2025:9986",
+          "source": "RHSA-2025:9986",
+          "tags": [
+            "vendor-advisory",
+            "x_refsource_REDHAT"
+          ]
+        },
+        {
+          "url": "https://access.redhat.com/security/cve/CVE-2025-49521",
+          "source": "",
+          "tags": [
+            "vdb-entry",
+            "x_refsource_REDHAT"
+          ]
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2370817",
+          "source": "RHBZ#2370817",
+          "tags": [
+            "issue-tracking",
+            "x_refsource_REDHAT"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-94"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "Low",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/49xxx/CVE-2025-49521.json",
+            "lastModified": "2025-07-22T16:02:06.025000+00:00"
           }
         ]
       }
@@ -131406,6 +131011,141 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/35xxx/CVE-2024-35279.json",
             "lastModified": "2025-02-14T04:55:19.966000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-54377",
+      "title": "Roo Code Lacks Line Break Validation in its Command Execution Tool",
+      "description": "Roo Code is an AI-powered autonomous coding agent that lives in users' editors. In versions 3.23.18 and below, RooCode does not validate line breaks (\\n) in its command input, allowing potential bypass of the allow-list mechanism. The project appears to lack parsing or validation logic to prevent multi-line command injection. When commands are evaluated for execution, only the first line or token may be considered, enabling attackers to smuggle additional commands in subsequent lines. This is fixed in version 3.23.19.",
+      "publishedDate": "2025-07-23T20:36:01.878000+00:00",
+      "lastModifiedDate": "2025-07-23T20:48:31.557000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 7.8,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.0007,
+        "percentile": 22.224
+      },
+      "riskScore": 45,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Roocodeinc"
+        ],
+        "products": [
+          "Roo-code"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://github.com/RooCodeInc/Roo-Code/security/advisories/GHSA-p278-52x9-cffx",
+          "source": "https://github.com/RooCodeInc/Roo-Code/security/advisories/GHSA-p278-52x9-cffx",
+          "tags": [
+            "x_refsource_CONFIRM"
+          ]
+        },
+        {
+          "url": "https://github.com/RooCodeInc/Roo-Code/commit/9d434c2db9b20eb5c78b698cb2b0037cd2074534",
+          "source": "https://github.com/RooCodeInc/Roo-Code/commit/9d434c2db9b20eb5c78b698cb2b0037cd2074534",
+          "tags": [
+            "x_refsource_MISC"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-77"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Local",
+        "attackComplexity": "Low",
+        "privilegesRequired": "Low",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/54xxx/CVE-2025-54377.json",
+            "lastModified": "2025-07-23T20:48:31.557000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-47281",
+      "title": "Kyverno's Improper JMESPath Variable Evaluation Leads to Denial of Service",
+      "description": "Kyverno is a policy engine designed for cloud native platform engineering teams. In versions 1.14.1 and below, a Denial of Service (DoS) vulnerability exists due to improper handling of JMESPath variable substitutions. Attackers with permissions to create or update Kyverno policies can craft expressions using the {{@}} variable combined with a pipe and an invalid JMESPath function (e.g., {{@ | non_existent_function }}). This leads to a nil value being substituted into the policy structure. Subsequent processing by internal functions, specifically getValueAsStringMap, which expect string values, results in a panic due to a type assertion failure (interface {} is nil, not string). This crashes Kyverno worker threads in the admission controller and causes continuous crashes of the reports controller pod. This is fixed in version 1.14.2.",
+      "publishedDate": "2025-07-23T20:35:21.199000+00:00",
+      "lastModifiedDate": "2025-07-23T20:49:31.882000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:N/I:N/A:H",
+          "baseScore": 7.7,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.0004,
+        "percentile": 11.178
+      },
+      "riskScore": 45,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Kyverno",
+          "Policy"
+        ],
+        "products": [
+          "Kyverno",
+          "Policy Engine"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://github.com/kyverno/kyverno/security/advisories/GHSA-r5p3-955p-5ggq",
+          "source": "https://github.com/kyverno/kyverno/security/advisories/GHSA-r5p3-955p-5ggq",
+          "tags": [
+            "x_refsource_CONFIRM"
+          ]
+        },
+        {
+          "url": "https://github.com/kyverno/kyverno/commit/cbd7d4ca24de1c55396fc3295e9fc3215832be7c",
+          "source": "https://github.com/kyverno/kyverno/commit/cbd7d4ca24de1c55396fc3295e9fc3215832be7c",
+          "tags": [
+            "x_refsource_MISC"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-20",
+          "CWE-248"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "Low",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/47xxx/CVE-2025-47281.json",
+            "lastModified": "2025-07-23T20:49:31.882000+00:00"
           }
         ]
       }
@@ -160759,96 +160499,6 @@
       }
     },
     {
-      "cveId": "CVE-2025-4181",
-      "title": "PCMan FTP Server SEND Command buffer overflow",
-      "description": "A vulnerability was found in PCMan FTP Server 2.0.7. It has been declared as critical. Affected by this vulnerability is an unknown functionality of the component SEND Command Handler. The manipulation leads to buffer overflow. The attack can be launched remotely. The exploit has been disclosed to the public and may be used.",
-      "publishedDate": "2025-05-01T22:31:03.813000+00:00",
-      "lastModifiedDate": "2025-05-02T17:21:34.429000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
-          "baseScore": 7.3,
-          "baseSeverity": "HIGH"
-        },
-        {
-          "version": "3.0",
-          "vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
-          "baseScore": 7.3,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.0009,
-        "percentile": 26.599
-      },
-      "riskScore": 44,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Ftp",
-          "Pcman"
-        ],
-        "products": [
-          "Ftp Server"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://vuldb.com/?id.306799",
-          "source": "VDB-306799 | PCMan FTP Server SEND Command buffer overflow",
-          "tags": [
-            "vdb-entry"
-          ]
-        },
-        {
-          "url": "https://vuldb.com/?ctiid.306799",
-          "source": "VDB-306799 | CTI Indicators (IOB, IOC)",
-          "tags": [
-            "signature",
-            "permissions-required"
-          ]
-        },
-        {
-          "url": "https://vuldb.com/?submit.561139",
-          "source": "Submit #561139 | PCMan FTP Server 2.0.7 Buffer Overflow",
-          "tags": [
-            "third-party-advisory"
-          ]
-        },
-        {
-          "url": "https://fitoxs.com/exploit/exploit-202cb962ac59075b964b07152d234b70.txt",
-          "source": "",
-          "tags": [
-            "broken-link",
-            "exploit"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-120",
-          "CWE-119"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/4xxx/CVE-2025-4181.json",
-            "lastModified": "2025-05-02T17:21:34.429000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2025-4788",
       "title": "FreeFloat FTP Server DELETE Command buffer overflow",
       "description": "A vulnerability classified as critical was found in FreeFloat FTP Server 1.0. Affected by this vulnerability is an unknown functionality of the component DELETE Command Handler. The manipulation leads to buffer overflow. The attack can be launched remotely. The exploit has been disclosed to the public and may be used.",
@@ -162017,96 +161667,6 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/4xxx/CVE-2025-4502.json",
             "lastModified": "2025-05-12T17:46:33.903000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-4180",
-      "title": "PCMan FTP Server TRACE Command buffer overflow",
-      "description": "A vulnerability was found in PCMan FTP Server 2.0.7. It has been classified as critical. Affected is an unknown function of the component TRACE Command Handler. The manipulation leads to buffer overflow. It is possible to launch the attack remotely. The exploit has been disclosed to the public and may be used.",
-      "publishedDate": "2025-05-01T22:00:08.446000+00:00",
-      "lastModifiedDate": "2025-05-02T17:24:10.680000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
-          "baseScore": 7.3,
-          "baseSeverity": "HIGH"
-        },
-        {
-          "version": "3.0",
-          "vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
-          "baseScore": 7.3,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.0009,
-        "percentile": 26.599
-      },
-      "riskScore": 44,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Ftp",
-          "Pcman"
-        ],
-        "products": [
-          "Ftp Server"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://vuldb.com/?id.306798",
-          "source": "VDB-306798 | PCMan FTP Server TRACE Command buffer overflow",
-          "tags": [
-            "vdb-entry"
-          ]
-        },
-        {
-          "url": "https://vuldb.com/?ctiid.306798",
-          "source": "VDB-306798 | CTI Indicators (IOB, IOC)",
-          "tags": [
-            "signature",
-            "permissions-required"
-          ]
-        },
-        {
-          "url": "https://vuldb.com/?submit.561035",
-          "source": "Submit #561035 | PCMan FTP Server 2.0.7 Buffer Overflow",
-          "tags": [
-            "third-party-advisory"
-          ]
-        },
-        {
-          "url": "https://fitoxs.com/exploit/exploit-25d55ad283aa400af464c76d713c07ad.txt",
-          "source": "",
-          "tags": [
-            "broken-link",
-            "exploit"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-120",
-          "CWE-119"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/4xxx/CVE-2025-4180.json",
-            "lastModified": "2025-05-02T17:24:10.680000+00:00"
           }
         ]
       }
@@ -163373,96 +162933,6 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/4xxx/CVE-2025-4210.json",
             "lastModified": "2025-05-02T16:49:19.177000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-4184",
-      "title": "PCMan FTP Server QUOTE Command buffer overflow",
-      "description": "A vulnerability classified as critical was found in PCMan FTP Server 2.0.7. This vulnerability affects unknown code of the component QUOTE Command Handler. The manipulation leads to buffer overflow. The attack can be initiated remotely. The exploit has been disclosed to the public and may be used.",
-      "publishedDate": "2025-05-01T23:31:03.128000+00:00",
-      "lastModifiedDate": "2025-05-02T14:33:11.361000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
-          "baseScore": 7.3,
-          "baseSeverity": "HIGH"
-        },
-        {
-          "version": "3.0",
-          "vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
-          "baseScore": 7.3,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.0007,
-        "percentile": 20.957
-      },
-      "riskScore": 44,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Ftp",
-          "Pcman"
-        ],
-        "products": [
-          "Ftp Server"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://vuldb.com/?id.306802",
-          "source": "VDB-306802 | PCMan FTP Server QUOTE Command buffer overflow",
-          "tags": [
-            "vdb-entry"
-          ]
-        },
-        {
-          "url": "https://vuldb.com/?ctiid.306802",
-          "source": "VDB-306802 | CTI Indicators (IOB, IOC)",
-          "tags": [
-            "signature",
-            "permissions-required"
-          ]
-        },
-        {
-          "url": "https://vuldb.com/?submit.561145",
-          "source": "Submit #561145 | PCMan FTP Server 2.0.7 Buffer Overflow",
-          "tags": [
-            "third-party-advisory"
-          ]
-        },
-        {
-          "url": "https://fitoxs.com/exploit/exploit-81dc9bdb52d04dc20036dbd8313ed055.txt",
-          "source": "",
-          "tags": [
-            "broken-link",
-            "exploit"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-120",
-          "CWE-119"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/4xxx/CVE-2025-4184.json",
-            "lastModified": "2025-05-02T14:33:11.361000+00:00"
           }
         ]
       }
@@ -165725,110 +165195,6 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/4xxx/CVE-2025-4494.json",
             "lastModified": "2025-05-10T01:37:47.295000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-4191",
-      "title": "PHPGurukul Employee Record Management System editmyeducation.php sql injection",
-      "description": "A vulnerability has been found in PHPGurukul Employee Record Management System 1.3 and classified as critical. Affected by this vulnerability is an unknown functionality of the file /editmyeducation.php. The manipulation of the argument coursepg/yophsc leads to sql injection. The attack can be launched remotely. The exploit has been disclosed to the public and may be used. Other parameters might be affected as well.",
-      "publishedDate": "2025-05-02T00:00:11.860000+00:00",
-      "lastModifiedDate": "2025-06-06T07:08:22.481000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L/E:P/RL:X/RC:R",
-          "baseScore": 7.3,
-          "baseSeverity": "HIGH"
-        },
-        {
-          "version": "3.0",
-          "vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L/E:P/RL:X/RC:R",
-          "baseScore": 7.3,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.0006,
-        "percentile": 17.328
-      },
-      "riskScore": 44,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Phpgurukul"
-        ],
-        "products": [
-          "Employee Record Management System"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://vuldb.com/?id.306805",
-          "source": "VDB-306805 | PHPGurukul Employee Record Management System editmyeducation.php sql injection",
-          "tags": [
-            "vdb-entry",
-            "technical-description"
-          ]
-        },
-        {
-          "url": "https://vuldb.com/?ctiid.306805",
-          "source": "VDB-306805 | CTI Indicators (IOB, IOC, TTP, IOA)",
-          "tags": [
-            "signature",
-            "permissions-required"
-          ]
-        },
-        {
-          "url": "https://vuldb.com/?submit.561816",
-          "source": "Submit #561816 | PHPGurukul Employee Record Management System V1.3 SQL Injection",
-          "tags": [
-            "third-party-advisory"
-          ]
-        },
-        {
-          "url": "https://vuldb.com/?submit.591204",
-          "source": "Submit #591204 | PHPGurukul Employee Record Management System 1.3 SQL Injection (Duplicate)",
-          "tags": [
-            "third-party-advisory"
-          ]
-        },
-        {
-          "url": "https://github.com/ideal-valli/myCVE/issues/3",
-          "source": "",
-          "tags": [
-            "exploit",
-            "issue-tracking"
-          ]
-        },
-        {
-          "url": "https://phpgurukul.com/",
-          "source": "",
-          "tags": [
-            "product"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-89",
-          "CWE-74"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/4xxx/CVE-2025-4191.json",
-            "lastModified": "2025-06-06T07:08:22.481000+00:00"
           }
         ]
       }
@@ -168231,96 +167597,6 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/4xxx/CVE-2025-4791.json",
             "lastModified": "2025-05-16T18:09:00.778000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-4183",
-      "title": "PCMan FTP Server RECV Command buffer overflow",
-      "description": "A vulnerability classified as critical has been found in PCMan FTP Server 2.0.7. This affects an unknown part of the component RECV Command Handler. The manipulation leads to buffer overflow. It is possible to initiate the attack remotely. The exploit has been disclosed to the public and may be used.",
-      "publishedDate": "2025-05-01T23:00:07.509000+00:00",
-      "lastModifiedDate": "2025-05-02T14:37:50.794000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
-          "baseScore": 7.3,
-          "baseSeverity": "HIGH"
-        },
-        {
-          "version": "3.0",
-          "vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
-          "baseScore": 7.3,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.0009,
-        "percentile": 26.599
-      },
-      "riskScore": 44,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Ftp",
-          "Pcman"
-        ],
-        "products": [
-          "Ftp Server"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://vuldb.com/?id.306801",
-          "source": "VDB-306801 | PCMan FTP Server RECV Command buffer overflow",
-          "tags": [
-            "vdb-entry"
-          ]
-        },
-        {
-          "url": "https://vuldb.com/?ctiid.306801",
-          "source": "VDB-306801 | CTI Indicators (IOB, IOC)",
-          "tags": [
-            "signature",
-            "permissions-required"
-          ]
-        },
-        {
-          "url": "https://vuldb.com/?submit.561144",
-          "source": "Submit #561144 | PCMan FTP Server 2.0.7 Buffer Overflow",
-          "tags": [
-            "third-party-advisory"
-          ]
-        },
-        {
-          "url": "https://fitoxs.com/exploit/exploit-d8578edf8458ce06fbc5bb76a58c5ca4.txt",
-          "source": "",
-          "tags": [
-            "broken-link",
-            "exploit"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-120",
-          "CWE-119"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/4xxx/CVE-2025-4183.json",
-            "lastModified": "2025-05-02T14:37:50.794000+00:00"
           }
         ]
       }
@@ -175906,96 +175182,6 @@
       }
     },
     {
-      "cveId": "CVE-2025-4182",
-      "title": "PCMan FTP Server BELL Command buffer overflow",
-      "description": "A vulnerability was found in PCMan FTP Server 2.0.7. It has been rated as critical. Affected by this issue is some unknown functionality of the component BELL Command Handler. The manipulation leads to buffer overflow. The attack may be launched remotely. The exploit has been disclosed to the public and may be used.",
-      "publishedDate": "2025-05-01T23:00:05.923000+00:00",
-      "lastModifiedDate": "2025-05-02T14:05:33.687000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
-          "baseScore": 7.3,
-          "baseSeverity": "HIGH"
-        },
-        {
-          "version": "3.0",
-          "vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
-          "baseScore": 7.3,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.0007,
-        "percentile": 20.957
-      },
-      "riskScore": 44,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Ftp",
-          "Pcman"
-        ],
-        "products": [
-          "Ftp Server"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://vuldb.com/?id.306800",
-          "source": "VDB-306800 | PCMan FTP Server BELL Command buffer overflow",
-          "tags": [
-            "vdb-entry"
-          ]
-        },
-        {
-          "url": "https://vuldb.com/?ctiid.306800",
-          "source": "VDB-306800 | CTI Indicators (IOB, IOC)",
-          "tags": [
-            "signature",
-            "permissions-required"
-          ]
-        },
-        {
-          "url": "https://vuldb.com/?submit.561141",
-          "source": "Submit #561141 | PCMan FTP Server 2.0.7 Buffer Overflow",
-          "tags": [
-            "third-party-advisory"
-          ]
-        },
-        {
-          "url": "https://fitoxs.com/exploit/exploit-e99a18c428cb38d5f260853678922e03.txt",
-          "source": "",
-          "tags": [
-            "broken-link",
-            "exploit"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-120",
-          "CWE-119"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/4xxx/CVE-2025-4182.json",
-            "lastModified": "2025-05-02T14:05:33.687000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2025-4880",
       "title": "PHPGurukul News Portal aboutus.php sql injection",
       "description": "A vulnerability has been found in PHPGurukul News Portal 4.1 and classified as critical. Affected by this vulnerability is an unknown functionality of the file /admin/aboutus.php. The manipulation of the argument pagetitle leads to sql injection. The attack can be launched remotely. The exploit has been disclosed to the public and may be used.",
@@ -176371,103 +175557,6 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/4xxx/CVE-2025-4237.json",
             "lastModified": "2025-05-06T14:29:22.435000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-4176",
-      "title": "PHPGurukul Blood Bank & Donor Management System request-received-bydonar.php sql injection",
-      "description": "A vulnerability has been found in PHPGurukul Blood Bank & Donor Management System 2.4 and classified as critical. This vulnerability affects unknown code of the file /admin/request-received-bydonar.php. The manipulation of the argument searchdata leads to sql injection. The attack can be initiated remotely. The exploit has been disclosed to the public and may be used.",
-      "publishedDate": "2025-05-01T21:31:05.159000+00:00",
-      "lastModifiedDate": "2025-05-02T17:29:13.481000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
-          "baseScore": 7.3,
-          "baseSeverity": "HIGH"
-        },
-        {
-          "version": "3.0",
-          "vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
-          "baseScore": 7.3,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.0005,
-        "percentile": 16.287
-      },
-      "riskScore": 44,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Phpgurukul"
-        ],
-        "products": [
-          "Blood Bank & Donor Management System"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://vuldb.com/?id.306796",
-          "source": "VDB-306796 | PHPGurukul Blood Bank & Donor Management System request-received-bydonar.php sql injection",
-          "tags": [
-            "vdb-entry",
-            "technical-description"
-          ]
-        },
-        {
-          "url": "https://vuldb.com/?ctiid.306796",
-          "source": "VDB-306796 | CTI Indicators (IOB, IOC, TTP, IOA)",
-          "tags": [
-            "signature",
-            "permissions-required"
-          ]
-        },
-        {
-          "url": "https://vuldb.com/?submit.561764",
-          "source": "Submit #561764 | phpgurukul Blood Bank & Donor Management System V2.4 SQL Injection",
-          "tags": [
-            "third-party-advisory"
-          ]
-        },
-        {
-          "url": "https://github.com/bluechips-zhao/myCVE/issues/5",
-          "source": "",
-          "tags": [
-            "exploit",
-            "issue-tracking"
-          ]
-        },
-        {
-          "url": "https://phpgurukul.com/",
-          "source": "",
-          "tags": [
-            "product"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-89",
-          "CWE-74"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/4xxx/CVE-2025-4176.json",
-            "lastModified": "2025-05-02T17:29:13.481000+00:00"
           }
         ]
       }
@@ -209304,6 +208393,266 @@
       }
     },
     {
+      "cveId": "CVE-2025-6936",
+      "title": "code-projects Simple Pizza Ordering System addpro.php sql injection",
+      "description": "A vulnerability was found in code-projects Simple Pizza Ordering System 1.0. It has been classified as critical. This affects an unknown part of the file /addpro.php. The manipulation of the argument ID leads to sql injection. It is possible to initiate the attack remotely. The exploit has been disclosed to the public and may be used.",
+      "publishedDate": "2025-07-01T00:02:05.868000+00:00",
+      "lastModifiedDate": "2025-07-01T19:17:33.429000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L/E:P/RL:X/RC:R",
+          "baseScore": 7.3,
+          "baseSeverity": "HIGH"
+        },
+        {
+          "version": "3.0",
+          "vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L/E:P/RL:X/RC:R",
+          "baseScore": 7.3,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.0004,
+        "percentile": 11.304
+      },
+      "riskScore": 44,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Code-projects"
+        ],
+        "products": [
+          "Simple Pizza Ordering System"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://vuldb.com/?id.314457",
+          "source": "VDB-314457 | code-projects Simple Pizza Ordering System addpro.php sql injection",
+          "tags": [
+            "vdb-entry",
+            "technical-description"
+          ]
+        },
+        {
+          "url": "https://vuldb.com/?ctiid.314457",
+          "source": "VDB-314457 | CTI Indicators (IOB, IOC, TTP, IOA)",
+          "tags": [
+            "signature",
+            "permissions-required"
+          ]
+        },
+        {
+          "url": "https://vuldb.com/?submit.605728",
+          "source": "Submit #605728 | Source Code & Projects Simple Pizza Ordering System Project V1.0 SQL Injection",
+          "tags": [
+            "third-party-advisory"
+          ]
+        },
+        {
+          "url": "https://github.com/Catcheryp/CVE/issues/2",
+          "source": "",
+          "tags": [
+            "exploit",
+            "issue-tracking"
+          ]
+        },
+        {
+          "url": "https://code-projects.org/",
+          "source": "",
+          "tags": [
+            "product"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-89",
+          "CWE-74"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/6xxx/CVE-2025-6936.json",
+            "lastModified": "2025-07-01T19:17:33.429000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-6935",
+      "title": "Campcodes Sales and Inventory System payment_add.php sql injection",
+      "description": "A vulnerability was found in Campcodes Sales and Inventory System 1.0 and classified as critical. Affected by this issue is some unknown functionality of the file /pages/payment_add.php. The manipulation of the argument cid leads to sql injection. The attack may be launched remotely. The exploit has been disclosed to the public and may be used.",
+      "publishedDate": "2025-06-30T23:32:06.444000+00:00",
+      "lastModifiedDate": "2025-07-01T19:18:01.287000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L/E:P/RL:X/RC:R",
+          "baseScore": 7.3,
+          "baseSeverity": "HIGH"
+        },
+        {
+          "version": "3.0",
+          "vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L/E:P/RL:X/RC:R",
+          "baseScore": 7.3,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.0004,
+        "percentile": 11.304
+      },
+      "riskScore": 44,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Campcodes"
+        ],
+        "products": [
+          "Sales And Inventory System"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://vuldb.com/?id.314456",
+          "source": "VDB-314456 | Campcodes Sales and Inventory System payment_add.php sql injection",
+          "tags": [
+            "vdb-entry",
+            "technical-description"
+          ]
+        },
+        {
+          "url": "https://vuldb.com/?ctiid.314456",
+          "source": "VDB-314456 | CTI Indicators (IOB, IOC, TTP, IOA)",
+          "tags": [
+            "signature",
+            "permissions-required"
+          ]
+        },
+        {
+          "url": "https://vuldb.com/?submit.605720",
+          "source": "Submit #605720 | SourceCodester Campcodes Complete Sales and Inventory System v1.0 SQL Injection",
+          "tags": [
+            "third-party-advisory"
+          ]
+        },
+        {
+          "url": "https://github.com/dragonghost2025/cve/issues/9",
+          "source": "",
+          "tags": [
+            "exploit",
+            "issue-tracking"
+          ]
+        },
+        {
+          "url": "https://www.campcodes.com/",
+          "source": "",
+          "tags": [
+            "product"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-89",
+          "CWE-74"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/6xxx/CVE-2025-6935.json",
+            "lastModified": "2025-07-01T19:18:01.287000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-53537",
+      "title": "LibHTP's memory leak with lzma can lead to resource starvation",
+      "description": "LibHTP is a security-aware parser for the HTTP protocol and its related bits and pieces. In versions 0.5.50 and below, there is a traffic-induced memory leak that can starve the process of memory, leading to loss of visibility. To workaround this issue, set `suricata.yaml app-layer.protocols.http.libhtp.default-config.lzma-enabled` to false. This issue is fixed in version 0.5.51.",
+      "publishedDate": "2025-07-23T20:35:30.824000+00:00",
+      "lastModifiedDate": "2025-07-23T20:48:59.864000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "baseScore": 7.5,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.0005,
+        "percentile": 16.267
+      },
+      "riskScore": 44,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Oisf"
+        ],
+        "products": [
+          "Libhtp"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://github.com/OISF/libhtp/security/advisories/GHSA-v3qq-h8mh-vph7",
+          "source": "https://github.com/OISF/libhtp/security/advisories/GHSA-v3qq-h8mh-vph7",
+          "tags": [
+            "x_refsource_CONFIRM"
+          ]
+        },
+        {
+          "url": "https://github.com/OISF/libhtp/commit/9037ea35110a0d97be5cedf8d31fb4cd9a38c7a7",
+          "source": "https://github.com/OISF/libhtp/commit/9037ea35110a0d97be5cedf8d31fb4cd9a38c7a7",
+          "tags": [
+            "x_refsource_MISC"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-401"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/53xxx/CVE-2025-53537.json",
+            "lastModified": "2025-07-23T20:48:59.864000+00:00"
+          }
+        ]
+      }
+    },
+    {
       "cveId": "CVE-2025-5601",
       "title": "Buffer Copy without Checking Size of Input ('Classic Buffer Overflow') in Wireshark",
       "description": "Column handling crashes in Wireshark 4.4.0 to 4.4.6 and 4.2.0 to 4.2.12 allows denial of service via packet injection or crafted capture file",
@@ -231309,73 +230658,6 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/43xxx/CVE-2025-43586.json",
             "lastModified": "2025-06-11T04:01:36.007000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-43595",
-      "title": "MSP360 Backup (for Linux) insecure filesystem permissions",
-      "description": "An insecure file system permissions vulnerability in MSP360 Backup 4.3.1.115 allows a low privileged user to execute commands with root privileges in the 'Online Backup' folder. Upgrade to MSP360 Backup 4.4 (released on 2025-04-22).",
-      "publishedDate": "2025-05-01T21:12:58.729000+00:00",
-      "lastModifiedDate": "2025-05-22T16:49:29.201000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 7.8,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.0001,
-        "percentile": 2.044
-      },
-      "riskScore": 43,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Msp360"
-        ],
-        "products": [
-          "Backup"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://help.msp360.com/cloudberry-backup-mac-linux/whats-new",
-          "source": "url",
-          "tags": []
-        },
-        {
-          "url": "https://raw.githubusercontent.com/cisagov/CSAF/develop/csaf_files/IT/white/2025/va-25-119-01.json",
-          "source": "url",
-          "tags": []
-        },
-        {
-          "url": "https://www.cve.org/CVERecord?id=CVE-2025-43595",
-          "source": "url",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-276"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Local",
-        "attackComplexity": "Low",
-        "privilegesRequired": "Low",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/43xxx/CVE-2025-43595.json",
-            "lastModified": "2025-05-22T16:49:29.201000+00:00"
           }
         ]
       }
@@ -297399,6 +296681,470 @@
       }
     },
     {
+      "cveId": "CVE-2025-4181",
+      "title": "PCMan FTP Server SEND Command buffer overflow",
+      "description": "A vulnerability was found in PCMan FTP Server 2.0.7. It has been declared as critical. Affected by this vulnerability is an unknown functionality of the component SEND Command Handler. The manipulation leads to buffer overflow. The attack can be launched remotely. The exploit has been disclosed to the public and may be used.",
+      "publishedDate": "2025-05-01T22:31:03.813000+00:00",
+      "lastModifiedDate": "2025-05-02T17:21:34.429000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+          "baseScore": 7.3,
+          "baseSeverity": "HIGH"
+        },
+        {
+          "version": "3.0",
+          "vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+          "baseScore": 7.3,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.0009,
+        "percentile": 26.599
+      },
+      "riskScore": 42,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Ftp",
+          "Pcman"
+        ],
+        "products": [
+          "Ftp Server"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://vuldb.com/?id.306799",
+          "source": "VDB-306799 | PCMan FTP Server SEND Command buffer overflow",
+          "tags": [
+            "vdb-entry"
+          ]
+        },
+        {
+          "url": "https://vuldb.com/?ctiid.306799",
+          "source": "VDB-306799 | CTI Indicators (IOB, IOC)",
+          "tags": [
+            "signature",
+            "permissions-required"
+          ]
+        },
+        {
+          "url": "https://vuldb.com/?submit.561139",
+          "source": "Submit #561139 | PCMan FTP Server 2.0.7 Buffer Overflow",
+          "tags": [
+            "third-party-advisory"
+          ]
+        },
+        {
+          "url": "https://fitoxs.com/exploit/exploit-202cb962ac59075b964b07152d234b70.txt",
+          "source": "",
+          "tags": [
+            "broken-link",
+            "exploit"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-120",
+          "CWE-119"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/4xxx/CVE-2025-4181.json",
+            "lastModified": "2025-05-02T17:21:34.429000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-4180",
+      "title": "PCMan FTP Server TRACE Command buffer overflow",
+      "description": "A vulnerability was found in PCMan FTP Server 2.0.7. It has been classified as critical. Affected is an unknown function of the component TRACE Command Handler. The manipulation leads to buffer overflow. It is possible to launch the attack remotely. The exploit has been disclosed to the public and may be used.",
+      "publishedDate": "2025-05-01T22:00:08.446000+00:00",
+      "lastModifiedDate": "2025-05-02T17:24:10.680000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+          "baseScore": 7.3,
+          "baseSeverity": "HIGH"
+        },
+        {
+          "version": "3.0",
+          "vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+          "baseScore": 7.3,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.0009,
+        "percentile": 26.599
+      },
+      "riskScore": 42,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Ftp",
+          "Pcman"
+        ],
+        "products": [
+          "Ftp Server"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://vuldb.com/?id.306798",
+          "source": "VDB-306798 | PCMan FTP Server TRACE Command buffer overflow",
+          "tags": [
+            "vdb-entry"
+          ]
+        },
+        {
+          "url": "https://vuldb.com/?ctiid.306798",
+          "source": "VDB-306798 | CTI Indicators (IOB, IOC)",
+          "tags": [
+            "signature",
+            "permissions-required"
+          ]
+        },
+        {
+          "url": "https://vuldb.com/?submit.561035",
+          "source": "Submit #561035 | PCMan FTP Server 2.0.7 Buffer Overflow",
+          "tags": [
+            "third-party-advisory"
+          ]
+        },
+        {
+          "url": "https://fitoxs.com/exploit/exploit-25d55ad283aa400af464c76d713c07ad.txt",
+          "source": "",
+          "tags": [
+            "broken-link",
+            "exploit"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-120",
+          "CWE-119"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/4xxx/CVE-2025-4180.json",
+            "lastModified": "2025-05-02T17:24:10.680000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-4184",
+      "title": "PCMan FTP Server QUOTE Command buffer overflow",
+      "description": "A vulnerability classified as critical was found in PCMan FTP Server 2.0.7. This vulnerability affects unknown code of the component QUOTE Command Handler. The manipulation leads to buffer overflow. The attack can be initiated remotely. The exploit has been disclosed to the public and may be used.",
+      "publishedDate": "2025-05-01T23:31:03.128000+00:00",
+      "lastModifiedDate": "2025-05-02T14:33:11.361000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+          "baseScore": 7.3,
+          "baseSeverity": "HIGH"
+        },
+        {
+          "version": "3.0",
+          "vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+          "baseScore": 7.3,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.0007,
+        "percentile": 20.957
+      },
+      "riskScore": 42,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Ftp",
+          "Pcman"
+        ],
+        "products": [
+          "Ftp Server"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://vuldb.com/?id.306802",
+          "source": "VDB-306802 | PCMan FTP Server QUOTE Command buffer overflow",
+          "tags": [
+            "vdb-entry"
+          ]
+        },
+        {
+          "url": "https://vuldb.com/?ctiid.306802",
+          "source": "VDB-306802 | CTI Indicators (IOB, IOC)",
+          "tags": [
+            "signature",
+            "permissions-required"
+          ]
+        },
+        {
+          "url": "https://vuldb.com/?submit.561145",
+          "source": "Submit #561145 | PCMan FTP Server 2.0.7 Buffer Overflow",
+          "tags": [
+            "third-party-advisory"
+          ]
+        },
+        {
+          "url": "https://fitoxs.com/exploit/exploit-81dc9bdb52d04dc20036dbd8313ed055.txt",
+          "source": "",
+          "tags": [
+            "broken-link",
+            "exploit"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-120",
+          "CWE-119"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/4xxx/CVE-2025-4184.json",
+            "lastModified": "2025-05-02T14:33:11.361000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-4191",
+      "title": "PHPGurukul Employee Record Management System editmyeducation.php sql injection",
+      "description": "A vulnerability has been found in PHPGurukul Employee Record Management System 1.3 and classified as critical. Affected by this vulnerability is an unknown functionality of the file /editmyeducation.php. The manipulation of the argument coursepg/yophsc leads to sql injection. The attack can be launched remotely. The exploit has been disclosed to the public and may be used. Other parameters might be affected as well.",
+      "publishedDate": "2025-05-02T00:00:11.860000+00:00",
+      "lastModifiedDate": "2025-06-06T07:08:22.481000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L/E:P/RL:X/RC:R",
+          "baseScore": 7.3,
+          "baseSeverity": "HIGH"
+        },
+        {
+          "version": "3.0",
+          "vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L/E:P/RL:X/RC:R",
+          "baseScore": 7.3,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.0006,
+        "percentile": 17.328
+      },
+      "riskScore": 42,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Phpgurukul"
+        ],
+        "products": [
+          "Employee Record Management System"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://vuldb.com/?id.306805",
+          "source": "VDB-306805 | PHPGurukul Employee Record Management System editmyeducation.php sql injection",
+          "tags": [
+            "vdb-entry",
+            "technical-description"
+          ]
+        },
+        {
+          "url": "https://vuldb.com/?ctiid.306805",
+          "source": "VDB-306805 | CTI Indicators (IOB, IOC, TTP, IOA)",
+          "tags": [
+            "signature",
+            "permissions-required"
+          ]
+        },
+        {
+          "url": "https://vuldb.com/?submit.561816",
+          "source": "Submit #561816 | PHPGurukul Employee Record Management System V1.3 SQL Injection",
+          "tags": [
+            "third-party-advisory"
+          ]
+        },
+        {
+          "url": "https://vuldb.com/?submit.591204",
+          "source": "Submit #591204 | PHPGurukul Employee Record Management System 1.3 SQL Injection (Duplicate)",
+          "tags": [
+            "third-party-advisory"
+          ]
+        },
+        {
+          "url": "https://github.com/ideal-valli/myCVE/issues/3",
+          "source": "",
+          "tags": [
+            "exploit",
+            "issue-tracking"
+          ]
+        },
+        {
+          "url": "https://phpgurukul.com/",
+          "source": "",
+          "tags": [
+            "product"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-89",
+          "CWE-74"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/4xxx/CVE-2025-4191.json",
+            "lastModified": "2025-06-06T07:08:22.481000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-4183",
+      "title": "PCMan FTP Server RECV Command buffer overflow",
+      "description": "A vulnerability classified as critical has been found in PCMan FTP Server 2.0.7. This affects an unknown part of the component RECV Command Handler. The manipulation leads to buffer overflow. It is possible to initiate the attack remotely. The exploit has been disclosed to the public and may be used.",
+      "publishedDate": "2025-05-01T23:00:07.509000+00:00",
+      "lastModifiedDate": "2025-05-02T14:37:50.794000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+          "baseScore": 7.3,
+          "baseSeverity": "HIGH"
+        },
+        {
+          "version": "3.0",
+          "vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+          "baseScore": 7.3,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.0009,
+        "percentile": 26.599
+      },
+      "riskScore": 42,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Ftp",
+          "Pcman"
+        ],
+        "products": [
+          "Ftp Server"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://vuldb.com/?id.306801",
+          "source": "VDB-306801 | PCMan FTP Server RECV Command buffer overflow",
+          "tags": [
+            "vdb-entry"
+          ]
+        },
+        {
+          "url": "https://vuldb.com/?ctiid.306801",
+          "source": "VDB-306801 | CTI Indicators (IOB, IOC)",
+          "tags": [
+            "signature",
+            "permissions-required"
+          ]
+        },
+        {
+          "url": "https://vuldb.com/?submit.561144",
+          "source": "Submit #561144 | PCMan FTP Server 2.0.7 Buffer Overflow",
+          "tags": [
+            "third-party-advisory"
+          ]
+        },
+        {
+          "url": "https://fitoxs.com/exploit/exploit-d8578edf8458ce06fbc5bb76a58c5ca4.txt",
+          "source": "",
+          "tags": [
+            "broken-link",
+            "exploit"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-120",
+          "CWE-119"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/4xxx/CVE-2025-4183.json",
+            "lastModified": "2025-05-02T14:37:50.794000+00:00"
+          }
+        ]
+      }
+    },
+    {
       "cveId": "CVE-2025-4174",
       "title": "PHPGurukul COVID19 Testing Management System login.php sql injection",
       "description": "A vulnerability, which was classified as critical, has been found in PHPGurukul COVID19 Testing Management System 1.0. Affected by this issue is some unknown functionality of the file /login.php. The manipulation of the argument Username leads to sql injection. The attack may be launched remotely. The exploit has been disclosed to the public and may be used.",
@@ -297491,6 +297237,193 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/4xxx/CVE-2025-4174.json",
             "lastModified": "2025-05-02T12:46:07.899000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-4182",
+      "title": "PCMan FTP Server BELL Command buffer overflow",
+      "description": "A vulnerability was found in PCMan FTP Server 2.0.7. It has been rated as critical. Affected by this issue is some unknown functionality of the component BELL Command Handler. The manipulation leads to buffer overflow. The attack may be launched remotely. The exploit has been disclosed to the public and may be used.",
+      "publishedDate": "2025-05-01T23:00:05.923000+00:00",
+      "lastModifiedDate": "2025-05-02T14:05:33.687000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+          "baseScore": 7.3,
+          "baseSeverity": "HIGH"
+        },
+        {
+          "version": "3.0",
+          "vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+          "baseScore": 7.3,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.0007,
+        "percentile": 20.957
+      },
+      "riskScore": 42,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Ftp",
+          "Pcman"
+        ],
+        "products": [
+          "Ftp Server"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://vuldb.com/?id.306800",
+          "source": "VDB-306800 | PCMan FTP Server BELL Command buffer overflow",
+          "tags": [
+            "vdb-entry"
+          ]
+        },
+        {
+          "url": "https://vuldb.com/?ctiid.306800",
+          "source": "VDB-306800 | CTI Indicators (IOB, IOC)",
+          "tags": [
+            "signature",
+            "permissions-required"
+          ]
+        },
+        {
+          "url": "https://vuldb.com/?submit.561141",
+          "source": "Submit #561141 | PCMan FTP Server 2.0.7 Buffer Overflow",
+          "tags": [
+            "third-party-advisory"
+          ]
+        },
+        {
+          "url": "https://fitoxs.com/exploit/exploit-e99a18c428cb38d5f260853678922e03.txt",
+          "source": "",
+          "tags": [
+            "broken-link",
+            "exploit"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-120",
+          "CWE-119"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/4xxx/CVE-2025-4182.json",
+            "lastModified": "2025-05-02T14:05:33.687000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-4176",
+      "title": "PHPGurukul Blood Bank & Donor Management System request-received-bydonar.php sql injection",
+      "description": "A vulnerability has been found in PHPGurukul Blood Bank & Donor Management System 2.4 and classified as critical. This vulnerability affects unknown code of the file /admin/request-received-bydonar.php. The manipulation of the argument searchdata leads to sql injection. The attack can be initiated remotely. The exploit has been disclosed to the public and may be used.",
+      "publishedDate": "2025-05-01T21:31:05.159000+00:00",
+      "lastModifiedDate": "2025-05-02T17:29:13.481000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+          "baseScore": 7.3,
+          "baseSeverity": "HIGH"
+        },
+        {
+          "version": "3.0",
+          "vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+          "baseScore": 7.3,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.0005,
+        "percentile": 16.287
+      },
+      "riskScore": 42,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Phpgurukul"
+        ],
+        "products": [
+          "Blood Bank & Donor Management System"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://vuldb.com/?id.306796",
+          "source": "VDB-306796 | PHPGurukul Blood Bank & Donor Management System request-received-bydonar.php sql injection",
+          "tags": [
+            "vdb-entry",
+            "technical-description"
+          ]
+        },
+        {
+          "url": "https://vuldb.com/?ctiid.306796",
+          "source": "VDB-306796 | CTI Indicators (IOB, IOC, TTP, IOA)",
+          "tags": [
+            "signature",
+            "permissions-required"
+          ]
+        },
+        {
+          "url": "https://vuldb.com/?submit.561764",
+          "source": "Submit #561764 | phpgurukul Blood Bank & Donor Management System V2.4 SQL Injection",
+          "tags": [
+            "third-party-advisory"
+          ]
+        },
+        {
+          "url": "https://github.com/bluechips-zhao/myCVE/issues/5",
+          "source": "",
+          "tags": [
+            "exploit",
+            "issue-tracking"
+          ]
+        },
+        {
+          "url": "https://phpgurukul.com/",
+          "source": "",
+          "tags": [
+            "product"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-89",
+          "CWE-74"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/4xxx/CVE-2025-4176.json",
+            "lastModified": "2025-05-02T17:29:13.481000+00:00"
           }
         ]
       }
@@ -334510,6 +334443,73 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/0xxx/CVE-2024-0114.json",
             "lastModified": "2025-03-06T04:55:24.929000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-43595",
+      "title": "MSP360 Backup (for Linux) insecure filesystem permissions",
+      "description": "An insecure file system permissions vulnerability in MSP360 Backup 4.3.1.115 allows a low privileged user to execute commands with root privileges in the 'Online Backup' folder. Upgrade to MSP360 Backup 4.4 (released on 2025-04-22).",
+      "publishedDate": "2025-05-01T21:12:58.729000+00:00",
+      "lastModifiedDate": "2025-05-22T16:49:29.201000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 7.8,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.0001,
+        "percentile": 2.044
+      },
+      "riskScore": 41,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Msp360"
+        ],
+        "products": [
+          "Backup"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://help.msp360.com/cloudberry-backup-mac-linux/whats-new",
+          "source": "url",
+          "tags": []
+        },
+        {
+          "url": "https://raw.githubusercontent.com/cisagov/CSAF/develop/csaf_files/IT/white/2025/va-25-119-01.json",
+          "source": "url",
+          "tags": []
+        },
+        {
+          "url": "https://www.cve.org/CVERecord?id=CVE-2025-43595",
+          "source": "url",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-276"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Local",
+        "attackComplexity": "Low",
+        "privilegesRequired": "Low",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/43xxx/CVE-2025-43595.json",
+            "lastModified": "2025-05-22T16:49:29.201000+00:00"
           }
         ]
       }

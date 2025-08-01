@@ -1,5 +1,5 @@
 {
-  "generated": "2025-07-31T20:07:00.143227",
+  "generated": "2025-08-01T00:27:41.633789",
   "count": 15638,
   "vulnerabilities": [
     {
@@ -8316,35 +8316,6 @@
       ]
     },
     {
-      "cveId": "CVE-2025-49520",
-      "title": "[HIGH] Kubernetes Kubernetes",
-      "originalTitle": "Event-driven-ansible: authenticated argument injection in git url in eda project creation",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.09,
-      "epssPercentile": 26.564,
-      "riskScore": 54,
-      "publishedDate": "2025-06-30T20:45:28.706000+00:00",
-      "lastModifiedDate": "2025-07-02T03:55:21.471000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "Kubernetes",
-        "Red Hat"
-      ],
-      "products": [
-        "Kubernetes",
-        "Red Hat Ansible Automation Platform 2.5 For Rhel 8",
-        "Red Hat Ansible Automation Platform 2.5 For Rhel 9"
-      ],
-      "attackVector": "Network",
-      "attackComplexity": "Low",
-      "privilegesRequired": "Low",
-      "userInteraction": "None",
-      "tags": [
-        "CWE-88"
-      ]
-    },
-    {
       "cveId": "CVE-2025-49746",
       "title": "[CRITICAL] Microsoft Azure Machine Learning",
       "originalTitle": "Azure Machine Learning Elevation of Privilege Vulnerability",
@@ -12867,6 +12838,35 @@
       "userInteraction": "None",
       "tags": [
         "CWE-78"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-49520",
+      "title": "[HIGH] Kubernetes Kubernetes",
+      "originalTitle": "Event-driven-ansible: authenticated argument injection in git url in eda project creation",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.09,
+      "epssPercentile": 26.564,
+      "riskScore": 52,
+      "publishedDate": "2025-06-30T20:45:28.706000+00:00",
+      "lastModifiedDate": "2025-07-02T03:55:21.471000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "Kubernetes",
+        "Red Hat"
+      ],
+      "products": [
+        "Kubernetes",
+        "Red Hat Ansible Automation Platform 2.5 For Rhel 8",
+        "Red Hat Ansible Automation Platform 2.5 For Rhel 9"
+      ],
+      "attackVector": "Network",
+      "attackComplexity": "Low",
+      "privilegesRequired": "Low",
+      "userInteraction": "None",
+      "tags": [
+        "CWE-88"
       ]
     },
     {
@@ -33264,33 +33264,6 @@
       ]
     },
     {
-      "cveId": "CVE-2025-49521",
-      "title": "[HIGH] Red Hat Red Hat Ansible Automation Platform 2.5 For Rhel 8",
-      "originalTitle": "Event-driven-ansible: template injection via git branch and refspec in eda projects",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 0.09,
-      "epssPercentile": 26.564,
-      "riskScore": 48,
-      "publishedDate": "2025-06-30T20:45:13.138000+00:00",
-      "lastModifiedDate": "2025-07-22T16:02:06.025000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "Red Hat"
-      ],
-      "products": [
-        "Red Hat Ansible Automation Platform 2.5 For Rhel 8",
-        "Red Hat Ansible Automation Platform 2.5 For Rhel 9"
-      ],
-      "attackVector": "Network",
-      "attackComplexity": "Low",
-      "privilegesRequired": "Low",
-      "userInteraction": "None",
-      "tags": [
-        "CWE-94"
-      ]
-    },
-    {
       "cveId": "CVE-2025-49690",
       "title": "[HIGH] Microsoft Windows 10 Version 1809",
       "originalTitle": "Capability Access Management Service (camsvc) Elevation of Privilege Vulnerability",
@@ -47294,32 +47267,6 @@
       ]
     },
     {
-      "cveId": "CVE-2025-54377",
-      "title": "[HIGH] Roocodeinc Roo-Code",
-      "originalTitle": "Roo Code Lacks Line Break Validation in its Command Execution Tool",
-      "severity": "HIGH",
-      "cvssScore": 7.8,
-      "epssScore": 0.07,
-      "epssPercentile": 22.224,
-      "riskScore": 47,
-      "publishedDate": "2025-07-23T20:36:01.878000+00:00",
-      "lastModifiedDate": "2025-07-23T20:48:31.557000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "Roocodeinc"
-      ],
-      "products": [
-        "Roo-code"
-      ],
-      "attackVector": "Local",
-      "attackComplexity": "Low",
-      "privilegesRequired": "Low",
-      "userInteraction": "None",
-      "tags": [
-        "CWE-77"
-      ]
-    },
-    {
       "cveId": "CVE-2025-7620",
       "title": "[HIGH] Dsic Cross-Browser Components For Official Document Creation",
       "originalTitle": "DSIC｜Cross-browser Components for Official Document Creation - Remote Code Execution",
@@ -48227,35 +48174,6 @@
       "userInteraction": "None",
       "tags": [
         "CWE-89"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-47281",
-      "title": "[HIGH] Kyverno Kyverno",
-      "originalTitle": "Kyverno's Improper JMESPath Variable Evaluation Leads to Denial of Service",
-      "severity": "HIGH",
-      "cvssScore": 7.7,
-      "epssScore": 0.04,
-      "epssPercentile": 11.178,
-      "riskScore": 47,
-      "publishedDate": "2025-07-23T20:35:21.199000+00:00",
-      "lastModifiedDate": "2025-07-23T20:49:31.882000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "Kyverno",
-        "Policy"
-      ],
-      "products": [
-        "Kyverno",
-        "Policy Engine"
-      ],
-      "attackVector": "Network",
-      "attackComplexity": "Low",
-      "privilegesRequired": "Low",
-      "userInteraction": "None",
-      "tags": [
-        "CWE-20",
-        "CWE-248"
       ]
     },
     {
@@ -69735,33 +69653,6 @@
       ]
     },
     {
-      "cveId": "CVE-2025-6936",
-      "title": "[HIGH] Code-Projects Simple Pizza Ordering System",
-      "originalTitle": "code-projects Simple Pizza Ordering System addpro.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 11.304,
-      "riskScore": 46,
-      "publishedDate": "2025-07-01T00:02:05.868000+00:00",
-      "lastModifiedDate": "2025-07-01T19:17:33.429000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "Code-projects"
-      ],
-      "products": [
-        "Simple Pizza Ordering System"
-      ],
-      "attackVector": "Network",
-      "attackComplexity": "Low",
-      "privilegesRequired": "None",
-      "userInteraction": "None",
-      "tags": [
-        "CWE-89",
-        "CWE-74"
-      ]
-    },
-    {
       "cveId": "CVE-2025-6955",
       "title": "[HIGH] Campcodes Employee Management System",
       "originalTitle": "Campcodes Employee Management System aprocess.php sql injection",
@@ -69812,33 +69703,6 @@
       "userInteraction": "None",
       "tags": [
         "CWE-672"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-6935",
-      "title": "[HIGH] Campcodes Sales And Inventory System",
-      "originalTitle": "Campcodes Sales and Inventory System payment_add.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.04,
-      "epssPercentile": 11.304,
-      "riskScore": 46,
-      "publishedDate": "2025-06-30T23:32:06.444000+00:00",
-      "lastModifiedDate": "2025-07-01T19:18:01.287000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "Campcodes"
-      ],
-      "products": [
-        "Sales And Inventory System"
-      ],
-      "attackVector": "Network",
-      "attackComplexity": "Low",
-      "privilegesRequired": "None",
-      "userInteraction": "None",
-      "tags": [
-        "CWE-89",
-        "CWE-74"
       ]
     },
     {
@@ -70868,32 +70732,6 @@
       "userInteraction": "None",
       "tags": [
         "CWE-1390"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-53537",
-      "title": "[HIGH] Oisf Libhtp",
-      "originalTitle": "LibHTP's memory leak with lzma can lead to resource starvation",
-      "severity": "HIGH",
-      "cvssScore": 7.5,
-      "epssScore": 0.05,
-      "epssPercentile": 16.267,
-      "riskScore": 46,
-      "publishedDate": "2025-07-23T20:35:30.824000+00:00",
-      "lastModifiedDate": "2025-07-23T20:48:59.864000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "Oisf"
-      ],
-      "products": [
-        "Libhtp"
-      ],
-      "attackVector": "Network",
-      "attackComplexity": "Low",
-      "privilegesRequired": "None",
-      "userInteraction": "None",
-      "tags": [
-        "CWE-401"
       ]
     },
     {
@@ -83815,6 +83653,33 @@
       "tags": []
     },
     {
+      "cveId": "CVE-2025-49521",
+      "title": "[HIGH] Red Hat Red Hat Ansible Automation Platform 2.5 For Rhel 8",
+      "originalTitle": "Event-driven-ansible: template injection via git branch and refspec in eda projects",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 0.09,
+      "epssPercentile": 26.564,
+      "riskScore": 46,
+      "publishedDate": "2025-06-30T20:45:13.138000+00:00",
+      "lastModifiedDate": "2025-07-22T16:02:06.025000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "Red Hat"
+      ],
+      "products": [
+        "Red Hat Ansible Automation Platform 2.5 For Rhel 8",
+        "Red Hat Ansible Automation Platform 2.5 For Rhel 9"
+      ],
+      "attackVector": "Network",
+      "attackComplexity": "Low",
+      "privilegesRequired": "Low",
+      "userInteraction": "None",
+      "tags": [
+        "CWE-94"
+      ]
+    },
+    {
       "cveId": "CVE-2025-52995",
       "title": "[HIGH] File File Browser",
       "originalTitle": "File Browser vulnerable to command execution allowlist bypass",
@@ -91834,33 +91699,6 @@
       "tags": [
         "CWE-122",
         "CWE-125"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-24891",
-      "title": "[CRITICAL] Dumbwareio Dumbdrop",
-      "originalTitle": "Dumb Drop has an arbitrary file overwrite and path traversal for root shell",
-      "severity": "CRITICAL",
-      "cvssScore": 9.7,
-      "epssScore": 0.27,
-      "epssPercentile": 50.325,
-      "riskScore": 45,
-      "publishedDate": "2025-01-31T23:02:19.734000+00:00",
-      "lastModifiedDate": "2025-02-12T20:51:22.873000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "Dumbwareio"
-      ],
-      "products": [
-        "Dumbdrop"
-      ],
-      "attackVector": "Network",
-      "attackComplexity": "Low",
-      "privilegesRequired": "None",
-      "userInteraction": "Required",
-      "tags": [
-        "CWE-22",
-        "CWE-276"
       ]
     },
     {
@@ -108074,6 +107912,61 @@
       ]
     },
     {
+      "cveId": "CVE-2025-54377",
+      "title": "[HIGH] Roocodeinc Roo-Code",
+      "originalTitle": "Roo Code Lacks Line Break Validation in its Command Execution Tool",
+      "severity": "HIGH",
+      "cvssScore": 7.8,
+      "epssScore": 0.07,
+      "epssPercentile": 22.224,
+      "riskScore": 45,
+      "publishedDate": "2025-07-23T20:36:01.878000+00:00",
+      "lastModifiedDate": "2025-07-23T20:48:31.557000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "Roocodeinc"
+      ],
+      "products": [
+        "Roo-code"
+      ],
+      "attackVector": "Local",
+      "attackComplexity": "Low",
+      "privilegesRequired": "Low",
+      "userInteraction": "None",
+      "tags": [
+        "CWE-77"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-47281",
+      "title": "[HIGH] Kyverno Kyverno",
+      "originalTitle": "Kyverno's Improper JMESPath Variable Evaluation Leads to Denial of Service",
+      "severity": "HIGH",
+      "cvssScore": 7.7,
+      "epssScore": 0.04,
+      "epssPercentile": 11.178,
+      "riskScore": 45,
+      "publishedDate": "2025-07-23T20:35:21.199000+00:00",
+      "lastModifiedDate": "2025-07-23T20:49:31.882000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "Kyverno",
+        "Policy"
+      ],
+      "products": [
+        "Kyverno",
+        "Policy Engine"
+      ],
+      "attackVector": "Network",
+      "attackComplexity": "Low",
+      "privilegesRequired": "Low",
+      "userInteraction": "None",
+      "tags": [
+        "CWE-20",
+        "CWE-248"
+      ]
+    },
+    {
       "cveId": "CVE-2025-35996",
       "title": "[CRITICAL] Kunbus Gmbh Of Server",
       "originalTitle": "KUNBUS Revolution Pi Improper Neutralization of Server-Side Includes (SSI) Within a Web Page",
@@ -118004,34 +117897,6 @@
       ]
     },
     {
-      "cveId": "CVE-2025-4181",
-      "title": "[HIGH] Ftp Ftp Server",
-      "originalTitle": "PCMan FTP Server SEND Command buffer overflow",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.09,
-      "epssPercentile": 26.599,
-      "riskScore": 44,
-      "publishedDate": "2025-05-01T22:31:03.813000+00:00",
-      "lastModifiedDate": "2025-05-02T17:21:34.429000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "Ftp",
-        "Pcman"
-      ],
-      "products": [
-        "Ftp Server"
-      ],
-      "attackVector": "Network",
-      "attackComplexity": "Low",
-      "privilegesRequired": "None",
-      "userInteraction": "None",
-      "tags": [
-        "CWE-120",
-        "CWE-119"
-      ]
-    },
-    {
       "cveId": "CVE-2025-4788",
       "title": "[HIGH] Freefloat Ftp Server",
       "originalTitle": "FreeFloat FTP Server DELETE Command buffer overflow",
@@ -118379,34 +118244,6 @@
       "tags": [
         "CWE-89",
         "CWE-74"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-4180",
-      "title": "[HIGH] Ftp Ftp Server",
-      "originalTitle": "PCMan FTP Server TRACE Command buffer overflow",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.09,
-      "epssPercentile": 26.599,
-      "riskScore": 44,
-      "publishedDate": "2025-05-01T22:00:08.446000+00:00",
-      "lastModifiedDate": "2025-05-02T17:24:10.680000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "Ftp",
-        "Pcman"
-      ],
-      "products": [
-        "Ftp Server"
-      ],
-      "attackVector": "Network",
-      "attackComplexity": "Low",
-      "privilegesRequired": "None",
-      "userInteraction": "None",
-      "tags": [
-        "CWE-120",
-        "CWE-119"
       ]
     },
     {
@@ -118786,34 +118623,6 @@
       "tags": [
         "CWE-639",
         "CWE-285"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-4184",
-      "title": "[HIGH] Ftp Ftp Server",
-      "originalTitle": "PCMan FTP Server QUOTE Command buffer overflow",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.07,
-      "epssPercentile": 20.957,
-      "riskScore": 44,
-      "publishedDate": "2025-05-01T23:31:03.128000+00:00",
-      "lastModifiedDate": "2025-05-02T14:33:11.361000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "Ftp",
-        "Pcman"
-      ],
-      "products": [
-        "Ftp Server"
-      ],
-      "attackVector": "Network",
-      "attackComplexity": "Low",
-      "privilegesRequired": "None",
-      "userInteraction": "None",
-      "tags": [
-        "CWE-120",
-        "CWE-119"
       ]
     },
     {
@@ -119461,33 +119270,6 @@
       "userInteraction": "None",
       "tags": [
         "CWE-287"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-4191",
-      "title": "[HIGH] Phpgurukul Employee Record Management System",
-      "originalTitle": "PHPGurukul Employee Record Management System editmyeducation.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.06,
-      "epssPercentile": 17.328,
-      "riskScore": 44,
-      "publishedDate": "2025-05-02T00:00:11.860000+00:00",
-      "lastModifiedDate": "2025-06-06T07:08:22.481000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "Phpgurukul"
-      ],
-      "products": [
-        "Employee Record Management System"
-      ],
-      "attackVector": "Network",
-      "attackComplexity": "Low",
-      "privilegesRequired": "None",
-      "userInteraction": "None",
-      "tags": [
-        "CWE-89",
-        "CWE-74"
       ]
     },
     {
@@ -120183,34 +119965,6 @@
       "vendors": [
         "Freefloat",
         "Ftp"
-      ],
-      "products": [
-        "Ftp Server"
-      ],
-      "attackVector": "Network",
-      "attackComplexity": "Low",
-      "privilegesRequired": "None",
-      "userInteraction": "None",
-      "tags": [
-        "CWE-120",
-        "CWE-119"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-4183",
-      "title": "[HIGH] Ftp Ftp Server",
-      "originalTitle": "PCMan FTP Server RECV Command buffer overflow",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.09,
-      "epssPercentile": 26.599,
-      "riskScore": 44,
-      "publishedDate": "2025-05-01T23:00:07.509000+00:00",
-      "lastModifiedDate": "2025-05-02T14:37:50.794000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "Ftp",
-        "Pcman"
       ],
       "products": [
         "Ftp Server"
@@ -122422,34 +122176,6 @@
       ]
     },
     {
-      "cveId": "CVE-2025-4182",
-      "title": "[HIGH] Ftp Ftp Server",
-      "originalTitle": "PCMan FTP Server BELL Command buffer overflow",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.07,
-      "epssPercentile": 20.957,
-      "riskScore": 44,
-      "publishedDate": "2025-05-01T23:00:05.923000+00:00",
-      "lastModifiedDate": "2025-05-02T14:05:33.687000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "Ftp",
-        "Pcman"
-      ],
-      "products": [
-        "Ftp Server"
-      ],
-      "attackVector": "Network",
-      "attackComplexity": "Low",
-      "privilegesRequired": "None",
-      "userInteraction": "None",
-      "tags": [
-        "CWE-120",
-        "CWE-119"
-      ]
-    },
-    {
       "cveId": "CVE-2025-4880",
       "title": "[HIGH] Phpgurukul News Portal",
       "originalTitle": "PHPGurukul News Portal aboutus.php sql injection",
@@ -122556,33 +122282,6 @@
       "tags": [
         "CWE-120",
         "CWE-119"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-4176",
-      "title": "[HIGH] Phpgurukul Blood Bank & Donor Management System",
-      "originalTitle": "PHPGurukul Blood Bank & Donor Management System request-received-bydonar.php sql injection",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.05,
-      "epssPercentile": 16.287,
-      "riskScore": 44,
-      "publishedDate": "2025-05-01T21:31:05.159000+00:00",
-      "lastModifiedDate": "2025-05-02T17:29:13.481000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "Phpgurukul"
-      ],
-      "products": [
-        "Blood Bank & Donor Management System"
-      ],
-      "attackVector": "Network",
-      "attackComplexity": "Low",
-      "privilegesRequired": "None",
-      "userInteraction": "None",
-      "tags": [
-        "CWE-89",
-        "CWE-74"
       ]
     },
     {
@@ -151986,6 +151685,86 @@
       ]
     },
     {
+      "cveId": "CVE-2025-6936",
+      "title": "[HIGH] Code-Projects Simple Pizza Ordering System",
+      "originalTitle": "code-projects Simple Pizza Ordering System addpro.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 11.304,
+      "riskScore": 44,
+      "publishedDate": "2025-07-01T00:02:05.868000+00:00",
+      "lastModifiedDate": "2025-07-01T19:17:33.429000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "Code-projects"
+      ],
+      "products": [
+        "Simple Pizza Ordering System"
+      ],
+      "attackVector": "Network",
+      "attackComplexity": "Low",
+      "privilegesRequired": "None",
+      "userInteraction": "None",
+      "tags": [
+        "CWE-89",
+        "CWE-74"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-6935",
+      "title": "[HIGH] Campcodes Sales And Inventory System",
+      "originalTitle": "Campcodes Sales and Inventory System payment_add.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.04,
+      "epssPercentile": 11.304,
+      "riskScore": 44,
+      "publishedDate": "2025-06-30T23:32:06.444000+00:00",
+      "lastModifiedDate": "2025-07-01T19:18:01.287000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "Campcodes"
+      ],
+      "products": [
+        "Sales And Inventory System"
+      ],
+      "attackVector": "Network",
+      "attackComplexity": "Low",
+      "privilegesRequired": "None",
+      "userInteraction": "None",
+      "tags": [
+        "CWE-89",
+        "CWE-74"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-53537",
+      "title": "[HIGH] Oisf Libhtp",
+      "originalTitle": "LibHTP's memory leak with lzma can lead to resource starvation",
+      "severity": "HIGH",
+      "cvssScore": 7.5,
+      "epssScore": 0.05,
+      "epssPercentile": 16.267,
+      "riskScore": 44,
+      "publishedDate": "2025-07-23T20:35:30.824000+00:00",
+      "lastModifiedDate": "2025-07-23T20:48:59.864000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "Oisf"
+      ],
+      "products": [
+        "Libhtp"
+      ],
+      "attackVector": "Network",
+      "attackComplexity": "Low",
+      "privilegesRequired": "None",
+      "userInteraction": "None",
+      "tags": [
+        "CWE-401"
+      ]
+    },
+    {
       "cveId": "CVE-2025-5601",
       "title": "[HIGH] Wireshark Foundation Wireshark",
       "originalTitle": "Buffer Copy without Checking Size of Input ('Classic Buffer Overflow') in Wireshark",
@@ -161534,32 +161313,6 @@
       "userInteraction": "None",
       "tags": [
         "CWE-284"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-43595",
-      "title": "[HIGH] Msp360 Backup",
-      "originalTitle": "MSP360 Backup (for Linux) insecure filesystem permissions",
-      "severity": "HIGH",
-      "cvssScore": 7.8,
-      "epssScore": 0.01,
-      "epssPercentile": 2.044,
-      "riskScore": 43,
-      "publishedDate": "2025-05-01T21:12:58.729000+00:00",
-      "lastModifiedDate": "2025-05-22T16:49:29.201000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "Msp360"
-      ],
-      "products": [
-        "Backup"
-      ],
-      "attackVector": "Local",
-      "attackComplexity": "Low",
-      "privilegesRequired": "Low",
-      "userInteraction": "None",
-      "tags": [
-        "CWE-276"
       ]
     },
     {
@@ -192083,6 +191836,33 @@
       "userInteraction": "Required",
       "tags": [
         "CWE-125"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-24891",
+      "title": "[CRITICAL] Dumbwareio Dumbdrop",
+      "originalTitle": "Dumb Drop has an arbitrary file overwrite and path traversal for root shell",
+      "severity": "CRITICAL",
+      "cvssScore": 9.7,
+      "epssScore": 0.27,
+      "epssPercentile": 50.325,
+      "riskScore": 43,
+      "publishedDate": "2025-01-31T23:02:19.734000+00:00",
+      "lastModifiedDate": "2025-02-12T20:51:22.873000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "Dumbwareio"
+      ],
+      "products": [
+        "Dumbdrop"
+      ],
+      "attackVector": "Network",
+      "attackComplexity": "Low",
+      "privilegesRequired": "None",
+      "userInteraction": "Required",
+      "tags": [
+        "CWE-22",
+        "CWE-276"
       ]
     },
     {
@@ -227093,6 +226873,145 @@
       ]
     },
     {
+      "cveId": "CVE-2025-4181",
+      "title": "[HIGH] Ftp Ftp Server",
+      "originalTitle": "PCMan FTP Server SEND Command buffer overflow",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.09,
+      "epssPercentile": 26.599,
+      "riskScore": 42,
+      "publishedDate": "2025-05-01T22:31:03.813000+00:00",
+      "lastModifiedDate": "2025-05-02T17:21:34.429000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "Ftp",
+        "Pcman"
+      ],
+      "products": [
+        "Ftp Server"
+      ],
+      "attackVector": "Network",
+      "attackComplexity": "Low",
+      "privilegesRequired": "None",
+      "userInteraction": "None",
+      "tags": [
+        "CWE-120",
+        "CWE-119"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-4180",
+      "title": "[HIGH] Ftp Ftp Server",
+      "originalTitle": "PCMan FTP Server TRACE Command buffer overflow",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.09,
+      "epssPercentile": 26.599,
+      "riskScore": 42,
+      "publishedDate": "2025-05-01T22:00:08.446000+00:00",
+      "lastModifiedDate": "2025-05-02T17:24:10.680000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "Ftp",
+        "Pcman"
+      ],
+      "products": [
+        "Ftp Server"
+      ],
+      "attackVector": "Network",
+      "attackComplexity": "Low",
+      "privilegesRequired": "None",
+      "userInteraction": "None",
+      "tags": [
+        "CWE-120",
+        "CWE-119"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-4184",
+      "title": "[HIGH] Ftp Ftp Server",
+      "originalTitle": "PCMan FTP Server QUOTE Command buffer overflow",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.07,
+      "epssPercentile": 20.957,
+      "riskScore": 42,
+      "publishedDate": "2025-05-01T23:31:03.128000+00:00",
+      "lastModifiedDate": "2025-05-02T14:33:11.361000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "Ftp",
+        "Pcman"
+      ],
+      "products": [
+        "Ftp Server"
+      ],
+      "attackVector": "Network",
+      "attackComplexity": "Low",
+      "privilegesRequired": "None",
+      "userInteraction": "None",
+      "tags": [
+        "CWE-120",
+        "CWE-119"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-4191",
+      "title": "[HIGH] Phpgurukul Employee Record Management System",
+      "originalTitle": "PHPGurukul Employee Record Management System editmyeducation.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.06,
+      "epssPercentile": 17.328,
+      "riskScore": 42,
+      "publishedDate": "2025-05-02T00:00:11.860000+00:00",
+      "lastModifiedDate": "2025-06-06T07:08:22.481000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "Phpgurukul"
+      ],
+      "products": [
+        "Employee Record Management System"
+      ],
+      "attackVector": "Network",
+      "attackComplexity": "Low",
+      "privilegesRequired": "None",
+      "userInteraction": "None",
+      "tags": [
+        "CWE-89",
+        "CWE-74"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-4183",
+      "title": "[HIGH] Ftp Ftp Server",
+      "originalTitle": "PCMan FTP Server RECV Command buffer overflow",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.09,
+      "epssPercentile": 26.599,
+      "riskScore": 42,
+      "publishedDate": "2025-05-01T23:00:07.509000+00:00",
+      "lastModifiedDate": "2025-05-02T14:37:50.794000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "Ftp",
+        "Pcman"
+      ],
+      "products": [
+        "Ftp Server"
+      ],
+      "attackVector": "Network",
+      "attackComplexity": "Low",
+      "privilegesRequired": "None",
+      "userInteraction": "None",
+      "tags": [
+        "CWE-120",
+        "CWE-119"
+      ]
+    },
+    {
       "cveId": "CVE-2025-4174",
       "title": "[HIGH] Phpgurukul Covid19 Testing Management System",
       "originalTitle": "PHPGurukul COVID19 Testing Management System login.php sql injection",
@@ -227109,6 +227028,61 @@
       ],
       "products": [
         "Covid19 Testing Management System"
+      ],
+      "attackVector": "Network",
+      "attackComplexity": "Low",
+      "privilegesRequired": "None",
+      "userInteraction": "None",
+      "tags": [
+        "CWE-89",
+        "CWE-74"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-4182",
+      "title": "[HIGH] Ftp Ftp Server",
+      "originalTitle": "PCMan FTP Server BELL Command buffer overflow",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.07,
+      "epssPercentile": 20.957,
+      "riskScore": 42,
+      "publishedDate": "2025-05-01T23:00:05.923000+00:00",
+      "lastModifiedDate": "2025-05-02T14:05:33.687000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "Ftp",
+        "Pcman"
+      ],
+      "products": [
+        "Ftp Server"
+      ],
+      "attackVector": "Network",
+      "attackComplexity": "Low",
+      "privilegesRequired": "None",
+      "userInteraction": "None",
+      "tags": [
+        "CWE-120",
+        "CWE-119"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-4176",
+      "title": "[HIGH] Phpgurukul Blood Bank & Donor Management System",
+      "originalTitle": "PHPGurukul Blood Bank & Donor Management System request-received-bydonar.php sql injection",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.05,
+      "epssPercentile": 16.287,
+      "riskScore": 42,
+      "publishedDate": "2025-05-01T21:31:05.159000+00:00",
+      "lastModifiedDate": "2025-05-02T17:29:13.481000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "Phpgurukul"
+      ],
+      "products": [
+        "Blood Bank & Donor Management System"
       ],
       "attackVector": "Network",
       "attackComplexity": "Low",
@@ -259918,6 +259892,32 @@
       "userInteraction": "None",
       "tags": [
         "CWE-770"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-43595",
+      "title": "[HIGH] Msp360 Backup",
+      "originalTitle": "MSP360 Backup (for Linux) insecure filesystem permissions",
+      "severity": "HIGH",
+      "cvssScore": 7.8,
+      "epssScore": 0.01,
+      "epssPercentile": 2.044,
+      "riskScore": 41,
+      "publishedDate": "2025-05-01T21:12:58.729000+00:00",
+      "lastModifiedDate": "2025-05-22T16:49:29.201000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "Msp360"
+      ],
+      "products": [
+        "Backup"
+      ],
+      "attackVector": "Local",
+      "attackComplexity": "Low",
+      "privilegesRequired": "Low",
+      "userInteraction": "None",
+      "tags": [
+        "CWE-276"
       ]
     },
     {
