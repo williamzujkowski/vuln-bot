@@ -1,6 +1,6 @@
 # Vuln-Bot
 
-![Coverage](https://img.shields.io/badge/coverage-55%25-orange)
+![Coverage](https://img.shields.io/badge/coverage-53%25-orange)
 ![CI](https://github.com/williamzujkowski/vuln-bot/actions/workflows/ci.yml/badge.svg)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
