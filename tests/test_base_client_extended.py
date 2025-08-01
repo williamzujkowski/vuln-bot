@@ -11,12 +11,12 @@ from scripts.harvest.base_client import BaseAPIClient, RateLimiter
 
 
 # Concrete implementation for testing
-class TestAPIClient(BaseAPIClient):
+class MockAPIClient(BaseAPIClient):
     """Concrete implementation of BaseAPIClient for testing."""
 
     def get_headers(self) -> dict:
         """Get headers for API requests."""
-        return {"User-Agent": "TestAPIClient/1.0", "Accept": "application/json"}
+        return {"User-Agent": "MockAPIClient/1.0", "Accept": "application/json"}
 
 
 class TestBaseAPIClientExtended:
@@ -32,7 +32,7 @@ class TestBaseAPIClientExtended:
     @pytest.fixture
     def client_with_cache(self, temp_cache_dir):
         """Create client with caching enabled."""
-        return TestAPIClient(
+        return MockAPIClient(
             base_url="https://api.example.com", cache_dir=temp_cache_dir, cache_ttl=3600
         )
 
@@ -233,7 +233,7 @@ class TestBaseAPIClientExtended:
 
     def test_session_persistence(self):
         """Test that session is reused across requests."""
-        client = TestAPIClient(base_url="https://api.example.com")
+        client = MockAPIClient(base_url="https://api.example.com")
 
         # Access session twice
         session1 = client.session
