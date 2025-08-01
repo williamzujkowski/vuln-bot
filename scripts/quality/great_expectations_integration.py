@@ -438,7 +438,7 @@ class GreatExpectationsValidator:
 
     def _suggest_expectations(
         self,
-        df: pd.DataFrame,
+        df: pd.DataFrame,  # noqa: ARG002
         profile: Dict[str, Any],  # noqa: ARG002
     ) -> List[Dict[str, Any]]:
         """Suggest expectations based on data profile."""

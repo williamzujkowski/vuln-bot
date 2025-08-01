@@ -1345,12 +1345,10 @@ class AlpineDashboardGenerator:
 
         # Replace placeholders with actual data
         html_content = html_content.replace(
-            "VULN_DATA_PLACEHOLDER", 
-            json.dumps(vuln_data, indent=2)
+            "VULN_DATA_PLACEHOLDER", json.dumps(vuln_data, indent=2)
         )
         html_content = html_content.replace(
-            "STATS_DATA_PLACEHOLDER", 
-            json.dumps(stats, indent=2)
+            "STATS_DATA_PLACEHOLDER", json.dumps(stats, indent=2)
         )
 
         # Write the dashboard HTML
