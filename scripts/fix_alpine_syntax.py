@@ -12,7 +12,7 @@ def fix_alpine_syntax():
     content = file_path.read_text()
 
     # Fix 1: Replace ${{}} with ${} in template literals
-    content = re.sub(r'\$\{\{([^}]+)\}\}', r'${\1}', content)
+    content = re.sub(r"\$\{\{([^}]+)\}\}", r"${\1}", content)
 
     # Fix 2: Replace {{ }} with { } for Alpine.js object literals
     # This is more complex - we need to preserve CSS {{ }} but fix Alpine's
@@ -25,16 +25,19 @@ def fix_alpine_syntax():
     content = content.replace('x-data="{{ ', 'x-data="{ ')
 
     # Fix object literals in JavaScript
-    content = content.replace('const severityOrder = {{ ', 'const severityOrder = { ')
-    content = content.replace('const blob = new Blob([csvContent], {{ ', 'const blob = new Blob([csvContent], { ')
-    content = content.replace('labels: {{ ', 'labels: { ')
-    content = content.replace('legend: {{ ', 'legend: { ')
-    content = content.replace('ticks: {{ ', 'ticks: { ')
+    content = content.replace("const severityOrder = {{ ", "const severityOrder = { ")
+    content = content.replace(
+        "const blob = new Blob([csvContent], {{ ",
+        "const blob = new Blob([csvContent], { ",
+    )
+    content = content.replace("labels: {{ ", "labels: { ")
+    content = content.replace("legend: {{ ", "legend: { ")
+    content = content.replace("ticks: {{ ", "ticks: { ")
 
     # Fix 3: Ensure dashboard() function is properly exported to window
     # Find the dashboard function definition and make it global
-    dashboard_pattern = r'(\s+)(function dashboard\(\) \{)'
-    dashboard_replacement = r'\1window.dashboard = function() {'
+    dashboard_pattern = r"(\s+)(function dashboard\(\) \{)"
+    dashboard_replacement = r"\1window.dashboard = function() {"
     content = re.sub(dashboard_pattern, dashboard_replacement, content)
 
     # Write the fixed content
@@ -44,6 +47,7 @@ def fix_alpine_syntax():
     print("  - Replaced ${{}} with ${} in template literals")
     print("  - Replaced {{ }} with { } in Alpine.js directives")
     print("  - Made dashboard() function global")
+
 
 if __name__ == "__main__":
     fix_alpine_syntax()
