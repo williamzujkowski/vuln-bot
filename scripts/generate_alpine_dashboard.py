@@ -323,7 +323,8 @@ class AlpineDashboardGenerator:
             )
 
         # B608 is false positive - generating HTML not SQL
-        html_content = f"""<!DOCTYPE html>  # nosec
+        # Build HTML content without f-string to avoid Bandit false positive
+        html_content = """<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -1062,8 +1063,8 @@ class AlpineDashboardGenerator:
 
     <script>
         // Embed vulnerability data
-        const vulnerabilityData = {json.dumps(vuln_data, indent=2)};
-        const statsData = {json.dumps(stats, indent=2)};
+        const vulnerabilityData = VULN_DATA_PLACEHOLDER;
+        const statsData = STATS_DATA_PLACEHOLDER;
 
         function dashboard() {{
             return {{
@@ -1341,6 +1342,16 @@ class AlpineDashboardGenerator:
     </script>
 </body>
 </html>"""
+
+        # Replace placeholders with actual data
+        html_content = html_content.replace(
+            "VULN_DATA_PLACEHOLDER", 
+            json.dumps(vuln_data, indent=2)
+        )
+        html_content = html_content.replace(
+            "STATS_DATA_PLACEHOLDER", 
+            json.dumps(stats, indent=2)
+        )
 
         # Write the dashboard HTML
         with open(OUTPUT_DIR / "index.html", "w") as f:

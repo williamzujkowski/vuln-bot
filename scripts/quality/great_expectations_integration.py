@@ -277,7 +277,9 @@ class GreatExpectationsValidator:
             }
 
     def _calculate_quality_metrics(
-        self, df: pd.DataFrame, results: Any  # noqa: ARG002
+        self,
+        df: pd.DataFrame,
+        results: Any,  # noqa: ARG002
     ) -> Dict[str, float]:
         """Calculate data quality metrics from validation results."""
         metrics = {"completeness": {}, "validity": {}, "consistency": {}}
@@ -435,7 +437,9 @@ class GreatExpectationsValidator:
         return profile
 
     def _suggest_expectations(
-        self, df: pd.DataFrame, profile: Dict[str, Any]  # noqa: ARG002
+        self,
+        df: pd.DataFrame,
+        profile: Dict[str, Any],  # noqa: ARG002
     ) -> List[Dict[str, Any]]:
         """Suggest expectations based on data profile."""
         suggestions = []
