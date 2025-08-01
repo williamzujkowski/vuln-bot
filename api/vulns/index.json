@@ -1,5 +1,5 @@
 {
-  "generated": "2025-08-01T04:28:25.072071",
+  "generated": "2025-08-01T08:08:36.939961",
   "count": 15657,
   "vulnerabilities": [
     {
@@ -5433,34 +5433,6 @@
       ]
     },
     {
-      "cveId": "CVE-2025-41240",
-      "title": "[CRITICAL] Kubernetes Bitnamicharts/Appsmith",
-      "originalTitle": "Mounted Kubernetes Secrets under a predictable path located within the web server document root",
-      "severity": "CRITICAL",
-      "cvssScore": 10.0,
-      "epssScore": 0.23,
-      "epssPercentile": 45.749,
-      "riskScore": 58,
-      "publishedDate": "2025-07-24T06:42:25.254000+00:00",
-      "lastModifiedDate": "2025-07-25T03:55:24.700000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "Kubernetes",
-        "VMware",
-        "Web"
-      ],
-      "products": [
-        "Bitnamicharts/appsmith",
-        "Bitnamicharts/drupal",
-        "Bitnamicharts/wordpress"
-      ],
-      "attackVector": "Network",
-      "attackComplexity": "Low",
-      "privilegesRequired": "None",
-      "userInteraction": "None",
-      "tags": []
-    },
-    {
       "cveId": "CVE-2024-38018",
       "title": "[HIGH] Microsoft Microsoft Sharepoint Enterprise Server 2016",
       "originalTitle": "Microsoft SharePoint Server Remote Code Execution Vulnerability",
@@ -7486,6 +7458,34 @@
       "tags": [
         "CWE-22"
       ]
+    },
+    {
+      "cveId": "CVE-2025-41240",
+      "title": "[CRITICAL] Kubernetes Bitnamicharts/Appsmith",
+      "originalTitle": "Mounted Kubernetes Secrets under a predictable path located within the web server document root",
+      "severity": "CRITICAL",
+      "cvssScore": 10.0,
+      "epssScore": 0.23,
+      "epssPercentile": 45.749,
+      "riskScore": 56,
+      "publishedDate": "2025-07-24T06:42:25.254000+00:00",
+      "lastModifiedDate": "2025-07-25T03:55:24.700000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "Kubernetes",
+        "VMware",
+        "Web"
+      ],
+      "products": [
+        "Bitnamicharts/appsmith",
+        "Bitnamicharts/drupal",
+        "Bitnamicharts/wordpress"
+      ],
+      "attackVector": "Network",
+      "attackComplexity": "Low",
+      "privilegesRequired": "None",
+      "userInteraction": "None",
+      "tags": []
     },
     {
       "cveId": "CVE-2025-21385",
@@ -11590,34 +11590,6 @@
       "userInteraction": "None",
       "tags": [
         "CWE-862"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-6934",
-      "title": "[CRITICAL] Wordpress Opal Estate Pro – Property Management And Submission v1.7.5",
-      "originalTitle": "Opal Estate Pro <= 1.7.5 - Unauthenticated Privilege Escalation via 'on_regiser_user'",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 0.04,
-      "epssPercentile": 9.967,
-      "riskScore": 52,
-      "publishedDate": "2025-07-01T06:43:03.156000+00:00",
-      "lastModifiedDate": "2025-07-02T13:24:45.496000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "WordPress",
-        "Wpopal"
-      ],
-      "products": [
-        "Opal Estate Pro – Property Management And Submission",
-        "Wordpress"
-      ],
-      "attackVector": "Network",
-      "attackComplexity": "Low",
-      "privilegesRequired": "None",
-      "userInteraction": "None",
-      "tags": [
-        "CWE-269"
       ]
     },
     {
@@ -22488,6 +22460,34 @@
       "userInteraction": "None",
       "tags": [
         "CWE-78"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-6934",
+      "title": "[CRITICAL] Wordpress Opal Estate Pro – Property Management And Submission v1.7.5",
+      "originalTitle": "Opal Estate Pro <= 1.7.5 - Unauthenticated Privilege Escalation via 'on_regiser_user'",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.04,
+      "epssPercentile": 9.967,
+      "riskScore": 50,
+      "publishedDate": "2025-07-01T06:43:03.156000+00:00",
+      "lastModifiedDate": "2025-07-02T13:24:45.496000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "WordPress",
+        "Wpopal"
+      ],
+      "products": [
+        "Opal Estate Pro – Property Management And Submission",
+        "Wordpress"
+      ],
+      "attackVector": "Network",
+      "attackComplexity": "Low",
+      "privilegesRequired": "None",
+      "userInteraction": "None",
+      "tags": [
+        "CWE-269"
       ]
     },
     {
@@ -34150,34 +34150,6 @@
       "userInteraction": "Required",
       "tags": [
         "CWE-22"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-26397",
-      "title": "[HIGH] Host Host Server",
-      "originalTitle": "SolarWinds Observability Self-Hosted Deserialization of Untrusted Data Local Privilege Escalation Vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.8,
-      "epssScore": 0.05,
-      "epssPercentile": 13.729,
-      "riskScore": 48,
-      "publishedDate": "2025-07-24T07:57:53.475000+00:00",
-      "lastModifiedDate": "2025-07-24T13:16:37.075000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "Host",
-        "Solarwinds"
-      ],
-      "products": [
-        "Host Server",
-        "Solarwinds Observability Self-hosted"
-      ],
-      "attackVector": "Local",
-      "attackComplexity": "Low",
-      "privilegesRequired": "Low",
-      "userInteraction": "None",
-      "tags": [
-        "CWE-502"
       ]
     },
     {
@@ -73526,36 +73498,6 @@
       ]
     },
     {
-      "cveId": "CVE-2025-0366",
-      "title": "[HIGH] Artbees Jupiter X Core v4.8.7",
-      "originalTitle": "Jupiter X Core <= 4.8.7 - Authenticated (Contributor+) SVG Upload to Local File Inclusion (Remote Code Execution)",
-      "severity": "HIGH",
-      "cvssScore": 8.8,
-      "epssScore": 1.12,
-      "epssPercentile": 77.318,
-      "riskScore": 46,
-      "publishedDate": "2025-02-01T05:30:37.253000+00:00",
-      "lastModifiedDate": "2025-02-03T16:37:59.793000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "Artbees",
-        "The",
-        "WordPress"
-      ],
-      "products": [
-        "Jupiter X Core",
-        "The Server",
-        "Wordpress"
-      ],
-      "attackVector": "Network",
-      "attackComplexity": "Low",
-      "privilegesRequired": "Low",
-      "userInteraction": "None",
-      "tags": [
-        "CWE-98"
-      ]
-    },
-    {
       "cveId": "CVE-2025-0592",
       "title": "[HIGH] Sick Ag Sick Inspectorp8Xx",
       "originalTitle": "SICK Lector8xx and InspectorP8xx vulnerable for code execution",
@@ -83972,6 +83914,34 @@
       "userInteraction": "None",
       "tags": [
         "CWE-94"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-26397",
+      "title": "[HIGH] Host Host Server",
+      "originalTitle": "SolarWinds Observability Self-Hosted Deserialization of Untrusted Data Local Privilege Escalation Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.8,
+      "epssScore": 0.05,
+      "epssPercentile": 13.729,
+      "riskScore": 46,
+      "publishedDate": "2025-07-24T07:57:53.475000+00:00",
+      "lastModifiedDate": "2025-07-24T13:16:37.075000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "Host",
+        "Solarwinds"
+      ],
+      "products": [
+        "Host Server",
+        "Solarwinds Observability Self-hosted"
+      ],
+      "attackVector": "Local",
+      "attackComplexity": "Low",
+      "privilegesRequired": "Low",
+      "userInteraction": "None",
+      "tags": [
+        "CWE-502"
       ]
     },
     {
@@ -152086,6 +152056,36 @@
       "userInteraction": "None",
       "tags": [
         "CWE-401"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-0366",
+      "title": "[HIGH] Artbees Jupiter X Core v4.8.7",
+      "originalTitle": "Jupiter X Core <= 4.8.7 - Authenticated (Contributor+) SVG Upload to Local File Inclusion (Remote Code Execution)",
+      "severity": "HIGH",
+      "cvssScore": 8.8,
+      "epssScore": 1.12,
+      "epssPercentile": 77.318,
+      "riskScore": 44,
+      "publishedDate": "2025-02-01T05:30:37.253000+00:00",
+      "lastModifiedDate": "2025-02-03T16:37:59.793000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "Artbees",
+        "The",
+        "WordPress"
+      ],
+      "products": [
+        "Jupiter X Core",
+        "The Server",
+        "Wordpress"
+      ],
+      "attackVector": "Network",
+      "attackComplexity": "Low",
+      "privilegesRequired": "Low",
+      "userInteraction": "None",
+      "tags": [
+        "CWE-98"
       ]
     },
     {

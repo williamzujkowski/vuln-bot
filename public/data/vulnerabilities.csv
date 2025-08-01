@@ -199,7 +199,6 @@ CVE-2025-49132,CRITICAL,10.0,96.889,58,Pterodactyl Panel Allows Unauthenticated 
 CVE-2025-4632,CRITICAL,9.8,97.879,58,CVE-2025-4632: Improper limitation of a pathname to a restricted directory vulnerability in Samsung MagicINFO 9 Ser...,Samsung Electronics,2025-05-13
 CVE-2025-50201,CRITICAL,9.8,97.38,58,WeGIA OS Command Injection in debug_info.php parameter 'branch',"Labredescefetrj, The, Web",2025-06-19
 CVE-2025-53770,CRITICAL,9.8,94.658,58,Microsoft SharePoint Server Remote Code Execution Vulnerability,"Microsoft, Sharepoint",2025-07-20
-CVE-2025-41240,CRITICAL,10.0,45.749,58,Mounted Kubernetes Secrets under a predictable path located within the web server document root,"Kubernetes, VMware, Web",2025-07-24
 CVE-2024-38018,HIGH,8.8,98.162,58,Microsoft SharePoint Server Remote Code Execution Vulnerability,"Microsoft, Sharepoint",2024-09-10
 CVE-2024-55877,CRITICAL,10.0,98.311,58,XWiki allows remote code execution from account through macro descriptions and XWiki.XWikiSyntaxMacrosList,Xwiki,2024-12-12
 CVE-2024-26304,CRITICAL,9.8,98.754,58,CVE-2024-26304: There is a buffer overflow vulnerability in the underlying L2/L3 Management service that could lead ...,Hewlett Packard Enterprise (hpe),2024-05-01
@@ -274,6 +273,7 @@ CVE-2024-28189,CRITICAL,10.0,97.69,56,Judge0 vulnerable to Sandbox Escape Patch 
 CVE-2024-32700,CRITICAL,10.0,98.081,56,WordPress Kognetiks Chatbot for WordPress plugin <= 2.0.0 - Arbitrary File Upload vulnerability,"Kognetiks, WordPress",2024-05-13
 CVE-2024-30085,HIGH,7.8,98.432,56,Windows Cloud Files Mini Filter Driver Elevation of Privilege Vulnerability,Microsoft,2024-06-11
 CVE-2024-0402,CRITICAL,9.9,97.008,56,Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') in GitLab,Gitlab,2024-01-26
+CVE-2025-41240,CRITICAL,10.0,45.749,56,Mounted Kubernetes Secrets under a predictable path located within the web server document root,"Kubernetes, VMware, Web",2025-07-24
 CVE-2025-21385,HIGH,8.8,97.655,55,Microsoft Purview Information Disclosure Vulnerability,Microsoft,2025-01-09
 CVE-2025-49704,HIGH,8.8,93.705,55,Microsoft SharePoint Remote Code Execution Vulnerability,Microsoft,2025-07-08
 CVE-2025-49619,HIGH,8.5,97.234,55,CVE-2025-49619: Skyvern through 0.1.85 is vulnerable to server-side template injection (SSTI) in the Prompt field of...,"Skyvern, The, To",2025-06-07
@@ -425,7 +425,6 @@ CVE-2025-20282,CRITICAL,10.0,36.153,52,Cisco ISE API Unauthenticated Remote Code
 CVE-2025-50067,CRITICAL,9.0,23.517,52,CVE-2025-50067: Vulnerability in Oracle Application Express (component: Strategic Planner Starter App).  Supported v...,Oracle,2025-07-15
 CVE-2025-22896,HIGH,8.6,97.295,52,mySCADA myPRO Manager Cleartext Storage of Sensitive Information,Myscada,2025-02-13
 CVE-2025-6187,CRITICAL,9.8,48.461,52,bSecure 1.3.7 - 1.7.9 - Missing Authorization to Unauthenticated Privilege Escalation via order_info REST Endpoint,"Bsecuretech, WordPress",2025-07-22
-CVE-2025-6934,CRITICAL,9.8,9.967,52,Opal Estate Pro <= 1.7.5 - Unauthenticated Privilege Escalation via 'on_regiser_user',"WordPress, Wpopal",2025-07-01
 CVE-2025-6260,CRITICAL,9.8,23.994,52,Network Thermostat X-Series WiFi Thermostats Missing Authentication for Critical Function,"Network Thermostat, Web",2025-07-24
 CVE-2025-6948,HIGH,8.7,11.709,52,Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') in GitLab,Gitlab,2025-07-10
 CVE-2025-29922,CRITICAL,9.6,18.641,52,kcp allows unauthorized creation and deletion of objects in arbitrary workspaces through APIExport Virtual Workspace,"Kcp-dev, Kubernetes",2025-03-20
@@ -822,6 +821,7 @@ CVE-2024-32964,CRITICAL,9.0,95.791,50,lobe-chat `/api/proxy` endpoint Server-Sid
 CVE-2024-30080,CRITICAL,9.8,93.142,50,Microsoft Message Queuing (MSMQ) Remote Code Execution Vulnerability,Microsoft,2024-06-11
 CVE-2024-35249,HIGH,8.8,95.545,50,Microsoft Dynamics 365 Business Central Remote Code Execution Vulnerability,Microsoft,2024-06-11
 CVE-2024-0918,HIGH,7.2,98.086,50,TRENDnet TEW-800MB POST Request os command injection,Trendnet,2024-01-26
+CVE-2025-6934,CRITICAL,9.8,9.967,50,Opal Estate Pro <= 1.7.5 - Unauthenticated Privilege Escalation via 'on_regiser_user',"WordPress, Wpopal",2025-07-01
 CVE-2025-8213,HIGH,7.2,0,49,NinjaScanner – Virus & Malware scan <= 3.2.5 - Authenticated (Administrator+) Arbitrary File Deletion,"Nintechnet, The, WordPress",2025-07-31
 CVE-2025-33103,HIGH,8.5,21.116,49,IBM i privilege escalation,IBM,2025-05-17
 CVE-2025-33064,HIGH,8.8,26.381,49,Windows Routing and Remote Access Service (RRAS) Remote Code Execution Vulnerability,Microsoft,2025-06-10
@@ -1244,7 +1244,6 @@ CVE-2025-7722,HIGH,8.8,12.53,48,Social Streams <= 1.2.1 - Authenticated (Subscri
 CVE-2025-7344,HIGH,8.8,29.681,48,Digiwin｜EAI - Privilege Escalation,Digiwin,2025-07-21
 CVE-2025-7359,HIGH,8.2,42.249,48,Counter live visitors for WooCommerce <= 1.3.6 - Unauthenticated Arbitrary File Deletion in wcvisitor_get_block,"Danielriera, The, WordPress",2025-07-16
 CVE-2025-7645,HIGH,8.1,53.552,48,"Extensions For CF7 (Contact form 7 Database, Conditional Fields and Redirection) <= 3.2.8 - Unauthenticated Arbitrary File Deletion Triggered via Admin Form Submission Deletion","Htplugins, The, WordPress",2025-07-22
-CVE-2025-26397,HIGH,7.8,13.729,48,SolarWinds Observability Self-Hosted Deserialization of Untrusted Data Local Privilege Escalation Vulnerability,"Host, Solarwinds",2025-07-24
 CVE-2025-26850,CRITICAL,9.3,2.398,48,CVE-2025-26850: The agent in Quest KACE Systems Management Appliance (SMA) before 14.0.97 and 14.1.x before 14.1.19 ...,Quest,2025-07-04
 CVE-2025-26872,CRITICAL,9.9,20.048,48,WordPress Eximius theme <= 2.2 - Arbitrary File Upload vulnerability,"Dkszone, WordPress",2025-05-19
 CVE-2025-26677,HIGH,7.5,92.446,48,Windows Remote Desktop Gateway (RD Gateway) Denial of Service Vulnerability,Microsoft,2025-05-13
@@ -2672,7 +2671,6 @@ CVE-2025-0593,HIGH,8.8,40.103,46,SICK Lector8xx and InspectorP8xx vulnerable for
 CVE-2025-0314,HIGH,8.7,6.228,46,Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') in GitLab,Gitlab,2025-01-24
 CVE-2025-0966,HIGH,7.6,31.72,46,IBM InfoSphere Information Server SQL injection,"End, IBM, Information",2025-06-25
 CVE-2025-0493,CRITICAL,9.8,38.898,46,MultiVendorX – The Ultimate WooCommerce Multivendor Marketplace Solution <= 4.2.14 - Unauthenticated Limited Local File Inclusion,"The, Wcmp, WordPress",2025-01-31
-CVE-2025-0366,HIGH,8.8,77.318,46,Jupiter X Core <= 4.8.7 - Authenticated (Contributor+) SVG Upload to Local File Inclusion (Remote Code Execution),"Artbees, The, WordPress",2025-02-01
 CVE-2025-0592,HIGH,8.8,26.353,46,SICK Lector8xx and InspectorP8xx vulnerable for code execution,Sick Ag,2025-02-14
 CVE-2025-0960,CRITICAL,9.8,58.832,46,AutomationDirect C-more EA9 HMI Classic Buffer Overflow,Automationdirect,2025-02-04
 CVE-2025-0928,HIGH,8.8,40.17,46,Arbitrary executable upload via authenticated endpoint,Canonical,2025-07-08
@@ -3045,6 +3043,7 @@ CVE-2024-0610,CRITICAL,9.8,69.243,46,CVE-2024-0610: The Piraeus Bank WooCommerce
 CVE-2024-0221,CRITICAL,9.1,77.708,46,CVE-2024-0221: The Photo Gallery by 10Web – Mobile-Friendly Image Gallery plugin for WordPress is vulnerable to Dir...,"10web, The, WordPress",2024-02-05
 CVE-2024-0705,CRITICAL,9.8,64.758,46,CVE-2024-0705: The Stripe Payment Plugin for WooCommerce plugin for WordPress is vulnerable to SQL Injection via th...,"The, Webtoffee, WordPress",2024-01-19
 CVE-2025-49521,HIGH,8.8,26.564,46,Event-driven-ansible: template injection via git branch and refspec in eda projects,Red Hat,2025-06-30
+CVE-2025-26397,HIGH,7.8,13.729,46,SolarWinds Observability Self-Hosted Deserialization of Untrusted Data Local Privilege Escalation Vulnerability,"Host, Solarwinds",2025-07-24
 CVE-2025-3709,CRITICAL,9.8,19.218,46,Flowring Technology Agentflow - Account Lockout Bypass,Flowring Technology,2025-05-02
 CVE-2025-52995,HIGH,8.1,20.645,46,File Browser vulnerable to command execution allowlist bypass,"File, Filebrowser, The",2025-06-30
 CVE-2025-32011,CRITICAL,9.8,55.975,46,KUNBUS Revolution Pi  Authentication Bypass by Primary Weakness,Kunbus Gmbh,2025-05-01
@@ -5539,6 +5538,7 @@ CVE-2025-6936,HIGH,7.3,11.304,44,code-projects Simple Pizza Ordering System addp
 CVE-2025-6935,HIGH,7.3,11.304,44,Campcodes Sales and Inventory System payment_add.php sql injection,Campcodes,2025-06-30
 CVE-2025-6937,HIGH,7.3,11.304,44,code-projects Simple Pizza Ordering System large.php sql injection,Code-projects,2025-07-01
 CVE-2025-53537,HIGH,7.5,16.267,44,LibHTP's memory leak with lzma can lead to resource starvation,Oisf,2025-07-23
+CVE-2025-0366,HIGH,8.8,77.318,44,Jupiter X Core <= 4.8.7 - Authenticated (Contributor+) SVG Upload to Local File Inclusion (Remote Code Execution),"Artbees, The, WordPress",2025-02-01
 CVE-2025-5222,HIGH,7.0,5.8,43,Icu: stack buffer overflow in the srbroot::addtag function,Red Hat,2025-05-27
 CVE-2025-5601,HIGH,7.8,3.321,43,Buffer Copy without Checking Size of Input ('Classic Buffer Overflow') in Wireshark,Wireshark Foundation,2025-06-04
 CVE-2025-5791,HIGH,7.1,0.292,43,Users: `root` appended to group listings,Red Hat,2025-06-06

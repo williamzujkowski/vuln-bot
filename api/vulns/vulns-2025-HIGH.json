@@ -1,7 +1,7 @@
 {
   "chunk": "2025-HIGH",
   "count": 6538,
-  "generated": "2025-08-01T04:28:25.072071",
+  "generated": "2025-08-01T08:08:36.939961",
   "vulnerabilities": [
     {
       "cveId": "CVE-2025-30066",
@@ -35385,70 +35385,6 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/7xxx/CVE-2025-7645.json",
             "lastModified": "2025-07-22T15:08:36.002000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-26397",
-      "title": "SolarWinds Observability Self-Hosted Deserialization of Untrusted Data Local Privilege Escalation Vulnerability",
-      "description": "SolarWinds Observability Self-Hosted is susceptible to Deserialization of Untrusted Data Local Privilege Escalation vulnerability. An attacker with low privileges can escalate privileges to run malicious files copied to a permission-protected folder. This vulnerability requires authentication from a low-level account and local access to the host server.",
-      "publishedDate": "2025-07-24T07:57:53.475000+00:00",
-      "lastModifiedDate": "2025-07-24T13:16:37.075000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 7.8,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.0005,
-        "percentile": 13.729
-      },
-      "riskScore": 48,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Host",
-          "Solarwinds"
-        ],
-        "products": [
-          "Host Server",
-          "Solarwinds Observability Self-hosted"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://www.solarwinds.com/trust-center/security-advisories/CVE-2025-26397",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://documentation.solarwinds.com/en/success_center/orionplatform/content/release_notes/solarwinds_platform_2025-2-1_release_notes.htm",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-502"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Local",
-        "attackComplexity": "Low",
-        "privilegesRequired": "Low",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/26xxx/CVE-2025-26397.json",
-            "lastModified": "2025-07-24T13:16:37.075000+00:00"
           }
         ]
       }
@@ -103848,77 +103784,6 @@
       }
     },
     {
-      "cveId": "CVE-2025-0366",
-      "title": "Jupiter X Core <= 4.8.7 - Authenticated (Contributor+) SVG Upload to Local File Inclusion (Remote Code Execution)",
-      "description": "The Jupiter X Core plugin for WordPress is vulnerable to Local File Inclusion to Remote Code Execution in all versions up to, and including, 4.8.7 via the get_svg() function. This makes it possible for authenticated attackers, with Contributor-level access and above, to include and execute arbitrary files on the server, allowing the execution of any PHP code in those files. This can be used to bypass access controls, obtain sensitive data, or achieve code execution. In this specific case,  an attacker can create a form that allows SVG uploads, upload an SVG file with malicious content and then include the SVG file in a post to achieve remote code execution. This means it is relatively easy to gain remote code execution as a contributor-level user and above by default.",
-      "publishedDate": "2025-02-01T05:30:37.253000+00:00",
-      "lastModifiedDate": "2025-02-03T16:37:59.793000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 8.8,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.0112,
-        "percentile": 77.318
-      },
-      "riskScore": 46,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Artbees",
-          "The",
-          "WordPress"
-        ],
-        "products": [
-          "Jupiter X Core",
-          "The Server",
-          "Wordpress"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/1a20dc1d-eb7c-47ac-ad9a-ec4c0d5db62e?source=cve",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://plugins.trac.wordpress.org/changeset/3231122/jupiterx-core/trunk/includes/extensions/raven/includes/modules/video/widgets/video.php",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://plugins.trac.wordpress.org/changeset/3231122/jupiterx-core/trunk/includes/extensions/raven/includes/modules/forms/classes/ajax-handler.php",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-98"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "Low",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/0xxx/CVE-2025-0366.json",
-            "lastModified": "2025-02-03T16:37:59.793000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2025-0592",
       "title": "SICK Lector8xx and InspectorP8xx vulnerable for code execution",
       "description": "The vulnerability may allow a remote low priviledged attacker to run arbitrary shell commands by manipulating the firmware file and uploading it to the device.",
@@ -105294,6 +105159,70 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/49xxx/CVE-2025-49521.json",
             "lastModified": "2025-07-22T16:02:06.025000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-26397",
+      "title": "SolarWinds Observability Self-Hosted Deserialization of Untrusted Data Local Privilege Escalation Vulnerability",
+      "description": "SolarWinds Observability Self-Hosted is susceptible to Deserialization of Untrusted Data Local Privilege Escalation vulnerability. An attacker with low privileges can escalate privileges to run malicious files copied to a permission-protected folder. This vulnerability requires authentication from a low-level account and local access to the host server.",
+      "publishedDate": "2025-07-24T07:57:53.475000+00:00",
+      "lastModifiedDate": "2025-07-24T13:16:37.075000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 7.8,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.0005,
+        "percentile": 13.729
+      },
+      "riskScore": 46,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Host",
+          "Solarwinds"
+        ],
+        "products": [
+          "Host Server",
+          "Solarwinds Observability Self-hosted"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.solarwinds.com/trust-center/security-advisories/CVE-2025-26397",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://documentation.solarwinds.com/en/success_center/orionplatform/content/release_notes/solarwinds_platform_2025-2-1_release_notes.htm",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-502"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Local",
+        "attackComplexity": "Low",
+        "privilegesRequired": "Low",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/26xxx/CVE-2025-26397.json",
+            "lastModified": "2025-07-24T13:16:37.075000+00:00"
           }
         ]
       }
@@ -209670,6 +209599,77 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/53xxx/CVE-2025-53537.json",
             "lastModified": "2025-07-23T20:48:59.864000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-0366",
+      "title": "Jupiter X Core <= 4.8.7 - Authenticated (Contributor+) SVG Upload to Local File Inclusion (Remote Code Execution)",
+      "description": "The Jupiter X Core plugin for WordPress is vulnerable to Local File Inclusion to Remote Code Execution in all versions up to, and including, 4.8.7 via the get_svg() function. This makes it possible for authenticated attackers, with Contributor-level access and above, to include and execute arbitrary files on the server, allowing the execution of any PHP code in those files. This can be used to bypass access controls, obtain sensitive data, or achieve code execution. In this specific case,  an attacker can create a form that allows SVG uploads, upload an SVG file with malicious content and then include the SVG file in a post to achieve remote code execution. This means it is relatively easy to gain remote code execution as a contributor-level user and above by default.",
+      "publishedDate": "2025-02-01T05:30:37.253000+00:00",
+      "lastModifiedDate": "2025-02-03T16:37:59.793000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 8.8,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.0112,
+        "percentile": 77.318
+      },
+      "riskScore": 44,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Artbees",
+          "The",
+          "WordPress"
+        ],
+        "products": [
+          "Jupiter X Core",
+          "The Server",
+          "Wordpress"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/1a20dc1d-eb7c-47ac-ad9a-ec4c0d5db62e?source=cve",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://plugins.trac.wordpress.org/changeset/3231122/jupiterx-core/trunk/includes/extensions/raven/includes/modules/video/widgets/video.php",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://plugins.trac.wordpress.org/changeset/3231122/jupiterx-core/trunk/includes/extensions/raven/includes/modules/forms/classes/ajax-handler.php",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-98"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "Low",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/0xxx/CVE-2025-0366.json",
+            "lastModified": "2025-02-03T16:37:59.793000+00:00"
           }
         ]
       }

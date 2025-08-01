@@ -1,7 +1,7 @@
 {
   "chunk": "2025-CRITICAL",
   "count": 1061,
-  "generated": "2025-08-01T04:28:25.072071",
+  "generated": "2025-08-01T08:08:36.939961",
   "vulnerabilities": [
     {
       "cveId": "CVE-2025-47812",
@@ -3245,67 +3245,6 @@
       }
     },
     {
-      "cveId": "CVE-2025-41240",
-      "title": "Mounted Kubernetes Secrets under a predictable path located within the web server document root",
-      "description": "Three Bitnami Helm charts mount Kubernetes Secrets under a predictable path (/opt/bitnami/*/secrets) that is located within the web server document root.\nIn affected versions, this can lead to unauthenticated access to sensitive credentials via HTTP/S. A remote attacker could retrieve these secrets by accessing specific URLs if the application is exposed externally. The issue affects deployments using the default value of usePasswordFiles=true, which mounts secrets as files into the container filesystem.",
-      "publishedDate": "2025-07-24T06:42:25.254000+00:00",
-      "lastModifiedDate": "2025-07-25T03:55:24.700000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
-          "baseScore": 10.0,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0023,
-        "percentile": 45.749
-      },
-      "riskScore": 58,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Kubernetes",
-          "VMware",
-          "Web"
-        ],
-        "products": [
-          "Bitnamicharts/appsmith",
-          "Bitnamicharts/drupal",
-          "Bitnamicharts/wordpress",
-          "Kubernetes",
-          "Web Server"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://github.com/bitnami/charts/security/advisories/GHSA-wgg9-9qgw-529w",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/41xxx/CVE-2025-41240.json",
-            "lastModified": "2025-07-25T03:55:24.700000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2025-2620",
       "title": "D-Link DAP-1620 Authentication storage mod_graph_auth_uri_handler stack-based overflow",
       "description": "A vulnerability has been found in D-Link DAP-1620 1.03 and classified as critical. This vulnerability affects the function mod_graph_auth_uri_handler of the file /storage of the component Authentication Handler. The manipulation leads to stack-based buffer overflow. The attack can be initiated remotely. The exploit has been disclosed to the public and may be used. This vulnerability only affects products that are no longer supported by the maintainer.",
@@ -3731,6 +3670,67 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/12xxx/CVE-2024-12824.json",
             "lastModified": "2025-03-03T20:57:26.989000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-41240",
+      "title": "Mounted Kubernetes Secrets under a predictable path located within the web server document root",
+      "description": "Three Bitnami Helm charts mount Kubernetes Secrets under a predictable path (/opt/bitnami/*/secrets) that is located within the web server document root.\nIn affected versions, this can lead to unauthenticated access to sensitive credentials via HTTP/S. A remote attacker could retrieve these secrets by accessing specific URLs if the application is exposed externally. The issue affects deployments using the default value of usePasswordFiles=true, which mounts secrets as files into the container filesystem.",
+      "publishedDate": "2025-07-24T06:42:25.254000+00:00",
+      "lastModifiedDate": "2025-07-25T03:55:24.700000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+          "baseScore": 10.0,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0023,
+        "percentile": 45.749
+      },
+      "riskScore": 56,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Kubernetes",
+          "VMware",
+          "Web"
+        ],
+        "products": [
+          "Bitnamicharts/appsmith",
+          "Bitnamicharts/drupal",
+          "Bitnamicharts/wordpress",
+          "Kubernetes",
+          "Web Server"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://github.com/bitnami/charts/security/advisories/GHSA-wgg9-9qgw-529w",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/41xxx/CVE-2025-41240.json",
+            "lastModified": "2025-07-25T03:55:24.700000+00:00"
           }
         ]
       }
@@ -7132,80 +7132,6 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/6xxx/CVE-2025-6187.json",
             "lastModified": "2025-07-22T20:04:06.430000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-6934",
-      "title": "Opal Estate Pro <= 1.7.5 - Unauthenticated Privilege Escalation via 'on_regiser_user'",
-      "description": "The Opal Estate Pro – Property Management and Submission plugin for WordPress, used by the FullHouse - Real Estate Responsive WordPress Theme, is vulnerable to privilege escalation via in all versions up to, and including, 1.7.5. This is due to a lack of role restriction during registration in the 'on_regiser_user' function. This makes it possible for unauthenticated attackers to arbitrarily choose the role, including the Administrator role, assigned when registering.",
-      "publishedDate": "2025-07-01T06:43:03.156000+00:00",
-      "lastModifiedDate": "2025-07-02T13:24:45.496000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 9.8,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0004,
-        "percentile": 9.967
-      },
-      "riskScore": 52,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "WordPress",
-          "Wpopal"
-        ],
-        "products": [
-          "Opal Estate Pro – Property Management And Submission",
-          "Wordpress"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/5d7b75a4-67b4-4347-91a6-dbf98da5ceaf?source=cve",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://themeforest.net/item/fullhouse-real-estate-responsive-wordpress-theme/16179481",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://plugins.trac.wordpress.org/browser/opal-estate-pro/trunk/inc/user/class-opalestate-user.php#L228",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://plugins.trac.wordpress.org/browser/opal-estate-pro/trunk/inc/user/class-opalestate-user.php#L235",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-269"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/6xxx/CVE-2025-6934.json",
-            "lastModified": "2025-07-02T13:24:45.496000+00:00"
           }
         ]
       }
@@ -16193,6 +16119,80 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/56xxx/CVE-2024-56249.json",
             "lastModified": "2025-01-02T17:47:34.934000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-6934",
+      "title": "Opal Estate Pro <= 1.7.5 - Unauthenticated Privilege Escalation via 'on_regiser_user'",
+      "description": "The Opal Estate Pro – Property Management and Submission plugin for WordPress, used by the FullHouse - Real Estate Responsive WordPress Theme, is vulnerable to privilege escalation via in all versions up to, and including, 1.7.5. This is due to a lack of role restriction during registration in the 'on_regiser_user' function. This makes it possible for unauthenticated attackers to arbitrarily choose the role, including the Administrator role, assigned when registering.",
+      "publishedDate": "2025-07-01T06:43:03.156000+00:00",
+      "lastModifiedDate": "2025-07-02T13:24:45.496000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 9.8,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0004,
+        "percentile": 9.967
+      },
+      "riskScore": 50,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "WordPress",
+          "Wpopal"
+        ],
+        "products": [
+          "Opal Estate Pro – Property Management And Submission",
+          "Wordpress"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/5d7b75a4-67b4-4347-91a6-dbf98da5ceaf?source=cve",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://themeforest.net/item/fullhouse-real-estate-responsive-wordpress-theme/16179481",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://plugins.trac.wordpress.org/browser/opal-estate-pro/trunk/inc/user/class-opalestate-user.php#L228",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://plugins.trac.wordpress.org/browser/opal-estate-pro/trunk/inc/user/class-opalestate-user.php#L235",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-269"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/6xxx/CVE-2025-6934.json",
+            "lastModified": "2025-07-02T13:24:45.496000+00:00"
           }
         ]
       }
