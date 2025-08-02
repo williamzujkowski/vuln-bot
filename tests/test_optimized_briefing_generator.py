@@ -6,14 +6,10 @@ from pathlib import Path
 
 import pytest
 
-from scripts.models import (
-    EPSSScore,
-    Reference,
-    SeverityLevel,
-    Vulnerability,
-    VulnerabilityBatch,
-)
-from scripts.processing.optimized_briefing_generator import OptimizedBriefingGenerator
+from scripts.models import (EPSSScore, Reference, SeverityLevel, Vulnerability,
+                            VulnerabilityBatch)
+from scripts.processing.optimized_briefing_generator import \
+    OptimizedBriefingGenerator
 
 
 @pytest.fixture

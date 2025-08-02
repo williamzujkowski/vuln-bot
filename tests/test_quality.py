@@ -4,14 +4,8 @@ from datetime import datetime, timedelta, timezone
 
 import pytest
 
-from scripts.models import (
-    CPEMatch,
-    CVSSMetric,
-    EPSSScore,
-    Reference,
-    SeverityLevel,
-    Vulnerability,
-)
+from scripts.models import (CPEMatch, CVSSMetric, EPSSScore, Reference,
+                            SeverityLevel, Vulnerability)
 from scripts.quality import DataQualityConfig, DataQualityValidator
 
 

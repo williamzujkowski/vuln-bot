@@ -6,10 +6,7 @@ from unittest.mock import patch
 import pytest
 
 from scripts.harvest.github_advisory_client import GitHubAdvisoryClient
-from scripts.models import (
-    SeverityLevel,
-    Vulnerability,
-)
+from scripts.models import SeverityLevel, Vulnerability
 
 
 @pytest.fixture

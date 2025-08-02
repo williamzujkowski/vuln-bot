@@ -10,12 +10,8 @@ from typing import Any, Dict, Optional
 import requests
 import structlog
 from requests.adapters import HTTPAdapter
-from tenacity import (
-    retry,
-    retry_if_exception_type,
-    stop_after_attempt,
-    wait_exponential,
-)
+from tenacity import (retry, retry_if_exception_type, stop_after_attempt,
+                      wait_exponential)
 from urllib3.util.retry import Retry
 
 

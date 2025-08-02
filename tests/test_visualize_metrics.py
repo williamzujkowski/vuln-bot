@@ -4,11 +4,9 @@ from unittest.mock import Mock, patch
 
 import pytest
 
-from scripts.visualize_metrics import (
-    format_duration,
-    generate_github_summary,
-    print_harvest_summary,
-)
+from scripts.visualize_metrics import (format_duration,
+                                       generate_github_summary,
+                                       print_harvest_summary)
 
 
 class TestVisualizeMetrics:

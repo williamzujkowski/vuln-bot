@@ -11,10 +11,8 @@ from typing import Any, Dict, List
 
 # Import with optional Great Expectations
 try:
-    from scripts.great_expectations_setup import (
-        HAS_GREAT_EXPECTATIONS,
-        VulnBotDataValidator,
-    )
+    from scripts.great_expectations_setup import (HAS_GREAT_EXPECTATIONS,
+                                                  VulnBotDataValidator)
 except ImportError:
     HAS_GREAT_EXPECTATIONS = False
     VulnBotDataValidator = None

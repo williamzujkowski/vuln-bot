@@ -6,16 +6,9 @@ from pathlib import Path
 
 import pytest
 
-from scripts.models import (
-    CVSSMetric,
-    EPSSScore,
-    ExploitationStatus,
-    Reference,
-    SeverityLevel,
-    Vulnerability,
-    VulnerabilityBatch,
-    VulnerabilitySource,
-)
+from scripts.models import (CVSSMetric, EPSSScore, ExploitationStatus,
+                            Reference, SeverityLevel, Vulnerability,
+                            VulnerabilityBatch, VulnerabilitySource)
 from scripts.processing.briefing_generator import BriefingGenerator
 
 

@@ -8,14 +8,8 @@ import structlog
 from requests.exceptions import RequestException
 
 from scripts.harvest.base_client import BaseAPIClient
-from scripts.models import (
-    CVSSMetric,
-    ExploitationStatus,
-    Reference,
-    SeverityLevel,
-    Vulnerability,
-    VulnerabilitySource,
-)
+from scripts.models import (CVSSMetric, ExploitationStatus, Reference,
+                            SeverityLevel, Vulnerability, VulnerabilitySource)
 
 
 class GitHubAdvisoryClient(BaseAPIClient):

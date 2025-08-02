@@ -10,9 +10,8 @@ import structlog
 try:
     import great_expectations as gx
     from great_expectations.core.batch import RuntimeBatchRequest
-    from great_expectations.core.expectation_configuration import (
-        ExpectationConfiguration,
-    )
+    from great_expectations.core.expectation_configuration import \
+        ExpectationConfiguration
 
     HAS_GX = True
 except ImportError:

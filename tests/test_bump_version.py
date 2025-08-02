@@ -6,14 +6,9 @@ from unittest.mock import Mock, patch
 
 import pytest
 
-from scripts.bump_version import (
-    bump_version,
-    create_git_tag,
-    get_current_version,
-    main,
-    parse_version,
-    update_package_json,
-)
+from scripts.bump_version import (bump_version, create_git_tag,
+                                  get_current_version, main, parse_version,
+                                  update_package_json)
 
 
 class TestBumpVersion:

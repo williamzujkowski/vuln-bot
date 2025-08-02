@@ -5,7 +5,8 @@ from unittest.mock import patch
 
 import pytest
 
-from scripts.filter_high_epss import filter_high_epss_vulns, organize_into_subfolders
+from scripts.filter_high_epss import (filter_high_epss_vulns,
+                                      organize_into_subfolders)
 
 
 class TestFilterHighEPSS:

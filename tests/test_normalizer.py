@@ -4,14 +4,8 @@ from datetime import datetime, timedelta, timezone
 
 import pytest
 
-from scripts.models import (
-    CVSSMetric,
-    EPSSScore,
-    ExploitationStatus,
-    Reference,
-    SeverityLevel,
-    Vulnerability,
-)
+from scripts.models import (CVSSMetric, EPSSScore, ExploitationStatus,
+                            Reference, SeverityLevel, Vulnerability)
 from scripts.processing.normalizer import VulnerabilityNormalizer
 
 

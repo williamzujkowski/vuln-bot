@@ -7,16 +7,8 @@ from pathlib import Path
 from typing import Any, Dict, Generator, List, Optional
 
 import structlog
-from sqlalchemy import (
-    Column,
-    DateTime,
-    Integer,
-    String,
-    Text,
-    create_engine,
-    desc,
-    func,
-)
+from sqlalchemy import (Column, DateTime, Integer, String, Text, create_engine,
+                        desc, func)
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import Session, sessionmaker
 
