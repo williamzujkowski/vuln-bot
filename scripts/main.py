@@ -71,8 +71,8 @@ def cli(debug: bool) -> None:
 @click.option(
     "--min-epss",
     type=float,
-    default=0.5,
-    help="Minimum EPSS score (0.0-1.0, default: 0.5 for 50%)",
+    default=0.6,
+    help="Minimum EPSS score (0.0-1.0, default: 0.6 for 60%)",
 )
 @click.option(
     "--incremental",
@@ -694,6 +694,225 @@ def send_alerts(
         sys.exit(1)
 
     console.print("[green]🚀 All alerts sent successfully![/green]")
+
+
+@cli.command()
+@click.option(
+    "--cache-dir",
+    type=click.Path(path_type=Path),
+    default=Path(".cache"),
+    help="Directory containing cached vulnerability data",
+)
+@click.option(
+    "--api-dir",
+    type=click.Path(path_type=Path),
+    default=Path("api"),
+    help="Directory containing API files to validate",
+)
+@click.option(
+    "--output-dir",
+    type=click.Path(path_type=Path),
+    default=Path("reports"),
+    help="Directory for report output",
+)
+@click.option(
+    "--min-epss",
+    type=float,
+    default=0.6,
+    help="Minimum EPSS threshold (0.0-1.0, default: 0.6 for 60%)",
+)
+@click.option(
+    "--fail-on-violations",
+    is_flag=True,
+    help="Exit with error code if threshold violations are found",
+)
+def validate_threshold_compliance(
+    cache_dir: Path, api_dir: Path, output_dir: Path, min_epss: float, fail_on_violations: bool
+) -> None:
+    """Validate EPSS threshold compliance for CI/CD gating."""
+    logger = structlog.get_logger()
+    
+    try:
+        logger.info(
+            "Validating threshold compliance",
+            min_epss=min_epss,
+            min_epss_percentage=int(min_epss * 100)
+        )
+        
+        from scripts.agents.threshold_compliance_agent import ThresholdComplianceAgent
+        from scripts.processing.cache_manager import CacheManager
+        
+        # Initialize compliance agent
+        compliance_agent = ThresholdComplianceAgent(
+            cache_dir=cache_dir,
+            min_epss_threshold=min_epss
+        )
+        
+        validation_result = None
+        
+        # First try to validate API files if they exist
+        if api_dir.exists() and (api_dir / "vulns").exists():
+            logger.info("Validating API files", api_dir=api_dir)
+            validation_result = compliance_agent.validate_api_files(api_dir)
+        else:
+            # Fall back to cache validation
+            logger.info("API files not found, validating cached data", cache_dir=cache_dir)
+            cache_manager = CacheManager(cache_dir)
+            cached_vulns = cache_manager.get_recent_vulnerabilities(limit=50000)
+            
+            if cached_vulns:
+                # Convert to dict format for validation
+                vulnerabilities = [vuln.to_summary_dict() for vuln in cached_vulns]
+                validation_result = compliance_agent.validate_vulnerability_compliance(vulnerabilities)
+            else:
+                logger.error("No data found for validation")
+                console.print("[red]✗[/red] No vulnerability data found. Run 'harvest' and 'generate-briefing' first.")
+                sys.exit(1)
+        
+        if not validation_result:
+            logger.error("Validation failed to run")
+            sys.exit(1)
+            
+        # Save reports
+        json_path, txt_path = compliance_agent.save_compliance_report(validation_result, output_dir)
+        
+        # Display results
+        report_text = compliance_agent.generate_compliance_report(validation_result)
+        console.print(report_text)
+        
+        # Show file paths
+        console.print(f"\n📄 Reports saved:")
+        console.print(f"  JSON: {json_path}")
+        console.print(f"  Text: {txt_path}")
+        
+        # Exit with appropriate code
+        if validation_result["passed"]:
+            console.print("\n[green]🎉 EPSS threshold compliance validation PASSED![/green]")
+            sys.exit(0)
+        else:
+            violations_count = len(validation_result.get("violations", []))
+            console.print(f"\n[red]❌ EPSS threshold compliance validation FAILED![/red]")
+            console.print(f"[red]Found {violations_count} violations of ≥{int(min_epss * 100)}% EPSS threshold[/red]")
+            
+            if fail_on_violations:
+                sys.exit(1)
+            else:
+                console.print("[yellow]⚠ Warning: --fail-on-violations not set, continuing with exit code 0[/yellow]")
+                sys.exit(0)
+                
+    except Exception as e:
+        logger.error("Failed to validate threshold compliance", error=str(e))
+        console.print(f"[red]✗[/red] Failed to validate threshold compliance: {e}")
+        sys.exit(1)
+
+
+@cli.command()
+@click.option(
+    "--cache-dir",
+    type=click.Path(path_type=Path),
+    default=Path(".cache"),
+    help="Directory containing cached vulnerability data",
+)
+@click.option(
+    "--output-dir",
+    type=click.Path(path_type=Path),
+    default=Path("reports"),
+    help="Directory for report output",
+)
+@click.option(
+    "--format",
+    type=click.Choice(["json", "html", "both"]),
+    default="both",
+    help="Report output format",
+)
+def generate_quality_report(cache_dir: Path, output_dir: Path, format: str) -> None:
+    """Generate comprehensive data quality report with EPSS filtering statistics."""
+    logger = structlog.get_logger()
+    
+    try:
+        logger.info("Generating data quality report", cache_dir=cache_dir, output_dir=output_dir)
+        
+        # Get vulnerabilities from cache or API data
+        vulnerabilities = []
+        harvest_metadata = {}
+        
+        # Try to load from cache first
+        cache_manager = CacheManager(cache_dir)
+        cached_vulns = cache_manager.get_recent_vulnerabilities(limit=50000)
+        
+        if cached_vulns:
+            logger.info("Loading vulnerabilities from cache", count=len(cached_vulns))
+            # Convert to dict format for analysis
+            vulnerabilities = [vuln.to_summary_dict() for vuln in cached_vulns]
+            harvest_metadata = {
+                "source": "cache",
+                "last_harvest": "unknown"
+            }
+        else:
+            # Try to load from API files
+            api_index_path = Path("api/vulns/index.json")
+            if api_index_path.exists():
+                logger.info("Loading vulnerabilities from API index")
+                import json
+                with open(api_index_path) as f:
+                    api_data = json.load(f)
+                    vulnerabilities = api_data.get("vulnerabilities", [])
+                    harvest_metadata = {
+                        "source": "api_files",
+                        "generated": api_data.get("generated"),
+                        "count": api_data.get("count")
+                    }
+        
+        if not vulnerabilities:
+            logger.warning("No vulnerabilities found")
+            console.print("[yellow]⚠[/yellow] No vulnerabilities found. Run 'harvest' and 'generate-briefing' first.")
+            return
+        
+        # Initialize report agent
+        from scripts.agents.data_quality_report_agent import DataQualityReportAgent
+        report_agent = DataQualityReportAgent(output_dir=output_dir)
+        
+        # Generate report
+        report = report_agent.generate_quality_report(vulnerabilities, harvest_metadata)
+        
+        # Save in requested formats
+        files_saved = []
+        
+        if format in ["json", "both"]:
+            json_path = report_agent.save_report_json(report, "epss-quality-daily.json")
+            files_saved.append(str(json_path))
+        
+        if format in ["html", "both"]:
+            html_path = report_agent.save_report_html(report, "epss-quality-daily.html")
+            files_saved.append(str(html_path))
+        
+        # Display summary
+        summary = report["quality_summary"]
+        console.print("\n[green]✓[/green] Data quality report generated successfully")
+        console.print(f"  Total vulnerabilities: {report['report_metadata']['total_vulnerabilities']:,}")
+        console.print(f"  EPSS coverage: {summary['data_completeness']['epss_coverage']:.1f}%")
+        console.print(f"  EPSS ≥60% compliance: {summary['epss_threshold_compliance']['compliance_rate']:.1f}%")
+        console.print(f"  CVSS coverage: {summary['data_completeness']['cvss_coverage']:.1f}%")
+        console.print(f"  Vendor identification: {summary['data_completeness']['vendor_identification']:.1f}%")
+        
+        for file_path in files_saved:
+            console.print(f"  Report: {file_path}")
+        
+        # Highlight any quality issues
+        if summary['epss_threshold_compliance']['compliance_rate'] < 100:
+            console.print(
+                f"[yellow]⚠[/yellow] EPSS threshold compliance issue: "
+                f"{summary['epss_threshold_compliance']['compliant_vulnerabilities']} of "
+                f"{report['report_metadata']['total_vulnerabilities']} vulnerabilities meet ≥60% threshold"
+            )
+        
+        if summary['data_completeness']['epss_coverage'] < 95:
+            console.print(f"[yellow]⚠[/yellow] Low EPSS coverage: {summary['data_completeness']['epss_coverage']:.1f}%")
+            
+    except Exception as e:
+        logger.error("Failed to generate quality report", error=str(e))
+        console.print(f"[red]✗[/red] Failed to generate quality report: {e}")
+        sys.exit(1)
 
 
 if __name__ == "__main__":

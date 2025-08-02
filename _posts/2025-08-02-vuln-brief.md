@@ -1,54 +1,27 @@
 ---
 title: Morning Vulnerability Briefing - 2025-08-02
-date: 2025-08-02T04:16:17.058369
+date: 2025-08-02T05:14:56.702832
 layout: layouts/post.njk
 tags: [vulnerability, briefing, security]
-vulnerabilityCount: 15638
+vulnerabilityCount: 30
 criticalCount: 0
-highCount: 2
+highCount: 1
 ---
 
 # Morning Vulnerability Briefing - 2025-08-02
 
-Today's briefing covers **15638 vulnerabilities** from 0 sources.
+Today's briefing covers **30 vulnerabilities** from 0 sources.
 
 ## Risk Distribution
 
 - 🔴 **Critical Risk**: 0 vulnerabilities
-- 🟠 **High Risk**: 2 vulnerabilities
-- 🟡 **Medium Risk**: 10660 vulnerabilities
-- 🟢 **Low Risk**: 4976 vulnerabilities
+- 🟠 **High Risk**: 1 vulnerabilities
+- 🟡 **Medium Risk**: 29 vulnerabilities
+- 🟢 **Low Risk**: 0 vulnerabilities
 
 ## Top Vulnerabilities
 
-### 1. [CVE-2024-29895](/api/vulns/CVE-2024-29895.json)
-
-**Risk Score**: 70/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 10.0 | 
-**EPSS**: 92.7%
-
-**Summary**: Cacti provides an operational monitoring and fault management framework. A command injection vulnerability on the 1.3.x DEV branch allows any unauthenticated user to execute arbitrary command on the server when `register_argc_argv` option of PHP is `On`. In `cmd_realtime.php` line 119, the `$poller_id` used as part of the command execution is sourced from `$_SERVER['argv']`, which can be controlled by URL when `register_argc_argv` option of PHP is `On`. And this option is `On` by default in many...
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 92.65% exploit probability
-- Affects critical infrastructure: docker
-
-**Affected Vendors**: Cacti, Docker, Management, The
-
-**Tags**: `CWE-77`
-
-**References**:
-
-- [https://github.com/Cacti/cacti/security/advisories/GHSA-cr28-x256-xf5m](https://github.com/Cacti/cacti/security/advisories/GHSA-cr28-x256-xf5m)
-- [https://github.com/Cacti/cacti/commit/53e8014d1f082034e0646edc6286cde3800c683d](https://github.com/Cacti/cacti/commit/53e8014d1f082034e0646edc6286cde3800c683d)
-- [https://github.com/Cacti/cacti/commit/99633903cad0de5ace636249de16f77e57a3c8fc](https://github.com/Cacti/cacti/commit/99633903cad0de5ace636249de16f77e57a3c8fc)
-
----
-
-### 2. [CVE-2025-47812](/api/vulns/CVE-2025-47812.json)
+### 1. [CVE-2025-47812](/api/vulns/CVE-2025-47812.json)
 
 **Risk Score**: 70/100 | 
 **Severity**: CRITICAL | 
@@ -74,33 +47,33 @@ Today's briefing covers **15638 vulnerabilities** from 0 sources.
 
 ---
 
-### 3. [CVE-2024-4577](/api/vulns/CVE-2024-4577.json)
+### 2. [CVE-2025-49113](/api/vulns/CVE-2025-49113.json)
 
-**Risk Score**: 68/100 | 
+**Risk Score**: 69/100 | 
 **Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 94.4%
+**CVSS**: 9.9 | 
+**EPSS**: 88.1%
 
-**Summary**: In PHP versions 8.1.* before 8.1.29, 8.2.* before 8.2.20, 8.3.* before 8.3.8, when using Apache and PHP-CGI on Windows, if the system is set up to use certain code pages, Windows may use "Best-Fit" behavior to replace characters in command line given to Win32 API functions. PHP CGI module may misinterpret those characters as PHP options, which may allow a malicious user to pass options to PHP binary being run, and thus reveal the source code of scripts, run arbitrary PHP code on the server, etc.
+**Summary**: Roundcube Webmail before 1.5.10 and 1.6.x before 1.6.11 allows remote code execution by authenticated users because the _from parameter in a URL is not validated in program/actions/settings/upload.php, leading to PHP Object Deserialization.
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 94.38% exploit probability
+- 88.14% exploit probability
 
-**Affected Vendors**: PHP, Php Group, The
+**Affected Vendors**: Roundcube
 
-**Tags**: `CWE-78`
+**Tags**: `CWE-502`
 
 **References**:
 
-- [https://github.com/php/php-src/security/advisories/GHSA-3qgc-jrrr-25jv](https://github.com/php/php-src/security/advisories/GHSA-3qgc-jrrr-25jv)
-- [https://blog.orange.tw/2024/06/cve-2024-4577-yet-another-php-rce.html](https://blog.orange.tw/2024/06/cve-2024-4577-yet-another-php-rce.html)
-- [https://devco.re/blog/2024/06/06/security-alert-cve-2024-4577-php-cgi-argument-injection-vulnerability-en/](https://devco.re/blog/2024/06/06/security-alert-cve-2024-4577-php-cgi-argument-injection-vulnerability-en/)
+- [https://roundcube.net/news/2025/06/01/security-updates-1.6.11-and-1.5.10](https://roundcube.net/news/2025/06/01/security-updates-1.6.11-and-1.5.10)
+- [https://github.com/roundcube/roundcubemail/pull/9865](https://github.com/roundcube/roundcubemail/pull/9865)
+- [https://github.com/roundcube/roundcubemail/releases/tag/1.6.11](https://github.com/roundcube/roundcubemail/releases/tag/1.6.11)
 
 ---
 
-### 4. [CVE-2025-1974](/api/vulns/CVE-2025-1974.json)
+### 3. [CVE-2025-1974](/api/vulns/CVE-2025-1974.json)
 
 **Risk Score**: 68/100 | 
 **Severity**: CRITICAL | 
@@ -125,110 +98,7 @@ Today's briefing covers **15638 vulnerabilities** from 0 sources.
 
 ---
 
-### 5. [CVE-2025-49113](/api/vulns/CVE-2025-49113.json)
-
-**Risk Score**: 68/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.9 | 
-**EPSS**: 85.6%
-
-**Summary**: Roundcube Webmail before 1.5.10 and 1.6.x before 1.6.11 allows remote code execution by authenticated users because the _from parameter in a URL is not validated in program/actions/settings/upload.php, leading to PHP Object Deserialization.
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 85.62% exploit probability
-
-**Affected Vendors**: Roundcube
-
-**Tags**: `CWE-502`
-
-**References**:
-
-- [https://roundcube.net/news/2025/06/01/security-updates-1.6.11-and-1.5.10](https://roundcube.net/news/2025/06/01/security-updates-1.6.11-and-1.5.10)
-- [https://github.com/roundcube/roundcubemail/pull/9865](https://github.com/roundcube/roundcubemail/pull/9865)
-- [https://github.com/roundcube/roundcubemail/releases/tag/1.6.11](https://github.com/roundcube/roundcubemail/releases/tag/1.6.11)
-
----
-
-### 6. [CVE-2024-31982](/api/vulns/CVE-2024-31982.json)
-
-**Risk Score**: 67/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 10.0 | 
-**EPSS**: 94.2%
-
-**Summary**: XWiki Platform is a generic wiki platform. Starting in version 2.4-milestone-1 and prior to versions 4.10.20, 15.5.4, and 15.10-rc-1, XWiki's database search allows remote code execution through the search text. This allows remote code execution for any visitor of a public wiki or user of a closed wiki as the database search is by default accessible for all users. This impacts the confidentiality, integrity and availability of the whole XWiki installation. This vulnerability has been patched in ...
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 94.16% exploit probability
-
-**Affected Vendors**: The, Unless, Xwiki
-
-**Tags**: `CWE-95`
-
-**References**:
-
-- [https://github.com/xwiki/xwiki-platform/security/advisories/GHSA-2858-8cfx-69m9](https://github.com/xwiki/xwiki-platform/security/advisories/GHSA-2858-8cfx-69m9)
-- [https://github.com/xwiki/xwiki-platform/commit/3c9e4bb04286de94ad24854026a09fa967538e31](https://github.com/xwiki/xwiki-platform/commit/3c9e4bb04286de94ad24854026a09fa967538e31)
-- [https://github.com/xwiki/xwiki-platform/commit/459e968be8740c8abc2a168196ce21e5ba93cfb8](https://github.com/xwiki/xwiki-platform/commit/459e968be8740c8abc2a168196ce21e5ba93cfb8)
-
----
-
-### 7. [CVE-2024-10924](/api/vulns/CVE-2024-10924.json)
-
-**Risk Score**: 67/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 94.0%
-
-**Summary**: The Really Simple Security (Free, Pro, and Pro Multisite) plugins for WordPress are vulnerable to authentication bypass in versions 9.0.0 to 9.1.1.1. This is due to improper user check error handling in the two-factor REST API actions with the 'check_login_and_get_user' function. This makes it possible for unauthenticated attackers to log in as any existing user on the site, such as an administrator, when the "Two-Factor Authentication" setting is enabled (disabled by default).
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 93.95% exploit probability
-
-**Affected Vendors**: Really Simple Plugins, Rogierlankhorst, WordPress
-
-**Tags**: `CWE-288`
-
-**References**:
-
-- [https://www.wordfence.com/threat-intel/vulnerabilities/id/7d5d05ad-1a7a-43d2-bbbf-597e975446be?source=cve](https://www.wordfence.com/threat-intel/vulnerabilities/id/7d5d05ad-1a7a-43d2-bbbf-597e975446be?source=cve)
-- [https://plugins.trac.wordpress.org/browser/really-simple-ssl/tags/9.1.1.1/security/wordpress/two-fa/class-rsssl-two-factor-on-board-api.php#L67](https://plugins.trac.wordpress.org/browser/really-simple-ssl/tags/9.1.1.1/security/wordpress/two-fa/class-rsssl-two-factor-on-board-api.php#L67)
-- [https://plugins.trac.wordpress.org/browser/really-simple-ssl/tags/9.1.1.1/security/wordpress/two-fa/class-rsssl-two-factor-on-board-api.php#L277](https://plugins.trac.wordpress.org/browser/really-simple-ssl/tags/9.1.1.1/security/wordpress/two-fa/class-rsssl-two-factor-on-board-api.php#L277)
-
----
-
-### 8. [CVE-2024-21413](/api/vulns/CVE-2024-21413.json)
-
-**Risk Score**: 67/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 93.8%
-
-**Summary**: Microsoft Outlook Remote Code Execution Vulnerability
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 93.77% exploit probability
-- Affects critical infrastructure: microsoft
-
-**Affected Vendors**: Microsoft
-
-**Tags**: `CWE-20`
-
-**References**:
-
-- [https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-21413](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-21413)
-
----
-
-### 9. [CVE-2025-24893](/api/vulns/CVE-2025-24893.json)
+### 4. [CVE-2025-24893](/api/vulns/CVE-2025-24893.json)
 
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
@@ -254,70 +124,19 @@ Today's briefing covers **15638 vulnerabilities** from 0 sources.
 
 ---
 
-### 10. [CVE-2024-22320](/api/vulns/CVE-2024-22320.json)
-
-**Risk Score**: 67/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 92.2%
-
-**Summary**: IBM Operational Decision Manager 8.10.3 could allow a remote authenticated attacker to execute arbitrary code on the system, caused by an unsafe deserialization. By sending specially crafted request, an attacker could exploit this vulnerability to execute arbitrary code in the context of SYSTEM.  IBM X-Force ID:  279146.
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 92.23% exploit probability
-- Affects critical infrastructure: ibm
-
-**Affected Vendors**: IBM
-
-**Tags**: `CWE-502`
-
-**References**:
-
-- [https://www.ibm.com/support/pages/node/7112382](https://www.ibm.com/support/pages/node/7112382)
-- [https://exchange.xforce.ibmcloud.com/vulnerabilities/279146](https://exchange.xforce.ibmcloud.com/vulnerabilities/279146)
-
----
-
-### 11. [CVE-2024-20419](/api/vulns/CVE-2024-20419.json)
+### 5. [CVE-2025-47916](/api/vulns/CVE-2025-47916.json)
 
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 10.0 | 
 **EPSS**: 90.2%
 
-**Summary**: A vulnerability in the authentication system of Cisco Smart Software Manager On-Prem (SSM On-Prem) could allow an unauthenticated, remote attacker to change the password of any user, including administrative users.
- This vulnerability is due to improper implementation of the password-change process. An attacker could exploit this vulnerability by sending crafted HTTP requests to an affected device. A successful exploit could allow an attacker to access the web UI or API with the privileges of ...
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 90.18% exploit probability
-- Affects critical infrastructure: cisco
-
-**Affected Vendors**: Cisco
-
-**References**:
-
-- [https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-cssm-auth-sLw3uhUy](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-cssm-auth-sLw3uhUy)
-- [https://www.secpod.com/blog/critical-flaw-in-ciscos-secure-email-gateways-allows-attackers-to-control-the-device-completely/](https://www.secpod.com/blog/critical-flaw-in-ciscos-secure-email-gateways-allows-attackers-to-control-the-device-completely/)
-
----
-
-### 12. [CVE-2025-47916](/api/vulns/CVE-2025-47916.json)
-
-**Risk Score**: 67/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 10.0 | 
-**EPSS**: 90.0%
-
 **Summary**: Invision Community 5.0.0 before 5.0.7 allows remote code execution via crafted template strings to themeeditor.php. The issue lies within the themeeditor controller (file: /applications/core/modules/front/system/themeeditor.php), where a protected method named customCss can be invoked by unauthenticated users. This method passes the value of the content parameter to the Theme::makeProcessFunction() method; hence it is evaluated by the template engine. Accordingly, this can be exploited by unauth...
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 90.04% exploit probability
+- 90.16% exploit probability
 
 **Affected Vendors**: Invisioncommunity, Template
 
@@ -330,7 +149,7 @@ Today's briefing covers **15638 vulnerabilities** from 0 sources.
 
 ---
 
-### 13. [CVE-2025-1661](/api/vulns/CVE-2025-1661.json)
+### 6. [CVE-2025-1661](/api/vulns/CVE-2025-1661.json)
 
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
@@ -356,145 +175,7 @@ Today's briefing covers **15638 vulnerabilities** from 0 sources.
 
 ---
 
-### 14. [CVE-2024-36401](/api/vulns/CVE-2024-36401.json)
-
-**Risk Score**: 66/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 94.4%
-
-**Summary**: GeoServer is an open source server that allows users to share and edit geospatial data. Prior to versions 2.22.6, 2.23.6, 2.24.4, and 2.25.2, multiple OGC request parameters allow Remote Code Execution (RCE) by unauthenticated users through specially crafted input against a default GeoServer installation due to unsafely evaluating property names as XPath expressions.
-
-The GeoTools library API that GeoServer calls evaluates property/attribute names for feature types in a way that unsafely passes ...
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 94.43% exploit probability
-
-**Affected Vendors**: Geoserver, Source
-
-**Tags**: `CWE-95`
-
-**References**:
-
-- [https://github.com/geoserver/geoserver/security/advisories/GHSA-6jj6-gm7p-fcvv](https://github.com/geoserver/geoserver/security/advisories/GHSA-6jj6-gm7p-fcvv)
-- [https://github.com/geotools/geotools/security/advisories/GHSA-w3pj-wh35-fq8w](https://github.com/geotools/geotools/security/advisories/GHSA-w3pj-wh35-fq8w)
-- [https://github.com/geotools/geotools/pull/4797](https://github.com/geotools/geotools/pull/4797)
-
----
-
-### 15. [CVE-2024-4040](/api/vulns/CVE-2024-4040.json)
-
-**Risk Score**: 66/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 94.4%
-
-**Summary**: A server side template injection vulnerability in CrushFTP in all versions before 10.7.1 and 11.1.0 on all platforms allows unauthenticated remote attackers to read files from the filesystem outside of the VFS Sandbox, bypass authentication to gain administrative access, and perform remote code execution on the server.
-
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 94.43% exploit probability
-
-**Affected Vendors**: Crushftp, The
-
-**Tags**: `CWE-1336`
-
-**References**:
-
-- [https://www.crushftp.com/crush11wiki/Wiki.jsp?page=Update](https://www.crushftp.com/crush11wiki/Wiki.jsp?page=Update)
-- [https://www.crushftp.com/crush10wiki/Wiki.jsp?page=Update](https://www.crushftp.com/crush10wiki/Wiki.jsp?page=Update)
-- [https://www.reddit.com/r/cybersecurity/comments/1c850i2/all_versions_of_crush_ftp_are_vulnerable/](https://www.reddit.com/r/cybersecurity/comments/1c850i2/all_versions_of_crush_ftp_are_vulnerable/)
-
----
-
-### 16. [CVE-2024-1709](/api/vulns/CVE-2024-1709.json)
-
-**Risk Score**: 66/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 10.0 | 
-**EPSS**: 94.4%
-
-**Summary**: ConnectWise ScreenConnect 23.9.7 and prior are affected by an Authentication Bypass Using an Alternate Path or Channel
-
- vulnerability, which may allow an attacker direct access to confidential information or 
-
-critical systems.
-
-
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 94.36% exploit probability
-
-**Affected Vendors**: Connectwise
-
-**Tags**: `CWE-288`
-
-**References**:
-
-- [https://www.connectwise.com/company/trust/security-bulletins/connectwise-screenconnect-23.9.8](https://www.connectwise.com/company/trust/security-bulletins/connectwise-screenconnect-23.9.8)
-- [https://www.huntress.com/blog/vulnerability-reproduced-immediately-patch-screenconnect-23-9-8](https://www.huntress.com/blog/vulnerability-reproduced-immediately-patch-screenconnect-23-9-8)
-- [https://www.huntress.com/blog/detection-guidance-for-connectwise-cwe-288-2](https://www.huntress.com/blog/detection-guidance-for-connectwise-cwe-288-2)
-
----
-
-### 17. [CVE-2024-55591](/api/vulns/CVE-2024-55591.json)
-
-**Risk Score**: 66/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.6 | 
-**EPSS**: 94.2%
-
-**Summary**: An Authentication Bypass Using an Alternate Path or Channel vulnerability [CWE-288] affecting FortiOS version 7.0.0 through 7.0.16 and FortiProxy version 7.0.0 through 7.0.19 and 7.2.0 through 7.2.12 allows a remote attacker to gain super-admin privileges via crafted requests to Node.js websocket module.
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 94.25% exploit probability
-- Affects critical infrastructure: fortinet
-
-**Affected Vendors**: Fortinet
-
-**Tags**: `CWE-288`
-
-**References**:
-
-- [https://fortiguard.fortinet.com/psirt/FG-IR-24-535](https://fortiguard.fortinet.com/psirt/FG-IR-24-535)
-
----
-
-### 18. [CVE-2024-5932](/api/vulns/CVE-2024-5932.json)
-
-**Risk Score**: 66/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 10.0 | 
-**EPSS**: 94.1%
-
-**Summary**: The GiveWP – Donation Plugin and Fundraising Platform plugin for WordPress is vulnerable to PHP Object Injection in all versions up to, and including, 3.14.1 via deserialization of untrusted input from the 'give_title' parameter. This makes it possible for unauthenticated attackers to inject a PHP Object. The additional presence of a POP chain allows attackers to execute code remotely, and to delete arbitrary files.
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 94.1% exploit probability
-
-**Affected Vendors**: Webdevmattcrom, WordPress
-
-**Tags**: `CWE-502`
-
-**References**:
-
-- [https://www.wordfence.com/threat-intel/vulnerabilities/id/93e2d007-8157-42c5-92ad-704dc80749a3?source=cve](https://www.wordfence.com/threat-intel/vulnerabilities/id/93e2d007-8157-42c5-92ad-704dc80749a3?source=cve)
-- [https://plugins.trac.wordpress.org/browser/give/tags/3.12.0/includes/login-register.php#L235](https://plugins.trac.wordpress.org/browser/give/tags/3.12.0/includes/login-register.php#L235)
-- [https://plugins.trac.wordpress.org/browser/give/tags/3.12.0/includes/process-donation.php#L420](https://plugins.trac.wordpress.org/browser/give/tags/3.12.0/includes/process-donation.php#L420)
-
----
-
-### 19. [CVE-2025-29927](/api/vulns/CVE-2025-29927.json)
+### 7. [CVE-2025-29927](/api/vulns/CVE-2025-29927.json)
 
 **Risk Score**: 66/100 | 
 **Severity**: CRITICAL | 
@@ -506,7 +187,7 @@ critical systems.
 **Risk Factors**:
 
 - CRITICAL severity
-- 93.6% exploit probability
+- 93.63% exploit probability
 
 **Affected Vendors**: React, Vercel
 
@@ -520,339 +201,12 @@ critical systems.
 
 ---
 
-### 20. [CVE-2024-25600](/api/vulns/CVE-2024-25600.json)
-
-**Risk Score**: 66/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 10.0 | 
-**EPSS**: 93.6%
-
-**Summary**: Improper Control of Generation of Code ('Code Injection') vulnerability in Codeer Limited Bricks Builder allows Code Injection.This issue affects Bricks Builder: from n/a through 1.9.6.
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 93.57% exploit probability
-
-**Affected Vendors**: Codeer Limited, WordPress
-
-**Tags**: `CWE-94`
-
-**References**:
-
-- [https://patchstack.com/database/vulnerability/bricks/wordpress-bricks-theme-1-9-6-unauthenticated-remote-code-execution-rce-vulnerability?_s_id=cve](https://patchstack.com/database/vulnerability/bricks/wordpress-bricks-theme-1-9-6-unauthenticated-remote-code-execution-rce-vulnerability?_s_id=cve)
-- [https://snicco.io/vulnerability-disclosure/bricks/unauthenticated-rce-in-bricks-1-9-6](https://snicco.io/vulnerability-disclosure/bricks/unauthenticated-rce-in-bricks-1-9-6)
-- [https://patchstack.com/articles/critical-rce-patched-in-bricks-builder-theme?_s_id=cve](https://patchstack.com/articles/critical-rce-patched-in-bricks-builder-theme?_s_id=cve)
-
----
-
-### 21. [CVE-2024-3495](/api/vulns/CVE-2024-3495.json)
-
-**Risk Score**: 66/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 93.6%
-
-**Summary**: The Country State City Dropdown CF7 plugin for WordPress is vulnerable to SQL Injection via the ‘cnt’ and 'sid' parameters in versions up to, and including, 2.7.2 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 93.57% exploit probability
-
-**Affected Vendors**: The, Trustyplugins, WordPress
-
-**References**:
-
-- [https://www.wordfence.com/threat-intel/vulnerabilities/id/17dcacaf-0e2a-4bef-b944-fb7e43d25777?source=cve](https://www.wordfence.com/threat-intel/vulnerabilities/id/17dcacaf-0e2a-4bef-b944-fb7e43d25777?source=cve)
-- [https://plugins.trac.wordpress.org/browser/country-state-city-auto-dropdown/trunk/includes/ajax-actions.php#L8](https://plugins.trac.wordpress.org/browser/country-state-city-auto-dropdown/trunk/includes/ajax-actions.php#L8)
-- [https://plugins.trac.wordpress.org/browser/country-state-city-auto-dropdown/trunk/includes/ajax-actions.php#L22](https://plugins.trac.wordpress.org/browser/country-state-city-auto-dropdown/trunk/includes/ajax-actions.php#L22)
-
----
-
-### 22. [CVE-2024-21762](/api/vulns/CVE-2024-21762.json)
-
-**Risk Score**: 66/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.6 | 
-**EPSS**: 92.9%
-
-**Summary**: A out-of-bounds write in Fortinet FortiOS versions 7.4.0 through 7.4.2, 7.2.0 through 7.2.6, 7.0.0 through 7.0.13, 6.4.0 through 6.4.14, 6.2.0 through 6.2.15, 6.0.0 through 6.0.17, FortiProxy versions 7.4.0 through 7.4.2, 7.2.0 through 7.2.8, 7.0.0 through 7.0.14, 2.0.0 through 2.0.13, 1.2.0 through 1.2.13, 1.1.0 through 1.1.6, 1.0.0 through 1.0.7 allows attacker to execute unauthorized code or commands via specifically crafted requests
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 92.87% exploit probability
-- Affects critical infrastructure: fortinet
-
-**Affected Vendors**: Fortinet
-
-**Tags**: `CWE-787`
-
-**References**:
-
-- [https://fortiguard.com/psirt/FG-IR-24-015](https://fortiguard.com/psirt/FG-IR-24-015)
-
----
-
-### 23. [CVE-2024-1071](/api/vulns/CVE-2024-1071.json)
-
-**Risk Score**: 66/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 92.2%
-
-**Summary**: The Ultimate Member – User Profile, Registration, Login, Member Directory, Content Restriction & Membership Plugin plugin for WordPress is vulnerable to SQL Injection via the 'sorting' parameter in versions 2.1.3 to 2.8.2 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive i...
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 92.25% exploit probability
-
-**Affected Vendors**: The, Ultimatemember, WordPress
-
-**References**:
-
-- [https://www.wordfence.com/threat-intel/vulnerabilities/id/005fa621-3c49-4c23-add5-d6b7a9110055?source=cve](https://www.wordfence.com/threat-intel/vulnerabilities/id/005fa621-3c49-4c23-add5-d6b7a9110055?source=cve)
-- [https://plugins.trac.wordpress.org/browser/ultimate-member/tags/2.8.2/includes/core/class-member-directory-meta.php?rev=3022076](https://plugins.trac.wordpress.org/browser/ultimate-member/tags/2.8.2/includes/core/class-member-directory-meta.php?rev=3022076)
-- [https://plugins.trac.wordpress.org/browser/ultimate-member/tags/2.8.2/includes/core/class-member-directory-meta.php?rev=3022076#L666](https://plugins.trac.wordpress.org/browser/ultimate-member/tags/2.8.2/includes/core/class-member-directory-meta.php?rev=3022076#L666)
-
----
-
-### 24. [CVE-2024-47575](/api/vulns/CVE-2024-47575.json)
-
-**Risk Score**: 66/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 90.5%
-
-**Summary**: A missing authentication for critical function in FortiManager 7.6.0, FortiManager 7.4.0 through 7.4.4, FortiManager 7.2.0 through 7.2.7, FortiManager 7.0.0 through 7.0.12, FortiManager 6.4.0 through 6.4.14, FortiManager 6.2.0 through 6.2.12, Fortinet FortiManager Cloud 7.4.1 through 7.4.4, FortiManager Cloud 7.2.1 through 7.2.7, FortiManager Cloud 7.0.1 through 7.0.12, FortiManager Cloud 6.4.1 through 6.4.7 allows attacker to execute arbitrary code or commands via specially crafted requests.
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 90.46% exploit probability
-- Affects critical infrastructure: fortinet
-
-**Affected Vendors**: Fortinet
-
-**Tags**: `CWE-306`
-
-**References**:
-
-- [https://fortiguard.fortinet.com/psirt/FG-IR-24-423](https://fortiguard.fortinet.com/psirt/FG-IR-24-423)
-
----
-
-### 25. [CVE-2024-1212](/api/vulns/CVE-2024-1212.json)
-
-**Risk Score**: 65/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 10.0 | 
-**EPSS**: 94.3%
-
-**Summary**: Unauthenticated remote attackers can access the system through the LoadMaster management interface, enabling arbitrary system command execution.
-
-
-
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 94.33% exploit probability
-
-**Affected Vendors**: Progress Software
-
-**Tags**: `CWE-78`
-
-**References**:
-
-- [https://kemptechnologies.com/](https://kemptechnologies.com/)
-- [https://freeloadbalancer.com/](https://freeloadbalancer.com/)
-- [https://support.kemptechnologies.com/hc/en-us/articles/24325072850573-Release-Notice-LMOS-7-2-59-2-7-2-54-8-7-2-48-10-CVE-2024-1212](https://support.kemptechnologies.com/hc/en-us/articles/24325072850573-Release-Notice-LMOS-7-2-59-2-7-2-54-8-7-2-48-10-CVE-2024-1212)
-
----
-
-### 26. [CVE-2024-3400](/api/vulns/CVE-2024-3400.json)
-
-**Risk Score**: 65/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 10.0 | 
-**EPSS**: 94.3%
-
-**Summary**: A command injection as a result of arbitrary file creation vulnerability in the GlobalProtect feature of Palo Alto Networks PAN-OS software for specific PAN-OS versions and distinct feature configurations may enable an unauthenticated attacker to execute arbitrary code with root privileges on the firewall.
-
-Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vulnerability.
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 94.3% exploit probability
-
-**Affected Vendors**: Palo Alto Networks
-
-**Tags**: `CWE-77`, `CWE-20`
-
-**References**:
-
-- [https://security.paloaltonetworks.com/CVE-2024-3400](https://security.paloaltonetworks.com/CVE-2024-3400)
-- [https://unit42.paloaltonetworks.com/cve-2024-3400/](https://unit42.paloaltonetworks.com/cve-2024-3400/)
-- [https://www.volexity.com/blog/2024/04/12/zero-day-exploitation-of-unauthenticated-remote-code-execution-vulnerability-in-globalprotect-cve-2024-3400/](https://www.volexity.com/blog/2024/04/12/zero-day-exploitation-of-unauthenticated-remote-code-execution-vulnerability-in-globalprotect-cve-2024-3400/)
-
----
-
-### 27. [CVE-2024-51567](/api/vulns/CVE-2024-51567.json)
-
-**Risk Score**: 65/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 10.0 | 
-**EPSS**: 94.3%
-
-**Summary**: upgrademysqlstatus in databases/views.py in CyberPanel (aka Cyber Panel) before 5b08cd6 allows remote attackers to bypass authentication and execute arbitrary commands via /dataBases/upgrademysqlstatus by bypassing secMiddleware (which is only for a POST request) and using shell metacharacters in the statusfile property, as exploited in the wild in October 2024 by PSAUX. Versions through 2.3.6 and (unpatched) 2.3.7 are affected.
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 94.26% exploit probability
-
-**Affected Vendors**: N/a
-
-**References**:
-
-- [https://cwe.mitre.org/data/definitions/78.html](https://cwe.mitre.org/data/definitions/78.html)
-- [https://dreyand.rs/code/review/2024/10/27/what-are-my-options-cyberpanel-v236-pre-auth-rce](https://dreyand.rs/code/review/2024/10/27/what-are-my-options-cyberpanel-v236-pre-auth-rce)
-- [https://github.com/usmannasir/cyberpanel/commit/5b08cd6d53f4dbc2107ad9f555122ce8b0996515](https://github.com/usmannasir/cyberpanel/commit/5b08cd6d53f4dbc2107ad9f555122ce8b0996515)
-
----
-
-### 28. [CVE-2024-45519](/api/vulns/CVE-2024-45519.json)
-
-**Risk Score**: 65/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 10.0 | 
-**EPSS**: 94.2%
-
-**Summary**: The postjournal service in Zimbra Collaboration (ZCS) before 8.8.15 Patch 46, 9 before 9.0.0 Patch 41, 10 before 10.0.9, and 10.1 before 10.1.1 sometimes allows unauthenticated users to execute commands.
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 94.15% exploit probability
-
-**Affected Vendors**: N/a
-
-**References**:
-
-- [https://wiki.zimbra.com/wiki/Security_Center](https://wiki.zimbra.com/wiki/Security_Center)
-- [https://wiki.zimbra.com/wiki/Zimbra_Responsible_Disclosure_Policy](https://wiki.zimbra.com/wiki/Zimbra_Responsible_Disclosure_Policy)
-- [https://wiki.zimbra.com/wiki/Zimbra_Releases/10.1.1#Security_Fixes](https://wiki.zimbra.com/wiki/Zimbra_Releases/10.1.1#Security_Fixes)
-
----
-
-### 29. [CVE-2024-51378](/api/vulns/CVE-2024-51378.json)
-
-**Risk Score**: 65/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 10.0 | 
-**EPSS**: 94.1%
-
-**Summary**: getresetstatus in dns/views.py and ftp/views.py in CyberPanel (aka Cyber Panel) before 1c0c6cb allows remote attackers to bypass authentication and execute arbitrary commands via /dns/getresetstatus or /ftp/getresetstatus by bypassing secMiddleware (which is only for a POST request) and using shell metacharacters in the statusfile property, as exploited in the wild in October 2024 by PSAUX. Versions through 2.3.6 and (unpatched) 2.3.7 are affected.
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 94.09% exploit probability
-
-**Affected Vendors**: N/a
-
-**References**:
-
-- [https://cwe.mitre.org/data/definitions/78.html](https://cwe.mitre.org/data/definitions/78.html)
-- [https://github.com/usmannasir/cyberpanel/commit/1c0c6cbcf71abe573da0b5fddfb9603e7477f683](https://github.com/usmannasir/cyberpanel/commit/1c0c6cbcf71abe573da0b5fddfb9603e7477f683)
-- [https://refr4g.github.io/posts/cyberpanel-command-injection-vulnerability/](https://refr4g.github.io/posts/cyberpanel-command-injection-vulnerability/)
-
----
-
-### 30. [CVE-2024-1698](/api/vulns/CVE-2024-1698.json)
+### 8. [CVE-2025-3248](/api/vulns/CVE-2025-3248.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.8 | 
-**EPSS**: 93.9%
-
-**Summary**: The NotificationX – Best FOMO, Social Proof, WooCommerce Sales Popup & Notification Bar Plugin With Elementor plugin for WordPress is vulnerable to SQL Injection via the 'type' parameter in all versions up to, and including, 2.8.2 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract se...
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 93.88% exploit probability
-
-**Affected Vendors**: The, WordPress, Wpdevteam
-
-**References**:
-
-- [https://www.wordfence.com/threat-intel/vulnerabilities/id/e110ea99-e2fa-4558-bcf3-942a35af0b91?source=cve](https://www.wordfence.com/threat-intel/vulnerabilities/id/e110ea99-e2fa-4558-bcf3-942a35af0b91?source=cve)
-- [https://plugins.trac.wordpress.org/changeset/3040809/notificationx/trunk/includes/Core/Database.php](https://plugins.trac.wordpress.org/changeset/3040809/notificationx/trunk/includes/Core/Database.php)
-- [https://plugins.trac.wordpress.org/changeset/3040809/notificationx/trunk/includes/Core/Rest/Analytics.php](https://plugins.trac.wordpress.org/changeset/3040809/notificationx/trunk/includes/Core/Rest/Analytics.php)
-
----
-
-### 31. [CVE-2024-4443](/api/vulns/CVE-2024-4443.json)
-
-**Risk Score**: 65/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 93.6%
-
-**Summary**: The Business Directory Plugin – Easy Listing Directories for WordPress plugin for WordPress is vulnerable to time-based SQL Injection via the ‘listingfields’ parameter in all versions up to, and including, 6.4.2 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information...
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 93.57% exploit probability
-
-**Affected Vendors**: Strategy11team, The, WordPress
-
-**References**:
-
-- [https://www.wordfence.com/threat-intel/vulnerabilities/id/982fb304-08d6-4195-97a3-f18e94295492?source=cve](https://www.wordfence.com/threat-intel/vulnerabilities/id/982fb304-08d6-4195-97a3-f18e94295492?source=cve)
-- [https://plugins.trac.wordpress.org/browser/business-directory-plugin/trunk/includes/fields/class-fieldtypes-select.php#L110](https://plugins.trac.wordpress.org/browser/business-directory-plugin/trunk/includes/fields/class-fieldtypes-select.php#L110)
-- [https://plugins.trac.wordpress.org/changeset/3089626/](https://plugins.trac.wordpress.org/changeset/3089626/)
-
----
-
-### 32. [CVE-2024-11680](/api/vulns/CVE-2024-11680.json)
-
-**Risk Score**: 65/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 93.1%
-
-**Summary**: ProjectSend versions prior to r1720 are affected by an improper authentication vulnerability. Remote, unauthenticated attackers can exploit this flaw by sending crafted HTTP requests to options.php, enabling unauthorized modification of the application's configuration. Successful exploitation allows attackers to create accounts, upload webshells, and embed malicious JavaScript.
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 93.11% exploit probability
-
-**Affected Vendors**: Projectsend
-
-**Tags**: `CWE-287`
-
-**References**:
-
-- [https://github.com/projectsend/projectsend/commit/193367d937b1a59ed5b68dd4e60bd53317473744](https://github.com/projectsend/projectsend/commit/193367d937b1a59ed5b68dd4e60bd53317473744)
-- [https://www.synacktiv.com/sites/default/files/2024-07/synacktiv-projectsend-multiple-vulnerabilities.pdf](https://www.synacktiv.com/sites/default/files/2024-07/synacktiv-projectsend-multiple-vulnerabilities.pdf)
-- [https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/linux/http/projectsend_unauth_rce.rb](https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/linux/http/projectsend_unauth_rce.rb)
-
----
-
-### 33. [CVE-2025-3248](/api/vulns/CVE-2025-3248.json)
-
-**Risk Score**: 65/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 92.5%
+**EPSS**: 92.2%
 
 **Summary**: Langflow versions prior to 1.3.0 are susceptible to code injection in 
 the /api/v1/validate/code endpoint. A remote and unauthenticated attacker can send crafted HTTP requests to execute arbitrary
@@ -861,7 +215,7 @@ code.
 **Risk Factors**:
 
 - CRITICAL severity
-- 92.53% exploit probability
+- 92.15% exploit probability
 
 **Affected Vendors**: Langflow-ai
 
@@ -875,431 +229,563 @@ code.
 
 ---
 
-### 34. [CVE-2024-9234](/api/vulns/CVE-2024-9234.json)
+### 9. [CVE-2025-31161](/api/vulns/CVE-2025-31161.json)
 
-**Risk Score**: 65/100 | 
+**Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.8 | 
-**EPSS**: 92.5%
+**EPSS**: 83.3%
 
-**Summary**: The GutenKit – Page Builder Blocks, Patterns, and Templates for Gutenberg Block Editor plugin for WordPress is vulnerable to arbitrary file uploads due to a missing capability check on the install_and_activate_plugin_from_external() function  (install-active-plugin REST API endpoint) in all versions up to, and including, 2.1.0. This makes it possible for unauthenticated attackers to install and activate arbitrary plugins, or utilize the functionality to upload arbitrary files spoofed like plugin...
+**Summary**: CrushFTP 10 before 10.8.4 and 11 before 11.3.1 allows authentication bypass and takeover of the crushadmin account (unless a DMZ proxy instance is used), as exploited in the wild in March and April 2025, aka "Unauthenticated HTTP(S) port access." A race condition exists in the AWS4-HMAC (compatible with S3) authorization method of the HTTP component of the FTP server. The server first verifies the existence of the user by performing a call to login_user_pass() with no password requirement. This ...
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 92.5% exploit probability
+- 83.27% exploit probability
 
-**Affected Vendors**: Ataurr, WordPress
+**Affected Vendors**: Crushftp, Ftp, The
 
-**Tags**: `CWE-862`
+**Tags**: `CWE-305`
 
 **References**:
 
-- [https://www.wordfence.com/threat-intel/vulnerabilities/id/e44c5dc0-6bf6-417a-9383-b345ff57ac32?source=cve](https://www.wordfence.com/threat-intel/vulnerabilities/id/e44c5dc0-6bf6-417a-9383-b345ff57ac32?source=cve)
-- [https://github.com/WordPressBugBounty/plugins-gutenkit-blocks-addon/blob/dc3738bb821cf1d93a11379b8695793fa5e1b9e6/gutenkit-blocks-addon/includes/Admin/Api/ActivePluginData.php#L76](https://github.com/WordPressBugBounty/plugins-gutenkit-blocks-addon/blob/dc3738bb821cf1d93a11379b8695793fa5e1b9e6/gutenkit-blocks-addon/includes/Admin/Api/ActivePluginData.php#L76)
-- [https://plugins.trac.wordpress.org/browser/gutenkit-blocks-addon/tags/2.1.0/includes/Admin/Api/ActivePluginData.php?rev=3159783#L76](https://plugins.trac.wordpress.org/browser/gutenkit-blocks-addon/tags/2.1.0/includes/Admin/Api/ActivePluginData.php?rev=3159783#L76)
+- [https://outpost24.com/blog/crushftp-auth-bypass-vulnerability/](https://outpost24.com/blog/crushftp-auth-bypass-vulnerability/)
+- [https://crushftp.com/crush11wiki/Wiki.jsp?page=Update#section-Update-VulnerabilityInfo](https://crushftp.com/crush11wiki/Wiki.jsp?page=Update#section-Update-VulnerabilityInfo)
 
 ---
 
-### 35. [CVE-2024-32651](/api/vulns/CVE-2024-32651.json)
+### 10. [CVE-2025-32432](/api/vulns/CVE-2025-32432.json)
 
-**Risk Score**: 65/100 | 
+**Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 10.0 | 
-**EPSS**: 92.3%
+**EPSS**: 77.6%
 
-**Summary**: changedetection.io is an open source web page change detection, website watcher, restock monitor and notification service. There is a Server Side Template Injection (SSTI) in Jinja2 that allows Remote Command Execution on the server host. Attackers can run any system command without any restriction and they could use a reverse shell. The impact is critical as the attacker can completely takeover the server machine. This can be reduced if changedetection is behind a login page, but this isn't req...
+**Summary**: Craft is a flexible, user-friendly CMS for creating custom digital experiences on the web and beyond. Starting from version 3.0.0-RC1 to before 3.9.15, 4.0.0-RC1 to before 4.14.15, and 5.0.0-RC1 to before 5.6.17, Craft is vulnerable to remote code execution. This is a high-impact, low-complexity attack vector. This issue has been patched in versions 3.9.15, 4.14.15, and 5.6.17, and is an additional fix for CVE-2023-41892.
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 92.33% exploit probability
+- 77.59% exploit probability
 
-**Affected Vendors**: Dgtlmoon, The
+**Affected Vendors**: Craftcms
 
-**Tags**: `CWE-1336`
+**Tags**: `CWE-94`
 
 **References**:
 
-- [https://github.com/dgtlmoon/changedetection.io/security/advisories/GHSA-4r7v-whpg-8rx3](https://github.com/dgtlmoon/changedetection.io/security/advisories/GHSA-4r7v-whpg-8rx3)
-- [https://github.com/dgtlmoon/changedetection.io/releases/tag/0.45.21](https://github.com/dgtlmoon/changedetection.io/releases/tag/0.45.21)
-- [https://www.onsecurity.io/blog/server-side-template-injection-with-jinja2](https://www.onsecurity.io/blog/server-side-template-injection-with-jinja2)
+- [https://github.com/craftcms/cms/security/advisories/GHSA-f3gw-9ww9-jmc3](https://github.com/craftcms/cms/security/advisories/GHSA-f3gw-9ww9-jmc3)
+- [https://github.com/craftcms/cms/commit/e1c85441fa47eeb7c688c2053f25419bc0547b47](https://github.com/craftcms/cms/commit/e1c85441fa47eeb7c688c2053f25419bc0547b47)
+- [https://github.com/craftcms/cms/blob/3.x/CHANGELOG.md#3915---2025-04-10-critical](https://github.com/craftcms/cms/blob/3.x/CHANGELOG.md#3915---2025-04-10-critical)
 
 ---
 
-### 36. [CVE-2024-8856](/api/vulns/CVE-2024-8856.json)
+### 11. [CVE-2025-48827](/api/vulns/CVE-2025-48827.json)
 
-**Risk Score**: 65/100 | 
+**Risk Score**: 64/100 | 
 **Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 92.0%
+**CVSS**: 10.0 | 
+**EPSS**: 73.4%
 
-**Summary**: The Backup and Staging by WP Time Capsule plugin for WordPress is vulnerable to arbitrary file uploads due to missing file type validation in the the UploadHandler.php file and no direct file access prevention in all versions up to, and including, 1.22.21. This makes it possible for unauthenticated attackers to upload arbitrary files on the affected site's server which may make remote code execution possible.
+**Summary**: vBulletin 5.0.0 through 5.7.5 and 6.0.0 through 6.0.3 allows unauthenticated users to invoke protected API controllers' methods when running on PHP 8.1 or later, as demonstrated by the /api.php?method=protectedMethod pattern, as exploited in the wild in May 2025.
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 91.95% exploit probability
+- 73.44% exploit probability
 
-**Affected Vendors**: Revmakx, WordPress
+**Affected Vendors**: PHP, Vbulletin
+
+**Tags**: `CWE-424`
+
+**References**:
+
+- [https://karmainsecurity.com/dont-call-that-protected-method-vbulletin-rce](https://karmainsecurity.com/dont-call-that-protected-method-vbulletin-rce)
+- [https://kevintel.com/CVE-2025-48827](https://kevintel.com/CVE-2025-48827)
+
+---
+
+### 12. [CVE-2025-24016](/api/vulns/CVE-2025-24016.json)
+
+**Risk Score**: 63/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 9.9 | 
+**EPSS**: 91.7%
+
+**Summary**: Wazuh is a free and open source platform used for threat prevention, detection, and response. Starting in version 4.4.0 and prior to version 4.9.1, an unsafe deserialization vulnerability allows for remote code execution on Wazuh servers. DistributedAPI parameters are a serialized as JSON and deserialized using `as_wazuh_object` (in `framework/wazuh/core/cluster/common.py`). If an attacker manages to inject an unsanitized dictionary in DAPI request/response, they can forge an unhandled exception...
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 91.65% exploit probability
+
+**Affected Vendors**: Wazuh
+
+**Tags**: `CWE-502`
+
+**References**:
+
+- [https://github.com/wazuh/wazuh/security/advisories/GHSA-hcrc-79hj-m3qh](https://github.com/wazuh/wazuh/security/advisories/GHSA-hcrc-79hj-m3qh)
+
+---
+
+### 13. [CVE-2025-30066](/api/vulns/CVE-2025-30066.json)
+
+**Risk Score**: 62/100 | 
+**Severity**: HIGH | 
+**CVSS**: 8.6 | 
+**EPSS**: 81.7%
+
+**Summary**: tj-actions changed-files before 46 allows remote attackers to discover secrets by reading actions logs. (The tags v1 through v45.0.7 were affected on 2025-03-14 and 2025-03-15 because they were modified by a threat actor to point at commit 0e58ed8, which contained malicious updateFeatures code.)
+
+**Risk Factors**:
+
+- HIGH severity
+- 81.68% exploit probability
+
+**Affected Vendors**: Tj-actions
+
+**Tags**: `CWE-506`
+
+**References**:
+
+- [https://github.com/github/docs/blob/962a1c8dccb8c0f66548b324e5b921b5e4fbc3d6/content/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions.md?plain=1#L191-L193](https://github.com/github/docs/blob/962a1c8dccb8c0f66548b324e5b921b5e4fbc3d6/content/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions.md?plain=1#L191-L193)
+- [https://github.com/tj-actions/changed-files/issues/2463](https://github.com/tj-actions/changed-files/issues/2463)
+- [https://www.stepsecurity.io/blog/harden-runner-detection-tj-actions-changed-files-action-is-compromised](https://www.stepsecurity.io/blog/harden-runner-detection-tj-actions-changed-files-action-is-compromised)
+
+---
+
+### 14. [CVE-2025-27007](/api/vulns/CVE-2025-27007.json)
+
+**Risk Score**: 62/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 9.8 | 
+**EPSS**: 78.6%
+
+**Summary**: Incorrect Privilege Assignment vulnerability in Brainstorm Force SureTriggers allows Privilege Escalation.This issue affects SureTriggers: from n/a through 1.0.82.
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 78.6% exploit probability
+
+**Affected Vendors**: Brainstorm Force, WordPress
+
+**Tags**: `CWE-266`
+
+**References**:
+
+- [https://patchstack.com/database/wordpress/plugin/suretriggers/vulnerability/wordpress-suretriggers-1-0-82-privilege-escalation-vulnerability?_s_id=cve](https://patchstack.com/database/wordpress/plugin/suretriggers/vulnerability/wordpress-suretriggers-1-0-82-privilege-escalation-vulnerability?_s_id=cve)
+- [https://patchstack.com/articles/additional-critical-ottokit-formerly-suretriggers-vulnerability-patched?_s_id=cve](https://patchstack.com/articles/additional-critical-ottokit-formerly-suretriggers-vulnerability-patched?_s_id=cve)
+
+---
+
+### 15. [CVE-2025-21298](/api/vulns/CVE-2025-21298.json)
+
+**Risk Score**: 62/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 9.8 | 
+**EPSS**: 70.6%
+
+**Summary**: Windows OLE Remote Code Execution Vulnerability
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 70.56% exploit probability
+- Affects critical infrastructure: microsoft
+
+**Affected Vendors**: Microsoft
+
+**Tags**: `CWE-416`
+
+**References**:
+
+- [https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-21298](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-21298)
+
+---
+
+### 16. [CVE-2025-32433](/api/vulns/CVE-2025-32433.json)
+
+**Risk Score**: 62/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 10.0 | 
+**EPSS**: 67.4%
+
+**Summary**: Erlang/OTP is a set of libraries for the Erlang programming language. Prior to versions OTP-27.3.3, OTP-26.2.5.11, and OTP-25.3.2.20, a SSH server may allow an attacker to perform unauthenticated remote code execution (RCE). By exploiting a flaw in SSH protocol message handling, a malicious actor could gain unauthorized access to affected systems and execute arbitrary commands without valid credentials. This issue is patched in versions OTP-27.3.3, OTP-26.2.5.11, and OTP-25.3.2.20. A temporary w...
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 67.37% exploit probability
+
+**Affected Vendors**: Erlang, Ssh
+
+**Tags**: `CWE-306`
+
+**References**:
+
+- [https://github.com/erlang/otp/security/advisories/GHSA-37cp-fgq5-7wc2](https://github.com/erlang/otp/security/advisories/GHSA-37cp-fgq5-7wc2)
+- [https://github.com/erlang/otp/commit/0fcd9c56524b28615e8ece65fc0c3f66ef6e4c12](https://github.com/erlang/otp/commit/0fcd9c56524b28615e8ece65fc0c3f66ef6e4c12)
+- [https://github.com/erlang/otp/commit/6eef04130afc8b0ccb63c9a0d8650209cf54892f](https://github.com/erlang/otp/commit/6eef04130afc8b0ccb63c9a0d8650209cf54892f)
+
+---
+
+### 17. [CVE-2025-30406](/api/vulns/CVE-2025-30406.json)
+
+**Risk Score**: 61/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 9.0 | 
+**EPSS**: 83.5%
+
+**Summary**: Gladinet CentreStack through 16.1.10296.56315 (fixed in 16.4.10315.56368) has a deserialization vulnerability due to the CentreStack portal's hardcoded machineKey use, as exploited in the wild in March 2025. This enables threat actors (who know the machineKey) to serialize a payload for server-side deserialization to achieve remote code execution. NOTE: a CentreStack admin can manually delete the machineKey defined in portal\web.config.
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 83.46% exploit probability
+
+**Affected Vendors**: For, Gladinet
+
+**Tags**: `CWE-321`
+
+**References**:
+
+- [https://www.centrestack.com/p/gce_latest_release.html](https://www.centrestack.com/p/gce_latest_release.html)
+- [https://gladinetsupport.s3.us-east-1.amazonaws.com/gladinet/securityadvisory-cve-2005.pdf](https://gladinetsupport.s3.us-east-1.amazonaws.com/gladinet/securityadvisory-cve-2005.pdf)
+
+---
+
+### 18. [CVE-2025-1316](/api/vulns/CVE-2025-1316.json)
+
+**Risk Score**: 61/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 9.8 | 
+**EPSS**: 83.0%
+
+**Summary**: Edimax IC-7100 does not properly neutralize requests. An attacker can create specially crafted requests to achieve remote code execution on the device
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 83.0% exploit probability
+
+**Affected Vendors**: Edimax
+
+**Tags**: `CWE-78`
+
+**References**:
+
+- [https://www.cisa.gov/news-events/ics-advisories/icsa-25-063-08](https://www.cisa.gov/news-events/ics-advisories/icsa-25-063-08)
+
+---
+
+### 19. [CVE-2025-1094](/api/vulns/CVE-2025-1094.json)
+
+**Risk Score**: 61/100 | 
+**Severity**: HIGH | 
+**CVSS**: 8.1 | 
+**EPSS**: 79.5%
+
+**Summary**: Improper neutralization of quoting syntax in PostgreSQL libpq functions PQescapeLiteral(), PQescapeIdentifier(), PQescapeString(), and PQescapeStringConn() allows a database input provider to achieve SQL injection in certain usage patterns.  Specifically, SQL injection requires the application to use the function result to construct input to psql, the PostgreSQL interactive terminal.  Similarly, improper neutralization of quoting syntax in PostgreSQL command line utility programs allows a source...
+
+**Risk Factors**:
+
+- HIGH severity
+- 79.48% exploit probability
+
+**Affected Vendors**: N/a, PostgreSQL
+
+**Tags**: `CWE-149`
+
+**References**:
+
+- [https://www.postgresql.org/support/security/CVE-2025-1094/](https://www.postgresql.org/support/security/CVE-2025-1094/)
+
+---
+
+### 20. [CVE-2025-34028](/api/vulns/CVE-2025-34028.json)
+
+**Risk Score**: 61/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 10.0 | 
+**EPSS**: 64.7%
+
+**Summary**: The Commvault Command Center Innovation Release allows an unauthenticated actor to upload ZIP files that represent install packages that, when expanded by the target server, are vulnerable to path traversal vulnerability that can result in Remote Code Execution via malicious JSP.
+
+
+
+
+
+This issue affects Command Center Innovation Release: 11.38.0 to 11.38.20. The vulnerability is fixed in 11.38.20 with SP38-CU20-433 and SP38-CU20-436 and also fixed in 11.38.25 with SP38-CU25-434 and SP38-CU25-438...
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 64.66% exploit probability
+
+**Affected Vendors**: Commvault, Target
+
+**Tags**: `CWE-22`, `CWE-306`
+
+**References**:
+
+- [https://documentation.commvault.com/securityadvisories/CV_2025_04_1.html](https://documentation.commvault.com/securityadvisories/CV_2025_04_1.html)
+- [https://labs.watchtowr.com/fire-in-the-hole-were-breaching-the-vault-commvault-remote-code-execution-cve-2025-34028/](https://labs.watchtowr.com/fire-in-the-hole-were-breaching-the-vault-commvault-remote-code-execution-cve-2025-34028/)
+- [https://github.com/watchtowrlabs/watchTowr-vs-Commvault-PreAuth-RCE-CVE-2025-34028](https://github.com/watchtowrlabs/watchTowr-vs-Commvault-PreAuth-RCE-CVE-2025-34028)
+
+---
+
+### 21. [CVE-2025-3102](/api/vulns/CVE-2025-3102.json)
+
+**Risk Score**: 60/100 | 
+**Severity**: HIGH | 
+**CVSS**: 8.1 | 
+**EPSS**: 86.0%
+
+**Summary**: The SureTriggers: All-in-One Automation Platform plugin for WordPress is vulnerable to an authentication bypass leading to administrative account creation due to a missing empty value check on the 'secret_key' value in the 'autheticate_user' function in all versions up to, and including, 1.0.78. This makes it possible for unauthenticated attackers to create administrator accounts on the target website when the plugin is installed and activated but not configured with an API key.
+
+**Risk Factors**:
+
+- HIGH severity
+- 85.99% exploit probability
+
+**Affected Vendors**: Brainstormforce, WordPress
+
+**Tags**: `CWE-697`
+
+**References**:
+
+- [https://www.wordfence.com/threat-intel/vulnerabilities/id/ec017311-f150-4a14-a4b4-b5634f574e2b?source=cve](https://www.wordfence.com/threat-intel/vulnerabilities/id/ec017311-f150-4a14-a4b4-b5634f574e2b?source=cve)
+- [https://plugins.trac.wordpress.org/browser/suretriggers/trunk/src/Controllers/RestController.php#L59](https://plugins.trac.wordpress.org/browser/suretriggers/trunk/src/Controllers/RestController.php#L59)
+- [https://plugins.trac.wordpress.org/changeset?sfp_email=&sfph_mail=&reponame=&new=3266499%40suretriggers%2Ftrunk&old=3264905%40suretriggers%2Ftrunk&sfp_email=&sfph_mail=](https://plugins.trac.wordpress.org/changeset?sfp_email=&sfph_mail=&reponame=&new=3266499%40suretriggers%2Ftrunk&old=3264905%40suretriggers%2Ftrunk&sfp_email=&sfph_mail=)
+
+---
+
+### 22. [CVE-2025-21293](/api/vulns/CVE-2025-21293.json)
+
+**Risk Score**: 60/100 | 
+**Severity**: HIGH | 
+**CVSS**: 8.8 | 
+**EPSS**: 75.6%
+
+**Summary**: Active Directory Domain Services Elevation of Privilege Vulnerability
+
+**Risk Factors**:
+
+- HIGH severity
+- 75.6% exploit probability
+- Affects critical infrastructure: microsoft
+
+**Affected Vendors**: Microsoft
+
+**Tags**: `CWE-284`
+
+**References**:
+
+- [https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-21293](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-21293)
+
+---
+
+### 23. [CVE-2025-48828](/api/vulns/CVE-2025-48828.json)
+
+**Risk Score**: 60/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 9.0 | 
+**EPSS**: 67.3%
+
+**Summary**: Certain vBulletin versions might allow attackers to execute arbitrary PHP code by abusing Template Conditionals in the template engine. By crafting template code in an alternative PHP function invocation syntax, such as the "var_dump"("test") syntax, attackers can bypass security checks and execute arbitrary PHP code, as exploited in the wild in May 2025.
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 67.34% exploit probability
+
+**Affected Vendors**: Template, Vbulletin
+
+**Tags**: `CWE-424`
+
+**References**:
+
+- [https://karmainsecurity.com/dont-call-that-protected-method-vbulletin-rce](https://karmainsecurity.com/dont-call-that-protected-method-vbulletin-rce)
+- [https://kevintel.com/CVE-2025-48828](https://kevintel.com/CVE-2025-48828)
+
+---
+
+### 24. [CVE-2025-24865](/api/vulns/CVE-2025-24865.json)
+
+**Risk Score**: 60/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 10.0 | 
+**EPSS**: 64.1%
+
+**Summary**: The administrative web interface of 
+mySCADA myPRO Manager
+
+can be accessed without authentication 
+which could allow an unauthorized attacker to retrieve sensitive 
+information and upload files without the associated password.
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 64.09% exploit probability
+
+**Affected Vendors**: Myscada
+
+**Tags**: `CWE-306`
+
+**References**:
+
+- [https://www.cisa.gov/news-events/ics-advisories/icsa-25-044-16](https://www.cisa.gov/news-events/ics-advisories/icsa-25-044-16)
+- [https://www.myscada.org/downloads/mySCADAPROManager/](https://www.myscada.org/downloads/mySCADAPROManager/)
+- [https://www.myscada.org/contacts/](https://www.myscada.org/contacts/)
+
+---
+
+### 25. [CVE-2025-0282](/api/vulns/CVE-2025-0282.json)
+
+**Risk Score**: 59/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 9.0 | 
+**EPSS**: 93.2%
+
+**Summary**: A stack-based buffer overflow in Ivanti Connect Secure before version 22.7R2.5, Ivanti Policy Secure before version 22.7R1.2, and Ivanti Neurons for ZTA gateways before version 22.7R2.3 allows a remote unauthenticated attacker to achieve remote code execution.
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 93.24% exploit probability
+
+**Affected Vendors**: Ivanti
+
+**Tags**: `CWE-121`
+
+**References**:
+
+- [https://forums.ivanti.com/s/article/Security-Advisory-Ivanti-Connect-Secure-Policy-Secure-ZTA-Gateways-CVE-2025-0282-CVE-2025-0283](https://forums.ivanti.com/s/article/Security-Advisory-Ivanti-Connect-Secure-Policy-Secure-ZTA-Gateways-CVE-2025-0282-CVE-2025-0283)
+
+---
+
+### 26. [CVE-2025-2011](/api/vulns/CVE-2025-2011.json)
+
+**Risk Score**: 59/100 | 
+**Severity**: HIGH | 
+**CVSS**: 7.5 | 
+**EPSS**: 62.6%
+
+**Summary**: The Slider & Popup Builder by Depicter plugin for WordPress is vulnerable to generic SQL Injection via the ‘s' parameter in all versions up to, and including, 3.6.1 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.
+
+**Risk Factors**:
+
+- HIGH severity
+- 62.65% exploit probability
+
+**Affected Vendors**: Averta, The, WordPress
+
+**Tags**: `CWE-89`
+
+**References**:
+
+- [https://www.wordfence.com/threat-intel/vulnerabilities/id/49b36cde-39d8-4a69-8d7c-7b850b76a7cd?source=cve](https://www.wordfence.com/threat-intel/vulnerabilities/id/49b36cde-39d8-4a69-8d7c-7b850b76a7cd?source=cve)
+- [https://plugins.trac.wordpress.org/browser/depicter/trunk/app/src/Database/Repository/LeadRepository.php?rev=3156664#L224](https://plugins.trac.wordpress.org/browser/depicter/trunk/app/src/Database/Repository/LeadRepository.php?rev=3156664#L224)
+- [https://plugins.trac.wordpress.org/browser/depicter/trunk/app/src/Services/LeadService.php?rev=3156664#L82](https://plugins.trac.wordpress.org/browser/depicter/trunk/app/src/Services/LeadService.php?rev=3156664#L82)
+
+---
+
+### 27. [CVE-2025-27520](/api/vulns/CVE-2025-27520.json)
+
+**Risk Score**: 59/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 9.8 | 
+**EPSS**: 61.2%
+
+**Summary**: BentoML is a Python library for building online serving systems optimized for AI apps and model inference. A Remote Code Execution (RCE) vulnerability caused by insecure deserialization has been identified in the latest version (v1.4.2) of BentoML. It allows any unauthenticated user to execute arbitrary code on the server. It exists an unsafe code segment in serde.py. This vulnerability is fixed in 1.4.3.
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 61.17% exploit probability
+
+**Affected Vendors**: Bentoml, The
+
+**Tags**: `CWE-502`
+
+**References**:
+
+- [https://github.com/bentoml/BentoML/security/advisories/GHSA-33xw-247w-6hmc](https://github.com/bentoml/BentoML/security/advisories/GHSA-33xw-247w-6hmc)
+- [https://github.com/bentoml/BentoML/commit/b35f4f4fcc53a8c3fe8ed9c18a013fe0a728e194](https://github.com/bentoml/BentoML/commit/b35f4f4fcc53a8c3fe8ed9c18a013fe0a728e194)
+
+---
+
+### 28. [CVE-2025-31324](/api/vulns/CVE-2025-31324.json)
+
+**Risk Score**: 59/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 10.0 | 
+**EPSS**: 60.6%
+
+**Summary**: SAP NetWeaver Visual Composer Metadata Uploader is not protected with a proper authorization, allowing unauthenticated agent to upload potentially malicious executable binaries that could severely harm the host system. This could significantly affect the confidentiality, integrity, and availability of the targeted system.
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 60.64% exploit probability
+
+**Affected Vendors**: Development, Sap_se
 
 **Tags**: `CWE-434`
 
 **References**:
 
-- [https://www.wordfence.com/threat-intel/vulnerabilities/id/fdc2de78-5601-461f-b2f0-c80b592ccb1b?source=cve](https://www.wordfence.com/threat-intel/vulnerabilities/id/fdc2de78-5601-461f-b2f0-c80b592ccb1b?source=cve)
-- [https://plugins.trac.wordpress.org/browser/wp-time-capsule/trunk/wp-tcapsule-bridge/upload/php/UploadHandler.php](https://plugins.trac.wordpress.org/browser/wp-time-capsule/trunk/wp-tcapsule-bridge/upload/php/UploadHandler.php)
-- [https://plugins.trac.wordpress.org/changeset/3188325/](https://plugins.trac.wordpress.org/changeset/3188325/)
+- [https://me.sap.com/notes/3594142](https://me.sap.com/notes/3594142)
+- [https://url.sap/sapsecuritypatchday](https://url.sap/sapsecuritypatchday)
 
 ---
 
-### 37. [CVE-2024-2876](/api/vulns/CVE-2024-2876.json)
+### 29. [CVE-2025-27363](/api/vulns/CVE-2025-27363.json)
 
-**Risk Score**: 65/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 91.3%
+**Risk Score**: 55/100 | 
+**Severity**: HIGH | 
+**CVSS**: 8.1 | 
+**EPSS**: 70.7%
 
-**Summary**: The Email Subscribers by Icegram Express – Email Marketing, Newsletters, Automation for WordPress & WooCommerce plugin for WordPress is vulnerable to SQL Injection via the 'run' function of the 'IG_ES_Subscribers_Query' class in all versions up to, and including, 5.7.14 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existin...
+**Summary**: An out of bounds write exists in FreeType versions 2.13.0 and below (newer versions of FreeType are not vulnerable) when attempting to parse font subglyph structures related to TrueType GX and variable font files. The vulnerable code assigns a signed short value to an unsigned long and then adds a static value causing it to wrap around and allocate too small of a heap buffer. The code then writes up to 6 signed long integers out of bounds relative to this buffer. This may result in arbitrary cod...
 
 **Risk Factors**:
 
-- CRITICAL severity
-- 91.35% exploit probability
+- HIGH severity
+- 70.72% exploit probability
 
-**Affected Vendors**: Icegram, The, WordPress
+**Affected Vendors**: Freetype
 
 **References**:
 
-- [https://www.wordfence.com/threat-intel/vulnerabilities/id/e0ca6ac4-0d89-4601-94fc-cce5a0af9c56?source=cve](https://www.wordfence.com/threat-intel/vulnerabilities/id/e0ca6ac4-0d89-4601-94fc-cce5a0af9c56?source=cve)
-- [https://github.com/WordpressPluginDirectory/email-subscribers/blob/main/email-subscribers/lite/includes/classes/class-ig-es-subscriber-query.php#L304](https://github.com/WordpressPluginDirectory/email-subscribers/blob/main/email-subscribers/lite/includes/classes/class-ig-es-subscriber-query.php#L304)
-- [https://github.com/WordpressPluginDirectory/email-subscribers/blob/main/email-subscribers/lite/admin/class-email-subscribers-admin.php#L1433](https://github.com/WordpressPluginDirectory/email-subscribers/blob/main/email-subscribers/lite/admin/class-email-subscribers-admin.php#L1433)
+- [https://www.facebook.com/security/advisories/cve-2025-27363](https://www.facebook.com/security/advisories/cve-2025-27363)
 
 ---
 
-### 38. [CVE-2024-36404](/api/vulns/CVE-2024-36404.json)
+### 30. [CVE-2025-2264](/api/vulns/CVE-2025-2264.json)
 
-**Risk Score**: 65/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 89.1%
+**Risk Score**: 54/100 | 
+**Severity**: HIGH | 
+**CVSS**: 7.5 | 
+**EPSS**: 69.5%
 
-**Summary**: GeoTools is an open source Java library that provides tools for geospatial data. Prior to versions 31.2, 30.4, and 29.6, Remote Code Execution (RCE) is possible if an application uses certain GeoTools functionality to evaluate XPath expressions supplied by user input. Versions 31.2, 30.4, and 29.6 contain a fix for this issue. As a workaround, GeoTools can operate with reduced functionality by removing the `gt-complex` jar from one's application. As an example of the impact, application schema `...
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 89.09% exploit probability
-
-**Affected Vendors**: Geotools
-
-**Tags**: `CWE-95`
-
-**References**:
-
-- [https://github.com/geotools/geotools/security/advisories/GHSA-w3pj-wh35-fq8w](https://github.com/geotools/geotools/security/advisories/GHSA-w3pj-wh35-fq8w)
-- [https://github.com/geotools/geotools/pull/4797](https://github.com/geotools/geotools/pull/4797)
-- [https://github.com/geotools/geotools/commit/f0c9961dc4d40c5acfce2169fab92805738de5ea](https://github.com/geotools/geotools/commit/f0c9961dc4d40c5acfce2169fab92805738de5ea)
-
----
-
-### 39. [CVE-2024-23108](/api/vulns/CVE-2024-23108.json)
-
-**Risk Score**: 65/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.7 | 
-**EPSS**: 88.4%
-
-**Summary**: An improper neutralization of special elements used in an os command ('os command injection') in Fortinet FortiSIEM version 7.1.0 through 7.1.1 and 7.0.0 through 7.0.2 and 6.7.0 through 6.7.8 and 6.6.0 through 6.6.3 and 6.5.0 through 6.5.2 and 6.4.0 through 6.4.2 allows attacker to execute unauthorized code or commands via via crafted API requests.
+**Summary**: A Path Traversal Information Disclosure vulnerability exists in "Sante PACS Server.exe". An unauthenticated remote attacker can exploit it to download arbitrary files on the disk drive where the application is installed.
 
 **Risk Factors**:
 
-- CRITICAL severity
-- 88.39% exploit probability
-- Affects critical infrastructure: fortinet
+- HIGH severity
+- 69.45% exploit probability
 
-**Affected Vendors**: Fortinet
+**Affected Vendors**: Pacs, Santesoft
 
-**Tags**: `CWE-78`
-
-**References**:
-
-- [https://fortiguard.com/psirt/FG-IR-23-130](https://fortiguard.com/psirt/FG-IR-23-130)
-
----
-
-### 40. [CVE-2024-46986](/api/vulns/CVE-2024-46986.json)
-
-**Risk Score**: 65/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 10.0 | 
-**EPSS**: 88.2%
-
-**Summary**: Camaleon CMS is a dynamic and advanced content management system based on Ruby on Rails. An arbitrary file write vulnerability accessible via the upload method of the MediaController allows authenticated users to write arbitrary files to any location on the web server Camaleon CMS is running on (depending on the permissions of the underlying filesystem). E.g. This can lead to a delayed remote code execution in case an attacker is able to write a Ruby file into the config/initializers/ subfolder ...
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 88.21% exploit probability
-
-**Affected Vendors**: Owen2345, Web
-
-**Tags**: `CWE-74`
+**Tags**: `CWE-22`
 
 **References**:
 
-- [https://github.com/owen2345/camaleon-cms/security/advisories/GHSA-wmjg-vqhv-q5p5](https://github.com/owen2345/camaleon-cms/security/advisories/GHSA-wmjg-vqhv-q5p5)
-- [https://codeql.github.com/codeql-query-help/ruby/rb-path-injection](https://codeql.github.com/codeql-query-help/ruby/rb-path-injection)
-- [https://owasp.org/www-community/attacks/Path_Traversal](https://owasp.org/www-community/attacks/Path_Traversal)
-
----
-
-### 41. [CVE-2024-38063](/api/vulns/CVE-2024-38063.json)
-
-**Risk Score**: 65/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 88.1%
-
-**Summary**: Windows TCP/IP Remote Code Execution Vulnerability
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 88.1% exploit probability
-- Affects critical infrastructure: microsoft
-
-**Affected Vendors**: Microsoft
-
-**Tags**: `CWE-191`
-
-**References**:
-
-- [https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-38063](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-38063)
-
----
-
-### 42. [CVE-2024-49112](/api/vulns/CVE-2024-49112.json)
-
-**Risk Score**: 65/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 87.1%
-
-**Summary**: Windows Lightweight Directory Access Protocol (LDAP) Remote Code Execution Vulnerability
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 87.12% exploit probability
-- Affects critical infrastructure: microsoft
-
-**Affected Vendors**: Microsoft
-
-**Tags**: `CWE-190`
-
-**References**:
-
-- [https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-49112](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-49112)
-
----
-
-### 43. [CVE-2024-20439](/api/vulns/CVE-2024-20439.json)
-
-**Risk Score**: 65/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 86.5%
-
-**Summary**: A vulnerability in Cisco Smart Licensing Utility (CSLU) could allow an unauthenticated, remote attacker to log into an affected system by using a static administrative credential.
- This vulnerability is due to an undocumented static user credential for an administrative account. An attacker could exploit this vulnerability by using the static credentials to login to the affected system. A successful exploit could allow the attacker to login to the affected system with administrative rights ove...
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 86.52% exploit probability
-- Affects critical infrastructure: cisco
-
-**Affected Vendors**: Cisco
-
-**References**:
-
-- [https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-cslu-7gHMzWmw](https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-cslu-7gHMzWmw)
-
----
-
-### 44. [CVE-2024-38077](/api/vulns/CVE-2024-38077.json)
-
-**Risk Score**: 65/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 83.5%
-
-**Summary**: Windows Remote Desktop Licensing Service Remote Code Execution Vulnerability
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 83.55% exploit probability
-- Affects critical infrastructure: microsoft
-
-**Affected Vendors**: Microsoft
-
-**Tags**: `CWE-122`
-
-**References**:
-
-- [https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-38077](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-38077)
-
----
-
-### 45. [CVE-2024-51978](/api/vulns/CVE-2024-51978.json)
-
-**Risk Score**: 65/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 60.1%
-
-**Summary**: An unauthenticated attacker who knows the target device's serial number, can generate the default administrator password for the device. An unauthenticated attacker can first discover the target device's serial number via CVE-2024-51977 over HTTP/HTTPS/IPP, or via a PJL request, or via an SNMP request.
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 60.07% exploit probability
-
-**Affected Vendors**: Brother Industries, Ltd, Konica Minolta, Inc., Toshiba Tec
-
-**Tags**: `CWE-1391`
-
-**References**:
-
-- [https://www.rapid7.com/blog/post/multiple-brother-devices-multiple-vulnerabilities-fixed](https://www.rapid7.com/blog/post/multiple-brother-devices-multiple-vulnerabilities-fixed)
-- [https://assets.contentstack.io/v3/assets/blte4f029e766e6b253/blt6495b3c6adf2867f/685aa980a26c5e2b1026969c/vulnerability-disclosure-whitepaper.pdf](https://assets.contentstack.io/v3/assets/blte4f029e766e6b253/blt6495b3c6adf2867f/685aa980a26c5e2b1026969c/vulnerability-disclosure-whitepaper.pdf)
-- [https://github.com/rapid7/metasploit-framework/pull/20349](https://github.com/rapid7/metasploit-framework/pull/20349)
-
----
-
-### 46. [CVE-2024-50603](/api/vulns/CVE-2024-50603.json)
-
-**Risk Score**: 64/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 10.0 | 
-**EPSS**: 94.3%
-
-**Summary**: An issue was discovered in Aviatrix Controller before 7.1.4191 and 7.2.x before 7.2.4996. Due to the improper neutralization of special elements used in an OS command, an unauthenticated attacker is able to execute arbitrary code. Shell metacharacters can be sent to /v1/api in cloud_type for list_flightpath_destination_instances, or src_cloud_type for flightpath_connection_test.
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 94.35% exploit probability
-
-**Affected Vendors**: Aviatrix
-
-**Tags**: `CWE-78`
-
-**References**:
-
-- [https://docs.aviatrix.com/documentation/latest/network-security/index.html](https://docs.aviatrix.com/documentation/latest/network-security/index.html)
-- [https://docs.aviatrix.com/documentation/latest/release-notices/psirt-advisories/psirt-advisories.html?expand=true#remote-code-execution-vulnerability-in-aviatrix-controllers](https://docs.aviatrix.com/documentation/latest/release-notices/psirt-advisories/psirt-advisories.html?expand=true#remote-code-execution-vulnerability-in-aviatrix-controllers)
-- [https://www.securing.pl/en/cve-2024-50603-aviatrix-network-controller-command-injection-vulnerability/](https://www.securing.pl/en/cve-2024-50603-aviatrix-network-controller-command-injection-vulnerability/)
-
----
-
-### 47. [CVE-2024-23692](/api/vulns/CVE-2024-23692.json)
-
-**Risk Score**: 64/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 94.3%
-
-**Summary**: Rejetto HTTP File Server, up to and including version 2.3m, is vulnerable to a template injection vulnerability. This vulnerability allows a remote, unauthenticated attacker to execute arbitrary commands on the affected system by sending a specially crafted HTTP request. As of the CVE assignment date, Rejetto HFS 2.3m is no longer supported.
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 94.3% exploit probability
-
-**Affected Vendors**: File, Rejetto
-
-**Tags**: `CWE-1336`
-
-**References**:
-
-- [https://vulncheck.com/advisories/rejetto-unauth-rce](https://vulncheck.com/advisories/rejetto-unauth-rce)
-- [https://mohemiv.com/all/rejetto-http-file-server-2-3m-unauthenticated-rce/](https://mohemiv.com/all/rejetto-http-file-server-2-3m-unauthenticated-rce/)
-- [https://github.com/rapid7/metasploit-framework/pull/19240](https://github.com/rapid7/metasploit-framework/pull/19240)
-
----
-
-### 48. [CVE-2024-3272](/api/vulns/CVE-2024-3272.json)
-
-**Risk Score**: 64/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 94.1%
-
-**Summary**: ** UNSUPPORTED WHEN ASSIGNED ** A vulnerability, which was classified as very critical, has been found in D-Link DNS-320L, DNS-325, DNS-327L and DNS-340L up to 20240403. This issue affects some unknown processing of the file /cgi-bin/nas_sharing.cgi of the component HTTP GET Request Handler. The manipulation of the argument user with the input messagebus leads to hard-coded credentials. The attack may be initiated remotely. The exploit has been disclosed to the public and may be used. The associ...
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 94.11% exploit probability
-
-**Affected Vendors**: D-link
-
-**Tags**: `CWE-798`
-
-**References**:
-
-- [https://vuldb.com/?id.259283](https://vuldb.com/?id.259283)
-- [https://vuldb.com/?ctiid.259283](https://vuldb.com/?ctiid.259283)
-- [https://github.com/netsecfish/dlink](https://github.com/netsecfish/dlink)
-
----
-
-### 49. [CVE-2024-1512](/api/vulns/CVE-2024-1512.json)
-
-**Risk Score**: 64/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 93.9%
-
-**Summary**: The MasterStudy LMS WordPress Plugin – for Online Courses and Education plugin for WordPress is vulnerable to union based SQL Injection via the 'user' parameter of the /lms/stm-lms/order/items REST route in all versions up to, and including, 3.2.5 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be u...
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 93.91% exploit probability
-
-**Affected Vendors**: Stylemix, The, WordPress
-
-**References**:
-
-- [https://www.wordfence.com/threat-intel/vulnerabilities/id/d6b6d824-51d3-4da9-a39a-b957368df4dc?source=cve](https://www.wordfence.com/threat-intel/vulnerabilities/id/d6b6d824-51d3-4da9-a39a-b957368df4dc?source=cve)
-- [https://plugins.trac.wordpress.org/changeset/3036794/masterstudy-lms-learning-management-system/trunk/_core/lms/classes/models/StmStatistics.php](https://plugins.trac.wordpress.org/changeset/3036794/masterstudy-lms-learning-management-system/trunk/_core/lms/classes/models/StmStatistics.php)
-
----
-
-### 50. [CVE-2024-2879](/api/vulns/CVE-2024-2879.json)
-
-**Risk Score**: 64/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 93.5%
-
-**Summary**: The LayerSlider plugin for WordPress is vulnerable to SQL Injection via the ls_get_popup_markup action in versions 7.9.11 and 7.10.0 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 93.55% exploit probability
-
-**Affected Vendors**: Layerslider, The, WordPress
-
-**References**:
-
-- [https://www.wordfence.com/threat-intel/vulnerabilities/id/3fddf96e-029c-4753-ba82-043ca64b78d3?source=cve](https://www.wordfence.com/threat-intel/vulnerabilities/id/3fddf96e-029c-4753-ba82-043ca64b78d3?source=cve)
-- [https://layerslider.com/release-log/](https://layerslider.com/release-log/)
+- [https://www.tenable.com/security/research/tra-2025-08](https://www.tenable.com/security/research/tra-2025-08)
 
 ---
 

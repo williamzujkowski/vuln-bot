@@ -37,7 +37,7 @@ document.addEventListener('alpine:init', () => {
     filters: {
       cvssMin: 0,
       cvssMax: 10,
-      epssMin: 50, // Default to 50% exploitation probability threshold
+      epssMin: 60, // Default to 60% exploitation probability threshold
       epssMax: 100,
       severity: '',
       publishedDateFrom: '',
@@ -593,7 +593,7 @@ document.addEventListener('alpine:init', () => {
                     value === '' ||
                     (key === 'cvssMin' && value === 0) ||
                     (key === 'cvssMax' && value === 10) ||
-                    (key === 'epssMin' && value === 50) || // Don't include default 50% threshold
+                    (key === 'epssMin' && value === 60) || // Don't include default 60% threshold
                     (key === 'epssMax' && value === 100) ||
                     (key === 'page' && value === 1) ||
                     (key === 'size' && value === 50) ||
@@ -616,7 +616,7 @@ document.addEventListener('alpine:init', () => {
       this.searchQuery = params.get('q') ?? '';
       this.filters.cvssMin = parseFloat(params.get('cvssMin') ?? '0');
       this.filters.cvssMax = parseFloat(params.get('cvssMax') ?? '10');
-      this.filters.epssMin = parseInt(params.get('epssMin') ?? '50'); // Default to 50% threshold
+      this.filters.epssMin = parseInt(params.get('epssMin') ?? '60'); // Default to 60% threshold
       this.filters.epssMax = parseInt(params.get('epssMax') ?? '100');
       this.filters.severity = (params.get('severity') ?? '');
       this.filters.publishedDateFrom = params.get('publishedDateFrom') ?? '';
@@ -657,7 +657,7 @@ document.addEventListener('alpine:init', () => {
       this.filters = {
         cvssMin: 0,
         cvssMax: 10,
-        epssMin: 50, // Reset to 50% threshold
+        epssMin: 60, // Reset to 60% threshold
         epssMax: 100,
         severity: '',
         publishedDateFrom: '',

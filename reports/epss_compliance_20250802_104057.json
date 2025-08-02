@@ -1,0 +1,72 @@
+{
+  "passed": true,
+  "files_checked": 3,
+  "vulnerabilities_checked": 60,
+  "violations": [],
+  "files": {
+    "index.json": {
+      "passed": true,
+      "total_vulnerabilities": 30,
+      "compliant_vulnerabilities": 30,
+      "non_compliant_vulnerabilities": 0,
+      "violations": [],
+      "threshold": {
+        "decimal": 0.6,
+        "percentage": 60
+      },
+      "statistics": {
+        "min_epss": 0.6064,
+        "max_epss": 0.9362999999999999,
+        "avg_epss": 0.78974,
+        "epss_coverage": 100.0
+      }
+    },
+    "vulns-2025-CRITICAL.json": {
+      "passed": true,
+      "total_vulnerabilities": 23,
+      "compliant_vulnerabilities": 23,
+      "non_compliant_vulnerabilities": 0,
+      "violations": [],
+      "threshold": {
+        "decimal": 0.6,
+        "percentage": 60
+      },
+      "statistics": {
+        "min_epss": 0.6064,
+        "max_epss": 0.9363,
+        "avg_epss": 0.8015869565217391,
+        "epss_coverage": 100.0
+      }
+    },
+    "vulns-2025-HIGH.json": {
+      "passed": true,
+      "total_vulnerabilities": 7,
+      "compliant_vulnerabilities": 7,
+      "non_compliant_vulnerabilities": 0,
+      "violations": [],
+      "threshold": {
+        "decimal": 0.6,
+        "percentage": 60
+      },
+      "statistics": {
+        "min_epss": 0.6265,
+        "max_epss": 0.8599,
+        "avg_epss": 0.7508142857142858,
+        "epss_coverage": 100.0
+      }
+    }
+  },
+  "total_vulnerabilities": 60,
+  "compliant_vulnerabilities": 60,
+  "non_compliant_vulnerabilities": 0,
+  "threshold": {
+    "decimal": 0.6,
+    "percentage": 60
+  },
+  "statistics": {
+    "min_epss": 0.6064,
+    "max_epss": 0.9363,
+    "avg_epss": 0.78974,
+    "epss_coverage": 100.0
+  }
+}

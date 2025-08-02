@@ -4,11 +4,11 @@
 ![CI](https://github.com/williamzujkowski/vuln-bot/actions/workflows/ci.yml/badge.svg)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-🤖 A high-risk CVE intelligence platform that tracks Critical & High severity vulnerabilities with EPSS ≥ 50% exploitation probability. Automatically harvests, scores, and publishes vulnerability briefings every 4 hours using the official CVEProject/cvelistV5 repository.
+🤖 A high-risk CVE intelligence platform that tracks Critical & High severity vulnerabilities with EPSS ≥ 60% exploitation probability. Automatically harvests, scores, and publishes vulnerability briefings every 4 hours using the official CVEProject/cvelistV5 repository.
 
 ## Features
 
-- 🎯 **High-Risk Focus**: Filters for EPSS ≥ 50% - focuses on vulnerabilities with 50%+ exploitation probability
+- 🎯 **High-Risk Focus**: Filters for EPSS ≥ 60% - focuses on vulnerabilities with 60%+ exploitation probability
 - 🔍 **Multiple Data Sources**: CVEProject/cvelistV5 repository and GitHub Security Advisory Database with EPSS enrichment and CISA-ADP container data
 - 📊 **Risk Scoring**: Calculates weighted scores (0-100) based on CVSS, EPSS, popularity, and infrastructure tags
 - 💾 **Optimized Storage**: Chunked data storage by severity-year reducing 33,000+ individual files to ~7 chunks
@@ -189,7 +189,7 @@ vuln-bot/
 
 `GET /api/vulns/index.json`
 
-Returns a consolidated search index of all vulnerabilities with EPSS ≥ 50%.
+Returns a consolidated search index of all vulnerabilities with EPSS ≥ 60%.
 
 ### Chunked Vulnerability Data
 
@@ -206,7 +206,7 @@ Returns vulnerability data for a specific year and severity level. Examples:
 
 Each chunk includes:
 - CVSS vectors and scores
-- EPSS probability (≥ 50%)
+- EPSS probability (≥ 60%)
 - CPE configurations
 - References and patches
 - ATT&CK mappings
@@ -241,7 +241,7 @@ The dashboard implements several cutting-edge performance optimizations to ensur
 ### Backend Performance
 
 - **Harvesting**: ~120x faster using GitHub releases vs individual API calls
-- **Dataset**: Processes 30,000+ vulnerabilities, filters to ~500-1000 with EPSS ≥ 50%
+- **Dataset**: Processes 30,000+ vulnerabilities, filters to ~30-100 with EPSS ≥ 60%
 - **Storage**: Optimized from 33,000+ individual files to ~8 chunked files
 - **API Response**: < 200ms for chunked data retrieval
 - **Cache Hit Rate**: > 95% for repeated queries within 10-day TTL

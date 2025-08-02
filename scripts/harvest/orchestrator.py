@@ -241,7 +241,7 @@ class HarvestOrchestrator:
         self,
         years: Optional[List[int]] = None,
         include_sources: Optional[Set[str]] = None,
-        min_epss_score: float = 0.5,  # 50% threshold (EPSS ≥ 0.5)
+        min_epss_score: float = 0.6,  # 60% threshold (EPSS ≥ 0.6)
         min_severity: str = "HIGH",
         incremental: bool = False,
     ) -> VulnerabilityBatch:
@@ -427,7 +427,7 @@ class HarvestOrchestrator:
         # Convert vulnerabilities to dict format for the agent
         vuln_dicts = []
         for vuln in unique_vulnerabilities:
-            vuln_dict = vuln.to_dict()
+            vuln_dict = vuln.to_summary_dict()
             # Ensure EPSS score is at the top level
             if hasattr(vuln, "epss_probability") and vuln.epss_probability is not None:
                 vuln_dict["epssScore"] = (
@@ -553,7 +553,7 @@ class HarvestOrchestrator:
         self,
         years: Optional[List[int]] = None,
         include_sources: Optional[Set[str]] = None,
-        min_epss_score: float = 0.5,
+        min_epss_score: float = 0.6,
         min_severity: str = "HIGH",
     ) -> VulnerabilityBatch:
         """Asynchronous version of harvest_all_sources.

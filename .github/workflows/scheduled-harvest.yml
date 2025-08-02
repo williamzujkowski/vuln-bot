@@ -79,7 +79,7 @@ jobs:
             --years 2024 \
             --years 2025 \
             --min-severity HIGH \
-            --min-epss 0.7 2>&1 | tee harvest.log
+            --min-epss 0.6 2>&1 | tee harvest.log
           
           # Extract metrics from log
           VULNS_FOUND=$(grep -o "Total vulnerabilities: [0-9]\+" harvest.log | grep -o "[0-9]\+" | tail -1 || echo "0")
@@ -101,6 +101,19 @@ jobs:
           python -m scripts.main generate-briefing \
             --cache-dir actions-cache/ \
             --output-dir .
+      
+      - name: Validate EPSS threshold compliance
+        id: compliance_check
+        run: |
+          echo "Validating EPSS threshold compliance (≥60%)..."
+          python -m scripts.main validate-threshold-compliance \
+            --api-dir api \
+            --cache-dir actions-cache/ \
+            --output-dir reports \
+            --min-epss 0.6 \
+            --fail-on-violations
+          echo "compliance_passed=true" >> $GITHUB_OUTPUT
+        continue-on-error: false
       
       - name: Copy API files to public directory
         run: |
@@ -189,6 +202,16 @@ jobs:
             --format json \
             --export actions-cache/metrics-export.json || true
       
+      - name: Upload compliance reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: compliance-reports-${{ github.run_number }}
+          path: |
+            reports/epss_compliance_*.json
+            reports/epss_compliance_*.txt
+          retention-days: 30
+
       - name: Create harvest summary
         if: always()
         run: |
@@ -197,7 +220,17 @@ jobs:
           echo "**Date:** $(date -u)" >> $GITHUB_STEP_SUMMARY
           echo "**Vulnerabilities Found:** ${{ steps.harvest.outputs.vulnerabilities_found || 'N/A' }}" >> $GITHUB_STEP_SUMMARY
           echo "**Status:** ${{ job.status }}" >> $GITHUB_STEP_SUMMARY
+          echo "**EPSS Compliance:** ${{ steps.compliance_check.outputs.compliance_passed == 'true' && '✅ PASSED' || '❌ FAILED' }}" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
+          
+          # Add compliance report if available
+          if [ -f reports/epss_compliance_daily.txt ]; then
+            echo "## EPSS Threshold Compliance Report" >> $GITHUB_STEP_SUMMARY
+            echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+            cat reports/epss_compliance_daily.txt >> $GITHUB_STEP_SUMMARY
+            echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+          fi
           
           if [ -f harvest.log ]; then
             echo "## Harvest Log Summary" >> $GITHUB_STEP_SUMMARY

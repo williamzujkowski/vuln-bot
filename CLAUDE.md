@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is "Vuln-Bot" - a high-risk CVE intelligence platform that tracks Critical & High severity vulnerabilities with EPSS ≥ 50% exploitation probability. It automatically harvests, scores, and publishes vulnerability briefings every 4 hours. It's a multi-language project using Python for backend data processing and JavaScript/11ty for the static site generation and frontend.
+This is "Vuln-Bot" - a high-risk CVE intelligence platform that tracks Critical & High severity vulnerabilities with EPSS ≥ 60% exploitation probability. It automatically harvests, scores, and publishes vulnerability briefings every 4 hours. It's a multi-language project using Python for backend data processing and JavaScript/11ty for the static site generation and frontend.
 
 ## Common Development Commands
 
@@ -27,6 +27,14 @@ python -m scripts.main update-badge
 
 # Send vulnerability alerts to webhooks
 python -m scripts.main send-alerts --risk-threshold 80
+
+# Validate EPSS threshold compliance (CI/CD gating)
+python -m scripts.main validate-threshold-compliance \
+  --api-dir api \
+  --cache-dir .cache \
+  --output-dir reports \
+  --min-epss 0.6 \
+  --fail-on-violations
 
 # Run Python linting (Ruff)
 ruff check scripts/
@@ -82,7 +90,7 @@ chmod +x .husky/pre-commit .husky/commit-msg
    - Fetches from multiple sources:
      - CVEProject/cvelistV5 repository (official CVE List, updated every 7 minutes)
      - GitHub Security Advisory Database (via GraphQL API)
-   - Filters for Critical/High severity CVEs from 2024-2025 with EPSS scores ≥ 50%
+   - Filters for Critical/High severity CVEs from 2024-2025 with EPSS scores ≥ 60%
    - Enriches with EPSS API data and CISA-ADP container information (KEV/SSVC)
    - Normalizes data and calculates Risk Score (0-100) based on CVSS, EPSS, popularity, infrastructure tags, and newness
    - Caches responses in SQLite using GitHub Actions cache (10-day TTL, timezone-aware)
@@ -140,12 +148,13 @@ chmod +x .husky/pre-commit .husky/commit-msg
 ### CI/CD Pipeline
 - **Scheduled Build**: Runs harvesting every 4 hours, generates content, commits artifacts to main, deploys to gh-pages
 - **Quality Gates**: 
+  - **EPSS Threshold Compliance**: Validates all vulnerabilities meet ≥60% EPSS threshold (CI/CD gating)
   - Linting: Ruff, ESLint, Black, isort (zero errors)
   - Tests: ≥90% coverage, no skipped tests
   - Security: Bandit, TruffleHog, CodeQL, npm audit
   - Performance: Lighthouse CI (≥80% score), bundle size checks (<500KB)
   - Data Validation: Great Expectations checkpoints
-- **Automated Deployment**: GitHub Pages with incremental builds
+- **Automated Deployment**: GitHub Pages with incremental builds, blocked on threshold violations
 
 ### API Keys Required
 Environment secrets needed in GitHub Actions:

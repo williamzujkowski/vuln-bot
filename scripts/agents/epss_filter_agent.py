@@ -12,7 +12,7 @@ from scripts.agents.base_agent import BaseAgent
 class EPSSFilterAgent(BaseAgent):
     """Agent for filtering vulnerabilities based on EPSS score threshold."""
 
-    DEFAULT_THRESHOLD = 0.5  # 50% exploitation probability
+    DEFAULT_THRESHOLD = 0.6  # 60% exploitation probability
 
     def __init__(self, threshold: float = None, cache_dir=None):
         """

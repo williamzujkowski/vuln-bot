@@ -1,35 +1,85 @@
 {
-  "passed": 3,
-  "failed": 7,
-  "errors": [
+  "passed": 20,
+  "failed": 5,
+  "total": 19,
+  "start_time": "2025-08-02T01:16:42.761945",
+  "issues": [
     {
-      "test": "Homepage Load Test",
-      "error": "Locator expected to be visible\nActual value: <element(s) not found> \nCall log:\n  - Expect \"to_be_visible\" with timeout 5000ms\n  - waiting for locator(\".dashboard-header\")\n"
+      "category": "Data Quality",
+      "test": "Vendor extraction",
+      "issue": "High unknown vendor rate: 100.0%",
+      "severity": "high",
+      "timestamp": "2025-08-02 01:16:43",
+      "details": {
+        "total_analyzed": 100,
+        "vendor_unknown_rate": 1.0,
+        "product_unknown_rate": 1.0,
+        "missing_cvss_rate": 1.0,
+        "missing_epss_rate": 1.0,
+        "missing_attack_vector_rate": 1.0,
+        "vendor_unknown_count": 100,
+        "product_unknown_count": 100,
+        "missing_cvss_count": 100,
+        "missing_epss_count": 100
+      }
     },
     {
-      "test": "Data Quality Test",
-      "error": "expected string or bytes-like object, got 'NoneType'"
+      "category": "Data Quality",
+      "test": "Product extraction",
+      "issue": "High unknown product rate: 100.0%",
+      "severity": "medium",
+      "timestamp": "2025-08-02 01:16:43",
+      "details": {
+        "total_analyzed": 100,
+        "vendor_unknown_rate": 1.0,
+        "product_unknown_rate": 1.0,
+        "missing_cvss_rate": 1.0,
+        "missing_epss_rate": 1.0,
+        "missing_attack_vector_rate": 1.0,
+        "vendor_unknown_count": 100,
+        "product_unknown_count": 100,
+        "missing_cvss_count": 100,
+        "missing_epss_count": 100
+      }
     },
     {
-      "test": "Table Functionality Test",
-      "error": "Missing expected header: CVE ID"
+      "category": "Data Quality",
+      "test": "CVSS scores",
+      "issue": "High missing CVSS rate: 100.0%",
+      "severity": "medium",
+      "timestamp": "2025-08-02 01:16:43",
+      "details": {
+        "total_analyzed": 100,
+        "vendor_unknown_rate": 1.0,
+        "product_unknown_rate": 1.0,
+        "missing_cvss_rate": 1.0,
+        "missing_epss_rate": 1.0,
+        "missing_attack_vector_rate": 1.0,
+        "vendor_unknown_count": 100,
+        "product_unknown_count": 100,
+        "missing_cvss_count": 100,
+        "missing_epss_count": 100
+      }
     },
     {
-      "test": "Search and Filters Test",
-      "error": "Locator.text_content: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator(\".results-count span\").first\n"
+      "category": "API",
+      "test": "Individual CVE JSON",
+      "issue": "HTTP 404",
+      "severity": "low",
+      "timestamp": "2025-08-02 01:16:43",
+      "details": {}
     },
     {
-      "test": "CVE Detail Pages Test",
-      "error": "Locator.text_content: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator(\"#vulnerability-table .cve-button\").first\n"
-    },
-    {
-      "test": "Responsive Design Test",
-      "error": "Locator expected to be visible\nActual value: <element(s) not found> \nCall log:\n  - Expect \"to_be_visible\" with timeout 5000ms\n  - waiting for locator(\".dashboard-header\")\n"
-    },
-    {
-      "test": "Accessibility Test",
-      "error": "Locator.get_attribute: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator(\"#vulnerability-table\")\n"
+      "category": "Mobile",
+      "test": "Mobile layout",
+      "issue": "Table wrapper not scrollable on mobile",
+      "severity": "high",
+      "timestamp": "2025-08-02 01:17:14",
+      "details": {
+        "error_type": "AssertionError",
+        "full_error": "Table wrapper not scrollable on mobile"
+      }
     }
   ],
-  "timestamp": "2025-08-01T14:32:59.962102"
+  "end_time": "2025-08-02T01:17:17.872736"
 }
