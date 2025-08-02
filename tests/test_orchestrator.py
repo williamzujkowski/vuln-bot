@@ -6,7 +6,7 @@ from unittest.mock import AsyncMock, Mock, patch
 import pytest
 
 from scripts.models import SeverityLevel, Vulnerability, VulnerabilityBatch
-from scripts.orchestrator import VulnerabilityOrchestrator
+from scripts.harvest.orchestrator import VulnerabilityOrchestrator
 
 
 class TestVulnerabilityOrchestrator:
