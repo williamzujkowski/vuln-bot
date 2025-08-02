@@ -55,7 +55,7 @@ async def test_real_api():
                 print("\nSample affected packages (showing first 5):")
                 for i, pkg in enumerate(packages[:5]):
                     print(
-                        f"\n{i+1}. {pkg.get('ecosystem', 'Unknown')}/{pkg.get('name', 'Unknown')}"
+                        f"\n{i + 1}. {pkg.get('ecosystem', 'Unknown')}/{pkg.get('name', 'Unknown')}"
                     )
                     print(f"   Version range: {pkg.get('version_range', 'Unknown')}")
                     print(f"   Severity: {pkg.get('severity', 'Unknown')}")

@@ -56,9 +56,9 @@ async def test_enrichment():
     print("Testing DataEnrichmentAgent with sample CVEs...\n")
 
     for cve_data in test_cves:
-        print(f"\n{'='*60}")
+        print(f"\n{'=' * 60}")
         print(f"Testing {cve_data['cve_id']}: {cve_data['title']}")
-        print(f"{'='*60}")
+        print(f"{'=' * 60}")
 
         try:
             # Enrich the CVE data
@@ -134,7 +134,7 @@ async def test_enrichment():
 
             traceback.print_exc()
 
-    print(f"\n{'='*60}")
+    print(f"\n{'=' * 60}")
     print("Testing complete!")
 
 

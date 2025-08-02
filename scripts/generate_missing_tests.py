@@ -37,7 +37,7 @@ import pytest
 from unittest.mock import Mock, patch, MagicMock
 from datetime import datetime, timezone
 
-from {module_path.replace('/', '.').replace('.py', '')} import *
+from {module_path.replace("/", ".").replace(".py", "")} import *
 
 
 class {test_class}:

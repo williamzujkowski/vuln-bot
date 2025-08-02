@@ -76,7 +76,7 @@ class TestCoverageAnalyzer:
                 lines = content.split("\n")
                 for i, line in enumerate(lines):
                     if "pytest.skip" in line or "@pytest.mark.skip" in line:
-                        skipped.append(f"{test_file}:{i+1}")
+                        skipped.append(f"{test_file}:{i + 1}")
 
         return skipped
 

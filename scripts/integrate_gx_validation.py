@@ -200,7 +200,7 @@ class PipelineValidator:
         report.append(f"- Total validations: {total_validations}")
         report.append(f"- Successful: {successful}")
         report.append(f"- Failed: {total_validations - successful}")
-        report.append(f"- Success rate: {(successful/total_validations)*100:.1f}%")
+        report.append(f"- Success rate: {(successful / total_validations) * 100:.1f}%")
         report.append("")
 
         # Details by stage
