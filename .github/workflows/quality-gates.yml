@@ -155,13 +155,21 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     
-    - name: Run Bandit security scan
-      uses: gaurav-nelson/bandit-action@v1
+    - name: Set up Python
+      uses: actions/setup-python@v5
       with:
-        path: "scripts/"
-        level: "medium"
-        confidence: "medium"
-        exit_zero: false
+        python-version: '3.12'
+    
+    - name: Install Bandit
+      run: pip install bandit
+    
+    - name: Run Bandit security scan
+      run: |
+        bandit -r scripts/ -ll -i -f json -o bandit-report.json || true
+        if [ -f bandit-report.json ]; then
+          echo "Security scan completed. Checking results..."
+          python -c "import json; report=json.load(open('bandit-report.json')); exit(1 if report.get('results', []) else 0)"
+        fi
     
     - name: Run npm audit
       run: |
