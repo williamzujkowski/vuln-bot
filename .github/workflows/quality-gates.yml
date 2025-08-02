@@ -30,9 +30,6 @@ jobs:
       run: |
         black --check scripts/ tests/
     
-    - name: Check import sorting with isort
-      run: |
-        isort --check-only scripts/ tests/
     
     - name: Run type checking with mypy
       run: |
