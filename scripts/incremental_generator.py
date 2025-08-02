@@ -673,8 +673,7 @@ class IncrementalGenerator:
 
         if should_regen or force_all:
             # Import and run the dashboard generator only if needed
-            from scripts.generate_alpine_dashboard import \
-                AlpineDashboardGenerator
+            from scripts.generate_alpine_dashboard import AlpineDashboardGenerator
 
             logger.info("Regenerating dashboard...")
             generator = AlpineDashboardGenerator(self.db_path)

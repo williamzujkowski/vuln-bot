@@ -14,8 +14,14 @@ import structlog
 from git import Repo
 
 from scripts.harvest.base_client import BaseAPIClient
-from scripts.models import (CVSSMetric, ExploitationStatus, Reference,
-                            SeverityLevel, Vulnerability, VulnerabilitySource)
+from scripts.models import (
+    CVSSMetric,
+    ExploitationStatus,
+    Reference,
+    SeverityLevel,
+    Vulnerability,
+    VulnerabilitySource,
+)
 from scripts.processing.cvss_parser import CVSSVectorParser
 from scripts.processing.vendor_product_extractor import VendorProductExtractor
 

@@ -8,8 +8,14 @@ import structlog
 from dateutil import parser as date_parser
 
 from scripts.harvest.base_client import BaseAPIClient
-from scripts.models import (CPEMatch, CVSSMetric, Reference, SeverityLevel,
-                            Vulnerability, VulnerabilitySource)
+from scripts.models import (
+    CPEMatch,
+    CVSSMetric,
+    Reference,
+    SeverityLevel,
+    Vulnerability,
+    VulnerabilitySource,
+)
 
 
 class CVEClient(BaseAPIClient):

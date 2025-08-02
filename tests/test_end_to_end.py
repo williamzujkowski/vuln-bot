@@ -24,8 +24,7 @@ class TestEndToEnd:
     @pytest.fixture
     def mock_vulnerability_data(self):
         """Create mock vulnerability data for testing."""
-        from scripts.models import (CVSSMetric, EPSSScore, Reference,
-                                    VulnerabilitySource)
+        from scripts.models import CVSSMetric, EPSSScore, Reference, VulnerabilitySource
 
         return [
             Vulnerability(

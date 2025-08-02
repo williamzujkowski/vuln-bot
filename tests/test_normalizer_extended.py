@@ -4,8 +4,7 @@ from datetime import datetime
 
 import pytest
 
-from scripts.models import (ExploitationStatus, Reference, SeverityLevel,
-                            Vulnerability)
+from scripts.models import ExploitationStatus, Reference, SeverityLevel, Vulnerability
 from scripts.processing.normalizer import VulnerabilityNormalizer
 
 

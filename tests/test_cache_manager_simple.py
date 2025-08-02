@@ -4,8 +4,7 @@ from datetime import datetime, timezone
 
 import pytest
 
-from scripts.models import (Reference, SeverityLevel, Vulnerability,
-                            VulnerabilityBatch)
+from scripts.models import Reference, SeverityLevel, Vulnerability, VulnerabilityBatch
 from scripts.processing.cache_manager import CacheManager
 
 

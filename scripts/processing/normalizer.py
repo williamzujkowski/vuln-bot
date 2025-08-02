@@ -7,8 +7,13 @@ from typing import Any, Dict, List, Optional
 import structlog
 from dateutil import parser as date_parser
 
-from scripts.models import (ExploitationStatus, Reference, SeverityLevel,
-                            Vulnerability, VulnerabilitySource)
+from scripts.models import (
+    ExploitationStatus,
+    Reference,
+    SeverityLevel,
+    Vulnerability,
+    VulnerabilitySource,
+)
 
 
 class VulnerabilityNormalizer:

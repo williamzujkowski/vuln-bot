@@ -10,12 +10,14 @@ from typing import Any, Dict
 # Make Great Expectations optional with better handling
 try:
     import great_expectations as ge
-    from great_expectations.core import (ExpectationConfiguration,
-                                         ExpectationSuite)
+    from great_expectations.core import ExpectationConfiguration, ExpectationSuite
     from great_expectations.core.batch import BatchRequest
     from great_expectations.data_context import BaseDataContext
     from great_expectations.data_context.types.base import (
-        DataContextConfig, DatasourceConfig, FilesystemStoreBackendDefaults)
+        DataContextConfig,
+        DatasourceConfig,
+        FilesystemStoreBackendDefaults,
+    )
 
     HAS_GREAT_EXPECTATIONS = True
 except (ImportError, ValueError) as e:

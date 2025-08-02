@@ -4,8 +4,10 @@ import json
 
 import pytest
 
-from scripts.storage_optimizer import (create_client_viewer,
-                                       optimize_vulnerability_storage)
+from scripts.storage_optimizer import (
+    create_client_viewer,
+    optimize_vulnerability_storage,
+)
 
 
 @pytest.fixture

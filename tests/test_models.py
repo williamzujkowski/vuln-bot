@@ -4,8 +4,13 @@ from datetime import datetime, timedelta, timezone
 
 import pytest
 
-from scripts.models import (CVSSMetric, EPSSScore, SeverityLevel,
-                            Vulnerability, VulnerabilityBatch)
+from scripts.models import (
+    CVSSMetric,
+    EPSSScore,
+    SeverityLevel,
+    Vulnerability,
+    VulnerabilityBatch,
+)
 
 
 class TestCVSSMetric:

@@ -269,8 +269,9 @@ def generate_briefing(
 
     try:
         # Initialize components
-        from scripts.processing.optimized_briefing_generator import \
-            OptimizedBriefingGenerator
+        from scripts.processing.optimized_briefing_generator import (
+            OptimizedBriefingGenerator,
+        )
 
         cache_manager = CacheManager(cache_dir)
         generator = OptimizedBriefingGenerator(output_dir, storage_strategy)
