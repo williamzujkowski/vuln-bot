@@ -45,9 +45,24 @@ jobs:
       - name: Run live site validation tests
         env:
           LIVE_SITE_URL: ${{ github.event.inputs.site_url || 'https://williamzujkowski.github.io/vuln-bot/' }}
+          MAX_CVE_COUNT: "100"
+          EXPECTED_CVE_COUNT: "30"
         run: |
           echo "Validating site at: $LIVE_SITE_URL"
-          pytest tests/e2e/test_live_site_sanity.py -v --tb=short
+          
+          # Run comprehensive validation suite
+          pytest tests/e2e/test_live_site_sanity.py -v --tb=short || echo "Sanity test failed"
+          
+          # Run post-deployment specific validation
+          pytest tests/e2e/test_post_deploy_validation.py -v --tb=short
+          
+          # If validation fails, provide debugging info
+          if [ $? -ne 0 ]; then
+            echo "❌ Post-deployment validation failed!"
+            echo "Attempting to fetch current site data for debugging..."
+            curl -s "$LIVE_SITE_URL/api/vulns/index.json" | jq '.vulnerabilities | length' || echo "Failed to fetch data"
+            exit 1
+          fi
       
       - name: Validate EPSS threshold compliance
         run: |

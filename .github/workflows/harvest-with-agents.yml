@@ -91,8 +91,17 @@ jobs:
         echo "🧹 Force cleaning and building site..."
         # CRITICAL: Clean all build directories to prevent 15,000+ CVE issue
         npm run clean
+        # Verify directories are clean
+        ls -la _site 2>/dev/null || echo "✅ _site directory cleaned"
+        ls -la public 2>/dev/null || echo "✅ public directory cleaned"
         # Generate site with Python (no incremental builds)
         npm run build
+        # Verify output was generated
+        if [ ! -d "public" ] || [ -z "$(ls -A public)" ]; then
+          echo "❌ Build failed - public directory is empty"
+          exit 1
+        fi
+        echo "✅ Build completed successfully"
         
     - name: Update coverage badge
       if: ${{ !inputs.dry_run }}
@@ -104,6 +113,19 @@ jobs:
       if: ${{ !inputs.dry_run }}
       run: |
         echo "🔒 Running critical gatecheck validation..."
+        
+        # First, count files in the output directory
+        if [ -d "public/cves" ]; then
+          CVE_FILE_COUNT=$(find public/cves -name "CVE-*" -type d | wc -l)
+          echo "Found $CVE_FILE_COUNT CVE directories in public/cves"
+          if [ "$CVE_FILE_COUNT" -gt 100 ]; then
+            echo "❌ CRITICAL: Found $CVE_FILE_COUNT CVE files (max allowed: 100)"
+            echo "This indicates stale data or incremental build issues!"
+            exit 1
+          fi
+        fi
+        
+        # Run comprehensive gatecheck
         python -m scripts.ci_gatecheck \
           --api-dir public/api \
           --cache-dir .cache \
@@ -112,6 +134,16 @@ jobs:
           --min-epss 0.6 \
           --output-report gatecheck-report.json \
           --fail-on-violations
+        
+        # Double-check the report
+        if [ -f "gatecheck-report.json" ]; then
+          TOTAL_CVES=$(jq -r '.metrics.total_cves // 0' gatecheck-report.json)
+          echo "Gatecheck reports $TOTAL_CVES total CVEs"
+          if [ "$TOTAL_CVES" -gt 100 ]; then
+            echo "❌ Gatecheck failed: $TOTAL_CVES CVEs exceeds maximum of 100"
+            exit 1
+          fi
+        fi
 
     - name: Upload gatecheck report
       if: ${{ !inputs.dry_run && always() }}
@@ -170,7 +202,12 @@ jobs:
         EOF
           chmod +x deploy_gh_pages.sh
         fi
+        
+        # Run deployment with automatic push
         ./deploy_gh_pages.sh
+        
+        echo "✅ GitHub Pages deployment triggered"
+        echo "⏱️  Deployment typically takes 5-10 minutes to propagate"
 
     - name: Send webhook notifications
       if: ${{ !inputs.dry_run }}

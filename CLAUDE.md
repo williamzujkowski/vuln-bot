@@ -81,17 +81,17 @@ python -m scripts.ci_gatecheck \
 # Install Node dependencies
 npm install
 
-# CRITICAL: Build the 11ty site (ALWAYS use non-incremental builds)
-# Incremental builds cause stale data persistence, leading to 15,000+ CVE issues
-rm -rf _site public && npm run build
-
-# NEVER use incremental builds in production:
-# BAD:  npx eleventy --incremental
-# GOOD: npx eleventy (clean build)
+# Build the site (ALWAYS use this, not raw eleventy commands)
 npm run build
+
+# Force clean build (recommended for production)
+npm run build:force
 
 # Serve the site locally with hot reload
 npm run serve
+
+# Validate build output
+npm run validate
 
 # Run ESLint (Google style guide)
 npm run lint
@@ -101,6 +101,25 @@ npm run format
 
 # Run all pre-commit checks
 npm run precommit
+
+# Deploy to GitHub Pages (force overwrite)
+npm run deploy
+```
+
+### ⚠️ CRITICAL: Build Commands
+
+**NEVER use these commands in production:**
+```bash
+# ❌ DANGEROUS - preserves stale files
+npx @11ty/eleventy --incremental
+npx @11ty/eleventy --incremental --output=public
+```
+
+**ALWAYS use these commands instead:**
+```bash
+# ✅ SAFE - clean builds only
+npm run build        # Standard clean build
+npm run build:force  # Force rebuild with validation
 ```
 
 ### Git Workflow
@@ -237,19 +256,24 @@ Environment secrets needed in GitHub Actions:
 
 ### Deployment
 - Static site deployed to GitHub Pages from `gh-pages` branch
-- **IMPORTANT**: GitHub Pages may cache stale files. When EPSS threshold changes:
-  - Force clean build: `rm -rf _site public` before building
-  - Use force push to gh-pages: `git push origin gh-pages --force-with-lease`
-  - Clear GitHub Pages cache by toggling source in Settings
+- **CRITICAL**: Eleventy's incremental builds DO NOT delete old files:
+  - Always use `npm run clean` before building
+  - Never use `--incremental` flag in production
+  - Deploy script performs complete directory purge
+- **GitHub Pages CDN Behavior**:
+  - May cache files for 10-15 minutes after deployment
+  - Use post-deployment validation to ensure propagation
+  - Force refresh browsers after deployment
 - No backend servers required - fully client-side functionality
 - Coverage badges auto-updated in README via the `update-badge` command
 - Webhook alerts supported for Slack/Teams notifications
 
-### Troubleshooting Stale Data
-If the live site shows thousands of CVEs instead of ~30:
-1. Check `docs/TROUBLESHOOTING.md` for detailed fix
-2. Run force rebuild: `python -m scripts.agents.build_deploy_agent`
-3. Verify with: `pytest tests/e2e/test_live_site_sanity.py`
+### Troubleshooting Stale Data / 15,000+ CVE Issue
+If the live site shows thousands of CVEs instead of ~60:
+1. **Immediate Fix**: Run `npm run build:force` then `npm run deploy`
+2. **Detailed Instructions**: See `TROUBLESHOOTING.md` 
+3. **Root Cause**: Incremental builds accumulating stale files
+4. **Prevention**: Always use clean builds, never `--incremental`
 
 ## Performance Optimization Guide
 

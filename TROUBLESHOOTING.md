@@ -2,11 +2,22 @@
 
 This guide provides step-by-step solutions for common issues encountered with the Vuln-Bot vulnerability intelligence platform.
 
-## 🚨 Emergency: 15,000+ CVE Issue
+## 🚨 Critical: Stale Data / 15,000+ CVE Issue
 
 **Symptoms**: Live site shows 15,000+ CVEs instead of expected ~30-60 CVEs after EPSS filtering.
 
-**Root Cause**: Incremental builds preserve stale files, causing old CVE data to persist.
+**Root Causes**: 
+1. **Eleventy's incremental builds** (`--incremental` flag) do NOT delete old output files
+2. **GitHub Pages CDN caching** serves stale files even after deployment
+3. **Partial builds** that fail to overwrite all existing data
+
+### Understanding the Problem
+
+When Eleventy runs with `--incremental` or when builds fail partially:
+- Old CVE pages remain in `_site/` or `public/` directories
+- New builds ADD to existing files rather than replacing them
+- GitHub Pages serves ALL files, including outdated ones
+- Result: Thousands of unfiltered CVEs appear on live site
 
 ### Immediate Response
 
@@ -196,8 +207,21 @@ npm run test:e2e
 # Validate local data integrity
 npm run validate
 
-# Clean build and verify
+# Clean build and verify (ALWAYS clean first!)
 npm run clean && npm run build && npm run validate
+```
+
+### Build Commands Reference
+
+```bash
+# ✅ SAFE: Force clean build (recommended)
+npm run build:force
+
+# ✅ SAFE: Standard build with clean
+npm run build
+
+# ⚠️  DANGEROUS: Never use in production
+npx @11ty/eleventy --incremental  # NEVER USE THIS!
 ```
 
 ### Weekly Maintenance
@@ -328,6 +352,16 @@ python -m scripts.ci_gatecheck --max-cve-count 100 --fail-on-violations
 2. **Never use `--incremental` flag in production**
 3. **Run gatecheck validation before deployment**
 4. **Monitor live site after each deployment**
+5. **Use force-push deployment to completely overwrite gh-pages**
+6. **Implement post-deployment validation with polling**
+
+### Deployment Checklist
+- [ ] Run `npm run clean` to remove all build artifacts
+- [ ] Build with `npm run build` (NOT with --incremental)
+- [ ] Validate with `npm run validate` before deploy
+- [ ] Deploy with `./deploy_gh_pages.sh` (force overwrite)
+- [ ] Wait 10-15 minutes for CDN propagation
+- [ ] Run `npm run test:e2e` to verify deployment
 
 ## 📞 Emergency Contacts
 

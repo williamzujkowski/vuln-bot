@@ -62,8 +62,13 @@ fi
 # Clean up
 rm -rf $TEMP_DIR
 
+# Push to GitHub Pages with force-with-lease for safety
+echo "Pushing to GitHub Pages..."
+git push origin gh-pages --force-with-lease
+
 # Return to original branch
 git checkout $CURRENT_BRANCH
 
-echo "Deployment preparation complete!"
-echo "Next step: git push origin gh-pages --force-with-lease"
+echo "✅ Deployment complete!"
+echo "⏱️  Note: GitHub Pages may take 5-10 minutes to update due to CDN caching."
+echo "🔍 To check deployment status, visit: https://github.com/williamzujkowski/vuln-bot/actions"
