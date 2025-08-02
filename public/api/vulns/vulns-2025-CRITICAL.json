@@ -1,7 +1,7 @@
 {
   "chunk": "2025-CRITICAL",
   "count": 1061,
-  "generated": "2025-08-01T20:06:52.102351",
+  "generated": "2025-08-02T00:23:32.840653",
   "vulnerabilities": [
     {
       "cveId": "CVE-2025-47812",
@@ -7120,65 +7120,6 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/6xxx/CVE-2025-6187.json",
             "lastModified": "2025-07-22T20:04:06.430000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-6260",
-      "title": "Network Thermostat X-Series WiFi Thermostats Missing Authentication for Critical Function",
-      "description": "The embedded web server on the thermostat listed version ranges contain a vulnerability that allows unauthenticated attackers, either on the local area network or from the Internet via a router with port forwarding set up, to gain direct access to the thermostat's embedded web server and reset user credentials by manipulating specific elements of the embedded web interface.",
-      "publishedDate": "2025-07-24T20:53:17.534000+00:00",
-      "lastModifiedDate": "2025-07-25T13:31:50.926000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 9.8,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0008,
-        "percentile": 24.096
-      },
-      "riskScore": 52,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Network Thermostat",
-          "Web"
-        ],
-        "products": [
-          "Web Server",
-          "X-series Wifi Thermostats"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-25-205-02",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-306"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/6xxx/CVE-2025-6260.json",
-            "lastModified": "2025-07-25T13:31:50.926000+00:00"
           }
         ]
       }
@@ -15907,6 +15848,65 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/6xxx/CVE-2025-6934.json",
             "lastModified": "2025-07-02T13:24:45.496000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-6260",
+      "title": "Network Thermostat X-Series WiFi Thermostats Missing Authentication for Critical Function",
+      "description": "The embedded web server on the thermostat listed version ranges contain a vulnerability that allows unauthenticated attackers, either on the local area network or from the Internet via a router with port forwarding set up, to gain direct access to the thermostat's embedded web server and reset user credentials by manipulating specific elements of the embedded web interface.",
+      "publishedDate": "2025-07-24T20:53:17.534000+00:00",
+      "lastModifiedDate": "2025-07-25T13:31:50.926000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 9.8,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0008,
+        "percentile": 24.096
+      },
+      "riskScore": 50,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Network Thermostat",
+          "Web"
+        ],
+        "products": [
+          "Web Server",
+          "X-series Wifi Thermostats"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-25-205-02",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-306"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/6xxx/CVE-2025-6260.json",
+            "lastModified": "2025-07-25T13:31:50.926000+00:00"
           }
         ]
       }

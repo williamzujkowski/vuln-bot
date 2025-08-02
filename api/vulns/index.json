@@ -1,5 +1,5 @@
 {
-  "generated": "2025-08-01T20:06:52.102351",
+  "generated": "2025-08-02T00:23:32.840653",
   "count": 15657,
   "vulnerabilities": [
     {
@@ -11560,34 +11560,6 @@
       ]
     },
     {
-      "cveId": "CVE-2025-6260",
-      "title": "[CRITICAL] Network Thermostat Web Server",
-      "originalTitle": "Network Thermostat X-Series WiFi Thermostats Missing Authentication for Critical Function",
-      "severity": "CRITICAL",
-      "cvssScore": 9.8,
-      "epssScore": 0.08,
-      "epssPercentile": 24.096,
-      "riskScore": 52,
-      "publishedDate": "2025-07-24T20:53:17.534000+00:00",
-      "lastModifiedDate": "2025-07-25T13:31:50.926000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "Network Thermostat",
-        "Web"
-      ],
-      "products": [
-        "Web Server",
-        "X-series Wifi Thermostats"
-      ],
-      "attackVector": "Network",
-      "attackComplexity": "Low",
-      "privilegesRequired": "None",
-      "userInteraction": "None",
-      "tags": [
-        "CWE-306"
-      ]
-    },
-    {
       "cveId": "CVE-2025-6948",
       "title": "[HIGH] Gitlab Gitlab",
       "originalTitle": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') in GitLab",
@@ -22275,6 +22247,34 @@
       ]
     },
     {
+      "cveId": "CVE-2025-6260",
+      "title": "[CRITICAL] Network Thermostat Web Server",
+      "originalTitle": "Network Thermostat X-Series WiFi Thermostats Missing Authentication for Critical Function",
+      "severity": "CRITICAL",
+      "cvssScore": 9.8,
+      "epssScore": 0.08,
+      "epssPercentile": 24.096,
+      "riskScore": 50,
+      "publishedDate": "2025-07-24T20:53:17.534000+00:00",
+      "lastModifiedDate": "2025-07-25T13:31:50.926000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "Network Thermostat",
+        "Web"
+      ],
+      "products": [
+        "Web Server",
+        "X-series Wifi Thermostats"
+      ],
+      "attackVector": "Network",
+      "attackComplexity": "Low",
+      "privilegesRequired": "None",
+      "userInteraction": "None",
+      "tags": [
+        "CWE-306"
+      ]
+    },
+    {
       "cveId": "CVE-2025-8213",
       "title": "[HIGH] Nintechnet Ninjascanner – Virus & Malware Scan v3.2.5",
       "originalTitle": "NinjaScanner – Virus & Malware scan <= 3.2.5 - Authenticated (Administrator+) Arbitrary File Deletion",
@@ -32800,33 +32800,6 @@
       "privilegesRequired": "Low",
       "userInteraction": "None",
       "tags": []
-    },
-    {
-      "cveId": "CVE-2025-49741",
-      "title": "[HIGH] Microsoft Edge",
-      "originalTitle": "Microsoft Edge (Chromium-based) Information Disclosure Vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.4,
-      "epssScore": 0.06,
-      "epssPercentile": 20.186,
-      "riskScore": 48,
-      "publishedDate": "2025-07-01T22:22:07.595000+00:00",
-      "lastModifiedDate": "2025-07-31T19:48:36.708000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "Microsoft"
-      ],
-      "products": [
-        "Edge",
-        "Microsoft Edge (chromium-based)"
-      ],
-      "attackVector": "Network",
-      "attackComplexity": "Low",
-      "privilegesRequired": "None",
-      "userInteraction": "Required",
-      "tags": [
-        "CWE-268"
-      ]
     },
     {
       "cveId": "CVE-2025-49447",
@@ -83458,6 +83431,33 @@
       ]
     },
     {
+      "cveId": "CVE-2025-49741",
+      "title": "[HIGH] Microsoft Edge",
+      "originalTitle": "Microsoft Edge (Chromium-based) Information Disclosure Vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.4,
+      "epssScore": 0.06,
+      "epssPercentile": 20.186,
+      "riskScore": 46,
+      "publishedDate": "2025-07-01T22:22:07.595000+00:00",
+      "lastModifiedDate": "2025-07-31T19:48:36.708000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "Microsoft"
+      ],
+      "products": [
+        "Edge",
+        "Microsoft Edge (chromium-based)"
+      ],
+      "attackVector": "Network",
+      "attackComplexity": "Low",
+      "privilegesRequired": "None",
+      "userInteraction": "Required",
+      "tags": [
+        "CWE-268"
+      ]
+    },
+    {
       "cveId": "CVE-2025-49029",
       "title": "[CRITICAL] Bitto.Kazi Custom Login And Signup Widget v1.0",
       "originalTitle": "WordPress Custom Login And Signup Widget plugin <= 1.0 - Arbitrary Code Execution vulnerability",
@@ -88391,32 +88391,6 @@
       "userInteraction": "None",
       "tags": [
         "CWE-1321"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-36630",
-      "title": "[HIGH] Tenable Nessus",
-      "originalTitle": "Local Privilege Escalation",
-      "severity": "HIGH",
-      "cvssScore": 8.4,
-      "epssScore": 0.01,
-      "epssPercentile": 1.553,
-      "riskScore": 45,
-      "publishedDate": "2025-07-01T23:11:13.818000+00:00",
-      "lastModifiedDate": "2025-07-02T13:24:24.991000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "Tenable"
-      ],
-      "products": [
-        "Nessus"
-      ],
-      "attackVector": "Local",
-      "attackComplexity": "Low",
-      "privilegesRequired": "Low",
-      "userInteraction": "None",
-      "tags": [
-        "CWE-269"
       ]
     },
     {
@@ -94523,32 +94497,6 @@
       "userInteraction": "None",
       "tags": [
         "CWE-89"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-31955",
-      "title": "[HIGH] Hcl Software Iautomate",
-      "originalTitle": "HCL iAutomate is affected by a sensitive data exposure vulnerability",
-      "severity": "HIGH",
-      "cvssScore": 7.6,
-      "epssScore": 0.06,
-      "epssPercentile": 17.248,
-      "riskScore": 45,
-      "publishedDate": "2025-07-24T20:59:34.692000+00:00",
-      "lastModifiedDate": "2025-07-25T13:34:36.168000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "Hcl Software"
-      ],
-      "products": [
-        "Iautomate"
-      ],
-      "attackVector": "Network",
-      "attackComplexity": "Low",
-      "privilegesRequired": "Low",
-      "userInteraction": "None",
-      "tags": [
-        "CWE-200"
       ]
     },
     {
@@ -116787,32 +116735,6 @@
       ]
     },
     {
-      "cveId": "CVE-2025-47245",
-      "title": "[HIGH] Bluewave Checkmate v2.0.2",
-      "originalTitle": "CVE-2025-47245: In BlueWave Checkmate through 2.0.2 before d4a6072, an invite request can be modified to specify a p...",
-      "severity": "HIGH",
-      "cvssScore": 8.1,
-      "epssScore": 0.06,
-      "epssPercentile": 19.208,
-      "riskScore": 44,
-      "publishedDate": "2025-05-03T00:00:00+00:00",
-      "lastModifiedDate": "2025-05-05T14:20:10.531000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "Bluewave"
-      ],
-      "products": [
-        "Checkmate"
-      ],
-      "attackVector": "Network",
-      "attackComplexity": "High",
-      "privilegesRequired": "None",
-      "userInteraction": "None",
-      "tags": [
-        "CWE-472"
-      ]
-    },
-    {
       "cveId": "CVE-2025-47099",
       "title": "[HIGH] Adobe Incopy",
       "originalTitle": "InCopy | Heap-based Buffer Overflow (CWE-122)",
@@ -131385,32 +131307,6 @@
       ]
     },
     {
-      "cveId": "CVE-2025-31953",
-      "title": "[HIGH] Hcl Software Iautomate",
-      "originalTitle": "HCL iAutomate is affected by hardcoded credentials",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.03,
-      "epssPercentile": 7.202,
-      "riskScore": 44,
-      "publishedDate": "2025-07-24T20:40:43.677000+00:00",
-      "lastModifiedDate": "2025-07-25T01:32:44.278000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "Hcl Software"
-      ],
-      "products": [
-        "Iautomate"
-      ],
-      "attackVector": "Network",
-      "attackComplexity": "Low",
-      "privilegesRequired": "Low",
-      "userInteraction": "None",
-      "tags": [
-        "CWE-798"
-      ]
-    },
-    {
       "cveId": "CVE-2025-31913",
       "title": "[HIGH] Apustheme Ogami v1.53",
       "originalTitle": "WordPress Ogami <= 1.53 - Local File Inclusion Vulnerability",
@@ -131520,32 +131416,6 @@
       "userInteraction": "None",
       "tags": [
         "CWE-98"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-31952",
-      "title": "[HIGH] Hcl Software Iautomate",
-      "originalTitle": "HCL iAutomate is affected by an insufficient session expiration",
-      "severity": "HIGH",
-      "cvssScore": 7.1,
-      "epssScore": 0.05,
-      "epssPercentile": 15.603,
-      "riskScore": 44,
-      "publishedDate": "2025-07-24T21:01:57.524000+00:00",
-      "lastModifiedDate": "2025-07-25T13:34:09.699000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "Hcl Software"
-      ],
-      "products": [
-        "Iautomate"
-      ],
-      "attackVector": "Network",
-      "attackComplexity": "Low",
-      "privilegesRequired": "Low",
-      "userInteraction": "None",
-      "tags": [
-        "CWE-613"
       ]
     },
     {
@@ -155904,32 +155774,6 @@
       "userInteraction": "Required",
       "tags": [
         "CWE-761"
-      ]
-    },
-    {
-      "cveId": "CVE-2025-47244",
-      "title": "[HIGH] Inedo Proget v2024.22",
-      "originalTitle": "CVE-2025-47244: Inedo ProGet through 2024.22 allows remote attackers to reach restricted functionality through the C...",
-      "severity": "HIGH",
-      "cvssScore": 7.3,
-      "epssScore": 0.14,
-      "epssPercentile": 34.31,
-      "riskScore": 43,
-      "publishedDate": "2025-05-03T00:00:00+00:00",
-      "lastModifiedDate": "2025-05-05T14:21:24.798000+00:00",
-      "exploitationStatus": "UNKNOWN",
-      "vendors": [
-        "Inedo"
-      ],
-      "products": [
-        "Proget"
-      ],
-      "attackVector": "Network",
-      "attackComplexity": "Low",
-      "privilegesRequired": "None",
-      "userInteraction": "None",
-      "tags": [
-        "CWE-288"
       ]
     },
     {
@@ -191977,6 +191821,32 @@
       ]
     },
     {
+      "cveId": "CVE-2025-36630",
+      "title": "[HIGH] Tenable Nessus",
+      "originalTitle": "Local Privilege Escalation",
+      "severity": "HIGH",
+      "cvssScore": 8.4,
+      "epssScore": 0.01,
+      "epssPercentile": 1.553,
+      "riskScore": 43,
+      "publishedDate": "2025-07-01T23:11:13.818000+00:00",
+      "lastModifiedDate": "2025-07-02T13:24:24.991000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "Tenable"
+      ],
+      "products": [
+        "Nessus"
+      ],
+      "attackVector": "Local",
+      "attackComplexity": "Low",
+      "privilegesRequired": "Low",
+      "userInteraction": "None",
+      "tags": [
+        "CWE-269"
+      ]
+    },
+    {
       "cveId": "CVE-2025-36521",
       "title": "[HIGH] Microdicom Dicom Viewer",
       "originalTitle": "MicroDicom DICOM Viewer Out-of-bounds Read",
@@ -192027,6 +191897,32 @@
       "tags": [
         "CWE-22",
         "CWE-276"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-31955",
+      "title": "[HIGH] Hcl Software Iautomate",
+      "originalTitle": "HCL iAutomate is affected by a sensitive data exposure vulnerability",
+      "severity": "HIGH",
+      "cvssScore": 7.6,
+      "epssScore": 0.06,
+      "epssPercentile": 17.248,
+      "riskScore": 43,
+      "publishedDate": "2025-07-24T20:59:34.692000+00:00",
+      "lastModifiedDate": "2025-07-25T13:34:36.168000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "Hcl Software"
+      ],
+      "products": [
+        "Iautomate"
+      ],
+      "attackVector": "Network",
+      "attackComplexity": "Low",
+      "privilegesRequired": "Low",
+      "userInteraction": "None",
+      "tags": [
+        "CWE-200"
       ]
     },
     {
@@ -226982,6 +226878,32 @@
       ]
     },
     {
+      "cveId": "CVE-2025-47245",
+      "title": "[HIGH] Bluewave Checkmate v2.0.2",
+      "originalTitle": "CVE-2025-47245: In BlueWave Checkmate through 2.0.2 before d4a6072, an invite request can be modified to specify a p...",
+      "severity": "HIGH",
+      "cvssScore": 8.1,
+      "epssScore": 0.06,
+      "epssPercentile": 19.208,
+      "riskScore": 42,
+      "publishedDate": "2025-05-03T00:00:00+00:00",
+      "lastModifiedDate": "2025-05-05T14:20:10.531000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "Bluewave"
+      ],
+      "products": [
+        "Checkmate"
+      ],
+      "attackVector": "Network",
+      "attackComplexity": "High",
+      "privilegesRequired": "None",
+      "userInteraction": "None",
+      "tags": [
+        "CWE-472"
+      ]
+    },
+    {
       "cveId": "CVE-2025-4204",
       "title": "[HIGH] Inception Software Llp The Database v1.5.2",
       "originalTitle": "Ultimate Auction Pro <= 1.5.2 - Unauthenticated SQL Injection via 'auction_id'",
@@ -227365,6 +227287,58 @@
       "tags": [
         "CWE-89",
         "CWE-74"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-31953",
+      "title": "[HIGH] Hcl Software Iautomate",
+      "originalTitle": "HCL iAutomate is affected by hardcoded credentials",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.03,
+      "epssPercentile": 7.202,
+      "riskScore": 42,
+      "publishedDate": "2025-07-24T20:40:43.677000+00:00",
+      "lastModifiedDate": "2025-07-25T01:32:44.278000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "Hcl Software"
+      ],
+      "products": [
+        "Iautomate"
+      ],
+      "attackVector": "Network",
+      "attackComplexity": "Low",
+      "privilegesRequired": "Low",
+      "userInteraction": "None",
+      "tags": [
+        "CWE-798"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-31952",
+      "title": "[HIGH] Hcl Software Iautomate",
+      "originalTitle": "HCL iAutomate is affected by an insufficient session expiration",
+      "severity": "HIGH",
+      "cvssScore": 7.1,
+      "epssScore": 0.05,
+      "epssPercentile": 15.603,
+      "riskScore": 42,
+      "publishedDate": "2025-07-24T21:01:57.524000+00:00",
+      "lastModifiedDate": "2025-07-25T13:34:09.699000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "Hcl Software"
+      ],
+      "products": [
+        "Iautomate"
+      ],
+      "attackVector": "Network",
+      "attackComplexity": "Low",
+      "privilegesRequired": "Low",
+      "userInteraction": "None",
+      "tags": [
+        "CWE-613"
       ]
     },
     {
@@ -260250,6 +260224,32 @@
       "userInteraction": "None",
       "tags": [
         "CWE-787"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-47244",
+      "title": "[HIGH] Inedo Proget v2024.22",
+      "originalTitle": "CVE-2025-47244: Inedo ProGet through 2024.22 allows remote attackers to reach restricted functionality through the C...",
+      "severity": "HIGH",
+      "cvssScore": 7.3,
+      "epssScore": 0.14,
+      "epssPercentile": 34.31,
+      "riskScore": 41,
+      "publishedDate": "2025-05-03T00:00:00+00:00",
+      "lastModifiedDate": "2025-05-05T14:21:24.798000+00:00",
+      "exploitationStatus": "UNKNOWN",
+      "vendors": [
+        "Inedo"
+      ],
+      "products": [
+        "Proget"
+      ],
+      "attackVector": "Network",
+      "attackComplexity": "Low",
+      "privilegesRequired": "None",
+      "userInteraction": "None",
+      "tags": [
+        "CWE-288"
       ]
     },
     {

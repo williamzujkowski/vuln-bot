@@ -424,7 +424,6 @@ CVE-2025-20282,CRITICAL,10.0,36.307,52,Cisco ISE API Unauthenticated Remote Code
 CVE-2025-50067,CRITICAL,9.0,23.627,52,CVE-2025-50067: Vulnerability in Oracle Application Express (component: Strategic Planner Starter App).  Supported v...,Oracle,2025-07-15
 CVE-2025-22896,HIGH,8.6,97.32,52,mySCADA myPRO Manager Cleartext Storage of Sensitive Information,Myscada,2025-02-13
 CVE-2025-6187,CRITICAL,9.8,48.636,52,bSecure 1.3.7 - 1.7.9 - Missing Authorization to Unauthenticated Privilege Escalation via order_info REST Endpoint,"Bsecuretech, WordPress",2025-07-22
-CVE-2025-6260,CRITICAL,9.8,24.096,52,Network Thermostat X-Series WiFi Thermostats Missing Authentication for Critical Function,"Network Thermostat, Web",2025-07-24
 CVE-2025-6948,HIGH,8.7,18.472,52,Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') in GitLab,Gitlab,2025-07-10
 CVE-2025-29922,CRITICAL,9.6,18.677,52,kcp allows unauthorized creation and deletion of objects in arbitrary workspaces through APIExport Virtual Workspace,"Kcp-dev, Kubernetes",2025-03-20
 CVE-2025-29972,CRITICAL,9.9,53.717,52,Azure Storage Resource Provider Spoofing Vulnerability,Microsoft,2025-05-08
@@ -814,6 +813,7 @@ CVE-2024-0918,HIGH,7.2,98.086,50,TRENDnet TEW-800MB POST Request os command inje
 CVE-2025-24799,HIGH,7.5,98.037,50,GLPI allows unauthenticated SQL injection through the inventory endpoint,Glpi-project,2025-03-18
 CVE-2025-5243,CRITICAL,10.0,59.144,50,Arbitrary File Upload in SMG Software's Information Portal,"Smg Software, Web",2025-07-24
 CVE-2025-6934,CRITICAL,9.8,10.041,50,Opal Estate Pro <= 1.7.5 - Unauthenticated Privilege Escalation via 'on_regiser_user',"WordPress, Wpopal",2025-07-01
+CVE-2025-6260,CRITICAL,9.8,24.096,50,Network Thermostat X-Series WiFi Thermostats Missing Authentication for Critical Function,"Network Thermostat, Web",2025-07-24
 CVE-2025-8213,HIGH,7.2,25.264,49,NinjaScanner – Virus & Malware scan <= 3.2.5 - Authenticated (Administrator+) Arbitrary File Deletion,"Nintechnet, The, WordPress",2025-07-31
 CVE-2025-33103,HIGH,8.5,21.198,49,IBM i privilege escalation,IBM,2025-05-17
 CVE-2025-33064,HIGH,8.8,26.492,49,Windows Routing and Remote Access Service (RRAS) Remote Code Execution Vulnerability,Microsoft,2025-06-10
@@ -1195,7 +1195,6 @@ CVE-2025-21415,CRITICAL,9.9,71.193,48,Azure AI Face Service Elevation of Privile
 CVE-2025-21198,CRITICAL,9.0,43.305,48,Microsoft High Performance Compute (HPC) Pack Remote Code Execution Vulnerability,Microsoft,2025-02-11
 CVE-2025-21524,CRITICAL,9.8,47.892,48,CVE-2025-21524: Vulnerability in the JD Edwards EnterpriseOne Tools product of Oracle JD Edwards (component: Monitor...,Oracle,2025-01-21
 CVE-2025-21556,CRITICAL,9.9,42.67,48,CVE-2025-21556: Vulnerability in the Oracle Agile PLM Framework product of Oracle Supply Chain (component: Agile Int...,"Oracle, Plm",2025-01-21
-CVE-2025-49741,HIGH,7.4,20.186,48,Microsoft Edge (Chromium-based) Information Disclosure Vulnerability,Microsoft,2025-07-01
 CVE-2025-49447,CRITICAL,10.0,19.445,48,WordPress FW Food Menu  <= 6.0.0 - Arbitrary File Upload Vulnerability,"Fastw3b Llc, WordPress",2025-06-17
 CVE-2025-49212,CRITICAL,9.8,64.271,48,CVE-2025-49212: An insecure deserialization operation in the Trend Micro Endpoint Encryption PolicyServer could lead...,"Trend Micro, Inc.",2025-06-17
 CVE-2025-49216,CRITICAL,9.8,23.02,48,CVE-2025-49216: An authentication bypass vulnerability in the Trend Micro Endpoint Encryption PolicyServer could all...,"Trend Micro, Inc.",2025-06-17
@@ -3026,6 +3025,7 @@ CVE-2024-0610,CRITICAL,9.8,69.243,46,CVE-2024-0610: The Piraeus Bank WooCommerce
 CVE-2024-0221,CRITICAL,9.1,77.708,46,CVE-2024-0221: The Photo Gallery by 10Web – Mobile-Friendly Image Gallery plugin for WordPress is vulnerable to Dir...,"10web, The, WordPress",2024-02-05
 CVE-2024-0705,CRITICAL,9.8,64.758,46,CVE-2024-0705: The Stripe Payment Plugin for WooCommerce plugin for WordPress is vulnerable to SQL Injection via th...,"The, Webtoffee, WordPress",2024-01-19
 CVE-2025-2812,CRITICAL,9.8,13.774,46,SQLi in Mydata Informatics' Ticket Sales Automation,Mydata Informatics,2025-05-02
+CVE-2025-49741,HIGH,7.4,20.186,46,Microsoft Edge (Chromium-based) Information Disclosure Vulnerability,Microsoft,2025-07-01
 CVE-2025-49029,CRITICAL,9.1,57.136,46,WordPress Custom Login And Signup Widget plugin <= 1.0 - Arbitrary Code Execution vulnerability,"Bitto.kazi, WordPress",2025-07-01
 CVE-2025-49521,HIGH,8.8,29.29,46,Event-driven-ansible: template injection via git branch and refspec in eda projects,Red Hat,2025-06-30
 CVE-2025-26397,HIGH,7.8,13.737,46,SolarWinds Observability Self-Hosted Deserialization of Untrusted Data Local Privilege Escalation Vulnerability,"Host, Solarwinds",2025-07-24
@@ -3205,7 +3205,6 @@ CVE-2025-25101,CRITICAL,9.6,67.495,45,WordPress Munk Sites plugin <= 1.0.7 - CSR
 CVE-2025-25014,CRITICAL,9.1,57.295,45,Kibana arbitrary code execution via prototype pollution,Elastic,2025-05-06
 CVE-2025-25199,HIGH,7.5,86.628,45,BCryptGenerateSymmetricKey memory leak,Microsoft,2025-02-12
 CVE-2025-25015,CRITICAL,9.9,28.438,45,Kibana arbitrary code execution via prototype pollution,Elastic,2025-03-05
-CVE-2025-36630,HIGH,8.4,1.553,45,Local Privilege Escalation,Tenable,2025-07-01
 CVE-2025-36560,HIGH,8.6,15.271,45,CVE-2025-36560: Server-side request forgery vulnerability exists in a-blog cms multiple versions. If this vulnerabil...,Appleple Inc.,2025-05-19
 CVE-2025-36600,HIGH,8.2,2.049,45,CVE-2025-36600: Dell Client Platform BIOS contains an Improper Access Control Applied to Mirrored or Aliased Memory ...,Dell,2025-07-08
 CVE-2025-36048,HIGH,7.2,27.235,45,IBM webMethods Integration Sever code execution,"IBM, Integration",2025-06-18
@@ -3432,7 +3431,6 @@ CVE-2025-31480,CRITICAL,9.1,18.516,45,aiven-extras allows PostgreSQL Privilege E
 CVE-2025-31924,HIGH,8.8,22.327,45,WordPress Crafts & Arts <= 2.5 - PHP Object Injection Vulnerability,"Designthemes, WordPress",2025-05-23
 CVE-2025-31920,HIGH,8.5,10.247,45,WordPress WP Guppy <= 4.3.3 - SQL Injection Vulnerability,"Amentotech, WordPress",2025-06-09
 CVE-2025-31551,CRITICAL,9.3,13.01,45,WordPress Salesmate Add-On for Gravity Forms plugin <= 2.0.3 - SQL Injection vulnerability,"Salesmate.io, WordPress",2025-04-01
-CVE-2025-31955,HIGH,7.6,17.248,45,HCL iAutomate is affected by a sensitive data exposure vulnerability,Hcl Software,2025-07-24
 CVE-2025-31640,HIGH,8.5,12.816,45,WordPress Magic Responsive Slider and Carousel WordPress <= 1.4 - SQL Injection Vulnerability,"Lambertgroup, WordPress",2025-05-16
 CVE-2025-31534,CRITICAL,9.3,13.01,45,WordPress Shopper plugin <= 3.2.5 - SQL Injection vulnerability,"Shopperdotcom, WordPress",2025-04-01
 CVE-2025-31579,CRITICAL,9.3,13.01,45,WordPress WP AutoKeyword plugin <= 1.0 - SQL Injection vulnerability,"Exeideas International, WordPress",2025-04-01
@@ -4241,7 +4239,6 @@ CVE-2025-47125,HIGH,7.8,5.769,44,Adobe Framemaker | Heap-based Buffer Overflow (
 CVE-2025-47122,HIGH,7.8,5.769,44,Adobe Framemaker | Heap-based Buffer Overflow (CWE-122),Adobe,2025-07-08
 CVE-2025-47134,HIGH,7.8,5.769,44,InDesign Desktop | Heap-based Buffer Overflow (CWE-122),Adobe,2025-07-08
 CVE-2025-47133,HIGH,7.8,8.022,44,Adobe Framemaker | Out-of-bounds Write (CWE-787),Adobe,2025-07-08
-CVE-2025-47245,HIGH,8.1,19.208,44,"CVE-2025-47245: In BlueWave Checkmate through 2.0.2 before d4a6072, an invite request can be modified to specify a p...",Bluewave,2025-05-03
 CVE-2025-47099,HIGH,7.8,5.769,44,InCopy | Heap-based Buffer Overflow (CWE-122),Adobe,2025-07-08
 CVE-2025-47129,HIGH,7.8,8.022,44,Adobe Framemaker | Out-of-bounds Write (CWE-787),Adobe,2025-07-08
 CVE-2025-47131,HIGH,7.8,5.769,44,Adobe Framemaker | Heap-based Buffer Overflow (CWE-122),Adobe,2025-07-08
@@ -4778,12 +4775,10 @@ CVE-2025-28986,HIGH,8.2,3.121,44,WordPress Epicwin Plugin plugin <= 1.5 - CSRF t
 CVE-2025-28946,HIGH,8.1,38.18,44,WordPress PrintXtore theme <= 1.7.5 - Local File Inclusion Vulnerability,"Bzotheme, WordPress",2025-06-27
 CVE-2025-28990,HIGH,8.1,38.18,44,WordPress SNS Vicky theme <= 3.7 - Local File Inclusion Vulnerability,"Snstheme, WordPress",2025-06-27
 CVE-2025-31632,HIGH,8.1,39.184,44,WordPress La Boom <= 2.7 - Local File Inclusion Vulnerability,"Spyropress, WordPress",2025-05-23
-CVE-2025-31953,HIGH,7.1,7.202,44,HCL iAutomate is affected by hardcoded credentials,Hcl Software,2025-07-24
 CVE-2025-31913,HIGH,8.1,39.184,44,WordPress Ogami <= 1.53 - Local File Inclusion Vulnerability,"Apustheme, WordPress",2025-05-23
 CVE-2025-31912,HIGH,8.1,39.184,44,WordPress Enzio - Responsive Business WordPress Theme <= 1.1.8 - Local File Inclusion Vulnerability,"Gavias, WordPress",2025-05-23
 CVE-2025-31060,HIGH,8.1,39.184,44,WordPress Capie <= 1.0.40 - Local File Inclusion Vulnerability,"Apustheme, WordPress",2025-05-23
 CVE-2025-31064,HIGH,8.1,39.184,44,WordPress Vizeon - Business Consulting <= 1.1.7 - Local File Inclusion Vulnerability,"Gavias, WordPress",2025-05-23
-CVE-2025-31952,HIGH,7.1,15.603,44,HCL iAutomate is affected by an insufficient session expiration,Hcl Software,2025-07-24
 CVE-2025-31359,HIGH,8.8,39.292,44,CVE-2025-31359: A directory traversal vulnerability exists in the PVMP package unpacking functionality of Parallels ...,Parallels,2025-06-03
 CVE-2025-31070,HIGH,7.5,17.853,44,WordPress HTML5 Radio Player - WPBakery Page Builder Addon plugin <= 2.5 - Arbitrary File Download vulnerability,"Lambertgroup, WordPress",2025-07-16
 CVE-2025-31487,HIGH,7.7,11.761,44,The XWiki JIRA extension allows data leak through an XXE attack by using a fake JIRA server,"Jira, Xwiki, Xwiki-contrib",2025-04-03
@@ -5680,7 +5675,6 @@ CVE-2025-47554,HIGH,7.1,9.057,43,WordPress CSS3 Compare Pricing Tables for WordP
 CVE-2025-47751,HIGH,7.8,10.051,43,CVE-2025-47751: V-SFT v6.2.5.0 and earlier contains an issue with out-of-bounds write in VS6EditData!CDataRomErrorCh...,"Fuji Electric Co., Ltd.",2025-05-19
 CVE-2025-47759,HIGH,7.8,6.674,43,CVE-2025-47759: V-SFT v6.2.5.0 and earlier contains an issue with stack-based buffer overflow in VS6ComFile!CV7BaseM...,"Fuji Electric Co., Ltd.",2025-05-19
 CVE-2025-47749,HIGH,7.8,6.674,43,CVE-2025-47749: V-SFT v6.2.5.0 and earlier contains an issue with free of pointer not at start of buffer in VS6EditD...,"Fuji Electric Co., Ltd.",2025-05-19
-CVE-2025-47244,HIGH,7.3,34.31,43,CVE-2025-47244: Inedo ProGet through 2024.22 allows remote attackers to reach restricted functionality through the C...,Inedo,2025-05-03
 CVE-2025-47755,HIGH,7.8,6.674,43,CVE-2025-47755: V-SFT v6.2.5.0 and earlier contains an issue with out-of-bounds read in VS6EditData!VS4_SaveEnvFile ...,"Fuji Electric Co., Ltd.",2025-05-19
 CVE-2025-47652,HIGH,7.1,9.057,43,WordPress Infility Global plugin <= 2.13.4 - Reflected Cross Site Scripting (XSS) vulnerability,"Infility, WordPress",2025-07-16
 CVE-2025-47270,HIGH,7.5,17.659,43,nimiq-network-libp2p Uncontrolled Resource Consumption vulnerability,Nimiq,2025-05-12
@@ -7016,8 +7010,10 @@ CVE-2024-0857,CRITICAL,9.8,32.338,43,SQLi in Universal Software's FlexWater Corp
 CVE-2024-0799,CRITICAL,9.8,15.068,43,Authentication Bypass via wizardLogin in Arcserve Unified Data Protection,Arcserve,2024-03-13
 CVE-2024-0002,CRITICAL,10.0,46.284,43,CVE-2024-0002: A condition exists in FlashArray Purity whereby an attacker can employ a privileged account allowing...,Purestorage,2024-09-23
 CVE-2025-48732,HIGH,7.3,74.818,43,CVE-2025-48732: An incomplete blacklist exists in the .htaccess sample of WWBN AVideo 14.4 and dev master commit 8a8...,Wwbn,2025-07-24
+CVE-2025-36630,HIGH,8.4,1.553,43,Local Privilege Escalation,Tenable,2025-07-01
 CVE-2025-36521,HIGH,8.8,16.688,43,MicroDicom DICOM Viewer Out-of-bounds Read,Microdicom,2025-05-01
 CVE-2025-24891,CRITICAL,9.7,50.498,43,Dumb Drop has an arbitrary file overwrite and path traversal for root shell,Dumbwareio,2025-01-31
+CVE-2025-31955,HIGH,7.6,17.248,43,HCL iAutomate is affected by a sensitive data exposure vulnerability,Hcl Software,2025-07-24
 CVE-2024-12171,HIGH,8.8,26.462,43,ELEX WordPress HelpDesk & Customer Ticketing System <= 3.2.6 - Missing Authorization to Authenticated (Subscriber+) Privilege Escalation,"Elextensions, WordPress",2025-02-01
 CVE-2025-5335,HIGH,7.8,2.605,42,Privilege Ecalation due to Untrusted Search Path Vulnerability,Autodesk,2025-06-10
 CVE-2025-5990,HIGH,7.6,15.988,42,Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') in Crafty Controller,"Arcadia Technology, Llc, The",2025-06-15
@@ -8315,6 +8311,7 @@ CVE-2024-0203,HIGH,8.8,29.522,42,"CVE-2024-0203: The Digits plugin for WordPress
 CVE-2024-0087,CRITICAL,9.0,38.469,42,CVE,"Inference, NVIDIA",2024-05-09
 CVE-2025-2421,HIGH,8.2,17.837,42,Remote Code Execution in Profelis Informatics' SambaBox,Profelis Informatics,2025-05-02
 CVE-2025-48379,HIGH,7.1,1.466,42,Pillow Vulnerable to Write Buffer Overflow on BCn encoding,Python-pillow,2025-07-01
+CVE-2025-47245,HIGH,8.1,19.208,42,"CVE-2025-47245: In BlueWave Checkmate through 2.0.2 before d4a6072, an invite request can be modified to specify a p...",Bluewave,2025-05-03
 CVE-2025-4204,HIGH,7.5,22.829,42,Ultimate Auction Pro <= 1.5.2 - Unauthenticated SQL Injection via 'auction_id',"Inception Software Llp, The, WordPress",2025-05-02
 CVE-2025-4181,HIGH,7.3,26.707,42,PCMan FTP Server SEND Command buffer overflow,"Ftp, Pcman",2025-05-01
 CVE-2025-4195,HIGH,7.3,17.35,42,itsourcecode Gym Management System ajax.php sql injection,Itsourcecode,2025-05-02
@@ -8329,6 +8326,8 @@ CVE-2025-4213,HIGH,7.3,5.406,42,PHPGurukul Online Birth Certificate System searc
 CVE-2025-4192,HIGH,7.3,17.35,42,itsourcecode Restaurant Management System category_save.php sql injection,Itsourcecode,2025-05-02
 CVE-2025-4182,HIGH,7.3,21.037,42,PCMan FTP Server BELL Command buffer overflow,"Ftp, Pcman",2025-05-01
 CVE-2025-4176,HIGH,7.3,16.319,42,PHPGurukul Blood Bank & Donor Management System request-received-bydonar.php sql injection,Phpgurukul,2025-05-01
+CVE-2025-31953,HIGH,7.1,7.202,42,HCL iAutomate is affected by hardcoded credentials,Hcl Software,2025-07-24
+CVE-2025-31952,HIGH,7.1,15.603,42,HCL iAutomate is affected by an insufficient session expiration,Hcl Software,2025-07-24
 CVE-2025-35975,HIGH,8.8,25.335,42,MicroDicom DICOM Viewer Out-of-bounds Write,Microdicom,2025-05-01
 CVE-2024-13344,HIGH,7.5,22.727,42,Advance Seat Reservation Management for WooCommerce <= 3.3 - Unauthenticated SQL Injection,"Smartcms, The, WordPress",2025-05-02
 CVE-2024-13343,HIGH,8.8,23.363,42,WooCommerce Customers Manager <= 31.3 - Missing Authorization to Authenticated (Subscriber+) Privilege Escalation,"Vanquish, WordPress",2025-02-01
@@ -9553,6 +9552,7 @@ CVE-2024-0081,HIGH,8.6,26.513,41,"CVE-2024-0081:
 NVIDIA NeMo framework for Ubuntu contains a vulnerability in tools/asr_webapp where an attacker may...","NVIDIA, Nemo",2024-04-05
 CVE-2025-49480,HIGH,7.4,11.618,41,Out-of-bounds access in lte-telephony,Asr,2025-07-01
 CVE-2025-49492,HIGH,7.4,11.618,41,Out-of-bounds write in lte-telephony,Asr,2025-07-01
+CVE-2025-47244,HIGH,7.3,34.31,41,CVE-2025-47244: Inedo ProGet through 2024.22 allows remote attackers to reach restricted functionality through the C...,Inedo,2025-05-03
 CVE-2025-4214,HIGH,7.3,10.578,41,PHPGuruku Online DJ Booking Management System booking-bwdates-reports-details.php sql injection,Phpguruku,2025-05-02
 CVE-2025-43595,HIGH,7.8,2.044,41,MSP360 Backup (for Linux) insecure filesystem permissions,Msp360,2025-05-01
 CVE-2025-2284,HIGH,7.5,36.075,40,Santesoft Sante PACS Server Access of Uninitialized Pointer DoS,"Pacs, Santesoft",2025-03-13

@@ -1,7 +1,7 @@
 {
   "chunk": "2025-HIGH",
   "count": 6538,
-  "generated": "2025-08-01T20:06:52.102351",
+  "generated": "2025-08-02T00:23:32.840653",
   "vulnerabilities": [
     {
       "cveId": "CVE-2025-30066",
@@ -33923,66 +33923,6 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/2xxx/CVE-2025-2928.json",
             "lastModified": "2025-07-29T20:48:38.008000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-49741",
-      "title": "Microsoft Edge (Chromium-based) Information Disclosure Vulnerability",
-      "description": "No cwe for this issue in Microsoft Edge (Chromium-based) allows an unauthorized attacker to disclose information over a network.",
-      "publishedDate": "2025-07-01T22:22:07.595000+00:00",
-      "lastModifiedDate": "2025-07-31T19:48:36.708000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:N/A:N/E:U/RL:O/RC:C",
-          "baseScore": 7.4,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.0006,
-        "percentile": 20.186
-      },
-      "riskScore": 48,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Microsoft"
-        ],
-        "products": [
-          "Edge",
-          "Microsoft Edge (chromium-based)"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49741",
-          "source": "Microsoft Edge (Chromium-based) Information Disclosure Vulnerability",
-          "tags": [
-            "vendor-advisory"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-268"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "Required",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/49xxx/CVE-2025-49741.json",
-            "lastModified": "2025-07-31T19:48:36.708000+00:00"
           }
         ]
       }
@@ -103938,6 +103878,66 @@
       }
     },
     {
+      "cveId": "CVE-2025-49741",
+      "title": "Microsoft Edge (Chromium-based) Information Disclosure Vulnerability",
+      "description": "No cwe for this issue in Microsoft Edge (Chromium-based) allows an unauthorized attacker to disclose information over a network.",
+      "publishedDate": "2025-07-01T22:22:07.595000+00:00",
+      "lastModifiedDate": "2025-07-31T19:48:36.708000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:N/A:N/E:U/RL:O/RC:C",
+          "baseScore": 7.4,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.0006,
+        "percentile": 20.186
+      },
+      "riskScore": 46,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Microsoft"
+        ],
+        "products": [
+          "Edge",
+          "Microsoft Edge (chromium-based)"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49741",
+          "source": "Microsoft Edge (Chromium-based) Information Disclosure Vulnerability",
+          "tags": [
+            "vendor-advisory"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-268"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "Required",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/49xxx/CVE-2025-49741.json",
+            "lastModified": "2025-07-31T19:48:36.708000+00:00"
+          }
+        ]
+      }
+    },
+    {
       "cveId": "CVE-2025-49521",
       "title": "Event-driven-ansible: template injection via git branch and refspec in eda projects",
       "description": "A flaw was found in the EDA component of the Ansible Automation Platform, where user-supplied Git branch or refspec values are evaluated as Jinja2 templates. This vulnerability allows authenticated users to inject expressions that execute commands or access sensitive files on the EDA worker. In OpenShift, it can lead to service account token theft.",
@@ -115258,63 +115258,6 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/25xxx/CVE-2025-25199.json",
             "lastModified": "2025-02-12T19:50:24.955000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-36630",
-      "title": "Local Privilege Escalation",
-      "description": "In Tenable Nessus versions prior to 10.8.5 on a Windows host, it was found that a non-administrative user could overwrite arbitrary local system files with log content at SYSTEM privilege.",
-      "publishedDate": "2025-07-01T23:11:13.818000+00:00",
-      "lastModifiedDate": "2025-07-02T13:24:24.991000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:N/I:H/A:H",
-          "baseScore": 8.4,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.0001,
-        "percentile": 1.553
-      },
-      "riskScore": 45,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Tenable"
-        ],
-        "products": [
-          "Nessus"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://www.tenable.com/security/tns-2025-13",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-269"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Local",
-        "attackComplexity": "Low",
-        "privilegesRequired": "Low",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/36xxx/CVE-2025-36630.json",
-            "lastModified": "2025-07-02T13:24:24.991000+00:00"
           }
         ]
       }
@@ -126830,65 +126773,6 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/31xxx/CVE-2025-31920.json",
             "lastModified": "2025-06-10T13:36:00.644000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-31955",
-      "title": "HCL iAutomate is affected by a sensitive data exposure vulnerability",
-      "description": "HCL iAutomate is affected by a sensitive data exposure vulnerability.  This issue may allow unauthorized access to sensitive information within the system.",
-      "publishedDate": "2025-07-24T20:59:34.692000+00:00",
-      "lastModifiedDate": "2025-07-25T13:34:36.168000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:L/A:L",
-          "baseScore": 7.6,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.0006,
-        "percentile": 17.248
-      },
-      "riskScore": 45,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Hcl Software"
-        ],
-        "products": [
-          "Iautomate"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0122646",
-          "source": "VDB-299060 | PyTorch Quantized Sigmoid Module nnq_Sigmoid initialization",
-          "tags": [
-            "x_refsource_CONFIRM"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-200"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "Low",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/31xxx/CVE-2025-31955.json",
-            "lastModified": "2025-07-25T13:34:36.168000+00:00"
           }
         ]
       }
@@ -157134,73 +157018,6 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/47xxx/CVE-2025-47133.json",
             "lastModified": "2025-07-10T03:55:19.649000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-47245",
-      "title": "CVE-2025-47245: In BlueWave Checkmate through 2.0.2 before d4a6072, an invite request can be modified to specify a p...",
-      "description": "In BlueWave Checkmate through 2.0.2 before d4a6072, an invite request can be modified to specify a privileged role.",
-      "publishedDate": "2025-05-03T00:00:00+00:00",
-      "lastModifiedDate": "2025-05-05T14:20:10.531000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 8.1,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.0006,
-        "percentile": 19.208
-      },
-      "riskScore": 44,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Bluewave"
-        ],
-        "products": [
-          "Checkmate"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://github.com/bluewave-labs/Checkmate/pull/2160",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://github.com/bluewave-labs/Checkmate/security/advisories/GHSA-7x3q-g6gq-f4mm",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://github.com/bluewave-labs/Checkmate/commit/d4a60723f490502b3fe6f7f780a85d29bf5d1385",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-472"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "High",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/47xxx/CVE-2025-47245.json",
-            "lastModified": "2025-05-05T14:20:10.531000+00:00"
           }
         ]
       }
@@ -200322,65 +200139,6 @@
       }
     },
     {
-      "cveId": "CVE-2025-31953",
-      "title": "HCL iAutomate is affected by hardcoded credentials",
-      "description": "HCL iAutomate includes hardcoded credentials which may result in potential exposure of confidential data if intercepted or accessed by unauthorized parties.",
-      "publishedDate": "2025-07-24T20:40:43.677000+00:00",
-      "lastModifiedDate": "2025-07-25T01:32:44.278000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:L/A:N",
-          "baseScore": 7.1,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.0003,
-        "percentile": 7.202
-      },
-      "riskScore": 44,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Hcl Software"
-        ],
-        "products": [
-          "Iautomate"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0122646",
-          "source": "VDB-299060 | PyTorch Quantized Sigmoid Module nnq_Sigmoid initialization",
-          "tags": [
-            "x_refsource_CONFIRM"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-798"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "Low",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/31xxx/CVE-2025-31953.json",
-            "lastModified": "2025-07-25T01:32:44.278000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2025-31913",
       "title": "WordPress Ogami <= 1.53 - Local File Inclusion Vulnerability",
       "description": "Improper Control of Filename for Include/Require Statement in PHP Program ('PHP Remote File Inclusion') vulnerability in ApusTheme Ogami allows PHP Local File Inclusion. This issue affects Ogami: from n/a through 1.53.",
@@ -200620,65 +200378,6 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/31xxx/CVE-2025-31064.json",
             "lastModified": "2025-05-23T13:21:33.719000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-31952",
-      "title": "HCL iAutomate is affected by an insufficient session expiration",
-      "description": "HCL iAutomate is affected by an insufficient session expiration.  This allows tokens to remain valid indefinitely unless manually revoked, increasing the risk of unauthorized access.",
-      "publishedDate": "2025-07-24T21:01:57.524000+00:00",
-      "lastModifiedDate": "2025-07-25T13:34:09.699000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:L",
-          "baseScore": 7.1,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.0005,
-        "percentile": 15.603
-      },
-      "riskScore": 44,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Hcl Software"
-        ],
-        "products": [
-          "Iautomate"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0122646",
-          "source": "VDB-299060 | PyTorch Quantized Sigmoid Module nnq_Sigmoid initialization",
-          "tags": [
-            "x_refsource_CONFIRM"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-613"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "Low",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/31xxx/CVE-2025-31952.json",
-            "lastModified": "2025-07-25T13:34:09.699000+00:00"
           }
         ]
       }
@@ -219220,78 +218919,6 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/47xxx/CVE-2025-47749.json",
             "lastModified": "2025-05-19T15:27:49.811000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-47244",
-      "title": "CVE-2025-47244: Inedo ProGet through 2024.22 allows remote attackers to reach restricted functionality through the C...",
-      "description": "Inedo ProGet through 2024.22 allows remote attackers to reach restricted functionality through the C# reflection layer, as demonstrated by causing a denial of service (when an attacker executes a loop calling RestartWeb) or obtaining potentially sensitive information. Exploitation can occur if Anonymous access is enabled, or if there is a successful CSRF attack.",
-      "publishedDate": "2025-05-03T00:00:00+00:00",
-      "lastModifiedDate": "2025-05-05T14:21:24.798000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
-          "baseScore": 7.3,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.0014,
-        "percentile": 34.31
-      },
-      "riskScore": 43,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Inedo"
-        ],
-        "products": [
-          "Proget"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://seclists.org/fulldisclosure/2025/Apr/30",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://forums.inedo.com",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://docs.inedo.com/docs/proget/installation/installation-guide",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://my.inedo.com/downloads/installers?product=ProGet",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-288"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/47xxx/CVE-2025-47244.json",
-            "lastModified": "2025-05-05T14:21:24.798000+00:00"
           }
         ]
       }
@@ -245050,6 +244677,63 @@
       }
     },
     {
+      "cveId": "CVE-2025-36630",
+      "title": "Local Privilege Escalation",
+      "description": "In Tenable Nessus versions prior to 10.8.5 on a Windows host, it was found that a non-administrative user could overwrite arbitrary local system files with log content at SYSTEM privilege.",
+      "publishedDate": "2025-07-01T23:11:13.818000+00:00",
+      "lastModifiedDate": "2025-07-02T13:24:24.991000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:N/I:H/A:H",
+          "baseScore": 8.4,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.0001,
+        "percentile": 1.553
+      },
+      "riskScore": 43,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Tenable"
+        ],
+        "products": [
+          "Nessus"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.tenable.com/security/tns-2025-13",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-269"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Local",
+        "attackComplexity": "Low",
+        "privilegesRequired": "Low",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/36xxx/CVE-2025-36630.json",
+            "lastModified": "2025-07-02T13:24:24.991000+00:00"
+          }
+        ]
+      }
+    },
+    {
       "cveId": "CVE-2025-36521",
       "title": "MicroDicom DICOM Viewer Out-of-bounds Read",
       "description": "MicroDicom DICOM Viewer is vulnerable to an out-of-bounds read which may allow an attacker to cause memory corruption within the application. The user must open a malicious DCM file for exploitation.",
@@ -245107,6 +244791,65 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/36xxx/CVE-2025-36521.json",
             "lastModified": "2025-05-01T18:46:08.699000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-31955",
+      "title": "HCL iAutomate is affected by a sensitive data exposure vulnerability",
+      "description": "HCL iAutomate is affected by a sensitive data exposure vulnerability.  This issue may allow unauthorized access to sensitive information within the system.",
+      "publishedDate": "2025-07-24T20:59:34.692000+00:00",
+      "lastModifiedDate": "2025-07-25T13:34:36.168000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:L/A:L",
+          "baseScore": 7.6,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.0006,
+        "percentile": 17.248
+      },
+      "riskScore": 43,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Hcl Software"
+        ],
+        "products": [
+          "Iautomate"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0122646",
+          "source": "VDB-299060 | PyTorch Quantized Sigmoid Module nnq_Sigmoid initialization",
+          "tags": [
+            "x_refsource_CONFIRM"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-200"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "Low",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/31xxx/CVE-2025-31955.json",
+            "lastModified": "2025-07-25T13:34:36.168000+00:00"
           }
         ]
       }
@@ -297179,6 +296922,73 @@
       }
     },
     {
+      "cveId": "CVE-2025-47245",
+      "title": "CVE-2025-47245: In BlueWave Checkmate through 2.0.2 before d4a6072, an invite request can be modified to specify a p...",
+      "description": "In BlueWave Checkmate through 2.0.2 before d4a6072, an invite request can be modified to specify a privileged role.",
+      "publishedDate": "2025-05-03T00:00:00+00:00",
+      "lastModifiedDate": "2025-05-05T14:20:10.531000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 8.1,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.0006,
+        "percentile": 19.208
+      },
+      "riskScore": 42,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Bluewave"
+        ],
+        "products": [
+          "Checkmate"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://github.com/bluewave-labs/Checkmate/pull/2160",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://github.com/bluewave-labs/Checkmate/security/advisories/GHSA-7x3q-g6gq-f4mm",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://github.com/bluewave-labs/Checkmate/commit/d4a60723f490502b3fe6f7f780a85d29bf5d1385",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-472"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "High",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/47xxx/CVE-2025-47245.json",
+            "lastModified": "2025-05-05T14:20:10.531000+00:00"
+          }
+        ]
+      }
+    },
+    {
       "cveId": "CVE-2025-4204",
       "title": "Ultimate Auction Pro <= 1.5.2 - Unauthenticated SQL Injection via 'auction_id'",
       "description": "The Ultimate Auction Pro plugin for WordPress is vulnerable to SQL Injection via the ‘auction_id’ parameter in all versions up to, and including, 1.5.2 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
@@ -298472,6 +298282,124 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/4xxx/CVE-2025-4176.json",
             "lastModified": "2025-05-02T17:29:13.481000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-31953",
+      "title": "HCL iAutomate is affected by hardcoded credentials",
+      "description": "HCL iAutomate includes hardcoded credentials which may result in potential exposure of confidential data if intercepted or accessed by unauthorized parties.",
+      "publishedDate": "2025-07-24T20:40:43.677000+00:00",
+      "lastModifiedDate": "2025-07-25T01:32:44.278000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:L/A:N",
+          "baseScore": 7.1,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.0003,
+        "percentile": 7.202
+      },
+      "riskScore": 42,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Hcl Software"
+        ],
+        "products": [
+          "Iautomate"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0122646",
+          "source": "VDB-299060 | PyTorch Quantized Sigmoid Module nnq_Sigmoid initialization",
+          "tags": [
+            "x_refsource_CONFIRM"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-798"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "Low",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/31xxx/CVE-2025-31953.json",
+            "lastModified": "2025-07-25T01:32:44.278000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-31952",
+      "title": "HCL iAutomate is affected by an insufficient session expiration",
+      "description": "HCL iAutomate is affected by an insufficient session expiration.  This allows tokens to remain valid indefinitely unless manually revoked, increasing the risk of unauthorized access.",
+      "publishedDate": "2025-07-24T21:01:57.524000+00:00",
+      "lastModifiedDate": "2025-07-25T13:34:09.699000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:L",
+          "baseScore": 7.1,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.0005,
+        "percentile": 15.603
+      },
+      "riskScore": 42,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Hcl Software"
+        ],
+        "products": [
+          "Iautomate"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0122646",
+          "source": "VDB-299060 | PyTorch Quantized Sigmoid Module nnq_Sigmoid initialization",
+          "tags": [
+            "x_refsource_CONFIRM"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-613"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "Low",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/31xxx/CVE-2025-31952.json",
+            "lastModified": "2025-07-25T13:34:09.699000+00:00"
           }
         ]
       }
@@ -335676,6 +335604,78 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/49xxx/CVE-2025-49492.json",
             "lastModified": "2025-07-01T14:29:53.421000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-47244",
+      "title": "CVE-2025-47244: Inedo ProGet through 2024.22 allows remote attackers to reach restricted functionality through the C...",
+      "description": "Inedo ProGet through 2024.22 allows remote attackers to reach restricted functionality through the C# reflection layer, as demonstrated by causing a denial of service (when an attacker executes a loop calling RestartWeb) or obtaining potentially sensitive information. Exploitation can occur if Anonymous access is enabled, or if there is a successful CSRF attack.",
+      "publishedDate": "2025-05-03T00:00:00+00:00",
+      "lastModifiedDate": "2025-05-05T14:21:24.798000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+          "baseScore": 7.3,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.0014,
+        "percentile": 34.31
+      },
+      "riskScore": 41,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Inedo"
+        ],
+        "products": [
+          "Proget"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://seclists.org/fulldisclosure/2025/Apr/30",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://forums.inedo.com",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://docs.inedo.com/docs/proget/installation/installation-guide",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://my.inedo.com/downloads/installers?product=ProGet",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-288"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/47xxx/CVE-2025-47244.json",
+            "lastModified": "2025-05-05T14:21:24.798000+00:00"
           }
         ]
       }
