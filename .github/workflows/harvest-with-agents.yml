@@ -33,11 +33,20 @@ jobs:
       with:
         python-version: '3.12'
 
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 'lts/*'
+        cache: 'npm'
+
     - name: Install uv
       uses: astral-sh/setup-uv@v4
       
     - name: Install dependencies
       run: |
+        # Install Node.js dependencies first
+        npm ci
+        # Install Python dependencies
         uv pip install --system -r requirements.txt
         # Install Great Expectations if available
         uv pip install --system great-expectations || true
@@ -76,31 +85,40 @@ jobs:
         python -m scripts.main generate-briefing \
           --storage-strategy severity-year
 
+    - name: Force clean build (Critical - prevents stale data)
+      if: ${{ !inputs.dry_run }}
+      run: |
+        echo "🧹 Force cleaning and building site..."
+        # CRITICAL: Clean all build directories to prevent 15,000+ CVE issue
+        npm run clean
+        # Generate site with Python (no incremental builds)
+        npm run build
+        
     - name: Update coverage badge
       if: ${{ !inputs.dry_run }}
       run: |
         echo "🏷️ Updating coverage badge..."
         python -m scripts.main update-badge || true
 
-    - name: Quality validation with Great Expectations
+    - name: Critical CI/CD Gatecheck Validation
       if: ${{ !inputs.dry_run }}
       run: |
-        echo "✅ Running quality validation..."
-        python -c "
-        try:
-            from agents.controller_agent import ControllerAgent
-            import asyncio
-            
-            async def validate():
-                controller = ControllerAgent()
-                # Run validation on generated data
-                print('Running data quality checks...')
-                # This is a placeholder - implement actual validation
-                
-            asyncio.run(validate())
-        except ImportError:
-            print('Agent validation not available')
-        " || true
+        echo "🔒 Running critical gatecheck validation..."
+        python -m scripts.ci_gatecheck \
+          --api-dir public/api \
+          --cache-dir .cache \
+          --max-cve-count 100 \
+          --expected-cve-count 60 \
+          --min-epss 0.6 \
+          --output-report gatecheck-report.json \
+          --fail-on-violations
+
+    - name: Upload gatecheck report
+      if: ${{ !inputs.dry_run && always() }}
+      uses: actions/upload-artifact@v4
+      with:
+        name: gatecheck-report
+        path: gatecheck-report.json
 
     - name: Commit and push changes
       if: ${{ !inputs.dry_run && github.ref == 'refs/heads/main' }}
@@ -124,12 +142,35 @@ jobs:
           echo "No changes to commit"
         fi
 
-    - name: Deploy to GitHub Pages
+    - name: Deploy to GitHub Pages (Force Overwrite)
       if: ${{ !inputs.dry_run && github.ref == 'refs/heads/main' }}
-      uses: actions/deploy-pages@v4
-      with:
-        artifact_name: github-pages
-        token: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        echo "🚀 Deploying to GitHub Pages with force overwrite..."
+        # Create deployment script if it doesn't exist
+        if [ ! -f "deploy_gh_pages.sh" ]; then
+          cat > deploy_gh_pages.sh << 'EOF'
+        #!/bin/bash
+        set -e
+        echo "Force deploying to gh-pages branch..."
+        git fetch origin gh-pages:gh-pages || git checkout --orphan gh-pages
+        git checkout gh-pages
+        # Remove ALL existing files (critical for preventing stale data)
+        find . -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} +
+        # Copy new files
+        cp -r public/* . 2>/dev/null || echo "No public directory to copy"
+        # Stage all changes
+        git add -A
+        if git diff --staged --quiet; then
+          echo "No changes to deploy"
+        else
+          git commit -m "Deploy: $(date -u '+%Y-%m-%d %H:%M:%S UTC') - Force clean deployment"
+          git push origin gh-pages --force
+          echo "✅ Deployment complete"
+        fi
+        EOF
+          chmod +x deploy_gh_pages.sh
+        fi
+        ./deploy_gh_pages.sh
 
     - name: Send webhook notifications
       if: ${{ !inputs.dry_run }}

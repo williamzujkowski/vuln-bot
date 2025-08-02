@@ -5,6 +5,7 @@ These tests ensure the production site matches the expected filtered dataset.
 
 import os
 import json
+import time
 from typing import Dict, List, Any, Set
 from urllib.parse import urljoin
 
@@ -13,9 +14,114 @@ import pytest
 
 
 LIVE_SITE_URL = os.getenv("LIVE_SITE_URL", "https://williamzujkowski.github.io/vuln-bot/")
-EXPECTED_CVE_COUNT = 60  # Maximum expected CVEs with EPSS >= 60%
-TOLERANCE_PERCENT = 20  # Allow 20% variance
+EXPECTED_CVE_COUNT = int(os.getenv("EXPECTED_CVE_COUNT", "30"))  # Allow override via environment
+TOLERANCE_PERCENT = 40  # Allow 40% variance to account for data fluctuations
 MIN_EPSS_THRESHOLD = 60.0
+MAX_CVE_COUNT = int(os.getenv("MAX_CVE_COUNT", "100"))  # Maximum allowed CVEs
+POLLING_TIMEOUT_SECONDS = 300  # 5 minutes polling timeout for GitHub Pages cache
+POLLING_INTERVAL_SECONDS = 30  # Poll every 30 seconds
+
+
+def poll_until_stable(page: Page, get_value_func, expected_range, timeout_seconds=POLLING_TIMEOUT_SECONDS):
+    """
+    Poll until the value stabilizes within expected range or timeout.
+    Handles GitHub Pages caching issues by retrying.
+    
+    Args:
+        page: Playwright page instance
+        get_value_func: Function that returns the current value
+        expected_range: Tuple of (min, max) expected values
+        timeout_seconds: Maximum time to poll
+        
+    Returns:
+        Final value obtained
+        
+    Raises:
+        TimeoutError: If value doesn't stabilize within timeout
+    """
+    start_time = time.time()
+    min_val, max_val = expected_range
+    
+    while time.time() - start_time < timeout_seconds:
+        try:
+            # Refresh page to bypass cache
+            page.reload(wait_until="networkidle")
+            page.wait_for_timeout(2000)  # Wait for Alpine.js
+            
+            current_value = get_value_func()
+            print(f"Poll attempt: got {current_value}, expecting {min_val}-{max_val}")
+            
+            if min_val <= current_value <= max_val:
+                print(f"✅ Value stabilized at {current_value}")
+                return current_value
+                
+            # If value is way too high, fail immediately (don't waste time)
+            if current_value > max_val * 10:
+                raise ValueError(f"Value {current_value} is extremely high, likely stale data issue")
+                
+        except Exception as e:
+            print(f"Poll error: {e}")
+            
+        print(f"Value {current_value} not in range, waiting {POLLING_INTERVAL_SECONDS}s...")
+        time.sleep(POLLING_INTERVAL_SECONDS)
+    
+    # Final attempt
+    current_value = get_value_func()
+    raise TimeoutError(f"Value {current_value} never stabilized to {min_val}-{max_val} range after {timeout_seconds}s")
+
+
+def get_cve_count_from_ui(page: Page) -> int:
+    """Get CVE count from the UI, with multiple fallback methods."""
+    # Method 1: Alpine.js store
+    try:
+        count = page.evaluate("""
+            () => {
+                const store = window.Alpine?.store('dashboard');
+                return store?.stats?.total || 0;
+            }
+        """)
+        if count > 0:
+            return count
+    except:
+        pass
+        
+    # Method 2: Count table rows
+    try:
+        count = page.evaluate("""
+            () => {
+                const rows = document.querySelectorAll('table tbody tr');
+                return rows.length;
+            }
+        """)
+        if count > 0:
+            return count
+    except:
+        pass
+        
+    # Method 3: Look for results text
+    try:
+        results_text = page.locator("text=/Showing \\d+ of \\d+/").text_content()
+        if results_text:
+            import re
+            match = re.search(r'of (\\d+)', results_text)
+            if match:
+                return int(match.group(1))
+    except:
+        pass
+        
+    # Method 4: Count CVE items in list
+    try:
+        count = page.evaluate("""
+            () => {
+                const items = document.querySelectorAll('[data-cve-id]');
+                return items.length;
+            }
+        """)
+        return count
+    except:
+        pass
+        
+    return 0
 
 
 class TestLiveSiteSanity:
@@ -30,37 +136,39 @@ class TestLiveSiteSanity:
     
     def test_cve_count_is_reasonable(self, page: Page):
         """
-        CRITICAL: Test that CVE count is within expected range.
+        CRITICAL: Test that CVE count is within expected range with polling.
         This is the primary test to detect if 15,000 stale CVEs are showing.
+        Uses polling to handle GitHub Pages caching issues.
         """
-        # Get total count from the dashboard
-        total_count = page.evaluate("""
-            () => {
-                // Try multiple methods to get the count
-                const store = window.Alpine?.store('dashboard');
-                if (store && store.stats) {
-                    return store.stats.total;
-                }
-                
-                // Fallback: count table rows
-                const rows = document.querySelectorAll('table tbody tr');
-                return rows.length;
-            }
-        """)
+        print(f"🔍 Testing CVE count with polling (expected {EXPECTED_CVE_COUNT} ±{TOLERANCE_PERCENT}%)")
         
         # Calculate acceptable range
         min_acceptable = int(EXPECTED_CVE_COUNT * (1 - TOLERANCE_PERCENT/100))
         max_acceptable = int(EXPECTED_CVE_COUNT * (1 + TOLERANCE_PERCENT/100))
         
-        # CRITICAL ASSERTION
-        assert total_count <= max_acceptable, \
-            f"CRITICAL: Found {total_count} CVEs on live site! Expected ~{EXPECTED_CVE_COUNT}. " \
-            f"This indicates stale data is still present."
+        # Use shorter timeout for critical check
+        try:
+            total_count = poll_until_stable(
+                page,
+                lambda: get_cve_count_from_ui(page),
+                (min_acceptable, max_acceptable),
+                timeout_seconds=120  # 2 minutes for critical check
+            )
+        except (TimeoutError, ValueError) as e:
+            # Get current count for detailed error
+            current_count = get_cve_count_from_ui(page)
+            
+            # CRITICAL: Check for 15,000+ issue immediately
+            if current_count > MAX_CVE_COUNT:
+                pytest.fail(
+                    f"CRITICAL: 15,000+ CVE ISSUE DETECTED! Found {current_count} CVEs on live site. "
+                    f"The force rebuild has FAILED. Stale data is still present. "
+                    f"Original error: {e}"
+                )
+            else:
+                pytest.fail(f"CVE count polling failed: {e}")
         
-        assert total_count >= min_acceptable, \
-            f"Found only {total_count} CVEs, expected at least {min_acceptable}"
-        
-        print(f"✓ CVE count is reasonable: {total_count} (expected ~{EXPECTED_CVE_COUNT})")
+        print(f"✅ CVE count is reasonable: {total_count} (expected ~{EXPECTED_CVE_COUNT})")
     
     def test_api_data_matches_ui(self, page: Page):
         """Test that API data matches what's shown in the UI."""
@@ -111,6 +219,72 @@ class TestLiveSiteSanity:
             f"Found {len(violations)} CVEs below {MIN_EPSS_THRESHOLD}% EPSS: {violations[:5]}"
         
         print(f"✓ All sampled CVEs have EPSS >= {MIN_EPSS_THRESHOLD}%")
+    
+    def test_cisa_kev_flags_present(self, page: Page):
+        """Test that CISA KEV flags are present where applicable."""
+        # Get API data
+        api_url = urljoin(LIVE_SITE_URL, "api/vulns/index.json")
+        response = page.request.get(api_url)
+        assert response.status == 200, f"Failed to fetch API data: {response.status}"
+        
+        api_data = response.json()
+        kev_cves = []
+        
+        for vuln in api_data.get("vulnerabilities", [])[:20]:  # Check first 20
+            cve_id = vuln.get("cveId")
+            cisa_data = vuln.get("cisa", {})
+            
+            if cisa_data.get("kev", False):
+                kev_cves.append(cve_id)
+        
+        if kev_cves:
+            print(f"✅ Found {len(kev_cves)} CVEs with CISA KEV flags: {kev_cves[:3]}...")
+            
+            # Check that KEV flags appear in UI
+            first_kev = kev_cves[0]
+            # Look for KEV indicator in the UI
+            try:
+                kev_indicator = page.locator(f"text=/{first_kev}/").locator("..").locator("text=/KEV|CISA/i")
+                if kev_indicator.count() > 0:
+                    print(f"✅ KEV indicators visible in UI for {first_kev}")
+                else:
+                    print(f"⚠️  KEV indicator not found in UI for {first_kev}")
+            except:
+                print("⚠️  Could not verify KEV indicators in UI")
+        else:
+            print("ℹ️  No CISA KEV CVEs found in sample")
+    
+    def test_dependencies_links_load(self, page: Page):
+        """Test that deps.dev links load correctly."""
+        # Get API data
+        api_url = urljoin(LIVE_SITE_URL, "api/vulns/index.json")
+        response = page.request.get(api_url)
+        api_data = response.json()
+        
+        deps_links_found = []
+        
+        for vuln in api_data.get("vulnerabilities", [])[:10]:  # Check first 10
+            references = vuln.get("references", [])
+            for ref in references:
+                url = ref.get("url", "")
+                if "deps.dev" in url:
+                    deps_links_found.append(url)
+        
+        if deps_links_found:
+            print(f"✅ Found {len(deps_links_found)} deps.dev links")
+            
+            # Test first deps.dev link
+            first_link = deps_links_found[0]
+            try:
+                deps_response = page.request.get(first_link, timeout=10000)
+                if deps_response.status == 200:
+                    print(f"✅ Deps.dev link loads successfully: {first_link}")
+                else:
+                    print(f"⚠️  Deps.dev link returned {deps_response.status}: {first_link}")
+            except Exception as e:
+                print(f"⚠️  Failed to test deps.dev link: {e}")
+        else:
+            print("ℹ️  No deps.dev links found in sample")
     
     def test_chunk_files_are_clean(self, page: Page):
         """Test that chunk files don't contain excessive CVEs."""

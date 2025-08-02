@@ -30,6 +30,8 @@ jobs:
         run: |
           pip install uv
           uv pip install --system -r requirements.txt
+          # Install additional dependencies for validation
+          uv pip install --system rich
           # Install Playwright for E2E tests
           pip install pytest-playwright
           playwright install chromium
@@ -45,7 +47,7 @@ jobs:
           LIVE_SITE_URL: ${{ github.event.inputs.site_url || 'https://williamzujkowski.github.io/vuln-bot/' }}
         run: |
           echo "Validating site at: $LIVE_SITE_URL"
-          pytest tests/e2e/test_live_site_validation.py -v --tb=short
+          pytest tests/e2e/test_live_site_sanity.py -v --tb=short
       
       - name: Validate EPSS threshold compliance
         run: |
@@ -72,6 +74,20 @@ jobs:
             --api-dir temp_api \
             --min-epss 0.6 \
             --verify-only
+      
+      - name: Run comprehensive gatecheck on live data
+        env:
+          LIVE_SITE_URL: ${{ github.event.inputs.site_url || 'https://williamzujkowski.github.io/vuln-bot/' }}
+        run: |
+          echo "🔒 Running comprehensive gatecheck on deployed data..."
+          python -m scripts.ci_gatecheck \
+            --api-dir temp_api \
+            --cache-dir .cache \
+            --max-cve-count 100 \
+            --expected-cve-count 30 \
+            --min-epss 0.6 \
+            --output-report post-deploy-gatecheck.json \
+            --fail-on-violations
       
       - name: Generate QA report
         if: always()
@@ -103,7 +119,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: qa-validation-report
-          path: qa-validation-report.md
+          path: |
+            qa-validation-report.md
+            post-deploy-gatecheck.json
       
       - name: Comment on workflow run
         if: github.event_name == 'workflow_run' && always()

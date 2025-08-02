@@ -103,6 +103,69 @@ class RepoAuditAgent(BaseAgent):
         
         return self.audit_results
     
+    def find_vestigial_files(self, directory: Path, api_dir: Path, min_epss: float) -> List[str]:
+        """
+        Find vestigial/stale files that should be removed.
+        
+        Args:
+            directory: Directory to scan for stale files
+            api_dir: API directory containing valid data
+            min_epss: Minimum EPSS threshold
+            
+        Returns:
+            List of file paths that should be removed
+        """
+        if not directory.exists():
+            return []
+            
+        # Get valid CVE IDs from API data
+        valid_cve_ids = set()
+        index_file = api_dir / "vulns" / "index.json"
+        
+        if index_file.exists():
+            try:
+                with open(index_file) as f:
+                    data = json.load(f)
+                    
+                for vuln in data.get("vulnerabilities", []):
+                    epss_score = vuln.get("epss", {}).get("score", 0)
+                    if epss_score >= min_epss:
+                        valid_cve_ids.add(vuln["cveId"])
+            except Exception as e:
+                logger.error("Failed to load index file", error=str(e))
+        
+        vestigial_files = []
+        
+        # Check for CVE HTML pages
+        cve_pages = list(directory.glob("**/CVE-*/index.html"))
+        for page in cve_pages:
+            cve_id = page.parent.name
+            if cve_id not in valid_cve_ids:
+                vestigial_files.append(str(page))
+        
+        # Check for CVE directories
+        cve_dirs = [d for d in directory.glob("**/CVE-*") if d.is_dir()]
+        for cve_dir in cve_dirs:
+            cve_id = cve_dir.name
+            if cve_id not in valid_cve_ids:
+                vestigial_files.append(str(cve_dir))
+                
+        # Check for CVE JSON files
+        cve_jsons = list(directory.glob("**/CVE-*.json"))
+        for json_file in cve_jsons:
+            cve_id = json_file.stem
+            if cve_id not in valid_cve_ids:
+                vestigial_files.append(str(json_file))
+                
+        # Check for CVE markdown files
+        cve_mds = list(directory.glob("**/CVE-*.md"))
+        for md_file in cve_mds:
+            cve_id = md_file.stem
+            if cve_id not in valid_cve_ids:
+                vestigial_files.append(str(md_file))
+        
+        return vestigial_files
+    
     def _audit_cve_pages(self, build_dir: Path, valid_cve_ids: Set[str]):
         """Audit CVE HTML pages."""
         cve_pages = list(build_dir.glob("cves/CVE-*/index.html"))

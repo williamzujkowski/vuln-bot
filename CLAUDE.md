@@ -61,10 +61,19 @@ pytest --cov=scripts --cov-report=html --cov-report=term tests/
 # Run Playwright E2E tests for live site
 pip install pytest-playwright playwright
 playwright install --with-deps chromium
-pytest tests/e2e/test_live_site_validation.py -v
+pytest tests/e2e/test_live_site_sanity.py -v
 
 # Run security checks
 bandit -r scripts/ -ll
+
+# CRITICAL: Run comprehensive CI/CD gatecheck validation
+python -m scripts.ci_gatecheck \
+  --api-dir public/api \
+  --max-cve-count 1000 \
+  --expected-cve-count 60 \
+  --min-epss 0.6 \
+  --output-report gatecheck.json \
+  --fail-on-warnings
 ```
 
 ### JavaScript/11ty Development
@@ -72,7 +81,13 @@ bandit -r scripts/ -ll
 # Install Node dependencies
 npm install
 
-# Build the 11ty site
+# CRITICAL: Build the 11ty site (ALWAYS use non-incremental builds)
+# Incremental builds cause stale data persistence, leading to 15,000+ CVE issues
+rm -rf _site public && npm run build
+
+# NEVER use incremental builds in production:
+# BAD:  npx eleventy --incremental
+# GOOD: npx eleventy (clean build)
 npm run build
 
 # Serve the site locally with hot reload
@@ -319,3 +334,86 @@ pytest tests/playwright_live_test.py -v
 2. **High Memory Usage**: Check if virtual scrolling is enabled for large datasets
 3. **Slow Page Load**: Verify chunked storage strategy is active
 4. **API Rate Limits**: Check cache hit rates and TTL configuration
+
+## 🚨 Critical Production Issues & Solutions
+
+### The 15,000+ CVE Data Issue (Resolved)
+
+**Problem**: Production site was showing 15,000+ CVEs instead of the expected ~30 CVEs after implementing EPSS 60% threshold filtering.
+
+**Root Cause**: 
+- Incremental builds were preserving stale data files
+- GitHub Pages caching prevented proper cleanup
+- Static site generators accumulated files over multiple deployments
+
+**Critical Solution**:
+```bash
+# ALWAYS use complete rebuilds to prevent stale data
+rm -rf _site public
+python -m scripts.generate_alpine_dashboard  # Clean generation
+# NEVER use --incremental flag on 11ty builds
+```
+
+**Prevention Measures**:
+1. **Mandatory CI/CD Gatecheck**: All deployments must pass strict validation
+2. **Non-Incremental Builds**: Force complete rebuilds every time
+3. **Live Site Monitoring**: Automated detection of 15,000+ CVE issues
+4. **Force Purge Strategy**: Complete directory cleanup before builds
+
+### Critical Validation Commands
+
+```bash
+# Pre-deployment validation (REQUIRED)
+python -m scripts.ci_gatecheck \
+  --api-dir public/api \
+  --max-cve-count 1000 \
+  --expected-cve-count 60 \
+  --min-epss 0.6 \
+  --fail-on-warnings
+
+# Post-deployment validation (automated)
+pytest tests/e2e/test_live_site_sanity.py -v
+
+# Emergency force rebuild (if 15,000+ issue detected)
+python -m scripts.force_rebuild \
+  --expected-count 60 \
+  --min-epss 0.6
+```
+
+### Developer Guidelines
+
+**❌ NEVER DO**:
+- Use incremental builds in production (`--incremental`)
+- Deploy without running gatecheck validation
+- Ignore CVE count warnings in CI/CD
+- Assume data is correct without validation
+
+**✅ ALWAYS DO**:
+- Run complete clean builds (`rm -rf _site public`)
+- Validate data before deployment
+- Check live site counts after deployment
+- Monitor for 15,000+ CVE alerts
+
+### Emergency Response
+
+If production shows >1000 CVEs:
+
+1. **Immediate**: Run force rebuild script
+   ```bash
+   npm run build:force
+   ```
+2. **Validate**: Check gatecheck passes locally
+   ```bash
+   npm run validate
+   ```
+3. **Deploy**: Force push to gh-pages branch
+   ```bash
+   npm run deploy
+   ```
+4. **Monitor**: Wait 10+ minutes for CDN propagation
+5. **Confirm**: Run live site validation tests
+   ```bash
+   npm run test:e2e
+   ```
+
+📋 **For detailed troubleshooting procedures, see [TROUBLESHOOTING.md](./TROUBLESHOOTING.md)**
