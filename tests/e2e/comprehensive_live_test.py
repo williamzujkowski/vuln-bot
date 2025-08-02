@@ -7,11 +7,14 @@ import time
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List
+import pytest
 
-# import pytest
-# pytest.skip("E2E tests require Playwright - run manually", allow_module_level=True)
-import aiohttp
-from playwright.async_api import Page, async_playwright, expect
+try:
+    from playwright.async_api import Page, async_playwright, expect
+    import aiohttp
+except ImportError:
+    playwright = None
+    pytest.skip("Playwright not installed", allow_module_level=True)
 
 
 class ComprehensiveLiveTester:

@@ -2,8 +2,13 @@
 """Test local changes to the site."""
 
 import asyncio
+import pytest
 
-from playwright.async_api import async_playwright
+try:
+    from playwright.async_api import async_playwright
+except ImportError:
+    playwright = None
+    pytest.skip("Playwright not installed", allow_module_level=True)
 
 
 async def test_local_changes():

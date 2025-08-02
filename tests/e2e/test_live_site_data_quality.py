@@ -4,8 +4,13 @@
 import asyncio
 import re
 from datetime import datetime
+import pytest
 
-from playwright.async_api import async_playwright
+try:
+    from playwright.async_api import async_playwright
+except ImportError:
+    playwright = None
+    pytest.skip("Playwright not installed", allow_module_level=True)
 
 
 async def test_live_site_data_quality():

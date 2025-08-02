@@ -6,8 +6,13 @@ import json
 import re
 from datetime import datetime
 from pathlib import Path
+import pytest
 
-from playwright.async_api import Page, async_playwright, expect
+try:
+    from playwright.async_api import Page, async_playwright, expect
+except ImportError:
+    playwright = None
+    pytest.skip("Playwright not installed", allow_module_level=True)
 
 
 class VulnBotE2ETests:

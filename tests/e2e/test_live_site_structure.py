@@ -2,8 +2,13 @@
 """Test to understand the current structure of the live site."""
 
 import asyncio
+import pytest
 
-from playwright.async_api import async_playwright
+try:
+    from playwright.async_api import async_playwright
+except ImportError:
+    playwright = None
+    pytest.skip("Playwright not installed", allow_module_level=True)
 
 
 async def analyze_live_site():

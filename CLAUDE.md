@@ -35,6 +35,11 @@ ruff format scripts/
 # Run Python tests with coverage
 pytest --cov=scripts --cov-report=html --cov-report=term tests/
 
+# Run Python E2E tests with Playwright
+pip install pytest-playwright playwright
+playwright install --with-deps chromium
+python -m pytest tests/e2e/ -m e2e --verbose
+
 # Run security checks
 bandit -r scripts/ -ll
 ```

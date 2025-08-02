@@ -55,9 +55,13 @@ jobs:
         run: |
           uv pip install --system -r requirements.txt
       
+      - name: Install Playwright browsers
+        run: |
+          playwright install --with-deps chromium
+      
       - name: Run tests with coverage
         run: |
-          pytest --cov=scripts --cov-report=xml --cov-report=json --cov-report=term
+          python -m pytest --cov=scripts --cov-report=xml --cov-report=json --cov-report=term
       
       - name: Upload coverage reports
         uses: codecov/codecov-action@v4

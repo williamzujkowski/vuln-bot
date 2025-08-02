@@ -2,8 +2,13 @@
 """Verify that the product column on the live site shows only product names."""
 
 import asyncio
+import pytest
 
-from playwright.async_api import async_playwright
+try:
+    from playwright.async_api import async_playwright
+except ImportError:
+    playwright = None
+    pytest.skip("Playwright not installed", allow_module_level=True)
 
 
 async def verify_product_column():

@@ -33,12 +33,24 @@ ignore = [
 minversion = "7.0"
 testpaths = ["tests"]
 pythonpath = ["."]
+asyncio_mode = "auto"
 addopts = [
     "--verbose",
     "--cov=scripts",
     "--cov-report=term-missing",
     "--cov-report=html",
     "--cov-fail-under=15",
+    "--tb=short",
+]
+markers = [
+    "slow: marks tests as slow",
+    "integration: marks tests as integration tests", 
+    "unit: marks tests as unit tests",
+    "e2e: marks tests as end-to-end tests",
+]
+filterwarnings = [
+    "ignore::DeprecationWarning",
+    "ignore::PendingDeprecationWarning",
 ]
 
 [tool.coverage.run]
