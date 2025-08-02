@@ -1,23 +1,23 @@
 ---
 title: Morning Vulnerability Briefing - 2025-08-02
-date: 2025-08-02T00:23:32.840653
+date: 2025-08-02T04:16:17.058369
 layout: layouts/post.njk
 tags: [vulnerability, briefing, security]
-vulnerabilityCount: 15657
+vulnerabilityCount: 15638
 criticalCount: 0
 highCount: 2
 ---
 
 # Morning Vulnerability Briefing - 2025-08-02
 
-Today's briefing covers **15657 vulnerabilities** from 0 sources.
+Today's briefing covers **15638 vulnerabilities** from 0 sources.
 
 ## Risk Distribution
 
 - 🔴 **Critical Risk**: 0 vulnerabilities
 - 🟠 **High Risk**: 2 vulnerabilities
-- 🟡 **Medium Risk**: 10675 vulnerabilities
-- 🟢 **Low Risk**: 4980 vulnerabilities
+- 🟡 **Medium Risk**: 10660 vulnerabilities
+- 🟢 **Low Risk**: 4976 vulnerabilities
 
 ## Top Vulnerabilities
 
@@ -74,33 +74,7 @@ Today's briefing covers **15657 vulnerabilities** from 0 sources.
 
 ---
 
-### 3. [CVE-2025-49113](/api/vulns/CVE-2025-49113.json)
-
-**Risk Score**: 69/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.9 | 
-**EPSS**: 88.1%
-
-**Summary**: Roundcube Webmail before 1.5.10 and 1.6.x before 1.6.11 allows remote code execution by authenticated users because the _from parameter in a URL is not validated in program/actions/settings/upload.php, leading to PHP Object Deserialization.
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 88.14% exploit probability
-
-**Affected Vendors**: Roundcube
-
-**Tags**: `CWE-502`
-
-**References**:
-
-- [https://roundcube.net/news/2025/06/01/security-updates-1.6.11-and-1.5.10](https://roundcube.net/news/2025/06/01/security-updates-1.6.11-and-1.5.10)
-- [https://github.com/roundcube/roundcubemail/pull/9865](https://github.com/roundcube/roundcubemail/pull/9865)
-- [https://github.com/roundcube/roundcubemail/releases/tag/1.6.11](https://github.com/roundcube/roundcubemail/releases/tag/1.6.11)
-
----
-
-### 4. [CVE-2024-4577](/api/vulns/CVE-2024-4577.json)
+### 3. [CVE-2024-4577](/api/vulns/CVE-2024-4577.json)
 
 **Risk Score**: 68/100 | 
 **Severity**: CRITICAL | 
@@ -126,7 +100,7 @@ Today's briefing covers **15657 vulnerabilities** from 0 sources.
 
 ---
 
-### 5. [CVE-2025-1974](/api/vulns/CVE-2025-1974.json)
+### 4. [CVE-2025-1974](/api/vulns/CVE-2025-1974.json)
 
 **Risk Score**: 68/100 | 
 **Severity**: CRITICAL | 
@@ -148,6 +122,32 @@ Today's briefing covers **15657 vulnerabilities** from 0 sources.
 **References**:
 
 - [https://https://github.com/kubernetes/kubernetes/issues/131009](https://https://github.com/kubernetes/kubernetes/issues/131009)
+
+---
+
+### 5. [CVE-2025-49113](/api/vulns/CVE-2025-49113.json)
+
+**Risk Score**: 68/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 9.9 | 
+**EPSS**: 85.6%
+
+**Summary**: Roundcube Webmail before 1.5.10 and 1.6.x before 1.6.11 allows remote code execution by authenticated users because the _from parameter in a URL is not validated in program/actions/settings/upload.php, leading to PHP Object Deserialization.
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 85.62% exploit probability
+
+**Affected Vendors**: Roundcube
+
+**Tags**: `CWE-502`
+
+**References**:
+
+- [https://roundcube.net/news/2025/06/01/security-updates-1.6.11-and-1.5.10](https://roundcube.net/news/2025/06/01/security-updates-1.6.11-and-1.5.10)
+- [https://github.com/roundcube/roundcubemail/pull/9865](https://github.com/roundcube/roundcubemail/pull/9865)
+- [https://github.com/roundcube/roundcubemail/releases/tag/1.6.11](https://github.com/roundcube/roundcubemail/releases/tag/1.6.11)
 
 ---
 
@@ -310,14 +310,14 @@ Today's briefing covers **15657 vulnerabilities** from 0 sources.
 **Risk Score**: 67/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 10.0 | 
-**EPSS**: 90.2%
+**EPSS**: 90.0%
 
 **Summary**: Invision Community 5.0.0 before 5.0.7 allows remote code execution via crafted template strings to themeeditor.php. The issue lies within the themeeditor controller (file: /applications/core/modules/front/system/themeeditor.php), where a protected method named customCss can be invoked by unauthenticated users. This method passes the value of the content parameter to the Theme::makeProcessFunction() method; hence it is evaluated by the template engine. Accordingly, this can be exploited by unauth...
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 90.16% exploit probability
+- 90.04% exploit probability
 
 **Affected Vendors**: Invisioncommunity, Template
 
@@ -506,7 +506,7 @@ critical systems.
 **Risk Factors**:
 
 - CRITICAL severity
-- 93.63% exploit probability
+- 93.6% exploit probability
 
 **Affected Vendors**: React, Vercel
 
@@ -847,7 +847,35 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 33. [CVE-2024-9234](/api/vulns/CVE-2024-9234.json)
+### 33. [CVE-2025-3248](/api/vulns/CVE-2025-3248.json)
+
+**Risk Score**: 65/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 9.8 | 
+**EPSS**: 92.5%
+
+**Summary**: Langflow versions prior to 1.3.0 are susceptible to code injection in 
+the /api/v1/validate/code endpoint. A remote and unauthenticated attacker can send crafted HTTP requests to execute arbitrary
+code.
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 92.53% exploit probability
+
+**Affected Vendors**: Langflow-ai
+
+**Tags**: `CWE-306`
+
+**References**:
+
+- [https://github.com/langflow-ai/langflow/pull/6911](https://github.com/langflow-ai/langflow/pull/6911)
+- [https://github.com/langflow-ai/langflow/releases/tag/1.3.0](https://github.com/langflow-ai/langflow/releases/tag/1.3.0)
+- [https://www.horizon3.ai/attack-research/disclosures/unsafe-at-any-speed-abusing-python-exec-for-unauth-rce-in-langflow-ai/](https://www.horizon3.ai/attack-research/disclosures/unsafe-at-any-speed-abusing-python-exec-for-unauth-rce-in-langflow-ai/)
+
+---
+
+### 34. [CVE-2024-9234](/api/vulns/CVE-2024-9234.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -873,7 +901,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 34. [CVE-2024-32651](/api/vulns/CVE-2024-32651.json)
+### 35. [CVE-2024-32651](/api/vulns/CVE-2024-32651.json)
 
 **Risk Score**: 65/100 | 
 **Severity**: CRITICAL | 
@@ -896,34 +924,6 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 - [https://github.com/dgtlmoon/changedetection.io/security/advisories/GHSA-4r7v-whpg-8rx3](https://github.com/dgtlmoon/changedetection.io/security/advisories/GHSA-4r7v-whpg-8rx3)
 - [https://github.com/dgtlmoon/changedetection.io/releases/tag/0.45.21](https://github.com/dgtlmoon/changedetection.io/releases/tag/0.45.21)
 - [https://www.onsecurity.io/blog/server-side-template-injection-with-jinja2](https://www.onsecurity.io/blog/server-side-template-injection-with-jinja2)
-
----
-
-### 35. [CVE-2025-3248](/api/vulns/CVE-2025-3248.json)
-
-**Risk Score**: 65/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 92.2%
-
-**Summary**: Langflow versions prior to 1.3.0 are susceptible to code injection in 
-the /api/v1/validate/code endpoint. A remote and unauthenticated attacker can send crafted HTTP requests to execute arbitrary
-code.
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 92.15% exploit probability
-
-**Affected Vendors**: Langflow-ai
-
-**Tags**: `CWE-306`
-
-**References**:
-
-- [https://github.com/langflow-ai/langflow/pull/6911](https://github.com/langflow-ai/langflow/pull/6911)
-- [https://github.com/langflow-ai/langflow/releases/tag/1.3.0](https://github.com/langflow-ai/langflow/releases/tag/1.3.0)
-- [https://www.horizon3.ai/attack-research/disclosures/unsafe-at-any-speed-abusing-python-exec-for-unauth-rce-in-langflow-ai/](https://www.horizon3.ai/attack-research/disclosures/unsafe-at-any-speed-abusing-python-exec-for-unauth-rce-in-langflow-ai/)
 
 ---
 
