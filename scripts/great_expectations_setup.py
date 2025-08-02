@@ -4,9 +4,8 @@ Setup Great Expectations validation for the vuln-bot data pipeline.
 Creates expectation suites for each stage of data processing.
 """
 
-import json
 from pathlib import Path
-from typing import Dict, Any, List
+from typing import Any, Dict
 
 # Make Great Expectations optional with better handling
 try:
@@ -29,20 +28,20 @@ except (ImportError, ValueError) as e:
 
 class VulnBotDataValidator:
     """Data validation using Great Expectations for vuln-bot pipeline."""
-    
+
     def __init__(self, project_root: Path = None):
         if not HAS_GREAT_EXPECTATIONS:
             raise ImportError("Great Expectations is required for data validation")
-            
+
         self.project_root = project_root or Path.cwd()
         self.gx_directory = self.project_root / "great_expectations"
         self.context = None
-        
+
     def setup_data_context(self):
         """Initialize Great Expectations data context."""
         # Create GX directory structure
         self.gx_directory.mkdir(exist_ok=True)
-        
+
         # Configure data context
         data_context_config = DataContextConfig(
             datasources={
@@ -72,19 +71,19 @@ class VulnBotDataValidator:
             },
             stores=FilesystemStoreBackendDefaults(root_directory=str(self.gx_directory)),
         )
-        
+
         self.context = BaseDataContext(project_config=data_context_config)
         return self.context
-    
+
     def create_cve_ingestion_suite(self) -> ExpectationSuite:
         """Create expectation suite for raw CVE data ingestion."""
         suite_name = "cve_ingestion_validation"
-        
+
         suite = self.context.create_expectation_suite(
             expectation_suite_name=suite_name,
             overwrite_existing=True,
         )
-        
+
         # Core field expectations
         expectations = [
             ExpectationConfiguration(
@@ -164,22 +163,22 @@ class VulnBotDataValidator:
                 kwargs={"column": "products"},
             ),
         ]
-        
+
         for expectation in expectations:
             suite.add_expectation(expectation_configuration=expectation)
-        
+
         self.context.save_expectation_suite(suite)
         return suite
-    
+
     def create_enrichment_suite(self) -> ExpectationSuite:
         """Create expectation suite for enriched CVE data."""
         suite_name = "cve_enrichment_validation"
-        
+
         suite = self.context.create_expectation_suite(
             expectation_suite_name=suite_name,
             overwrite_existing=True,
         )
-        
+
         # Additional fields from enrichment
         expectations = [
             # All base expectations from ingestion
@@ -228,22 +227,22 @@ class VulnBotDataValidator:
                 },
             ),
         ]
-        
+
         for expectation in expectations:
             suite.add_expectation(expectation_configuration=expectation)
-        
+
         self.context.save_expectation_suite(suite)
         return suite
-    
+
     def create_static_page_suite(self) -> ExpectationSuite:
         """Create expectation suite for static CVE pages."""
         suite_name = "cve_static_page_validation"
-        
+
         suite = self.context.create_expectation_suite(
             expectation_suite_name=suite_name,
             overwrite_existing=True,
         )
-        
+
         # Markdown frontmatter validation
         expectations = [
             ExpectationConfiguration(
@@ -291,13 +290,13 @@ class VulnBotDataValidator:
                 },
             ),
         ]
-        
+
         for expectation in expectations:
             suite.add_expectation(expectation_configuration=expectation)
-        
+
         self.context.save_expectation_suite(suite)
         return suite
-    
+
     def validate_data(self, data_path: Path, suite_name: str) -> Dict[str, Any]:
         """Validate data against an expectation suite."""
         # Create batch request
@@ -306,22 +305,22 @@ class VulnBotDataValidator:
             data_connector_name="json_connector",
             data_asset_name=self._get_asset_name(data_path),
         )
-        
+
         # Get validator
         validator = self.context.get_validator(
             batch_request=batch_request,
             expectation_suite_name=suite_name,
         )
-        
+
         # Run validation
         results = validator.validate()
-        
+
         return {
             "success": results.success,
             "results": results.to_json_dict(),
             "statistics": results.statistics,
         }
-    
+
     def _get_asset_name(self, data_path: Path) -> str:
         """Determine asset name from file path."""
         if "index.json" in str(data_path):
@@ -332,23 +331,23 @@ class VulnBotDataValidator:
             return "cve_pages"
         else:
             raise ValueError(f"Unknown data type for path: {data_path}")
-    
+
     def setup_all_suites(self):
         """Create all validation suites."""
         print("🔧 Setting up Great Expectations validation suites...")
-        
+
         self.setup_data_context()
-        
+
         # Create suites
         self.create_cve_ingestion_suite()
         print("  ✅ Created CVE ingestion validation suite")
-        
+
         self.create_enrichment_suite()
         print("  ✅ Created CVE enrichment validation suite")
-        
+
         self.create_static_page_suite()
         print("  ✅ Created static page validation suite")
-        
+
         # Save checkpoint
         checkpoint_config = {
             "name": "vuln_bot_checkpoint",
@@ -361,10 +360,10 @@ class VulnBotDataValidator:
                 "cve_static_page_validation",
             ],
         }
-        
+
         self.context.add_checkpoint(**checkpoint_config)
         print("  ✅ Created validation checkpoint")
-        
+
         print("\n✨ Great Expectations setup complete!")
         print(f"   Configuration saved to: {self.gx_directory}")
 
@@ -375,10 +374,10 @@ def main():
         print("❌ Great Expectations not available. Install with:")
         print("   pip install great-expectations")
         return
-    
+
     validator = VulnBotDataValidator()
     validator.setup_all_suites()
-    
+
     # Example validation
     print("\n📊 Example validation:")
     api_index = Path("api/vulns/index.json")

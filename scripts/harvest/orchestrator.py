@@ -9,6 +9,7 @@ from typing import Dict, List, Optional, Set
 import structlog
 import yaml
 
+from scripts.agents.epss_filter_agent import EPSSFilterAgent
 from scripts.harvest.cvelist_client import CVEListClient
 from scripts.harvest.epss_client import EPSSClient
 from scripts.harvest.github_advisory_client import GitHubAdvisoryClient
@@ -19,7 +20,6 @@ from scripts.processing.cache_manager import CacheManager
 from scripts.processing.normalizer import VulnerabilityNormalizer
 from scripts.processing.risk_scorer import RiskScorer
 from scripts.quality import DataQualityConfig, DataQualityValidator
-from scripts.agents.epss_filter_agent import EPSSFilterAgent
 
 
 class HarvestOrchestrator:
@@ -435,7 +435,7 @@ class HarvestOrchestrator:
 
         # Apply EPSS filter
         filtered_vuln_dicts, filter_stats = self.epss_filter_agent.filter_vulnerabilities(vuln_dicts)
-        
+
         # Convert back to Vulnerability objects
         filtered_vulnerabilities = []
         for vuln_dict in filtered_vuln_dicts:
@@ -444,10 +444,10 @@ class HarvestOrchestrator:
                 if vuln.cve_id == vuln_dict.get('cveId', vuln_dict.get('cve_id')):
                     filtered_vulnerabilities.append(vuln)
                     break
-        
+
         # Update unique_vulnerabilities to only include filtered ones
         unique_vulnerabilities = filtered_vulnerabilities
-        
+
         # Log filter statistics
         self.logger.info(
             "EPSS filtering completed",

@@ -4,14 +4,14 @@ import asyncio
 import json
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Dict, List, Set, Optional
+from typing import Any, Dict, List, Optional, Set
 
 # Make Great Expectations optional
 try:
     import great_expectations as ge
     from great_expectations.core import ExpectationSuite
     HAS_GREAT_EXPECTATIONS = True
-except (ImportError, ValueError) as e:
+except (ImportError, ValueError):
     # ValueError can occur from numpy/pandas version conflicts
     HAS_GREAT_EXPECTATIONS = False
     ge = None
@@ -46,11 +46,11 @@ class StaticPageAgent(BaseAgent):
         if not HAS_GREAT_EXPECTATIONS:
             return None
         suite = ExpectationSuite("cve_schema_v5_1")
-        
+
         # Define expectations for CVE Schema v5.1
         expectations = [
             {"expectation_type": "expect_column_to_exist", "kwargs": {"column": "cve_id"}},
-            {"expectation_type": "expect_column_values_to_match_regex", 
+            {"expectation_type": "expect_column_values_to_match_regex",
              "kwargs": {"column": "cve_id", "regex": r"^CVE-\d{4}-\d{4,}$"}},
             {"expectation_type": "expect_column_to_exist", "kwargs": {"column": "state"}},
             {"expectation_type": "expect_column_values_to_be_in_set",
@@ -61,10 +61,10 @@ class StaticPageAgent(BaseAgent):
             {"expectation_type": "expect_column_to_exist", "kwargs": {"column": "affected"}},
             {"expectation_type": "expect_column_to_exist", "kwargs": {"column": "references"}},
         ]
-        
+
         for exp in expectations:
             suite.add_expectation(exp)
-            
+
         return suite
 
     async def execute(self, **kwargs) -> Dict[str, Any]:
@@ -137,7 +137,7 @@ class StaticPageAgent(BaseAgent):
                     if should_update:
                         # Convert vuln object to dict for enrichment
                         vuln_dict = vuln.to_detail_dict()
-                        
+
                         # Enrich data if enabled
                         if config["enable_enrichment"]:
                             try:
@@ -148,13 +148,13 @@ class StaticPageAgent(BaseAgent):
                                 self.logger.warning(
                                     f"Enrichment failed for {vuln.cve_id}: {str(e)}"
                                 )
-                        
+
                         # Validate schema if enabled
                         if config["validate_schema"]:
                             validation_passed = self._validate_cve_schema(vuln_dict)
                             if not validation_passed:
                                 results["validation_failures"] += 1
-                        
+
                         # Generate page content
                         page_content = await self._generate_page_content_enhanced(vuln, vuln_dict)
 
@@ -222,13 +222,13 @@ class StaticPageAgent(BaseAgent):
                 if field not in vuln_dict or not vuln_dict[field]:
                     self.logger.warning(f"Missing required field: {field}")
                     return False
-            
+
             # Validate CVE ID format
             import re
             if not re.match(r"^CVE-\d{4}-\d{4,}$", vuln_dict["cve_id"]):
                 self.logger.warning(f"Invalid CVE ID format: {vuln_dict['cve_id']}")
                 return False
-            
+
             return True
         except Exception as e:
             self.logger.error(f"Schema validation error: {str(e)}")
@@ -236,17 +236,17 @@ class StaticPageAgent(BaseAgent):
 
     async def _generate_page_content_enhanced(self, vuln, vuln_dict: Dict[str, Any]) -> str:
         """Generate enhanced content for a single CVE page with all schema v5.1 fields.
-        
+
         Args:
             vuln: Vulnerability object
             vuln_dict: Enriched vulnerability dictionary
-            
+
         Returns:
             Page content as string
         """
         # Extract comprehensive data
         enhanced_title = vuln._create_enhanced_title()
-        
+
         # Extract metadata from enrichment or use defaults
         metadata = {
             "assignerOrgId": vuln_dict.get("assignerOrgId", "Unknown"),
@@ -255,14 +255,14 @@ class StaticPageAgent(BaseAgent):
             "datePublished": vuln.published_date.isoformat(),
             "dateUpdated": vuln.last_modified_date.isoformat(),
         }
-        
+
         # Extract enrichment data
         enrichment = vuln_dict.get("enrichment", {})
         deps_dev_data = enrichment.get("deps_dev", {})
         problem_types = enrichment.get("problem_types", [])
         structured_affected = enrichment.get("structured_affected", [])
         all_references = enrichment.get("all_references", [])
-        
+
         # YAML frontmatter
         frontmatter = {
             "layout": "cve-detail",
@@ -288,10 +288,10 @@ class StaticPageAgent(BaseAgent):
             "has_deps_data": bool(deps_dev_data),
             "total_affected_packages": deps_dev_data.get("total_affected", 0),
         }
-        
+
         # Build page content
         content_parts = []
-        
+
         # YAML frontmatter
         content_parts.append("---")
         for key, value in frontmatter.items():
@@ -303,11 +303,11 @@ class StaticPageAgent(BaseAgent):
                 content_parts.append(f"{key}: {value}")
         content_parts.append("---")
         content_parts.append("")
-        
+
         # Main content
         content_parts.append(f"# {enhanced_title}")
         content_parts.append("")
-        
+
         # Metadata section
         content_parts.append("## Metadata")
         content_parts.append("")
@@ -319,7 +319,7 @@ class StaticPageAgent(BaseAgent):
         content_parts.append(f"**Date Published:** {metadata['datePublished']}")
         content_parts.append(f"**Date Updated:** {metadata['dateUpdated']}")
         content_parts.append("")
-        
+
         # Overview section
         content_parts.append("## Overview")
         content_parts.append("")
@@ -328,7 +328,7 @@ class StaticPageAgent(BaseAgent):
         content_parts.append(f"**EPSS Score:** {vuln.epss_probability or 'N/A'}%")
         content_parts.append(f"**Risk Score:** {vuln.risk_score}/100")
         content_parts.append("")
-        
+
         # Description with multiline support
         content_parts.append("### Description")
         content_parts.append("")
@@ -337,13 +337,13 @@ class StaticPageAgent(BaseAgent):
         for line in description_lines:
             content_parts.append(line)
         content_parts.append("")
-        
+
         # Problem Types / CWEs
         cwe_ids_from_tags = [tag for tag in vuln.tags if tag.startswith("CWE-")]
         if problem_types or cwe_ids_from_tags:
             content_parts.append("## Problem Types")
             content_parts.append("")
-            
+
             # From enrichment
             if problem_types:
                 for pt in problem_types:
@@ -361,11 +361,11 @@ class StaticPageAgent(BaseAgent):
                         f"- [{cwe_id}](https://cwe.mitre.org/data/definitions/{cwe_id.split('-')[1]}.html)"
                     )
             content_parts.append("")
-        
+
         # Technical Details
         content_parts.append("## Technical Details")
         content_parts.append("")
-        
+
         # CVSS Details
         if vuln.cvss_metrics:
             # Get the highest scored CVSS metric
@@ -376,7 +376,7 @@ class StaticPageAgent(BaseAgent):
             content_parts.append(f"**Vector String:** `{cvss_metric.vector_string}`")
             content_parts.append(f"**Base Score:** {cvss_metric.base_score}")
             content_parts.append(f"**Base Severity:** {cvss_metric.base_severity.value}")
-            
+
             # Extract CVSS components from vector string if available
             if hasattr(vuln, 'attack_vector') and vuln.attack_vector:
                 content_parts.append("")
@@ -388,19 +388,19 @@ class StaticPageAgent(BaseAgent):
                     content_parts.append(f"- **Privileges Required:** {vuln.privileges_required}")
                 if hasattr(vuln, 'user_interaction') and vuln.user_interaction:
                     content_parts.append(f"- **User Interaction:** {vuln.user_interaction}")
-            
+
             content_parts.append("")
-        
+
         # Affected Systems (structured)
         content_parts.append("### Affected Products")
         content_parts.append("")
-        
+
         if structured_affected:
             for affected in structured_affected:
                 vendor = affected.get("vendor", "Unknown")
                 product = affected.get("product", "Unknown")
                 content_parts.append(f"#### {vendor} - {product}")
-                
+
                 versions = affected.get("versions", [])
                 if versions:
                     content_parts.append("**Affected Versions:**")
@@ -408,11 +408,11 @@ class StaticPageAgent(BaseAgent):
                         version = ver.get("version", "Unknown")
                         status = ver.get("status", "affected")
                         content_parts.append(f"- {version} ({status})")
-                
+
                 platforms = affected.get("platforms", [])
                 if platforms:
                     content_parts.append(f"**Platforms:** {', '.join(platforms)}")
-                
+
                 content_parts.append("")
         else:
             # Fallback to simple lists
@@ -421,13 +421,13 @@ class StaticPageAgent(BaseAgent):
                 for vendor in vuln.affected_vendors[:10]:
                     content_parts.append(f"- {vendor}")
                 content_parts.append("")
-            
+
             if vuln.affected_products:
                 content_parts.append("**Products:**")
                 for product in vuln.affected_products[:10]:
                     content_parts.append(f"- {product}")
                 content_parts.append("")
-        
+
         # CPE Matches
         if vuln_dict.get("cpe_matches"):
             content_parts.append("### CPE Matches")
@@ -435,29 +435,29 @@ class StaticPageAgent(BaseAgent):
             for cpe in vuln_dict["cpe_matches"][:10]:
                 content_parts.append(f"- `{cpe}`")
             content_parts.append("")
-        
+
         # Impacted Projects from deps.dev (using enhanced format)
         package_impact = enrichment.get("package_impact", [])
         if package_impact:
             content_parts.append("## Impacted Open Source Projects")
             content_parts.append("")
-            
+
             # Summary with patch availability
             impact_summary = enrichment.get("impact_summary", {})
             patch_info = impact_summary.get("patch_availability", {})
-            
+
             content_parts.append(
                 f"*This vulnerability affects **{impact_summary.get('total_affected_packages', 0)}** packages "
                 f"across **{len(impact_summary.get('affected_ecosystems', []))}** ecosystems.*"
             )
-            
+
             if patch_info.get("percentage", 0) > 0:
                 content_parts.append(
                     f"*Patches available for **{patch_info['patched']}/{patch_info['total']}** "
                     f"({patch_info['percentage']}%) of affected packages.*"
                 )
             content_parts.append("")
-            
+
             # Group packages by ecosystem for display
             packages_by_ecosystem = {}
             for pkg in package_impact:
@@ -465,38 +465,38 @@ class StaticPageAgent(BaseAgent):
                 if ecosystem not in packages_by_ecosystem:
                     packages_by_ecosystem[ecosystem] = []
                 packages_by_ecosystem[ecosystem].append(pkg)
-            
+
             # Display by ecosystem
             for ecosystem, packages in sorted(packages_by_ecosystem.items()):
                 content_parts.append(f"### {ecosystem.upper()}")
                 content_parts.append("")
-                
+
                 # Create a table for better formatting
                 content_parts.append("| Package | Version Range | Severity | Patch Available |")
                 content_parts.append("|---------|---------------|----------|-----------------|")
-                
+
                 for pkg in packages[:10]:  # Show top 10 per ecosystem
                     name = pkg.get("name", "Unknown")
                     version_range = pkg.get("version_range", "Unknown")
                     severity = pkg.get("severity", "UNKNOWN")
                     patch_available = "✅" if pkg.get("patch_available") else "❌"
-                    
+
                     # Add latest safe version if available
                     if pkg.get("latest_safe_version"):
                         patch_available += f" ({pkg['latest_safe_version']})"
-                    
+
                     content_parts.append(f"| {name} | {version_range} | {severity} | {patch_available} |")
-                
+
                 if len(packages) > 10:
                     content_parts.append(f"\n*... and {len(packages) - 10} more {ecosystem} packages*")
                 content_parts.append("")
-        
+
         # Exploitation Intelligence Section
         exploitation_intel = enrichment.get("exploitation_intel", {})
         if exploitation_intel:
             content_parts.append("## Exploitation Intelligence")
             content_parts.append("")
-            
+
             risk_level = exploitation_intel.get("risk_level", "UNKNOWN")
             risk_emoji = {
                 "CRITICAL": "🔴",
@@ -505,28 +505,28 @@ class StaticPageAgent(BaseAgent):
                 "LOW": "🟢",
                 "UNKNOWN": "⚪"
             }.get(risk_level, "⚪")
-            
+
             content_parts.append(f"**Risk Level:** {risk_emoji} {risk_level}")
             content_parts.append("")
-            
+
             risk_factors = exploitation_intel.get("risk_factors", [])
             if risk_factors:
                 content_parts.append("**Risk Factors:**")
                 for factor in risk_factors:
                     content_parts.append(f"- {factor}")
                 content_parts.append("")
-            
+
             recommendation = exploitation_intel.get("recommendation", "")
             if recommendation:
                 content_parts.append(f"**Recommendation:** {recommendation}")
                 content_parts.append("")
-        
+
         # References (using enhanced categorized format)
         categorized_refs = enrichment.get("categorized_references", {})
         if categorized_refs:
             content_parts.append("## References")
             content_parts.append("")
-            
+
             # Display references by category with better naming
             category_display = {
                 "vendor_advisories": "### Vendor Advisories",
@@ -536,7 +536,7 @@ class StaticPageAgent(BaseAgent):
                 "media_coverage": "### Media Coverage",
                 "other": "### Other References"
             }
-            
+
             for category, refs in categorized_refs.items():
                 if refs:
                     content_parts.append(category_display.get(category, f"### {category.replace('_', ' ').title()}"))
@@ -544,7 +544,7 @@ class StaticPageAgent(BaseAgent):
                         url = ref.get("url", "")
                         source = ref.get("source", "")
                         content_parts.append(f"- [{url}]({url}) (from {source})")
-                    
+
                     if len(refs) > 10:
                         content_parts.append(f"*... and {len(refs) - 10} more {category.replace('_', ' ')}*")
                     content_parts.append("")
@@ -552,7 +552,7 @@ class StaticPageAgent(BaseAgent):
             # Fallback to simple reference list
             content_parts.append("## References")
             content_parts.append("")
-            
+
             # Group references by tag
             refs_by_tag = {}
             for ref in all_references:
@@ -561,11 +561,11 @@ class StaticPageAgent(BaseAgent):
                     if tag not in refs_by_tag:
                         refs_by_tag[tag] = []
                     refs_by_tag[tag].append(ref)
-            
+
             # Display references by category
-            tag_order = ["CVE Record", "Vendor Advisory", "Patch", "Exploit", 
+            tag_order = ["CVE Record", "Vendor Advisory", "Patch", "Exploit",
                         "Issue Tracking", "Third Party Advisory", "Media Coverage", "Other"]
-            
+
             for tag in tag_order:
                 if tag in refs_by_tag:
                     content_parts.append(f"### {tag}")
@@ -589,7 +589,7 @@ class StaticPageAgent(BaseAgent):
                 else:
                     content_parts.append(f"- [{ref.url}]({ref.url})")
             content_parts.append("")
-        
+
         # Credits / Acknowledgments
         if vuln_dict.get("credits"):
             content_parts.append("## Credits")
@@ -597,7 +597,7 @@ class StaticPageAgent(BaseAgent):
             for credit in vuln_dict["credits"]:
                 content_parts.append(f"- {credit}")
             content_parts.append("")
-        
+
         # Timeline
         content_parts.append("## Timeline")
         content_parts.append("")
@@ -614,20 +614,20 @@ class StaticPageAgent(BaseAgent):
         if "kev" in [tag.lower() for tag in vuln.tags]:
             content_parts.append("- **Added to KEV:** Yes")
         content_parts.append("")
-        
+
         # Additional Metadata
         content_parts.append("## Additional Information")
         content_parts.append("")
         content_parts.append(
             f"- **Exploitation Status:** {vuln.exploitation_status.value}"
         )
-        
+
         if vuln.tags:
             content_parts.append(f"- **Tags:** {', '.join(vuln.tags[:20])}")
-        
+
         if enrichment.get("sources"):
             content_parts.append(f"- **Data Sources:** {', '.join(enrichment['sources'])}")
-        
+
         content_parts.append("")
         content_parts.append("---")
         content_parts.append("")
@@ -635,7 +635,7 @@ class StaticPageAgent(BaseAgent):
             f"*Generated on {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')} "
             f"with enrichment from deps.dev API*"
         )
-        
+
         return "\n".join(content_parts)
 
     async def _generate_page_content(self, vuln) -> str:

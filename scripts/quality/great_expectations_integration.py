@@ -477,7 +477,7 @@ class GreatExpectationsValidator:
             # Fallback validation without GX
             below_threshold = []
             missing_epss = []
-            
+
             for vuln in vulnerabilities:
                 if vuln.epss_probability is None:
                     missing_epss.append(vuln.cve_id)
@@ -487,7 +487,7 @@ class GreatExpectationsValidator:
                         "epss": vuln.epss_probability,
                         "threshold": threshold * 100
                     })
-            
+
             return {
                 "success": len(below_threshold) == 0 and len(missing_epss) == 0,
                 "total_vulnerabilities": len(vulnerabilities),
@@ -504,7 +504,7 @@ class GreatExpectationsValidator:
             threshold_suite = self.context.add_or_update_expectation_suite(
                 expectation_suite_name=suite_name
             )
-            
+
             # Add threshold expectation
             threshold_suite.add_expectation(
                 ExpectationConfiguration(
@@ -517,7 +517,7 @@ class GreatExpectationsValidator:
                     },
                 )
             )
-            
+
             # Add not-null expectation for EPSS
             threshold_suite.add_expectation(
                 ExpectationConfiguration(
@@ -525,16 +525,16 @@ class GreatExpectationsValidator:
                     kwargs={"column": "epss_probability"},
                 )
             )
-            
+
             self.context.save_expectation_suite(threshold_suite)
-            
+
             # Run validation
             results = self.validate_vulnerabilities(vulnerabilities, suite_name)
             results["threshold"] = threshold
             results["threshold_percentage"] = f"{threshold * 100}%"
-            
+
             return results
-            
+
         except Exception as e:
             self.logger.error(f"Failed to validate EPSS threshold: {e}")
             return {
