@@ -7,11 +7,12 @@ import time
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List
+
 import pytest
 
 try:
-    from playwright.async_api import Page, async_playwright, expect
     import aiohttp
+    from playwright.async_api import Page, async_playwright, expect
 except ImportError:
     playwright = None
     pytest.skip("Playwright not installed", allow_module_level=True)

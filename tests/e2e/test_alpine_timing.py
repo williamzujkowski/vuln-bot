@@ -2,6 +2,7 @@
 """Test Alpine.js timing and initialization."""
 
 import asyncio
+
 import pytest
 
 try:

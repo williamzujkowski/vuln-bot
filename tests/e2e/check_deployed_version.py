@@ -2,6 +2,7 @@
 """Check what version is deployed on GitHub Pages."""
 
 import asyncio
+
 import pytest
 
 try:

@@ -2,6 +2,7 @@
 """Verify that the product column on the live site shows only product names."""
 
 import asyncio
+
 import pytest
 
 try:

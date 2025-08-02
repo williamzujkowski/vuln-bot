@@ -2,6 +2,7 @@
 """Test to understand the current structure of the live site."""
 
 import asyncio
+
 import pytest
 
 try:

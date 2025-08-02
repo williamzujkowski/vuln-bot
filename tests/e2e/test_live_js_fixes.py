@@ -2,6 +2,7 @@
 """Test the live site after JavaScript brace fixes."""
 
 import asyncio
+
 import pytest
 
 try:
