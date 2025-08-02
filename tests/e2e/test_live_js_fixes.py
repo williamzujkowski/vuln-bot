@@ -2,18 +2,19 @@
 """Test the live site after JavaScript brace fixes."""
 
 import asyncio
+
 from playwright.async_api import async_playwright
 
 
 async def test_live_js_fixes():
     """Test live site for JavaScript errors after fixes."""
     print("🔍 Testing live site after JavaScript fixes...")
-    
+
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True)
         context = await browser.new_context()
         page = await context.new_page()
-        
+
         # Capture console messages and errors
         console_messages = []
         page.on("console", lambda msg: console_messages.append({
@@ -21,13 +22,13 @@ async def test_live_js_fixes():
             "text": msg.text,
             "location": msg.location
         }))
-        
+
         print("📡 Navigating to live site...")
         await page.goto("https://williamzujkowski.github.io/vuln-bot/", wait_until="networkidle")
-        
+
         # Wait for Alpine.js to initialize
         await page.wait_for_timeout(3000)
-        
+
         # Check for Alpine.js initialization
         alpine_check = await page.evaluate("""
             () => {
@@ -52,14 +53,14 @@ async def test_live_js_fixes():
                 };
             }
         """)
-        
+
         print("\n✅ Alpine.js Status:")
         for key, value in alpine_check.items():
             print(f"  {key}: {value}")
-        
+
         # Check for JavaScript errors
         js_errors = [msg for msg in console_messages if msg['type'] == 'error']
-        
+
         if js_errors:
             print("\n❌ JavaScript Errors Found:")
             for err in js_errors[:5]:  # Show first 5 errors
@@ -68,10 +69,10 @@ async def test_live_js_fixes():
                     print(f"    at {err['location']['url']}:{err['location']['lineNumber']}")
         else:
             print("\n✅ No JavaScript errors detected!")
-        
+
         # Test dashboard functionality
         print("\n🧪 Testing Dashboard Functionality:")
-        
+
         # Check if vulnerability data is loaded
         vuln_count = await page.evaluate("""
             () => {
@@ -88,11 +89,11 @@ async def test_live_js_fixes():
             }
         """)
         print(f"  Vulnerabilities loaded: {vuln_count}")
-        
+
         # Check if table has rows
         table_rows = await page.query_selector_all('tbody tr')
         print(f"  Table rows visible: {len(table_rows)}")
-        
+
         # Test search functionality
         search_input = await page.query_selector('.search-input')
         if search_input:
@@ -102,7 +103,7 @@ async def test_live_js_fixes():
             print(f"  Search working: {len(filtered_rows)} rows after filtering")
         else:
             print("  ❌ Search input not found")
-        
+
         # Test quick filter buttons
         critical_button = await page.query_selector('button:has-text("Critical")')
         if critical_button:
@@ -112,7 +113,7 @@ async def test_live_js_fixes():
             print(f"  Quick filters working: {len(critical_rows)} critical vulns")
         else:
             print("  ❌ Critical filter button not found")
-        
+
         # Check if charts are rendered
         charts_found = await page.evaluate("""
             () => {
@@ -121,21 +122,21 @@ async def test_live_js_fixes():
             }
         """)
         print(f"  Charts rendered: {charts_found} charts found")
-        
+
         # Take a screenshot for visual confirmation
         await page.screenshot(path="tests/e2e/live_site_fixed.png", full_page=False)
         print("\n📸 Screenshot saved to: tests/e2e/live_site_fixed.png")
-        
+
         await browser.close()
-        
+
         # Summary
         success = len(js_errors) == 0 and vuln_count > 0 and len(table_rows) > 0
-        
+
         if success:
             print("\n✅ Live site is working correctly after JavaScript fixes!")
         else:
             print("\n⚠️  Some issues remain on the live site")
-        
+
         return success
 
 

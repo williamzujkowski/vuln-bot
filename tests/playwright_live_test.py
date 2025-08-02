@@ -5,8 +5,8 @@ import asyncio
 import json
 import time
 
-import pytest
 import aiohttp
+import pytest
 
 try:
     from playwright.async_api import Page, async_playwright, expect
@@ -118,7 +118,7 @@ class VulnBotLiveTester:
         try:
             await expect(page.locator("#vulnerability-dashboard")).to_be_visible(timeout=5000)
             await self.log_success("Vulnerability dashboard is visible")
-        except:
+        except Exception:
             await self.log_issue("Homepage", "Vulnerability dashboard not found", "critical")
 
     async def test_vulnerability_table(self, page: Page):
@@ -148,12 +148,12 @@ class VulnBotLiveTester:
                 cells = await first_row.locator("td").all_text_contents()
                 product_found = False
                 for i, cell in enumerate(cells):
-                    if i > 2 and cell and cell.strip() not in ["Unknown", "N/A", ""]:
-                        # Might be product data
-                        if "microsoft" in cell.lower() or "linux" in cell.lower() or any(char.isalpha() for char in cell):
-                            product_found = True
-                            await self.log_success(f"Product/vendor data found in cell {i}: {cell}")
-                            break
+                    if (i > 2 and cell and cell.strip() not in ["Unknown", "N/A", ""] and
+                        ("microsoft" in cell.lower() or "linux" in cell.lower() or any(char.isalpha() for char in cell))):
+                        # Product data found
+                        product_found = True
+                        await self.log_success(f"Product/vendor data found in cell {i}: {cell}")
+                        break
 
                 if not product_found:
                     await self.log_issue("Table Data", "No clear product data found in table", "high")
@@ -214,7 +214,7 @@ class VulnBotLiveTester:
         try:
             # Click on first CVE link
             first_cve = page.locator("tbody tr a").first
-            cve_id = await first_cve.text_content()
+            await first_cve.text_content()
             await first_cve.click()
 
             # Wait for modal to appear
@@ -347,7 +347,7 @@ class VulnBotLiveTester:
                 await export_button.first.click()
 
                 try:
-                    download = await asyncio.wait_for(download_promise, timeout=5.0)
+                    await asyncio.wait_for(download_promise, timeout=5.0)
                     await self.log_success("CSV export triggers download")
                 except asyncio.TimeoutError:
                     await self.log_issue("Export", "CSV export did not trigger download", "medium")

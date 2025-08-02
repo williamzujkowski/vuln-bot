@@ -10,7 +10,6 @@ from typing import Any, Dict, List
 
 # import pytest
 # pytest.skip("E2E tests require Playwright - run manually", allow_module_level=True)
-
 import aiohttp
 from playwright.async_api import Page, async_playwright, expect
 
@@ -160,7 +159,7 @@ class ComprehensiveLiveTester:
                                 else:
                                     # This might be expected if not all CVEs have individual files
                                     await self.log_issue("API", "Individual CVE JSON", f"HTTP {cve_response.status}", "low")
-            except:
+            except Exception:
                 pass  # Individual CVE files are optional
 
     async def _analyze_data_quality(self, vulnerabilities: List[Dict[str, Any]]) -> Dict[str, float]:
@@ -595,7 +594,7 @@ class ComprehensiveLiveTester:
             try:
                 download = await download_promise
                 assert download.suggested_filename.endswith('.csv'), "Export file is not CSV"
-            except:
+            except Exception:
                 print("  ⚠️  Export button found but download didn't trigger")
         else:
             print("  ⚠️  Export button not found")
@@ -675,8 +674,8 @@ class ComprehensiveLiveTester:
         # Check if search is focused
         search_focused = await page.evaluate("""() => {
             const active = document.activeElement;
-            return active.tagName === 'INPUT' && 
-                   (active.placeholder.toLowerCase().includes('search') || 
+            return active.tagName === 'INPUT' &&
+                   (active.placeholder.toLowerCase().includes('search') ||
                     active.placeholder.toLowerCase().includes('cve'));
         }""")
 
@@ -739,10 +738,10 @@ class ComprehensiveLiveTester:
                 size: r.transferSize || 0,
                 duration: r.duration
             }));
-            
+
             const totalSize = sizes.reduce((sum, r) => sum + r.size, 0);
             const largeResources = sizes.filter(r => r.size > 1024 * 1024); // > 1MB
-            
+
             return {
                 totalSize,
                 resourceCount: sizes.length,

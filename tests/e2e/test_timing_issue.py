@@ -2,22 +2,23 @@
 """Test for timing issues with Alpine.js and dashboard function."""
 
 import asyncio
+
 from playwright.async_api import async_playwright
 
 
 async def test_timing_issue():
     """Test timing of dashboard function and Alpine initialization."""
     print("🔍 Testing timing issue...")
-    
+
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=False)
         context = await browser.new_context()
         page = await context.new_page()
-        
+
         # Add script to monitor when things are defined
         await page.add_init_script("""
             window.timingLog = [];
-            
+
             // Monitor when Alpine is defined
             Object.defineProperty(window, 'Alpine', {
                 get: function() { return this._Alpine; },
@@ -30,7 +31,7 @@ async def test_timing_issue():
                     this._Alpine = val;
                 }
             });
-            
+
             // Monitor when dashboard is defined
             Object.defineProperty(window, 'dashboard', {
                 get: function() { return this._dashboard; },
@@ -44,20 +45,20 @@ async def test_timing_issue():
                 }
             });
         """)
-        
+
         print("📡 Navigating to live site...")
         await page.goto("https://williamzujkowski.github.io/vuln-bot/")
-        
+
         # Wait a bit
         await page.wait_for_timeout(3000)
-        
+
         # Get timing log
         timing_log = await page.evaluate("() => window.timingLog")
-        
+
         print("\n📊 Timing Log:")
         for entry in timing_log:
             print(f"  {entry['event']} - Alpine exists: {entry.get('alpineExists', 'N/A')}, Dashboard exists: {entry.get('dashboardExists', 'N/A')}")
-        
+
         # Check current state
         state = await page.evaluate("""
             () => {
@@ -72,11 +73,11 @@ async def test_timing_issue():
                 };
             }
         """)
-        
+
         print("\n📊 Current State:")
         for key, value in state.items():
             print(f"  {key}: {value}")
-        
+
         # Try to manually initialize
         manual_init = await page.evaluate("""
             () => {
@@ -85,7 +86,7 @@ async def test_timing_issue():
                     if (typeof vulnerabilityData === 'undefined') {
                         return { error: 'vulnerabilityData not defined' };
                     }
-                    
+
                     // Try to create dashboard function if it doesn't exist
                     if (typeof window.dashboard === 'undefined') {
                         window.dashboard = function() {
@@ -99,16 +100,16 @@ async def test_timing_issue():
                         };
                         return { success: 'dashboard function created manually' };
                     }
-                    
+
                     return { info: 'dashboard already exists' };
                 } catch (e) {
                     return { error: e.toString() };
                 }
             }
         """)
-        
+
         print(f"\n📊 Manual Init Result: {manual_init}")
-        
+
         await browser.close()
 
 

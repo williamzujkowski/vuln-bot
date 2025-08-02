@@ -5,13 +5,10 @@ from datetime import datetime
 import pytest
 
 from scripts.models import (
-    CVSSMetric,
-    EPSSScore,
     ExploitationStatus,
     Reference,
     SeverityLevel,
     Vulnerability,
-    VulnerabilityBatch,
 )
 from scripts.processing.normalizer import VulnerabilityNormalizer
 
@@ -172,7 +169,7 @@ class TestVulnerabilityNormalizerExtended:
     def test_merge_vulnerabilities(self, normalizer):
         """Test merging multiple vulnerability records."""
         now = datetime.now()
-        
+
         vuln1 = Vulnerability(
             cve_id="CVE-2024-0001",
             title="CVE-2024-0001: Test vulnerability 1",
@@ -184,7 +181,7 @@ class TestVulnerabilityNormalizerExtended:
             affected_vendors=["Vendor1"],
             tags=["tag1"],
         )
-        
+
         vuln2 = Vulnerability(
             cve_id="CVE-2024-0001",  # Same CVE
             title="CVE-2024-0001: Test vulnerability 1 duplicate",
@@ -197,27 +194,27 @@ class TestVulnerabilityNormalizerExtended:
             tags=["tag2"],
             exploitation_status=ExploitationStatus.ACTIVE,
         )
-        
+
         merged = normalizer.merge_vulnerabilities([vuln1, vuln2])
-        
+
         # Should merge references
         assert len(merged.references) == 2
         assert any(r.url == "https://example.com/advisory1" for r in merged.references)
         assert any(r.url == "https://example.com/advisory2" for r in merged.references)
-        
+
         # Should merge vendors
         assert set(merged.affected_vendors) == {"Vendor1", "Vendor2"}
-        
+
         # Should merge tags
         assert set(merged.tags) == {"tag1", "tag2"}
-        
+
         # Should use highest exploitation status
         assert merged.exploitation_status == ExploitationStatus.ACTIVE
 
     def test_deduplicate_vulnerabilities(self, normalizer):
         """Test vulnerability deduplication."""
         now = datetime.now()
-        
+
         vulns = [
             Vulnerability(
                 cve_id="CVE-2024-0001",
@@ -246,12 +243,12 @@ class TestVulnerabilityNormalizerExtended:
                 last_modified_date=now,
             ),
         ]
-        
+
         deduplicated = normalizer.deduplicate_vulnerabilities(vulns)
-        
+
         # Should deduplicate
         assert len(deduplicated) == 2
-        
+
         # Should merge references from duplicates
         vuln1 = next(v for v in deduplicated if v.cve_id == "CVE-2024-0001")
         assert len(vuln1.references) == 2
@@ -281,9 +278,9 @@ class TestVulnerabilityNormalizerExtended:
                 {"url": "https://example.com/advisory"}
             ]
         }
-        
+
         vuln = normalizer.normalize_github_advisory(advisory)
-        
+
         assert vuln is not None
         assert vuln.cve_id == "CVE-2024-1234"
         assert vuln.severity == SeverityLevel.CRITICAL

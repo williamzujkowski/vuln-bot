@@ -2,6 +2,7 @@
 """Verify that the product column on the live site shows only product names."""
 
 import asyncio
+
 from playwright.async_api import async_playwright
 
 
@@ -11,21 +12,21 @@ async def verify_product_column():
         browser = await p.chromium.launch(headless=True)
         context = await browser.new_context()
         page = await context.new_page()
-        
+
         try:
             print("📡 Navigating to live site...")
             await page.goto("https://williamzujkowski.github.io/vuln-bot/", wait_until="networkidle")
-            
+
             # Wait for Alpine component to load
             await page.wait_for_function("() => window.vulnerabilityData && window.vulnerabilityData.length > 0", timeout=30000)
-            
+
             # Get product column values from data
             product_values = await page.evaluate("""
                 () => {
                     // Get the vulnerability data
                     const data = window.vulnerabilityData;
                     if (!data || data.length === 0) return [];
-                    
+
                     // Get first 10 products
                     const products = [];
                     for (let i = 0; i < Math.min(10, data.length); i++) {
@@ -37,9 +38,9 @@ async def verify_product_column():
                     return products;
                 }
             """)
-            
+
             print(f"\n🔍 Checking first {len(product_values)} product values:")
-            
+
             has_vendor_product = False
             for i, product in enumerate(product_values):
                 # Check if it contains a slash (vendor/product pattern)
@@ -48,14 +49,14 @@ async def verify_product_column():
                     has_vendor_product = True
                 else:
                     print(f"  ✅ Row {i+1}: '{product}' (product name only)")
-            
+
             if has_vendor_product:
                 print("\n❌ Product column still contains vendor/product format")
                 return False
             else:
                 print("\n✅ Product column correctly shows only product names!")
                 return True
-                
+
         except Exception as e:
             print(f"❌ Error: {e}")
             return False

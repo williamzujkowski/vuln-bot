@@ -2,6 +2,7 @@
 """Test Alpine.js timing and initialization."""
 
 import asyncio
+
 from playwright.async_api import async_playwright
 
 
@@ -23,7 +24,7 @@ async def test_alpine_timing():
 
         print("📡 Navigating to site...")
         await page.goto("https://williamzujkowski.github.io/vuln-bot/", wait_until="networkidle")
-        
+
         # Wait for Alpine to initialize
         await page.wait_for_timeout(2000)
 
@@ -35,7 +36,7 @@ async def test_alpine_timing():
                     // Try to get Alpine component
                     const bodyEl = document.querySelector('body[x-data]');
                     const alpineData = bodyEl ? Alpine.$data(bodyEl) : null;
-                    
+
                     return {
                         alpine_exists: typeof Alpine !== 'undefined',
                         window_dashboard_exists: typeof window.dashboard !== 'undefined',

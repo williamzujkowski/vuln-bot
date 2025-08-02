@@ -2,6 +2,7 @@
 """Check what version is deployed on GitHub Pages."""
 
 import asyncio
+
 from playwright.async_api import async_playwright
 
 
@@ -37,10 +38,10 @@ async def check_deployed_version():
 
         # Check for our specific fixes
         html_content = await page.content()
-        
+
         print("\n🔍 CHECKING FOR FIXES:")
         print(f"  Contains 'window.dashboard': {'window.dashboard' in html_content}")
-        print(f"  Contains old syntax: {'${{' in html_content}")  
+        print(f"  Contains old syntax: {'${{' in html_content}")
         print(f"  Contains fixed syntax: {'${stats.' in html_content}")
 
         await browser.close()

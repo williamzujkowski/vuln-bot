@@ -1,21 +1,21 @@
 """Tests for risk scorer module."""
 
-import pytest
-from unittest.mock import Mock, patch
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timedelta, timezone
 
+import pytest
+
+from scripts.models import CVSSMetric, EPSSScore, SeverityLevel, Vulnerability
 from scripts.processing.risk_scorer import RiskScorer
-from scripts.models import Vulnerability, SeverityLevel, EPSSScore, CVSSMetric
 
 
 class TestRiskScorer:
     """Test cases for RiskScorer."""
-    
+
     @pytest.fixture
     def scorer(self):
         """Create risk scorer instance."""
         return RiskScorer()
-    
+
     @pytest.fixture
     def high_risk_vuln(self):
         """Create high risk vulnerability."""
@@ -42,7 +42,7 @@ class TestRiskScorer:
             tags=["infrastructure", "rce", "KEV"],
             affected_products=["windows", "linux"],
         )
-    
+
     @pytest.fixture
     def low_risk_vuln(self):
         """Create low risk vulnerability."""
@@ -69,21 +69,21 @@ class TestRiskScorer:
             tags=[],
             affected_products=["unknown-product"],
         )
-    
+
     def test_calculate_risk_score_high(self, scorer, high_risk_vuln):
         """Test risk score for high risk vulnerability."""
         score = scorer.calculate_risk_score(high_risk_vuln)
-        
+
         assert score >= 70  # Should be very high
         assert score <= 100
-    
+
     def test_calculate_risk_score_low(self, scorer, low_risk_vuln):
         """Test risk score for low risk vulnerability."""
         score = scorer.calculate_risk_score(low_risk_vuln)
-        
+
         assert score < 30  # Should be low
         assert score >= 0
-    
+
     def test_score_ranges(self, scorer):
         """Test score ranges for different vulnerability types."""
         # Critical vulnerability with high EPSS
@@ -106,7 +106,7 @@ class TestRiskScorer:
         )
         score = scorer.calculate_risk_score(critical_vuln)
         assert score >= 65  # Should be very high
-        
+
         # Low severity with low EPSS
         low_vuln = Vulnerability(
             cve_id="CVE-2024-0002",
@@ -127,7 +127,7 @@ class TestRiskScorer:
         )
         score = scorer.calculate_risk_score(low_vuln)
         assert score < 20  # Should be very low
-    
+
     def test_score_edge_cases(self, scorer):
         """Test edge cases."""
         # Vulnerability with no scores
@@ -139,11 +139,11 @@ class TestRiskScorer:
             published_date=datetime.now(timezone.utc),
             last_modified_date=datetime.now(timezone.utc),
         )
-        
+
         score = scorer.calculate_risk_score(vuln)
         assert score >= 0
         assert score <= 100
-        
+
         # Vulnerability with partial data
         vuln.epss_score = EPSSScore(score=0.5, percentile=50.0, date=datetime.now())
         score = scorer.calculate_risk_score(vuln)

@@ -2,6 +2,7 @@
 """Test to understand the current structure of the live site."""
 
 import asyncio
+
 from playwright.async_api import async_playwright
 
 
@@ -11,18 +12,18 @@ async def analyze_live_site():
         browser = await p.chromium.launch(headless=False)
         context = await browser.new_context()
         page = await context.new_page()
-        
+
         try:
             print("🌐 Analyzing live website structure...")
             await page.goto("https://williamzujkowski.github.io/vuln-bot/", wait_until="networkidle")
-            
+
             # Take a screenshot
             await page.screenshot(path="live-site-current.png")
             print("📸 Screenshot saved to live-site-current.png")
-            
+
             # Check what elements exist
             print("\n🔍 Checking for common elements:")
-            
+
             elements_to_check = [
                 ("Header", "header, .header, .dashboard-header, .site-header"),
                 ("Table", "table, #vulnerability-table, .data-table, .vuln-table"),
@@ -31,7 +32,7 @@ async def analyze_live_site():
                 ("Results count", ".results-count, .results-info"),
                 ("Alpine component", "[x-data]"),
             ]
-            
+
             for name, selector in elements_to_check:
                 count = await page.locator(selector).count()
                 if count > 0:
@@ -43,11 +44,11 @@ async def analyze_live_site():
                     print(f"     First match: <{tag.lower()} class='{classes}'>")
                 else:
                     print(f"  ❌ {name}: Not found")
-            
+
             # Check page title
             title = await page.title()
             print(f"\n📄 Page title: {title}")
-            
+
             # Check for JavaScript data
             print("\n💾 Checking JavaScript data:")
             js_data = await page.evaluate("""
@@ -56,13 +57,13 @@ async def analyze_live_site():
                     // Check for common data variables
                     const dataVars = [
                         'vulnerabilityData',
-                        'vulnData', 
+                        'vulnData',
                         'vulnerabilities',
                         'data',
                         'Alpine',
                         'Alpine.store'
                     ];
-                    
+
                     dataVars.forEach(varName => {
                         try {
                             const value = eval(`window.${varName}`);
@@ -78,15 +79,15 @@ async def analyze_live_site():
                             // Variable doesn't exist
                         }
                     });
-                    
+
                     // Check Alpine components
                     const alpineComponents = document.querySelectorAll('[x-data]');
                     result.alpineComponents = alpineComponents.length;
-                    
+
                     return result;
                 }
             """)
-            
+
             for key, value in js_data.items():
                 if key == 'alpineComponents':
                     print(f"  Alpine components found: {value}")
@@ -94,7 +95,7 @@ async def analyze_live_site():
                     print(f"  ✅ window.{key}: {value['type']}")
                     if value['isArray']:
                         print(f"     Array length: {value['length']}")
-            
+
             # Get page content structure
             print("\n📋 Page structure:")
             structure = await page.evaluate("""
@@ -121,17 +122,17 @@ async def analyze_live_site():
                     return getStructure(document.body);
                 }
             """)
-            
+
             # Print main structure elements
             main_elements = [s for s in structure if s['depth'] <= 1 and s['childCount'] > 0]
             for elem in main_elements[:10]:
                 indent = "  " * elem['depth']
                 print(f"{indent}{elem['selector']} ({elem['childCount']} children)")
-            
+
             # Wait a bit to see if data loads
             print("\n⏳ Waiting for data to load...")
             await page.wait_for_timeout(5000)
-            
+
             # Check again for data
             data_loaded = await page.evaluate("""
                 () => {
@@ -143,7 +144,7 @@ async def analyze_live_site():
                     };
                 }
             """)
-            
+
             if data_loaded['loaded']:
                 print(f"✅ Data loaded: {data_loaded['count']} vulnerabilities")
                 if data_loaded['sample']:
@@ -153,7 +154,7 @@ async def analyze_live_site():
                         print(f"  - {key}: {type(sample.get(key)).__name__}")
             else:
                 print("❌ No vulnerability data loaded")
-            
+
         except Exception as e:
             print(f"❌ Error: {e}")
         finally:
