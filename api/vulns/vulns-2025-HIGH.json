@@ -1,7 +1,7 @@
 {
   "chunk": "2025-HIGH",
   "count": 6538,
-  "generated": "2025-08-01T16:07:42.038259",
+  "generated": "2025-08-02T00:23:32.840653",
   "vulnerabilities": [
     {
       "cveId": "CVE-2025-30066",
@@ -33928,66 +33928,6 @@
       }
     },
     {
-      "cveId": "CVE-2025-49741",
-      "title": "Microsoft Edge (Chromium-based) Information Disclosure Vulnerability",
-      "description": "No cwe for this issue in Microsoft Edge (Chromium-based) allows an unauthorized attacker to disclose information over a network.",
-      "publishedDate": "2025-07-01T22:22:07.595000+00:00",
-      "lastModifiedDate": "2025-07-31T19:48:36.708000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:N/A:N/E:U/RL:O/RC:C",
-          "baseScore": 7.4,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.0006,
-        "percentile": 20.186
-      },
-      "riskScore": 48,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Microsoft"
-        ],
-        "products": [
-          "Edge",
-          "Microsoft Edge (chromium-based)"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49741",
-          "source": "Microsoft Edge (Chromium-based) Information Disclosure Vulnerability",
-          "tags": [
-            "vendor-advisory"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-268"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "Required",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/49xxx/CVE-2025-49741.json",
-            "lastModified": "2025-07-31T19:48:36.708000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2025-49716",
       "title": "Windows Netlogon Denial of Service Vulnerability",
       "description": "Uncontrolled resource consumption in Windows Netlogon allows an unauthorized attacker to deny service over a network.",
@@ -67074,83 +67014,6 @@
       }
     },
     {
-      "cveId": "CVE-2025-53107",
-      "title": "@cyanheads/git-mcp-server vulnerable to command injection in several tools",
-      "description": "@cyanheads/git-mcp-server is an MCP server designed to interact with Git repositories. Prior to version 2.1.5, there is a command injection vulnerability caused by the unsanitized use of input parameters within a call to child_process.exec, enabling an attacker to inject arbitrary system commands. Successful exploitation can lead to remote code execution under the server process's privileges. The server constructs and executes shell commands using unvalidated user input directly within command-line strings. This introduces the possibility of shell metacharacter injection (|, >, &&, etc.). An MCP Client can be instructed to execute additional actions for example via indirect prompt injection when asked to read git logs. This issue has been patched in version 2.1.5.",
-      "publishedDate": "2025-07-01T17:55:30.726000+00:00",
-      "lastModifiedDate": "2025-07-01T18:48:11.222000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
-          "baseScore": 7.5,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.0015,
-        "percentile": 36.813
-      },
-      "riskScore": 47,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Cyanheads",
-          "Mcp",
-          "The"
-        ],
-        "products": [
-          "Git-mcp-server",
-          "Mcp Server",
-          "The Server"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://github.com/cyanheads/git-mcp-server/security/advisories/GHSA-3q26-f695-pp76",
-          "source": "https://github.com/cyanheads/git-mcp-server/security/advisories/GHSA-3q26-f695-pp76",
-          "tags": [
-            "x_refsource_CONFIRM"
-          ]
-        },
-        {
-          "url": "https://github.com/cyanheads/git-mcp-server/commit/0dbd6995ccdf76ab770b58013034365b2d06c4d9",
-          "source": "https://github.com/cyanheads/git-mcp-server/commit/0dbd6995ccdf76ab770b58013034365b2d06c4d9",
-          "tags": [
-            "x_refsource_MISC"
-          ]
-        },
-        {
-          "url": "https://github.com/cyanheads/git-mcp-server/releases/tag/v2.1.5",
-          "source": "https://github.com/cyanheads/git-mcp-server/releases/tag/v2.1.5",
-          "tags": [
-            "x_refsource_MISC"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-77"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "High",
-        "privilegesRequired": "None",
-        "userInteraction": "Required",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/53xxx/CVE-2025-53107.json",
-            "lastModified": "2025-07-01T18:48:11.222000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2025-41239",
       "title": "vSockets information-disclosure vulnerability",
       "description": "VMware ESXi, Workstation, Fusion, and VMware Tools contains an information disclosure vulnerability due to the usage of an uninitialised memory in vSockets. A malicious actor with local administrative privileges on a virtual machine may be able to exploit this issue to leak memory from processes communicating with vSockets.",
@@ -71999,63 +71862,6 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/5xxx/CVE-2025-5817.json",
             "lastModified": "2025-07-02T13:18:38.235000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-5039",
-      "title": "Privilege Ecalation due to Untrusted Search Path Vulnerability",
-      "description": "A maliciously crafted binary file, when present while loading files in certain Autodesk applications, could lead to execution of arbitrary code in the context of the current process due to an untrusted search path being utilized.",
-      "publishedDate": "2025-07-24T17:11:14.714000+00:00",
-      "lastModifiedDate": "2025-07-25T03:55:30.703000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
-          "baseScore": 7.8,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.0002,
-        "percentile": 2.158
-      },
-      "riskScore": 46,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Autodesk"
-        ],
-        "products": [
-          "Realdwg"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://www.autodesk.com/trust/security-advisories/adsk-sa-2025-0014",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-426"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Local",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "Required",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/5xxx/CVE-2025-5039.json",
-            "lastModified": "2025-07-25T03:55:30.703000+00:00"
           }
         ]
       }
@@ -104072,6 +103878,66 @@
       }
     },
     {
+      "cveId": "CVE-2025-49741",
+      "title": "Microsoft Edge (Chromium-based) Information Disclosure Vulnerability",
+      "description": "No cwe for this issue in Microsoft Edge (Chromium-based) allows an unauthorized attacker to disclose information over a network.",
+      "publishedDate": "2025-07-01T22:22:07.595000+00:00",
+      "lastModifiedDate": "2025-07-31T19:48:36.708000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:N/A:N/E:U/RL:O/RC:C",
+          "baseScore": 7.4,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.0006,
+        "percentile": 20.186
+      },
+      "riskScore": 46,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Microsoft"
+        ],
+        "products": [
+          "Edge",
+          "Microsoft Edge (chromium-based)"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49741",
+          "source": "Microsoft Edge (Chromium-based) Information Disclosure Vulnerability",
+          "tags": [
+            "vendor-advisory"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-268"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "Required",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/49xxx/CVE-2025-49741.json",
+            "lastModified": "2025-07-31T19:48:36.708000+00:00"
+          }
+        ]
+      }
+    },
+    {
       "cveId": "CVE-2025-49521",
       "title": "Event-driven-ansible: template injection via git branch and refspec in eda projects",
       "description": "A flaw was found in the EDA component of the Ansible Automation Platform, where user-supplied Git branch or refspec values are evaluated as Jinja2 templates. This vulnerability allows authenticated users to inject expressions that execute commands or access sensitive files on the EDA worker. In OpenShift, it can lead to service account token theft.",
@@ -115392,63 +115258,6 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/25xxx/CVE-2025-25199.json",
             "lastModified": "2025-02-12T19:50:24.955000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-36630",
-      "title": "Local Privilege Escalation",
-      "description": "In Tenable Nessus versions prior to 10.8.5 on a Windows host, it was found that a non-administrative user could overwrite arbitrary local system files with log content at SYSTEM privilege.",
-      "publishedDate": "2025-07-01T23:11:13.818000+00:00",
-      "lastModifiedDate": "2025-07-02T13:24:24.991000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:N/I:H/A:H",
-          "baseScore": 8.4,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.0001,
-        "percentile": 1.553
-      },
-      "riskScore": 45,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Tenable"
-        ],
-        "products": [
-          "Nessus"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://www.tenable.com/security/tns-2025-13",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-269"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Local",
-        "attackComplexity": "Low",
-        "privilegesRequired": "Low",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/36xxx/CVE-2025-36630.json",
-            "lastModified": "2025-07-02T13:24:24.991000+00:00"
           }
         ]
       }
@@ -126969,65 +126778,6 @@
       }
     },
     {
-      "cveId": "CVE-2025-31955",
-      "title": "HCL iAutomate is affected by a sensitive data exposure vulnerability",
-      "description": "HCL iAutomate is affected by a sensitive data exposure vulnerability.  This issue may allow unauthorized access to sensitive information within the system.",
-      "publishedDate": "2025-07-24T20:59:34.692000+00:00",
-      "lastModifiedDate": "2025-07-25T13:34:36.168000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:L/A:L",
-          "baseScore": 7.6,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.0006,
-        "percentile": 17.248
-      },
-      "riskScore": 45,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Hcl Software"
-        ],
-        "products": [
-          "Iautomate"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0122646",
-          "source": "VDB-299060 | PyTorch Quantized Sigmoid Module nnq_Sigmoid initialization",
-          "tags": [
-            "x_refsource_CONFIRM"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-200"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "Low",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/31xxx/CVE-2025-31955.json",
-            "lastModified": "2025-07-25T13:34:36.168000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2025-31640",
       "title": "WordPress Magic Responsive Slider and Carousel WordPress <= 1.4 - SQL Injection Vulnerability",
       "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in LambertGroup Magic Responsive Slider and Carousel WordPress allows SQL Injection. This issue affects Magic Responsive Slider and Carousel WordPress: from n/a through 1.4.",
@@ -131104,6 +130854,83 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/36xxx/CVE-2025-36548.json",
             "lastModified": "2025-07-24T16:04:44.640000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-53107",
+      "title": "@cyanheads/git-mcp-server vulnerable to command injection in several tools",
+      "description": "@cyanheads/git-mcp-server is an MCP server designed to interact with Git repositories. Prior to version 2.1.5, there is a command injection vulnerability caused by the unsanitized use of input parameters within a call to child_process.exec, enabling an attacker to inject arbitrary system commands. Successful exploitation can lead to remote code execution under the server process's privileges. The server constructs and executes shell commands using unvalidated user input directly within command-line strings. This introduces the possibility of shell metacharacter injection (|, >, &&, etc.). An MCP Client can be instructed to execute additional actions for example via indirect prompt injection when asked to read git logs. This issue has been patched in version 2.1.5.",
+      "publishedDate": "2025-07-01T17:55:30.726000+00:00",
+      "lastModifiedDate": "2025-07-01T18:48:11.222000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "baseScore": 7.5,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.0015,
+        "percentile": 36.813
+      },
+      "riskScore": 45,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Cyanheads",
+          "Mcp",
+          "The"
+        ],
+        "products": [
+          "Git-mcp-server",
+          "Mcp Server",
+          "The Server"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://github.com/cyanheads/git-mcp-server/security/advisories/GHSA-3q26-f695-pp76",
+          "source": "https://github.com/cyanheads/git-mcp-server/security/advisories/GHSA-3q26-f695-pp76",
+          "tags": [
+            "x_refsource_CONFIRM"
+          ]
+        },
+        {
+          "url": "https://github.com/cyanheads/git-mcp-server/commit/0dbd6995ccdf76ab770b58013034365b2d06c4d9",
+          "source": "https://github.com/cyanheads/git-mcp-server/commit/0dbd6995ccdf76ab770b58013034365b2d06c4d9",
+          "tags": [
+            "x_refsource_MISC"
+          ]
+        },
+        {
+          "url": "https://github.com/cyanheads/git-mcp-server/releases/tag/v2.1.5",
+          "source": "https://github.com/cyanheads/git-mcp-server/releases/tag/v2.1.5",
+          "tags": [
+            "x_refsource_MISC"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-77"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "High",
+        "privilegesRequired": "None",
+        "userInteraction": "Required",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/53xxx/CVE-2025-53107.json",
+            "lastModified": "2025-07-01T18:48:11.222000+00:00"
           }
         ]
       }
@@ -152179,86 +152006,6 @@
       }
     },
     {
-      "cveId": "CVE-2025-48379",
-      "title": "Pillow Vulnerable to Write Buffer Overflow on BCn encoding",
-      "description": "Pillow is a Python imaging library. In versions 11.2.0 to before 11.3.0, there is a heap buffer overflow when writing a sufficiently large (>64k encoded with default settings) image in the DDS format due to writing into a buffer without checking for available space. This only affects users who save untrusted data as a compressed DDS image. This issue has been patched in version 11.3.0.",
-      "publishedDate": "2025-07-01T18:33:30.687000+00:00",
-      "lastModifiedDate": "2025-07-01T19:42:22.348000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:H",
-          "baseScore": 7.1,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.0001,
-        "percentile": 1.466
-      },
-      "riskScore": 44,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Python-pillow"
-        ],
-        "products": [
-          "Pillow"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://github.com/python-pillow/Pillow/security/advisories/GHSA-xg8h-j46f-w952",
-          "source": "https://github.com/python-pillow/Pillow/security/advisories/GHSA-xg8h-j46f-w952",
-          "tags": [
-            "x_refsource_CONFIRM"
-          ]
-        },
-        {
-          "url": "https://github.com/python-pillow/Pillow/pull/9041",
-          "source": "https://github.com/python-pillow/Pillow/pull/9041",
-          "tags": [
-            "x_refsource_MISC"
-          ]
-        },
-        {
-          "url": "https://github.com/python-pillow/Pillow/commit/ef98b3510e3e4f14b547762764813d7e5ca3c5a4",
-          "source": "https://github.com/python-pillow/Pillow/commit/ef98b3510e3e4f14b547762764813d7e5ca3c5a4",
-          "tags": [
-            "x_refsource_MISC"
-          ]
-        },
-        {
-          "url": "https://github.com/python-pillow/Pillow/releases/tag/11.3.0",
-          "source": "https://github.com/python-pillow/Pillow/releases/tag/11.3.0",
-          "tags": [
-            "x_refsource_MISC"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-122"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Local",
-        "attackComplexity": "Low",
-        "privilegesRequired": "Low",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/48xxx/CVE-2025-48379.json",
-            "lastModified": "2025-07-01T19:42:22.348000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2025-48126",
       "title": "WordPress Essential Real Estate <= 5.2.1 - Local File Inclusion Vulnerability",
       "description": "Improper Control of Filename for Include/Require Statement in PHP Program ('PHP Remote File Inclusion') vulnerability in g5theme Essential Real Estate allows PHP Local File Inclusion. This issue affects Essential Real Estate: from n/a through 5.2.1.",
@@ -157271,73 +157018,6 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/47xxx/CVE-2025-47133.json",
             "lastModified": "2025-07-10T03:55:19.649000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-47245",
-      "title": "CVE-2025-47245: In BlueWave Checkmate through 2.0.2 before d4a6072, an invite request can be modified to specify a p...",
-      "description": "In BlueWave Checkmate through 2.0.2 before d4a6072, an invite request can be modified to specify a privileged role.",
-      "publishedDate": "2025-05-03T00:00:00+00:00",
-      "lastModifiedDate": "2025-05-05T14:20:10.531000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 8.1,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.0006,
-        "percentile": 19.208
-      },
-      "riskScore": 44,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Bluewave"
-        ],
-        "products": [
-          "Checkmate"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://github.com/bluewave-labs/Checkmate/pull/2160",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://github.com/bluewave-labs/Checkmate/security/advisories/GHSA-7x3q-g6gq-f4mm",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://github.com/bluewave-labs/Checkmate/commit/d4a60723f490502b3fe6f7f780a85d29bf5d1385",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-472"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "High",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/47xxx/CVE-2025-47245.json",
-            "lastModified": "2025-05-05T14:20:10.531000+00:00"
           }
         ]
       }
@@ -169945,103 +169625,6 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/4xxx/CVE-2025-4709.json",
             "lastModified": "2025-05-15T18:36:00.795000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-4213",
-      "title": "PHPGurukul Online Birth Certificate System search.php sql injection",
-      "description": "A vulnerability has been found in PHPGurukul Online Birth Certificate System 1.0 and classified as critical. This vulnerability affects unknown code of the file /admin/search.php. The manipulation of the argument searchdata leads to sql injection. The attack can be initiated remotely. The exploit has been disclosed to the public and may be used.",
-      "publishedDate": "2025-05-02T18:00:09.213000+00:00",
-      "lastModifiedDate": "2025-05-02T18:23:10.239000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
-          "baseScore": 7.3,
-          "baseSeverity": "HIGH"
-        },
-        {
-          "version": "3.0",
-          "vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
-          "baseScore": 7.3,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.0003,
-        "percentile": 5.406
-      },
-      "riskScore": 44,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Phpgurukul"
-        ],
-        "products": [
-          "Online Birth Certificate System"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://vuldb.com/?id.307192",
-          "source": "VDB-307192 | PHPGurukul Online Birth Certificate System search.php sql injection",
-          "tags": [
-            "vdb-entry",
-            "technical-description"
-          ]
-        },
-        {
-          "url": "https://vuldb.com/?ctiid.307192",
-          "source": "VDB-307192 | CTI Indicators (IOB, IOC, TTP, IOA)",
-          "tags": [
-            "signature",
-            "permissions-required"
-          ]
-        },
-        {
-          "url": "https://vuldb.com/?submit.562291",
-          "source": "Submit #562291 | PHPGurukul Online Birth Certificate System v1.0 SQL Injection",
-          "tags": [
-            "third-party-advisory"
-          ]
-        },
-        {
-          "url": "https://github.com/LoovvvE18/CVE/issues/1",
-          "source": "",
-          "tags": [
-            "exploit",
-            "issue-tracking"
-          ]
-        },
-        {
-          "url": "https://phpgurukul.com/",
-          "source": "",
-          "tags": [
-            "product"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-89",
-          "CWE-74"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/4xxx/CVE-2025-4213.json",
-            "lastModified": "2025-05-02T18:23:10.239000+00:00"
           }
         ]
       }
@@ -200556,65 +200139,6 @@
       }
     },
     {
-      "cveId": "CVE-2025-31953",
-      "title": "HCL iAutomate is affected by hardcoded credentials",
-      "description": "HCL iAutomate includes hardcoded credentials which may result in potential exposure of confidential data if intercepted or accessed by unauthorized parties.",
-      "publishedDate": "2025-07-24T20:40:43.677000+00:00",
-      "lastModifiedDate": "2025-07-25T01:32:44.278000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:L/A:N",
-          "baseScore": 7.1,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.0003,
-        "percentile": 7.202
-      },
-      "riskScore": 44,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Hcl Software"
-        ],
-        "products": [
-          "Iautomate"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0122646",
-          "source": "VDB-299060 | PyTorch Quantized Sigmoid Module nnq_Sigmoid initialization",
-          "tags": [
-            "x_refsource_CONFIRM"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-798"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "Low",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/31xxx/CVE-2025-31953.json",
-            "lastModified": "2025-07-25T01:32:44.278000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2025-31913",
       "title": "WordPress Ogami <= 1.53 - Local File Inclusion Vulnerability",
       "description": "Improper Control of Filename for Include/Require Statement in PHP Program ('PHP Remote File Inclusion') vulnerability in ApusTheme Ogami allows PHP Local File Inclusion. This issue affects Ogami: from n/a through 1.53.",
@@ -200854,65 +200378,6 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/31xxx/CVE-2025-31064.json",
             "lastModified": "2025-05-23T13:21:33.719000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-31952",
-      "title": "HCL iAutomate is affected by an insufficient session expiration",
-      "description": "HCL iAutomate is affected by an insufficient session expiration.  This allows tokens to remain valid indefinitely unless manually revoked, increasing the risk of unauthorized access.",
-      "publishedDate": "2025-07-24T21:01:57.524000+00:00",
-      "lastModifiedDate": "2025-07-25T13:34:09.699000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:L",
-          "baseScore": 7.1,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.0005,
-        "percentile": 15.603
-      },
-      "riskScore": 44,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Hcl Software"
-        ],
-        "products": [
-          "Iautomate"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0122646",
-          "source": "VDB-299060 | PyTorch Quantized Sigmoid Module nnq_Sigmoid initialization",
-          "tags": [
-            "x_refsource_CONFIRM"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-613"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "Low",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/31xxx/CVE-2025-31952.json",
-            "lastModified": "2025-07-25T13:34:09.699000+00:00"
           }
         ]
       }
@@ -207843,6 +207308,63 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/35xxx/CVE-2024-35277.json",
             "lastModified": "2025-01-15T14:56:56.325000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-5039",
+      "title": "Privilege Ecalation due to Untrusted Search Path Vulnerability",
+      "description": "A maliciously crafted binary file, when present while loading files in certain Autodesk applications, could lead to execution of arbitrary code in the context of the current process due to an untrusted search path being utilized.",
+      "publishedDate": "2025-07-24T17:11:14.714000+00:00",
+      "lastModifiedDate": "2025-07-25T03:55:30.703000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "baseScore": 7.8,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.0002,
+        "percentile": 2.158
+      },
+      "riskScore": 44,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Autodesk"
+        ],
+        "products": [
+          "Realdwg"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.autodesk.com/trust/security-advisories/adsk-sa-2025-0014",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-426"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Local",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "Required",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/5xxx/CVE-2025-5039.json",
+            "lastModified": "2025-07-25T03:55:30.703000+00:00"
           }
         ]
       }
@@ -219402,78 +218924,6 @@
       }
     },
     {
-      "cveId": "CVE-2025-47244",
-      "title": "CVE-2025-47244: Inedo ProGet through 2024.22 allows remote attackers to reach restricted functionality through the C...",
-      "description": "Inedo ProGet through 2024.22 allows remote attackers to reach restricted functionality through the C# reflection layer, as demonstrated by causing a denial of service (when an attacker executes a loop calling RestartWeb) or obtaining potentially sensitive information. Exploitation can occur if Anonymous access is enabled, or if there is a successful CSRF attack.",
-      "publishedDate": "2025-05-03T00:00:00+00:00",
-      "lastModifiedDate": "2025-05-05T14:21:24.798000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
-          "baseScore": 7.3,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.0014,
-        "percentile": 34.31
-      },
-      "riskScore": 43,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Inedo"
-        ],
-        "products": [
-          "Proget"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://seclists.org/fulldisclosure/2025/Apr/30",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://forums.inedo.com",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://docs.inedo.com/docs/proget/installation/installation-guide",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://my.inedo.com/downloads/installers?product=ProGet",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-288"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/47xxx/CVE-2025-47244.json",
-            "lastModified": "2025-05-05T14:21:24.798000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2025-47755",
       "title": "CVE-2025-47755: V-SFT v6.2.5.0 and earlier contains an issue with out-of-bounds read in VS6EditData!VS4_SaveEnvFile ...",
       "description": "V-SFT v6.2.5.0 and earlier contains an issue with out-of-bounds read in VS6EditData!VS4_SaveEnvFile function. Opening specially crafted V7 or V8 files may lead to crash, information disclosure, and arbitrary code execution.",
@@ -221320,96 +220770,6 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/4xxx/CVE-2025-4931.json",
             "lastModified": "2025-05-19T13:31:06.714000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-4214",
-      "title": "PHPGuruku Online DJ Booking Management System booking-bwdates-reports-details.php sql injection",
-      "description": "A vulnerability was found in PHPGuruku Online DJ Booking Management System 1.0 and classified as critical. This issue affects some unknown processing of the file /admin/booking-bwdates-reports-details.php. The manipulation of the argument fromdate leads to sql injection. The attack may be initiated remotely. The exploit has been disclosed to the public and may be used. Other parameters might be affected as well.",
-      "publishedDate": "2025-05-02T19:31:04.377000+00:00",
-      "lastModifiedDate": "2025-05-02T20:08:28.595000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
-          "baseScore": 7.3,
-          "baseSeverity": "HIGH"
-        },
-        {
-          "version": "3.0",
-          "vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
-          "baseScore": 7.3,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.0004,
-        "percentile": 10.578
-      },
-      "riskScore": 43,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Phpguruku"
-        ],
-        "products": [
-          "Online Dj Booking Management System"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://vuldb.com/?id.307193",
-          "source": "VDB-307193 | PHPGuruku Online DJ Booking Management System booking-bwdates-reports-details.php sql injection",
-          "tags": [
-            "vdb-entry",
-            "technical-description"
-          ]
-        },
-        {
-          "url": "https://vuldb.com/?ctiid.307193",
-          "source": "VDB-307193 | CTI Indicators (IOB, IOC, TTP, IOA)",
-          "tags": [
-            "signature",
-            "permissions-required"
-          ]
-        },
-        {
-          "url": "https://vuldb.com/?submit.562295",
-          "source": "Submit #562295 | PHPGurukul Online DJ Booking Management System v1.0 SQL Injection",
-          "tags": [
-            "third-party-advisory"
-          ]
-        },
-        {
-          "url": "https://github.com/LoovvvE18/CVE/issues/2",
-          "source": "",
-          "tags": [
-            "exploit",
-            "issue-tracking"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-89",
-          "CWE-74"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/4xxx/CVE-2025-4214.json",
-            "lastModified": "2025-05-02T20:08:28.595000+00:00"
           }
         ]
       }
@@ -245317,6 +244677,63 @@
       }
     },
     {
+      "cveId": "CVE-2025-36630",
+      "title": "Local Privilege Escalation",
+      "description": "In Tenable Nessus versions prior to 10.8.5 on a Windows host, it was found that a non-administrative user could overwrite arbitrary local system files with log content at SYSTEM privilege.",
+      "publishedDate": "2025-07-01T23:11:13.818000+00:00",
+      "lastModifiedDate": "2025-07-02T13:24:24.991000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:C/C:N/I:H/A:H",
+          "baseScore": 8.4,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.0001,
+        "percentile": 1.553
+      },
+      "riskScore": 43,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Tenable"
+        ],
+        "products": [
+          "Nessus"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.tenable.com/security/tns-2025-13",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-269"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Local",
+        "attackComplexity": "Low",
+        "privilegesRequired": "Low",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/36xxx/CVE-2025-36630.json",
+            "lastModified": "2025-07-02T13:24:24.991000+00:00"
+          }
+        ]
+      }
+    },
+    {
       "cveId": "CVE-2025-36521",
       "title": "MicroDicom DICOM Viewer Out-of-bounds Read",
       "description": "MicroDicom DICOM Viewer is vulnerable to an out-of-bounds read which may allow an attacker to cause memory corruption within the application. The user must open a malicious DCM file for exploitation.",
@@ -245374,6 +244791,65 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/36xxx/CVE-2025-36521.json",
             "lastModified": "2025-05-01T18:46:08.699000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-31955",
+      "title": "HCL iAutomate is affected by a sensitive data exposure vulnerability",
+      "description": "HCL iAutomate is affected by a sensitive data exposure vulnerability.  This issue may allow unauthorized access to sensitive information within the system.",
+      "publishedDate": "2025-07-24T20:59:34.692000+00:00",
+      "lastModifiedDate": "2025-07-25T13:34:36.168000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:L/A:L",
+          "baseScore": 7.6,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.0006,
+        "percentile": 17.248
+      },
+      "riskScore": 43,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Hcl Software"
+        ],
+        "products": [
+          "Iautomate"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0122646",
+          "source": "VDB-299060 | PyTorch Quantized Sigmoid Module nnq_Sigmoid initialization",
+          "tags": [
+            "x_refsource_CONFIRM"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-200"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "Low",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/31xxx/CVE-2025-31955.json",
+            "lastModified": "2025-07-25T13:34:36.168000+00:00"
           }
         ]
       }
@@ -297366,6 +296842,153 @@
       }
     },
     {
+      "cveId": "CVE-2025-48379",
+      "title": "Pillow Vulnerable to Write Buffer Overflow on BCn encoding",
+      "description": "Pillow is a Python imaging library. In versions 11.2.0 to before 11.3.0, there is a heap buffer overflow when writing a sufficiently large (>64k encoded with default settings) image in the DDS format due to writing into a buffer without checking for available space. This only affects users who save untrusted data as a compressed DDS image. This issue has been patched in version 11.3.0.",
+      "publishedDate": "2025-07-01T18:33:30.687000+00:00",
+      "lastModifiedDate": "2025-07-01T19:42:22.348000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:H/A:H",
+          "baseScore": 7.1,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.0001,
+        "percentile": 1.466
+      },
+      "riskScore": 42,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Python-pillow"
+        ],
+        "products": [
+          "Pillow"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://github.com/python-pillow/Pillow/security/advisories/GHSA-xg8h-j46f-w952",
+          "source": "https://github.com/python-pillow/Pillow/security/advisories/GHSA-xg8h-j46f-w952",
+          "tags": [
+            "x_refsource_CONFIRM"
+          ]
+        },
+        {
+          "url": "https://github.com/python-pillow/Pillow/pull/9041",
+          "source": "https://github.com/python-pillow/Pillow/pull/9041",
+          "tags": [
+            "x_refsource_MISC"
+          ]
+        },
+        {
+          "url": "https://github.com/python-pillow/Pillow/commit/ef98b3510e3e4f14b547762764813d7e5ca3c5a4",
+          "source": "https://github.com/python-pillow/Pillow/commit/ef98b3510e3e4f14b547762764813d7e5ca3c5a4",
+          "tags": [
+            "x_refsource_MISC"
+          ]
+        },
+        {
+          "url": "https://github.com/python-pillow/Pillow/releases/tag/11.3.0",
+          "source": "https://github.com/python-pillow/Pillow/releases/tag/11.3.0",
+          "tags": [
+            "x_refsource_MISC"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-122"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Local",
+        "attackComplexity": "Low",
+        "privilegesRequired": "Low",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/48xxx/CVE-2025-48379.json",
+            "lastModified": "2025-07-01T19:42:22.348000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-47245",
+      "title": "CVE-2025-47245: In BlueWave Checkmate through 2.0.2 before d4a6072, an invite request can be modified to specify a p...",
+      "description": "In BlueWave Checkmate through 2.0.2 before d4a6072, an invite request can be modified to specify a privileged role.",
+      "publishedDate": "2025-05-03T00:00:00+00:00",
+      "lastModifiedDate": "2025-05-05T14:20:10.531000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 8.1,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.0006,
+        "percentile": 19.208
+      },
+      "riskScore": 42,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Bluewave"
+        ],
+        "products": [
+          "Checkmate"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://github.com/bluewave-labs/Checkmate/pull/2160",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://github.com/bluewave-labs/Checkmate/security/advisories/GHSA-7x3q-g6gq-f4mm",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://github.com/bluewave-labs/Checkmate/commit/d4a60723f490502b3fe6f7f780a85d29bf5d1385",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-472"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "High",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/47xxx/CVE-2025-47245.json",
+            "lastModified": "2025-05-05T14:20:10.531000+00:00"
+          }
+        ]
+      }
+    },
+    {
       "cveId": "CVE-2025-4204",
       "title": "Ultimate Auction Pro <= 1.5.2 - Unauthenticated SQL Injection via 'auction_id'",
       "description": "The Ultimate Auction Pro plugin for WordPress is vulnerable to SQL Injection via the ‘auction_id’ parameter in all versions up to, and including, 1.5.2 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
@@ -298283,6 +297906,103 @@
       }
     },
     {
+      "cveId": "CVE-2025-4213",
+      "title": "PHPGurukul Online Birth Certificate System search.php sql injection",
+      "description": "A vulnerability has been found in PHPGurukul Online Birth Certificate System 1.0 and classified as critical. This vulnerability affects unknown code of the file /admin/search.php. The manipulation of the argument searchdata leads to sql injection. The attack can be initiated remotely. The exploit has been disclosed to the public and may be used.",
+      "publishedDate": "2025-05-02T18:00:09.213000+00:00",
+      "lastModifiedDate": "2025-05-02T18:23:10.239000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+          "baseScore": 7.3,
+          "baseSeverity": "HIGH"
+        },
+        {
+          "version": "3.0",
+          "vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+          "baseScore": 7.3,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.0003,
+        "percentile": 5.406
+      },
+      "riskScore": 42,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Phpgurukul"
+        ],
+        "products": [
+          "Online Birth Certificate System"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://vuldb.com/?id.307192",
+          "source": "VDB-307192 | PHPGurukul Online Birth Certificate System search.php sql injection",
+          "tags": [
+            "vdb-entry",
+            "technical-description"
+          ]
+        },
+        {
+          "url": "https://vuldb.com/?ctiid.307192",
+          "source": "VDB-307192 | CTI Indicators (IOB, IOC, TTP, IOA)",
+          "tags": [
+            "signature",
+            "permissions-required"
+          ]
+        },
+        {
+          "url": "https://vuldb.com/?submit.562291",
+          "source": "Submit #562291 | PHPGurukul Online Birth Certificate System v1.0 SQL Injection",
+          "tags": [
+            "third-party-advisory"
+          ]
+        },
+        {
+          "url": "https://github.com/LoovvvE18/CVE/issues/1",
+          "source": "",
+          "tags": [
+            "exploit",
+            "issue-tracking"
+          ]
+        },
+        {
+          "url": "https://phpgurukul.com/",
+          "source": "",
+          "tags": [
+            "product"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-89",
+          "CWE-74"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/4xxx/CVE-2025-4213.json",
+            "lastModified": "2025-05-02T18:23:10.239000+00:00"
+          }
+        ]
+      }
+    },
+    {
       "cveId": "CVE-2025-4192",
       "title": "itsourcecode Restaurant Management System category_save.php sql injection",
       "description": "A vulnerability was found in itsourcecode Restaurant Management System 1.0. It has been classified as critical. This affects an unknown part of the file /admin/category_save.php. The manipulation of the argument Category leads to sql injection. It is possible to initiate the attack remotely. The exploit has been disclosed to the public and may be used.",
@@ -298562,6 +298282,124 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/4xxx/CVE-2025-4176.json",
             "lastModified": "2025-05-02T17:29:13.481000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-31953",
+      "title": "HCL iAutomate is affected by hardcoded credentials",
+      "description": "HCL iAutomate includes hardcoded credentials which may result in potential exposure of confidential data if intercepted or accessed by unauthorized parties.",
+      "publishedDate": "2025-07-24T20:40:43.677000+00:00",
+      "lastModifiedDate": "2025-07-25T01:32:44.278000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:L/A:N",
+          "baseScore": 7.1,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.0003,
+        "percentile": 7.202
+      },
+      "riskScore": 42,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Hcl Software"
+        ],
+        "products": [
+          "Iautomate"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0122646",
+          "source": "VDB-299060 | PyTorch Quantized Sigmoid Module nnq_Sigmoid initialization",
+          "tags": [
+            "x_refsource_CONFIRM"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-798"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "Low",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/31xxx/CVE-2025-31953.json",
+            "lastModified": "2025-07-25T01:32:44.278000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-31952",
+      "title": "HCL iAutomate is affected by an insufficient session expiration",
+      "description": "HCL iAutomate is affected by an insufficient session expiration.  This allows tokens to remain valid indefinitely unless manually revoked, increasing the risk of unauthorized access.",
+      "publishedDate": "2025-07-24T21:01:57.524000+00:00",
+      "lastModifiedDate": "2025-07-25T13:34:09.699000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:L",
+          "baseScore": 7.1,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.0005,
+        "percentile": 15.603
+      },
+      "riskScore": 42,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Hcl Software"
+        ],
+        "products": [
+          "Iautomate"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://support.hcl-software.com/csm?id=kb_article&sysparm_article=KB0122646",
+          "source": "VDB-299060 | PyTorch Quantized Sigmoid Module nnq_Sigmoid initialization",
+          "tags": [
+            "x_refsource_CONFIRM"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-613"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "Low",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/31xxx/CVE-2025-31952.json",
+            "lastModified": "2025-07-25T13:34:09.699000+00:00"
           }
         ]
       }
@@ -335766,6 +335604,168 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/49xxx/CVE-2025-49492.json",
             "lastModified": "2025-07-01T14:29:53.421000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-47244",
+      "title": "CVE-2025-47244: Inedo ProGet through 2024.22 allows remote attackers to reach restricted functionality through the C...",
+      "description": "Inedo ProGet through 2024.22 allows remote attackers to reach restricted functionality through the C# reflection layer, as demonstrated by causing a denial of service (when an attacker executes a loop calling RestartWeb) or obtaining potentially sensitive information. Exploitation can occur if Anonymous access is enabled, or if there is a successful CSRF attack.",
+      "publishedDate": "2025-05-03T00:00:00+00:00",
+      "lastModifiedDate": "2025-05-05T14:21:24.798000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+          "baseScore": 7.3,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.0014,
+        "percentile": 34.31
+      },
+      "riskScore": 41,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Inedo"
+        ],
+        "products": [
+          "Proget"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://seclists.org/fulldisclosure/2025/Apr/30",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://forums.inedo.com",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://docs.inedo.com/docs/proget/installation/installation-guide",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://my.inedo.com/downloads/installers?product=ProGet",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-288"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/47xxx/CVE-2025-47244.json",
+            "lastModified": "2025-05-05T14:21:24.798000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-4214",
+      "title": "PHPGuruku Online DJ Booking Management System booking-bwdates-reports-details.php sql injection",
+      "description": "A vulnerability was found in PHPGuruku Online DJ Booking Management System 1.0 and classified as critical. This issue affects some unknown processing of the file /admin/booking-bwdates-reports-details.php. The manipulation of the argument fromdate leads to sql injection. The attack may be initiated remotely. The exploit has been disclosed to the public and may be used. Other parameters might be affected as well.",
+      "publishedDate": "2025-05-02T19:31:04.377000+00:00",
+      "lastModifiedDate": "2025-05-02T20:08:28.595000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+          "baseScore": 7.3,
+          "baseSeverity": "HIGH"
+        },
+        {
+          "version": "3.0",
+          "vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+          "baseScore": 7.3,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.0004,
+        "percentile": 10.578
+      },
+      "riskScore": 41,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Phpguruku"
+        ],
+        "products": [
+          "Online Dj Booking Management System"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://vuldb.com/?id.307193",
+          "source": "VDB-307193 | PHPGuruku Online DJ Booking Management System booking-bwdates-reports-details.php sql injection",
+          "tags": [
+            "vdb-entry",
+            "technical-description"
+          ]
+        },
+        {
+          "url": "https://vuldb.com/?ctiid.307193",
+          "source": "VDB-307193 | CTI Indicators (IOB, IOC, TTP, IOA)",
+          "tags": [
+            "signature",
+            "permissions-required"
+          ]
+        },
+        {
+          "url": "https://vuldb.com/?submit.562295",
+          "source": "Submit #562295 | PHPGurukul Online DJ Booking Management System v1.0 SQL Injection",
+          "tags": [
+            "third-party-advisory"
+          ]
+        },
+        {
+          "url": "https://github.com/LoovvvE18/CVE/issues/2",
+          "source": "",
+          "tags": [
+            "exploit",
+            "issue-tracking"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-89",
+          "CWE-74"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/4xxx/CVE-2025-4214.json",
+            "lastModified": "2025-05-02T20:08:28.595000+00:00"
           }
         ]
       }

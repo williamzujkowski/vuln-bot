@@ -1,7 +1,7 @@
 {
   "chunk": "2025-CRITICAL",
   "count": 1061,
-  "generated": "2025-08-01T16:07:42.038259",
+  "generated": "2025-08-02T00:23:32.840653",
   "vulnerabilities": [
     {
       "cveId": "CVE-2025-47812",
@@ -7120,65 +7120,6 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/6xxx/CVE-2025-6187.json",
             "lastModified": "2025-07-22T20:04:06.430000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-6260",
-      "title": "Network Thermostat X-Series WiFi Thermostats Missing Authentication for Critical Function",
-      "description": "The embedded web server on the thermostat listed version ranges contain a vulnerability that allows unauthenticated attackers, either on the local area network or from the Internet via a router with port forwarding set up, to gain direct access to the thermostat's embedded web server and reset user credentials by manipulating specific elements of the embedded web interface.",
-      "publishedDate": "2025-07-24T20:53:17.534000+00:00",
-      "lastModifiedDate": "2025-07-25T13:31:50.926000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 9.8,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.0008,
-        "percentile": 24.096
-      },
-      "riskScore": 52,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Network Thermostat",
-          "Web"
-        ],
-        "products": [
-          "Web Server",
-          "X-series Wifi Thermostats"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-25-205-02",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-306"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/6xxx/CVE-2025-6260.json",
-            "lastModified": "2025-07-25T13:31:50.926000+00:00"
           }
         ]
       }
@@ -15907,6 +15848,65 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/6xxx/CVE-2025-6934.json",
             "lastModified": "2025-07-02T13:24:45.496000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-6260",
+      "title": "Network Thermostat X-Series WiFi Thermostats Missing Authentication for Critical Function",
+      "description": "The embedded web server on the thermostat listed version ranges contain a vulnerability that allows unauthenticated attackers, either on the local area network or from the Internet via a router with port forwarding set up, to gain direct access to the thermostat's embedded web server and reset user credentials by manipulating specific elements of the embedded web interface.",
+      "publishedDate": "2025-07-24T20:53:17.534000+00:00",
+      "lastModifiedDate": "2025-07-25T13:31:50.926000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 9.8,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.0008,
+        "percentile": 24.096
+      },
+      "riskScore": 50,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Network Thermostat",
+          "Web"
+        ],
+        "products": [
+          "Web Server",
+          "X-series Wifi Thermostats"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-25-205-02",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-306"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/6xxx/CVE-2025-6260.json",
+            "lastModified": "2025-07-25T13:31:50.926000+00:00"
           }
         ]
       }
@@ -29200,72 +29200,6 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/39xxx/CVE-2025-39499.json",
             "lastModified": "2025-07-03T11:21:47.634000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-53104",
-      "title": "gluestack-ui Command Injection Vulnerability via discussion-to-slack GitHub Action Workflow",
-      "description": "gluestack-ui is a library of copy-pasteable components & patterns crafted with Tailwind CSS (NativeWind). Prior to commit e6b4271, a command injection vulnerability was discovered in the discussion-to-slack.yml GitHub Actions workflow. Untrusted discussion fields (title, body, etc.) were directly interpolated into shell commands in a run: block. An attacker could craft a malicious GitHub Discussion title or body (e.g., $(curl ...)) to execute arbitrary shell commands on the Actions runner. This issue has been fixed in commit e6b4271 where the discussion-to-slack.yml workflow was removed. Users should remove the discussion-to-slack.yml workflow if using a fork or derivative of this repository.",
-      "publishedDate": "2025-07-01T18:17:01.667000+00:00",
-      "lastModifiedDate": "2025-07-01T19:18:51.273000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N",
-          "baseScore": 9.1,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.003,
-        "percentile": 52.99
-      },
-      "riskScore": 48,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Gluestack"
-        ],
-        "products": [
-          "Gluestack-ui"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://github.com/gluestack/gluestack-ui/security/advisories/GHSA-432r-9455-7f9x",
-          "source": "https://github.com/gluestack/gluestack-ui/security/advisories/GHSA-432r-9455-7f9x",
-          "tags": [
-            "x_refsource_CONFIRM"
-          ]
-        },
-        {
-          "url": "https://github.com/gluestack/gluestack-ui/commit/e6b427150b35e97a089ea10409de8c5c52f8a7b9",
-          "source": "https://github.com/gluestack/gluestack-ui/commit/e6b427150b35e97a089ea10409de8c5c52f8a7b9",
-          "tags": [
-            "x_refsource_MISC"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-77"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/53xxx/CVE-2025-53104.json",
-            "lastModified": "2025-07-01T19:18:51.273000+00:00"
           }
         ]
       }
@@ -50455,6 +50389,72 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/3xxx/CVE-2025-3709.json",
             "lastModified": "2025-05-02T15:02:34.546000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-53104",
+      "title": "gluestack-ui Command Injection Vulnerability via discussion-to-slack GitHub Action Workflow",
+      "description": "gluestack-ui is a library of copy-pasteable components & patterns crafted with Tailwind CSS (NativeWind). Prior to commit e6b4271, a command injection vulnerability was discovered in the discussion-to-slack.yml GitHub Actions workflow. Untrusted discussion fields (title, body, etc.) were directly interpolated into shell commands in a run: block. An attacker could craft a malicious GitHub Discussion title or body (e.g., $(curl ...)) to execute arbitrary shell commands on the Actions runner. This issue has been fixed in commit e6b4271 where the discussion-to-slack.yml workflow was removed. Users should remove the discussion-to-slack.yml workflow if using a fork or derivative of this repository.",
+      "publishedDate": "2025-07-01T18:17:01.667000+00:00",
+      "lastModifiedDate": "2025-07-01T19:18:51.273000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N",
+          "baseScore": 9.1,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.003,
+        "percentile": 52.99
+      },
+      "riskScore": 46,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Gluestack"
+        ],
+        "products": [
+          "Gluestack-ui"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://github.com/gluestack/gluestack-ui/security/advisories/GHSA-432r-9455-7f9x",
+          "source": "https://github.com/gluestack/gluestack-ui/security/advisories/GHSA-432r-9455-7f9x",
+          "tags": [
+            "x_refsource_CONFIRM"
+          ]
+        },
+        {
+          "url": "https://github.com/gluestack/gluestack-ui/commit/e6b427150b35e97a089ea10409de8c5c52f8a7b9",
+          "source": "https://github.com/gluestack/gluestack-ui/commit/e6b427150b35e97a089ea10409de8c5c52f8a7b9",
+          "tags": [
+            "x_refsource_MISC"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-77"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/53xxx/CVE-2025-53104.json",
+            "lastModified": "2025-07-01T19:18:51.273000+00:00"
           }
         ]
       }

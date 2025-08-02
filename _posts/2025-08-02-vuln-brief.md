@@ -1,6 +1,6 @@
 ---
-title: Morning Vulnerability Briefing - 2025-08-01
-date: 2025-08-01T20:06:52.102351
+title: Morning Vulnerability Briefing - 2025-08-02
+date: 2025-08-02T00:23:32.840653
 layout: layouts/post.njk
 tags: [vulnerability, briefing, security]
 vulnerabilityCount: 15657
@@ -8,7 +8,7 @@ criticalCount: 0
 highCount: 2
 ---
 
-# Morning Vulnerability Briefing - 2025-08-01
+# Morning Vulnerability Briefing - 2025-08-02
 
 Today's briefing covers **15657 vulnerabilities** from 0 sources.
 
