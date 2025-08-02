@@ -83,6 +83,46 @@
       "userInteraction": "None",
       "tags": [
         "CWE-653"
+      ],
+      "enrichments": {
+        "deps_dev": {
+          "packages": [
+            {
+              "ecosystem": "go",
+              "name": "k8s.io/kubernetes"
+            }
+          ],
+          "links": [
+            {
+              "ecosystem": "go",
+              "package": "k8s.io/kubernetes",
+              "url": "https://deps.dev/go/k8s.io%2Fkubernetes",
+              "title": "View k8s.io/kubernetes on deps.dev",
+              "type": "package_impact"
+            }
+          ]
+        }
+      },
+      "references": [
+        {
+          "url": "https://deps.dev/go/k8s.io%2Fkubernetes",
+          "source": "deps.dev",
+          "title": "View k8s.io/kubernetes on deps.dev",
+          "type": "Package Impact Analysis",
+          "tags": [
+            "package",
+            "dependency",
+            "impact"
+          ],
+          "category": "dependency",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "deps.dev",
+          "icon": "\ud83d\udce6"
+        }
+      ],
+      "reference_categories": [
+        "dependency"
       ]
     },
     {
@@ -141,8 +181,8 @@
     },
     {
       "cveId": "CVE-2025-1661",
-      "title": "[CRITICAL] Realmag777 Husky – Products Filter Professional For Woocommerce v1.3.6.5",
-      "originalTitle": "HUSKY – Products Filter Professional for WooCommerce <= 1.3.6.5 - Unauthenticated Local File Inclusion",
+      "title": "[CRITICAL] Realmag777 Husky \u2013 Products Filter Professional For Woocommerce v1.3.6.5",
+      "originalTitle": "HUSKY \u2013 Products Filter Professional for WooCommerce <= 1.3.6.5 - Unauthenticated Local File Inclusion",
       "severity": "CRITICAL",
       "cvssScore": 9.8,
       "epssScore": 87.38,
@@ -157,7 +197,7 @@
         "WordPress"
       ],
       "products": [
-        "Husky – Products Filter Professional For Woocommerce",
+        "Husky \u2013 Products Filter Professional For Woocommerce",
         "The Server",
         "Wordpress"
       ],
@@ -167,6 +207,46 @@
       "userInteraction": "None",
       "tags": [
         "CWE-22"
+      ],
+      "enrichments": {
+        "deps_dev": {
+          "packages": [
+            {
+              "ecosystem": "packagist",
+              "name": "wordpress/wordpress"
+            }
+          ],
+          "links": [
+            {
+              "ecosystem": "packagist",
+              "package": "wordpress/wordpress",
+              "url": "https://deps.dev/packagist/wordpress%2Fwordpress",
+              "title": "View wordpress/wordpress on deps.dev",
+              "type": "package_impact"
+            }
+          ]
+        }
+      },
+      "references": [
+        {
+          "url": "https://deps.dev/packagist/wordpress%2Fwordpress",
+          "source": "deps.dev",
+          "title": "View wordpress/wordpress on deps.dev",
+          "type": "Package Impact Analysis",
+          "tags": [
+            "package",
+            "dependency",
+            "impact"
+          ],
+          "category": "dependency",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "deps.dev",
+          "icon": "\ud83d\udce6"
+        }
+      ],
+      "reference_categories": [
+        "dependency"
       ]
     },
     {
@@ -388,6 +468,46 @@
       "userInteraction": "None",
       "tags": [
         "CWE-266"
+      ],
+      "enrichments": {
+        "deps_dev": {
+          "packages": [
+            {
+              "ecosystem": "packagist",
+              "name": "wordpress/wordpress"
+            }
+          ],
+          "links": [
+            {
+              "ecosystem": "packagist",
+              "package": "wordpress/wordpress",
+              "url": "https://deps.dev/packagist/wordpress%2Fwordpress",
+              "title": "View wordpress/wordpress on deps.dev",
+              "type": "package_impact"
+            }
+          ]
+        }
+      },
+      "references": [
+        {
+          "url": "https://deps.dev/packagist/wordpress%2Fwordpress",
+          "source": "deps.dev",
+          "title": "View wordpress/wordpress on deps.dev",
+          "type": "Package Impact Analysis",
+          "tags": [
+            "package",
+            "dependency",
+            "impact"
+          ],
+          "category": "dependency",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "deps.dev",
+          "icon": "\ud83d\udce6"
+        }
+      ],
+      "reference_categories": [
+        "dependency"
       ]
     },
     {
@@ -636,6 +756,46 @@
       "userInteraction": "None",
       "tags": [
         "CWE-697"
+      ],
+      "enrichments": {
+        "deps_dev": {
+          "packages": [
+            {
+              "ecosystem": "packagist",
+              "name": "wordpress/wordpress"
+            }
+          ],
+          "links": [
+            {
+              "ecosystem": "packagist",
+              "package": "wordpress/wordpress",
+              "url": "https://deps.dev/packagist/wordpress%2Fwordpress",
+              "title": "View wordpress/wordpress on deps.dev",
+              "type": "package_impact"
+            }
+          ]
+        }
+      },
+      "references": [
+        {
+          "url": "https://deps.dev/packagist/wordpress%2Fwordpress",
+          "source": "deps.dev",
+          "title": "View wordpress/wordpress on deps.dev",
+          "type": "Package Impact Analysis",
+          "tags": [
+            "package",
+            "dependency",
+            "impact"
+          ],
+          "category": "dependency",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "deps.dev",
+          "icon": "\ud83d\udce6"
+        }
+      ],
+      "reference_categories": [
+        "dependency"
       ]
     },
     {
@@ -666,7 +826,7 @@
     },
     {
       "cveId": "CVE-2025-2011",
-      "title": "[HIGH] Averta Popup And Slider Builder By Depicter – Add Email Collecting Popup, Popup Modal, Coupon Popup, Image Slider, Carousel Slider, Post Slider Carousel v3.6.1",
+      "title": "[HIGH] Averta Popup And Slider Builder By Depicter \u2013 Add Email Collecting Popup, Popup Modal, Coupon Popup, Image Slider, Carousel Slider, Post Slider Carousel v3.6.1",
       "originalTitle": "Slider & Popup Builder by Depicter <= 3.6.1 - Unauthenticated SQL Injection via 's' Parameter",
       "severity": "HIGH",
       "cvssScore": 7.5,
@@ -682,7 +842,7 @@
         "WordPress"
       ],
       "products": [
-        "Popup And Slider Builder By Depicter – Add Email Collecting Popup, Popup Modal, Coupon Popup, Image Slider, Carousel Slider, Post Slider Carousel",
+        "Popup And Slider Builder By Depicter \u2013 Add Email Collecting Popup, Popup Modal, Coupon Popup, Image Slider, Carousel Slider, Post Slider Carousel",
         "The Database",
         "Wordpress"
       ],
@@ -692,6 +852,46 @@
       "userInteraction": "None",
       "tags": [
         "CWE-89"
+      ],
+      "enrichments": {
+        "deps_dev": {
+          "packages": [
+            {
+              "ecosystem": "packagist",
+              "name": "wordpress/wordpress"
+            }
+          ],
+          "links": [
+            {
+              "ecosystem": "packagist",
+              "package": "wordpress/wordpress",
+              "url": "https://deps.dev/packagist/wordpress%2Fwordpress",
+              "title": "View wordpress/wordpress on deps.dev",
+              "type": "package_impact"
+            }
+          ]
+        }
+      },
+      "references": [
+        {
+          "url": "https://deps.dev/packagist/wordpress%2Fwordpress",
+          "source": "deps.dev",
+          "title": "View wordpress/wordpress on deps.dev",
+          "type": "Package Impact Analysis",
+          "tags": [
+            "package",
+            "dependency",
+            "impact"
+          ],
+          "category": "dependency",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "deps.dev",
+          "icon": "\ud83d\udce6"
+        }
+      ],
+      "reference_categories": [
+        "dependency"
       ]
     },
     {

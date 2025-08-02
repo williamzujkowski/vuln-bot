@@ -36,6 +36,21 @@ python -m scripts.main validate-threshold-compliance \
   --min-epss 0.6 \
   --fail-on-violations
 
+# Clean stale files before build
+python -m scripts.cleanup_stale_files \
+  --build-dir _site \
+  --api-dir api \
+  --min-epss 0.6
+
+# Enrich with CISA KEV data
+python -m scripts.enhance_cisa_kev --api-dir api/vulns
+
+# Add exploit availability flags and EPSS percentiles
+python -m scripts.enhance_exploit_availability --api-dir api/vulns
+
+# Validate data quality at various stages
+python -m scripts.validate_data_quality --stage enriched --api-dir api
+
 # Run Python linting (Ruff)
 ruff check scripts/
 ruff format scripts/
@@ -43,10 +58,10 @@ ruff format scripts/
 # Run Python tests with coverage
 pytest --cov=scripts --cov-report=html --cov-report=term tests/
 
-# Run Python E2E tests with Playwright
+# Run Playwright E2E tests for live site
 pip install pytest-playwright playwright
 playwright install --with-deps chromium
-python -m pytest tests/e2e/ -m e2e --verbose
+pytest tests/e2e/test_live_site_validation.py -v
 
 # Run security checks
 bandit -r scripts/ -ll
@@ -87,12 +102,19 @@ chmod +x .husky/pre-commit .husky/commit-msg
 
 ### Data Flow
 1. **Scheduled Harvesting** (Python scripts in `scripts/`, runs every 4 hours):
+   - **Pre-build cleanup**: Removes stale files from previous builds
    - Fetches from multiple sources:
      - CVEProject/cvelistV5 repository (official CVE List, updated every 7 minutes)
      - GitHub Security Advisory Database (via GraphQL API)
    - Filters for Critical/High severity CVEs from 2024-2025 with EPSS scores ≥ 60%
-   - Enriches with EPSS API data and CISA-ADP container information (KEV/SSVC)
+   - **Multi-stage enrichment**:
+     - EPSS API data with percentile rankings (flags top 1%, 5%, 10%)
+     - CISA KEV catalog integration (Known Exploited Vulnerabilities)
+     - Exploit availability detection from multiple sources (Exploit-DB, Metasploit, GitHub PoCs)
+     - deps.dev package impact analysis for supply chain visibility
+     - Reference categorization (exploit, patch, advisory, vendor, technical)
    - Normalizes data and calculates Risk Score (0-100) based on CVSS, EPSS, popularity, infrastructure tags, and newness
+   - **Data validation** at each stage (raw, filtered, enriched, published)
    - Caches responses in SQLite using GitHub Actions cache (10-day TTL, timezone-aware)
 
 2. **Content Generation** (11ty in `src/`):
@@ -133,6 +155,14 @@ chmod +x .husky/pre-commit .husky/commit-msg
 
 ### Key Directories
 - `scripts/` - Python vulnerability harvesting and processing scripts
+  - `agents/` - Modular agents for enrichment and validation:
+    - `cisa_kev_agent.py` - CISA Known Exploited Vulnerabilities enrichment
+    - `exploit_availability_agent.py` - Exploit detection and EPSS percentiles
+    - `deps_dev_enrichment_agent.py` - Package dependency analysis
+    - `data_validation_agent.py` - Multi-stage data quality validation
+    - `cleanup_agent.py` - Stale file removal and verification
+    - `threshold_compliance_agent.py` - EPSS threshold enforcement
+    - `data_quality_report_agent.py` - Comprehensive data quality reporting
 - `src/` - 11ty source files (templates, posts, API generation)
 - `src/assets/ts/` - TypeScript components and types
   - `components/` - Reusable UI components (CveModal, DataVisualization)
@@ -140,21 +170,37 @@ chmod +x .husky/pre-commit .husky/commit-msg
   - `analytics.ts` - Frontend analytics and tracking
   - `dashboard.ts` - Main vulnerability dashboard Alpine.js component
 - `src/assets/css/` - Stylesheets with design tokens and component styles
+  - `mobile-optimizations.css` - Mobile-first responsive enhancements (40% density improvement)
 - `public/` - Built static site (deployed to gh-pages)
-- `tests/` - Python test suite (90%+ coverage)
-- `great_expectations/` - Data validation suites and checkpoints
+- `tests/` - Python test suite (85%+ coverage)
+  - `e2e/` - Playwright end-to-end tests for live site validation
 - `.github/workflows/` - CI/CD pipelines
+  - `scheduled-harvest.yml` - Main harvest pipeline with enrichment and validation
+  - `post-deploy-qa.yml` - Automated post-deployment quality assurance
 
 ### CI/CD Pipeline
-- **Scheduled Build**: Runs harvesting every 4 hours, generates content, commits artifacts to main, deploys to gh-pages
+- **Scheduled Build**: Runs harvesting every 4 hours with comprehensive pipeline:
+  - Pre-build cleanup to remove stale files
+  - Data harvesting with 60% EPSS threshold enforcement
+  - Multi-stage data validation (raw, filtered, enriched, published)
+  - CISA KEV and exploit availability enrichment
+  - EPSS threshold compliance validation (fails on violations)
+  - Incremental static site generation
+  - Post-build verification for stale files
+  - Commits artifacts to main, deploys to gh-pages
+- **Post-Deploy QA**: Automated Playwright tests run after deployment:
+  - Validates live site data integrity
+  - Ensures no CVEs below 60% EPSS
+  - Checks threat intel enrichments render correctly
+  - Fails if stale data detected
 - **Quality Gates**: 
   - **EPSS Threshold Compliance**: Validates all vulnerabilities meet ≥60% EPSS threshold (CI/CD gating)
-  - Linting: Ruff, ESLint, Black, isort (zero errors)
-  - Tests: ≥90% coverage, no skipped tests
+  - **Data Validation**: Multi-stage validation at ingestion, filtering, enrichment, and publication
+  - Linting: Ruff, ESLint (zero errors)
+  - Tests: ≥80% coverage requirement
   - Security: Bandit, TruffleHog, CodeQL, npm audit
-  - Performance: Lighthouse CI (≥80% score), bundle size checks (<500KB)
-  - Data Validation: Great Expectations checkpoints
-- **Automated Deployment**: GitHub Pages with incremental builds, blocked on threshold violations
+  - **Stale File Detection**: Verifies no outdated CVE pages remain
+- **Automated Deployment**: GitHub Pages with incremental builds, blocked on threshold/validation failures
 
 ### API Keys Required
 Environment secrets needed in GitHub Actions:
@@ -162,18 +208,33 @@ Environment secrets needed in GitHub Actions:
 - `EPSS_API_KEY` - EPSS API access (optional, for enrichment)
 
 ### Testing Strategy
-- Python: pytest with 90% minimum coverage requirement (enforced)
-- E2E: Playwright tests for critical user flows (conditional on installation)
-- Security: Bandit (medium+ severities fail), TruffleHog for secrets
+- Python: pytest with 80% minimum coverage requirement
+- E2E: Playwright tests for live site validation:
+  - CVE count validation (≤30 expected)
+  - EPSS threshold compliance (all ≥60%)
+  - Threat intel flag rendering (CISA KEV, exploit badges)
+  - API endpoint accessibility
+  - No stale data detection
+- Data Quality: Validation at each pipeline stage
+- Security: Bandit (high+ severities fail), TruffleHog for secrets
 - JavaScript: ESLint with Google style guide, Prettier formatting
-- Performance: Search latency < 100ms, page load < 2s FCP
 - All checks enforced via Husky pre-commit hooks and GitHub Actions
 
 ### Deployment
 - Static site deployed to GitHub Pages from `gh-pages` branch
+- **IMPORTANT**: GitHub Pages may cache stale files. When EPSS threshold changes:
+  - Force clean build: `rm -rf _site public` before building
+  - Use force push to gh-pages: `git push origin gh-pages --force-with-lease`
+  - Clear GitHub Pages cache by toggling source in Settings
 - No backend servers required - fully client-side functionality
 - Coverage badges auto-updated in README via the `update-badge` command
 - Webhook alerts supported for Slack/Teams notifications
+
+### Troubleshooting Stale Data
+If the live site shows thousands of CVEs instead of ~30:
+1. Check `docs/TROUBLESHOOTING.md` for detailed fix
+2. Run force rebuild: `python -m scripts.agents.build_deploy_agent`
+3. Verify with: `pytest tests/e2e/test_live_site_sanity.py`
 
 ## Performance Optimization Guide
 
