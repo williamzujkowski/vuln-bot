@@ -17,19 +17,27 @@ async def test_alpine_timing():
 
         # Capture console messages
         console_messages = []
-        page.on("console", lambda msg: console_messages.append({
-            "type": msg.type,
-            "text": msg.text,
-        }))
+        page.on(
+            "console",
+            lambda msg: console_messages.append(
+                {
+                    "type": msg.type,
+                    "text": msg.text,
+                }
+            ),
+        )
 
         print("📡 Navigating to site...")
-        await page.goto("https://williamzujkowski.github.io/vuln-bot/", wait_until="networkidle")
+        await page.goto(
+            "https://williamzujkowski.github.io/vuln-bot/", wait_until="networkidle"
+        )
 
         # Wait for Alpine to initialize
         await page.wait_for_timeout(2000)
 
         # Check various states
-        checks = await page.evaluate("""
+        checks = await page.evaluate(
+            """
             () => {
                 // Force Alpine to re-evaluate if needed
                 if (typeof Alpine !== 'undefined' && typeof window.dashboard !== 'undefined') {
@@ -54,14 +62,16 @@ async def test_alpine_timing():
                     error: 'Alpine or dashboard not ready'
                 };
             }
-        """)
+        """
+        )
 
         print("\n📊 TIMING CHECK RESULTS:")
         for key, value in checks.items():
             print(f"  {key}: {value}")
 
         # Try to manually initialize Alpine component
-        manual_init = await page.evaluate("""
+        manual_init = await page.evaluate(
+            """
             () => {
                 try {
                     if (typeof window.dashboard === 'function' && typeof Alpine !== 'undefined') {
@@ -82,13 +92,16 @@ async def test_alpine_timing():
                     return { success: false, error: e.toString() };
                 }
             }
-        """)
+        """
+        )
 
         print("\n📊 MANUAL INIT ATTEMPT:")
         print(f"  Result: {manual_init}")
 
         print("\n📊 ALPINE ERRORS (first 5):")
-        alpine_errors = [msg for msg in console_messages if 'Alpine Expression Error' in msg['text']][:5]
+        alpine_errors = [
+            msg for msg in console_messages if "Alpine Expression Error" in msg["text"]
+        ][:5]
         for err in alpine_errors:
             print(f"  {err['text']}")
 

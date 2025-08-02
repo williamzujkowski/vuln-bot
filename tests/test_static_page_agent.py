@@ -17,8 +17,7 @@ class TestStaticPageAgent:
     def agent(self, tmp_path):
         """Create static page agent instance."""
         return StaticPageAgent(
-            output_dir=tmp_path / "output",
-            template_dir=tmp_path / "templates"
+            output_dir=tmp_path / "output", template_dir=tmp_path / "templates"
         )
 
     @pytest.fixture

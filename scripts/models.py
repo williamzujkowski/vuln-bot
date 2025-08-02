@@ -288,37 +288,41 @@ class Vulnerability(BaseModel):
                 }
                 for m in self.cvss_metrics
             ],
-            "epss": {
-                "score": self.epss_score.score,
-                "percentile": self.epss_score.percentile,
-            }
-            if self.epss_score
-            else None,
+            "epss": (
+                {
+                    "score": self.epss_score.score,
+                    "percentile": self.epss_score.percentile,
+                }
+                if self.epss_score
+                else None
+            ),
             "riskScore": self.risk_score,
             "exploitationStatus": self.exploitation_status.value,
             "affectedSystems": {
                 "cpeMatches": [
                     {
                         "cpe23Uri": cpe.cpe23_uri,
-                        "versionRange": {
-                            k: v
-                            for k, v in {
-                                "versionStartIncluding": cpe.version_start_including,
-                                "versionStartExcluding": cpe.version_start_excluding,
-                                "versionEndIncluding": cpe.version_end_including,
-                                "versionEndExcluding": cpe.version_end_excluding,
-                            }.items()
-                            if v
-                        }
-                        if any(
-                            [
-                                cpe.version_start_including,
-                                cpe.version_start_excluding,
-                                cpe.version_end_including,
-                                cpe.version_end_excluding,
-                            ]
-                        )
-                        else None,
+                        "versionRange": (
+                            {
+                                k: v
+                                for k, v in {
+                                    "versionStartIncluding": cpe.version_start_including,
+                                    "versionStartExcluding": cpe.version_start_excluding,
+                                    "versionEndIncluding": cpe.version_end_including,
+                                    "versionEndExcluding": cpe.version_end_excluding,
+                                }.items()
+                                if v
+                            }
+                            if any(
+                                [
+                                    cpe.version_start_including,
+                                    cpe.version_start_excluding,
+                                    cpe.version_end_including,
+                                    cpe.version_end_excluding,
+                                ]
+                            )
+                            else None
+                        ),
                     }
                     for cpe in self.cpe_matches
                 ],
@@ -349,9 +353,9 @@ class Vulnerability(BaseModel):
                     {
                         "name": src.name,
                         "url": src.url,
-                        "lastModified": src.last_modified.isoformat()
-                        if src.last_modified
-                        else None,
+                        "lastModified": (
+                            src.last_modified.isoformat() if src.last_modified else None
+                        ),
                     }
                     for src in self.sources
                 ],

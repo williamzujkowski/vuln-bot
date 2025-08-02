@@ -19,7 +19,7 @@ class VulnBotE2ETests:
             "passed": 0,
             "failed": 0,
             "errors": [],
-            "timestamp": datetime.now().isoformat()
+            "timestamp": datetime.now().isoformat(),
         }
 
     async def run_all_tests(self):
@@ -85,12 +85,14 @@ class VulnBotE2ETests:
 
             # Check main elements exist
             await expect(page.locator(".dashboard-header")).to_be_visible()
-            await expect(page.locator("#vulnerability-table")).to_be_visible(timeout=30000)
+            await expect(page.locator("#vulnerability-table")).to_be_visible(
+                timeout=30000
+            )
 
             # Wait for data to load
             await page.wait_for_function(
                 "() => window.vulnerabilityData && window.vulnerabilityData.length > 0",
-                timeout=30000
+                timeout=30000,
             )
 
             self.record_success(test_name)
@@ -105,7 +107,8 @@ class VulnBotE2ETests:
             print(f"\n🔍 Running: {test_name}")
 
             # Get vulnerability data
-            vuln_data = await page.evaluate("""
+            vuln_data = await page.evaluate(
+                """
                 () => {
                     const data = window.vulnerabilityData || [];
                     return data.slice(0, 10).map(v => ({
@@ -119,35 +122,45 @@ class VulnBotE2ETests:
                         publishedDate: v.publishedDate
                     }));
                 }
-            """)
+            """
+            )
 
             assert len(vuln_data) > 0, "No vulnerability data found"
 
             # Validate each vulnerability
             for _i, vuln in enumerate(vuln_data):
                 # Check CVE ID format
-                assert re.match(r'^CVE-\d{4}-\d+$', vuln['cveId']), \
-                    f"Invalid CVE ID format: {vuln['cveId']}"
+                assert re.match(
+                    r"^CVE-\d{4}-\d+$", vuln["cveId"]
+                ), f"Invalid CVE ID format: {vuln['cveId']}"
 
                 # Check severity
-                assert vuln['severity'] in ['CRITICAL', 'HIGH', 'MEDIUM', 'LOW'], \
-                    f"Invalid severity: {vuln['severity']}"
+                assert vuln["severity"] in [
+                    "CRITICAL",
+                    "HIGH",
+                    "MEDIUM",
+                    "LOW",
+                ], f"Invalid severity: {vuln['severity']}"
 
                 # Check CVSS score
-                assert 0 <= vuln['cvssScore'] <= 10, \
-                    f"Invalid CVSS score: {vuln['cvssScore']}"
+                assert (
+                    0 <= vuln["cvssScore"] <= 10
+                ), f"Invalid CVSS score: {vuln['cvssScore']}"
 
                 # Check EPSS percentile
-                assert 0 <= vuln['epssPercentile'] <= 100, \
-                    f"Invalid EPSS percentile: {vuln['epssPercentile']}"
+                assert (
+                    0 <= vuln["epssPercentile"] <= 100
+                ), f"Invalid EPSS percentile: {vuln['epssPercentile']}"
 
                 # Check products is array
-                assert isinstance(vuln['products'], list), \
-                    f"Products should be array, got {type(vuln['products'])}"
+                assert isinstance(
+                    vuln["products"], list
+                ), f"Products should be array, got {type(vuln['products'])}"
 
                 # Check vendors is array
-                assert isinstance(vuln['vendors'], list), \
-                    f"Vendors should be array, got {type(vuln['vendors'])}"
+                assert isinstance(
+                    vuln["vendors"], list
+                ), f"Vendors should be array, got {type(vuln['vendors'])}"
 
             self.record_success(test_name)
 
@@ -162,11 +175,20 @@ class VulnBotE2ETests:
 
             # Check table headers
             headers = await page.locator("#vulnerability-table th").all_text_contents()
-            expected_headers = ["CVE ID", "Description", "Severity", "CVSS", "EPSS", "Risk", "Product"]
+            expected_headers = [
+                "CVE ID",
+                "Description",
+                "Severity",
+                "CVSS",
+                "EPSS",
+                "Risk",
+                "Product",
+            ]
 
             for expected in expected_headers:
-                assert any(expected in header for header in headers), \
-                    f"Missing expected header: {expected}"
+                assert any(
+                    expected in header for header in headers
+                ), f"Missing expected header: {expected}"
 
             # Check table rows
             rows = await page.locator("#vulnerability-table tbody tr").count()
@@ -182,8 +204,12 @@ class VulnBotE2ETests:
             assert sort_indicator, "Sort indicator not visible after clicking header"
 
             # Test product column displays only product names
-            first_product = await page.locator("#vulnerability-table tbody tr:first-child td:nth-child(7)").text_content()
-            assert "/" not in first_product, f"Product column still contains vendor/product: {first_product}"
+            first_product = await page.locator(
+                "#vulnerability-table tbody tr:first-child td:nth-child(7)"
+            ).text_content()
+            assert (
+                "/" not in first_product
+            ), f"Product column still contains vendor/product: {first_product}"
 
             self.record_success(test_name)
 
@@ -202,18 +228,26 @@ class VulnBotE2ETests:
             await page.wait_for_timeout(500)
 
             # Check results updated
-            results_count = await page.locator(".results-count span").first.text_content()
+            results_count = await page.locator(
+                ".results-count span"
+            ).first.text_content()
             assert "results" in results_count.lower(), "Results count not updated"
 
             # Test severity filter
-            severity_select = page.locator("select").filter(has_text="All Severities").first
+            severity_select = (
+                page.locator("select").filter(has_text="All Severities").first
+            )
             await severity_select.select_option("CRITICAL")
             await page.wait_for_timeout(500)
 
             # Verify only critical vulnerabilities shown
-            severities = await page.locator("#vulnerability-table .severity-badge").all_text_contents()
+            severities = await page.locator(
+                "#vulnerability-table .severity-badge"
+            ).all_text_contents()
             for severity in severities[:5]:  # Check first 5
-                assert "CRITICAL" in severity, f"Non-critical severity found: {severity}"
+                assert (
+                    "CRITICAL" in severity
+                ), f"Non-critical severity found: {severity}"
 
             # Reset filters
             await search_input.clear()
@@ -239,7 +273,11 @@ class VulnBotE2ETests:
             await page.wait_for_url(f"**/cves/{cve_id}.html", timeout=10000)
 
             # Check page elements
-            await expect(page.locator(f"h1:has-text('{cve_id}')", )).to_be_visible()
+            await expect(
+                page.locator(
+                    f"h1:has-text('{cve_id}')",
+                )
+            ).to_be_visible()
 
             # Check required sections
             sections = ["Overview", "Technical Details", "References", "Timeline"]
@@ -264,7 +302,7 @@ class VulnBotE2ETests:
             viewports = [
                 {"width": 375, "height": 667, "name": "Mobile"},
                 {"width": 768, "height": 1024, "name": "Tablet"},
-                {"width": 1920, "height": 1080, "name": "Desktop"}
+                {"width": 1920, "height": 1080, "name": "Desktop"},
             ]
 
             for viewport in viewports:
@@ -302,11 +340,14 @@ class VulnBotE2ETests:
 
             # Check keyboard navigation
             await page.keyboard.press("Tab")
-            focused_element = await page.evaluate("() => document.activeElement.tagName")
+            focused_element = await page.evaluate(
+                "() => document.activeElement.tagName"
+            )
             assert focused_element, "No element focused after Tab"
 
             # Check color contrast (basic check)
-            contrast_issues = await page.evaluate("""
+            contrast_issues = await page.evaluate(
+                """
                 () => {
                     const elements = document.querySelectorAll('.severity-critical, .severity-high');
                     const issues = [];
@@ -321,9 +362,12 @@ class VulnBotE2ETests:
                     });
                     return issues;
                 }
-            """)
+            """
+            )
 
-            assert len(contrast_issues) == 0, f"Contrast issues found: {contrast_issues}"
+            assert (
+                len(contrast_issues) == 0
+            ), f"Contrast issues found: {contrast_issues}"
 
             self.record_success(test_name)
 
@@ -344,19 +388,24 @@ class VulnBotE2ETests:
             assert load_time < 10, f"Page load took too long: {load_time}s"
 
             # Check for memory leaks (basic check)
-            initial_memory = await page.evaluate("() => performance.memory?.usedJSHeapSize || 0")
+            initial_memory = await page.evaluate(
+                "() => performance.memory?.usedJSHeapSize || 0"
+            )
 
             # Perform some actions
             for _ in range(5):
                 await page.locator("th:has-text('CVSS')").click()
                 await page.wait_for_timeout(200)
 
-            final_memory = await page.evaluate("() => performance.memory?.usedJSHeapSize || 0")
+            final_memory = await page.evaluate(
+                "() => performance.memory?.usedJSHeapSize || 0"
+            )
 
             # Memory shouldn't increase too much
             memory_increase = final_memory - initial_memory
-            assert memory_increase < 10 * 1024 * 1024, \
-                f"Potential memory leak: {memory_increase / 1024 / 1024:.2f}MB increase"
+            assert (
+                memory_increase < 10 * 1024 * 1024
+            ), f"Potential memory leak: {memory_increase / 1024 / 1024:.2f}MB increase"
 
             self.record_success(test_name)
 
@@ -373,7 +422,9 @@ class VulnBotE2ETests:
             cve_page_path = Path("src/cves/CVE-2024-3094.md")
             if cve_page_path.exists():
                 # Navigate to enhanced CVE page
-                await page.goto(f"{self.base_url}/cves/CVE-2024-3094.html", wait_until="networkidle")
+                await page.goto(
+                    f"{self.base_url}/cves/CVE-2024-3094.html", wait_until="networkidle"
+                )
 
                 # Check for enhanced sections
                 enhanced_sections = [
@@ -382,7 +433,7 @@ class VulnBotE2ETests:
                     "Technical Details",
                     "Affected Products",
                     "Impacted Open Source Projects",
-                    "Additional Information"
+                    "Additional Information",
                 ]
 
                 for section in enhanced_sections:
@@ -394,7 +445,9 @@ class VulnBotE2ETests:
                         print(f"  ⚠️  Missing section: {section}")
 
                 # Check for deps.dev data
-                deps_section = page.locator("h2:has-text('Impacted Open Source Projects')")
+                deps_section = page.locator(
+                    "h2:has-text('Impacted Open Source Projects')"
+                )
                 if await deps_section.is_visible():
                     print("  ✅ deps.dev integration present")
 
@@ -417,7 +470,7 @@ class VulnBotE2ETests:
                 "#severityChart",
                 "#riskChart",
                 "#epssChart",
-                "#vendorChart"
+                "#vendorChart",
             ]
 
             charts_found = 0
@@ -431,7 +484,9 @@ class VulnBotE2ETests:
                 print(f"  📊 Found {charts_found} data visualization charts")
                 self.record_success(test_name)
             else:
-                print("  ⚠️  No data visualization charts found (may not be implemented yet)")
+                print(
+                    "  ⚠️  No data visualization charts found (may not be implemented yet)"
+                )
                 self.record_success(test_name + " (no charts)")
 
         except Exception as e:
@@ -445,26 +500,20 @@ class VulnBotE2ETests:
     def record_failure(self, test_name: str, error: str):
         """Record a failed test."""
         self.test_results["failed"] += 1
-        self.test_results["errors"].append({
-            "test": test_name,
-            "error": error
-        })
+        self.test_results["errors"].append({"test": test_name, "error": error})
         print(f"  ❌ {test_name} - FAILED: {error}")
 
     def record_error(self, error: str):
         """Record a general error."""
-        self.test_results["errors"].append({
-            "test": "General",
-            "error": error
-        })
+        self.test_results["errors"].append({"test": "General", "error": error})
 
     def print_results(self):
         """Print test results summary."""
         total_tests = self.test_results["passed"] + self.test_results["failed"]
 
-        print("\n" + "="*60)
+        print("\n" + "=" * 60)
         print("📊 TEST RESULTS SUMMARY")
-        print("="*60)
+        print("=" * 60)
         print(f"Total Tests: {total_tests}")
         print(f"✅ Passed: {self.test_results['passed']}")
         print(f"❌ Failed: {self.test_results['failed']}")

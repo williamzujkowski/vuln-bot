@@ -18,36 +18,46 @@ async def debug_live_site():
 
         # Capture console messages
         console_messages = []
-        page.on("console", lambda msg: console_messages.append({
-            "type": msg.type,
-            "text": msg.text,
-            "location": msg.location
-        }))
+        page.on(
+            "console",
+            lambda msg: console_messages.append(
+                {"type": msg.type, "text": msg.text, "location": msg.location}
+            ),
+        )
 
         # Capture network requests
         network_requests = []
-        page.on("request", lambda req: network_requests.append({
-            "url": req.url,
-            "method": req.method,
-            "resource_type": req.resource_type
-        }))
+        page.on(
+            "request",
+            lambda req: network_requests.append(
+                {
+                    "url": req.url,
+                    "method": req.method,
+                    "resource_type": req.resource_type,
+                }
+            ),
+        )
 
         # Capture network responses
         network_responses = []
-        page.on("response", lambda res: network_responses.append({
-            "url": res.url,
-            "status": res.status,
-            "ok": res.ok
-        }))
+        page.on(
+            "response",
+            lambda res: network_responses.append(
+                {"url": res.url, "status": res.status, "ok": res.ok}
+            ),
+        )
 
         print("📡 Navigating to site...")
-        await page.goto("https://williamzujkowski.github.io/vuln-bot/", wait_until="networkidle")
+        await page.goto(
+            "https://williamzujkowski.github.io/vuln-bot/", wait_until="networkidle"
+        )
 
         # Wait a bit for JavaScript to execute
         await page.wait_for_timeout(3000)
 
         # Check Alpine.js initialization
-        alpine_initialized = await page.evaluate("""
+        alpine_initialized = await page.evaluate(
+            """
             () => {
                 return {
                     alpine_exists: typeof Alpine !== 'undefined',
@@ -55,10 +65,12 @@ async def debug_live_site():
                     alpine_started: typeof Alpine !== 'undefined' ? Alpine.started : false
                 }
             }
-        """)
+        """
+        )
 
         # Check for vulnerability data
-        data_check = await page.evaluate("""
+        data_check = await page.evaluate(
+            """
             () => {
                 const results = {
                     vulnerability_data_exists: typeof vulnerabilityData !== 'undefined',
@@ -78,10 +90,12 @@ async def debug_live_site():
 
                 return results;
             }
-        """)
+        """
+        )
 
         # Check element visibility
-        visibility_check = await page.evaluate("""
+        visibility_check = await page.evaluate(
+            """
             () => {
                 const checks = {};
 
@@ -120,16 +134,17 @@ async def debug_live_site():
 
                 return checks;
             }
-        """)
+        """
+        )
 
         # Print results
         print("\n📊 CONSOLE MESSAGES:")
         for msg in console_messages:
-            if msg['type'] in ['error', 'warning']:
+            if msg["type"] in ["error", "warning"]:
                 print(f"  {msg['type'].upper()}: {msg['text']}")
 
         print("\n🌐 NETWORK ISSUES:")
-        failed_requests = [r for r in network_responses if not r['ok']]
+        failed_requests = [r for r in network_responses if not r["ok"]]
         for req in failed_requests:
             print(f"  ❌ {req['status']} - {req['url']}")
 
@@ -151,6 +166,7 @@ async def debug_live_site():
         print("\n📸 Screenshot saved as debug_screenshot.png")
 
         await browser.close()
+
 
 if __name__ == "__main__":
     asyncio.run(debug_live_site())

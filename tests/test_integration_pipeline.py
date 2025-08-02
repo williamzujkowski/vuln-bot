@@ -147,18 +147,20 @@ class TestDataPipeline:
                     cve_id=cve_meta["cveId"],
                     title=cna.get("title", "Unknown"),
                     description=cna["descriptions"][0]["value"],
-                    severity=SeverityLevel[cvss_metrics[0].base_severity]
-                    if cvss_metrics
-                    else SeverityLevel.MEDIUM,
+                    severity=(
+                        SeverityLevel[cvss_metrics[0].base_severity]
+                        if cvss_metrics
+                        else SeverityLevel.MEDIUM
+                    ),
                     cvss_metrics=cvss_metrics,
                     published_date=cve_meta["datePublished"],
                     last_modified_date=cve_meta["dateUpdated"],
-                    affected_vendors=[cna["affected"][0]["vendor"]]
-                    if "affected" in cna
-                    else [],
-                    affected_products=[cna["affected"][0]["product"]]
-                    if "affected" in cna
-                    else [],
+                    affected_vendors=(
+                        [cna["affected"][0]["vendor"]] if "affected" in cna else []
+                    ),
+                    affected_products=(
+                        [cna["affected"][0]["product"]] if "affected" in cna else []
+                    ),
                     references=[
                         Reference(url=ref["url"]) for ref in cna.get("references", [])
                     ],
@@ -280,18 +282,20 @@ class TestDataPipeline:
                     cve_id=cve_meta["cveId"],
                     title=cna.get("title", "Unknown"),
                     description=cna["descriptions"][0]["value"],
-                    severity=SeverityLevel[cvss_metrics[0].base_severity]
-                    if cvss_metrics
-                    else SeverityLevel.MEDIUM,
+                    severity=(
+                        SeverityLevel[cvss_metrics[0].base_severity]
+                        if cvss_metrics
+                        else SeverityLevel.MEDIUM
+                    ),
                     cvss_metrics=cvss_metrics,
                     published_date=cve_meta["datePublished"],
                     last_modified_date=cve_meta["dateUpdated"],
-                    affected_vendors=[cna["affected"][0]["vendor"]]
-                    if "affected" in cna
-                    else [],
-                    affected_products=[cna["affected"][0]["product"]]
-                    if "affected" in cna
-                    else [],
+                    affected_vendors=(
+                        [cna["affected"][0]["vendor"]] if "affected" in cna else []
+                    ),
+                    affected_products=(
+                        [cna["affected"][0]["product"]] if "affected" in cna else []
+                    ),
                     references=[
                         Reference(url=ref["url"]) for ref in cna.get("references", [])
                     ],

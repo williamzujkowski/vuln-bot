@@ -228,10 +228,10 @@ A vulnerability intelligence platform."""
                 coverage_file = Path("coverage.xml")
                 readme_file = Path("README.md")
 
-                coverage_xml = f'''<?xml version="1.0" ?>
+                coverage_xml = f"""<?xml version="1.0" ?>
 <coverage line-rate="{line_rate}" branch-rate="0" complexity="0">
     <sources><source>/scripts</source></sources>
-</coverage>'''
+</coverage>"""
 
                 coverage_file.write_text(coverage_xml)
                 readme_file.write_text(sample_readme)

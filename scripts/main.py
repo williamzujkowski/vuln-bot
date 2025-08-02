@@ -69,7 +69,10 @@ def cli(debug: bool) -> None:
     help="Minimum severity level",
 )
 @click.option(
-    "--min-epss", type=float, default=0.5, help="Minimum EPSS score (0.0-1.0, default: 0.5 for 50%)"
+    "--min-epss",
+    type=float,
+    default=0.5,
+    help="Minimum EPSS score (0.0-1.0, default: 0.5 for 50%)",
 )
 @click.option(
     "--incremental",
@@ -658,9 +661,9 @@ def send_alerts(
             logger.info(
                 f"{webhook_type} alert sent successfully",
                 status_code=response.status_code,
-                webhook=webhook_url[:50] + "..."
-                if len(webhook_url) > 50
-                else webhook_url,
+                webhook=(
+                    webhook_url[:50] + "..." if len(webhook_url) > 50 else webhook_url
+                ),
             )
 
             console.print(

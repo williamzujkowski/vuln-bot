@@ -24,7 +24,7 @@ class TestCoverageAnalyzer:
             "--cov-report=json",
             "--cov-report=term-missing",
             "-q",
-            "tests/"
+            "tests/",
         ]
 
         subprocess.run(cmd, capture_output=True, text=True)
@@ -36,16 +36,18 @@ class TestCoverageAnalyzer:
                 return json.load(f)
         return {}
 
-    def find_uncovered_functions(self, coverage_data: Dict) -> Dict[str, List[Tuple[int, int]]]:
+    def find_uncovered_functions(
+        self, coverage_data: Dict
+    ) -> Dict[str, List[Tuple[int, int]]]:
         """Find functions and lines that need coverage"""
         uncovered = {}
 
-        files = coverage_data.get('files', {})
+        files = coverage_data.get("files", {})
         for filepath, file_data in files.items():
-            if not filepath.startswith('scripts/'):
+            if not filepath.startswith("scripts/"):
                 continue
 
-            missing_lines = file_data.get('missing_lines', [])
+            missing_lines = file_data.get("missing_lines", [])
             if missing_lines:
                 uncovered[filepath] = []
                 # Group consecutive lines
@@ -71,9 +73,9 @@ class TestCoverageAnalyzer:
             content = test_file.read_text()
             if "pytest.skip" in content or "@pytest.mark.skip" in content:
                 # Count skipped tests
-                lines = content.split('\n')
+                lines = content.split("\n")
                 for i, line in enumerate(lines):
-                    if 'pytest.skip' in line or '@pytest.mark.skip' in line:
+                    if "pytest.skip" in line or "@pytest.mark.skip" in line:
                         skipped.append(f"{test_file}:{i+1}")
 
         return skipped
@@ -87,8 +89,8 @@ class TestCoverageAnalyzer:
             print("❌ Failed to generate coverage report")
             return
 
-        totals = coverage_data.get('totals', {})
-        current_coverage = totals.get('percent_covered', 0)
+        totals = coverage_data.get("totals", {})
+        current_coverage = totals.get("percent_covered", 0)
 
         print(f"\n📊 Current Coverage: {current_coverage:.1f}%")
         print("   Target Coverage: 90%")
@@ -98,7 +100,7 @@ class TestCoverageAnalyzer:
         uncovered = self.find_uncovered_functions(coverage_data)
         print("\n📝 Files needing coverage:")
         for filepath, ranges in sorted(uncovered.items()):
-            module_cov = coverage_data['files'][filepath]['summary']['percent_covered']
+            module_cov = coverage_data["files"][filepath]["summary"]["percent_covered"]
             print(f"   {filepath}: {module_cov:.1f}% covered")
             for start, end in ranges[:3]:  # Show first 3 ranges
                 if start == end:
@@ -140,9 +142,11 @@ def main():
         with open(coverage_file) as f:
             data = json.load(f)
 
-        files = [(f, d['summary']['percent_covered'])
-                 for f, d in data['files'].items()
-                 if f.startswith('scripts/') and d['summary']['percent_covered'] < 80]
+        files = [
+            (f, d["summary"]["percent_covered"])
+            for f, d in data["files"].items()
+            if f.startswith("scripts/") and d["summary"]["percent_covered"] < 80
+        ]
 
         for filepath, cov in sorted(files, key=lambda x: x[1])[:5]:
             print(f"      - {filepath}: {cov:.1f}%")

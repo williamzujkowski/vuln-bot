@@ -15,13 +15,19 @@ async def verify_product_column():
 
         try:
             print("📡 Navigating to live site...")
-            await page.goto("https://williamzujkowski.github.io/vuln-bot/", wait_until="networkidle")
+            await page.goto(
+                "https://williamzujkowski.github.io/vuln-bot/", wait_until="networkidle"
+            )
 
             # Wait for Alpine component to load
-            await page.wait_for_function("() => window.vulnerabilityData && window.vulnerabilityData.length > 0", timeout=30000)
+            await page.wait_for_function(
+                "() => window.vulnerabilityData && window.vulnerabilityData.length > 0",
+                timeout=30000,
+            )
 
             # Get product column values from data
-            product_values = await page.evaluate("""
+            product_values = await page.evaluate(
+                """
                 () => {
                     // Get the vulnerability data
                     const data = window.vulnerabilityData;
@@ -37,14 +43,15 @@ async def verify_product_column():
                     }
                     return products;
                 }
-            """)
+            """
+            )
 
             print(f"\n🔍 Checking first {len(product_values)} product values:")
 
             has_vendor_product = False
             for i, product in enumerate(product_values):
                 # Check if it contains a slash (vendor/product pattern)
-                if '/' in product:
+                if "/" in product:
                     print(f"  ❌ Row {i+1}: '{product}' (contains vendor/product)")
                     has_vendor_product = True
                 else:

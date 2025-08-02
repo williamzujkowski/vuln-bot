@@ -107,11 +107,13 @@ class IncrementalGenerator:
         db.row_factory = sqlite3.Row
         cursor = db.cursor()
 
-        rows = cursor.execute("""
+        rows = cursor.execute(
+            """
             SELECT cve_id, data, risk_score, severity, published_date, last_modified_date
             FROM vulnerability_cache
             ORDER BY risk_score DESC
-        """).fetchall()
+        """
+        ).fetchall()
 
         vulnerabilities = []
         for row in rows:

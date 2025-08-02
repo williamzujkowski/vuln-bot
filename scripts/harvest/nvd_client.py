@@ -525,9 +525,11 @@ class NVDClient(BaseAPIClient):
             year_cves = self.fetch_cves_by_published_date(
                 start_date=start_date,
                 end_date=end_date,
-                max_results=max_vulnerabilities - len(all_vulnerabilities)
-                if max_vulnerabilities
-                else None,
+                max_results=(
+                    max_vulnerabilities - len(all_vulnerabilities)
+                    if max_vulnerabilities
+                    else None
+                ),
             )
 
             # Parse and filter CVEs

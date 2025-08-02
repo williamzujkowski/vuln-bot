@@ -18,11 +18,12 @@ async def test_local_dashboard():
 
         # Capture console messages and errors
         console_messages = []
-        page.on("console", lambda msg: console_messages.append({
-            "type": msg.type,
-            "text": msg.text,
-            "location": msg.location
-        }))
+        page.on(
+            "console",
+            lambda msg: console_messages.append(
+                {"type": msg.type, "text": msg.text, "location": msg.location}
+            ),
+        )
 
         # Get the absolute path to the local HTML file
         html_path = Path.cwd() / "public" / "index.html"
@@ -35,7 +36,8 @@ async def test_local_dashboard():
         await page.wait_for_timeout(2000)
 
         # Check for Alpine.js initialization
-        alpine_check = await page.evaluate("""
+        alpine_check = await page.evaluate(
+            """
             () => {
                 return {
                     alpine_exists: typeof Alpine !== 'undefined',
@@ -44,14 +46,16 @@ async def test_local_dashboard():
                     body_has_x_data: !!document.querySelector('body[x-data]')
                 };
             }
-        """)
+        """
+        )
 
         print("\n✅ Alpine.js Check:")
         for key, value in alpine_check.items():
             print(f"  {key}: {value}")
 
         # Get Alpine component data
-        component_check = await page.evaluate("""
+        component_check = await page.evaluate(
+            """
             () => {
                 try {
                     const body = document.querySelector('body[x-data="dashboard()"]');
@@ -70,21 +74,24 @@ async def test_local_dashboard():
                     return { error: e.toString() };
                 }
             }
-        """)
+        """
+        )
 
         print("\n✅ Component Check:")
         for key, value in component_check.items():
             print(f"  {key}: {value}")
 
         # Check for JavaScript errors
-        js_errors = [msg for msg in console_messages if msg['type'] == 'error']
+        js_errors = [msg for msg in console_messages if msg["type"] == "error"]
 
         if js_errors:
             print("\n❌ JavaScript Errors:")
             for err in js_errors[:5]:  # Show first 5 errors
                 print(f"  {err['text']}")
-                if err['location']:
-                    print(f"    at {err['location']['url']}:{err['location']['lineNumber']}")
+                if err["location"]:
+                    print(
+                        f"    at {err['location']['url']}:{err['location']['lineNumber']}"
+                    )
         else:
             print("\n✅ No JavaScript errors detected!")
 
@@ -92,7 +99,7 @@ async def test_local_dashboard():
         print("\n🧪 Testing Basic Functionality:")
 
         # Test search
-        search_input = await page.query_selector('.search-input')
+        search_input = await page.query_selector(".search-input")
         if search_input:
             await search_input.type("CVE-2024")
             await page.wait_for_timeout(500)
@@ -110,7 +117,7 @@ async def test_local_dashboard():
             print("  ❌ Critical filter button not found")
 
         # Check if table has data
-        table_rows = await page.query_selector_all('tbody tr')
+        table_rows = await page.query_selector_all("tbody tr")
         print(f"  ✅ Table has {len(table_rows)} rows")
 
         await browser.close()

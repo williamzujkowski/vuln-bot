@@ -59,7 +59,9 @@ class DataEnrichmentAgent(BaseAgent):
             await asyncio.sleep(self.rate_limit_delay - time_since_last)
         self.last_request_time = asyncio.get_event_loop().time()
 
-    async def _make_request_with_retry(self, session: aiohttp.ClientSession, url: str) -> Optional[Dict[str, Any]]:
+    async def _make_request_with_retry(
+        self, session: aiohttp.ClientSession, url: str
+    ) -> Optional[Dict[str, Any]]:
         """Make HTTP request with retry logic."""
         for attempt in range(self.max_retries):
             try:
@@ -68,7 +70,7 @@ class DataEnrichmentAgent(BaseAgent):
                 async with session.get(
                     url,
                     timeout=aiohttp.ClientTimeout(total=30),
-                    headers={"Accept": "application/json"}
+                    headers={"Accept": "application/json"},
                 ) as response:
                     if response.status == 200:
                         return await response.json()
@@ -84,20 +86,20 @@ class DataEnrichmentAgent(BaseAgent):
                     else:
                         self.logger.warning(f"API returned status {response.status}")
                         if attempt < self.max_retries - 1:
-                            await asyncio.sleep(self.retry_delay * (2 ** attempt))
+                            await asyncio.sleep(self.retry_delay * (2**attempt))
                             continue
                         return None
 
             except asyncio.TimeoutError:
                 self.logger.warning(f"Timeout on attempt {attempt + 1}")
                 if attempt < self.max_retries - 1:
-                    await asyncio.sleep(self.retry_delay * (2 ** attempt))
+                    await asyncio.sleep(self.retry_delay * (2**attempt))
                     continue
                 return None
             except Exception as e:
                 self.logger.error(f"Request error: {e}")
                 if attempt < self.max_retries - 1:
-                    await asyncio.sleep(self.retry_delay * (2 ** attempt))
+                    await asyncio.sleep(self.retry_delay * (2**attempt))
                     continue
                 return None
 
@@ -129,11 +131,13 @@ class DataEnrichmentAgent(BaseAgent):
                     return await self._fetch_via_osv(session, cve_id)
 
                 # Process search results to find affected packages
-                affected_packages = await self._process_search_results(session, search_result, cve_id)
+                affected_packages = await self._process_search_results(
+                    session, search_result, cve_id
+                )
 
                 # Cache the result
                 if affected_packages and affected_packages["total_affected"] > 0:
-                    with open(cache_file, 'w') as f:
+                    with open(cache_file, "w") as f:
                         json.dump(affected_packages, f, indent=2)
 
                 return affected_packages
@@ -142,7 +146,9 @@ class DataEnrichmentAgent(BaseAgent):
             self.logger.error(f"Error in fetch_deps_dev_data for {cve_id}: {e}")
             return None
 
-    async def _fetch_via_osv(self, session: aiohttp.ClientSession, cve_id: str) -> Optional[Dict[str, Any]]:
+    async def _fetch_via_osv(
+        self, session: aiohttp.ClientSession, cve_id: str
+    ) -> Optional[Dict[str, Any]]:
         """Fetch vulnerability data via OSV (Open Source Vulnerabilities) format."""
         try:
             # Try OSV endpoint which deps.dev supports
@@ -157,14 +163,16 @@ class DataEnrichmentAgent(BaseAgent):
             self.logger.error(f"Error fetching OSV data: {e}")
             return None
 
-    async def _process_search_results(self, session: aiohttp.ClientSession, search_data: Dict[str, Any], cve_id: str) -> Dict[str, Any]:
+    async def _process_search_results(
+        self, session: aiohttp.ClientSession, search_data: Dict[str, Any], cve_id: str
+    ) -> Dict[str, Any]:
         """Process search results and fetch detailed package information."""
         affected_packages = {
             "packages": [],
             "total_affected": 0,
             "ecosystems": set(),
             "severity_breakdown": {},
-            "dependency_chains": []
+            "dependency_chains": [],
         }
 
         # Extract results from search
@@ -178,7 +186,9 @@ class DataEnrichmentAgent(BaseAgent):
 
                 if ecosystem and name:
                     # Fetch detailed package info
-                    package_info = await self._fetch_package_details(session, ecosystem, name, cve_id)
+                    package_info = await self._fetch_package_details(
+                        session, ecosystem, name, cve_id
+                    )
                     if package_info:
                         affected_packages["packages"].append(package_info)
                         affected_packages["ecosystems"].add(ecosystem)
@@ -190,11 +200,15 @@ class DataEnrichmentAgent(BaseAgent):
         # Calculate severity breakdown
         for pkg in affected_packages["packages"]:
             severity = pkg.get("severity", "UNKNOWN")
-            affected_packages["severity_breakdown"][severity] = affected_packages["severity_breakdown"].get(severity, 0) + 1
+            affected_packages["severity_breakdown"][severity] = (
+                affected_packages["severity_breakdown"].get(severity, 0) + 1
+            )
 
         return affected_packages
 
-    async def _fetch_package_details(self, session: aiohttp.ClientSession, ecosystem: str, name: str, cve_id: str) -> Optional[Dict[str, Any]]:
+    async def _fetch_package_details(
+        self, session: aiohttp.ClientSession, ecosystem: str, name: str, cve_id: str
+    ) -> Optional[Dict[str, Any]]:
         """Fetch detailed package information including versions and dependencies."""
         try:
             # Get package info
@@ -220,7 +234,7 @@ class DataEnrichmentAgent(BaseAgent):
                 "severity": "UNKNOWN",
                 "dependency_count": 0,
                 "version_range": "",
-                "patch_available": False
+                "patch_available": False,
             }
 
             # Analyze versions for vulnerability info
@@ -230,17 +244,21 @@ class DataEnrichmentAgent(BaseAgent):
             return package_info
 
         except Exception as e:
-            self.logger.error(f"Error fetching package details for {ecosystem}/{name}: {e}")
+            self.logger.error(
+                f"Error fetching package details for {ecosystem}/{name}: {e}"
+            )
             return None
 
-    def _analyze_versions(self, versions_data: Dict[str, Any], cve_id: str) -> Dict[str, Any]:
+    def _analyze_versions(
+        self, versions_data: Dict[str, Any], cve_id: str
+    ) -> Dict[str, Any]:
         """Analyze version data to find affected and fixed versions."""
         analysis = {
             "affected_versions": [],
             "fixed_versions": [],
             "version_range": "",
             "patch_available": False,
-            "latest_safe_version": None
+            "latest_safe_version": None,
         }
 
         versions = versions_data.get("versions", [])
@@ -269,7 +287,9 @@ class DataEnrichmentAgent(BaseAgent):
             if len(analysis["affected_versions"]) == 1:
                 analysis["version_range"] = f"= {analysis['affected_versions'][0]}"
             else:
-                analysis["version_range"] = f">= {analysis['affected_versions'][0]} <= {analysis['affected_versions'][-1]}"
+                analysis["version_range"] = (
+                    f">= {analysis['affected_versions'][0]} <= {analysis['affected_versions'][-1]}"
+                )
 
         return analysis
 
@@ -280,7 +300,7 @@ class DataEnrichmentAgent(BaseAgent):
             "total_affected": 0,
             "ecosystems": set(),
             "severity_breakdown": {},
-            "dependency_chains": []
+            "dependency_chains": [],
         }
 
         # Extract severity information
@@ -318,7 +338,7 @@ class DataEnrichmentAgent(BaseAgent):
                         "fixed_versions": [],
                         "version_range": "",
                         "patch_available": False,
-                        "database_specific": affected.get("database_specific", {})
+                        "database_specific": affected.get("database_specific", {}),
                     }
 
                     # Process version ranges
@@ -350,7 +370,9 @@ class DataEnrichmentAgent(BaseAgent):
                     if versions:
                         package_info["affected_versions"].extend(versions)
                         if not package_info["version_range"]:
-                            package_info["version_range"] = f"in [{', '.join(versions)}]"
+                            package_info["version_range"] = (
+                                f"in [{', '.join(versions)}]"
+                            )
 
                     affected_packages["packages"].append(package_info)
                     affected_packages["ecosystems"].add(ecosystem_mapped)
@@ -362,7 +384,9 @@ class DataEnrichmentAgent(BaseAgent):
         # Calculate severity breakdown
         for pkg in affected_packages["packages"]:
             pkg_severity = pkg.get("severity", "UNKNOWN")
-            affected_packages["severity_breakdown"][pkg_severity] = affected_packages["severity_breakdown"].get(pkg_severity, 0) + 1
+            affected_packages["severity_breakdown"][pkg_severity] = (
+                affected_packages["severity_breakdown"].get(pkg_severity, 0) + 1
+            )
 
         return affected_packages
 
@@ -385,7 +409,7 @@ class DataEnrichmentAgent(BaseAgent):
             "rubygems": ["ruby", "gem"],
             "packagist": ["php", "composer"],
             "hex": ["elixir", "erlang"],
-            "docker": ["container", "dockerhub"]
+            "docker": ["container", "dockerhub"],
         }
 
         for standard, alts in variations.items():
@@ -406,7 +430,7 @@ class DataEnrichmentAgent(BaseAgent):
         # Add enrichment metadata
         enriched_data["enrichment"] = {
             "timestamp": datetime.now().isoformat(),
-            "sources": []
+            "sources": [],
         }
 
         # Fetch deps.dev data
@@ -421,11 +445,13 @@ class DataEnrichmentAgent(BaseAgent):
                 "affected_ecosystems": deps_data["ecosystems"],
                 "has_impact_data": True,
                 "severity_breakdown": deps_data.get("severity_breakdown", {}),
-                "patch_availability": self._calculate_patch_availability(deps_data)
+                "patch_availability": self._calculate_patch_availability(deps_data),
             }
 
             # Add formatted package impact for display
-            enriched_data["enrichment"]["package_impact"] = self._format_package_impact(deps_data)
+            enriched_data["enrichment"]["package_impact"] = self._format_package_impact(
+                deps_data
+            )
 
             # Also add to top-level for static page generator compatibility
             enriched_data["has_deps_data"] = True
@@ -437,7 +463,7 @@ class DataEnrichmentAgent(BaseAgent):
                 "affected_ecosystems": [],
                 "has_impact_data": False,
                 "severity_breakdown": {},
-                "patch_availability": {"total": 0, "patched": 0, "percentage": 0}
+                "patch_availability": {"total": 0, "patched": 0, "percentage": 0},
             }
 
             # Top-level compatibility
@@ -453,7 +479,9 @@ class DataEnrichmentAgent(BaseAgent):
 
             # Add CWE IDs to top-level if not already present
             if "cwe_ids" not in enriched_data:
-                enriched_data["cwe_ids"] = [pt["id"] for pt in problem_types if pt["type"] == "CWE"]
+                enriched_data["cwe_ids"] = [
+                    pt["id"] for pt in problem_types if pt["type"] == "CWE"
+                ]
 
         # Extract structured affected versions
         structured_affected = self._extract_structured_affected(cve_data)
@@ -466,14 +494,20 @@ class DataEnrichmentAgent(BaseAgent):
             enriched_data["enrichment"]["all_references"] = all_references
 
             # Categorize references for better display
-            enriched_data["enrichment"]["categorized_references"] = self._categorize_references(all_references)
+            enriched_data["enrichment"]["categorized_references"] = (
+                self._categorize_references(all_references)
+            )
 
         # Add exploitation intelligence
-        enriched_data["enrichment"]["exploitation_intel"] = self._analyze_exploitation_risk(enriched_data)
+        enriched_data["enrichment"]["exploitation_intel"] = (
+            self._analyze_exploitation_risk(enriched_data)
+        )
 
         return enriched_data
 
-    def _calculate_patch_availability(self, deps_data: Dict[str, Any]) -> Dict[str, Any]:
+    def _calculate_patch_availability(
+        self, deps_data: Dict[str, Any]
+    ) -> Dict[str, Any]:
         """Calculate patch availability statistics."""
         total = 0
         patched = 0
@@ -485,11 +519,7 @@ class DataEnrichmentAgent(BaseAgent):
 
         percentage = (patched / total * 100) if total > 0 else 0
 
-        return {
-            "total": total,
-            "patched": patched,
-            "percentage": round(percentage, 1)
-        }
+        return {"total": total, "patched": patched, "percentage": round(percentage, 1)}
 
     def _format_package_impact(self, deps_data: Dict[str, Any]) -> List[Dict[str, Any]]:
         """Format package impact information for display."""
@@ -505,17 +535,25 @@ class DataEnrichmentAgent(BaseAgent):
                 "fixed_versions": package.get("fixed_versions", []),
                 "latest_safe_version": package.get("latest_safe_version"),
                 "repository": package.get("repository", ""),
-                "affected_version_count": len(package.get("affected_versions", []))
+                "affected_version_count": len(package.get("affected_versions", [])),
             }
             formatted_packages.append(formatted)
 
         # Sort by severity and ecosystem
         severity_order = {"CRITICAL": 0, "HIGH": 1, "MEDIUM": 2, "LOW": 3, "UNKNOWN": 4}
-        formatted_packages.sort(key=lambda x: (severity_order.get(x["severity"], 4), x["ecosystem"], x["name"]))
+        formatted_packages.sort(
+            key=lambda x: (
+                severity_order.get(x["severity"], 4),
+                x["ecosystem"],
+                x["name"],
+            )
+        )
 
         return formatted_packages
 
-    def _categorize_references(self, references: List[Dict[str, str]]) -> Dict[str, List[Dict[str, str]]]:
+    def _categorize_references(
+        self, references: List[Dict[str, str]]
+    ) -> Dict[str, List[Dict[str, str]]]:
         """Categorize references by type for better organization."""
         categories = {
             "vendor_advisories": [],
@@ -523,7 +561,7 @@ class DataEnrichmentAgent(BaseAgent):
             "exploits": [],
             "technical_details": [],
             "media_coverage": [],
-            "other": []
+            "other": [],
         }
 
         for ref in references:
@@ -538,7 +576,10 @@ class DataEnrichmentAgent(BaseAgent):
                 categories["exploits"].append(ref)
             elif "Media Coverage" in tags:
                 categories["media_coverage"].append(ref)
-            elif any(tech in url.lower() for tech in ["blog", "analysis", "writeup", "research"]):
+            elif any(
+                tech in url.lower()
+                for tech in ["blog", "analysis", "writeup", "research"]
+            ):
                 categories["technical_details"].append(ref)
             else:
                 categories["other"].append(ref)
@@ -546,7 +587,9 @@ class DataEnrichmentAgent(BaseAgent):
         # Remove empty categories
         return {k: v for k, v in categories.items() if v}
 
-    def _analyze_exploitation_risk(self, enriched_data: Dict[str, Any]) -> Dict[str, Any]:
+    def _analyze_exploitation_risk(
+        self, enriched_data: Dict[str, Any]
+    ) -> Dict[str, Any]:
         """Analyze exploitation risk based on available data."""
         risk_factors = []
         risk_level = "LOW"
@@ -565,7 +608,9 @@ class DataEnrichmentAgent(BaseAgent):
         refs = enriched_data.get("enrichment", {}).get("all_references", [])
         exploit_refs = [r for r in refs if "Exploit" in r.get("tags", [])]
         if exploit_refs:
-            risk_factors.append(f"Known exploits available ({len(exploit_refs)} references)")
+            risk_factors.append(
+                f"Known exploits available ({len(exploit_refs)} references)"
+            )
             risk_level = "HIGH"
 
         # Check KEV status
@@ -576,11 +621,15 @@ class DataEnrichmentAgent(BaseAgent):
         # Check package impact
         total_affected = enriched_data.get("total_affected_packages", 0)
         if total_affected > 100:
-            risk_factors.append(f"Widespread impact ({total_affected} packages affected)")
+            risk_factors.append(
+                f"Widespread impact ({total_affected} packages affected)"
+            )
             if risk_level in ["LOW", "MEDIUM"]:
                 risk_level = "HIGH"
         elif total_affected > 10:
-            risk_factors.append(f"Significant impact ({total_affected} packages affected)")
+            risk_factors.append(
+                f"Significant impact ({total_affected} packages affected)"
+            )
             if risk_level == "LOW":
                 risk_level = "MEDIUM"
 
@@ -589,17 +638,23 @@ class DataEnrichmentAgent(BaseAgent):
         popular_ecosystems = ["npm", "pypi", "maven", "nuget"]
         affected_popular = [e for e in ecosystems if e in popular_ecosystems]
         if affected_popular:
-            risk_factors.append(f"Affects popular ecosystems: {', '.join(affected_popular)}")
+            risk_factors.append(
+                f"Affects popular ecosystems: {', '.join(affected_popular)}"
+            )
 
         return {
             "risk_level": risk_level,
             "risk_factors": risk_factors,
-            "recommendation": self._get_risk_recommendation(risk_level, enriched_data)
+            "recommendation": self._get_risk_recommendation(risk_level, enriched_data),
         }
 
     def _get_risk_recommendation(self, risk_level: str, data: Dict[str, Any]) -> str:
         """Get risk-based recommendation."""
-        patch_info = data.get("enrichment", {}).get("impact_summary", {}).get("patch_availability", {})
+        patch_info = (
+            data.get("enrichment", {})
+            .get("impact_summary", {})
+            .get("patch_availability", {})
+        )
         patch_percentage = patch_info.get("percentage", 0)
 
         if risk_level == "CRITICAL":
@@ -624,25 +679,30 @@ class DataEnrichmentAgent(BaseAgent):
 
         # Extract CWE IDs from description
         import re
-        cwe_pattern = r'CWE-(\d+)'
+
+        cwe_pattern = r"CWE-(\d+)"
         cwe_matches = re.findall(cwe_pattern, description)
         for cwe_id in cwe_matches:
-            problem_types.append({
-                "type": "CWE",
-                "id": f"CWE-{cwe_id}",
-                "description": self._get_cwe_description(cwe_id)
-            })
+            problem_types.append(
+                {
+                    "type": "CWE",
+                    "id": f"CWE-{cwe_id}",
+                    "description": self._get_cwe_description(cwe_id),
+                }
+            )
 
         # Also check tags for CWE references
         for tag in tags:
             if tag.startswith("CWE-"):
                 cwe_id = tag.replace("CWE-", "")
                 if not any(pt["id"] == tag for pt in problem_types):
-                    problem_types.append({
-                        "type": "CWE",
-                        "id": tag,
-                        "description": self._get_cwe_description(cwe_id)
-                    })
+                    problem_types.append(
+                        {
+                            "type": "CWE",
+                            "id": tag,
+                            "description": self._get_cwe_description(cwe_id),
+                        }
+                    )
 
         return problem_types
 
@@ -669,7 +729,9 @@ class DataEnrichmentAgent(BaseAgent):
         }
         return cwe_descriptions.get(cwe_id, f"CWE-{cwe_id}")
 
-    def _extract_structured_affected(self, cve_data: Dict[str, Any]) -> List[Dict[str, Any]]:
+    def _extract_structured_affected(
+        self, cve_data: Dict[str, Any]
+    ) -> List[Dict[str, Any]]:
         """Extract structured affected product and version information."""
         structured_affected = []
 
@@ -684,9 +746,11 @@ class DataEnrichmentAgent(BaseAgent):
             affected_entry = {
                 "vendor": vendor,
                 "product": product,
-                "versions": self._extract_versions_from_title(cve_data.get("title", "")),
+                "versions": self._extract_versions_from_title(
+                    cve_data.get("title", "")
+                ),
                 "platforms": [],
-                "default_status": "affected"
+                "default_status": "affected",
             }
 
             structured_affected.append(affected_entry)
@@ -699,22 +763,21 @@ class DataEnrichmentAgent(BaseAgent):
 
         # Common version patterns
         import re
+
         patterns = [
-            r'before\s+(\d+(?:\.\d+)*)',
-            r'prior\s+to\s+(\d+(?:\.\d+)*)',
-            r'through\s+(\d+(?:\.\d+)*)',
-            r'(\d+(?:\.\d+)*)\s+and\s+earlier',
-            r'versions?\s+(\d+(?:\.\d+)*)',
+            r"before\s+(\d+(?:\.\d+)*)",
+            r"prior\s+to\s+(\d+(?:\.\d+)*)",
+            r"through\s+(\d+(?:\.\d+)*)",
+            r"(\d+(?:\.\d+)*)\s+and\s+earlier",
+            r"versions?\s+(\d+(?:\.\d+)*)",
         ]
 
         for pattern in patterns:
             matches = re.findall(pattern, title, re.IGNORECASE)
             for match in matches:
-                versions.append({
-                    "version": match,
-                    "status": "affected",
-                    "version_type": "semver"
-                })
+                versions.append(
+                    {"version": match, "status": "affected", "version_type": "semver"}
+                )
 
         return versions if versions else [{"version": "Unknown", "status": "affected"}]
 
@@ -728,11 +791,13 @@ class DataEnrichmentAgent(BaseAgent):
             url = ref if isinstance(ref, str) else ref.get("url", "")
             if url and url not in seen_urls:
                 seen_urls.add(url)
-                references.append({
-                    "url": url,
-                    "source": "references",
-                    "tags": self._classify_reference(url)
-                })
+                references.append(
+                    {
+                        "url": url,
+                        "source": "references",
+                        "tags": self._classify_reference(url),
+                    }
+                )
 
         # Check description for URLs
         description = cve_data.get("description", "")
@@ -741,11 +806,13 @@ class DataEnrichmentAgent(BaseAgent):
         for url in urls_in_desc:
             if url not in seen_urls:
                 seen_urls.add(url)
-                references.append({
-                    "url": url,
-                    "source": "description",
-                    "tags": self._classify_reference(url)
-                })
+                references.append(
+                    {
+                        "url": url,
+                        "source": "description",
+                        "tags": self._classify_reference(url),
+                    }
+                )
 
         return references
 
@@ -764,7 +831,10 @@ class DataEnrichmentAgent(BaseAgent):
                 tags.append("Third Party Advisory")
         elif "cve.mitre.org" in url:
             tags.append("CVE Record")
-        elif any(vendor in url for vendor in ["microsoft.com", "oracle.com", "cisco.com", "apache.org"]):
+        elif any(
+            vendor in url
+            for vendor in ["microsoft.com", "oracle.com", "cisco.com", "apache.org"]
+        ):
             tags.append("Vendor Advisory")
         elif "exploit-db.com" in url or "metasploit" in url:
             tags.append("Exploit")
@@ -784,7 +854,7 @@ class DataEnrichmentAgent(BaseAgent):
             # Process CVEs in batches to avoid overwhelming the API
             batch_size = 10
             for i in range(0, len(cve_list), batch_size):
-                batch = cve_list[i:i + batch_size]
+                batch = cve_list[i : i + batch_size]
 
                 # Process batch concurrently
                 tasks = [self.enrich_cve_data(cve) for cve in batch]
@@ -798,7 +868,7 @@ class DataEnrichmentAgent(BaseAgent):
             return {
                 "success": True,
                 "data": {"vulnerabilities": enriched_vulns},
-                "message": f"Enriched {len(enriched_vulns)} CVEs with external data"
+                "message": f"Enriched {len(enriched_vulns)} CVEs with external data",
             }
 
         except Exception as e:
@@ -806,7 +876,7 @@ class DataEnrichmentAgent(BaseAgent):
             return {
                 "success": False,
                 "error": str(e),
-                "message": "Failed to enrich CVE data"
+                "message": "Failed to enrich CVE data",
             }
 
     async def execute(self, **kwargs) -> Dict[str, Any]:

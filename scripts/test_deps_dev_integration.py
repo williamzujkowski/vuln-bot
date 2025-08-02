@@ -27,7 +27,7 @@ async def test_real_api():
         "vendors_list": ["apache"],
         "products_list": ["log4j"],
         "references": ["https://logging.apache.org/log4j/2.x/security.html"],
-        "kev_status": True
+        "kev_status": True,
     }
 
     print("Testing deps.dev API integration with CVE-2021-44228 (Log4Shell)...")
@@ -54,11 +54,13 @@ async def test_real_api():
             if packages:
                 print("\nSample affected packages (showing first 5):")
                 for i, pkg in enumerate(packages[:5]):
-                    print(f"\n{i+1}. {pkg.get('ecosystem', 'Unknown')}/{pkg.get('name', 'Unknown')}")
+                    print(
+                        f"\n{i+1}. {pkg.get('ecosystem', 'Unknown')}/{pkg.get('name', 'Unknown')}"
+                    )
                     print(f"   Version range: {pkg.get('version_range', 'Unknown')}")
                     print(f"   Severity: {pkg.get('severity', 'Unknown')}")
                     print(f"   Patch available: {pkg.get('patch_available', False)}")
-                    if pkg.get('latest_safe_version'):
+                    if pkg.get("latest_safe_version"):
                         print(f"   Latest safe version: {pkg['latest_safe_version']}")
 
                 if len(packages) > 5:
@@ -66,7 +68,7 @@ async def test_real_api():
 
             # Save full response for inspection
             output_file = Path(".cache/deps_dev_test_response.json")
-            with open(output_file, 'w') as f:
+            with open(output_file, "w") as f:
                 json.dump(deps_data, f, indent=2)
             print(f"\nFull response saved to: {output_file}")
 
@@ -86,31 +88,37 @@ async def test_real_api():
             print(f"Sources: {', '.join(enriched['enrichment']['sources'])}")
 
             # Check impact summary
-            impact = enriched['enrichment'].get('impact_summary', {})
-            if impact.get('has_impact_data'):
+            impact = enriched["enrichment"].get("impact_summary", {})
+            if impact.get("has_impact_data"):
                 print("\nImpact Summary:")
                 print(f"- Total packages: {impact['total_affected_packages']}")
                 print(f"- Ecosystems: {', '.join(impact['affected_ecosystems'])}")
 
-                patch_info = impact.get('patch_availability', {})
+                patch_info = impact.get("patch_availability", {})
                 if patch_info:
-                    print(f"- Patches: {patch_info['patched']}/{patch_info['total']} ({patch_info['percentage']}%)")
+                    print(
+                        f"- Patches: {patch_info['patched']}/{patch_info['total']} ({patch_info['percentage']}%)"
+                    )
 
-                severity_breakdown = impact.get('severity_breakdown', {})
+                severity_breakdown = impact.get("severity_breakdown", {})
                 if severity_breakdown:
-                    print(f"- Severity breakdown: {json.dumps(severity_breakdown, indent=2)}")
+                    print(
+                        f"- Severity breakdown: {json.dumps(severity_breakdown, indent=2)}"
+                    )
 
             # Check exploitation intelligence
-            intel = enriched['enrichment'].get('exploitation_intel', {})
+            intel = enriched["enrichment"].get("exploitation_intel", {})
             if intel:
                 print("\nExploitation Intelligence:")
                 print(f"- Risk Level: {intel['risk_level']}")
-                print(f"- Factors: {len(intel.get('risk_factors', []))} risk factors identified")
+                print(
+                    f"- Factors: {len(intel.get('risk_factors', []))} risk factors identified"
+                )
                 print(f"- Recommendation: {intel['recommendation'][:100]}...")
 
             # Save enriched data
             output_file = Path(".cache/enriched_test_response.json")
-            with open(output_file, 'w') as f:
+            with open(output_file, "w") as f:
                 json.dump(enriched, f, indent=2)
             print(f"\nFull enriched data saved to: {output_file}")
 
@@ -120,6 +128,7 @@ async def test_real_api():
     except Exception as e:
         print(f"\n❌ Error during test: {e}")
         import traceback
+
         traceback.print_exc()
 
     print("\n" + "=" * 60)

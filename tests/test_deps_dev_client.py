@@ -41,40 +41,34 @@ class TestDepsDevClient:
     @pytest.mark.asyncio
     async def test_get_vulnerability_info_success(self, client):
         """Test successful vulnerability info retrieval."""
-        with patch('aiohttp.ClientSession') as mock_session:
+        with patch("aiohttp.ClientSession") as mock_session:
             mock_response = AsyncMock()
             mock_response.status = 200
-            mock_response.json = AsyncMock(return_value={
-                "advisoryKey": {
-                    "id": "CVE-2024-1234"
-                },
-                "aliases": ["GHSA-xxxx-xxxx-xxxx"],
-                "summary": "Test vulnerability",
-                "details": "Detailed description",
-                "severity": "HIGH",
-                "references": [
-                    {"url": "https://example.com/advisory"}
-                ],
-                "affected": [
-                    {
-                        "package": {
-                            "ecosystem": "npm",
-                            "name": "test-package"
-                        },
-                        "ranges": [
-                            {
-                                "type": "ECOSYSTEM",
-                                "events": [
-                                    {"introduced": "0"},
-                                    {"fixed": "1.0.1"}
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            })
+            mock_response.json = AsyncMock(
+                return_value={
+                    "advisoryKey": {"id": "CVE-2024-1234"},
+                    "aliases": ["GHSA-xxxx-xxxx-xxxx"],
+                    "summary": "Test vulnerability",
+                    "details": "Detailed description",
+                    "severity": "HIGH",
+                    "references": [{"url": "https://example.com/advisory"}],
+                    "affected": [
+                        {
+                            "package": {"ecosystem": "npm", "name": "test-package"},
+                            "ranges": [
+                                {
+                                    "type": "ECOSYSTEM",
+                                    "events": [{"introduced": "0"}, {"fixed": "1.0.1"}],
+                                }
+                            ],
+                        }
+                    ],
+                }
+            )
 
-            mock_session.return_value.__aenter__.return_value.get.return_value.__aenter__.return_value = mock_response
+            mock_session.return_value.__aenter__.return_value.get.return_value.__aenter__.return_value = (
+                mock_response
+            )
 
             result = await client.get_vulnerability_info("CVE-2024-1234")
 
@@ -85,11 +79,13 @@ class TestDepsDevClient:
     @pytest.mark.asyncio
     async def test_get_vulnerability_info_not_found(self, client):
         """Test vulnerability not found."""
-        with patch('aiohttp.ClientSession') as mock_session:
+        with patch("aiohttp.ClientSession") as mock_session:
             mock_response = AsyncMock()
             mock_response.status = 404
 
-            mock_session.return_value.__aenter__.return_value.get.return_value.__aenter__.return_value = mock_response
+            mock_session.return_value.__aenter__.return_value.get.return_value.__aenter__.return_value = (
+                mock_response
+            )
 
             result = await client.get_vulnerability_info("CVE-9999-9999")
 
@@ -98,32 +94,31 @@ class TestDepsDevClient:
     @pytest.mark.asyncio
     async def test_get_package_info_success(self, client):
         """Test successful package info retrieval."""
-        with patch('aiohttp.ClientSession') as mock_session:
+        with patch("aiohttp.ClientSession") as mock_session:
             mock_response = AsyncMock()
             mock_response.status = 200
-            mock_response.json = AsyncMock(return_value={
-                "package": {
-                    "system": "npm",
-                    "name": "test-package"
-                },
-                "versions": [
-                    {
-                        "versionKey": {
-                            "system": "npm",
-                            "name": "test-package",
-                            "version": "1.0.0"
-                        },
-                        "publishedAt": "2024-01-01T00:00:00Z",
-                        "isDefault": True,
-                        "licenses": ["MIT"],
-                        "advisoryKeys": [
-                            {"id": "CVE-2024-1234"}
-                        ]
-                    }
-                ]
-            })
+            mock_response.json = AsyncMock(
+                return_value={
+                    "package": {"system": "npm", "name": "test-package"},
+                    "versions": [
+                        {
+                            "versionKey": {
+                                "system": "npm",
+                                "name": "test-package",
+                                "version": "1.0.0",
+                            },
+                            "publishedAt": "2024-01-01T00:00:00Z",
+                            "isDefault": True,
+                            "licenses": ["MIT"],
+                            "advisoryKeys": [{"id": "CVE-2024-1234"}],
+                        }
+                    ],
+                }
+            )
 
-            mock_session.return_value.__aenter__.return_value.get.return_value.__aenter__.return_value = mock_response
+            mock_session.return_value.__aenter__.return_value.get.return_value.__aenter__.return_value = (
+                mock_response
+            )
 
             result = await client.get_package_info("npm", "test-package", "1.0.0")
 
@@ -134,9 +129,11 @@ class TestDepsDevClient:
     @pytest.mark.asyncio
     async def test_api_error_handling(self, client):
         """Test API error handling."""
-        with patch('aiohttp.ClientSession') as mock_session:
+        with patch("aiohttp.ClientSession") as mock_session:
             # Simulate connection error
-            mock_session.return_value.__aenter__.return_value.get.side_effect = aiohttp.ClientError("Connection failed")
+            mock_session.return_value.__aenter__.return_value.get.side_effect = (
+                aiohttp.ClientError("Connection failed")
+            )
 
             result = await client.get_vulnerability_info("CVE-2024-1234")
 
@@ -151,12 +148,14 @@ class TestDepsDevClient:
         start_time = datetime.now()
 
         # Make multiple requests
-        with patch('aiohttp.ClientSession') as mock_session:
+        with patch("aiohttp.ClientSession") as mock_session:
             mock_response = AsyncMock()
             mock_response.status = 200
             mock_response.json = AsyncMock(return_value={})
 
-            mock_session.return_value.__aenter__.return_value.get.return_value.__aenter__.return_value = mock_response
+            mock_session.return_value.__aenter__.return_value.get.return_value.__aenter__.return_value = (
+                mock_response
+            )
 
             await client.get_vulnerability_info("CVE-2024-0001")
             await client.get_vulnerability_info("CVE-2024-0002")

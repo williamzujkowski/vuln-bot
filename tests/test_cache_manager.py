@@ -90,7 +90,9 @@ class TestCacheManager:
 
     def test_large_data(self, cache_manager):
         """Test caching large data."""
-        large_data = {"items": [{"id": i, "data": f"item_{i}" * 100} for i in range(1000)]}
+        large_data = {
+            "items": [{"id": i, "data": f"item_{i}" * 100} for i in range(1000)]
+        }
 
         cache_manager.set("large_key", large_data)
         result = cache_manager.get("large_key")
@@ -137,5 +139,7 @@ class TestCacheManager:
             assert result is False
 
         # Database errors
-        with patch.object(cache_manager, "_get_connection", side_effect=sqlite3.Error("DB Error")):
+        with patch.object(
+            cache_manager, "_get_connection", side_effect=sqlite3.Error("DB Error")
+        ):
             assert cache_manager.get("any_key") is None

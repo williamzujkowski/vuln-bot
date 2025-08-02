@@ -25,7 +25,7 @@ class EPSSFilterAgent(BaseAgent):
         super().__init__(name="EPSSFilterAgent", cache_dir=cache_dir)
 
         # Get threshold from environment or use default
-        env_threshold = os.getenv('EPSS_THRESHOLD', '').strip()
+        env_threshold = os.getenv("EPSS_THRESHOLD", "").strip()
         if env_threshold:
             try:
                 self.threshold = float(env_threshold)
@@ -33,7 +33,7 @@ class EPSSFilterAgent(BaseAgent):
                 self.logger.warning(
                     "Invalid EPSS_THRESHOLD environment variable",
                     value=env_threshold,
-                    using_default=self.DEFAULT_THRESHOLD
+                    using_default=self.DEFAULT_THRESHOLD,
                 )
                 self.threshold = self.DEFAULT_THRESHOLD
         else:
@@ -41,12 +41,14 @@ class EPSSFilterAgent(BaseAgent):
 
         # Validate threshold
         if not 0.0 <= self.threshold <= 1.0:
-            raise ValueError(f"EPSS threshold must be between 0.0 and 1.0, got {self.threshold}")
+            raise ValueError(
+                f"EPSS threshold must be between 0.0 and 1.0, got {self.threshold}"
+            )
 
         self.logger.info(
             "EPSS Filter Agent initialized",
             threshold=self.threshold,
-            threshold_percentage=f"{self.threshold * 100}%"
+            threshold_percentage=f"{self.threshold * 100}%",
         )
 
         # Initialize counters for audit logging
@@ -55,10 +57,12 @@ class EPSSFilterAgent(BaseAgent):
             "passed_filter": 0,
             "failed_filter": 0,
             "missing_epss": 0,
-            "invalid_epss": 0
+            "invalid_epss": 0,
         }
 
-    def filter_vulnerabilities(self, vulnerabilities: List[Dict[str, Any]]) -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
+    def filter_vulnerabilities(
+        self, vulnerabilities: List[Dict[str, Any]]
+    ) -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
         """
         Filter vulnerabilities based on EPSS threshold.
 
@@ -79,21 +83,18 @@ class EPSSFilterAgent(BaseAgent):
             "invalid_epss": 0,
             "threshold": self.threshold,
             "threshold_percentage": f"{self.threshold * 100}%",
-            "filter_timestamp": datetime.utcnow().isoformat()
+            "filter_timestamp": datetime.utcnow().isoformat(),
         }
 
         for vuln in vulnerabilities:
-            cve_id = vuln.get('cveId', vuln.get('cve_id', 'Unknown'))
+            cve_id = vuln.get("cveId", vuln.get("cve_id", "Unknown"))
 
             # Extract EPSS score
             epss_score = self._extract_epss_score(vuln)
 
             if epss_score is None:
                 self.stats["missing_epss"] += 1
-                self.logger.warning(
-                    "Missing EPSS score, filtering out",
-                    cve_id=cve_id
-                )
+                self.logger.warning("Missing EPSS score, filtering out", cve_id=cve_id)
                 continue
 
             if epss_score < 0.0 or epss_score > 1.0:
@@ -101,7 +102,7 @@ class EPSSFilterAgent(BaseAgent):
                 self.logger.error(
                     "Invalid EPSS score, filtering out",
                     cve_id=cve_id,
-                    epss_score=epss_score
+                    epss_score=epss_score,
                 )
                 continue
 
@@ -110,9 +111,7 @@ class EPSSFilterAgent(BaseAgent):
                 self.stats["passed_filter"] += 1
                 filtered.append(vuln)
                 self.logger.debug(
-                    "CVE passed EPSS filter",
-                    cve_id=cve_id,
-                    epss_score=epss_score
+                    "CVE passed EPSS filter", cve_id=cve_id, epss_score=epss_score
                 )
             else:
                 self.stats["failed_filter"] += 1
@@ -120,21 +119,18 @@ class EPSSFilterAgent(BaseAgent):
                     "CVE failed EPSS filter",
                     cve_id=cve_id,
                     epss_score=epss_score,
-                    threshold=self.threshold
+                    threshold=self.threshold,
                 )
 
         # Log summary statistics
-        self.logger.info(
-            "EPSS filtering complete",
-            **self.stats
-        )
+        self.logger.info("EPSS filtering complete", **self.stats)
 
         # Warn if no vulnerabilities passed the filter
         if not filtered:
             self.logger.warning(
                 "No vulnerabilities passed EPSS filter",
                 threshold=self.threshold,
-                total_processed=len(vulnerabilities)
+                total_processed=len(vulnerabilities),
             )
 
         return filtered, self.stats
@@ -157,44 +153,52 @@ class EPSSFilterAgent(BaseAgent):
             EPSS score as float (0.0-1.0) or None if not found
         """
         # Direct score fields
-        if 'epssScore' in vuln and vuln['epssScore'] is not None:
+        if "epssScore" in vuln and vuln["epssScore"] is not None:
             try:
-                return float(vuln['epssScore'])
+                return float(vuln["epssScore"])
             except (ValueError, TypeError):
                 pass
 
-        if 'epss_score' in vuln and vuln['epss_score'] is not None:
+        if "epss_score" in vuln and vuln["epss_score"] is not None:
             try:
-                return float(vuln['epss_score'])
+                return float(vuln["epss_score"])
             except (ValueError, TypeError):
                 pass
 
         # Nested score objects
-        if 'epssScore' in vuln and isinstance(vuln['epssScore'], dict) and 'score' in vuln['epssScore']:
-                try:
-                    return float(vuln['epssScore']['score'])
-                except (ValueError, TypeError):
-                    pass
+        if (
+            "epssScore" in vuln
+            and isinstance(vuln["epssScore"], dict)
+            and "score" in vuln["epssScore"]
+        ):
+            try:
+                return float(vuln["epssScore"]["score"])
+            except (ValueError, TypeError):
+                pass
 
-        if 'epss' in vuln and isinstance(vuln['epss'], dict) and 'score' in vuln['epss']:
-                try:
-                    return float(vuln['epss']['score'])
-                except (ValueError, TypeError):
-                    pass
+        if (
+            "epss" in vuln
+            and isinstance(vuln["epss"], dict)
+            and "score" in vuln["epss"]
+        ):
+            try:
+                return float(vuln["epss"]["score"])
+            except (ValueError, TypeError):
+                pass
 
         # Fall back to percentile / 100 if available
-        if 'epssPercentile' in vuln and vuln['epssPercentile'] is not None:
+        if "epssPercentile" in vuln and vuln["epssPercentile"] is not None:
             try:
-                percentile = float(vuln['epssPercentile'])
+                percentile = float(vuln["epssPercentile"])
                 # Convert percentile to score approximation
                 # Note: This is an approximation since percentile != score
                 return percentile / 100.0
             except (ValueError, TypeError):
                 pass
 
-        if 'epss_percentile' in vuln and vuln['epss_percentile'] is not None:
+        if "epss_percentile" in vuln and vuln["epss_percentile"] is not None:
             try:
-                percentile = float(vuln['epss_percentile'])
+                percentile = float(vuln["epss_percentile"])
                 return percentile / 100.0
             except (ValueError, TypeError):
                 pass
@@ -209,9 +213,15 @@ class EPSSFilterAgent(BaseAgent):
             Dictionary with filter statistics and audit information
         """
         if self.stats["total_processed"] > 0:
-            pass_rate = (self.stats["passed_filter"] / self.stats["total_processed"]) * 100
-            filter_rate = (self.stats["failed_filter"] / self.stats["total_processed"]) * 100
-            missing_rate = (self.stats["missing_epss"] / self.stats["total_processed"]) * 100
+            pass_rate = (
+                self.stats["passed_filter"] / self.stats["total_processed"]
+            ) * 100
+            filter_rate = (
+                self.stats["failed_filter"] / self.stats["total_processed"]
+            ) * 100
+            missing_rate = (
+                self.stats["missing_epss"] / self.stats["total_processed"]
+            ) * 100
         else:
             pass_rate = filter_rate = missing_rate = 0.0
 
@@ -220,7 +230,7 @@ class EPSSFilterAgent(BaseAgent):
             "pass_rate_percentage": f"{pass_rate:.1f}%",
             "filter_rate_percentage": f"{filter_rate:.1f}%",
             "missing_rate_percentage": f"{missing_rate:.1f}%",
-            "report_generated": datetime.utcnow().isoformat()
+            "report_generated": datetime.utcnow().isoformat(),
         }
 
     async def process(self, data: Dict[str, Any]) -> Dict[str, Any]:
@@ -233,7 +243,7 @@ class EPSSFilterAgent(BaseAgent):
         Returns:
             Dictionary with filtered vulnerabilities and statistics
         """
-        vulnerabilities = data.get('vulnerabilities', [])
+        vulnerabilities = data.get("vulnerabilities", [])
 
         # Apply filter
         filtered_vulns, stats = self.filter_vulnerabilities(vulnerabilities)
@@ -247,15 +257,15 @@ class EPSSFilterAgent(BaseAgent):
             input_count=len(vulnerabilities),
             output_count=len(filtered_vulns),
             filter_threshold=self.threshold,
-            **report
+            **report,
         )
 
         return {
-            'vulnerabilities': filtered_vulns,
-            'epss_filter_stats': stats,
-            'epss_filter_report': report,
-            'filter_applied': True,
-            'threshold': self.threshold
+            "vulnerabilities": filtered_vulns,
+            "epss_filter_stats": stats,
+            "epss_filter_report": report,
+            "filter_applied": True,
+            "threshold": self.threshold,
         }
 
     async def execute(self, task: Dict[str, Any]) -> Dict[str, Any]:

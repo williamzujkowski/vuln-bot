@@ -16,7 +16,8 @@ async def test_timing_issue():
         page = await context.new_page()
 
         # Add script to monitor when things are defined
-        await page.add_init_script("""
+        await page.add_init_script(
+            """
             window.timingLog = [];
 
             // Monitor when Alpine is defined
@@ -44,7 +45,8 @@ async def test_timing_issue():
                     this._dashboard = val;
                 }
             });
-        """)
+        """
+        )
 
         print("📡 Navigating to live site...")
         await page.goto("https://williamzujkowski.github.io/vuln-bot/")
@@ -57,10 +59,13 @@ async def test_timing_issue():
 
         print("\n📊 Timing Log:")
         for entry in timing_log:
-            print(f"  {entry['event']} - Alpine exists: {entry.get('alpineExists', 'N/A')}, Dashboard exists: {entry.get('dashboardExists', 'N/A')}")
+            print(
+                f"  {entry['event']} - Alpine exists: {entry.get('alpineExists', 'N/A')}, Dashboard exists: {entry.get('dashboardExists', 'N/A')}"
+            )
 
         # Check current state
-        state = await page.evaluate("""
+        state = await page.evaluate(
+            """
             () => {
                 return {
                     alpine: typeof window.Alpine,
@@ -72,14 +77,16 @@ async def test_timing_issue():
                     statsDataDefined: typeof statsData !== 'undefined'
                 };
             }
-        """)
+        """
+        )
 
         print("\n📊 Current State:")
         for key, value in state.items():
             print(f"  {key}: {value}")
 
         # Try to manually initialize
-        manual_init = await page.evaluate("""
+        manual_init = await page.evaluate(
+            """
             () => {
                 try {
                     // Check if data is available
@@ -106,7 +113,8 @@ async def test_timing_issue():
                     return { error: e.toString() };
                 }
             }
-        """)
+        """
+        )
 
         print(f"\n📊 Manual Init Result: {manual_init}")
 

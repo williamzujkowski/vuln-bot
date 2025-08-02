@@ -383,11 +383,11 @@ class DataQualityValidator:
             "summary": {
                 "total_processed": filter_stats["total"],
                 "total_passed": filter_stats["passed"],
-                "pass_rate": round(
-                    100.0 * filter_stats["passed"] / filter_stats["total"], 1
-                )
-                if filter_stats["total"] > 0
-                else 0.0,
+                "pass_rate": (
+                    round(100.0 * filter_stats["passed"] / filter_stats["total"], 1)
+                    if filter_stats["total"] > 0
+                    else 0.0
+                ),
                 "average_quality_score": round(avg_quality, 3),
             },
             "filter_statistics": filter_stats,

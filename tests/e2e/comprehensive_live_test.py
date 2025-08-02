@@ -25,10 +25,17 @@ class ComprehensiveLiveTester:
             "failed": 0,
             "total": 0,
             "start_time": datetime.now().isoformat(),
-            "issues": []
+            "issues": [],
         }
 
-    async def log_issue(self, category: str, test: str, issue: str, severity: str = "medium", details: Dict = None):
+    async def log_issue(
+        self,
+        category: str,
+        test: str,
+        issue: str,
+        severity: str = "medium",
+        details: Dict = None,
+    ):
         """Log an issue found during testing."""
         issue_dict = {
             "category": category,
@@ -36,7 +43,7 @@ class ComprehensiveLiveTester:
             "issue": issue,
             "severity": severity,
             "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
-            "details": details or {}
+            "details": details or {},
         }
         self.issues_found.append(issue_dict)
         self.test_results["issues"].append(issue_dict)
@@ -61,7 +68,7 @@ class ComprehensiveLiveTester:
                 test_name,
                 str(e),
                 "high",
-                {"error_type": type(e).__name__, "full_error": str(e)}
+                {"error_type": type(e).__name__, "full_error": str(e)},
             )
             return False
 
@@ -72,7 +79,9 @@ class ComprehensiveLiveTester:
         async with aiohttp.ClientSession() as session:
             # Test main index.json
             try:
-                async with session.get(f"{self.base_url}/api/vulns/index.json") as response:
+                async with session.get(
+                    f"{self.base_url}/api/vulns/index.json"
+                ) as response:
                     if response.status == 200:
                         content = await response.text()
                         data = json.loads(content)
@@ -85,7 +94,9 @@ class ComprehensiveLiveTester:
                             vulnerabilities = data["vulnerabilities"]
 
                         if vulnerabilities and len(vulnerabilities) > 0:
-                            await self.log_success("API", "index.json accessible and contains data")
+                            await self.log_success(
+                                "API", "index.json accessible and contains data"
+                            )
 
                             # Analyze data quality
                             sample = vulnerabilities[:100]  # Analyze first 100
@@ -98,10 +109,12 @@ class ComprehensiveLiveTester:
                                     "Vendor extraction",
                                     f"High unknown vendor rate: {quality_metrics['vendor_unknown_rate']:.1%}",
                                     "high",
-                                    quality_metrics
+                                    quality_metrics,
                                 )
                             else:
-                                await self.log_success("Data Quality", "Vendor extraction rate acceptable")
+                                await self.log_success(
+                                    "Data Quality", "Vendor extraction rate acceptable"
+                                )
 
                             if quality_metrics["product_unknown_rate"] > 0.3:
                                 await self.log_issue(
@@ -109,10 +122,12 @@ class ComprehensiveLiveTester:
                                     "Product extraction",
                                     f"High unknown product rate: {quality_metrics['product_unknown_rate']:.1%}",
                                     "medium",
-                                    quality_metrics
+                                    quality_metrics,
                                 )
                             else:
-                                await self.log_success("Data Quality", "Product extraction rate acceptable")
+                                await self.log_success(
+                                    "Data Quality", "Product extraction rate acceptable"
+                                )
 
                             if quality_metrics["missing_cvss_rate"] > 0.1:
                                 await self.log_issue(
@@ -120,59 +135,107 @@ class ComprehensiveLiveTester:
                                     "CVSS scores",
                                     f"High missing CVSS rate: {quality_metrics['missing_cvss_rate']:.1%}",
                                     "medium",
-                                    quality_metrics
+                                    quality_metrics,
                                 )
                             else:
-                                await self.log_success("Data Quality", "CVSS score coverage good")
+                                await self.log_success(
+                                    "Data Quality", "CVSS score coverage good"
+                                )
 
                         else:
-                            await self.log_issue("API", "index.json", "No vulnerability data found", "critical")
+                            await self.log_issue(
+                                "API",
+                                "index.json",
+                                "No vulnerability data found",
+                                "critical",
+                            )
                     else:
-                        await self.log_issue("API", "index.json", f"HTTP {response.status}", "critical")
+                        await self.log_issue(
+                            "API", "index.json", f"HTTP {response.status}", "critical"
+                        )
             except Exception as e:
-                await self.log_issue("API", "index.json", f"Failed to fetch: {str(e)}", "critical")
+                await self.log_issue(
+                    "API", "index.json", f"Failed to fetch: {str(e)}", "critical"
+                )
 
             # Test chunk-index.json
             try:
-                async with session.get(f"{self.base_url}/api/vulns/chunk-index.json") as response:
+                async with session.get(
+                    f"{self.base_url}/api/vulns/chunk-index.json"
+                ) as response:
                     if response.status == 200:
                         await self.log_success("API", "chunk-index.json accessible")
                     else:
-                        await self.log_issue("API", "chunk-index.json", f"HTTP {response.status}", "high")
+                        await self.log_issue(
+                            "API", "chunk-index.json", f"HTTP {response.status}", "high"
+                        )
             except Exception as e:
-                await self.log_issue("API", "chunk-index.json", f"Failed to fetch: {str(e)}", "high")
+                await self.log_issue(
+                    "API", "chunk-index.json", f"Failed to fetch: {str(e)}", "high"
+                )
 
             # Test sample CVE JSON
             try:
                 # Get a sample CVE ID from index
-                async with session.get(f"{self.base_url}/api/vulns/index.json") as response:
+                async with session.get(
+                    f"{self.base_url}/api/vulns/index.json"
+                ) as response:
                     if response.status == 200:
                         data = await response.json()
-                        vulnerabilities = data if isinstance(data, list) else data.get("vulnerabilities", [])
+                        vulnerabilities = (
+                            data
+                            if isinstance(data, list)
+                            else data.get("vulnerabilities", [])
+                        )
                         if vulnerabilities and len(vulnerabilities) > 0:
-                            sample_cve = vulnerabilities[0].get("cveId") or vulnerabilities[0].get("cve_id")
+                            sample_cve = vulnerabilities[0].get(
+                                "cveId"
+                            ) or vulnerabilities[0].get("cve_id")
 
                             # Test individual CVE endpoint
-                            async with session.get(f"{self.base_url}/api/vulns/{sample_cve}.json") as cve_response:
+                            async with session.get(
+                                f"{self.base_url}/api/vulns/{sample_cve}.json"
+                            ) as cve_response:
                                 if cve_response.status == 200:
-                                    await self.log_success("API", f"Individual CVE JSON ({sample_cve})")
+                                    await self.log_success(
+                                        "API", f"Individual CVE JSON ({sample_cve})"
+                                    )
                                 else:
                                     # This might be expected if not all CVEs have individual files
-                                    await self.log_issue("API", "Individual CVE JSON", f"HTTP {cve_response.status}", "low")
+                                    await self.log_issue(
+                                        "API",
+                                        "Individual CVE JSON",
+                                        f"HTTP {cve_response.status}",
+                                        "low",
+                                    )
             except Exception:
                 pass  # Individual CVE files are optional
 
-    async def _analyze_data_quality(self, vulnerabilities: List[Dict[str, Any]]) -> Dict[str, float]:
+    async def _analyze_data_quality(
+        self, vulnerabilities: List[Dict[str, Any]]
+    ) -> Dict[str, float]:
         """Analyze data quality metrics."""
         total = len(vulnerabilities)
         if total == 0:
             return {}
 
-        vendor_unknown = sum(1 for v in vulnerabilities if v.get("vendor", "").lower() in ["unknown", "n/a", ""])
-        product_unknown = sum(1 for v in vulnerabilities if v.get("product", "").lower() in ["unknown", "n/a", ""])
+        vendor_unknown = sum(
+            1
+            for v in vulnerabilities
+            if v.get("vendor", "").lower() in ["unknown", "n/a", ""]
+        )
+        product_unknown = sum(
+            1
+            for v in vulnerabilities
+            if v.get("product", "").lower() in ["unknown", "n/a", ""]
+        )
         missing_cvss = sum(1 for v in vulnerabilities if not v.get("cvss_base_score"))
         missing_epss = sum(1 for v in vulnerabilities if not v.get("epss_probability"))
-        missing_attack_vector = sum(1 for v in vulnerabilities if not v.get("attack_vector") or v.get("attack_vector") == "Unknown")
+        missing_attack_vector = sum(
+            1
+            for v in vulnerabilities
+            if not v.get("attack_vector") or v.get("attack_vector") == "Unknown"
+        )
 
         return {
             "total_analyzed": total,
@@ -184,7 +247,7 @@ class ComprehensiveLiveTester:
             "vendor_unknown_count": vendor_unknown,
             "product_unknown_count": product_unknown,
             "missing_cvss_count": missing_cvss,
-            "missing_epss_count": missing_epss
+            "missing_epss_count": missing_epss,
         }
 
     async def test_homepage_functionality(self, page: Page):
@@ -195,41 +258,29 @@ class ComprehensiveLiveTester:
         await page.goto(self.base_url, wait_until="networkidle")
 
         # Check title
-        await self.run_test(
-            "Homepage",
-            "Page title",
-            self._check_page_title,
-            page
-        )
+        await self.run_test("Homepage", "Page title", self._check_page_title, page)
 
         # Check main elements
         await self.run_test(
-            "Homepage",
-            "Dashboard visibility",
-            self._check_dashboard_visible,
-            page
+            "Homepage", "Dashboard visibility", self._check_dashboard_visible, page
         )
 
         # Check vulnerability table
         await self.run_test(
-            "Homepage",
-            "Vulnerability table",
-            self._check_vulnerability_table,
-            page
+            "Homepage", "Vulnerability table", self._check_vulnerability_table, page
         )
 
         # Check statistics cards
         await self.run_test(
-            "Homepage",
-            "Statistics cards",
-            self._check_statistics_cards,
-            page
+            "Homepage", "Statistics cards", self._check_statistics_cards, page
         )
 
     async def _check_page_title(self, page: Page):
         """Check page title."""
         title = await page.title()
-        assert "Vulnerability" in title or "Vuln-Bot" in title, f"Unexpected title: {title}"
+        assert (
+            "Vulnerability" in title or "Vuln-Bot" in title
+        ), f"Unexpected title: {title}"
 
     async def _check_dashboard_visible(self, page: Page):
         """Check dashboard is visible."""
@@ -239,7 +290,7 @@ class ComprehensiveLiveTester:
             "[x-data*='dashboard']",
             ".dashboard",
             "main",
-            "[role='main']"
+            "[role='main']",
         ]
 
         found = False
@@ -274,7 +325,7 @@ class ComprehensiveLiveTester:
             "text=Critical Severity",
             "text=High Severity",
             "[class*='stat']",
-            "[class*='metric']"
+            "[class*='metric']",
         ]
 
         found_stats = 0
@@ -282,7 +333,9 @@ class ComprehensiveLiveTester:
             if await page.locator(selector).count() > 0:
                 found_stats += 1
 
-        assert found_stats >= 2, f"Insufficient statistics elements found: {found_stats}"
+        assert (
+            found_stats >= 2
+        ), f"Insufficient statistics elements found: {found_stats}"
 
     async def test_search_and_filtering(self, page: Page):
         """Test search and filtering functionality."""
@@ -291,48 +344,31 @@ class ComprehensiveLiveTester:
         await page.goto(self.base_url, wait_until="networkidle")
 
         # Test CVE search
-        await self.run_test(
-            "Search",
-            "CVE ID search",
-            self._test_cve_search,
-            page
-        )
+        await self.run_test("Search", "CVE ID search", self._test_cve_search, page)
 
         # Test vendor search
-        await self.run_test(
-            "Search",
-            "Vendor search",
-            self._test_vendor_search,
-            page
-        )
+        await self.run_test("Search", "Vendor search", self._test_vendor_search, page)
 
         # Test severity filter
         await self.run_test(
-            "Filtering",
-            "Severity filter",
-            self._test_severity_filter,
-            page
+            "Filtering", "Severity filter", self._test_severity_filter, page
         )
 
         # Test EPSS filter
         await self.run_test(
-            "Filtering",
-            "EPSS score filter",
-            self._test_epss_filter,
-            page
+            "Filtering", "EPSS score filter", self._test_epss_filter, page
         )
 
         # Test date filter
         await self.run_test(
-            "Filtering",
-            "Date range filter",
-            self._test_date_filter,
-            page
+            "Filtering", "Date range filter", self._test_date_filter, page
         )
 
     async def _test_cve_search(self, page: Page):
         """Test CVE ID search."""
-        search_input = page.locator('input[placeholder*="Search" i], input[placeholder*="CVE" i]').first
+        search_input = page.locator(
+            'input[placeholder*="Search" i], input[placeholder*="CVE" i]'
+        ).first
         await search_input.fill("CVE-2024")
         await page.wait_for_timeout(1000)  # Wait for debounce
 
@@ -362,12 +398,16 @@ class ComprehensiveLiveTester:
                 break
 
         if vendor_found:
-            search_input = page.locator('input[placeholder*="vendor" i], input[placeholder*="Search" i]').first
+            search_input = page.locator(
+                'input[placeholder*="vendor" i], input[placeholder*="Search" i]'
+            ).first
             await search_input.fill(vendor_found)
             await page.wait_for_timeout(1000)
 
             visible_rows = await page.locator("tbody tr:visible").count()
-            assert visible_rows > 0, f"Vendor search for '{vendor_found}' returned no results"
+            assert (
+                visible_rows > 0
+            ), f"Vendor search for '{vendor_found}' returned no results"
 
             await search_input.clear()
         else:
@@ -381,7 +421,7 @@ class ComprehensiveLiveTester:
         severity_selectors = [
             'select[id*="severity" i]',
             'select[name*="severity" i]',
-            '[x-model*="severity" i]'
+            '[x-model*="severity" i]',
         ]
 
         severity_select = None
@@ -415,7 +455,7 @@ class ComprehensiveLiveTester:
             'input[placeholder*="EPSS" i]',
             'input[id*="epss" i]',
             'input[name*="epss" i]',
-            '[x-model*="epss" i]'
+            '[x-model*="epss" i]',
         ]
 
         epss_input = None
@@ -442,7 +482,7 @@ class ComprehensiveLiveTester:
         date_selectors = [
             'input[type="date"]',
             'input[placeholder*="date" i]',
-            '[x-model*="date" i]'
+            '[x-model*="date" i]',
         ]
 
         date_inputs = []
@@ -475,7 +515,9 @@ class ComprehensiveLiveTester:
         cve_links = await page.locator("tbody tr a[href*='cves']").all()
 
         if not cve_links:
-            await self.log_issue("CVE Pages", "No CVE links", "No CVE detail links found", "high")
+            await self.log_issue(
+                "CVE Pages", "No CVE links", "No CVE detail links found", "high"
+            )
             return
 
         # Test first 3 CVEs
@@ -487,7 +529,7 @@ class ComprehensiveLiveTester:
                 self._test_single_cve_page,
                 page,
                 cve_links[i],
-                cve_text
+                cve_text,
             )
 
     async def _test_single_cve_page(self, page: Page, link, cve_id: str):
@@ -510,7 +552,7 @@ class ComprehensiveLiveTester:
             ("Description", ["Description", "Overview", "Summary"]),
             ("CVSS Score", ["CVSS", "Base Score"]),
             ("EPSS Score", ["EPSS"]),
-            ("Published Date", ["Published", "Date"])
+            ("Published Date", ["Published", "Date"]),
         ]
 
         for element_name, possible_texts in required_elements:
@@ -533,20 +575,12 @@ class ComprehensiveLiveTester:
 
         # Check for charts
         await self.run_test(
-            "Visualization",
-            "Chart presence",
-            self._test_charts_present,
-            page
+            "Visualization", "Chart presence", self._test_charts_present, page
         )
 
     async def _test_charts_present(self, page: Page):
         """Test if charts are present."""
-        chart_selectors = [
-            "canvas",
-            "svg.chart",
-            "[class*='chart']",
-            "[id*='chart']"
-        ]
+        chart_selectors = ["canvas", "svg.chart", "[class*='chart']", "[id*='chart']"]
 
         chart_found = False
         for selector in chart_selectors:
@@ -564,12 +598,7 @@ class ComprehensiveLiveTester:
 
         await page.goto(self.base_url, wait_until="networkidle")
 
-        await self.run_test(
-            "Export",
-            "CSV export",
-            self._test_csv_export,
-            page
-        )
+        await self.run_test("Export", "CSV export", self._test_csv_export, page)
 
     async def _test_csv_export(self, page: Page):
         """Test CSV export."""
@@ -577,7 +606,7 @@ class ComprehensiveLiveTester:
             'button:has-text("Export")',
             'button:has-text("CSV")',
             'button:has-text("Download")',
-            '[aria-label*="export" i]'
+            '[aria-label*="export" i]',
         ]
 
         export_button = None
@@ -588,12 +617,14 @@ class ComprehensiveLiveTester:
 
         if export_button:
             # Set up download handler
-            download_promise = page.wait_for_event('download', timeout=5000)
+            download_promise = page.wait_for_event("download", timeout=5000)
             await export_button.click()
 
             try:
                 download = await download_promise
-                assert download.suggested_filename.endswith('.csv'), "Export file is not CSV"
+                assert download.suggested_filename.endswith(
+                    ".csv"
+                ), "Export file is not CSV"
             except Exception:
                 print("  ⚠️  Export button found but download didn't trigger")
         else:
@@ -607,12 +638,7 @@ class ComprehensiveLiveTester:
         await page.set_viewport_size({"width": 375, "height": 667})
         await page.goto(self.base_url, wait_until="networkidle")
 
-        await self.run_test(
-            "Mobile",
-            "Mobile layout",
-            self._test_mobile_layout,
-            page
-        )
+        await self.run_test("Mobile", "Mobile layout", self._test_mobile_layout, page)
 
         # Reset viewport
         await page.set_viewport_size({"width": 1280, "height": 720})
@@ -634,8 +660,12 @@ class ComprehensiveLiveTester:
             table_parent = page.locator("table").locator("..")
             parent_styles = await table_parent.evaluate("el => getComputedStyle(el)")
             is_scrollable = parent_styles.get("overflow-x") in ["auto", "scroll"]
-            is_responsive = "responsive" in (await table_parent.get_attribute("class") or "")
-            assert is_scrollable or is_responsive, "Table not properly responsive on mobile"
+            is_responsive = "responsive" in (
+                await table_parent.get_attribute("class") or ""
+            )
+            assert (
+                is_scrollable or is_responsive
+            ), "Table not properly responsive on mobile"
 
     async def test_accessibility(self, page: Page):
         """Test accessibility features."""
@@ -644,17 +674,11 @@ class ComprehensiveLiveTester:
         await page.goto(self.base_url, wait_until="networkidle")
 
         await self.run_test(
-            "Accessibility",
-            "Keyboard navigation",
-            self._test_keyboard_navigation,
-            page
+            "Accessibility", "Keyboard navigation", self._test_keyboard_navigation, page
         )
 
         await self.run_test(
-            "Accessibility",
-            "ARIA labels",
-            self._test_aria_labels,
-            page
+            "Accessibility", "ARIA labels", self._test_aria_labels, page
         )
 
     async def _test_keyboard_navigation(self, page: Page):
@@ -672,12 +696,14 @@ class ComprehensiveLiveTester:
         await page.wait_for_timeout(100)
 
         # Check if search is focused
-        search_focused = await page.evaluate("""() => {
+        search_focused = await page.evaluate(
+            """() => {
             const active = document.activeElement;
             return active.tagName === 'INPUT' &&
                    (active.placeholder.toLowerCase().includes('search') ||
                     active.placeholder.toLowerCase().includes('cve'));
-        }""")
+        }"""
+        )
 
         if not search_focused:
             print("  ⚠️  Search keyboard shortcut (/) not implemented")
@@ -706,18 +732,12 @@ class ComprehensiveLiveTester:
         load_time = time.time() - start_time
 
         await self.run_test(
-            "Performance",
-            "Page load time",
-            self._check_load_time,
-            load_time
+            "Performance", "Page load time", self._check_load_time, load_time
         )
 
         # Check for large resources
         await self.run_test(
-            "Performance",
-            "Resource sizes",
-            self._check_resource_sizes,
-            page
+            "Performance", "Resource sizes", self._check_resource_sizes, page
         )
 
     async def _check_load_time(self, load_time: float):
@@ -731,7 +751,8 @@ class ComprehensiveLiveTester:
     async def _check_resource_sizes(self, page: Page):
         """Check resource sizes."""
         # Get page metrics
-        metrics = await page.evaluate("""() => {
+        metrics = await page.evaluate(
+            """() => {
             const resources = performance.getEntriesByType('resource');
             const sizes = resources.map(r => ({
                 name: r.name,
@@ -747,11 +768,14 @@ class ComprehensiveLiveTester:
                 resourceCount: sizes.length,
                 largeResources
             };
-        }""")
+        }"""
+        )
 
         if metrics["largeResources"]:
             for resource in metrics["largeResources"]:
-                print(f"  ⚠️  Large resource: {resource['name']} ({resource['size'] / 1024 / 1024:.1f}MB)")
+                print(
+                    f"  ⚠️  Large resource: {resource['name']} ({resource['size'] / 1024 / 1024:.1f}MB)"
+                )
 
     async def run_all_tests(self):
         """Run all tests."""
@@ -799,30 +823,38 @@ class ComprehensiveLiveTester:
             print(f"\n❌ Found {len(self.issues_found)} issues:\n")
 
             # Group by severity
-            critical = [i for i in self.issues_found if i['severity'] == 'critical']
-            high = [i for i in self.issues_found if i['severity'] == 'high']
-            medium = [i for i in self.issues_found if i['severity'] == 'medium']
-            low = [i for i in self.issues_found if i['severity'] == 'low']
+            critical = [i for i in self.issues_found if i["severity"] == "critical"]
+            high = [i for i in self.issues_found if i["severity"] == "high"]
+            medium = [i for i in self.issues_found if i["severity"] == "medium"]
+            low = [i for i in self.issues_found if i["severity"] == "low"]
 
             if critical:
                 print("🔴 CRITICAL Issues:")
                 for issue in critical:
-                    print(f"   - [{issue['category']}] {issue['test']}: {issue['issue']}")
+                    print(
+                        f"   - [{issue['category']}] {issue['test']}: {issue['issue']}"
+                    )
 
             if high:
                 print("\n🟠 HIGH Priority Issues:")
                 for issue in high:
-                    print(f"   - [{issue['category']}] {issue['test']}: {issue['issue']}")
+                    print(
+                        f"   - [{issue['category']}] {issue['test']}: {issue['issue']}"
+                    )
 
             if medium:
                 print("\n🟡 MEDIUM Priority Issues:")
                 for issue in medium:
-                    print(f"   - [{issue['category']}] {issue['test']}: {issue['issue']}")
+                    print(
+                        f"   - [{issue['category']}] {issue['test']}: {issue['issue']}"
+                    )
 
             if low:
                 print("\n🟢 LOW Priority Issues:")
                 for issue in low:
-                    print(f"   - [{issue['category']}] {issue['test']}: {issue['issue']}")
+                    print(
+                        f"   - [{issue['category']}] {issue['test']}: {issue['issue']}"
+                    )
         else:
             print("\n✅ All tests passed! No issues found.")
 

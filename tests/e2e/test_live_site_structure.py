@@ -15,7 +15,9 @@ async def analyze_live_site():
 
         try:
             print("🌐 Analyzing live website structure...")
-            await page.goto("https://williamzujkowski.github.io/vuln-bot/", wait_until="networkidle")
+            await page.goto(
+                "https://williamzujkowski.github.io/vuln-bot/", wait_until="networkidle"
+            )
 
             # Take a screenshot
             await page.screenshot(path="live-site-current.png")
@@ -27,7 +29,10 @@ async def analyze_live_site():
             elements_to_check = [
                 ("Header", "header, .header, .dashboard-header, .site-header"),
                 ("Table", "table, #vulnerability-table, .data-table, .vuln-table"),
-                ("Search", "input[type='search'], input[placeholder*='search' i], .search-input"),
+                (
+                    "Search",
+                    "input[type='search'], input[placeholder*='search' i], .search-input",
+                ),
                 ("Filters", ".filters, .filter-section, select"),
                 ("Results count", ".results-count, .results-info"),
                 ("Alpine component", "[x-data]"),
@@ -51,7 +56,8 @@ async def analyze_live_site():
 
             # Check for JavaScript data
             print("\n💾 Checking JavaScript data:")
-            js_data = await page.evaluate("""
+            js_data = await page.evaluate(
+                """
                 () => {
                     const result = {};
                     // Check for common data variables
@@ -86,19 +92,21 @@ async def analyze_live_site():
 
                     return result;
                 }
-            """)
+            """
+            )
 
             for key, value in js_data.items():
-                if key == 'alpineComponents':
+                if key == "alpineComponents":
                     print(f"  Alpine components found: {value}")
-                elif isinstance(value, dict) and value.get('exists'):
+                elif isinstance(value, dict) and value.get("exists"):
                     print(f"  ✅ window.{key}: {value['type']}")
-                    if value['isArray']:
+                    if value["isArray"]:
                         print(f"     Array length: {value['length']}")
 
             # Get page content structure
             print("\n📋 Page structure:")
-            structure = await page.evaluate("""
+            structure = await page.evaluate(
+                """
                 () => {
                     const getStructure = (el, depth = 0) => {
                         if (depth > 3) return [];
@@ -121,12 +129,15 @@ async def analyze_live_site():
                     };
                     return getStructure(document.body);
                 }
-            """)
+            """
+            )
 
             # Print main structure elements
-            main_elements = [s for s in structure if s['depth'] <= 1 and s['childCount'] > 0]
+            main_elements = [
+                s for s in structure if s["depth"] <= 1 and s["childCount"] > 0
+            ]
             for elem in main_elements[:10]:
-                indent = "  " * elem['depth']
+                indent = "  " * elem["depth"]
                 print(f"{indent}{elem['selector']} ({elem['childCount']} children)")
 
             # Wait a bit to see if data loads
@@ -134,7 +145,8 @@ async def analyze_live_site():
             await page.wait_for_timeout(5000)
 
             # Check again for data
-            data_loaded = await page.evaluate("""
+            data_loaded = await page.evaluate(
+                """
                 () => {
                     const data = window.vulnerabilityData || window.vulnData || [];
                     return {
@@ -143,13 +155,14 @@ async def analyze_live_site():
                         sample: data.length > 0 ? data[0] : null
                     };
                 }
-            """)
+            """
+            )
 
-            if data_loaded['loaded']:
+            if data_loaded["loaded"]:
                 print(f"✅ Data loaded: {data_loaded['count']} vulnerabilities")
-                if data_loaded['sample']:
+                if data_loaded["sample"]:
                     print("\n📊 Sample data structure:")
-                    sample = data_loaded['sample']
+                    sample = data_loaded["sample"]
                     for key in list(sample.keys())[:10]:
                         print(f"  - {key}: {type(sample.get(key)).__name__}")
             else:

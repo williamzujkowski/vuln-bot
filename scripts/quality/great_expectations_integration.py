@@ -216,9 +216,9 @@ class GreatExpectationsValidator:
                     "product": vuln.product,
                     "attack_vector": vuln.attack_vector,
                     "attack_complexity": vuln.attack_complexity,
-                    "published_date": vuln.published_date.isoformat()
-                    if vuln.published_date
-                    else None,
+                    "published_date": (
+                        vuln.published_date.isoformat() if vuln.published_date else None
+                    ),
                     "description": vuln.description,
                     "references": len(vuln.references) if vuln.references else 0,
                 }
@@ -430,18 +430,18 @@ class GreatExpectationsValidator:
             if df[col].dtype in ["int64", "float64"]:
                 col_profile.update(
                     {
-                        "min": float(df[col].min())
-                        if not df[col].isna().all()
-                        else None,
-                        "max": float(df[col].max())
-                        if not df[col].isna().all()
-                        else None,
-                        "mean": float(df[col].mean())
-                        if not df[col].isna().all()
-                        else None,
-                        "std": float(df[col].std())
-                        if not df[col].isna().all()
-                        else None,
+                        "min": (
+                            float(df[col].min()) if not df[col].isna().all() else None
+                        ),
+                        "max": (
+                            float(df[col].max()) if not df[col].isna().all() else None
+                        ),
+                        "mean": (
+                            float(df[col].mean()) if not df[col].isna().all() else None
+                        ),
+                        "std": (
+                            float(df[col].std()) if not df[col].isna().all() else None
+                        ),
                     }
                 )
 
@@ -482,11 +482,13 @@ class GreatExpectationsValidator:
                 if vuln.epss_probability is None:
                     missing_epss.append(vuln.cve_id)
                 elif vuln.epss_probability < (threshold * 100):  # Convert to percentage
-                    below_threshold.append({
-                        "cve_id": vuln.cve_id,
-                        "epss": vuln.epss_probability,
-                        "threshold": threshold * 100
-                    })
+                    below_threshold.append(
+                        {
+                            "cve_id": vuln.cve_id,
+                            "epss": vuln.epss_probability,
+                            "threshold": threshold * 100,
+                        }
+                    )
 
             return {
                 "success": len(below_threshold) == 0 and len(missing_epss) == 0,
@@ -495,7 +497,7 @@ class GreatExpectationsValidator:
                 "missing_epss": missing_epss,
                 "threshold": threshold,
                 "threshold_percentage": f"{threshold * 100}%",
-                "validator": "basic"
+                "validator": "basic",
             }
 
         # Create custom expectation suite for threshold validation
@@ -541,7 +543,7 @@ class GreatExpectationsValidator:
                 "success": False,
                 "error": str(e),
                 "threshold": threshold,
-                "validator": "great_expectations"
+                "validator": "great_expectations",
             }
 
     def _suggest_expectations(

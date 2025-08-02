@@ -279,7 +279,7 @@ class CVSSVectorParser:
             "privileges_score": self.get_privileges_priority(
                 parsed_vector["privileges_required"]
             ),
-            "user_interaction_score": 2
-            if parsed_vector["user_interaction"] == "None"
-            else 1,
+            "user_interaction_score": (
+                2 if parsed_vector["user_interaction"] == "None" else 1
+            ),
         }

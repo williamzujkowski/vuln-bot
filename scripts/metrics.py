@@ -32,7 +32,8 @@ class MetricsCollector:
     def _init_db(self):
         """Initialize database schema."""
         with self._get_db() as conn:
-            conn.execute("""
+            conn.execute(
+                """
                 CREATE TABLE IF NOT EXISTS harvest_runs (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     start_time TIMESTAMP NOT NULL,
@@ -45,9 +46,11 @@ class MetricsCollector:
                     status TEXT NOT NULL DEFAULT 'running',
                     metadata JSON
                 )
-            """)
+            """
+            )
 
-            conn.execute("""
+            conn.execute(
+                """
                 CREATE TABLE IF NOT EXISTS harvest_metrics (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     harvest_id INTEGER NOT NULL,
@@ -57,9 +60,11 @@ class MetricsCollector:
                     metadata JSON,
                     FOREIGN KEY (harvest_id) REFERENCES harvest_runs(id)
                 )
-            """)
+            """
+            )
 
-            conn.execute("""
+            conn.execute(
+                """
                 CREATE TABLE IF NOT EXISTS vulnerability_metrics (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     harvest_id INTEGER NOT NULL,
@@ -76,9 +81,11 @@ class MetricsCollector:
                     tag_count INTEGER,
                     FOREIGN KEY (harvest_id) REFERENCES harvest_runs(id)
                 )
-            """)
+            """
+            )
 
-            conn.execute("""
+            conn.execute(
+                """
                 CREATE TABLE IF NOT EXISTS error_logs (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     harvest_id INTEGER NOT NULL,
@@ -88,7 +95,8 @@ class MetricsCollector:
                     timestamp TIMESTAMP NOT NULL,
                     FOREIGN KEY (harvest_id) REFERENCES harvest_runs(id)
                 )
-            """)
+            """
+            )
 
             # Create indexes for performance
             conn.execute(

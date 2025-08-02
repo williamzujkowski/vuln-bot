@@ -370,9 +370,11 @@ class GitHubAdvisoryClient(BaseAPIClient):
                     advisories = self.fetch_advisories(
                         severity=graphql_severity,
                         ecosystem=ecosystem,
-                        limit=max_vulnerabilities - len(vulnerabilities)
-                        if max_vulnerabilities
-                        else None,
+                        limit=(
+                            max_vulnerabilities - len(vulnerabilities)
+                            if max_vulnerabilities
+                            else None
+                        ),
                     )
 
                     for advisory in advisories:
@@ -389,9 +391,11 @@ class GitHubAdvisoryClient(BaseAPIClient):
                 # Fetch all ecosystems
                 advisories = self.fetch_advisories(
                     severity=graphql_severity,
-                    limit=max_vulnerabilities - len(vulnerabilities)
-                    if max_vulnerabilities
-                    else None,
+                    limit=(
+                        max_vulnerabilities - len(vulnerabilities)
+                        if max_vulnerabilities
+                        else None
+                    ),
                 )
 
                 for advisory in advisories:

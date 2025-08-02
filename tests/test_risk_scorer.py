@@ -35,9 +35,7 @@ class TestRiskScorer:
                 )
             ],
             epss_score=EPSSScore(
-                score=0.95,
-                percentile=99.0,
-                date=datetime.now(timezone.utc)
+                score=0.95, percentile=99.0, date=datetime.now(timezone.utc)
             ),
             tags=["infrastructure", "rce", "KEV"],
             affected_products=["windows", "linux"],
@@ -62,9 +60,7 @@ class TestRiskScorer:
                 )
             ],
             epss_score=EPSSScore(
-                score=0.001,
-                percentile=10.0,
-                date=datetime.now(timezone.utc)
+                score=0.001, percentile=10.0, date=datetime.now(timezone.utc)
             ),
             tags=[],
             affected_products=["unknown-product"],

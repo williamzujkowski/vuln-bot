@@ -10,6 +10,7 @@ from typing import Any, Dict, List, Optional, Set
 try:
     import great_expectations as ge
     from great_expectations.core import ExpectationSuite
+
     HAS_GREAT_EXPECTATIONS = True
 except (ImportError, ValueError):
     # ValueError can occur from numpy/pandas version conflicts
@@ -49,17 +50,45 @@ class StaticPageAgent(BaseAgent):
 
         # Define expectations for CVE Schema v5.1
         expectations = [
-            {"expectation_type": "expect_column_to_exist", "kwargs": {"column": "cve_id"}},
-            {"expectation_type": "expect_column_values_to_match_regex",
-             "kwargs": {"column": "cve_id", "regex": r"^CVE-\d{4}-\d{4,}$"}},
-            {"expectation_type": "expect_column_to_exist", "kwargs": {"column": "state"}},
-            {"expectation_type": "expect_column_values_to_be_in_set",
-             "kwargs": {"column": "state", "value_set": ["PUBLISHED", "REJECTED", "RESERVED"]}},
-            {"expectation_type": "expect_column_to_exist", "kwargs": {"column": "assignerOrgId"}},
-            {"expectation_type": "expect_column_to_exist", "kwargs": {"column": "description"}},
-            {"expectation_type": "expect_column_to_exist", "kwargs": {"column": "problemTypes"}},
-            {"expectation_type": "expect_column_to_exist", "kwargs": {"column": "affected"}},
-            {"expectation_type": "expect_column_to_exist", "kwargs": {"column": "references"}},
+            {
+                "expectation_type": "expect_column_to_exist",
+                "kwargs": {"column": "cve_id"},
+            },
+            {
+                "expectation_type": "expect_column_values_to_match_regex",
+                "kwargs": {"column": "cve_id", "regex": r"^CVE-\d{4}-\d{4,}$"},
+            },
+            {
+                "expectation_type": "expect_column_to_exist",
+                "kwargs": {"column": "state"},
+            },
+            {
+                "expectation_type": "expect_column_values_to_be_in_set",
+                "kwargs": {
+                    "column": "state",
+                    "value_set": ["PUBLISHED", "REJECTED", "RESERVED"],
+                },
+            },
+            {
+                "expectation_type": "expect_column_to_exist",
+                "kwargs": {"column": "assignerOrgId"},
+            },
+            {
+                "expectation_type": "expect_column_to_exist",
+                "kwargs": {"column": "description"},
+            },
+            {
+                "expectation_type": "expect_column_to_exist",
+                "kwargs": {"column": "problemTypes"},
+            },
+            {
+                "expectation_type": "expect_column_to_exist",
+                "kwargs": {"column": "affected"},
+            },
+            {
+                "expectation_type": "expect_column_to_exist",
+                "kwargs": {"column": "references"},
+            },
         ]
 
         for exp in expectations:
@@ -141,7 +170,11 @@ class StaticPageAgent(BaseAgent):
                         # Enrich data if enabled
                         if config["enable_enrichment"]:
                             try:
-                                enriched_data = await self.enrichment_agent.enrich_cve_data(vuln_dict)
+                                enriched_data = (
+                                    await self.enrichment_agent.enrich_cve_data(
+                                        vuln_dict
+                                    )
+                                )
                                 vuln_dict = enriched_data
                                 results["enriched_count"] += 1
                             except Exception as e:
@@ -156,7 +189,9 @@ class StaticPageAgent(BaseAgent):
                                 results["validation_failures"] += 1
 
                         # Generate page content
-                        page_content = await self._generate_page_content_enhanced(vuln, vuln_dict)
+                        page_content = await self._generate_page_content_enhanced(
+                            vuln, vuln_dict
+                        )
 
                         # Write page
                         page_path.write_text(page_content)
@@ -225,6 +260,7 @@ class StaticPageAgent(BaseAgent):
 
             # Validate CVE ID format
             import re
+
             if not re.match(r"^CVE-\d{4}-\d{4,}$", vuln_dict["cve_id"]):
                 self.logger.warning(f"Invalid CVE ID format: {vuln_dict['cve_id']}")
                 return False
@@ -234,7 +270,9 @@ class StaticPageAgent(BaseAgent):
             self.logger.error(f"Schema validation error: {str(e)}")
             return False
 
-    async def _generate_page_content_enhanced(self, vuln, vuln_dict: Dict[str, Any]) -> str:
+    async def _generate_page_content_enhanced(
+        self, vuln, vuln_dict: Dict[str, Any]
+    ) -> str:
         """Generate enhanced content for a single CVE page with all schema v5.1 fields.
 
         Args:
@@ -268,9 +306,11 @@ class StaticPageAgent(BaseAgent):
             "layout": "cve-detail",
             "cve_id": vuln.cve_id,
             "title": enhanced_title,
-            "description": vuln.description[:200] + "..."
-            if len(vuln.description) > 200
-            else vuln.description,
+            "description": (
+                vuln.description[:200] + "..."
+                if len(vuln.description) > 200
+                else vuln.description
+            ),
             "severity": vuln.severity.value,
             "cvss_score": vuln.cvss_base_score,
             "epss_score": vuln.epss_probability,
@@ -313,7 +353,9 @@ class StaticPageAgent(BaseAgent):
         content_parts.append("")
         content_parts.append(f"**CVE ID:** {vuln.cve_id}")
         content_parts.append(f"**State:** {metadata['state']}")
-        content_parts.append(f"**Assigner Organization ID:** {metadata['assignerOrgId']}")
+        content_parts.append(
+            f"**Assigner Organization ID:** {metadata['assignerOrgId']}"
+        )
         if metadata.get("dateReserved"):
             content_parts.append(f"**Date Reserved:** {metadata['dateReserved']}")
         content_parts.append(f"**Date Published:** {metadata['datePublished']}")
@@ -333,7 +375,7 @@ class StaticPageAgent(BaseAgent):
         content_parts.append("### Description")
         content_parts.append("")
         # Handle multiline descriptions properly
-        description_lines = vuln.description.split('\n')
+        description_lines = vuln.description.split("\n")
         for line in description_lines:
             content_parts.append(line)
         content_parts.append("")
@@ -375,19 +417,27 @@ class StaticPageAgent(BaseAgent):
             content_parts.append(f"**Version:** {cvss_metric.version}")
             content_parts.append(f"**Vector String:** `{cvss_metric.vector_string}`")
             content_parts.append(f"**Base Score:** {cvss_metric.base_score}")
-            content_parts.append(f"**Base Severity:** {cvss_metric.base_severity.value}")
+            content_parts.append(
+                f"**Base Severity:** {cvss_metric.base_severity.value}"
+            )
 
             # Extract CVSS components from vector string if available
-            if hasattr(vuln, 'attack_vector') and vuln.attack_vector:
+            if hasattr(vuln, "attack_vector") and vuln.attack_vector:
                 content_parts.append("")
                 content_parts.append("#### Attack Vector Details")
                 content_parts.append(f"- **Attack Vector:** {vuln.attack_vector}")
-                if hasattr(vuln, 'attack_complexity') and vuln.attack_complexity:
-                    content_parts.append(f"- **Attack Complexity:** {vuln.attack_complexity}")
-                if hasattr(vuln, 'privileges_required') and vuln.privileges_required:
-                    content_parts.append(f"- **Privileges Required:** {vuln.privileges_required}")
-                if hasattr(vuln, 'user_interaction') and vuln.user_interaction:
-                    content_parts.append(f"- **User Interaction:** {vuln.user_interaction}")
+                if hasattr(vuln, "attack_complexity") and vuln.attack_complexity:
+                    content_parts.append(
+                        f"- **Attack Complexity:** {vuln.attack_complexity}"
+                    )
+                if hasattr(vuln, "privileges_required") and vuln.privileges_required:
+                    content_parts.append(
+                        f"- **Privileges Required:** {vuln.privileges_required}"
+                    )
+                if hasattr(vuln, "user_interaction") and vuln.user_interaction:
+                    content_parts.append(
+                        f"- **User Interaction:** {vuln.user_interaction}"
+                    )
 
             content_parts.append("")
 
@@ -472,8 +522,12 @@ class StaticPageAgent(BaseAgent):
                 content_parts.append("")
 
                 # Create a table for better formatting
-                content_parts.append("| Package | Version Range | Severity | Patch Available |")
-                content_parts.append("|---------|---------------|----------|-----------------|")
+                content_parts.append(
+                    "| Package | Version Range | Severity | Patch Available |"
+                )
+                content_parts.append(
+                    "|---------|---------------|----------|-----------------|"
+                )
 
                 for pkg in packages[:10]:  # Show top 10 per ecosystem
                     name = pkg.get("name", "Unknown")
@@ -485,10 +539,14 @@ class StaticPageAgent(BaseAgent):
                     if pkg.get("latest_safe_version"):
                         patch_available += f" ({pkg['latest_safe_version']})"
 
-                    content_parts.append(f"| {name} | {version_range} | {severity} | {patch_available} |")
+                    content_parts.append(
+                        f"| {name} | {version_range} | {severity} | {patch_available} |"
+                    )
 
                 if len(packages) > 10:
-                    content_parts.append(f"\n*... and {len(packages) - 10} more {ecosystem} packages*")
+                    content_parts.append(
+                        f"\n*... and {len(packages) - 10} more {ecosystem} packages*"
+                    )
                 content_parts.append("")
 
         # Exploitation Intelligence Section
@@ -503,7 +561,7 @@ class StaticPageAgent(BaseAgent):
                 "HIGH": "🟠",
                 "MEDIUM": "🟡",
                 "LOW": "🟢",
-                "UNKNOWN": "⚪"
+                "UNKNOWN": "⚪",
             }.get(risk_level, "⚪")
 
             content_parts.append(f"**Risk Level:** {risk_emoji} {risk_level}")
@@ -534,19 +592,25 @@ class StaticPageAgent(BaseAgent):
                 "exploits": "### 🚨 Exploits",
                 "technical_details": "### Technical Details",
                 "media_coverage": "### Media Coverage",
-                "other": "### Other References"
+                "other": "### Other References",
             }
 
             for category, refs in categorized_refs.items():
                 if refs:
-                    content_parts.append(category_display.get(category, f"### {category.replace('_', ' ').title()}"))
+                    content_parts.append(
+                        category_display.get(
+                            category, f"### {category.replace('_', ' ').title()}"
+                        )
+                    )
                     for ref in refs[:10]:  # Limit to 10 per category
                         url = ref.get("url", "")
                         source = ref.get("source", "")
                         content_parts.append(f"- [{url}]({url}) (from {source})")
 
                     if len(refs) > 10:
-                        content_parts.append(f"*... and {len(refs) - 10} more {category.replace('_', ' ')}*")
+                        content_parts.append(
+                            f"*... and {len(refs) - 10} more {category.replace('_', ' ')}*"
+                        )
                     content_parts.append("")
         elif all_references:
             # Fallback to simple reference list
@@ -563,8 +627,16 @@ class StaticPageAgent(BaseAgent):
                     refs_by_tag[tag].append(ref)
 
             # Display references by category
-            tag_order = ["CVE Record", "Vendor Advisory", "Patch", "Exploit",
-                        "Issue Tracking", "Third Party Advisory", "Media Coverage", "Other"]
+            tag_order = [
+                "CVE Record",
+                "Vendor Advisory",
+                "Patch",
+                "Exploit",
+                "Issue Tracking",
+                "Third Party Advisory",
+                "Media Coverage",
+                "Other",
+            ]
 
             for tag in tag_order:
                 if tag in refs_by_tag:
@@ -602,9 +674,7 @@ class StaticPageAgent(BaseAgent):
         content_parts.append("## Timeline")
         content_parts.append("")
         if metadata.get("dateReserved"):
-            content_parts.append(
-                f"- **Reserved:** {metadata['dateReserved']}"
-            )
+            content_parts.append(f"- **Reserved:** {metadata['dateReserved']}")
         content_parts.append(
             f"- **Published:** {vuln.published_date.strftime('%Y-%m-%d %H:%M:%S UTC')}"
         )
@@ -626,7 +696,9 @@ class StaticPageAgent(BaseAgent):
             content_parts.append(f"- **Tags:** {', '.join(vuln.tags[:20])}")
 
         if enrichment.get("sources"):
-            content_parts.append(f"- **Data Sources:** {', '.join(enrichment['sources'])}")
+            content_parts.append(
+                f"- **Data Sources:** {', '.join(enrichment['sources'])}"
+            )
 
         content_parts.append("")
         content_parts.append("---")
@@ -658,10 +730,10 @@ class StaticPageAgent(BaseAgent):
         if vuln.cvss_metrics:
             cvss_metric = max(vuln.cvss_metrics, key=lambda m: m.base_score)
             vuln_dict["comprehensive_cvss"] = {
-                'version': cvss_metric.version,
-                'vectorString': cvss_metric.vector_string,
-                'baseScore': cvss_metric.base_score,
-                'baseSeverity': cvss_metric.base_severity.value
+                "version": cvss_metric.version,
+                "vectorString": cvss_metric.vector_string,
+                "baseScore": cvss_metric.base_score,
+                "baseSeverity": cvss_metric.base_severity.value,
             }
         else:
             vuln_dict["comprehensive_cvss"] = None
@@ -671,9 +743,11 @@ class StaticPageAgent(BaseAgent):
             "layout": "cve-detail",
             "cve_id": vuln.cve_id,
             "title": vuln_dict["enhanced_title"],
-            "description": vuln.description[:200] + "..."
-            if len(vuln.description) > 200
-            else vuln.description,
+            "description": (
+                vuln.description[:200] + "..."
+                if len(vuln.description) > 200
+                else vuln.description
+            ),
             "severity": vuln.severity.value,
             "cvss_score": vuln.cvss_base_score,
             "epss_score": vuln.epss_probability,
@@ -739,10 +813,10 @@ class StaticPageAgent(BaseAgent):
             # Get the highest scored CVSS metric
             cvss_metric = max(vuln.cvss_metrics, key=lambda m: m.base_score)
             cvss = {
-                'version': cvss_metric.version,
-                'vectorString': cvss_metric.vector_string,
-                'baseScore': cvss_metric.base_score,
-                'baseSeverity': cvss_metric.base_severity.value
+                "version": cvss_metric.version,
+                "vectorString": cvss_metric.vector_string,
+                "baseScore": cvss_metric.base_score,
+                "baseSeverity": cvss_metric.base_severity.value,
             }
             content_parts.append("### CVSS Metrics")
             content_parts.append("")

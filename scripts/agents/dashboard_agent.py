@@ -90,10 +90,11 @@ class DashboardAgent(BaseAgent):
                 "vulnerabilities_processed": len(vulnerabilities),
                 "severity_distribution": dict(severity_dist),
                 "api_files_generated": len(api_files),
-                "avg_risk_score": sum(v.risk_score for v in vulnerabilities)
-                / len(vulnerabilities)
-                if vulnerabilities
-                else 0,
+                "avg_risk_score": (
+                    sum(v.risk_score for v in vulnerabilities) / len(vulnerabilities)
+                    if vulnerabilities
+                    else 0
+                ),
                 "top_vendors": [
                     vendor
                     for vendor, _ in Counter(
@@ -224,11 +225,11 @@ class DashboardAgent(BaseAgent):
             "metadata": {
                 "total_count": len(vulnerabilities),
                 "generated_at": datetime.now(timezone.utc).isoformat(),
-                "last_updated": max(
-                    v.last_modified_date for v in vulnerabilities
-                ).isoformat()
-                if vulnerabilities
-                else None,
+                "last_updated": (
+                    max(v.last_modified_date for v in vulnerabilities).isoformat()
+                    if vulnerabilities
+                    else None
+                ),
                 "data_source": "cache",
             },
         }

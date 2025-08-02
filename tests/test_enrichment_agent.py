@@ -34,57 +34,61 @@ class TestDataEnrichmentAgent:
     async def test_enrich_cve_data_success(self, agent, sample_cve):
         """Test successful CVE enrichment."""
         # Mock API response
-        with patch('aiohttp.ClientSession') as mock_session:
+        with patch("aiohttp.ClientSession") as mock_session:
             mock_response = AsyncMock()
             mock_response.status = 200
-            mock_response.json = AsyncMock(return_value={
-                "advisoryKey": {
-                    "id": "CVE-2024-1234"
-                },
-                "versions": [
-                    {
-                        "versionKey": {
-                            "system": "npm",
-                            "name": "test-package",
-                            "version": "1.0.0"
-                        },
-                        "affectedByDefault": True
-                    }
-                ]
-            })
+            mock_response.json = AsyncMock(
+                return_value={
+                    "advisoryKey": {"id": "CVE-2024-1234"},
+                    "versions": [
+                        {
+                            "versionKey": {
+                                "system": "npm",
+                                "name": "test-package",
+                                "version": "1.0.0",
+                            },
+                            "affectedByDefault": True,
+                        }
+                    ],
+                }
+            )
 
-            mock_session.return_value.__aenter__.return_value.get.return_value.__aenter__.return_value = mock_response
+            mock_session.return_value.__aenter__.return_value.get.return_value.__aenter__.return_value = (
+                mock_response
+            )
 
             enriched = await agent.enrich_cve_data(sample_cve)
 
             assert enriched is not None
-            assert enriched['cveId'] == sample_cve['cveId']
+            assert enriched["cveId"] == sample_cve["cveId"]
 
     @pytest.mark.asyncio
     async def test_enrich_cve_data_with_errors(self, agent, sample_cve):
         """Test enrichment with API errors."""
         # Mock API error
-        with patch('aiohttp.ClientSession') as mock_session:
-            mock_session.return_value.__aenter__.return_value.get.side_effect = Exception("API Error")
+        with patch("aiohttp.ClientSession") as mock_session:
+            mock_session.return_value.__aenter__.return_value.get.side_effect = (
+                Exception("API Error")
+            )
 
             # Should still return original data
             enriched = await agent.enrich_cve_data(sample_cve)
             assert enriched is not None
-            assert enriched['cveId'] == sample_cve['cveId']
+            assert enriched["cveId"] == sample_cve["cveId"]
 
     @pytest.mark.asyncio
     async def test_extract_package_info(self, agent, sample_cve):
         """Test package info extraction."""
         # Test with npm package format
-        sample_cve['affected_products'] = ['npm:test-package']
+        sample_cve["affected_products"] = ["npm:test-package"]
         info = agent._extract_package_info(sample_cve)
 
         assert len(info) == 1
-        assert info[0] == ('npm', 'test-package')
+        assert info[0] == ("npm", "test-package")
 
         # Test with vendor/product format
-        sample_cve['affected_products'] = ['Microsoft Windows']
-        sample_cve['affected_vendors'] = ['Microsoft']
+        sample_cve["affected_products"] = ["Microsoft Windows"]
+        sample_cve["affected_vendors"] = ["Microsoft"]
         info = agent._extract_package_info(sample_cve)
 
         assert len(info) >= 0  # May not extract ecosystem

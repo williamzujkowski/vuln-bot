@@ -27,7 +27,7 @@ async def test_enrichment():
             "epss_score": 84.17,
             "vendors_list": ["xz"],
             "products_list": ["xz utils"],
-            "references": ["https://github.com/advisories"]
+            "references": ["https://github.com/advisories"],
         },
         {
             "cve_id": "CVE-2021-44228",  # Log4Shell
@@ -38,7 +38,7 @@ async def test_enrichment():
             "epss_score": 97.0,
             "vendors_list": ["apache"],
             "products_list": ["log4j"],
-            "references": ["https://logging.apache.org/log4j/2.x/security.html"]
+            "references": ["https://logging.apache.org/log4j/2.x/security.html"],
         },
         {
             "cve_id": "CVE-2024-47660",  # Sample with potential npm packages
@@ -49,8 +49,8 @@ async def test_enrichment():
             "epss_score": 75.0,
             "vendors_list": ["nodejs"],
             "products_list": ["node"],
-            "references": []
-        }
+            "references": [],
+        },
     ]
 
     print("Testing DataEnrichmentAgent with sample CVEs...\n")
@@ -68,22 +68,28 @@ async def test_enrichment():
             print("\nEnrichment Status:")
             print(f"- Sources: {', '.join(enriched['enrichment']['sources'])}")
 
-            impact = enriched['enrichment']['impact_summary']
+            impact = enriched["enrichment"]["impact_summary"]
             print("\nImpact Summary:")
             print(f"- Total Affected Packages: {impact['total_affected_packages']}")
-            print(f"- Affected Ecosystems: {', '.join(impact['affected_ecosystems']) if impact['affected_ecosystems'] else 'None'}")
+            print(
+                f"- Affected Ecosystems: {', '.join(impact['affected_ecosystems']) if impact['affected_ecosystems'] else 'None'}"
+            )
             print(f"- Has Impact Data: {impact['has_impact_data']}")
 
-            if impact['severity_breakdown']:
-                print(f"- Severity Breakdown: {json.dumps(impact['severity_breakdown'], indent=2)}")
+            if impact["severity_breakdown"]:
+                print(
+                    f"- Severity Breakdown: {json.dumps(impact['severity_breakdown'], indent=2)}"
+                )
 
-            patch_info = impact.get('patch_availability', {})
+            patch_info = impact.get("patch_availability", {})
             if patch_info:
-                print(f"- Patch Availability: {patch_info['patched']}/{patch_info['total']} ({patch_info['percentage']}%)")
+                print(
+                    f"- Patch Availability: {patch_info['patched']}/{patch_info['total']} ({patch_info['percentage']}%)"
+                )
 
             # Show package details if available
-            if 'package_impact' in enriched['enrichment']:
-                packages = enriched['enrichment']['package_impact']
+            if "package_impact" in enriched["enrichment"]:
+                packages = enriched["enrichment"]["package_impact"]
                 if packages:
                     print(f"\nAffected Packages ({len(packages)}):")
                     for pkg in packages[:5]:  # Show first 5
@@ -91,36 +97,41 @@ async def test_enrichment():
                         print(f"    Version Range: {pkg['version_range']}")
                         print(f"    Severity: {pkg['severity']}")
                         print(f"    Patch Available: {pkg['patch_available']}")
-                        if pkg.get('latest_safe_version'):
-                            print(f"    Latest Safe Version: {pkg['latest_safe_version']}")
+                        if pkg.get("latest_safe_version"):
+                            print(
+                                f"    Latest Safe Version: {pkg['latest_safe_version']}"
+                            )
                     if len(packages) > 5:
                         print(f"  ... and {len(packages) - 5} more packages")
 
             # Show exploitation intelligence
-            if 'exploitation_intel' in enriched['enrichment']:
-                intel = enriched['enrichment']['exploitation_intel']
+            if "exploitation_intel" in enriched["enrichment"]:
+                intel = enriched["enrichment"]["exploitation_intel"]
                 print("\nExploitation Intelligence:")
                 print(f"- Risk Level: {intel['risk_level']}")
                 print(f"- Risk Factors: {', '.join(intel['risk_factors'])}")
                 print(f"- Recommendation: {intel['recommendation']}")
 
             # Show categorized references
-            if 'categorized_references' in enriched['enrichment']:
-                refs = enriched['enrichment']['categorized_references']
+            if "categorized_references" in enriched["enrichment"]:
+                refs = enriched["enrichment"]["categorized_references"]
                 print("\nCategorized References:")
                 for category, ref_list in refs.items():
-                    print(f"- {category.replace('_', ' ').title()}: {len(ref_list)} references")
+                    print(
+                        f"- {category.replace('_', ' ').title()}: {len(ref_list)} references"
+                    )
 
             # Save enriched data for inspection
             output_file = Path(f".cache/enrichment/{cve_data['cve_id']}_enriched.json")
             output_file.parent.mkdir(parents=True, exist_ok=True)
-            with open(output_file, 'w') as f:
+            with open(output_file, "w") as f:
                 json.dump(enriched, f, indent=2)
             print(f"\nFull enriched data saved to: {output_file}")
 
         except Exception as e:
             print(f"\nError enriching {cve_data['cve_id']}: {e}")
             import traceback
+
             traceback.print_exc()
 
     print(f"\n{'='*60}")

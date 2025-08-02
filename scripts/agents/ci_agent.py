@@ -479,9 +479,11 @@ Co-Authored-By: Claude <noreply@anthropic.com>"""
             if git_status["return_code"] == 0:
                 status["git_status"] = {
                     "clean": not git_status["stdout"].strip(),
-                    "changes": git_status["stdout"].strip().split("\n")
-                    if git_status["stdout"].strip()
-                    else [],
+                    "changes": (
+                        git_status["stdout"].strip().split("\n")
+                        if git_status["stdout"].strip()
+                        else []
+                    ),
                 }
 
         except Exception as e:

@@ -40,7 +40,7 @@ async def main():
         "include_full_details": True,
         "generate_index": True,
         "enable_enrichment": True,  # Enable deps.dev enrichment
-        "validate_schema": False,   # Disable schema validation due to dependency conflicts
+        "validate_schema": False,  # Disable schema validation due to dependency conflicts
     }
 
     try:
@@ -56,27 +56,30 @@ async def main():
         print(f"  - Validation passed: {results.get('validation_passed', 0)}")
         print(f"  - Validation failed: {results.get('validation_failed', 0)}")
 
-        if results['errors']:
+        if results["errors"]:
             print("\n⚠️  Errors encountered:")
-            for error in results['errors'][:5]:  # Show first 5 errors
+            for error in results["errors"][:5]:  # Show first 5 errors
                 print(f"  - {error}")
-            if len(results['errors']) > 5:
+            if len(results["errors"]) > 5:
                 print(f"  ... and {len(results['errors']) - 5} more errors")
 
         # Generate a summary report
-        if results.get('enrichment_summary'):
+        if results.get("enrichment_summary"):
             print("\n📊 Enrichment Summary:")
-            summary = results['enrichment_summary']
+            summary = results["enrichment_summary"]
             print(f"  - Total CVEs processed: {summary.get('total_processed', 0)}")
-            print(f"  - Successfully enriched: {summary.get('successfully_enriched', 0)}")
+            print(
+                f"  - Successfully enriched: {summary.get('successfully_enriched', 0)}"
+            )
             print(f"  - deps.dev data found: {summary.get('deps_dev_found', 0)}")
             print(f"  - CWEs extracted: {summary.get('cwes_extracted', 0)}")
 
-        return 0 if results['success'] else 1
+        return 0 if results["success"] else 1
 
     except Exception as e:
         print(f"\n❌ Error during page generation: {e}")
         import traceback
+
         traceback.print_exc()
         return 1
 

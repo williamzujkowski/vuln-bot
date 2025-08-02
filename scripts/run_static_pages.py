@@ -40,7 +40,7 @@ async def main():
         "include_full_details": True,
         "generate_index": True,
         "enable_enrichment": True,  # Enable deps.dev enrichment
-        "validate_schema": False,   # Disable schema validation due to dependency conflicts
+        "validate_schema": False,  # Disable schema validation due to dependency conflicts
     }
 
     try:
@@ -55,18 +55,19 @@ async def main():
         print(f"  - Pages enriched: {results.get('enriched_count', 0)}")
         print(f"  - Validation failures: {results.get('validation_failures', 0)}")
 
-        if results.get('errors'):
+        if results.get("errors"):
             print("\n⚠️  Errors encountered:")
-            for error in results['errors'][:5]:  # Show first 5 errors
+            for error in results["errors"][:5]:  # Show first 5 errors
                 print(f"  - {error}")
-            if len(results['errors']) > 5:
+            if len(results["errors"]) > 5:
                 print(f"  ... and {len(results['errors']) - 5} more errors")
 
-        return 0 if results.get('success') else 1
+        return 0 if results.get("success") else 1
 
     except Exception as e:
         print(f"\n❌ Error during page generation: {e}")
         import traceback
+
         traceback.print_exc()
         return 1
 

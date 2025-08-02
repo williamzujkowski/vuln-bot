@@ -48,8 +48,7 @@ class PipelineValidator:
 
         try:
             results = self.validator.validate_data(
-                temp_file,
-                "cve_ingestion_validation"
+                temp_file, "cve_ingestion_validation"
             )
 
             # Log results
@@ -77,8 +76,7 @@ class PipelineValidator:
 
         try:
             results = self.validator.validate_data(
-                temp_file,
-                "cve_enrichment_validation"
+                temp_file, "cve_enrichment_validation"
             )
 
             # Log results
@@ -117,8 +115,7 @@ class PipelineValidator:
                     json.dump(frontmatter, f)
 
                 results = self.validator.validate_data(
-                    temp_file,
-                    "cve_static_page_validation"
+                    temp_file, "cve_static_page_validation"
                 )
 
                 if not results["success"]:
@@ -145,20 +142,20 @@ class PipelineValidator:
         """Extract YAML frontmatter from markdown file."""
         import yaml
 
-        lines = content.split('\n')
-        if lines[0] != '---':
+        lines = content.split("\n")
+        if lines[0] != "---":
             return {}
 
         end_index = -1
         for i in range(1, len(lines)):
-            if lines[i] == '---':
+            if lines[i] == "---":
                 end_index = i
                 break
 
         if end_index == -1:
             return {}
 
-        frontmatter_text = '\n'.join(lines[1:end_index])
+        frontmatter_text = "\n".join(lines[1:end_index])
         return yaml.safe_load(frontmatter_text) or {}
 
     def _log_validation_result(self, stage: str, results: Dict[str, Any]):
@@ -181,7 +178,9 @@ class PipelineValidator:
             print(f"❌ Validation failed for {stage}")
             if "statistics" in results:
                 stats = results["statistics"]
-                print(f"   Failed expectations: {stats.get('unsuccessful_expectations', 'N/A')}")
+                print(
+                    f"   Failed expectations: {stats.get('unsuccessful_expectations', 'N/A')}"
+                )
 
     def generate_validation_report(self) -> str:
         """Generate a validation report."""
@@ -209,13 +208,17 @@ class PipelineValidator:
 
         for result in self.validation_results:
             report.append(f"\n### {result['stage'].title()} - {result['timestamp']}")
-            report.append(f"**Status**: {'✅ PASSED' if result['success'] else '❌ FAILED'}")
+            report.append(
+                f"**Status**: {'✅ PASSED' if result['success'] else '❌ FAILED'}"
+            )
 
             if not result["success"] and "details" in result:
                 details = result["details"]
                 if "statistics" in details:
                     stats = details["statistics"]
-                    report.append(f"**Failed expectations**: {stats.get('unsuccessful_expectations', 'N/A')}")
+                    report.append(
+                        f"**Failed expectations**: {stats.get('unsuccessful_expectations', 'N/A')}"
+                    )
                 if "error" in details:
                     report.append(f"**Error**: {details['error']}")
 
@@ -225,7 +228,7 @@ class PipelineValidator:
 # Integration hooks for existing pipeline
 def add_validation_to_orchestrator():
     """Add validation hooks to the harvest orchestrator."""
-    code = '''
+    code = """
 # Add to scripts/harvest/orchestrator.py after data fetching:
 
 from scripts.integrate_gx_validation import PipelineValidator
@@ -247,13 +250,13 @@ class HarvestOrchestrator:
                 self.logger.warning("Data validation failed, continuing with warnings")
 
         # ... continue processing ...
-'''
+"""
     return code
 
 
 def add_validation_to_static_page_agent():
     """Add validation hooks to static page generation."""
-    code = '''
+    code = """
 # Add to scripts/agents/static_page_agent.py after page generation:
 
 from scripts.integrate_gx_validation import PipelineValidator
@@ -281,7 +284,7 @@ class StaticPageAgent:
         report_path.write_text(report)
 
         return results
-'''
+"""
     return code
 
 

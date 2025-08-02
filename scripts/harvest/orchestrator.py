@@ -421,7 +421,7 @@ class HarvestOrchestrator:
             self.logger.info(
                 "Updated EPSS filter threshold",
                 new_threshold=min_epss_score,
-                threshold_percentage=f"{min_epss_score * 100}%"
+                threshold_percentage=f"{min_epss_score * 100}%",
             )
 
         # Convert vulnerabilities to dict format for the agent
@@ -429,19 +429,23 @@ class HarvestOrchestrator:
         for vuln in unique_vulnerabilities:
             vuln_dict = vuln.to_dict()
             # Ensure EPSS score is at the top level
-            if hasattr(vuln, 'epss_probability') and vuln.epss_probability is not None:
-                vuln_dict['epssScore'] = vuln.epss_probability / 100.0  # Convert percentage to decimal
+            if hasattr(vuln, "epss_probability") and vuln.epss_probability is not None:
+                vuln_dict["epssScore"] = (
+                    vuln.epss_probability / 100.0
+                )  # Convert percentage to decimal
             vuln_dicts.append(vuln_dict)
 
         # Apply EPSS filter
-        filtered_vuln_dicts, filter_stats = self.epss_filter_agent.filter_vulnerabilities(vuln_dicts)
+        filtered_vuln_dicts, filter_stats = (
+            self.epss_filter_agent.filter_vulnerabilities(vuln_dicts)
+        )
 
         # Convert back to Vulnerability objects
         filtered_vulnerabilities = []
         for vuln_dict in filtered_vuln_dicts:
             # Find the original vulnerability object
             for vuln in unique_vulnerabilities:
-                if vuln.cve_id == vuln_dict.get('cveId', vuln_dict.get('cve_id')):
+                if vuln.cve_id == vuln_dict.get("cveId", vuln_dict.get("cve_id")):
                     filtered_vulnerabilities.append(vuln)
                     break
 
@@ -455,7 +459,7 @@ class HarvestOrchestrator:
             filtered_count=filter_stats["passed_filter"],
             removed_count=filter_stats["failed_filter"],
             missing_epss=filter_stats["missing_epss"],
-            threshold=filter_stats["threshold"]
+            threshold=filter_stats["threshold"],
         )
 
         # Calculate risk scores

@@ -16,10 +16,13 @@ async def check_deployed_version():
         page = await context.new_page()
 
         print("📡 Navigating to site...")
-        await page.goto("https://williamzujkowski.github.io/vuln-bot/", wait_until="networkidle")
+        await page.goto(
+            "https://williamzujkowski.github.io/vuln-bot/", wait_until="networkidle"
+        )
 
         # Check if window.dashboard is defined
-        dashboard_check = await page.evaluate("""
+        dashboard_check = await page.evaluate(
+            """
             () => {
                 return {
                     window_dashboard_exists: typeof window.dashboard !== 'undefined',
@@ -28,10 +31,13 @@ async def check_deployed_version():
                     script_content_sample: document.querySelector('script:not([src])')?.textContent?.substring(0, 200)
                 }
             }
-        """)
+        """
+        )
 
         print("\n📊 DEPLOYMENT CHECK:")
-        print(f"  window.dashboard exists: {dashboard_check['window_dashboard_exists']}")
+        print(
+            f"  window.dashboard exists: {dashboard_check['window_dashboard_exists']}"
+        )
         print(f"  dashboard exists: {dashboard_check['dashboard_exists']}")
         print(f"  Alpine exists: {dashboard_check['alpine_exists']}")
         print(f"\n  Script sample: {dashboard_check['script_content_sample']}")

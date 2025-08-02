@@ -15,10 +15,9 @@ class TestVulnerabilityOrchestrator:
     @pytest.fixture
     def orchestrator(self, tmp_path):
         """Create orchestrator instance."""
-        with patch('scripts.orchestrator.CacheManager'):
+        with patch("scripts.orchestrator.CacheManager"):
             orch = VulnerabilityOrchestrator(
-                cache_dir=tmp_path / "cache",
-                output_dir=tmp_path / "output"
+                cache_dir=tmp_path / "cache", output_dir=tmp_path / "output"
             )
             return orch
 
@@ -55,8 +54,7 @@ class TestVulnerabilityOrchestrator:
         # Mock processors
         mock_processor = Mock()
         mock_processor.process.return_value = VulnerabilityBatch(
-            vulnerabilities=sample_vulnerabilities,
-            metadata={"processed": True}
+            vulnerabilities=sample_vulnerabilities, metadata={"processed": True}
         )
         orchestrator.processors = [mock_processor]
 
@@ -83,7 +81,7 @@ class TestVulnerabilityOrchestrator:
                     last_modified_date=datetime.now(timezone.utc),
                 )
             ],
-            metadata={"cached": True}
+            metadata={"cached": True},
         )
 
         orchestrator.cache_manager.get.return_value = cached_data.dict()
@@ -123,12 +121,13 @@ class TestVulnerabilityOrchestrator:
 
         # Filter for HIGH and CRITICAL only
         filtered = orchestrator._filter_vulnerabilities(
-            sample_vulnerabilities,
-            min_severity=SeverityLevel.HIGH
+            sample_vulnerabilities, min_severity=SeverityLevel.HIGH
         )
 
         assert len(filtered) == 2
-        assert all(v.severity in [SeverityLevel.HIGH, SeverityLevel.CRITICAL] for v in filtered)
+        assert all(
+            v.severity in [SeverityLevel.HIGH, SeverityLevel.CRITICAL] for v in filtered
+        )
 
     def test_deduplicate_vulnerabilities(self, orchestrator):
         """Test vulnerability deduplication."""
@@ -170,8 +169,7 @@ class TestVulnerabilityOrchestrator:
     def test_save_output(self, orchestrator, tmp_path, sample_vulnerabilities):
         """Test output saving."""
         batch = VulnerabilityBatch(
-            vulnerabilities=sample_vulnerabilities,
-            metadata={"test": True}
+            vulnerabilities=sample_vulnerabilities, metadata={"test": True}
         )
 
         # Save output
@@ -183,6 +181,7 @@ class TestVulnerabilityOrchestrator:
 
         # Verify content
         import json
+
         with open(output_files[0]) as f:
             data = json.load(f)
             assert "vulnerabilities" in data
@@ -222,8 +221,8 @@ class TestVulnerabilityOrchestrator:
             metadata={
                 "source_counts": {"github": 1, "nvd": 1},
                 "severity_counts": {"CRITICAL": 1, "HIGH": 1},
-                "processing_time": 1.5
-            }
+                "processing_time": 1.5,
+            },
         )
 
         metrics = orchestrator._collect_metrics(batch)

@@ -100,9 +100,11 @@ class BriefingGenerator:
             vuln_data = {
                 "cve_id": vuln.cve_id,
                 "title": vuln.title,
-                "description": vuln.description[:500] + "..."
-                if len(vuln.description) > 500
-                else vuln.description,
+                "description": (
+                    vuln.description[:500] + "..."
+                    if len(vuln.description) > 500
+                    else vuln.description
+                ),
                 "risk_score": vuln.risk_score,
                 "severity": vuln.severity.value,
                 "cvss_score": vuln.cvss_base_score,

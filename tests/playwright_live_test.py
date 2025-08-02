@@ -11,7 +11,10 @@ import pytest
 try:
     from playwright.async_api import Page, async_playwright, expect
 except ImportError:
-    pytest.skip("E2E tests require Playwright - install with: pip install playwright", allow_module_level=True)
+    pytest.skip(
+        "E2E tests require Playwright - install with: pip install playwright",
+        allow_module_level=True,
+    )
 
 
 class VulnBotLiveTester:
@@ -27,7 +30,7 @@ class VulnBotLiveTester:
             "category": category,
             "issue": issue,
             "severity": severity,
-            "timestamp": time.strftime("%Y-%m-%d %H:%M:%S")
+            "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
         }
         self.issues_found.append(issue_dict)
         print(f"❌ [{severity.upper()}] {category}: {issue}")
@@ -43,63 +46,107 @@ class VulnBotLiveTester:
         async with aiohttp.ClientSession() as session:
             # Test index.json with sampling
             try:
-                async with session.get(f"{self.base_url}/api/vulns/index.json") as response:
+                async with session.get(
+                    f"{self.base_url}/api/vulns/index.json"
+                ) as response:
                     if response.status == 200:
                         content = await response.text()
                         # Sample first 5000 characters to avoid parsing huge JSON
                         sample = content[:5000]
-                        if sample.strip().startswith('[') or sample.strip().startswith('{'):
-                            await self.log_success("API index.json is accessible and returns JSON")
+                        if sample.strip().startswith("[") or sample.strip().startswith(
+                            "{"
+                        ):
+                            await self.log_success(
+                                "API index.json is accessible and returns JSON"
+                            )
 
                             # Parse just a small sample to verify structure
                             try:
                                 # Find first complete JSON object
-                                if sample.strip().startswith('['):
+                                if sample.strip().startswith("["):
                                     # Array of vulnerabilities
-                                    first_bracket = sample.find('{')
+                                    first_bracket = sample.find("{")
                                     if first_bracket > 0:
                                         # Try to find end of first object
                                         bracket_count = 0
                                         end_pos = first_bracket
-                                        for i in range(first_bracket, min(len(sample), 5000)):
-                                            if sample[i] == '{':
+                                        for i in range(
+                                            first_bracket, min(len(sample), 5000)
+                                        ):
+                                            if sample[i] == "{":
                                                 bracket_count += 1
-                                            elif sample[i] == '}':
+                                            elif sample[i] == "}":
                                                 bracket_count -= 1
                                                 if bracket_count == 0:
                                                     end_pos = i + 1
                                                     break
 
                                         if end_pos > first_bracket:
-                                            first_vuln = json.loads(sample[first_bracket:end_pos])
+                                            first_vuln = json.loads(
+                                                sample[first_bracket:end_pos]
+                                            )
                                             # Check for vendor/product fields
-                                            if 'vendor' in first_vuln and first_vuln['vendor'] != 'Unknown':
-                                                await self.log_success(f"Vendor data present: {first_vuln['vendor']}")
+                                            if (
+                                                "vendor" in first_vuln
+                                                and first_vuln["vendor"] != "Unknown"
+                                            ):
+                                                await self.log_success(
+                                                    f"Vendor data present: {first_vuln['vendor']}"
+                                                )
                                             else:
-                                                await self.log_issue("API Data", "Vendor still showing as Unknown", "high")
+                                                await self.log_issue(
+                                                    "API Data",
+                                                    "Vendor still showing as Unknown",
+                                                    "high",
+                                                )
 
-                                            if 'product' in first_vuln and first_vuln['product'] != 'Unknown':
-                                                await self.log_success(f"Product data present: {first_vuln['product']}")
+                                            if (
+                                                "product" in first_vuln
+                                                and first_vuln["product"] != "Unknown"
+                                            ):
+                                                await self.log_success(
+                                                    f"Product data present: {first_vuln['product']}"
+                                                )
                                             else:
-                                                await self.log_issue("API Data", "Product still showing as Unknown", "high")
+                                                await self.log_issue(
+                                                    "API Data",
+                                                    "Product still showing as Unknown",
+                                                    "high",
+                                                )
                             except Exception:
-                                print("Note: Could not parse sample due to truncation, but JSON structure verified")
+                                print(
+                                    "Note: Could not parse sample due to truncation, but JSON structure verified"
+                                )
                         else:
-                            await self.log_issue("API", "index.json does not return valid JSON", "critical")
+                            await self.log_issue(
+                                "API",
+                                "index.json does not return valid JSON",
+                                "critical",
+                            )
                     else:
-                        await self.log_issue("API", f"index.json returns {response.status}", "critical")
+                        await self.log_issue(
+                            "API", f"index.json returns {response.status}", "critical"
+                        )
             except Exception as e:
-                await self.log_issue("API", f"Failed to fetch index.json: {str(e)}", "critical")
+                await self.log_issue(
+                    "API", f"Failed to fetch index.json: {str(e)}", "critical"
+                )
 
             # Test chunk index
             try:
-                async with session.get(f"{self.base_url}/api/vulns/chunk-index.json") as response:
+                async with session.get(
+                    f"{self.base_url}/api/vulns/chunk-index.json"
+                ) as response:
                     if response.status == 200:
                         await self.log_success("API chunk-index.json is accessible")
                     else:
-                        await self.log_issue("API", f"chunk-index.json returns {response.status}", "high")
+                        await self.log_issue(
+                            "API", f"chunk-index.json returns {response.status}", "high"
+                        )
             except Exception as e:
-                await self.log_issue("API", f"Failed to fetch chunk-index.json: {str(e)}", "high")
+                await self.log_issue(
+                    "API", f"Failed to fetch chunk-index.json: {str(e)}", "high"
+                )
 
     async def test_homepage_loads(self, page: Page):
         """Test that the homepage loads correctly."""
@@ -116,10 +163,14 @@ class VulnBotLiveTester:
 
         # Check main elements
         try:
-            await expect(page.locator("#vulnerability-dashboard")).to_be_visible(timeout=5000)
+            await expect(page.locator("#vulnerability-dashboard")).to_be_visible(
+                timeout=5000
+            )
             await self.log_success("Vulnerability dashboard is visible")
         except Exception:
-            await self.log_issue("Homepage", "Vulnerability dashboard not found", "critical")
+            await self.log_issue(
+                "Homepage", "Vulnerability dashboard not found", "critical"
+            )
 
     async def test_vulnerability_table(self, page: Page):
         """Test vulnerability table displays data correctly."""
@@ -138,30 +189,52 @@ class VulnBotLiveTester:
                 first_row = page.locator("tbody tr").first
 
                 # Check vendor column (assuming it's one of the visible columns)
-                vendor_text = await first_row.locator("td").nth(3).text_content()  # Adjust index based on actual table
+                vendor_text = (
+                    await first_row.locator("td").nth(3).text_content()
+                )  # Adjust index based on actual table
                 if vendor_text and vendor_text.strip() != "Unknown":
                     await self.log_success(f"Vendor data displayed: {vendor_text}")
                 else:
-                    await self.log_issue("Table Data", "Vendor showing as Unknown in table", "high")
+                    await self.log_issue(
+                        "Table Data", "Vendor showing as Unknown in table", "high"
+                    )
 
                 # Try to find product data
                 cells = await first_row.locator("td").all_text_contents()
                 product_found = False
                 for i, cell in enumerate(cells):
-                    if (i > 2 and cell and cell.strip() not in ["Unknown", "N/A", ""] and
-                        ("microsoft" in cell.lower() or "linux" in cell.lower() or any(char.isalpha() for char in cell))):
+                    if (
+                        i > 2
+                        and cell
+                        and cell.strip() not in ["Unknown", "N/A", ""]
+                        and (
+                            "microsoft" in cell.lower()
+                            or "linux" in cell.lower()
+                            or any(char.isalpha() for char in cell)
+                        )
+                    ):
                         # Product data found
                         product_found = True
-                        await self.log_success(f"Product/vendor data found in cell {i}: {cell}")
+                        await self.log_success(
+                            f"Product/vendor data found in cell {i}: {cell}"
+                        )
                         break
 
                 if not product_found:
-                    await self.log_issue("Table Data", "No clear product data found in table", "high")
+                    await self.log_issue(
+                        "Table Data", "No clear product data found in table", "high"
+                    )
 
             else:
-                await self.log_issue("Table Data", "No vulnerabilities displayed in table", "critical")
+                await self.log_issue(
+                    "Table Data", "No vulnerabilities displayed in table", "critical"
+                )
         except Exception as e:
-            await self.log_issue("Table Data", f"Failed to load vulnerability table: {str(e)}", "critical")
+            await self.log_issue(
+                "Table Data",
+                f"Failed to load vulnerability table: {str(e)}",
+                "critical",
+            )
 
     async def test_search_functionality(self, page: Page):
         """Test search and filter functionality."""
@@ -178,7 +251,9 @@ class VulnBotLiveTester:
             if rows > 0:
                 await self.log_success("CVE search filtering works")
             else:
-                await self.log_issue("Search", "CVE search returns no results", "medium")
+                await self.log_issue(
+                    "Search", "CVE search returns no results", "medium"
+                )
 
             await search_input.clear()
         except Exception as e:
@@ -199,9 +274,13 @@ class VulnBotLiveTester:
                 if "microsoft" in text.lower():
                     await self.log_success("Vendor filter shows correct results")
                 else:
-                    await self.log_issue("Search", "Vendor filter shows incorrect results", "high")
+                    await self.log_issue(
+                        "Search", "Vendor filter shows incorrect results", "high"
+                    )
             else:
-                await self.log_issue("Search", "Vendor search returns no results", "medium")
+                await self.log_issue(
+                    "Search", "Vendor search returns no results", "medium"
+                )
 
             await vendor_input.clear()
         except Exception as e:
@@ -230,16 +309,26 @@ class VulnBotLiveTester:
                 if "Unknown" not in modal_text:
                     await self.log_success("Modal shows vendor/product information")
                 else:
-                    await self.log_issue("Modal", "Vendor/Product showing as Unknown in modal", "high")
+                    await self.log_issue(
+                        "Modal", "Vendor/Product showing as Unknown in modal", "high"
+                    )
             else:
-                await self.log_issue("Modal", "No vendor/product fields in modal", "high")
+                await self.log_issue(
+                    "Modal", "No vendor/product fields in modal", "high"
+                )
 
             # Check for attack vector
             if "Attack Vector:" in modal_text or "CVSS" in modal_text:
-                if "Unknown" not in modal_text.split("Attack Vector:")[1][:50] if "Attack Vector:" in modal_text else True:
+                if (
+                    "Unknown" not in modal_text.split("Attack Vector:")[1][:50]
+                    if "Attack Vector:" in modal_text
+                    else True
+                ):
                     await self.log_success("Modal shows attack vector information")
                 else:
-                    await self.log_issue("Modal", "Attack vector showing as Unknown", "medium")
+                    await self.log_issue(
+                        "Modal", "Attack vector showing as Unknown", "medium"
+                    )
 
             # Test tab navigation
             tabs = modal.locator('[role="tab"], .tab, [class*="tab"]')
@@ -254,7 +343,9 @@ class VulnBotLiveTester:
                 await self.log_success("Tab navigation works")
 
             # Close modal
-            close_button = modal.locator('button:has-text("Close"), button:has-text("×"), [aria-label*="close" i]').first
+            close_button = modal.locator(
+                'button:has-text("Close"), button:has-text("×"), [aria-label*="close" i]'
+            ).first
             await close_button.click()
             await expect(modal).not_to_be_visible()
             await self.log_success("Modal closes correctly")
@@ -268,7 +359,9 @@ class VulnBotLiveTester:
 
         # Test EPSS score filter
         try:
-            epss_min = page.locator('input[placeholder*="Min EPSS" i], input[id*="epss-min" i]')
+            epss_min = page.locator(
+                'input[placeholder*="Min EPSS" i], input[id*="epss-min" i]'
+            )
             await epss_min.fill("0.8")
             await page.wait_for_timeout(500)
 
@@ -280,17 +373,25 @@ class VulnBotLiveTester:
                 first_row = page.locator("tbody tr:visible").first
                 epss_text = await first_row.locator('td:has-text("0.")').text_content()
                 if epss_text:
-                    epss_value = float(epss_text.strip().replace('%', ''))
+                    epss_value = float(epss_text.strip().replace("%", ""))
                     if epss_value >= 80:  # 0.8 as percentage
                         await self.log_success("EPSS filter shows correct results")
                     else:
-                        await self.log_issue("Filters", f"EPSS filter shows incorrect result: {epss_value}", "high")
+                        await self.log_issue(
+                            "Filters",
+                            f"EPSS filter shows incorrect result: {epss_value}",
+                            "high",
+                        )
             else:
-                await self.log_issue("Filters", "EPSS filter returns no results", "medium")
+                await self.log_issue(
+                    "Filters", "EPSS filter returns no results", "medium"
+                )
 
             await epss_min.clear()
         except Exception as e:
-            await self.log_issue("Filters", f"EPSS filter test failed: {str(e)}", "medium")
+            await self.log_issue(
+                "Filters", f"EPSS filter test failed: {str(e)}", "medium"
+            )
 
         # Test severity filter
         try:
@@ -303,7 +404,9 @@ class VulnBotLiveTester:
                 if rows > 0:
                     await self.log_success("Severity filtering works")
                 else:
-                    await self.log_issue("Filters", "No CRITICAL vulnerabilities found", "low")
+                    await self.log_issue(
+                        "Filters", "No CRITICAL vulnerabilities found", "low"
+                    )
 
                 await severity_select.select_option("")  # Reset
         except Exception as e:
@@ -327,7 +430,9 @@ class VulnBotLiveTester:
                     if await chart.is_visible():
                         await self.log_success(f"Chart {i+1} is visible")
                     else:
-                        await self.log_issue("Visualization", f"Chart {i+1} is not visible", "medium")
+                        await self.log_issue(
+                            "Visualization", f"Chart {i+1} is not visible", "medium"
+                        )
             else:
                 await self.log_issue("Visualization", "No charts found on page", "low")
 
@@ -340,17 +445,21 @@ class VulnBotLiveTester:
 
         try:
             # Look for export button
-            export_button = page.locator('button:has-text("Export"), button:has-text("CSV"), [aria-label*="export" i]')
+            export_button = page.locator(
+                'button:has-text("Export"), button:has-text("CSV"), [aria-label*="export" i]'
+            )
             if await export_button.count() > 0:
                 # Set up download promise before clicking
-                download_promise = page.wait_for_event('download')
+                download_promise = page.wait_for_event("download")
                 await export_button.first.click()
 
                 try:
                     await asyncio.wait_for(download_promise, timeout=5.0)
                     await self.log_success("CSV export triggers download")
                 except asyncio.TimeoutError:
-                    await self.log_issue("Export", "CSV export did not trigger download", "medium")
+                    await self.log_issue(
+                        "Export", "CSV export did not trigger download", "medium"
+                    )
             else:
                 await self.log_issue("Export", "Export button not found", "low")
 
@@ -370,7 +479,9 @@ class VulnBotLiveTester:
             if await search_input.is_focused():
                 await self.log_success("Search shortcut (/) works")
             else:
-                await self.log_issue("Keyboard", "Search shortcut (/) not working", "low")
+                await self.log_issue(
+                    "Keyboard", "Search shortcut (/) not working", "low"
+                )
 
             # Test escape to close modal
             # First open a modal
@@ -383,10 +494,14 @@ class VulnBotLiveTester:
             if not await modal.is_visible():
                 await self.log_success("Escape key closes modal")
             else:
-                await self.log_issue("Keyboard", "Escape key doesn't close modal", "low")
+                await self.log_issue(
+                    "Keyboard", "Escape key doesn't close modal", "low"
+                )
 
         except Exception as e:
-            await self.log_issue("Keyboard", f"Keyboard shortcut test failed: {str(e)}", "low")
+            await self.log_issue(
+                "Keyboard", f"Keyboard shortcut test failed: {str(e)}", "low"
+            )
 
     async def test_mobile_responsiveness(self, page: Page):
         """Test mobile responsiveness."""
@@ -404,7 +519,9 @@ class VulnBotLiveTester:
                 await self.log_success("Table visible on mobile")
 
                 # Check if horizontally scrollable
-                table_container = page.locator(".table-container, .table-responsive, [class*='overflow']").first
+                table_container = page.locator(
+                    ".table-container, .table-responsive, [class*='overflow']"
+                ).first
                 if await table_container.count() > 0:
                     await self.log_success("Table has responsive container")
                 else:
@@ -412,7 +529,9 @@ class VulnBotLiveTester:
                     table_width = await table.evaluate("el => el.scrollWidth")
                     viewport_width = await page.evaluate("() => window.innerWidth")
                     if table_width > viewport_width:
-                        await self.log_success("Table is horizontally scrollable on mobile")
+                        await self.log_success(
+                            "Table is horizontally scrollable on mobile"
+                        )
             else:
                 await self.log_issue("Mobile", "Table not visible on mobile", "medium")
 
@@ -420,7 +539,9 @@ class VulnBotLiveTester:
             await page.set_viewport_size({"width": 1280, "height": 720})
 
         except Exception as e:
-            await self.log_issue("Mobile", f"Mobile responsiveness test failed: {str(e)}", "low")
+            await self.log_issue(
+                "Mobile", f"Mobile responsiveness test failed: {str(e)}", "low"
+            )
 
     async def run_all_tests(self):
         """Run all tests."""
@@ -459,10 +580,10 @@ class VulnBotLiveTester:
             print(f"\n❌ Found {len(self.issues_found)} issues:\n")
 
             # Group by severity
-            critical = [i for i in self.issues_found if i['severity'] == 'critical']
-            high = [i for i in self.issues_found if i['severity'] == 'high']
-            medium = [i for i in self.issues_found if i['severity'] == 'medium']
-            low = [i for i in self.issues_found if i['severity'] == 'low']
+            critical = [i for i in self.issues_found if i["severity"] == "critical"]
+            high = [i for i in self.issues_found if i["severity"] == "high"]
+            medium = [i for i in self.issues_found if i["severity"] == "medium"]
+            low = [i for i in self.issues_found if i["severity"] == "low"]
 
             if critical:
                 print("🔴 CRITICAL Issues:")

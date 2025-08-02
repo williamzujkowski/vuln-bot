@@ -29,7 +29,7 @@ class TestGitHubAdvisorySource:
     @pytest.fixture
     def source(self):
         """Create GitHub Advisory source instance."""
-        with patch.dict('os.environ', {'GITHUB_TOKEN': 'test-token'}):
+        with patch.dict("os.environ", {"GITHUB_TOKEN": "test-token"}):
             return GitHubAdvisorySource()
 
     @pytest.fixture
@@ -40,9 +40,7 @@ class TestGitHubAdvisorySource:
             "summary": "Test vulnerability in package",
             "description": "Detailed description of the vulnerability",
             "severity": "HIGH",
-            "identifiers": [
-                {"type": "CVE", "value": "CVE-2024-1234"}
-            ],
+            "identifiers": [{"type": "CVE", "value": "CVE-2024-1234"}],
             "publishedAt": "2024-01-15T10:00:00Z",
             "updatedAt": "2024-01-16T10:00:00Z",
             "references": [
@@ -53,10 +51,10 @@ class TestGitHubAdvisorySource:
                     {
                         "package": {"ecosystem": "NPM", "name": "test-package"},
                         "vulnerableVersionRange": "< 1.0.1",
-                        "firstPatchedVersion": {"identifier": "1.0.1"}
+                        "firstPatchedVersion": {"identifier": "1.0.1"},
                     }
                 ]
-            }
+            },
         }
 
     @pytest.mark.asyncio
@@ -65,23 +63,20 @@ class TestGitHubAdvisorySource:
         mock_response = {
             "data": {
                 "securityAdvisories": {
-                    "nodes": [
-                        self.sample_advisory()
-                    ],
-                    "pageInfo": {
-                        "hasNextPage": False,
-                        "endCursor": None
-                    }
+                    "nodes": [self.sample_advisory()],
+                    "pageInfo": {"hasNextPage": False, "endCursor": None},
                 }
             }
         }
 
-        with patch('aiohttp.ClientSession') as mock_session:
+        with patch("aiohttp.ClientSession") as mock_session:
             mock_resp = AsyncMock()
             mock_resp.status = 200
             mock_resp.json = AsyncMock(return_value=mock_response)
 
-            mock_session.return_value.__aenter__.return_value.post.return_value.__aenter__.return_value = mock_resp
+            mock_session.return_value.__aenter__.return_value.post.return_value.__aenter__.return_value = (
+                mock_resp
+            )
 
             vulns = await source.fetch_recent(days=1)
 
@@ -97,10 +92,7 @@ class TestGitHubAdvisorySource:
             "data": {
                 "securityAdvisories": {
                     "nodes": [self.sample_advisory()],
-                    "pageInfo": {
-                        "hasNextPage": True,
-                        "endCursor": "cursor123"
-                    }
+                    "pageInfo": {"hasNextPage": True, "endCursor": "cursor123"},
                 }
             }
         }
@@ -112,15 +104,12 @@ class TestGitHubAdvisorySource:
             "data": {
                 "securityAdvisories": {
                     "nodes": [advisory2],
-                    "pageInfo": {
-                        "hasNextPage": False,
-                        "endCursor": None
-                    }
+                    "pageInfo": {"hasNextPage": False, "endCursor": None},
                 }
             }
         }
 
-        with patch('aiohttp.ClientSession') as mock_session:
+        with patch("aiohttp.ClientSession") as mock_session:
             mock_resp_1 = AsyncMock()
             mock_resp_1.status = 200
             mock_resp_1.json = AsyncMock(return_value=mock_response_1)
@@ -172,9 +161,11 @@ class TestGitHubAdvisorySource:
     @pytest.mark.asyncio
     async def test_error_handling(self, source):
         """Test error handling in API calls."""
-        with patch('aiohttp.ClientSession') as mock_session:
+        with patch("aiohttp.ClientSession") as mock_session:
             # Simulate API error
-            mock_session.return_value.__aenter__.return_value.post.side_effect = aiohttp.ClientError("API Error")
+            mock_session.return_value.__aenter__.return_value.post.side_effect = (
+                aiohttp.ClientError("API Error")
+            )
 
             vulns = await source.fetch_recent(days=1)
 
@@ -188,8 +179,10 @@ class TestGitHubAdvisorySource:
         mock_response.status = 403
         mock_response.headers = {"X-RateLimit-Remaining": "0"}
 
-        with patch('aiohttp.ClientSession') as mock_session:
-            mock_session.return_value.__aenter__.return_value.post.return_value.__aenter__.return_value = mock_response
+        with patch("aiohttp.ClientSession") as mock_session:
+            mock_session.return_value.__aenter__.return_value.post.return_value.__aenter__.return_value = (
+                mock_response
+            )
 
             vulns = await source.fetch_recent(days=1)
 

@@ -12,12 +12,14 @@ class TestGenerateBadge:
     def temp_readme(self, tmp_path):
         """Create temporary README file."""
         readme = tmp_path / "README.md"
-        readme.write_text("""# Test Project
+        readme.write_text(
+            """# Test Project
 
 ![Coverage](https://img.shields.io/badge/coverage-50%25-yellow)
 
 Some other content here.
-""")
+"""
+        )
         return readme
 
     def test_update_readme_badge(self, temp_readme, monkeypatch):
@@ -163,10 +165,12 @@ Some other content here.
         from scripts.generate_badge import update_readme_badge
 
         readme = tmp_path / "README.md"
-        readme.write_text("""# Test Project
+        readme.write_text(
+            """# Test Project
 
 No badge here yet.
-""")
+"""
+        )
 
         monkeypatch.chdir(tmp_path)
 

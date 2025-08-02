@@ -18,6 +18,7 @@ try:
         DatasourceConfig,
         FilesystemStoreBackendDefaults,
     )
+
     HAS_GREAT_EXPECTATIONS = True
 except (ImportError, ValueError) as e:
     print(f"⚠️  Great Expectations not available: {e}")
@@ -69,7 +70,9 @@ class VulnBotDataValidator:
                     },
                 ),
             },
-            stores=FilesystemStoreBackendDefaults(root_directory=str(self.gx_directory)),
+            stores=FilesystemStoreBackendDefaults(
+                root_directory=str(self.gx_directory)
+            ),
         )
 
         self.context = BaseDataContext(project_config=data_context_config)

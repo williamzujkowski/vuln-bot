@@ -20,49 +20,49 @@ class TestEPSSFilterAgent:
                 "cveId": "CVE-2024-0001",
                 "epssScore": 0.85,  # 85% - should pass
                 "severity": "CRITICAL",
-                "description": "High risk vulnerability"
+                "description": "High risk vulnerability",
             },
             {
                 "cveId": "CVE-2024-0002",
                 "epss_score": 0.3,  # 30% - should fail
                 "severity": "HIGH",
-                "description": "Medium risk vulnerability"
+                "description": "Medium risk vulnerability",
             },
             {
                 "cveId": "CVE-2024-0003",
                 "epssScore": {"score": 0.6},  # 60% nested - should pass
                 "severity": "HIGH",
-                "description": "Another high risk vulnerability"
+                "description": "Another high risk vulnerability",
             },
             {
                 "cveId": "CVE-2024-0004",
                 # No EPSS score - should fail
                 "severity": "CRITICAL",
-                "description": "Critical vulnerability without EPSS"
+                "description": "Critical vulnerability without EPSS",
             },
             {
                 "cveId": "CVE-2024-0005",
                 "epss": {"score": 0.95},  # 95% nested alternative - should pass
                 "severity": "CRITICAL",
-                "description": "Very high risk vulnerability"
+                "description": "Very high risk vulnerability",
             },
             {
                 "cveId": "CVE-2024-0006",
                 "epssPercentile": 75,  # 75% as percentile - should pass
                 "severity": "HIGH",
-                "description": "High percentile vulnerability"
+                "description": "High percentile vulnerability",
             },
             {
                 "cveId": "CVE-2024-0007",
                 "epssScore": 0.5,  # Exactly 50% - should pass
                 "severity": "MEDIUM",
-                "description": "Threshold edge case"
+                "description": "Threshold edge case",
             },
             {
                 "cveId": "CVE-2024-0008",
                 "epssScore": 0.49999,  # Just below 50% - should fail
                 "severity": "HIGH",
-                "description": "Just below threshold"
+                "description": "Just below threshold",
             },
         ]
 
@@ -91,7 +91,9 @@ class TestEPSSFilterAgent:
 
     def test_init_invalid_threshold(self):
         """Test initialization with invalid threshold value."""
-        with pytest.raises(ValueError, match="EPSS threshold must be between 0.0 and 1.0"):
+        with pytest.raises(
+            ValueError, match="EPSS threshold must be between 0.0 and 1.0"
+        ):
             EPSSFilterAgent(threshold=1.5)
 
         with pytest.raises(ValueError):
@@ -219,6 +221,7 @@ class TestEPSSFilterAgent:
 
         # Run async process (it's actually sync in this implementation)
         import asyncio
+
         result = asyncio.run(agent.process(data))
 
         assert "vulnerabilities" in result

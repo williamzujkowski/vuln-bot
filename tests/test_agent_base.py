@@ -63,11 +63,11 @@ class TestBaseAgent:
 
     def test_logging(self, agent):
         """Test agent logging."""
-        with patch.object(agent.logger, 'info') as mock_log:
+        with patch.object(agent.logger, "info") as mock_log:
             agent.log_info("Test message", extra_data="test")
             mock_log.assert_called_once()
 
-        with patch.object(agent.logger, 'error') as mock_log:
+        with patch.object(agent.logger, "error") as mock_log:
             agent.log_error("Test error", error="test")
             mock_log.assert_called_once()
 
@@ -100,13 +100,12 @@ class TestBaseAgent:
     async def test_concurrent_execution(self, agent):
         """Test concurrent task execution."""
         # Execute multiple tasks concurrently
-        tasks = [
-            agent.execute({"task": f"test_{i}"})
-            for i in range(5)
-        ]
+        tasks = [agent.execute({"task": f"test_{i}"}) for i in range(5)]
 
         results = await asyncio.gather(*tasks)
 
         assert len(results) == 5
         assert all(r["success"] for r in results)
-        assert all(r["result"]["processed"]["task"].startswith("test_") for r in results)
+        assert all(
+            r["result"]["processed"]["task"].startswith("test_") for r in results
+        )

@@ -125,9 +125,11 @@ class CVEClient(BaseAPIClient):
             descriptions = cve.get("descriptions", [])
             description = next(
                 (d["value"] for d in descriptions if d.get("lang") == "en"),
-                descriptions[0]["value"]
-                if descriptions
-                else "No description available",
+                (
+                    descriptions[0]["value"]
+                    if descriptions
+                    else "No description available"
+                ),
             )
 
             # Parse dates

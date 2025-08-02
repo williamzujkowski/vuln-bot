@@ -257,9 +257,7 @@ class TestVulnerabilityNormalizerExtended:
         """Test GitHub advisory normalization."""
         advisory = {
             "ghsa_id": "GHSA-xxxx-xxxx-xxxx",
-            "identifiers": [
-                {"type": "CVE", "value": "CVE-2024-1234"}
-            ],
+            "identifiers": [{"type": "CVE", "value": "CVE-2024-1234"}],
             "published_at": "2024-01-15T10:30:00Z",
             "updated_at": "2024-01-16T10:30:00Z",
             "severity": "critical",
@@ -267,16 +265,9 @@ class TestVulnerabilityNormalizerExtended:
             "description": "A critical remote code execution vulnerability was found.",
             "html_url": "https://github.com/advisories/GHSA-xxxx-xxxx-xxxx",
             "vulnerabilities": [
-                {
-                    "package": {
-                        "ecosystem": "npm",
-                        "name": "test-package"
-                    }
-                }
+                {"package": {"ecosystem": "npm", "name": "test-package"}}
             ],
-            "references": [
-                {"url": "https://example.com/advisory"}
-            ]
+            "references": [{"url": "https://example.com/advisory"}],
         }
 
         vuln = normalizer.normalize_github_advisory(advisory)

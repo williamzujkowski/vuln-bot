@@ -32,11 +32,13 @@ class AlpineDashboardGenerator:
     def load_vulnerabilities(self):
         """Load all vulnerabilities from cache database"""
         cursor = self.db.cursor()
-        rows = cursor.execute("""
+        rows = cursor.execute(
+            """
             SELECT cve_id, data, risk_score, severity, published_date, last_modified_date
             FROM vulnerability_cache
             ORDER BY risk_score DESC
-        """).fetchall()
+        """
+        ).fetchall()
 
         # Convert cache data to vulnerability objects
         self.vulnerabilities = []

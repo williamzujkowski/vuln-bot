@@ -17,20 +17,24 @@ async def test_live_js_fixes():
 
         # Capture console messages and errors
         console_messages = []
-        page.on("console", lambda msg: console_messages.append({
-            "type": msg.type,
-            "text": msg.text,
-            "location": msg.location
-        }))
+        page.on(
+            "console",
+            lambda msg: console_messages.append(
+                {"type": msg.type, "text": msg.text, "location": msg.location}
+            ),
+        )
 
         print("📡 Navigating to live site...")
-        await page.goto("https://williamzujkowski.github.io/vuln-bot/", wait_until="networkidle")
+        await page.goto(
+            "https://williamzujkowski.github.io/vuln-bot/", wait_until="networkidle"
+        )
 
         # Wait for Alpine.js to initialize
         await page.wait_for_timeout(3000)
 
         # Check for Alpine.js initialization
-        alpine_check = await page.evaluate("""
+        alpine_check = await page.evaluate(
+            """
             () => {
                 return {
                     alpine_exists: typeof Alpine !== 'undefined',
@@ -52,21 +56,24 @@ async def test_live_js_fixes():
                     })()
                 };
             }
-        """)
+        """
+        )
 
         print("\n✅ Alpine.js Status:")
         for key, value in alpine_check.items():
             print(f"  {key}: {value}")
 
         # Check for JavaScript errors
-        js_errors = [msg for msg in console_messages if msg['type'] == 'error']
+        js_errors = [msg for msg in console_messages if msg["type"] == "error"]
 
         if js_errors:
             print("\n❌ JavaScript Errors Found:")
             for err in js_errors[:5]:  # Show first 5 errors
                 print(f"  {err['text']}")
-                if err['location']:
-                    print(f"    at {err['location']['url']}:{err['location']['lineNumber']}")
+                if err["location"]:
+                    print(
+                        f"    at {err['location']['url']}:{err['location']['lineNumber']}"
+                    )
         else:
             print("\n✅ No JavaScript errors detected!")
 
@@ -74,7 +81,8 @@ async def test_live_js_fixes():
         print("\n🧪 Testing Dashboard Functionality:")
 
         # Check if vulnerability data is loaded
-        vuln_count = await page.evaluate("""
+        vuln_count = await page.evaluate(
+            """
             () => {
                 try {
                     const body = document.querySelector('body[x-data="dashboard()"]');
@@ -87,19 +95,20 @@ async def test_live_js_fixes():
                     return -1;
                 }
             }
-        """)
+        """
+        )
         print(f"  Vulnerabilities loaded: {vuln_count}")
 
         # Check if table has rows
-        table_rows = await page.query_selector_all('tbody tr')
+        table_rows = await page.query_selector_all("tbody tr")
         print(f"  Table rows visible: {len(table_rows)}")
 
         # Test search functionality
-        search_input = await page.query_selector('.search-input')
+        search_input = await page.query_selector(".search-input")
         if search_input:
             await search_input.type("CVE-2024")
             await page.wait_for_timeout(1000)
-            filtered_rows = await page.query_selector_all('tbody tr')
+            filtered_rows = await page.query_selector_all("tbody tr")
             print(f"  Search working: {len(filtered_rows)} rows after filtering")
         else:
             print("  ❌ Search input not found")
@@ -109,18 +118,20 @@ async def test_live_js_fixes():
         if critical_button:
             await critical_button.click()
             await page.wait_for_timeout(1000)
-            critical_rows = await page.query_selector_all('tbody tr')
+            critical_rows = await page.query_selector_all("tbody tr")
             print(f"  Quick filters working: {len(critical_rows)} critical vulns")
         else:
             print("  ❌ Critical filter button not found")
 
         # Check if charts are rendered
-        charts_found = await page.evaluate("""
+        charts_found = await page.evaluate(
+            """
             () => {
                 const canvases = document.querySelectorAll('canvas');
                 return canvases.length;
             }
-        """)
+        """
+        )
         print(f"  Charts rendered: {charts_found} charts found")
 
         # Take a screenshot for visual confirmation

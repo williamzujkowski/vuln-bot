@@ -39,13 +39,16 @@ async def test_enhanced_cve_pages():
             "Frontmatter": "---" in content and content.count("---") >= 2,
             "CVE ID": "cve_id:" in content,
             "Metadata section": "## Metadata" in content,
-            "Problem Types": "## Problem Types" in content or "### Common Weakness Enumeration" in content,
+            "Problem Types": "## Problem Types" in content
+            or "### Common Weakness Enumeration" in content,
             "Description": "## Overview" in content or "### Description" in content,
             "Technical Details": "## Technical Details" in content,
-            "Affected Systems": "### Affected Systems" in content or "### Affected Products" in content,
+            "Affected Systems": "### Affected Systems" in content
+            or "### Affected Products" in content,
             "References": "## References" in content,
             "Timeline": "## Timeline" in content,
-            "Impacted Projects": "## Impacted Projects" in content or "impact_summary" in content,
+            "Impacted Projects": "## Impacted Projects" in content
+            or "impact_summary" in content,
             "CVSS Metrics": "### CVSS" in content or "cvss_score:" in content,
             "State info": "state:" in content or "assigner_org_id:" in content,
         }
@@ -94,22 +97,33 @@ async def test_enhanced_cve_pages():
 
                 # Check for key elements
                 element_checks = {
-                    "CVE title": await page.query_selector('h1'),
-                    "Metadata grid": await page.query_selector('.metadata-grid'),
-                    "Severity badge": await page.query_selector('.severity-badge'),
-                    "CVSS score": await page.query_selector('[data-cvss-score]'),
-                    "Description": await page.query_selector('.description'),
-                    "References section": await page.query_selector('.references-section'),
-                    "Impacted projects": await page.query_selector('.impacted-projects'),
+                    "CVE title": await page.query_selector("h1"),
+                    "Metadata grid": await page.query_selector(".metadata-grid"),
+                    "Severity badge": await page.query_selector(".severity-badge"),
+                    "CVSS score": await page.query_selector("[data-cvss-score]"),
+                    "Description": await page.query_selector(".description"),
+                    "References section": await page.query_selector(
+                        ".references-section"
+                    ),
+                    "Impacted projects": await page.query_selector(
+                        ".impacted-projects"
+                    ),
                 }
 
                 for element_name, element in element_checks.items():
                     status = "✅" if element else "❌"
-                    print(f"  {status} {element_name}: {'present' if element else 'missing'}")
+                    print(
+                        f"  {status} {element_name}: {'present' if element else 'missing'}"
+                    )
 
                 # Check for JavaScript errors
                 console_errors = []
-                page.on("console", lambda msg: console_errors.append(msg) if msg.type == 'error' else None)
+                page.on(
+                    "console",
+                    lambda msg: (
+                        console_errors.append(msg) if msg.type == "error" else None
+                    ),
+                )
                 await page.wait_for_timeout(1000)
 
                 if console_errors:
@@ -160,6 +174,7 @@ async def test_enrichment_data():
 
 
 if __name__ == "__main__":
+
     async def run_all_tests():
         """Run all tests."""
         print("🚀 Running enhanced CVE page tests...\n")

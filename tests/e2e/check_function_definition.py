@@ -28,10 +28,12 @@ async def check_function_definition():
 
     # Check for Alpine initialization
     if 'x-data="dashboard()"' in html_content:
-        print("  Found Alpine init: x-data=\"dashboard()\"")
+        print('  Found Alpine init: x-data="dashboard()"')
 
     # Extract the script section with dashboard function
-    script_match = re.search(r'function dashboard\(\).*?{.*?return {', html_content, re.DOTALL)
+    script_match = re.search(
+        r"function dashboard\(\).*?{.*?return {", html_content, re.DOTALL
+    )
     if script_match:
         print(f"\n  Script excerpt:\n    {script_match.group(0)[:200]}...")
 
