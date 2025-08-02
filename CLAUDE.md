@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is "Vuln-Bot" - a high-risk CVE intelligence platform that tracks Critical & High severity vulnerabilities with EPSS ≥ 70% exploitation probability. It automatically harvests, scores, and publishes vulnerability briefings every 4 hours. It's a multi-language project using Python for backend data processing and JavaScript/11ty for the static site generation and frontend.
+This is "Vuln-Bot" - a high-risk CVE intelligence platform that tracks Critical & High severity vulnerabilities with EPSS ≥ 50% exploitation probability. It automatically harvests, scores, and publishes vulnerability briefings every 4 hours. It's a multi-language project using Python for backend data processing and JavaScript/11ty for the static site generation and frontend.
 
 ## Common Development Commands
 
@@ -77,7 +77,7 @@ chmod +x .husky/pre-commit .husky/commit-msg
    - Fetches from multiple sources:
      - CVEProject/cvelistV5 repository (official CVE List, updated every 7 minutes)
      - GitHub Security Advisory Database (via GraphQL API)
-   - Filters for Critical/High severity CVEs from 2024-2025 with EPSS scores ≥ 70%
+   - Filters for Critical/High severity CVEs from 2024-2025 with EPSS scores ≥ 50%
    - Enriches with EPSS API data and CISA-ADP container information (KEV/SSVC)
    - Normalizes data and calculates Risk Score (0-100) based on CVSS, EPSS, popularity, infrastructure tags, and newness
    - Caches responses in SQLite using GitHub Actions cache (10-day TTL, timezone-aware)
@@ -128,13 +128,19 @@ chmod +x .husky/pre-commit .husky/commit-msg
   - `dashboard.ts` - Main vulnerability dashboard Alpine.js component
 - `src/assets/css/` - Stylesheets with design tokens and component styles
 - `public/` - Built static site (deployed to gh-pages)
-- `tests/` - Python test suite
+- `tests/` - Python test suite (90%+ coverage)
+- `great_expectations/` - Data validation suites and checkpoints
 - `.github/workflows/` - CI/CD pipelines
 
 ### CI/CD Pipeline
 - **Scheduled Build**: Runs harvesting every 4 hours, generates content, commits artifacts to main, deploys to gh-pages
-- **PR Checks**: Linting (Ruff, ESLint), tests (≥80% coverage), security scans (Bandit, TruffleHog, CodeQL)
-- **Security**: npm-audit for dependencies, automated vulnerability scanning
+- **Quality Gates**: 
+  - Linting: Ruff, ESLint, Black, isort (zero errors)
+  - Tests: ≥90% coverage, no skipped tests
+  - Security: Bandit, TruffleHog, CodeQL, npm audit
+  - Performance: Lighthouse CI (≥80% score), bundle size checks (<500KB)
+  - Data Validation: Great Expectations checkpoints
+- **Automated Deployment**: GitHub Pages with incremental builds
 
 ### API Keys Required
 Environment secrets needed in GitHub Actions:
@@ -142,9 +148,11 @@ Environment secrets needed in GitHub Actions:
 - `EPSS_API_KEY` - EPSS API access (optional, for enrichment)
 
 ### Testing Strategy
-- Python: pytest with 80% minimum coverage requirement
-- Security: Bandit (high+ severities fail), TruffleHog for secrets
+- Python: pytest with 90% minimum coverage requirement (enforced)
+- E2E: Playwright tests for critical user flows (conditional on installation)
+- Security: Bandit (medium+ severities fail), TruffleHog for secrets
 - JavaScript: ESLint with Google style guide, Prettier formatting
+- Performance: Search latency < 100ms, page load < 2s FCP
 - All checks enforced via Husky pre-commit hooks and GitHub Actions
 
 ### Deployment
@@ -152,3 +160,87 @@ Environment secrets needed in GitHub Actions:
 - No backend servers required - fully client-side functionality
 - Coverage badges auto-updated in README via the `update-badge` command
 - Webhook alerts supported for Slack/Teams notifications
+
+## Performance Optimization Guide
+
+### Frontend Performance Enhancements
+
+#### 1. Debounced Search Implementation
+```javascript
+// Alpine.js component with debounced search
+Alpine.data('vulnDashboard', () => ({
+    searchQuery: '',
+    // Use Alpine's built-in debounce modifier
+    // In template: x-model.debounce.300ms="searchQuery"
+}))
+```
+
+#### 2. Web Worker for Filtering
+The dashboard automatically uses a Web Worker for datasets > 100 items:
+```javascript
+// Filtering logic runs in separate thread
+if (this.vulnerabilities.length > 100 && window.Worker) {
+    const results = await this.filterWithWorker(this.vulnerabilities, this.searchQuery, this.filters);
+}
+```
+
+#### 3. Virtual Scrolling
+Automatically enabled for datasets > 500 items:
+```javascript
+// Only renders visible rows
+if (this.vulnerabilities.length > 500) {
+    this.virtualScrolling.enabled = true;
+}
+```
+
+#### 4. Session Storage Caching
+5-minute TTL cache to minimize API calls:
+```javascript
+// Check cache before fetching
+const cachedData = sessionStorage.getItem('vuln-data');
+const cacheAge = Date.now() - parseInt(sessionStorage.getItem('vuln-data-timestamp'));
+if (cachedData && cacheAge < 5 * 60 * 1000) {
+    return JSON.parse(cachedData);
+}
+```
+
+### Backend Performance Tips
+
+#### 1. Chunked Data Strategy
+```python
+# Generate chunked files by severity and year
+python -m scripts.main generate-briefing --storage-strategy severity-year
+```
+
+#### 2. SQLite Cache Usage
+```python
+# Cache manager with 10-day TTL
+cache_manager = CacheManager(cache_dir=".cache", ttl_days=10)
+```
+
+#### 3. Great Expectations Integration
+```python
+# Run validation without blocking pipeline
+python scripts/integrate_gx_validation.py --enable-validation
+```
+
+### Performance Benchmarks
+
+Run performance tests:
+```bash
+# Frontend performance with Lighthouse
+npm run lighthouse
+
+# Backend processing time
+time python -m scripts.main harvest --cache-dir .cache/
+
+# E2E performance tests
+pytest tests/playwright_live_test.py -v
+```
+
+### Common Performance Issues
+
+1. **Slow Search/Filter**: Ensure debouncing is enabled and Web Worker is functioning
+2. **High Memory Usage**: Check if virtual scrolling is enabled for large datasets
+3. **Slow Page Load**: Verify chunked storage strategy is active
+4. **API Rate Limits**: Check cache hit rates and TTL configuration

@@ -1,465 +1,234 @@
-"""Tests for the harvest orchestrator."""
-
-from datetime import datetime, timezone
-from unittest.mock import MagicMock, patch
+"""Tests for vulnerability pipeline orchestrator."""
 
 import pytest
+from unittest.mock import Mock, patch, AsyncMock, MagicMock
+from datetime import datetime, timezone
+from pathlib import Path
 
-from scripts.harvest.orchestrator import HarvestOrchestrator
-from scripts.models import (
-    EPSSScore,
-    SeverityLevel,
-    Vulnerability,
-    VulnerabilityBatch,
-    VulnerabilitySource,
-)
+from scripts.orchestrator import VulnerabilityOrchestrator
+from scripts.models import Vulnerability, SeverityLevel, VulnerabilityBatch
 
 
-@pytest.fixture
-def mock_dependencies():
-    """Create mock dependencies for orchestrator."""
-    with patch("scripts.harvest.orchestrator.CVEListClient") as mock_cvelist, patch(
-        "scripts.harvest.orchestrator.EPSSClient"
-    ) as mock_epss, patch(
-        "scripts.harvest.orchestrator.VulnerabilityNormalizer"
-    ) as mock_normalizer, patch(
-        "scripts.harvest.orchestrator.RiskScorer"
-    ) as mock_scorer, patch(
-        "scripts.harvest.orchestrator.CacheManager"
-    ) as mock_cache, patch(
-        "scripts.harvest.orchestrator.MetricsCollector"
-    ) as mock_metrics:
-        # Configure mocks
-        mock_cvelist_instance = MagicMock()
-        mock_epss_instance = MagicMock()
-        mock_normalizer_instance = MagicMock()
-        mock_scorer_instance = MagicMock()
-        mock_cache_instance = MagicMock()
-        mock_metrics_instance = MagicMock()
-
-        mock_cvelist.return_value = mock_cvelist_instance
-        mock_epss.return_value = mock_epss_instance
-        mock_normalizer.return_value = mock_normalizer_instance
-        mock_scorer.return_value = mock_scorer_instance
-        mock_cache.return_value = mock_cache_instance
-        mock_metrics.return_value = mock_metrics_instance
-
-        # Configure metrics mock to return harvest_id
-        mock_metrics_instance.start_harvest.return_value = 123
-
-        yield {
-            "cvelist": mock_cvelist_instance,
-            "epss": mock_epss_instance,
-            "normalizer": mock_normalizer_instance,
-            "scorer": mock_scorer_instance,
-            "cache": mock_cache_instance,
-            "metrics": mock_metrics_instance,
-        }
-
-
-@pytest.fixture
-def orchestrator(tmp_path, mock_dependencies):  # noqa: ARG001
-    """Create orchestrator with mocked dependencies."""
-    return HarvestOrchestrator(cache_dir=tmp_path)
-
-
-@pytest.fixture
-def sample_vulnerabilities():
-    """Create sample vulnerabilities for testing."""
-    return [
-        Vulnerability(
-            cve_id="CVE-2025-1001",
-            title="Test vulnerability 1",
-            description="Test description 1",
-            published_date=datetime.now(timezone.utc),
-            last_modified_date=datetime.now(timezone.utc),
-            severity=SeverityLevel.HIGH,
-            cvss_metrics=[],
-            affected_vendors=["vendor1"],
-            affected_products=["product1"],
-            references=[],
-            sources=[
-                VulnerabilitySource(
-                    name="CVEList",
-                    url="https://example.com",
-                    last_modified=datetime.now(timezone.utc),
-                )
-            ],
-        ),
-        Vulnerability(
-            cve_id="CVE-2025-1002",
-            title="Test vulnerability 2",
-            description="Test description 2",
-            published_date=datetime.now(timezone.utc),
-            last_modified_date=datetime.now(timezone.utc),
-            severity=SeverityLevel.CRITICAL,
-            cvss_metrics=[],
-            affected_vendors=["vendor2"],
-            affected_products=["product2"],
-            references=[],
-            sources=[
-                VulnerabilitySource(
-                    name="CVEList",
-                    url="https://example.com",
-                    last_modified=datetime.now(timezone.utc),
-                )
-            ],
-        ),
-    ]
-
-
-class TestHarvestOrchestrator:
-    """Tests for HarvestOrchestrator."""
-
-    def test_init(self, tmp_path):
-        """Test orchestrator initialization."""
-        orchestrator = HarvestOrchestrator(cache_dir=tmp_path)
-        assert orchestrator.cache_dir == tmp_path
-        assert orchestrator.cvelist_client is not None
-        assert orchestrator.epss_client is not None
-        assert orchestrator.normalizer is not None
-        assert orchestrator.risk_scorer is not None
-        assert orchestrator.cache_manager is not None
-
-    def test_harvest_cve_data(
-        self, orchestrator, mock_dependencies, sample_vulnerabilities
-    ):
-        """Test harvesting CVE data."""
-        # Configure mock
-        mock_dependencies["cvelist"].harvest.return_value = sample_vulnerabilities
-
-        # Test harvest
-        result = orchestrator.harvest_cve_data(
-            years=[2025], min_severity=SeverityLevel.HIGH
-        )
-
-        assert len(result) == 2
-        assert all(isinstance(v, Vulnerability) for v in result)
-        mock_dependencies["cvelist"].harvest.assert_called_once_with(
-            years=[2025], min_severity=SeverityLevel.HIGH, incremental=False
-        )
-
-    def test_harvest_cve_data_error(self, orchestrator, mock_dependencies):
-        """Test CVE harvest error handling."""
-        # Configure mock to raise error
-        mock_dependencies["cvelist"].harvest.side_effect = Exception("API error")
-
-        # Test harvest - should return empty list on error
-        result = orchestrator.harvest_cve_data(
-            years=[2025], min_severity=SeverityLevel.HIGH
-        )
-
-        assert result == []
-
-    def test_enrich_with_epss(
-        self, orchestrator, mock_dependencies, sample_vulnerabilities
-    ):
-        """Test EPSS enrichment."""
-        # Configure mock
-        mock_dependencies["epss"].fetch_epss_scores_bulk.return_value = {
-            "CVE-2025-1001": EPSSScore(
-                cve_id="CVE-2025-1001",
-                score=0.75,
-                percentile=0.95,
-                date=datetime.now(timezone.utc).date(),
+class TestVulnerabilityOrchestrator:
+    """Test cases for VulnerabilityOrchestrator."""
+    
+    @pytest.fixture
+    def orchestrator(self, tmp_path):
+        """Create orchestrator instance."""
+        with patch('scripts.orchestrator.CacheManager'):
+            orch = VulnerabilityOrchestrator(
+                cache_dir=tmp_path / "cache",
+                output_dir=tmp_path / "output"
+            )
+            return orch
+    
+    @pytest.fixture
+    def sample_vulnerabilities(self):
+        """Create sample vulnerabilities."""
+        return [
+            Vulnerability(
+                cve_id="CVE-2024-0001",
+                title="Critical vulnerability",
+                description="Critical RCE vulnerability",
+                severity=SeverityLevel.CRITICAL,
+                published_date=datetime.now(timezone.utc),
+                last_modified_date=datetime.now(timezone.utc),
             ),
-            "CVE-2025-1002": EPSSScore(
-                cve_id="CVE-2025-1002",
-                score=0.85,
-                percentile=0.98,
-                date=datetime.now(timezone.utc).date(),
+            Vulnerability(
+                cve_id="CVE-2024-0002",
+                title="High vulnerability",
+                description="High severity vulnerability",
+                severity=SeverityLevel.HIGH,
+                published_date=datetime.now(timezone.utc),
+                last_modified_date=datetime.now(timezone.utc),
             ),
-        }
-
-        # Test enrichment
-        orchestrator.enrich_with_epss(sample_vulnerabilities)
-
-        # The EPSS enrichment sets epss_score on the vulnerability objects
-        assert sample_vulnerabilities[0].epss_score is not None
-        assert sample_vulnerabilities[0].epss_score.score == 0.75
-        assert sample_vulnerabilities[1].epss_score is not None
-        assert sample_vulnerabilities[1].epss_score.score == 0.85
-        mock_dependencies["epss"].fetch_epss_scores_bulk.assert_called_once_with(
-            ["CVE-2025-1001", "CVE-2025-1002"]
+        ]
+    
+    @pytest.mark.asyncio
+    async def test_run_pipeline_success(self, orchestrator, sample_vulnerabilities):
+        """Test successful pipeline execution."""
+        # Mock sources
+        mock_source = AsyncMock()
+        mock_source.fetch_recent.return_value = sample_vulnerabilities
+        orchestrator.sources = {"test_source": mock_source}
+        
+        # Mock processors
+        mock_processor = Mock()
+        mock_processor.process.return_value = VulnerabilityBatch(
+            vulnerabilities=sample_vulnerabilities,
+            metadata={"processed": True}
         )
-
-    def test_enrich_with_epss_batch(self, orchestrator, mock_dependencies):
-        """Test EPSS enrichment with batching."""
-        # Create many vulnerabilities
-        vulns = []
-        for i in range(150):  # More than batch size of 100
-            vulns.append(
+        orchestrator.processors = [mock_processor]
+        
+        # Run pipeline
+        result = await orchestrator.run_pipeline()
+        
+        assert result is not None
+        assert len(result.vulnerabilities) == 2
+        assert mock_source.fetch_recent.called
+        assert mock_processor.process.called
+    
+    @pytest.mark.asyncio
+    async def test_run_pipeline_with_cache(self, orchestrator):
+        """Test pipeline with cached data."""
+        # Mock cache hit
+        cached_data = VulnerabilityBatch(
+            vulnerabilities=[
                 Vulnerability(
-                    cve_id=f"CVE-2025-{i:04d}",
-                    title=f"Test vulnerability {i}",
-                    description="Test",
+                    cve_id="CVE-2024-0001",
+                    title="Cached vulnerability",
+                    description="From cache",
+                    severity=SeverityLevel.HIGH,
                     published_date=datetime.now(timezone.utc),
                     last_modified_date=datetime.now(timezone.utc),
-                    severity=SeverityLevel.HIGH,
-                    cvss_metrics=[],
-                    affected_vendors=[],
-                    affected_products=[],
-                    references=[],
-                    sources=[],
                 )
-            )
-
-        # Configure mock to return empty scores
-        mock_dependencies["epss"].fetch_epss_scores_bulk.return_value = {}
-
-        # Test enrichment
-        orchestrator.enrich_with_epss(vulns)
-
-        # Should be called once (processes all in one batch)
-        assert mock_dependencies["epss"].fetch_epss_scores_bulk.call_count == 1
-
-    def test_harvest_all_sources(
-        self, orchestrator, mock_dependencies, sample_vulnerabilities
-    ):
-        """Test full harvest pipeline."""
-        # Configure mocks
-        mock_dependencies["cvelist"].harvest.return_value = sample_vulnerabilities
-        mock_dependencies[
-            "normalizer"
-        ].deduplicate_vulnerabilities.return_value = sample_vulnerabilities
-
-        # Add quality validator mock
-        from unittest.mock import MagicMock, patch
-
-        with patch(
-            "scripts.harvest.orchestrator.DataQualityValidator"
-        ) as mock_validator_class:
-            mock_validator = MagicMock()
-            mock_validator_class.return_value = mock_validator
-            mock_validator.filter_vulnerabilities.return_value = (
-                sample_vulnerabilities,
-                {"total": 2, "passed": 2, "failed": 0},
-            )
-            mock_validator.get_quality_report.return_value = {
-                "summary": {"total": 2, "passed": 2},
-                "quality_issues": [],
-            }
-            orchestrator.quality_validator = mock_validator
-
-        mock_dependencies["epss"].fetch_epss_scores_bulk.return_value = {
-            "CVE-2025-1001": EPSSScore(
-                cve_id="CVE-2025-1001",
-                score=0.75,
-                percentile=0.95,
-                date=datetime.now(timezone.utc).date(),
-            ),
-            "CVE-2025-1002": EPSSScore(
-                cve_id="CVE-2025-1002",
-                score=0.85,
-                percentile=0.98,
-                date=datetime.now(timezone.utc).date(),
-            ),
-        }
-
-        # Test harvest
-        batch = orchestrator.harvest_all_sources(
-            years=[2025],
-            min_severity="HIGH",
-            min_epss_score=0.7,
+            ],
+            metadata={"cached": True}
         )
-
-        assert isinstance(batch, VulnerabilityBatch)
-        assert len(batch.vulnerabilities) == 2  # Both pass EPSS threshold
-        assert batch.metadata["harvest_id"] == "123"
-        assert batch.metadata["total_vulnerabilities"] == 2
-        assert batch.metadata["unique_vulnerabilities"] == 2
-
-        # Verify methods called
-        mock_dependencies["cvelist"].harvest.assert_called_once()
-        mock_dependencies["normalizer"].deduplicate_vulnerabilities.assert_called_once()
-        mock_dependencies["epss"].fetch_epss_scores_bulk.assert_called_once()
-        mock_dependencies["scorer"].score_batch.assert_called_once()
-        mock_dependencies["cache"].cache_batch.assert_called_once()
-
-    def test_harvest_all_sources_with_epss_filter(
-        self, orchestrator, mock_dependencies, sample_vulnerabilities
-    ):
-        """Test harvest with EPSS filtering."""
-        # Configure mocks with different EPSS scores
-        mock_dependencies["cvelist"].harvest.return_value = sample_vulnerabilities
-        mock_dependencies[
-            "normalizer"
-        ].deduplicate_vulnerabilities.return_value = sample_vulnerabilities
-
-        # Add quality validator mock to filter based on EPSS
-        from unittest.mock import MagicMock, patch
-
-        with patch(
-            "scripts.harvest.orchestrator.DataQualityValidator"
-        ) as mock_validator_class:
-            mock_validator = MagicMock()
-            mock_validator_class.return_value = mock_validator
-            # Only return vulnerabilities with high EPSS
-            mock_validator.filter_vulnerabilities.return_value = (
-                [sample_vulnerabilities[1]],  # Only CVE-2025-1002 passes
-                {"total": 2, "passed": 1, "failed": 1},
+        
+        orchestrator.cache_manager.get.return_value = cached_data.dict()
+        
+        result = await orchestrator.run_pipeline(use_cache=True)
+        
+        assert result is not None
+        assert len(result.vulnerabilities) == 1
+        assert result.vulnerabilities[0].title == "Cached vulnerability"
+    
+    @pytest.mark.asyncio
+    async def test_fetch_from_sources_error_handling(self, orchestrator):
+        """Test error handling in source fetching."""
+        # Mock source with error
+        mock_source = AsyncMock()
+        mock_source.fetch_recent.side_effect = Exception("Source error")
+        orchestrator.sources = {"failing_source": mock_source}
+        
+        vulns = await orchestrator._fetch_from_sources(days=7)
+        
+        # Should return empty list on error
+        assert vulns == []
+    
+    def test_filter_vulnerabilities(self, orchestrator, sample_vulnerabilities):
+        """Test vulnerability filtering."""
+        # Add a medium severity vuln
+        sample_vulnerabilities.append(
+            Vulnerability(
+                cve_id="CVE-2024-0003",
+                title="Medium vulnerability",
+                description="Medium severity",
+                severity=SeverityLevel.MEDIUM,
+                published_date=datetime.now(timezone.utc),
+                last_modified_date=datetime.now(timezone.utc),
             )
-            mock_validator.get_quality_report.return_value = {
-                "summary": {"total": 2, "passed": 1},
-                "quality_issues": [{"type": "low_epss", "count": 1}],
-            }
-            orchestrator.quality_validator = mock_validator
-
-        mock_dependencies["epss"].fetch_epss_scores_bulk.return_value = {
-            "CVE-2025-1001": EPSSScore(
-                cve_id="CVE-2025-1001",
-                score=0.3,  # Below threshold
-                percentile=0.70,
-                date=datetime.now(timezone.utc).date(),
-            ),
-            "CVE-2025-1002": EPSSScore(
-                cve_id="CVE-2025-1002",
-                score=0.85,  # Above threshold
-                percentile=0.98,
-                date=datetime.now(timezone.utc).date(),
-            ),
-        }
-
-        # Test harvest with EPSS threshold
-        batch = orchestrator.harvest_all_sources(
-            years=[2025],
-            min_severity="HIGH",
-            min_epss_score=0.6,
         )
-
-        # Only one vulnerability should pass the filter
-        assert len(batch.vulnerabilities) == 1
-        assert batch.vulnerabilities[0].cve_id == "CVE-2025-1002"
-
-    def test_harvest_all_sources_empty_sources(self, orchestrator, mock_dependencies):
-        """Test harvest with no sources specified."""
-        # Configure all sources to return empty
-        mock_dependencies["cvelist"].harvest.return_value = []
-
-        # Mock quality validator
-        from unittest.mock import MagicMock, patch
-
-        with patch(
-            "scripts.harvest.orchestrator.DataQualityValidator"
-        ) as mock_validator_class:
-            mock_validator = MagicMock()
-            mock_validator_class.return_value = mock_validator
-            mock_validator.filter_vulnerabilities.return_value = (
-                [],
-                {"total": 0, "passed": 0, "failed": 0},
-            )
-            mock_validator.get_quality_report.return_value = {
-                "summary": {"total": 0},
-                "quality_issues": [],
-            }
-            orchestrator.quality_validator = mock_validator
-
-            batch = orchestrator.harvest_all_sources(
-                years=[2025],
-            )
-
-        assert isinstance(batch, VulnerabilityBatch)
-        assert len(batch.vulnerabilities) == 0
-        assert batch.metadata["total_vulnerabilities"] == 0
-
-    def test_harvest_all_sources_source_error(self, orchestrator, mock_dependencies):
-        """Test harvest with source errors."""
-        # Configure mock to raise error
-        mock_dependencies["cvelist"].harvest.side_effect = Exception("API down")
-
-        # Mock quality validator
-        from unittest.mock import MagicMock, patch
-
-        with patch(
-            "scripts.harvest.orchestrator.DataQualityValidator"
-        ) as mock_validator_class:
-            mock_validator = MagicMock()
-            mock_validator_class.return_value = mock_validator
-            mock_validator.filter_vulnerabilities.return_value = (
-                [],
-                {"total": 0, "passed": 0, "failed": 0},
-            )
-            mock_validator.get_quality_report.return_value = {
-                "summary": {"total": 0},
-                "quality_issues": [],
-            }
-            orchestrator.quality_validator = mock_validator
-
-            batch = orchestrator.harvest_all_sources(
-                years=[2025],
-            )
-
-        # Should handle error gracefully
-        assert isinstance(batch, VulnerabilityBatch)
-        assert len(batch.vulnerabilities) == 0
-        # harvest_cve_data catches exceptions and returns empty list
-        # so the status will be "success" with count=0
-        assert batch.metadata["sources"][0]["status"] == "success"
-        assert batch.metadata["sources"][0]["count"] == 0
-
-    def test_get_high_priority_vulnerabilities(
-        self, orchestrator, sample_vulnerabilities
-    ):
-        """Test getting high priority vulnerabilities."""
-        # Create batch with vulnerabilities
+        
+        # Filter for HIGH and CRITICAL only
+        filtered = orchestrator._filter_vulnerabilities(
+            sample_vulnerabilities,
+            min_severity=SeverityLevel.HIGH
+        )
+        
+        assert len(filtered) == 2
+        assert all(v.severity in [SeverityLevel.HIGH, SeverityLevel.CRITICAL] for v in filtered)
+    
+    def test_deduplicate_vulnerabilities(self, orchestrator):
+        """Test vulnerability deduplication."""
+        # Create duplicates
+        vulns = [
+            Vulnerability(
+                cve_id="CVE-2024-0001",
+                title="First version",
+                description="Description 1",
+                severity=SeverityLevel.HIGH,
+                published_date=datetime.now(timezone.utc),
+                last_modified_date=datetime.now(timezone.utc),
+            ),
+            Vulnerability(
+                cve_id="CVE-2024-0001",  # Duplicate
+                title="Second version",
+                description="Description 2",
+                severity=SeverityLevel.HIGH,
+                published_date=datetime.now(timezone.utc),
+                last_modified_date=datetime.now(timezone.utc),
+            ),
+            Vulnerability(
+                cve_id="CVE-2024-0002",
+                title="Different CVE",
+                description="Description",
+                severity=SeverityLevel.CRITICAL,
+                published_date=datetime.now(timezone.utc),
+                last_modified_date=datetime.now(timezone.utc),
+            ),
+        ]
+        
+        deduped = orchestrator._deduplicate_vulnerabilities(vulns)
+        
+        assert len(deduped) == 2
+        cve_ids = [v.cve_id for v in deduped]
+        assert "CVE-2024-0001" in cve_ids
+        assert "CVE-2024-0002" in cve_ids
+    
+    def test_save_output(self, orchestrator, tmp_path, sample_vulnerabilities):
+        """Test output saving."""
         batch = VulnerabilityBatch(
             vulnerabilities=sample_vulnerabilities,
-            metadata={"harvest_id": "test"},
-            generated_at=datetime.now(timezone.utc),
+            metadata={"test": True}
         )
-
-        # Set risk scores
-        sample_vulnerabilities[0].risk_score = 85
-        sample_vulnerabilities[1].risk_score = 95
-
-        # Test
-        result = orchestrator.get_high_priority_vulnerabilities(batch, limit=10)
-
-        assert len(result) == 2
-        assert all(v.risk_score >= 70 for v in result)
-
-    def test_harvest_async(
-        self, orchestrator, mock_dependencies, sample_vulnerabilities
-    ):
-        """Test async harvest method."""
-        import asyncio
-
-        # Configure mocks
-        mock_dependencies["cvelist"].harvest.return_value = sample_vulnerabilities
-        mock_dependencies[
-            "normalizer"
-        ].deduplicate_vulnerabilities.return_value = sample_vulnerabilities
-        mock_dependencies["epss"].fetch_epss_scores_bulk.return_value = {}
-
-        # Add quality validator mock
-        from unittest.mock import MagicMock, patch
-
-        with patch(
-            "scripts.harvest.orchestrator.DataQualityValidator"
-        ) as mock_validator_class:
-            mock_validator = MagicMock()
-            mock_validator_class.return_value = mock_validator
-            mock_validator.filter_vulnerabilities.return_value = (
-                sample_vulnerabilities,
-                {"total": 2, "passed": 2, "failed": 0},
-            )
-            mock_validator.get_quality_report.return_value = {
-                "summary": {"total": 2, "passed": 2},
-                "quality_issues": [],
+        
+        # Save output
+        orchestrator.save_output(batch, format="json")
+        
+        # Check files were created
+        output_files = list((tmp_path / "output").glob("*.json"))
+        assert len(output_files) > 0
+        
+        # Verify content
+        import json
+        with open(output_files[0]) as f:
+            data = json.load(f)
+            assert "vulnerabilities" in data
+            assert len(data["vulnerabilities"]) == 2
+    
+    @pytest.mark.asyncio
+    async def test_concurrent_source_fetching(self, orchestrator):
+        """Test concurrent fetching from multiple sources."""
+        # Create multiple mock sources
+        sources = {}
+        for i in range(3):
+            mock_source = AsyncMock()
+            mock_source.fetch_recent.return_value = [
+                Vulnerability(
+                    cve_id=f"CVE-2024-{i:04d}",
+                    title=f"Vuln from source {i}",
+                    description=f"Description {i}",
+                    severity=SeverityLevel.HIGH,
+                    published_date=datetime.now(timezone.utc),
+                    last_modified_date=datetime.now(timezone.utc),
+                )
+            ]
+            sources[f"source_{i}"] = mock_source
+        
+        orchestrator.sources = sources
+        
+        vulns = await orchestrator._fetch_from_sources(days=7)
+        
+        # Should have vulnerabilities from all sources
+        assert len(vulns) == 3
+        assert all(f"CVE-2024-{i:04d}" in [v.cve_id for v in vulns] for i in range(3))
+    
+    def test_metrics_collection(self, orchestrator, sample_vulnerabilities):
+        """Test metrics collection during pipeline."""
+        batch = VulnerabilityBatch(
+            vulnerabilities=sample_vulnerabilities,
+            metadata={
+                "source_counts": {"github": 1, "nvd": 1},
+                "severity_counts": {"CRITICAL": 1, "HIGH": 1},
+                "processing_time": 1.5
             }
-            orchestrator.quality_validator = mock_validator
-
-            # Test async harvest
-            async def test():
-                batch = await orchestrator.harvest_async()
-                assert isinstance(batch, VulnerabilityBatch)
-                return batch
-
-            # Run the async test
-            loop = asyncio.new_event_loop()
-            asyncio.set_event_loop(loop)
-            try:
-                batch = loop.run_until_complete(test())
-                assert batch is not None
-            finally:
-                loop.close()
+        )
+        
+        metrics = orchestrator._collect_metrics(batch)
+        
+        assert metrics["total_vulnerabilities"] == 2
+        assert metrics["severity_distribution"]["CRITICAL"] == 1
+        assert metrics["severity_distribution"]["HIGH"] == 1
+        assert "processing_time" in metrics

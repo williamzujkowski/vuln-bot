@@ -1,5 +1,5 @@
 /**
- * Alpine.js Vulnerability Dashboard - TypeScript Version
+ * Optimized Alpine.js Vulnerability Dashboard with Performance Enhancements
  */
 
 import type {
@@ -12,19 +12,30 @@ import "./types/alpine";
 import { analytics } from "./analytics";
 import { createCveModal, type CveModal } from "./components/CveModal";
 import { createSavedSearchComponent, SavedSearches } from "./components/SavedSearches";
-import { createSecurityComponent } from "./components/SecurityAlerts";
-import { createVirtualTableComponent } from "./components/VirtualScroll";
-import { createWidgetManager } from "./components/WidgetManager";
-import { createStatsWidget } from "./components/widgets/StatsWidget";
-import { createTimelineWidget } from "./components/widgets/TimelineWidget";
 
 type Fuse<T> = import("fuse.js").default<T>;
+
+// Web Worker for off-thread filtering
+let filterWorker: Worker | null = null;
+
+interface VirtualScrolling {
+  enabled: boolean;
+  itemHeight: number;
+  containerHeight: number;
+  scrollTop: number;
+  startIndex: number;
+  endIndex: number;
+  topSpacerHeight: number;
+  bottomSpacerHeight: number;
+  bufferSize: number;
+}
 
 interface VulnDashboard {
   // Data
   vulnerabilities: Vulnerability[];
   filteredVulns: Vulnerability[];
   paginatedVulns: Vulnerability[];
+  virtualVulns: Vulnerability[];
   searchQuery: string;
   fuse: Fuse<Vulnerability> | null;
 
@@ -40,10 +51,18 @@ interface VulnDashboard {
   pageSize: number;
   totalPages: number;
 
+  // Virtual Scrolling
+  virtualScrolling: VirtualScrolling;
+
   // State
   loading: boolean;
   error: string | null;
   initialLoad: boolean;
+
+  // Performance
+  searchDebounceTimer: number | null;
+  filterCache: Map<string, Vulnerability[]>;
+  memoizedComputations: Map<string, any>;
 
   // Modal
   modal: CveModal;
@@ -54,17 +73,23 @@ interface VulnDashboard {
   // Methods
   init(): Promise<void>;
   loadVulnerabilities(): Promise<void>;
+  initializeWebWorker(): void;
   setupLazyLoading(): void;
   setupSearch(): void;
   getDateDaysAgo(days: number): string;
   setDefaultDateRanges(): void;
   applyFilters(): void;
+  applyFiltersWithWorker(): Promise<void>;
+  getCacheKey(): string;
   validateFilters(): boolean;
   announceFilterResults(): void;
   showValidationErrors(errors: string[]): void;
   sortResults(results: Vulnerability[]): Vulnerability[];
   sort(field: keyof Vulnerability): void;
+  applyFiltersMainThread(): void;
   updatePagination(): void;
+  handleVirtualScroll(): void;
+  calculateVirtualWindow(): void;
   previousPage(): void;
   nextPage(): void;
   watchFilters(): void;
@@ -79,6 +104,21 @@ interface VulnDashboard {
   showKeyboardHelp(): void;
   openCveModal(cveId: string): Promise<void>;
   $nextTick(callback: () => void): void;
+  $refs: { tableWrapper?: HTMLElement };
+}
+
+// Memoization helper
+function memoize<T extends (...args: any[]) => any>(fn: T): T {
+  const cache = new Map();
+  return ((...args: Parameters<T>) => {
+    const key = JSON.stringify(args);
+    if (cache.has(key)) {
+      return cache.get(key);
+    }
+    const result = fn(...args);
+    cache.set(key, result);
+    return result;
+  }) as T;
 }
 
 document.addEventListener("alpine:init", () => {
@@ -88,12 +128,6 @@ document.addEventListener("alpine:init", () => {
   // Register Saved Search component
   window.Alpine.data("savedSearches", createSavedSearchComponent);
 
-  // Register Security Alerts component
-  window.Alpine.data("securitySystem", createSecurityComponent);
-
-  // Register Virtual Table component
-  window.Alpine.data("virtualTable", createVirtualTableComponent);
-
   window.Alpine.data(
     "vulnDashboard",
     (): VulnDashboard => ({
@@ -101,6 +135,7 @@ document.addEventListener("alpine:init", () => {
       vulnerabilities: [],
       filteredVulns: [],
       paginatedVulns: [],
+      virtualVulns: [],
       searchQuery: "",
       fuse: null,
 
@@ -108,15 +143,15 @@ document.addEventListener("alpine:init", () => {
       filters: {
         cvssMin: 0,
         cvssMax: 10,
-        epssMin: 0,
+        epssMin: 50,  // Default to 50% exploitation probability threshold
         epssMax: 100,
         severity: "",
         publishedDateFrom: "",
         publishedDateTo: "",
         lastModifiedDateFrom: "",
         lastModifiedDateTo: "",
-        dateFrom: "", // deprecated, keeping for backwards compatibility
-        dateTo: "", // deprecated, keeping for backwards compatibility
+        dateFrom: "",
+        dateTo: "",
         vendor: "",
         tags: [],
       },
@@ -130,10 +165,28 @@ document.addEventListener("alpine:init", () => {
       pageSize: 50,
       totalPages: 1,
 
+      // Virtual Scrolling
+      virtualScrolling: {
+        enabled: false,
+        itemHeight: 48,
+        containerHeight: 600,
+        scrollTop: 0,
+        startIndex: 0,
+        endIndex: 50,
+        topSpacerHeight: 0,
+        bottomSpacerHeight: 0,
+        bufferSize: 10,
+      },
+
       // State
       loading: true,
       error: null,
       initialLoad: true,
+
+      // Performance
+      searchDebounceTimer: null,
+      filterCache: new Map(),
+      memoizedComputations: new Map(),
 
       // Modal
       modal: createCveModal(),
@@ -141,26 +194,30 @@ document.addEventListener("alpine:init", () => {
       // Saved Searches
       savedSearches: new SavedSearches(),
 
+      // References
+      $refs: {},
+
       // Helper function to get date string for n days ago
-      getDateDaysAgo(days: number): string {
+      getDateDaysAgo: memoize((days: number): string => {
         const date = new Date();
         date.setDate(date.getDate() - days);
-        return date.toISOString().split("T")[0] as string; // YYYY-MM-DD format
-      },
+        return date.toISOString().split("T")[0] as string;
+      }),
 
       // Helper function to set default date ranges
       setDefaultDateRanges(): void {
-        // Only set defaults if not already loaded from hash
         if (!this.filters.publishedDateFrom && !this.filters.dateFrom) {
           this.filters.publishedDateFrom = this.getDateDaysAgo(90);
-          this.filters.publishedDateTo = ""; // Empty means "today"
+          this.filters.publishedDateTo = "";
         }
-        // Keep lastModifiedDate filters empty by default (users can set if needed)
       },
 
       async init(): Promise<void> {
         // Start performance timer
         analytics.startTimer("page-load");
+
+        // Initialize Web Worker for filtering
+        this.initializeWebWorker();
 
         // Load state from URL hash
         this.loadStateFromHash();
@@ -168,14 +225,19 @@ document.addEventListener("alpine:init", () => {
         // Set default date ranges if not loaded from hash
         this.setDefaultDateRanges();
 
-        // Load vulnerability data
+        // Load vulnerability data with lazy loading
         await this.loadVulnerabilities();
 
         // Set up Fuse.js for fuzzy search
         this.setupSearch();
 
         // Apply initial filters
-        this.applyFilters();
+        await this.applyFilters();
+
+        // Enable virtual scrolling for large datasets
+        if (this.vulnerabilities.length > 500) {
+          this.virtualScrolling.enabled = true;
+        }
 
         // Mark initial load as complete
         this.initialLoad = false;
@@ -193,10 +255,100 @@ document.addEventListener("alpine:init", () => {
         analytics.endTimer("page-load");
       },
 
+      initializeWebWorker(): void {
+        if (typeof Worker !== "undefined") {
+          try {
+            // Create inline worker for filtering
+            const workerCode = `
+              self.addEventListener('message', function(e) {
+                const { vulnerabilities, filters, searchQuery } = e.data;
+                let results = [...vulnerabilities];
+
+                // Apply search filter
+                if (searchQuery) {
+                  const searchLower = searchQuery.toLowerCase();
+                  results = results.filter(vuln => 
+                    vuln.cveId.toLowerCase().includes(searchLower) ||
+                    vuln.title?.toLowerCase().includes(searchLower) ||
+                    vuln.vendors?.some(v => v.toLowerCase().includes(searchLower)) ||
+                    vuln.products?.some(p => p.toLowerCase().includes(searchLower))
+                  );
+                }
+
+                // Apply CVSS filter
+                results = results.filter(vuln => {
+                  const score = vuln.cvssScore || 0;
+                  return score >= filters.cvssMin && score <= filters.cvssMax;
+                });
+
+                // Apply EPSS filter
+                results = results.filter(vuln => {
+                  const percentile = vuln.epssPercentile || 0;
+                  return percentile >= filters.epssMin && percentile <= filters.epssMax;
+                });
+
+                // Apply severity filter
+                if (filters.severity) {
+                  results = results.filter(vuln => vuln.severity === filters.severity);
+                }
+
+                // Apply date filters
+                if (filters.publishedDateFrom) {
+                  const fromDate = new Date(filters.publishedDateFrom);
+                  results = results.filter(vuln => new Date(vuln.publishedDate) >= fromDate);
+                }
+
+                if (filters.publishedDateTo) {
+                  const toDate = new Date(filters.publishedDateTo);
+                  toDate.setHours(23, 59, 59, 999);
+                  results = results.filter(vuln => new Date(vuln.publishedDate) <= toDate);
+                }
+
+                // Apply vendor filter
+                if (filters.vendor) {
+                  const vendorLower = filters.vendor.toLowerCase();
+                  results = results.filter(vuln =>
+                    vuln.vendors.some(v => v.toLowerCase().includes(vendorLower))
+                  );
+                }
+
+                // Apply tag filter
+                if (filters.tags.length > 0) {
+                  results = results.filter(vuln =>
+                    filters.tags.every(tag => vuln.tags.includes(tag))
+                  );
+                }
+
+                self.postMessage(results);
+              });
+            `;
+
+            const blob = new Blob([workerCode], { type: "application/javascript" });
+            const workerUrl = URL.createObjectURL(blob);
+            filterWorker = new Worker(workerUrl);
+          } catch (error) {
+            console.warn("Failed to create Web Worker:", error);
+          }
+        }
+      },
+
       async loadVulnerabilities(): Promise<void> {
         try {
           this.loading = true;
           this.error = null;
+
+          // Check cache first
+          const cachedData = sessionStorage.getItem("vuln-data");
+          const cacheTimestamp = sessionStorage.getItem("vuln-data-timestamp");
+          const cacheAge = cacheTimestamp ? Date.now() - parseInt(cacheTimestamp) : Infinity;
+
+          // Use cache if less than 5 minutes old
+          if (cachedData && cacheAge < 5 * 60 * 1000) {
+            const data: VulnerabilityResponse = JSON.parse(cachedData);
+            this.vulnerabilities = data.vulnerabilities || [];
+            this.loading = false;
+            return;
+          }
 
           const response = await fetch("/vuln-bot/api/vulns/index.json");
           if (!response.ok) {
@@ -205,9 +357,19 @@ document.addEventListener("alpine:init", () => {
 
           const data: VulnerabilityResponse = await response.json();
           this.vulnerabilities = data.vulnerabilities || [];
+
+          // Add index for virtual scrolling
+          this.vulnerabilities.forEach((vuln, index) => {
+            (vuln as any)._index = index;
+          });
+
+          // Cache the data
+          sessionStorage.setItem("vuln-data", JSON.stringify(data));
+          sessionStorage.setItem("vuln-data-timestamp", Date.now().toString());
+
           this.loading = false;
 
-          // Set up intersection observer for lazy loading
+          // Set up lazy loading
           this.setupLazyLoading();
         } catch (error) {
           const errorMessage = error instanceof Error ? error.message : "Unknown error";
@@ -218,11 +380,10 @@ document.addEventListener("alpine:init", () => {
       },
 
       setupLazyLoading(): void {
-        // Create intersection observer for lazy loading table rows
         if ("IntersectionObserver" in window) {
           const observerOptions = {
             root: null,
-            rootMargin: "100px", // Start loading 100px before visible
+            rootMargin: "100px",
             threshold: 0.01,
           };
 
@@ -236,8 +397,8 @@ document.addEventListener("alpine:init", () => {
             });
           }, observerOptions);
 
-          // Observe vulnerability rows after render
-          this.$nextTick(() => {
+          // Use requestAnimationFrame for smooth updates
+          requestAnimationFrame(() => {
             document.querySelectorAll(".vulnerability-row[data-lazy]").forEach((row) => {
               lazyLoadObserver.observe(row);
             });
@@ -258,81 +419,126 @@ document.addEventListener("alpine:init", () => {
         this.fuse = new window.Fuse(this.vulnerabilities, options);
       },
 
-      applyFilters(): void {
-        // Validate filters first
+      getCacheKey(): string {
+        return JSON.stringify({
+          search: this.searchQuery,
+          filters: this.filters,
+          sort: { field: this.sortField, direction: this.sortDirection },
+        });
+      },
+
+      async applyFilters(): Promise<void> {
+        // Check cache first
+        const cacheKey = this.getCacheKey();
+        if (this.filterCache.has(cacheKey)) {
+          this.filteredVulns = this.filterCache.get(cacheKey)!;
+          this.updatePagination();
+          this.saveStateToHash();
+          this.announceFilterResults();
+          return;
+        }
+
+        // Use Web Worker if available
+        if (filterWorker && this.vulnerabilities.length > 100) {
+          await this.applyFiltersWithWorker();
+        } else {
+          // Fallback to main thread filtering
+          this.applyFiltersMainThread();
+        }
+
+        // Cache results
+        if (this.filteredVulns.length < 1000) {
+          this.filterCache.set(cacheKey, [...this.filteredVulns]);
+        }
+
+        // Clean up old cache entries
+        if (this.filterCache.size > 50) {
+          const firstKey = this.filterCache.keys().next().value;
+          if (firstKey !== undefined) {
+            this.filterCache.delete(firstKey);
+          }
+        }
+      },
+
+      async applyFiltersWithWorker(): Promise<void> {
+        return new Promise((resolve) => {
+          if (!filterWorker) {
+            this.applyFiltersMainThread();
+            resolve();
+            return;
+          }
+
+          filterWorker.onmessage = (e) => {
+            let results = e.data;
+            results = this.sortResults(results);
+            this.filteredVulns = results;
+            this.updatePagination();
+            this.saveStateToHash();
+            this.announceFilterResults();
+            resolve();
+          };
+
+          filterWorker.postMessage({
+            vulnerabilities: this.vulnerabilities,
+            filters: this.filters,
+            searchQuery: this.searchQuery,
+          });
+        });
+      },
+
+      applyFiltersMainThread(): void {
         if (!this.validateFilters()) {
           return;
         }
 
         let results: Vulnerability[] = [...this.vulnerabilities];
 
-        // Apply search
+        // Apply search with Fuse.js
         if (this.searchQuery.trim() && this.fuse) {
           const searchResults = this.fuse.search(this.searchQuery);
           results = searchResults.map((result: { item: Vulnerability }) => result.item);
 
-          // Track search and add to recent searches
           analytics.trackSearch(this.searchQuery, results.length);
           this.savedSearches.addRecentSearch(this.searchQuery);
         }
 
-        // Apply CVSS filter
+        // Batch filter operations
         results = results.filter((vuln) => {
+          // CVSS filter
           const score = vuln.cvssScore || 0;
-          return score >= this.filters.cvssMin && score <= this.filters.cvssMax;
-        });
+          if (score < this.filters.cvssMin || score > this.filters.cvssMax) return false;
 
-        // Apply EPSS filter
-        results = results.filter((vuln) => {
+          // EPSS filter
           const percentile = vuln.epssPercentile || 0;
-          return percentile >= this.filters.epssMin && percentile <= this.filters.epssMax;
+          if (percentile < this.filters.epssMin || percentile > this.filters.epssMax) return false;
+
+          // Severity filter
+          if (this.filters.severity && vuln.severity !== this.filters.severity) return false;
+
+          // Date filters
+          const publishedFrom = this.filters.publishedDateFrom || this.filters.dateFrom;
+          if (publishedFrom && new Date(vuln.publishedDate) < new Date(publishedFrom)) return false;
+
+          const publishedTo = this.filters.publishedDateTo || this.filters.dateTo;
+          if (publishedTo) {
+            const toDate = new Date(publishedTo);
+            toDate.setHours(23, 59, 59, 999);
+            if (new Date(vuln.publishedDate) > toDate) return false;
+          }
+
+          // Vendor filter
+          if (this.filters.vendor) {
+            const vendorLower = this.filters.vendor.toLowerCase();
+            if (!vuln.vendors.some((v) => v.toLowerCase().includes(vendorLower))) return false;
+          }
+
+          // Tag filter
+          if (this.filters.tags.length > 0) {
+            if (!this.filters.tags.every((tag: string) => vuln.tags.includes(tag))) return false;
+          }
+
+          return true;
         });
-
-        // Apply severity filter
-        if (this.filters.severity) {
-          results = results.filter((vuln) => vuln.severity === this.filters.severity);
-        }
-
-        // Apply published date filter (use new fields or fall back to deprecated fields)
-        const publishedFrom = this.filters.publishedDateFrom || this.filters.dateFrom;
-        if (publishedFrom) {
-          const fromDate = new Date(publishedFrom);
-          results = results.filter((vuln) => new Date(vuln.publishedDate) >= fromDate);
-        }
-
-        const publishedTo = this.filters.publishedDateTo || this.filters.dateTo;
-        if (publishedTo) {
-          const toDate = new Date(publishedTo);
-          toDate.setHours(23, 59, 59, 999); // Include entire day
-          results = results.filter((vuln) => new Date(vuln.publishedDate) <= toDate);
-        }
-
-        // Apply last modified date filter
-        if (this.filters.lastModifiedDateFrom) {
-          const fromDate = new Date(this.filters.lastModifiedDateFrom);
-          results = results.filter((vuln) => new Date(vuln.lastModifiedDate) >= fromDate);
-        }
-
-        if (this.filters.lastModifiedDateTo) {
-          const toDate = new Date(this.filters.lastModifiedDateTo);
-          toDate.setHours(23, 59, 59, 999); // Include entire day
-          results = results.filter((vuln) => new Date(vuln.lastModifiedDate) <= toDate);
-        }
-
-        // Apply vendor filter
-        if (this.filters.vendor) {
-          const vendorLower = this.filters.vendor.toLowerCase();
-          results = results.filter((vuln) =>
-            vuln.vendors.some((v) => v.toLowerCase().includes(vendorLower))
-          );
-        }
-
-        // Apply tag filter
-        if (this.filters.tags.length > 0) {
-          results = results.filter((vuln) =>
-            this.filters.tags.every((tag: string) => vuln.tags.includes(tag))
-          );
-        }
 
         // Apply sorting
         results = this.sortResults(results);
@@ -340,8 +546,6 @@ document.addEventListener("alpine:init", () => {
         this.filteredVulns = results;
         this.updatePagination();
         this.saveStateToHash();
-
-        // Announce results to screen readers
         this.announceFilterResults();
       },
 
@@ -350,44 +554,6 @@ document.addEventListener("alpine:init", () => {
         const totalCount = this.vulnerabilities.length;
 
         let announcement = `Showing ${resultCount} of ${totalCount} vulnerabilities`;
-
-        // Add filter context
-        const activeFilters = [];
-        if (this.searchQuery) activeFilters.push(`matching "${this.searchQuery}"`);
-        if (this.filters.severity) activeFilters.push(`severity: ${this.filters.severity}`);
-        if (this.filters.cvssMin > 0 || this.filters.cvssMax < 10) {
-          activeFilters.push(`CVSS: ${this.filters.cvssMin}-${this.filters.cvssMax}`);
-        }
-        if (this.filters.epssMin > 0 || this.filters.epssMax < 100) {
-          activeFilters.push(`EPSS: ${this.filters.epssMin}%-${this.filters.epssMax}%`);
-        }
-        if (this.filters.vendor) activeFilters.push(`vendor: ${this.filters.vendor}`);
-        if (this.filters.tags.length > 0) {
-          activeFilters.push(`tags: ${this.filters.tags.join(", ")}`);
-        }
-
-        // Date filters
-        const publishedFrom = this.filters.publishedDateFrom || this.filters.dateFrom;
-        const publishedTo = this.filters.publishedDateTo || this.filters.dateTo;
-        if (publishedFrom || publishedTo) {
-          const fromStr = publishedFrom ? `from ${publishedFrom}` : "";
-          const toStr = publishedTo ? `to ${publishedTo}` : "";
-          activeFilters.push(`published ${fromStr} ${toStr}`.trim());
-        }
-
-        if (this.filters.lastModifiedDateFrom || this.filters.lastModifiedDateTo) {
-          const fromStr = this.filters.lastModifiedDateFrom
-            ? `from ${this.filters.lastModifiedDateFrom}`
-            : "";
-          const toStr = this.filters.lastModifiedDateTo
-            ? `to ${this.filters.lastModifiedDateTo}`
-            : "";
-          activeFilters.push(`last modified ${fromStr} ${toStr}`.trim());
-        }
-
-        if (activeFilters.length > 0) {
-          announcement += ` with filters: ${activeFilters.join(", ")}`;
-        }
 
         // Create or update live region
         let liveRegion = document.getElementById("filter-announcement");
@@ -401,24 +567,20 @@ document.addEventListener("alpine:init", () => {
           document.body.appendChild(liveRegion);
         }
 
-        // Update announcement
         liveRegion.textContent = announcement;
       },
 
       validateFilters(): boolean {
         const errors = [];
 
-        // Validate CVSS range
         if (this.filters.cvssMin > this.filters.cvssMax) {
           errors.push("CVSS minimum score cannot be greater than maximum");
         }
 
-        // Validate EPSS range
         if (this.filters.epssMin > this.filters.epssMax) {
           errors.push("EPSS minimum score cannot be greater than maximum");
         }
 
-        // Validate published date range
         const publishedFrom = this.filters.publishedDateFrom || this.filters.dateFrom;
         const publishedTo = this.filters.publishedDateTo || this.filters.dateTo;
         if (publishedFrom && publishedTo) {
@@ -429,16 +591,6 @@ document.addEventListener("alpine:init", () => {
           }
         }
 
-        // Validate last modified date range
-        if (this.filters.lastModifiedDateFrom && this.filters.lastModifiedDateTo) {
-          const fromDate = new Date(this.filters.lastModifiedDateFrom);
-          const toDate = new Date(this.filters.lastModifiedDateTo);
-          if (fromDate > toDate) {
-            errors.push("Last modified start date cannot be after end date");
-          }
-        }
-
-        // Show errors
         if (errors.length > 0) {
           this.showValidationErrors(errors);
           return false;
@@ -448,7 +600,6 @@ document.addEventListener("alpine:init", () => {
       },
 
       showValidationErrors(errors: string[]): void {
-        // Create or update error region
         let errorRegion = document.getElementById("validation-errors");
         if (!errorRegion) {
           errorRegion = document.createElement("div");
@@ -460,7 +611,6 @@ document.addEventListener("alpine:init", () => {
           filterSection?.insertBefore(errorRegion, filterSection.firstChild);
         }
 
-        // Build error list
         errorRegion.innerHTML = `
           <h3>Validation Errors</h3>
           <ul>
@@ -468,10 +618,8 @@ document.addEventListener("alpine:init", () => {
           </ul>
         `;
 
-        // Focus on first error
         errorRegion.focus();
 
-        // Clear errors after 5 seconds
         setTimeout(() => {
           errorRegion.innerHTML = "";
         }, 5000);
@@ -482,20 +630,17 @@ document.addEventListener("alpine:init", () => {
         const direction = this.sortDirection;
 
         return results.sort((a, b) => {
-          let aVal: string | number = a[field] as string | number;
-          let bVal: string | number = b[field] as string | number;
+          let aVal: string | number = (a as any)[field] as string | number;
+          let bVal: string | number = (b as any)[field] as string | number;
 
-          // Handle null/undefined values
           aVal ??= "";
           bVal ??= "";
 
-          // Handle dates
           if (typeof field === "string" && field.includes("Date")) {
             aVal = new Date(aVal as string).getTime();
             bVal = new Date(bVal as string).getTime();
           }
 
-          // Compare
           if (aVal < bVal) return direction === "asc" ? -1 : 1;
           if (aVal > bVal) return direction === "asc" ? 1 : -1;
           return 0;
@@ -504,15 +649,12 @@ document.addEventListener("alpine:init", () => {
 
       sort(field: keyof Vulnerability): void {
         if (this.sortField === field) {
-          // Toggle direction
           this.sortDirection = this.sortDirection === "asc" ? "desc" : "asc";
         } else {
-          // New field, default to descending
           this.sortField = field;
           this.sortDirection = "desc";
         }
 
-        // Track sort change
         analytics.track("sort", "interaction", "sort", field, undefined, {
           direction: this.sortDirection,
         });
@@ -521,17 +663,56 @@ document.addEventListener("alpine:init", () => {
       },
 
       updatePagination(): void {
-        this.totalPages = Math.ceil(this.filteredVulns.length / this.pageSize);
-        this.currentPage = Math.min(this.currentPage, Math.max(1, this.totalPages));
+        if (this.virtualScrolling.enabled) {
+          this.calculateVirtualWindow();
+        } else {
+          this.totalPages = Math.ceil(this.filteredVulns.length / this.pageSize);
+          this.currentPage = Math.min(this.currentPage, Math.max(1, this.totalPages));
 
-        const start = (this.currentPage - 1) * this.pageSize;
-        const end = start + this.pageSize;
-        this.paginatedVulns = this.filteredVulns.slice(start, end);
+          const start = (this.currentPage - 1) * this.pageSize;
+          const end = start + this.pageSize;
+          this.paginatedVulns = this.filteredVulns.slice(start, end);
+        }
 
-        // Set up lazy loading for new rows after pagination
-        this.$nextTick(() => {
+        // Set up lazy loading for new rows
+        requestAnimationFrame(() => {
           this.setupLazyLoading();
         });
+      },
+
+      handleVirtualScroll(): void {
+        if (!this.virtualScrolling.enabled || !this.$refs.tableWrapper) return;
+
+        // Debounce scroll events
+        if (this.searchDebounceTimer) {
+          cancelAnimationFrame(this.searchDebounceTimer);
+        }
+
+        this.searchDebounceTimer = requestAnimationFrame(() => {
+          this.virtualScrolling.scrollTop = this.$refs.tableWrapper!.scrollTop;
+          this.calculateVirtualWindow();
+        });
+      },
+
+      calculateVirtualWindow(): void {
+        const { itemHeight, containerHeight, scrollTop, bufferSize } = this.virtualScrolling;
+        const totalItems = this.filteredVulns.length;
+
+        // Calculate visible range
+        const startIndex = Math.max(0, Math.floor(scrollTop / itemHeight) - bufferSize);
+        const endIndex = Math.min(
+          totalItems,
+          Math.ceil((scrollTop + containerHeight) / itemHeight) + bufferSize
+        );
+
+        // Update virtual window
+        this.virtualScrolling.startIndex = startIndex;
+        this.virtualScrolling.endIndex = endIndex;
+        this.virtualScrolling.topSpacerHeight = startIndex * itemHeight;
+        this.virtualScrolling.bottomSpacerHeight = (totalItems - endIndex) * itemHeight;
+
+        // Extract visible items
+        this.virtualVulns = this.filteredVulns.slice(startIndex, endIndex);
       },
 
       previousPage(): void {
@@ -549,11 +730,20 @@ document.addEventListener("alpine:init", () => {
       },
 
       watchFilters(): void {
-        // Watch for filter changes
-        (this as unknown as { $watch: Function }).$watch("searchQuery", () => this.applyFilters());
+        // Debounced search watching
+        (this as unknown as { $watch: Function }).$watch("searchQuery", () => {
+          if (this.searchDebounceTimer) {
+            clearTimeout(this.searchDebounceTimer);
+          }
+          this.searchDebounceTimer = window.setTimeout(() => {
+            this.applyFilters();
+          }, 300);
+        });
+
         (this as unknown as { $watch: Function }).$watch("filters", () => this.applyFilters(), {
           deep: true,
         });
+
         (this as unknown as { $watch: Function }).$watch("pageSize", () => {
           this.currentPage = 1;
           this.updatePagination();
@@ -561,7 +751,6 @@ document.addEventListener("alpine:init", () => {
       },
 
       saveStateToHash(): void {
-        // Don't save state during initial load
         if (this.loading || this.vulnerabilities.length === 0 || this.initialLoad) {
           return;
         }
@@ -575,10 +764,6 @@ document.addEventListener("alpine:init", () => {
           severity: this.filters.severity,
           publishedDateFrom: this.filters.publishedDateFrom,
           publishedDateTo: this.filters.publishedDateTo,
-          lastModifiedDateFrom: this.filters.lastModifiedDateFrom,
-          lastModifiedDateTo: this.filters.lastModifiedDateTo,
-          dateFrom: this.filters.dateFrom, // Keep for backwards compatibility
-          dateTo: this.filters.dateTo, // Keep for backwards compatibility
           vendor: this.filters.vendor,
           tags: this.filters.tags.join(","),
           sort: this.sortField,
@@ -595,7 +780,7 @@ document.addEventListener("alpine:init", () => {
             value === "" ||
             (key === "cvssMin" && value === 0) ||
             (key === "cvssMax" && value === 10) ||
-            (key === "epssMin" && value === 0) ||
+            (key === "epssMin" && value === 50) ||  // Don't include default 50% threshold
             (key === "epssMax" && value === 100) ||
             (key === "page" && value === 1) ||
             (key === "size" && value === 50) ||
@@ -618,58 +803,48 @@ document.addEventListener("alpine:init", () => {
 
         const params = new URLSearchParams(hash);
 
-        // Load search query
         this.searchQuery = params.get("q") ?? "";
-
-        // Load filters
         this.filters.cvssMin = parseFloat(params.get("cvssMin") ?? "0");
         this.filters.cvssMax = parseFloat(params.get("cvssMax") ?? "10");
-        this.filters.epssMin = parseInt(params.get("epssMin") ?? "0");
+        this.filters.epssMin = parseInt(params.get("epssMin") ?? "50");  // Default to 50% threshold
         this.filters.epssMax = parseInt(params.get("epssMax") ?? "100");
         this.filters.severity = (params.get("severity") ?? "") as SeverityLevel | "";
         this.filters.publishedDateFrom = params.get("publishedDateFrom") ?? "";
         this.filters.publishedDateTo = params.get("publishedDateTo") ?? "";
-        this.filters.lastModifiedDateFrom = params.get("lastModifiedDateFrom") ?? "";
-        this.filters.lastModifiedDateTo = params.get("lastModifiedDateTo") ?? "";
-        this.filters.dateFrom = params.get("dateFrom") ?? ""; // Keep for backwards compatibility
-        this.filters.dateTo = params.get("dateTo") ?? ""; // Keep for backwards compatibility
         this.filters.vendor = params.get("vendor") ?? "";
 
         const tags = params.get("tags");
         this.filters.tags = tags ? tags.split(",").filter((t) => t) : [];
 
-        // Load sorting
         this.sortField = (params.get("sort") ?? "epssPercentile") as keyof Vulnerability;
         this.sortDirection = (params.get("dir") ?? "desc") as "asc" | "desc";
-
-        // Load pagination
         this.currentPage = parseInt(params.get("page") ?? "1");
         this.pageSize = parseInt(params.get("size") ?? "50");
       },
 
-      getSeverityClass(score: number): string {
+      getSeverityClass: memoize((score: number): string => {
         if (score >= 9) return "severity-critical";
         if (score >= 7) return "severity-high";
         if (score >= 4) return "severity-medium";
         if (score > 0) return "severity-low";
         return "severity-none";
-      },
+      }),
 
-      formatDate(dateStr: string): string {
+      formatDate: memoize((dateStr: string): string => {
         const date = new Date(dateStr);
         return date.toLocaleDateString("en-US", {
           year: "numeric",
           month: "short",
           day: "numeric",
         });
-      },
+      }),
 
       resetFilters(): void {
         this.searchQuery = "";
         this.filters = {
           cvssMin: 0,
           cvssMax: 10,
-          epssMin: 0,
+          epssMin: 50,  // Reset to 50% threshold
           epssMax: 100,
           severity: "",
           publishedDateFrom: "",
@@ -683,15 +858,12 @@ document.addEventListener("alpine:init", () => {
         };
         this.currentPage = 1;
 
-        // Don't re-apply default date ranges after reset - show ALL data
         this.applyFilters();
       },
 
       exportResults(): void {
-        // Track export
         analytics.trackExport("csv", this.filteredVulns.length);
 
-        // Create CSV content
         const headers = ["CVE ID", "Title", "Severity", "CVSS Score", "EPSS %", "Published Date"];
         const rows = this.filteredVulns.map((vuln) => [
           vuln.cveId,
@@ -704,7 +876,6 @@ document.addEventListener("alpine:init", () => {
 
         const csv = [headers, ...rows].map((row) => row.join(",")).join("\n");
 
-        // Download CSV
         const blob = new Blob([csv], { type: "text/csv" });
         const url = URL.createObjectURL(blob);
         const a = document.createElement("a");
@@ -724,7 +895,6 @@ document.addEventListener("alpine:init", () => {
 
       setupKeyboardShortcuts(): void {
         document.addEventListener("keydown", (event: KeyboardEvent) => {
-          // Ignore if user is typing in an input field
           if (
             event.target instanceof HTMLInputElement ||
             event.target instanceof HTMLTextAreaElement
@@ -732,17 +902,14 @@ document.addEventListener("alpine:init", () => {
             return;
           }
 
-          // Keyboard shortcuts
           switch (event.key) {
             case "/":
-              // Focus search input
               event.preventDefault();
               const searchInput = document.getElementById("search-input") as HTMLInputElement;
               searchInput?.focus();
               break;
 
             case "r":
-              // Reset filters
               if (!event.ctrlKey && !event.metaKey) {
                 event.preventDefault();
                 this.resetFilters();
@@ -750,7 +917,6 @@ document.addEventListener("alpine:init", () => {
               break;
 
             case "e":
-              // Export results
               if (!event.ctrlKey && !event.metaKey) {
                 event.preventDefault();
                 this.exportResults();
@@ -758,7 +924,6 @@ document.addEventListener("alpine:init", () => {
               break;
 
             case "ArrowLeft":
-              // Previous page
               if (!event.ctrlKey && !event.metaKey && !event.shiftKey) {
                 event.preventDefault();
                 this.previousPage();
@@ -766,33 +931,18 @@ document.addEventListener("alpine:init", () => {
               break;
 
             case "ArrowRight":
-              // Next page
               if (!event.ctrlKey && !event.metaKey && !event.shiftKey) {
                 event.preventDefault();
                 this.nextPage();
               }
               break;
 
-            case "s":
-              // Show saved searches (Ctrl+S or Cmd+S)
-              if (event.ctrlKey || event.metaKey) {
-                event.preventDefault();
-                const savedSearchComponent = (window as any).savedSearches;
-                if (savedSearchComponent) {
-                  savedSearchComponent.showSavedSearches =
-                    !savedSearchComponent.showSavedSearches;
-                }
-              }
-              break;
-
             case "?":
-              // Show help
               event.preventDefault();
               this.showKeyboardHelp();
               break;
 
             case "Escape":
-              // Close help modal if open
               const helpModal = document.getElementById("keyboard-help-modal");
               if (helpModal && !helpModal.classList.contains("hidden")) {
                 event.preventDefault();
@@ -801,7 +951,6 @@ document.addEventListener("alpine:init", () => {
               break;
           }
 
-          // Number keys for page size
           if (event.key >= "1" && event.key <= "4" && !event.ctrlKey && !event.metaKey) {
             event.preventDefault();
             const pageSizes = [10, 20, 50, 100];
@@ -817,7 +966,6 @@ document.addEventListener("alpine:init", () => {
         let helpModal = document.getElementById("keyboard-help-modal");
 
         if (!helpModal) {
-          // Create help modal
           helpModal = document.createElement("div");
           helpModal.id = "keyboard-help-modal";
           helpModal.className = "modal-backdrop";
@@ -859,11 +1007,9 @@ document.addEventListener("alpine:init", () => {
 
         helpModal.classList.remove("hidden");
 
-        // Focus the close button for accessibility
         const closeButton = helpModal.querySelector(".modal-close") as HTMLButtonElement;
         closeButton?.focus();
 
-        // Track help usage
         analytics.track("keyboard-help", "interaction", "help", "show");
       },
 
@@ -876,18 +1022,9 @@ document.addEventListener("alpine:init", () => {
   );
 });
 
-// Make widget components available globally for Alpine.js
-(window as any).createWidgetManager = createWidgetManager;
-(window as any).createStatsWidget = createStatsWidget;
-(window as any).createTimelineWidget = createTimelineWidget;
-
-// Helper function to get widget component instance
-(window as any).getWidgetComponent = function (widget: any) {
-  return {
-    widget,
-    // Return empty data object - individual widgets will handle their own initialization
-    init() {
-      // Widget-specific initialization will happen in the widget components
-    },
-  };
-};
+// Clean up on page unload
+window.addEventListener("beforeunload", () => {
+  if (filterWorker) {
+    filterWorker.terminate();
+  }
+});

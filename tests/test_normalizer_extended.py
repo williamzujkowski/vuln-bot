@@ -169,57 +169,63 @@ class TestVulnerabilityNormalizerExtended:
         assert normalizer.parse_date("") is None
         assert normalizer.parse_date(None) is None
 
-    def test_extract_product_info(self):
-        """Test product information extraction."""
-        # Skip this test as the method doesn't exist in the normalizer
-        pytest.skip("extract_product_info method not implemented")
-
-    def test_deduplicate_list(self):
-        """Test list deduplication while preserving order."""
-        # Skip this test as the method doesn't exist in the normalizer
-        pytest.skip("deduplicate_list method not implemented")
-
-    def test_enrich_vulnerability(self, normalizer):
-        """Test vulnerability enrichment."""
-        # Skip this test as the method doesn't exist in the normalizer
-        pytest.skip("enrich_vulnerability method not implemented")
-        return
-        vuln = Vulnerability(
-            cve_id="CVE-2024-1234",
-            title="CVE-2024-1234: Critical RCE vulnerability",
-            description="Critical RCE vulnerability in cloud infrastructure",
-            severity=SeverityLevel.CRITICAL,
-            published_date=datetime.now(),
-            last_modified_date=datetime.now(),
+    def test_merge_vulnerabilities(self, normalizer):
+        """Test merging multiple vulnerability records."""
+        now = datetime.now()
+        
+        vuln1 = Vulnerability(
+            cve_id="CVE-2024-0001",
+            title="CVE-2024-0001: Test vulnerability 1",
+            description="Test vulnerability 1",
+            severity=SeverityLevel.HIGH,
+            published_date=now,
+            last_modified_date=now,
+            references=[Reference(url="https://example.com/advisory1")],
+            affected_vendors=["Vendor1"],
+            tags=["tag1"],
         )
+        
+        vuln2 = Vulnerability(
+            cve_id="CVE-2024-0001",  # Same CVE
+            title="CVE-2024-0001: Test vulnerability 1 duplicate",
+            description="Test vulnerability 1 duplicate",
+            severity=SeverityLevel.HIGH,
+            published_date=now,
+            last_modified_date=now,
+            references=[Reference(url="https://example.com/advisory2")],
+            affected_vendors=["Vendor2"],
+            tags=["tag2"],
+            exploitation_status=ExploitationStatus.ACTIVE,
+        )
+        
+        merged = normalizer.merge_vulnerabilities([vuln1, vuln2])
+        
+        # Should merge references
+        assert len(merged.references) == 2
+        assert any(r.url == "https://example.com/advisory1" for r in merged.references)
+        assert any(r.url == "https://example.com/advisory2" for r in merged.references)
+        
+        # Should merge vendors
+        assert set(merged.affected_vendors) == {"Vendor1", "Vendor2"}
+        
+        # Should merge tags
+        assert set(merged.tags) == {"tag1", "tag2"}
+        
+        # Should use highest exploitation status
+        assert merged.exploitation_status == ExploitationStatus.ACTIVE
 
-        enriched = normalizer.enrich_vulnerability(vuln)
-
-        # Should add tags
-        assert len(enriched.tags) > 0
-        assert "infrastructure" in enriched.tags
-        assert "cloud" in enriched.tags
-        assert "rce" in enriched.tags
-
-        # Should detect exploitation status
-        vuln_exploited = vuln.copy()
-        vuln_exploited.description = "Actively exploited vulnerability in the wild"
-        enriched = normalizer.enrich_vulnerability(vuln_exploited)
-        assert enriched.exploitation_status == ExploitationStatus.ACTIVE
-
-    def test_normalize_batch(self, normalizer):
-        """Test batch normalization."""
-        # Skip this test as the method doesn't exist in the normalizer
-        pytest.skip("normalize_batch method not implemented")
-        return
+    def test_deduplicate_vulnerabilities(self, normalizer):
+        """Test vulnerability deduplication."""
+        now = datetime.now()
+        
         vulns = [
             Vulnerability(
                 cve_id="CVE-2024-0001",
                 title="CVE-2024-0001: Test vulnerability 1",
                 description="Test vulnerability 1",
                 severity=SeverityLevel.HIGH,
-                published_date=datetime.now(),
-                last_modified_date=datetime.now(),
+                published_date=now,
+                last_modified_date=now,
                 references=[Reference(url="https://example.com/advisory1")],
             ),
             Vulnerability(
@@ -227,8 +233,8 @@ class TestVulnerabilityNormalizerExtended:
                 title="CVE-2024-0001: Test vulnerability 1 duplicate",
                 description="Test vulnerability 1 duplicate",
                 severity=SeverityLevel.HIGH,
-                published_date=datetime.now(),
-                last_modified_date=datetime.now(),
+                published_date=now,
+                last_modified_date=now,
                 references=[Reference(url="https://example.com/advisory2")],
             ),
             Vulnerability(
@@ -236,98 +242,52 @@ class TestVulnerabilityNormalizerExtended:
                 title="CVE-2024-0002: Test vulnerability 2",
                 description="Test vulnerability 2",
                 severity=SeverityLevel.MEDIUM,
-                published_date=datetime.now(),
-                last_modified_date=datetime.now(),
+                published_date=now,
+                last_modified_date=now,
             ),
         ]
-
-        batch = VulnerabilityBatch(vulnerabilities=vulns)
-        normalized = normalizer.normalize_batch(batch)
-
+        
+        deduplicated = normalizer.deduplicate_vulnerabilities(vulns)
+        
         # Should deduplicate
-        assert normalized.count == 2
-
+        assert len(deduplicated) == 2
+        
         # Should merge references from duplicates
-        vuln1 = next(
-            v for v in normalized.vulnerabilities if v.cve_id == "CVE-2024-0001"
-        )
+        vuln1 = next(v for v in deduplicated if v.cve_id == "CVE-2024-0001")
         assert len(vuln1.references) == 2
 
-    def test_calculate_confidence_score(self, normalizer):
-        """Test confidence score calculation."""
-        # Skip this test as the method doesn't exist in the normalizer
-        pytest.skip("calculate_confidence_score method not implemented")
-        return
-        # High confidence - all fields present
-        vuln = Vulnerability(
-            cve_id="CVE-2024-1234",
-            title="CVE-2024-1234: Critical vulnerability",
-            description="Detailed description of the vulnerability",
-            severity=SeverityLevel.CRITICAL,
-            published_date=datetime.now(),
-            last_modified_date=datetime.now(),
-            cvss_metrics=[
-                CVSSMetric(
-                    version="3.1",
-                    vector_string="CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-                    base_score=9.8,
-                    base_severity=SeverityLevel.CRITICAL,
-                )
+    def test_normalize_github_advisory(self, normalizer):
+        """Test GitHub advisory normalization."""
+        advisory = {
+            "ghsa_id": "GHSA-xxxx-xxxx-xxxx",
+            "identifiers": [
+                {"type": "CVE", "value": "CVE-2024-1234"}
             ],
-            epss_score=EPSSScore(score=0.95, percentile=99.0, date=datetime.now()),
-            affected_vendors=["Vendor1", "Vendor2"],
-            references=[
-                Reference(url="https://example.com/1"),
-                Reference(url="https://example.com/2"),
+            "published_at": "2024-01-15T10:30:00Z",
+            "updated_at": "2024-01-16T10:30:00Z",
+            "severity": "critical",
+            "summary": "Critical RCE vulnerability in test package",
+            "description": "A critical remote code execution vulnerability was found.",
+            "html_url": "https://github.com/advisories/GHSA-xxxx-xxxx-xxxx",
+            "vulnerabilities": [
+                {
+                    "package": {
+                        "ecosystem": "npm",
+                        "name": "test-package"
+                    }
+                }
             ],
-            tags=["tag1", "tag2", "tag3"],
-        )
-        score = normalizer.calculate_confidence_score(vuln)
-        assert score > 0.8
-
-        # Low confidence - minimal fields
-        vuln_minimal = Vulnerability(
-            cve_id="CVE-2024-1234",
-            description="Brief",
-            severity=SeverityLevel.MEDIUM,
-            published=datetime.now(),
-            last_modified=datetime.now(),
-        )
-        score = normalizer.calculate_confidence_score(vuln_minimal)
-        assert score < 0.5
-
-    def test_is_high_quality(self, normalizer):
-        """Test vulnerability quality check."""
-        # Skip this test as the method doesn't exist in the normalizer
-        pytest.skip("is_high_quality method not implemented")
-        return
-        # High quality
-        vuln = Vulnerability(
-            cve_id="CVE-2024-1234",
-            title="CVE-2024-1234: Critical vulnerability",
-            description="A comprehensive description of the vulnerability with detailed technical information",
-            severity=SeverityLevel.CRITICAL,
-            published_date=datetime.now(),
-            last_modified_date=datetime.now(),
-            cvss_metrics=[
-                CVSSMetric(
-                    version="3.1",
-                    vector_string="CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-                    base_score=9.8,
-                    base_severity=SeverityLevel.CRITICAL,
-                )
-            ],
-            epss_score=EPSSScore(score=0.95, percentile=99.0, date=datetime.now()),
-            affected_vendors=["Vendor1"],
-            references=[Reference(url="https://example.com/advisory")],
-        )
-        assert normalizer.is_high_quality(vuln) is True
-
-        # Low quality - short description
-        vuln.description = "Brief"
-        assert normalizer.is_high_quality(vuln) is False
-
-    def test_clean_description(self):
-        """Test description cleaning."""
-        # Skip this test as the method doesn't exist in the normalizer
-        pytest.skip("clean_description method not implemented")
+            "references": [
+                {"url": "https://example.com/advisory"}
+            ]
+        }
+        
+        vuln = normalizer.normalize_github_advisory(advisory)
+        
+        assert vuln is not None
+        assert vuln.cve_id == "CVE-2024-1234"
+        assert vuln.severity == SeverityLevel.CRITICAL
+        assert "rce" in vuln.tags
+        assert "npm" in vuln.affected_vendors
+        assert "test-package" in vuln.affected_products
+        assert len(vuln.references) >= 2  # GitHub URL + advisory reference

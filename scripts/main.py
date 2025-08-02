@@ -69,7 +69,7 @@ def cli(debug: bool) -> None:
     help="Minimum severity level",
 )
 @click.option(
-    "--min-epss", type=float, default=0.001, help="Minimum EPSS score (0.0-1.0)"
+    "--min-epss", type=float, default=0.5, help="Minimum EPSS score (0.0-1.0, default: 0.5 for 50%)"
 )
 @click.option(
     "--incremental",

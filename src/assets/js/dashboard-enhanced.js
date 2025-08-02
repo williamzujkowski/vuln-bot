@@ -1,893 +1,531 @@
-/******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
-/******/ 	var __webpack_modules__ = ({
-
-/***/ "./src/assets/ts/analytics.ts":
-/*!************************************!*\
-  !*** ./src/assets/ts/analytics.ts ***!
-  \************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Analytics: () => (/* binding */ Analytics),
-/* harmony export */   analytics: () => (/* binding */ analytics)
-/* harmony export */ });
 /**
- * Frontend analytics for vulnerability dashboard
+ * Optimized Alpine.js Vulnerability Dashboard with Performance Enhancements
  */
-class Analytics {
-    constructor(config = {
-        enabled: true,
-        storageKey: "vuln_analytics",
-        maxEvents: 100,
-        flushInterval: 300000,
-    }) {
-        this.events = [];
-        this.enabled = true;
-        this.timers = new Map();
-        this.config = config;
-        this.sessionId = this.generateSessionId();
-        this.startTime = Date.now();
-        // Check if analytics should be disabled (e.g., DNT header)
-        const dnt = navigator.doNotTrack ??
-            window.doNotTrack;
-        if (dnt === "1" || dnt === "yes") {
-            this.enabled = false;
-            return;
+import "./types/alpine";
+import { analytics } from "./analytics";
+import { createCveModal } from "./components/CveModal";
+import { createSavedSearchComponent, SavedSearches } from "./components/SavedSearches";
+// Web Worker for off-thread filtering
+let filterWorker = null;
+// Memoization helper
+function memoize(fn) {
+    const cache = new Map();
+    return ((...args) => {
+        const key = JSON.stringify(args);
+        if (cache.has(key)) {
+            return cache.get(key);
         }
-        if (!config.enabled) {
-            this.enabled = false;
-            return;
-        }
-        // Load existing events
-        this.loadEvents();
-        // Set up auto-flush
-        if (this.config.flushInterval) {
-            this.scheduleFlush();
-        }
-        // Set up page unload handler to save metrics
-        window.addEventListener("beforeunload", () => this.saveEvents());
-    }
-    generateSessionId() {
-        return `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
-    }
-    loadEvents() {
-        if (!this.enabled || !this.config.storageKey)
-            return;
-        try {
-            const stored = localStorage.getItem(this.config.storageKey);
-            if (stored) {
-                const data = JSON.parse(stored);
-                this.events = data.events || [];
-            }
-        }
-        catch {
-            // Ignore errors
-        }
-    }
-    saveEvents() {
-        if (!this.enabled || !this.config.storageKey)
-            return;
-        const data = {
-            events: this.events,
-            sessionId: this.sessionId,
-            lastFlush: Date.now(),
-        };
-        try {
-            localStorage.setItem(this.config.storageKey, JSON.stringify(data));
-        }
-        catch {
-            // Ignore errors
-        }
-    }
-    scheduleFlush() {
-        if (this.flushTimeout) {
-            clearTimeout(this.flushTimeout);
-        }
-        this.flushTimeout = window.setTimeout(() => {
-            this.flush();
-            this.scheduleFlush();
-        }, this.config.flushInterval);
-    }
-    isEnabled() {
-        return this.enabled;
-    }
-    disable() {
-        this.enabled = false;
-    }
-    enable() {
-        this.enabled = true;
-    }
-    optOut() {
-        this.enabled = false;
-        this.clear();
-    }
-    /**
-     * Track a user event
-     */
-    track(event, category, action, label, value, metadata) {
-        if (!this.enabled)
-            return;
-        const analyticsEvent = {
-            event,
-            category,
-            action,
-            label,
-            value,
-            metadata,
-            timestamp: Date.now(),
-        };
-        this.events.push(analyticsEvent);
-        // Enforce max events limit
-        if (this.config.maxEvents && this.events.length > this.config.maxEvents) {
-            this.events = this.events.slice(-this.config.maxEvents);
-        }
-        this.saveEvents();
-    }
-    getEvents() {
-        return [...this.events];
-    }
-    clear() {
-        this.events = [];
-        if (this.config.storageKey) {
-            localStorage.removeItem(this.config.storageKey);
-        }
-    }
-    // Performance tracking
-    startTimer(name) {
-        this.timers.set(name, performance.now());
-    }
-    endTimer(name, metadata) {
-        const startTime = this.timers.get(name);
-        if (startTime === undefined)
-            return;
-        const duration = performance.now() - startTime;
-        this.timers.delete(name);
-        this.track("timing", "performance", name, undefined, Math.round(duration), metadata);
-    }
-    // User interaction tracking
-    trackVulnerabilityClick(cveId, metadata) {
-        this.track("click", "vulnerability", "view", cveId, undefined, metadata);
-    }
-    trackSearch(query, resultCount) {
-        this.track("search", "search", "query", query, resultCount);
-    }
-    trackFilterUsage(filterType, value, resultCount) {
-        this.track("filter", "filter", filterType, value, resultCount);
-    }
-    trackExport(format, count) {
-        this.track("export", "export", "download", format, count);
-    }
-    trackFilter(filterType, value) {
-        this.track("filter_change", "interaction", "filter", filterType, undefined, {
-            filterType,
-            value,
-        });
-    }
-    // Session tracking
-    trackPageView(path) {
-        this.track("pageview", "navigation", "view", path);
-    }
-    startSession() {
-        this.sessionStartTime = performance.now();
-    }
-    endSession() {
-        if (this.sessionStartTime === undefined)
-            return;
-        const duration = Math.round((performance.now() - this.sessionStartTime) / 1000); // seconds
-        this.track("session", "user", "duration", undefined, duration);
-        this.sessionStartTime = undefined;
-    }
-    trackEngagement(data) {
-        this.track("engagement", "user", "interaction", undefined, undefined, data);
-    }
-    // Error tracking
-    trackError(error, metadata) {
-        const errorMessage = error instanceof Error ? error.message : String(error);
-        const errorStack = error instanceof Error ? error.stack : undefined;
-        this.track("error", "error", "javascript", errorMessage, undefined, {
-            ...metadata,
-            stack: errorStack,
-        });
-    }
-    // Data management
-    getSummary() {
-        const eventCounts = {};
-        const categoryCounts = {};
-        this.events.forEach((event) => {
-            eventCounts[event.event] = (eventCounts[event.event] ?? 0) + 1;
-            categoryCounts[event.category] = (categoryCounts[event.category] ?? 0) + 1;
-        });
-        return {
-            totalEvents: this.events.length,
-            eventCounts,
-            categoryCounts,
-            sessionDuration: Date.now() - this.startTime,
-        };
-    }
-    exportJSON() {
-        return JSON.stringify({
-            events: this.events,
-            sessionId: this.sessionId,
-            exportDate: new Date().toISOString(),
-            version: "1.0.0",
-        }, null, 2);
-    }
-    async flush() {
-        if (!this.enabled || !this.config.endpoint || this.events.length === 0) {
-            return;
-        }
-        try {
-            await fetch(this.config.endpoint, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    events: this.events,
-                    sessionId: this.sessionId,
-                }),
-            });
-            // Clear events after successful flush
-            this.events = [];
-            this.saveEvents();
-        }
-        catch (error) {
-            // Keep events on error
-            console.error("Analytics flush failed:", error);
-        }
-    }
-    /**
-     * Export all session data for debugging
-     */
-    exportSessionData() {
-        const sessions = [];
-        for (let i = 0; i < localStorage.length; i++) {
-            const key = localStorage.key(i);
-            if (key?.includes("vuln_analytics")) {
-                try {
-                    const data = JSON.parse(localStorage.getItem(key) ?? "{}");
-                    sessions.push({
-                        key,
-                        ...data,
-                    });
-                }
-                catch {
-                    // Skip invalid entries
-                }
-            }
-        }
-        return JSON.stringify(sessions, null, 2);
-    }
+        const result = fn(...args);
+        cache.set(key, result);
+        return result;
+    });
 }
-// Export singleton instance
-const analytics = new Analytics();
-
-
-/***/ })
-
-/******/ 	});
-/************************************************************************/
-/******/ 	// The module cache
-/******/ 	var __webpack_module_cache__ = {};
-/******/ 	
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/ 		// Check if module is in cache
-/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
-/******/ 		if (cachedModule !== undefined) {
-/******/ 			return cachedModule.exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			// no module.id needed
-/******/ 			// no module.loaded needed
-/******/ 			exports: {}
-/******/ 		};
-/******/ 	
-/******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/ 	
-/************************************************************************/
-/******/ 	/* webpack/runtime/define property getters */
-/******/ 	(() => {
-/******/ 		// define getter functions for harmony exports
-/******/ 		__webpack_require__.d = (exports, definition) => {
-/******/ 			for(var key in definition) {
-/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
-/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-/******/ 				}
-/******/ 			}
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	(() => {
-/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/************************************************************************/
-var __webpack_exports__ = {};
-// This entry needs to be wrapped in an IIFE because it needs to be isolated against other modules in the chunk.
-(() => {
-/*!*********************************************!*\
-  !*** ./src/assets/ts/dashboard-enhanced.ts ***!
-  \*********************************************/
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _analytics__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./analytics */ "./src/assets/ts/analytics.ts");
-/**
- * Enhanced Vulnerability Dashboard with Modern UI/UX
- */
-
-// Chart.js configuration with dark theme
-const chartDefaults = {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-        legend: {
-            labels: {
-                color: '#cbd5e1',
-                font: {
-                    family: 'Inter, sans-serif'
-                }
-            }
-        },
-        tooltip: {
-            backgroundColor: '#1e2332',
-            borderColor: '#64748b',
-            borderWidth: 1,
-            titleColor: '#f8fafc',
-            bodyColor: '#cbd5e1',
-            cornerRadius: 8,
-            padding: 12
-        }
-    },
-    scales: {
-        x: {
-            ticks: { color: '#94a3b8' },
-            grid: { color: 'rgba(148, 163, 184, 0.1)' }
-        },
-        y: {
-            ticks: { color: '#94a3b8' },
-            grid: { color: 'rgba(148, 163, 184, 0.1)' }
-        }
-    }
-};
-// Register the enhanced dashboard component with Alpine
 document.addEventListener("alpine:init", () => {
-    window.Alpine.data('vulnDashboard', () => ({
-        // Initialize empty state
+    // Register CVE Modal component
+    window.Alpine.data("cveModal", createCveModal);
+    // Register Saved Search component
+    window.Alpine.data("savedSearches", createSavedSearchComponent);
+    window.Alpine.data("vulnDashboard", () => ({
+        // Data
         vulnerabilities: [],
         filteredVulns: [],
         paginatedVulns: [],
-        loading: true,
-        error: null,
-        filtersExpanded: true,
-        showDataInsights: false,
-        showSettings: false,
-        searchQuery: '',
-        searchSuggestions: [],
-        activeQuickFilter: null,
-        charts: {
-            severity: null,
-            trend: null,
-            vendor: null,
-            epss: null
-        },
-        // Extended from base dashboard
+        virtualVulns: [],
+        searchQuery: "",
+        fuse: null,
+        // Filters
         filters: {
             cvssMin: 0,
             cvssMax: 10,
-            epssMin: 70, // Default to high-risk
+            epssMin: 50, // Default to 50% exploitation probability threshold
             epssMax: 100,
-            severity: '',
-            publishedDateFrom: '',
-            publishedDateTo: '',
-            lastModifiedDateFrom: '',
-            lastModifiedDateTo: '',
-            dateFrom: '',
-            dateTo: '',
-            vendor: '',
-            tags: []
+            severity: "",
+            publishedDateFrom: "",
+            publishedDateTo: "",
+            lastModifiedDateFrom: "",
+            lastModifiedDateTo: "",
+            dateFrom: "",
+            dateTo: "",
+            vendor: "",
+            tags: [],
         },
-        sortField: 'riskScore',
-        sortDirection: 'desc',
+        // Sort
+        sortField: "epssPercentile",
+        sortDirection: "desc",
+        // Pagination
         currentPage: 1,
         pageSize: 50,
         totalPages: 1,
+        // Virtual Scrolling
+        virtualScrolling: {
+            enabled: false,
+            itemHeight: 48,
+            containerHeight: 600,
+            scrollTop: 0,
+            startIndex: 0,
+            endIndex: 50,
+            topSpacerHeight: 0,
+            bottomSpacerHeight: 0,
+            bufferSize: 10,
+        },
+        // State
+        loading: true,
+        error: null,
+        initialLoad: true,
+        // Performance
+        searchDebounceTimer: null,
+        filterCache: new Map(),
+        memoizedComputations: new Map(),
+        // Modal
+        modal: createCveModal(),
+        // Saved Searches
+        savedSearches: new SavedSearches(),
+        // References
+        $refs: {},
+        // Helper function to get date string for n days ago
+        getDateDaysAgo: memoize((days) => {
+            const date = new Date();
+            date.setDate(date.getDate() - days);
+            return date.toISOString().split("T")[0];
+        }),
+        // Helper function to set default date ranges
+        setDefaultDateRanges() {
+            if (!this.filters.publishedDateFrom && !this.filters.dateFrom) {
+                this.filters.publishedDateFrom = this.getDateDaysAgo(90);
+                this.filters.publishedDateTo = "";
+            }
+        },
         async init() {
-            try {
-                // Load data
-                await this.loadVulnerabilities();
-                // Apply initial filters
-                this.applyFilters();
-                // Initialize visualizations
-                this.$nextTick(() => {
-                    this.initializeCharts();
+            // Start performance timer
+            analytics.startTimer("page-load");
+            // Initialize Web Worker for filtering
+            this.initializeWebWorker();
+            // Load state from URL hash
+            this.loadStateFromHash();
+            // Set default date ranges if not loaded from hash
+            this.setDefaultDateRanges();
+            // Load vulnerability data with lazy loading
+            await this.loadVulnerabilities();
+            // Set up Fuse.js for fuzzy search
+            this.setupSearch();
+            // Apply initial filters
+            await this.applyFilters();
+            // Enable virtual scrolling for large datasets
+            if (this.vulnerabilities.length > 500) {
+                this.virtualScrolling.enabled = true;
+            }
+            // Mark initial load as complete
+            this.initialLoad = false;
+            // Watch for changes
+            this.watchFilters();
+            // Set up keyboard shortcuts
+            this.setupKeyboardShortcuts();
+            // Make modal available globally for CVE links
+            window.cveModal = this.modal;
+            // Track performance
+            analytics.endTimer("page-load");
+        },
+        initializeWebWorker() {
+            if (typeof Worker !== "undefined") {
+                try {
+                    // Create inline worker for filtering
+                    const workerCode = `
+              self.addEventListener('message', function(e) {
+                const { vulnerabilities, filters, searchQuery } = e.data;
+                let results = [...vulnerabilities];
+
+                // Apply search filter
+                if (searchQuery) {
+                  const searchLower = searchQuery.toLowerCase();
+                  results = results.filter(vuln => 
+                    vuln.cveId.toLowerCase().includes(searchLower) ||
+                    vuln.title?.toLowerCase().includes(searchLower) ||
+                    vuln.vendors?.some(v => v.toLowerCase().includes(searchLower)) ||
+                    vuln.products?.some(p => p.toLowerCase().includes(searchLower))
+                  );
+                }
+
+                // Apply CVSS filter
+                results = results.filter(vuln => {
+                  const score = vuln.cvssScore || 0;
+                  return score >= filters.cvssMin && score <= filters.cvssMax;
                 });
-                // Setup real-time search suggestions
-                this.setupSearchSuggestions();
-                // Track page view
-                _analytics__WEBPACK_IMPORTED_MODULE_0__.analytics.trackPageView('dashboard');
-            }
-            catch (error) {
-                this.error = error instanceof Error ? error.message : 'Failed to initialize dashboard';
-                console.error('Dashboard initialization failed:', error);
-            }
-            finally {
-                this.loading = false;
+
+                // Apply EPSS filter
+                results = results.filter(vuln => {
+                  const percentile = vuln.epssPercentile || 0;
+                  return percentile >= filters.epssMin && percentile <= filters.epssMax;
+                });
+
+                // Apply severity filter
+                if (filters.severity) {
+                  results = results.filter(vuln => vuln.severity === filters.severity);
+                }
+
+                // Apply date filters
+                if (filters.publishedDateFrom) {
+                  const fromDate = new Date(filters.publishedDateFrom);
+                  results = results.filter(vuln => new Date(vuln.publishedDate) >= fromDate);
+                }
+
+                if (filters.publishedDateTo) {
+                  const toDate = new Date(filters.publishedDateTo);
+                  toDate.setHours(23, 59, 59, 999);
+                  results = results.filter(vuln => new Date(vuln.publishedDate) <= toDate);
+                }
+
+                // Apply vendor filter
+                if (filters.vendor) {
+                  const vendorLower = filters.vendor.toLowerCase();
+                  results = results.filter(vuln =>
+                    vuln.vendors.some(v => v.toLowerCase().includes(vendorLower))
+                  );
+                }
+
+                // Apply tag filter
+                if (filters.tags.length > 0) {
+                  results = results.filter(vuln =>
+                    filters.tags.every(tag => vuln.tags.includes(tag))
+                  );
+                }
+
+                self.postMessage(results);
+              });
+            `;
+                    const blob = new Blob([workerCode], { type: "application/javascript" });
+                    const workerUrl = URL.createObjectURL(blob);
+                    filterWorker = new Worker(workerUrl);
+                }
+                catch (error) {
+                    console.warn("Failed to create Web Worker:", error);
+                }
             }
         },
         async loadVulnerabilities() {
             try {
-                const response = await fetch('/vuln-bot/api/vulns/index.json');
-                if (!response.ok)
-                    throw new Error(`HTTP ${response.status}`);
-                const data = await response.json();
-                this.vulnerabilities = data.vulnerabilities || [];
-                // Enrich with calculated fields
-                this.vulnerabilities = this.vulnerabilities.map(vuln => ({
-                    ...vuln,
-                    riskScore: this.calculateRiskScore(vuln),
-                    daysOld: this.calculateDaysOld(vuln.publishedDate)
-                }));
-            }
-            catch (error) {
-                throw new Error(`Failed to load vulnerabilities: ${error instanceof Error ? error.message : String(error)}`);
-            }
-        },
-        calculateRiskScore(vuln) {
-            // Enhanced risk scoring algorithm
-            let score = 0;
-            // CVSS contribution (40%)
-            score += (vuln.cvssScore || 0) * 4;
-            // EPSS contribution (40%)
-            score += (vuln.epssPercentile || 0) * 0.4;
-            // Severity bonus (10%)
-            const severityBonus = {
-                'CRITICAL': 10,
-                'HIGH': 7,
-                'MEDIUM': 4,
-                'LOW': 1,
-                'NONE': 0
-            };
-            score += severityBonus[vuln.severity] || 0;
-            // Recency bonus (10%)
-            const daysOld = this.calculateDaysOld(vuln.publishedDate);
-            if (daysOld <= 7)
-                score += 10;
-            else if (daysOld <= 30)
-                score += 5;
-            return Math.round(Math.min(score, 100));
-        },
-        calculateDaysOld(date) {
-            const published = new Date(date);
-            const now = new Date();
-            return Math.floor((now.getTime() - published.getTime()) / (1000 * 60 * 60 * 24));
-        },
-        initializeCharts() {
-            // Clean up existing charts
-            Object.values(this.charts).forEach(chart => chart?.destroy());
-            // Severity Distribution Chart
-            const severityCtx = document.getElementById('severityChart');
-            if (severityCtx) {
-                const severityCounts = this.getSeverityCounts();
-                this.charts.severity = new Chart(severityCtx, {
-                    type: 'doughnut',
-                    data: {
-                        labels: Object.keys(severityCounts),
-                        datasets: [{
-                                data: Object.values(severityCounts),
-                                backgroundColor: [
-                                    '#dc2626', // Critical
-                                    '#ef4444', // High
-                                    '#f59e0b', // Medium
-                                    '#3b82f6' // Low
-                                ],
-                                borderWidth: 0
-                            }]
-                    },
-                    options: {
-                        ...chartDefaults,
-                        cutout: '70%',
-                        plugins: {
-                            ...chartDefaults.plugins,
-                            title: {
-                                display: true,
-                                text: `Total: ${this.filteredVulns.length}`,
-                                position: 'bottom',
-                                color: '#cbd5e1'
-                            }
-                        }
-                    }
-                });
-            }
-            // 30-Day Trend Chart
-            const trendCtx = document.getElementById('trendChart');
-            if (trendCtx) {
-                const trendData = this.getTrendData();
-                this.charts.trend = new Chart(trendCtx, {
-                    type: 'line',
-                    data: {
-                        labels: trendData.labels,
-                        datasets: [{
-                                label: 'New CVEs',
-                                data: trendData.values,
-                                borderColor: '#3b82f6',
-                                backgroundColor: 'rgba(59, 130, 246, 0.1)',
-                                tension: 0.4,
-                                fill: true
-                            }]
-                    },
-                    options: chartDefaults
-                });
-            }
-            // Top Vendors Chart
-            const vendorCtx = document.getElementById('vendorChart');
-            if (vendorCtx) {
-                const vendorData = this.getTopVendors();
-                this.charts.vendor = new Chart(vendorCtx, {
-                    type: 'bar',
-                    data: {
-                        labels: vendorData.labels,
-                        datasets: [{
-                                label: 'Vulnerabilities',
-                                data: vendorData.values,
-                                backgroundColor: '#8b5cf6'
-                            }]
-                    },
-                    options: {
-                        ...chartDefaults,
-                        indexAxis: 'y',
-                        scales: {
-                            ...chartDefaults.scales,
-                            x: {
-                                ...chartDefaults.scales.x,
-                                beginAtZero: true
-                            }
-                        }
-                    }
-                });
-            }
-            // EPSS Distribution
-            const epssCtx = document.getElementById('epssChart');
-            if (epssCtx) {
-                const epssData = this.getEPSSDistribution();
-                this.charts.epss = new Chart(epssCtx, {
-                    type: 'bar',
-                    data: {
-                        labels: epssData.labels,
-                        datasets: [{
-                                label: 'Count',
-                                data: epssData.values,
-                                backgroundColor: epssData.colors
-                            }]
-                    },
-                    options: {
-                        ...chartDefaults,
-                        scales: {
-                            ...chartDefaults.scales,
-                            y: {
-                                ...chartDefaults.scales.y,
-                                beginAtZero: true
-                            }
-                        }
-                    }
-                });
-            }
-        },
-        getSeverityCounts() {
-            const counts = {
-                'CRITICAL': 0,
-                'HIGH': 0,
-                'MEDIUM': 0,
-                'LOW': 0
-            };
-            this.filteredVulns.forEach(vuln => {
-                if (vuln.severity in counts) {
-                    counts[vuln.severity] = (counts[vuln.severity] || 0) + 1;
-                }
-            });
-            return counts;
-        },
-        getTrendData() {
-            const last30Days = [];
-            const counts = [];
-            for (let i = 29; i >= 0; i--) {
-                const date = new Date();
-                date.setDate(date.getDate() - i);
-                const dateStr = date.toISOString().split('T')[0];
-                last30Days.push(date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) || '');
-                const count = this.vulnerabilities.filter(vuln => vuln.publishedDate && dateStr && vuln.publishedDate.startsWith(dateStr)).length;
-                counts.push(count);
-            }
-            return { labels: last30Days, values: counts };
-        },
-        getTopVendors() {
-            const vendorCounts = new Map();
-            this.filteredVulns.forEach(vuln => {
-                vuln.vendors?.forEach(vendor => {
-                    vendorCounts.set(vendor, (vendorCounts.get(vendor) || 0) + 1);
-                });
-            });
-            const sorted = Array.from(vendorCounts.entries())
-                .sort((a, b) => b[1] - a[1])
-                .slice(0, 10);
-            return {
-                labels: sorted.map(([vendor]) => vendor),
-                values: sorted.map(([, count]) => count)
-            };
-        },
-        getEPSSDistribution() {
-            const ranges = [
-                { label: '90-100%', min: 90, max: 100, color: '#dc2626' },
-                { label: '80-89%', min: 80, max: 89, color: '#ef4444' },
-                { label: '70-79%', min: 70, max: 79, color: '#f59e0b' },
-                { label: '<70%', min: 0, max: 69, color: '#3b82f6' }
-            ];
-            const counts = ranges.map(range => ({
-                ...range,
-                count: this.filteredVulns.filter(vuln => vuln.epssPercentile >= range.min && vuln.epssPercentile <= range.max).length
-            }));
-            return {
-                labels: counts.map(r => r.label),
-                values: counts.map(r => r.count),
-                colors: counts.map(r => r.color)
-            };
-        },
-        applyQuickFilter(filter) {
-            // Reset filters first
-            this.resetFilters();
-            switch (filter) {
-                case 'critical':
-                    this.filters.severity = 'CRITICAL';
-                    break;
-                case 'today':
-                    const today = new Date().toISOString().split('T')[0] || '';
-                    this.filters.publishedDateFrom = today;
-                    this.filters.publishedDateTo = today;
-                    break;
-                case 'kev':
-                    this.filters.tags = ['KEV'];
-                    break;
-                case 'network':
-                    this.filters.tags = ['network', 'remote'];
-                    break;
-            }
-            this.activeQuickFilter = filter;
-            this.applyFilters();
-            _analytics__WEBPACK_IMPORTED_MODULE_0__.analytics.track('quick_filter', 'filter', 'apply', filter);
-            this.showToast(`Filter applied: ${filter}`, 'info');
-        },
-        setupSearchSuggestions() {
-            // Debounced search suggestions
-            let timeout;
-            this.$watch('searchQuery', (query) => {
-                clearTimeout(timeout);
-                if (query.length < 2) {
-                    this.searchSuggestions = [];
+                this.loading = true;
+                this.error = null;
+                // Check cache first
+                const cachedData = sessionStorage.getItem("vuln-data");
+                const cacheTimestamp = sessionStorage.getItem("vuln-data-timestamp");
+                const cacheAge = cacheTimestamp ? Date.now() - parseInt(cacheTimestamp) : Infinity;
+                // Use cache if less than 5 minutes old
+                if (cachedData && cacheAge < 5 * 60 * 1000) {
+                    const data = JSON.parse(cachedData);
+                    this.vulnerabilities = data.vulnerabilities || [];
+                    this.loading = false;
                     return;
                 }
-                timeout = setTimeout(() => {
-                    const suggestions = new Set();
-                    // Suggest CVE IDs
-                    if (query.toLowerCase().startsWith('cve')) {
-                        this.vulnerabilities
-                            .filter(v => v.cveId.toLowerCase().includes(query.toLowerCase()))
-                            .slice(0, 5)
-                            .forEach(v => suggestions.add(v.cveId));
-                    }
-                    // Suggest vendors
-                    this.vulnerabilities.forEach(v => {
-                        v.vendors?.forEach(vendor => {
-                            if (vendor.toLowerCase().includes(query.toLowerCase())) {
-                                suggestions.add(vendor);
-                            }
-                        });
-                    });
-                    this.searchSuggestions = Array.from(suggestions).slice(0, 8);
-                }, 300);
-            });
-        },
-        hasActiveFilters() {
-            return !!(this.searchQuery ||
-                this.filters.severity ||
-                this.filters.cvssMin > 0 ||
-                this.filters.cvssMax < 10 ||
-                this.filters.epssMin > 0 ||
-                this.filters.epssMax < 100 ||
-                this.filters.publishedDateFrom ||
-                this.filters.vendor ||
-                this.filters.tags.length > 0);
-        },
-        getActiveFilters() {
-            const active = [];
-            if (this.searchQuery) {
-                active.push({ key: 'search', label: `Search: "${this.searchQuery}"` });
-            }
-            if (this.filters.severity) {
-                active.push({ key: 'severity', label: `Severity: ${this.filters.severity}` });
-            }
-            if (this.filters.cvssMin > 0 || this.filters.cvssMax < 10) {
-                active.push({ key: 'cvss', label: `CVSS: ${this.filters.cvssMin}-${this.filters.cvssMax}` });
-            }
-            if (this.filters.epssMin > 0 || this.filters.epssMax < 100) {
-                active.push({ key: 'epss', label: `EPSS: ${this.filters.epssMin}-${this.filters.epssMax}%` });
-            }
-            return active;
-        },
-        removeFilter(key) {
-            switch (key) {
-                case 'search':
-                    this.searchQuery = '';
-                    break;
-                case 'severity':
-                    this.filters.severity = '';
-                    break;
-                case 'cvss':
-                    this.filters.cvssMin = 0;
-                    this.filters.cvssMax = 10;
-                    break;
-                case 'epss':
-                    this.filters.epssMin = 0;
-                    this.filters.epssMax = 100;
-                    break;
-            }
-            this.applyFilters();
-        },
-        async copyToClipboard(text) {
-            try {
-                await navigator.clipboard.writeText(text);
-                this.showToast(`Copied: ${text}`, 'success');
+                const response = await fetch("/vuln-bot/api/vulns/index.json");
+                if (!response.ok) {
+                    throw new Error(`Failed to load vulnerabilities: ${response.status}`);
+                }
+                const data = await response.json();
+                this.vulnerabilities = data.vulnerabilities || [];
+                // Add index for virtual scrolling
+                this.vulnerabilities.forEach((vuln, index) => {
+                    vuln._index = index;
+                });
+                // Cache the data
+                sessionStorage.setItem("vuln-data", JSON.stringify(data));
+                sessionStorage.setItem("vuln-data-timestamp", Date.now().toString());
+                this.loading = false;
+                // Set up lazy loading
+                this.setupLazyLoading();
             }
             catch (error) {
-                this.showToast('Failed to copy to clipboard', 'error');
+                const errorMessage = error instanceof Error ? error.message : "Unknown error";
+                this.error = errorMessage;
+                this.loading = false;
+                console.error("Failed to load vulnerabilities:", error);
             }
         },
-        showToast(message, type = 'info') {
-            // Create toast element
-            const toast = document.createElement('div');
-            toast.className = `toast toast-${type}`;
-            toast.textContent = message;
-            // Style the toast
-            toast.style.cssText = `
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 500;
-      z-index: 1000;
-      animation: slideIn 0.3s ease;
-    `;
-            // Type-specific colors
-            const colors = {
-                success: { bg: '#10b981', text: '#ffffff' },
-                error: { bg: '#ef4444', text: '#ffffff' },
-                info: { bg: '#3b82f6', text: '#ffffff' }
+        setupLazyLoading() {
+            if ("IntersectionObserver" in window) {
+                const observerOptions = {
+                    root: null,
+                    rootMargin: "100px",
+                    threshold: 0.01,
+                };
+                const lazyLoadObserver = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            const element = entry.target;
+                            element.classList.add("loaded");
+                            lazyLoadObserver.unobserve(element);
+                        }
+                    });
+                }, observerOptions);
+                // Use requestAnimationFrame for smooth updates
+                requestAnimationFrame(() => {
+                    document.querySelectorAll(".vulnerability-row[data-lazy]").forEach((row) => {
+                        lazyLoadObserver.observe(row);
+                    });
+                });
+            }
+        },
+        setupSearch() {
+            if (this.vulnerabilities.length === 0)
+                return;
+            // Configure Fuse.js for fuzzy search
+            const options = {
+                keys: ["cveId", "title", "vendors", "products", "tags"],
+                threshold: 0.3,
+                includeScore: true,
             };
-            toast.style.backgroundColor = colors[type].bg;
-            toast.style.color = colors[type].text;
-            document.body.appendChild(toast);
-            // Remove after 3 seconds
-            setTimeout(() => {
-                toast.style.animation = 'slideOut 0.3s ease';
-                setTimeout(() => toast.remove(), 300);
-            }, 3000);
+            this.fuse = new window.Fuse(this.vulnerabilities, options);
         },
-        // Extend base methods with enhancements
-        applyFilters() {
-            // Filter vulnerabilities based on current filters and search
+        getCacheKey() {
+            return JSON.stringify({
+                search: this.searchQuery,
+                filters: this.filters,
+                sort: { field: this.sortField, direction: this.sortDirection },
+            });
+        },
+        async applyFilters() {
+            // Check cache first
+            const cacheKey = this.getCacheKey();
+            if (this.filterCache.has(cacheKey)) {
+                this.filteredVulns = this.filterCache.get(cacheKey);
+                this.updatePagination();
+                this.saveStateToHash();
+                this.announceFilterResults();
+                return;
+            }
+            // Use Web Worker if available
+            if (filterWorker && this.vulnerabilities.length > 100) {
+                await this.applyFiltersWithWorker();
+            }
+            else {
+                // Fallback to main thread filtering
+                this.applyFiltersMainThread();
+            }
+            // Cache results
+            if (this.filteredVulns.length < 1000) {
+                this.filterCache.set(cacheKey, [...this.filteredVulns]);
+            }
+            // Clean up old cache entries
+            if (this.filterCache.size > 50) {
+                const firstKey = this.filterCache.keys().next().value;
+                if (firstKey !== undefined) {
+                    this.filterCache.delete(firstKey);
+                }
+            }
+        },
+        async applyFiltersWithWorker() {
+            return new Promise((resolve) => {
+                if (!filterWorker) {
+                    this.applyFiltersMainThread();
+                    resolve();
+                    return;
+                }
+                filterWorker.onmessage = (e) => {
+                    let results = e.data;
+                    results = this.sortResults(results);
+                    this.filteredVulns = results;
+                    this.updatePagination();
+                    this.saveStateToHash();
+                    this.announceFilterResults();
+                    resolve();
+                };
+                filterWorker.postMessage({
+                    vulnerabilities: this.vulnerabilities,
+                    filters: this.filters,
+                    searchQuery: this.searchQuery,
+                });
+            });
+        },
+        applyFiltersMainThread() {
+            if (!this.validateFilters()) {
+                return;
+            }
             let results = [...this.vulnerabilities];
-            // Apply search filter
-            if (this.searchQuery) {
-                const searchLower = this.searchQuery.toLowerCase();
-                results = results.filter(vuln => vuln.cveId.toLowerCase().includes(searchLower) ||
-                    vuln.title?.toLowerCase().includes(searchLower) ||
-                    vuln.description?.toLowerCase().includes(searchLower) ||
-                    vuln.vendors?.some(v => v.toLowerCase().includes(searchLower)));
+            // Apply search with Fuse.js
+            if (this.searchQuery.trim() && this.fuse) {
+                const searchResults = this.fuse.search(this.searchQuery);
+                results = searchResults.map((result) => result.item);
+                analytics.trackSearch(this.searchQuery, results.length);
+                this.savedSearches.addRecentSearch(this.searchQuery);
             }
-            // Apply severity filter
-            if (this.filters.severity) {
-                results = results.filter(vuln => vuln.severity === this.filters.severity);
-            }
-            // Apply CVSS range
-            results = results.filter(vuln => (vuln.cvssScore || 0) >= this.filters.cvssMin &&
-                (vuln.cvssScore || 0) <= this.filters.cvssMax);
-            // Apply EPSS range
-            results = results.filter(vuln => (vuln.epssPercentile || 0) >= this.filters.epssMin &&
-                (vuln.epssPercentile || 0) <= this.filters.epssMax);
-            // Apply date filters
-            if (this.filters.publishedDateFrom) {
-                results = results.filter(vuln => new Date(vuln.publishedDate) >= new Date(this.filters.publishedDateFrom));
-            }
-            if (this.filters.publishedDateTo) {
-                results = results.filter(vuln => new Date(vuln.publishedDate) <= new Date(this.filters.publishedDateTo));
-            }
-            // Apply vendor filter
-            if (this.filters.vendor) {
-                const vendorLower = this.filters.vendor.toLowerCase();
-                results = results.filter(vuln => vuln.vendors?.some(v => v.toLowerCase().includes(vendorLower)));
-            }
-            // Apply tag filters
-            if (this.filters.tags.length > 0) {
-                results = results.filter(vuln => this.filters.tags.every(tag => vuln.tags?.includes(tag)));
-            }
-            // Sort results
+            // Batch filter operations
+            results = results.filter((vuln) => {
+                // CVSS filter
+                const score = vuln.cvssScore || 0;
+                if (score < this.filters.cvssMin || score > this.filters.cvssMax)
+                    return false;
+                // EPSS filter
+                const percentile = vuln.epssPercentile || 0;
+                if (percentile < this.filters.epssMin || percentile > this.filters.epssMax)
+                    return false;
+                // Severity filter
+                if (this.filters.severity && vuln.severity !== this.filters.severity)
+                    return false;
+                // Date filters
+                const publishedFrom = this.filters.publishedDateFrom || this.filters.dateFrom;
+                if (publishedFrom && new Date(vuln.publishedDate) < new Date(publishedFrom))
+                    return false;
+                const publishedTo = this.filters.publishedDateTo || this.filters.dateTo;
+                if (publishedTo) {
+                    const toDate = new Date(publishedTo);
+                    toDate.setHours(23, 59, 59, 999);
+                    if (new Date(vuln.publishedDate) > toDate)
+                        return false;
+                }
+                // Vendor filter
+                if (this.filters.vendor) {
+                    const vendorLower = this.filters.vendor.toLowerCase();
+                    if (!vuln.vendors.some((v) => v.toLowerCase().includes(vendorLower)))
+                        return false;
+                }
+                // Tag filter
+                if (this.filters.tags.length > 0) {
+                    if (!this.filters.tags.every((tag) => vuln.tags.includes(tag)))
+                        return false;
+                }
+                return true;
+            });
+            // Apply sorting
             results = this.sortResults(results);
             this.filteredVulns = results;
             this.updatePagination();
-            // Update charts
-            if (!this.loading) {
-                this.$nextTick(() => {
-                    this.initializeCharts();
-                });
+            this.saveStateToHash();
+            this.announceFilterResults();
+        },
+        announceFilterResults() {
+            const resultCount = this.filteredVulns.length;
+            const totalCount = this.vulnerabilities.length;
+            let announcement = `Showing ${resultCount} of ${totalCount} vulnerabilities`;
+            // Create or update live region
+            let liveRegion = document.getElementById("filter-announcement");
+            if (!liveRegion) {
+                liveRegion = document.createElement("div");
+                liveRegion.id = "filter-announcement";
+                liveRegion.className = "sr-only";
+                liveRegion.setAttribute("role", "status");
+                liveRegion.setAttribute("aria-live", "polite");
+                liveRegion.setAttribute("aria-atomic", "true");
+                document.body.appendChild(liveRegion);
             }
+            liveRegion.textContent = announcement;
         },
-        formatDate(date) {
-            const d = new Date(date);
-            const now = new Date();
-            const diffTime = Math.abs(now.getTime() - d.getTime());
-            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-            if (diffDays === 0)
-                return 'Today';
-            if (diffDays === 1)
-                return 'Yesterday';
-            if (diffDays < 7)
-                return `${diffDays} days ago`;
-            return d.toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'short',
-                day: 'numeric'
-            });
+        validateFilters() {
+            const errors = [];
+            if (this.filters.cvssMin > this.filters.cvssMax) {
+                errors.push("CVSS minimum score cannot be greater than maximum");
+            }
+            if (this.filters.epssMin > this.filters.epssMax) {
+                errors.push("EPSS minimum score cannot be greater than maximum");
+            }
+            const publishedFrom = this.filters.publishedDateFrom || this.filters.dateFrom;
+            const publishedTo = this.filters.publishedDateTo || this.filters.dateTo;
+            if (publishedFrom && publishedTo) {
+                const fromDate = new Date(publishedFrom);
+                const toDate = new Date(publishedTo);
+                if (fromDate > toDate) {
+                    errors.push("Published start date cannot be after end date");
+                }
+            }
+            if (errors.length > 0) {
+                this.showValidationErrors(errors);
+                return false;
+            }
+            return true;
         },
-        // Sorting methods
+        showValidationErrors(errors) {
+            let errorRegion = document.getElementById("validation-errors");
+            if (!errorRegion) {
+                errorRegion = document.createElement("div");
+                errorRegion.id = "validation-errors";
+                errorRegion.className = "validation-errors";
+                errorRegion.setAttribute("role", "alert");
+                errorRegion.setAttribute("aria-live", "assertive");
+                const filterSection = document.getElementById("search-filters");
+                filterSection?.insertBefore(errorRegion, filterSection.firstChild);
+            }
+            errorRegion.innerHTML = `
+          <h3>Validation Errors</h3>
+          <ul>
+            ${errors.map((error) => `<li>${error}</li>`).join("")}
+          </ul>
+        `;
+            errorRegion.focus();
+            setTimeout(() => {
+                errorRegion.innerHTML = "";
+            }, 5000);
+        },
         sortResults(results) {
+            const field = this.sortField;
+            const direction = this.sortDirection;
             return results.sort((a, b) => {
-                const aValue = a[this.sortField];
-                const bValue = b[this.sortField];
-                if (aValue === null || aValue === undefined)
-                    return 1;
-                if (bValue === null || bValue === undefined)
-                    return -1;
-                const comparison = aValue < bValue ? -1 : aValue > bValue ? 1 : 0;
-                return this.sortDirection === 'asc' ? comparison : -comparison;
+                let aVal = a[field];
+                let bVal = b[field];
+                aVal ?? (aVal = "");
+                bVal ?? (bVal = "");
+                if (typeof field === "string" && field.includes("Date")) {
+                    aVal = new Date(aVal).getTime();
+                    bVal = new Date(bVal).getTime();
+                }
+                if (aVal < bVal)
+                    return direction === "asc" ? -1 : 1;
+                if (aVal > bVal)
+                    return direction === "asc" ? 1 : -1;
+                return 0;
             });
         },
         sort(field) {
             if (this.sortField === field) {
-                this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+                this.sortDirection = this.sortDirection === "asc" ? "desc" : "asc";
             }
             else {
                 this.sortField = field;
-                this.sortDirection = 'desc';
+                this.sortDirection = "desc";
             }
+            analytics.track("sort", "interaction", "sort", field, undefined, {
+                direction: this.sortDirection,
+            });
             this.applyFilters();
         },
-        // Pagination methods
         updatePagination() {
-            this.totalPages = Math.ceil(this.filteredVulns.length / this.pageSize);
-            this.currentPage = Math.min(this.currentPage, Math.max(1, this.totalPages));
-            const start = (this.currentPage - 1) * this.pageSize;
-            const end = start + this.pageSize;
-            this.paginatedVulns = this.filteredVulns.slice(start, end);
+            if (this.virtualScrolling.enabled) {
+                this.calculateVirtualWindow();
+            }
+            else {
+                this.totalPages = Math.ceil(this.filteredVulns.length / this.pageSize);
+                this.currentPage = Math.min(this.currentPage, Math.max(1, this.totalPages));
+                const start = (this.currentPage - 1) * this.pageSize;
+                const end = start + this.pageSize;
+                this.paginatedVulns = this.filteredVulns.slice(start, end);
+            }
+            // Set up lazy loading for new rows
+            requestAnimationFrame(() => {
+                this.setupLazyLoading();
+            });
+        },
+        handleVirtualScroll() {
+            if (!this.virtualScrolling.enabled || !this.$refs.tableWrapper)
+                return;
+            // Debounce scroll events
+            if (this.searchDebounceTimer) {
+                cancelAnimationFrame(this.searchDebounceTimer);
+            }
+            this.searchDebounceTimer = requestAnimationFrame(() => {
+                this.virtualScrolling.scrollTop = this.$refs.tableWrapper.scrollTop;
+                this.calculateVirtualWindow();
+            });
+        },
+        calculateVirtualWindow() {
+            const { itemHeight, containerHeight, scrollTop, bufferSize } = this.virtualScrolling;
+            const totalItems = this.filteredVulns.length;
+            // Calculate visible range
+            const startIndex = Math.max(0, Math.floor(scrollTop / itemHeight) - bufferSize);
+            const endIndex = Math.min(totalItems, Math.ceil((scrollTop + containerHeight) / itemHeight) + bufferSize);
+            // Update virtual window
+            this.virtualScrolling.startIndex = startIndex;
+            this.virtualScrolling.endIndex = endIndex;
+            this.virtualScrolling.topSpacerHeight = startIndex * itemHeight;
+            this.virtualScrolling.bottomSpacerHeight = (totalItems - endIndex) * itemHeight;
+            // Extract visible items
+            this.virtualVulns = this.filteredVulns.slice(startIndex, endIndex);
         },
         previousPage() {
             if (this.currentPage > 1) {
@@ -901,75 +539,264 @@ document.addEventListener("alpine:init", () => {
                 this.updatePagination();
             }
         },
-        // Reset filters
+        watchFilters() {
+            // Debounced search watching
+            this.$watch("searchQuery", () => {
+                if (this.searchDebounceTimer) {
+                    clearTimeout(this.searchDebounceTimer);
+                }
+                this.searchDebounceTimer = window.setTimeout(() => {
+                    this.applyFilters();
+                }, 300);
+            });
+            this.$watch("filters", () => this.applyFilters(), {
+                deep: true,
+            });
+            this.$watch("pageSize", () => {
+                this.currentPage = 1;
+                this.updatePagination();
+            });
+        },
+        saveStateToHash() {
+            if (this.loading || this.vulnerabilities.length === 0 || this.initialLoad) {
+                return;
+            }
+            const state = {
+                q: this.searchQuery,
+                cvssMin: this.filters.cvssMin,
+                cvssMax: this.filters.cvssMax,
+                epssMin: this.filters.epssMin,
+                epssMax: this.filters.epssMax,
+                severity: this.filters.severity,
+                publishedDateFrom: this.filters.publishedDateFrom,
+                publishedDateTo: this.filters.publishedDateTo,
+                vendor: this.filters.vendor,
+                tags: this.filters.tags.join(","),
+                sort: this.sortField,
+                dir: this.sortDirection,
+                page: this.currentPage,
+                size: this.pageSize,
+            };
+            // Remove empty values and defaults
+            Object.keys(state).forEach((key) => {
+                const value = state[key];
+                if (!value ||
+                    value === "" ||
+                    (key === "cvssMin" && value === 0) ||
+                    (key === "cvssMax" && value === 10) ||
+                    (key === "epssMin" && value === 50) || // Don't include default 50% threshold
+                    (key === "epssMax" && value === 100) ||
+                    (key === "page" && value === 1) ||
+                    (key === "size" && value === 50) ||
+                    (key === "sort" && value === "epssPercentile") ||
+                    (key === "dir" && value === "desc")) {
+                    delete state[key];
+                }
+            });
+            const hash = new URLSearchParams(Object.fromEntries(Object.entries(state).map(([k, v]) => [k, String(v)]))).toString();
+            window.location.hash = hash;
+        },
+        loadStateFromHash() {
+            const hash = window.location.hash.slice(1);
+            if (!hash)
+                return;
+            const params = new URLSearchParams(hash);
+            this.searchQuery = params.get("q") ?? "";
+            this.filters.cvssMin = parseFloat(params.get("cvssMin") ?? "0");
+            this.filters.cvssMax = parseFloat(params.get("cvssMax") ?? "10");
+            this.filters.epssMin = parseInt(params.get("epssMin") ?? "50"); // Default to 50% threshold
+            this.filters.epssMax = parseInt(params.get("epssMax") ?? "100");
+            this.filters.severity = (params.get("severity") ?? "");
+            this.filters.publishedDateFrom = params.get("publishedDateFrom") ?? "";
+            this.filters.publishedDateTo = params.get("publishedDateTo") ?? "";
+            this.filters.vendor = params.get("vendor") ?? "";
+            const tags = params.get("tags");
+            this.filters.tags = tags ? tags.split(",").filter((t) => t) : [];
+            this.sortField = (params.get("sort") ?? "epssPercentile");
+            this.sortDirection = (params.get("dir") ?? "desc");
+            this.currentPage = parseInt(params.get("page") ?? "1");
+            this.pageSize = parseInt(params.get("size") ?? "50");
+        },
+        getSeverityClass: memoize((score) => {
+            if (score >= 9)
+                return "severity-critical";
+            if (score >= 7)
+                return "severity-high";
+            if (score >= 4)
+                return "severity-medium";
+            if (score > 0)
+                return "severity-low";
+            return "severity-none";
+        }),
+        formatDate: memoize((dateStr) => {
+            const date = new Date(dateStr);
+            return date.toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+            });
+        }),
         resetFilters() {
-            this.searchQuery = '';
+            this.searchQuery = "";
             this.filters = {
                 cvssMin: 0,
                 cvssMax: 10,
-                epssMin: 70,
+                epssMin: 50, // Reset to 50% threshold
                 epssMax: 100,
-                severity: '',
-                publishedDateFrom: '',
-                publishedDateTo: '',
-                lastModifiedDateFrom: '',
-                lastModifiedDateTo: '',
-                dateFrom: '',
-                dateTo: '',
-                vendor: '',
-                tags: []
+                severity: "",
+                publishedDateFrom: "",
+                publishedDateTo: "",
+                lastModifiedDateFrom: "",
+                lastModifiedDateTo: "",
+                dateFrom: "",
+                dateTo: "",
+                vendor: "",
+                tags: [],
             };
-            this.activeQuickFilter = null;
+            this.currentPage = 1;
             this.applyFilters();
         },
-        // Export functionality
         exportResults() {
-            const csv = this.generateCSV(this.filteredVulns);
-            const blob = new Blob([csv], { type: 'text/csv' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `vulnerabilities-${new Date().toISOString().split('T')[0]}.csv`;
-            a.click();
-            URL.revokeObjectURL(url);
-            _analytics__WEBPACK_IMPORTED_MODULE_0__.analytics.track('export_csv', 'export', 'csv', undefined, this.filteredVulns.length);
-            this.showToast(`Exported ${this.filteredVulns.length} vulnerabilities`, 'success');
-        },
-        generateCSV(data) {
-            const headers = ['CVE ID', 'Title', 'Severity', 'CVSS Score', 'EPSS %', 'Risk Score', 'Published Date', 'Vendors'];
-            const rows = data.map(vuln => [
+            analytics.trackExport("csv", this.filteredVulns.length);
+            const headers = ["CVE ID", "Title", "Severity", "CVSS Score", "EPSS %", "Published Date"];
+            const rows = this.filteredVulns.map((vuln) => [
                 vuln.cveId,
                 `"${vuln.title.replace(/"/g, '""')}"`,
                 vuln.severity,
-                vuln.cvssScore || '',
-                vuln.epssPercentile || '',
-                vuln.riskScore || '',
+                vuln.cvssScore?.toString() || "",
+                vuln.epssPercentile?.toString() || "",
                 vuln.publishedDate,
-                `"${(vuln.vendors || []).join(', ')}"`
             ]);
-            return [headers, ...rows].map(row => row.join(',')).join('\n');
+            const csv = [headers, ...rows].map((row) => row.join(",")).join("\n");
+            const blob = new Blob([csv], { type: "text/csv" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = `vulnerabilities-${new Date().toISOString().slice(0, 10)}.csv`;
+            a.click();
+            URL.revokeObjectURL(url);
         },
-        // CVE Modal
+        trackVulnerabilityClick(cveId, riskScore) {
+            analytics.trackVulnerabilityClick(cveId, { riskScore });
+        },
         async openCveModal(cveId) {
-            const modal = document.querySelector('#cve-modal');
-            if (modal && modal.__x) {
-                await modal.__x.$data.openWithCve(cveId);
+            await this.modal.openModal(cveId);
+        },
+        setupKeyboardShortcuts() {
+            document.addEventListener("keydown", (event) => {
+                if (event.target instanceof HTMLInputElement ||
+                    event.target instanceof HTMLTextAreaElement) {
+                    return;
+                }
+                switch (event.key) {
+                    case "/":
+                        event.preventDefault();
+                        const searchInput = document.getElementById("search-input");
+                        searchInput?.focus();
+                        break;
+                    case "r":
+                        if (!event.ctrlKey && !event.metaKey) {
+                            event.preventDefault();
+                            this.resetFilters();
+                        }
+                        break;
+                    case "e":
+                        if (!event.ctrlKey && !event.metaKey) {
+                            event.preventDefault();
+                            this.exportResults();
+                        }
+                        break;
+                    case "ArrowLeft":
+                        if (!event.ctrlKey && !event.metaKey && !event.shiftKey) {
+                            event.preventDefault();
+                            this.previousPage();
+                        }
+                        break;
+                    case "ArrowRight":
+                        if (!event.ctrlKey && !event.metaKey && !event.shiftKey) {
+                            event.preventDefault();
+                            this.nextPage();
+                        }
+                        break;
+                    case "?":
+                        event.preventDefault();
+                        this.showKeyboardHelp();
+                        break;
+                    case "Escape":
+                        const helpModal = document.getElementById("keyboard-help-modal");
+                        if (helpModal && !helpModal.classList.contains("hidden")) {
+                            event.preventDefault();
+                            helpModal.classList.add("hidden");
+                        }
+                        break;
+                }
+                if (event.key >= "1" && event.key <= "4" && !event.ctrlKey && !event.metaKey) {
+                    event.preventDefault();
+                    const pageSizes = [10, 20, 50, 100];
+                    const index = parseInt(event.key) - 1;
+                    if (index < pageSizes.length && pageSizes[index] !== undefined) {
+                        this.pageSize = pageSizes[index];
+                    }
+                }
+            });
+        },
+        showKeyboardHelp() {
+            let helpModal = document.getElementById("keyboard-help-modal");
+            if (!helpModal) {
+                helpModal = document.createElement("div");
+                helpModal.id = "keyboard-help-modal";
+                helpModal.className = "modal-backdrop";
+                helpModal.innerHTML = `
+              <div class="modal-content" role="dialog" 
+                   aria-labelledby="keyboard-help-title" aria-modal="true">
+                <h2 id="keyboard-help-title">Keyboard Shortcuts</h2>
+                <button class="modal-close" aria-label="Close help modal"
+                        onclick="document.getElementById('keyboard-help-modal')
+                                 .classList.add('hidden')">
+                  ×
+                </button>
+                <dl class="keyboard-shortcuts">
+                  <dt><kbd>/</kbd></dt>
+                  <dd>Focus search input</dd>
+                  
+                  <dt><kbd>r</kbd></dt>
+                  <dd>Reset all filters</dd>
+                  
+                  <dt><kbd>e</kbd></dt>
+                  <dd>Export results as CSV</dd>
+                  
+                  <dt><kbd>←</kbd> <kbd>→</kbd></dt>
+                  <dd>Navigate between pages</dd>
+                  
+                  <dt><kbd>1</kbd> - <kbd>4</kbd></dt>
+                  <dd>Set page size (10, 20, 50, 100)</dd>
+                  
+                  <dt><kbd>?</kbd></dt>
+                  <dd>Show this help</dd>
+                  
+                  <dt><kbd>Esc</kbd></dt>
+                  <dd>Close this help</dd>
+                </dl>
+              </div>
+            `;
+                document.body.appendChild(helpModal);
             }
+            helpModal.classList.remove("hidden");
+            const closeButton = helpModal.querySelector(".modal-close");
+            closeButton?.focus();
+            analytics.track("keyboard-help", "interaction", "help", "show");
         },
-        // Alpine.js $nextTick
         $nextTick(callback) {
-            // Will be bound by Alpine.js
-            Promise.resolve().then(callback);
+            // This method is provided by Alpine.js at runtime
+            // @ts-ignore
+            this.$nextTick(callback);
         },
-        // Alpine.js $watch
-        $watch(_key, _callback) {
-            // Will be bound by Alpine.js
-        }
     }));
 });
-
-})();
-
-/******/ })()
-;
-//# sourceMappingURL=dashboard-enhanced.js.map
+// Clean up on page unload
+window.addEventListener("beforeunload", () => {
+    if (filterWorker) {
+        filterWorker.terminate();
+    }
+});
+//# sourceMappingURL=dashboard.js.map

@@ -281,6 +281,15 @@ body {
   color: var(--color-text);
 }
 
+.filter-help {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  margin-top: 0.25rem;
+  width: 100%;
+  text-align: center;
+  font-style: italic;
+}
+
 /* Inputs */
 .search-input {
   flex: 1;

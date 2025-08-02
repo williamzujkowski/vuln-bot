@@ -142,6 +142,29 @@ class GreatExpectationsValidator:
             self.context.save_expectation_suite(core_suite)
             self.logger.info("Created vulnerability_core expectation suite")
 
+            # Create EPSS threshold validation suite
+            epss_suite = self.context.add_or_update_expectation_suite(
+                expectation_suite_name="epss_threshold_validation"
+            )
+
+            # EPSS score must be >= 50% (0.5 when normalized to 0-1 scale)
+            # Note: epss_probability is stored as percentage (0-100)
+            epss_suite.add_expectation(
+                ExpectationConfiguration(
+                    expectation_type="expect_column_values_to_be_between",
+                    kwargs={
+                        "column": "epss_probability",
+                        "min_value": 50.0,  # 50% threshold
+                        "max_value": 100.0,
+                        "mostly": 1.0,  # All values must meet this criteria
+                    },
+                )
+            )
+
+            # Save EPSS suite
+            self.context.save_expectation_suite(epss_suite)
+            self.logger.info("Created epss_threshold_validation expectation suite")
+
         except Exception as e:
             self.logger.error(f"Failed to create expectation suites: {e}")
 
@@ -435,6 +458,91 @@ class GreatExpectationsValidator:
         profile["suggested_expectations"] = self._suggest_expectations(df, profile)
 
         return profile
+
+    def validate_epss_threshold(
+        self,
+        vulnerabilities: List[Vulnerability],
+        threshold: float = 0.5,
+    ) -> Dict[str, Any]:
+        """Validate that all vulnerabilities meet EPSS threshold.
+
+        Args:
+            vulnerabilities: List of vulnerabilities to validate
+            threshold: EPSS threshold (0.0-1.0, default 0.5 for 50%)
+
+        Returns:
+            Validation results dictionary
+        """
+        if not self.context or not HAS_GX:
+            # Fallback validation without GX
+            below_threshold = []
+            missing_epss = []
+            
+            for vuln in vulnerabilities:
+                if vuln.epss_probability is None:
+                    missing_epss.append(vuln.cve_id)
+                elif vuln.epss_probability < (threshold * 100):  # Convert to percentage
+                    below_threshold.append({
+                        "cve_id": vuln.cve_id,
+                        "epss": vuln.epss_probability,
+                        "threshold": threshold * 100
+                    })
+            
+            return {
+                "success": len(below_threshold) == 0 and len(missing_epss) == 0,
+                "total_vulnerabilities": len(vulnerabilities),
+                "below_threshold": below_threshold,
+                "missing_epss": missing_epss,
+                "threshold": threshold,
+                "threshold_percentage": f"{threshold * 100}%",
+                "validator": "basic"
+            }
+
+        # Create custom expectation suite for threshold validation
+        suite_name = f"epss_threshold_{int(threshold * 100)}"
+        try:
+            threshold_suite = self.context.add_or_update_expectation_suite(
+                expectation_suite_name=suite_name
+            )
+            
+            # Add threshold expectation
+            threshold_suite.add_expectation(
+                ExpectationConfiguration(
+                    expectation_type="expect_column_values_to_be_between",
+                    kwargs={
+                        "column": "epss_probability",
+                        "min_value": threshold * 100,  # Convert to percentage
+                        "max_value": 100.0,
+                        "mostly": 1.0,  # All values must meet this criteria
+                    },
+                )
+            )
+            
+            # Add not-null expectation for EPSS
+            threshold_suite.add_expectation(
+                ExpectationConfiguration(
+                    expectation_type="expect_column_values_to_not_be_null",
+                    kwargs={"column": "epss_probability"},
+                )
+            )
+            
+            self.context.save_expectation_suite(threshold_suite)
+            
+            # Run validation
+            results = self.validate_vulnerabilities(vulnerabilities, suite_name)
+            results["threshold"] = threshold
+            results["threshold_percentage"] = f"{threshold * 100}%"
+            
+            return results
+            
+        except Exception as e:
+            self.logger.error(f"Failed to validate EPSS threshold: {e}")
+            return {
+                "success": False,
+                "error": str(e),
+                "threshold": threshold,
+                "validator": "great_expectations"
+            }
 
     def _suggest_expectations(
         self,

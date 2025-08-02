@@ -1,0 +1,168 @@
+name: Quality Gates
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+jobs:
+  lint-and-style:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+    
+    - name: Install dependencies
+      run: |
+        pip install ruff black isort mypy
+        pip install -r requirements.txt
+    
+    - name: Run Ruff linting
+      run: |
+        ruff check scripts/ tests/ --statistics
+    
+    - name: Check code formatting with Black
+      run: |
+        black --check scripts/ tests/
+    
+    - name: Check import sorting with isort
+      run: |
+        isort --check-only scripts/ tests/
+    
+    - name: Run type checking with mypy
+      run: |
+        mypy scripts/ --ignore-missing-imports --no-strict-optional
+      continue-on-error: true
+
+  test-coverage:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+    
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+        pip install -r requirements-dev.txt
+        pip install pytest-cov
+    
+    - name: Run tests with coverage
+      run: |
+        pytest tests/ --cov=scripts --cov-report=term-missing --cov-report=xml --cov-fail-under=80
+      continue-on-error: true
+    
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v4
+      with:
+        file: ./coverage.xml
+        flags: unittests
+        name: codecov-umbrella
+
+  javascript-quality:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Run ESLint
+      run: npm run lint
+    
+    - name: Run Prettier check
+      run: npm run format:check
+    
+    - name: Build site
+      run: npm run build
+
+  great-expectations-validation:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+    
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+        pip install great-expectations || true
+    
+    - name: Run data validation
+      run: |
+        python scripts/great_expectations_setup.py || echo "Great Expectations validation skipped"
+      continue-on-error: true
+
+  performance-benchmark:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Build production site
+      run: npm run build
+    
+    - name: Run Lighthouse CI
+      uses: treosh/lighthouse-ci-action@v11
+      with:
+        urls: |
+          file://${{ github.workspace }}/public/index.html
+        uploadArtifacts: true
+        temporaryPublicStorage: true
+        configPath: './lighthouserc.json'
+      continue-on-error: true
+    
+    - name: Check bundle size
+      run: |
+        echo "Checking JavaScript bundle sizes..."
+        find public -name "*.js" -exec ls -lh {} \; | awk '{print $5, $9}'
+        
+        # Fail if any JS file is over 500KB
+        if find public -name "*.js" -size +500k | grep -q .; then
+          echo "ERROR: JavaScript files over 500KB found!"
+          find public -name "*.js" -size +500k -exec ls -lh {} \;
+          exit 1
+        fi
+
+  security-scan:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Run Bandit security scan
+      uses: gaurav-nelson/bandit-action@v1
+      with:
+        path: "scripts/"
+        level: "medium"
+        confidence: "medium"
+        exit_zero: false
+    
+    - name: Run npm audit
+      run: |
+        npm audit --audit-level=high

@@ -67,18 +67,18 @@
     </fieldset>
 
     <fieldset class="filter-group">
-      <legend>EPSS Score Range</legend>
+      <legend>EPSS Score Range <small>(≥50% exploitation probability)</small></legend>
       <label for="epss-min" class="sr-only">Minimum EPSS score percentage</label>
       <input 
         id="epss-min"
         type="range" 
         x-model="filters.epssMin"
-        min="0" 
+        min="50" 
         max="100" 
         step="1"
         class="slider"
         :aria-valuetext="'Minimum EPSS: ' + filters.epssMin + ' percent'"
-        aria-describedby="epss-min-value"
+        aria-describedby="epss-min-value epss-help"
       >
       <span id="epss-min-value" x-text="filters.epssMin + '%'" class="range-value" aria-label="Minimum percentage"></span>
       <span aria-hidden="true"> - </span>
@@ -88,7 +88,7 @@
         id="epss-max"
         type="range" 
         x-model="filters.epssMax"
-        min="0" 
+        min="50" 
         max="100" 
         step="1"
         class="slider"
@@ -96,6 +96,7 @@
         aria-describedby="epss-max-value"
       >
       <span id="epss-max-value" x-text="filters.epssMax + '%'" class="range-value" aria-label="Maximum percentage"></span>
+      <div id="epss-help" class="filter-help">Platform filters for EPSS ≥ 50% by default</div>
     </fieldset>
   </div>
 

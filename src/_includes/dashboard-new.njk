@@ -160,6 +160,7 @@ title: Vulnerability Intelligence Dashboard - Vuln-Bot
               @input.debounce.300ms="applyFilters()"
               placeholder="Search by CVE ID, vendor, product, or keyword..."
               class="search-input"
+              id="search-input"
               aria-label="Search vulnerabilities"
             >
             <div class="search-suggestions" x-show="searchSuggestions.length > 0">
@@ -255,7 +256,7 @@ title: Vulnerability Intelligence Dashboard - Vuln-Bot
         </div>
       </section>
 
-      <!-- Vulnerability Data Table -->
+      <!-- Vulnerability Data Table with Virtual Scrolling -->
       <section class="table-container" aria-label="Vulnerability data">
         <div class="table-header">
           <h2 class="table-title">Vulnerability Details</h2>
@@ -267,13 +268,17 @@ title: Vulnerability Intelligence Dashboard - Vuln-Bot
               <option value="25">25 per page</option>
               <option value="50">50 per page</option>
               <option value="100">100 per page</option>
+              <option value="200">200 per page</option>
             </select>
           </div>
         </div>
         
-        <div class="table-wrapper">
+        <div class="table-wrapper" x-ref="tableWrapper" @scroll="handleVirtualScroll()" style="height: 600px; overflow-y: auto; position: relative;">
+          <div x-show="loading" class="virtual-loading" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+            <div class="loading-spinner"></div>
+          </div>
           <table class="data-table" id="vulnerability-table">
-            <thead>
+            <thead style="position: sticky; top: 0; background: var(--bg-secondary); z-index: 10;">
               <tr>
                 <th @click="sort('cveId')" class="sortable">
                   CVE ID
@@ -323,8 +328,12 @@ title: Vulnerability Intelligence Dashboard - Vuln-Bot
               </tr>
             </thead>
             <tbody>
-              <template x-for="vuln in paginatedVulns" :key="vuln.cveId">
-                <tr class="table-row">
+              <!-- Virtual scrolling spacer -->
+              <tr x-show="virtualScrolling.enabled" style="height: 0;">
+                <td colspan="9" :style="`height: ${virtualScrolling.topSpacerHeight}px`"></td>
+              </tr>
+              <template x-for="vuln in virtualScrolling.enabled ? virtualVulns : paginatedVulns" :key="vuln.cveId">
+                <tr class="table-row vulnerability-row" :data-index="vuln._index">
                   <td>
                     <button @click="openCveModal(vuln.cveId)" class="cve-button" x-text="vuln.cveId"></button>
                   </td>
@@ -369,6 +378,10 @@ title: Vulnerability Intelligence Dashboard - Vuln-Bot
                   </td>
                 </tr>
               </template>
+              <!-- Virtual scrolling spacer -->
+              <tr x-show="virtualScrolling.enabled" style="height: 0;">
+                <td colspan="9" :style="`height: ${virtualScrolling.bottomSpacerHeight}px`"></td>
+              </tr>
             </tbody>
           </table>
         </div>

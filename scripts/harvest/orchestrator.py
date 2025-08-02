@@ -19,6 +19,7 @@ from scripts.processing.cache_manager import CacheManager
 from scripts.processing.normalizer import VulnerabilityNormalizer
 from scripts.processing.risk_scorer import RiskScorer
 from scripts.quality import DataQualityConfig, DataQualityValidator
+from scripts.agents.epss_filter_agent import EPSSFilterAgent
 
 
 class HarvestOrchestrator:
@@ -47,6 +48,7 @@ class HarvestOrchestrator:
         self.normalizer = VulnerabilityNormalizer()
         self.risk_scorer = RiskScorer()
         self.metrics = MetricsCollector(cache_dir / "metrics.db")
+        self.epss_filter_agent = EPSSFilterAgent(cache_dir=cache_dir)
 
         # Load data quality configuration
         self.quality_config = self._load_quality_config()
@@ -239,7 +241,7 @@ class HarvestOrchestrator:
         self,
         years: Optional[List[int]] = None,
         include_sources: Optional[Set[str]] = None,
-        min_epss_score: float = 0.6,  # 60% threshold
+        min_epss_score: float = 0.5,  # 50% threshold (EPSS ≥ 0.5)
         min_severity: str = "HIGH",
         incremental: bool = False,
     ) -> VulnerabilityBatch:
@@ -412,14 +414,49 @@ class HarvestOrchestrator:
         # Enrich with EPSS scores
         self.enrich_with_epss(unique_vulnerabilities)
 
-        # Note: EPSS filtering is now handled by quality validator
-        # Update quality config if different threshold is requested
-        if min_epss_score != self.quality_config.min_epss_score:
+        # Apply EPSS filtering using EPSSFilterAgent
+        # Update the agent's threshold if different from default
+        if min_epss_score != self.epss_filter_agent.threshold:
+            self.epss_filter_agent.threshold = min_epss_score
             self.logger.info(
-                "Using custom EPSS threshold",
-                config_threshold=self.quality_config.min_epss_score,
-                requested_threshold=min_epss_score,
+                "Updated EPSS filter threshold",
+                new_threshold=min_epss_score,
+                threshold_percentage=f"{min_epss_score * 100}%"
             )
+
+        # Convert vulnerabilities to dict format for the agent
+        vuln_dicts = []
+        for vuln in unique_vulnerabilities:
+            vuln_dict = vuln.to_dict()
+            # Ensure EPSS score is at the top level
+            if hasattr(vuln, 'epss_probability') and vuln.epss_probability is not None:
+                vuln_dict['epssScore'] = vuln.epss_probability / 100.0  # Convert percentage to decimal
+            vuln_dicts.append(vuln_dict)
+
+        # Apply EPSS filter
+        filtered_vuln_dicts, filter_stats = self.epss_filter_agent.filter_vulnerabilities(vuln_dicts)
+        
+        # Convert back to Vulnerability objects
+        filtered_vulnerabilities = []
+        for vuln_dict in filtered_vuln_dicts:
+            # Find the original vulnerability object
+            for vuln in unique_vulnerabilities:
+                if vuln.cve_id == vuln_dict.get('cveId', vuln_dict.get('cve_id')):
+                    filtered_vulnerabilities.append(vuln)
+                    break
+        
+        # Update unique_vulnerabilities to only include filtered ones
+        unique_vulnerabilities = filtered_vulnerabilities
+        
+        # Log filter statistics
+        self.logger.info(
+            "EPSS filtering completed",
+            original_count=filter_stats["total_processed"],
+            filtered_count=filter_stats["passed_filter"],
+            removed_count=filter_stats["failed_filter"],
+            missing_epss=filter_stats["missing_epss"],
+            threshold=filter_stats["threshold"]
+        )
 
         # Calculate risk scores
         self.risk_scorer.score_batch(unique_vulnerabilities)
@@ -512,7 +549,7 @@ class HarvestOrchestrator:
         self,
         years: Optional[List[int]] = None,
         include_sources: Optional[Set[str]] = None,
-        min_epss_score: float = 0.6,
+        min_epss_score: float = 0.5,
         min_severity: str = "HIGH",
     ) -> VulnerabilityBatch:
         """Asynchronous version of harvest_all_sources.
