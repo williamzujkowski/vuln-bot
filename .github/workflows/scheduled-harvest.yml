@@ -153,7 +153,12 @@ jobs:
           python -m scripts.enhance_exploit_availability \
             --api-dir api \
             --output-dir api
-      
+
+      - name: Enrich with priority tiers and tech categories
+        run: |
+          echo "Adding triage priority and technology categories..."
+          python -m scripts.enrich_json_api
+
       - name: Data validation - After enrichment
         run: |
           echo "Validating enriched data quality..."
