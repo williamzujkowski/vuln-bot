@@ -6,9 +6,10 @@ Ensures the 60% threshold is correctly applied across the pipeline.
 
 import os
 import tempfile
+from contextlib import ExitStack
 from datetime import datetime, timezone
 from pathlib import Path
-from unittest.mock import Mock, patch
+from unittest.mock import patch
 
 import pytest
 
@@ -46,7 +47,7 @@ class TestEPSSThresholdRegression:
     def test_epss_filter_boundary_conditions(self):
         """Test EPSS filtering at exact threshold boundaries."""
         agent = EPSSFilterAgent(threshold=0.6)
-        
+
         test_vulns = [
             {"cveId": "CVE-2024-0001", "epssScore": 0.59},  # Below threshold
             {"cveId": "CVE-2024-0002", "epssScore": 0.6},   # At threshold
@@ -54,15 +55,15 @@ class TestEPSSThresholdRegression:
             {"cveId": "CVE-2024-0004", "epssScore": 1.0},   # Maximum
             {"cveId": "CVE-2024-0005", "epssScore": None},  # Missing EPSS
         ]
-        
+
         filtered, stats = agent.filter_vulnerabilities(test_vulns)
-        
+
         # Only CVEs with EPSS >= 0.6 should pass
         assert len(filtered) == 3
         assert {v["cveId"] for v in filtered} == {
             "CVE-2024-0002", "CVE-2024-0003", "CVE-2024-0004"
         }
-        
+
         # Check statistics
         assert stats["total_processed"] == 5
         assert stats["passed_filter"] == 3
@@ -73,7 +74,7 @@ class TestEPSSThresholdRegression:
     def test_epss_filter_different_score_formats(self):
         """Test EPSS filtering with different score formats."""
         agent = EPSSFilterAgent(threshold=0.6)
-        
+
         test_vulns = [
             # Direct score
             {"cveId": "CVE-2024-0001", "epssScore": 0.7},
@@ -86,14 +87,14 @@ class TestEPSSThresholdRegression:
             # Below threshold via percentile
             {"cveId": "CVE-2024-0005", "epssPercentile": 50.0},  # 50% -> 0.5
         ]
-        
+
         filtered, stats = agent.filter_vulnerabilities(test_vulns)
-        
+
         # CVE-0005 should be filtered out (50% -> 0.5 < 0.6)
         assert len(filtered) == 4
         filtered_ids = {v["cveId"] for v in filtered}
         assert "CVE-2024-0005" not in filtered_ids
-        
+
         assert stats["passed_filter"] == 4
         assert stats["failed_filter"] == 1
 
@@ -101,7 +102,7 @@ class TestEPSSThresholdRegression:
         """Test that HarvestOrchestrator defaults to 60% EPSS threshold."""
         with tempfile.TemporaryDirectory() as temp_dir:
             orchestrator = HarvestOrchestrator(cache_dir=Path(temp_dir))
-            
+
             # Check that the orchestrator's EPSS filter agent has correct threshold
             assert orchestrator.epss_filter_agent.threshold == 0.6
 
@@ -109,20 +110,22 @@ class TestEPSSThresholdRegression:
         """Test that HarvestOrchestrator accepts custom EPSS thresholds."""
         with tempfile.TemporaryDirectory() as temp_dir:
             orchestrator = HarvestOrchestrator(cache_dir=Path(temp_dir))
-            
+
             # Mock the harvest process to avoid actual network calls
-            with patch.object(orchestrator, 'harvest_cve_data', return_value=[]):
-                with patch.object(orchestrator, 'harvest_nvd_data', return_value=[]):
-                    with patch.object(orchestrator, 'harvest_github_advisory_data', return_value=[]):
-                        with patch.object(orchestrator, 'enrich_with_epss'):
-                            # Test custom threshold
-                            batch = orchestrator.harvest_all_sources(
-                                years=[2024],
-                                min_epss_score=0.8
-                            )
-                            
-                            # Verify the threshold was updated
-                            assert orchestrator.epss_filter_agent.threshold == 0.8
+            with ExitStack() as stack:
+                stack.enter_context(patch.object(orchestrator, 'harvest_cve_data', return_value=[]))
+                stack.enter_context(patch.object(orchestrator, 'harvest_nvd_data', return_value=[]))
+                stack.enter_context(patch.object(orchestrator, 'harvest_github_advisory_data', return_value=[]))
+                stack.enter_context(patch.object(orchestrator, 'enrich_with_epss'))
+
+                # Test custom threshold
+                orchestrator.harvest_all_sources(
+                    years=[2024],
+                    min_epss_score=0.8
+                )
+
+                # Verify the threshold was updated
+                assert orchestrator.epss_filter_agent.threshold == 0.8
 
     def test_vulnerability_model_epss_properties(self):
         """Test that Vulnerability model correctly handles EPSS data."""
@@ -136,10 +139,10 @@ class TestEPSSThresholdRegression:
             severity=SeverityLevel.HIGH,
             epss_score=None
         )
-        
+
         # Test without EPSS score
         assert vuln.epss_probability is None
-        
+
         # Add EPSS score
         from scripts.models import EPSSScore
         vuln.epss_score = EPSSScore(
@@ -147,27 +150,27 @@ class TestEPSSThresholdRegression:
             percentile=85.0,
             date=datetime.now(timezone.utc)
         )
-        
+
         # Test with EPSS score
         assert vuln.epss_probability == 75.0  # 0.75 * 100
 
     def test_epss_filter_invalid_scores(self):
         """Test EPSS filtering handles invalid scores correctly."""
         agent = EPSSFilterAgent(threshold=0.6)
-        
+
         test_vulns = [
             {"cveId": "CVE-2024-0001", "epssScore": -0.1},   # Invalid (negative)
             {"cveId": "CVE-2024-0002", "epssScore": 1.1},    # Invalid (> 1.0)
             {"cveId": "CVE-2024-0003", "epssScore": "abc"},  # Invalid (string)
             {"cveId": "CVE-2024-0004", "epssScore": 0.7},    # Valid
         ]
-        
+
         filtered, stats = agent.filter_vulnerabilities(test_vulns)
-        
+
         # Only the valid score should pass
         assert len(filtered) == 1
         assert filtered[0]["cveId"] == "CVE-2024-0004"
-        
+
         # Check invalid score tracking
         assert stats["invalid_epss"] == 2  # -0.1 and 1.1
         assert stats["passed_filter"] == 1
@@ -175,9 +178,9 @@ class TestEPSSThresholdRegression:
     def test_epss_filter_empty_input(self):
         """Test EPSS filtering with empty input."""
         agent = EPSSFilterAgent(threshold=0.6)
-        
+
         filtered, stats = agent.filter_vulnerabilities([])
-        
+
         assert len(filtered) == 0
         assert stats["total_processed"] == 0
         assert stats["passed_filter"] == 0
@@ -187,15 +190,15 @@ class TestEPSSThresholdRegression:
     def test_epss_filter_report_generation(self):
         """Test EPSS filter report generation."""
         agent = EPSSFilterAgent(threshold=0.6)
-        
+
         test_vulns = [
             {"cveId": "CVE-2024-0001", "epssScore": 0.7},
             {"cveId": "CVE-2024-0002", "epssScore": 0.5},
         ]
-        
+
         agent.filter_vulnerabilities(test_vulns)
         report = agent.get_filter_report()
-        
+
         assert report["total_processed"] == 2
         assert report["passed_filter"] == 1
         assert report["failed_filter"] == 1
@@ -207,16 +210,16 @@ class TestEPSSThresholdRegression:
     async def test_epss_filter_async_processing(self):
         """Test EPSS filter async processing method."""
         agent = EPSSFilterAgent(threshold=0.6)
-        
+
         test_data = {
             "vulnerabilities": [
                 {"cveId": "CVE-2024-0001", "epssScore": 0.7},
                 {"cveId": "CVE-2024-0002", "epssScore": 0.5},
             ]
         }
-        
+
         result = await agent.process(test_data)
-        
+
         assert len(result["vulnerabilities"]) == 1
         assert result["vulnerabilities"][0]["cveId"] == "CVE-2024-0001"
         assert result["filter_applied"] is True
@@ -231,14 +234,14 @@ class TestEPSSThresholdIntegration:
     def test_cli_default_epss_threshold(self):
         """Test that CLI defaults to 60% EPSS threshold."""
         from scripts.main import harvest
-        
+
         # Check that the click command default is 0.6
         assert harvest.params[3].default == 0.6  # min-epss parameter
 
     def test_workflow_epss_threshold(self):
         """Test that GitHub workflow uses 60% EPSS threshold."""
         workflow_file = Path(__file__).parent.parent / ".github/workflows/scheduled-harvest.yml"
-        
+
         if workflow_file.exists():
             content = workflow_file.read_text()
             assert "--min-epss 0.6" in content
@@ -263,7 +266,7 @@ class TestEPSSThresholdIntegration:
             Path(__file__).parent.parent / "README.md",
             Path(__file__).parent.parent / "CLAUDE.md",
         ]
-        
+
         for doc_file in docs_to_check:
             if doc_file.exists():
                 content = doc_file.read_text()
@@ -279,7 +282,7 @@ class TestEPSSDataValidation:
     def test_epss_score_range_validation(self):
         """Test that EPSS scores are validated to be in range [0.0, 1.0]."""
         agent = EPSSFilterAgent()
-        
+
         # Test edge cases
         test_cases = [
             (0.0, True),    # Minimum valid
@@ -289,11 +292,11 @@ class TestEPSSDataValidation:
             (1.1, False),   # Above maximum
             (None, False),  # Missing
         ]
-        
+
         for score, should_be_valid in test_cases:
             test_vulns = [{"cveId": "CVE-2024-0001", "epssScore": score}]
             filtered, stats = agent.filter_vulnerabilities(test_vulns)
-            
+
             if should_be_valid and score >= agent.threshold:
                 assert len(filtered) == 1
             else:
@@ -302,16 +305,16 @@ class TestEPSSDataValidation:
     def test_epss_data_types(self):
         """Test EPSS filtering with various data types."""
         agent = EPSSFilterAgent(threshold=0.6)
-        
+
         test_vulns = [
             {"cveId": "CVE-2024-0001", "epssScore": 0.7},      # float
             {"cveId": "CVE-2024-0002", "epssScore": "0.8"},    # string
             {"cveId": "CVE-2024-0003", "epssScore": 70},       # int (invalid)
             {"cveId": "CVE-2024-0004", "epssScore": []},       # list (invalid)
         ]
-        
+
         filtered, stats = agent.filter_vulnerabilities(test_vulns)
-        
+
         # Should handle type conversion for valid string
         expected_passed = 2  # 0.7 and "0.8" (converted to float)
         assert len(filtered) == expected_passed

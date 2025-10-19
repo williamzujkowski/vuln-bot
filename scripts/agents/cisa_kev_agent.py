@@ -38,10 +38,7 @@ class CISAKEVAgent(BaseAgent):
         """
         vulnerabilities = kwargs.get("vulnerabilities", [])
         enriched = self.enrich_batch(vulnerabilities)
-        return {
-            "vulnerabilities": enriched,
-            "statistics": self.get_kev_statistics()
-        }
+        return {"vulnerabilities": enriched, "statistics": self.get_kev_statistics()}
 
     def get_dependencies(self) -> Set[str]:
         """Get dependencies for change detection.

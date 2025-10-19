@@ -339,7 +339,11 @@ class HarvestOrchestrator:
         is_initial_harvest = len(harvest_history) == 0
 
         # Log harvest mode
-        harvest_mode = "initial" if is_initial_harvest else ("incremental" if incremental else "full")
+        harvest_mode = (
+            "initial"
+            if is_initial_harvest
+            else ("incremental" if incremental else "full")
+        )
         self.logger.info(
             "Starting vulnerability harvest",
             mode=harvest_mode,
@@ -394,12 +398,16 @@ class HarvestOrchestrator:
         # Pass EPSS pre-filter for initial harvest
         if not include_sources or "cve" in include_sources:
             harvest_tasks.append(
-                ("CVEList", self.harvest_cve_data, {
-                    "years": years,
-                    "min_severity": min_severity,
-                    "incremental": incremental,
-                    "epss_filter_cve_ids": high_epss_cve_ids,  # EPSS-first filtering
-                })
+                (
+                    "CVEList",
+                    self.harvest_cve_data,
+                    {
+                        "years": years,
+                        "min_severity": min_severity,
+                        "incremental": incremental,
+                        "epss_filter_cve_ids": high_epss_cve_ids,  # EPSS-first filtering
+                    },
+                )
             )
 
         # Keep NVD as fallback source (limited by rate limits without API key)
@@ -408,19 +416,27 @@ class HarvestOrchestrator:
             self.api_keys.get("NVD_API_KEY") or "nvd" in (include_sources or set())
         ):
             harvest_tasks.append(
-                ("NVD", self.harvest_nvd_data, {
-                    "years": years,
-                    "min_severity": min_severity,
-                    "max_vulnerabilities": None,
-                })
+                (
+                    "NVD",
+                    self.harvest_nvd_data,
+                    {
+                        "years": years,
+                        "min_severity": min_severity,
+                        "max_vulnerabilities": None,
+                    },
+                )
             )
 
         if not include_sources or "github" in include_sources:
             harvest_tasks.append(
-                ("GitHub Advisory", self.harvest_github_advisory_data, {
-                    "min_severity": min_severity,
-                    "ecosystems": None,
-                })
+                (
+                    "GitHub Advisory",
+                    self.harvest_github_advisory_data,
+                    {
+                        "min_severity": min_severity,
+                        "ecosystems": None,
+                    },
+                )
             )
 
         # Execute harvest tasks concurrently
@@ -586,8 +602,8 @@ class HarvestOrchestrator:
                 unique_vulnerabilities = enrichment_batch.vulnerabilities
 
                 # Add enrichment statistics to metadata
-                harvest_metadata["enrichment_statistics"] = enrichment_batch.metadata.get(
-                    "enrichment_statistics", {}
+                harvest_metadata["enrichment_statistics"] = (
+                    enrichment_batch.metadata.get("enrichment_statistics", {})
                 )
 
                 self.logger.info(
@@ -598,9 +614,9 @@ class HarvestOrchestrator:
                 )
             except Exception as e:
                 self.logger.error(
-                "Multi-source enrichment failed, continuing with base data",
-                error=str(e),
-            )
+                    "Multi-source enrichment failed, continuing with base data",
+                    error=str(e),
+                )
             # Continue with non-enriched vulnerabilities
         else:
             self.logger.info("Multi-source enrichment skipped (not implemented)")

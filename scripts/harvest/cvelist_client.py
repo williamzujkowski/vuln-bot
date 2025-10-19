@@ -993,7 +993,10 @@ class CVEListClient(BaseAPIClient):
                 vuln = self.parse_cve_v5_record(cve_data)
                 if vuln:
                     # Apply EPSS pre-filter if provided
-                    if epss_filter_cve_ids is not None and vuln.cve_id not in epss_filter_cve_ids:
+                    if (
+                        epss_filter_cve_ids is not None
+                        and vuln.cve_id not in epss_filter_cve_ids
+                    ):
                         skipped_by_epss += 1
                         continue
 

@@ -42,7 +42,7 @@ class AlpineDashboardGenerator:
         with open(json_path) as f:
             data = json.load(f)
 
-        vulnerabilities = data.get('vulnerabilities', [])
+        vulnerabilities = data.get("vulnerabilities", [])
         print(f"Found {len(vulnerabilities)} vulnerabilities")
 
         for vuln_data in vulnerabilities:
@@ -62,10 +62,14 @@ class AlpineDashboardGenerator:
                     "privileges_required": vuln_data.get("privilegesRequired", ""),
                     "user_interaction": vuln_data.get("userInteraction", ""),
                     "scope": vuln_data.get("scope", ""),
-                    "confidentiality_impact": vuln_data.get("confidentialityImpact", ""),
+                    "confidentiality_impact": vuln_data.get(
+                        "confidentialityImpact", ""
+                    ),
                     "integrity_impact": vuln_data.get("integrityImpact", ""),
                     "availability_impact": vuln_data.get("availabilityImpact", ""),
-                    "description": vuln_data.get("description", "No description available"),
+                    "description": vuln_data.get(
+                        "description", "No description available"
+                    ),
                 }
 
                 # Handle vendors and products (already lists in JSON)
@@ -82,7 +86,9 @@ class AlpineDashboardGenerator:
                 self.vulnerabilities.append(vuln)
 
             except (KeyError, TypeError) as e:
-                print(f"Warning: Failed to parse vulnerability {vuln_data.get('cveId', 'unknown')}: {e}")
+                print(
+                    f"Warning: Failed to parse vulnerability {vuln_data.get('cveId', 'unknown')}: {e}"
+                )
                 continue
 
         print(f"Successfully loaded {len(self.vulnerabilities)} vulnerabilities")
