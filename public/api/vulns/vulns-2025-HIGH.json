@@ -1,0 +1,767 @@
+{
+  "chunk": "2025-HIGH",
+  "count": 7,
+  "generated": "2025-08-02T05:14:56.702832",
+  "vulnerabilities": [
+    {
+      "cveId": "CVE-2025-30066",
+      "title": "CVE-2025-30066: tj-actions changed-files before 46 allows remote attackers to discover secrets by reading actions lo...",
+      "description": "tj-actions changed-files before 46 allows remote attackers to discover secrets by reading actions logs. (The tags v1 through v45.0.7 were affected on 2025-03-14 and 2025-03-15 because they were modified by a threat actor to point at commit 0e58ed8, which contained malicious updateFeatures code.)",
+      "publishedDate": "2025-03-15T00:00:00+00:00",
+      "lastModifiedDate": "2025-07-30T01:36:16.435000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:N",
+          "baseScore": 8.6,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.8168,
+        "percentile": 99.144
+      },
+      "riskScore": 62,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Tj-actions"
+        ],
+        "products": [
+          "Changed-files"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://github.com/rackerlabs/genestack/pull/903",
+          "source": "",
+          "tags": [],
+          "category": "patch",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "github.com",
+          "icon": "\ud83d\udd27"
+        },
+        {
+          "url": "https://github.com/chains-project/maven-lockfile/pull/1111",
+          "source": "",
+          "tags": [],
+          "category": "patch",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "github.com",
+          "icon": "\ud83d\udd27"
+        },
+        {
+          "url": "https://github.com/github/docs/blob/962a1c8dccb8c0f66548b324e5b921b5e4fbc3d6/content/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions.md?plain=1#L191-L193",
+          "source": "",
+          "tags": [],
+          "category": "technical",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "github.com",
+          "icon": "\ud83d\udcda"
+        },
+        {
+          "url": "https://github.com/tj-actions/changed-files/issues/2463",
+          "source": "",
+          "tags": [],
+          "category": "technical",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "github.com",
+          "icon": "\ud83d\udcda"
+        },
+        {
+          "url": "https://www.stepsecurity.io/blog/harden-runner-detection-tj-actions-changed-files-action-is-compromised",
+          "source": "",
+          "tags": [],
+          "category": "technical",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "stepsecurity.io",
+          "icon": "\ud83d\udcda"
+        },
+        {
+          "url": "https://semgrep.dev/blog/2025/popular-github-action-tj-actionschanged-files-is-compromised/",
+          "source": "",
+          "tags": [],
+          "category": "technical",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "semgrep.dev",
+          "icon": "\ud83d\udcda"
+        },
+        {
+          "url": "https://web.archive.org/web/20250315060250/https://github.com/tj-actions/changed-files/issues/2463",
+          "source": "",
+          "tags": [],
+          "category": "technical",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "web.archive.org",
+          "icon": "\ud83d\udcda"
+        },
+        {
+          "url": "https://sysdig.com/blog/detecting-and-mitigating-the-tj-actions-changed-files-supply-chain-attack-cve-2025-30066/",
+          "source": "",
+          "tags": [],
+          "category": "technical",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "sysdig.com",
+          "icon": "\ud83d\udcda"
+        },
+        {
+          "url": "https://github.com/espressif/arduino-esp32/issues/11127",
+          "source": "",
+          "tags": [],
+          "category": "technical",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "github.com",
+          "icon": "\ud83d\udcda"
+        },
+        {
+          "url": "https://github.com/modal-labs/modal-examples/issues/1100",
+          "source": "",
+          "tags": [],
+          "category": "technical",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "github.com",
+          "icon": "\ud83d\udcda"
+        },
+        {
+          "url": "https://github.com/tj-actions/changed-files/issues/2464",
+          "source": "",
+          "tags": [],
+          "category": "technical",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "github.com",
+          "icon": "\ud83d\udcda"
+        },
+        {
+          "url": "https://github.com/tj-actions/changed-files/blob/45fb12d7a8bedb4da42342e52fe054c6c2c3fd73/README.md?plain=1#L20-L28",
+          "source": "",
+          "tags": [],
+          "category": "technical",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "github.com",
+          "icon": "\ud83d\udcda"
+        },
+        {
+          "url": "https://www.wiz.io/blog/github-action-tj-actions-changed-files-supply-chain-attack-cve-2025-30066",
+          "source": "",
+          "tags": [],
+          "category": "technical",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "wiz.io",
+          "icon": "\ud83d\udcda"
+        },
+        {
+          "url": "https://www.sweet.security/blog/cve-2025-30066-tj-actions-supply-chain-attack",
+          "source": "",
+          "tags": [],
+          "category": "technical",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "sweet.security",
+          "icon": "\ud83d\udcda"
+        },
+        {
+          "url": "https://github.com/tj-actions/changed-files/issues/2477",
+          "source": "",
+          "tags": [],
+          "category": "technical",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "github.com",
+          "icon": "\ud83d\udcda"
+        },
+        {
+          "url": "https://blog.gitguardian.com/compromised-tj-actions/",
+          "source": "",
+          "tags": [],
+          "category": "technical",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "blog.gitguardian.com",
+          "icon": "\ud83d\udcda"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=43368870",
+          "source": "",
+          "tags": [],
+          "category": "other",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "news.ycombinator.com",
+          "icon": "\ud83d\udd17"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=43367987",
+          "source": "",
+          "tags": [],
+          "category": "other",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "news.ycombinator.com",
+          "icon": "\ud83d\udd17"
+        },
+        {
+          "url": "https://www.stream.security/post/github-action-supply-chain-attack-exposes-secrets-what-you-need-to-know-and-how-to-respond",
+          "source": "",
+          "tags": [],
+          "category": "other",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "stream.security",
+          "icon": "\ud83d\udd17"
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-506"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/30xxx/CVE-2025-30066.json",
+            "lastModified": "2025-07-30T01:36:16.435000+00:00"
+          }
+        ]
+      },
+      "reference_categories": [
+        "other",
+        "patch",
+        "technical"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-1094",
+      "title": "PostgreSQL quoting APIs miss neutralizing quoting syntax in text that fails encoding validation",
+      "description": "Improper neutralization of quoting syntax in PostgreSQL libpq functions PQescapeLiteral(), PQescapeIdentifier(), PQescapeString(), and PQescapeStringConn() allows a database input provider to achieve SQL injection in certain usage patterns.  Specifically, SQL injection requires the application to use the function result to construct input to psql, the PostgreSQL interactive terminal.  Similarly, improper neutralization of quoting syntax in PostgreSQL command line utility programs allows a source of command line arguments to achieve SQL injection when client_encoding is BIG5 and server_encoding is one of EUC_TW or MULE_INTERNAL.  Versions before PostgreSQL 17.3, 16.7, 15.11, 14.16, and 13.19 are affected.",
+      "publishedDate": "2025-02-13T13:00:02.061000+00:00",
+      "lastModifiedDate": "2025-03-14T03:55:17.849000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 8.1,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.7948,
+        "percentile": 99.041
+      },
+      "riskScore": 61,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "N/a",
+          "PostgreSQL"
+        ],
+        "products": [
+          "Postgresql"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.postgresql.org/support/security/CVE-2025-1094/",
+          "source": "",
+          "tags": [],
+          "category": "other",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "postgresql.org",
+          "icon": "\ud83d\udd17"
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-149"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "High",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/1xxx/CVE-2025-1094.json",
+            "lastModified": "2025-03-14T03:55:17.849000+00:00"
+          }
+        ]
+      },
+      "reference_categories": [
+        "other"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-21293",
+      "title": "Active Directory Domain Services Elevation of Privilege Vulnerability",
+      "description": "Active Directory Domain Services Elevation of Privilege Vulnerability",
+      "publishedDate": "2025-01-14T18:03:48.110000+00:00",
+      "lastModifiedDate": "2025-04-02T13:23:24.588000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H/E:U/RL:O/RC:C",
+          "baseScore": 8.8,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.756,
+        "percentile": 98.857
+      },
+      "riskScore": 60,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Microsoft"
+        ],
+        "products": [
+          "Windows 10 Version 1507",
+          "Windows 10 Version 1607",
+          "Windows 10 Version 1809",
+          "Windows 10 Version 21h2",
+          "Windows 10 Version 22h2",
+          "Windows 11 Version 22h2",
+          "Windows 11 Version 22h3",
+          "Windows 11 Version 23h2",
+          "Windows 11 Version 24h2",
+          "Windows Server 2012",
+          "Windows Server 2012 (server Core Installation)",
+          "Windows Server 2012 R2",
+          "Windows Server 2012 R2 (server Core Installation)",
+          "Windows Server 2016",
+          "Windows Server 2016 (server Core Installation)",
+          "Windows Server 2019",
+          "Windows Server 2019 (server Core Installation)",
+          "Windows Server 2022",
+          "Windows Server 2022, 23h2 Edition (server Core Installation)",
+          "Windows Server 2025",
+          "Windows Server 2025 (server Core Installation)"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-21293",
+          "source": "Active Directory Domain Services Elevation of Privilege Vulnerability",
+          "tags": [
+            "vendor-advisory"
+          ],
+          "category": "patch",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "msrc.microsoft.com",
+          "icon": "\ud83d\udd27"
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-284"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "Low",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/21xxx/CVE-2025-21293.json",
+            "lastModified": "2025-04-02T13:23:24.588000+00:00"
+          }
+        ]
+      },
+      "reference_categories": [
+        "patch"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-3102",
+      "title": "SureTriggers <= 1.0.78 - Authorization Bypass due to Missing Empty Value Check to Unauthenticated Administrative User Creation",
+      "description": "The SureTriggers: All-in-One Automation Platform plugin for WordPress is vulnerable to an authentication bypass leading to administrative account creation due to a missing empty value check on the 'secret_key' value in the 'autheticate_user' function in all versions up to, and including, 1.0.78. This makes it possible for unauthenticated attackers to create administrator accounts on the target website when the plugin is installed and activated but not configured with an API key.",
+      "publishedDate": "2025-04-10T04:22:05.560000+00:00",
+      "lastModifiedDate": "2025-04-10T13:10:32.671000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 8.1,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.8599,
+        "percentile": 99.359
+      },
+      "riskScore": 60,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Brainstormforce",
+          "WordPress"
+        ],
+        "products": [
+          "Ottokit: All-in-one Automation Platform (formerly Suretriggers)",
+          "Wordpress"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://plugins.trac.wordpress.org/changeset?sfp_email=&sfph_mail=&reponame=&new=3266499%40suretriggers%2Ftrunk&old=3264905%40suretriggers%2Ftrunk&sfp_email=&sfph_mail=",
+          "source": "",
+          "tags": [],
+          "category": "patch",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "plugins.trac.wordpress.org",
+          "icon": "\ud83d\udd27"
+        },
+        {
+          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/ec017311-f150-4a14-a4b4-b5634f574e2b?source=cve",
+          "source": "",
+          "tags": [],
+          "category": "other",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "wordfence.com",
+          "icon": "\ud83d\udd17"
+        },
+        {
+          "url": "https://plugins.trac.wordpress.org/browser/suretriggers/trunk/src/Controllers/RestController.php#L59",
+          "source": "",
+          "tags": [],
+          "category": "other",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "plugins.trac.wordpress.org",
+          "icon": "\ud83d\udd17"
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-697"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "High",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/3xxx/CVE-2025-3102.json",
+            "lastModified": "2025-04-10T13:10:32.671000+00:00"
+          }
+        ]
+      },
+      "reference_categories": [
+        "other",
+        "patch"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-2011",
+      "title": "Slider & Popup Builder by Depicter <= 3.6.1 - Unauthenticated SQL Injection via 's' Parameter",
+      "description": "The Slider & Popup Builder by Depicter plugin for WordPress is vulnerable to generic SQL Injection via the \u2018s' parameter in all versions up to, and including, 3.6.1 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
+      "publishedDate": "2025-05-06T09:21:49.177000+00:00",
+      "lastModifiedDate": "2025-05-07T13:35:13.884000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "baseScore": 7.5,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.6265,
+        "percentile": 98.307
+      },
+      "riskScore": 59,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Averta",
+          "The",
+          "WordPress"
+        ],
+        "products": [
+          "Popup And Slider Builder By Depicter \u2013 Add Email Collecting Popup, Popup Modal, Coupon Popup, Image Slider, Carousel Slider, Post Slider Carousel",
+          "The Database",
+          "Wordpress"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://plugins.trac.wordpress.org/changeset/3287525/",
+          "source": "",
+          "tags": [],
+          "category": "patch",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "plugins.trac.wordpress.org",
+          "icon": "\ud83d\udd27"
+        },
+        {
+          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/49b36cde-39d8-4a69-8d7c-7b850b76a7cd?source=cve",
+          "source": "",
+          "tags": [],
+          "category": "other",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "wordfence.com",
+          "icon": "\ud83d\udd17"
+        },
+        {
+          "url": "https://plugins.trac.wordpress.org/browser/depicter/trunk/app/src/Database/Repository/LeadRepository.php?rev=3156664#L224",
+          "source": "",
+          "tags": [],
+          "category": "other",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "plugins.trac.wordpress.org",
+          "icon": "\ud83d\udd17"
+        },
+        {
+          "url": "https://plugins.trac.wordpress.org/browser/depicter/trunk/app/src/Services/LeadService.php?rev=3156664#L82",
+          "source": "",
+          "tags": [],
+          "category": "other",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "plugins.trac.wordpress.org",
+          "icon": "\ud83d\udd17"
+        },
+        {
+          "url": "https://plugins.trac.wordpress.org/browser/depicter/trunk/app/src/Controllers/Ajax/LeadsAjaxController.php?rev=3156664#L23",
+          "source": "",
+          "tags": [],
+          "category": "other",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "plugins.trac.wordpress.org",
+          "icon": "\ud83d\udd17"
+        },
+        {
+          "url": "https://plugins.trac.wordpress.org/browser/depicter/trunk/app/src/Controllers/Ajax/LeadsAjaxController.php?rev=3156664#L49",
+          "source": "",
+          "tags": [],
+          "category": "other",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "plugins.trac.wordpress.org",
+          "icon": "\ud83d\udd17"
+        },
+        {
+          "url": "https://plugins.trac.wordpress.org/browser/depicter/trunk/app/src/Controllers/Ajax/LeadsAjaxController.php?rev=3156664#L179",
+          "source": "",
+          "tags": [],
+          "category": "other",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "plugins.trac.wordpress.org",
+          "icon": "\ud83d\udd17"
+        },
+        {
+          "url": "https://wordpress.org/plugins/depicter/#description",
+          "source": "",
+          "tags": [],
+          "category": "other",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "wordpress.org",
+          "icon": "\ud83d\udd17"
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-89"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/2xxx/CVE-2025-2011.json",
+            "lastModified": "2025-05-07T13:35:13.884000+00:00"
+          }
+        ]
+      },
+      "reference_categories": [
+        "other",
+        "patch"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-27363",
+      "title": "CVE-2025-27363: An out of bounds write exists in FreeType versions 2.13.0 and below (newer versions of FreeType are ...",
+      "description": "An out of bounds write exists in FreeType versions 2.13.0 and below (newer versions of FreeType are not vulnerable) when attempting to parse font subglyph structures related to TrueType GX and variable font files. The vulnerable code assigns a signed short value to an unsigned long and then adds a static value causing it to wrap around and allocate too small of a heap buffer. The code then writes up to 6 signed long integers out of bounds relative to this buffer. This may result in arbitrary code execution. This vulnerability may have been exploited in the wild.",
+      "publishedDate": "2025-03-11T13:28:31.705000+00:00",
+      "lastModifiedDate": "2025-07-30T01:36:18.147000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H/E:F/RL:O/RC:C/CR:H/IR:H/AR:H/MAV:N/MAC:L/MPR:N/MUI:N/MS:U/MC:H/MI:H/MA:H",
+          "baseScore": 8.1,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.7072,
+        "percentile": 98.638
+      },
+      "riskScore": 55,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Freetype"
+        ],
+        "products": [
+          "Freetype"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.facebook.com/security/advisories/cve-2025-27363",
+          "source": "",
+          "tags": [
+            "x_refsource_CONFIRM"
+          ],
+          "category": "other",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "facebook.com",
+          "icon": "\ud83d\udd17"
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "High",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/27xxx/CVE-2025-27363.json",
+            "lastModified": "2025-07-30T01:36:18.147000+00:00"
+          }
+        ]
+      },
+      "reference_categories": [
+        "other"
+      ]
+    },
+    {
+      "cveId": "CVE-2025-2264",
+      "title": "Santesoft Sante PACS Server Path Traversal Information Disclosure",
+      "description": "A Path Traversal Information Disclosure vulnerability exists in \"Sante PACS Server.exe\". An unauthenticated remote attacker can exploit it to download arbitrary files on the disk drive where the application is installed.",
+      "publishedDate": "2025-03-13T16:29:07.468000+00:00",
+      "lastModifiedDate": "2025-03-14T13:41:13.356000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "baseScore": 7.5,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.6945,
+        "percentile": 98.589
+      },
+      "riskScore": 54,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Pacs",
+          "Santesoft"
+        ],
+        "products": [
+          "Pacs Server",
+          "Sante Pacs Server"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.tenable.com/security/research/tra-2025-08",
+          "source": "",
+          "tags": [],
+          "category": "technical",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "tenable.com",
+          "icon": "\ud83d\udcda"
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-22"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/2xxx/CVE-2025-2264.json",
+            "lastModified": "2025-03-14T13:41:13.356000+00:00"
+          }
+        ]
+      },
+      "reference_categories": [
+        "technical"
+      ]
+    }
+  ]
+}

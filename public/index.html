@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vulnerability Intelligence Dashboard</title>
+
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        /* Modern Dark Theme */
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1e1e2a;
+            --bg-hover: #252535;
+
+            --accent-primary: #00d4ff;
+            --accent-secondary: #7c3aed;
+            --accent-danger: #ef4444;
+            --accent-success: #10b981;
+
+            --text-primary: #ffffff;
+            --text-secondary: #a3a3b8;
+            --text-muted: #6b6b85;
+
+            --gradient-primary: linear-gradient(135deg, #00d4ff 0%, #7c3aed 100%);
+            --shadow-glow: 0 0 40px rgba(0, 212, 255, 0.3);
+
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* Layout */
+        .dashboard {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(18, 18, 26, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .brand-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--gradient-primary);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .brand h1 {
+            font-size: 1.75rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Main Content */
+        .main {
+            flex: 1;
+            padding: 2rem;
+            max-width: 1600px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Filters */
+        .filters-section {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .filter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .filter-group label {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .filter-group input,
+        .filter-group select {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 0.75rem;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .filter-group input:focus,
+        .filter-group select:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+        }
+
+        /* Search */
+        .search-box {
+            position: relative;
+            margin-bottom: 1rem;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 3rem 1rem 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid transparent;
+            border-radius: 16px;
+            font-size: 1rem;
+            color: var(--text-primary);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            background: rgba(0, 212, 255, 0.05);
+        }
+
+        /* Quick Filters */
+        .quick-filters {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .filter-chip {
+            padding: 0.75rem 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-chip:hover {
+            background: rgba(0, 212, 255, 0.1);
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+        }
+
+        .filter-chip.active {
+            background: var(--gradient-primary);
+            color: white;
+            border-color: transparent;
+        }
+
+        /* Data Table */
+        .data-section {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 2rem;
+            overflow: hidden;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            text-align: left;
+            padding: 1rem;
+            color: var(--text-secondary);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-weight: 600;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        th:hover {
+            color: var(--accent-primary);
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        tbody tr {
+            transition: background-color 0.2s ease;
+        }
+
+        tbody tr:hover {
+            background: rgba(0, 212, 255, 0.02);
+        }
+
+        /* Severity Badges */
+        .severity-badge {
+            display: inline-flex;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .severity-critical {
+            background: rgba(220, 38, 38, 0.2);
+            color: #dc2626;
+            border: 1px solid rgba(220, 38, 38, 0.3);
+        }
+
+        .severity-high {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        .severity-medium {
+            background: rgba(245, 158, 11, 0.2);
+            color: #f59e0b;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        .severity-low {
+            background: rgba(59, 130, 246, 0.2);
+            color: #3b82f6;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .page-btn {
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .page-btn:hover:not(:disabled) {
+            background: rgba(0, 212, 255, 0.1);
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+        }
+
+        .page-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Charts */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .chart-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 1.5rem;
+        }
+
+        .chart-title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .chart-container {
+            position: relative;
+            height: 300px;
+        }
+
+
+
+        /* Enhanced Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .table-wrapper {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                margin: 0 -1rem;
+                padding: 0 1rem;
+            }
+
+            table {
+                min-width: 600px;
+            }
+
+            /* Add scroll indicator */
+            .table-wrapper::after {
+                content: '→ Scroll for more';
+                position: absolute;
+                right: 1rem;
+                top: 1rem;
+                background: rgba(0,0,0,0.8);
+                color: white;
+                padding: 0.25rem 0.5rem;
+                border-radius: 4px;
+                font-size: 0.75rem;
+                pointer-events: none;
+                opacity: 0;
+                transition: opacity 0.3s;
+            }
+
+            .table-wrapper:not(:hover)::after {
+                opacity: 1;
+            }
+
+            /* Responsive table cells */
+            td, th {
+                white-space: nowrap;
+                min-width: 100px;
+            }
+
+            /* Hide less important columns on mobile */
+            th:nth-child(5), td:nth-child(5) { /* Risk Score */
+                display: none;
+            }
+
+            .stats-card {
+                padding: 1rem;
+            }
+
+            .stat-value {
+                font-size: 1.75rem;
+            }
+
+            .filter-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-filters {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .filter-chip {
+                font-size: 0.875rem;
+                padding: 0.375rem 0.75rem;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .main {
+                padding: 1rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-filters {
+                justify-content: center;
+            }
+
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .truncate {
+            max-width: 200px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .cve-link {
+            color: var(--accent-primary);
+            text-decoration: none;
+        }
+
+        .cve-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body x-data="dashboard()">
+    <div class="dashboard">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="brand">
+                    <div class="brand-icon">VB</div>
+                    <div>
+                        <h1>Vuln-Bot Intelligence</h1>
+                        <p style="color: var(--text-muted); font-size: 0.875rem;">
+                            Real-time Vulnerability Monitoring
+                        </p>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 1rem;">
+                    <button class="filter-chip" @click="exportCSV()">
+                        Export CSV
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats Section -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" x-text="stats.total"></div>
+                    <div class="stat-label">Total Vulnerabilities</div>
+                    <div class="stat-change positive">
+                        <span x-text="`+${stats.week_count}`"></span>
+                        <span>from last week</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-value" x-text="stats.critical"></div>
+                    <div class="stat-label">Critical Severity</div>
+                    <div class="stat-change negative">
+                        <span x-text="`+${stats.today_count}`"></span>
+                        <span>new today</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-value" x-text="stats.high"></div>
+                    <div class="stat-label">High Severity</div>
+                    <div class="stat-trend">
+                        <span x-text="`${Math.round(stats.high / stats.total * 100)}%`"></span>
+                        <span>of total</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-value" x-text="stats.kev_count"></div>
+                    <div class="stat-label">KEV Listed</div>
+                    <div class="stat-trend">
+                        <span>Known</span>
+                        <span>Exploited</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Filters -->
+            <div class="quick-filters">
+                <button class="filter-chip"
+                        :class="{ 'active': quickFilter === 'all' }"
+                        @click="setQuickFilter('all')">
+                    All Vulnerabilities
+                </button>
+                <button class="filter-chip"
+                        :class="{ 'active': quickFilter === 'critical' }"
+                        @click="setQuickFilter('critical')">
+                    <span class="severity-badge severity-critical">Critical</span>
+                </button>
+                <button class="filter-chip"
+                        :class="{ 'active': quickFilter === 'today' }"
+                        @click="setQuickFilter('today')">
+                    📅 Today's CVEs
+                </button>
+                <button class="filter-chip"
+                        :class="{ 'active': quickFilter === 'kev' }"
+                        @click="setQuickFilter('kev')">
+                    ⭐ KEV Listed
+                </button>
+                <button class="filter-chip"
+                        :class="{ 'active': quickFilter === 'network' }"
+                        @click="setQuickFilter('network')">
+                    🌐 Network Vector
+                </button>
+            </div>
+
+            <!-- Filters Section -->
+            <div class="filters-section" x-data="{ expanded: true }">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                    <h2 style="font-size: 1.25rem;">Filters</h2>
+                    <button @click="expanded = !expanded"
+                            style="background: none; border: none; color: var(--text-secondary); cursor: pointer;">
+                        <span x-text="expanded ? '−' : '+'"></span>
+                    </button>
+                </div>
+
+                <div x-show="expanded" x-transition>
+                    <!-- Search -->
+                    <div class="search-box">
+                        <input type="text"
+                               x-model="search"
+                               class="search-input"
+                               placeholder="Search CVE ID, vendor, or keyword..."
+                               @keydown.slash.window.prevent="$el.focus()">
+                    </div>
+
+                    <!-- Filter Grid -->
+                    <div class="filter-grid">
+                        <div class="filter-group">
+                            <label>Severity</label>
+                            <select x-model="filters.severity">
+                                <option value="">All</option>
+                                <option value="CRITICAL">Critical</option>
+                                <option value="HIGH">High</option>
+                                <option value="MEDIUM">Medium</option>
+                                <option value="LOW">Low</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-group">
+                            <label>CVSS Score</label>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <input type="number" x-model.number="filters.cvss_min" placeholder="Min" min="0" max="10" step="0.1">
+                                <input type="number" x-model.number="filters.cvss_max" placeholder="Max" min="0" max="10" step="0.1">
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <label>EPSS %</label>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <input type="number" x-model.number="filters.epss_min" placeholder="Min" min="0" max="100" value="70">
+                                <input type="number" x-model.number="filters.epss_max" placeholder="Max" min="0" max="100" value="100">
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <label>Published Date</label>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <input type="date" x-model="filters.published_from">
+                                <input type="date" x-model="filters.published_to">
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <label>Vendor</label>
+                            <input type="text" x-model="filters.vendor" placeholder="e.g., Microsoft">
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                        <button class="filter-chip active" @click="resetFilters()" @keydown.r.window.prevent="resetFilters()">
+                            Reset
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <h3 class="chart-title">Severity Distribution</h3>
+                    <div class="chart-container">
+                        <canvas x-ref="severityChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <h3 class="chart-title">EPSS Score Distribution</h3>
+                    <div class="chart-container">
+                        <canvas x-ref="epssChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Table -->
+            <div class="data-section">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                    <h2 style="font-size: 1.5rem;">Vulnerabilities</h2>
+                    <div x-text="`Showing ${Math.min(perPage, filteredVulns.length)} of ${filteredVulns.length} results`"
+                         style="color: var(--text-secondary);"></div>
+                </div>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th @click="sort('cve_id')" style="cursor: pointer;">
+                                    CVE ID <span x-show="sortField === 'cve_id'" x-text="sortOrder === 'asc' ? '↑' : '↓'"></span>
+                                </th>
+                                <th @click="sort('severity')" style="cursor: pointer;">
+                                    Severity <span x-show="sortField === 'severity'" x-text="sortOrder === 'asc' ? '↑' : '↓'"></span>
+                                </th>
+                                <th @click="sort('cvss_score')" style="cursor: pointer;">
+                                    CVSS <span x-show="sortField === 'cvss_score'" x-text="sortOrder === 'asc' ? '↑' : '↓'"></span>
+                                </th>
+                                <th @click="sort('epss_percentile')" style="cursor: pointer;">
+                                    EPSS % <span x-show="sortField === 'epss_percentile'" x-text="sortOrder === 'asc' ? '↑' : '↓'"></span>
+                                </th>
+                                <th @click="sort('risk_score')" style="cursor: pointer;">
+                                    Risk Score <span x-show="sortField === 'risk_score'" x-text="sortOrder === 'asc' ? '↑' : '↓'"></span>
+                                </th>
+                                <th>Product</th>
+                                <th>Vendors</th>
+                                <th @click="sort('published_date')" style="cursor: pointer;">
+                                    Published <span x-show="sortField === 'published_date'" x-text="sortOrder === 'asc' ? '↑' : '↓'"></span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template x-for="vuln in paginatedVulns" :key="vuln.cve_id">
+                                <tr class="vulnerability-row" :data-cve="vuln.cve_id">
+                                    <td>
+                                        <a :href="`/vuln-bot/cves/${vuln.cve_id}/`" class="cve-link" x-text="vuln.cve_id"></a>
+                                    </td>
+                                    <td>
+                                        <span class="severity-badge" :class="`severity-${vuln.severity.toLowerCase()}`" x-text="vuln.severity"></span>
+                                    </td>
+                                    <td x-text="vuln.cvss_score"></td>
+                                    <td x-text="vuln.epss_percentile"></td>
+                                    <td x-text="vuln.risk_score"></td>
+                                    <td class="truncate" x-text="vuln.products"></td>
+                                    <td class="truncate" x-text="vuln.vendors.join(', ') || 'Unknown'"></td>
+                                    <td x-text="vuln.published_short"></td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+
+                    <div class="pagination">
+                        <button class="page-btn"
+                                @click="currentPage--"
+                                :disabled="currentPage <= 1">
+                            Previous
+                        </button>
+                        <span x-text="`Page ${currentPage} of ${totalPages} • ${filteredVulns.length} vulnerabilities`"></span>
+                        <button class="page-btn"
+                                @click="currentPage++"
+                                :disabled="currentPage >= totalPages">
+                            Next
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+    <script>
+        // Embed vulnerability data (using window to ensure global scope)
+        window.vulnerabilityData = [];
+        window.statsData = {
+  "total": 0,
+  "critical": 0,
+  "high": 0,
+  "medium": 0,
+  "low": 0,
+  "today_count": 0,
+  "week_count": 0,
+  "kev_count": 0,
+  "severity_distribution": {
+    "CRITICAL": 0,
+    "HIGH": 0,
+    "MEDIUM": 0,
+    "LOW": 0
+  },
+  "epss_distribution": {
+    "90-100%": 0,
+    "70-89%": 0,
+    "50-69%": 0,
+    "<50%": 0
+  }
+};
+
+        window.dashboard = function() {
+            return {
+                // Data
+                vulnerabilities: window.vulnerabilityData,
+                stats: window.statsData,
+
+                // UI State
+                search: '',
+                quickFilter: 'all',
+                sortField: 'epss_percentile',
+                sortOrder: 'desc',
+                currentPage: 1,
+                perPage: 50,
+
+                // Filters
+                filters: {
+                    severity: '',
+                    cvss_min: null,
+                    cvss_max: null,
+                    epss_min: 0,
+                    epss_max: 100,
+                    published_from: '',
+                    published_to: '',
+                    vendor: ''
+                },
+
+                // Initialization
+                init() {
+                    this.$nextTick(() => {
+                        this.initCharts();
+                        this.setupKeyboardShortcuts();
+                    });
+                },
+
+                // Computed Properties
+                get filteredVulns() {
+                    let vulns = [...this.vulnerabilities];
+
+                    // Quick filter
+                    if (this.quickFilter === 'critical') {
+                        vulns = vulns.filter(v => v.severity === 'CRITICAL');
+                    } else if (this.quickFilter === 'today') {
+                        const today = new Date().toISOString().split('T')[0];
+                        vulns = vulns.filter(v => v.published_date && v.published_date.startsWith(today));
+                    } else if (this.quickFilter === 'kev') {
+                        vulns = vulns.filter(v => v.tags.includes('KEV'));
+                    } else if (this.quickFilter === 'network') {
+                        vulns = vulns.filter(v => v.attack_vector === 'NETWORK');
+                    }
+
+                    // Search
+                    if (this.search) {
+                        const searchLower = this.search.toLowerCase();
+                        vulns = vulns.filter(v =>
+                            v.cve_id.toLowerCase().includes(searchLower) ||
+                            v.title.toLowerCase().includes(searchLower) ||
+                            v.vendors.some(vendor => vendor.toLowerCase().includes(searchLower))
+                        );
+                    }
+
+                    // Advanced filters
+                    if (this.filters.severity) {
+                        vulns = vulns.filter(v => v.severity === this.filters.severity);
+                    }
+
+                    if (this.filters.cvss_min !== null) {
+                        vulns = vulns.filter(v => v.cvss_score >= this.filters.cvss_min);
+                    }
+
+                    if (this.filters.cvss_max !== null) {
+                        vulns = vulns.filter(v => v.cvss_score <= this.filters.cvss_max);
+                    }
+
+                    if (this.filters.epss_min !== null) {
+                        vulns = vulns.filter(v => v.epss_percentile >= this.filters.epss_min);
+                    }
+
+                    if (this.filters.epss_max !== null) {
+                        vulns = vulns.filter(v => v.epss_percentile <= this.filters.epss_max);
+                    }
+
+                    if (this.filters.published_from) {
+                        vulns = vulns.filter(v => v.published_date >= this.filters.published_from);
+                    }
+
+                    if (this.filters.published_to) {
+                        vulns = vulns.filter(v => v.published_date <= this.filters.published_to);
+                    }
+
+                    if (this.filters.vendor) {
+                        const vendorLower = this.filters.vendor.toLowerCase();
+                        vulns = vulns.filter(v =>
+                            v.vendors.some(vendor => vendor.toLowerCase().includes(vendorLower))
+                        );
+                    }
+
+                    // Sorting
+                    vulns.sort((a, b) => {
+                        let aVal = a[this.sortField];
+                        let bVal = b[this.sortField];
+
+                        // Handle special cases
+                        if (this.sortField === 'severity') {
+                            const severityOrder = { 'CRITICAL': 4, 'HIGH': 3, 'MEDIUM': 2, 'LOW': 1 };
+                            aVal = severityOrder[aVal] || 0;
+                            bVal = severityOrder[bVal] || 0;
+                        }
+
+                        if (aVal < bVal) return this.sortOrder === 'asc' ? -1 : 1;
+                        if (aVal > bVal) return this.sortOrder === 'asc' ? 1 : -1;
+                        return 0;
+                    });
+
+                    return vulns;
+                },
+
+                get totalPages() {
+                    return Math.ceil(this.filteredVulns.length / this.perPage);
+                },
+
+                get paginatedVulns() {
+                    const start = (this.currentPage - 1) * this.perPage;
+                    const end = start + this.perPage;
+                    return this.filteredVulns.slice(start, end);
+                },
+
+                // Methods
+                setQuickFilter(filter) {
+                    this.quickFilter = filter;
+                    this.currentPage = 1;
+                },
+
+                sort(field) {
+                    if (this.sortField === field) {
+                        this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc';
+                    } else {
+                        this.sortField = field;
+                        this.sortOrder = 'desc';
+                    }
+                    this.currentPage = 1;
+                },
+
+                resetFilters() {
+                    this.search = '';
+                    this.quickFilter = 'all';
+                    this.filters = {
+                        severity: '',
+                        cvss_min: null,
+                        cvss_max: null,
+                        epss_min: 0,
+                        epss_max: 100,
+                        published_from: '',
+                        published_to: '',
+                        vendor: ''
+                    };
+                    this.currentPage = 1;
+                },
+
+
+                exportCSV() {
+                    const headers = ['CVE ID', 'Severity', 'CVSS', 'EPSS %', 'Risk Score', 'Product', 'Vendors', 'Published'];
+                    const csvContent = [
+                        headers.join(','),
+                        ...this.filteredVulns.map(v => [
+                            v.cve_id,
+                            v.severity,
+                            v.cvss_score,
+                            v.epss_percentile,
+                            v.risk_score,
+                            `"${v.products.replace(/"/g, '""')}"`,
+                            `"${v.vendors.join(', ')}"`,
+                            v.published_short
+                        ].join(','))
+                    ].join('\n');
+
+                    const blob = new Blob([csvContent], { type: 'text/csv' });
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'vulnerabilities.csv';
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                },
+
+                setupKeyboardShortcuts() {
+                    document.addEventListener('keydown', (e) => {
+                        // Only trigger shortcuts when not in input fields
+                        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT') {
+                            return;
+                        }
+
+                        switch(e.key) {
+                            case '/':
+                                e.preventDefault();
+                                document.querySelector('.search-input').focus();
+                                break;
+                            case 'r':
+                                e.preventDefault();
+                                this.resetFilters();
+                                break;
+                            case 'e':
+                                e.preventDefault();
+                                this.exportCSV();
+                                break;
+                        }
+                    });
+                },
+
+                initCharts() {
+                    // Severity Chart
+                    if (this.$refs.severityChart) {
+                        new Chart(this.$refs.severityChart, {
+                            type: 'doughnut',
+                            data: {
+                                labels: ['Critical', 'High', 'Medium', 'Low'],
+                                datasets: [{
+                                    data: [
+                                        this.stats.severity_distribution.CRITICAL,
+                                        this.stats.severity_distribution.HIGH,
+                                        this.stats.severity_distribution.MEDIUM,
+                                        this.stats.severity_distribution.LOW
+                                    ],
+                                    backgroundColor: ['#dc2626', '#ef4444', '#f59e0b', '#3b82f6']
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                plugins: {
+                                    legend: {
+                                        labels: { color: '#cbd5e1' }
+                                    }
+                                }
+                            }
+                        });
+                    }
+
+                    // EPSS Chart
+                    if (this.$refs.epssChart) {
+                        new Chart(this.$refs.epssChart, {
+                            type: 'bar',
+                            data: {
+                                labels: ['90-100%', '70-89%', '50-69%', '<50%'],
+                                datasets: [{
+                                    data: [
+                                        this.stats.epss_distribution['90-100%'],
+                                        this.stats.epss_distribution['70-89%'],
+                                        this.stats.epss_distribution['50-69%'],
+                                        this.stats.epss_distribution['<50%']
+                                    ],
+                                    backgroundColor: ['#dc2626', '#ef4444', '#f59e0b', '#10b981']
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                plugins: {
+                                    legend: { display: false },
+                                },
+                                scales: {
+                                    y: {
+                                        ticks: { color: '#cbd5e1' }
+                                    },
+                                    x: {
+                                        ticks: { color: '#cbd5e1' }
+                                    }
+                                }
+                            }
+                        });
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
