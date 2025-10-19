@@ -1469,7 +1469,7 @@ def main():
         print(f"Using SQLite database from {DB_PATH}")
         generator = AlpineDashboardGenerator(db_path=DB_PATH)
     else:
-        print(f"Error: No data source found!")
+        print("Error: No data source found!")
         print(f"  - JSON API not found at {JSON_API_PATH}")
         print(f"  - Database not found at {DB_PATH}")
         print("\nPlease run the vulnerability harvest first:")
