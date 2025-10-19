@@ -5,7 +5,7 @@ Fetches and enriches vulnerabilities with CISA KEV catalog data.
 
 import json
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Set
 
 import requests
 import structlog
@@ -22,15 +22,34 @@ class CISAKEVAgent(BaseAgent):
     CACHE_DURATION_HOURS = 24
 
     def __init__(self):
-        super().__init__(
-            name="CISAKEVAgent",
-            role="threat_intelligence",
-            goal="Enrich vulnerabilities with CISA Known Exploited Vulnerabilities data",
-            backstory="Identifies vulnerabilities actively exploited in the wild per CISA",
-        )
+        super().__init__(name="CISAKEVAgent")
         self.kev_cache = None
         self.kev_cache_time = None
         self.stats = {"kev_enriched": 0, "total_processed": 0, "kev_catalog_size": 0}
+
+    async def execute(self, **kwargs) -> Dict[str, Any]:
+        """Execute KEV enrichment task.
+
+        Args:
+            vulnerabilities: List of vulnerabilities to enrich
+
+        Returns:
+            Dict containing enriched vulnerabilities and statistics
+        """
+        vulnerabilities = kwargs.get("vulnerabilities", [])
+        enriched = self.enrich_batch(vulnerabilities)
+        return {
+            "vulnerabilities": enriched,
+            "statistics": self.get_kev_statistics()
+        }
+
+    def get_dependencies(self) -> Set[str]:
+        """Get dependencies for change detection.
+
+        Returns:
+            Set containing CISA KEV catalog URL
+        """
+        return {self.CISA_KEV_URL}
 
     def fetch_kev_catalog(self, force_refresh: bool = False) -> Dict[str, Any]:
         """
