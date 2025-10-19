@@ -457,9 +457,11 @@ class DepsDevEnrichmentAgent(BaseAgent):
                 "total_vulnerabilities": len(vulnerabilities),
                 "enriched_with_deps_dev": total_enriched,
                 "total_packages_found": total_packages,
-                "enrichment_rate": (total_enriched / len(vulnerabilities) * 100)
-                if vulnerabilities
-                else 0,
+                "enrichment_rate": (
+                    (total_enriched / len(vulnerabilities) * 100)
+                    if vulnerabilities
+                    else 0
+                ),
             },
         }
 

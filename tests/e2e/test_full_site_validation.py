@@ -16,6 +16,7 @@ try:
 except ImportError:
     playwright = None
     import pytest
+
     pytest.skip("Playwright not installed", allow_module_level=True)
 
 
@@ -29,7 +30,7 @@ class VulnBotE2EValidator:
             "base_url": base_url,
             "tests": {},
             "overall_passed": True,
-            "screenshots": []
+            "screenshots": [],
         }
 
     async def validate_epss_threshold_enforcement(self, page: Page) -> Dict[str, Any]:
@@ -39,7 +40,7 @@ class VulnBotE2EValidator:
             "violations": [],
             "total_cves_checked": 0,
             "min_epss_found": None,
-            "max_epss_found": None
+            "max_epss_found": None,
         }
 
         try:
@@ -57,19 +58,21 @@ class VulnBotE2EValidator:
                 row_text = await row.text_content()
 
                 # Extract EPSS score (format: "XX.X%")
-                epss_matches = re.findall(r'(\d{1,2}(?:\.\d+)?%)', row_text)
-                cve_match = re.search(r'CVE-\d{4}-\d+', row_text)
+                epss_matches = re.findall(r"(\d{1,2}(?:\.\d+)?%)", row_text)
+                cve_match = re.search(r"CVE-\d{4}-\d+", row_text)
 
                 if epss_matches and cve_match:
-                    epss_value = float(epss_matches[0].replace('%', ''))
+                    epss_value = float(epss_matches[0].replace("%", ""))
                     epss_scores.append(epss_value)
 
                     if epss_value < 60:
-                        results["violations"].append({
-                            "cve_id": cve_match.group(0),
-                            "epss_score": epss_value,
-                            "violation": f"EPSS {epss_value}% < 60%"
-                        })
+                        results["violations"].append(
+                            {
+                                "cve_id": cve_match.group(0),
+                                "epss_score": epss_value,
+                                "violation": f"EPSS {epss_value}% < 60%",
+                            }
+                        )
 
                 results["total_cves_checked"] += 1
 
@@ -91,7 +94,7 @@ class VulnBotE2EValidator:
             "passed": True,
             "pages_tested": 0,
             "pages_failed": [],
-            "missing_data": []
+            "missing_data": [],
         }
 
         try:
@@ -105,7 +108,7 @@ class VulnBotE2EValidator:
 
             for link in test_links:
                 href = await link.get_attribute("href")
-                cve_id = re.search(r'CVE-\d{4}-\d+', href)
+                cve_id = re.search(r"CVE-\d{4}-\d+", href)
 
                 if cve_id:
                     cve_id = cve_id.group(0)
@@ -115,11 +118,13 @@ class VulnBotE2EValidator:
                     response = await page.goto(cve_url)
 
                     if response.status != 200:
-                        results["pages_failed"].append({
-                            "cve_id": cve_id,
-                            "status": response.status,
-                            "url": cve_url
-                        })
+                        results["pages_failed"].append(
+                            {
+                                "cve_id": cve_id,
+                                "status": response.status,
+                                "url": cve_url,
+                            }
+                        )
                     else:
                         # Check for required elements
                         missing = []
@@ -129,30 +134,33 @@ class VulnBotE2EValidator:
                             missing.append("CVE title")
 
                         # Check for severity badge
-                        if not await page.locator('.badge, .severity').count():
+                        if not await page.locator(".badge, .severity").count():
                             missing.append("Severity badge")
 
                         # Check for EPSS score
-                        if not await page.locator('text=/EPSS.*\\d+/i').count():
+                        if not await page.locator("text=/EPSS.*\\d+/i").count():
                             missing.append("EPSS score")
 
                         # Check for description
-                        if not await page.locator('.description, p').count():
+                        if not await page.locator(".description, p").count():
                             missing.append("Description")
 
                         # Check for references section
-                        if not await page.locator('h2:has-text("References"), h3:has-text("References")').count():
+                        if not await page.locator(
+                            'h2:has-text("References"), h3:has-text("References")'
+                        ).count():
                             missing.append("References section")
 
                         if missing:
-                            results["missing_data"].append({
-                                "cve_id": cve_id,
-                                "missing_elements": missing
-                            })
+                            results["missing_data"].append(
+                                {"cve_id": cve_id, "missing_elements": missing}
+                            )
 
                     results["pages_tested"] += 1
 
-            results["passed"] = len(results["pages_failed"]) == 0 and len(results["missing_data"]) == 0
+            results["passed"] = (
+                len(results["pages_failed"]) == 0 and len(results["missing_data"]) == 0
+            )
 
         except Exception as e:
             results["passed"] = False
@@ -166,7 +174,7 @@ class VulnBotE2EValidator:
             "passed": True,
             "cves_with_deps_links": 0,
             "broken_links": [],
-            "missing_links": []
+            "missing_links": [],
         }
 
         try:
@@ -179,7 +187,7 @@ class VulnBotE2EValidator:
 
             for link in test_links:
                 href = await link.get_attribute("href")
-                cve_id = re.search(r'CVE-\d{4}-\d+', href)
+                cve_id = re.search(r"CVE-\d{4}-\d+", href)
 
                 if cve_id:
                     cve_id = cve_id.group(0)
@@ -199,29 +207,45 @@ class VulnBotE2EValidator:
                             link_href = await deps_link.get_attribute("href")
 
                             # Check if link follows deps.dev format
-                            if not re.match(r'https://deps\.dev/\w+/[^/]+(/[^/]+)?', link_href):
-                                results["broken_links"].append({
-                                    "cve_id": cve_id,
-                                    "link": link_href,
-                                    "issue": "Invalid deps.dev URL format"
-                                })
+                            if not re.match(
+                                r"https://deps\.dev/\w+/[^/]+(/[^/]+)?", link_href
+                            ):
+                                results["broken_links"].append(
+                                    {
+                                        "cve_id": cve_id,
+                                        "link": link_href,
+                                        "issue": "Invalid deps.dev URL format",
+                                    }
+                                )
 
                             # Check for security attributes
                             rel = await deps_link.get_attribute("rel")
-                            if not rel or "noopener" not in rel or "noreferrer" not in rel:
-                                results["broken_links"].append({
-                                    "cve_id": cve_id,
-                                    "link": link_href,
-                                    "issue": "Missing security attributes (rel='noopener noreferrer')"
-                                })
+                            if (
+                                not rel
+                                or "noopener" not in rel
+                                or "noreferrer" not in rel
+                            ):
+                                results["broken_links"].append(
+                                    {
+                                        "cve_id": cve_id,
+                                        "link": link_href,
+                                        "issue": "Missing security attributes (rel='noopener noreferrer')",
+                                    }
+                                )
                     else:
                         # Check if this CVE should have deps.dev data
                         page_text = await page.text_content("body")
-                        if "package" in page_text.lower() or "npm" in page_text.lower() or "pip" in page_text.lower():
-                            results["missing_links"].append({
-                                "cve_id": cve_id,
-                                "note": "CVE mentions packages but no deps.dev links found"
-                            })
+                        if (
+                            "package" in page_text.lower()
+                            or "npm" in page_text.lower()
+                            or "pip" in page_text.lower()
+                        ):
+                            results["missing_links"].append(
+                                {
+                                    "cve_id": cve_id,
+                                    "note": "CVE mentions packages but no deps.dev links found",
+                                }
+                            )
 
             results["passed"] = len(results["broken_links"]) == 0
 
@@ -237,7 +261,7 @@ class VulnBotE2EValidator:
             "passed": True,
             "search_latency_ms": None,
             "filter_latency_ms": None,
-            "issues": []
+            "issues": [],
         }
 
         try:
@@ -245,7 +269,9 @@ class VulnBotE2EValidator:
             await page.wait_for_load_state("networkidle")
 
             # Test search performance
-            search_input = page.locator('input[type="search"], input[placeholder*="Search" i]').first
+            search_input = page.locator(
+                'input[type="search"], input[placeholder*="Search" i]'
+            ).first
 
             if await search_input.count():
                 # Measure search latency
@@ -257,10 +283,14 @@ class VulnBotE2EValidator:
                 results["search_latency_ms"] = search_time
 
                 if search_time > 100:
-                    results["issues"].append(f"Search latency {search_time:.0f}ms exceeds 100ms target")
+                    results["issues"].append(
+                        f"Search latency {search_time:.0f}ms exceeds 100ms target"
+                    )
 
             # Test filter performance
-            epss_filter = page.locator('input[placeholder*="EPSS" i], input[id*="epss" i]').first
+            epss_filter = page.locator(
+                'input[placeholder*="EPSS" i], input[id*="epss" i]'
+            ).first
 
             if await epss_filter.count():
                 start_time = time.time()
@@ -271,7 +301,9 @@ class VulnBotE2EValidator:
                 results["filter_latency_ms"] = filter_time
 
                 if filter_time > 100:
-                    results["issues"].append(f"Filter latency {filter_time:.0f}ms exceeds 100ms target")
+                    results["issues"].append(
+                        f"Filter latency {filter_time:.0f}ms exceeds 100ms target"
+                    )
 
             results["passed"] = len(results["issues"]) == 0
 
@@ -283,28 +315,26 @@ class VulnBotE2EValidator:
 
     async def validate_mobile_ux(self, page: Page) -> Dict[str, Any]:
         """Validate mobile UX and responsiveness."""
-        results = {
-            "passed": True,
-            "viewport_tests": [],
-            "issues": []
-        }
+        results = {"passed": True, "viewport_tests": [], "issues": []}
 
         viewports = [
             {"name": "iPhone 12", "width": 390, "height": 844},
             {"name": "iPad", "width": 768, "height": 1024},
-            {"name": "Desktop", "width": 1920, "height": 1080}
+            {"name": "Desktop", "width": 1920, "height": 1080},
         ]
 
         try:
             for viewport in viewports:
-                await page.set_viewport_size(width=viewport["width"], height=viewport["height"])
+                await page.set_viewport_size(
+                    width=viewport["width"], height=viewport["height"]
+                )
                 await page.goto(self.base_url)
                 await page.wait_for_load_state("networkidle")
 
                 viewport_result = {
                     "name": viewport["name"],
                     "width": viewport["width"],
-                    "issues": []
+                    "issues": [],
                 }
 
                 # Check if table is scrollable on mobile
@@ -313,7 +343,9 @@ class VulnBotE2EValidator:
                     if await table.count():
                         table_box = await table.bounding_box()
                         if table_box and table_box["width"] > viewport["width"]:
-                            viewport_result["issues"].append("Table requires horizontal scrolling")
+                            viewport_result["issues"].append(
+                                "Table requires horizontal scrolling"
+                            )
 
                 # Check if filters are collapsible on mobile
                 if viewport["width"] < 768:
@@ -321,11 +353,18 @@ class VulnBotE2EValidator:
                     if await filters.count() and await filters.is_visible():
                         # Check if filters take too much vertical space
                         filter_box = await filters.bounding_box()
-                        if filter_box and filter_box["height"] > viewport["height"] * 0.5:
-                            viewport_result["issues"].append("Filters occupy >50% of viewport height")
+                        if (
+                            filter_box
+                            and filter_box["height"] > viewport["height"] * 0.5
+                        ):
+                            viewport_result["issues"].append(
+                                "Filters occupy >50% of viewport height"
+                            )
 
                 # Take screenshot for manual review
-                screenshot_path = f"screenshots/{viewport['name'].replace(' ', '_').lower()}_view.png"
+                screenshot_path = (
+                    f"screenshots/{viewport['name'].replace(' ', '_').lower()}_view.png"
+                )
                 await page.screenshot(path=screenshot_path, full_page=False)
                 self.test_results["screenshots"].append(screenshot_path)
 
@@ -347,7 +386,7 @@ class VulnBotE2EValidator:
             "passed": True,
             "pages_checked": 0,
             "missing_categories": [],
-            "broken_links": []
+            "broken_links": [],
         }
 
         try:
@@ -360,7 +399,7 @@ class VulnBotE2EValidator:
 
             for link in test_links:
                 href = await link.get_attribute("href")
-                cve_id = re.search(r'CVE-\d{4}-\d+', href)
+                cve_id = re.search(r"CVE-\d{4}-\d+", href)
 
                 if cve_id:
                     cve_id = cve_id.group(0)
@@ -370,7 +409,9 @@ class VulnBotE2EValidator:
                     await page.wait_for_load_state("networkidle")
 
                     # Look for references section
-                    ref_section = page.locator('section:has(h2:text("References")), div:has(h3:text("References"))').first
+                    ref_section = page.locator(
+                        'section:has(h2:text("References")), div:has(h3:text("References"))'
+                    ).first
 
                     if await ref_section.count():
                         # Check for categorized links
@@ -378,7 +419,7 @@ class VulnBotE2EValidator:
                         found_categories = []
 
                         for category in categories:
-                            if await ref_section.locator(f'text=/{category}/i').count():
+                            if await ref_section.locator(f"text=/{category}/i").count():
                                 found_categories.append(category)
 
                         # Get all reference links
@@ -389,39 +430,50 @@ class VulnBotE2EValidator:
 
                             # Validate link
                             if not link_href.startswith(("http://", "https://")):
-                                results["broken_links"].append({
-                                    "cve_id": cve_id,
-                                    "link": link_href,
-                                    "issue": "Invalid URL scheme"
-                                })
+                                results["broken_links"].append(
+                                    {
+                                        "cve_id": cve_id,
+                                        "link": link_href,
+                                        "issue": "Invalid URL scheme",
+                                    }
+                                )
 
                             # Check for security attributes
                             rel = await ref_link.get_attribute("rel")
                             target = await ref_link.get_attribute("target")
 
                             if not target or target != "_blank":
-                                results["broken_links"].append({
-                                    "cve_id": cve_id,
-                                    "link": link_href,
-                                    "issue": "Missing target='_blank'"
-                                })
+                                results["broken_links"].append(
+                                    {
+                                        "cve_id": cve_id,
+                                        "link": link_href,
+                                        "issue": "Missing target='_blank'",
+                                    }
+                                )
 
                             if not rel or "noopener" not in rel:
-                                results["broken_links"].append({
-                                    "cve_id": cve_id,
-                                    "link": link_href,
-                                    "issue": "Missing rel='noopener noreferrer'"
-                                })
+                                results["broken_links"].append(
+                                    {
+                                        "cve_id": cve_id,
+                                        "link": link_href,
+                                        "issue": "Missing rel='noopener noreferrer'",
+                                    }
+                                )
 
                         if not found_categories:
-                            results["missing_categories"].append({
-                                "cve_id": cve_id,
-                                "note": "No reference categories found"
-                            })
+                            results["missing_categories"].append(
+                                {
+                                    "cve_id": cve_id,
+                                    "note": "No reference categories found",
+                                }
+                            )
 
                     results["pages_checked"] += 1
 
-            results["passed"] = len(results["broken_links"]) == 0 and len(results["missing_categories"]) == 0
+            results["passed"] = (
+                len(results["broken_links"]) == 0
+                and len(results["missing_categories"]) == 0
+            )
 
         except Exception as e:
             results["passed"] = False
@@ -449,11 +501,17 @@ class VulnBotE2EValidator:
                 self.test_results["tests"]["epss_threshold"] = epss_results
 
                 if epss_results["passed"]:
-                    print(f"✅ EPSS Threshold: All {epss_results['total_cves_checked']} CVEs ≥60%")
-                    if epss_results.get('min_epss_found') is not None:
-                        print(f"   Range: {epss_results['min_epss_found']:.1f}% - {epss_results['max_epss_found']:.1f}%")
+                    print(
+                        f"✅ EPSS Threshold: All {epss_results['total_cves_checked']} CVEs ≥60%"
+                    )
+                    if epss_results.get("min_epss_found") is not None:
+                        print(
+                            f"   Range: {epss_results['min_epss_found']:.1f}% - {epss_results['max_epss_found']:.1f}%"
+                        )
                 else:
-                    print(f"❌ EPSS Threshold: {len(epss_results.get('violations', []))} violations found")
+                    print(
+                        f"❌ EPSS Threshold: {len(epss_results.get('violations', []))} violations found"
+                    )
                     self.test_results["overall_passed"] = False
 
                 # 2. CVE Static Pages
@@ -462,10 +520,14 @@ class VulnBotE2EValidator:
                 self.test_results["tests"]["cve_pages"] = cve_pages_results
 
                 if cve_pages_results["passed"]:
-                    print(f"✅ CVE Pages: {cve_pages_results['pages_tested']} pages validated successfully")
+                    print(
+                        f"✅ CVE Pages: {cve_pages_results['pages_tested']} pages validated successfully"
+                    )
                 else:
-                    print(f"❌ CVE Pages: {len(cve_pages_results['pages_failed'])} failed, "
-                          f"{len(cve_pages_results['missing_data'])} missing data")
+                    print(
+                        f"❌ CVE Pages: {len(cve_pages_results['pages_failed'])} failed, "
+                        f"{len(cve_pages_results['missing_data'])} missing data"
+                    )
                     self.test_results["overall_passed"] = False
 
                 # 3. Deps.dev Integration
@@ -474,9 +536,13 @@ class VulnBotE2EValidator:
                 self.test_results["tests"]["deps_dev"] = deps_results
 
                 if deps_results["passed"]:
-                    print(f"✅ Deps.dev: {deps_results['cves_with_deps_links']} CVEs have valid links")
+                    print(
+                        f"✅ Deps.dev: {deps_results['cves_with_deps_links']} CVEs have valid links"
+                    )
                 else:
-                    print(f"❌ Deps.dev: {len(deps_results['broken_links'])} broken links found")
+                    print(
+                        f"❌ Deps.dev: {len(deps_results['broken_links'])} broken links found"
+                    )
                     self.test_results["overall_passed"] = False
 
                 # 4. Search/Filter Performance
@@ -485,8 +551,10 @@ class VulnBotE2EValidator:
                 self.test_results["tests"]["performance"] = perf_results
 
                 if perf_results["passed"]:
-                    print(f"✅ Performance: Search {perf_results['search_latency_ms']:.0f}ms, "
-                          f"Filter {perf_results['filter_latency_ms']:.0f}ms")
+                    print(
+                        f"✅ Performance: Search {perf_results['search_latency_ms']:.0f}ms, "
+                        f"Filter {perf_results['filter_latency_ms']:.0f}ms"
+                    )
                 else:
                     print(f"❌ Performance: {', '.join(perf_results['issues'])}")
                     self.test_results["overall_passed"] = False
@@ -497,7 +565,9 @@ class VulnBotE2EValidator:
                 self.test_results["tests"]["mobile_ux"] = mobile_results
 
                 if mobile_results["passed"]:
-                    print(f"✅ Mobile UX: All {len(mobile_results['viewport_tests'])} viewports passed")
+                    print(
+                        f"✅ Mobile UX: All {len(mobile_results['viewport_tests'])} viewports passed"
+                    )
                 else:
                     print(f"❌ Mobile UX: {len(mobile_results['issues'])} issues found")
                     for issue in mobile_results["issues"]:
@@ -510,10 +580,14 @@ class VulnBotE2EValidator:
                 self.test_results["tests"]["references"] = ref_results
 
                 if ref_results["passed"]:
-                    print(f"✅ References: {ref_results['pages_checked']} pages have proper references")
+                    print(
+                        f"✅ References: {ref_results['pages_checked']} pages have proper references"
+                    )
                 else:
-                    print(f"❌ References: {len(ref_results['broken_links'])} broken links, "
-                          f"{len(ref_results['missing_categories'])} missing categories")
+                    print(
+                        f"❌ References: {len(ref_results['broken_links'])} broken links, "
+                        f"{len(ref_results['missing_categories'])} missing categories"
+                    )
                     self.test_results["overall_passed"] = False
 
             finally:
@@ -535,7 +609,7 @@ class VulnBotE2EValidator:
             f"\n**Generated:** {self.test_results['timestamp']}",
             f"**URL Tested:** {self.test_results['base_url']}",
             f"**Overall Status:** {'✅ PASSED' if self.test_results['overall_passed'] else '❌ FAILED'}",
-            "\n## Test Results Summary\n"
+            "\n## Test Results Summary\n",
         ]
 
         for test_name, test_result in self.test_results["tests"].items():
@@ -543,17 +617,27 @@ class VulnBotE2EValidator:
             report_lines.append(f"### {status} {test_name.replace('_', ' ').title()}")
 
             if test_name == "epss_threshold":
-                report_lines.append(f"- CVEs Checked: {test_result.get('total_cves_checked', 0)}")
+                report_lines.append(
+                    f"- CVEs Checked: {test_result.get('total_cves_checked', 0)}"
+                )
                 if test_result.get("min_epss_found"):
-                    report_lines.append(f"- EPSS Range: {test_result['min_epss_found']:.1f}% - {test_result['max_epss_found']:.1f}%")
+                    report_lines.append(
+                        f"- EPSS Range: {test_result['min_epss_found']:.1f}% - {test_result['max_epss_found']:.1f}%"
+                    )
                 if test_result.get("violations"):
-                    report_lines.append(f"- Violations: {len(test_result['violations'])}")
+                    report_lines.append(
+                        f"- Violations: {len(test_result['violations'])}"
+                    )
 
             elif test_name == "performance":
                 if test_result.get("search_latency_ms"):
-                    report_lines.append(f"- Search Latency: {test_result['search_latency_ms']:.0f}ms")
+                    report_lines.append(
+                        f"- Search Latency: {test_result['search_latency_ms']:.0f}ms"
+                    )
                 if test_result.get("filter_latency_ms"):
-                    report_lines.append(f"- Filter Latency: {test_result['filter_latency_ms']:.0f}ms")
+                    report_lines.append(
+                        f"- Filter Latency: {test_result['filter_latency_ms']:.0f}ms"
+                    )
 
             if test_result.get("error"):
                 report_lines.append(f"- Error: {test_result['error']}")
@@ -572,13 +656,19 @@ class VulnBotE2EValidator:
             report_lines.append("### High Priority Issues:")
 
             if not self.test_results["tests"].get("epss_threshold", {}).get("passed"):
-                report_lines.append("- **EPSS Threshold Violations**: Review data pipeline to ensure 60% filtering")
+                report_lines.append(
+                    "- **EPSS Threshold Violations**: Review data pipeline to ensure 60% filtering"
+                )
 
             if not self.test_results["tests"].get("deps_dev", {}).get("passed"):
-                report_lines.append("- **Deps.dev Integration**: Fix broken links and add missing package data")
+                report_lines.append(
+                    "- **Deps.dev Integration**: Fix broken links and add missing package data"
+                )
 
             if not self.test_results["tests"].get("mobile_ux", {}).get("passed"):
-                report_lines.append("- **Mobile UX**: Optimize layouts for smaller viewports")
+                report_lines.append(
+                    "- **Mobile UX**: Optimize layouts for smaller viewports"
+                )
 
         report_lines.append("\n### Future Enhancements:")
         report_lines.append("- Add EPSS percentile rank display")

@@ -14,6 +14,7 @@ try:
 except ImportError:
     playwright = None
     import pytest
+
     pytest.skip("Playwright not installed", allow_module_level=True)
 
 
@@ -32,13 +33,15 @@ class EPSSThresholdE2ETester:
             "total_vulns": 0,
             "min_epss": None,
             "max_epss": None,
-            "avg_epss": None
+            "avg_epss": None,
         }
 
         async with aiohttp.ClientSession() as session:
             # Test main index endpoint
             try:
-                async with session.get(f"{self.base_url}/api/vulns/index.json") as response:
+                async with session.get(
+                    f"{self.base_url}/api/vulns/index.json"
+                ) as response:
                     if response.status == 200:
                         data = await response.json()
                         vulnerabilities = data.get("vulnerabilities", [])
@@ -52,11 +55,13 @@ class EPSSThresholdE2ETester:
                             if epss_score is not None:
                                 epss_scores.append(epss_score)
                                 if epss_score < self.expected_threshold:
-                                    violations.append({
-                                        "cveId": vuln.get("cveId"),
-                                        "epssScore": epss_score,
-                                        "violation": f"EPSS {epss_score}% < {self.expected_threshold}%"
-                                    })
+                                    violations.append(
+                                        {
+                                            "cveId": vuln.get("cveId"),
+                                            "epssScore": epss_score,
+                                            "violation": f"EPSS {epss_score}% < {self.expected_threshold}%",
+                                        }
+                                    )
 
                         if epss_scores:
                             results["min_epss"] = min(epss_scores)
@@ -78,13 +83,15 @@ class EPSSThresholdE2ETester:
             "passed": True,
             "chunks_tested": 0,
             "violations": [],
-            "total_vulns_across_chunks": 0
+            "total_vulns_across_chunks": 0,
         }
 
         async with aiohttp.ClientSession() as session:
             try:
                 # Get chunk index
-                async with session.get(f"{self.base_url}/api/vulns/chunk-index.json") as response:
+                async with session.get(
+                    f"{self.base_url}/api/vulns/chunk-index.json"
+                ) as response:
                     if response.status == 200:
                         chunk_index = await response.json()
                         chunks = chunk_index.get("chunks", [])
@@ -93,27 +100,41 @@ class EPSSThresholdE2ETester:
                             chunk_file = chunk.get("file")
                             if chunk_file:
                                 try:
-                                    async with session.get(f"{self.base_url}/api/vulns/{chunk_file}") as chunk_response:
+                                    async with session.get(
+                                        f"{self.base_url}/api/vulns/{chunk_file}"
+                                    ) as chunk_response:
                                         if chunk_response.status == 200:
                                             chunk_data = await chunk_response.json()
-                                            vulnerabilities = chunk_data.get("vulnerabilities", [])
+                                            vulnerabilities = chunk_data.get(
+                                                "vulnerabilities", []
+                                            )
                                             results["chunks_tested"] += 1
-                                            results["total_vulns_across_chunks"] += len(vulnerabilities)
+                                            results["total_vulns_across_chunks"] += len(
+                                                vulnerabilities
+                                            )
 
                                             for vuln in vulnerabilities:
                                                 epss_score = vuln.get("epssScore")
-                                                if epss_score is not None and epss_score < self.expected_threshold:
-                                                    results["violations"].append({
-                                                        "chunk": chunk_file,
-                                                        "cveId": vuln.get("cveId"),
-                                                        "epssScore": epss_score,
-                                                        "violation": f"EPSS {epss_score}% < {self.expected_threshold}%"
-                                                    })
+                                                if (
+                                                    epss_score is not None
+                                                    and epss_score
+                                                    < self.expected_threshold
+                                                ):
+                                                    results["violations"].append(
+                                                        {
+                                                            "chunk": chunk_file,
+                                                            "cveId": vuln.get("cveId"),
+                                                            "epssScore": epss_score,
+                                                            "violation": f"EPSS {epss_score}% < {self.expected_threshold}%",
+                                                        }
+                                                    )
                                 except Exception as e:
-                                    results["violations"].append({
-                                        "chunk": chunk_file,
-                                        "error": f"Failed to fetch chunk: {str(e)}"
-                                    })
+                                    results["violations"].append(
+                                        {
+                                            "chunk": chunk_file,
+                                            "error": f"Failed to fetch chunk: {str(e)}",
+                                        }
+                                    )
 
                         results["passed"] = len(results["violations"]) == 0
 
@@ -125,11 +146,7 @@ class EPSSThresholdE2ETester:
 
     async def test_dashboard_epss_filter_default(self, page: Page) -> Dict[str, any]:
         """Test that dashboard defaults to 60% EPSS filter."""
-        results = {
-            "passed": True,
-            "default_value": None,
-            "error": None
-        }
+        results = {"passed": True, "default_value": None, "error": None}
 
         try:
             await page.goto(self.base_url)
@@ -140,7 +157,7 @@ class EPSSThresholdE2ETester:
                 'input[placeholder*="EPSS" i]',
                 'input[id*="epss" i]',
                 'input[name*="epss" i]',
-                '[x-model*="epss" i]'
+                '[x-model*="epss" i]',
             ]
 
             epss_input = None
@@ -157,7 +174,9 @@ class EPSSThresholdE2ETester:
                 # Should default to 60
                 if default_value != "60":
                     results["passed"] = False
-                    results["error"] = f"Expected default EPSS filter to be 60, got {default_value}"
+                    results["error"] = (
+                        f"Expected default EPSS filter to be 60, got {default_value}"
+                    )
             else:
                 results["passed"] = False
                 results["error"] = "EPSS filter input not found"
@@ -168,13 +187,11 @@ class EPSSThresholdE2ETester:
 
         return results
 
-    async def test_dashboard_epss_filter_functionality(self, page: Page) -> Dict[str, any]:
+    async def test_dashboard_epss_filter_functionality(
+        self, page: Page
+    ) -> Dict[str, any]:
         """Test that EPSS filter works correctly on the dashboard."""
-        results = {
-            "passed": True,
-            "tests": [],
-            "error": None
-        }
+        results = {"passed": True, "tests": [], "error": None}
 
         try:
             await page.goto(self.base_url)
@@ -185,7 +202,7 @@ class EPSSThresholdE2ETester:
             epss_selectors = [
                 'input[placeholder*="EPSS" i]',
                 'input[id*="epss" i]',
-                'input[name*="epss" i]'
+                'input[name*="epss" i]',
             ]
 
             for selector in epss_selectors:
@@ -197,7 +214,7 @@ class EPSSThresholdE2ETester:
                 test_cases = [
                     {"value": "90", "name": "High threshold (90%)"},
                     {"value": "60", "name": "Default threshold (60%)"},
-                    {"value": "80", "name": "Medium threshold (80%)"}
+                    {"value": "80", "name": "Medium threshold (80%)"},
                 ]
 
                 for test_case in test_cases:
@@ -205,7 +222,7 @@ class EPSSThresholdE2ETester:
                         "name": test_case["name"],
                         "passed": True,
                         "visible_rows": 0,
-                        "error": None
+                        "error": None,
                     }
 
                     try:
@@ -220,7 +237,9 @@ class EPSSThresholdE2ETester:
                         # Should have some results for reasonable thresholds
                         if int(test_case["value"]) <= 95 and visible_rows == 0:
                             test_result["passed"] = False
-                            test_result["error"] = f"No results for {test_case['value']}% threshold"
+                            test_result["error"] = (
+                                f"No results for {test_case['value']}% threshold"
+                            )
 
                     except Exception as e:
                         test_result["passed"] = False
@@ -245,7 +264,7 @@ class EPSSThresholdE2ETester:
             "passed": True,
             "vulnerabilities_checked": 0,
             "violations": [],
-            "error": None
+            "error": None,
         }
 
         try:
@@ -265,21 +284,26 @@ class EPSSThresholdE2ETester:
                     # Look for EPSS score in the row (should be percentage)
                     # Common formats: "85.5%", "90.1%", etc.
                     import re
-                    epss_matches = re.findall(r'(\d{1,2}(?:\.\d+)?%)', row_text)
+
+                    epss_matches = re.findall(r"(\d{1,2}(?:\.\d+)?%)", row_text)
 
                     if epss_matches:
                         for match in epss_matches:
-                            epss_value = float(match.replace('%', ''))
+                            epss_value = float(match.replace("%", ""))
                             if epss_value < self.expected_threshold:
                                 # Get CVE ID from the row
-                                cve_match = re.search(r'CVE-\d{4}-\d+', row_text)
-                                cve_id = cve_match.group(0) if cve_match else f"Row {i+1}"
+                                cve_match = re.search(r"CVE-\d{4}-\d+", row_text)
+                                cve_id = (
+                                    cve_match.group(0) if cve_match else f"Row {i+1}"
+                                )
 
-                                results["violations"].append({
-                                    "cveId": cve_id,
-                                    "epssScore": epss_value,
-                                    "violation": f"EPSS {epss_value}% < {self.expected_threshold}%"
-                                })
+                                results["violations"].append(
+                                    {
+                                        "cveId": cve_id,
+                                        "epssScore": epss_value,
+                                        "violation": f"EPSS {epss_value}% < {self.expected_threshold}%",
+                                    }
+                                )
 
                     results["vulnerabilities_checked"] += 1
 
@@ -301,7 +325,7 @@ class EPSSThresholdE2ETester:
             "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
             "expected_threshold": self.expected_threshold,
             "tests": {},
-            "overall_passed": True
+            "overall_passed": True,
         }
 
         print(f"🧪 Running EPSS Threshold E2E Tests (≥{self.expected_threshold}%)")
@@ -313,10 +337,14 @@ class EPSSThresholdE2ETester:
         test_results["tests"]["api_compliance"] = api_results
 
         if api_results["passed"]:
-            print(f"✅ API Compliance: {api_results['total_vulns']} vulnerabilities, "
-                  f"EPSS range {api_results['min_epss']:.1f}%-{api_results['max_epss']:.1f}%")
+            print(
+                f"✅ API Compliance: {api_results['total_vulns']} vulnerabilities, "
+                f"EPSS range {api_results['min_epss']:.1f}%-{api_results['max_epss']:.1f}%"
+            )
         else:
-            print(f"❌ API Compliance: {len(api_results.get('violations', []))} violations found")
+            print(
+                f"❌ API Compliance: {len(api_results.get('violations', []))} violations found"
+            )
             test_results["overall_passed"] = False
 
         # Chunk compliance tests
@@ -325,10 +353,14 @@ class EPSSThresholdE2ETester:
         test_results["tests"]["chunk_compliance"] = chunk_results
 
         if chunk_results["passed"]:
-            print(f"✅ Chunk Compliance: {chunk_results['chunks_tested']} chunks, "
-                  f"{chunk_results['total_vulns_across_chunks']} total vulnerabilities")
+            print(
+                f"✅ Chunk Compliance: {chunk_results['chunks_tested']} chunks, "
+                f"{chunk_results['total_vulns_across_chunks']} total vulnerabilities"
+            )
         else:
-            print(f"❌ Chunk Compliance: {len(chunk_results.get('violations', []))} violations found")
+            print(
+                f"❌ Chunk Compliance: {len(chunk_results.get('violations', []))} violations found"
+            )
             test_results["overall_passed"] = False
 
         # Browser-based tests
@@ -344,17 +376,23 @@ class EPSSThresholdE2ETester:
                 test_results["tests"]["dashboard_default"] = default_results
 
                 if default_results["passed"]:
-                    print(f"✅ Dashboard Default: EPSS filter defaults to {default_results['default_value']}%")
+                    print(
+                        f"✅ Dashboard Default: EPSS filter defaults to {default_results['default_value']}%"
+                    )
                 else:
                     print(f"❌ Dashboard Default: {default_results['error']}")
                     test_results["overall_passed"] = False
 
                 # Test filter functionality
-                filter_results = await self.test_dashboard_epss_filter_functionality(page)
+                filter_results = await self.test_dashboard_epss_filter_functionality(
+                    page
+                )
                 test_results["tests"]["dashboard_filter"] = filter_results
 
                 if filter_results["passed"]:
-                    print(f"✅ Dashboard Filter: {len(filter_results['tests'])} test cases passed")
+                    print(
+                        f"✅ Dashboard Filter: {len(filter_results['tests'])} test cases passed"
+                    )
                 else:
                     print("❌ Dashboard Filter: Some test cases failed")
                     test_results["overall_passed"] = False
@@ -364,9 +402,13 @@ class EPSSThresholdE2ETester:
                 test_results["tests"]["table_display"] = table_results
 
                 if table_results["passed"]:
-                    print(f"✅ Table Display: {table_results['vulnerabilities_checked']} vulnerabilities checked")
+                    print(
+                        f"✅ Table Display: {table_results['vulnerabilities_checked']} vulnerabilities checked"
+                    )
                 else:
-                    print(f"❌ Table Display: {len(table_results.get('violations', []))} violations found")
+                    print(
+                        f"❌ Table Display: {len(table_results.get('violations', []))} violations found"
+                    )
                     test_results["overall_passed"] = False
 
             finally:
@@ -389,7 +431,9 @@ class EPSSThresholdE2ETester:
             if all_violations:
                 print(f"\n🚨 Found {len(all_violations)} total violations:")
                 for violation in all_violations[:10]:  # Show first 10
-                    print(f"   - {violation.get('cveId', 'Unknown')}: {violation.get('violation', 'Unknown issue')}")
+                    print(
+                        f"   - {violation.get('cveId', 'Unknown')}: {violation.get('violation', 'Unknown issue')}"
+                    )
                 if len(all_violations) > 10:
                     print(f"   ... and {len(all_violations) - 10} more")
 
@@ -416,4 +460,5 @@ async def main():
 
 if __name__ == "__main__":
     from pathlib import Path
+
     asyncio.run(main())

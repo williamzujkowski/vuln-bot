@@ -10,7 +10,9 @@ from urllib.parse import urljoin
 import pytest
 from playwright.sync_api import Page, expect
 
-LIVE_SITE_URL = os.getenv("LIVE_SITE_URL", "https://williamzujkowski.github.io/vuln-bot/")
+LIVE_SITE_URL = os.getenv(
+    "LIVE_SITE_URL", "https://williamzujkowski.github.io/vuln-bot/"
+)
 EXPECTED_MAX_CVES = 50  # Maximum expected CVEs with EPSS >= 60%
 MIN_EPSS_THRESHOLD = 60.0
 
@@ -48,15 +50,19 @@ class TestLiveSiteValidation:
         page.wait_for_function("window.Alpine && window.Alpine.store('dashboard')")
 
         # Get total count from the UI
-        total_count = page.evaluate("""
+        total_count = page.evaluate(
+            """
             () => {
                 const store = window.Alpine.store('dashboard');
                 return store.stats.total;
             }
-        """)
+        """
+        )
 
         assert total_count > 0, "No CVEs found on the dashboard"
-        assert total_count <= EXPECTED_MAX_CVES, f"Too many CVEs found: {total_count} > {EXPECTED_MAX_CVES}"
+        assert (
+            total_count <= EXPECTED_MAX_CVES
+        ), f"Too many CVEs found: {total_count} > {EXPECTED_MAX_CVES}"
 
         print(f"✓ Found {total_count} CVEs (within expected range)")
 
@@ -66,23 +72,24 @@ class TestLiveSiteValidation:
         page.wait_for_function("window.Alpine && window.Alpine.store('dashboard')")
 
         # Get all vulnerabilities
-        vulnerabilities = page.evaluate("""
+        vulnerabilities = page.evaluate(
+            """
             () => {
                 const store = window.Alpine.store('dashboard');
                 return store.vulnerabilities;
             }
-        """)
+        """
+        )
 
         violations = []
         for vuln in vulnerabilities:
             epss_score = vuln.get("epss", {}).get("score", 0) * 100
             if epss_score < MIN_EPSS_THRESHOLD:
-                violations.append({
-                    "cveId": vuln.get("cveId"),
-                    "epss": epss_score
-                })
+                violations.append({"cveId": vuln.get("cveId"), "epss": epss_score})
 
-        assert len(violations) == 0, f"Found {len(violations)} CVEs below {MIN_EPSS_THRESHOLD}% EPSS: {violations}"
+        assert (
+            len(violations) == 0
+        ), f"Found {len(violations)} CVEs below {MIN_EPSS_THRESHOLD}% EPSS: {violations}"
 
         print(f"✓ All {len(vulnerabilities)} CVEs have EPSS >= {MIN_EPSS_THRESHOLD}%")
 
@@ -97,25 +104,31 @@ class TestLiveSiteValidation:
         page.wait_for_timeout(500)
 
         # Get filtered results
-        filtered_count = page.evaluate("""
+        filtered_count = page.evaluate(
+            """
             () => {
                 const store = window.Alpine.store('dashboard');
                 return store.stats.filtered;
             }
-        """)
+        """
+        )
 
         # Get filtered vulnerabilities
-        filtered_vulns = page.evaluate("""
+        filtered_vulns = page.evaluate(
+            """
             () => {
                 const store = window.Alpine.store('dashboard');
                 return store.filteredResults;
             }
-        """)
+        """
+        )
 
         # Verify all filtered vulns are within range
         for vuln in filtered_vulns:
             epss_score = vuln.get("epss", {}).get("score", 0) * 100
-            assert 60 <= epss_score <= 70, f"CVE {vuln.get('cveId')} has EPSS {epss_score}% outside range"
+            assert (
+                60 <= epss_score <= 70
+            ), f"CVE {vuln.get('cveId')} has EPSS {epss_score}% outside range"
 
         print(f"✓ EPSS filter correctly shows {filtered_count} CVEs between 60-70%")
 
@@ -146,7 +159,9 @@ class TestLiveSiteValidation:
 
                 epss_text = epss_element.text_content()
                 epss_value = float(epss_text.split()[1].rstrip("%"))
-                assert epss_value >= MIN_EPSS_THRESHOLD, f"{cve_id} has EPSS {epss_value}% < {MIN_EPSS_THRESHOLD}%"
+                assert (
+                    epss_value >= MIN_EPSS_THRESHOLD
+                ), f"{cve_id} has EPSS {epss_value}% < {MIN_EPSS_THRESHOLD}%"
 
                 tested_cves.append(cve_id)
 
@@ -199,7 +214,9 @@ class TestLiveSiteValidation:
             for i, chart in enumerate(charts):
                 box = chart.bounding_box()
                 assert box is not None, f"Chart {i} has no bounding box"
-                assert box["width"] > 0 and box["height"] > 0, f"Chart {i} has zero dimensions"
+                assert (
+                    box["width"] > 0 and box["height"] > 0
+                ), f"Chart {i} has zero dimensions"
 
             print(f"✓ All {len(charts)} visualization charts rendered correctly")
 
@@ -215,13 +232,20 @@ class TestLiveSiteValidation:
 
         # Check that data loads without console errors
         console_errors = []
-        page.on("console", lambda msg: console_errors.append(msg) if msg.type == "error" else None)
+        page.on(
+            "console",
+            lambda msg: console_errors.append(msg) if msg.type == "error" else None,
+        )
         page.reload()
         page.wait_for_load_state("networkidle")
 
         # Filter out expected errors (e.g., favicon)
-        real_errors = [err for err in console_errors if "favicon" not in err.text.lower()]
-        assert len(real_errors) == 0, f"Console errors detected: {[err.text for err in real_errors]}"
+        real_errors = [
+            err for err in console_errors if "favicon" not in err.text.lower()
+        ]
+        assert (
+            len(real_errors) == 0
+        ), f"Console errors detected: {[err.text for err in real_errors]}"
 
         print("✓ No stale data indicators found")
 
@@ -231,31 +255,40 @@ class TestLiveSiteValidation:
             "api/vulns/index.json",
             "api/vulns/chunk-index.json",
             "api/vulns/vulns-2025-CRITICAL.json",
-            "api/vulns/vulns-2025-HIGH.json"
+            "api/vulns/vulns-2025-HIGH.json",
         ]
 
         for endpoint in api_endpoints:
             url = urljoin(LIVE_SITE_URL, endpoint)
             response = page.request.get(url)
 
-            assert response.status == 200, f"API endpoint {endpoint} returned {response.status}"
+            assert (
+                response.status == 200
+            ), f"API endpoint {endpoint} returned {response.status}"
 
             # Validate JSON structure
             try:
                 data = response.json()
                 if "index.json" in endpoint:
-                    assert "vulnerabilities" in data, f"Missing 'vulnerabilities' in {endpoint}"
-                    assert len(data["vulnerabilities"]) > 0, f"No vulnerabilities in {endpoint}"
+                    assert (
+                        "vulnerabilities" in data
+                    ), f"Missing 'vulnerabilities' in {endpoint}"
+                    assert (
+                        len(data["vulnerabilities"]) > 0
+                    ), f"No vulnerabilities in {endpoint}"
                 elif "chunk-index.json" in endpoint:
                     assert "chunks" in data, f"Missing 'chunks' in {endpoint}"
                 else:
-                    assert "vulnerabilities" in data, f"Missing 'vulnerabilities' in {endpoint}"
+                    assert (
+                        "vulnerabilities" in data
+                    ), f"Missing 'vulnerabilities' in {endpoint}"
 
                     # Verify EPSS threshold compliance in chunks
                     for vuln in data.get("vulnerabilities", []):
                         epss_score = vuln.get("epss", {}).get("score", 0) * 100
-                        assert epss_score >= MIN_EPSS_THRESHOLD, \
-                            f"CVE {vuln.get('cveId')} in {endpoint} has EPSS {epss_score}% < {MIN_EPSS_THRESHOLD}%"
+                        assert (
+                            epss_score >= MIN_EPSS_THRESHOLD
+                        ), f"CVE {vuln.get('cveId')} in {endpoint} has EPSS {epss_score}% < {MIN_EPSS_THRESHOLD}%"
 
                 print(f"✓ API endpoint {endpoint} valid")
             except Exception as e:
@@ -274,8 +307,9 @@ class TestDataIntegrity:
         cve_ids = [v["cveId"] for v in vulns_data["vulnerabilities"]]
         unique_ids = set(cve_ids)
 
-        assert len(cve_ids) == len(unique_ids), \
-            f"Found {len(cve_ids) - len(unique_ids)} duplicate CVEs"
+        assert len(cve_ids) == len(
+            unique_ids
+        ), f"Found {len(cve_ids) - len(unique_ids)} duplicate CVEs"
 
         print(f"✓ No duplicate CVEs found among {len(cve_ids)} entries")
 
@@ -304,8 +338,9 @@ class TestDataIntegrity:
         index_data = json.loads(page.evaluate("() => document.body.textContent"))
         index_total = len(index_data["vulnerabilities"])
 
-        assert total_from_chunks == index_total, \
-            f"Chunk total ({total_from_chunks}) doesn't match index total ({index_total})"
+        assert (
+            total_from_chunks == index_total
+        ), f"Chunk total ({total_from_chunks}) doesn't match index total ({index_total})"
 
         print(f"✓ Data consistency verified across {len(chunk_index['chunks'])} chunks")
 

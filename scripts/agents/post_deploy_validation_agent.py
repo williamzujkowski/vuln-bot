@@ -97,12 +97,14 @@ class PostDeployValidationAgent(BaseAgent):
         )
         self.validation_results["summary"] = {
             "total_checks": total_checks,
-            "pass_rate": (self.validation_results["checks_passed"] / total_checks * 100)
-            if total_checks > 0
-            else 0,
-            "status": "PASSED"
-            if self.validation_results["checks_failed"] == 0
-            else "FAILED",
+            "pass_rate": (
+                (self.validation_results["checks_passed"] / total_checks * 100)
+                if total_checks > 0
+                else 0
+            ),
+            "status": (
+                "PASSED" if self.validation_results["checks_failed"] == 0 else "FAILED"
+            ),
         }
 
         return self.validation_results
@@ -113,7 +115,8 @@ class PostDeployValidationAgent(BaseAgent):
 
         try:
             # Get count from dashboard
-            total_count = page.evaluate("""
+            total_count = page.evaluate(
+                """
                 () => {
                     const store = window.Alpine?.store('dashboard');
                     if (store && store.stats) {
@@ -123,7 +126,8 @@ class PostDeployValidationAgent(BaseAgent):
                     const rows = document.querySelectorAll('table tbody tr');
                     return rows.length;
                 }
-            """)
+            """
+            )
 
             # Calculate acceptable range
             min_acceptable = int(expected * (1 - tolerance_percent / 100))
@@ -143,9 +147,9 @@ class PostDeployValidationAgent(BaseAgent):
                     {
                         "check": "cve_count",
                         "message": f"CVE count {total_count} outside acceptable range [{min_acceptable}, {max_acceptable}]",
-                        "severity": "CRITICAL"
-                        if total_count > expected * 2
-                        else "HIGH",
+                        "severity": (
+                            "CRITICAL" if total_count > expected * 2 else "HIGH"
+                        ),
                     }
                 )
                 logger.error(
@@ -161,12 +165,14 @@ class PostDeployValidationAgent(BaseAgent):
 
         try:
             # Get UI count
-            ui_count = page.evaluate("""
+            ui_count = page.evaluate(
+                """
                 () => {
                     const store = window.Alpine?.store('dashboard');
                     return store?.stats?.total || 0;
                 }
-            """)
+            """
+            )
 
             # Get API count
             api_url = urljoin(

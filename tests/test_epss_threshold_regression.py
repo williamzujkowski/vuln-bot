@@ -50,9 +50,9 @@ class TestEPSSThresholdRegression:
 
         test_vulns = [
             {"cveId": "CVE-2024-0001", "epssScore": 0.59},  # Below threshold
-            {"cveId": "CVE-2024-0002", "epssScore": 0.6},   # At threshold
+            {"cveId": "CVE-2024-0002", "epssScore": 0.6},  # At threshold
             {"cveId": "CVE-2024-0003", "epssScore": 0.61},  # Above threshold
-            {"cveId": "CVE-2024-0004", "epssScore": 1.0},   # Maximum
+            {"cveId": "CVE-2024-0004", "epssScore": 1.0},  # Maximum
             {"cveId": "CVE-2024-0005", "epssScore": None},  # Missing EPSS
         ]
 
@@ -61,7 +61,9 @@ class TestEPSSThresholdRegression:
         # Only CVEs with EPSS >= 0.6 should pass
         assert len(filtered) == 3
         assert {v["cveId"] for v in filtered} == {
-            "CVE-2024-0002", "CVE-2024-0003", "CVE-2024-0004"
+            "CVE-2024-0002",
+            "CVE-2024-0003",
+            "CVE-2024-0004",
         }
 
         # Check statistics
@@ -113,16 +115,21 @@ class TestEPSSThresholdRegression:
 
             # Mock the harvest process to avoid actual network calls
             with ExitStack() as stack:
-                stack.enter_context(patch.object(orchestrator, 'harvest_cve_data', return_value=[]))
-                stack.enter_context(patch.object(orchestrator, 'harvest_nvd_data', return_value=[]))
-                stack.enter_context(patch.object(orchestrator, 'harvest_github_advisory_data', return_value=[]))
-                stack.enter_context(patch.object(orchestrator, 'enrich_with_epss'))
+                stack.enter_context(
+                    patch.object(orchestrator, "harvest_cve_data", return_value=[])
+                )
+                stack.enter_context(
+                    patch.object(orchestrator, "harvest_nvd_data", return_value=[])
+                )
+                stack.enter_context(
+                    patch.object(
+                        orchestrator, "harvest_github_advisory_data", return_value=[]
+                    )
+                )
+                stack.enter_context(patch.object(orchestrator, "enrich_with_epss"))
 
                 # Test custom threshold
-                orchestrator.harvest_all_sources(
-                    years=[2024],
-                    min_epss_score=0.8
-                )
+                orchestrator.harvest_all_sources(years=[2024], min_epss_score=0.8)
 
                 # Verify the threshold was updated
                 assert orchestrator.epss_filter_agent.threshold == 0.8
@@ -137,7 +144,7 @@ class TestEPSSThresholdRegression:
             published_date=datetime.now(timezone.utc),
             last_modified_date=datetime.now(timezone.utc),
             severity=SeverityLevel.HIGH,
-            epss_score=None
+            epss_score=None,
         )
 
         # Test without EPSS score
@@ -145,10 +152,9 @@ class TestEPSSThresholdRegression:
 
         # Add EPSS score
         from scripts.models import EPSSScore
+
         vuln.epss_score = EPSSScore(
-            score=0.75,
-            percentile=85.0,
-            date=datetime.now(timezone.utc)
+            score=0.75, percentile=85.0, date=datetime.now(timezone.utc)
         )
 
         # Test with EPSS score
@@ -159,10 +165,10 @@ class TestEPSSThresholdRegression:
         agent = EPSSFilterAgent(threshold=0.6)
 
         test_vulns = [
-            {"cveId": "CVE-2024-0001", "epssScore": -0.1},   # Invalid (negative)
-            {"cveId": "CVE-2024-0002", "epssScore": 1.1},    # Invalid (> 1.0)
+            {"cveId": "CVE-2024-0001", "epssScore": -0.1},  # Invalid (negative)
+            {"cveId": "CVE-2024-0002", "epssScore": 1.1},  # Invalid (> 1.0)
             {"cveId": "CVE-2024-0003", "epssScore": "abc"},  # Invalid (string)
-            {"cveId": "CVE-2024-0004", "epssScore": 0.7},    # Valid
+            {"cveId": "CVE-2024-0004", "epssScore": 0.7},  # Valid
         ]
 
         filtered, stats = agent.filter_vulnerabilities(test_vulns)
@@ -240,7 +246,9 @@ class TestEPSSThresholdIntegration:
 
     def test_workflow_epss_threshold(self):
         """Test that GitHub workflow uses 60% EPSS threshold."""
-        workflow_file = Path(__file__).parent.parent / ".github/workflows/scheduled-harvest.yml"
+        workflow_file = (
+            Path(__file__).parent.parent / ".github/workflows/scheduled-harvest.yml"
+        )
 
         if workflow_file.exists():
             content = workflow_file.read_text()
@@ -285,11 +293,11 @@ class TestEPSSDataValidation:
 
         # Test edge cases
         test_cases = [
-            (0.0, True),    # Minimum valid
-            (0.5, True),    # Mid-range
-            (1.0, True),    # Maximum valid
+            (0.0, True),  # Minimum valid
+            (0.5, True),  # Mid-range
+            (1.0, True),  # Maximum valid
             (-0.1, False),  # Below minimum
-            (1.1, False),   # Above maximum
+            (1.1, False),  # Above maximum
             (None, False),  # Missing
         ]
 
@@ -307,10 +315,10 @@ class TestEPSSDataValidation:
         agent = EPSSFilterAgent(threshold=0.6)
 
         test_vulns = [
-            {"cveId": "CVE-2024-0001", "epssScore": 0.7},      # float
-            {"cveId": "CVE-2024-0002", "epssScore": "0.8"},    # string
-            {"cveId": "CVE-2024-0003", "epssScore": 70},       # int (invalid)
-            {"cveId": "CVE-2024-0004", "epssScore": []},       # list (invalid)
+            {"cveId": "CVE-2024-0001", "epssScore": 0.7},  # float
+            {"cveId": "CVE-2024-0002", "epssScore": "0.8"},  # string
+            {"cveId": "CVE-2024-0003", "epssScore": 70},  # int (invalid)
+            {"cveId": "CVE-2024-0004", "epssScore": []},  # list (invalid)
         ]
 
         filtered, stats = agent.filter_vulnerabilities(test_vulns)

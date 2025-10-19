@@ -356,39 +356,45 @@ class DataQualityReportAgent(BaseAgent):
 
         report["quality_summary"] = {
             "data_completeness": {
-                "epss_coverage": round(
-                    (
-                        epss_analysis["with_epss_score"]
-                        / epss_analysis["total_vulnerabilities"]
-                    )
-                    * 100,
-                    2,
-                )
-                if epss_analysis["total_vulnerabilities"] > 0
-                else 0,
-                "cvss_coverage": round(
-                    (
-                        cvss_analysis["with_cvss_score"]
-                        / cvss_analysis["total_vulnerabilities"]
-                    )
-                    * 100,
-                    2,
-                )
-                if cvss_analysis["total_vulnerabilities"] > 0
-                else 0,
-                "vendor_identification": round(
-                    (
+                "epss_coverage": (
+                    round(
                         (
-                            epss_analysis["total_vulnerabilities"]
-                            - vendor_analysis["unknown_vendors"]
+                            epss_analysis["with_epss_score"]
+                            / epss_analysis["total_vulnerabilities"]
                         )
-                        / epss_analysis["total_vulnerabilities"]
+                        * 100,
+                        2,
                     )
-                    * 100,
-                    2,
-                )
-                if epss_analysis["total_vulnerabilities"] > 0
-                else 0,
+                    if epss_analysis["total_vulnerabilities"] > 0
+                    else 0
+                ),
+                "cvss_coverage": (
+                    round(
+                        (
+                            cvss_analysis["with_cvss_score"]
+                            / cvss_analysis["total_vulnerabilities"]
+                        )
+                        * 100,
+                        2,
+                    )
+                    if cvss_analysis["total_vulnerabilities"] > 0
+                    else 0
+                ),
+                "vendor_identification": (
+                    round(
+                        (
+                            (
+                                epss_analysis["total_vulnerabilities"]
+                                - vendor_analysis["unknown_vendors"]
+                            )
+                            / epss_analysis["total_vulnerabilities"]
+                        )
+                        * 100,
+                        2,
+                    )
+                    if epss_analysis["total_vulnerabilities"] > 0
+                    else 0
+                ),
             },
             "epss_threshold_compliance": {
                 "current_threshold": "60%",

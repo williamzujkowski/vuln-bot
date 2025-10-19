@@ -263,7 +263,9 @@ echo "Next step: git push origin {branch} --force-with-lease"
                 f.write(deploy_script)
 
             # Make executable
-            os.chmod(deploy_script_path, 0o755)  # nosec B103 - Legitimate deploy script permissions
+            os.chmod(
+                deploy_script_path, 0o755
+            )  # nosec B103 - Legitimate deploy script permissions
 
             results["commands_executed"].append("Created deployment script")
             results["deployment_script"] = str(deploy_script_path)

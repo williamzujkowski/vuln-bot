@@ -11,7 +11,9 @@ from urllib.parse import urljoin
 import pytest
 from playwright.sync_api import Page
 
-LIVE_SITE_URL = os.getenv("LIVE_SITE_URL", "https://williamzujkowski.github.io/vuln-bot/")
+LIVE_SITE_URL = os.getenv(
+    "LIVE_SITE_URL", "https://williamzujkowski.github.io/vuln-bot/"
+)
 MAX_ALLOWED_CVES = 100  # Maximum CVEs allowed (strict limit)
 EXPECTED_CVE_RANGE = (20, 65)  # Expected range of CVEs
 MIN_EPSS_THRESHOLD = 60.0  # Minimum EPSS percentage
@@ -23,7 +25,9 @@ CDN_CACHE_HEADER = "x-served-by"  # GitHub Pages CDN header
 class TestPostDeployValidation:
     """Post-deployment validation to ensure no stale data on live site."""
 
-    def wait_for_deployment(self, page: Page, max_wait_seconds: int = POLLING_TIMEOUT_SECONDS):
+    def wait_for_deployment(
+        self, page: Page, max_wait_seconds: int = POLLING_TIMEOUT_SECONDS
+    ):
         """
         Wait for deployment to propagate through GitHub Pages CDN.
 
@@ -80,7 +84,7 @@ class TestPostDeployValidation:
             """() => {
                 const resultsText = document.body.textContent.match(/Showing \\d+ of (\\d+)/);
                 return resultsText ? parseInt(resultsText[1]) : 0;
-            }"""
+            }""",
         ]
 
         for method in methods:
@@ -96,11 +100,7 @@ class TestPostDeployValidation:
     def check_known_stale_cves(self, page: Page) -> List[str]:
         """Check if known stale CVEs are present on the page."""
         # List of CVEs that should NOT be present (low EPSS)
-        known_stale_cves = [
-            "CVE-2024-0001",
-            "CVE-2023-99999",
-            "CVE-2022-12345"
-        ]
+        known_stale_cves = ["CVE-2024-0001", "CVE-2023-99999", "CVE-2022-12345"]
 
         found_stale = []
         page_content = page.content()
@@ -138,14 +138,17 @@ class TestPostDeployValidation:
 
         # Strict validation
         assert cve_count > 0, "No CVEs found on the page"
-        assert cve_count <= MAX_ALLOWED_CVES, \
-            f"❌ CRITICAL: Found {cve_count} CVEs (max allowed: {MAX_ALLOWED_CVES}). " \
+        assert cve_count <= MAX_ALLOWED_CVES, (
+            f"❌ CRITICAL: Found {cve_count} CVEs (max allowed: {MAX_ALLOWED_CVES}). "
             f"Stale data detected - deployment failed!"
+        )
 
         # Range validation
         min_expected, max_expected = EXPECTED_CVE_RANGE
         if not (min_expected <= cve_count <= max_expected):
-            print(f"⚠️  Warning: CVE count {cve_count} outside expected range {EXPECTED_CVE_RANGE}")
+            print(
+                f"⚠️  Warning: CVE count {cve_count} outside expected range {EXPECTED_CVE_RANGE}"
+            )
 
         print(f"✅ CVE count validated: {cve_count} CVEs")
 
@@ -157,8 +160,9 @@ class TestPostDeployValidation:
 
         stale_found = self.check_known_stale_cves(page)
 
-        assert len(stale_found) == 0, \
-            f"❌ Found stale CVEs that should not exist: {stale_found}"
+        assert (
+            len(stale_found) == 0
+        ), f"❌ Found stale CVEs that should not exist: {stale_found}"
 
         print("✅ No known stale CVEs found")
 
@@ -178,21 +182,18 @@ class TestPostDeployValidation:
         print(f"   API reports {len(vulnerabilities)} vulnerabilities")
 
         # Validate count
-        assert len(vulnerabilities) <= MAX_ALLOWED_CVES, \
-            f"❌ API contains {len(vulnerabilities)} CVEs (max: {MAX_ALLOWED_CVES})"
+        assert (
+            len(vulnerabilities) <= MAX_ALLOWED_CVES
+        ), f"❌ API contains {len(vulnerabilities)} CVEs (max: {MAX_ALLOWED_CVES})"
 
         # Validate EPSS thresholds
         violations = []
         for vuln in vulnerabilities[:10]:  # Check first 10
             epss_score = vuln.get("epss", {}).get("score", 0) * 100
             if epss_score < MIN_EPSS_THRESHOLD:
-                violations.append({
-                    "cveId": vuln.get("cveId"),
-                    "epss": epss_score
-                })
+                violations.append({"cveId": vuln.get("cveId"), "epss": epss_score})
 
-        assert len(violations) == 0, \
-            f"❌ Found CVEs below EPSS threshold: {violations}"
+        assert len(violations) == 0, f"❌ Found CVEs below EPSS threshold: {violations}"
 
         print("✅ API endpoints validated")
 
@@ -217,8 +218,9 @@ class TestPostDeployValidation:
                     total_in_chunks += chunk_count
 
                     # Each chunk should be reasonable
-                    assert chunk_count <= 100, \
-                        f"❌ Chunk {chunk['file']} has {chunk_count} CVEs - likely stale data"
+                    assert (
+                        chunk_count <= 100
+                    ), f"❌ Chunk {chunk['file']} has {chunk_count} CVEs - likely stale data"
 
             print(f"✅ Chunk files validated: {total_in_chunks} CVEs in checked chunks")
         else:
@@ -232,7 +234,7 @@ class TestPostDeployValidation:
         test_stale_urls = [
             "cves/CVE-2024-0001/",
             "cves/CVE-2023-1234/",
-            "cves/CVE-2022-9999/"
+            "cves/CVE-2022-9999/",
         ]
 
         stale_pages_found = []
@@ -245,8 +247,9 @@ class TestPostDeployValidation:
                 stale_pages_found.append(cve_path)
                 print(f"   ❌ Found stale page: {cve_path}")
 
-        assert len(stale_pages_found) == 0, \
-            f"❌ Stale CVE pages still exist: {stale_pages_found}"
+        assert (
+            len(stale_pages_found) == 0
+        ), f"❌ Stale CVE pages still exist: {stale_pages_found}"
 
         print("✅ No stale CVE pages found")
 
@@ -296,7 +299,7 @@ def browser_context_args():
     """Configure browser context for tests."""
     return {
         "viewport": {"width": 1280, "height": 720},
-        "user_agent": "PostDeployValidation/1.0"
+        "user_agent": "PostDeployValidation/1.0",
     }
 
 

@@ -237,9 +237,11 @@ class CISAKEVAgent(BaseAgent):
             "Batch KEV enrichment completed",
             total=self.stats["total_processed"],
             enriched=self.stats["kev_enriched"],
-            enrichment_rate=f"{(self.stats['kev_enriched'] / self.stats['total_processed'] * 100):.1f}%"
-            if self.stats["total_processed"] > 0
-            else "0%",
+            enrichment_rate=(
+                f"{(self.stats['kev_enriched'] / self.stats['total_processed'] * 100):.1f}%"
+                if self.stats["total_processed"] > 0
+                else "0%"
+            ),
         )
 
         return enriched_vulns
@@ -250,16 +252,18 @@ class CISAKEVAgent(BaseAgent):
 
         stats = {
             "catalog_size": len(kev_catalog),
-            "last_updated": self.kev_cache_time.isoformat()
-            if self.kev_cache_time
-            else None,
+            "last_updated": (
+                self.kev_cache_time.isoformat() if self.kev_cache_time else None
+            ),
             "cache_age_hours": self._get_cache_age_hours(),
             "enrichment_stats": {
                 "total_processed": self.stats["total_processed"],
                 "kev_enriched": self.stats["kev_enriched"],
-                "enrichment_rate": f"{(self.stats['kev_enriched'] / self.stats['total_processed'] * 100):.1f}%"
-                if self.stats["total_processed"] > 0
-                else "0%",
+                "enrichment_rate": (
+                    f"{(self.stats['kev_enriched'] / self.stats['total_processed'] * 100):.1f}%"
+                    if self.stats["total_processed"] > 0
+                    else "0%"
+                ),
             },
         }
 
