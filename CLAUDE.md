@@ -2,6 +2,33 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## ⏰ **CRITICAL: Authoritative Time Enforcement**
+
+**ALL time calculations MUST use authoritative external time sources, NEVER system time.**
+
+- **Primary Source**: NIST Time API (`https://time.nist.gov/actualtime.cgi`)
+- **Fallback Source**: WorldTimeAPI (`https://worldtimeapi.org/api/timezone/Etc/UTC`)
+- **Implementation**: Use `scripts/utils/time_client.py` - `AuthoritativeTimeClient`
+- **Convenience Functions**:
+  - `get_authoritative_now()` - Current datetime (UTC)
+  - `get_current_year()` - Current year
+  - `get_current_date()` - Current date (YYYY-MM-DD)
+
+**Why**: Ensures consistent, accurate time across all systems regardless of local clock drift or misconfiguration.
+
+**Usage Example**:
+```python
+from scripts.utils.time_client import get_authoritative_now, get_current_year
+
+# ❌ NEVER DO THIS:
+current_time = datetime.now(timezone.utc)  # System time - unreliable!
+current_year = 2025  # Hardcoded - becomes stale!
+
+# ✅ ALWAYS DO THIS:
+current_time = get_authoritative_now()  # Authoritative NIST/WorldTimeAPI
+current_year = get_current_year()  # Dynamically fetched
+```
+
 ## Project Overview
 
 This is "Vuln-Bot" - a high-risk CVE intelligence platform that tracks Critical & High severity vulnerabilities with EPSS ≥ 60% exploitation probability. It automatically harvests, scores, and publishes vulnerability briefings every 4 hours. It's a Python-based project using Alpine.js for the frontend dashboard, with static HTML generation via `scripts/generate_alpine_dashboard.py`.
