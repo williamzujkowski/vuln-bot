@@ -316,6 +316,74 @@
             border: 1px solid rgba(59, 130, 246, 0.3);
         }
 
+        /* Priority Badges */
+        .priority-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.5rem 1rem;
+            border-radius: 24px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.025em;
+        }
+
+        .priority-critical-urgent {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            color: #ffffff;
+            border: 2px solid rgba(220, 38, 38, 0.5);
+            box-shadow: 0 0 20px rgba(220, 38, 38, 0.4);
+        }
+
+        .priority-high-priority {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: #ffffff;
+            border: 2px solid rgba(245, 158, 11, 0.5);
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.3);
+        }
+
+        .priority-monitor {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: #ffffff;
+            border: 2px solid rgba(16, 185, 129, 0.5);
+        }
+
+        /* Row highlighting for critical priorities */
+        tbody tr.critical-urgent {
+            background: rgba(220, 38, 38, 0.05);
+            border-left: 4px solid #dc2626;
+        }
+
+        tbody tr.critical-urgent:hover {
+            background: rgba(220, 38, 38, 0.1);
+        }
+
+        /* Warning icons */
+        .warning-icon {
+            color: #ef4444;
+            font-size: 1.25rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        /* Tech category pills */
+        .tech-pill {
+            display: inline-block;
+            padding: 0.25rem 0.625rem;
+            background: rgba(124, 58, 237, 0.15);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            border-radius: 16px;
+            color: #a78bfa;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin: 0.125rem;
+        }
+
         /* Pagination */
         .pagination {
             display: flex;
@@ -373,98 +441,347 @@
 
 
 
-        /* Enhanced Mobile Responsiveness */
+        /* ========================================
+           MOBILE RESPONSIVENESS ENHANCEMENTS
+           ======================================== */
+
+        /* Mobile: Card-Based Layout */
         @media (max-width: 768px) {
-            .table-wrapper {
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                margin: 0 -1rem;
-                padding: 0 1rem;
+            /* Default to 10 items per page on mobile */
+            body[x-data] {
+                --mobile-per-page: 10;
             }
 
-            table {
-                min-width: 600px;
+            /* Mobile Header Adjustments */
+            .header {
+                padding: 0.75rem 1rem;
             }
 
-            /* Add scroll indicator */
-            .table-wrapper::after {
-                content: '→ Scroll for more';
-                position: absolute;
-                right: 1rem;
-                top: 1rem;
-                background: rgba(0,0,0,0.8);
-                color: white;
-                padding: 0.25rem 0.5rem;
-                border-radius: 4px;
-                font-size: 0.75rem;
-                pointer-events: none;
-                opacity: 0;
-                transition: opacity 0.3s;
+            .header-content {
+                flex-direction: column;
+                gap: 0.75rem;
             }
 
-            .table-wrapper:not(:hover)::after {
-                opacity: 1;
+            .brand {
+                flex-direction: row;
+                width: 100%;
             }
 
-            /* Responsive table cells */
-            td, th {
-                white-space: nowrap;
-                min-width: 100px;
+            .brand-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.25rem;
             }
 
-            /* Hide less important columns on mobile */
-            th:nth-child(5), td:nth-child(5) { /* Risk Score */
-                display: none;
+            .brand h1 {
+                font-size: 1.25rem;
             }
 
-            .stats-card {
+            /* Mobile Stats Grid - 2 columns */
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.75rem;
+                margin-bottom: 1rem;
+            }
+
+            .stat-card {
                 padding: 1rem;
             }
 
             .stat-value {
-                font-size: 1.75rem;
+                font-size: 1.5rem;
+            }
+
+            .stat-label {
+                font-size: 0.75rem;
+            }
+
+            .stat-change {
+                font-size: 0.7rem;
+            }
+
+            /* Mobile Main Content */
+            .main {
+                padding: 0.75rem;
+            }
+
+            /* Collapsible Filters Section */
+            .filters-section {
+                padding: 1rem;
+                margin-bottom: 1rem;
             }
 
             .filter-grid {
                 grid-template-columns: 1fr;
+                gap: 0.75rem;
             }
 
+            .filter-group input,
+            .filter-group select {
+                padding: 0.625rem;
+                font-size: 0.875rem;
+            }
+
+            /* Mobile Search Box */
+            .search-input {
+                padding: 0.75rem 1rem;
+                font-size: 0.875rem;
+                width: 100%;
+            }
+
+            /* Mobile Quick Filters - Wrapping Pills */
             .quick-filters {
                 flex-wrap: wrap;
-                justify-content: center;
+                gap: 0.5rem;
+                justify-content: flex-start;
+                margin-bottom: 1rem;
             }
 
             .filter-chip {
-                font-size: 0.875rem;
-                padding: 0.375rem 0.75rem;
+                padding: 0.5rem 0.875rem;
+                font-size: 0.8rem;
+                min-height: 44px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                flex: 0 1 auto;
             }
-        }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
+            /* Priority Filter Pills - Stack on small screens */
+            .quick-filters button {
+                flex: 1 1 calc(50% - 0.25rem);
+                min-width: 120px;
+            }
+
+            /* Mobile Charts */
+            .charts-grid {
+                grid-template-columns: 1fr;
                 gap: 1rem;
+                margin: 1rem 0;
             }
 
-            .main {
+            .chart-card {
                 padding: 1rem;
             }
 
+            .chart-container {
+                height: 250px;
+            }
+
+            /* CARD-BASED LAYOUT FOR TABLE ON MOBILE */
+            .data-section {
+                padding: 1rem;
+            }
+
+            /* Hide table, show cards */
+            .table-wrapper table {
+                display: none;
+            }
+
+            /* Mobile Card View */
+            .mobile-card-view {
+                display: block;
+            }
+
+            .vulnerability-card {
+                background: var(--bg-card);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-radius: 12px;
+                padding: 1rem;
+                margin-bottom: 1rem;
+                position: relative;
+                transition: all 0.3s ease;
+            }
+
+            .vulnerability-card:hover {
+                box-shadow: 0 4px 12px rgba(0, 212, 255, 0.15);
+                transform: translateY(-2px);
+            }
+
+            .vulnerability-card.critical-urgent {
+                border-left: 4px solid #dc2626;
+                background: rgba(220, 38, 38, 0.05);
+            }
+
+            .card-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                margin-bottom: 0.75rem;
+                gap: 0.5rem;
+            }
+
+            .card-cve-id {
+                flex: 1;
+            }
+
+            .card-cve-id a {
+                color: var(--accent-primary);
+                text-decoration: none;
+                font-weight: 700;
+                font-size: 1rem;
+                font-family: monospace;
+            }
+
+            .card-priority {
+                position: absolute;
+                top: 0.75rem;
+                right: 0.75rem;
+            }
+
+            .card-badges {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .card-info-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.5rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .card-info-item {
+                text-align: center;
+                padding: 0.5rem;
+                background: rgba(255, 255, 255, 0.03);
+                border-radius: 6px;
+            }
+
+            .card-info-label {
+                font-size: 0.65rem;
+                color: var(--text-muted);
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                display: block;
+                margin-bottom: 0.25rem;
+            }
+
+            .card-info-value {
+                font-size: 0.875rem;
+                font-weight: 700;
+                color: var(--text-primary);
+            }
+
+            .card-description {
+                font-size: 0.8rem;
+                color: var(--text-secondary);
+                line-height: 1.4;
+                margin-bottom: 0.75rem;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+
+            .card-footer {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.25rem;
+                padding-top: 0.75rem;
+                border-top: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+            .vendor-pill {
+                display: inline-block;
+                padding: 0.25rem 0.625rem;
+                background: rgba(124, 58, 237, 0.15);
+                border: 1px solid rgba(124, 58, 237, 0.3);
+                border-radius: 12px;
+                color: #a78bfa;
+                font-size: 0.7rem;
+                font-weight: 500;
+            }
+
+            .exploit-badge {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.25rem;
+                padding: 0.375rem 0.625rem;
+                background: rgba(239, 68, 68, 0.15);
+                border: 1px solid rgba(239, 68, 68, 0.3);
+                border-radius: 6px;
+                color: #ef4444;
+                font-size: 0.75rem;
+                font-weight: 600;
+            }
+
+            /* Mobile Pagination */
+            .pagination {
+                flex-direction: column;
+                gap: 0.5rem;
+                margin-top: 1.5rem;
+            }
+
+            .page-btn {
+                width: 100%;
+                padding: 0.75rem 1rem;
+                min-height: 44px;
+            }
+
+            /* Touch-Friendly Buttons */
+            button, a, .clickable {
+                min-height: 44px;
+                min-width: 44px;
+            }
+
+            /* Hide desktop-only elements */
+            .hide-mobile {
+                display: none !important;
+            }
+        }
+
+        /* Desktop: Hide card view, show table */
+        @media (min-width: 769px) {
+            .mobile-card-view {
+                display: none;
+            }
+
+            .table-wrapper table {
+                display: table;
+            }
+        }
+
+        /* Small Mobile (< 640px) - Ultra Compact */
+        @media (max-width: 640px) {
             .stats-grid {
                 grid-template-columns: 1fr;
             }
 
-            .filter-grid {
-                grid-template-columns: 1fr;
+            .card-info-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
-            .quick-filters {
+            .quick-filters button {
+                flex: 1 1 100%;
+            }
+
+            .filter-chip {
+                width: 100%;
                 justify-content: center;
             }
+        }
 
-            .charts-grid {
-                grid-template-columns: 1fr;
+        /* Landscape Mobile Optimization */
+        @media (max-width: 896px) and (orientation: landscape) {
+            .header {
+                padding: 0.5rem 1rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 0.5rem;
+            }
+
+            .stat-card {
+                padding: 0.75rem;
+            }
+
+            .filters-section {
+                max-height: 40vh;
+                overflow-y: auto;
             }
         }
 
@@ -545,33 +862,104 @@
                 </div>
             </div>
 
-            <!-- Quick Filters -->
-            <div class="quick-filters">
-                <button class="filter-chip"
-                        :class="{ 'active': quickFilter === 'all' }"
-                        @click="setQuickFilter('all')">
-                    All Vulnerabilities
-                </button>
-                <button class="filter-chip"
-                        :class="{ 'active': quickFilter === 'critical' }"
-                        @click="setQuickFilter('critical')">
-                    <span class="severity-badge severity-critical">Critical</span>
-                </button>
-                <button class="filter-chip"
-                        :class="{ 'active': quickFilter === 'today' }"
-                        @click="setQuickFilter('today')">
-                    📅 Today's CVEs
-                </button>
-                <button class="filter-chip"
-                        :class="{ 'active': quickFilter === 'kev' }"
-                        @click="setQuickFilter('kev')">
-                    ⭐ KEV Listed
-                </button>
-                <button class="filter-chip"
-                        :class="{ 'active': quickFilter === 'network' }"
-                        @click="setQuickFilter('network')">
-                    🌐 Network Vector
-                </button>
+            <!-- Data Freshness Indicator -->
+            <div style="background: var(--bg-card); border-radius: 16px; padding: 1rem; margin-bottom: 2rem; border-left: 4px solid var(--accent-primary);">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <span style="font-size: 1.5rem;">🕒</span>
+                    <div style="flex: 1;">
+                        <div style="font-weight: 600; color: var(--text-primary);">Data Last Updated</div>
+                        <div>
+                            <span style="color: var(--text-secondary); font-size: 0.875rem;" x-text="new Date(stats.last_updated).toLocaleString()"></span>
+                            <span x-show="(new Date() - new Date(stats.last_updated)) / (1000 * 60 * 60) > 24" style="color: #ef4444; font-size: 0.875rem; margin-left: 0.5rem;">⚠ Data is stale (>24 hours old)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Priority Quick Filters -->
+            <div style="margin-bottom: 1.5rem;">
+                <h3 style="font-size: 1rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Triage Priority</h3>
+                <div class="quick-filters">
+                    <button class="filter-chip"
+                            :class="{ 'active': quickFilter === 'all' }"
+                            @click="setQuickFilter('all')">
+                        Show All
+                    </button>
+                    <button class="filter-chip"
+                            :class="{ 'active': quickFilter === 'critical-urgent' }"
+                            @click="setQuickFilter('critical-urgent')">
+                        🔴 Critical Urgent <span x-text="`(${countByPriority('CRITICAL-URGENT')})`"></span>
+                    </button>
+                    <button class="filter-chip"
+                            :class="{ 'active': quickFilter === 'high-priority' }"
+                            @click="setQuickFilter('high-priority')">
+                        🟡 High Priority <span x-text="`(${countByPriority('HIGH-PRIORITY')})`"></span>
+                    </button>
+                    <button class="filter-chip"
+                            :class="{ 'active': quickFilter === 'monitor' }"
+                            @click="setQuickFilter('monitor')">
+                        🟢 Monitor <span x-text="`(${countByPriority('MONITOR')})`"></span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Technology Stack Filters -->
+            <div style="margin-bottom: 1.5rem;">
+                <h3 style="font-size: 1rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Technology Categories</h3>
+                <div class="quick-filters">
+                    <button class="filter-chip"
+                            :class="{ 'active': techFilter === 'web-servers' }"
+                            @click="setTechFilter('web-servers')">
+                        Web Servers <span x-text="`(${countByTech('web-servers')})`"></span>
+                    </button>
+                    <button class="filter-chip"
+                            :class="{ 'active': techFilter === 'databases' }"
+                            @click="setTechFilter('databases')">
+                        Databases <span x-text="`(${countByTech('databases')})`"></span>
+                    </button>
+                    <button class="filter-chip"
+                            :class="{ 'active': techFilter === 'containers-k8s' }"
+                            @click="setTechFilter('containers-k8s')">
+                        Containers/K8s <span x-text="`(${countByTech('containers-k8s')})`"></span>
+                    </button>
+                    <button class="filter-chip"
+                            :class="{ 'active': techFilter === 'windows' }"
+                            @click="setTechFilter('windows')">
+                        Windows <span x-text="`(${countByTech('windows')})`"></span>
+                    </button>
+                    <button class="filter-chip"
+                            :class="{ 'active': techFilter === 'linux' }"
+                            @click="setTechFilter('linux')">
+                        Linux <span x-text="`(${countByTech('linux')})`"></span>
+                    </button>
+                    <button class="filter-chip"
+                            :class="{ 'active': techFilter === 'network-gear' }"
+                            @click="setTechFilter('network-gear')">
+                        Network Gear <span x-text="`(${countByTech('network-gear')})`"></span>
+                    </button>
+                    <button class="filter-chip"
+                            :class="{ 'active': techFilter === 'cms' }"
+                            @click="setTechFilter('cms')">
+                        CMS <span x-text="`(${countByTech('cms')})`"></span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quick Filters (Keep existing ones) -->
+            <div style="margin-bottom: 1.5rem;">
+                <h3 style="font-size: 1rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Quick Filters</h3>
+                <div class="quick-filters">
+                    <button class="filter-chip"
+                            :class="{ 'active': quickFilter === 'kev' }"
+                            @click="setQuickFilter('kev')">
+                        ⭐ KEV Listed
+                    </button>
+                    <button class="filter-chip"
+                            :class="{ 'active': quickFilter === 'network' }"
+                            @click="setQuickFilter('network')">
+                        🌐 Network Vector
+                    </button>
+                </div>
             </div>
 
             <!-- Filters Section -->
@@ -616,10 +1004,9 @@
                         </div>
 
                         <div class="filter-group">
-                            <label>EPSS %</label>
-                            <div style="display: flex; gap: 0.5rem;">
-                                <input type="number" x-model.number="filters.epss_min" placeholder="Min" min="0" max="100" value="70">
-                                <input type="number" x-model.number="filters.epss_max" placeholder="Max" min="0" max="100" value="100">
+                            <label>EPSS Threshold</label>
+                            <div style="padding: 0.75rem; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 8px; color: #10b981; font-size: 0.875rem;">
+                                ✓ All vulnerabilities meet EPSS ≥60% threshold
                             </div>
                         </div>
 
@@ -671,11 +1058,15 @@
                 </div>
 
                 <div class="table-wrapper">
+                    <!-- DESKTOP TABLE VIEW -->
                     <table>
                         <thead>
                             <tr>
                                 <th @click="sort('cve_id')" style="cursor: pointer;">
                                     CVE ID <span x-show="sortField === 'cve_id'" x-text="sortOrder === 'asc' ? '↑' : '↓'"></span>
+                                </th>
+                                <th @click="sort('triage_priority')" style="cursor: pointer;">
+                                    Priority <span x-show="sortField === 'triage_priority'" x-text="sortOrder === 'asc' ? '↑' : '↓'"></span>
                                 </th>
                                 <th @click="sort('severity')" style="cursor: pointer;">
                                     Severity <span x-show="sortField === 'severity'" x-text="sortOrder === 'asc' ? '↑' : '↓'"></span>
@@ -691,6 +1082,9 @@
                                 </th>
                                 <th>Product</th>
                                 <th>Vendors</th>
+                                <th @click="sort('kev_status')" style="cursor: pointer;">
+                                    Exploit Status <span x-show="sortField === 'kev_status'" x-text="sortOrder === 'asc' ? '↑' : '↓'"></span>
+                                </th>
                                 <th @click="sort('published_date')" style="cursor: pointer;">
                                     Published <span x-show="sortField === 'published_date'" x-text="sortOrder === 'asc' ? '↑' : '↓'"></span>
                                 </th>
@@ -698,23 +1092,107 @@
                         </thead>
                         <tbody>
                             <template x-for="vuln in paginatedVulns" :key="vuln.cve_id">
-                                <tr class="vulnerability-row" :data-cve="vuln.cve_id">
+                                <tr class="vulnerability-row"
+                                    :class="{ 'critical-urgent': vuln.triage_priority === 'CRITICAL-URGENT' }"
+                                    :data-cve="vuln.cve_id">
                                     <td>
-                                        <a :href="`/vuln-bot/cves/${vuln.cve_id}/`" class="cve-link" x-text="vuln.cve_id"></a>
+                                        <a :href="`https://cve.mitre.org/cgi-bin/cvename.cgi?name=${vuln.cve_id}`" class="cve-link" x-text="vuln.cve_id" target="_blank" rel="noopener noreferrer"></a>
                                     </td>
                                     <td>
-                                        <span class="severity-badge" :class="`severity-${vuln.severity.toLowerCase()}`" x-text="vuln.severity"></span>
+                                        <span class="priority-badge"
+                                              :class="`priority-${vuln.triage_priority.toLowerCase().replace('_', '-')}`">
+                                            <span x-show="vuln.triage_priority === 'CRITICAL-URGENT'">🔴</span>
+                                            <span x-show="vuln.triage_priority === 'HIGH-PRIORITY'">🟡</span>
+                                            <span x-show="vuln.triage_priority === 'MONITOR'">🟢</span>
+                                            <span x-text="vuln.triage_priority.replace('-', ' ')"></span>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                            <span x-show="vuln.severity === 'CRITICAL' && vuln.kev_status" class="warning-icon">⚠️</span>
+                                            <span class="severity-badge" :class="`severity-${vuln.severity.toLowerCase()}`" x-text="vuln.severity"></span>
+                                        </div>
                                     </td>
                                     <td x-text="vuln.cvss_score"></td>
                                     <td x-text="vuln.epss_percentile"></td>
                                     <td x-text="vuln.risk_score"></td>
                                     <td class="truncate" x-text="vuln.products"></td>
                                     <td class="truncate" x-text="vuln.vendors.join(', ') || 'Unknown'"></td>
+                                    <td>
+                                        <span x-show="vuln.kev_status" style="color: #ef4444; font-weight: 600;">🔴 KEV Listed</span>
+                                        <span x-show="!vuln.kev_status && vuln.exploitation_status !== 'Unknown'" style="color: #f59e0b;" x-text="vuln.exploitation_status"></span>
+                                        <span x-show="!vuln.kev_status && vuln.exploitation_status === 'Unknown'" style="color: #6b6b85;">⚪ Not Listed</span>
+                                    </td>
                                     <td x-text="vuln.published_short"></td>
                                 </tr>
                             </template>
                         </tbody>
                     </table>
+
+                    <!-- MOBILE CARD VIEW -->
+                    <div class="mobile-card-view">
+                        <template x-for="vuln in paginatedVulns" :key="vuln.cve_id">
+                            <div class="vulnerability-card"
+                                 :class="{ 'critical-urgent': vuln.triage_priority === 'CRITICAL-URGENT' }">
+                                <!-- Card Header: CVE ID + Priority Badge -->
+                                <div class="card-header">
+                                    <div class="card-cve-id">
+                                        <a :href="`https://cve.mitre.org/cgi-bin/cvename.cgi?name=${vuln.cve_id}`"
+                                           x-text="vuln.cve_id"
+                                           target="_blank"
+                                           rel="noopener noreferrer"></a>
+                                    </div>
+                                    <div class="card-priority">
+                                        <span class="priority-badge"
+                                              :class="`priority-${vuln.triage_priority.toLowerCase().replace('_', '-')}`">
+                                            <span x-show="vuln.triage_priority === 'CRITICAL-URGENT'">🔴</span>
+                                            <span x-show="vuln.triage_priority === 'HIGH-PRIORITY'">🟡</span>
+                                            <span x-show="vuln.triage_priority === 'MONITOR'">🟢</span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- Badges: Severity + Exploit Status -->
+                                <div class="card-badges">
+                                    <span class="severity-badge" :class="`severity-${vuln.severity.toLowerCase()}`" x-text="vuln.severity"></span>
+                                    <span x-show="vuln.kev_status" class="exploit-badge">
+                                        🔴 KEV
+                                    </span>
+                                    <span x-show="!vuln.kev_status && vuln.exploitation_status !== 'Unknown'"
+                                          class="exploit-badge"
+                                          style="background: rgba(245, 158, 11, 0.15); border-color: rgba(245, 158, 11, 0.3); color: #f59e0b;"
+                                          x-text="vuln.exploitation_status"></span>
+                                </div>
+
+                                <!-- Score Grid: CVSS, EPSS, Risk -->
+                                <div class="card-info-grid">
+                                    <div class="card-info-item">
+                                        <span class="card-info-label">CVSS</span>
+                                        <span class="card-info-value" x-text="vuln.cvss_score"></span>
+                                    </div>
+                                    <div class="card-info-item">
+                                        <span class="card-info-label">EPSS</span>
+                                        <span class="card-info-value" x-text="vuln.epss_percentile + '%'"></span>
+                                    </div>
+                                    <div class="card-info-item">
+                                        <span class="card-info-label">Risk</span>
+                                        <span class="card-info-value" x-text="vuln.risk_score"></span>
+                                    </div>
+                                </div>
+
+                                <!-- Description (truncated to 2 lines) -->
+                                <div class="card-description" x-text="vuln.description"></div>
+
+                                <!-- Footer: Vendors + Published Date -->
+                                <div class="card-footer">
+                                    <template x-for="vendor in vuln.vendors.slice(0, 3)" :key="vendor">
+                                        <span class="vendor-pill" x-text="vendor"></span>
+                                    </template>
+                                    <span style="color: var(--text-muted); font-size: 0.7rem; margin-left: auto;" x-text="vuln.published_short"></span>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
 
                     <div class="pagination">
                         <button class="page-btn"
@@ -770,7 +1248,9 @@
     "cwe_ids": [],
     "kev_status": false,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown"
+    "exploitation_status": "Unknown",
+    "triage_priority": "CRITICAL-URGENT",
+    "tech_categories": []
   },
   {
     "cve_id": "CVE-2025-49113",
@@ -802,7 +1282,9 @@
     "cwe_ids": [],
     "kev_status": false,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown"
+    "exploitation_status": "Unknown",
+    "triage_priority": "CRITICAL-URGENT",
+    "tech_categories": []
   },
   {
     "cve_id": "CVE-2025-1974",
@@ -834,7 +1316,12 @@
     "cwe_ids": [],
     "kev_status": false,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown"
+    "exploitation_status": "Unknown",
+    "triage_priority": "CRITICAL-URGENT",
+    "tech_categories": [
+      "web-servers",
+      "containers-k8s"
+    ]
   },
   {
     "cve_id": "CVE-2025-47916",
@@ -867,7 +1354,9 @@
     "cwe_ids": [],
     "kev_status": false,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown"
+    "exploitation_status": "Unknown",
+    "triage_priority": "CRITICAL-URGENT",
+    "tech_categories": []
   },
   {
     "cve_id": "CVE-2025-24893",
@@ -899,7 +1388,9 @@
     "cwe_ids": [],
     "kev_status": false,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown"
+    "exploitation_status": "Unknown",
+    "triage_priority": "CRITICAL-URGENT",
+    "tech_categories": []
   },
   {
     "cve_id": "CVE-2025-1661",
@@ -933,7 +1424,11 @@
     "cwe_ids": [],
     "kev_status": false,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown"
+    "exploitation_status": "Unknown",
+    "triage_priority": "CRITICAL-URGENT",
+    "tech_categories": [
+      "cms"
+    ]
   },
   {
     "cve_id": "CVE-2025-29927",
@@ -966,7 +1461,9 @@
     "cwe_ids": [],
     "kev_status": false,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown"
+    "exploitation_status": "Unknown",
+    "triage_priority": "CRITICAL-URGENT",
+    "tech_categories": []
   },
   {
     "cve_id": "CVE-2025-3248",
@@ -998,7 +1495,9 @@
     "cwe_ids": [],
     "kev_status": false,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown"
+    "exploitation_status": "Unknown",
+    "triage_priority": "CRITICAL-URGENT",
+    "tech_categories": []
   },
   {
     "cve_id": "CVE-2025-48827",
@@ -1031,7 +1530,9 @@
     "cwe_ids": [],
     "kev_status": false,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown"
+    "exploitation_status": "Unknown",
+    "triage_priority": "CRITICAL-URGENT",
+    "tech_categories": []
   },
   {
     "cve_id": "CVE-2025-31161",
@@ -1065,7 +1566,9 @@
     "cwe_ids": [],
     "kev_status": false,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown"
+    "exploitation_status": "Unknown",
+    "triage_priority": "CRITICAL-URGENT",
+    "tech_categories": []
   },
   {
     "cve_id": "CVE-2025-32432",
@@ -1097,7 +1600,9 @@
     "cwe_ids": [],
     "kev_status": false,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown"
+    "exploitation_status": "Unknown",
+    "triage_priority": "CRITICAL-URGENT",
+    "tech_categories": []
   },
   {
     "cve_id": "CVE-2025-24016",
@@ -1129,7 +1634,9 @@
     "cwe_ids": [],
     "kev_status": false,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown"
+    "exploitation_status": "Unknown",
+    "triage_priority": "CRITICAL-URGENT",
+    "tech_categories": []
   },
   {
     "cve_id": "CVE-2025-21298",
@@ -1161,7 +1668,11 @@
     "cwe_ids": [],
     "kev_status": false,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown"
+    "exploitation_status": "Unknown",
+    "triage_priority": "CRITICAL-URGENT",
+    "tech_categories": [
+      "windows"
+    ]
   },
   {
     "cve_id": "CVE-2025-27007",
@@ -1194,7 +1705,11 @@
     "cwe_ids": [],
     "kev_status": false,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown"
+    "exploitation_status": "Unknown",
+    "triage_priority": "CRITICAL-URGENT",
+    "tech_categories": [
+      "cms"
+    ]
   },
   {
     "cve_id": "CVE-2025-32433",
@@ -1227,7 +1742,9 @@
     "cwe_ids": [],
     "kev_status": false,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown"
+    "exploitation_status": "Unknown",
+    "triage_priority": "CRITICAL-URGENT",
+    "tech_categories": []
   },
   {
     "cve_id": "CVE-2025-30066",
@@ -1259,7 +1776,9 @@
     "cwe_ids": [],
     "kev_status": false,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown"
+    "exploitation_status": "Unknown",
+    "triage_priority": "HIGH-PRIORITY",
+    "tech_categories": []
   },
   {
     "cve_id": "CVE-2025-34028",
@@ -1293,7 +1812,9 @@
     "cwe_ids": [],
     "kev_status": false,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown"
+    "exploitation_status": "Unknown",
+    "triage_priority": "CRITICAL-URGENT",
+    "tech_categories": []
   },
   {
     "cve_id": "CVE-2025-1316",
@@ -1325,7 +1846,9 @@
     "cwe_ids": [],
     "kev_status": false,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown"
+    "exploitation_status": "Unknown",
+    "triage_priority": "CRITICAL-URGENT",
+    "tech_categories": []
   },
   {
     "cve_id": "CVE-2025-1094",
@@ -1358,7 +1881,11 @@
     "cwe_ids": [],
     "kev_status": false,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown"
+    "exploitation_status": "Unknown",
+    "triage_priority": "HIGH-PRIORITY",
+    "tech_categories": [
+      "databases"
+    ]
   },
   {
     "cve_id": "CVE-2025-30406",
@@ -1391,7 +1918,9 @@
     "cwe_ids": [],
     "kev_status": false,
     "patch_status": "Available",
-    "exploitation_status": "Unknown"
+    "exploitation_status": "Unknown",
+    "triage_priority": "HIGH-PRIORITY",
+    "tech_categories": []
   },
   {
     "cve_id": "CVE-2025-21293",
@@ -1423,7 +1952,11 @@
     "cwe_ids": [],
     "kev_status": false,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown"
+    "exploitation_status": "Unknown",
+    "triage_priority": "HIGH-PRIORITY",
+    "tech_categories": [
+      "windows"
+    ]
   },
   {
     "cve_id": "CVE-2025-48828",
@@ -1456,7 +1989,9 @@
     "cwe_ids": [],
     "kev_status": false,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown"
+    "exploitation_status": "Unknown",
+    "triage_priority": "HIGH-PRIORITY",
+    "tech_categories": []
   },
   {
     "cve_id": "CVE-2025-3102",
@@ -1489,7 +2024,11 @@
     "cwe_ids": [],
     "kev_status": false,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown"
+    "exploitation_status": "Unknown",
+    "triage_priority": "HIGH-PRIORITY",
+    "tech_categories": [
+      "cms"
+    ]
   },
   {
     "cve_id": "CVE-2025-24865",
@@ -1521,7 +2060,9 @@
     "cwe_ids": [],
     "kev_status": false,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown"
+    "exploitation_status": "Unknown",
+    "triage_priority": "CRITICAL-URGENT",
+    "tech_categories": []
   },
   {
     "cve_id": "CVE-2025-2011",
@@ -1555,7 +2096,11 @@
     "cwe_ids": [],
     "kev_status": false,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown"
+    "exploitation_status": "Unknown",
+    "triage_priority": "HIGH-PRIORITY",
+    "tech_categories": [
+      "cms"
+    ]
   },
   {
     "cve_id": "CVE-2025-27520",
@@ -1588,7 +2133,9 @@
     "cwe_ids": [],
     "kev_status": false,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown"
+    "exploitation_status": "Unknown",
+    "triage_priority": "CRITICAL-URGENT",
+    "tech_categories": []
   },
   {
     "cve_id": "CVE-2025-31324",
@@ -1621,7 +2168,9 @@
     "cwe_ids": [],
     "kev_status": false,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown"
+    "exploitation_status": "Unknown",
+    "triage_priority": "CRITICAL-URGENT",
+    "tech_categories": []
   },
   {
     "cve_id": "CVE-2025-0282",
@@ -1653,7 +2202,9 @@
     "cwe_ids": [],
     "kev_status": false,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown"
+    "exploitation_status": "Unknown",
+    "triage_priority": "HIGH-PRIORITY",
+    "tech_categories": []
   },
   {
     "cve_id": "CVE-2025-27363",
@@ -1683,7 +2234,9 @@
     "cwe_ids": [],
     "kev_status": false,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown"
+    "exploitation_status": "Unknown",
+    "triage_priority": "HIGH-PRIORITY",
+    "tech_categories": []
   },
   {
     "cve_id": "CVE-2025-2264",
@@ -1716,7 +2269,9 @@
     "cwe_ids": [],
     "kev_status": false,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown"
+    "exploitation_status": "Unknown",
+    "triage_priority": "HIGH-PRIORITY",
+    "tech_categories": []
   }
 ];
         window.statsData = {
@@ -1728,6 +2283,7 @@
   "today_count": 0,
   "week_count": 0,
   "kev_count": 0,
+  "last_updated": "2025-10-19T15:03:34.510837",
   "severity_distribution": {
     "CRITICAL": 23,
     "HIGH": 7,
@@ -1751,8 +2307,9 @@
                 // UI State
                 search: '',
                 quickFilter: 'all',
-                sortField: 'epss_percentile',
-                sortOrder: 'desc',
+                techFilter: '',
+                sortField: 'triage_priority',
+                sortOrder: 'asc',
                 currentPage: 1,
                 perPage: 50,
 
@@ -1761,8 +2318,6 @@
                     severity: '',
                     cvss_min: null,
                     cvss_max: null,
-                    epss_min: 0,
-                    epss_max: 100,
                     published_from: '',
                     published_to: '',
                     vendor: ''
@@ -1770,26 +2325,50 @@
 
                 // Initialization
                 init() {
+                    // Set mobile defaults
+                    if (window.innerWidth <= 768) {
+                        this.perPage = 10;  // Default to 10 items on mobile
+                    }
+
                     this.$nextTick(() => {
                         this.initCharts();
                         this.setupKeyboardShortcuts();
                     });
+
+                    // Auto-collapse filters on mobile after selection
+                    if (window.innerWidth <= 768) {
+                        this.$watch('filters', () => {
+                            const filtersSection = document.querySelector('.filters-section [x-data]');
+                            if (filtersSection) {
+                                // Auto-collapse after 2 seconds on mobile
+                                setTimeout(() => {
+                                    Alpine.store('filtersExpanded', false);
+                                }, 2000);
+                            }
+                        });
+                    }
                 },
 
                 // Computed Properties
                 get filteredVulns() {
                     let vulns = [...this.vulnerabilities];
 
-                    // Quick filter
-                    if (this.quickFilter === 'critical') {
-                        vulns = vulns.filter(v => v.severity === 'CRITICAL');
-                    } else if (this.quickFilter === 'today') {
-                        const today = new Date().toISOString().split('T')[0];
-                        vulns = vulns.filter(v => v.published_date && v.published_date.startsWith(today));
+                    // Priority quick filter
+                    if (this.quickFilter === 'critical-urgent') {
+                        vulns = vulns.filter(v => v.triage_priority === 'CRITICAL-URGENT');
+                    } else if (this.quickFilter === 'high-priority') {
+                        vulns = vulns.filter(v => v.triage_priority === 'HIGH-PRIORITY');
+                    } else if (this.quickFilter === 'monitor') {
+                        vulns = vulns.filter(v => v.triage_priority === 'MONITOR');
                     } else if (this.quickFilter === 'kev') {
-                        vulns = vulns.filter(v => v.tags.includes('KEV'));
+                        vulns = vulns.filter(v => v.kev_status === true);
                     } else if (this.quickFilter === 'network') {
-                        vulns = vulns.filter(v => v.attack_vector === 'NETWORK');
+                        vulns = vulns.filter(v => v.attack_vector === 'Network');
+                    }
+
+                    // Technology filter
+                    if (this.techFilter) {
+                        vulns = vulns.filter(v => v.tech_categories && v.tech_categories.includes(this.techFilter));
                     }
 
                     // Search
@@ -1813,14 +2392,6 @@
 
                     if (this.filters.cvss_max !== null) {
                         vulns = vulns.filter(v => v.cvss_score <= this.filters.cvss_max);
-                    }
-
-                    if (this.filters.epss_min !== null) {
-                        vulns = vulns.filter(v => v.epss_percentile >= this.filters.epss_min);
-                    }
-
-                    if (this.filters.epss_max !== null) {
-                        vulns = vulns.filter(v => v.epss_percentile <= this.filters.epss_max);
                     }
 
                     if (this.filters.published_from) {
@@ -1848,6 +2419,10 @@
                             const severityOrder = { 'CRITICAL': 4, 'HIGH': 3, 'MEDIUM': 2, 'LOW': 1 };
                             aVal = severityOrder[aVal] || 0;
                             bVal = severityOrder[bVal] || 0;
+                        } else if (this.sortField === 'triage_priority') {
+                            const priorityOrder = { 'CRITICAL-URGENT': 3, 'HIGH-PRIORITY': 2, 'MONITOR': 1 };
+                            aVal = priorityOrder[aVal] || 0;
+                            bVal = priorityOrder[bVal] || 0;
                         }
 
                         if (aVal < bVal) return this.sortOrder === 'asc' ? -1 : 1;
@@ -1869,8 +2444,27 @@
                 },
 
                 // Methods
+                countByPriority(priority) {
+                    return this.vulnerabilities.filter(v => v.triage_priority === priority).length;
+                },
+
+                countByTech(category) {
+                    return this.vulnerabilities.filter(v => v.tech_categories && v.tech_categories.includes(category)).length;
+                },
+
                 setQuickFilter(filter) {
                     this.quickFilter = filter;
+                    this.techFilter = '';  // Reset tech filter
+                    this.currentPage = 1;
+                },
+
+                setTechFilter(category) {
+                    if (this.techFilter === category) {
+                        this.techFilter = '';  // Toggle off
+                    } else {
+                        this.techFilter = category;
+                        this.quickFilter = 'all';  // Reset priority filter
+                    }
                     this.currentPage = 1;
                 },
 
@@ -1879,7 +2473,7 @@
                         this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc';
                     } else {
                         this.sortField = field;
-                        this.sortOrder = 'desc';
+                        this.sortOrder = (field === 'triage_priority') ? 'desc' : 'desc';
                     }
                     this.currentPage = 1;
                 },
@@ -1887,12 +2481,11 @@
                 resetFilters() {
                     this.search = '';
                     this.quickFilter = 'all';
+                    this.techFilter = '';
                     this.filters = {
                         severity: '',
                         cvss_min: null,
                         cvss_max: null,
-                        epss_min: 0,
-                        epss_max: 100,
                         published_from: '',
                         published_to: '',
                         vendor: ''

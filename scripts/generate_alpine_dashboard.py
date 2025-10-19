@@ -287,6 +287,63 @@ class AlpineDashboardGenerator:
         else:
             return "Unknown"
 
+    def _calculate_triage_priority(self, vuln) -> str:
+        """Calculate triage priority based on EPSS, CVSS, and Attack Complexity
+        Returns: CRITICAL-URGENT, HIGH-PRIORITY, or MONITOR
+        """
+        epss = vuln.get("epss_percentile", 0)
+        cvss = vuln.get("cvss_score", 0)
+        attack_complexity = vuln.get("attack_complexity", "").upper()
+
+        # CRITICAL-URGENT: EPSS ≥95% AND CVSS ≥9.0 AND Low Complexity
+        if epss >= 95 and cvss >= 9.0 and attack_complexity == "LOW":
+            return "CRITICAL-URGENT"
+        # HIGH-PRIORITY: EPSS ≥80% AND CVSS ≥7.0
+        elif epss >= 80 and cvss >= 7.0:
+            return "HIGH-PRIORITY"
+        # MONITOR: Everything else (EPSS 60-80%)
+        else:
+            return "MONITOR"
+
+    def _detect_technology_category(self, vuln) -> list:
+        """Detect technology categories for filtering
+        Returns: List of category tags
+        """
+        categories = []
+        vendors = [v.lower() for v in vuln.get("vendors_list", [])]
+        products = [p.lower() for p in vuln.get("products_list", [])]
+        all_text = " ".join(vendors + products).lower()
+
+        # Web Servers
+        if any(keyword in all_text for keyword in ["apache", "nginx", "iis", "httpd", "tomcat"]):
+            categories.append("web-servers")
+
+        # Databases
+        if any(keyword in all_text for keyword in ["postgresql", "mysql", "mongodb", "redis", "mariadb", "oracle", "mssql"]):
+            categories.append("databases")
+
+        # Containers/K8s
+        if any(keyword in all_text for keyword in ["docker", "kubernetes", "containerd", "k8s", "podman"]):
+            categories.append("containers-k8s")
+
+        # Windows
+        if any(keyword in all_text for keyword in ["microsoft", "windows", "azure", "exchange", "sharepoint"]):
+            categories.append("windows")
+
+        # Linux
+        if any(keyword in all_text for keyword in ["linux", "ubuntu", "redhat", "centos", "debian", "fedora"]):
+            categories.append("linux")
+
+        # Network Gear
+        if any(keyword in all_text for keyword in ["cisco", "fortinet", "palo alto", "juniper", "netgear"]):
+            categories.append("network-gear")
+
+        # CMS
+        if any(keyword in all_text for keyword in ["wordpress", "drupal", "joomla", "typo3"]):
+            categories.append("cms")
+
+        return categories
+
     def generate_stats(self) -> Dict[str, Any]:
         """Generate dashboard statistics"""
         total = len(self.vulnerabilities)
@@ -311,8 +368,8 @@ class AlpineDashboardGenerator:
             if v["published_date"] and v["published_date"] >= week_ago
         )
 
-        # Get KEV count
-        kev_count = sum(1 for v in self.vulnerabilities if "KEV" in v["tags_list"])
+        # Get KEV count - use kev_status boolean
+        kev_count = sum(1 for v in self.vulnerabilities if v.get("kev_status", False))
 
         return {
             "total": total,
@@ -323,6 +380,7 @@ class AlpineDashboardGenerator:
             "today_count": today_count,
             "week_count": week_count,
             "kev_count": kev_count,
+            "last_updated": datetime.now().isoformat(),
             "severity_distribution": {
                 "CRITICAL": critical,
                 "HIGH": high,
@@ -385,6 +443,9 @@ class AlpineDashboardGenerator:
                     "kev_status": self._get_kev_status(vuln),
                     "patch_status": self._detect_patch_status(vuln),
                     "exploitation_status": self._get_exploitation_status(vuln),
+                    # NEW: Phase 2 enhancements
+                    "triage_priority": self._calculate_triage_priority(vuln),
+                    "tech_categories": self._detect_technology_category(vuln),
                 }
             )
 
@@ -708,6 +769,74 @@ class AlpineDashboardGenerator:
             border: 1px solid rgba(59, 130, 246, 0.3);
         __CLOSE_BRACE__
 
+        /* Priority Badges */
+        .priority-badge __OPEN_BRACE__
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.5rem 1rem;
+            border-radius: 24px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.025em;
+        __CLOSE_BRACE__
+
+        .priority-critical-urgent __OPEN_BRACE__
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            color: #ffffff;
+            border: 2px solid rgba(220, 38, 38, 0.5);
+            box-shadow: 0 0 20px rgba(220, 38, 38, 0.4);
+        __CLOSE_BRACE__
+
+        .priority-high-priority __OPEN_BRACE__
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: #ffffff;
+            border: 2px solid rgba(245, 158, 11, 0.5);
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.3);
+        __CLOSE_BRACE__
+
+        .priority-monitor __OPEN_BRACE__
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: #ffffff;
+            border: 2px solid rgba(16, 185, 129, 0.5);
+        __CLOSE_BRACE__
+
+        /* Row highlighting for critical priorities */
+        tbody tr.critical-urgent __OPEN_BRACE__
+            background: rgba(220, 38, 38, 0.05);
+            border-left: 4px solid #dc2626;
+        __CLOSE_BRACE__
+
+        tbody tr.critical-urgent:hover __OPEN_BRACE__
+            background: rgba(220, 38, 38, 0.1);
+        __CLOSE_BRACE__
+
+        /* Warning icons */
+        .warning-icon __OPEN_BRACE__
+            color: #ef4444;
+            font-size: 1.25rem;
+            animation: pulse 2s ease-in-out infinite;
+        __CLOSE_BRACE__
+
+        @keyframes pulse __OPEN_BRACE__
+            0%, 100% { opacity: 1; __CLOSE_BRACE__
+            50% { opacity: 0.6; __CLOSE_BRACE__
+        __CLOSE_BRACE__
+
+        /* Tech category pills */
+        .tech-pill __OPEN_BRACE__
+            display: inline-block;
+            padding: 0.25rem 0.625rem;
+            background: rgba(124, 58, 237, 0.15);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            border-radius: 16px;
+            color: #a78bfa;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin: 0.125rem;
+        __CLOSE_BRACE__
+
         /* Pagination */
         .pagination __OPEN_BRACE__
             display: flex;
@@ -765,98 +894,347 @@ class AlpineDashboardGenerator:
 
 
 
-        /* Enhanced Mobile Responsiveness */
+        /* ========================================
+           MOBILE RESPONSIVENESS ENHANCEMENTS
+           ======================================== */
+
+        /* Mobile: Card-Based Layout */
         @media (max-width: 768px) __OPEN_BRACE__
-            .table-wrapper __OPEN_BRACE__
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                margin: 0 -1rem;
-                padding: 0 1rem;
+            /* Default to 10 items per page on mobile */
+            body[x-data] __OPEN_BRACE__
+                --mobile-per-page: 10;
             __CLOSE_BRACE__
 
-            table __OPEN_BRACE__
-                min-width: 600px;
+            /* Mobile Header Adjustments */
+            .header __OPEN_BRACE__
+                padding: 0.75rem 1rem;
             __CLOSE_BRACE__
 
-            /* Add scroll indicator */
-            .table-wrapper::after __OPEN_BRACE__
-                content: '→ Scroll for more';
-                position: absolute;
-                right: 1rem;
-                top: 1rem;
-                background: rgba(0,0,0,0.8);
-                color: white;
-                padding: 0.25rem 0.5rem;
-                border-radius: 4px;
-                font-size: 0.75rem;
-                pointer-events: none;
-                opacity: 0;
-                transition: opacity 0.3s;
+            .header-content __OPEN_BRACE__
+                flex-direction: column;
+                gap: 0.75rem;
             __CLOSE_BRACE__
 
-            .table-wrapper:not(:hover)::after __OPEN_BRACE__
-                opacity: 1;
+            .brand __OPEN_BRACE__
+                flex-direction: row;
+                width: 100%;
             __CLOSE_BRACE__
 
-            /* Responsive table cells */
-            td, th __OPEN_BRACE__
-                white-space: nowrap;
-                min-width: 100px;
+            .brand-icon __OPEN_BRACE__
+                width: 40px;
+                height: 40px;
+                font-size: 1.25rem;
             __CLOSE_BRACE__
 
-            /* Hide less important columns on mobile */
-            th:nth-child(5), td:nth-child(5) __OPEN_BRACE__ /* Risk Score */
-                display: none;
+            .brand h1 __OPEN_BRACE__
+                font-size: 1.25rem;
             __CLOSE_BRACE__
 
-            .stats-card __OPEN_BRACE__
+            /* Mobile Stats Grid - 2 columns */
+            .stats-grid __OPEN_BRACE__
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.75rem;
+                margin-bottom: 1rem;
+            __CLOSE_BRACE__
+
+            .stat-card __OPEN_BRACE__
                 padding: 1rem;
             __CLOSE_BRACE__
 
             .stat-value __OPEN_BRACE__
-                font-size: 1.75rem;
+                font-size: 1.5rem;
+            __CLOSE_BRACE__
+
+            .stat-label __OPEN_BRACE__
+                font-size: 0.75rem;
+            __CLOSE_BRACE__
+
+            .stat-change __OPEN_BRACE__
+                font-size: 0.7rem;
+            __CLOSE_BRACE__
+
+            /* Mobile Main Content */
+            .main __OPEN_BRACE__
+                padding: 0.75rem;
+            __CLOSE_BRACE__
+
+            /* Collapsible Filters Section */
+            .filters-section __OPEN_BRACE__
+                padding: 1rem;
+                margin-bottom: 1rem;
             __CLOSE_BRACE__
 
             .filter-grid __OPEN_BRACE__
                 grid-template-columns: 1fr;
+                gap: 0.75rem;
             __CLOSE_BRACE__
 
+            .filter-group input,
+            .filter-group select __OPEN_BRACE__
+                padding: 0.625rem;
+                font-size: 0.875rem;
+            __CLOSE_BRACE__
+
+            /* Mobile Search Box */
+            .search-input __OPEN_BRACE__
+                padding: 0.75rem 1rem;
+                font-size: 0.875rem;
+                width: 100%;
+            __CLOSE_BRACE__
+
+            /* Mobile Quick Filters - Wrapping Pills */
             .quick-filters __OPEN_BRACE__
                 flex-wrap: wrap;
-                justify-content: center;
+                gap: 0.5rem;
+                justify-content: flex-start;
+                margin-bottom: 1rem;
             __CLOSE_BRACE__
 
             .filter-chip __OPEN_BRACE__
-                font-size: 0.875rem;
-                padding: 0.375rem 0.75rem;
+                padding: 0.5rem 0.875rem;
+                font-size: 0.8rem;
+                min-height: 44px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                flex: 0 1 auto;
             __CLOSE_BRACE__
-        __CLOSE_BRACE__
 
-        /* Responsive */
-        @media (max-width: 768px) __OPEN_BRACE__
-            .header-content __OPEN_BRACE__
-                flex-direction: column;
+            /* Priority Filter Pills - Stack on small screens */
+            .quick-filters button __OPEN_BRACE__
+                flex: 1 1 calc(50% - 0.25rem);
+                min-width: 120px;
+            __CLOSE_BRACE__
+
+            /* Mobile Charts */
+            .charts-grid __OPEN_BRACE__
+                grid-template-columns: 1fr;
                 gap: 1rem;
+                margin: 1rem 0;
             __CLOSE_BRACE__
 
-            .main __OPEN_BRACE__
+            .chart-card __OPEN_BRACE__
                 padding: 1rem;
             __CLOSE_BRACE__
 
+            .chart-container __OPEN_BRACE__
+                height: 250px;
+            __CLOSE_BRACE__
+
+            /* CARD-BASED LAYOUT FOR TABLE ON MOBILE */
+            .data-section __OPEN_BRACE__
+                padding: 1rem;
+            __CLOSE_BRACE__
+
+            /* Hide table, show cards */
+            .table-wrapper table __OPEN_BRACE__
+                display: none;
+            __CLOSE_BRACE__
+
+            /* Mobile Card View */
+            .mobile-card-view __OPEN_BRACE__
+                display: block;
+            __CLOSE_BRACE__
+
+            .vulnerability-card __OPEN_BRACE__
+                background: var(--bg-card);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-radius: 12px;
+                padding: 1rem;
+                margin-bottom: 1rem;
+                position: relative;
+                transition: all 0.3s ease;
+            __CLOSE_BRACE__
+
+            .vulnerability-card:hover __OPEN_BRACE__
+                box-shadow: 0 4px 12px rgba(0, 212, 255, 0.15);
+                transform: translateY(-2px);
+            __CLOSE_BRACE__
+
+            .vulnerability-card.critical-urgent __OPEN_BRACE__
+                border-left: 4px solid #dc2626;
+                background: rgba(220, 38, 38, 0.05);
+            __CLOSE_BRACE__
+
+            .card-header __OPEN_BRACE__
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                margin-bottom: 0.75rem;
+                gap: 0.5rem;
+            __CLOSE_BRACE__
+
+            .card-cve-id __OPEN_BRACE__
+                flex: 1;
+            __CLOSE_BRACE__
+
+            .card-cve-id a __OPEN_BRACE__
+                color: var(--accent-primary);
+                text-decoration: none;
+                font-weight: 700;
+                font-size: 1rem;
+                font-family: monospace;
+            __CLOSE_BRACE__
+
+            .card-priority __OPEN_BRACE__
+                position: absolute;
+                top: 0.75rem;
+                right: 0.75rem;
+            __CLOSE_BRACE__
+
+            .card-badges __OPEN_BRACE__
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                margin-bottom: 0.75rem;
+            __CLOSE_BRACE__
+
+            .card-info-grid __OPEN_BRACE__
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.5rem;
+                margin-bottom: 0.75rem;
+            __CLOSE_BRACE__
+
+            .card-info-item __OPEN_BRACE__
+                text-align: center;
+                padding: 0.5rem;
+                background: rgba(255, 255, 255, 0.03);
+                border-radius: 6px;
+            __CLOSE_BRACE__
+
+            .card-info-label __OPEN_BRACE__
+                font-size: 0.65rem;
+                color: var(--text-muted);
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                display: block;
+                margin-bottom: 0.25rem;
+            __CLOSE_BRACE__
+
+            .card-info-value __OPEN_BRACE__
+                font-size: 0.875rem;
+                font-weight: 700;
+                color: var(--text-primary);
+            __CLOSE_BRACE__
+
+            .card-description __OPEN_BRACE__
+                font-size: 0.8rem;
+                color: var(--text-secondary);
+                line-height: 1.4;
+                margin-bottom: 0.75rem;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            __CLOSE_BRACE__
+
+            .card-footer __OPEN_BRACE__
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.25rem;
+                padding-top: 0.75rem;
+                border-top: 1px solid rgba(255, 255, 255, 0.05);
+            __CLOSE_BRACE__
+
+            .vendor-pill __OPEN_BRACE__
+                display: inline-block;
+                padding: 0.25rem 0.625rem;
+                background: rgba(124, 58, 237, 0.15);
+                border: 1px solid rgba(124, 58, 237, 0.3);
+                border-radius: 12px;
+                color: #a78bfa;
+                font-size: 0.7rem;
+                font-weight: 500;
+            __CLOSE_BRACE__
+
+            .exploit-badge __OPEN_BRACE__
+                display: inline-flex;
+                align-items: center;
+                gap: 0.25rem;
+                padding: 0.375rem 0.625rem;
+                background: rgba(239, 68, 68, 0.15);
+                border: 1px solid rgba(239, 68, 68, 0.3);
+                border-radius: 6px;
+                color: #ef4444;
+                font-size: 0.75rem;
+                font-weight: 600;
+            __CLOSE_BRACE__
+
+            /* Mobile Pagination */
+            .pagination __OPEN_BRACE__
+                flex-direction: column;
+                gap: 0.5rem;
+                margin-top: 1.5rem;
+            __CLOSE_BRACE__
+
+            .page-btn __OPEN_BRACE__
+                width: 100%;
+                padding: 0.75rem 1rem;
+                min-height: 44px;
+            __CLOSE_BRACE__
+
+            /* Touch-Friendly Buttons */
+            button, a, .clickable __OPEN_BRACE__
+                min-height: 44px;
+                min-width: 44px;
+            __CLOSE_BRACE__
+
+            /* Hide desktop-only elements */
+            .hide-mobile __OPEN_BRACE__
+                display: none !important;
+            __CLOSE_BRACE__
+        __CLOSE_BRACE__
+
+        /* Desktop: Hide card view, show table */
+        @media (min-width: 769px) __OPEN_BRACE__
+            .mobile-card-view __OPEN_BRACE__
+                display: none;
+            __CLOSE_BRACE__
+
+            .table-wrapper table __OPEN_BRACE__
+                display: table;
+            __CLOSE_BRACE__
+        __CLOSE_BRACE__
+
+        /* Small Mobile (< 640px) - Ultra Compact */
+        @media (max-width: 640px) __OPEN_BRACE__
             .stats-grid __OPEN_BRACE__
                 grid-template-columns: 1fr;
             __CLOSE_BRACE__
 
-            .filter-grid __OPEN_BRACE__
-                grid-template-columns: 1fr;
+            .card-info-grid __OPEN_BRACE__
+                grid-template-columns: repeat(2, 1fr);
             __CLOSE_BRACE__
 
-            .quick-filters __OPEN_BRACE__
+            .quick-filters button __OPEN_BRACE__
+                flex: 1 1 100%;
+            __CLOSE_BRACE__
+
+            .filter-chip __OPEN_BRACE__
+                width: 100%;
                 justify-content: center;
             __CLOSE_BRACE__
+        __CLOSE_BRACE__
 
-            .charts-grid __OPEN_BRACE__
-                grid-template-columns: 1fr;
+        /* Landscape Mobile Optimization */
+        @media (max-width: 896px) and (orientation: landscape) __OPEN_BRACE__
+            .header __OPEN_BRACE__
+                padding: 0.5rem 1rem;
+            __CLOSE_BRACE__
+
+            .stats-grid __OPEN_BRACE__
+                grid-template-columns: repeat(4, 1fr);
+                gap: 0.5rem;
+            __CLOSE_BRACE__
+
+            .stat-card __OPEN_BRACE__
+                padding: 0.75rem;
+            __CLOSE_BRACE__
+
+            .filters-section __OPEN_BRACE__
+                max-height: 40vh;
+                overflow-y: auto;
             __CLOSE_BRACE__
         __CLOSE_BRACE__
 
@@ -937,33 +1315,104 @@ class AlpineDashboardGenerator:
                 </div>
             </div>
 
-            <!-- Quick Filters -->
-            <div class="quick-filters">
-                <button class="filter-chip"
-                        :class="{ 'active': quickFilter === 'all' }"
-                        @click="setQuickFilter('all')">
-                    All Vulnerabilities
-                </button>
-                <button class="filter-chip"
-                        :class="{ 'active': quickFilter === 'critical' }"
-                        @click="setQuickFilter('critical')">
-                    <span class="severity-badge severity-critical">Critical</span>
-                </button>
-                <button class="filter-chip"
-                        :class="{ 'active': quickFilter === 'today' }"
-                        @click="setQuickFilter('today')">
-                    📅 Today's CVEs
-                </button>
-                <button class="filter-chip"
-                        :class="{ 'active': quickFilter === 'kev' }"
-                        @click="setQuickFilter('kev')">
-                    ⭐ KEV Listed
-                </button>
-                <button class="filter-chip"
-                        :class="{ 'active': quickFilter === 'network' }"
-                        @click="setQuickFilter('network')">
-                    🌐 Network Vector
-                </button>
+            <!-- Data Freshness Indicator -->
+            <div style="background: var(--bg-card); border-radius: 16px; padding: 1rem; margin-bottom: 2rem; border-left: 4px solid var(--accent-primary);">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <span style="font-size: 1.5rem;">🕒</span>
+                    <div style="flex: 1;">
+                        <div style="font-weight: 600; color: var(--text-primary);">Data Last Updated</div>
+                        <div>
+                            <span style="color: var(--text-secondary); font-size: 0.875rem;" x-text="new Date(stats.last_updated).toLocaleString()"></span>
+                            <span x-show="(new Date() - new Date(stats.last_updated)) / (1000 * 60 * 60) > 24" style="color: #ef4444; font-size: 0.875rem; margin-left: 0.5rem;">⚠ Data is stale (>24 hours old)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Priority Quick Filters -->
+            <div style="margin-bottom: 1.5rem;">
+                <h3 style="font-size: 1rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Triage Priority</h3>
+                <div class="quick-filters">
+                    <button class="filter-chip"
+                            :class="{ 'active': quickFilter === 'all' }"
+                            @click="setQuickFilter('all')">
+                        Show All
+                    </button>
+                    <button class="filter-chip"
+                            :class="{ 'active': quickFilter === 'critical-urgent' }"
+                            @click="setQuickFilter('critical-urgent')">
+                        🔴 Critical Urgent <span x-text="`(${countByPriority('CRITICAL-URGENT')})`"></span>
+                    </button>
+                    <button class="filter-chip"
+                            :class="{ 'active': quickFilter === 'high-priority' }"
+                            @click="setQuickFilter('high-priority')">
+                        🟡 High Priority <span x-text="`(${countByPriority('HIGH-PRIORITY')})`"></span>
+                    </button>
+                    <button class="filter-chip"
+                            :class="{ 'active': quickFilter === 'monitor' }"
+                            @click="setQuickFilter('monitor')">
+                        🟢 Monitor <span x-text="`(${countByPriority('MONITOR')})`"></span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Technology Stack Filters -->
+            <div style="margin-bottom: 1.5rem;">
+                <h3 style="font-size: 1rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Technology Categories</h3>
+                <div class="quick-filters">
+                    <button class="filter-chip"
+                            :class="{ 'active': techFilter === 'web-servers' }"
+                            @click="setTechFilter('web-servers')">
+                        Web Servers <span x-text="`(${countByTech('web-servers')})`"></span>
+                    </button>
+                    <button class="filter-chip"
+                            :class="{ 'active': techFilter === 'databases' }"
+                            @click="setTechFilter('databases')">
+                        Databases <span x-text="`(${countByTech('databases')})`"></span>
+                    </button>
+                    <button class="filter-chip"
+                            :class="{ 'active': techFilter === 'containers-k8s' }"
+                            @click="setTechFilter('containers-k8s')">
+                        Containers/K8s <span x-text="`(${countByTech('containers-k8s')})`"></span>
+                    </button>
+                    <button class="filter-chip"
+                            :class="{ 'active': techFilter === 'windows' }"
+                            @click="setTechFilter('windows')">
+                        Windows <span x-text="`(${countByTech('windows')})`"></span>
+                    </button>
+                    <button class="filter-chip"
+                            :class="{ 'active': techFilter === 'linux' }"
+                            @click="setTechFilter('linux')">
+                        Linux <span x-text="`(${countByTech('linux')})`"></span>
+                    </button>
+                    <button class="filter-chip"
+                            :class="{ 'active': techFilter === 'network-gear' }"
+                            @click="setTechFilter('network-gear')">
+                        Network Gear <span x-text="`(${countByTech('network-gear')})`"></span>
+                    </button>
+                    <button class="filter-chip"
+                            :class="{ 'active': techFilter === 'cms' }"
+                            @click="setTechFilter('cms')">
+                        CMS <span x-text="`(${countByTech('cms')})`"></span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quick Filters (Keep existing ones) -->
+            <div style="margin-bottom: 1.5rem;">
+                <h3 style="font-size: 1rem; color: var(--text-secondary); margin-bottom: 0.75rem;">Quick Filters</h3>
+                <div class="quick-filters">
+                    <button class="filter-chip"
+                            :class="{ 'active': quickFilter === 'kev' }"
+                            @click="setQuickFilter('kev')">
+                        ⭐ KEV Listed
+                    </button>
+                    <button class="filter-chip"
+                            :class="{ 'active': quickFilter === 'network' }"
+                            @click="setQuickFilter('network')">
+                        🌐 Network Vector
+                    </button>
+                </div>
             </div>
 
             <!-- Filters Section -->
@@ -1008,10 +1457,9 @@ class AlpineDashboardGenerator:
                         </div>
 
                         <div class="filter-group">
-                            <label>EPSS %</label>
-                            <div style="display: flex; gap: 0.5rem;">
-                                <input type="number" x-model.number="filters.epss_min" placeholder="Min" min="0" max="100" value="70">
-                                <input type="number" x-model.number="filters.epss_max" placeholder="Max" min="0" max="100" value="100">
+                            <label>EPSS Threshold</label>
+                            <div style="padding: 0.75rem; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 8px; color: #10b981; font-size: 0.875rem;">
+                                ✓ All vulnerabilities meet EPSS ≥60% threshold
                             </div>
                         </div>
 
@@ -1063,11 +1511,15 @@ class AlpineDashboardGenerator:
                 </div>
 
                 <div class="table-wrapper">
+                    <!-- DESKTOP TABLE VIEW -->
                     <table>
                         <thead>
                             <tr>
                                 <th @click="sort('cve_id')" style="cursor: pointer;">
                                     CVE ID <span x-show="sortField === 'cve_id'" x-text="sortOrder === 'asc' ? '↑' : '↓'"></span>
+                                </th>
+                                <th @click="sort('triage_priority')" style="cursor: pointer;">
+                                    Priority <span x-show="sortField === 'triage_priority'" x-text="sortOrder === 'asc' ? '↑' : '↓'"></span>
                                 </th>
                                 <th @click="sort('severity')" style="cursor: pointer;">
                                     Severity <span x-show="sortField === 'severity'" x-text="sortOrder === 'asc' ? '↑' : '↓'"></span>
@@ -1083,6 +1535,9 @@ class AlpineDashboardGenerator:
                                 </th>
                                 <th>Product</th>
                                 <th>Vendors</th>
+                                <th @click="sort('kev_status')" style="cursor: pointer;">
+                                    Exploit Status <span x-show="sortField === 'kev_status'" x-text="sortOrder === 'asc' ? '↑' : '↓'"></span>
+                                </th>
                                 <th @click="sort('published_date')" style="cursor: pointer;">
                                     Published <span x-show="sortField === 'published_date'" x-text="sortOrder === 'asc' ? '↑' : '↓'"></span>
                                 </th>
@@ -1090,23 +1545,107 @@ class AlpineDashboardGenerator:
                         </thead>
                         <tbody>
                             <template x-for="vuln in paginatedVulns" :key="vuln.cve_id">
-                                <tr class="vulnerability-row" :data-cve="vuln.cve_id">
+                                <tr class="vulnerability-row"
+                                    :class="{ 'critical-urgent': vuln.triage_priority === 'CRITICAL-URGENT' }"
+                                    :data-cve="vuln.cve_id">
                                     <td>
-                                        <a :href="`/vuln-bot/cves/${vuln.cve_id}/`" class="cve-link" x-text="vuln.cve_id"></a>
+                                        <a :href="`https://cve.mitre.org/cgi-bin/cvename.cgi?name=${vuln.cve_id}`" class="cve-link" x-text="vuln.cve_id" target="_blank" rel="noopener noreferrer"></a>
                                     </td>
                                     <td>
-                                        <span class="severity-badge" :class="`severity-${vuln.severity.toLowerCase()}`" x-text="vuln.severity"></span>
+                                        <span class="priority-badge"
+                                              :class="`priority-${vuln.triage_priority.toLowerCase().replace('_', '-')}`">
+                                            <span x-show="vuln.triage_priority === 'CRITICAL-URGENT'">🔴</span>
+                                            <span x-show="vuln.triage_priority === 'HIGH-PRIORITY'">🟡</span>
+                                            <span x-show="vuln.triage_priority === 'MONITOR'">🟢</span>
+                                            <span x-text="vuln.triage_priority.replace('-', ' ')"></span>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                            <span x-show="vuln.severity === 'CRITICAL' && vuln.kev_status" class="warning-icon">⚠️</span>
+                                            <span class="severity-badge" :class="`severity-${vuln.severity.toLowerCase()}`" x-text="vuln.severity"></span>
+                                        </div>
                                     </td>
                                     <td x-text="vuln.cvss_score"></td>
                                     <td x-text="vuln.epss_percentile"></td>
                                     <td x-text="vuln.risk_score"></td>
                                     <td class="truncate" x-text="vuln.products"></td>
                                     <td class="truncate" x-text="vuln.vendors.join(', ') || 'Unknown'"></td>
+                                    <td>
+                                        <span x-show="vuln.kev_status" style="color: #ef4444; font-weight: 600;">🔴 KEV Listed</span>
+                                        <span x-show="!vuln.kev_status && vuln.exploitation_status !== 'Unknown'" style="color: #f59e0b;" x-text="vuln.exploitation_status"></span>
+                                        <span x-show="!vuln.kev_status && vuln.exploitation_status === 'Unknown'" style="color: #6b6b85;">⚪ Not Listed</span>
+                                    </td>
                                     <td x-text="vuln.published_short"></td>
                                 </tr>
                             </template>
                         </tbody>
                     </table>
+
+                    <!-- MOBILE CARD VIEW -->
+                    <div class="mobile-card-view">
+                        <template x-for="vuln in paginatedVulns" :key="vuln.cve_id">
+                            <div class="vulnerability-card"
+                                 :class="{ 'critical-urgent': vuln.triage_priority === 'CRITICAL-URGENT' }">
+                                <!-- Card Header: CVE ID + Priority Badge -->
+                                <div class="card-header">
+                                    <div class="card-cve-id">
+                                        <a :href="`https://cve.mitre.org/cgi-bin/cvename.cgi?name=${vuln.cve_id}`"
+                                           x-text="vuln.cve_id"
+                                           target="_blank"
+                                           rel="noopener noreferrer"></a>
+                                    </div>
+                                    <div class="card-priority">
+                                        <span class="priority-badge"
+                                              :class="`priority-${vuln.triage_priority.toLowerCase().replace('_', '-')}`">
+                                            <span x-show="vuln.triage_priority === 'CRITICAL-URGENT'">🔴</span>
+                                            <span x-show="vuln.triage_priority === 'HIGH-PRIORITY'">🟡</span>
+                                            <span x-show="vuln.triage_priority === 'MONITOR'">🟢</span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- Badges: Severity + Exploit Status -->
+                                <div class="card-badges">
+                                    <span class="severity-badge" :class="`severity-${vuln.severity.toLowerCase()}`" x-text="vuln.severity"></span>
+                                    <span x-show="vuln.kev_status" class="exploit-badge">
+                                        🔴 KEV
+                                    </span>
+                                    <span x-show="!vuln.kev_status && vuln.exploitation_status !== 'Unknown'"
+                                          class="exploit-badge"
+                                          style="background: rgba(245, 158, 11, 0.15); border-color: rgba(245, 158, 11, 0.3); color: #f59e0b;"
+                                          x-text="vuln.exploitation_status"></span>
+                                </div>
+
+                                <!-- Score Grid: CVSS, EPSS, Risk -->
+                                <div class="card-info-grid">
+                                    <div class="card-info-item">
+                                        <span class="card-info-label">CVSS</span>
+                                        <span class="card-info-value" x-text="vuln.cvss_score"></span>
+                                    </div>
+                                    <div class="card-info-item">
+                                        <span class="card-info-label">EPSS</span>
+                                        <span class="card-info-value" x-text="vuln.epss_percentile + '%'"></span>
+                                    </div>
+                                    <div class="card-info-item">
+                                        <span class="card-info-label">Risk</span>
+                                        <span class="card-info-value" x-text="vuln.risk_score"></span>
+                                    </div>
+                                </div>
+
+                                <!-- Description (truncated to 2 lines) -->
+                                <div class="card-description" x-text="vuln.description"></div>
+
+                                <!-- Footer: Vendors + Published Date -->
+                                <div class="card-footer">
+                                    <template x-for="vendor in vuln.vendors.slice(0, 3)" :key="vendor">
+                                        <span class="vendor-pill" x-text="vendor"></span>
+                                    </template>
+                                    <span style="color: var(--text-muted); font-size: 0.7rem; margin-left: auto;" x-text="vuln.published_short"></span>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
 
                     <div class="pagination">
                         <button class="page-btn"
@@ -1141,8 +1680,9 @@ class AlpineDashboardGenerator:
                 // UI State
                 search: '',
                 quickFilter: 'all',
-                sortField: 'epss_percentile',
-                sortOrder: 'desc',
+                techFilter: '',
+                sortField: 'triage_priority',
+                sortOrder: 'asc',
                 currentPage: 1,
                 perPage: 50,
 
@@ -1151,8 +1691,6 @@ class AlpineDashboardGenerator:
                     severity: '',
                     cvss_min: null,
                     cvss_max: null,
-                    epss_min: 0,
-                    epss_max: 100,
                     published_from: '',
                     published_to: '',
                     vendor: ''
@@ -1160,26 +1698,50 @@ class AlpineDashboardGenerator:
 
                 // Initialization
                 init() __OPEN_BRACE__
+                    // Set mobile defaults
+                    if (window.innerWidth <= 768) __OPEN_BRACE__
+                        this.perPage = 10;  // Default to 10 items on mobile
+                    __CLOSE_BRACE__
+
                     this.$nextTick(() => __OPEN_BRACE__
                         this.initCharts();
                         this.setupKeyboardShortcuts();
                     __CLOSE_BRACE__);
+
+                    // Auto-collapse filters on mobile after selection
+                    if (window.innerWidth <= 768) __OPEN_BRACE__
+                        this.$watch('filters', () => __OPEN_BRACE__
+                            const filtersSection = document.querySelector('.filters-section [x-data]');
+                            if (filtersSection) __OPEN_BRACE__
+                                // Auto-collapse after 2 seconds on mobile
+                                setTimeout(() => __OPEN_BRACE__
+                                    Alpine.store('filtersExpanded', false);
+                                __CLOSE_BRACE__, 2000);
+                            __CLOSE_BRACE__
+                        __CLOSE_BRACE__);
+                    __CLOSE_BRACE__
                 __CLOSE_BRACE__,
 
                 // Computed Properties
                 get filteredVulns() __OPEN_BRACE__
                     let vulns = [...this.vulnerabilities];
 
-                    // Quick filter
-                    if (this.quickFilter === 'critical') __OPEN_BRACE__
-                        vulns = vulns.filter(v => v.severity === 'CRITICAL');
-                    __CLOSE_BRACE__ else if (this.quickFilter === 'today') __OPEN_BRACE__
-                        const today = new Date().toISOString().split('T')[0];
-                        vulns = vulns.filter(v => v.published_date && v.published_date.startsWith(today));
+                    // Priority quick filter
+                    if (this.quickFilter === 'critical-urgent') __OPEN_BRACE__
+                        vulns = vulns.filter(v => v.triage_priority === 'CRITICAL-URGENT');
+                    __CLOSE_BRACE__ else if (this.quickFilter === 'high-priority') __OPEN_BRACE__
+                        vulns = vulns.filter(v => v.triage_priority === 'HIGH-PRIORITY');
+                    __CLOSE_BRACE__ else if (this.quickFilter === 'monitor') __OPEN_BRACE__
+                        vulns = vulns.filter(v => v.triage_priority === 'MONITOR');
                     __CLOSE_BRACE__ else if (this.quickFilter === 'kev') __OPEN_BRACE__
-                        vulns = vulns.filter(v => v.tags.includes('KEV'));
+                        vulns = vulns.filter(v => v.kev_status === true);
                     __CLOSE_BRACE__ else if (this.quickFilter === 'network') __OPEN_BRACE__
-                        vulns = vulns.filter(v => v.attack_vector === 'NETWORK');
+                        vulns = vulns.filter(v => v.attack_vector === 'Network');
+                    __CLOSE_BRACE__
+
+                    // Technology filter
+                    if (this.techFilter) __OPEN_BRACE__
+                        vulns = vulns.filter(v => v.tech_categories && v.tech_categories.includes(this.techFilter));
                     __CLOSE_BRACE__
 
                     // Search
@@ -1203,14 +1765,6 @@ class AlpineDashboardGenerator:
 
                     if (this.filters.cvss_max !== null) __OPEN_BRACE__
                         vulns = vulns.filter(v => v.cvss_score <= this.filters.cvss_max);
-                    __CLOSE_BRACE__
-
-                    if (this.filters.epss_min !== null) __OPEN_BRACE__
-                        vulns = vulns.filter(v => v.epss_percentile >= this.filters.epss_min);
-                    __CLOSE_BRACE__
-
-                    if (this.filters.epss_max !== null) __OPEN_BRACE__
-                        vulns = vulns.filter(v => v.epss_percentile <= this.filters.epss_max);
                     __CLOSE_BRACE__
 
                     if (this.filters.published_from) __OPEN_BRACE__
@@ -1238,6 +1792,10 @@ class AlpineDashboardGenerator:
                             const severityOrder = { 'CRITICAL': 4, 'HIGH': 3, 'MEDIUM': 2, 'LOW': 1 __CLOSE_BRACE__;
                             aVal = severityOrder[aVal] || 0;
                             bVal = severityOrder[bVal] || 0;
+                        __CLOSE_BRACE__ else if (this.sortField === 'triage_priority') __OPEN_BRACE__
+                            const priorityOrder = { 'CRITICAL-URGENT': 3, 'HIGH-PRIORITY': 2, 'MONITOR': 1 __CLOSE_BRACE__;
+                            aVal = priorityOrder[aVal] || 0;
+                            bVal = priorityOrder[bVal] || 0;
                         __CLOSE_BRACE__
 
                         if (aVal < bVal) return this.sortOrder === 'asc' ? -1 : 1;
@@ -1259,8 +1817,27 @@ class AlpineDashboardGenerator:
                 __CLOSE_BRACE__,
 
                 // Methods
+                countByPriority(priority) __OPEN_BRACE__
+                    return this.vulnerabilities.filter(v => v.triage_priority === priority).length;
+                __CLOSE_BRACE__,
+
+                countByTech(category) __OPEN_BRACE__
+                    return this.vulnerabilities.filter(v => v.tech_categories && v.tech_categories.includes(category)).length;
+                __CLOSE_BRACE__,
+
                 setQuickFilter(filter) __OPEN_BRACE__
                     this.quickFilter = filter;
+                    this.techFilter = '';  // Reset tech filter
+                    this.currentPage = 1;
+                __CLOSE_BRACE__,
+
+                setTechFilter(category) __OPEN_BRACE__
+                    if (this.techFilter === category) __OPEN_BRACE__
+                        this.techFilter = '';  // Toggle off
+                    __CLOSE_BRACE__ else __OPEN_BRACE__
+                        this.techFilter = category;
+                        this.quickFilter = 'all';  // Reset priority filter
+                    __CLOSE_BRACE__
                     this.currentPage = 1;
                 __CLOSE_BRACE__,
 
@@ -1269,7 +1846,7 @@ class AlpineDashboardGenerator:
                         this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc';
                     __CLOSE_BRACE__ else __OPEN_BRACE__
                         this.sortField = field;
-                        this.sortOrder = 'desc';
+                        this.sortOrder = (field === 'triage_priority') ? 'desc' : 'desc';
                     __CLOSE_BRACE__
                     this.currentPage = 1;
                 __CLOSE_BRACE__,
@@ -1277,12 +1854,11 @@ class AlpineDashboardGenerator:
                 resetFilters() __OPEN_BRACE__
                     this.search = '';
                     this.quickFilter = 'all';
+                    this.techFilter = '';
                     this.filters = __OPEN_BRACE__
                         severity: '',
                         cvss_min: null,
                         cvss_max: null,
-                        epss_min: 0,
-                        epss_max: 100,
                         published_from: '',
                         published_to: '',
                         vendor: ''
