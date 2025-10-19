@@ -18,13 +18,10 @@ logger = structlog.get_logger()
 
 class DataValidationAgent(BaseAgent):
     """Agent for comprehensive data validation throughout the pipeline."""
-    
+
     def __init__(self):
         super().__init__(
-            name="DataValidationAgent",
-            role="quality_assurance",
-            goal="Ensure data quality and schema consistency at all pipeline stages",
-            backstory="Validates data integrity from ingestion through enrichment to publication"
+            name="DataValidationAgent"
         )
         self.validation_results = {
             "passed": 0,
@@ -32,6 +29,16 @@ class DataValidationAgent(BaseAgent):
             "warnings": 0,
             "validations": []
         }
+
+    async def execute(self, **kwargs) -> Dict[str, Any]:
+        """Execute data validation task (async compatibility)."""
+        # This method is required by BaseAgent but not used in the current sync implementation
+        return self.validation_results
+
+    def get_dependencies(self) -> set:
+        """Get validation dependencies."""
+        # Return empty set - validation doesn't depend on specific files
+        return set()
     
     def validate_raw_cve_data(self, data: Dict[str, Any]) -> Dict[str, Any]:
         """
@@ -52,11 +59,25 @@ class DataValidationAgent(BaseAgent):
         }
         
         # Required fields validation
-        required_fields = ["cveId", "description", "publishedDate", "severity"]
-        for field in required_fields:
-            if field not in data or not data[field]:
+        # Note: Some data formats use 'title' instead of 'description'
+        required_fields = {
+            "cveId": True,  # Always required
+            "publishedDate": True,  # Always required
+            "severity": True,  # Always required
+        }
+
+        for field, is_required in required_fields.items():
+            if is_required and (field not in data or not data[field]):
                 results["failures"].append(f"Missing required field: {field}")
                 results["passed"] = False
+
+        # Check for description OR title (at least one should be present)
+        if "description" not in data and "title" not in data:
+            results["failures"].append("Missing both 'description' and 'title' fields")
+            results["passed"] = False
+        elif not data.get("description") and not data.get("title"):
+            results["failures"].append("Both 'description' and 'title' fields are empty")
+            results["passed"] = False
         
         # CVE ID format validation
         if "cveId" in data:
