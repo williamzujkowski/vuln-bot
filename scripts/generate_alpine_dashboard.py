@@ -39,7 +39,7 @@ class AlpineDashboardGenerator:
     def load_from_json(self, json_path: Path):
         """Load vulnerabilities from JSON API file"""
         print(f"Loading vulnerabilities from {json_path}")
-        with open(json_path, 'r') as f:
+        with open(json_path) as f:
             data = json.load(f)
 
         vulnerabilities = data.get('vulnerabilities', [])
