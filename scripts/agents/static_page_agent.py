@@ -992,8 +992,6 @@ class StaticPageAgent(BaseAgent):
         """Get dependencies for change detection."""
         return {
             ".cache/vulns.db",
-            "src/_layouts/cve-detail.njk",
-            "src/_layouts/cve-index.njk",
             "scripts/processing/cache_manager.py",
             "scripts/models.py",
         }

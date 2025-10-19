@@ -337,7 +337,48 @@ document.addEventListener("alpine:init", () => {
           this.loading = true;
           this.error = null;
 
-          // Check cache first
+          // Use embedded data from window.vulnerabilityData (set by generate_alpine_dashboard.py)
+          if ((window as any).vulnerabilityData) {
+            const rawData = (window as any).vulnerabilityData || [];
+
+            // Transform snake_case to camelCase to match TypeScript interface
+            this.vulnerabilities = rawData.map((vuln: any) => ({
+              cveId: vuln.cve_id,
+              title: vuln.title,
+              originalTitle: vuln.originalTitle,
+              description: vuln.description || "No description available",
+              publishedDate: vuln.published_date,
+              lastModifiedDate: vuln.last_modified_date,
+              severity: vuln.severity,
+              cvssScore: vuln.cvss_score,
+              epssScore: vuln.epss_percentile, // Note: embedded data doesn't have separate epssScore
+              epssPercentile: vuln.epss_percentile,
+              riskScore: vuln.risk_score,
+              exploitationStatus: vuln.exploitation_status || "UNKNOWN",
+              vendors: vuln.vendors || [],
+              products: vuln.products ? [vuln.products] : [],
+              tags: vuln.tags || [],
+              attackVector: vuln.attack_vector,
+              attackComplexity: vuln.attack_complexity,
+              privilegesRequired: vuln.privileges_required,
+              userInteraction: vuln.user_interaction,
+              scope: vuln.scope,
+              confidentialityImpact: vuln.confidentiality_impact,
+              integrityImpact: vuln.integrity_impact,
+              availabilityImpact: vuln.availability_impact,
+            }));
+
+            // Add index for virtual scrolling
+            this.vulnerabilities.forEach((vuln, index) => {
+              (vuln as any)._index = index;
+            });
+
+            this.loading = false;
+            this.setupLazyLoading();
+            return;
+          }
+
+          // Fallback: Check cache
           const cachedData = sessionStorage.getItem("vuln-data");
           const cacheTimestamp = sessionStorage.getItem("vuln-data-timestamp");
           const cacheAge = cacheTimestamp ? Date.now() - parseInt(cacheTimestamp) : Infinity;
@@ -350,6 +391,7 @@ document.addEventListener("alpine:init", () => {
             return;
           }
 
+          // Fallback: Fetch from API (legacy)
           const response = await fetch("/vuln-bot/api/vulns/index.json");
           if (!response.ok) {
             throw new Error(`Failed to load vulnerabilities: ${response.status}`);

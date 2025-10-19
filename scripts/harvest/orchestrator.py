@@ -103,6 +103,7 @@ class HarvestOrchestrator:
         years: Optional[List[int]] = None,
         min_severity: str = "HIGH",
         incremental: bool = False,
+        epss_filter_cve_ids: Optional[Set[str]] = None,
     ) -> List[Vulnerability]:
         """Harvest CVE data from CVEProject/cvelistV5.
 
@@ -110,6 +111,7 @@ class HarvestOrchestrator:
             years: List of years to harvest (default: [2025])
             min_severity: Minimum severity level (HIGH or CRITICAL)
             incremental: If True, skip CVEs that haven't been updated since last harvest
+            epss_filter_cve_ids: Optional set of CVE IDs to filter by (EPSS pre-filter)
 
         Returns:
             List of vulnerabilities from CVEList
@@ -117,7 +119,14 @@ class HarvestOrchestrator:
         if years is None:
             years = [2024, 2025]  # Default to 2024 and 2025
 
-        self.logger.info("Harvesting CVE data", years=years, min_severity=min_severity)
+        self.logger.info(
+            "Harvesting CVE data",
+            years=years,
+            min_severity=min_severity,
+            incremental=incremental,
+            epss_prefilter=epss_filter_cve_ids is not None,
+            epss_filter_count=len(epss_filter_cve_ids) if epss_filter_cve_ids else 0,
+        )
 
         try:
             from scripts.models import SeverityLevel
@@ -128,6 +137,7 @@ class HarvestOrchestrator:
                 years=years,
                 min_severity=severity_enum,
                 incremental=incremental,
+                epss_filter_cve_ids=epss_filter_cve_ids,
             )
             self.logger.info("Harvested CVE data", count=len(vulnerabilities))
             return vulnerabilities
@@ -214,6 +224,52 @@ class HarvestOrchestrator:
             self.logger.error("Failed to harvest NVD data", error=str(e))
             return []
 
+    def _get_high_epss_cve_ids(self, min_epss_score: float) -> Set[str]:
+        """Get CVE IDs with EPSS scores above threshold (EPSS-first filtering).
+
+        This method fetches the entire EPSS dataset and filters CVEs before
+        fetching full CVE details, dramatically reducing API calls.
+
+        Args:
+            min_epss_score: Minimum EPSS score threshold (0.0-1.0)
+
+        Returns:
+            Set of CVE IDs that meet the EPSS threshold
+        """
+        try:
+            self.logger.info(
+                "Fetching daily EPSS file for pre-filtering",
+                threshold=f"{min_epss_score * 100}%",
+            )
+
+            # Fetch all EPSS scores from daily file (~240k CVEs)
+            all_epss_scores = self.epss_client.fetch_daily_epss_file()
+
+            # Filter CVEs that meet the threshold
+            high_epss_cves = {
+                cve_id
+                for cve_id, score in all_epss_scores.items()
+                if score.score >= min_epss_score
+            }
+
+            self.logger.info(
+                "EPSS pre-filtering complete",
+                total_cves=len(all_epss_scores),
+                high_epss_cves=len(high_epss_cves),
+                filtered_out=len(all_epss_scores) - len(high_epss_cves),
+                threshold=f"{min_epss_score * 100}%",
+            )
+
+            return high_epss_cves
+
+        except Exception as e:
+            self.logger.error(
+                "Failed to fetch EPSS scores for pre-filtering, continuing without pre-filter",
+                error=str(e),
+            )
+            # Return empty set to disable pre-filtering if EPSS fetch fails
+            return set()
+
     def enrich_with_epss(self, vulnerabilities: List[Vulnerability]) -> None:
         """Enrich vulnerabilities with EPSS scores.
 
@@ -253,16 +309,21 @@ class HarvestOrchestrator:
         include_sources: Optional[Set[str]] = None,
         min_epss_score: float = 0.6,  # 60% threshold (EPSS ≥ 0.6)
         min_severity: str = "HIGH",
-        incremental: bool = False,
+        incremental: bool = True,  # DEFAULT TO TRUE - Enable incremental mode by default
     ) -> VulnerabilityBatch:
         """Harvest vulnerabilities from all configured sources.
+
+        INCREMENTAL HARVESTING STRATEGY:
+        - Initial harvest: EPSS-first filtering (fetch EPSS file, filter to ≥60%, then fetch matching CVEs)
+        - Daily incremental: Last 48 hours only (--incremental enabled by default)
+        - Weekly refresh: Update all EPSS scores for existing CVEs
 
         Args:
             years: List of years to harvest (default: [2025])
             include_sources: Set of sources to include (None = all)
             min_epss_score: Minimum EPSS score threshold (0.0-1.0)
             min_severity: Minimum severity level (HIGH or CRITICAL)
-            incremental: If True, skip CVEs that haven't been updated since last harvest
+            incremental: If True (default), skip CVEs that haven't been updated since last harvest
 
         Returns:
             Batch of harvested and processed vulnerabilities
@@ -271,8 +332,16 @@ class HarvestOrchestrator:
             years = [2024, 2025]  # Default to 2024 and 2025
 
         start_time = datetime.now(timezone.utc)
+
+        # Determine if this is an initial harvest or incremental update
+        harvest_history = self.cache_manager.get_harvest_history(limit=1)
+        is_initial_harvest = len(harvest_history) == 0
+
+        # Log harvest mode
+        harvest_mode = "initial" if is_initial_harvest else ("incremental" if incremental else "full")
         self.logger.info(
             "Starting vulnerability harvest",
+            mode=harvest_mode,
             years=years,
             min_epss_score=min_epss_score,
             min_severity=min_severity,
@@ -286,11 +355,26 @@ class HarvestOrchestrator:
                 "min_epss_score": min_epss_score,
                 "min_severity": min_severity,
                 "include_sources": list(include_sources) if include_sources else None,
+                "mode": harvest_mode,
             }
         )
 
         # Clean up expired cache entries
         self.cache_manager.cleanup_expired()
+
+        # EPSS-FIRST FILTERING: For initial harvest, fetch EPSS scores first
+        high_epss_cve_ids = None
+        if is_initial_harvest:
+            self.logger.info(
+                "Initial harvest detected - performing EPSS-first filtering",
+                min_epss_score=min_epss_score,
+            )
+            high_epss_cve_ids = self._get_high_epss_cve_ids(min_epss_score)
+            self.logger.info(
+                "EPSS-first filtering complete",
+                high_epss_cves=len(high_epss_cve_ids),
+                threshold=f"{min_epss_score * 100}%",
+            )
 
         all_vulnerabilities = []
         harvest_metadata = {
@@ -306,9 +390,15 @@ class HarvestOrchestrator:
         harvest_tasks = []
 
         # Use CVEList as primary source since we don't have NVD API key
+        # Pass EPSS pre-filter for initial harvest
         if not include_sources or "cve" in include_sources:
             harvest_tasks.append(
-                ("CVEList", self.harvest_cve_data, years, min_severity, incremental)
+                ("CVEList", self.harvest_cve_data, {
+                    "years": years,
+                    "min_severity": min_severity,
+                    "incremental": incremental,
+                    "epss_filter_cve_ids": high_epss_cve_ids,  # EPSS-first filtering
+                })
             )
 
         # Keep NVD as fallback source (limited by rate limits without API key)
@@ -317,25 +407,27 @@ class HarvestOrchestrator:
             self.api_keys.get("NVD_API_KEY") or "nvd" in (include_sources or set())
         ):
             harvest_tasks.append(
-                ("NVD", self.harvest_nvd_data, years, min_severity, None)
+                ("NVD", self.harvest_nvd_data, {
+                    "years": years,
+                    "min_severity": min_severity,
+                    "max_vulnerabilities": None,
+                })
             )
 
         if not include_sources or "github" in include_sources:
             harvest_tasks.append(
-                (
-                    "GitHub Advisory",
-                    self.harvest_github_advisory_data,
-                    min_severity,
-                    None,
-                )
+                ("GitHub Advisory", self.harvest_github_advisory_data, {
+                    "min_severity": min_severity,
+                    "ecosystems": None,
+                })
             )
 
         # Execute harvest tasks concurrently
         with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
             future_to_source = {}
 
-            for source_name, harvest_func, *args in harvest_tasks:
-                future = executor.submit(harvest_func, *args)
+            for source_name, harvest_func, kwargs in harvest_tasks:
+                future = executor.submit(harvest_func, **kwargs)
                 future_to_source[future] = source_name
 
             for future in as_completed(future_to_source):

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is "Vuln-Bot" - a high-risk CVE intelligence platform that tracks Critical & High severity vulnerabilities with EPSS ≥ 60% exploitation probability. It automatically harvests, scores, and publishes vulnerability briefings every 4 hours. It's a multi-language project using Python for backend data processing and JavaScript/11ty for the static site generation and frontend.
+This is "Vuln-Bot" - a high-risk CVE intelligence platform that tracks Critical & High severity vulnerabilities with EPSS ≥ 60% exploitation probability. It automatically harvests, scores, and publishes vulnerability briefings every 4 hours. It's a Python-based project using Alpine.js for the frontend dashboard, with static HTML generation via `scripts/generate_alpine_dashboard.py`.
 
 ## Common Development Commands
 
@@ -13,8 +13,16 @@ This is "Vuln-Bot" - a high-risk CVE intelligence platform that tracks Critical 
 # Install Python dependencies (using uv)
 uv pip install -r requirements.txt
 
-# Run the vulnerability harvester
+# Run the vulnerability harvester (incremental mode is DEFAULT)
 python -m scripts.main harvest --cache-dir .cache/
+
+# INCREMENTAL HARVESTING (Default Behavior):
+# - Initial harvest: EPSS-first filtering (~100 CVEs instead of 15,000)
+# - Daily incremental: Only CVEs updated in last 48 hours (~10-20 CVEs)
+# - Auto-detects first run vs. incremental update
+
+# Force full refresh (weekly EPSS update recommended)
+python -m scripts.main harvest --cache-dir .cache/ --no-incremental
 
 # Generate briefing from cached data
 python -m scripts.main generate-briefing
@@ -76,22 +84,22 @@ python -m scripts.ci_gatecheck \
   --fail-on-warnings
 ```
 
-### JavaScript/11ty Development
+### Build & Deployment
 ```bash
-# Install Node dependencies
+# Install Node dependencies (for linting/formatting only)
 npm install
 
-# Build the site (ALWAYS use this, not raw eleventy commands)
-npm run build
+# Build the site (Python-based generation)
+npm run build  # Runs: python -m scripts.generate_alpine_dashboard
 
-# Force clean build (recommended for production)
-npm run build:force
+# Force clean build with validation (recommended for production)
+npm run build:force  # Runs: python -m scripts.force_rebuild
 
-# Serve the site locally with hot reload
-npm run serve
+# Serve the site locally
+npm run serve  # Builds then serves on http://localhost:8000
 
 # Validate build output
-npm run validate
+npm run validate  # Runs CI gatecheck validation
 
 # Run ESLint (Google style guide)
 npm run lint
@@ -102,25 +110,15 @@ npm run format
 # Run all pre-commit checks
 npm run precommit
 
-# Deploy to GitHub Pages (force overwrite)
+# Deploy to GitHub Pages
 npm run deploy
 ```
 
-### ⚠️ CRITICAL: Build Commands
-
-**NEVER use these commands in production:**
-```bash
-# ❌ DANGEROUS - preserves stale files
-npx @11ty/eleventy --incremental
-npx @11ty/eleventy --incremental --output=public
-```
-
-**ALWAYS use these commands instead:**
-```bash
-# ✅ SAFE - clean builds only
-npm run build        # Standard clean build
-npm run build:force  # Force rebuild with validation
-```
+### ⚠️ IMPORTANT: Build System
+- **11ty has been REMOVED** - Site generation is now Python-only
+- All builds use `scripts/generate_alpine_dashboard.py`
+- Force rebuilds use `scripts/force_rebuild.py`
+- No incremental builds - always clean generation
 
 ### Git Workflow
 ```bash
@@ -145,19 +143,20 @@ chmod +x .husky/pre-commit .husky/commit-msg
      - EPSS API data with percentile rankings (flags top 1%, 5%, 10%)
      - CISA KEV catalog integration (Known Exploited Vulnerabilities)
      - Exploit availability detection from multiple sources (Exploit-DB, Metasploit, GitHub PoCs)
-     - deps.dev package impact analysis for supply chain visibility
+     - deps.dev package impact analysis for supply chain visibility (implemented in `scripts/agents/deps_dev_enrichment_agent.py`)
      - Reference categorization (exploit, patch, advisory, vendor, technical)
    - Normalizes data and calculates Risk Score (0-100) based on CVSS, EPSS, popularity, infrastructure tags, and newness
    - **Data validation** at each stage (raw, filtered, enriched, published)
    - Caches responses in SQLite using GitHub Actions cache (10-day TTL, timezone-aware)
 
-2. **Content Generation** (11ty in `src/`):
-   - Creates briefing posts at `_posts/{{date}}-vuln-brief.md` using Nunjucks templates
+2. **Content Generation** (Python-based):
+   - `scripts/generate_alpine_dashboard.py` creates single-page Alpine.js dashboard
    - Generates chunked vulnerability data files at `api/vulns/vulns-{{year}}-{{severity}}.json`
    - Builds consolidated search index at `api/vulns/index.json`
    - Creates chunk index at `api/vulns/chunk-index.json` for navigation
+   - Output directory: `public/`
 
-3. **Frontend** (Alpine.js + Fuse.js + TypeScript):
+3. **Frontend** (Alpine.js + Fuse.js):
    - Client-side filtering UI on the homepage
    - Real-time search/filter on: CVE ID, severity, CVSS/EPSS scores, date ranges, vendors, exploitation status
    - URL hash-based state for shareable filtered views
@@ -189,52 +188,63 @@ chmod +x .husky/pre-commit .husky/commit-msg
 
 ### Key Directories
 - `scripts/` - Python vulnerability harvesting and processing scripts
-  - `agents/` - Modular agents for enrichment and validation:
-    - `cisa_kev_agent.py` - CISA Known Exploited Vulnerabilities enrichment
-    - `exploit_availability_agent.py` - Exploit detection and EPSS percentiles
-    - `deps_dev_enrichment_agent.py` - Package dependency analysis
-    - `data_validation_agent.py` - Multi-stage data quality validation
-    - `cleanup_agent.py` - Stale file removal and verification
-    - `threshold_compliance_agent.py` - EPSS threshold enforcement
-    - `data_quality_report_agent.py` - Comprehensive data quality reporting
-- `src/` - 11ty source files (templates, posts, API generation)
-- `src/assets/ts/` - TypeScript components and types
-  - `components/` - Reusable UI components (CveModal, DataVisualization)
-  - `types/` - TypeScript type definitions
-  - `analytics.ts` - Frontend analytics and tracking
-  - `dashboard.ts` - Main vulnerability dashboard Alpine.js component
-- `src/assets/css/` - Stylesheets with design tokens and component styles
-  - `mobile-optimizations.css` - Mobile-first responsive enhancements (40% density improvement)
-- `public/` - Built static site (deployed to gh-pages)
-- `tests/` - Python test suite (85%+ coverage)
+  - `harvest/` - Data harvesting clients:
+    - `orchestrator.py` - Main harvest orchestration
+    - `cvelist_client.py` - CVEProject/cvelistV5 integration
+    - `github_advisory_client.py` - GitHub Advisory Database
+    - `epss_client.py` - EPSS API client
+    - `nvd_client.py` - NVD API client
+  - `agents/` - Modular enrichment and validation agents:
+    - `deps_dev_enrichment_agent.py` - Package dependency analysis (deps.dev)
+    - Data validation, cleanup, CISA KEV, exploit availability agents
+  - `processing/` - Data processing and scoring:
+    - `risk_scorer.py` - Risk score calculation (0-100)
+    - `normalizer.py` - Data normalization
+    - `briefing_generator.py` - Briefing generation
+    - `cache_manager.py` - SQLite caching
+  - `generate_alpine_dashboard.py` - Main dashboard generator (replaces 11ty)
+  - `force_rebuild.py` - Force rebuild with validation
+  - `ci_gatecheck.py` - CI/CD validation
+- `src/` - Source templates and assets (used by Python generator)
+  - `assets/ts/` - TypeScript components:
+    - `components/` - CveModal, DataVisualization, SecurityAlerts, WidgetManager, etc.
+    - `types/` - Type definitions
+    - `analytics.ts` - Frontend analytics
+    - `dashboard.ts` - Dashboard Alpine.js component
+  - `api/` - API data templates (chunked JSON files)
+- `public/` - Built static site (output directory, deployed to gh-pages)
+- `tests/` - Test suite (391 tests, actual coverage: 6.37%)
   - `e2e/` - Playwright end-to-end tests for live site validation
+  - `*.test.ts` - TypeScript unit tests (6 test files)
 - `.github/workflows/` - CI/CD pipelines
-  - `scheduled-harvest.yml` - Main harvest pipeline with enrichment and validation
-  - `post-deploy-qa.yml` - Automated post-deployment quality assurance
+  - `scheduled-harvest.yml` - Main harvest pipeline (incremental harvesting)
+  - `post-deploy-qa.yml` - Post-deployment validation
+  - `ci.yml` - CI checks (11ty removed)
 
 ### CI/CD Pipeline
-- **Scheduled Build**: Runs harvesting every 4 hours with comprehensive pipeline:
+- **Scheduled Build**: Runs harvesting every 4 hours (`.github/workflows/scheduled-harvest.yml`):
   - Pre-build cleanup to remove stale files
-  - Data harvesting with 60% EPSS threshold enforcement
+  - **Incremental harvesting** (default): Only CVEs updated in last 48 hours (~10-20 CVEs per run)
+  - **Initial harvest**: EPSS-first filtering (~100 CVEs instead of 15,000)
   - Multi-stage data validation (raw, filtered, enriched, published)
   - CISA KEV and exploit availability enrichment
   - EPSS threshold compliance validation (fails on violations)
-  - Incremental static site generation
+  - Python-based dashboard generation (no 11ty)
   - Post-build verification for stale files
   - Commits artifacts to main, deploys to gh-pages
-- **Post-Deploy QA**: Automated Playwright tests run after deployment:
+- **Post-Deploy QA**: Automated Playwright tests (`.github/workflows/post-deploy-qa.yml`):
   - Validates live site data integrity
   - Ensures no CVEs below 60% EPSS
   - Checks threat intel enrichments render correctly
   - Fails if stale data detected
-- **Quality Gates**: 
-  - **EPSS Threshold Compliance**: Validates all vulnerabilities meet ≥60% EPSS threshold (CI/CD gating)
+- **Quality Gates**:
+  - **EPSS Threshold Compliance**: All vulnerabilities must meet ≥60% EPSS threshold
   - **Data Validation**: Multi-stage validation at ingestion, filtering, enrichment, and publication
-  - Linting: Ruff, ESLint (zero errors)
-  - Tests: ≥80% coverage requirement
-  - Security: Bandit, TruffleHog, CodeQL, npm audit
+  - Linting: Ruff (Python), ESLint (JavaScript)
+  - Tests: 80% coverage target (actual: 6.37% due to legacy untested code)
+  - Security: Bandit, npm audit
   - **Stale File Detection**: Verifies no outdated CVE pages remain
-- **Automated Deployment**: GitHub Pages with incremental builds, blocked on threshold/validation failures
+- **Automated Deployment**: GitHub Pages, blocked on threshold/validation failures
 
 ### API Keys Required
 Environment secrets needed in GitHub Actions:
@@ -242,38 +252,43 @@ Environment secrets needed in GitHub Actions:
 - `EPSS_API_KEY` - EPSS API access (optional, for enrichment)
 
 ### Testing Strategy
-- Python: pytest with 80% minimum coverage requirement
-- E2E: Playwright tests for live site validation:
-  - CVE count validation (≤30 expected)
+- **Python**: pytest with 80% coverage target (actual: 6.37% due to many untested legacy files)
+  - 391 tests collected (2 import errors in legacy files)
+  - New code has higher coverage, legacy code lacks tests
+- **E2E**: Playwright tests for live site validation:
+  - CVE count validation (≤60 expected after incremental harvesting)
   - EPSS threshold compliance (all ≥60%)
   - Threat intel flag rendering (CISA KEV, exploit badges)
   - API endpoint accessibility
   - No stale data detection
-- Data Quality: Validation at each pipeline stage
-- Security: Bandit (high+ severities fail), TruffleHog for secrets
-- JavaScript: ESLint with Google style guide, Prettier formatting
-- All checks enforced via Husky pre-commit hooks and GitHub Actions
+- **TypeScript**: 6 test files (`.test.ts`) for frontend components
+  - No Vitest configuration (claimed but not implemented)
+  - Tests use basic TypeScript setup
+- **Data Quality**: Validation at each pipeline stage via agents
+- **Security**: Bandit (Python), npm audit (JavaScript)
+- **Linting**: Ruff (Python), ESLint with Google style guide (JavaScript)
+- **Pre-commit**: Husky hooks enforce linting and formatting
 
 ### Deployment
 - Static site deployed to GitHub Pages from `gh-pages` branch
-- **CRITICAL**: Eleventy's incremental builds DO NOT delete old files:
-  - Always use `npm run clean` before building
-  - Never use `--incremental` flag in production
-  - Deploy script performs complete directory purge
+- **Build System**: Python-based generation (11ty removed)
+  - Always clean builds (no incremental mode)
+  - `scripts/generate_alpine_dashboard.py` generates site
+  - `scripts/force_rebuild.py` for validated rebuilds
 - **GitHub Pages CDN Behavior**:
   - May cache files for 10-15 minutes after deployment
   - Use post-deployment validation to ensure propagation
   - Force refresh browsers after deployment
-- No backend servers required - fully client-side functionality
-- Coverage badges auto-updated in README via the `update-badge` command
-- Webhook alerts supported for Slack/Teams notifications
+- No backend servers required - fully client-side Alpine.js functionality
+- Coverage badges can be updated via `update-badge` command (if implemented)
 
 ### Troubleshooting Stale Data / 15,000+ CVE Issue
 If the live site shows thousands of CVEs instead of ~60:
 1. **Immediate Fix**: Run `npm run build:force` then `npm run deploy`
-2. **Detailed Instructions**: See `TROUBLESHOOTING.md` 
-3. **Root Cause**: Incremental builds accumulating stale files
-4. **Prevention**: Always use clean builds, never `--incremental`
+2. **Detailed Instructions**: See `docs/TROUBLESHOOTING.md`
+3. **Root Cause**: Fixed by removing 11ty and implementing incremental harvesting
+4. **Prevention**: Python generator always does clean builds
+5. **Incremental Harvesting**: Default mode processes only recent CVEs (48-hour window)
 
 ## Performance Optimization Guide
 
@@ -370,19 +385,20 @@ pytest tests/playwright_live_test.py -v
 - GitHub Pages caching prevented proper cleanup
 - Static site generators accumulated files over multiple deployments
 
-**Critical Solution**:
+**Critical Solution** (Implemented):
 ```bash
-# ALWAYS use complete rebuilds to prevent stale data
-rm -rf _site public
-python -m scripts.generate_alpine_dashboard  # Clean generation
-# NEVER use --incremental flag on 11ty builds
+# Use force rebuild command (always clean)
+npm run build:force
+# Or manually:
+python -m scripts.force_rebuild --expected-count 60 --min-epss 0.6
 ```
 
-**Prevention Measures**:
-1. **Mandatory CI/CD Gatecheck**: All deployments must pass strict validation
-2. **Non-Incremental Builds**: Force complete rebuilds every time
-3. **Live Site Monitoring**: Automated detection of 15,000+ CVE issues
-4. **Force Purge Strategy**: Complete directory cleanup before builds
+**Prevention Measures** (Implemented):
+1. **Removed 11ty**: Eliminated incremental build issues
+2. **Incremental Harvesting**: Process only recent CVEs (48-hour window)
+3. **CI/CD Gatecheck**: All deployments pass validation (`scripts/ci_gatecheck.py`)
+4. **Live Site Monitoring**: Post-deployment Playwright tests
+5. **EPSS-First Filtering**: Initial harvest ~100 CVEs instead of 15,000
 
 ### Critical Validation Commands
 
@@ -407,16 +423,16 @@ python -m scripts.force_rebuild \
 ### Developer Guidelines
 
 **❌ NEVER DO**:
-- Use incremental builds in production (`--incremental`)
+- ~~Use incremental builds~~ (11ty removed, not applicable)
 - Deploy without running gatecheck validation
 - Ignore CVE count warnings in CI/CD
-- Assume data is correct without validation
+- Bypass EPSS threshold validation
 
 **✅ ALWAYS DO**:
-- Run complete clean builds (`rm -rf _site public`)
-- Validate data before deployment
+- Use `npm run build` or `npm run build:force` for builds
+- Run `npm run validate` before deployment
 - Check live site counts after deployment
-- Monitor for 15,000+ CVE alerts
+- Monitor post-deployment QA test results
 
 ### Emergency Response
 

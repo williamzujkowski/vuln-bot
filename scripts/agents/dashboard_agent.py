@@ -24,7 +24,6 @@ class DashboardAgent(BaseAgent):
             "max_vulnerabilities": 1000,
             "chunk_by_severity": True,
             "generate_search_index": True,
-            "dashboard_template": "src/index.njk",
         }
 
     async def execute(self, **kwargs) -> Dict[str, Any]:
@@ -762,8 +761,6 @@ class DashboardAgent(BaseAgent):
         """Get dependencies for change detection."""
         return {
             ".cache/vulns.db",
-            "src/index.njk",
-            "src/_includes/",
             "src/assets/",
             "scripts/processing/cache_manager.py",
         }

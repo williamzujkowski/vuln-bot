@@ -75,9 +75,9 @@ def cli(debug: bool) -> None:
     help="Minimum EPSS score (0.0-1.0, default: 0.6 for 60%)",
 )
 @click.option(
-    "--incremental",
-    is_flag=True,
-    help="Skip CVEs that haven't been updated since last harvest",
+    "--incremental/--no-incremental",
+    default=True,
+    help="Incremental mode (default: ON). Use --no-incremental to force full refresh.",
 )
 @click.option(
     "--use-releases/--no-use-releases",
@@ -94,7 +94,15 @@ def harvest(
     use_releases: bool,
     dry_run: bool,
 ) -> None:
-    """Harvest vulnerability data from all configured sources."""
+    """Harvest vulnerability data from all configured sources.
+
+    INCREMENTAL HARVESTING STRATEGY (Default Behavior):
+    - Initial harvest: EPSS-first filtering (~100 CVEs instead of 15,000)
+    - Daily incremental: Only fetch CVEs updated in last 48 hours (~10-20 CVEs)
+    - Weekly refresh: Update EPSS scores for all cached CVEs
+
+    To force a complete refresh (e.g., weekly EPSS update), use --no-incremental.
+    """
     logger = structlog.get_logger()
 
     if dry_run:

@@ -215,42 +215,26 @@ jobs:
             npm install
           fi
           
-          # Step 3: Run 11ty with EXPLICIT non-incremental build
-          echo "Step 3: Running 11ty with FULL BUILD mode (non-incremental)..."
-          if command -v npx &> /dev/null && [ -f ".eleventy.js" ]; then
-            # CRITICAL: Do NOT use --incremental flag
-            # Force full rebuild by ensuring clean state
-            echo "Executing: npx eleventy --output=public --quiet"
-            npx eleventy --output=public --quiet
-            BUILD_EXIT_CODE=$?
-            
-            if [ $BUILD_EXIT_CODE -eq 0 ]; then
-              echo "✓ 11ty build completed successfully"
-            else
-              echo "⚠ 11ty build failed with exit code $BUILD_EXIT_CODE, using Python fallback"
-            fi
+          # Step 3: Run Python dashboard generator
+          echo "Step 3: Running Python dashboard generator..."
+          mkdir -p .cache
+
+          # Copy the database to the expected location
+          cp actions-cache/vulnerability_cache.db .cache/vulns.db || true
+
+          # Generate dashboard using Python
+          python -m scripts.generate_alpine_dashboard
+          BUILD_EXIT_CODE=$?
+
+          if [ $BUILD_EXIT_CODE -eq 0 ]; then
+            echo "✓ Dashboard generated successfully"
           else
-            echo "11ty not available, using Python generator"
-            BUILD_EXIT_CODE=1
+            echo "❌ Dashboard generation failed"
+            exit 1
           fi
-          
-          # Step 4: Python fallback if 11ty failed
-          if [ $BUILD_EXIT_CODE -ne 0 ] || [ ! -f "public/index.html" ]; then
-            echo "Step 4: Using Python generator as fallback..."
-            mkdir -p .cache
-            
-            # Copy the database to the expected location
-            cp actions-cache/vulnerability_cache.db .cache/vulns.db || true
-            
-            # Use incremental generator (but with clean output)
-            python -m scripts.incremental_generator \
-              --db-path .cache/vulns.db \
-              --output-dir public \
-              --force-rebuild
-          fi
-          
-          # Step 5: Verify build produced valid files
-          echo "Step 5: Verifying build output..."
+
+          # Step 4: Verify build produced valid files
+          echo "Step 4: Verifying build output..."
           if [ -d "public/api/vulns" ] && [ -f "public/index.html" ]; then
             CVE_FILES=$(find public/cves -name "CVE-*" -type d 2>/dev/null | wc -l || echo "0")
             JSON_FILES=$(find public/api/vulns -name "*.json" 2>/dev/null | wc -l || echo "0")

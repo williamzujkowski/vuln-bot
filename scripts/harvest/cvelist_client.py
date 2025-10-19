@@ -956,6 +956,7 @@ class CVEListClient(BaseAPIClient):
         min_severity: SeverityLevel = SeverityLevel.HIGH,
         max_vulnerabilities: Optional[int] = None,
         incremental: bool = False,
+        epss_filter_cve_ids: Optional[set] = None,
     ) -> List[Vulnerability]:
         """Harvest vulnerabilities from CVEList repository.
 
@@ -964,6 +965,7 @@ class CVEListClient(BaseAPIClient):
             min_severity: Minimum severity level to include
             max_vulnerabilities: Maximum number of vulnerabilities to return
             incremental: If True, skip CVEs that haven't been updated since last harvest
+            epss_filter_cve_ids: Optional set of CVE IDs to filter by (EPSS pre-filter)
 
         Returns:
             List of parsed Vulnerability objects
@@ -976,9 +978,13 @@ class CVEListClient(BaseAPIClient):
             years=years,
             min_severity=min_severity.value,
             max_vulnerabilities=max_vulnerabilities,
+            incremental=incremental,
+            epss_prefilter=epss_filter_cve_ids is not None,
+            epss_filter_count=len(epss_filter_cve_ids) if epss_filter_cve_ids else 0,
         )
 
         vulnerabilities = []
+        skipped_by_epss = 0
 
         for year in years:
             year_cves = self.fetch_cves_for_year(year, min_severity, incremental)
@@ -986,13 +992,28 @@ class CVEListClient(BaseAPIClient):
             for cve_data in year_cves:
                 vuln = self.parse_cve_v5_record(cve_data)
                 if vuln:
+                    # Apply EPSS pre-filter if provided
+                    if epss_filter_cve_ids is not None:
+                        if vuln.cve_id not in epss_filter_cve_ids:
+                            skipped_by_epss += 1
+                            continue
+
                     vulnerabilities.append(vuln)
 
                     if (
                         max_vulnerabilities
                         and len(vulnerabilities) >= max_vulnerabilities
                     ):
+                        self.logger.info(
+                            "Harvested (max limit reached)",
+                            count=len(vulnerabilities),
+                            skipped_by_epss=skipped_by_epss,
+                        )
                         return vulnerabilities
 
-        self.logger.info(f"Harvested {len(vulnerabilities)} vulnerabilities")
+        self.logger.info(
+            "Harvested CVEs complete",
+            count=len(vulnerabilities),
+            skipped_by_epss=skipped_by_epss,
+        )
         return vulnerabilities
