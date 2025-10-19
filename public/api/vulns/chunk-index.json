@@ -1,17 +1,27 @@
 {
   "strategy": "severity-year",
-  "generated": "2025-08-02T05:14:56.702832",
-  "total_count": 30,
+  "generated": "2025-10-19T20:10:41.139472",
+  "total_count": 295,
   "chunks": [
+    {
+      "key": "2024-CRITICAL",
+      "file": "vulns-2024-CRITICAL.json",
+      "count": 147
+    },
+    {
+      "key": "2024-HIGH",
+      "file": "vulns-2024-HIGH.json",
+      "count": 93
+    },
     {
       "key": "2025-CRITICAL",
       "file": "vulns-2025-CRITICAL.json",
-      "count": 23
+      "count": 38
     },
     {
       "key": "2025-HIGH",
       "file": "vulns-2025-HIGH.json",
-      "count": 7
+      "count": 17
     }
   ]
 }
