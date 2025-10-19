@@ -184,45 +184,40 @@ jobs:
             --api-dir api \
             --output-dir reports
       
-      - name: Copy API files to public directory
-        run: |
-          echo "Copying fresh API files from root to public directory..."
-          mkdir -p public/api/vulns
-          if [ -d "api/vulns" ]; then
-            cp -r api/vulns/* public/api/vulns/
-            echo "✓ Copied API files to public directory"
-            echo "Files copied:"
-            ls -la public/api/vulns/ | head -10
-          else
-            echo "⚠ Warning: No API files found in root directory"
-            exit 1
-          fi
-      
       - name: Force clean build (Non-incremental)
         id: build_site
         run: |
           echo "🚀 FORCE NON-INCREMENTAL BUILD: Ensuring complete site rebuild..."
-          
-          # Step 1: Complete removal of output directories
+
+          # Step 1: Complete removal of output directories (NOT api/)
           echo "Step 1: Complete removal of output directories..."
           rm -rf _site public
           mkdir -p _site public
           echo "✓ Output directories completely recreated"
-          
-          # Step 2: Install Node dependencies if needed
+
+          # Step 2: Verify API files exist in root (required by dashboard generator)
+          echo "Step 2: Verifying API files in root directory..."
+          if [ ! -f "api/vulns/index.json" ]; then
+            echo "❌ ERROR: api/vulns/index.json not found in root directory"
+            echo "Dashboard generator requires API files in root api/ directory"
+            exit 1
+          fi
+          echo "✓ API files verified in root directory"
+
+          # Step 3: Install Node dependencies if needed
           if [ -f "package.json" ] && [ ! -d "node_modules" ]; then
-            echo "Installing Node dependencies..."
+            echo "Step 3: Installing Node dependencies..."
             npm install
           fi
-          
-          # Step 3: Run Python dashboard generator
-          echo "Step 3: Running Python dashboard generator..."
+
+          # Step 4: Run Python dashboard generator
+          echo "Step 4: Running Python dashboard generator..."
           mkdir -p .cache
 
           # Copy the database to the expected location
           cp actions-cache/vulnerability_cache.db .cache/vulns.db || true
 
-          # Generate dashboard using Python
+          # Generate dashboard using Python (reads from api/vulns/index.json)
           python -m scripts.generate_alpine_dashboard
           BUILD_EXIT_CODE=$?
 
@@ -232,6 +227,12 @@ jobs:
             echo "❌ Dashboard generation failed"
             exit 1
           fi
+
+          # Step 5: Copy API files to public directory for deployment
+          echo "Step 5: Copying API files to public directory..."
+          mkdir -p public/api/vulns
+          cp -r api/vulns/* public/api/vulns/
+          echo "✓ API files copied to public directory"
 
           # Step 4: Verify build produced valid files
           echo "Step 4: Verifying build output..."
