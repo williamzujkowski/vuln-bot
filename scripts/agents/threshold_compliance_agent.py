@@ -4,12 +4,9 @@ ThresholdComplianceAgent - Validates EPSS threshold compliance for CI/CD gating.
 """
 
 import json
-import sys
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
-
-import structlog
 
 from scripts.agents.base_agent import BaseAgent
 
@@ -26,10 +23,10 @@ class ThresholdComplianceAgent(BaseAgent):
             min_epss_threshold: Minimum EPSS threshold (0.0-1.0, default: 0.6 for 60%)
         """
         super().__init__(name="ThresholdComplianceAgent", cache_dir=cache_dir)
-        
+
         self.min_epss_threshold = min_epss_threshold
         self.min_epss_percentage = int(min_epss_threshold * 100)
-        
+
         self.logger.info(
             "Threshold Compliance Agent initialized",
             min_epss_threshold=min_epss_threshold,
@@ -69,13 +66,13 @@ class ThresholdComplianceAgent(BaseAgent):
 
         for vuln in vulnerabilities:
             epss_score = self._extract_epss_score(vuln)
-            
+
             if epss_score is not None:
                 epss_scores.append(epss_score)
-                
+
                 # Convert to percentage for comparison
                 epss_percentage = epss_score * 100 if epss_score <= 1.0 else epss_score
-                
+
                 if epss_score < self.min_epss_threshold:
                     violations.append({
                         "cve_id": vuln.get("cveId") or vuln.get("cve_id") or "Unknown",
@@ -168,27 +165,27 @@ class ThresholdComplianceAgent(BaseAgent):
                 with open(index_file) as f:
                     index_data = json.load(f)
                     vulnerabilities = index_data.get("vulnerabilities", [])
-                    
+
                     file_result = self.validate_vulnerability_compliance(vulnerabilities)
                     validation_result["files"]["index.json"] = file_result
                     validation_result["files_checked"] += 1
                     validation_result["vulnerabilities_checked"] += len(vulnerabilities)
-                    
+
                     # Aggregate results
                     validation_result["total_vulnerabilities"] += file_result["total_vulnerabilities"]
                     validation_result["compliant_vulnerabilities"] += file_result["compliant_vulnerabilities"]
                     validation_result["non_compliant_vulnerabilities"] += file_result["non_compliant_vulnerabilities"]
                     validation_result["violations"].extend(file_result["violations"])
-                    
+
                     # Collect EPSS scores for overall statistics
                     for vuln in vulnerabilities:
                         epss_score = self._extract_epss_score(vuln)
                         if epss_score is not None:
                             all_epss_scores.append(epss_score)
-                    
+
                     if not file_result["passed"]:
                         validation_result["passed"] = False
-                        
+
             except Exception as e:
                 validation_result["passed"] = False
                 validation_result["files"]["index.json"] = {"error": str(e)}
@@ -200,7 +197,7 @@ class ThresholdComplianceAgent(BaseAgent):
                 with open(chunk_index_file) as f:
                     chunk_index = json.load(f)
                     chunks = chunk_index.get("chunks", [])
-                    
+
                     for chunk in chunks:
                         chunk_file = chunk.get("file")
                         if chunk_file:
@@ -210,31 +207,31 @@ class ThresholdComplianceAgent(BaseAgent):
                                     with open(chunk_path) as cf:
                                         chunk_data = json.load(cf)
                                         vulnerabilities = chunk_data.get("vulnerabilities", [])
-                                        
+
                                         file_result = self.validate_vulnerability_compliance(vulnerabilities)
                                         validation_result["files"][chunk_file] = file_result
                                         validation_result["files_checked"] += 1
                                         validation_result["vulnerabilities_checked"] += len(vulnerabilities)
-                                        
+
                                         # Aggregate results
                                         validation_result["total_vulnerabilities"] += file_result["total_vulnerabilities"]
                                         validation_result["compliant_vulnerabilities"] += file_result["compliant_vulnerabilities"]
                                         validation_result["non_compliant_vulnerabilities"] += file_result["non_compliant_vulnerabilities"]
                                         validation_result["violations"].extend(file_result["violations"])
-                                        
+
                                         # Collect EPSS scores for overall statistics
                                         for vuln in vulnerabilities:
                                             epss_score = self._extract_epss_score(vuln)
                                             if epss_score is not None:
                                                 all_epss_scores.append(epss_score)
-                                        
+
                                         if not file_result["passed"]:
                                             validation_result["passed"] = False
-                                            
+
                                 except Exception as e:
                                     validation_result["passed"] = False
                                     validation_result["files"][chunk_file] = {"error": str(e)}
-                                    
+
             except Exception as e:
                 validation_result["passed"] = False
                 validation_result["chunk_index_error"] = str(e)
@@ -295,14 +292,14 @@ class ThresholdComplianceAgent(BaseAgent):
                 "",
                 f"🚨 VIOLATIONS ({len(violations)}):",
             ])
-            
+
             for i, violation in enumerate(violations[:10], 1):  # Show first 10
                 cve_id = violation["cve_id"]
                 violation_desc = violation["threshold_violation"]
                 severity = violation.get("severity", "Unknown")
-                
+
                 report_lines.append(f"  {i}. {cve_id} - {violation_desc} (Severity: {severity})")
-            
+
             if len(violations) > 10:
                 report_lines.append(f"  ... and {len(violations) - 10} more violations")
 
@@ -313,7 +310,7 @@ class ThresholdComplianceAgent(BaseAgent):
                 "",
                 f"📁 FILES CHECKED ({validation_result.get('files_checked', 0)}):",
             ])
-            
+
             for filename, file_result in files_data.items():
                 if isinstance(file_result, dict) and "passed" in file_result:
                     status = "✅" if file_result["passed"] else "❌"
@@ -342,27 +339,27 @@ class ThresholdComplianceAgent(BaseAgent):
             Tuple of (json_path, txt_path)
         """
         output_dir.mkdir(exist_ok=True)
-        
+
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        
+
         # Save JSON report
         json_path = output_dir / f"epss_compliance_{timestamp}.json"
         with open(json_path, 'w') as f:
             json.dump(validation_result, f, indent=2, default=str)
-        
+
         # Save text report
         txt_path = output_dir / f"epss_compliance_{timestamp}.txt"
         report_text = self.generate_compliance_report(validation_result)
         with open(txt_path, 'w') as f:
             f.write(report_text)
-            
+
         # Also save daily report with standard name
         daily_json = output_dir / "epss_compliance_daily.json"
         daily_txt = output_dir / "epss_compliance_daily.txt"
-        
+
         with open(daily_json, 'w') as f:
             json.dump(validation_result, f, indent=2, default=str)
-        
+
         with open(daily_txt, 'w') as f:
             f.write(report_text)
 
@@ -444,7 +441,7 @@ class ThresholdComplianceAgent(BaseAgent):
             "validation_passed": validation_result["passed"],
             "total_vulnerabilities": validation_result.get("total_vulnerabilities", 0),
             "violations_count": len(validation_result.get("violations", [])),
-            "compliance_rate": (validation_result.get("compliant_vulnerabilities", 0) / 
+            "compliance_rate": (validation_result.get("compliant_vulnerabilities", 0) /
                              max(validation_result.get("total_vulnerabilities", 1), 1)) * 100,
             "reports": {
                 "json": str(json_path),

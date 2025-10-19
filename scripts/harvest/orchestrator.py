@@ -13,6 +13,7 @@ from scripts.agents.epss_filter_agent import EPSSFilterAgent
 from scripts.harvest.cvelist_client import CVEListClient
 from scripts.harvest.epss_client import EPSSClient
 from scripts.harvest.github_advisory_client import GitHubAdvisoryClient
+from scripts.harvest.multi_source_harvester import MultiSourceHarvester
 from scripts.harvest.nvd_client import NVDClient
 from scripts.metrics import MetricsCollector
 from scripts.models import Vulnerability, VulnerabilityBatch
@@ -70,6 +71,13 @@ class HarvestOrchestrator:
         )
         self.github_advisory_client = GitHubAdvisoryClient(
             cache_dir=cache_dir / "api_cache",
+        )
+
+        # Initialize multi-source harvester for enrichment
+        self.multi_source_harvester = MultiSourceHarvester(
+            cache_dir=cache_dir,
+            cache_manager=self.cache_manager,
+            max_workers=max_workers,
         )
 
     def _load_quality_config(self) -> DataQualityConfig:
@@ -468,6 +476,36 @@ class HarvestOrchestrator:
         # Record individual vulnerability metrics
         for vuln in unique_vulnerabilities:
             self.metrics.record_vulnerability(vuln)
+
+        # Apply multi-source enrichment
+        self.logger.info("Applying multi-source enrichment")
+        try:
+            enrichment_batch = self.multi_source_harvester.harvest_all_sources(
+                vulnerabilities=unique_vulnerabilities,
+                enable_osv=True,
+                enable_deps_dev=True,
+                enable_registry_stats=False,  # Disable by default (optional)
+                parallel_enrichment=True,
+            )
+            unique_vulnerabilities = enrichment_batch.vulnerabilities
+
+            # Add enrichment statistics to metadata
+            harvest_metadata["enrichment_statistics"] = (
+                enrichment_batch.metadata.get("enrichment_statistics", {})
+            )
+
+            self.logger.info(
+                "Multi-source enrichment completed",
+                enrichment_sources=len(
+                    enrichment_batch.metadata.get("enrichment_sources", [])
+                ),
+            )
+        except Exception as e:
+            self.logger.error(
+                "Multi-source enrichment failed, continuing with base data",
+                error=str(e),
+            )
+            # Continue with non-enriched vulnerabilities
 
         # Sort by risk score
         unique_vulnerabilities.sort(key=lambda v: v.risk_score, reverse=True)

@@ -4,12 +4,9 @@ DataQualityReportAgent - Generates comprehensive data quality reports with EPSS 
 """
 
 import json
-import os
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional
-
-import structlog
 
 from scripts.agents.base_agent import BaseAgent
 
@@ -26,10 +23,10 @@ class DataQualityReportAgent(BaseAgent):
             output_dir: Directory for report output (defaults to reports/)
         """
         super().__init__(name="DataQualityReportAgent", cache_dir=cache_dir)
-        
+
         self.output_dir = output_dir or Path("reports")
         self.output_dir.mkdir(exist_ok=True)
-        
+
         self.logger.info(
             "Data Quality Report Agent initialized",
             output_dir=str(self.output_dir)
@@ -264,15 +261,15 @@ class DataQualityReportAgent(BaseAgent):
                         date_obj = datetime.fromisoformat(published_date.replace('Z', '+00:00'))
                     else:
                         date_obj = published_date
-                    
+
                     dates.append(date_obj)
-                    
+
                     year = date_obj.year
                     month = f"{date_obj.year}-{date_obj.month:02d}"
-                    
+
                     temporal_analysis["by_year"][str(year)] = temporal_analysis["by_year"].get(str(year), 0) + 1
                     temporal_analysis["by_month"][month] = temporal_analysis["by_month"].get(month, 0) + 1
-                    
+
                 except Exception:
                     continue
 
@@ -285,7 +282,7 @@ class DataQualityReportAgent(BaseAgent):
 
         return temporal_analysis
 
-    def generate_quality_report(self, vulnerabilities: List[Dict[str, Any]], 
+    def generate_quality_report(self, vulnerabilities: List[Dict[str, Any]],
                                harvest_metadata: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
         """
         Generate comprehensive data quality report.
@@ -316,7 +313,7 @@ class DataQualityReportAgent(BaseAgent):
         }
 
         # Generate quality summary
-        epss_analysis = report["epss_analysis"]  
+        epss_analysis = report["epss_analysis"]
         vendor_analysis = report["vendor_analysis"]
         cvss_analysis = report["cvss_analysis"]
 
@@ -356,7 +353,7 @@ class DataQualityReportAgent(BaseAgent):
             filename = f"data_quality_report_{timestamp}.json"
 
         output_path = self.output_dir / filename
-        
+
         with open(output_path, 'w') as f:
             json.dump(report, f, indent=2, default=str)
 
@@ -368,7 +365,7 @@ class DataQualityReportAgent(BaseAgent):
         Save report as HTML file.
 
         Args:
-            report: Report dictionary  
+            report: Report dictionary
             filename: Optional custom filename
 
         Returns:
@@ -381,7 +378,7 @@ class DataQualityReportAgent(BaseAgent):
         output_path = self.output_dir / filename
 
         html_content = self._generate_html_report(report)
-        
+
         with open(output_path, 'w') as f:
             f.write(html_content)
 
@@ -393,7 +390,7 @@ class DataQualityReportAgent(BaseAgent):
         metadata = report["report_metadata"]
         epss = report["epss_analysis"]
         quality = report["quality_summary"]
-        
+
         html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -468,7 +465,7 @@ class DataQualityReportAgent(BaseAgent):
                 <div class="metric-label">Median EPSS</div>
             </div>
         </div>
-        
+
         <h3>Distribution by Ranges</h3>
         <table>
             <thead>
@@ -621,18 +618,18 @@ class DataQualityReportAgent(BaseAgent):
         """
         vulnerabilities = task.get("vulnerabilities", [])
         harvest_metadata = task.get("harvest_metadata", {})
-        
+
         # Generate comprehensive report
         report = self.generate_quality_report(vulnerabilities, harvest_metadata)
-        
+
         # Save in multiple formats
         json_path = self.save_report_json(report)
         html_path = self.save_report_html(report)
-        
+
         # Also save daily report with standard name
         daily_json = self.save_report_json(report, "epss-quality-daily.json")
         daily_html = self.save_report_html(report, "epss-quality-daily.html")
-        
+
         return {
             "report_generated": True,
             "files": {

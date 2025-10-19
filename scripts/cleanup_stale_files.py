@@ -3,13 +3,12 @@
 Script to clean up stale files before building the site.
 """
 
-import click
 from pathlib import Path
 
+import click
 import structlog
 
 from scripts.agents.cleanup_agent import CleanupAgent
-
 
 logger = structlog.get_logger()
 
@@ -54,20 +53,20 @@ logger = structlog.get_logger()
     is_flag=True,
     help="Audit-only mode: list files that would be deleted without removing them"
 )
-def cleanup_stale_files(build_dir: Path, api_dir: Path, posts_dir: Path, 
+def cleanup_stale_files(build_dir: Path, api_dir: Path, posts_dir: Path,
                        min_epss: float, verify_only: bool, force_purge: bool, safe_mode: bool):
     """Clean up stale CVE files before building the site."""
-    
+
     agent = CleanupAgent()
-    
+
     if safe_mode:
         # Audit-only mode: show what would be deleted
         click.echo("🔍 Running in SAFE MODE (audit-only)...\n")
-        
+
         valid_ids = agent._get_valid_cve_ids(api_dir, min_epss)
         from scripts.agents.repo_audit_agent import RepoAuditAgent
         audit_agent = RepoAuditAgent()
-        
+
         # Audit each directory
         total_to_delete = 0
         for directory in [build_dir, posts_dir]:
@@ -81,17 +80,17 @@ def cleanup_stale_files(build_dir: Path, api_dir: Path, posts_dir: Path,
                     if len(vestigial_files) > 10:
                         click.echo(f"    ... and {len(vestigial_files) - 10} more")
                     total_to_delete += len(vestigial_files)
-        
+
         click.echo(f"\n📊 Total files that would be deleted: {total_to_delete}")
         click.echo("\n💡 To actually delete these files, run without --safe-mode")
-        
+
     elif verify_only:
         # Get valid CVE IDs
         valid_ids = agent._get_valid_cve_ids(api_dir, min_epss)
-        
+
         # Verify no stale files
         results = agent.verify_no_stale_files(build_dir, valid_ids)
-        
+
         if results["verification_passed"]:
             click.echo("✅ No stale files found")
         else:
@@ -100,14 +99,14 @@ def cleanup_stale_files(build_dir: Path, api_dir: Path, posts_dir: Path,
                 click.echo(f"  - {file}")
             if len(results["stale_files_found"]) > 10:
                 click.echo(f"  ... and {len(results['stale_files_found']) - 10} more")
-            
+
             # Exit with error code
             raise click.ClickException("Stale files detected")
     else:
         # Perform cleanup
         if force_purge:
             click.echo("🔥 FORCE PURGE mode enabled - will completely remove directories\n")
-        
+
         stats = agent.clean_before_build(
             build_dir=build_dir,
             api_dir=api_dir,
@@ -115,20 +114,20 @@ def cleanup_stale_files(build_dir: Path, api_dir: Path, posts_dir: Path,
             min_epss_threshold=min_epss,
             force_purge=force_purge
         )
-        
+
         # Display report
         report = agent.generate_cleanup_report()
         click.echo(report)
-        
+
         # Show summary
-        click.echo(f"\n✅ Cleanup completed:")
+        click.echo("\n✅ Cleanup completed:")
         click.echo(f"  - Removed {stats['files_removed']} files")
         click.echo(f"  - Freed {agent._format_bytes(stats['bytes_freed'])}")
         click.echo(f"  - Found {stats['stale_cves_found']} stale CVEs")
-        
+
         if force_purge:
             click.echo(f"  - Force purged {stats.get('directories_cleaned', 0)} directories")
-        
+
         # Log metrics
         logger.info("Cleanup metrics",
                    files_removed=stats['files_removed'],

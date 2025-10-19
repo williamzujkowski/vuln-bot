@@ -731,25 +731,25 @@ def validate_threshold_compliance(
 ) -> None:
     """Validate EPSS threshold compliance for CI/CD gating."""
     logger = structlog.get_logger()
-    
+
     try:
         logger.info(
             "Validating threshold compliance",
             min_epss=min_epss,
             min_epss_percentage=int(min_epss * 100)
         )
-        
+
         from scripts.agents.threshold_compliance_agent import ThresholdComplianceAgent
         from scripts.processing.cache_manager import CacheManager
-        
+
         # Initialize compliance agent
         compliance_agent = ThresholdComplianceAgent(
             cache_dir=cache_dir,
             min_epss_threshold=min_epss
         )
-        
+
         validation_result = None
-        
+
         # First try to validate API files if they exist
         if api_dir.exists() and (api_dir / "vulns").exists():
             logger.info("Validating API files", api_dir=api_dir)
@@ -759,7 +759,7 @@ def validate_threshold_compliance(
             logger.info("API files not found, validating cached data", cache_dir=cache_dir)
             cache_manager = CacheManager(cache_dir)
             cached_vulns = cache_manager.get_recent_vulnerabilities(limit=50000)
-            
+
             if cached_vulns:
                 # Convert to dict format for validation
                 vulnerabilities = [vuln.to_summary_dict() for vuln in cached_vulns]
@@ -768,41 +768,163 @@ def validate_threshold_compliance(
                 logger.error("No data found for validation")
                 console.print("[red]✗[/red] No vulnerability data found. Run 'harvest' and 'generate-briefing' first.")
                 sys.exit(1)
-        
+
         if not validation_result:
             logger.error("Validation failed to run")
             sys.exit(1)
-            
+
         # Save reports
         json_path, txt_path = compliance_agent.save_compliance_report(validation_result, output_dir)
-        
+
         # Display results
         report_text = compliance_agent.generate_compliance_report(validation_result)
         console.print(report_text)
-        
+
         # Show file paths
-        console.print(f"\n📄 Reports saved:")
+        console.print("\n📄 Reports saved:")
         console.print(f"  JSON: {json_path}")
         console.print(f"  Text: {txt_path}")
-        
+
         # Exit with appropriate code
         if validation_result["passed"]:
             console.print("\n[green]🎉 EPSS threshold compliance validation PASSED![/green]")
             sys.exit(0)
         else:
             violations_count = len(validation_result.get("violations", []))
-            console.print(f"\n[red]❌ EPSS threshold compliance validation FAILED![/red]")
+            console.print("\n[red]❌ EPSS threshold compliance validation FAILED![/red]")
             console.print(f"[red]Found {violations_count} violations of ≥{int(min_epss * 100)}% EPSS threshold[/red]")
-            
+
             if fail_on_violations:
                 sys.exit(1)
             else:
                 console.print("[yellow]⚠ Warning: --fail-on-violations not set, continuing with exit code 0[/yellow]")
                 sys.exit(0)
-                
+
     except Exception as e:
         logger.error("Failed to validate threshold compliance", error=str(e))
         console.print(f"[red]✗[/red] Failed to validate threshold compliance: {e}")
+        sys.exit(1)
+
+
+@cli.command()
+@click.option(
+    "--cache-dir",
+    type=click.Path(path_type=Path),
+    default=Path(".cache"),
+    help="Directory for caching API responses",
+)
+@click.option(
+    "--enable-osv/--disable-osv",
+    default=True,
+    help="Enable OSV.dev enrichment (cross-referencing and aliases)",
+)
+@click.option(
+    "--enable-deps-dev/--disable-deps-dev",
+    default=True,
+    help="Enable deps.dev enrichment (package impact analysis)",
+)
+@click.option(
+    "--enable-registry-stats/--disable-registry-stats",
+    default=False,
+    help="Enable package registry statistics (download metrics)",
+)
+@click.option(
+    "--parallel/--sequential",
+    default=True,
+    help="Run enrichment sources in parallel (default: parallel)",
+)
+@click.option(
+    "--limit",
+    type=int,
+    default=None,
+    help="Maximum vulnerabilities to enrich (default: all)",
+)
+def enrich_multi_source(
+    cache_dir: Path,
+    enable_osv: bool,
+    enable_deps_dev: bool,
+    enable_registry_stats: bool,
+    parallel: bool,
+    limit: int,
+) -> None:
+    """Enrich cached vulnerabilities with multi-source data (OSV, deps.dev, registries)."""
+    logger = structlog.get_logger()
+    logger.info(
+        "Starting multi-source enrichment",
+        cache_dir=str(cache_dir),
+        sources={
+            "osv": enable_osv,
+            "deps_dev": enable_deps_dev,
+            "registry_stats": enable_registry_stats,
+        },
+        parallel=parallel,
+    )
+
+    try:
+        from scripts.harvest.multi_source_harvester import MultiSourceHarvester
+        from scripts.processing.cache_manager import CacheManager
+
+        # Initialize components
+        cache_manager = CacheManager(cache_dir)
+        harvester = MultiSourceHarvester(
+            cache_dir=cache_dir,
+            cache_manager=cache_manager,
+        )
+
+        # Get vulnerabilities from cache
+        vulnerabilities = cache_manager.get_recent_vulnerabilities(limit=limit or 50000)
+
+        if not vulnerabilities:
+            logger.warning("No vulnerabilities found in cache")
+            console.print(
+                "[yellow]⚠[/yellow] No vulnerabilities found. Run 'harvest' first."
+            )
+            return
+
+        # Apply limit if specified
+        if limit:
+            vulnerabilities = vulnerabilities[:limit]
+            logger.info("Limited enrichment", max_vulnerabilities=limit)
+
+        # Perform enrichment
+        enriched_batch = harvester.harvest_all_sources(
+            vulnerabilities=vulnerabilities,
+            enable_osv=enable_osv,
+            enable_deps_dev=enable_deps_dev,
+            enable_registry_stats=enable_registry_stats,
+            parallel_enrichment=parallel,
+        )
+
+        # Display summary
+        console.print("\n[green]✓[/green] Multi-source enrichment completed")
+        console.print(f"Total vulnerabilities: {len(enriched_batch.vulnerabilities)}")
+
+        # Show enrichment statistics
+        stats = enriched_batch.metadata.get("enrichment_statistics", {})
+        console.print("\n[blue]📊 Enrichment Statistics:[/blue]")
+        console.print(f"  Sources attempted: {stats.get('sources_attempted', 0)}")
+        console.print(f"  Sources succeeded: {stats.get('sources_succeeded', 0)}")
+        console.print(f"  Sources failed: {stats.get('sources_failed', 0)}")
+
+        enrichment_types = stats.get("enrichment_types", {})
+        if enrichment_types:
+            console.print("\n[cyan]🔍 Enrichment by Type:[/cyan]")
+            for source, count in enrichment_types.items():
+                console.print(f"  {source}: {count} vulnerabilities enriched")
+
+        # Show duration
+        duration = enriched_batch.metadata.get("duration_seconds", 0)
+        console.print(f"\n⏱  Duration: {duration:.2f} seconds")
+
+        # Update cache with enriched data
+        logger.info("Updating cache with enriched data")
+        cache_manager.cache_batch(enriched_batch)
+
+        console.print("[green]✅ Enriched data cached successfully[/green]")
+
+    except Exception as e:
+        logger.error("Multi-source enrichment failed", error=str(e))
+        console.print(f"[red]✗[/red] Failed to enrich vulnerabilities: {e}")
         sys.exit(1)
 
 
@@ -828,18 +950,18 @@ def validate_threshold_compliance(
 def generate_quality_report(cache_dir: Path, output_dir: Path, format: str) -> None:
     """Generate comprehensive data quality report with EPSS filtering statistics."""
     logger = structlog.get_logger()
-    
+
     try:
         logger.info("Generating data quality report", cache_dir=cache_dir, output_dir=output_dir)
-        
+
         # Get vulnerabilities from cache or API data
         vulnerabilities = []
         harvest_metadata = {}
-        
+
         # Try to load from cache first
         cache_manager = CacheManager(cache_dir)
         cached_vulns = cache_manager.get_recent_vulnerabilities(limit=50000)
-        
+
         if cached_vulns:
             logger.info("Loading vulnerabilities from cache", count=len(cached_vulns))
             # Convert to dict format for analysis
@@ -862,30 +984,30 @@ def generate_quality_report(cache_dir: Path, output_dir: Path, format: str) -> N
                         "generated": api_data.get("generated"),
                         "count": api_data.get("count")
                     }
-        
+
         if not vulnerabilities:
             logger.warning("No vulnerabilities found")
             console.print("[yellow]⚠[/yellow] No vulnerabilities found. Run 'harvest' and 'generate-briefing' first.")
             return
-        
+
         # Initialize report agent
         from scripts.agents.data_quality_report_agent import DataQualityReportAgent
         report_agent = DataQualityReportAgent(output_dir=output_dir)
-        
+
         # Generate report
         report = report_agent.generate_quality_report(vulnerabilities, harvest_metadata)
-        
+
         # Save in requested formats
         files_saved = []
-        
+
         if format in ["json", "both"]:
             json_path = report_agent.save_report_json(report, "epss-quality-daily.json")
             files_saved.append(str(json_path))
-        
+
         if format in ["html", "both"]:
             html_path = report_agent.save_report_html(report, "epss-quality-daily.html")
             files_saved.append(str(html_path))
-        
+
         # Display summary
         summary = report["quality_summary"]
         console.print("\n[green]✓[/green] Data quality report generated successfully")
@@ -894,10 +1016,10 @@ def generate_quality_report(cache_dir: Path, output_dir: Path, format: str) -> N
         console.print(f"  EPSS ≥60% compliance: {summary['epss_threshold_compliance']['compliance_rate']:.1f}%")
         console.print(f"  CVSS coverage: {summary['data_completeness']['cvss_coverage']:.1f}%")
         console.print(f"  Vendor identification: {summary['data_completeness']['vendor_identification']:.1f}%")
-        
+
         for file_path in files_saved:
             console.print(f"  Report: {file_path}")
-        
+
         # Highlight any quality issues
         if summary['epss_threshold_compliance']['compliance_rate'] < 100:
             console.print(
@@ -905,10 +1027,10 @@ def generate_quality_report(cache_dir: Path, output_dir: Path, format: str) -> N
                 f"{summary['epss_threshold_compliance']['compliant_vulnerabilities']} of "
                 f"{report['report_metadata']['total_vulnerabilities']} vulnerabilities meet ≥60% threshold"
             )
-        
+
         if summary['data_completeness']['epss_coverage'] < 95:
             console.print(f"[yellow]⚠[/yellow] Low EPSS coverage: {summary['data_completeness']['epss_coverage']:.1f}%")
-            
+
     except Exception as e:
         logger.error("Failed to generate quality report", error=str(e))
         console.print(f"[red]✗[/red] Failed to generate quality report: {e}")
