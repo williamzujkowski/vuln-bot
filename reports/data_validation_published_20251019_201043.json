@@ -1,0 +1,78 @@
+{
+  "stage": "published",
+  "timestamp": "2025-10-19T20:10:43.320932",
+  "validation_count": 8,
+  "results": {
+    "passed": 7,
+    "failed": 1,
+    "warnings": 0,
+    "validations": [
+      {
+        "stage": "publication",
+        "timestamp": "2025-10-19T20:10:43.312233",
+        "file": "api/vulns/vulns-2025-MEDIUM.json",
+        "passed": true,
+        "failures": [],
+        "warnings": []
+      },
+      {
+        "stage": "publication",
+        "timestamp": "2025-10-19T20:10:43.312372",
+        "file": "api/vulns/vulns-2024-HIGH.json",
+        "passed": true,
+        "failures": [],
+        "warnings": []
+      },
+      {
+        "stage": "publication",
+        "timestamp": "2025-10-19T20:10:43.314205",
+        "file": "api/vulns/vulns-2025-CRITICAL.json",
+        "passed": true,
+        "failures": [],
+        "warnings": []
+      },
+      {
+        "stage": "publication",
+        "timestamp": "2025-10-19T20:10:43.314878",
+        "file": "api/vulns/vulns-2025-HIGH.json",
+        "passed": true,
+        "failures": [],
+        "warnings": []
+      },
+      {
+        "stage": "publication",
+        "timestamp": "2025-10-19T20:10:43.315108",
+        "file": "api/vulns/vulns-2024-MEDIUM.json",
+        "passed": true,
+        "failures": [],
+        "warnings": []
+      },
+      {
+        "stage": "publication",
+        "timestamp": "2025-10-19T20:10:43.315601",
+        "file": "api/vulns/index.json",
+        "passed": true,
+        "failures": [],
+        "warnings": []
+      },
+      {
+        "stage": "publication",
+        "timestamp": "2025-10-19T20:10:43.317558",
+        "file": "api/vulns/chunk-index.json",
+        "passed": false,
+        "failures": [
+          "Missing vulnerabilities array in index"
+        ],
+        "warnings": []
+      },
+      {
+        "stage": "publication",
+        "timestamp": "2025-10-19T20:10:43.317611",
+        "file": "api/vulns/vulns-2024-CRITICAL.json",
+        "passed": true,
+        "failures": [],
+        "warnings": []
+      }
+    ]
+  }
+}
