@@ -29,9 +29,223 @@ current_time = get_authoritative_now()  # Authoritative NIST/WorldTimeAPI
 current_year = get_current_year()  # Dynamically fetched
 ```
 
-## Project Overview
+## 📊 **CRITICAL: Data Quality & Accuracy Standards**
+
+**ALL data claims, statistics, and metrics MUST be verified and sourced from authoritative data.**
+
+### Mandatory Data Verification Rules
+
+#### 1. **NEVER Hallucinate Numbers**
+```python
+# ❌ NEVER DO THIS:
+print("We have 30 CVEs")  # Unverified claim
+print("Coverage is 96.67%")  # Unverified claim
+print("217 tests passing")  # Unverified claim
+
+# ✅ ALWAYS DO THIS:
+cve_count = len(load_json(api_index_file))  # Verify from actual data
+print(f"We have {cve_count} CVEs")  # Data-backed claim
+
+coverage = run_coverage_command()  # Run actual test
+print(f"Coverage is {coverage}%")  # Verified metric
+```
+
+#### 2. **Use Only Authoritative Sources**
+**Approved Data Sources**:
+- **CVE Data**: NVD, CISA KEV, CVEProject/cvelistV5, GitHub Advisory Database
+- **EPSS Scores**: FIRST.org EPSS API
+- **Package Data**: npm registry, PyPI, Maven Central, NuGet
+- **Dependencies**: deps.dev API, OSV.dev API
+- **Exploits**: Exploit-DB, Metasploit, GitHub Security Lab
+
+**Document Sources in Code**:
+```python
+def get_cve_count() -> int:
+    """
+    Get total CVE count from API index.
+
+    Source: /public/api/vulns/index.json (generated from CVEProject/cvelistV5)
+    Last verified: 2025-10-19
+    """
+    return len(json.load(open("public/api/vulns/index.json")))
+```
+
+#### 3. **Include Data Freshness Checks**
+```python
+def verify_data_freshness(data_file: Path, max_age_hours: int = 4) -> bool:
+    """Verify data is not stale."""
+    file_age = datetime.now() - datetime.fromtimestamp(data_file.stat().st_mtime)
+    if file_age > timedelta(hours=max_age_hours):
+        logger.warning(f"Data is {file_age.hours}h old (max: {max_age_hours}h)")
+        return False
+    return True
+```
+
+#### 4. **Validate All Counts and Metrics**
+```python
+# Before reporting metrics, validate them
+def validate_cve_metrics(api_dir: Path) -> dict:
+    """
+    Validate CVE counts against actual API data.
+
+    Returns: Dict with actual counts, not assumptions
+    """
+    index_file = api_dir / "vulns" / "index.json"
+    if not index_file.exists():
+        raise FileNotFoundError(f"API index not found: {index_file}")
+
+    cves = json.load(index_file.open())
+
+    return {
+        "total_cves": len(cves),  # Actual count from data
+        "high_severity": sum(1 for c in cves if c["severity"] == "HIGH"),
+        "critical_severity": sum(1 for c in cves if c["severity"] == "CRITICAL"),
+        "with_epss_60plus": sum(1 for c in cves if c.get("epss", 0) >= 0.6),
+        "data_source": str(index_file),  # Document source
+        "last_verified": get_authoritative_now().isoformat()
+    }
+```
+
+#### 5. **No Exaggerations Without Data Backing**
+```markdown
+❌ BAD (Unverified superlatives):
+- "World-class vulnerability detection"
+- "Industry-leading accuracy"
+- "Best-in-class performance"
+- "Comprehensive coverage of all CVEs"
+
+✅ GOOD (Data-backed claims):
+- "6% test coverage across 8,978 statements" (verified from pytest --cov)
+- "399 tests collected with 1 import error" (verified from pytest output)
+- "3 CVEs currently in production API" (verified from index.json)
+- "EPSS threshold: ≥60% (configured in scripts/main.py)"
+```
+
+#### 6. **Verify Test Coverage Claims**
+```bash
+# Always run actual coverage before claiming numbers
+pytest --cov=scripts --cov-report=term | tee coverage_actual.txt
+
+# Document exact coverage numbers, not aspirational targets
+# Example from actual run:
+# TOTAL: 8978 statements, 8312 missing, 6% coverage
+```
+
+#### 7. **Cross-Reference Documentation with Reality**
+```python
+def audit_documentation_claims(doc_file: Path) -> List[str]:
+    """
+    Audit documentation for unverified claims.
+
+    Returns: List of claims that need verification
+    """
+    unverified_patterns = [
+        r"\d+% coverage",  # Coverage claims
+        r"\d+ tests passing",  # Test count claims
+        r"\d+ CVEs",  # CVE count claims
+        r"best|world-class|industry-leading",  # Superlatives
+    ]
+
+    content = doc_file.read_text()
+    findings = []
+
+    for pattern in unverified_patterns:
+        matches = re.findall(pattern, content, re.IGNORECASE)
+        if matches:
+            findings.append(f"Unverified claim in {doc_file}: {matches}")
+
+    return findings
+```
+
+### Enforcement in CI/CD
+
+```yaml
+# .github/workflows/data-quality-gate.yml
+- name: Verify Documentation Accuracy
+  run: |
+    python -m scripts.audit_documentation_claims \
+      --docs CLAUDE.md README.md \
+      --fail-on-unverified
+
+- name: Validate Metrics Match Reality
+  run: |
+    # Get actual CVE count
+    ACTUAL_CVES=$(python -c "import json; print(len(json.load(open('public/api/vulns/index.json'))))")
+
+    # Check documentation matches
+    DOC_CLAIMS=$(grep -oP '\d+(?= CVEs)' CLAUDE.md | head -1)
+
+    if [ "$ACTUAL_CVES" != "$DOC_CLAIMS" ]; then
+      echo "ERROR: Documentation claims $DOC_CLAIMS CVEs but actual count is $ACTUAL_CVES"
+      exit 1
+    fi
+```
+
+### Documentation Update Requirements
+
+**Before updating CLAUDE.md or README.md**:
+1. ✅ Run `pytest --collect-only` to get actual test count
+2. ✅ Run `pytest --cov=scripts --cov-report=term` to get actual coverage
+3. ✅ Check `public/api/vulns/index.json` for actual CVE count
+4. ✅ Verify all statistics from source data files
+5. ✅ Document data sources and verification dates
+6. ✅ Include data freshness warnings if data is stale
+
+**Example Accurate Documentation**:
+```markdown
+## Current System Status (Verified: 2025-10-19 18:00 UTC)
+
+**Data Metrics** (Source: public/api/vulns/index.json):
+- Total CVEs: 3 (verified from API index)
+- EPSS Threshold: ≥60% (configured threshold)
+- Data Age: 77 days old (⚠️ STALE - harvest needed)
+
+**Test Metrics** (Source: pytest --collect-only):
+- Tests Collected: 399 (with 1 import error)
+- Import Errors: tests/test_nvd_client.py, tests/test_reference_analysis.py
+
+**Coverage Metrics** (Source: pytest --cov=scripts):
+- Overall Coverage: 6% (8,978 total statements, 8,312 missing)
+- Note: Low coverage due to many untested legacy files
+- New modules have higher coverage (verified individually)
+
+**Build Status**:
+- Last Successful Build: 2025-10-19 04:23 UTC
+- Build System: Python-based (11ty removed)
+- Deployment: GitHub Pages (gh-pages branch)
+```
+
+### Red Flags to Avoid
+
+🚨 **These patterns indicate unverified claims**:
+- Round numbers without source (e.g., "30 CVEs" when actual is 3 or 295)
+- Percentage claims without pytest output (e.g., "96.67% coverage")
+- Test counts without verification (e.g., "217 tests passing")
+- Superlatives without benchmarks ("best", "world-class", "leading")
+- Aspirational targets presented as facts ("90% coverage" when actually 6%)
+
+### Correction Process
+
+**When Hallucinations are Detected**:
+1. **Immediate**: Flag the claim as unverified
+2. **Verify**: Run actual commands to get real data
+3. **Correct**: Update documentation with verified metrics
+4. **Document**: Add source citations and verification dates
+5. **Prevent**: Add CI/CD checks to catch future discrepancies
+
+## Project Overview (Updated: 2025-10-19)
 
 This is "Vuln-Bot" - a high-risk CVE intelligence platform that tracks Critical & High severity vulnerabilities with EPSS ≥ 60% exploitation probability. It automatically harvests, scores, and publishes vulnerability briefings every 4 hours. It's a Python-based project using Alpine.js for the frontend dashboard, with static HTML generation via `scripts/generate_alpine_dashboard.py`.
+
+**Current Production Status** (Verified: 2025-10-19):
+- **CVE Count**: 3 CVEs (Source: public/api/vulns/index.json)
+- **Data Freshness**: ⚠️ STALE (77 days old - requires harvest)
+- **EPSS Threshold**: ≥60% (configured in scripts/main.py)
+- **Live Site**: https://williamzujkowski.github.io/vuln-bot/
+- **Deployment**: GitHub Pages (gh-pages branch)
+- **Build System**: Python-based (11ty removed)
+
+**Note**: Low CVE count indicates stale data. Expected count after fresh harvest: ~60-100 CVEs depending on current vulnerability landscape and EPSS scores.
 
 ## Common Development Commands
 
@@ -278,23 +492,54 @@ Environment secrets needed in GitHub Actions:
 - `GITHUB_TOKEN` - GitHub API access (for cloning CVEProject/cvelistV5)
 - `EPSS_API_KEY` - EPSS API access (optional, for enrichment)
 
-### Testing Strategy
-- **Python**: pytest with 80% coverage target (actual: 6.37% due to many untested legacy files)
-  - 391 tests collected (2 import errors in legacy files)
-  - New code has higher coverage, legacy code lacks tests
-- **E2E**: Playwright tests for live site validation:
-  - CVE count validation (≤60 expected after incremental harvesting)
-  - EPSS threshold compliance (all ≥60%)
-  - Threat intel flag rendering (CISA KEV, exploit badges)
-  - API endpoint accessibility
-  - No stale data detection
-- **TypeScript**: 6 test files (`.test.ts`) for frontend components
-  - No Vitest configuration (claimed but not implemented)
-  - Tests use basic TypeScript setup
-- **Data Quality**: Validation at each pipeline stage via agents
-- **Security**: Bandit (Python), npm audit (JavaScript)
-- **Linting**: Ruff (Python), ESLint with Google style guide (JavaScript)
-- **Pre-commit**: Husky hooks enforce linting and formatting
+### Testing Strategy (Verified: 2025-10-19)
+
+**Python Testing** (Source: `pytest --collect-only` and `pytest --cov=scripts`):
+- **Tests Collected**: 399 tests (with 1 collection error)
+- **Collection Errors**:
+  - `tests/test_nvd_client.py` - import error
+  - `tests/test_reference_analysis.py` - import error
+- **Coverage Target**: 80% (aspirational, not yet achieved)
+- **Actual Coverage**: 6% (8,978 statements total, 8,312 missing)
+- **Coverage Note**: Low overall coverage due to many untested legacy files. New modules have higher individual coverage but are not reflected in aggregate metric.
+
+**E2E Testing** (Playwright - tests/e2e/):
+- Live site validation after deployment
+- CVE count validation (expected: varies based on harvest, currently 3 in production)
+- EPSS threshold compliance check (all CVEs ≥60%)
+- Threat intel enrichment verification (CISA KEV flags, exploit badges)
+- API endpoint accessibility tests
+- Stale data detection
+
+**Frontend Testing**:
+- **TypeScript Tests**: 6 test files (`.test.ts`)
+- **Note**: No Vitest configuration exists despite documentation claims
+- Tests use basic TypeScript/Jest setup
+- **Actual Test Framework**: Standard npm test runner
+
+**Data Quality Testing**:
+- Multi-stage validation via modular agents
+- Raw data validation (schema compliance)
+- Filtered data validation (EPSS threshold enforcement)
+- Enriched data validation (CISA KEV, exploit flags)
+- Published data validation (API schema compliance)
+
+**Security Testing**:
+- **Python**: Bandit static analysis (high/critical severities fail build)
+- **JavaScript**: npm audit (production dependencies only)
+- **Secrets**: TruffleHog scanning (not yet implemented)
+- **SAST**: CodeQL scanning (GitHub Security - not yet enabled)
+
+**Code Quality**:
+- **Python Linting**: Ruff (zero errors enforced)
+- **JavaScript Linting**: ESLint with Google style guide
+- **Formatting**: Prettier for JavaScript, Ruff for Python
+- **Pre-commit Hooks**: Husky enforces linting and formatting checks
+
+**Performance Testing**:
+- **Lighthouse CI**: Not yet implemented (claimed in docs but no config exists)
+- **Load Testing**: Not implemented
+- **Benchmark Suite**: Not implemented
 
 ### Deployment
 - Static site deployed to GitHub Pages from `gh-pages` branch
@@ -484,3 +729,110 @@ If production shows >1000 CVEs:
    ```
 
 📋 **For detailed troubleshooting procedures, see [TROUBLESHOOTING.md](./TROUBLESHOOTING.md)**
+
+---
+
+## 📋 Documentation Verification Commands
+
+**Use these commands to verify all claims in this documentation are accurate:**
+
+### Verify CVE Counts
+```bash
+# Get actual CVE count from production API
+python3 -c "import json; data=json.load(open('public/api/vulns/index.json')); print(f'CVE Count: {len(data)}')"
+
+# Count API files generated
+ls -la public/api/vulns/*.json | wc -l
+```
+
+### Verify Test Metrics
+```bash
+# Get actual test count
+pytest --collect-only 2>&1 | grep "collected"
+
+# Get actual coverage
+pytest --cov=scripts --cov-report=term 2>&1 | grep "TOTAL"
+
+# Count test files
+find tests/ -name "*.test.ts" -o -name "test_*.py" | wc -l
+```
+
+### Verify Data Freshness
+```bash
+# Check when API data was last generated
+stat -c '%y' public/api/vulns/index.json
+
+# Calculate data age in days
+python3 -c "
+from datetime import datetime
+import os
+mtime = os.path.getmtime('public/api/vulns/index.json')
+age_days = (datetime.now().timestamp() - mtime) / 86400
+print(f'Data age: {age_days:.0f} days')
+"
+```
+
+### Verify Build Configuration
+```bash
+# Check if 11ty is actually removed
+grep -r "@11ty/eleventy" package.json 2>/dev/null && echo "❌ 11ty still present" || echo "✅ 11ty removed"
+
+# Check actual npm scripts
+npm run 2>&1 | grep -E "build|test|serve"
+```
+
+### Verify Coverage Claims
+```bash
+# Run full coverage report and save to file
+pytest --cov=scripts --cov-report=term --cov-report=html 2>&1 | tee coverage_verification.txt
+
+# Extract exact coverage percentage
+grep "TOTAL" coverage_verification.txt | awk '{print "Coverage: " $4}'
+```
+
+### Audit Documentation for Unverified Claims
+```bash
+# Find percentage claims in documentation
+grep -oP '\d+(\.\d+)?%' CLAUDE.md | sort -u
+
+# Find CVE count claims
+grep -oP '\d+\s+(CVEs?|vulnerabilities)' CLAUDE.md
+
+# Find test count claims
+grep -oP '\d+\s+tests?' CLAUDE.md
+
+# Find superlatives (potential exaggerations)
+grep -iE 'best|world-class|industry-leading|comprehensive|complete' CLAUDE.md
+```
+
+### Generate Verification Report
+```bash
+# Create a verification report with all metrics
+cat > docs/verification_report.md <<EOF
+# Documentation Verification Report
+Generated: $(date -u +"%Y-%m-%d %H:%M UTC")
+
+## Data Metrics
+$(python3 -c "import json; data=json.load(open('public/api/vulns/index.json')); print(f'- CVE Count: {len(data)}')")
+- EPSS Threshold: ≥60% (from scripts/main.py)
+- Data Age: $(python3 -c "from datetime import datetime; import os; age=(datetime.now().timestamp()-os.path.getmtime('public/api/vulns/index.json'))/86400; print(f'{age:.0f} days')")
+
+## Test Metrics
+$(pytest --collect-only 2>&1 | grep "collected")
+$(pytest --cov=scripts --cov-report=term 2>&1 | grep "TOTAL")
+
+## Build Status
+- Build System: Python-based
+- 11ty Status: $(grep -q "@11ty/eleventy" package.json 2>/dev/null && echo "Present (ERROR)" || echo "Removed (OK)")
+- Last Build: $(stat -c '%y' public/api/vulns/index.json)
+
+## Documentation Audit
+- Percentage Claims: $(grep -oP '\d+(\.\d+)?%' CLAUDE.md | wc -l)
+- CVE Count Claims: $(grep -oP '\d+\s+(CVEs?|vulnerabilities)' CLAUDE.md | wc -l)
+- Superlatives Found: $(grep -iEc 'best|world-class|industry-leading' CLAUDE.md)
+EOF
+
+cat docs/verification_report.md
+```
+
+**Run this verification before any documentation updates to ensure accuracy.**
