@@ -58,10 +58,10 @@ async def verify_product_column():
             for i, product in enumerate(product_values):
                 # Check if it contains a slash (vendor/product pattern)
                 if "/" in product:
-                    print(f"  ❌ Row {i+1}: '{product}' (contains vendor/product)")
+                    print(f"  ❌ Row {i + 1}: '{product}' (contains vendor/product)")
                     has_vendor_product = True
                 else:
-                    print(f"  ✅ Row {i+1}: '{product}' (product name only)")
+                    print(f"  ✅ Row {i + 1}: '{product}' (product name only)")
 
             if has_vendor_product:
                 print("\n❌ Product column still contains vendor/product format")

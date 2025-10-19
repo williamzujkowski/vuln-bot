@@ -173,7 +173,7 @@ async def test_live_site_data_quality():
                 if len(cells) < 8:  # Expected number of columns
                     issues.append(
                         {
-                            "cve_id": f"Row {i+1}",
+                            "cve_id": f"Row {i + 1}",
                             "row": i + 1,
                             "issues": [
                                 f"Missing columns: found {len(cells)}, expected 8"
@@ -197,7 +197,7 @@ async def test_live_site_data_quality():
                         ]
                         issues.append(
                             {
-                                "cve_id": f"Row {i+1}",
+                                "cve_id": f"Row {i + 1}",
                                 "row": i + 1,
                                 "issues": [f"Empty {column_names[j]} column"],
                             }

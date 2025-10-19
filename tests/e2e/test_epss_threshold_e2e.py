@@ -294,7 +294,7 @@ class EPSSThresholdE2ETester:
                                 # Get CVE ID from the row
                                 cve_match = re.search(r"CVE-\d{4}-\d+", row_text)
                                 cve_id = (
-                                    cve_match.group(0) if cve_match else f"Row {i+1}"
+                                    cve_match.group(0) if cve_match else f"Row {i + 1}"
                                 )
 
                                 results["violations"].append(

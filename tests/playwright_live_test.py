@@ -428,10 +428,10 @@ class VulnBotLiveTester:
                 for i in range(chart_count):
                     chart = charts.nth(i)
                     if await chart.is_visible():
-                        await self.log_success(f"Chart {i+1} is visible")
+                        await self.log_success(f"Chart {i + 1} is visible")
                     else:
                         await self.log_issue(
-                            "Visualization", f"Chart {i+1} is not visible", "medium"
+                            "Visualization", f"Chart {i + 1} is not visible", "medium"
                         )
             else:
                 await self.log_issue("Visualization", "No charts found on page", "low")
