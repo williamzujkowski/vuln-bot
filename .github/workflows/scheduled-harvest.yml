@@ -139,13 +139,15 @@ jobs:
             --output-dir reports
       
       - name: Enrich with CISA KEV data
+        continue-on-error: true  # Optional enrichment, don't block pipeline
         run: |
           echo "Enriching vulnerabilities with CISA KEV data..."
           python -m scripts.enhance_cisa_kev \
             --api-dir api \
             --output-dir api
-      
+
       - name: Enrich with exploit availability
+        continue-on-error: true  # Optional enrichment, don't block pipeline
         run: |
           echo "Adding exploit availability flags and EPSS percentiles..."
           python -m scripts.enhance_exploit_availability \
