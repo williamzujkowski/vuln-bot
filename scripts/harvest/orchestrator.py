@@ -509,6 +509,8 @@ class HarvestOrchestrator:
                 error=str(e),
             )
             # Continue with non-enriched vulnerabilities
+        else:
+            self.logger.info("Multi-source enrichment skipped (not implemented)")
 
         # Sort by risk score
         unique_vulnerabilities.sort(key=lambda v: v.risk_score, reverse=True)
