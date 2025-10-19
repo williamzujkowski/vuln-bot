@@ -22,14 +22,72 @@ OUTPUT_DIR.mkdir(exist_ok=True)
 
 
 class AlpineDashboardGenerator:
-    def __init__(self, db_path: Path):
-        self.db = sqlite3.connect(db_path)
-        self.db.row_factory = sqlite3.Row
+    def __init__(self, json_path: Path = None, db_path: Path = None):
         self.vulnerabilities = []
         self.base_path = BASE_PATH
-        self.load_vulnerabilities()
 
-    def load_vulnerabilities(self):
+        # Prefer JSON API over SQLite database
+        if json_path and json_path.exists():
+            self.load_from_json(json_path)
+        elif db_path and db_path.exists():
+            self.db = sqlite3.connect(db_path)
+            self.db.row_factory = sqlite3.Row
+            self.load_from_database()
+        else:
+            print("Warning: No data source found. Dashboard will be empty.")
+
+    def load_from_json(self, json_path: Path):
+        """Load vulnerabilities from JSON API file"""
+        print(f"Loading vulnerabilities from {json_path}")
+        with open(json_path, 'r') as f:
+            data = json.load(f)
+
+        vulnerabilities = data.get('vulnerabilities', [])
+        print(f"Found {len(vulnerabilities)} vulnerabilities")
+
+        for vuln_data in vulnerabilities:
+            try:
+                # Map JSON API fields to dashboard format
+                vuln = {
+                    "cve_id": vuln_data["cveId"],
+                    "title": vuln_data.get("originalTitle", vuln_data.get("title", "")),
+                    "severity": vuln_data["severity"],
+                    "cvss_score": vuln_data.get("cvssScore", 0),
+                    "epss_percentile": vuln_data.get("epssPercentile", 0),
+                    "risk_score": vuln_data.get("riskScore", 0),
+                    "published_date": vuln_data.get("publishedDate", ""),
+                    "last_modified_date": vuln_data.get("lastModifiedDate", ""),
+                    "attack_vector": vuln_data.get("attackVector", "UNKNOWN"),
+                    "attack_complexity": vuln_data.get("attackComplexity", ""),
+                    "privileges_required": vuln_data.get("privilegesRequired", ""),
+                    "user_interaction": vuln_data.get("userInteraction", ""),
+                    "scope": vuln_data.get("scope", ""),
+                    "confidentiality_impact": vuln_data.get("confidentialityImpact", ""),
+                    "integrity_impact": vuln_data.get("integrityImpact", ""),
+                    "availability_impact": vuln_data.get("availabilityImpact", ""),
+                    "description": vuln_data.get("description", "No description available"),
+                }
+
+                # Handle vendors and products (already lists in JSON)
+                vuln["vendors_list"] = vuln_data.get("vendors", [])
+                vuln["products_list"] = vuln_data.get("products", [])
+                vuln["tags_list"] = vuln_data.get("tags", [])
+
+                # Format published date
+                if vuln["published_date"]:
+                    vuln["published_short"] = str(vuln["published_date"])[:10]
+                else:
+                    vuln["published_short"] = "Unknown"
+
+                self.vulnerabilities.append(vuln)
+
+            except (KeyError, TypeError) as e:
+                print(f"Warning: Failed to parse vulnerability {vuln_data.get('cveId', 'unknown')}: {e}")
+                continue
+
+        print(f"Successfully loaded {len(self.vulnerabilities)} vulnerabilities")
+
+    def load_from_database(self):
         """Load all vulnerabilities from cache database"""
         cursor = self.db.cursor()
         rows = cursor.execute(
@@ -1401,20 +1459,30 @@ class AlpineDashboardGenerator:
 
 def main():
     """Main function"""
-    # Check if database exists
-    if not DB_PATH.exists():
-        print(f"Error: Database not found at {DB_PATH}")
-        print("Please run the vulnerability harvest first to create the database:")
+    # Prefer JSON API over SQLite database
+    JSON_API_PATH = Path("api/vulns/index.json")
+
+    if JSON_API_PATH.exists():
+        print(f"Using JSON API data from {JSON_API_PATH}")
+        generator = AlpineDashboardGenerator(json_path=JSON_API_PATH)
+    elif DB_PATH.exists():
+        print(f"Using SQLite database from {DB_PATH}")
+        generator = AlpineDashboardGenerator(db_path=DB_PATH)
+    else:
+        print(f"Error: No data source found!")
+        print(f"  - JSON API not found at {JSON_API_PATH}")
+        print(f"  - Database not found at {DB_PATH}")
+        print("\nPlease run the vulnerability harvest first:")
         print("python -m scripts.main harvest --cache-dir .cache/")
         sys.exit(1)
 
     # Generate dashboard
-    generator = AlpineDashboardGenerator(DB_PATH)
     generator.create_dashboard_html()
     generator.export_csv_data()
 
     print("\n✅ Alpine.js dashboard generated successfully!")
     print(f"📁 Output directory: {OUTPUT_DIR}")
+    print(f"📊 Total vulnerabilities: {len(generator.vulnerabilities)}")
     print("🚀 Ready to deploy to GitHub Pages")
 
 

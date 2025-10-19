@@ -1,1 +1,31 @@
 CVE ID,Severity,CVSS,EPSS %,Risk Score,Title,Vendors,Published
+CVE-2025-47812,CRITICAL,10.0,99.628,70,"CVE-2025-47812: In Wing FTP Server before 7.4.4. the user and admin web interfaces mishandle '\0' bytes, ultimately ...","Ftp, Total, Wftpserver",2025-07-10
+CVE-2025-49113,CRITICAL,9.9,99.466,69,CVE-2025-49113: Roundcube Webmail before 1.5.10 and 1.6.x before 1.6.11 allows remote code execution by authenticate...,Roundcube,2025-06-02
+CVE-2025-1974,CRITICAL,9.8,99.449,68,ingress-nginx admission controller RCE escalation,Kubernetes,2025-03-24
+CVE-2025-47916,CRITICAL,10.0,99.573,67,CVE-2025-47916: Invision Community 5.0.0 before 5.0.7 allows remote code execution via crafted template strings to t...,"Invisioncommunity, Template",2025-05-16
+CVE-2025-24893,CRITICAL,9.8,99.807,67,Remote code execution as guest via SolrSearchMacros request in xwiki,Xwiki,2025-02-20
+CVE-2025-1661,CRITICAL,9.8,99.429,67,HUSKY – Products Filter Professional for WooCommerce <= 1.3.6.5 - Unauthenticated Local File Inclusion,"Realmag777, The, WordPress",2025-03-11
+CVE-2025-29927,CRITICAL,9.1,99.836,66,Authorization Bypass in Next.js Middleware,"React, Vercel",2025-03-21
+CVE-2025-3248,CRITICAL,9.8,99.708,65,Langflow Unauth RCE,Langflow-ai,2025-04-07
+CVE-2025-48827,CRITICAL,10.0,98.753,64,CVE-2025-48827: vBulletin 5.0.0 through 5.7.5 and 6.0.0 through 6.0.3 allows unauthenticated users to invoke protect...,"PHP, Vbulletin",2025-05-27
+CVE-2025-31161,CRITICAL,9.8,99.229,64,CVE-2025-31161: CrushFTP 10 before 10.8.4 and 11 before 11.3.1 allows authentication bypass and takeover of the crus...,"Crushftp, Ftp, The",2025-04-03
+CVE-2025-32432,CRITICAL,10.0,98.948,64,Craft CMS Allows Remote Code Execution,Craftcms,2025-04-25
+CVE-2025-24016,CRITICAL,9.9,99.67,63,Remote code execution in Wazuh server,Wazuh,2025-02-10
+CVE-2025-21298,CRITICAL,9.8,98.634,62,Windows OLE Remote Code Execution Vulnerability,Microsoft,2025-01-14
+CVE-2025-27007,CRITICAL,9.8,98.997,62,WordPress SureTriggers <= 1.0.82 - Privilege Escalation Vulnerability,"Brainstorm Force, WordPress",2025-05-01
+CVE-2025-32433,CRITICAL,10.0,98.503,62,Erlang/OTP SSH Vulnerable to Pre-Authentication RCE,"Erlang, Ssh",2025-04-16
+CVE-2025-30066,HIGH,8.6,99.144,62,CVE-2025-30066: tj-actions changed-files before 46 allows remote attackers to discover secrets by reading actions lo...,Tj-actions,2025-03-15
+CVE-2025-34028,CRITICAL,10.0,98.387,61,Commvault Command Center Innovation Release Unathenticated Install Package Path Traversal,"Commvault, Target",2025-04-22
+CVE-2025-1316,CRITICAL,9.8,99.211,61,Edimax IC-7100 IP Camera OS Command Injection,Edimax,2025-03-04
+CVE-2025-1094,HIGH,8.1,99.041,61,PostgreSQL quoting APIs miss neutralizing quoting syntax in text that fails encoding validation,"N/a, PostgreSQL",2025-02-13
+CVE-2025-30406,CRITICAL,9.0,99.239,61,CVE-2025-30406: Gladinet CentreStack through 16.1.10296.56315 (fixed in 16.4.10315.56368) has a deserialization vuln...,"For, Gladinet",2025-04-03
+CVE-2025-21293,HIGH,8.8,98.857,60,Active Directory Domain Services Elevation of Privilege Vulnerability,Microsoft,2025-01-14
+CVE-2025-48828,CRITICAL,9.0,98.5,60,CVE-2025-48828: Certain vBulletin versions might allow attackers to execute arbitrary PHP code by abusing Template C...,"Template, Vbulletin",2025-05-27
+CVE-2025-3102,HIGH,8.1,99.359,60,SureTriggers <= 1.0.78 - Authorization Bypass due to Missing Empty Value Check to Unauthenticated Administrative User Creation,"Brainstormforce, WordPress",2025-04-10
+CVE-2025-24865,CRITICAL,10.0,98.36,60,mySCADA myPRO Manager Missing Authentication for Critical Function,Myscada,2025-02-13
+CVE-2025-2011,HIGH,7.5,98.307,59,Slider & Popup Builder by Depicter <= 3.6.1 - Unauthenticated SQL Injection via 's' Parameter,"Averta, The, WordPress",2025-05-06
+CVE-2025-27520,CRITICAL,9.8,98.245,59,BentoML Allows Remote Code Execution (RCE) via Insecure Deserialization,"Bentoml, The",2025-04-04
+CVE-2025-31324,CRITICAL,10.0,98.221,59,Missing Authorization check in SAP NetWeaver (Visual Composer development server),"Development, Sap_se",2025-04-24
+CVE-2025-0282,CRITICAL,9.0,99.799,59,"CVE-2025-0282: A stack-based buffer overflow in Ivanti Connect Secure before version 22.7R2.5, Ivanti Policy Secure...",Ivanti,2025-01-08
+CVE-2025-27363,HIGH,8.1,98.638,55,CVE-2025-27363: An out of bounds write exists in FreeType versions 2.13.0 and below (newer versions of FreeType are ...,Freetype,2025-03-11
+CVE-2025-2264,HIGH,7.5,98.589,54,Santesoft Sante PACS Server Path Traversal Information Disclosure,"Pacs, Santesoft",2025-03-13
