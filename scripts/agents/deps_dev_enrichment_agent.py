@@ -37,12 +37,14 @@ class DepsDevEnrichmentAgent(BaseAgent):
             "crates.io": "cargo",
             "hex": "hex",
             "pub": "pub",
-            "cocoapods": "cocoapods"
+            "cocoapods": "cocoapods",
         }
 
         self.logger.info("DepsDevEnrichmentAgent initialized")
 
-    def extract_package_info(self, vulnerability: Dict[str, Any]) -> List[Dict[str, Any]]:
+    def extract_package_info(
+        self, vulnerability: Dict[str, Any]
+    ) -> List[Dict[str, Any]]:
         """
         Extract package information from vulnerability data.
 
@@ -101,7 +103,9 @@ class DepsDevEnrichmentAgent(BaseAgent):
 
         return unique_packages
 
-    def _extract_from_affected_item(self, affected_item: Dict[str, Any]) -> List[Dict[str, Any]]:
+    def _extract_from_affected_item(
+        self, affected_item: Dict[str, Any]
+    ) -> List[Dict[str, Any]]:
         """Extract package info from an affected item."""
         packages = []
 
@@ -118,7 +122,7 @@ class DepsDevEnrichmentAgent(BaseAgent):
                 package_info = {
                     "ecosystem": deps_ecosystem,
                     "name": name,
-                    "versions": []
+                    "versions": [],
                 }
 
                 # Extract versions
@@ -135,19 +139,28 @@ class DepsDevEnrichmentAgent(BaseAgent):
                             for event in events:
                                 if isinstance(event, dict):
                                     if event.get("introduced"):
-                                        package_info["versions"].append(f">={event['introduced']}")
+                                        package_info["versions"].append(
+                                            f">={event['introduced']}"
+                                        )
                                     if event.get("fixed"):
-                                        package_info["versions"].append(f"<{event['fixed']}")
+                                        package_info["versions"].append(
+                                            f"<{event['fixed']}"
+                                        )
 
                 packages.append(package_info)
 
         return packages
 
-    def _infer_package_from_vendor_product(self, vendor: str, product: str) -> Optional[Dict[str, Any]]:
+    def _infer_package_from_vendor_product(
+        self, vendor: str, product: str
+    ) -> Optional[Dict[str, Any]]:
         """Infer package information from vendor/product combination."""
         # Common vendor/product to package mappings
         known_packages = {
-            ("wordpress", "wordpress"): {"ecosystem": "packagist", "name": "wordpress/wordpress"},
+            ("wordpress", "wordpress"): {
+                "ecosystem": "packagist",
+                "name": "wordpress/wordpress",
+            },
             ("microsoft", "typescript"): {"ecosystem": "npm", "name": "typescript"},
             ("facebook", "react"): {"ecosystem": "npm", "name": "react"},
             ("angular", "angular"): {"ecosystem": "npm", "name": "@angular/core"},
@@ -155,8 +168,14 @@ class DepsDevEnrichmentAgent(BaseAgent):
             ("django", "django"): {"ecosystem": "pypi", "name": "django"},
             ("flask", "flask"): {"ecosystem": "pypi", "name": "flask"},
             ("rails", "rails"): {"ecosystem": "rubygems", "name": "rails"},
-            ("kubernetes", "kubernetes"): {"ecosystem": "go", "name": "k8s.io/kubernetes"},
-            ("docker", "docker"): {"ecosystem": "go", "name": "github.com/docker/docker"},
+            ("kubernetes", "kubernetes"): {
+                "ecosystem": "go",
+                "name": "k8s.io/kubernetes",
+            },
+            ("docker", "docker"): {
+                "ecosystem": "go",
+                "name": "github.com/docker/docker",
+            },
         }
 
         key = (vendor.lower(), product.lower())
@@ -181,50 +200,44 @@ class DepsDevEnrichmentAgent(BaseAgent):
         # NPM package patterns
         npm_patterns = [
             r'npm\s+package\s+["`]?([a-zA-Z0-9@\-/._]+)["`]?',
-            r'@[a-zA-Z0-9\-]+/[a-zA-Z0-9\-._]+',  # Scoped packages
+            r"@[a-zA-Z0-9\-]+/[a-zA-Z0-9\-._]+",  # Scoped packages
             r'package\.json.*["`]([a-zA-Z0-9\-._]+)["`]',
         ]
 
         for pattern in npm_patterns:
             matches = re.findall(pattern, text, re.IGNORECASE)
             for match in matches:
-                packages.append({
-                    "ecosystem": "npm",
-                    "name": match,
-                    "versions": []
-                })
+                packages.append({"ecosystem": "npm", "name": match, "versions": []})
 
         # PyPI package patterns
         pypi_patterns = [
-            r'pip\s+install\s+([a-zA-Z0-9\-._]+)',
-            r'pypi\.org/project/([a-zA-Z0-9\-._]+)',
+            r"pip\s+install\s+([a-zA-Z0-9\-._]+)",
+            r"pypi\.org/project/([a-zA-Z0-9\-._]+)",
             r'python\s+package\s+["`]?([a-zA-Z0-9\-._]+)["`]?',
         ]
 
         for pattern in pypi_patterns:
             matches = re.findall(pattern, text, re.IGNORECASE)
             for match in matches:
-                packages.append({
-                    "ecosystem": "pypi",
-                    "name": match,
-                    "versions": []
-                })
+                packages.append({"ecosystem": "pypi", "name": match, "versions": []})
 
         # Maven/Java patterns
         maven_patterns = [
             r'groupId["\s:]+([a-zA-Z0-9\-.]+)["\s]+artifactId["\s:]+([a-zA-Z0-9\-._]+)',
-            r'([a-zA-Z0-9\-.]+):([a-zA-Z0-9\-._]+):[0-9\-.]+',  # Maven coordinates
+            r"([a-zA-Z0-9\-.]+):([a-zA-Z0-9\-._]+):[0-9\-.]+",  # Maven coordinates
         ]
 
         for pattern in maven_patterns:
             matches = re.findall(pattern, text)
             for match in matches:
                 if isinstance(match, tuple) and len(match) == 2:
-                    packages.append({
-                        "ecosystem": "maven",
-                        "name": f"{match[0]}:{match[1]}",
-                        "versions": []
-                    })
+                    packages.append(
+                        {
+                            "ecosystem": "maven",
+                            "name": f"{match[0]}:{match[1]}",
+                            "versions": [],
+                        }
+                    )
 
         return packages
 
@@ -234,57 +247,55 @@ class DepsDevEnrichmentAgent(BaseAgent):
 
         # NPM registry URLs
         if "npmjs.com/package/" in url:
-            match = re.search(r'npmjs\.com/package/([a-zA-Z0-9@\-/._]+)', url)
+            match = re.search(r"npmjs\.com/package/([a-zA-Z0-9@\-/._]+)", url)
             if match:
-                packages.append({
-                    "ecosystem": "npm",
-                    "name": match.group(1),
-                    "versions": []
-                })
+                packages.append(
+                    {"ecosystem": "npm", "name": match.group(1), "versions": []}
+                )
 
         # PyPI URLs
         if "pypi.org/project/" in url:
-            match = re.search(r'pypi\.org/project/([a-zA-Z0-9\-._]+)', url)
+            match = re.search(r"pypi\.org/project/([a-zA-Z0-9\-._]+)", url)
             if match:
-                packages.append({
-                    "ecosystem": "pypi",
-                    "name": match.group(1),
-                    "versions": []
-                })
+                packages.append(
+                    {"ecosystem": "pypi", "name": match.group(1), "versions": []}
+                )
 
         # RubyGems URLs
         if "rubygems.org/gems/" in url:
-            match = re.search(r'rubygems\.org/gems/([a-zA-Z0-9\-._]+)', url)
+            match = re.search(r"rubygems\.org/gems/([a-zA-Z0-9\-._]+)", url)
             if match:
-                packages.append({
-                    "ecosystem": "rubygems",
-                    "name": match.group(1),
-                    "versions": []
-                })
+                packages.append(
+                    {"ecosystem": "rubygems", "name": match.group(1), "versions": []}
+                )
 
         # Maven Central URLs
         if "mvnrepository.com/artifact/" in url:
-            match = re.search(r'mvnrepository\.com/artifact/([a-zA-Z0-9\-.]+)/([a-zA-Z0-9\-._]+)', url)
+            match = re.search(
+                r"mvnrepository\.com/artifact/([a-zA-Z0-9\-.]+)/([a-zA-Z0-9\-._]+)", url
+            )
             if match:
-                packages.append({
-                    "ecosystem": "maven",
-                    "name": f"{match.group(1)}:{match.group(2)}",
-                    "versions": []
-                })
+                packages.append(
+                    {
+                        "ecosystem": "maven",
+                        "name": f"{match.group(1)}:{match.group(2)}",
+                        "versions": [],
+                    }
+                )
 
         # Packagist (PHP) URLs
         if "packagist.org/packages/" in url:
-            match = re.search(r'packagist\.org/packages/([a-zA-Z0-9\-/._]+)', url)
+            match = re.search(r"packagist\.org/packages/([a-zA-Z0-9\-/._]+)", url)
             if match:
-                packages.append({
-                    "ecosystem": "packagist",
-                    "name": match.group(1),
-                    "versions": []
-                })
+                packages.append(
+                    {"ecosystem": "packagist", "name": match.group(1), "versions": []}
+                )
 
         return packages
 
-    def generate_deps_dev_links(self, packages: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    def generate_deps_dev_links(
+        self, packages: List[Dict[str, Any]]
+    ) -> List[Dict[str, Any]]:
         """
         Generate deps.dev links for packages.
 
@@ -310,14 +321,16 @@ class DepsDevEnrichmentAgent(BaseAgent):
                     "package": name,
                     "url": base_url,
                     "title": f"View {name} on deps.dev",
-                    "type": "package_impact"
+                    "type": "package_impact",
                 }
 
                 # Add version-specific links if available
                 if versions and len(versions) == 1:
                     version = versions[0]
                     # Clean version string
-                    version = version.replace(">=", "").replace("<", "").replace("=", "")
+                    version = (
+                        version.replace(">=", "").replace("<", "").replace("=", "")
+                    )
                     deps_link["url"] = f"{base_url}/{quote(version, safe='')}"
                     deps_link["title"] = f"View {name}@{version} on deps.dev"
                     deps_link["version"] = version
@@ -349,7 +362,7 @@ class DepsDevEnrichmentAgent(BaseAgent):
 
             vulnerability["enrichments"]["deps_dev"] = {
                 "packages": packages,
-                "links": deps_links
+                "links": deps_links,
             }
 
             # Also add to references for display
@@ -358,23 +371,27 @@ class DepsDevEnrichmentAgent(BaseAgent):
 
             # Add deps.dev links to references
             for link in deps_links:
-                vulnerability["references"].append({
-                    "url": link["url"],
-                    "source": "deps.dev",
-                    "title": link["title"],
-                    "type": "Package Impact Analysis",
-                    "tags": ["package", "dependency", "impact"]
-                })
+                vulnerability["references"].append(
+                    {
+                        "url": link["url"],
+                        "source": "deps.dev",
+                        "title": link["title"],
+                        "type": "Package Impact Analysis",
+                        "tags": ["package", "dependency", "impact"],
+                    }
+                )
 
             self.logger.info(
                 "Enriched vulnerability with deps.dev data",
                 cve_id=vulnerability.get("cve_id", "Unknown"),
-                packages_found=len(packages)
+                packages_found=len(packages),
             )
 
         return vulnerability
 
-    def enrich_batch(self, vulnerabilities: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    def enrich_batch(
+        self, vulnerabilities: List[Dict[str, Any]]
+    ) -> List[Dict[str, Any]]:
         """
         Enrich a batch of vulnerabilities.
 
@@ -398,7 +415,7 @@ class DepsDevEnrichmentAgent(BaseAgent):
         self.logger.info(
             "Batch enrichment completed",
             total_vulnerabilities=len(vulnerabilities),
-            enriched_with_deps_dev=enriched_count
+            enriched_with_deps_dev=enriched_count,
         )
 
         return enriched
@@ -416,17 +433,15 @@ class DepsDevEnrichmentAgent(BaseAgent):
         vulnerabilities = task.get("vulnerabilities", [])
 
         if not vulnerabilities:
-            return {
-                "success": False,
-                "error": "No vulnerabilities provided"
-            }
+            return {"success": False, "error": "No vulnerabilities provided"}
 
         # Enrich vulnerabilities
         enriched_vulnerabilities = self.enrich_batch(vulnerabilities)
 
         # Calculate statistics
         total_enriched = sum(
-            1 for v in enriched_vulnerabilities
+            1
+            for v in enriched_vulnerabilities
             if v.get("enrichments", {}).get("deps_dev")
         )
 
@@ -442,8 +457,10 @@ class DepsDevEnrichmentAgent(BaseAgent):
                 "total_vulnerabilities": len(vulnerabilities),
                 "enriched_with_deps_dev": total_enriched,
                 "total_packages_found": total_packages,
-                "enrichment_rate": (total_enriched / len(vulnerabilities) * 100) if vulnerabilities else 0
-            }
+                "enrichment_rate": (total_enriched / len(vulnerabilities) * 100)
+                if vulnerabilities
+                else 0,
+            },
         }
 
     def get_dependencies(self) -> List[str]:

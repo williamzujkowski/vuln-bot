@@ -18,43 +18,43 @@ logger = structlog.get_logger()
     "--build-dir",
     type=click.Path(path_type=Path),
     default=Path("_site"),
-    help="Build directory to clean"
+    help="Build directory to clean",
 )
 @click.option(
     "--api-dir",
     type=click.Path(path_type=Path),
     default=Path("api"),
-    help="API directory containing vulnerability data"
+    help="API directory containing vulnerability data",
 )
 @click.option(
     "--posts-dir",
     type=click.Path(path_type=Path),
     default=Path("src/_posts"),
-    help="Posts directory containing CVE markdown files"
+    help="Posts directory containing CVE markdown files",
 )
 @click.option(
-    "--min-epss",
-    type=float,
-    default=0.6,
-    help="Minimum EPSS threshold for valid CVEs"
+    "--min-epss", type=float, default=0.6, help="Minimum EPSS threshold for valid CVEs"
 )
 @click.option(
-    "--verify-only",
-    is_flag=True,
-    help="Only verify for stale files without cleaning"
+    "--verify-only", is_flag=True, help="Only verify for stale files without cleaning"
 )
 @click.option(
-    "--force-purge",
-    is_flag=True,
-    help="Force complete removal of build directories"
+    "--force-purge", is_flag=True, help="Force complete removal of build directories"
 )
 @click.option(
     "--safe-mode",
     is_flag=True,
-    help="Audit-only mode: list files that would be deleted without removing them"
+    help="Audit-only mode: list files that would be deleted without removing them",
 )
-def cleanup_stale_files(build_dir: Path, api_dir: Path, posts_dir: Path,
-                       min_epss: float, verify_only: bool, force_purge: bool, safe_mode: bool):
+def cleanup_stale_files(
+    build_dir: Path,
+    api_dir: Path,
+    posts_dir: Path,
+    min_epss: float,
+    verify_only: bool,
+    force_purge: bool,
+    safe_mode: bool,
+):
     """Clean up stale CVE files before building the site."""
 
     agent = CleanupAgent()
@@ -65,13 +65,16 @@ def cleanup_stale_files(build_dir: Path, api_dir: Path, posts_dir: Path,
 
         valid_ids = agent._get_valid_cve_ids(api_dir, min_epss)
         from scripts.agents.repo_audit_agent import RepoAuditAgent
+
         audit_agent = RepoAuditAgent()
 
         # Audit each directory
         total_to_delete = 0
         for directory in [build_dir, posts_dir]:
             if directory.exists():
-                vestigial_files = audit_agent.find_vestigial_files(directory, api_dir, min_epss)
+                vestigial_files = audit_agent.find_vestigial_files(
+                    directory, api_dir, min_epss
+                )
                 if vestigial_files:
                     click.echo(f"\n📁 {directory}:")
                     click.echo(f"  Would delete {len(vestigial_files)} files:")
@@ -105,14 +108,16 @@ def cleanup_stale_files(build_dir: Path, api_dir: Path, posts_dir: Path,
     else:
         # Perform cleanup
         if force_purge:
-            click.echo("🔥 FORCE PURGE mode enabled - will completely remove directories\n")
+            click.echo(
+                "🔥 FORCE PURGE mode enabled - will completely remove directories\n"
+            )
 
         stats = agent.clean_before_build(
             build_dir=build_dir,
             api_dir=api_dir,
             posts_dir=posts_dir,
             min_epss_threshold=min_epss,
-            force_purge=force_purge
+            force_purge=force_purge,
         )
 
         # Display report
@@ -126,14 +131,18 @@ def cleanup_stale_files(build_dir: Path, api_dir: Path, posts_dir: Path,
         click.echo(f"  - Found {stats['stale_cves_found']} stale CVEs")
 
         if force_purge:
-            click.echo(f"  - Force purged {stats.get('directories_cleaned', 0)} directories")
+            click.echo(
+                f"  - Force purged {stats.get('directories_cleaned', 0)} directories"
+            )
 
         # Log metrics
-        logger.info("Cleanup metrics",
-                   files_removed=stats['files_removed'],
-                   bytes_freed=stats['bytes_freed'],
-                   stale_cves=stats['stale_cves_found'],
-                   force_purge=force_purge)
+        logger.info(
+            "Cleanup metrics",
+            files_removed=stats["files_removed"],
+            bytes_freed=stats["bytes_freed"],
+            stale_cves=stats["stale_cves_found"],
+            force_purge=force_purge,
+        )
 
 
 if __name__ == "__main__":

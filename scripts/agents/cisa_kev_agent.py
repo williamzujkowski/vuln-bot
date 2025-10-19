@@ -26,15 +26,11 @@ class CISAKEVAgent(BaseAgent):
             name="CISAKEVAgent",
             role="threat_intelligence",
             goal="Enrich vulnerabilities with CISA Known Exploited Vulnerabilities data",
-            backstory="Identifies vulnerabilities actively exploited in the wild per CISA"
+            backstory="Identifies vulnerabilities actively exploited in the wild per CISA",
         )
         self.kev_cache = None
         self.kev_cache_time = None
-        self.stats = {
-            "kev_enriched": 0,
-            "total_processed": 0,
-            "kev_catalog_size": 0
-        }
+        self.stats = {"kev_enriched": 0, "total_processed": 0, "kev_catalog_size": 0}
 
     def fetch_kev_catalog(self, force_refresh: bool = False) -> Dict[str, Any]:
         """
@@ -48,9 +44,11 @@ class CISAKEVAgent(BaseAgent):
         """
         # Check cache
         if not force_refresh and self._is_cache_valid():
-            logger.info("Using cached KEV catalog",
-                       entries=len(self.kev_cache),
-                       cache_age_hours=self._get_cache_age_hours())
+            logger.info(
+                "Using cached KEV catalog",
+                entries=len(self.kev_cache),
+                cache_age_hours=self._get_cache_age_hours(),
+            )
             return self.kev_cache
 
         logger.info("Fetching CISA KEV catalog", url=self.CISA_KEV_URL)
@@ -75,7 +73,9 @@ class CISAKEVAgent(BaseAgent):
                         "requiredAction": vuln.get("requiredAction"),
                         "dueDate": vuln.get("dueDate"),
                         "notes": vuln.get("notes"),
-                        "knownRansomwareCampaignUse": vuln.get("knownRansomwareCampaignUse", "Unknown")
+                        "knownRansomwareCampaignUse": vuln.get(
+                            "knownRansomwareCampaignUse", "Unknown"
+                        ),
                     }
 
             # Update cache
@@ -83,10 +83,12 @@ class CISAKEVAgent(BaseAgent):
             self.kev_cache_time = datetime.utcnow()
             self.stats["kev_catalog_size"] = len(kev_dict)
 
-            logger.info("KEV catalog fetched successfully",
-                       total_entries=len(kev_dict),
-                       catalog_version=data.get("catalogVersion"),
-                       date_released=data.get("dateReleased"))
+            logger.info(
+                "KEV catalog fetched successfully",
+                total_entries=len(kev_dict),
+                catalog_version=data.get("catalogVersion"),
+                date_released=data.get("dateReleased"),
+            )
 
             return kev_dict
 
@@ -130,7 +132,7 @@ class CISAKEVAgent(BaseAgent):
                 "requiredAction": kev_entry["requiredAction"],
                 "dueDate": kev_entry["dueDate"],
                 "knownRansomwareCampaignUse": kev_entry["knownRansomwareCampaignUse"],
-                "notes": kev_entry.get("notes")
+                "notes": kev_entry.get("notes"),
             }
 
             # Update exploitation status
@@ -142,22 +144,26 @@ class CISAKEVAgent(BaseAgent):
 
             # Check if KEV reference already exists
             kev_ref_exists = any(
-                ref.get("url", "").startswith("https://www.cisa.gov/known-exploited-vulnerabilities-catalog")
+                ref.get("url", "").startswith(
+                    "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"
+                )
                 for ref in vulnerability["references"]
             )
 
             if not kev_ref_exists:
-                vulnerability["references"].append({
-                    "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-                    "source": "CISA KEV",
-                    "tags": ["exploit", "kev"],
-                    "category": "exploit",
-                    "rel": "noopener noreferrer",
-                    "target": "_blank",
-                    "domain": "cisa.gov",
-                    "icon": "🔥",
-                    "title": "CISA Known Exploited Vulnerabilities Catalog"
-                })
+                vulnerability["references"].append(
+                    {
+                        "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+                        "source": "CISA KEV",
+                        "tags": ["exploit", "kev"],
+                        "category": "exploit",
+                        "rel": "noopener noreferrer",
+                        "target": "_blank",
+                        "domain": "cisa.gov",
+                        "icon": "🔥",
+                        "title": "CISA Known Exploited Vulnerabilities Catalog",
+                    }
+                )
 
             # Add tags
             if "metadata" not in vulnerability:
@@ -174,15 +180,19 @@ class CISAKEVAgent(BaseAgent):
 
             self.stats["kev_enriched"] += 1
 
-            logger.info("Enriched vulnerability with KEV data",
-                       cve_id=cve_id,
-                       date_added=kev_entry["dateAdded"],
-                       ransomware=kev_entry["knownRansomwareCampaignUse"])
+            logger.info(
+                "Enriched vulnerability with KEV data",
+                cve_id=cve_id,
+                date_added=kev_entry["dateAdded"],
+                ransomware=kev_entry["knownRansomwareCampaignUse"],
+            )
 
         self.stats["total_processed"] += 1
         return vulnerability
 
-    def enrich_batch(self, vulnerabilities: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    def enrich_batch(
+        self, vulnerabilities: List[Dict[str, Any]]
+    ) -> List[Dict[str, Any]]:
         """
         Enrich a batch of vulnerabilities with KEV data.
 
@@ -207,11 +217,14 @@ class CISAKEVAgent(BaseAgent):
             enriched_vuln = self.enrich_vulnerability(vuln)
             enriched_vulns.append(enriched_vuln)
 
-        logger.info("Batch KEV enrichment completed",
-                   total=self.stats["total_processed"],
-                   enriched=self.stats["kev_enriched"],
-                   enrichment_rate=f"{(self.stats['kev_enriched'] / self.stats['total_processed'] * 100):.1f}%"
-                   if self.stats['total_processed'] > 0 else "0%")
+        logger.info(
+            "Batch KEV enrichment completed",
+            total=self.stats["total_processed"],
+            enriched=self.stats["kev_enriched"],
+            enrichment_rate=f"{(self.stats['kev_enriched'] / self.stats['total_processed'] * 100):.1f}%"
+            if self.stats["total_processed"] > 0
+            else "0%",
+        )
 
         return enriched_vulns
 
@@ -221,14 +234,17 @@ class CISAKEVAgent(BaseAgent):
 
         stats = {
             "catalog_size": len(kev_catalog),
-            "last_updated": self.kev_cache_time.isoformat() if self.kev_cache_time else None,
+            "last_updated": self.kev_cache_time.isoformat()
+            if self.kev_cache_time
+            else None,
             "cache_age_hours": self._get_cache_age_hours(),
             "enrichment_stats": {
                 "total_processed": self.stats["total_processed"],
                 "kev_enriched": self.stats["kev_enriched"],
                 "enrichment_rate": f"{(self.stats['kev_enriched'] / self.stats['total_processed'] * 100):.1f}%"
-                    if self.stats['total_processed'] > 0 else "0%"
-            }
+                if self.stats["total_processed"] > 0
+                else "0%",
+            },
         }
 
         # Get some catalog insights
@@ -251,7 +267,7 @@ class CISAKEVAgent(BaseAgent):
             stats["catalog_insights"] = {
                 "entries_by_year": dict(sorted(year_counts.items(), reverse=True)),
                 "known_ransomware_count": ransomware_count,
-                "ransomware_percentage": f"{(ransomware_count / len(kev_catalog) * 100):.1f}%"
+                "ransomware_percentage": f"{(ransomware_count / len(kev_catalog) * 100):.1f}%",
             }
 
         return stats
@@ -267,7 +283,7 @@ class CISAKEVAgent(BaseAgent):
     def _get_cache_age_hours(self) -> float:
         """Get the age of the cache in hours."""
         if not self.kev_cache_time:
-            return float('inf')
+            return float("inf")
 
         age = datetime.utcnow() - self.kev_cache_time
         return age.total_seconds() / 3600

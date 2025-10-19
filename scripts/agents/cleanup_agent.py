@@ -25,35 +25,32 @@ class CleanupAgent(BaseAgent):
             "directories_cleaned": 0,
             "files_removed": 0,
             "bytes_freed": 0,
-            "stale_cves_found": 0
+            "stale_cves_found": 0,
         }
 
     async def execute(self, **kwargs) -> Dict[str, Any]:
         """Execute cleanup operations."""
-        build_dir = kwargs.get('build_dir', Path('_site'))
-        api_dir = kwargs.get('api_dir', Path('api'))
-        posts_dir = kwargs.get('posts_dir', Path('src/_posts'))
-        min_epss_threshold = kwargs.get('min_epss_threshold', 0.6)
-        force_purge = kwargs.get('force_purge', False)
+        build_dir = kwargs.get("build_dir", Path("_site"))
+        api_dir = kwargs.get("api_dir", Path("api"))
+        posts_dir = kwargs.get("posts_dir", Path("src/_posts"))
+        min_epss_threshold = kwargs.get("min_epss_threshold", 0.6)
+        force_purge = kwargs.get("force_purge", False)
 
         return self.clean_before_build(
             build_dir=build_dir,
             api_dir=api_dir,
             posts_dir=posts_dir,
             min_epss_threshold=min_epss_threshold,
-            force_purge=force_purge
+            force_purge=force_purge,
         )
 
     def get_dependencies(self) -> set:
         """Get dependencies for change detection."""
-        return {
-            "_site",
-            "public",
-            "src/_posts",
-            "api/vulns"
-        }
+        return {"_site", "public", "src/_posts", "api/vulns"}
 
-    def clean_build_directory(self, build_dir: Path, force_purge: bool = True) -> Dict[str, Any]:
+    def clean_build_directory(
+        self, build_dir: Path, force_purge: bool = True
+    ) -> Dict[str, Any]:
         """
         Clean the build directory before regeneration.
 
@@ -64,7 +61,11 @@ class CleanupAgent(BaseAgent):
         Returns:
             Dictionary with cleanup statistics
         """
-        logger.info("Starting build directory cleanup", directory=build_dir, force_purge=force_purge)
+        logger.info(
+            "Starting build directory cleanup",
+            directory=build_dir,
+            force_purge=force_purge,
+        )
 
         if build_dir.exists():
             # Calculate size before cleanup
@@ -76,9 +77,15 @@ class CleanupAgent(BaseAgent):
                     shutil.rmtree(build_dir)
                     self.stats["directories_cleaned"] += 1
                     self.stats["bytes_freed"] += size_before
-                    logger.info("Force purged build directory", path=build_dir, size_freed=size_before)
+                    logger.info(
+                        "Force purged build directory",
+                        path=build_dir,
+                        size_freed=size_before,
+                    )
                 except Exception as e:
-                    logger.error("Failed to remove build directory", path=build_dir, error=str(e))
+                    logger.error(
+                        "Failed to remove build directory", path=build_dir, error=str(e)
+                    )
                     raise
             else:
                 # Selective cleanup - remove only CVE-related files
@@ -86,7 +93,9 @@ class CleanupAgent(BaseAgent):
 
         return self.stats
 
-    def clean_api_directory(self, api_dir: Path, valid_cve_ids: Set[str]) -> Dict[str, Any]:
+    def clean_api_directory(
+        self, api_dir: Path, valid_cve_ids: Set[str]
+    ) -> Dict[str, Any]:
         """
         Clean API directory of stale CVE data files.
 
@@ -97,7 +106,9 @@ class CleanupAgent(BaseAgent):
         Returns:
             Dictionary with cleanup statistics
         """
-        logger.info("Cleaning API directory", directory=api_dir, valid_cves=len(valid_cve_ids))
+        logger.info(
+            "Cleaning API directory", directory=api_dir, valid_cves=len(valid_cve_ids)
+        )
 
         if not api_dir.exists():
             logger.warning("API directory does not exist", path=api_dir)
@@ -116,7 +127,9 @@ class CleanupAgent(BaseAgent):
 
         return self.stats
 
-    def clean_posts_directory(self, posts_dir: Path, valid_cve_ids: Set[str]) -> Dict[str, Any]:
+    def clean_posts_directory(
+        self, posts_dir: Path, valid_cve_ids: Set[str]
+    ) -> Dict[str, Any]:
         """
         Clean posts directory of stale CVE markdown files.
 
@@ -127,7 +140,11 @@ class CleanupAgent(BaseAgent):
         Returns:
             Dictionary with cleanup statistics
         """
-        logger.info("Cleaning posts directory", directory=posts_dir, valid_cves=len(valid_cve_ids))
+        logger.info(
+            "Cleaning posts directory",
+            directory=posts_dir,
+            valid_cves=len(valid_cve_ids),
+        )
 
         if not posts_dir.exists():
             logger.warning("Posts directory does not exist", path=posts_dir)
@@ -144,12 +161,14 @@ class CleanupAgent(BaseAgent):
 
         return self.stats
 
-    def clean_before_build(self,
-                          build_dir: Path,
-                          api_dir: Path,
-                          posts_dir: Path,
-                          min_epss_threshold: float = 0.6,
-                          force_purge: bool = True) -> Dict[str, Any]:
+    def clean_before_build(
+        self,
+        build_dir: Path,
+        api_dir: Path,
+        posts_dir: Path,
+        min_epss_threshold: float = 0.6,
+        force_purge: bool = True,
+    ) -> Dict[str, Any]:
         """
         Comprehensive cleanup before building the site.
 
@@ -163,9 +182,11 @@ class CleanupAgent(BaseAgent):
         Returns:
             Dictionary with comprehensive cleanup statistics
         """
-        logger.info("Starting comprehensive pre-build cleanup",
-                   min_epss=min_epss_threshold,
-                   force_purge=force_purge)
+        logger.info(
+            "Starting comprehensive pre-build cleanup",
+            min_epss=min_epss_threshold,
+            force_purge=force_purge,
+        )
 
         start_time = datetime.utcnow()
 
@@ -182,21 +203,25 @@ class CleanupAgent(BaseAgent):
         self.clean_posts_directory(posts_dir, valid_cve_ids)
 
         # Add timing information
-        self.stats["cleanup_duration_seconds"] = (datetime.utcnow() - start_time).total_seconds()
+        self.stats["cleanup_duration_seconds"] = (
+            datetime.utcnow() - start_time
+        ).total_seconds()
         self.stats["valid_cves_retained"] = len(valid_cve_ids)
 
         # Log summary
-        logger.info("Cleanup completed",
-                   files_removed=self.stats["files_removed"],
-                   bytes_freed=self.stats["bytes_freed"],
-                   stale_cves=self.stats["stale_cves_found"],
-                   duration=self.stats["cleanup_duration_seconds"])
+        logger.info(
+            "Cleanup completed",
+            files_removed=self.stats["files_removed"],
+            bytes_freed=self.stats["bytes_freed"],
+            stale_cves=self.stats["stale_cves_found"],
+            duration=self.stats["cleanup_duration_seconds"],
+        )
 
         return self.stats
 
-    def verify_no_stale_files(self,
-                             build_dir: Path,
-                             valid_cve_ids: Set[str]) -> Dict[str, Any]:
+    def verify_no_stale_files(
+        self, build_dir: Path, valid_cve_ids: Set[str]
+    ) -> Dict[str, Any]:
         """
         Verify that no stale files remain after build.
 
@@ -209,10 +234,7 @@ class CleanupAgent(BaseAgent):
         """
         logger.info("Verifying no stale files remain", directory=build_dir)
 
-        verification_results = {
-            "stale_files_found": [],
-            "verification_passed": True
-        }
+        verification_results = {"stale_files_found": [], "verification_passed": True}
 
         if not build_dir.exists():
             logger.warning("Build directory does not exist for verification")
@@ -235,9 +257,11 @@ class CleanupAgent(BaseAgent):
                 verification_results["verification_passed"] = False
 
         if verification_results["stale_files_found"]:
-            logger.error("Stale files found after build",
-                        count=len(verification_results["stale_files_found"]),
-                        files=verification_results["stale_files_found"][:10])  # Log first 10
+            logger.error(
+                "Stale files found after build",
+                count=len(verification_results["stale_files_found"]),
+                files=verification_results["stale_files_found"][:10],
+            )  # Log first 10
         else:
             logger.info("No stale files found - verification passed")
 
@@ -292,7 +316,8 @@ class CleanupAgent(BaseAgent):
 
                 # Filter vulnerabilities
                 filtered_vulns = [
-                    vuln for vuln in chunk_data.get("vulnerabilities", [])
+                    vuln
+                    for vuln in chunk_data.get("vulnerabilities", [])
                     if vuln["cveId"] in valid_cve_ids
                 ]
 
@@ -301,18 +326,22 @@ class CleanupAgent(BaseAgent):
                     chunk_data["vulnerabilities"] = filtered_vulns
                     chunk_data["count"] = len(filtered_vulns)
 
-                    with open(chunk_file, 'w') as f:
+                    with open(chunk_file, "w") as f:
                         json.dump(chunk_data, f, indent=2)
 
                     removed = original_count - len(filtered_vulns)
-                    logger.info("Cleaned chunk file",
-                               file=chunk_file.name,
-                               removed=removed,
-                               remaining=len(filtered_vulns))
+                    logger.info(
+                        "Cleaned chunk file",
+                        file=chunk_file.name,
+                        removed=removed,
+                        remaining=len(filtered_vulns),
+                    )
                     self.stats["stale_cves_found"] += removed
 
             except Exception as e:
-                logger.error("Failed to clean chunk file", file=chunk_file, error=str(e))
+                logger.error(
+                    "Failed to clean chunk file", file=chunk_file, error=str(e)
+                )
 
     def _remove_file(self, file_path: Path):
         """Remove a file and update statistics."""
@@ -341,12 +370,12 @@ Cleanup Agent Report
 
 Summary:
 --------
-- Directories cleaned: {self.stats['directories_cleaned']}
-- Files removed: {self.stats['files_removed']}
-- Storage freed: {self._format_bytes(self.stats['bytes_freed'])}
-- Stale CVEs found: {self.stats['stale_cves_found']}
-- Valid CVEs retained: {self.stats.get('valid_cves_retained', 0)}
-- Cleanup duration: {self.stats.get('cleanup_duration_seconds', 0):.2f} seconds
+- Directories cleaned: {self.stats["directories_cleaned"]}
+- Files removed: {self.stats["files_removed"]}
+- Storage freed: {self._format_bytes(self.stats["bytes_freed"])}
+- Stale CVEs found: {self.stats["stale_cves_found"]}
+- Valid CVEs retained: {self.stats.get("valid_cves_retained", 0)}
+- Cleanup duration: {self.stats.get("cleanup_duration_seconds", 0):.2f} seconds
 
 Actions Taken:
 --------------
@@ -363,7 +392,7 @@ Run verify_no_stale_files() after build to ensure cleanup effectiveness.
 
     def _format_bytes(self, bytes_value: int) -> str:
         """Format bytes into human-readable format."""
-        for unit in ['B', 'KB', 'MB', 'GB']:
+        for unit in ["B", "KB", "MB", "GB"]:
             if bytes_value < 1024.0:
                 return f"{bytes_value:.2f} {unit}"
             bytes_value /= 1024.0
@@ -375,7 +404,7 @@ Run verify_no_stale_files() after build to ensure cleanup effectiveness.
             "cves/CVE-*",
             "api/cves/CVE-*.json",
             "api/vulns/*.json",
-            "*.html"  # All HTML files that might contain CVE data
+            "*.html",  # All HTML files that might contain CVE data
         ]
 
         for pattern in patterns:
@@ -388,12 +417,13 @@ Run verify_no_stale_files() after build to ensure cleanup effectiveness.
                         self.stats["directories_cleaned"] += 1
                         logger.debug("Removed directory", path=file)
                     except Exception as e:
-                        logger.error("Failed to remove directory", path=file, error=str(e))
+                        logger.error(
+                            "Failed to remove directory", path=file, error=str(e)
+                        )
 
-    def force_purge_and_verify(self,
-                              build_dir: Path,
-                              api_dir: Path,
-                              expected_count: int = 60) -> Dict[str, Any]:
+    def force_purge_and_verify(
+        self, build_dir: Path, api_dir: Path, expected_count: int = 60
+    ) -> Dict[str, Any]:
         """
         Force purge build directory and verify results.
 
@@ -408,7 +438,7 @@ Run verify_no_stale_files() after build to ensure cleanup effectiveness.
         results = {
             "purge_successful": False,
             "verification_passed": False,
-            "issues_found": []
+            "issues_found": [],
         }
 
         # Force purge

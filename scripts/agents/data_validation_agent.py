@@ -19,14 +19,12 @@ class DataValidationAgent(BaseAgent):
     """Agent for comprehensive data validation throughout the pipeline."""
 
     def __init__(self):
-        super().__init__(
-            name="DataValidationAgent"
-        )
+        super().__init__(name="DataValidationAgent")
         self.validation_results = {
             "passed": 0,
             "failed": 0,
             "warnings": 0,
-            "validations": []
+            "validations": [],
         }
 
     async def execute(self, **kwargs) -> Dict[str, Any]:  # noqa: ARG002
@@ -54,7 +52,7 @@ class DataValidationAgent(BaseAgent):
             "timestamp": datetime.utcnow().isoformat(),
             "passed": True,
             "failures": [],
-            "warnings": []
+            "warnings": [],
         }
 
         # Required fields validation
@@ -75,7 +73,9 @@ class DataValidationAgent(BaseAgent):
             results["failures"].append("Missing both 'description' and 'title' fields")
             results["passed"] = False
         elif not data.get("description") and not data.get("title"):
-            results["failures"].append("Both 'description' and 'title' fields are empty")
+            results["failures"].append(
+                "Both 'description' and 'title' fields are empty"
+            )
             results["passed"] = False
 
         # CVE ID format validation
@@ -90,7 +90,9 @@ class DataValidationAgent(BaseAgent):
         for field in date_fields:
             if field in data and data[field]:  # noqa: SIM102
                 if not self._validate_date_format(data[field]):
-                    results["failures"].append(f"Invalid date format for {field}: {data[field]}")
+                    results["failures"].append(
+                        f"Invalid date format for {field}: {data[field]}"
+                    )
                     results["passed"] = False
 
         # Severity validation
@@ -111,7 +113,9 @@ class DataValidationAgent(BaseAgent):
         self._record_validation(results)
         return results
 
-    def validate_epss_filtered_data(self, data: Dict[str, Any], min_epss: float = 0.6) -> Dict[str, Any]:
+    def validate_epss_filtered_data(
+        self, data: Dict[str, Any], min_epss: float = 0.6
+    ) -> Dict[str, Any]:
         """
         Validate data after EPSS filtering.
 
@@ -127,7 +131,7 @@ class DataValidationAgent(BaseAgent):
             "timestamp": datetime.utcnow().isoformat(),
             "passed": True,
             "failures": [],
-            "warnings": []
+            "warnings": [],
         }
 
         # Validate EPSS score meets threshold
@@ -154,7 +158,11 @@ class DataValidationAgent(BaseAgent):
         # Validate risk score
         if "riskScore" in data:
             risk_score = data["riskScore"]
-            if not isinstance(risk_score, (int, float)) or risk_score < 0 or risk_score > 100:
+            if (
+                not isinstance(risk_score, (int, float))
+                or risk_score < 0
+                or risk_score > 100
+            ):
                 results["warnings"].append(f"Invalid risk score: {risk_score}")
 
         self._record_validation(results)
@@ -175,7 +183,7 @@ class DataValidationAgent(BaseAgent):
             "timestamp": datetime.utcnow().isoformat(),
             "passed": True,
             "failures": [],
-            "warnings": []
+            "warnings": [],
         }
 
         # Validate enrichments structure
@@ -186,9 +194,15 @@ class DataValidationAgent(BaseAgent):
             if "cisa_kev" in enrichments:
                 kev_data = enrichments["cisa_kev"]
                 if "isKnownExploited" not in kev_data:
-                    results["warnings"].append("Missing isKnownExploited in CISA KEV data")
-                if "dateAdded" in kev_data and not self._validate_date_format(kev_data["dateAdded"]):
-                    results["warnings"].append(f"Invalid date format in KEV dateAdded: {kev_data['dateAdded']}")
+                    results["warnings"].append(
+                        "Missing isKnownExploited in CISA KEV data"
+                    )
+                if "dateAdded" in kev_data and not self._validate_date_format(
+                    kev_data["dateAdded"]
+                ):
+                    results["warnings"].append(
+                        f"Invalid date format in KEV dateAdded: {kev_data['dateAdded']}"
+                    )
 
             # Validate deps.dev enrichment
             if "deps_dev" in enrichments:
@@ -219,7 +233,9 @@ class DataValidationAgent(BaseAgent):
         if "exploitationStatus" in data:
             valid_statuses = ["UNKNOWN", "KNOWN_EXPLOITED", "EXPLOIT_AVAILABLE"]
             if data["exploitationStatus"] not in valid_statuses:
-                results["warnings"].append(f"Invalid exploitation status: {data['exploitationStatus']}")
+                results["warnings"].append(
+                    f"Invalid exploitation status: {data['exploitationStatus']}"
+                )
 
         self._record_validation(results)
         return results
@@ -240,7 +256,7 @@ class DataValidationAgent(BaseAgent):
             "file": str(file_path),
             "passed": True,
             "failures": [],
-            "warnings": []
+            "warnings": [],
         }
 
         try:
@@ -264,7 +280,9 @@ class DataValidationAgent(BaseAgent):
                 results["passed"] = False
             else:
                 # Validate no duplicates
-                cve_ids = [v.get("cveId") for v in data["vulnerabilities"] if "cveId" in v]
+                cve_ids = [
+                    v.get("cveId") for v in data["vulnerabilities"] if "cveId" in v
+                ]
                 if len(cve_ids) != len(set(cve_ids)):
                     results["failures"].append("Duplicate CVE IDs found in index")
                     results["passed"] = False
@@ -274,7 +292,9 @@ class DataValidationAgent(BaseAgent):
             required_fields = ["chunk", "count", "generated", "vulnerabilities"]
             for field in required_fields:
                 if field not in data:
-                    results["failures"].append(f"Missing required field in chunk: {field}")
+                    results["failures"].append(
+                        f"Missing required field in chunk: {field}"
+                    )
                     results["passed"] = False
 
             if "count" in data and "vulnerabilities" in data:  # noqa: SIM102
@@ -286,10 +306,9 @@ class DataValidationAgent(BaseAgent):
         self._record_validation(results)
         return results
 
-    def validate_pipeline_consistency(self,
-                                    raw_count: int,
-                                    filtered_count: int,
-                                    published_count: int) -> Dict[str, Any]:
+    def validate_pipeline_consistency(
+        self, raw_count: int, filtered_count: int, published_count: int
+    ) -> Dict[str, Any]:
         """
         Validate consistency across pipeline stages.
 
@@ -306,7 +325,7 @@ class DataValidationAgent(BaseAgent):
             "timestamp": datetime.utcnow().isoformat(),
             "passed": True,
             "failures": [],
-            "warnings": []
+            "warnings": [],
         }
 
         # Validate counts make sense
@@ -328,7 +347,7 @@ class DataValidationAgent(BaseAgent):
                 "raw_count": raw_count,
                 "filtered_count": filtered_count,
                 "published_count": published_count,
-                "reduction_percentage": f"{reduction_pct:.1f}%"
+                "reduction_percentage": f"{reduction_pct:.1f}%",
             }
 
         self._record_validation(results)
@@ -348,8 +367,8 @@ Data Validation Report
 Summary:
 --------
 - Total validations: {total}
-- Passed: {passed} ({(passed/total*100):.1f}%)
-- Failed: {failed} ({(failed/total*100):.1f}%)
+- Passed: {passed} ({(passed / total * 100):.1f}%)
+- Failed: {failed} ({(failed / total * 100):.1f}%)
 - Warnings: {warnings}
 
 Validation Details:
@@ -377,8 +396,7 @@ Validation Details:
 
         # Recent failures
         recent_failures = [
-            v for v in self.validation_results["validations"][-10:]
-            if not v["passed"]
+            v for v in self.validation_results["validations"][-10:] if not v["passed"]
         ]
 
         if recent_failures:
@@ -400,13 +418,14 @@ Recommendations:
     def _validate_cve_id_format(self, cve_id: str) -> bool:
         """Validate CVE ID format."""
         import re
-        pattern = r'^CVE-\d{4}-\d{4,}$'
+
+        pattern = r"^CVE-\d{4}-\d{4,}$"
         return bool(re.match(pattern, cve_id))
 
     def _validate_date_format(self, date_str: str) -> bool:
         """Validate ISO date format."""
         try:
-            datetime.fromisoformat(date_str.replace('Z', '+00:00'))
+            datetime.fromisoformat(date_str.replace("Z", "+00:00"))
             return True
         except Exception:
             return False

@@ -27,29 +27,23 @@ class RepoAuditAgent(BaseAgent):
             "file_counts": {},
             "size_analysis": {},
             "timestamp_analysis": [],
-            "recommendations": []
+            "recommendations": [],
         }
 
     async def execute(self, **kwargs) -> Dict[str, Any]:
         """Execute repository audit."""
-        build_dir = kwargs.get('build_dir', Path('_site'))
-        valid_cve_ids = kwargs.get('valid_cve_ids', set())
-        expected_count = kwargs.get('expected_count', 60)
+        build_dir = kwargs.get("build_dir", Path("_site"))
+        valid_cve_ids = kwargs.get("valid_cve_ids", set())
+        expected_count = kwargs.get("expected_count", 60)
         return self.audit_build_directory(build_dir, valid_cve_ids, expected_count)
 
     def get_dependencies(self) -> set:
         """Get dependencies for change detection."""
-        return {
-            "_site",
-            "public",
-            "api/vulns",
-            "src/_posts"
-        }
+        return {"_site", "public", "api/vulns", "src/_posts"}
 
-    def audit_build_directory(self,
-                            build_dir: Path,
-                            valid_cve_ids: Set[str],
-                            expected_count: int = 60) -> Dict[str, Any]:
+    def audit_build_directory(
+        self, build_dir: Path, valid_cve_ids: Set[str], expected_count: int = 60
+    ) -> Dict[str, Any]:
         """
         Comprehensive audit of build directory.
 
@@ -61,10 +55,12 @@ class RepoAuditAgent(BaseAgent):
         Returns:
             Detailed audit results
         """
-        logger.info("Starting repository audit",
-                   build_dir=build_dir,
-                   valid_cves=len(valid_cve_ids),
-                   expected=expected_count)
+        logger.info(
+            "Starting repository audit",
+            build_dir=build_dir,
+            valid_cves=len(valid_cve_ids),
+            expected=expected_count,
+        )
 
         if not build_dir.exists():
             logger.warning("Build directory does not exist", path=build_dir)
@@ -77,7 +73,7 @@ class RepoAuditAgent(BaseAgent):
             "file_counts": {},
             "size_analysis": {},
             "timestamp_analysis": [],
-            "recommendations": []
+            "recommendations": [],
         }
 
         # Audit CVE HTML pages
@@ -100,7 +96,9 @@ class RepoAuditAgent(BaseAgent):
 
         return self.audit_results
 
-    def find_vestigial_files(self, directory: Path, api_dir: Path, min_epss: float) -> List[str]:
+    def find_vestigial_files(
+        self, directory: Path, api_dir: Path, min_epss: float
+    ) -> List[str]:
         """
         Find vestigial/stale files that should be removed.
 
@@ -173,13 +171,17 @@ class RepoAuditAgent(BaseAgent):
         for page in cve_pages:
             cve_id = page.parent.name
             if cve_id not in valid_cve_ids:
-                self.audit_results["stale_files"].append({
-                    "path": str(page),
-                    "type": "cve_html",
-                    "cve_id": cve_id,
-                    "size": page.stat().st_size,
-                    "modified": datetime.fromtimestamp(page.stat().st_mtime, tz=timezone.utc).isoformat()
-                })
+                self.audit_results["stale_files"].append(
+                    {
+                        "path": str(page),
+                        "type": "cve_html",
+                        "cve_id": cve_id,
+                        "size": page.stat().st_size,
+                        "modified": datetime.fromtimestamp(
+                            page.stat().st_mtime, tz=timezone.utc
+                        ).isoformat(),
+                    }
+                )
                 self.audit_results["unexpected_cves"].append(cve_id)
 
     def _audit_api_files(self, build_dir: Path, valid_cve_ids: Set[str]):
@@ -195,13 +197,17 @@ class RepoAuditAgent(BaseAgent):
         for json_file in cve_jsons:
             cve_id = json_file.stem
             if cve_id not in valid_cve_ids:
-                self.audit_results["stale_files"].append({
-                    "path": str(json_file),
-                    "type": "cve_json",
-                    "cve_id": cve_id,
-                    "size": json_file.stat().st_size,
-                    "modified": datetime.fromtimestamp(json_file.stat().st_mtime, tz=timezone.utc).isoformat()
-                })
+                self.audit_results["stale_files"].append(
+                    {
+                        "path": str(json_file),
+                        "type": "cve_json",
+                        "cve_id": cve_id,
+                        "size": json_file.stat().st_size,
+                        "modified": datetime.fromtimestamp(
+                            json_file.stat().st_mtime, tz=timezone.utc
+                        ).isoformat(),
+                    }
+                )
 
         # Check index.json
         index_file = api_dir / "vulns" / "index.json"
@@ -238,7 +244,7 @@ class RepoAuditAgent(BaseAgent):
                     "file": chunk_file.name,
                     "count": len(vulns),
                     "reported_count": data.get("count", 0),
-                    "unexpected_cves": []
+                    "unexpected_cves": [],
                 }
 
                 total_in_chunks += len(vulns)
@@ -254,7 +260,9 @@ class RepoAuditAgent(BaseAgent):
                     chunk_analysis.append(chunk_info)
 
             except Exception as e:
-                logger.error("Failed to parse chunk file", file=chunk_file, error=str(e))
+                logger.error(
+                    "Failed to parse chunk file", file=chunk_file, error=str(e)
+                )
 
         self.audit_results["file_counts"]["total_cves_in_chunks"] = total_in_chunks
         self.audit_results["chunk_analysis"] = chunk_analysis
@@ -268,16 +276,20 @@ class RepoAuditAgent(BaseAgent):
         for pattern in ["**/*.json", "**/*.html"]:
             for file in build_dir.glob(pattern):
                 if file.is_file():
-                    mtime = datetime.fromtimestamp(file.stat().st_mtime, tz=timezone.utc)
+                    mtime = datetime.fromtimestamp(
+                        file.stat().st_mtime, tz=timezone.utc
+                    )
                     age_hours = (now - mtime).total_seconds() / 3600
 
                     # Flag files older than 24 hours
                     if age_hours > 24:
-                        old_files.append({
-                            "path": str(file.relative_to(build_dir)),
-                            "age_hours": round(age_hours, 1),
-                            "modified": mtime.isoformat()
-                        })
+                        old_files.append(
+                            {
+                                "path": str(file.relative_to(build_dir)),
+                                "age_hours": round(age_hours, 1),
+                                "modified": mtime.isoformat(),
+                            }
+                        )
 
         # Sort by age
         old_files.sort(key=lambda x: x["age_hours"], reverse=True)
@@ -295,7 +307,9 @@ class RepoAuditAgent(BaseAgent):
                 total_size += file.stat().st_size
 
         self.audit_results["file_counts"]["by_extension"] = dict(counts)
-        self.audit_results["size_analysis"]["total_size_mb"] = round(total_size / 1024 / 1024, 2)
+        self.audit_results["size_analysis"]["total_size_mb"] = round(
+            total_size / 1024 / 1024, 2
+        )
 
     def _generate_recommendations(self, expected_count: int):
         """Generate actionable recommendations."""
@@ -305,38 +319,46 @@ class RepoAuditAgent(BaseAgent):
         total_cves = max(
             self.audit_results["file_counts"].get("cve_html_pages", 0),
             self.audit_results["file_counts"].get("total_cves_in_chunks", 0),
-            self.audit_results["file_counts"].get("index_json_count", 0)
+            self.audit_results["file_counts"].get("index_json_count", 0),
         )
 
         if total_cves > expected_count * 10:
-            recommendations.append({
-                "severity": "CRITICAL",
-                "issue": f"Found {total_cves} CVEs, expected ~{expected_count}",
-                "action": "Force full rebuild with complete directory purge"
-            })
+            recommendations.append(
+                {
+                    "severity": "CRITICAL",
+                    "issue": f"Found {total_cves} CVEs, expected ~{expected_count}",
+                    "action": "Force full rebuild with complete directory purge",
+                }
+            )
 
         if self.audit_results["stale_files"]:
-            recommendations.append({
-                "severity": "HIGH",
-                "issue": f"Found {len(self.audit_results['stale_files'])} stale files",
-                "action": "Run enhanced cleanup agent with force purge"
-            })
+            recommendations.append(
+                {
+                    "severity": "HIGH",
+                    "issue": f"Found {len(self.audit_results['stale_files'])} stale files",
+                    "action": "Run enhanced cleanup agent with force purge",
+                }
+            )
 
         if self.audit_results["unexpected_cves"]:
             unique_unexpected = len(set(self.audit_results["unexpected_cves"]))
-            recommendations.append({
-                "severity": "HIGH",
-                "issue": f"Found {unique_unexpected} unexpected CVE IDs",
-                "action": "Verify EPSS threshold is being applied correctly"
-            })
+            recommendations.append(
+                {
+                    "severity": "HIGH",
+                    "issue": f"Found {unique_unexpected} unexpected CVE IDs",
+                    "action": "Verify EPSS threshold is being applied correctly",
+                }
+            )
 
         old_files = self.audit_results["timestamp_analysis"]
         if old_files and old_files[0]["age_hours"] > 168:  # 1 week
-            recommendations.append({
-                "severity": "MEDIUM",
-                "issue": "Found files older than 1 week",
-                "action": "Consider full site rebuild to ensure freshness"
-            })
+            recommendations.append(
+                {
+                    "severity": "MEDIUM",
+                    "issue": "Found files older than 1 week",
+                    "action": "Consider full site rebuild to ensure freshness",
+                }
+            )
 
         self.audit_results["recommendations"] = recommendations
 
@@ -390,40 +412,50 @@ File Counts:
             "summary": {
                 "total_stale_files": len(self.audit_results["stale_files"]),
                 "unexpected_cves": len(set(self.audit_results["unexpected_cves"])),
-                "total_cve_pages": self.audit_results["file_counts"].get("cve_html_pages", 0),
-                "total_cve_jsons": self.audit_results["file_counts"].get("cve_json_files", 0),
-                "total_in_chunks": self.audit_results["file_counts"].get("total_cves_in_chunks", 0)
+                "total_cve_pages": self.audit_results["file_counts"].get(
+                    "cve_html_pages", 0
+                ),
+                "total_cve_jsons": self.audit_results["file_counts"].get(
+                    "cve_json_files", 0
+                ),
+                "total_in_chunks": self.audit_results["file_counts"].get(
+                    "total_cves_in_chunks", 0
+                ),
             },
             "stale_files": self.audit_results["stale_files"],
             "unexpected_cve_ids": sorted(set(self.audit_results["unexpected_cves"])),
             "recommendations": self.audit_results["recommendations"],
-            "file_age_analysis": self.audit_results["timestamp_analysis"][:20]
+            "file_age_analysis": self.audit_results["timestamp_analysis"][:20],
         }
 
         # Save JSON report
-        json_path = output_path.with_suffix('.json')
-        with open(json_path, 'w') as f:
+        json_path = output_path.with_suffix(".json")
+        with open(json_path, "w") as f:
             json.dump(report_data, f, indent=2)
 
         # Generate Markdown report
         md_content = f"""# Stale Files Audit Report
 
-**Generated**: {report_data['timestamp']}
+**Generated**: {report_data["timestamp"]}
 
 ## Summary
 
-- **Total Stale Files**: {report_data['summary']['total_stale_files']:,}
-- **Unexpected CVE IDs**: {report_data['summary']['unexpected_cves']:,}
-- **Total CVE HTML Pages**: {report_data['summary']['total_cve_pages']:,}
-- **Total CVE JSON Files**: {report_data['summary']['total_cve_jsons']:,}
-- **Total CVEs in Chunks**: {report_data['summary']['total_in_chunks']:,}
+- **Total Stale Files**: {report_data["summary"]["total_stale_files"]:,}
+- **Unexpected CVE IDs**: {report_data["summary"]["unexpected_cves"]:,}
+- **Total CVE HTML Pages**: {report_data["summary"]["total_cve_pages"]:,}
+- **Total CVE JSON Files**: {report_data["summary"]["total_cve_jsons"]:,}
+- **Total CVEs in Chunks**: {report_data["summary"]["total_in_chunks"]:,}
 
 ## Critical Findings
 
 """
 
         # Add critical recommendations
-        critical_recs = [r for r in report_data['recommendations'] if r['severity'] in ['CRITICAL', 'HIGH']]
+        critical_recs = [
+            r
+            for r in report_data["recommendations"]
+            if r["severity"] in ["CRITICAL", "HIGH"]
+        ]
         if critical_recs:
             md_content += "### Immediate Actions Required\n\n"
             for rec in critical_recs:
@@ -431,28 +463,32 @@ File Counts:
                 md_content += f"- Action: {rec['action']}\n\n"
 
         # Add stale file samples
-        if report_data['stale_files']:
+        if report_data["stale_files"]:
             md_content += "\n## Stale Files (Sample)\n\n"
             md_content += "| CVE ID | File Path | Size | Last Modified |\n"
             md_content += "|--------|-----------|------|---------------|\n"
-            for file in report_data['stale_files'][:20]:
-                size_kb = file['size'] / 1024
+            for file in report_data["stale_files"][:20]:
+                size_kb = file["size"] / 1024
                 md_content += f"| {file['cve_id']} | {file['path']} | {size_kb:.1f} KB | {file['modified']} |\n"
 
         # Add unexpected CVE list
-        if report_data['unexpected_cve_ids']:
+        if report_data["unexpected_cve_ids"]:
             md_content += "\n## Unexpected CVE IDs\n\n"
-            md_content += "These CVEs should not exist based on current EPSS threshold:\n\n"
-            for i in range(0, min(50, len(report_data['unexpected_cve_ids'])), 5):
-                batch = report_data['unexpected_cve_ids'][i:i+5]
+            md_content += (
+                "These CVEs should not exist based on current EPSS threshold:\n\n"
+            )
+            for i in range(0, min(50, len(report_data["unexpected_cve_ids"])), 5):
+                batch = report_data["unexpected_cve_ids"][i : i + 5]
                 md_content += "- " + ", ".join(batch) + "\n"
 
         # Save Markdown report
-        md_path = output_path.with_suffix('.md')
-        with open(md_path, 'w') as f:
+        md_path = output_path.with_suffix(".md")
+        with open(md_path, "w") as f:
             f.write(md_content)
 
-        logger.info("Generated stale files reports", json_path=json_path, md_path=md_path)
+        logger.info(
+            "Generated stale files reports", json_path=json_path, md_path=md_path
+        )
 
         return report_data
 

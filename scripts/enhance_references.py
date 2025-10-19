@@ -26,8 +26,14 @@ def categorize_reference(ref: Dict[str, Any]) -> str:
 
     # Exploit indicators
     exploit_patterns = [
-        "exploit", "poc", "proof-of-concept", "metasploit",
-        "nuclei", "exploit-db", "0day", "packetstorm"
+        "exploit",
+        "poc",
+        "proof-of-concept",
+        "metasploit",
+        "nuclei",
+        "exploit-db",
+        "0day",
+        "packetstorm",
     ]
     for pattern in exploit_patterns:
         if pattern in url or pattern in title:
@@ -35,8 +41,15 @@ def categorize_reference(ref: Dict[str, Any]) -> str:
 
     # Patch/Fix indicators
     patch_patterns = [
-        "patch", "fix", "commit", "pull/", "releases/tag",
-        "diff", "changeset", "update", "hotfix"
+        "patch",
+        "fix",
+        "commit",
+        "pull/",
+        "releases/tag",
+        "diff",
+        "changeset",
+        "update",
+        "hotfix",
     ]
     for pattern in patch_patterns:
         if pattern in url or pattern in title:
@@ -44,8 +57,15 @@ def categorize_reference(ref: Dict[str, Any]) -> str:
 
     # Advisory indicators
     advisory_patterns = [
-        "advisory", "bulletin", "announcement", "disclosure",
-        "security.txt", "cve.mitre", "nvd.nist", "cert.", "kb.cert"
+        "advisory",
+        "bulletin",
+        "announcement",
+        "disclosure",
+        "security.txt",
+        "cve.mitre",
+        "nvd.nist",
+        "cert.",
+        "kb.cert",
     ]
     for pattern in advisory_patterns:
         if pattern in url or pattern in title:
@@ -53,9 +73,16 @@ def categorize_reference(ref: Dict[str, Any]) -> str:
 
     # Vendor indicators
     vendor_patterns = [
-        "microsoft.com/security", "oracle.com/security", "cisco.com/security",
-        "redhat.com/security", "ubuntu.com/security", "debian.org/security",
-        "support.", "kb.", "technet", "docs."
+        "microsoft.com/security",
+        "oracle.com/security",
+        "cisco.com/security",
+        "redhat.com/security",
+        "ubuntu.com/security",
+        "debian.org/security",
+        "support.",
+        "kb.",
+        "technet",
+        "docs.",
     ]
     for pattern in vendor_patterns:
         if pattern in url:
@@ -63,8 +90,15 @@ def categorize_reference(ref: Dict[str, Any]) -> str:
 
     # Technical/Research indicators
     technical_patterns = [
-        "github.com", "gitlab.com", "bitbucket", "sourceforge",
-        "blog", "research", "analysis", "writeup", "article"
+        "github.com",
+        "gitlab.com",
+        "bitbucket",
+        "sourceforge",
+        "blog",
+        "research",
+        "analysis",
+        "writeup",
+        "article",
     ]
     for pattern in technical_patterns:
         if pattern in url:
@@ -110,7 +144,7 @@ def enhance_reference(ref: Dict[str, Any]) -> Dict[str, Any]:
         "vendor": "🏢",
         "technical": "📚",
         "dependency": "📦",
-        "other": "🔗"
+        "other": "🔗",
     }
     enhanced_ref["icon"] = category_icons.get(enhanced_ref["category"], "🔗")
 
@@ -146,10 +180,12 @@ def enhance_vulnerability_references(vuln: Dict[str, Any]) -> Dict[str, Any]:
         "vendor": 4,
         "dependency": 5,
         "technical": 6,
-        "other": 7
+        "other": 7,
     }
 
-    enhanced_refs.sort(key=lambda x: category_priority.get(x.get("category", "other"), 7))
+    enhanced_refs.sort(
+        key=lambda x: category_priority.get(x.get("category", "other"), 7)
+    )
 
     vuln["references"] = enhanced_refs
     vuln["reference_categories"] = list(categories_found)
@@ -162,24 +198,26 @@ def enhance_vulnerability_references(vuln: Dict[str, Any]) -> Dict[str, Any]:
     "--api-dir",
     type=click.Path(path_type=Path),
     default=Path("api/vulns"),
-    help="Directory containing API JSON files"
+    help="Directory containing API JSON files",
 )
 @click.option(
     "--output-dir",
     type=click.Path(path_type=Path),
     default=Path("api/vulns"),
-    help="Output directory for enhanced files"
+    help="Output directory for enhanced files",
 )
 def enhance_references_cli(api_dir: Path, output_dir: Path):
     """Enhance and categorize vulnerability references."""
 
-    logger.info("Starting reference enhancement", api_dir=api_dir, output_dir=output_dir)
+    logger.info(
+        "Starting reference enhancement", api_dir=api_dir, output_dir=output_dir
+    )
 
     stats = {
         "files_processed": 0,
         "vulnerabilities_processed": 0,
         "references_enhanced": 0,
-        "categories": {}
+        "categories": {},
     }
 
     # Process index file
@@ -211,7 +249,7 @@ def enhance_references_cli(api_dir: Path, output_dir: Path):
 
         # Save enhanced file
         output_file = output_dir / "index.json"
-        with open(output_file, 'w') as f:
+        with open(output_file, "w") as f:
             json.dump(data, f, indent=2)
 
         logger.info("Enhanced index file", vulnerabilities=len(vulnerabilities))
@@ -245,7 +283,9 @@ def enhance_references_cli(api_dir: Path, output_dir: Path):
 
                         for ref in refs:
                             category = ref.get("category", "other")
-                            stats["categories"][category] = stats["categories"].get(category, 0) + 1
+                            stats["categories"][category] = (
+                                stats["categories"].get(category, 0) + 1
+                            )
 
                     chunk_data["vulnerabilities"] = enhanced_vulns
                     stats["vulnerabilities_processed"] += len(vulnerabilities)
@@ -253,10 +293,14 @@ def enhance_references_cli(api_dir: Path, output_dir: Path):
 
                     # Save enhanced file
                     output_file = output_dir / chunk_file
-                    with open(output_file, 'w') as f:
+                    with open(output_file, "w") as f:
                         json.dump(chunk_data, f, indent=2)
 
-                    logger.info("Enhanced chunk file", file=chunk_file, vulnerabilities=len(vulnerabilities))
+                    logger.info(
+                        "Enhanced chunk file",
+                        file=chunk_file,
+                        vulnerabilities=len(vulnerabilities),
+                    )
 
     # Display summary
     click.echo("\n✅ Reference Enhancement Summary:")
@@ -273,7 +317,7 @@ def enhance_references_cli(api_dir: Path, output_dir: Path):
             "vendor": "🏢",
             "technical": "📚",
             "dependency": "📦",
-            "other": "🔗"
+            "other": "🔗",
         }.get(category, "🔗")
         click.echo(f"  {icon} {category.capitalize()}: {count}")
 

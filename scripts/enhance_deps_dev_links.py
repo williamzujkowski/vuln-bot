@@ -19,13 +19,13 @@ logger = structlog.get_logger()
     "--api-dir",
     type=click.Path(path_type=Path),
     default=Path("api/vulns"),
-    help="Directory containing API JSON files"
+    help="Directory containing API JSON files",
 )
 @click.option(
     "--output-dir",
     type=click.Path(path_type=Path),
     default=Path("api/vulns"),
-    help="Output directory for enhanced files"
+    help="Output directory for enhanced files",
 )
 def enhance_deps_dev_links(api_dir: Path, output_dir: Path):
     """Enhance vulnerability data with deps.dev package impact links."""
@@ -51,7 +51,7 @@ def enhance_deps_dev_links(api_dir: Path, output_dir: Path):
 
         # Save enhanced file
         output_file = output_dir / "index.json"
-        with open(output_file, 'w') as f:
+        with open(output_file, "w") as f:
             json.dump(data, f, indent=2)
 
         logger.info("Enhanced index file", vulnerabilities=len(vulnerabilities))
@@ -80,10 +80,14 @@ def enhance_deps_dev_links(api_dir: Path, output_dir: Path):
 
                     # Save enhanced file
                     output_file = output_dir / chunk_file
-                    with open(output_file, 'w') as f:
+                    with open(output_file, "w") as f:
                         json.dump(chunk_data, f, indent=2)
 
-                    logger.info("Enhanced chunk file", file=chunk_file, vulnerabilities=len(vulnerabilities))
+                    logger.info(
+                        "Enhanced chunk file",
+                        file=chunk_file,
+                        vulnerabilities=len(vulnerabilities),
+                    )
 
     # Generate summary report
     logger.info("Deps.dev enhancement complete")
@@ -92,7 +96,7 @@ def enhance_deps_dev_links(api_dir: Path, output_dir: Path):
     stats = {
         "files_processed": 0,
         "vulnerabilities_processed": 0,
-        "deps_dev_links_added": 0
+        "deps_dev_links_added": 0,
     }
 
     # Re-read files to count enhancements
@@ -115,7 +119,9 @@ def enhance_deps_dev_links(api_dir: Path, output_dir: Path):
     click.echo(f"  Files processed: {stats['files_processed']}")
     click.echo(f"  Vulnerabilities processed: {stats['vulnerabilities_processed']}")
     click.echo(f"  Deps.dev links added: {stats['deps_dev_links_added']}")
-    click.echo(f"  Coverage: {stats['deps_dev_links_added'] / stats['vulnerabilities_processed'] * 100:.1f}%")
+    click.echo(
+        f"  Coverage: {stats['deps_dev_links_added'] / stats['vulnerabilities_processed'] * 100:.1f}%"
+    )
 
 
 if __name__ == "__main__":

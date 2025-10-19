@@ -19,26 +19,24 @@ logger = structlog.get_logger()
     "--api-dir",
     type=click.Path(path_type=Path),
     default=Path("api/vulns"),
-    help="Directory containing API JSON files"
+    help="Directory containing API JSON files",
 )
 @click.option(
     "--output-dir",
     type=click.Path(path_type=Path),
     default=Path("api/vulns"),
-    help="Output directory for enhanced files"
+    help="Output directory for enhanced files",
 )
-@click.option(
-    "--force-refresh",
-    is_flag=True,
-    help="Force refresh of CISA KEV catalog"
-)
+@click.option("--force-refresh", is_flag=True, help="Force refresh of CISA KEV catalog")
 def enhance_cisa_kev(api_dir: Path, output_dir: Path, force_refresh: bool):
     """Enhance vulnerability data with CISA KEV information."""
 
-    logger.info("Starting CISA KEV enhancement",
-               api_dir=api_dir,
-               output_dir=output_dir,
-               force_refresh=force_refresh)
+    logger.info(
+        "Starting CISA KEV enhancement",
+        api_dir=api_dir,
+        output_dir=output_dir,
+        force_refresh=force_refresh,
+    )
 
     # Initialize KEV agent
     agent = CISAKEVAgent()
@@ -63,7 +61,7 @@ def enhance_cisa_kev(api_dir: Path, output_dir: Path, force_refresh: bool):
 
         # Save enhanced file
         output_file = output_dir / "index.json"
-        with open(output_file, 'w') as f:
+        with open(output_file, "w") as f:
             json.dump(data, f, indent=2)
 
         logger.info("Enhanced index file", vulnerabilities=len(vulnerabilities))
@@ -92,26 +90,32 @@ def enhance_cisa_kev(api_dir: Path, output_dir: Path, force_refresh: bool):
 
                     # Save enhanced file
                     output_file = output_dir / chunk_file
-                    with open(output_file, 'w') as f:
+                    with open(output_file, "w") as f:
                         json.dump(chunk_data, f, indent=2)
 
-                    logger.info("Enhanced chunk file",
-                               file=chunk_file,
-                               vulnerabilities=len(vulnerabilities))
+                    logger.info(
+                        "Enhanced chunk file",
+                        file=chunk_file,
+                        vulnerabilities=len(vulnerabilities),
+                    )
 
     # Get and display statistics
     stats = agent.get_kev_statistics()
 
     click.echo("\n✅ CISA KEV Enhancement Summary:")
     click.echo(f"  KEV Catalog Size: {stats['catalog_size']} entries")
-    click.echo(f"  Vulnerabilities Processed: {stats['enrichment_stats']['total_processed']}")
+    click.echo(
+        f"  Vulnerabilities Processed: {stats['enrichment_stats']['total_processed']}"
+    )
     click.echo(f"  KEV Matches Found: {stats['enrichment_stats']['kev_enriched']}")
     click.echo(f"  Enrichment Rate: {stats['enrichment_stats']['enrichment_rate']}")
 
     if "catalog_insights" in stats:
         insights = stats["catalog_insights"]
         click.echo("\n📊 KEV Catalog Insights:")
-        click.echo(f"  Known Ransomware: {insights['known_ransomware_count']} ({insights['ransomware_percentage']})")
+        click.echo(
+            f"  Known Ransomware: {insights['known_ransomware_count']} ({insights['ransomware_percentage']})"
+        )
         click.echo("  Recent Entries (by year):")
         for year, count in list(insights["entries_by_year"].items())[:5]:
             click.echo(f"    {year}: {count} entries")

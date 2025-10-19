@@ -14,7 +14,9 @@ from scripts.agents.base_agent import BaseAgent
 class DataQualityReportAgent(BaseAgent):
     """Agent for generating comprehensive data quality reports."""
 
-    def __init__(self, cache_dir: Optional[Path] = None, output_dir: Optional[Path] = None):
+    def __init__(
+        self, cache_dir: Optional[Path] = None, output_dir: Optional[Path] = None
+    ):
         """
         Initialize Data Quality Report Agent.
 
@@ -28,11 +30,12 @@ class DataQualityReportAgent(BaseAgent):
         self.output_dir.mkdir(exist_ok=True)
 
         self.logger.info(
-            "Data Quality Report Agent initialized",
-            output_dir=str(self.output_dir)
+            "Data Quality Report Agent initialized", output_dir=str(self.output_dir)
         )
 
-    def analyze_epss_distribution(self, vulnerabilities: List[Dict[str, Any]]) -> Dict[str, Any]:
+    def analyze_epss_distribution(
+        self, vulnerabilities: List[Dict[str, Any]]
+    ) -> Dict[str, Any]:
         """
         Analyze EPSS score distribution in vulnerability dataset.
 
@@ -48,7 +51,7 @@ class DataQualityReportAgent(BaseAgent):
             "missing_epss_score": 0,
             "epss_statistics": {},
             "distribution_ranges": {},
-            "threshold_compliance": {}
+            "threshold_compliance": {},
         }
 
         epss_scores = []
@@ -67,7 +70,7 @@ class DataQualityReportAgent(BaseAgent):
                 "max": max(epss_scores),
                 "mean": sum(epss_scores) / len(epss_scores),
                 "median": sorted(epss_scores)[len(epss_scores) // 2],
-                "count": len(epss_scores)
+                "count": len(epss_scores),
             }
 
             # Distribution by ranges
@@ -81,30 +84,40 @@ class DataQualityReportAgent(BaseAgent):
                 (0.6, 0.7, "60-70%"),
                 (0.7, 0.8, "70-80%"),
                 (0.8, 0.9, "80-90%"),
-                (0.9, 1.0, "90-100%")
+                (0.9, 1.0, "90-100%"),
             ]
 
             for min_val, max_val, label in ranges:
-                count = len([s for s in epss_scores if min_val <= s < max_val or (max_val == 1.0 and s == 1.0)])
+                count = len(
+                    [
+                        s
+                        for s in epss_scores
+                        if min_val <= s < max_val or (max_val == 1.0 and s == 1.0)
+                    ]
+                )
                 percentage = (count / len(epss_scores)) * 100 if epss_scores else 0
                 epss_analysis["distribution_ranges"][label] = {
                     "count": count,
-                    "percentage": round(percentage, 2)
+                    "percentage": round(percentage, 2),
                 }
 
             # Threshold compliance analysis
             thresholds = [0.5, 0.6, 0.7, 0.8, 0.9]
             for threshold in thresholds:
                 above_threshold = len([s for s in epss_scores if s >= threshold])
-                compliance_rate = (above_threshold / len(epss_scores)) * 100 if epss_scores else 0
+                compliance_rate = (
+                    (above_threshold / len(epss_scores)) * 100 if epss_scores else 0
+                )
                 epss_analysis["threshold_compliance"][f"{int(threshold * 100)}%"] = {
                     "count": above_threshold,
-                    "percentage": round(compliance_rate, 2)
+                    "percentage": round(compliance_rate, 2),
                 }
 
         return epss_analysis
 
-    def analyze_vendor_breakdown(self, vulnerabilities: List[Dict[str, Any]]) -> Dict[str, Any]:
+    def analyze_vendor_breakdown(
+        self, vulnerabilities: List[Dict[str, Any]]
+    ) -> Dict[str, Any]:
         """
         Analyze vulnerability distribution by vendor.
 
@@ -118,7 +131,7 @@ class DataQualityReportAgent(BaseAgent):
             "total_vendors": 0,
             "top_vendors": [],
             "vendor_distribution": {},
-            "unknown_vendors": 0
+            "unknown_vendors": 0,
         }
 
         vendor_counts = {}
@@ -126,7 +139,11 @@ class DataQualityReportAgent(BaseAgent):
 
         for vuln in vulnerabilities:
             vendors = vuln.get("vendors", [])
-            if not vendors or vendors == [] or (len(vendors) == 1 and vendors[0].lower() in ["unknown", "n/a", ""]):
+            if (
+                not vendors
+                or vendors == []
+                or (len(vendors) == 1 and vendors[0].lower() in ["unknown", "n/a", ""])
+            ):
                 unknown_count += 1
             else:
                 for vendor in vendors:
@@ -139,7 +156,11 @@ class DataQualityReportAgent(BaseAgent):
         # Sort vendors by count and get top 10
         sorted_vendors = sorted(vendor_counts.items(), key=lambda x: x[1], reverse=True)
         vendor_analysis["top_vendors"] = [
-            {"vendor": vendor, "count": count, "percentage": round((count / len(vulnerabilities)) * 100, 2)}
+            {
+                "vendor": vendor,
+                "count": count,
+                "percentage": round((count / len(vulnerabilities)) * 100, 2),
+            }
             for vendor, count in sorted_vendors[:10]
         ]
 
@@ -147,7 +168,9 @@ class DataQualityReportAgent(BaseAgent):
 
         return vendor_analysis
 
-    def analyze_severity_distribution(self, vulnerabilities: List[Dict[str, Any]]) -> Dict[str, Any]:
+    def analyze_severity_distribution(
+        self, vulnerabilities: List[Dict[str, Any]]
+    ) -> Dict[str, Any]:
         """
         Analyze vulnerability distribution by severity.
 
@@ -157,7 +180,13 @@ class DataQualityReportAgent(BaseAgent):
         Returns:
             Dictionary with severity analysis
         """
-        severity_counts = {"CRITICAL": 0, "HIGH": 0, "MEDIUM": 0, "LOW": 0, "UNKNOWN": 0}
+        severity_counts = {
+            "CRITICAL": 0,
+            "HIGH": 0,
+            "MEDIUM": 0,
+            "LOW": 0,
+            "UNKNOWN": 0,
+        }
 
         for vuln in vulnerabilities:
             severity = vuln.get("severity", "UNKNOWN").upper()
@@ -167,21 +196,20 @@ class DataQualityReportAgent(BaseAgent):
                 severity_counts["UNKNOWN"] += 1
 
         total = len(vulnerabilities)
-        severity_analysis = {
-            "total_vulnerabilities": total,
-            "distribution": {}
-        }
+        severity_analysis = {"total_vulnerabilities": total, "distribution": {}}
 
         for severity, count in severity_counts.items():
             percentage = (count / total) * 100 if total > 0 else 0
             severity_analysis["distribution"][severity] = {
                 "count": count,
-                "percentage": round(percentage, 2)
+                "percentage": round(percentage, 2),
             }
 
         return severity_analysis
 
-    def analyze_cvss_distribution(self, vulnerabilities: List[Dict[str, Any]]) -> Dict[str, Any]:
+    def analyze_cvss_distribution(
+        self, vulnerabilities: List[Dict[str, Any]]
+    ) -> Dict[str, Any]:
         """
         Analyze CVSS score distribution.
 
@@ -196,7 +224,7 @@ class DataQualityReportAgent(BaseAgent):
             "with_cvss_score": 0,
             "missing_cvss_score": 0,
             "cvss_statistics": {},
-            "score_ranges": {}
+            "score_ranges": {},
         }
 
         cvss_scores = []
@@ -214,7 +242,7 @@ class DataQualityReportAgent(BaseAgent):
                 "max": max(cvss_scores),
                 "mean": round(sum(cvss_scores) / len(cvss_scores), 2),
                 "median": round(sorted(cvss_scores)[len(cvss_scores) // 2], 2),
-                "count": len(cvss_scores)
+                "count": len(cvss_scores),
             }
 
             # CVSS score ranges
@@ -222,7 +250,7 @@ class DataQualityReportAgent(BaseAgent):
                 (0.0, 3.9, "Low (0.0-3.9)"),
                 (4.0, 6.9, "Medium (4.0-6.9)"),
                 (7.0, 8.9, "High (7.0-8.9)"),
-                (9.0, 10.0, "Critical (9.0-10.0)")
+                (9.0, 10.0, "Critical (9.0-10.0)"),
             ]
 
             for min_val, max_val, label in ranges:
@@ -230,12 +258,14 @@ class DataQualityReportAgent(BaseAgent):
                 percentage = (count / len(cvss_scores)) * 100 if cvss_scores else 0
                 cvss_analysis["score_ranges"][label] = {
                     "count": count,
-                    "percentage": round(percentage, 2)
+                    "percentage": round(percentage, 2),
                 }
 
         return cvss_analysis
 
-    def analyze_temporal_trends(self, vulnerabilities: List[Dict[str, Any]]) -> Dict[str, Any]:
+    def analyze_temporal_trends(
+        self, vulnerabilities: List[Dict[str, Any]]
+    ) -> Dict[str, Any]:
         """
         Analyze temporal trends in vulnerability data.
 
@@ -245,11 +275,7 @@ class DataQualityReportAgent(BaseAgent):
         Returns:
             Dictionary with temporal analysis
         """
-        temporal_analysis = {
-            "by_year": {},
-            "by_month": {},
-            "date_range": {}
-        }
+        temporal_analysis = {"by_year": {}, "by_month": {}, "date_range": {}}
 
         dates = []
         for vuln in vulnerabilities:
@@ -258,7 +284,9 @@ class DataQualityReportAgent(BaseAgent):
                 try:
                     if isinstance(published_date, str):
                         # Parse ISO format date
-                        date_obj = datetime.fromisoformat(published_date.replace('Z', '+00:00'))
+                        date_obj = datetime.fromisoformat(
+                            published_date.replace("Z", "+00:00")
+                        )
                     else:
                         date_obj = published_date
 
@@ -267,8 +295,12 @@ class DataQualityReportAgent(BaseAgent):
                     year = date_obj.year
                     month = f"{date_obj.year}-{date_obj.month:02d}"
 
-                    temporal_analysis["by_year"][str(year)] = temporal_analysis["by_year"].get(str(year), 0) + 1
-                    temporal_analysis["by_month"][month] = temporal_analysis["by_month"].get(month, 0) + 1
+                    temporal_analysis["by_year"][str(year)] = (
+                        temporal_analysis["by_year"].get(str(year), 0) + 1
+                    )
+                    temporal_analysis["by_month"][month] = (
+                        temporal_analysis["by_month"].get(month, 0) + 1
+                    )
 
                 except Exception:
                     continue
@@ -277,13 +309,16 @@ class DataQualityReportAgent(BaseAgent):
             temporal_analysis["date_range"] = {
                 "earliest": min(dates).isoformat(),
                 "latest": max(dates).isoformat(),
-                "span_days": (max(dates) - min(dates)).days
+                "span_days": (max(dates) - min(dates)).days,
             }
 
         return temporal_analysis
 
-    def generate_quality_report(self, vulnerabilities: List[Dict[str, Any]],
-                               harvest_metadata: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+    def generate_quality_report(
+        self,
+        vulnerabilities: List[Dict[str, Any]],
+        harvest_metadata: Optional[Dict[str, Any]] = None,
+    ) -> Dict[str, Any]:
         """
         Generate comprehensive data quality report.
 
@@ -294,14 +329,16 @@ class DataQualityReportAgent(BaseAgent):
         Returns:
             Complete quality report dictionary
         """
-        self.logger.info("Generating comprehensive data quality report", count=len(vulnerabilities))
+        self.logger.info(
+            "Generating comprehensive data quality report", count=len(vulnerabilities)
+        )
 
         report = {
             "report_metadata": {
                 "generated_at": datetime.now(timezone.utc).isoformat(),
                 "generator": "DataQualityReportAgent",
                 "version": "1.0.0",
-                "total_vulnerabilities": len(vulnerabilities)
+                "total_vulnerabilities": len(vulnerabilities),
             },
             "harvest_metadata": harvest_metadata or {},
             "epss_analysis": self.analyze_epss_distribution(vulnerabilities),
@@ -309,7 +346,7 @@ class DataQualityReportAgent(BaseAgent):
             "severity_analysis": self.analyze_severity_distribution(vulnerabilities),
             "cvss_analysis": self.analyze_cvss_distribution(vulnerabilities),
             "temporal_analysis": self.analyze_temporal_trends(vulnerabilities),
-            "quality_summary": {}
+            "quality_summary": {},
         }
 
         # Generate quality summary
@@ -319,25 +356,67 @@ class DataQualityReportAgent(BaseAgent):
 
         report["quality_summary"] = {
             "data_completeness": {
-                "epss_coverage": round((epss_analysis["with_epss_score"] / epss_analysis["total_vulnerabilities"]) * 100, 2) if epss_analysis["total_vulnerabilities"] > 0 else 0,
-                "cvss_coverage": round((cvss_analysis["with_cvss_score"] / cvss_analysis["total_vulnerabilities"]) * 100, 2) if cvss_analysis["total_vulnerabilities"] > 0 else 0,
-                "vendor_identification": round(((epss_analysis["total_vulnerabilities"] - vendor_analysis["unknown_vendors"]) / epss_analysis["total_vulnerabilities"]) * 100, 2) if epss_analysis["total_vulnerabilities"] > 0 else 0
+                "epss_coverage": round(
+                    (
+                        epss_analysis["with_epss_score"]
+                        / epss_analysis["total_vulnerabilities"]
+                    )
+                    * 100,
+                    2,
+                )
+                if epss_analysis["total_vulnerabilities"] > 0
+                else 0,
+                "cvss_coverage": round(
+                    (
+                        cvss_analysis["with_cvss_score"]
+                        / cvss_analysis["total_vulnerabilities"]
+                    )
+                    * 100,
+                    2,
+                )
+                if cvss_analysis["total_vulnerabilities"] > 0
+                else 0,
+                "vendor_identification": round(
+                    (
+                        (
+                            epss_analysis["total_vulnerabilities"]
+                            - vendor_analysis["unknown_vendors"]
+                        )
+                        / epss_analysis["total_vulnerabilities"]
+                    )
+                    * 100,
+                    2,
+                )
+                if epss_analysis["total_vulnerabilities"] > 0
+                else 0,
             },
             "epss_threshold_compliance": {
                 "current_threshold": "60%",
-                "compliant_vulnerabilities": epss_analysis["threshold_compliance"].get("60%", {}).get("count", 0),
-                "compliance_rate": epss_analysis["threshold_compliance"].get("60%", {}).get("percentage", 0)
+                "compliant_vulnerabilities": epss_analysis["threshold_compliance"]
+                .get("60%", {})
+                .get("count", 0),
+                "compliance_rate": epss_analysis["threshold_compliance"]
+                .get("60%", {})
+                .get("percentage", 0),
             },
             "risk_distribution": {
-                "critical_severity": report["severity_analysis"]["distribution"]["CRITICAL"]["count"],
-                "high_severity": report["severity_analysis"]["distribution"]["HIGH"]["count"],
-                "high_epss": epss_analysis["threshold_compliance"].get("80%", {}).get("count", 0)
-            }
+                "critical_severity": report["severity_analysis"]["distribution"][
+                    "CRITICAL"
+                ]["count"],
+                "high_severity": report["severity_analysis"]["distribution"]["HIGH"][
+                    "count"
+                ],
+                "high_epss": epss_analysis["threshold_compliance"]
+                .get("80%", {})
+                .get("count", 0),
+            },
         }
 
         return report
 
-    def save_report_json(self, report: Dict[str, Any], filename: Optional[str] = None) -> Path:
+    def save_report_json(
+        self, report: Dict[str, Any], filename: Optional[str] = None
+    ) -> Path:
         """
         Save report as JSON file.
 
@@ -354,13 +433,15 @@ class DataQualityReportAgent(BaseAgent):
 
         output_path = self.output_dir / filename
 
-        with open(output_path, 'w') as f:
+        with open(output_path, "w") as f:
             json.dump(report, f, indent=2, default=str)
 
         self.logger.info("Saved JSON report", path=str(output_path))
         return output_path
 
-    def save_report_html(self, report: Dict[str, Any], filename: Optional[str] = None) -> Path:
+    def save_report_html(
+        self, report: Dict[str, Any], filename: Optional[str] = None
+    ) -> Path:
         """
         Save report as HTML file.
 
@@ -379,7 +460,7 @@ class DataQualityReportAgent(BaseAgent):
 
         html_content = self._generate_html_report(report)
 
-        with open(output_path, 'w') as f:
+        with open(output_path, "w") as f:
             f.write(html_content)
 
         self.logger.info("Saved HTML report", path=str(output_path))
@@ -418,28 +499,28 @@ class DataQualityReportAgent(BaseAgent):
 <body>
     <div class="header">
         <h1>🛡️ Vulnerability Data Quality Report</h1>
-        <p><strong>Generated:</strong> {metadata['generated_at']}</p>
-        <p><strong>Total Vulnerabilities:</strong> {metadata['total_vulnerabilities']:,}</p>
-        <p><strong>Generator:</strong> {metadata['generator']} v{metadata['version']}</p>
+        <p><strong>Generated:</strong> {metadata["generated_at"]}</p>
+        <p><strong>Total Vulnerabilities:</strong> {metadata["total_vulnerabilities"]:,}</p>
+        <p><strong>Generator:</strong> {metadata["generator"]} v{metadata["version"]}</p>
     </div>
 
     <div class="section">
         <h2>📊 Key Quality Metrics</h2>
         <div class="metric-grid">
             <div class="metric-card">
-                <div class="metric-value {'good' if quality['data_completeness']['epss_coverage'] >= 90 else 'warning' if quality['data_completeness']['epss_coverage'] >= 70 else 'critical'}">{quality['data_completeness']['epss_coverage']:.1f}%</div>
+                <div class="metric-value {"good" if quality["data_completeness"]["epss_coverage"] >= 90 else "warning" if quality["data_completeness"]["epss_coverage"] >= 70 else "critical"}">{quality["data_completeness"]["epss_coverage"]:.1f}%</div>
                 <div class="metric-label">EPSS Coverage</div>
             </div>
             <div class="metric-card">
-                <div class="metric-value {'good' if quality['epss_threshold_compliance']['compliance_rate'] == 100 else 'warning' if quality['epss_threshold_compliance']['compliance_rate'] >= 80 else 'critical'}">{quality['epss_threshold_compliance']['compliance_rate']:.1f}%</div>
+                <div class="metric-value {"good" if quality["epss_threshold_compliance"]["compliance_rate"] == 100 else "warning" if quality["epss_threshold_compliance"]["compliance_rate"] >= 80 else "critical"}">{quality["epss_threshold_compliance"]["compliance_rate"]:.1f}%</div>
                 <div class="metric-label">EPSS ≥60% Compliance</div>
             </div>
             <div class="metric-card">
-                <div class="metric-value {'good' if quality['data_completeness']['cvss_coverage'] >= 90 else 'warning' if quality['data_completeness']['cvss_coverage'] >= 70 else 'critical'}">{quality['data_completeness']['cvss_coverage']:.1f}%</div>
+                <div class="metric-value {"good" if quality["data_completeness"]["cvss_coverage"] >= 90 else "warning" if quality["data_completeness"]["cvss_coverage"] >= 70 else "critical"}">{quality["data_completeness"]["cvss_coverage"]:.1f}%</div>
                 <div class="metric-label">CVSS Coverage</div>
             </div>
             <div class="metric-card">
-                <div class="metric-value {'good' if quality['data_completeness']['vendor_identification'] >= 80 else 'warning' if quality['data_completeness']['vendor_identification'] >= 60 else 'critical'}">{quality['data_completeness']['vendor_identification']:.1f}%</div>
+                <div class="metric-value {"good" if quality["data_completeness"]["vendor_identification"] >= 80 else "warning" if quality["data_completeness"]["vendor_identification"] >= 60 else "critical"}">{quality["data_completeness"]["vendor_identification"]:.1f}%</div>
                 <div class="metric-label">Vendor Identification</div>
             </div>
         </div>
@@ -449,19 +530,19 @@ class DataQualityReportAgent(BaseAgent):
         <h2>🎯 EPSS Score Distribution</h2>
         <div class="metric-grid">
             <div class="metric-card">
-                <div class="metric-value">{epss['epss_statistics'].get('min', 0):.3f}</div>
+                <div class="metric-value">{epss["epss_statistics"].get("min", 0):.3f}</div>
                 <div class="metric-label">Minimum EPSS</div>
             </div>
             <div class="metric-card">
-                <div class="metric-value">{epss['epss_statistics'].get('max', 0):.3f}</div>
+                <div class="metric-value">{epss["epss_statistics"].get("max", 0):.3f}</div>
                 <div class="metric-label">Maximum EPSS</div>
             </div>
             <div class="metric-card">
-                <div class="metric-value">{epss['epss_statistics'].get('mean', 0):.3f}</div>
+                <div class="metric-value">{epss["epss_statistics"].get("mean", 0):.3f}</div>
                 <div class="metric-label">Average EPSS</div>
             </div>
             <div class="metric-card">
-                <div class="metric-value">{epss['epss_statistics'].get('median', 0):.3f}</div>
+                <div class="metric-value">{epss["epss_statistics"].get("median", 0):.3f}</div>
                 <div class="metric-label">Median EPSS</div>
             </div>
         </div>
@@ -473,12 +554,12 @@ class DataQualityReportAgent(BaseAgent):
             </thead>
             <tbody>"""
 
-        for range_label, range_data in epss['distribution_ranges'].items():
-            percentage = range_data['percentage']
+        for range_label, range_data in epss["distribution_ranges"].items():
+            percentage = range_data["percentage"]
             html += f"""
                 <tr>
                     <td>{range_label}</td>
-                    <td>{range_data['count']:,}</td>
+                    <td>{range_data["count"]:,}</td>
                     <td>{percentage:.1f}%</td>
                     <td>
                         <div class="distribution-bar">
@@ -500,18 +581,18 @@ class DataQualityReportAgent(BaseAgent):
             </thead>
             <tbody>"""
 
-        for vendor_data in report['vendor_analysis']['top_vendors']:
+        for vendor_data in report["vendor_analysis"]["top_vendors"]:
             html += f"""
                 <tr>
-                    <td>{vendor_data['vendor']}</td>
-                    <td>{vendor_data['count']:,}</td>
-                    <td>{vendor_data['percentage']:.1f}%</td>
+                    <td>{vendor_data["vendor"]}</td>
+                    <td>{vendor_data["count"]:,}</td>
+                    <td>{vendor_data["percentage"]:.1f}%</td>
                 </tr>"""
 
         html += f"""
             </tbody>
         </table>
-        <p><em>Unknown/Missing vendors: {report['vendor_analysis']['unknown_vendors']:,}</em></p>
+        <p><em>Unknown/Missing vendors: {report["vendor_analysis"]["unknown_vendors"]:,}</em></p>
     </div>
 
     <div class="section">
@@ -522,13 +603,13 @@ class DataQualityReportAgent(BaseAgent):
             </thead>
             <tbody>"""
 
-        for severity, data in report['severity_analysis']['distribution'].items():
-            if data['count'] > 0:
+        for severity, data in report["severity_analysis"]["distribution"].items():
+            if data["count"] > 0:
                 html += f"""
                     <tr>
                         <td><strong>{severity}</strong></td>
-                        <td>{data['count']:,}</td>
-                        <td>{data['percentage']:.1f}%</td>
+                        <td>{data["count"]:,}</td>
+                        <td>{data["percentage"]:.1f}%</td>
                     </tr>"""
 
         html += """
@@ -544,12 +625,12 @@ class DataQualityReportAgent(BaseAgent):
             </thead>
             <tbody>"""
 
-        for threshold, data in epss['threshold_compliance'].items():
+        for threshold, data in epss["threshold_compliance"].items():
             html += f"""
                 <tr>
                     <td>≥{threshold}</td>
-                    <td>{data['count']:,}</td>
-                    <td>{data['percentage']:.1f}%</td>
+                    <td>{data["count"]:,}</td>
+                    <td>{data["percentage"]:.1f}%</td>
                 </tr>"""
 
         html += """
@@ -636,10 +717,10 @@ class DataQualityReportAgent(BaseAgent):
                 "json": str(json_path),
                 "html": str(html_path),
                 "daily_json": str(daily_json),
-                "daily_html": str(daily_html)
+                "daily_html": str(daily_html),
             },
             "summary": report["quality_summary"],
-            "vulnerabilities_analyzed": len(vulnerabilities)
+            "vulnerabilities_analyzed": len(vulnerabilities),
         }
 
     def get_dependencies(self) -> List[str]:

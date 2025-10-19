@@ -25,7 +25,7 @@ class PostDeployValidationAgent(BaseAgent):
             name="PostDeployValidationAgent",
             role="post_deploy_validation",
             goal="Verify live site matches expected data after deployment",
-            backstory="Ensures production deployments are successful and data is correct"
+            backstory="Ensures production deployments are successful and data is correct",
         )
         self.validation_results = {
             "timestamp": None,
@@ -34,15 +34,17 @@ class PostDeployValidationAgent(BaseAgent):
             "checks_failed": 0,
             "failures": [],
             "screenshots": [],
-            "metrics": {}
+            "metrics": {},
         }
 
-    def validate_live_site(self,
-                          live_url: str,
-                          expected_cve_count: int = 60,
-                          tolerance_percent: int = 20,
-                          min_epss: float = 60.0,
-                          screenshot_dir: Optional[Path] = None) -> Dict[str, Any]:
+    def validate_live_site(
+        self,
+        live_url: str,
+        expected_cve_count: int = 60,
+        tolerance_percent: int = 20,
+        min_epss: float = 60.0,
+        screenshot_dir: Optional[Path] = None,
+    ) -> Dict[str, Any]:
         """
         Validate the live site with comprehensive checks.
 
@@ -89,11 +91,18 @@ class PostDeployValidationAgent(BaseAgent):
                 browser.close()
 
         # Generate summary
-        total_checks = self.validation_results["checks_passed"] + self.validation_results["checks_failed"]
+        total_checks = (
+            self.validation_results["checks_passed"]
+            + self.validation_results["checks_failed"]
+        )
         self.validation_results["summary"] = {
             "total_checks": total_checks,
-            "pass_rate": (self.validation_results["checks_passed"] / total_checks * 100) if total_checks > 0 else 0,
-            "status": "PASSED" if self.validation_results["checks_failed"] == 0 else "FAILED"
+            "pass_rate": (self.validation_results["checks_passed"] / total_checks * 100)
+            if total_checks > 0
+            else 0,
+            "status": "PASSED"
+            if self.validation_results["checks_failed"] == 0
+            else "FAILED",
         }
 
         return self.validation_results
@@ -117,23 +126,31 @@ class PostDeployValidationAgent(BaseAgent):
             """)
 
             # Calculate acceptable range
-            min_acceptable = int(expected * (1 - tolerance_percent/100))
-            max_acceptable = int(expected * (1 + tolerance_percent/100))
+            min_acceptable = int(expected * (1 - tolerance_percent / 100))
+            max_acceptable = int(expected * (1 + tolerance_percent / 100))
 
             self.validation_results["metrics"]["cve_count"] = total_count
             self.validation_results["metrics"]["expected_count"] = expected
 
             if min_acceptable <= total_count <= max_acceptable:
                 self.validation_results["checks_passed"] += 1
-                logger.info(f"✓ CVE count check passed: {total_count} (expected ~{expected})")
+                logger.info(
+                    f"✓ CVE count check passed: {total_count} (expected ~{expected})"
+                )
             else:
                 self.validation_results["checks_failed"] += 1
-                self.validation_results["failures"].append({
-                    "check": "cve_count",
-                    "message": f"CVE count {total_count} outside acceptable range [{min_acceptable}, {max_acceptable}]",
-                    "severity": "CRITICAL" if total_count > expected * 2 else "HIGH"
-                })
-                logger.error(f"✗ CVE count check failed: {total_count} (expected ~{expected})")
+                self.validation_results["failures"].append(
+                    {
+                        "check": "cve_count",
+                        "message": f"CVE count {total_count} outside acceptable range [{min_acceptable}, {max_acceptable}]",
+                        "severity": "CRITICAL"
+                        if total_count > expected * 2
+                        else "HIGH",
+                    }
+                )
+                logger.error(
+                    f"✗ CVE count check failed: {total_count} (expected ~{expected})"
+                )
 
         except Exception as e:
             self._record_check_error("cve_count", str(e))
@@ -152,7 +169,9 @@ class PostDeployValidationAgent(BaseAgent):
             """)
 
             # Get API count
-            api_url = urljoin(self.validation_results["live_url"], "api/vulns/index.json")
+            api_url = urljoin(
+                self.validation_results["live_url"], "api/vulns/index.json"
+            )
             response = page.request.get(api_url)
 
             if response.status != 200:
@@ -169,11 +188,13 @@ class PostDeployValidationAgent(BaseAgent):
                 logger.info(f"✓ API/UI match check passed: {api_count}")
             else:
                 self.validation_results["checks_failed"] += 1
-                self.validation_results["failures"].append({
-                    "check": "api_ui_match",
-                    "message": f"API count ({api_count}) doesn't match UI count ({ui_count})",
-                    "severity": "HIGH"
-                })
+                self.validation_results["failures"].append(
+                    {
+                        "check": "api_ui_match",
+                        "message": f"API count ({api_count}) doesn't match UI count ({ui_count})",
+                        "severity": "HIGH",
+                    }
+                )
                 logger.error("✗ API/UI match check failed")
 
         except Exception as e:
@@ -185,7 +206,9 @@ class PostDeployValidationAgent(BaseAgent):
 
         try:
             # Get vulnerabilities from API
-            api_url = urljoin(self.validation_results["live_url"], "api/vulns/index.json")
+            api_url = urljoin(
+                self.validation_results["live_url"], "api/vulns/index.json"
+            )
             response = page.request.get(api_url)
             api_data = response.json()
 
@@ -193,23 +216,24 @@ class PostDeployValidationAgent(BaseAgent):
             for vuln in api_data.get("vulnerabilities", [])[:100]:  # Check first 100
                 epss_score = vuln.get("epss", {}).get("score", 0) * 100
                 if epss_score < min_epss:
-                    violations.append({
-                        "cveId": vuln.get("cveId"),
-                        "epss": epss_score
-                    })
+                    violations.append({"cveId": vuln.get("cveId"), "epss": epss_score})
 
             if len(violations) == 0:
                 self.validation_results["checks_passed"] += 1
                 logger.info(f"✓ EPSS threshold check passed: all CVEs >= {min_epss}%")
             else:
                 self.validation_results["checks_failed"] += 1
-                self.validation_results["failures"].append({
-                    "check": "epss_threshold",
-                    "message": f"Found {len(violations)} CVEs below {min_epss}% EPSS",
-                    "severity": "CRITICAL",
-                    "details": violations[:5]  # First 5 violations
-                })
-                logger.error(f"✗ EPSS threshold check failed: {len(violations)} violations")
+                self.validation_results["failures"].append(
+                    {
+                        "check": "epss_threshold",
+                        "message": f"Found {len(violations)} CVEs below {min_epss}% EPSS",
+                        "severity": "CRITICAL",
+                        "details": violations[:5],  # First 5 violations
+                    }
+                )
+                logger.error(
+                    f"✗ EPSS threshold check failed: {len(violations)} violations"
+                )
 
         except Exception as e:
             self._record_check_error("epss_threshold", str(e))
@@ -219,7 +243,9 @@ class PostDeployValidationAgent(BaseAgent):
         logger.info("Checking chunk files")
 
         try:
-            chunk_url = urljoin(self.validation_results["live_url"], "api/vulns/chunk-index.json")
+            chunk_url = urljoin(
+                self.validation_results["live_url"], "api/vulns/chunk-index.json"
+            )
             response = page.request.get(chunk_url)
 
             if response.status == 200:
@@ -227,7 +253,10 @@ class PostDeployValidationAgent(BaseAgent):
                 total_in_chunks = 0
 
                 for chunk in chunk_index.get("chunks", []):
-                    chunk_file_url = urljoin(self.validation_results["live_url"], f"api/vulns/{chunk['file']}")
+                    chunk_file_url = urljoin(
+                        self.validation_results["live_url"],
+                        f"api/vulns/{chunk['file']}",
+                    )
                     chunk_response = page.request.get(chunk_file_url)
 
                     if chunk_response.status == 200:
@@ -237,17 +266,21 @@ class PostDeployValidationAgent(BaseAgent):
 
                 self.validation_results["metrics"]["total_in_chunks"] = total_in_chunks
 
-                max_acceptable = int(expected * (1 + tolerance_percent/100))
+                max_acceptable = int(expected * (1 + tolerance_percent / 100))
                 if total_in_chunks <= max_acceptable:
                     self.validation_results["checks_passed"] += 1
-                    logger.info(f"✓ Chunk files check passed: {total_in_chunks} total CVEs")
+                    logger.info(
+                        f"✓ Chunk files check passed: {total_in_chunks} total CVEs"
+                    )
                 else:
                     self.validation_results["checks_failed"] += 1
-                    self.validation_results["failures"].append({
-                        "check": "chunk_files",
-                        "message": f"Chunks contain {total_in_chunks} CVEs, expected <= {max_acceptable}",
-                        "severity": "HIGH"
-                    })
+                    self.validation_results["failures"].append(
+                        {
+                            "check": "chunk_files",
+                            "message": f"Chunks contain {total_in_chunks} CVEs, expected <= {max_acceptable}",
+                            "severity": "HIGH",
+                        }
+                    )
                     logger.error("✗ Chunk files check failed")
 
         except Exception as e:
@@ -276,12 +309,14 @@ class PostDeployValidationAgent(BaseAgent):
             logger.info("✓ No known stale CVE pages found")
         else:
             self.validation_results["checks_failed"] += 1
-            self.validation_results["failures"].append({
-                "check": "stale_cve_pages",
-                "message": f"Found {len(stale_found)} stale CVE pages that should not exist",
-                "severity": "CRITICAL",
-                "details": stale_found
-            })
+            self.validation_results["failures"].append(
+                {
+                    "check": "stale_cve_pages",
+                    "message": f"Found {len(stale_found)} stale CVE pages that should not exist",
+                    "severity": "CRITICAL",
+                    "details": stale_found,
+                }
+            )
             logger.error(f"✗ Found stale CVE pages: {stale_found}")
 
     def _check_console_errors(self, page: Page):
@@ -289,7 +324,10 @@ class PostDeployValidationAgent(BaseAgent):
         logger.info("Checking console errors")
 
         console_errors = []
-        page.on("console", lambda msg: console_errors.append(msg) if msg.type == "error" else None)
+        page.on(
+            "console",
+            lambda msg: console_errors.append(msg) if msg.type == "error" else None,
+        )
 
         # Reload to capture messages
         page.reload()
@@ -299,7 +337,10 @@ class PostDeployValidationAgent(BaseAgent):
         critical_errors = []
         for msg in console_errors:
             text = msg.text.lower()
-            if any(keyword in text for keyword in ["404", "not found", "failed to load", "json"]):
+            if any(
+                keyword in text
+                for keyword in ["404", "not found", "failed to load", "json"]
+            ):
                 critical_errors.append(msg.text)
 
         self.validation_results["metrics"]["console_errors"] = len(critical_errors)
@@ -332,11 +373,13 @@ class PostDeployValidationAgent(BaseAgent):
     def _record_check_error(self, check_name: str, error: str):
         """Record a check error."""
         self.validation_results["checks_failed"] += 1
-        self.validation_results["failures"].append({
-            "check": check_name,
-            "message": f"Check failed with error: {error}",
-            "severity": "ERROR"
-        })
+        self.validation_results["failures"].append(
+            {
+                "check": check_name,
+                "message": f"Check failed with error: {error}",
+                "severity": "ERROR",
+            }
+        )
         logger.error(f"✗ {check_name} check error: {error}")
 
     def generate_validation_report(self) -> str:
@@ -345,37 +388,37 @@ class PostDeployValidationAgent(BaseAgent):
 Post-Deploy Validation Report
 ============================
 
-URL: {self.validation_results['live_url']}
-Timestamp: {self.validation_results['timestamp']}
-Status: {self.validation_results.get('summary', {}).get('status', 'UNKNOWN')}
+URL: {self.validation_results["live_url"]}
+Timestamp: {self.validation_results["timestamp"]}
+Status: {self.validation_results.get("summary", {}).get("status", "UNKNOWN")}
 
 Summary:
 --------
-✓ Checks Passed: {self.validation_results['checks_passed']}
-✗ Checks Failed: {self.validation_results['checks_failed']}
-Pass Rate: {self.validation_results.get('summary', {}).get('pass_rate', 0):.1f}%
+✓ Checks Passed: {self.validation_results["checks_passed"]}
+✗ Checks Failed: {self.validation_results["checks_failed"]}
+Pass Rate: {self.validation_results.get("summary", {}).get("pass_rate", 0):.1f}%
 
 Metrics:
 --------
-- CVE Count: {self.validation_results['metrics'].get('cve_count', 'N/A')}
-- Expected: {self.validation_results['metrics'].get('expected_count', 'N/A')}
-- API Count: {self.validation_results['metrics'].get('api_count', 'N/A')}
-- UI Count: {self.validation_results['metrics'].get('ui_count', 'N/A')}
-- Total in Chunks: {self.validation_results['metrics'].get('total_in_chunks', 'N/A')}
-- Console Errors: {self.validation_results['metrics'].get('console_errors', 0)}
+- CVE Count: {self.validation_results["metrics"].get("cve_count", "N/A")}
+- Expected: {self.validation_results["metrics"].get("expected_count", "N/A")}
+- API Count: {self.validation_results["metrics"].get("api_count", "N/A")}
+- UI Count: {self.validation_results["metrics"].get("ui_count", "N/A")}
+- Total in Chunks: {self.validation_results["metrics"].get("total_in_chunks", "N/A")}
+- Console Errors: {self.validation_results["metrics"].get("console_errors", 0)}
 """
 
-        if self.validation_results['failures']:
+        if self.validation_results["failures"]:
             report += "\nFailures:\n---------\n"
-            for failure in self.validation_results['failures']:
+            for failure in self.validation_results["failures"]:
                 report += f"\n[{failure['severity']}] {failure['check']}:\n"
                 report += f"  {failure['message']}\n"
-                if 'details' in failure:
+                if "details" in failure:
                     report += f"  Details: {failure['details']}\n"
 
-        if self.validation_results['screenshots']:
+        if self.validation_results["screenshots"]:
             report += "\nScreenshots:\n-----------\n"
-            for screenshot in self.validation_results['screenshots']:
+            for screenshot in self.validation_results["screenshots"]:
                 report += f"- {screenshot}\n"
 
         return report
@@ -384,6 +427,6 @@ Metrics:
         """Wait for GitHub Pages deployment to propagate."""
         logger.info(f"Waiting {wait_minutes} minutes for deployment to propagate...")
         for i in range(wait_minutes):
-            logger.info(f"Waiting... {i+1}/{wait_minutes} minutes")
+            logger.info(f"Waiting... {i + 1}/{wait_minutes} minutes")
             time.sleep(60)
         logger.info("Wait complete")

@@ -490,8 +490,8 @@ class HarvestOrchestrator:
             unique_vulnerabilities = enrichment_batch.vulnerabilities
 
             # Add enrichment statistics to metadata
-            harvest_metadata["enrichment_statistics"] = (
-                enrichment_batch.metadata.get("enrichment_statistics", {})
+            harvest_metadata["enrichment_statistics"] = enrichment_batch.metadata.get(
+                "enrichment_statistics", {}
             )
 
             self.logger.info(

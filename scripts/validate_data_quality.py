@@ -20,19 +20,19 @@ logger = structlog.get_logger()
     "--stage",
     type=click.Choice(["raw", "filtered", "enriched", "published"]),
     required=True,
-    help="Pipeline stage to validate"
+    help="Pipeline stage to validate",
 )
 @click.option(
     "--api-dir",
     type=click.Path(path_type=Path),
     default=Path("api"),
-    help="Directory containing API data"
+    help="Directory containing API data",
 )
 @click.option(
     "--output-dir",
     type=click.Path(path_type=Path),
     default=Path("reports"),
-    help="Output directory for validation reports"
+    help="Output directory for validation reports",
 )
 def validate_data_quality(stage: str, api_dir: Path, output_dir: Path):
     """Validate data quality at specified pipeline stage."""
@@ -87,18 +87,22 @@ def validate_data_quality(stage: str, api_dir: Path, output_dir: Path):
 
     # Save text report
     text_report_path = output_dir / f"data_validation_{stage}_{timestamp}.txt"
-    with open(text_report_path, 'w') as f:
+    with open(text_report_path, "w") as f:
         f.write(report)
 
     # Save JSON report
     json_report_path = output_dir / f"data_validation_{stage}_{timestamp}.json"
-    with open(json_report_path, 'w') as f:
-        json.dump({
-            "stage": stage,
-            "timestamp": datetime.utcnow().isoformat(),
-            "validation_count": validation_count,
-            "results": agent.validation_results
-        }, f, indent=2)
+    with open(json_report_path, "w") as f:
+        json.dump(
+            {
+                "stage": stage,
+                "timestamp": datetime.utcnow().isoformat(),
+                "validation_count": validation_count,
+                "results": agent.validation_results,
+            },
+            f,
+            indent=2,
+        )
 
     # Display summary
     click.echo(report)

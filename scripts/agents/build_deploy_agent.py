@@ -33,19 +33,16 @@ class BuildDeployAgent(BaseAgent):
 
     def get_dependencies(self) -> set:
         """Get dependencies for change detection."""
-        return {
-            "api/vulns/index.json",
-            "src/_posts",
-            "_site",
-            "public"
-        }
+        return {"api/vulns/index.json", "src/_posts", "_site", "public"}
 
-    def force_full_rebuild(self,
-                          build_dir: Path = Path("_site"),
-                          api_dir: Path = Path("api"),
-                          posts_dir: Path = Path("src/_posts"),
-                          public_dir: Path = Path("public"),
-                          min_epss: float = 0.6) -> Dict[str, Any]:
+    def force_full_rebuild(
+        self,
+        build_dir: Path = Path("_site"),
+        api_dir: Path = Path("api"),
+        posts_dir: Path = Path("src/_posts"),
+        public_dir: Path = Path("public"),
+        min_epss: float = 0.6,
+    ) -> Dict[str, Any]:
         """
         Force a complete rebuild with full cleanup.
 
@@ -66,7 +63,7 @@ class BuildDeployAgent(BaseAgent):
             "start_time": datetime.utcnow().isoformat(),
             "steps_completed": [],
             "errors": [],
-            "statistics": {}
+            "statistics": {},
         }
 
         try:
@@ -78,7 +75,7 @@ class BuildDeployAgent(BaseAgent):
             )
             results["statistics"]["pre_audit"] = {
                 "stale_files": len(audit_results["stale_files"]),
-                "unexpected_cves": len(set(audit_results["unexpected_cves"]))
+                "unexpected_cves": len(set(audit_results["unexpected_cves"])),
             }
             results["steps_completed"].append("pre_build_audit")
 
@@ -98,7 +95,7 @@ class BuildDeployAgent(BaseAgent):
                 api_dir=api_dir,
                 posts_dir=posts_dir,
                 min_epss_threshold=min_epss,
-                force_purge=True
+                force_purge=True,
             )
             results["statistics"]["cleanup"] = cleanup_stats
             results["steps_completed"].append("source_cleanup")
@@ -106,12 +103,18 @@ class BuildDeployAgent(BaseAgent):
             # Step 4: Run 11ty build (if available) - FORCE NON-INCREMENTAL
             if self._is_11ty_available():
                 logger.info("Step 4: Running 11ty build (FULL BUILD - non-incremental)")
-                build_result = self._run_11ty_build(build_dir, force_non_incremental=True)
+                build_result = self._run_11ty_build(
+                    build_dir, force_non_incremental=True
+                )
                 if not build_result["success"]:
-                    results["errors"].append(f"11ty build failed: {build_result['error']}")
+                    results["errors"].append(
+                        f"11ty build failed: {build_result['error']}"
+                    )
                 else:
                     results["steps_completed"].append("11ty_build")
-                    results["statistics"]["11ty_files_created"] = build_result.get("file_count", 0)
+                    results["statistics"]["11ty_files_created"] = build_result.get(
+                        "file_count", 0
+                    )
 
             # Step 5: Copy to public directory
             logger.info("Step 5: Copying to public directory")
@@ -127,9 +130,11 @@ class BuildDeployAgent(BaseAgent):
                 public_dir, valid_cve_ids, expected_count=60
             )
             results["statistics"]["post_audit"] = {
-                "total_files": post_audit_results["file_counts"].get("cve_html_pages", 0),
+                "total_files": post_audit_results["file_counts"].get(
+                    "cve_html_pages", 0
+                ),
                 "stale_files": len(post_audit_results["stale_files"]),
-                "unexpected_cves": len(set(post_audit_results["unexpected_cves"]))
+                "unexpected_cves": len(set(post_audit_results["unexpected_cves"])),
             }
             results["steps_completed"].append("post_build_audit")
 
@@ -139,7 +144,9 @@ class BuildDeployAgent(BaseAgent):
                     if rec["severity"] == "CRITICAL":
                         results["errors"].append(rec["issue"])
 
-            results["status"] = "completed" if not results["errors"] else "completed_with_errors"
+            results["status"] = (
+                "completed" if not results["errors"] else "completed_with_errors"
+            )
 
         except Exception as e:
             logger.error("Force rebuild failed", error=str(e))
@@ -149,9 +156,9 @@ class BuildDeployAgent(BaseAgent):
         results["end_time"] = datetime.utcnow().isoformat()
         return results
 
-    def prepare_gh_pages_deployment(self,
-                                   source_dir: Path = Path("public"),
-                                   branch: str = "gh-pages") -> Dict[str, Any]:
+    def prepare_gh_pages_deployment(
+        self, source_dir: Path = Path("public"), branch: str = "gh-pages"
+    ) -> Dict[str, Any]:
         """
         Prepare for GitHub Pages deployment with proper git commands.
 
@@ -162,11 +169,7 @@ class BuildDeployAgent(BaseAgent):
         Returns:
             Deployment preparation results
         """
-        results = {
-            "status": "started",
-            "commands_executed": [],
-            "errors": []
-        }
+        results = {"status": "started", "commands_executed": [], "errors": []}
 
         try:
             # Ensure we're in a git repository
@@ -179,7 +182,7 @@ class BuildDeployAgent(BaseAgent):
             current_branch = subprocess.run(
                 ["git", "rev-parse", "--abbrev-ref", "HEAD"],
                 capture_output=True,
-                text=True
+                text=True,
             ).stdout.strip()
 
             # Create deployment script with force overwrite
@@ -270,7 +273,7 @@ echo "Next step: git push origin {branch} --force-with-lease"
             results["instructions"] = [
                 f"Run './{deploy_script_path}' to prepare gh-pages branch",
                 f"Then push with: git push origin {branch} --force-with-lease",
-                "This will completely replace the gh-pages branch contents"
+                "This will completely replace the gh-pages branch contents",
             ]
 
         except Exception as e:
@@ -284,15 +287,15 @@ echo "Next step: git push origin {branch} --force-with-lease"
         """Check if 11ty is available."""
         try:
             result = subprocess.run(
-                ["npx", "eleventy", "--version"],
-                capture_output=True,
-                text=True
+                ["npx", "eleventy", "--version"], capture_output=True, text=True
             )
             return result.returncode == 0
         except Exception:
             return False
 
-    def _run_11ty_build(self, output_dir: Path, force_non_incremental: bool = True) -> Dict[str, Any]:
+    def _run_11ty_build(
+        self, output_dir: Path, force_non_incremental: bool = True
+    ) -> Dict[str, Any]:
         """Run 11ty build process WITHOUT incremental mode."""
         try:
             # Clean output directory first
@@ -324,39 +327,26 @@ echo "Next step: git push origin {branch} --force-with-lease"
                 cmd,
                 capture_output=True,
                 text=True,
-                cwd=Path.cwd()  # Ensure we're in project root
+                cwd=Path.cwd(),  # Ensure we're in project root
             )
 
             if result.returncode != 0:
                 logger.error("11ty build failed", stderr=result.stderr)
-                return {
-                    "success": False,
-                    "error": result.stderr
-                }
+                return {"success": False, "error": result.stderr}
 
             # Verify output was created
             if not output_dir.exists():
-                return {
-                    "success": False,
-                    "error": "Output directory was not created"
-                }
+                return {"success": False, "error": "Output directory was not created"}
 
             # Count files created
             file_count = sum(1 for _ in output_dir.rglob("*") if _.is_file())
             logger.info(f"11ty build completed, created {file_count} files")
 
-            return {
-                "success": True,
-                "output": result.stdout,
-                "file_count": file_count
-            }
+            return {"success": True, "output": result.stdout, "file_count": file_count}
 
         except Exception as e:
             logger.error("Exception during 11ty build", error=str(e))
-            return {
-                "success": False,
-                "error": str(e)
-            }
+            return {"success": False, "error": str(e)}
 
     def _get_valid_cve_ids(self, api_dir: Path, min_epss: float) -> set:
         """Get valid CVE IDs from API data."""
@@ -366,6 +356,7 @@ echo "Next step: git push origin {branch} --force-with-lease"
         if index_file.exists():
             try:
                 import json
+
                 with open(index_file) as f:
                     data = json.load(f)
 
@@ -385,7 +376,7 @@ echo "Next step: git push origin {branch} --force-with-lease"
 Build & Deploy Agent Report
 ==========================
 
-Status: {results.get('status', 'Unknown')}
+Status: {results.get("status", "Unknown")}
 Duration: {self._calculate_duration(results)}
 
 Steps Completed:
@@ -406,7 +397,9 @@ Steps Completed:
             report += "-----------\n"
 
             if "pre_audit" in stats:
-                report += f"Pre-build stale files: {stats['pre_audit']['stale_files']}\n"
+                report += (
+                    f"Pre-build stale files: {stats['pre_audit']['stale_files']}\n"
+                )
                 report += f"Pre-build unexpected CVEs: {stats['pre_audit']['unexpected_cves']}\n"
 
             if "cleanup" in stats:
@@ -415,8 +408,12 @@ Steps Completed:
                 report += f"Storage freed: {self._format_bytes(cleanup.get('bytes_freed', 0))}\n"
 
             if "post_audit" in stats:
-                report += f"Post-build total files: {stats['post_audit']['total_files']}\n"
-                report += f"Post-build stale files: {stats['post_audit']['stale_files']}\n"
+                report += (
+                    f"Post-build total files: {stats['post_audit']['total_files']}\n"
+                )
+                report += (
+                    f"Post-build stale files: {stats['post_audit']['stale_files']}\n"
+                )
 
         return report
 
@@ -432,7 +429,7 @@ Steps Completed:
 
     def _format_bytes(self, bytes_value: int) -> str:
         """Format bytes to human-readable."""
-        for unit in ['B', 'KB', 'MB', 'GB']:
+        for unit in ["B", "KB", "MB", "GB"]:
             if bytes_value < 1024.0:
                 return f"{bytes_value:.2f} {unit}"
             bytes_value /= 1024.0

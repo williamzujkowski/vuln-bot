@@ -14,7 +14,9 @@ from scripts.agents.base_agent import BaseAgent
 class ThresholdComplianceAgent(BaseAgent):
     """Agent for validating EPSS threshold compliance in CI/CD pipelines."""
 
-    def __init__(self, cache_dir: Optional[Path] = None, min_epss_threshold: float = 0.6):
+    def __init__(
+        self, cache_dir: Optional[Path] = None, min_epss_threshold: float = 0.6
+    ):
         """
         Initialize Threshold Compliance Agent.
 
@@ -30,10 +32,12 @@ class ThresholdComplianceAgent(BaseAgent):
         self.logger.info(
             "Threshold Compliance Agent initialized",
             min_epss_threshold=min_epss_threshold,
-            min_epss_percentage=self.min_epss_percentage
+            min_epss_percentage=self.min_epss_percentage,
         )
 
-    def validate_vulnerability_compliance(self, vulnerabilities: List[Dict[str, Any]]) -> Dict[str, Any]:
+    def validate_vulnerability_compliance(
+        self, vulnerabilities: List[Dict[str, Any]]
+    ) -> Dict[str, Any]:
         """
         Validate that all vulnerabilities meet the EPSS threshold.
 
@@ -51,14 +55,14 @@ class ThresholdComplianceAgent(BaseAgent):
             "violations": [],
             "threshold": {
                 "decimal": self.min_epss_threshold,
-                "percentage": self.min_epss_percentage
+                "percentage": self.min_epss_percentage,
             },
             "statistics": {
                 "min_epss": None,
                 "max_epss": None,
                 "avg_epss": None,
-                "epss_coverage": 0
-            }
+                "epss_coverage": 0,
+            },
         }
 
         epss_scores = []
@@ -74,37 +78,45 @@ class ThresholdComplianceAgent(BaseAgent):
                 epss_percentage = epss_score * 100 if epss_score <= 1.0 else epss_score
 
                 if epss_score < self.min_epss_threshold:
-                    violations.append({
-                        "cve_id": vuln.get("cveId") or vuln.get("cve_id") or "Unknown",
-                        "epss_score": epss_score,
-                        "epss_percentage": epss_percentage,
-                        "threshold_violation": f"EPSS {epss_percentage:.1f}% < {self.min_epss_percentage}%",
-                        "severity": vuln.get("severity", "Unknown"),
-                        "title": vuln.get("title", "No title available")[:100]
-                    })
+                    violations.append(
+                        {
+                            "cve_id": vuln.get("cveId")
+                            or vuln.get("cve_id")
+                            or "Unknown",
+                            "epss_score": epss_score,
+                            "epss_percentage": epss_percentage,
+                            "threshold_violation": f"EPSS {epss_percentage:.1f}% < {self.min_epss_percentage}%",
+                            "severity": vuln.get("severity", "Unknown"),
+                            "title": vuln.get("title", "No title available")[:100],
+                        }
+                    )
                     validation_result["non_compliant_vulnerabilities"] += 1
                 else:
                     validation_result["compliant_vulnerabilities"] += 1
             else:
                 # Missing EPSS score is also a violation
-                violations.append({
-                    "cve_id": vuln.get("cveId") or vuln.get("cve_id") or "Unknown",
-                    "epss_score": None,
-                    "epss_percentage": None,
-                    "threshold_violation": "Missing EPSS score",
-                    "severity": vuln.get("severity", "Unknown"),
-                    "title": vuln.get("title", "No title available")[:100]
-                })
+                violations.append(
+                    {
+                        "cve_id": vuln.get("cveId") or vuln.get("cve_id") or "Unknown",
+                        "epss_score": None,
+                        "epss_percentage": None,
+                        "threshold_violation": "Missing EPSS score",
+                        "severity": vuln.get("severity", "Unknown"),
+                        "title": vuln.get("title", "No title available")[:100],
+                    }
+                )
                 validation_result["non_compliant_vulnerabilities"] += 1
 
         # Calculate statistics
         if epss_scores:
-            validation_result["statistics"].update({
-                "min_epss": min(epss_scores),
-                "max_epss": max(epss_scores),
-                "avg_epss": sum(epss_scores) / len(epss_scores),
-                "epss_coverage": len(epss_scores) / len(vulnerabilities) * 100
-            })
+            validation_result["statistics"].update(
+                {
+                    "min_epss": min(epss_scores),
+                    "max_epss": max(epss_scores),
+                    "avg_epss": sum(epss_scores) / len(epss_scores),
+                    "epss_coverage": len(epss_scores) / len(vulnerabilities) * 100,
+                }
+            )
 
         validation_result["violations"] = violations
         validation_result["passed"] = len(violations) == 0
@@ -114,7 +126,7 @@ class ThresholdComplianceAgent(BaseAgent):
             total_vulnerabilities=validation_result["total_vulnerabilities"],
             compliant=validation_result["compliant_vulnerabilities"],
             violations=len(violations),
-            passed=validation_result["passed"]
+            passed=validation_result["passed"],
         )
 
         return validation_result
@@ -140,14 +152,14 @@ class ThresholdComplianceAgent(BaseAgent):
             "non_compliant_vulnerabilities": 0,
             "threshold": {
                 "decimal": self.min_epss_threshold,
-                "percentage": self.min_epss_percentage
+                "percentage": self.min_epss_percentage,
             },
             "statistics": {
                 "min_epss": None,
                 "max_epss": None,
                 "avg_epss": None,
-                "epss_coverage": 0
-            }
+                "epss_coverage": 0,
+            },
         }
 
         api_vulns_dir = api_dir / "vulns"
@@ -166,15 +178,23 @@ class ThresholdComplianceAgent(BaseAgent):
                     index_data = json.load(f)
                     vulnerabilities = index_data.get("vulnerabilities", [])
 
-                    file_result = self.validate_vulnerability_compliance(vulnerabilities)
+                    file_result = self.validate_vulnerability_compliance(
+                        vulnerabilities
+                    )
                     validation_result["files"]["index.json"] = file_result
                     validation_result["files_checked"] += 1
                     validation_result["vulnerabilities_checked"] += len(vulnerabilities)
 
                     # Aggregate results
-                    validation_result["total_vulnerabilities"] += file_result["total_vulnerabilities"]
-                    validation_result["compliant_vulnerabilities"] += file_result["compliant_vulnerabilities"]
-                    validation_result["non_compliant_vulnerabilities"] += file_result["non_compliant_vulnerabilities"]
+                    validation_result["total_vulnerabilities"] += file_result[
+                        "total_vulnerabilities"
+                    ]
+                    validation_result["compliant_vulnerabilities"] += file_result[
+                        "compliant_vulnerabilities"
+                    ]
+                    validation_result["non_compliant_vulnerabilities"] += file_result[
+                        "non_compliant_vulnerabilities"
+                    ]
                     validation_result["violations"].extend(file_result["violations"])
 
                     # Collect EPSS scores for overall statistics
@@ -206,18 +226,38 @@ class ThresholdComplianceAgent(BaseAgent):
                                 try:
                                     with open(chunk_path) as cf:
                                         chunk_data = json.load(cf)
-                                        vulnerabilities = chunk_data.get("vulnerabilities", [])
+                                        vulnerabilities = chunk_data.get(
+                                            "vulnerabilities", []
+                                        )
 
-                                        file_result = self.validate_vulnerability_compliance(vulnerabilities)
-                                        validation_result["files"][chunk_file] = file_result
+                                        file_result = (
+                                            self.validate_vulnerability_compliance(
+                                                vulnerabilities
+                                            )
+                                        )
+                                        validation_result["files"][chunk_file] = (
+                                            file_result
+                                        )
                                         validation_result["files_checked"] += 1
-                                        validation_result["vulnerabilities_checked"] += len(vulnerabilities)
+                                        validation_result[
+                                            "vulnerabilities_checked"
+                                        ] += len(vulnerabilities)
 
                                         # Aggregate results
-                                        validation_result["total_vulnerabilities"] += file_result["total_vulnerabilities"]
-                                        validation_result["compliant_vulnerabilities"] += file_result["compliant_vulnerabilities"]
-                                        validation_result["non_compliant_vulnerabilities"] += file_result["non_compliant_vulnerabilities"]
-                                        validation_result["violations"].extend(file_result["violations"])
+                                        validation_result["total_vulnerabilities"] += (
+                                            file_result["total_vulnerabilities"]
+                                        )
+                                        validation_result[
+                                            "compliant_vulnerabilities"
+                                        ] += file_result["compliant_vulnerabilities"]
+                                        validation_result[
+                                            "non_compliant_vulnerabilities"
+                                        ] += file_result[
+                                            "non_compliant_vulnerabilities"
+                                        ]
+                                        validation_result["violations"].extend(
+                                            file_result["violations"]
+                                        )
 
                                         # Collect EPSS scores for overall statistics
                                         for vuln in vulnerabilities:
@@ -230,7 +270,9 @@ class ThresholdComplianceAgent(BaseAgent):
 
                                 except Exception as e:
                                     validation_result["passed"] = False
-                                    validation_result["files"][chunk_file] = {"error": str(e)}
+                                    validation_result["files"][chunk_file] = {
+                                        "error": str(e)
+                                    }
 
             except Exception as e:
                 validation_result["passed"] = False
@@ -238,12 +280,16 @@ class ThresholdComplianceAgent(BaseAgent):
 
         # Calculate overall statistics
         if all_epss_scores:
-            validation_result["statistics"].update({
-                "min_epss": min(all_epss_scores),
-                "max_epss": max(all_epss_scores),
-                "avg_epss": sum(all_epss_scores) / len(all_epss_scores),
-                "epss_coverage": len(all_epss_scores) / max(validation_result["total_vulnerabilities"], 1) * 100
-            })
+            validation_result["statistics"].update(
+                {
+                    "min_epss": min(all_epss_scores),
+                    "max_epss": max(all_epss_scores),
+                    "avg_epss": sum(all_epss_scores) / len(all_epss_scores),
+                    "epss_coverage": len(all_epss_scores)
+                    / max(validation_result["total_vulnerabilities"], 1)
+                    * 100,
+                }
+            )
 
         # Update final passed status
         validation_result["passed"] = len(validation_result["violations"]) == 0
@@ -277,28 +323,34 @@ class ThresholdComplianceAgent(BaseAgent):
         # Add statistics if available
         stats = validation_result.get("statistics", {})
         if stats.get("min_epss") is not None:
-            report_lines.extend([
-                "",
-                "📈 EPSS STATISTICS:",
-                f"  EPSS Coverage: {stats['epss_coverage']:.1f}%",
-                f"  EPSS Range: {stats['min_epss']:.3f} - {stats['max_epss']:.3f}",
-                f"  Average EPSS: {stats['avg_epss']:.3f}",
-            ])
+            report_lines.extend(
+                [
+                    "",
+                    "📈 EPSS STATISTICS:",
+                    f"  EPSS Coverage: {stats['epss_coverage']:.1f}%",
+                    f"  EPSS Range: {stats['min_epss']:.3f} - {stats['max_epss']:.3f}",
+                    f"  Average EPSS: {stats['avg_epss']:.3f}",
+                ]
+            )
 
         # Add violations if any
         violations = validation_result.get("violations", [])
         if violations:
-            report_lines.extend([
-                "",
-                f"🚨 VIOLATIONS ({len(violations)}):",
-            ])
+            report_lines.extend(
+                [
+                    "",
+                    f"🚨 VIOLATIONS ({len(violations)}):",
+                ]
+            )
 
             for i, violation in enumerate(violations[:10], 1):  # Show first 10
                 cve_id = violation["cve_id"]
                 violation_desc = violation["threshold_violation"]
                 severity = violation.get("severity", "Unknown")
 
-                report_lines.append(f"  {i}. {cve_id} - {violation_desc} (Severity: {severity})")
+                report_lines.append(
+                    f"  {i}. {cve_id} - {violation_desc} (Severity: {severity})"
+                )
 
             if len(violations) > 10:
                 report_lines.append(f"  ... and {len(violations) - 10} more violations")
@@ -306,28 +358,38 @@ class ThresholdComplianceAgent(BaseAgent):
         # Add file-specific results if available
         files_data = validation_result.get("files", {})
         if files_data:
-            report_lines.extend([
-                "",
-                f"📁 FILES CHECKED ({validation_result.get('files_checked', 0)}):",
-            ])
+            report_lines.extend(
+                [
+                    "",
+                    f"📁 FILES CHECKED ({validation_result.get('files_checked', 0)}):",
+                ]
+            )
 
             for filename, file_result in files_data.items():
                 if isinstance(file_result, dict) and "passed" in file_result:
                     status = "✅" if file_result["passed"] else "❌"
                     violations_count = len(file_result.get("violations", []))
                     total_vulns = file_result.get("total_vulnerabilities", 0)
-                    report_lines.append(f"  {status} {filename}: {total_vulns} vulns, {violations_count} violations")
+                    report_lines.append(
+                        f"  {status} {filename}: {total_vulns} vulns, {violations_count} violations"
+                    )
                 else:
-                    report_lines.append(f"  ❌ {filename}: {file_result.get('error', 'Unknown error')}")
+                    report_lines.append(
+                        f"  ❌ {filename}: {file_result.get('error', 'Unknown error')}"
+                    )
 
-        report_lines.extend([
-            "",
-            "=" * 60,
-        ])
+        report_lines.extend(
+            [
+                "",
+                "=" * 60,
+            ]
+        )
 
         return "\n".join(report_lines)
 
-    def save_compliance_report(self, validation_result: Dict[str, Any], output_dir: Path) -> Tuple[Path, Path]:
+    def save_compliance_report(
+        self, validation_result: Dict[str, Any], output_dir: Path
+    ) -> Tuple[Path, Path]:
         """
         Save compliance report in JSON and text formats.
 
@@ -344,29 +406,27 @@ class ThresholdComplianceAgent(BaseAgent):
 
         # Save JSON report
         json_path = output_dir / f"epss_compliance_{timestamp}.json"
-        with open(json_path, 'w') as f:
+        with open(json_path, "w") as f:
             json.dump(validation_result, f, indent=2, default=str)
 
         # Save text report
         txt_path = output_dir / f"epss_compliance_{timestamp}.txt"
         report_text = self.generate_compliance_report(validation_result)
-        with open(txt_path, 'w') as f:
+        with open(txt_path, "w") as f:
             f.write(report_text)
 
         # Also save daily report with standard name
         daily_json = output_dir / "epss_compliance_daily.json"
         daily_txt = output_dir / "epss_compliance_daily.txt"
 
-        with open(daily_json, 'w') as f:
+        with open(daily_json, "w") as f:
             json.dump(validation_result, f, indent=2, default=str)
 
-        with open(daily_txt, 'w') as f:
+        with open(daily_txt, "w") as f:
             f.write(report_text)
 
         self.logger.info(
-            "Compliance reports saved",
-            json_path=str(json_path),
-            txt_path=str(txt_path)
+            "Compliance reports saved", json_path=str(json_path), txt_path=str(txt_path)
         )
 
         return json_path, txt_path
@@ -441,13 +501,13 @@ class ThresholdComplianceAgent(BaseAgent):
             "validation_passed": validation_result["passed"],
             "total_vulnerabilities": validation_result.get("total_vulnerabilities", 0),
             "violations_count": len(validation_result.get("violations", [])),
-            "compliance_rate": (validation_result.get("compliant_vulnerabilities", 0) /
-                             max(validation_result.get("total_vulnerabilities", 1), 1)) * 100,
-            "reports": {
-                "json": str(json_path),
-                "txt": str(txt_path)
-            },
-            "validation_result": validation_result
+            "compliance_rate": (
+                validation_result.get("compliant_vulnerabilities", 0)
+                / max(validation_result.get("total_vulnerabilities", 1), 1)
+            )
+            * 100,
+            "reports": {"json": str(json_path), "txt": str(txt_path)},
+            "validation_result": validation_result,
         }
 
     def get_dependencies(self) -> List[str]:

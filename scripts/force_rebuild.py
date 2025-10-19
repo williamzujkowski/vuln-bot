@@ -17,23 +17,14 @@ logger = structlog.get_logger()
 
 
 @click.command()
-@click.option(
-    "--audit-only",
-    is_flag=True,
-    help="Only run audit without rebuilding"
-)
+@click.option("--audit-only", is_flag=True, help="Only run audit without rebuilding")
 @click.option(
     "--expected-count",
     type=int,
     default=60,
-    help="Expected number of CVEs (for validation)"
+    help="Expected number of CVEs (for validation)",
 )
-@click.option(
-    "--min-epss",
-    type=float,
-    default=0.6,
-    help="Minimum EPSS threshold"
-)
+@click.option("--min-epss", type=float, default=0.6, help="Minimum EPSS threshold")
 def force_rebuild(audit_only: bool, expected_count: int, min_epss: float):
     """Force a complete rebuild to fix stale data issues."""
 
@@ -51,13 +42,14 @@ def force_rebuild(audit_only: bool, expected_count: int, min_epss: float):
     index_file = api_dir / "vulns" / "index.json"
     if index_file.exists():
         import json
+
         with open(index_file) as f:
             data = json.load(f)
         for vuln in data.get("vulnerabilities", []):
             if vuln.get("epss", {}).get("score", 0) >= min_epss:
                 valid_ids.add(vuln["cveId"])
 
-    click.echo(f"Found {len(valid_ids)} valid CVEs with EPSS >= {min_epss*100}%")
+    click.echo(f"Found {len(valid_ids)} valid CVEs with EPSS >= {min_epss * 100}%")
 
     if audit_only:
         # Run audit only
@@ -89,7 +81,7 @@ def force_rebuild(audit_only: bool, expected_count: int, min_epss: float):
             build_dir=build_dir,
             api_dir=api_dir,
             public_dir=public_dir,
-            min_epss=min_epss
+            min_epss=min_epss,
         )
 
         # Display report
@@ -115,7 +107,9 @@ def force_rebuild(audit_only: bool, expected_count: int, min_epss: float):
                 for instruction in deploy_results["instructions"]:
                     click.echo(f"  → {instruction}")
             else:
-                click.echo(f"\n❌ Deployment preparation failed: {deploy_results['errors']}")
+                click.echo(
+                    f"\n❌ Deployment preparation failed: {deploy_results['errors']}"
+                )
 
     click.echo("\n✨ Done!")
 
