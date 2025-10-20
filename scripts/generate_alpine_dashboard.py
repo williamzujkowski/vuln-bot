@@ -1598,22 +1598,21 @@ class AlpineDashboardGenerator:
                         </div>
 
                         <div class="filter-group">
-                            <label>SSVC Priority</label>
-                            <select x-model="filters.ssvc_priority">
+                            <label>KEV Listed</label>
+                            <select x-model="filters.kev_listed">
                                 <option value="">All</option>
-                                <option value="ACT">ACT</option>
-                                <option value="ATTEND">ATTEND</option>
-                                <option value="TRACK">TRACK</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
                             </select>
                         </div>
 
                         <div class="filter-group">
-                            <label>Exploitability Profile</label>
-                            <select x-model="filters.ssvc_exploitation">
+                            <label>Exploit Status</label>
+                            <select x-model="filters.exploit_status">
                                 <option value="">All</option>
-                                <option value="active">Active</option>
-                                <option value="poc">PoC</option>
-                                <option value="none">None</option>
+                                <option value="kev">KEV Listed</option>
+                                <option value="exploit">Exploit Available</option>
+                                <option value="none">No Known Exploit</option>
                             </select>
                         </div>
                     </div>
@@ -1662,8 +1661,8 @@ class AlpineDashboardGenerator:
                                 <th @click="sort('triage_priority')" style="cursor: pointer;">
                                     Priority <span x-show="sortField === 'triage_priority'" x-text="sortOrder === 'asc' ? '↑' : '↓'"></span>
                                 </th>
-                                <th @click="sort('ssvc_priority')" style="cursor: pointer;">
-                                    SSVC Priority <span x-show="sortField === 'ssvc_priority'" x-text="sortOrder === 'asc' ? '↑' : '↓'"></span>
+                                <th @click="sort('kev_listed')" style="cursor: pointer;">
+                                    KEV Listed <span x-show="sortField === 'kev_listed'" x-text="sortOrder === 'asc' ? '↑' : '↓'"></span>
                                 </th>
                                 <th @click="sort('severity')" style="cursor: pointer;">
                                     Severity <span x-show="sortField === 'severity'" x-text="sortOrder === 'asc' ? '↑' : '↓'"></span>
@@ -1705,16 +1704,8 @@ class AlpineDashboardGenerator:
                                         </span>
                                     </td>
                                     <td>
-                                        <span x-show="vuln.ssvc?.priorityTier"
-                                              class="ssvc-badge"
-                                              :class="`ssvc-${vuln.ssvc?.priorityTier?.toLowerCase()}`"
-                                              :title="vuln.ssvc?.compactNotation || ''">
-                                            <span x-show="vuln.ssvc?.priorityTier === 'ACT'">🔴</span>
-                                            <span x-show="vuln.ssvc?.priorityTier === 'ATTEND'">🟠</span>
-                                            <span x-show="vuln.ssvc?.priorityTier === 'TRACK'">🔵</span>
-                                            <span x-text="vuln.ssvc?.priorityTier"></span>
-                                        </span>
-                                        <span x-show="!vuln.ssvc?.priorityTier" style="color: var(--text-muted);">—</span>
+                                        <span x-show="vuln.kev_status" style="color: #ef4444; font-weight: 600;">✓ Yes</span>
+                                        <span x-show="!vuln.kev_status" style="color: var(--text-muted);">No</span>
                                     </td>
                                     <td>
                                         <div style="display: flex; align-items: center; gap: 0.5rem;">
@@ -1859,8 +1850,8 @@ class AlpineDashboardGenerator:
                     published_from: '',
                     published_to: '',
                     vendor: '',
-                    ssvc_priority: '',
-                    ssvc_exploitation: ''
+                    kev_listed: '',
+                    exploit_status: ''
                 __CLOSE_BRACE__,
 
                 // Initialization
@@ -1949,13 +1940,20 @@ class AlpineDashboardGenerator:
                         );
                     __CLOSE_BRACE__
 
-                    // SSVC filters
-                    if (this.filters.ssvc_priority) __OPEN_BRACE__
-                        vulns = vulns.filter(v => v.ssvc?.priorityTier === this.filters.ssvc_priority);
+                    // KEV filter
+                    if (this.filters.kev_listed === 'yes') __OPEN_BRACE__
+                        vulns = vulns.filter(v => v.kev_status === true);
+                    __CLOSE_BRACE__ else if (this.filters.kev_listed === 'no') __OPEN_BRACE__
+                        vulns = vulns.filter(v => !v.kev_status);
                     __CLOSE_BRACE__
 
-                    if (this.filters.ssvc_exploitation) __OPEN_BRACE__
-                        vulns = vulns.filter(v => v.ssvc?.exploitation === this.filters.ssvc_exploitation);
+                    // Exploit Status filter
+                    if (this.filters.exploit_status === 'kev') __OPEN_BRACE__
+                        vulns = vulns.filter(v => v.kev_status === true);
+                    __CLOSE_BRACE__ else if (this.filters.exploit_status === 'exploit') __OPEN_BRACE__
+                        vulns = vulns.filter(v => !v.kev_status && v.exploitation_status && v.exploitation_status !== 'Unknown');
+                    __CLOSE_BRACE__ else if (this.filters.exploit_status === 'none') __OPEN_BRACE__
+                        vulns = vulns.filter(v => !v.kev_status && (!v.exploitation_status || v.exploitation_status === 'Unknown'));
                     __CLOSE_BRACE__
 
                     // Sorting
@@ -1972,10 +1970,9 @@ class AlpineDashboardGenerator:
                             const priorityOrder = { 'CRITICAL-URGENT': 3, 'HIGH-PRIORITY': 2, 'MONITOR': 1 __CLOSE_BRACE__;
                             aVal = priorityOrder[aVal] || 0;
                             bVal = priorityOrder[bVal] || 0;
-                        __CLOSE_BRACE__ else if (this.sortField === 'ssvc_priority') __OPEN_BRACE__
-                            const ssvcOrder = { 'ACT': 3, 'ATTEND': 2, 'TRACK': 1 __CLOSE_BRACE__;
-                            aVal = ssvcOrder[a.ssvc?.priorityTier] || 0;
-                            bVal = ssvcOrder[b.ssvc?.priorityTier] || 0;
+                        __CLOSE_BRACE__ else if (this.sortField === 'kev_listed') __OPEN_BRACE__
+                            aVal = a.kev_status ? 1 : 0;
+                            bVal = b.kev_status ? 1 : 0;
                         __CLOSE_BRACE__
 
                         if (aVal < bVal) return this.sortOrder === 'asc' ? -1 : 1;
@@ -2042,15 +2039,15 @@ class AlpineDashboardGenerator:
                         published_from: '',
                         published_to: '',
                         vendor: '',
-                        ssvc_priority: '',
-                        ssvc_exploitation: ''
+                        kev_listed: '',
+                        exploit_status: ''
                     __CLOSE_BRACE__;
                     this.currentPage = 1;
                 __CLOSE_BRACE__,
 
 
                 exportCSV() __OPEN_BRACE__
-                    const headers = ['CVE ID', 'Severity', 'CVSS', 'EPSS %', 'Risk Score', 'SSVC Priority', 'SSVC Profile', 'Product', 'Vendors', 'Published'];
+                    const headers = ['CVE ID', 'Severity', 'CVSS', 'EPSS %', 'Risk Score', 'KEV Listed', 'Exploit Status', 'Product', 'Vendors', 'Published'];
                     const csvContent = [
                         headers.join(','),
                         ...this.filteredVulns.map(v => [
@@ -2059,8 +2056,8 @@ class AlpineDashboardGenerator:
                             v.cvss_score,
                             v.epss_percentile,
                             v.risk_score,
-                            v.ssvc?.priorityTier || '',
-                            v.ssvc?.compactNotation || '',
+                            v.kev_status ? 'Yes' : 'No',
+                            v.kev_status ? 'KEV Listed' : (v.exploitation_status && v.exploitation_status !== 'Unknown' ? v.exploitation_status : 'Not Listed'),
                             `"${v.products.replace(/"/g, '""')}"`,
                             `"${v.vendors.join(', ')}"`,
                             v.published_short

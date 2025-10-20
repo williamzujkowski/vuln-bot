@@ -23,7 +23,7 @@
         "percentile": 99.458
       },
       "riskScore": 62,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -82,7 +82,9 @@
         {
           "url": "https://sysdig.com/blog/detecting-and-mitigating-the-tj-actions-changed-files-supply-chain-attack-cve-2025-30066/",
           "source": "",
-          "tags": []
+          "tags": [],
+          "category": "exploit",
+          "icon": "\ud83d\udd25"
         },
         {
           "url": "https://github.com/espressif/arduino-esp32/issues/11127",
@@ -107,17 +109,23 @@
         {
           "url": "https://www.wiz.io/blog/github-action-tj-actions-changed-files-supply-chain-attack-cve-2025-30066",
           "source": "",
-          "tags": []
+          "tags": [],
+          "category": "exploit",
+          "icon": "\ud83d\udd25"
         },
         {
           "url": "https://www.stream.security/post/github-action-supply-chain-attack-exposes-secrets-what-you-need-to-know-and-how-to-respond",
           "source": "",
-          "tags": []
+          "tags": [],
+          "category": "exploit",
+          "icon": "\ud83d\udd25"
         },
         {
           "url": "https://www.sweet.security/blog/cve-2025-30066-tj-actions-supply-chain-attack",
           "source": "",
-          "tags": []
+          "tags": [],
+          "category": "exploit",
+          "icon": "\ud83d\udd25"
         },
         {
           "url": "https://github.com/tj-actions/changed-files/issues/2477",
@@ -128,12 +136,29 @@
           "url": "https://blog.gitguardian.com/compromised-tj-actions/",
           "source": "",
           "tags": []
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-506"
+          "CWE-506",
+          "EXPLOIT-AVAILABLE",
+          "TOP-1-PERCENT-EPSS",
+          "CISA-KEV"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -148,6 +173,50 @@
             "lastModified": "2025-07-30T01:36:16.435000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Potential Exploit",
+              "url": "https://sysdig.com/blog/detecting-and-mitigating-the-tj-actions-changed-files-supply-chain-attack-cve-2025-30066/",
+              "icon": "\u26a0\ufe0f"
+            },
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.wiz.io/blog/github-action-tj-actions-changed-files-supply-chain-attack-cve-2025-30066",
+              "icon": "\u26a0\ufe0f"
+            },
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.stream.security/post/github-action-supply-chain-attack-exposes-secrets-what-you-need-to-know-and-how-to-respond",
+              "icon": "\u26a0\ufe0f"
+            },
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.sweet.security/blog/cve-2025-30066-tj-actions-supply-chain-attack",
+              "icon": "\u26a0\ufe0f"
+            }
+          ],
+          "exploit_count": 4
+        },
+        "epss_percentile": {
+          "percentile": 99.458,
+          "rank": "Top 1%",
+          "is_top_1_percent": true,
+          "is_top_5_percent": true,
+          "is_top_10_percent": true
+        },
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2025-03-18",
+          "vulnerabilityName": "tj-actions/changed-files GitHub Action Embedded Malicious Code Vulnerability",
+          "requiredAction": "Apply mitigations as set forth in the CISA instructions linked below. Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2025-04-08",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "This vulnerability affects a common open-source project, third-party library, or a protocol used by different products. For more information, please see: CISA Mitigation Instructions: https://www.cisa.gov/news-events/alerts/2025/03/18/supply-chain-compromise-third-party-tj-actionschanged-files-cve-2025-30066-and-reviewdogaction ; Additional References: https://github.com/tj-actions/changed-files/blob/45fb12d7a8bedb4da42342e52fe054c6c2c3fd73/README.md?plain=1#L20-L28 ; https://nvd.nist.gov/vuln/detail/CVE-2025-30066"
+        }
       }
     },
     {
@@ -212,7 +281,8 @@
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-284"
+          "CWE-284",
+          "TOP-5-PERCENT-EPSS"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -227,6 +297,15 @@
             "lastModified": "2025-09-09T23:47:06.036000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "epss_percentile": {
+          "percentile": 98.872,
+          "rank": "Top 5%",
+          "is_top_1_percent": false,
+          "is_top_5_percent": true,
+          "is_top_10_percent": true
+        }
       }
     },
     {
@@ -249,7 +328,7 @@
         "percentile": 98.301
       },
       "riskScore": 61,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -269,12 +348,29 @@
           "tags": [
             "vendor-advisory"
           ]
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-94"
+          "CWE-94",
+          "TOP-5-PERCENT-EPSS",
+          "CISA-KEV",
+          "RANSOMWARE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -289,6 +385,24 @@
             "lastModified": "2025-08-23T00:40:27.115000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "epss_percentile": {
+          "percentile": 98.301,
+          "rank": "Top 5%",
+          "is_top_1_percent": false,
+          "is_top_5_percent": true,
+          "is_top_10_percent": true
+        },
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2025-07-22",
+          "vulnerabilityName": "Microsoft SharePoint Code Injection Vulnerability",
+          "requiredAction": "Disconnect public-facing versions of SharePoint Server that have reached their end-of-life (EOL) or end-of-service (EOS) to include SharePoint Server 2013 and earlier versions. For supported versions, please follow the mitigations according to CISA (URL listed below in Notes) and vendor instructions (URL listed below in Notes). Adhere to the applicable BOD 22-01 guidance for cloud services or discontinue use of the product if mitigations are not available.",
+          "dueDate": "2025-07-23",
+          "knownRansomwareCampaignUse": "Known",
+          "notes": "CISA Mitigation Instructions: https://www.cisa.gov/news-events/alerts/2025/07/20/microsoft-releases-guidance-exploitation-sharepoint-vulnerability-cve-2025-53770; https://www.microsoft.com/en-us/security/blog/2025/07/22/disrupting-active-exploitation-of-on-premises-sharepoint-vulnerabilities/ ; https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49704 ; https://nvd.nist.gov/vuln/detail/CVE-2025-49704"
+        }
       }
     },
     {
@@ -344,7 +458,8 @@
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-434"
+          "CWE-434",
+          "TOP-1-PERCENT-EPSS"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -359,6 +474,15 @@
             "lastModified": "2025-07-22T13:08:26.043000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "epss_percentile": {
+          "percentile": 99.079,
+          "rank": "Top 1%",
+          "is_top_1_percent": true,
+          "is_top_5_percent": true,
+          "is_top_10_percent": true
+        }
       }
     },
     {
@@ -414,7 +538,8 @@
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-23"
+          "CWE-23",
+          "TOP-1-PERCENT-EPSS"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -429,6 +554,15 @@
             "lastModified": "2025-06-26T19:26:12.608000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "epss_percentile": {
+          "percentile": 99.162,
+          "rank": "Top 1%",
+          "is_top_1_percent": true,
+          "is_top_5_percent": true,
+          "is_top_10_percent": true
+        }
       }
     },
     {
@@ -490,7 +624,8 @@
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-22"
+          "CWE-22",
+          "TOP-1-PERCENT-EPSS"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -505,6 +640,15 @@
             "lastModified": "2025-01-07T16:16:17.325000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "epss_percentile": {
+          "percentile": 99.711,
+          "rank": "Top 1%",
+          "is_top_1_percent": true,
+          "is_top_5_percent": true,
+          "is_top_10_percent": true
+        }
       }
     },
     {
@@ -548,7 +692,8 @@
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-149"
+          "CWE-149",
+          "TOP-5-PERCENT-EPSS"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -563,6 +708,15 @@
             "lastModified": "2025-03-14T03:55:17.849000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "epss_percentile": {
+          "percentile": 98.948,
+          "rank": "Top 5%",
+          "is_top_1_percent": false,
+          "is_top_5_percent": true,
+          "is_top_10_percent": true
+        }
       }
     },
     {
@@ -585,7 +739,7 @@
         "percentile": 99.881
       },
       "riskScore": 59,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -605,12 +759,28 @@
           "url": "https://helpcenter.nakivo.com/Release-Notes/Content/Release-Notes.htm",
           "source": "",
           "tags": []
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-36"
+          "CWE-36",
+          "TOP-1-PERCENT-EPSS",
+          "CISA-KEV"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -625,6 +795,24 @@
             "lastModified": "2025-07-30T01:36:18.985000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "epss_percentile": {
+          "percentile": 99.881,
+          "rank": "Top 1%",
+          "is_top_1_percent": true,
+          "is_top_5_percent": true,
+          "is_top_10_percent": true
+        },
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2025-03-19",
+          "vulnerabilityName": "NAKIVO Backup and Replication Absolute Path Traversal Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2025-04-09",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "https://helpcenter.nakivo.com/Release-Notes/Content/Release-Notes.htm ; https://nvd.nist.gov/vuln/detail/CVE-2024-48248"
+        }
       }
     },
     {
@@ -647,7 +835,7 @@
         "percentile": 98.247
       },
       "riskScore": 58,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -675,13 +863,17 @@
         {
           "url": "https://www.exploit-db.com/exploits/52335",
           "source": "",
-          "tags": []
+          "tags": [],
+          "category": "exploit",
+          "icon": "\ud83d\udd25"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-1336"
+          "CWE-1336",
+          "EXPLOIT-AVAILABLE",
+          "TOP-5-PERCENT-EPSS"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -696,6 +888,26 @@
             "lastModified": "2025-06-17T21:01:16.030000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Exploit-DB",
+              "url": "https://www.exploit-db.com/exploits/52335",
+              "icon": "\ud83d\udca3"
+            }
+          ],
+          "exploit_count": 1
+        },
+        "epss_percentile": {
+          "percentile": 98.247,
+          "rank": "Top 5%",
+          "is_top_1_percent": false,
+          "is_top_5_percent": true,
+          "is_top_10_percent": true
+        }
       }
     },
     {
@@ -750,7 +962,8 @@
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-697"
+          "CWE-697",
+          "TOP-1-PERCENT-EPSS"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -765,6 +978,15 @@
             "lastModified": "2025-04-10T13:10:32.671000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "epss_percentile": {
+          "percentile": 99.323,
+          "rank": "Top 1%",
+          "is_top_1_percent": true,
+          "is_top_5_percent": true,
+          "is_top_10_percent": true
+        }
       }
     },
     {
@@ -787,7 +1009,7 @@
         "percentile": 98.881
       },
       "riskScore": 58,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -806,13 +1028,17 @@
         {
           "url": "https://raw.githubusercontent.com/rapid7/metasploit-framework/master/modules/auxiliary/scanner/http/netalertx_file_read.rb",
           "source": "",
-          "tags": []
+          "tags": [],
+          "category": "exploit",
+          "icon": "\ud83d\udd25"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-698"
+          "CWE-698",
+          "EXPLOIT-AVAILABLE",
+          "TOP-5-PERCENT-EPSS"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -827,6 +1053,26 @@
             "lastModified": "2025-05-13T19:53:28.974000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Metasploit",
+              "url": "https://raw.githubusercontent.com/rapid7/metasploit-framework/master/modules/auxiliary/scanner/http/netalertx_file_read.rb",
+              "icon": "\ud83d\udd2b"
+            }
+          ],
+          "exploit_count": 1
+        },
+        "epss_percentile": {
+          "percentile": 98.881,
+          "rank": "Top 5%",
+          "is_top_1_percent": false,
+          "is_top_5_percent": true,
+          "is_top_10_percent": true
+        }
       }
     },
     {
@@ -869,7 +1115,8 @@
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-113"
+          "CWE-113",
+          "TOP-1-PERCENT-EPSS"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -884,6 +1131,15 @@
             "lastModified": "2025-02-12T20:41:37.262000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "epss_percentile": {
+          "percentile": 99.373,
+          "rank": "Top 1%",
+          "is_top_1_percent": true,
+          "is_top_5_percent": true,
+          "is_top_10_percent": true
+        }
       }
     },
     {
@@ -951,7 +1207,8 @@
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-416"
+          "CWE-416",
+          "TOP-5-PERCENT-EPSS"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -966,6 +1223,15 @@
             "lastModified": "2025-03-19T20:14:35.152000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "epss_percentile": {
+          "percentile": 98.316,
+          "rank": "Top 5%",
+          "is_top_1_percent": false,
+          "is_top_5_percent": true,
+          "is_top_10_percent": true
+        }
       }
     },
     {
@@ -1038,7 +1304,8 @@
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-89"
+          "CWE-89",
+          "TOP-5-PERCENT-EPSS"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -1053,6 +1320,15 @@
             "lastModified": "2025-02-22T00:09:59.316000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "epss_percentile": {
+          "percentile": 98.469,
+          "rank": "Top 5%",
+          "is_top_1_percent": false,
+          "is_top_5_percent": true,
+          "is_top_10_percent": true
+        }
       }
     },
     {
@@ -1075,7 +1351,7 @@
         "percentile": 98.479
       },
       "riskScore": 52,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -1092,11 +1368,28 @@
           "tags": [
             "x_refsource_CONFIRM"
           ]
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
-        "tags": [],
+        "tags": [
+          "TOP-5-PERCENT-EPSS",
+          "CISA-KEV"
+        ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
         "attackVector": "Network",
@@ -1110,6 +1403,24 @@
             "lastModified": "2025-07-30T01:36:18.147000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "epss_percentile": {
+          "percentile": 98.479,
+          "rank": "Top 5%",
+          "is_top_1_percent": false,
+          "is_top_5_percent": true,
+          "is_top_10_percent": true
+        },
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2025-05-06",
+          "vulnerabilityName": "FreeType Out-of-Bounds Write Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2025-05-27",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "This vulnerability affects a common open-source component, third-party library, or a protocol used by different products. Please check with specific vendors for information on patching status. For more information, please see: https://source.android.com/docs/security/bulletin/2025-05-01 ; https://nvd.nist.gov/vuln/detail/CVE-2025-27363"
+        }
       }
     },
     {
@@ -1154,7 +1465,8 @@
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-22"
+          "CWE-22",
+          "TOP-5-PERCENT-EPSS"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -1169,6 +1481,15 @@
             "lastModified": "2025-03-14T13:41:13.356000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "epss_percentile": {
+          "percentile": 98.547,
+          "rank": "Top 5%",
+          "is_top_1_percent": false,
+          "is_top_5_percent": true,
+          "is_top_10_percent": true
+        }
       }
     },
     {
@@ -1213,7 +1534,8 @@
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-89"
+          "CWE-89",
+          "TOP-5-PERCENT-EPSS"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -1228,6 +1550,15 @@
             "lastModified": "2025-03-18T18:53:35.088000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "epss_percentile": {
+          "percentile": 98.313,
+          "rank": "Top 5%",
+          "is_top_1_percent": false,
+          "is_top_5_percent": true,
+          "is_top_10_percent": true
+        }
       }
     }
   ]
