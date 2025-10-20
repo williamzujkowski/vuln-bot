@@ -81,6 +81,9 @@ class AlpineDashboardGenerator:
                 vuln["exploitationStatus"] = vuln_data.get("exploitationStatus", "")
                 vuln["enrichments"] = vuln_data.get("enrichments", {})
 
+                # Add SSVC data
+                vuln["ssvc"] = vuln_data.get("ssvc", {})
+
                 # Format published date
                 if vuln["published_date"]:
                     vuln["published_short"] = str(vuln["published_date"])[:10]
@@ -841,6 +844,37 @@ class AlpineDashboardGenerator:
             border: 2px solid rgba(16, 185, 129, 0.5);
         __CLOSE_BRACE__
 
+        /* SSVC Badges */
+        .ssvc-badge __OPEN_BRACE__
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.375rem 0.875rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.025em;
+        __CLOSE_BRACE__
+
+        .ssvc-act __OPEN_BRACE__
+            background: rgba(220, 38, 38, 0.15);
+            color: #dc2626;
+            border: 1px solid rgba(220, 38, 38, 0.3);
+        __CLOSE_BRACE__
+
+        .ssvc-attend __OPEN_BRACE__
+            background: rgba(245, 158, 11, 0.15);
+            color: #f59e0b;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        __CLOSE_BRACE__
+
+        .ssvc-track __OPEN_BRACE__
+            background: rgba(59, 130, 246, 0.15);
+            color: #3b82f6;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        __CLOSE_BRACE__
+
         /* Row highlighting for critical priorities */
         tbody tr.critical-urgent __OPEN_BRACE__
             background: rgba(220, 38, 38, 0.05);
@@ -1508,6 +1542,26 @@ class AlpineDashboardGenerator:
                             <label>Vendor</label>
                             <input type="text" x-model="filters.vendor" placeholder="e.g., Microsoft">
                         </div>
+
+                        <div class="filter-group">
+                            <label>SSVC Priority</label>
+                            <select x-model="filters.ssvc_priority">
+                                <option value="">All</option>
+                                <option value="ACT">ACT</option>
+                                <option value="ATTEND">ATTEND</option>
+                                <option value="TRACK">TRACK</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-group">
+                            <label>Exploitability Profile</label>
+                            <select x-model="filters.ssvc_exploitation">
+                                <option value="">All</option>
+                                <option value="active">Active</option>
+                                <option value="poc">PoC</option>
+                                <option value="none">None</option>
+                            </select>
+                        </div>
                     </div>
 
                     <div style="display: flex; gap: 1rem; margin-top: 1rem;">
@@ -1554,6 +1608,9 @@ class AlpineDashboardGenerator:
                                 <th @click="sort('triage_priority')" style="cursor: pointer;">
                                     Priority <span x-show="sortField === 'triage_priority'" x-text="sortOrder === 'asc' ? '↑' : '↓'"></span>
                                 </th>
+                                <th @click="sort('ssvc_priority')" style="cursor: pointer;">
+                                    SSVC Priority <span x-show="sortField === 'ssvc_priority'" x-text="sortOrder === 'asc' ? '↑' : '↓'"></span>
+                                </th>
                                 <th @click="sort('severity')" style="cursor: pointer;">
                                     Severity <span x-show="sortField === 'severity'" x-text="sortOrder === 'asc' ? '↑' : '↓'"></span>
                                 </th>
@@ -1592,6 +1649,18 @@ class AlpineDashboardGenerator:
                                             <span x-show="vuln.triage_priority === 'MONITOR'">🟢</span>
                                             <span x-text="vuln.triage_priority.replace('-', ' ')"></span>
                                         </span>
+                                    </td>
+                                    <td>
+                                        <span x-show="vuln.ssvc?.priorityTier"
+                                              class="ssvc-badge"
+                                              :class="`ssvc-${vuln.ssvc?.priorityTier?.toLowerCase()}`"
+                                              :title="vuln.ssvc?.compactNotation || ''">
+                                            <span x-show="vuln.ssvc?.priorityTier === 'ACT'">🔴</span>
+                                            <span x-show="vuln.ssvc?.priorityTier === 'ATTEND'">🟠</span>
+                                            <span x-show="vuln.ssvc?.priorityTier === 'TRACK'">🔵</span>
+                                            <span x-text="vuln.ssvc?.priorityTier"></span>
+                                        </span>
+                                        <span x-show="!vuln.ssvc?.priorityTier" style="color: var(--text-muted);">—</span>
                                     </td>
                                     <td>
                                         <div style="display: flex; align-items: center; gap: 0.5rem;">
@@ -1638,9 +1707,18 @@ class AlpineDashboardGenerator:
                                     </div>
                                 </div>
 
-                                <!-- Badges: Severity + Exploit Status -->
+                                <!-- Badges: Severity + SSVC + Exploit Status -->
                                 <div class="card-badges">
                                     <span class="severity-badge" :class="`severity-${vuln.severity.toLowerCase()}`" x-text="vuln.severity"></span>
+                                    <span x-show="vuln.ssvc?.priorityTier"
+                                          class="ssvc-badge"
+                                          :class="`ssvc-${vuln.ssvc?.priorityTier?.toLowerCase()}`"
+                                          style="font-size: 0.7rem; padding: 0.25rem 0.625rem;">
+                                        <span x-show="vuln.ssvc?.priorityTier === 'ACT'">🔴</span>
+                                        <span x-show="vuln.ssvc?.priorityTier === 'ATTEND'">🟠</span>
+                                        <span x-show="vuln.ssvc?.priorityTier === 'TRACK'">🔵</span>
+                                        <span x-text="vuln.ssvc?.priorityTier"></span>
+                                    </span>
                                     <span x-show="vuln.kev_status" class="exploit-badge">
                                         🔴 KEV
                                     </span>
@@ -1726,7 +1804,9 @@ class AlpineDashboardGenerator:
                     attack_complexity: '',
                     published_from: '',
                     published_to: '',
-                    vendor: ''
+                    vendor: '',
+                    ssvc_priority: '',
+                    ssvc_exploitation: ''
                 __CLOSE_BRACE__,
 
                 // Initialization
@@ -1815,6 +1895,15 @@ class AlpineDashboardGenerator:
                         );
                     __CLOSE_BRACE__
 
+                    // SSVC filters
+                    if (this.filters.ssvc_priority) __OPEN_BRACE__
+                        vulns = vulns.filter(v => v.ssvc?.priorityTier === this.filters.ssvc_priority);
+                    __CLOSE_BRACE__
+
+                    if (this.filters.ssvc_exploitation) __OPEN_BRACE__
+                        vulns = vulns.filter(v => v.ssvc?.exploitation === this.filters.ssvc_exploitation);
+                    __CLOSE_BRACE__
+
                     // Sorting
                     vulns.sort((a, b) => __OPEN_BRACE__
                         let aVal = a[this.sortField];
@@ -1829,6 +1918,10 @@ class AlpineDashboardGenerator:
                             const priorityOrder = { 'CRITICAL-URGENT': 3, 'HIGH-PRIORITY': 2, 'MONITOR': 1 __CLOSE_BRACE__;
                             aVal = priorityOrder[aVal] || 0;
                             bVal = priorityOrder[bVal] || 0;
+                        __CLOSE_BRACE__ else if (this.sortField === 'ssvc_priority') __OPEN_BRACE__
+                            const ssvcOrder = { 'ACT': 3, 'ATTEND': 2, 'TRACK': 1 __CLOSE_BRACE__;
+                            aVal = ssvcOrder[a.ssvc?.priorityTier] || 0;
+                            bVal = ssvcOrder[b.ssvc?.priorityTier] || 0;
                         __CLOSE_BRACE__
 
                         if (aVal < bVal) return this.sortOrder === 'asc' ? -1 : 1;
@@ -1894,14 +1987,16 @@ class AlpineDashboardGenerator:
                         attack_complexity: '',
                         published_from: '',
                         published_to: '',
-                        vendor: ''
+                        vendor: '',
+                        ssvc_priority: '',
+                        ssvc_exploitation: ''
                     __CLOSE_BRACE__;
                     this.currentPage = 1;
                 __CLOSE_BRACE__,
 
 
                 exportCSV() __OPEN_BRACE__
-                    const headers = ['CVE ID', 'Severity', 'CVSS', 'EPSS %', 'Risk Score', 'Product', 'Vendors', 'Published'];
+                    const headers = ['CVE ID', 'Severity', 'CVSS', 'EPSS %', 'Risk Score', 'SSVC Priority', 'SSVC Profile', 'Product', 'Vendors', 'Published'];
                     const csvContent = [
                         headers.join(','),
                         ...this.filteredVulns.map(v => [
@@ -1910,6 +2005,8 @@ class AlpineDashboardGenerator:
                             v.cvss_score,
                             v.epss_percentile,
                             v.risk_score,
+                            v.ssvc?.priorityTier || '',
+                            v.ssvc?.compactNotation || '',
                             `"${v.products.replace(/"/g, '""')}"`,
                             `"${v.vendors.join(', ')}"`,
                             v.published_short
