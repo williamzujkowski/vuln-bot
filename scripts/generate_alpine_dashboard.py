@@ -2598,8 +2598,10 @@ class AlpineDashboardGenerator:
 
 def main():
     """Main function"""
-    # Prefer JSON API over SQLite database (use src/api where briefing generator writes)
-    JSON_API_PATH = Path("src/api/vulns/index.json")
+    # Prefer JSON API over SQLite database (use api/vulns which has FILTERED data)
+    # CRITICAL: This path must point to the FILTERED vulnerabilities (EPSS ≥60%)
+    # NOT src/api/vulns/index.json which contains ALL harvested CVEs
+    JSON_API_PATH = Path("api/vulns/index.json")
 
     if JSON_API_PATH.exists():
         print(f"Using JSON API data from {JSON_API_PATH}")

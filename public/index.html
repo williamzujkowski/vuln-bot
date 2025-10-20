@@ -349,6 +349,37 @@
             border: 2px solid rgba(16, 185, 129, 0.5);
         }
 
+        /* SSVC Badges */
+        .ssvc-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.375rem 0.875rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.025em;
+        }
+
+        .ssvc-act {
+            background: rgba(220, 38, 38, 0.15);
+            color: #dc2626;
+            border: 1px solid rgba(220, 38, 38, 0.3);
+        }
+
+        .ssvc-attend {
+            background: rgba(245, 158, 11, 0.15);
+            color: #f59e0b;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        .ssvc-track {
+            background: rgba(59, 130, 246, 0.15);
+            color: #3b82f6;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
         /* Row highlighting for critical priorities */
         tbody tr.critical-urgent {
             background: rgba(220, 38, 38, 0.05);
@@ -1016,6 +1047,26 @@
                             <label>Vendor</label>
                             <input type="text" x-model="filters.vendor" placeholder="e.g., Microsoft">
                         </div>
+
+                        <div class="filter-group">
+                            <label>SSVC Priority</label>
+                            <select x-model="filters.ssvc_priority">
+                                <option value="">All</option>
+                                <option value="ACT">ACT</option>
+                                <option value="ATTEND">ATTEND</option>
+                                <option value="TRACK">TRACK</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-group">
+                            <label>Exploitability Profile</label>
+                            <select x-model="filters.ssvc_exploitation">
+                                <option value="">All</option>
+                                <option value="active">Active</option>
+                                <option value="poc">PoC</option>
+                                <option value="none">None</option>
+                            </select>
+                        </div>
                     </div>
 
                     <div style="display: flex; gap: 1rem; margin-top: 1rem;">
@@ -1062,6 +1113,9 @@
                                 <th @click="sort('triage_priority')" style="cursor: pointer;">
                                     Priority <span x-show="sortField === 'triage_priority'" x-text="sortOrder === 'asc' ? '↑' : '↓'"></span>
                                 </th>
+                                <th @click="sort('ssvc_priority')" style="cursor: pointer;">
+                                    SSVC Priority <span x-show="sortField === 'ssvc_priority'" x-text="sortOrder === 'asc' ? '↑' : '↓'"></span>
+                                </th>
                                 <th @click="sort('severity')" style="cursor: pointer;">
                                     Severity <span x-show="sortField === 'severity'" x-text="sortOrder === 'asc' ? '↑' : '↓'"></span>
                                 </th>
@@ -1100,6 +1154,18 @@
                                             <span x-show="vuln.triage_priority === 'MONITOR'">🟢</span>
                                             <span x-text="vuln.triage_priority.replace('-', ' ')"></span>
                                         </span>
+                                    </td>
+                                    <td>
+                                        <span x-show="vuln.ssvc?.priorityTier"
+                                              class="ssvc-badge"
+                                              :class="`ssvc-${vuln.ssvc?.priorityTier?.toLowerCase()}`"
+                                              :title="vuln.ssvc?.compactNotation || ''">
+                                            <span x-show="vuln.ssvc?.priorityTier === 'ACT'">🔴</span>
+                                            <span x-show="vuln.ssvc?.priorityTier === 'ATTEND'">🟠</span>
+                                            <span x-show="vuln.ssvc?.priorityTier === 'TRACK'">🔵</span>
+                                            <span x-text="vuln.ssvc?.priorityTier"></span>
+                                        </span>
+                                        <span x-show="!vuln.ssvc?.priorityTier" style="color: var(--text-muted);">—</span>
                                     </td>
                                     <td>
                                         <div style="display: flex; align-items: center; gap: 0.5rem;">
@@ -1146,9 +1212,18 @@
                                     </div>
                                 </div>
 
-                                <!-- Badges: Severity + Exploit Status -->
+                                <!-- Badges: Severity + SSVC + Exploit Status -->
                                 <div class="card-badges">
                                     <span class="severity-badge" :class="`severity-${vuln.severity.toLowerCase()}`" x-text="vuln.severity"></span>
+                                    <span x-show="vuln.ssvc?.priorityTier"
+                                          class="ssvc-badge"
+                                          :class="`ssvc-${vuln.ssvc?.priorityTier?.toLowerCase()}`"
+                                          style="font-size: 0.7rem; padding: 0.25rem 0.625rem;">
+                                        <span x-show="vuln.ssvc?.priorityTier === 'ACT'">🔴</span>
+                                        <span x-show="vuln.ssvc?.priorityTier === 'ATTEND'">🟠</span>
+                                        <span x-show="vuln.ssvc?.priorityTier === 'TRACK'">🔵</span>
+                                        <span x-text="vuln.ssvc?.priorityTier"></span>
+                                    </span>
                                     <span x-show="vuln.kev_status" class="exploit-badge">
                                         🔴 KEV
                                     </span>
@@ -1242,7 +1317,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "databases"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-29895",
@@ -1280,7 +1356,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "containers-k8s"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-32640",
@@ -1314,7 +1391,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2025-53770",
@@ -1351,7 +1429,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "windows"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2025-47812",
@@ -1387,7 +1466,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-4577",
@@ -1423,7 +1503,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-21413",
@@ -1459,7 +1540,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "windows"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-1071",
@@ -1495,7 +1577,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-31982",
@@ -1531,7 +1614,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-20419",
@@ -1565,7 +1649,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "network-gear"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-22320",
@@ -1599,7 +1684,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-10924",
@@ -1637,7 +1723,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2025-1974",
@@ -1674,7 +1761,8 @@
     "tech_categories": [
       "web-servers",
       "containers-k8s"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2025-49113",
@@ -1708,7 +1796,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-55591",
@@ -1746,7 +1835,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "network-gear"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-21762",
@@ -1782,7 +1872,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "network-gear"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-4040",
@@ -1817,7 +1908,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-1709",
@@ -1851,7 +1943,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-8353",
@@ -1888,7 +1981,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-47575",
@@ -1924,7 +2018,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "network-gear"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-36401",
@@ -1959,7 +2054,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-2876",
@@ -1995,7 +2091,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-25600",
@@ -2032,7 +2129,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-38063",
@@ -2068,7 +2166,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "windows"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-3495",
@@ -2104,7 +2203,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-5932",
@@ -2141,7 +2241,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2025-24893",
@@ -2175,7 +2276,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2025-1661",
@@ -2213,7 +2315,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2025-47916",
@@ -2248,7 +2351,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-11680",
@@ -2282,7 +2386,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-4443",
@@ -2318,7 +2423,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-32651",
@@ -2353,7 +2459,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-1212",
@@ -2387,7 +2494,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-1698",
@@ -2423,7 +2531,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-8856",
@@ -2460,7 +2569,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-49112",
@@ -2496,7 +2606,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "windows"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-20439",
@@ -2530,7 +2641,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "network-gear"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-46986",
@@ -2565,7 +2677,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-36404",
@@ -2599,7 +2712,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-45519",
@@ -2631,7 +2745,8 @@
     "patch_status": "Available",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-51567",
@@ -2663,7 +2778,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-51378",
@@ -2695,7 +2811,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-23108",
@@ -2731,7 +2848,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "network-gear"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-38077",
@@ -2767,7 +2885,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "windows"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-3400",
@@ -2804,7 +2923,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "network-gear"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-9234",
@@ -2841,7 +2961,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2025-32432",
@@ -2875,7 +2996,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2025-29927",
@@ -2910,7 +3032,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-24576",
@@ -2945,7 +3068,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-4295",
@@ -2981,7 +3105,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-48914",
@@ -3018,7 +3143,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-0204",
@@ -3052,7 +3178,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-1512",
@@ -3088,7 +3215,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-8517",
@@ -3123,7 +3251,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-8522",
@@ -3161,7 +3290,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-27956",
@@ -3198,7 +3328,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-31848",
@@ -3234,7 +3365,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-7332",
@@ -3268,7 +3400,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-2879",
@@ -3304,7 +3437,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-50603",
@@ -3338,7 +3472,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-51568",
@@ -3370,7 +3505,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-23692",
@@ -3405,7 +3541,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-3272",
@@ -3439,7 +3576,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-3922",
@@ -3475,7 +3613,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-9047",
@@ -3513,7 +3652,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-9707",
@@ -3550,7 +3690,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-9989",
@@ -3587,7 +3728,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-5084",
@@ -3622,7 +3764,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2025-3248",
@@ -3656,7 +3799,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-21650",
@@ -3690,7 +3834,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-4434",
@@ -3726,7 +3871,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-4358",
@@ -3761,7 +3907,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-4879",
@@ -3795,7 +3942,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-43468",
@@ -3831,7 +3979,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "windows"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-8275",
@@ -3869,7 +4018,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-27198",
@@ -3901,7 +4051,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-6028",
@@ -3937,7 +4088,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-6386",
@@ -3975,7 +4127,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-34351",
@@ -4011,7 +4164,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-7954",
@@ -4046,7 +4200,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-28255",
@@ -4080,7 +4235,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-2389",
@@ -4114,7 +4270,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-25641",
@@ -4150,7 +4307,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-50498",
@@ -4187,7 +4345,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-44000",
@@ -4224,7 +4383,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-12209",
@@ -4262,7 +4422,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-12356",
@@ -4296,7 +4457,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-3094",
@@ -4332,7 +4494,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "linux"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-9014",
@@ -4365,7 +4528,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-5217",
@@ -4399,7 +4563,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2025-24016",
@@ -4433,7 +4598,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2025-21298",
@@ -4469,7 +4635,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "windows"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2025-48827",
@@ -4504,7 +4671,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2025-27007",
@@ -4541,7 +4709,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2025-31161",
@@ -4577,7 +4746,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2025-30066",
@@ -4611,7 +4781,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-21412",
@@ -4647,7 +4818,8 @@
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "windows"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-4885",
@@ -4681,7 +4853,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-4898",
@@ -4716,7 +4889,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-31849",
@@ -4751,7 +4925,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-29972",
@@ -4785,7 +4960,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-29202",
@@ -4821,7 +4997,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-29973",
@@ -4855,7 +5032,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-13159",
@@ -4889,7 +5067,8 @@
     "patch_status": "Available",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-36412",
@@ -4923,7 +5102,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-6782",
@@ -4957,7 +5137,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-6670",
@@ -4991,7 +5172,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-34102",
@@ -5025,7 +5207,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-7094",
@@ -5063,7 +5246,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-7854",
@@ -5101,7 +5285,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-7593",
@@ -5136,7 +5321,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-28253",
@@ -5170,7 +5356,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-28000",
@@ -5207,7 +5394,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-39914",
@@ -5241,7 +5429,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-39943",
@@ -5275,7 +5464,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-2044",
@@ -5308,7 +5498,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-2667",
@@ -5343,7 +5534,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-22319",
@@ -5377,7 +5569,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-10571",
@@ -5415,7 +5608,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-10124",
@@ -5452,7 +5646,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-23917",
@@ -5484,7 +5679,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-38144",
@@ -5520,7 +5716,8 @@
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "windows"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-9932",
@@ -5557,7 +5754,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-9264",
@@ -5591,7 +5789,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-5276",
@@ -5627,7 +5826,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2025-21293",
@@ -5663,7 +5863,8 @@
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "windows"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2025-49704",
@@ -5699,7 +5900,8 @@
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "windows"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-4883",
@@ -5735,7 +5937,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-4323",
@@ -5770,7 +5973,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-32709",
@@ -5807,7 +6011,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-1207",
@@ -5843,7 +6048,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-1651",
@@ -5878,7 +6084,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-8963",
@@ -5912,7 +6119,8 @@
     "patch_status": "Available",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-27954",
@@ -5949,7 +6157,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-29059",
@@ -5986,7 +6195,8 @@
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "windows"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-13161",
@@ -6020,7 +6230,8 @@
     "patch_status": "Available",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-13160",
@@ -6054,7 +6265,8 @@
     "patch_status": "Available",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-20953",
@@ -6088,7 +6300,8 @@
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "databases"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-46506",
@@ -6122,7 +6335,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-33610",
@@ -6157,7 +6371,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-7314",
@@ -6192,7 +6407,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-28987",
@@ -6226,7 +6442,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-39907",
@@ -6263,7 +6480,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "linux"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-58136",
@@ -6297,7 +6515,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-22263",
@@ -6333,7 +6552,8 @@
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "containers-k8s"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-42327",
@@ -6367,7 +6587,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-38112",
@@ -6403,7 +6624,8 @@
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "windows"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-37084",
@@ -6437,7 +6659,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2025-0282",
@@ -6471,7 +6694,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2025-1316",
@@ -6505,7 +6729,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2025-27520",
@@ -6540,7 +6765,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2025-34511",
@@ -6575,7 +6801,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2025-34510",
@@ -6609,7 +6836,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2025-10035",
@@ -6644,7 +6872,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-11613",
@@ -6682,7 +6911,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-24759",
@@ -6717,7 +6947,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-32002",
@@ -6752,7 +6983,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-43532",
@@ -6788,7 +7020,8 @@
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "windows"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-43917",
@@ -6825,7 +7058,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-43160",
@@ -6862,7 +7096,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-1800",
@@ -6897,7 +7132,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-8529",
@@ -6935,7 +7171,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-31984",
@@ -6969,7 +7206,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-47076",
@@ -7004,7 +7242,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-29201",
@@ -7040,7 +7279,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-49138",
@@ -7076,7 +7316,8 @@
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "windows"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-20931",
@@ -7111,7 +7352,8 @@
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "databases"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-7029",
@@ -7145,7 +7387,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-22120",
@@ -7179,7 +7422,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-25153",
@@ -7213,7 +7457,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-50477",
@@ -7250,7 +7495,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-10915",
@@ -7286,7 +7532,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-10914",
@@ -7322,7 +7569,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-10542",
@@ -7359,7 +7607,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-12847",
@@ -7396,7 +7645,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "network-gear"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-12849",
@@ -7434,7 +7684,8 @@
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-26026",
@@ -7468,7 +7719,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-5806",
@@ -7502,7 +7754,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2025-32433",
@@ -7537,7 +7790,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2025-1094",
@@ -7574,7 +7828,8 @@
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "databases"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2025-30406",
@@ -7609,7 +7864,8 @@
     "patch_status": "Available",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-24809",
@@ -7645,7 +7901,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-24919",
@@ -7679,7 +7936,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-21182",
@@ -7714,7 +7972,8 @@
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "databases"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-21793",
@@ -7748,7 +8007,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-21006",
@@ -7783,7 +8043,8 @@
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "databases"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-4439",
@@ -7818,7 +8079,8 @@
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-48248",
@@ -7852,7 +8114,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-32735",
@@ -7884,7 +8147,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-0200",
@@ -7919,7 +8183,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-43360",
@@ -7953,7 +8218,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-1086",
@@ -7989,7 +8255,8 @@
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "linux"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-8956",
@@ -8023,7 +8290,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-31850",
@@ -8058,7 +8326,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-31997",
@@ -8092,7 +8361,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-49113",
@@ -8128,7 +8398,8 @@
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "windows"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-6047",
@@ -8162,7 +8433,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-7340",
@@ -8197,7 +8469,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-7856",
@@ -8234,7 +8507,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-28995",
@@ -8268,7 +8542,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-52433",
@@ -8305,7 +8580,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-45388",
@@ -8340,7 +8616,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-10516",
@@ -8378,7 +8655,8 @@
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-26229",
@@ -8414,7 +8692,8 @@
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "windows"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-3656",
@@ -8448,7 +8727,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-3273",
@@ -8482,7 +8762,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2025-24865",
@@ -8516,7 +8797,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2025-48828",
@@ -8551,7 +8833,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2025-49619",
@@ -8587,7 +8870,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2025-23061",
@@ -8621,7 +8905,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2025-3102",
@@ -8658,7 +8943,8 @@
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-55877",
@@ -8692,7 +8978,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-21338",
@@ -8728,7 +9015,8 @@
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "windows"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-48766",
@@ -8762,7 +9050,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-0352",
@@ -8797,7 +9086,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-0692",
@@ -8831,7 +9121,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-8698",
@@ -8865,7 +9156,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-31851",
@@ -8900,7 +9192,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-30088",
@@ -8936,7 +9229,8 @@
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "windows"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-29988",
@@ -8972,7 +9266,8 @@
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "windows"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-49668",
@@ -9010,7 +9305,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-6127",
@@ -9045,7 +9341,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-28848",
@@ -9079,7 +9376,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-28185",
@@ -9114,7 +9412,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-52875",
@@ -9148,7 +9447,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-10400",
@@ -9186,7 +9486,8 @@
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-10443",
@@ -9220,7 +9521,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-51788",
@@ -9258,7 +9560,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-26304",
@@ -9290,7 +9593,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-38094",
@@ -9326,7 +9630,8 @@
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "windows"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-3116",
@@ -9359,7 +9664,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-9935",
@@ -9397,7 +9703,8 @@
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-9593",
@@ -9435,7 +9742,8 @@
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-9290",
@@ -9472,7 +9780,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-21683",
@@ -9505,7 +9814,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-21287",
@@ -9540,7 +9850,8 @@
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "databases"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-32700",
@@ -9577,7 +9888,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-43425",
@@ -9609,7 +9921,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-1061",
@@ -9645,7 +9958,8 @@
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-27292",
@@ -9679,7 +9993,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-49653",
@@ -9717,7 +10032,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-20440",
@@ -9751,7 +10067,8 @@
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "network-gear"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-36991",
@@ -9783,7 +10100,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-6781",
@@ -9817,7 +10135,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-28075",
@@ -9851,7 +10170,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-22476",
@@ -9885,7 +10205,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-9933",
@@ -9922,7 +10243,8 @@
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2025-2945",
@@ -9954,7 +10276,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2025-22457",
@@ -9988,7 +10311,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2025-5086",
@@ -10022,7 +10346,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-11120",
@@ -10056,7 +10381,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "CRITICAL-URGENT",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-21512",
@@ -10090,7 +10416,8 @@
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "databases"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-4956",
@@ -10124,7 +10451,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-32030",
@@ -10159,7 +10487,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-43464",
@@ -10196,7 +10525,8 @@
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "windows"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-27199",
@@ -10228,7 +10558,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-20767",
@@ -10264,7 +10595,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-46981",
@@ -10301,7 +10633,8 @@
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "databases"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-6409",
@@ -10338,7 +10671,8 @@
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "linux"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-12987",
@@ -10373,7 +10707,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-54385",
@@ -10411,7 +10746,8 @@
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-38816",
@@ -10443,7 +10779,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-9061",
@@ -10480,7 +10817,8 @@
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-5246",
@@ -10516,7 +10854,8 @@
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "network-gear"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-21644",
@@ -10550,7 +10889,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-8190",
@@ -10584,7 +10924,8 @@
     "patch_status": "Available",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-8484",
@@ -10622,7 +10963,8 @@
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-36117",
@@ -10656,7 +10998,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-7188",
@@ -10690,7 +11033,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-50340",
@@ -10725,7 +11069,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-38193",
@@ -10761,7 +11106,8 @@
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "windows"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2025-26794",
@@ -10795,7 +11141,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-24590",
@@ -10829,7 +11176,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-25092",
@@ -10866,7 +11214,8 @@
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-51479",
@@ -10901,7 +11250,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-9916",
@@ -10935,7 +11285,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-21633",
@@ -10969,7 +11320,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-27130",
@@ -11004,7 +11356,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-7399",
@@ -11039,7 +11392,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-12270",
@@ -11077,7 +11431,8 @@
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-38514",
@@ -11113,7 +11468,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-9380",
@@ -11147,7 +11503,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2025-27363",
@@ -11179,7 +11536,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2025-2264",
@@ -11214,7 +11572,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-32736",
@@ -11246,7 +11605,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-0778",
@@ -11280,7 +11640,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-10793",
@@ -11317,7 +11678,8 @@
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-10958",
@@ -11354,7 +11716,8 @@
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "cms"
-    ]
+    ],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-23115",
@@ -11388,7 +11751,8 @@
     "patch_status": "Available",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-22274",
@@ -11421,7 +11785,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-23478",
@@ -11455,7 +11820,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-38819",
@@ -11489,7 +11855,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2025-24799",
@@ -11523,7 +11890,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-32739",
@@ -11555,7 +11923,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   },
   {
     "cve_id": "CVE-2024-8957",
@@ -11589,7 +11958,8 @@
     "patch_status": "Unknown",
     "exploitation_status": "Unknown",
     "triage_priority": "HIGH-PRIORITY",
-    "tech_categories": []
+    "tech_categories": [],
+    "ssvc": {}
   }
 ];
         window.statsData = {
@@ -11601,7 +11971,7 @@
   "today_count": 0,
   "week_count": 0,
   "kev_count": 0,
-  "last_updated": "2025-10-20T00:35:35.164055",
+  "last_updated": "2025-10-20T00:51:59.908763",
   "priority_distribution": {
     "CRITICAL-URGENT": 177,
     "HIGH-PRIORITY": 118,
@@ -11636,7 +12006,9 @@
                     attack_complexity: '',
                     published_from: '',
                     published_to: '',
-                    vendor: ''
+                    vendor: '',
+                    ssvc_priority: '',
+                    ssvc_exploitation: ''
                 },
 
                 // Initialization
@@ -11725,6 +12097,15 @@
                         );
                     }
 
+                    // SSVC filters
+                    if (this.filters.ssvc_priority) {
+                        vulns = vulns.filter(v => v.ssvc?.priorityTier === this.filters.ssvc_priority);
+                    }
+
+                    if (this.filters.ssvc_exploitation) {
+                        vulns = vulns.filter(v => v.ssvc?.exploitation === this.filters.ssvc_exploitation);
+                    }
+
                     // Sorting
                     vulns.sort((a, b) => {
                         let aVal = a[this.sortField];
@@ -11739,6 +12120,10 @@
                             const priorityOrder = { 'CRITICAL-URGENT': 3, 'HIGH-PRIORITY': 2, 'MONITOR': 1 };
                             aVal = priorityOrder[aVal] || 0;
                             bVal = priorityOrder[bVal] || 0;
+                        } else if (this.sortField === 'ssvc_priority') {
+                            const ssvcOrder = { 'ACT': 3, 'ATTEND': 2, 'TRACK': 1 };
+                            aVal = ssvcOrder[a.ssvc?.priorityTier] || 0;
+                            bVal = ssvcOrder[b.ssvc?.priorityTier] || 0;
                         }
 
                         if (aVal < bVal) return this.sortOrder === 'asc' ? -1 : 1;
@@ -11804,14 +12189,16 @@
                         attack_complexity: '',
                         published_from: '',
                         published_to: '',
-                        vendor: ''
+                        vendor: '',
+                        ssvc_priority: '',
+                        ssvc_exploitation: ''
                     };
                     this.currentPage = 1;
                 },
 
 
                 exportCSV() {
-                    const headers = ['CVE ID', 'Severity', 'CVSS', 'EPSS %', 'Risk Score', 'Product', 'Vendors', 'Published'];
+                    const headers = ['CVE ID', 'Severity', 'CVSS', 'EPSS %', 'Risk Score', 'SSVC Priority', 'SSVC Profile', 'Product', 'Vendors', 'Published'];
                     const csvContent = [
                         headers.join(','),
                         ...this.filteredVulns.map(v => [
@@ -11820,6 +12207,8 @@
                             v.cvss_score,
                             v.epss_percentile,
                             v.risk_score,
+                            v.ssvc?.priorityTier || '',
+                            v.ssvc?.compactNotation || '',
                             `"${v.products.replace(/"/g, '""')}"`,
                             `"${v.vendors.join(', ')}"`,
                             v.published_short
@@ -11961,5 +12350,333 @@
             }
         }
     </script>
+
+    <!-- CVE Details Modal -->
+    <div x-data="cveModal()"
+         x-show="isOpen"
+         x-cloak
+         @keydown.window="handleKeydown($event)"
+         class="modal-overlay"
+         style="display: none;">
+
+        <!-- Backdrop -->
+        <div class="modal-backdrop" @click="closeModal()"></div>
+
+        <!-- Modal Container -->
+        <div class="modal-container">
+            <div class="modal-content">
+
+                <!-- Loading State -->
+                <div x-show="loading" class="modal-loading">
+                    <div class="loading-spinner"></div>
+                    <p class="loading-text">Loading vulnerability details...</p>
+                </div>
+
+                <!-- Error State -->
+                <div x-show="error && !loading" class="modal-error">
+                    <div class="error-icon">⚠️</div>
+                    <div class="error-content">
+                        <h3>Error Loading CVE Details</h3>
+                        <p x-text="error"></p>
+                        <button @click="closeModal()" class="btn btn-primary">Close</button>
+                    </div>
+                </div>
+
+                <!-- Modal Content (when loaded successfully) -->
+                <template x-if="vulnerability && !loading && !error">
+                    <div>
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <div class="modal-title-section">
+                                <h2 class="modal-title">
+                                    <span x-text="vulnerability.cveId"></span>
+                                    <span class="severity-badge"
+                                          :class="getSeverityClass(vulnerability.cvssScore || 0)"
+                                          x-text="vulnerability.severity"></span>
+                                </h2>
+                                <p class="modal-description" x-text="vulnerability.description || 'No description available'"></p>
+                            </div>
+                            <button @click="closeModal()"
+                                    class="modal-close"
+                                    aria-label="Close modal">
+                                ✕
+                            </button>
+                        </div>
+
+                        <!-- Tab Navigation -->
+                        <nav class="tab-nav" role="tablist">
+                            <button @click="switchTab('overview')"
+                                    :class="{ 'tab-active': activeTab === 'overview' }"
+                                    class="tab-button"
+                                    role="tab"
+                                    aria-label="Overview"
+                                    accesskey="1">
+                                Overview
+                                <span class="keyboard-hint">(Alt+1)</span>
+                            </button>
+                            <button @click="switchTab('technical')"
+                                    :class="{ 'tab-active': activeTab === 'technical' }"
+                                    class="tab-button"
+                                    role="tab"
+                                    aria-label="Technical Details"
+                                    accesskey="2">
+                                Technical
+                                <span class="keyboard-hint">(Alt+2)</span>
+                            </button>
+                            <button @click="switchTab('timeline')"
+                                    :class="{ 'tab-active': activeTab === 'timeline' }"
+                                    class="tab-button"
+                                    role="tab"
+                                    aria-label="Timeline"
+                                    accesskey="3">
+                                Timeline
+                                <span class="keyboard-hint">(Alt+3)</span>
+                            </button>
+                            <button @click="switchTab('references')"
+                                    :class="{ 'tab-active': activeTab === 'references' }"
+                                    class="tab-button"
+                                    role="tab"
+                                    aria-label="References"
+                                    accesskey="4">
+                                References
+                                <span class="keyboard-hint">(Alt+4)</span>
+                            </button>
+                            <button @click="switchTab('ssvc')"
+                                    :class="{ 'tab-active': activeTab === 'ssvc' }"
+                                    class="tab-button"
+                                    role="tab"
+                                    aria-label="SSVC Decision Tree"
+                                    accesskey="5">
+                                SSVC Decision Tree
+                                <span class="keyboard-hint">(Alt+5)</span>
+                            </button>
+                        </nav>
+
+                        <!-- Tab Content Container -->
+                        <div class="modal-body">
+
+                            <!-- Overview Tab -->
+                            <div x-show="activeTab === 'overview'"
+                                 role="tabpanel"
+                                 id="overview-tab"
+                                 class="tab-content tab-panel">
+                                <div class="overview-grid">
+                                    <div class="card">
+                                        <h3 class="card-title">Risk Summary</h3>
+                                        <div class="risk-metrics">
+                                            <div class="metric">
+                                                <span class="metric-label">CVSS Score</span>
+                                                <span class="metric-value cvss-score"
+                                                      :class="getSeverityClass(vulnerability.cvssScore || 0)"
+                                                      x-text="vulnerability.cvssScore || 'N/A'"></span>
+                                                <span class="metric-description" x-text="getRiskLevelText(vulnerability.cvssScore || 0)"></span>
+                                            </div>
+                                            <div class="metric">
+                                                <span class="metric-label">EPSS Score</span>
+                                                <span class="metric-value" x-text="`${vulnerability.epssScore || 0}%`"></span>
+                                                <span class="metric-description">Exploitation Probability</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card full-width">
+                                        <h3 class="card-title">Details</h3>
+                                        <dl class="details-grid">
+                                            <div class="detail-item">
+                                                <dt>Published</dt>
+                                                <dd x-text="formatDate(vulnerability.publishedDate)"></dd>
+                                            </div>
+                                            <div class="detail-item">
+                                                <dt>Last Modified</dt>
+                                                <dd x-text="formatDate(vulnerability.lastModifiedDate)"></dd>
+                                            </div>
+                                            <div class="detail-item">
+                                                <dt>Attack Vector</dt>
+                                                <dd x-text="vulnerability.attackVector || 'Unknown'"></dd>
+                                            </div>
+                                        </dl>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Technical Tab -->
+                            <div x-show="activeTab === 'technical'"
+                                 role="tabpanel"
+                                 id="technical-tab"
+                                 class="tab-content tab-panel">
+                                <div class="technical-grid">
+                                    <div class="card">
+                                        <h3 class="card-title">CVSS Metrics</h3>
+                                        <div class="metrics-list">
+                                            <template x-for="metric in getCvssMetrics(vulnerability)">
+                                                <div class="metric-row">
+                                                    <span x-text="metric.label"></span>
+                                                    <strong x-text="metric.value"></strong>
+                                                </div>
+                                            </template>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Timeline Tab -->
+                            <div x-show="activeTab === 'timeline'"
+                                 role="tabpanel"
+                                 id="timeline-tab"
+                                 class="tab-content tab-panel">
+                                <div class="timeline-container">
+                                    <h3 class="timeline-title">Vulnerability Timeline</h3>
+                                    <div class="timeline">
+                                        <template x-for="event in getTimelineEvents(vulnerability)">
+                                            <div class="timeline-event">
+                                                <div class="timeline-marker" :class="`marker-${event.type}`"></div>
+                                                <div class="timeline-content">
+                                                    <span class="timeline-date" x-text="formatDate(event.date)"></span>
+                                                    <p class="timeline-description" x-text="event.event"></p>
+                                                </div>
+                                            </div>
+                                        </template>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- References Tab -->
+                            <div x-show="activeTab === 'references'"
+                                 role="tabpanel"
+                                 id="references-tab"
+                                 class="tab-content tab-panel">
+                                <div class="references-container">
+                                    <h3 class="references-title">External References</h3>
+                                    <div class="references-list">
+                                        <template x-if="vulnerability.references && vulnerability.references.length > 0">
+                                            <template x-for="ref in vulnerability.references">
+                                                <div class="reference-item">
+                                                    <a :href="ref.url"
+                                                       target="_blank"
+                                                       rel="noopener noreferrer"
+                                                       class="reference-link">
+                                                        <span x-text="ref.url"></span>
+                                                        <span class="external-link-icon">↗</span>
+                                                    </a>
+                                                </div>
+                                            </template>
+                                        </template>
+                                        <template x-if="!vulnerability.references || vulnerability.references.length === 0">
+                                            <p class="no-references">No external references available</p>
+                                        </template>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- SSVC Tab -->
+                            <div x-show="activeTab === 'ssvc'"
+                                 role="tabpanel"
+                                 id="ssvc-tab"
+                                 aria-labelledby="ssvc-tab-button"
+                                 class="tab-content tab-panel">
+
+                                <div class="ssvc-container">
+                                    <h3>SSVC Prioritization Decision Tree</h3>
+
+                                    <!-- Priority Tier Banner -->
+                                    <div x-show="vulnerability.ssvc?.priorityTier"
+                                         class="ssvc-priority-banner"
+                                         :class="{
+                                             'priority-act': vulnerability.ssvc?.priorityTier === 'ACT',
+                                             'priority-attend': vulnerability.ssvc?.priorityTier === 'ATTEND',
+                                             'priority-track': vulnerability.ssvc?.priorityTier === 'TRACK'
+                                         }">
+                                        <div class="priority-icon">
+                                            <span x-show="vulnerability.ssvc?.priorityTier === 'ACT'">🔴</span>
+                                            <span x-show="vulnerability.ssvc?.priorityTier === 'ATTEND'">🟠</span>
+                                            <span x-show="vulnerability.ssvc?.priorityTier === 'TRACK'">🔵</span>
+                                        </div>
+                                        <div class="priority-label">
+                                            <div class="priority-tier" x-text="`Priority: ${vulnerability.ssvc?.priorityTier || 'Unknown'}`"></div>
+                                            <div class="priority-action" x-text="getPriorityAction(vulnerability.ssvc?.priorityTier)"></div>
+                                        </div>
+                                        <div class="ssvc-score">
+                                            <span class="score-label">SSVC Score</span>
+                                            <span class="score-value" x-text="vulnerability.ssvc?.ssvcScore || 0"></span>
+                                            <span class="score-total">/60</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Decision Factors Grid -->
+                                    <div class="ssvc-factors-grid" x-show="vulnerability.ssvc?.priorityTier">
+                                        <!-- Exploitation Factor -->
+                                        <div class="ssvc-factor">
+                                            <div class="factor-label">
+                                                <span class="factor-icon">⚔️</span>
+                                                <span class="factor-title">Exploitation</span>
+                                            </div>
+                                            <div class="factor-value"
+                                                 :class="`exploitation-${vulnerability.ssvc?.exploitation || 'none'}`"
+                                                 x-text="formatExploitation(vulnerability.ssvc?.exploitation)">
+                                            </div>
+                                            <div class="factor-description" x-text="getExploitationDesc(vulnerability.ssvc?.exploitation)"></div>
+                                        </div>
+
+                                        <!-- Automatable Factor -->
+                                        <div class="ssvc-factor">
+                                            <div class="factor-label">
+                                                <span class="factor-icon">🤖</span>
+                                                <span class="factor-title">Automatable</span>
+                                            </div>
+                                            <div class="factor-value"
+                                                 :class="`automatable-${vulnerability.ssvc?.automatable || 'no'}`"
+                                                 x-text="(vulnerability.ssvc?.automatable || 'no').toUpperCase()">
+                                            </div>
+                                            <div class="factor-description" x-text="getAutomatableDesc(vulnerability.ssvc?.automatable)"></div>
+                                        </div>
+
+                                        <!-- Technical Impact Factor -->
+                                        <div class="ssvc-factor">
+                                            <div class="factor-label">
+                                                <span class="factor-icon">💥</span>
+                                                <span class="factor-title">Technical Impact</span>
+                                            </div>
+                                            <div class="factor-value"
+                                                 :class="`impact-${vulnerability.ssvc?.technicalImpact || 'partial'}`"
+                                                 x-text="(vulnerability.ssvc?.technicalImpact || 'partial').toUpperCase()">
+                                            </div>
+                                            <div class="factor-description" x-text="getImpactDesc(vulnerability.ssvc?.technicalImpact)"></div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Compact Notation -->
+                                    <div class="ssvc-notation-display" x-show="vulnerability.ssvc?.compactNotation">
+                                        <strong>Compact Notation:</strong>
+                                        <code x-text="vulnerability.ssvc?.compactNotation || 'N/A'"></code>
+                                        <span class="notation-help">(Exploitation / Automatable / Technical Impact)</span>
+                                    </div>
+
+                                    <!-- Inference Indicator -->
+                                    <div x-show="vulnerability.ssvc?.inferred" class="ssvc-inference-notice">
+                                        <span class="notice-icon">ℹ️</span>
+                                        <div class="notice-content">
+                                            <strong>Inferred Decision</strong>
+                                            <p x-show="vulnerability.ssvc?.confidence">
+                                                Confidence: <span x-text="`${Math.round((vulnerability.ssvc?.confidence || 0) * 100)}%`"></span>
+                                            </p>
+                                            <p class="notice-text">This SSVC decision was automatically inferred from available vulnerability data using CVSS vectors and KEV status.</p>
+                                        </div>
+                                    </div>
+
+                                    <!-- No SSVC Data Message -->
+                                    <div x-show="!vulnerability.ssvc?.priorityTier" class="no-ssvc-message">
+                                        <p>⚠️ SSVC data not available for this vulnerability.</p>
+                                        <p class="help-text">This CVE may not have been assessed by CISA or may be outside the scoring criteria.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
