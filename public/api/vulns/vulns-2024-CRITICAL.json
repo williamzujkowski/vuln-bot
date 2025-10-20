@@ -92,7 +92,7 @@
     {
       "cveId": "CVE-2024-4577",
       "title": "Argument Injection in PHP-CGI",
-      "description": "In PHP versions 8.1.* before 8.1.29, 8.2.* before 8.2.20, 8.3.* before 8.3.8, when using Apache and PHP-CGI on Windows, if the system is set up to use certain code pages, Windows may use \"Best-Fit\" behavior to replace characters in command line given to Win32 API functions. PHP CGI module may misinterpret those characters as PHP options, which may allow a malicious user to pass options to PHP binary being run, and thus reveal the source code of scripts, run arbitrary PHP code on the server, etc.",
+      "description": "In PHP versions\u00a08.1.* before 8.1.29, 8.2.* before 8.2.20, 8.3.* before 8.3.8, when using Apache and PHP-CGI on Windows, if the system is set up to use certain code pages, Windows may use \"Best-Fit\" behavior to replace characters in command line given to\u00a0Win32 API functions. PHP CGI module may misinterpret those characters as PHP options, which may allow a malicious user to pass options to PHP binary being run, and thus reveal the source code of scripts, run arbitrary PHP code on the server, etc.",
       "publishedDate": "2024-06-09T19:42:36.464000+00:00",
       "lastModifiedDate": "2025-07-30T01:37:01.605000+00:00",
       "severity": "CRITICAL",
@@ -109,7 +109,7 @@
         "percentile": 99.96
       },
       "riskScore": 68,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -217,12 +217,28 @@
           "url": "https://security.netapp.com/advisory/ntap-20240621-0008/",
           "source": "",
           "tags": []
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-78"
+          "CWE-78",
+          "CISA-KEV",
+          "RANSOMWARE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -237,6 +253,17 @@
             "lastModified": "2025-07-30T01:37:01.605000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2024-06-12",
+          "vulnerabilityName": "PHP-CGI OS Command Injection Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2024-07-03",
+          "knownRansomwareCampaignUse": "Known",
+          "notes": "This vulnerability affects a common open-source component, third-party library, or a protocol used by different products. Please check with specific vendors for information on patching status. For more information, please see:  https://www.php.net/ChangeLog-8.php#;   https://nvd.nist.gov/vuln/detail/CVE-2024-4577"
+        }
       }
     },
     {
@@ -259,7 +286,7 @@
         "percentile": 99.847
       },
       "riskScore": 67,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -280,12 +307,27 @@
           "tags": [
             "vendor-advisory"
           ]
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-20"
+          "CWE-20",
+          "CISA-KEV"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -300,12 +342,23 @@
             "lastModified": "2025-07-30T01:37:07.327000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2025-02-06",
+          "vulnerabilityName": "Microsoft Outlook Improper Input Validation Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2025-02-27",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-21413 ; https://nvd.nist.gov/vuln/detail/CVE-2024-21413"
+        }
       }
     },
     {
       "cveId": "CVE-2024-1071",
-      "title": "CVE-2024-1071: The Ultimate Member – User Profile, Registration, Login, Member Directory, Content Restriction & Mem...",
-      "description": "The Ultimate Member – User Profile, Registration, Login, Member Directory, Content Restriction & Membership Plugin plugin for WordPress is vulnerable to SQL Injection via the 'sorting' parameter in versions 2.1.3 to 2.8.2 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
+      "title": "CVE-2024-1071: The Ultimate Member \u2013 User Profile, Registration, Login, Member Directory, Content Restriction & Mem...",
+      "description": "The Ultimate Member \u2013 User Profile, Registration, Login, Member Directory, Content Restriction & Membership Plugin plugin for WordPress is vulnerable to SQL Injection via the 'sorting' parameter in versions 2.1.3 to 2.8.2 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
       "publishedDate": "2024-03-13T15:26:32.070000+00:00",
       "lastModifiedDate": "2025-04-15T15:24:14.705000+00:00",
       "severity": "CRITICAL",
@@ -332,7 +385,7 @@
         ],
         "products": [
           "The Database",
-          "Ultimate Member – User Profile, Registration, Login, Member Directory, Content Restriction & Membership Plugin",
+          "Ultimate Member \u2013 User Profile, Registration, Login, Member Directory, Content Restriction & Membership Plugin",
           "Wordpress"
         ]
       },
@@ -639,7 +692,7 @@
         "products": [
           "Really Simple Security Pro",
           "Really Simple Security Pro Multisite",
-          "Really Simple Security – Simple And Performant Security (formerly Really Simple Ssl)",
+          "Really Simple Security \u2013 Simple And Performant Security (formerly Really Simple Ssl)",
           "Wordpress"
         ]
       },
@@ -715,7 +768,7 @@
         "percentile": 99.737
       },
       "riskScore": 66,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -731,12 +784,28 @@
           "url": "https://fortiguard.com/psirt/FG-IR-24-015",
           "source": "https://fortiguard.com/psirt/FG-IR-24-015",
           "tags": []
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-787"
+          "CWE-787",
+          "CISA-KEV",
+          "RANSOMWARE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -751,6 +820,17 @@
             "lastModified": "2025-07-30T01:37:07.722000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2024-02-09",
+          "vulnerabilityName": "Fortinet FortiOS Out-of-Bound Write Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2024-02-16",
+          "knownRansomwareCampaignUse": "Known",
+          "notes": "https://fortiguard.fortinet.com/psirt/FG-IR-24-015 ;   https://nvd.nist.gov/vuln/detail/CVE-2024-21762"
+        }
       }
     },
     {
@@ -773,7 +853,7 @@
         "percentile": 99.981
       },
       "riskScore": 66,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -834,12 +914,27 @@
           "tags": [
             "exploit"
           ]
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-1336"
+          "CWE-1336",
+          "CISA-KEV"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -854,6 +949,17 @@
             "lastModified": "2025-07-30T01:37:04.490000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2024-04-24",
+          "vulnerabilityName": "CrushFTP VFS Sandbox Escape Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2024-05-01",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "https://www.crushftp.com/crush11wiki/Wiki.jsp?page=Update&version=34; https://nvd.nist.gov/vuln/detail/CVE-2024-4040"
+        }
       }
     },
     {
@@ -876,7 +982,7 @@
         "percentile": 99.946
       },
       "riskScore": 66,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -936,12 +1042,28 @@
           "url": "https://www.huntress.com/blog/a-catastrophe-for-control-understanding-the-screenconnect-authentication-bypass",
           "source": "",
           "tags": []
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-288"
+          "CWE-288",
+          "CISA-KEV",
+          "RANSOMWARE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -956,12 +1078,23 @@
             "lastModified": "2025-07-30T01:37:06.637000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2024-02-22",
+          "vulnerabilityName": "ConnectWise ScreenConnect Authentication Bypass Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2024-02-29",
+          "knownRansomwareCampaignUse": "Known",
+          "notes": "https://www.connectwise.com/company/trust/security-bulletins/connectwise-screenconnect-23.9.8; https://nvd.nist.gov/vuln/detail/CVE-2024-1709"
+        }
       }
     },
     {
       "cveId": "CVE-2024-8353",
-      "title": "GiveWP – Donation Plugin and Fundraising Platform <= 3.16.1 - Unauthenticated PHP Object Injection",
-      "description": "The GiveWP – Donation Plugin and Fundraising Platform plugin for WordPress is vulnerable to PHP Object Injection in all versions up to, and including, 3.16.1 via deserialization of untrusted input via several parameters like 'give_title' and 'card_address'. This makes it possible for unauthenticated attackers to inject a PHP Object. The additional presence of a POP chain allows attackers to delete arbitrary files and achieve remote code execution. This is essentially the same vulnerability as CVE-2024-5932, however, it was discovered the the presence of stripslashes_deep on user_info allows the is_serialized check to be bypassed. This issue was mostly patched in 3.16.1, but further hardening was added in 3.16.2.",
+      "title": "GiveWP \u2013 Donation Plugin and Fundraising Platform <= 3.16.1 - Unauthenticated PHP Object Injection",
+      "description": "The GiveWP \u2013 Donation Plugin and Fundraising Platform plugin for WordPress is vulnerable to PHP Object Injection in all versions up to, and including, 3.16.1 via deserialization of untrusted input via several parameters like 'give_title' and 'card_address'. This makes it possible for unauthenticated attackers to inject a PHP Object. The additional presence of a POP chain allows attackers to delete arbitrary files and achieve remote code execution. This is essentially the same vulnerability as CVE-2024-5932, however, it was discovered the the presence of stripslashes_deep on user_info allows the is_serialized check to be bypassed. This issue was mostly patched in 3.16.1, but further hardening was added in 3.16.2.",
       "publishedDate": "2024-09-28T02:04:28.213000+00:00",
       "lastModifiedDate": "2024-09-30T15:11:42.678000+00:00",
       "severity": "CRITICAL",
@@ -986,7 +1119,7 @@
           "WordPress"
         ],
         "products": [
-          "Givewp – Donation Plugin And Fundraising Platform",
+          "Givewp \u2013 Donation Plugin And Fundraising Platform",
           "Wordpress"
         ]
       },
@@ -1062,7 +1195,7 @@
         "percentile": 99.637
       },
       "riskScore": 66,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -1077,12 +1210,27 @@
           "url": "https://fortiguard.fortinet.com/psirt/FG-IR-24-423",
           "source": "https://fortiguard.fortinet.com/psirt/FG-IR-24-423",
           "tags": []
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-306"
+          "CWE-306",
+          "CISA-KEV"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -1097,6 +1245,17 @@
             "lastModified": "2025-07-30T01:36:30.448000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2024-10-23",
+          "vulnerabilityName": "Fortinet FortiManager Missing Authentication Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2024-11-13",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "https://fortiguard.fortinet.com/psirt/FG-IR-24-423 ; https://nvd.nist.gov/vuln/detail/CVE-2024-47575"
+        }
       }
     },
     {
@@ -1119,7 +1278,7 @@
         "percentile": 99.98
       },
       "riskScore": 66,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -1166,12 +1325,27 @@
           "tags": [
             "x_refsource_MISC"
           ]
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-95"
+          "CWE-95",
+          "CISA-KEV"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -1186,12 +1360,23 @@
             "lastModified": "2025-07-30T01:37:00.179000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2024-07-15",
+          "vulnerabilityName": "OSGeo GeoServer GeoTools Eval Injection Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2024-08-05",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "This vulnerability affects an open-source component, third-party library, or a protocol used by different products. For more information, please see: https://github.com/geoserver/geoserver/security/advisories/GHSA-6jj6-gm7p-fcvv, https://github.com/geotools/geotools/pull/4797 ;   https://nvd.nist.gov/vuln/detail/CVE-2024-36401"
+        }
       }
     },
     {
       "cveId": "CVE-2024-2876",
-      "title": "CVE-2024-2876: The Email Subscribers by Icegram Express – Email Marketing, Newsletters, Automation for WordPress & ...",
-      "description": "The Email Subscribers by Icegram Express – Email Marketing, Newsletters, Automation for WordPress & WooCommerce plugin for WordPress is vulnerable to SQL Injection via the 'run' function of the 'IG_ES_Subscribers_Query' class in all versions up to, and including, 5.7.14 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
+      "title": "CVE-2024-2876: The Email Subscribers by Icegram Express \u2013 Email Marketing, Newsletters, Automation for WordPress & ...",
+      "description": "The Email Subscribers by Icegram Express \u2013 Email Marketing, Newsletters, Automation for WordPress & WooCommerce plugin for WordPress is vulnerable to SQL Injection via the 'run' function of the 'IG_ES_Subscribers_Query' class in all versions up to, and including, 5.7.14 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
       "publishedDate": "2024-05-02T16:52:46.382000+00:00",
       "lastModifiedDate": "2024-08-01T19:25:42.164000+00:00",
       "severity": "CRITICAL",
@@ -1217,7 +1402,7 @@
           "WordPress"
         ],
         "products": [
-          "Email Subscribers By Icegram Express – Email Marketing, Newsletters, Automation For Wordpress & Woocommerce",
+          "Email Subscribers By Icegram Express \u2013 Email Marketing, Newsletters, Automation For Wordpress & Woocommerce",
           "The Database",
           "Wordpress"
         ]
@@ -1438,7 +1623,7 @@
     {
       "cveId": "CVE-2024-3495",
       "title": "Country State City Dropdown CF7 <= 2.7.2 - Unauthenticated SQL Injection",
-      "description": "The Country State City Dropdown CF7 plugin for WordPress is vulnerable to SQL Injection via the ‘cnt’ and 'sid' parameters in versions up to, and including, 2.7.2 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
+      "description": "The Country State City Dropdown CF7 plugin for WordPress is vulnerable to SQL Injection via the \u2018cnt\u2019 and 'sid' parameters in versions up to, and including, 2.7.2 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
       "publishedDate": "2024-05-22T08:31:21.432000+00:00",
       "lastModifiedDate": "2024-08-01T20:12:07.689000+00:00",
       "severity": "CRITICAL",
@@ -1511,8 +1696,8 @@
     },
     {
       "cveId": "CVE-2024-5932",
-      "title": "GiveWP – Donation Plugin and Fundraising Platform <= 3.14.1 - Unauthenticated PHP Object Injection to Remote Code Execution",
-      "description": "The GiveWP – Donation Plugin and Fundraising Platform plugin for WordPress is vulnerable to PHP Object Injection in all versions up to, and including, 3.14.1 via deserialization of untrusted input from the 'give_title' parameter. This makes it possible for unauthenticated attackers to inject a PHP Object. The additional presence of a POP chain allows attackers to execute code remotely, and to delete arbitrary files.",
+      "title": "GiveWP \u2013 Donation Plugin and Fundraising Platform <= 3.14.1 - Unauthenticated PHP Object Injection to Remote Code Execution",
+      "description": "The GiveWP \u2013 Donation Plugin and Fundraising Platform plugin for WordPress is vulnerable to PHP Object Injection in all versions up to, and including, 3.14.1 via deserialization of untrusted input from the 'give_title' parameter. This makes it possible for unauthenticated attackers to inject a PHP Object. The additional presence of a POP chain allows attackers to execute code remotely, and to delete arbitrary files.",
       "publishedDate": "2024-08-20T02:03:16.108000+00:00",
       "lastModifiedDate": "2024-08-20T13:40:12.334000+00:00",
       "severity": "CRITICAL",
@@ -1537,7 +1722,7 @@
           "WordPress"
         ],
         "products": [
-          "Givewp – Donation Plugin And Fundraising Platform",
+          "Givewp \u2013 Donation Plugin And Fundraising Platform",
           "Wordpress"
         ]
       },
@@ -1623,7 +1808,7 @@
         "percentile": 99.778
       },
       "riskScore": 65,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -1669,12 +1854,27 @@
           "tags": [
             "third-party-advisory"
           ]
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-306"
+          "CWE-306",
+          "CISA-KEV"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -1689,12 +1889,23 @@
             "lastModified": "2025-09-23T15:16:51.860000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2024-12-03",
+          "vulnerabilityName": "ProjectSend Improper Authentication Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2024-12-24",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "https://github.com/projectsend/projectsend/commit/193367d937b1a59ed5b68dd4e60bd53317473744 ; https://nvd.nist.gov/vuln/detail/CVE-2024-11680"
+        }
       }
     },
     {
       "cveId": "CVE-2024-4443",
-      "title": "Business Directory Plugin – Easy Listing Directories for WordPress <= 6.4.2 - Unauthenticated SQL Injection via listingfields Parameter",
-      "description": "The Business Directory Plugin – Easy Listing Directories for WordPress plugin for WordPress is vulnerable to time-based SQL Injection via the ‘listingfields’ parameter in all versions up to, and including, 6.4.2 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
+      "title": "Business Directory Plugin \u2013 Easy Listing Directories for WordPress <= 6.4.2 - Unauthenticated SQL Injection via listingfields Parameter",
+      "description": "The Business Directory Plugin \u2013 Easy Listing Directories for WordPress plugin for WordPress is vulnerable to time-based SQL Injection via the \u2018listingfields\u2019 parameter in all versions up to, and including, 6.4.2 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
       "publishedDate": "2024-05-22T05:32:48.462000+00:00",
       "lastModifiedDate": "2024-08-01T20:40:47.213000+00:00",
       "severity": "CRITICAL",
@@ -1720,7 +1931,7 @@
           "WordPress"
         ],
         "products": [
-          "Business Directory Plugin – Easy Listing Directories For Wordpress",
+          "Business Directory Plugin \u2013 Easy Listing Directories For Wordpress",
           "The Database",
           "Wordpress"
         ]
@@ -1860,7 +2071,7 @@
         "percentile": 99.957
       },
       "riskScore": 65,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -1898,12 +2109,27 @@
           "tags": [
             "vendor-advisory"
           ]
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-78"
+          "CWE-78",
+          "CISA-KEV"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -1918,12 +2144,23 @@
             "lastModified": "2025-07-30T01:37:06.505000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2024-11-18",
+          "vulnerabilityName": "Progress Kemp LoadMaster OS Command Injection Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2024-12-09",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "https://community.progress.com/s/article/Release-Notice-LMOS-7-2-59-2-7-2-54-8-7-2-48-10-CVE-2024-1212 ; https://nvd.nist.gov/vuln/detail/CVE-2024-1212"
+        }
       }
     },
     {
       "cveId": "CVE-2024-1698",
-      "title": "CVE-2024-1698: The NotificationX – Best FOMO, Social Proof, WooCommerce Sales Popup & Notification Bar Plugin With ...",
-      "description": "The NotificationX – Best FOMO, Social Proof, WooCommerce Sales Popup & Notification Bar Plugin With Elementor plugin for WordPress is vulnerable to SQL Injection via the 'type' parameter in all versions up to, and including, 2.8.2 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
+      "title": "CVE-2024-1698: The NotificationX \u2013 Best FOMO, Social Proof, WooCommerce Sales Popup & Notification Bar Plugin With ...",
+      "description": "The NotificationX \u2013 Best FOMO, Social Proof, WooCommerce Sales Popup & Notification Bar Plugin With Elementor plugin for WordPress is vulnerable to SQL Injection via the 'type' parameter in all versions up to, and including, 2.8.2 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
       "publishedDate": "2024-02-27T05:33:12.316000+00:00",
       "lastModifiedDate": "2024-08-27T19:10:40.200000+00:00",
       "severity": "CRITICAL",
@@ -1949,7 +2186,7 @@
           "Wpdevteam"
         ],
         "products": [
-          "Notificationx – Best Fomo, Social Proof, Woocommerce Sales Popup & Notification Bar Plugin With Elementor",
+          "Notificationx \u2013 Best Fomo, Social Proof, Woocommerce Sales Popup & Notification Bar Plugin With Elementor",
           "The Database",
           "Wordpress"
         ]
@@ -2171,7 +2408,7 @@
         "percentile": 99.435
       },
       "riskScore": 65,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -2186,11 +2423,27 @@
           "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-cslu-7gHMzWmw",
           "source": "cisco-sa-cslu-7gHMzWmw",
           "tags": []
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
-        "tags": [],
+        "tags": [
+          "CISA-KEV"
+        ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
         "attackVector": "Network",
@@ -2204,6 +2457,17 @@
             "lastModified": "2025-07-30T01:36:33.943000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2025-03-31",
+          "vulnerabilityName": "Cisco Smart Licensing Utility Static Credential Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2025-04-21",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-cslu-7gHMzWmw ; https://nvd.nist.gov/vuln/detail/CVE-2024-20439"
+        }
       }
     },
     {
@@ -2479,7 +2743,7 @@
         "percentile": 99.908
       },
       "riskScore": 65,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -2519,11 +2783,27 @@
           "url": "https://wiki.zimbra.com/wiki/Zimbra_Releases/8.8.15/P46#Security_Fixes",
           "source": "",
           "tags": []
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
-        "tags": [],
+        "tags": [
+          "CISA-KEV"
+        ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
         "attackVector": "Network",
@@ -2537,6 +2817,17 @@
             "lastModified": "2025-07-30T01:36:32.171000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2024-10-03",
+          "vulnerabilityName": "Synacor Zimbra Collaboration Suite (ZCS) Command Execution Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2024-10-24",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "https://wiki.zimbra.com/wiki/Zimbra_Security_Advisories ; https://nvd.nist.gov/vuln/detail/CVE-2024-45519"
+        }
       }
     },
     {
@@ -2559,7 +2850,7 @@
         "percentile": 99.926
       },
       "riskScore": 65,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -2604,11 +2895,27 @@
           "url": "https://www.bleepingcomputer.com/news/security/massive-psaux-ransomware-attack-targets-22-000-cyberpanel-instances/",
           "source": "",
           "tags": []
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
-        "tags": [],
+        "tags": [
+          "CISA-KEV"
+        ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
         "attackVector": "Network",
@@ -2622,6 +2929,17 @@
             "lastModified": "2025-07-30T01:36:26.848000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2024-11-07",
+          "vulnerabilityName": "CyberPanel Incorrect Default Permissions Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2024-11-28",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "https://cyberpanel.net/blog/detials-and-fix-of-recent-security-issue-and-patch-of-cyberpanel ; https://nvd.nist.gov/vuln/detail/CVE-2024-51567"
+        }
       }
     },
     {
@@ -2644,7 +2962,7 @@
         "percentile": 99.856
       },
       "riskScore": 65,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -2689,11 +3007,28 @@
           "url": "https://www.bleepingcomputer.com/news/security/massive-psaux-ransomware-attack-targets-22-000-cyberpanel-instances/",
           "source": "",
           "tags": []
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
-        "tags": [],
+        "tags": [
+          "CISA-KEV",
+          "RANSOMWARE"
+        ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
         "attackVector": "Network",
@@ -2707,12 +3042,23 @@
             "lastModified": "2025-07-30T01:36:26.996000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2024-12-04",
+          "vulnerabilityName": "CyberPanel Incorrect Default Permissions Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2024-12-25",
+          "knownRansomwareCampaignUse": "Known",
+          "notes": "https://cyberpanel.net/KnowledgeBase/home/change-logs/ ; https://nvd.nist.gov/vuln/detail/CVE-2024-51378"
+        }
       }
     },
     {
       "cveId": "CVE-2024-23108",
       "title": "CVE-2024-23108: An improper neutralization of special elements used in an os command ('os command injection') in For...",
-      "description": "An improper neutralization of special elements used in an os command ('os command injection') in Fortinet FortiSIEM version 7.1.0 through 7.1.1 and 7.0.0 through 7.0.2 and 6.7.0 through 6.7.8 and 6.6.0 through 6.6.3 and 6.5.0 through 6.5.2 and 6.4.0 through 6.4.2 allows attacker to execute unauthorized code or commands via via crafted API requests.",
+      "description": "An improper neutralization of special elements used in an os command ('os command injection') in Fortinet FortiSIEM version 7.1.0 through 7.1.1 and 7.0.0 through 7.0.2 and 6.7.0 through 6.7.8 and 6.6.0 through 6.6.3 and 6.5.0 through 6.5.2 and 6.4.0 through 6.4.2 allows attacker to execute unauthorized code or commands via via\u00a0crafted API requests.",
       "publishedDate": "2024-02-05T13:26:15.727000+00:00",
       "lastModifiedDate": "2025-04-24T15:54:48.080000+00:00",
       "severity": "CRITICAL",
@@ -2858,7 +3204,7 @@
         "percentile": 99.944
       },
       "riskScore": 65,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -2898,13 +3244,29 @@
           "tags": [
             "technical-description"
           ]
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
           "CWE-77",
-          "CWE-20"
+          "CWE-20",
+          "CISA-KEV",
+          "RANSOMWARE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -2919,12 +3281,23 @@
             "lastModified": "2025-07-30T01:37:04.759000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2024-04-12",
+          "vulnerabilityName": "Palo Alto Networks PAN-OS Command Injection Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions as they become available. Otherwise, users with vulnerable versions of affected devices should enable Threat Prevention IDs available from the vendor. See the vendor bulletin for more details and a patch release schedule.",
+          "dueDate": "2024-04-19",
+          "knownRansomwareCampaignUse": "Known",
+          "notes": "https://security.paloaltonetworks.com/CVE-2024-3400 ;   https://nvd.nist.gov/vuln/detail/CVE-2024-3400"
+        }
       }
     },
     {
       "cveId": "CVE-2024-9234",
       "title": "GutenKit <= 2.1.0 - Unauthenticated Arbitrary File Upload",
-      "description": "The GutenKit – Page Builder Blocks, Patterns, and Templates for Gutenberg Block Editor plugin for WordPress is vulnerable to arbitrary file uploads due to a missing capability check on the install_and_activate_plugin_from_external() function  (install-active-plugin REST API endpoint) in all versions up to, and including, 2.1.0. This makes it possible for unauthenticated attackers to install and activate arbitrary plugins, or utilize the functionality to upload arbitrary files spoofed like plugins.",
+      "description": "The GutenKit \u2013 Page Builder Blocks, Patterns, and Templates for Gutenberg Block Editor plugin for WordPress is vulnerable to arbitrary file uploads due to a missing capability check on the install_and_activate_plugin_from_external() function  (install-active-plugin REST API endpoint) in all versions up to, and including, 2.1.0. This makes it possible for unauthenticated attackers to install and activate arbitrary plugins, or utilize the functionality to upload arbitrary files spoofed like plugins.",
       "publishedDate": "2024-10-11T06:50:20.255000+00:00",
       "lastModifiedDate": "2024-10-11T16:07:24.463000+00:00",
       "severity": "CRITICAL",
@@ -2949,7 +3322,7 @@
           "WordPress"
         ],
         "products": [
-          "Gutenkit – Page Builder Blocks, Patterns, And Templates For Gutenberg Block Editor",
+          "Gutenkit \u2013 Page Builder Blocks, Patterns, And Templates For Gutenberg Block Editor",
           "Wordpress"
         ]
       },
@@ -3127,7 +3500,7 @@
     {
       "cveId": "CVE-2024-4295",
       "title": "Email Subscribers by Icegram Express <= 5.7.20 - Unauthenticated SQL Injection via hash",
-      "description": "The Email Subscribers by Icegram Express plugin for WordPress is vulnerable to SQL Injection via the ‘hash’ parameter in all versions up to, and including, 5.7.20 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
+      "description": "The Email Subscribers by Icegram Express plugin for WordPress is vulnerable to SQL Injection via the \u2018hash\u2019 parameter in all versions up to, and including, 5.7.20 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
       "publishedDate": "2024-06-05T05:33:05.595000+00:00",
       "lastModifiedDate": "2024-08-01T20:33:53.096000+00:00",
       "severity": "CRITICAL",
@@ -3153,7 +3526,7 @@
           "WordPress"
         ],
         "products": [
-          "Email Subscribers By Icegram Express – Email Marketing, Newsletters, Automation For Wordpress & Woocommerce",
+          "Email Subscribers By Icegram Express \u2013 Email Marketing, Newsletters, Automation For Wordpress & Woocommerce",
           "The Database",
           "Wordpress"
         ]
@@ -3351,8 +3724,8 @@
     },
     {
       "cveId": "CVE-2024-1512",
-      "title": "CVE-2024-1512: The MasterStudy LMS WordPress Plugin – for Online Courses and Education plugin for WordPress is vuln...",
-      "description": "The MasterStudy LMS WordPress Plugin – for Online Courses and Education plugin for WordPress is vulnerable to union based SQL Injection via the 'user' parameter of the /lms/stm-lms/order/items REST route in all versions up to, and including, 3.2.5 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
+      "title": "CVE-2024-1512: The MasterStudy LMS WordPress Plugin \u2013 for Online Courses and Education plugin for WordPress is vuln...",
+      "description": "The MasterStudy LMS WordPress Plugin \u2013 for Online Courses and Education plugin for WordPress is vulnerable to union based SQL Injection via the 'user' parameter of the /lms/stm-lms/order/items REST route in all versions up to, and including, 3.2.5 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
       "publishedDate": "2024-02-17T07:36:57.426000+00:00",
       "lastModifiedDate": "2024-08-27T14:40:58.498000+00:00",
       "severity": "CRITICAL",
@@ -3378,7 +3751,7 @@
           "WordPress"
         ],
         "products": [
-          "Masterstudy Lms Wordpress Plugin – For Online Courses And Education",
+          "Masterstudy Lms Wordpress Plugin \u2013 For Online Courses And Education",
           "The Database",
           "Wordpress"
         ]
@@ -3498,8 +3871,8 @@
     },
     {
       "cveId": "CVE-2024-8522",
-      "title": "LearnPress – WordPress LMS Plugin <= 4.2.7 - Unauthenticated SQL Injection via 'c_only_fields'",
-      "description": "The LearnPress – WordPress LMS Plugin plugin for WordPress is vulnerable to SQL Injection via the 'c_only_fields' parameter of the /wp-json/learnpress/v1/courses REST API endpoint in all versions up to, and including, 4.2.7 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
+      "title": "LearnPress \u2013 WordPress LMS Plugin <= 4.2.7 - Unauthenticated SQL Injection via 'c_only_fields'",
+      "description": "The LearnPress \u2013 WordPress LMS Plugin plugin for WordPress is vulnerable to SQL Injection via the 'c_only_fields' parameter of the /wp-json/learnpress/v1/courses REST API endpoint in all versions up to, and including, 4.2.7 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
       "publishedDate": "2024-09-12T08:30:46.615000+00:00",
       "lastModifiedDate": "2024-09-12T13:07:40.179000+00:00",
       "severity": "CRITICAL",
@@ -3525,7 +3898,7 @@
           "WordPress"
         ],
         "products": [
-          "Learnpress – Wordpress Lms Plugin",
+          "Learnpress \u2013 Wordpress Lms Plugin",
           "The Database",
           "Wordpress"
         ]
@@ -3937,7 +4310,7 @@
         "percentile": 99.935
       },
       "riskScore": 64,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -3969,12 +4342,27 @@
           "url": "https://github.com/rapid7/metasploit-framework/pull/19240",
           "source": "",
           "tags": []
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-1336"
+          "CWE-1336",
+          "CISA-KEV"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -3989,6 +4377,17 @@
             "lastModified": "2025-07-30T01:37:02.505000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2024-07-09",
+          "vulnerabilityName": "Rejetto HTTP File Server Improper Neutralization of Special Elements Used in a Template Engine Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2024-07-30",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "The patched Rejetto HTTP File Server (HFS) is version 3: https://github.com/rejetto/hfs?tab=readme-ov-file#installation, https://www.rejetto.com/hfs/ ;   https://nvd.nist.gov/vuln/detail/CVE-2024-23692"
+        }
       }
     },
     {
@@ -4017,7 +4416,7 @@
         "percentile": 99.906
       },
       "riskScore": 64,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -4060,12 +4459,27 @@
           "tags": [
             "related"
           ]
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-798"
+          "CWE-798",
+          "CISA-KEV"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -4080,6 +4494,17 @@
             "lastModified": "2025-07-30T01:37:05.436000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2024-04-11",
+          "vulnerabilityName": "D-Link Multiple NAS Devices Use of Hard-Coded Credentials Vulnerability",
+          "requiredAction": "This vulnerability affects legacy D-Link products. All associated hardware revisions have reached their end-of-life (EOL) or end-of-service (EOS) life cycle and should be retired and replaced per vendor instructions.",
+          "dueDate": "2024-05-02",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "https://supportannouncement.us.dlink.com/security/publication.aspx?name=SAP10383; https://nvd.nist.gov/vuln/detail/CVE-2024-3272"
+        }
       }
     },
     {
@@ -4357,8 +4782,8 @@
     },
     {
       "cveId": "CVE-2024-5084",
-      "title": "Hash Form – Drag & Drop Form Builder <= 1.1.0 - Unauthenticated Arbitrary File Upload to Remote Code Execution",
-      "description": "The Hash Form – Drag & Drop Form Builder plugin for WordPress is vulnerable to arbitrary file uploads due to missing file type validation in the 'file_upload_action' function in all versions up to, and including, 1.1.0. This makes it possible for unauthenticated attackers to upload arbitrary files on the affected site's server which may make remote code execution possible.",
+      "title": "Hash Form \u2013 Drag & Drop Form Builder <= 1.1.0 - Unauthenticated Arbitrary File Upload to Remote Code Execution",
+      "description": "The Hash Form \u2013 Drag & Drop Form Builder plugin for WordPress is vulnerable to arbitrary file uploads due to missing file type validation in the 'file_upload_action' function in all versions up to, and including, 1.1.0. This makes it possible for unauthenticated attackers to upload arbitrary files on the affected site's server which may make remote code execution possible.",
       "publishedDate": "2024-05-23T14:31:38.633000+00:00",
       "lastModifiedDate": "2024-08-01T21:03:10.657000+00:00",
       "severity": "CRITICAL",
@@ -4383,7 +4808,7 @@
           "WordPress"
         ],
         "products": [
-          "Hash Form – Drag & Drop Form Builder",
+          "Hash Form \u2013 Drag & Drop Form Builder",
           "Wordpress"
         ]
       },
@@ -4497,8 +4922,8 @@
     },
     {
       "cveId": "CVE-2024-4434",
-      "title": "LearnPress – WordPress LMS Plugin <= 4.2.6.5 - Unauthenticated Time-Based SQL Injection",
-      "description": "The LearnPress – WordPress LMS Plugin plugin for WordPress is vulnerable to time-based SQL Injection via the ‘term_id’ parameter in versions up to, and including, 4.2.6.5 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
+      "title": "LearnPress \u2013 WordPress LMS Plugin <= 4.2.6.5 - Unauthenticated Time-Based SQL Injection",
+      "description": "The LearnPress \u2013 WordPress LMS Plugin plugin for WordPress is vulnerable to time-based SQL Injection via the \u2018term_id\u2019 parameter in versions up to, and including, 4.2.6.5 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
       "publishedDate": "2024-05-10T08:32:33.463000+00:00",
       "lastModifiedDate": "2024-08-01T20:40:47.210000+00:00",
       "severity": "CRITICAL",
@@ -4524,7 +4949,7 @@
           "WordPress"
         ],
         "products": [
-          "Learnpress – Wordpress Lms Plugin",
+          "Learnpress \u2013 Wordpress Lms Plugin",
           "The Database",
           "Wordpress"
         ]
@@ -4589,7 +5014,7 @@
         "percentile": 99.95
       },
       "riskScore": 63,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -4606,12 +5031,27 @@
           "url": "https://docs.telerik.com/report-server/knowledge-base/registration-auth-bypass-cve-2024-4358",
           "source": "",
           "tags": []
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-290"
+          "CWE-290",
+          "CISA-KEV"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -4626,12 +5066,23 @@
             "lastModified": "2025-07-30T01:37:02.653000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2024-06-13",
+          "vulnerabilityName": "Progress Telerik Report Server Authentication Bypass by Spoofing Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2024-07-04",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "https://docs.telerik.com/report-server/knowledge-base/registration-auth-bypass-cve-2024-4358; https://nvd.nist.gov/vuln/detail/CVE-2024-4358"
+        }
       }
     },
     {
       "cveId": "CVE-2024-4879",
       "title": "Jelly Template Injection Vulnerability in ServiceNow UI Macros",
-      "description": "ServiceNow has addressed an input validation vulnerability that was identified in Vancouver and Washington DC Now Platform releases. This vulnerability could enable an unauthenticated user to remotely execute code within the context of the Now Platform. ServiceNow applied an update to hosted instances, and ServiceNow released the update to our partners and self-hosted customers. Listed below are the patches and hot fixes that address the vulnerability. If you have not done so already, we recommend applying security patches relevant to your instance as soon as possible.",
+      "description": "ServiceNow has addressed an input validation vulnerability that was identified in Vancouver and Washington DC Now Platform releases. This vulnerability could enable an unauthenticated user to remotely execute code within the context of the Now Platform.\u00a0ServiceNow applied an update to hosted instances, and ServiceNow released the update to our partners and self-hosted customers. Listed below are the patches and hot fixes that address the vulnerability. If you have not done so already, we recommend applying security patches relevant to your instance as soon as possible.",
       "publishedDate": "2024-07-10T16:16:39.926000+00:00",
       "lastModifiedDate": "2025-07-30T01:36:37.385000+00:00",
       "severity": "CRITICAL",
@@ -4648,7 +5099,7 @@
         "percentile": 99.952
       },
       "riskScore": 63,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -4675,12 +5126,27 @@
           "url": "https://www.darkreading.com/cloud-security/patchnow-servicenow-critical-rce-bugs-active-exploit",
           "source": "",
           "tags": []
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-1287"
+          "CWE-1287",
+          "CISA-KEV"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -4695,6 +5161,17 @@
             "lastModified": "2025-07-30T01:36:37.385000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2024-07-29",
+          "vulnerabilityName": "ServiceNow Improper Input Validation Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2024-08-19",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "https://support.servicenow.com/kb?id=kb_article_view&sysparm_article=KB1645154; https://nvd.nist.gov/vuln/detail/CVE-2024-4879"
+        }
       }
     },
     {
@@ -4852,7 +5329,7 @@
         "percentile": 100.0
       },
       "riskScore": 63,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -4872,11 +5349,28 @@
           "url": "https://www.darkreading.com/cyberattacks-data-breaches/jetbrains-teamcity-mass-exploitation-underway-rogue-accounts-thrive",
           "source": "",
           "tags": []
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
-        "tags": [],
+        "tags": [
+          "CISA-KEV",
+          "RANSOMWARE"
+        ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
         "attackVector": "Network",
@@ -4890,6 +5384,17 @@
             "lastModified": "2025-07-30T01:37:06.361000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2024-03-07",
+          "vulnerabilityName": "JetBrains TeamCity Authentication Bypass Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2024-03-28",
+          "knownRansomwareCampaignUse": "Known",
+          "notes": "https://www.jetbrains.com/help/teamcity/teamcity-2023-11-4-release-notes.html; https://nvd.nist.gov/vuln/detail/CVE-2024-27198"
+        }
       }
     },
     {
@@ -5200,7 +5705,7 @@
     {
       "cveId": "CVE-2024-2389",
       "title": "Flowmon Unauthenticated Command Injection Vulnerability",
-      "description": "In Flowmon versions prior to 11.1.14 and 12.3.5, an operating system command injection vulnerability has been identified.  An unauthenticated user can gain entry to the system via the Flowmon management interface, allowing for the execution of arbitrary system commands.\n\n",
+      "description": "In Flowmon versions prior to 11.1.14 and 12.3.5, an operating system command injection vulnerability has been identified.\u00a0 An unauthenticated user\u00a0can gain entry to the system via the Flowmon management interface, allowing for the execution of arbitrary system commands.\n\n",
       "publishedDate": "2024-04-02T12:22:45.131000+00:00",
       "lastModifiedDate": "2024-08-01T19:11:53.536000+00:00",
       "severity": "CRITICAL",
@@ -5475,7 +5980,7 @@
     {
       "cveId": "CVE-2024-12209",
       "title": "WP Umbrella: Update Backup Restore & Monitoring <= 2.17.0 - Unauthenticated Local File Inclusion",
-      "description": "The WP Umbrella: Update Backup Restore & Monitoring plugin for WordPress is vulnerable to Local File Inclusion in all versions up to, and including, 2.17.0 via the 'filename' parameter of the 'umbrella-restore' action. This makes it possible for unauthenticated attackers to include and execute arbitrary files on the server, allowing the execution of any PHP code in those files. This can be used to bypass access controls, obtain sensitive data, or achieve code execution in cases where images and other “safe” file types can be uploaded and included.",
+      "description": "The WP Umbrella: Update Backup Restore & Monitoring plugin for WordPress is vulnerable to Local File Inclusion in all versions up to, and including, 2.17.0 via the 'filename' parameter of the 'umbrella-restore' action. This makes it possible for unauthenticated attackers to include and execute arbitrary files on the server, allowing the execution of any PHP code in those files. This can be used to bypass access controls, obtain sensitive data, or achieve code execution in cases where images and other \u201csafe\u201d file types can be uploaded and included.",
       "publishedDate": "2024-12-08T05:25:16.114000+00:00",
       "lastModifiedDate": "2024-12-09T15:54:53.710000+00:00",
       "severity": "CRITICAL",
@@ -5563,7 +6068,7 @@
         "percentile": 99.835
       },
       "riskScore": 63,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -5589,12 +6094,27 @@
           "url": "https://www.beyondtrust.com/trust-center/security-advisories/bt24-10",
           "source": "",
           "tags": []
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-77"
+          "CWE-77",
+          "CISA-KEV"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -5609,6 +6129,17 @@
             "lastModified": "2025-07-30T01:36:23.974000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2024-12-19",
+          "vulnerabilityName": "BeyondTrust Privileged Remote Access (PRA) and Remote Support (RS) Command Injection Vulnerability ",
+          "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2024-12-27",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "https://www.beyondtrust.com/trust-center/security-advisories/bt24-10 ; https://nvd.nist.gov/vuln/detail/CVE-2024-12356"
+        }
       }
     },
     {
@@ -5756,7 +6287,7 @@
     {
       "cveId": "CVE-2024-5217",
       "title": "Incomplete Input Validation in GlideExpression Script",
-      "description": "ServiceNow has addressed an input validation vulnerability that was identified in the Washington DC, Vancouver, and earlier Now Platform releases. This vulnerability could enable an unauthenticated user to remotely execute code within the context of the Now Platform. The vulnerability is addressed in the listed patches and hot fixes below, which were released during the June 2024 patching cycle. If you have not done so already, we recommend applying security patches relevant to your instance as soon as possible.",
+      "description": "ServiceNow has addressed an input validation vulnerability that was identified in the Washington DC, Vancouver, and earlier Now Platform releases. This vulnerability could enable an unauthenticated user to remotely execute code within the context of the Now Platform.\u00a0The vulnerability is addressed in the listed patches and hot fixes below, which were released during the June 2024 patching cycle. If you have not done so already, we recommend applying security patches relevant to your instance as soon as possible.",
       "publishedDate": "2024-07-10T16:28:32.649000+00:00",
       "lastModifiedDate": "2025-07-30T01:36:37.186000+00:00",
       "severity": "CRITICAL",
@@ -5773,7 +6304,7 @@
         "percentile": 99.901
       },
       "riskScore": 63,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -5800,12 +6331,27 @@
           "url": "https://www.darkreading.com/cloud-security/patchnow-servicenow-critical-rce-bugs-active-exploit",
           "source": "",
           "tags": []
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-184"
+          "CWE-184",
+          "CISA-KEV"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -5820,12 +6366,23 @@
             "lastModified": "2025-07-30T01:36:37.186000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2024-07-29",
+          "vulnerabilityName": "ServiceNow Incomplete List of Disallowed Inputs Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2024-08-19",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "https://support.servicenow.com/kb?id=kb_article_view&sysparm_article=KB1648313; https://nvd.nist.gov/vuln/detail/CVE-2024-5217"
+        }
       }
     },
     {
       "cveId": "CVE-2024-4885",
       "title": "WhatsUp Gold GetFileWithoutZip Directory Traversal Remote Code Execution Vulnerability",
-      "description": "In WhatsUp Gold versions released before 2023.1.3, an unauthenticated Remote Code Execution vulnerability in Progress WhatsUpGold.  The \n\nWhatsUp.ExportUtilities.Export.GetFileWithoutZip\n\n\n\n allows execution of commands with iisapppool\\nmconsole privileges.",
+      "description": "In WhatsUp Gold versions released before 2023.1.3,\u00a0an unauthenticated Remote Code Execution vulnerability in Progress WhatsUpGold.\u00a0\u00a0The \n\nWhatsUp.ExportUtilities.Export.GetFileWithoutZip\n\n\n\n allows execution of commands with iisapppool\\nmconsole privileges.",
       "publishedDate": "2024-06-25T19:48:15.268000+00:00",
       "lastModifiedDate": "2025-07-30T01:37:00.341000+00:00",
       "severity": "CRITICAL",
@@ -5842,7 +6399,7 @@
         "percentile": 99.916
       },
       "riskScore": 62,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -5866,12 +6423,27 @@
           "tags": [
             "vendor-advisory"
           ]
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-22"
+          "CWE-22",
+          "CISA-KEV"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -5886,12 +6458,23 @@
             "lastModified": "2025-07-30T01:37:00.341000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2025-03-03",
+          "vulnerabilityName": "Progress WhatsUp Gold Path Traversal Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2025-03-24",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "https://community.progress.com/s/article/WhatsUp-Gold-Security-Bulletin-June-2024 ; https://nvd.nist.gov/vuln/detail/CVE-2024-4885"
+        }
       }
     },
     {
       "cveId": "CVE-2024-4898",
-      "title": "InstaWP Connect – 1-click WP Staging & Migration <= 0.1.0.38 - Missing Authorization to Unauthenticated API setup/Arbitrary Options Update/Administrative User Creation",
-      "description": "The InstaWP Connect – 1-click WP Staging & Migration plugin for WordPress is vulnerable to arbitrary option updates due to a missing authorization checks on the REST API calls in all versions up to, and including, 0.1.0.38. This makes it possible for unauthenticated attackers to connect the site to InstaWP API, edit arbitrary site options and create administrator accounts.",
+      "title": "InstaWP Connect \u2013 1-click WP Staging & Migration <= 0.1.0.38 - Missing Authorization to Unauthenticated API setup/Arbitrary Options Update/Administrative User Creation",
+      "description": "The InstaWP Connect \u2013 1-click WP Staging & Migration plugin for WordPress is vulnerable to arbitrary option updates due to a missing authorization checks on the REST API calls in all versions up to, and including, 0.1.0.38. This makes it possible for unauthenticated attackers to connect the site to InstaWP API, edit arbitrary site options and create administrator accounts.",
       "publishedDate": "2024-06-12T11:05:07.625000+00:00",
       "lastModifiedDate": "2024-08-01T20:55:10.271000+00:00",
       "severity": "CRITICAL",
@@ -5916,7 +6499,7 @@
           "WordPress"
         ],
         "products": [
-          "Instawp Connect – 1-click Wp Staging & Migration",
+          "Instawp Connect \u2013 1-click Wp Staging & Migration",
           "Wordpress"
         ]
       },
@@ -6012,7 +6595,7 @@
     {
       "cveId": "CVE-2024-29972",
       "title": "CVE-2024-29972: ** UNSUPPORTED WHEN ASSIGNED **\nThe command injection vulnerability in the CGI program \"remote_help-...",
-      "description": "** UNSUPPORTED WHEN ASSIGNED **\nThe command injection vulnerability in the CGI program \"remote_help-cgi\" in Zyxel NAS326 firmware versions before V5.21(AAZF.17)C0 and NAS542 firmware versions before V5.21(ABAG.14)C0 could allow an unauthenticated attacker to execute some operating system (OS) commands by sending a crafted HTTP POST request.",
+      "description": "** UNSUPPORTED WHEN ASSIGNED **\nThe command injection vulnerability in the CGI program \"remote_help-cgi\" in Zyxel NAS326 firmware versions before V5.21(AAZF.17)C0 and NAS542 firmware versions before\u00a0V5.21(ABAG.14)C0\u00a0could allow an unauthenticated attacker to execute some operating system (OS) commands by sending a crafted HTTP POST request.",
       "publishedDate": "2024-06-04T01:24:58.172000+00:00",
       "lastModifiedDate": "2024-08-02T01:17:58.671000+00:00",
       "severity": "CRITICAL",
@@ -6146,8 +6729,8 @@
     },
     {
       "cveId": "CVE-2024-29973",
-      "title": "CVE-2024-29973: ** UNSUPPORTED WHEN ASSIGNED **\nThe command injection vulnerability in the “setCookie” parameter in ...",
-      "description": "** UNSUPPORTED WHEN ASSIGNED **\nThe command injection vulnerability in the “setCookie” parameter in Zyxel NAS326 firmware versions before V5.21(AAZF.17)C0 and NAS542 firmware versions before V5.21(ABAG.14)C0 could allow an unauthenticated attacker to execute some operating system (OS) commands by sending a crafted HTTP POST request.",
+      "title": "CVE-2024-29973: ** UNSUPPORTED WHEN ASSIGNED **\nThe command injection vulnerability in the \u201csetCookie\u201d parameter in ...",
+      "description": "** UNSUPPORTED WHEN ASSIGNED **\nThe command injection vulnerability in the \u201csetCookie\u201d parameter in Zyxel NAS326 firmware versions before V5.21(AAZF.17)C0 and NAS542 firmware versions before\u00a0V5.21(ABAG.14)C0 could allow an unauthenticated attacker to execute some operating system (OS) commands by sending a crafted HTTP POST request.",
       "publishedDate": "2024-06-04T01:29:41.852000+00:00",
       "lastModifiedDate": "2024-08-02T01:17:58.484000+00:00",
       "severity": "CRITICAL",
@@ -6337,7 +6920,7 @@
     {
       "cveId": "CVE-2024-6670",
       "title": "WhatsUp Gold HasErrors SQL Injection Authentication Bypass Vulnerability",
-      "description": "In WhatsUp Gold versions released before 2024.0.0, a SQL Injection vulnerability allows an unauthenticated attacker to retrieve the users encrypted password.",
+      "description": "In WhatsUp Gold versions released before 2024.0.0,\u00a0a SQL Injection vulnerability allows an unauthenticated attacker to retrieve the users encrypted password.",
       "publishedDate": "2024-08-29T22:04:41.139000+00:00",
       "lastModifiedDate": "2025-07-30T01:36:34.221000+00:00",
       "severity": "CRITICAL",
@@ -6354,7 +6937,7 @@
         "percentile": 99.993
       },
       "riskScore": 62,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -6378,12 +6961,28 @@
           "tags": [
             "vendor-advisory"
           ]
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-89"
+          "CWE-89",
+          "CISA-KEV",
+          "RANSOMWARE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -6398,6 +6997,17 @@
             "lastModified": "2025-07-30T01:36:34.221000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2024-09-16",
+          "vulnerabilityName": "Progress WhatsUp Gold SQL Injection Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2024-10-07",
+          "knownRansomwareCampaignUse": "Known",
+          "notes": "https://community.progress.com/s/article/WhatsUp-Gold-Security-Bulletin-August-2024 ; https://nvd.nist.gov/vuln/detail/CVE-2024-6670"
+        }
       }
     },
     {
@@ -6420,7 +7030,7 @@
         "percentile": 99.948
       },
       "riskScore": 62,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -6442,12 +7052,27 @@
           "url": "https://www.vicarius.io/vsociety/posts/cosmicsting-critical-unauthenticated-xxe-vulnerability-in-adobe-commerce-and-magento-cve-2024-34102",
           "source": "",
           "tags": []
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-611"
+          "CWE-611",
+          "CISA-KEV"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -6462,12 +7087,23 @@
             "lastModified": "2025-07-30T01:37:00.927000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2024-07-17",
+          "vulnerabilityName": "Adobe Commerce and Magento Open Source Improper Restriction of XML External Entity Reference (XXE) Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2024-08-07",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "https://helpx.adobe.com/security/products/magento/apsb24-40.html;  https://nvd.nist.gov/vuln/detail/CVE-2024-34102"
+        }
       }
     },
     {
       "cveId": "CVE-2024-7094",
-      "title": "JS Help Desk – The Ultimate Help Desk & Support Plugin <= 2.8.6 - Unauthenticated PHP Code Injection to Remote Code Execution",
-      "description": "The JS Help Desk – The Ultimate Help Desk & Support Plugin plugin for WordPress is vulnerable to PHP Code Injection leading to Remote Code Execution in all versions up to, and including, 2.8.6 via the 'storeTheme' function. This is due to a lack of sanitization on user-supplied values, which replace values in the style.php file, along with missing capability checks. This makes it possible for unauthenticated attackers to execute code on the server. This issue was partially patched in 2.8.6 when the code injection issue was resolved, and fully patched in 2.8.7 when the missing authorization and cross-site request forgery protection was added.",
+      "title": "JS Help Desk \u2013 The Ultimate Help Desk & Support Plugin <= 2.8.6 - Unauthenticated PHP Code Injection to Remote Code Execution",
+      "description": "The JS Help Desk \u2013 The Ultimate Help Desk & Support Plugin plugin for WordPress is vulnerable to PHP Code Injection leading to Remote Code Execution in all versions up to, and including, 2.8.6 via the 'storeTheme' function. This is due to a lack of sanitization on user-supplied values, which replace values in the style.php file, along with missing capability checks. This makes it possible for unauthenticated attackers to execute code on the server. This issue was partially patched in 2.8.6 when the code injection issue was resolved, and fully patched in 2.8.7 when the missing authorization and cross-site request forgery protection was added.",
       "publishedDate": "2024-08-13T02:31:39.099000+00:00",
       "lastModifiedDate": "2024-08-13T14:51:27.755000+00:00",
       "severity": "CRITICAL",
@@ -6493,7 +7129,7 @@
           "WordPress"
         ],
         "products": [
-          "Js Help Desk – The Ultimate Help Desk & Support Plugin",
+          "Js Help Desk \u2013 The Ultimate Help Desk & Support Plugin",
           "The Server",
           "Wordpress"
         ]
@@ -6636,7 +7272,7 @@
         "percentile": 99.986
       },
       "riskScore": 62,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -6651,13 +7287,28 @@
           "url": "https://forums.ivanti.com/s/article/Security-Advisory-Ivanti-Virtual-Traffic-Manager-vTM-CVE-2024-7593",
           "source": "",
           "tags": []
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
           "CWE-287",
-          "CWE-303"
+          "CWE-303",
+          "CISA-KEV"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -6672,6 +7323,17 @@
             "lastModified": "2025-07-30T01:36:35.295000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2024-09-24",
+          "vulnerabilityName": "Ivanti Virtual Traffic Manager Authentication Bypass Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2024-10-15",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "https://forums.ivanti.com/s/article/Security-Advisory-Ivanti-Virtual-Traffic-Manager-vTM-CVE-2024-7593 ; https://nvd.nist.gov/vuln/detail/CVE-2024-7593"
+        }
       }
     },
     {
@@ -6975,7 +7637,7 @@
     {
       "cveId": "CVE-2024-2044",
       "title": "Unsafe Deserialisation and Remote Code Execution by an Authenticated user in pgAdmin 4",
-      "description": "pgAdmin <= 8.3 is affected by a path-traversal vulnerability while deserializing users’ sessions in the session handling code. If the server is running on Windows, an unauthenticated attacker can load and deserialize remote pickle objects and gain code execution. If the server is running on POSIX/Linux, an authenticated attacker can upload pickle objects, deserialize them, and gain code execution.",
+      "description": "pgAdmin <= 8.3 is affected by a path-traversal vulnerability while deserializing users\u2019 sessions in the session handling code. If the server is running on Windows, an unauthenticated attacker can load and deserialize remote pickle objects and gain code execution. If the server is running on POSIX/Linux, an authenticated attacker can upload pickle objects, deserialize them, and gain code execution.",
       "publishedDate": "2024-03-07T20:48:10.066000+00:00",
       "lastModifiedDate": "2025-02-13T17:32:31.782000+00:00",
       "severity": "CRITICAL",
@@ -7045,8 +7707,8 @@
     },
     {
       "cveId": "CVE-2024-2667",
-      "title": "CVE-2024-2667: The InstaWP Connect – 1-click WP Staging & Migration plugin for WordPress is vulnerable to arbitrary...",
-      "description": "The InstaWP Connect – 1-click WP Staging & Migration plugin for WordPress is vulnerable to arbitrary file uploads due to  insufficient file validation in the /wp-json/instawp-connect/v1/config REST API endpoint in all versions up to, and including, 0.1.0.22. This makes it possible for unauthenticated attackers to upload arbitrary files.",
+      "title": "CVE-2024-2667: The InstaWP Connect \u2013 1-click WP Staging & Migration plugin for WordPress is vulnerable to arbitrary...",
+      "description": "The InstaWP Connect \u2013 1-click WP Staging & Migration plugin for WordPress is vulnerable to arbitrary file uploads due to  insufficient file validation in the /wp-json/instawp-connect/v1/config REST API endpoint in all versions up to, and including, 0.1.0.22. This makes it possible for unauthenticated attackers to upload arbitrary files.",
       "publishedDate": "2024-05-02T16:52:52.798000+00:00",
       "lastModifiedDate": "2024-08-01T19:18:48.315000+00:00",
       "severity": "CRITICAL",
@@ -7071,7 +7733,7 @@
           "WordPress"
         ],
         "products": [
-          "Instawp Connect – 1-click Wp Staging & Migration",
+          "Instawp Connect \u2013 1-click Wp Staging & Migration",
           "Wordpress"
         ]
       },
@@ -7107,8 +7769,8 @@
     },
     {
       "cveId": "CVE-2024-10571",
-      "title": "Chartify – WordPress Chart Plugin <= 2.9.5 - Unauthenticated Local File Inclusion via source",
-      "description": "The Chartify – WordPress Chart Plugin plugin for WordPress is vulnerable to Local File Inclusion in all versions up to, and including, 2.9.5 via the 'source' parameter. This makes it possible for unauthenticated attackers to include and execute arbitrary files on the server, allowing the execution of any PHP code in those files. This can be used to bypass access controls, obtain sensitive data, or achieve code execution in cases where images and other “safe” file types can be uploaded and included.",
+      "title": "Chartify \u2013 WordPress Chart Plugin <= 2.9.5 - Unauthenticated Local File Inclusion via source",
+      "description": "The Chartify \u2013 WordPress Chart Plugin plugin for WordPress is vulnerable to Local File Inclusion in all versions up to, and including, 2.9.5 via the 'source' parameter. This makes it possible for unauthenticated attackers to include and execute arbitrary files on the server, allowing the execution of any PHP code in those files. This can be used to bypass access controls, obtain sensitive data, or achieve code execution in cases where images and other \u201csafe\u201d file types can be uploaded and included.",
       "publishedDate": "2024-11-14T11:00:12.910000+00:00",
       "lastModifiedDate": "2024-11-14T19:33:58.060000+00:00",
       "severity": "CRITICAL",
@@ -7134,7 +7796,7 @@
           "WordPress"
         ],
         "products": [
-          "Chartify – Wordpress Chart Plugin",
+          "Chartify \u2013 Wordpress Chart Plugin",
           "The Server",
           "Wordpress"
         ]
@@ -7173,8 +7835,8 @@
     },
     {
       "cveId": "CVE-2024-10124",
-      "title": "Vayu Blocks – Gutenberg Blocks for WordPress & WooCommerce <= 1.1.1 - Missing Authorization to Unauthenticated Arbitrary Plugin Installation/Activation",
-      "description": "The Vayu Blocks – Gutenberg Blocks for WordPress & WooCommerce plugin for WordPress is vulnerable to unauthorized arbitrary plugin installation and activation due to a missing capability check on the tp_install() function in all versions up to, and including, 1.1.1. This makes it possible for unauthenticated attackers to install and activate arbitrary plugins which can be leveraged to achieve remote code execution if another vulnerable plugin is installed and activated. This vulnerability was partially patched in version 1.1.1.",
+      "title": "Vayu Blocks \u2013 Gutenberg Blocks for WordPress & WooCommerce <= 1.1.1 - Missing Authorization to Unauthenticated Arbitrary Plugin Installation/Activation",
+      "description": "The Vayu Blocks \u2013 Gutenberg Blocks for WordPress & WooCommerce plugin for WordPress is vulnerable to unauthorized arbitrary plugin installation and activation due to a missing capability check on the tp_install() function in all versions up to, and including, 1.1.1. This makes it possible for unauthenticated attackers to install and activate arbitrary plugins which can be leveraged to achieve remote code execution if another vulnerable plugin is installed and activated. This vulnerability was partially patched in version 1.1.1.",
       "publishedDate": "2024-12-12T05:24:21.899000+00:00",
       "lastModifiedDate": "2024-12-12T14:49:08.445000+00:00",
       "severity": "CRITICAL",
@@ -7199,7 +7861,7 @@
           "WordPress"
         ],
         "products": [
-          "Vayu Blocks – Gutenberg Blocks For Wordpress & Woocommerce",
+          "Vayu Blocks \u2013 Gutenberg Blocks For Wordpress & Woocommerce",
           "Wordpress"
         ]
       },
@@ -7434,7 +8096,7 @@
     {
       "cveId": "CVE-2024-5276",
       "title": "SQL Injection Vulnerability in FileCatalyst Workflow 5.1.6 Build 135 (and earlier)",
-      "description": "A SQL Injection vulnerability in Fortra FileCatalyst Workflow allows an attacker to modify application data.  Likely impacts include creation of administrative users and deletion or modification of data in the application database. Data exfiltration via SQL injection is not possible using this vulnerability. Successful unauthenticated exploitation requires a Workflow system with anonymous access enabled, otherwise an authenticated user is required. This issue affects all versions of FileCatalyst Workflow from 5.1.6 Build 135 and earlier.",
+      "description": "A SQL Injection vulnerability in Fortra FileCatalyst Workflow allows an attacker to modify application data.\u00a0 Likely impacts include creation of administrative users and deletion or modification of data in the application database. Data exfiltration via SQL injection is not possible using this vulnerability. Successful unauthenticated exploitation requires a Workflow system with anonymous access enabled, otherwise an authenticated user is required.\u00a0This issue affects all versions of FileCatalyst Workflow from 5.1.6 Build 135 and earlier.",
       "publishedDate": "2024-06-25T19:13:54.585000+00:00",
       "lastModifiedDate": "2024-08-01T21:11:12.427000+00:00",
       "severity": "CRITICAL",
@@ -7572,7 +8234,7 @@
     {
       "cveId": "CVE-2024-4323",
       "title": "Fluent Bit Memory Corruption Vulnerability",
-      "description": "A memory corruption vulnerability in Fluent Bit versions 2.0.7 thru 3.0.3. This issue lies in the embedded http server’s parsing of trace requests and may result in denial of service conditions, information disclosure, or remote code execution.",
+      "description": "A memory corruption vulnerability in Fluent Bit versions 2.0.7 thru 3.0.3. This issue lies in the embedded http server\u2019s parsing of trace requests and may result in denial of service conditions, information disclosure, or remote code execution.",
       "publishedDate": "2024-05-20T12:06:21.696000+00:00",
       "lastModifiedDate": "2024-08-19T07:47:45.924000+00:00",
       "severity": "CRITICAL",
@@ -7842,7 +8504,7 @@
         "percentile": 99.96
       },
       "riskScore": 61,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -7857,12 +8519,27 @@
           "url": "https://forums.ivanti.com/s/article/Security-Advisory-Ivanti-CSA-4-6-Cloud-Services-Appliance-CVE-2024-8963",
           "source": "",
           "tags": []
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-22"
+          "CWE-22",
+          "CISA-KEV"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -7877,6 +8554,17 @@
             "lastModified": "2025-07-30T01:36:32.312000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2024-09-19",
+          "vulnerabilityName": "Ivanti Cloud Services Appliance (CSA) Path Traversal Vulnerability",
+          "requiredAction": "As Ivanti CSA has reached End-of-Life status, users are urged to remove CSA 4.6.x from service or upgrade to the 5.0.x line of supported solutions, as future vulnerabilities on the 4.6.x version of CSA are unlikely to receive security updates.",
+          "dueDate": "2024-10-10",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "https://forums.ivanti.com/s/article/Security-Advisory-Ivanti-CSA-4-6-Cloud-Services-Appliance-CVE-2024-8963 ; https://nvd.nist.gov/vuln/detail/CVE-2024-8963"
+        }
       }
     },
     {
@@ -8133,7 +8821,7 @@
         "percentile": 99.932
       },
       "riskScore": 61,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -8153,12 +8841,27 @@
           "url": "https://support.solarwinds.com/SuccessCenter/s/article/SolarWinds-Web-Help-Desk-12-8-3-Hotfix-2",
           "source": "",
           "tags": []
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-798"
+          "CWE-798",
+          "CISA-KEV"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -8173,6 +8876,17 @@
             "lastModified": "2025-07-30T01:36:34.624000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2024-10-15",
+          "vulnerabilityName": "SolarWinds Web Help Desk Hardcoded Credential Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2024-11-05",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "https://www.solarwinds.com/trust-center/security-advisories/cve-2024-28987 ; https://nvd.nist.gov/vuln/detail/CVE-2024-28987"
+        }
       }
     },
     {
@@ -8296,7 +9010,7 @@
     {
       "cveId": "CVE-2024-37084",
       "title": "CVE-2024-37084: Remote code execution in Spring Cloud Data Flow",
-      "description": "In Spring Cloud Data Flow versions prior to 2.11.4,  a malicious user who has access to the Skipper server api can use a crafted upload request to write an arbitrary file to any location on the file system which could lead to compromising the server",
+      "description": "In Spring Cloud Data Flow versions prior to 2.11.4,\u00a0\u00a0a malicious user who has access to the Skipper server api can use a crafted upload request to write an arbitrary file to any location on the file system which could lead to compromising the server",
       "publishedDate": "2024-07-25T09:17:50.378000+00:00",
       "lastModifiedDate": "2024-08-02T03:43:50.987000+00:00",
       "severity": "CRITICAL",
@@ -8641,7 +9355,7 @@
     {
       "cveId": "CVE-2024-1800",
       "title": "Progress Telerik Report Server Deserialization",
-      "description": "\nIn Progress® Telerik® Report Server versions prior to 2024 Q1 (10.0.24.130), a remote code execution attack is possible through an insecure deserialization vulnerability.",
+      "description": "\nIn Progress\u00ae Telerik\u00ae Report Server versions prior to 2024 Q1 (10.0.24.130), a remote code execution attack is possible through an insecure deserialization vulnerability.",
       "publishedDate": "2024-03-20T13:11:41.461000+00:00",
       "lastModifiedDate": "2024-08-01T18:48:22.048000+00:00",
       "severity": "CRITICAL",
@@ -8708,8 +9422,8 @@
     },
     {
       "cveId": "CVE-2024-8529",
-      "title": "LearnPress – WordPress LMS Plugin <= 4.2.7 - Unauthenticated SQL Injection via 'c_fields'",
-      "description": "The LearnPress – WordPress LMS Plugin plugin for WordPress is vulnerable to SQL Injection via the 'c_fields' parameter of the /wp-json/lp/v1/courses/archive-course REST API endpoint in all versions up to, and including, 4.2.7 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
+      "title": "LearnPress \u2013 WordPress LMS Plugin <= 4.2.7 - Unauthenticated SQL Injection via 'c_fields'",
+      "description": "The LearnPress \u2013 WordPress LMS Plugin plugin for WordPress is vulnerable to SQL Injection via the 'c_fields' parameter of the /wp-json/lp/v1/courses/archive-course REST API endpoint in all versions up to, and including, 4.2.7 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
       "publishedDate": "2024-09-12T08:30:46.090000+00:00",
       "lastModifiedDate": "2024-09-12T13:08:29.798000+00:00",
       "severity": "CRITICAL",
@@ -8735,7 +9449,7 @@
           "WordPress"
         ],
         "products": [
-          "Learnpress – Wordpress Lms Plugin",
+          "Learnpress \u2013 Wordpress Lms Plugin",
           "The Database",
           "Wordpress"
         ]
@@ -9011,7 +9725,7 @@
     {
       "cveId": "CVE-2024-25153",
       "title": "Remote Code Execution in FileCatalyst Workflow 5.x prior to 5.1.6 Build 114",
-      "description": "A directory traversal within the ‘ftpservlet’ of the FileCatalyst Workflow Web Portal allows files to be uploaded outside of the intended ‘uploadtemp’ directory with a specially crafted POST request. In situations where a file is successfully uploaded to web portal’s DocumentRoot, specially crafted JSP files could be used to execute code, including web shells.",
+      "description": "A directory traversal within the \u2018ftpservlet\u2019 of the FileCatalyst Workflow Web Portal allows files to be uploaded outside of the intended \u2018uploadtemp\u2019 directory with a specially crafted POST request. In situations where a file is successfully uploaded to web portal\u2019s DocumentRoot, specially crafted JSP files could be used to execute code, including web shells.",
       "publishedDate": "2024-03-13T14:10:36.029000+00:00",
       "lastModifiedDate": "2025-09-19T12:46:03.155000+00:00",
       "severity": "CRITICAL",
@@ -9269,7 +9983,7 @@
     {
       "cveId": "CVE-2024-32735",
       "title": "CyberPower PowerPanel Enterprise Missing Authentication",
-      "description": "An issue regarding missing authentication for certain utilities exists in CyberPower PowerPanel Enterprise prior to v2.8.3. An unauthenticated remote attacker can access the PDNU REST APIs, which may result in compromise of the application.",
+      "description": "An issue regarding missing authentication for certain utilities exists in CyberPower PowerPanel Enterprise prior to v2.8.3.\u00a0An unauthenticated remote attacker can access the PDNU REST APIs, which may result in compromise of the application.",
       "publishedDate": "2024-05-09T14:54:45.407000+00:00",
       "lastModifiedDate": "2024-08-02T02:20:35.343000+00:00",
       "severity": "CRITICAL",
@@ -9433,7 +10147,7 @@
         "percentile": 99.37
       },
       "riskScore": 59,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -9458,12 +10172,27 @@
           "tags": [
             "third-party-advisory"
           ]
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-306"
+          "CWE-306",
+          "CISA-KEV"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -9478,6 +10207,17 @@
             "lastModified": "2025-10-08T15:54:15.012000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2024-11-04",
+          "vulnerabilityName": "PTZOptics PT30X-SDI/NDI Cameras Authentication Bypass Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2024-11-25",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "https://ptzoptics.com/firmware-changelog/ ; https://nvd.nist.gov/vuln/detail/CVE-2024-8956"
+        }
       }
     },
     {
@@ -9587,7 +10327,7 @@
         "percentile": 98.803
       },
       "riskScore": 59,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -9630,12 +10370,27 @@
           "tags": [
             "third-party-advisory"
           ]
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-78"
+          "CWE-78",
+          "CISA-KEV"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -9650,12 +10405,23 @@
             "lastModified": "2025-07-30T01:37:00.628000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2025-05-07",
+          "vulnerabilityName": "GeoVision Devices OS Command Injection Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2025-05-28",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "https://dlcdn.geovision.com.tw/TechNotice/CyberSecurity/Security_Advisory_IP_Device_2024-11.pdf ; https://nvd.nist.gov/vuln/detail/CVE-2024-6047"
+        }
       }
     },
     {
       "cveId": "CVE-2024-7856",
-      "title": "MP3 Audio Player – Music Player, Podcast Player & Radio by Sonaar <= 5.7.0.1 - Missing Authorization to Authenticated (Subscriber+) Arbitrary File Deletion",
-      "description": "The MP3 Audio Player – Music Player, Podcast Player & Radio by Sonaar plugin for WordPress is vulnerable to unauthorized arbitrary file deletion due to a missing capability check on the removeTempFiles() function and insufficient path validation on the 'file' parameter in all versions up to, and including, 5.7.0.1. This makes it possible for authenticated attackers, with subscriber-level access and above, to delete arbitrary files which can make remote code execution possible when wp-config.php is deleted.",
+      "title": "MP3 Audio Player \u2013 Music Player, Podcast Player & Radio by Sonaar <= 5.7.0.1 - Missing Authorization to Authenticated (Subscriber+) Arbitrary File Deletion",
+      "description": "The MP3 Audio Player \u2013 Music Player, Podcast Player & Radio by Sonaar plugin for WordPress is vulnerable to unauthorized arbitrary file deletion due to a missing capability check on the removeTempFiles() function and insufficient path validation on the 'file' parameter in all versions up to, and including, 5.7.0.1. This makes it possible for authenticated attackers, with subscriber-level access and above, to delete arbitrary files which can make remote code execution possible when wp-config.php is deleted.",
       "publishedDate": "2024-08-29T03:52:57.401000+00:00",
       "lastModifiedDate": "2024-08-29T14:07:23.168000+00:00",
       "severity": "CRITICAL",
@@ -9680,7 +10446,7 @@
           "WordPress"
         ],
         "products": [
-          "Mp3 Audio Player – Music Player, Podcast Player & Radio By Sonaar",
+          "Mp3 Audio Player \u2013 Music Player, Podcast Player & Radio By Sonaar",
           "Wordpress"
         ]
       },
@@ -10659,7 +11425,7 @@
         "percentile": 98.304
       },
       "riskScore": 56,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -10687,12 +11453,27 @@
           "tags": [
             "third-party-advisory"
           ]
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-78"
+          "CWE-78",
+          "CISA-KEV"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -10707,6 +11488,17 @@
             "lastModified": "2025-07-30T01:36:26.267000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2025-05-07",
+          "vulnerabilityName": "GeoVision Devices OS Command Injection Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2025-05-28",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "https://dlcdn.geovision.com.tw/TechNotice/CyberSecurity/Security_Advisory_IP_Device_2024-11.pdf ; https://nvd.nist.gov/vuln/detail/CVE-2024-11120"
+        }
       }
     }
   ]

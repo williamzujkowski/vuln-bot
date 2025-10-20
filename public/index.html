@@ -816,7 +816,21 @@
                         </p>
                     </div>
                 </div>
-                <div style="display: flex; gap: 1rem;">
+                <div style="display: flex; gap: 1rem; align-items: center;">
+                    <a href="methodology.html" style="padding: 0.5rem 1rem; background: rgba(124, 58, 237, 0.15); border: 1px solid rgba(124, 58, 237, 0.3); border-radius: 20px; color: #a78bfa; font-size: 0.875rem; font-weight: 600; text-decoration: none; transition: all 0.2s;">
+                        📚 Methodology
+                    </a>
+                    <a href="https://github.com/williamzujkowski/vuln-bot" target="_blank" rel="noopener noreferrer" style="padding: 0.5rem 1rem; background: rgba(0, 212, 255, 0.15); border: 1px solid rgba(0, 212, 255, 0.3); border-radius: 20px; color: #00d4ff; font-size: 0.875rem; font-weight: 600; text-decoration: none; transition: all 0.2s;">
+                        <span style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                            </svg>
+                            GitHub
+                        </span>
+                    </a>
+                    <div style="padding: 0.5rem 1rem; background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 20px; color: #10b981; font-size: 0.875rem; font-weight: 600;">
+                        🎯 EPSS ≥60%
+                    </div>
                     <button class="filter-chip" @click="exportCSV()">
                         Export CSV
                     </button>
@@ -888,17 +902,17 @@
                     <button class="filter-chip"
                             :class="{ 'active': quickFilter === 'critical-urgent' }"
                             @click="setQuickFilter('critical-urgent')">
-                        🔴 Critical Urgent <span x-text="`(${countByPriority('CRITICAL-URGENT')})`"></span>
+                        🔴 Critical Urgent <span x-text="`(${countByPriority('CRITICAL-URGENT')} - ${Math.round(countByPriority('CRITICAL-URGENT') / stats.total * 100)}%)`"></span>
                     </button>
                     <button class="filter-chip"
                             :class="{ 'active': quickFilter === 'high-priority' }"
                             @click="setQuickFilter('high-priority')">
-                        🟡 High Priority <span x-text="`(${countByPriority('HIGH-PRIORITY')})`"></span>
+                        🟡 High Priority <span x-text="`(${countByPriority('HIGH-PRIORITY')} - ${Math.round(countByPriority('HIGH-PRIORITY') / stats.total * 100)}%)`"></span>
                     </button>
                     <button class="filter-chip"
                             :class="{ 'active': quickFilter === 'monitor' }"
                             @click="setQuickFilter('monitor')">
-                        🟢 Monitor <span x-text="`(${countByPriority('MONITOR')})`"></span>
+                        🟢 Monitor <span x-text="`(${countByPriority('MONITOR')} - ${Math.round(countByPriority('MONITOR') / stats.total * 100)}%)`"></span>
                     </button>
                 </div>
             </div>
@@ -985,17 +999,6 @@
                     <!-- Filter Grid -->
                     <div class="filter-grid">
                         <div class="filter-group">
-                            <label>Severity</label>
-                            <select x-model="filters.severity">
-                                <option value="">All</option>
-                                <option value="CRITICAL">Critical</option>
-                                <option value="HIGH">High</option>
-                                <option value="MEDIUM">Medium</option>
-                                <option value="LOW">Low</option>
-                            </select>
-                        </div>
-
-                        <div class="filter-group">
                             <label>CVSS Score</label>
                             <div style="display: flex; gap: 0.5rem;">
                                 <input type="number" x-model.number="filters.cvss_min" placeholder="Min" min="0" max="10" step="0.1">
@@ -1004,10 +1007,12 @@
                         </div>
 
                         <div class="filter-group">
-                            <label>EPSS Threshold</label>
-                            <div style="padding: 0.75rem; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 8px; color: #10b981; font-size: 0.875rem;">
-                                ✓ All vulnerabilities meet EPSS ≥60% threshold
-                            </div>
+                            <label>Attack Complexity</label>
+                            <select x-model="filters.attack_complexity">
+                                <option value="">All</option>
+                                <option value="LOW">Low</option>
+                                <option value="HIGH">High</option>
+                            </select>
                         </div>
 
                         <div class="filter-group">
@@ -1035,16 +1040,16 @@
             <!-- Charts Section -->
             <div class="charts-grid">
                 <div class="chart-card">
-                    <h3 class="chart-title">Severity Distribution</h3>
+                    <h3 class="chart-title">Priority Distribution</h3>
                     <div class="chart-container">
-                        <canvas x-ref="severityChart"></canvas>
+                        <canvas x-ref="priorityChart"></canvas>
                     </div>
                 </div>
 
                 <div class="chart-card">
-                    <h3 class="chart-title">EPSS Score Distribution</h3>
+                    <h3 class="chart-title">Exploitation Status</h3>
                     <div class="chart-container">
-                        <canvas x-ref="epssChart"></canvas>
+                        <canvas x-ref="exploitationChart"></canvas>
                     </div>
                 </div>
             </div>
@@ -1242,9 +1247,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "databases"
@@ -1351,9 +1356,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "windows"
@@ -1389,9 +1394,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": []
   },
@@ -1425,9 +1430,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": []
   },
@@ -1459,9 +1464,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "windows"
@@ -1746,9 +1751,9 @@
     "cwe_ids": [
       "CWE-288"
     ],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "network-gear"
@@ -1782,9 +1787,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "network-gear"
@@ -1819,9 +1824,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": []
   },
@@ -1853,9 +1858,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": []
   },
@@ -1924,9 +1929,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "network-gear"
@@ -1961,9 +1966,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": []
   },
@@ -2284,9 +2289,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": []
   },
@@ -2389,9 +2394,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": []
   },
@@ -2530,9 +2535,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "network-gear"
@@ -2633,9 +2638,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Available",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": []
   },
@@ -2665,9 +2670,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": []
   },
@@ -2697,9 +2702,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": []
   },
@@ -2804,9 +2809,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": [
       "network-gear"
@@ -3340,9 +3345,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": []
   },
@@ -3407,9 +3412,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": []
   },
@@ -3441,9 +3446,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": []
   },
@@ -3658,9 +3663,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": []
   },
@@ -3763,9 +3768,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": []
   },
@@ -3797,9 +3802,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": []
   },
@@ -3903,9 +3908,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": []
   },
@@ -4298,9 +4303,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": []
   },
@@ -4401,9 +4406,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": []
   },
@@ -4435,9 +4440,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": []
   },
@@ -4579,9 +4584,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": []
   },
@@ -4613,9 +4618,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": []
   },
@@ -4648,9 +4653,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": []
   },
@@ -4682,9 +4687,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "windows"
@@ -4718,9 +4723,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": []
   },
@@ -4926,9 +4931,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Available",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": []
   },
@@ -5028,9 +5033,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": []
   },
@@ -5062,9 +5067,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": []
   },
@@ -5173,9 +5178,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": []
   },
@@ -5734,9 +5739,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "windows"
@@ -5949,9 +5954,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Available",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": []
   },
@@ -6021,9 +6026,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "windows"
@@ -6057,9 +6062,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Available",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": []
   },
@@ -6091,9 +6096,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Available",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": []
   },
@@ -6123,9 +6128,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "databases"
@@ -6263,9 +6268,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": []
   },
@@ -6334,9 +6339,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": []
   },
@@ -6438,9 +6443,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "windows"
@@ -6508,9 +6513,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": []
   },
@@ -6542,9 +6547,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": []
   },
@@ -7076,9 +7081,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "windows"
@@ -7539,9 +7544,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": []
   },
@@ -7611,9 +7616,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Available",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": []
   },
@@ -7681,9 +7686,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": []
   },
@@ -7854,9 +7859,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": []
   },
@@ -7989,9 +7994,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "linux"
@@ -8025,9 +8030,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": []
   },
@@ -8164,9 +8169,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": []
   },
@@ -8270,9 +8275,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": []
   },
@@ -8484,9 +8489,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": []
   },
@@ -8728,9 +8733,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "windows"
@@ -8936,9 +8941,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "windows"
@@ -8972,9 +8977,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "windows"
@@ -9326,9 +9331,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "windows"
@@ -9540,9 +9545,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "databases"
@@ -9990,9 +9995,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": []
   },
@@ -10024,9 +10029,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": []
   },
@@ -10058,9 +10063,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "CRITICAL-URGENT",
     "tech_categories": []
   },
@@ -10266,9 +10271,9 @@
     "cwe_ids": [
       "CWE-284"
     ],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": []
   },
@@ -10375,9 +10380,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": []
   },
@@ -10586,9 +10591,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Available",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": []
   },
@@ -10761,9 +10766,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": [
       "windows"
@@ -11149,9 +11154,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": []
   },
@@ -11181,9 +11186,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": []
   },
@@ -11591,9 +11596,9 @@
     "integrity_impact": "",
     "availability_impact": "",
     "cwe_ids": [],
-    "kev_status": false,
+    "kev_status": true,
     "patch_status": "Unknown",
-    "exploitation_status": "Unknown",
+    "exploitation_status": "KEV Listed",
     "triage_priority": "HIGH-PRIORITY",
     "tech_categories": []
   }
@@ -11606,19 +11611,17 @@
   "low": 0,
   "today_count": 0,
   "week_count": 0,
-  "kev_count": 0,
-  "last_updated": "2025-10-19T19:40:50.481825",
-  "severity_distribution": {
-    "CRITICAL": 185,
-    "HIGH": 110,
-    "MEDIUM": 0,
-    "LOW": 0
+  "kev_count": 73,
+  "last_updated": "2025-10-19T20:12:23.561598",
+  "priority_distribution": {
+    "CRITICAL-URGENT": 177,
+    "HIGH-PRIORITY": 118,
+    "MONITOR": 0
   },
-  "epss_distribution": {
-    "90-100%": 295,
-    "70-89%": 0,
-    "50-69%": 0,
-    "<50%": 0
+  "exploitation_distribution": {
+    "KEV Listed": 73,
+    "PoC Available": 0,
+    "Not Listed": 222
   }
 };
 
@@ -11639,9 +11642,9 @@
 
                 // Filters
                 filters: {
-                    severity: '',
                     cvss_min: null,
                     cvss_max: null,
+                    attack_complexity: '',
                     published_from: '',
                     published_to: '',
                     vendor: ''
@@ -11706,16 +11709,16 @@
                     }
 
                     // Advanced filters
-                    if (this.filters.severity) {
-                        vulns = vulns.filter(v => v.severity === this.filters.severity);
-                    }
-
                     if (this.filters.cvss_min !== null) {
                         vulns = vulns.filter(v => v.cvss_score >= this.filters.cvss_min);
                     }
 
                     if (this.filters.cvss_max !== null) {
                         vulns = vulns.filter(v => v.cvss_score <= this.filters.cvss_max);
+                    }
+
+                    if (this.filters.attack_complexity) {
+                        vulns = vulns.filter(v => v.attack_complexity && v.attack_complexity.toUpperCase() === this.filters.attack_complexity);
                     }
 
                     if (this.filters.published_from) {
@@ -11807,9 +11810,9 @@
                     this.quickFilter = 'all';
                     this.techFilter = '';
                     this.filters = {
-                        severity: '',
                         cvss_min: null,
                         cvss_max: null,
+                        attack_complexity: '',
                         published_from: '',
                         published_to: '',
                         vendor: ''
@@ -11868,20 +11871,21 @@
                 },
 
                 initCharts() {
-                    // Severity Chart
-                    if (this.$refs.severityChart) {
-                        new Chart(this.$refs.severityChart, {
+                    // Priority Distribution Chart
+                    if (this.$refs.priorityChart) {
+                        new Chart(this.$refs.priorityChart, {
                             type: 'doughnut',
                             data: {
-                                labels: ['Critical', 'High', 'Medium', 'Low'],
+                                labels: ['Critical-Urgent', 'High-Priority', 'Monitor'],
                                 datasets: [{
                                     data: [
-                                        this.stats.severity_distribution.CRITICAL,
-                                        this.stats.severity_distribution.HIGH,
-                                        this.stats.severity_distribution.MEDIUM,
-                                        this.stats.severity_distribution.LOW
+                                        this.stats.priority_distribution['CRITICAL-URGENT'],
+                                        this.stats.priority_distribution['HIGH-PRIORITY'],
+                                        this.stats.priority_distribution['MONITOR']
                                     ],
-                                    backgroundColor: ['#dc2626', '#ef4444', '#f59e0b', '#3b82f6']
+                                    backgroundColor: ['#dc2626', '#f59e0b', '#10b981'],
+                                    borderWidth: 2,
+                                    borderColor: '#12121a'
                                 }]
                             },
                             options: {
@@ -11889,27 +11893,40 @@
                                 maintainAspectRatio: false,
                                 plugins: {
                                     legend: {
-                                        labels: { color: '#cbd5e1' }
+                                        labels: {
+                                            color: '#cbd5e1',
+                                            font: { size: 14 }
+                                        }
+                                    },
+                                    tooltip: {
+                                        callbacks: {
+                                            label: function(context) {
+                                                const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                                const percentage = ((context.parsed / total) * 100).toFixed(1);
+                                                return context.label + ': ' + context.parsed + ' (' + percentage + '%)';
+                                            }
+                                        }
                                     }
                                 }
                             }
                         });
                     }
 
-                    // EPSS Chart
-                    if (this.$refs.epssChart) {
-                        new Chart(this.$refs.epssChart, {
+                    // Exploitation Status Chart
+                    if (this.$refs.exploitationChart) {
+                        new Chart(this.$refs.exploitationChart, {
                             type: 'bar',
                             data: {
-                                labels: ['90-100%', '70-89%', '50-69%', '<50%'],
+                                labels: ['KEV Listed', 'PoC Available', 'Not Listed'],
                                 datasets: [{
                                     data: [
-                                        this.stats.epss_distribution['90-100%'],
-                                        this.stats.epss_distribution['70-89%'],
-                                        this.stats.epss_distribution['50-69%'],
-                                        this.stats.epss_distribution['<50%']
+                                        this.stats.exploitation_distribution['KEV Listed'],
+                                        this.stats.exploitation_distribution['PoC Available'],
+                                        this.stats.exploitation_distribution['Not Listed']
                                     ],
-                                    backgroundColor: ['#dc2626', '#ef4444', '#f59e0b', '#10b981']
+                                    backgroundColor: ['#dc2626', '#f59e0b', '#6b6b85'],
+                                    borderWidth: 1,
+                                    borderColor: '#12121a'
                                 }]
                             },
                             options: {
@@ -11917,13 +11934,35 @@
                                 maintainAspectRatio: false,
                                 plugins: {
                                     legend: { display: false },
+                                    tooltip: {
+                                        callbacks: {
+                                            label: function(context) {
+                                                const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                                const percentage = ((context.parsed.y / total) * 100).toFixed(1);
+                                                return context.label + ': ' + context.parsed.y + ' (' + percentage + '%)';
+                                            }
+                                        }
+                                    }
                                 },
                                 scales: {
                                     y: {
-                                        ticks: { color: '#cbd5e1' }
+                                        beginAtZero: true,
+                                        ticks: {
+                                            color: '#cbd5e1',
+                                            stepSize: 10
+                                        },
+                                        grid: {
+                                            color: 'rgba(255, 255, 255, 0.05)'
+                                        }
                                     },
                                     x: {
-                                        ticks: { color: '#cbd5e1' }
+                                        ticks: {
+                                            color: '#cbd5e1',
+                                            font: { size: 12 }
+                                        },
+                                        grid: {
+                                            display: false
+                                        }
                                     }
                                 }
                             }

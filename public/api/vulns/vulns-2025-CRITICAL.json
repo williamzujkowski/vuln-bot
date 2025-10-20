@@ -23,7 +23,7 @@
         "percentile": 99.172
       },
       "riskScore": 70,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -40,11 +40,28 @@
           "tags": [
             "vendor-advisory"
           ]
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
-        "tags": [],
+        "tags": [
+          "CISA-KEV",
+          "RANSOMWARE"
+        ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
         "attackVector": "Network",
@@ -58,6 +75,17 @@
             "lastModified": "2025-10-16T17:48:45.233000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2025-10-06",
+          "vulnerabilityName": "Oracle E-Business Suite Unspecified Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2025-10-27",
+          "knownRansomwareCampaignUse": "Known",
+          "notes": "https://www.oracle.com/security-alerts/alert-cve-2025-61882.html ; https://nvd.nist.gov/vuln/detail/CVE-2025-61882"
+        }
       }
     },
     {
@@ -181,7 +209,7 @@
         "percentile": 99.36
       },
       "riskScore": 68,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -203,12 +231,28 @@
           "tags": [
             "vendor-advisory"
           ]
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-502"
+          "CWE-502",
+          "CISA-KEV",
+          "RANSOMWARE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -223,6 +267,17 @@
             "lastModified": "2025-08-23T00:40:42.617000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2025-07-20",
+          "vulnerabilityName": "Microsoft SharePoint Deserialization of Untrusted Data Vulnerability",
+          "requiredAction": "Disconnect public-facing versions of SharePoint Server that have reached their end-of-life (EOL) or end-of-service (EOS) to include SharePoint Server 2013 and earlier versions. For supported versions, please follow the mitigations according to CISA (URL listed below in Notes) and vendor instructions (URL listed below in Notes). Adhere to the applicable BOD 22-01 guidance for cloud services or discontinue use of the product if mitigations are not available.",
+          "dueDate": "2025-07-21",
+          "knownRansomwareCampaignUse": "Known",
+          "notes": "CISA Mitigation Instructions: https://www.cisa.gov/news-events/alerts/2025/07/20/microsoft-releases-guidance-exploitation-sharepoint-vulnerability-cve-2025-53770; https://www.microsoft.com/en-us/security/blog/2025/07/22/disrupting-active-exploitation-of-on-premises-sharepoint-vulnerabilities/ ; https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-53770 ; https://nvd.nist.gov/vuln/detail/CVE-2025-53770"
+        }
       }
     },
     {
@@ -245,7 +300,7 @@
         "percentile": 99.7
       },
       "riskScore": 68,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -279,12 +334,27 @@
           "url": "https://www.vicarius.io/vsociety/posts/cve-2025-47812-detection-script-remote-code-execution-vulnerability-in-wing-ftp-server",
           "source": "",
           "tags": []
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-158"
+          "CWE-158",
+          "CISA-KEV"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -299,6 +369,17 @@
             "lastModified": "2025-09-15T17:33:16.737000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2025-07-14",
+          "vulnerabilityName": "Wing FTP Server Improper Neutralization of Null Byte or NUL Character Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2025-08-04",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "https://www.wftpserver.com/serverhistory.htm ; https://nvd.nist.gov/vuln/detail/CVE-2025-47812"
+        }
       }
     },
     {
@@ -463,8 +544,8 @@
     },
     {
       "cveId": "CVE-2024-55591",
-      "title": "CVE-2024-55591: An Authentication Bypass Using an Alternate Path or Channel vulnerability [CWE-288] affecting FortiO...",
-      "description": "An Authentication Bypass Using an Alternate Path or Channel vulnerability [CWE-288] affecting FortiOS version 7.0.0 through 7.0.16 and FortiProxy version 7.0.0 through 7.0.19 and 7.2.0 through 7.2.12 allows a remote attacker to gain super-admin privileges via crafted requests to Node.js websocket module.",
+      "title": "CVE-2024-55591: An\u00a0Authentication Bypass Using an Alternate Path or Channel vulnerability [CWE-288] affecting FortiO...",
+      "description": "An\u00a0Authentication Bypass Using an Alternate Path or Channel vulnerability [CWE-288] affecting FortiOS version 7.0.0 through 7.0.16 and FortiProxy version 7.0.0 through 7.0.19 and 7.2.0 through 7.2.12 allows a remote attacker to gain super-admin privileges via crafted requests to\u00a0Node.js websocket module.",
       "publishedDate": "2025-01-14T14:08:34.207000+00:00",
       "lastModifiedDate": "2025-07-30T01:36:22.415000+00:00",
       "severity": "CRITICAL",
@@ -481,7 +562,7 @@
         "percentile": 99.916
       },
       "riskScore": 66,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -497,12 +578,28 @@
           "url": "https://fortiguard.fortinet.com/psirt/FG-IR-24-535",
           "source": "https://fortiguard.fortinet.com/psirt/FG-IR-24-535",
           "tags": []
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-288"
+          "CWE-288",
+          "CISA-KEV",
+          "RANSOMWARE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -517,6 +614,17 @@
             "lastModified": "2025-07-30T01:36:22.415000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2025-01-14",
+          "vulnerabilityName": "Fortinet FortiOS and FortiProxy Authentication Bypass Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2025-01-21",
+          "knownRansomwareCampaignUse": "Known",
+          "notes": "https://fortiguard.fortinet.com/psirt/FG-IR-24-535 ; https://nvd.nist.gov/vuln/detail/CVE-2024-55591"
+        }
       }
     },
     {
@@ -608,8 +716,8 @@
     },
     {
       "cveId": "CVE-2025-1661",
-      "title": "HUSKY – Products Filter Professional for WooCommerce <= 1.3.6.5 - Unauthenticated Local File Inclusion",
-      "description": "The HUSKY – Products Filter Professional for WooCommerce plugin for WordPress is vulnerable to Local File Inclusion in all versions up to, and including, 1.3.6.5 via the 'template' parameter of the woof_text_search AJAX action. This makes it possible for unauthenticated attackers to include and execute arbitrary files on the server, allowing the execution of any PHP code in those files. This can be used to bypass access controls, obtain sensitive data, or achieve code execution in cases where images and other “safe” file types can be uploaded and included.",
+      "title": "HUSKY \u2013 Products Filter Professional for WooCommerce <= 1.3.6.5 - Unauthenticated Local File Inclusion",
+      "description": "The HUSKY \u2013 Products Filter Professional for WooCommerce plugin for WordPress is vulnerable to Local File Inclusion in all versions up to, and including, 1.3.6.5 via the 'template' parameter of the woof_text_search AJAX action. This makes it possible for unauthenticated attackers to include and execute arbitrary files on the server, allowing the execution of any PHP code in those files. This can be used to bypass access controls, obtain sensitive data, or achieve code execution in cases where images and other \u201csafe\u201d file types can be uploaded and included.",
       "publishedDate": "2025-03-11T03:22:19.063000+00:00",
       "lastModifiedDate": "2025-03-11T13:53:44.484000+00:00",
       "severity": "CRITICAL",
@@ -635,7 +743,7 @@
           "WordPress"
         ],
         "products": [
-          "Husky – Products Filter Professional For Woocommerce",
+          "Husky \u2013 Products Filter Professional For Woocommerce",
           "The Server",
           "Wordpress"
         ]
@@ -942,7 +1050,7 @@
         "percentile": 99.953
       },
       "riskScore": 64,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -967,12 +1075,27 @@
           "url": "https://www.securing.pl/en/cve-2024-50603-aviatrix-network-controller-command-injection-vulnerability/",
           "source": "",
           "tags": []
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-78"
+          "CWE-78",
+          "CISA-KEV"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -987,6 +1110,17 @@
             "lastModified": "2025-07-30T01:36:22.854000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2025-01-16",
+          "vulnerabilityName": "Aviatrix Controllers OS Command Injection Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2025-02-06",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "https://docs.aviatrix.com/documentation/latest/release-notices/psirt-advisories/psirt-advisories.html?expand=true ; https://nvd.nist.gov/vuln/detail/CVE-2024-50603"
+        }
       }
     },
     {
@@ -1009,7 +1143,7 @@
         "percentile": 99.681
       },
       "riskScore": 63,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -1040,12 +1174,27 @@
           "tags": [
             "exploit"
           ]
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-306"
+          "CWE-306",
+          "CISA-KEV"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -1060,6 +1209,17 @@
             "lastModified": "2025-07-30T01:36:15.638000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2025-05-05",
+          "vulnerabilityName": "Langflow Missing Authentication Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2025-05-26",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "This vulnerability affects a common open-source project, third-party library, or a protocol used by different products. For more information, please see: https://github.com/advisories/GHSA-c995-4fw3-j39m ; https://nvd.nist.gov/vuln/detail/CVE-2025-3248"
+        }
       }
     },
     {
@@ -1082,7 +1242,7 @@
         "percentile": 99.85
       },
       "riskScore": 62,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -1100,12 +1260,27 @@
           "tags": [
             "x_refsource_CONFIRM"
           ]
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-502"
+          "CWE-502",
+          "CISA-KEV"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -1120,6 +1295,17 @@
             "lastModified": "2025-08-20T03:56:06.324000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2025-06-10",
+          "vulnerabilityName": "Wazuh Server Deserialization of Untrusted Data Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2025-07-01",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "https://wazuh.com/blog/addressing-the-cve-2025-24016-vulnerability/ ; https://github.com/wazuh/wazuh/security/advisories/GHSA-hcrc-79hj-m3qh ; https://nvd.nist.gov/vuln/detail/CVE-2025-24016"
+        }
       }
     },
     {
@@ -1358,7 +1544,7 @@
         "percentile": 99.275
       },
       "riskScore": 62,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -1382,12 +1568,28 @@
           "url": "https://crushftp.com/crush11wiki/Wiki.jsp?page=Update#section-Update-VulnerabilityInfo",
           "source": "",
           "tags": []
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-305"
+          "CWE-305",
+          "CISA-KEV",
+          "RANSOMWARE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -1402,6 +1604,17 @@
             "lastModified": "2025-07-30T01:36:16.050000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2025-04-07",
+          "vulnerabilityName": "CrushFTP Authentication Bypass Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2025-04-28",
+          "knownRansomwareCampaignUse": "Known",
+          "notes": "https://www.crushftp.com/crush11wiki/Wiki.jsp?page=Update ; https://nvd.nist.gov/vuln/detail/CVE-2025-31161"
+        }
       }
     },
     {
@@ -1424,7 +1637,7 @@
         "percentile": 98.26
       },
       "riskScore": 62,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -1439,13 +1652,29 @@
           "url": "https://www.fortra.com/security/advisories/product-security/fi-2025-012",
           "source": "",
           "tags": []
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
           "CWE-77",
-          "CWE-502"
+          "CWE-502",
+          "CISA-KEV",
+          "RANSOMWARE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -1460,6 +1689,17 @@
             "lastModified": "2025-09-29T22:20:24.526000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2025-09-29",
+          "vulnerabilityName": "Fortra GoAnywhere MFT Deserialization of Untrusted Data Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2025-10-20",
+          "knownRansomwareCampaignUse": "Known",
+          "notes": "https://www.fortra.com/security/advisories/product-security/fi-2025-012 ; https://nvd.nist.gov/vuln/detail/CVE-2025-10035"
+        }
       }
     },
     {
@@ -1482,7 +1722,7 @@
         "percentile": 99.863
       },
       "riskScore": 62,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -1497,12 +1737,27 @@
           "url": "https://forums.ivanti.com/s/article/Security-Advisory-EPM-January-2025-for-EPM-2024-and-EPM-2022-SU6",
           "source": "",
           "tags": []
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-36"
+          "CWE-36",
+          "CISA-KEV"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -1517,6 +1772,17 @@
             "lastModified": "2025-07-30T01:36:22.002000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2025-03-10",
+          "vulnerabilityName": "Ivanti Endpoint Manager (EPM) Absolute Path Traversal Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2025-03-31",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "https://forums.ivanti.com/s/article/Security-Advisory-EPM-January-2025-for-EPM-2024-and-EPM-2022-SU6?language=en_US ; https://nvd.nist.gov/vuln/detail/CVE-2024-13159"
+        }
       }
     },
     {
@@ -1539,7 +1805,7 @@
         "percentile": 99.694
       },
       "riskScore": 61,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -1554,12 +1820,27 @@
           "url": "https://forums.ivanti.com/s/article/Security-Advisory-EPM-January-2025-for-EPM-2024-and-EPM-2022-SU6",
           "source": "",
           "tags": []
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-36"
+          "CWE-36",
+          "CISA-KEV"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -1574,6 +1855,17 @@
             "lastModified": "2025-07-30T01:36:22.275000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2025-03-10",
+          "vulnerabilityName": "Ivanti Endpoint Manager (EPM) Absolute Path Traversal Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2025-03-31",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "https://forums.ivanti.com/s/article/Security-Advisory-EPM-January-2025-for-EPM-2024-and-EPM-2022-SU6?language=en_US ; https://nvd.nist.gov/vuln/detail/CVE-2024-13161"
+        }
       }
     },
     {
@@ -1596,7 +1888,7 @@
         "percentile": 99.763
       },
       "riskScore": 61,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -1611,12 +1903,27 @@
           "url": "https://forums.ivanti.com/s/article/Security-Advisory-EPM-January-2025-for-EPM-2024-and-EPM-2022-SU6",
           "source": "",
           "tags": []
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-36"
+          "CWE-36",
+          "CISA-KEV"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -1631,6 +1938,17 @@
             "lastModified": "2025-07-30T01:36:22.139000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2025-03-10",
+          "vulnerabilityName": "Ivanti Endpoint Manager (EPM) Absolute Path Traversal Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2025-03-31",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "https://forums.ivanti.com/s/article/Security-Advisory-EPM-January-2025-for-EPM-2024-and-EPM-2022-SU6?language=en_US ; https://nvd.nist.gov/vuln/detail/CVE-2024-13160"
+        }
       }
     },
     {
@@ -1710,7 +2028,7 @@
         "percentile": 99.309
       },
       "riskScore": 61,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -1745,12 +2063,27 @@
           "url": "https://www.yiiframework.com/news/709/please-upgrade-to-yii-2-0-52",
           "source": "",
           "tags": []
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-424"
+          "CWE-424",
+          "CISA-KEV"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -1765,6 +2098,17 @@
             "lastModified": "2025-07-30T01:36:15.381000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2025-05-02",
+          "vulnerabilityName": "Yiiframework Yii Improper Protection of Alternate Path Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2025-05-23",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "This vulnerability affects a common open-source component, third-party library, or a protocol used by different products. For more information, please see: https://www.yiiframework.com/news/709/please-upgrade-to-yii-2-0-52 ; https://nvd.nist.gov/vuln/detail/CVE-2024-58136"
+        }
       }
     },
     {
@@ -1787,7 +2131,7 @@
         "percentile": 99.902
       },
       "riskScore": 60,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -1804,12 +2148,28 @@
           "url": "https://forums.ivanti.com/s/article/Security-Advisory-Ivanti-Connect-Secure-Policy-Secure-ZTA-Gateways-CVE-2025-0282-CVE-2025-0283",
           "source": "",
           "tags": []
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-121"
+          "CWE-121",
+          "CISA-KEV",
+          "RANSOMWARE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -1824,6 +2184,17 @@
             "lastModified": "2025-07-30T01:36:22.682000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2025-01-08",
+          "vulnerabilityName": "Ivanti Connect Secure, Policy Secure, and ZTA Gateways Stack-Based Buffer Overflow Vulnerability",
+          "requiredAction": "Apply mitigations as set forth in the CISA instructions linked below to include conducting hunt activities, taking remediation actions if applicable, and applying updates prior to returning a device to service.",
+          "dueDate": "2025-01-15",
+          "knownRansomwareCampaignUse": "Known",
+          "notes": "CISA Mitigation Instructions: https://www.cisa.gov/cisa-mitigation-instructions-CVE-2025-0282 Additional References: https://forums.ivanti.com/s/article/Security-Advisory-Ivanti-Connect-Secure-Policy-Secure-ZTA-Gateways-CVE-2025-0282-CVE-2025-0283 ; https://nvd.nist.gov/vuln/detail/CVE-2025-0282"
+        }
       }
     },
     {
@@ -1846,7 +2217,7 @@
         "percentile": 99.333
       },
       "riskScore": 60,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -1861,12 +2232,27 @@
           "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-25-063-08",
           "source": "",
           "tags": []
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-78"
+          "CWE-78",
+          "CISA-KEV"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -1881,6 +2267,17 @@
             "lastModified": "2025-07-30T01:36:18.441000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2025-03-19",
+          "vulnerabilityName": "Edimax IC-7100 IP Camera OS Command Injection Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2025-04-09",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "https://www.edimax.com/edimax/post/post/data/edimax/global/press_releases/4801/ ; https://nvd.nist.gov/vuln/detail/CVE-2025-1316"
+        }
       }
     },
     {
@@ -2124,7 +2521,7 @@
         "percentile": 98.28
       },
       "riskScore": 59,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -2164,12 +2561,27 @@
           "tags": [
             "x_refsource_MISC"
           ]
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-306"
+          "CWE-306",
+          "CISA-KEV"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -2184,6 +2596,17 @@
             "lastModified": "2025-08-20T03:55:58.576000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2025-06-09",
+          "vulnerabilityName": "Erlang Erlang/OTP SSH Server Missing Authentication for Critical Function Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2025-06-30",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "This vulnerability affects a common open-source project, third-party library, or a protocol used by different products. For more information, please see: https://github.com/erlang/otp/security/advisories/GHSA-37cp-fgq5-7wc2 ; https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-erlang-otp-ssh-xyZZy ; https://nvd.nist.gov/vuln/detail/CVE-2025-32433"
+        }
       }
     },
     {
@@ -2206,7 +2629,7 @@
         "percentile": 99.278
       },
       "riskScore": 59,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -2228,12 +2651,27 @@
           "url": "https://gladinetsupport.s3.us-east-1.amazonaws.com/gladinet/securityadvisory-cve-2005.pdf",
           "source": "",
           "tags": []
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-321"
+          "CWE-321",
+          "CISA-KEV"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -2248,6 +2686,17 @@
             "lastModified": "2025-07-30T01:36:15.902000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2025-04-08",
+          "vulnerabilityName": "Gladinet CentreStack and Triofox Use of Hard-coded Cryptographic Key Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2025-04-29",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "https://gladinetsupport.s3.us-east-1.amazonaws.com/gladinet/securityadvisory-cve-2005.pdf ; https://gladinetsupport.s3.us-east-1.amazonaws.com/gladinet/securityadvisory-cve-2025-triofox.pdf ; https://nvd.nist.gov/vuln/detail/CVE-2025-30406"
+        }
       }
     },
     {
@@ -2456,7 +2905,7 @@
     {
       "cveId": "CVE-2025-2945",
       "title": "pgAdmin 4: Remote Code Execution in Query Tool and Cloud Deployment",
-      "description": "Remote Code Execution security vulnerability in pgAdmin 4  (Query Tool and Cloud Deployment modules).\n\nThe vulnerability is associated with the 2 POST endpoints; /sqleditor/query_tool/download, where the query_commited parameter and /cloud/deploy endpoint, where the high_availability parameter is unsafely passed to the Python eval() function, allowing arbitrary code execution.\n\n\nThis issue affects pgAdmin 4: before 9.2.",
+      "description": "Remote Code Execution security vulnerability in pgAdmin 4  (Query Tool and Cloud Deployment modules).\n\nThe vulnerability is associated with the 2 POST endpoints;\u00a0/sqleditor/query_tool/download, where the query_commited parameter and\u00a0/cloud/deploy endpoint, where the high_availability parameter is\u00a0unsafely passed to the Python eval() function, allowing arbitrary code execution.\n\n\nThis issue affects pgAdmin 4: before 9.2.",
       "publishedDate": "2025-04-03T12:23:14.792000+00:00",
       "lastModifiedDate": "2025-04-04T03:55:25.268000+00:00",
       "severity": "CRITICAL",
@@ -2530,7 +2979,7 @@
         "percentile": 98.74
       },
       "riskScore": 56,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -2547,12 +2996,28 @@
           "url": "https://forums.ivanti.com/s/article/April-Security-Advisory-Ivanti-Connect-Secure-Policy-Secure-ZTA-Gateways-CVE-2025-22457",
           "source": "",
           "tags": []
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-121"
+          "CWE-121",
+          "CISA-KEV",
+          "RANSOMWARE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -2567,6 +3032,17 @@
             "lastModified": "2025-07-30T01:36:15.776000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2025-04-04",
+          "vulnerabilityName": "Ivanti Connect Secure, Policy Secure, and ZTA Gateways Stack-Based Buffer Overflow Vulnerability",
+          "requiredAction": "Apply mitigations as set forth in the CISA instructions linked below.",
+          "dueDate": "2025-04-11",
+          "knownRansomwareCampaignUse": "Known",
+          "notes": "CISA Mitigation Instructions: https://www.cisa.gov/cisa-mitigation-instructions-cve-2025-22457 ; Additional References: https://forums.ivanti.com/s/article/April-Security-Advisory-Ivanti-Connect-Secure-Policy-Secure-ZTA-Gateways-CVE-2025-22457 ; https://nvd.nist.gov/vuln/detail/CVE-2025-22457"
+        }
       }
     },
     {
@@ -2589,11 +3065,11 @@
         "percentile": 98.506
       },
       "riskScore": 56,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
-          "Dassault Systèmes"
+          "Dassault Syst\u00e8mes"
         ],
         "products": [
           "Delmia Apriso"
@@ -2604,12 +3080,27 @@
           "url": "https://www.3ds.com/vulnerability/advisories",
           "source": "",
           "tags": []
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-502"
+          "CWE-502",
+          "CISA-KEV"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -2624,6 +3115,17 @@
             "lastModified": "2025-09-12T03:56:12.148000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2025-09-11",
+          "vulnerabilityName": "Dassault Syst\u00e8mes DELMIA Apriso Deserialization of Untrusted Data Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2025-10-02",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "https://www.3ds.com/trust-center/security/security-advisories/cve-2025-5086 ; https://nvd.nist.gov/vuln/detail/CVE-2025-5086"
+        }
       }
     }
   ]

@@ -77,11 +77,18 @@ class AlpineDashboardGenerator:
                 vuln["products_list"] = vuln_data.get("products", [])
                 vuln["tags_list"] = vuln_data.get("tags", [])
 
+                # Preserve exploitation status and enrichments
+                vuln["exploitationStatus"] = vuln_data.get("exploitationStatus", "")
+                vuln["enrichments"] = vuln_data.get("enrichments", {})
+
                 # Format published date
                 if vuln["published_date"]:
                     vuln["published_short"] = str(vuln["published_date"])[:10]
                 else:
                     vuln["published_short"] = "Unknown"
+
+                # Calculate KEV status for use in stats
+                vuln["kev_status"] = self._get_kev_status(vuln)
 
                 self.vulnerabilities.append(vuln)
 
@@ -258,6 +265,19 @@ class AlpineDashboardGenerator:
 
     def _get_kev_status(self, vuln) -> bool:
         """Check if vulnerability is in CISA KEV catalog"""
+        # Check exploitationStatus field first
+        exploitation_status = vuln.get("exploitationStatus", "")
+        if exploitation_status == "KNOWN_EXPLOITED":
+            return True
+
+        # Check enrichments.cisa_kev
+        enrichments = vuln.get("enrichments", {})
+        if isinstance(enrichments, dict):
+            cisa_kev = enrichments.get("cisa_kev", {})
+            if isinstance(cisa_kev, dict) and cisa_kev.get("isKnownExploited"):
+                return True
+
+        # Fallback to tags
         tags = vuln.get("tags_list", [])
         return any(
             "kev" in tag.lower() or "known exploited" in tag.lower() for tag in tags
@@ -275,6 +295,23 @@ class AlpineDashboardGenerator:
 
     def _get_exploitation_status(self, vuln) -> str:
         """Determine exploitation status"""
+        # Check exploitationStatus field first
+        exploitation_status = vuln.get("exploitationStatus", "")
+        if exploitation_status == "KNOWN_EXPLOITED":
+            return "KEV Listed"
+        elif exploitation_status == "POC_AVAILABLE":
+            return "PoC Available"
+        elif exploitation_status == "ACTIVE_EXPLOITATION":
+            return "Active"
+
+        # Check enrichments for exploit references
+        enrichments = vuln.get("enrichments", {})
+        if isinstance(enrichments, dict):
+            exploit_refs = enrichments.get("exploit_references", [])
+            if exploit_refs:
+                return "PoC Available"
+
+        # Fallback to tags and text analysis
         tags = vuln.get("tags_list", [])
         title_desc = f"{vuln.get('title', '')} {vuln.get('description', '')}".lower()
 
@@ -371,6 +408,16 @@ class AlpineDashboardGenerator:
         # Get KEV count - use kev_status boolean
         kev_count = sum(1 for v in self.vulnerabilities if v.get("kev_status", False))
 
+        # NEW: Priority distribution
+        critical_urgent = sum(1 for v in self.vulnerabilities if self._calculate_triage_priority(v) == "CRITICAL-URGENT")
+        high_priority = sum(1 for v in self.vulnerabilities if self._calculate_triage_priority(v) == "HIGH-PRIORITY")
+        monitor = sum(1 for v in self.vulnerabilities if self._calculate_triage_priority(v) == "MONITOR")
+
+        # NEW: Exploitation status distribution
+        kev_listed = sum(1 for v in self.vulnerabilities if v.get("kev_status", False))
+        poc_available = sum(1 for v in self.vulnerabilities if not v.get("kev_status", False) and self._get_exploitation_status(v) != "Unknown")
+        not_listed = sum(1 for v in self.vulnerabilities if not v.get("kev_status", False) and self._get_exploitation_status(v) == "Unknown")
+
         return {
             "total": total,
             "critical": critical,
@@ -381,25 +428,17 @@ class AlpineDashboardGenerator:
             "week_count": week_count,
             "kev_count": kev_count,
             "last_updated": datetime.now().isoformat(),
-            "severity_distribution": {
-                "CRITICAL": critical,
-                "HIGH": high,
-                "MEDIUM": medium,
-                "LOW": low,
+            # NEW: Priority distribution for chart
+            "priority_distribution": {
+                "CRITICAL-URGENT": critical_urgent,
+                "HIGH-PRIORITY": high_priority,
+                "MONITOR": monitor,
             },
-            "epss_distribution": {
-                "90-100%": sum(
-                    1 for v in self.vulnerabilities if v["epss_percentile"] >= 90
-                ),
-                "70-89%": sum(
-                    1 for v in self.vulnerabilities if 70 <= v["epss_percentile"] < 90
-                ),
-                "50-69%": sum(
-                    1 for v in self.vulnerabilities if 50 <= v["epss_percentile"] < 70
-                ),
-                "<50%": sum(
-                    1 for v in self.vulnerabilities if v["epss_percentile"] < 50
-                ),
+            # NEW: Exploitation status for chart
+            "exploitation_distribution": {
+                "KEV Listed": kev_listed,
+                "PoC Available": poc_available,
+                "Not Listed": not_listed,
             },
         }
 
@@ -1269,7 +1308,10 @@ class AlpineDashboardGenerator:
                         </p>
                     </div>
                 </div>
-                <div style="display: flex; gap: 1rem;">
+                <div style="display: flex; gap: 1rem; align-items: center;">
+                    <div style="padding: 0.5rem 1rem; background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 20px; color: #10b981; font-size: 0.875rem; font-weight: 600;">
+                        🎯 EPSS ≥60%
+                    </div>
                     <button class="filter-chip" @click="exportCSV()">
                         Export CSV
                     </button>
@@ -1341,17 +1383,17 @@ class AlpineDashboardGenerator:
                     <button class="filter-chip"
                             :class="{ 'active': quickFilter === 'critical-urgent' }"
                             @click="setQuickFilter('critical-urgent')">
-                        🔴 Critical Urgent <span x-text="`(${countByPriority('CRITICAL-URGENT')})`"></span>
+                        🔴 Critical Urgent <span x-text="`(${countByPriority('CRITICAL-URGENT')} - ${Math.round(countByPriority('CRITICAL-URGENT') / stats.total * 100)}%)`"></span>
                     </button>
                     <button class="filter-chip"
                             :class="{ 'active': quickFilter === 'high-priority' }"
                             @click="setQuickFilter('high-priority')">
-                        🟡 High Priority <span x-text="`(${countByPriority('HIGH-PRIORITY')})`"></span>
+                        🟡 High Priority <span x-text="`(${countByPriority('HIGH-PRIORITY')} - ${Math.round(countByPriority('HIGH-PRIORITY') / stats.total * 100)}%)`"></span>
                     </button>
                     <button class="filter-chip"
                             :class="{ 'active': quickFilter === 'monitor' }"
                             @click="setQuickFilter('monitor')">
-                        🟢 Monitor <span x-text="`(${countByPriority('MONITOR')})`"></span>
+                        🟢 Monitor <span x-text="`(${countByPriority('MONITOR')} - ${Math.round(countByPriority('MONITOR') / stats.total * 100)}%)`"></span>
                     </button>
                 </div>
             </div>
@@ -1438,17 +1480,6 @@ class AlpineDashboardGenerator:
                     <!-- Filter Grid -->
                     <div class="filter-grid">
                         <div class="filter-group">
-                            <label>Severity</label>
-                            <select x-model="filters.severity">
-                                <option value="">All</option>
-                                <option value="CRITICAL">Critical</option>
-                                <option value="HIGH">High</option>
-                                <option value="MEDIUM">Medium</option>
-                                <option value="LOW">Low</option>
-                            </select>
-                        </div>
-
-                        <div class="filter-group">
                             <label>CVSS Score</label>
                             <div style="display: flex; gap: 0.5rem;">
                                 <input type="number" x-model.number="filters.cvss_min" placeholder="Min" min="0" max="10" step="0.1">
@@ -1457,10 +1488,12 @@ class AlpineDashboardGenerator:
                         </div>
 
                         <div class="filter-group">
-                            <label>EPSS Threshold</label>
-                            <div style="padding: 0.75rem; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 8px; color: #10b981; font-size: 0.875rem;">
-                                ✓ All vulnerabilities meet EPSS ≥60% threshold
-                            </div>
+                            <label>Attack Complexity</label>
+                            <select x-model="filters.attack_complexity">
+                                <option value="">All</option>
+                                <option value="LOW">Low</option>
+                                <option value="HIGH">High</option>
+                            </select>
                         </div>
 
                         <div class="filter-group">
@@ -1488,16 +1521,16 @@ class AlpineDashboardGenerator:
             <!-- Charts Section -->
             <div class="charts-grid">
                 <div class="chart-card">
-                    <h3 class="chart-title">Severity Distribution</h3>
+                    <h3 class="chart-title">Priority Distribution</h3>
                     <div class="chart-container">
-                        <canvas x-ref="severityChart"></canvas>
+                        <canvas x-ref="priorityChart"></canvas>
                     </div>
                 </div>
 
                 <div class="chart-card">
-                    <h3 class="chart-title">EPSS Score Distribution</h3>
+                    <h3 class="chart-title">Exploitation Status</h3>
                     <div class="chart-container">
-                        <canvas x-ref="epssChart"></canvas>
+                        <canvas x-ref="exploitationChart"></canvas>
                     </div>
                 </div>
             </div>
@@ -1688,9 +1721,9 @@ class AlpineDashboardGenerator:
 
                 // Filters
                 filters: __OPEN_BRACE__
-                    severity: '',
                     cvss_min: null,
                     cvss_max: null,
+                    attack_complexity: '',
                     published_from: '',
                     published_to: '',
                     vendor: ''
@@ -1755,16 +1788,16 @@ class AlpineDashboardGenerator:
                     __CLOSE_BRACE__
 
                     // Advanced filters
-                    if (this.filters.severity) __OPEN_BRACE__
-                        vulns = vulns.filter(v => v.severity === this.filters.severity);
-                    __CLOSE_BRACE__
-
                     if (this.filters.cvss_min !== null) __OPEN_BRACE__
                         vulns = vulns.filter(v => v.cvss_score >= this.filters.cvss_min);
                     __CLOSE_BRACE__
 
                     if (this.filters.cvss_max !== null) __OPEN_BRACE__
                         vulns = vulns.filter(v => v.cvss_score <= this.filters.cvss_max);
+                    __CLOSE_BRACE__
+
+                    if (this.filters.attack_complexity) __OPEN_BRACE__
+                        vulns = vulns.filter(v => v.attack_complexity && v.attack_complexity.toUpperCase() === this.filters.attack_complexity);
                     __CLOSE_BRACE__
 
                     if (this.filters.published_from) __OPEN_BRACE__
@@ -1856,9 +1889,9 @@ class AlpineDashboardGenerator:
                     this.quickFilter = 'all';
                     this.techFilter = '';
                     this.filters = __OPEN_BRACE__
-                        severity: '',
                         cvss_min: null,
                         cvss_max: null,
+                        attack_complexity: '',
                         published_from: '',
                         published_to: '',
                         vendor: ''
@@ -1917,20 +1950,21 @@ class AlpineDashboardGenerator:
                 __CLOSE_BRACE__,
 
                 initCharts() __OPEN_BRACE__
-                    // Severity Chart
-                    if (this.$refs.severityChart) __OPEN_BRACE__
-                        new Chart(this.$refs.severityChart, __OPEN_BRACE__
+                    // Priority Distribution Chart
+                    if (this.$refs.priorityChart) __OPEN_BRACE__
+                        new Chart(this.$refs.priorityChart, __OPEN_BRACE__
                             type: 'doughnut',
                             data: __OPEN_BRACE__
-                                labels: ['Critical', 'High', 'Medium', 'Low'],
+                                labels: ['Critical-Urgent', 'High-Priority', 'Monitor'],
                                 datasets: [__OPEN_BRACE__
                                     data: [
-                                        this.stats.severity_distribution.CRITICAL,
-                                        this.stats.severity_distribution.HIGH,
-                                        this.stats.severity_distribution.MEDIUM,
-                                        this.stats.severity_distribution.LOW
+                                        this.stats.priority_distribution['CRITICAL-URGENT'],
+                                        this.stats.priority_distribution['HIGH-PRIORITY'],
+                                        this.stats.priority_distribution['MONITOR']
                                     ],
-                                    backgroundColor: ['#dc2626', '#ef4444', '#f59e0b', '#3b82f6']
+                                    backgroundColor: ['#dc2626', '#f59e0b', '#10b981'],
+                                    borderWidth: 2,
+                                    borderColor: '#12121a'
                                 __CLOSE_BRACE__]
                             __CLOSE_BRACE__,
                             options: __OPEN_BRACE__
@@ -1938,27 +1972,40 @@ class AlpineDashboardGenerator:
                                 maintainAspectRatio: false,
                                 plugins: __OPEN_BRACE__
                                     legend: __OPEN_BRACE__
-                                        labels: { color: '#cbd5e1' __CLOSE_BRACE__
+                                        labels: {
+                                            color: '#cbd5e1',
+                                            font: { size: 14 __CLOSE_BRACE__
+                                        __CLOSE_BRACE__
+                                    __CLOSE_BRACE__,
+                                    tooltip: __OPEN_BRACE__
+                                        callbacks: __OPEN_BRACE__
+                                            label: function(context) __OPEN_BRACE__
+                                                const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                                const percentage = ((context.parsed / total) * 100).toFixed(1);
+                                                return context.label + ': ' + context.parsed + ' (' + percentage + '%)';
+                                            __CLOSE_BRACE__
+                                        __CLOSE_BRACE__
                                     __CLOSE_BRACE__
                                 __CLOSE_BRACE__
                             __CLOSE_BRACE__
                         __CLOSE_BRACE__);
                     __CLOSE_BRACE__
 
-                    // EPSS Chart
-                    if (this.$refs.epssChart) __OPEN_BRACE__
-                        new Chart(this.$refs.epssChart, __OPEN_BRACE__
+                    // Exploitation Status Chart
+                    if (this.$refs.exploitationChart) __OPEN_BRACE__
+                        new Chart(this.$refs.exploitationChart, __OPEN_BRACE__
                             type: 'bar',
                             data: __OPEN_BRACE__
-                                labels: ['90-100%', '70-89%', '50-69%', '<50%'],
+                                labels: ['KEV Listed', 'PoC Available', 'Not Listed'],
                                 datasets: [__OPEN_BRACE__
                                     data: [
-                                        this.stats.epss_distribution['90-100%'],
-                                        this.stats.epss_distribution['70-89%'],
-                                        this.stats.epss_distribution['50-69%'],
-                                        this.stats.epss_distribution['<50%']
+                                        this.stats.exploitation_distribution['KEV Listed'],
+                                        this.stats.exploitation_distribution['PoC Available'],
+                                        this.stats.exploitation_distribution['Not Listed']
                                     ],
-                                    backgroundColor: ['#dc2626', '#ef4444', '#f59e0b', '#10b981']
+                                    backgroundColor: ['#dc2626', '#f59e0b', '#6b6b85'],
+                                    borderWidth: 1,
+                                    borderColor: '#12121a'
                                 __CLOSE_BRACE__]
                             __CLOSE_BRACE__,
                             options: __OPEN_BRACE__
@@ -1966,13 +2013,35 @@ class AlpineDashboardGenerator:
                                 maintainAspectRatio: false,
                                 plugins: __OPEN_BRACE__
                                     legend: { display: false __CLOSE_BRACE__,
+                                    tooltip: __OPEN_BRACE__
+                                        callbacks: __OPEN_BRACE__
+                                            label: function(context) __OPEN_BRACE__
+                                                const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                                const percentage = ((context.parsed.y / total) * 100).toFixed(1);
+                                                return context.label + ': ' + context.parsed.y + ' (' + percentage + '%)';
+                                            __CLOSE_BRACE__
+                                        __CLOSE_BRACE__
+                                    __CLOSE_BRACE__
                                 __CLOSE_BRACE__,
                                 scales: __OPEN_BRACE__
                                     y: __OPEN_BRACE__
-                                        ticks: { color: '#cbd5e1' __CLOSE_BRACE__
+                                        beginAtZero: true,
+                                        ticks: {
+                                            color: '#cbd5e1',
+                                            stepSize: 10
+                                        __CLOSE_BRACE__,
+                                        grid: __OPEN_BRACE__
+                                            color: 'rgba(255, 255, 255, 0.05)'
+                                        __CLOSE_BRACE__
                                     __CLOSE_BRACE__,
                                     x: __OPEN_BRACE__
-                                        ticks: { color: '#cbd5e1' __CLOSE_BRACE__
+                                        ticks: {
+                                            color: '#cbd5e1',
+                                            font: { size: 12 __CLOSE_BRACE__
+                                        __CLOSE_BRACE__,
+                                        grid: __OPEN_BRACE__
+                                            display: false
+                                        __CLOSE_BRACE__
                                     __CLOSE_BRACE__
                                 __CLOSE_BRACE__
                             __CLOSE_BRACE__

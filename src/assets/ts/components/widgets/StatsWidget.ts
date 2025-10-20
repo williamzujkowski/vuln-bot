@@ -79,7 +79,11 @@ export class StatsWidget {
     });
 
     // KEV (Known Exploited Vulnerabilities)
-    const kev = this.vulnerabilities.filter((v) => v.tags?.includes("KEV")).length;
+    const kev = this.vulnerabilities.filter(
+      (v) =>
+        v.metadata?.tags?.includes("CISA-KEV") ||
+        v.enrichments?.cisa_kev?.isKnownExploited === true
+    ).length;
     const kevChange = this.config.showTrends ? this.calculateChange("kev") : undefined;
     stats.push({
       label: "KEV Listed",
@@ -166,8 +170,16 @@ export class StatsWidget {
         previousValue = this.previousData.filter((v) => v.epssPercentile >= 90).length;
         break;
       case "kev":
-        currentValue = this.vulnerabilities.filter((v) => v.tags?.includes("KEV")).length;
-        previousValue = this.previousData.filter((v) => v.tags?.includes("KEV")).length;
+        currentValue = this.vulnerabilities.filter(
+          (v) =>
+            v.metadata?.tags?.includes("CISA-KEV") ||
+            v.enrichments?.cisa_kev?.isKnownExploited === true
+        ).length;
+        previousValue = this.previousData.filter(
+          (v) =>
+            v.metadata?.tags?.includes("CISA-KEV") ||
+            v.enrichments?.cisa_kev?.isKnownExploited === true
+        ).length;
         break;
       case "avgCvss":
         currentValue =
