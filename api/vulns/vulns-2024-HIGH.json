@@ -118,7 +118,7 @@
         "percentile": 99.846
       },
       "riskScore": 62,
-      "exploitationStatus": "KNOWN_EXPLOITED",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -167,7 +167,8 @@
           "CWE-693",
           "TOP-1-PERCENT-EPSS",
           "CISA-KEV",
-          "RANSOMWARE"
+          "RANSOMWARE",
+          "EXPLOIT-AVAILABLE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -199,6 +200,17 @@
           "dueDate": "2024-03-05",
           "knownRansomwareCampaignUse": "Known",
           "notes": "https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2024-21412; https://nvd.nist.gov/vuln/detail/CVE-2024-21412"
+        },
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
+            }
+          ],
+          "exploit_count": 1
         }
       }
     },
@@ -390,7 +402,7 @@
         "percentile": 99.858
       },
       "riskScore": 61,
-      "exploitationStatus": "KNOWN_EXPLOITED",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -440,7 +452,8 @@
         "tags": [
           "CWE-209",
           "TOP-1-PERCENT-EPSS",
-          "CISA-KEV"
+          "CISA-KEV",
+          "EXPLOIT-AVAILABLE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -472,6 +485,17 @@
           "dueDate": "2025-02-25",
           "knownRansomwareCampaignUse": "Unknown",
           "notes": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-29059 ; https://nvd.nist.gov/vuln/detail/CVE-2024-29059"
+        },
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
+            }
+          ],
+          "exploit_count": 1
         }
       }
     },
@@ -495,7 +519,7 @@
         "percentile": 98.905
       },
       "riskScore": 61,
-      "exploitationStatus": "KNOWN_EXPLOITED",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -532,7 +556,8 @@
       "metadata": {
         "tags": [
           "TOP-5-PERCENT-EPSS",
-          "CISA-KEV"
+          "CISA-KEV",
+          "EXPLOIT-AVAILABLE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -564,6 +589,17 @@
           "dueDate": "2025-03-17",
           "knownRansomwareCampaignUse": "Unknown",
           "notes": "https://www.oracle.com/security-alerts/cpujan2024.html ; https://nvd.nist.gov/vuln/detail/CVE-2024-20953"
+        },
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
+            }
+          ],
+          "exploit_count": 1
         }
       }
     },
@@ -659,7 +695,7 @@
         "percentile": 99.709
       },
       "riskScore": 61,
-      "exploitationStatus": "KNOWN_EXPLOITED",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -715,7 +751,8 @@
         "tags": [
           "CWE-451",
           "TOP-1-PERCENT-EPSS",
-          "CISA-KEV"
+          "CISA-KEV",
+          "EXPLOIT-AVAILABLE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -747,6 +784,17 @@
           "dueDate": "2024-07-30",
           "knownRansomwareCampaignUse": "Unknown",
           "notes": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-38112; https://nvd.nist.gov/vuln/detail/CVE-2024-38112"
+        },
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
+            }
+          ],
+          "exploit_count": 1
         }
       }
     },
@@ -982,7 +1030,7 @@
         "percentile": 99.336
       },
       "riskScore": 60,
-      "exploitationStatus": "KNOWN_EXPLOITED",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -1044,7 +1092,8 @@
         "tags": [
           "CWE-122",
           "TOP-1-PERCENT-EPSS",
-          "CISA-KEV"
+          "CISA-KEV",
+          "EXPLOIT-AVAILABLE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -1076,6 +1125,17 @@
           "dueDate": "2024-12-31",
           "knownRansomwareCampaignUse": "Unknown",
           "notes": "https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2024-49138 ; https://nvd.nist.gov/vuln/detail/CVE-2024-49138"
+        },
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
+            }
+          ],
+          "exploit_count": 1
         }
       }
     },
@@ -1611,7 +1671,7 @@
         "percentile": 99.949
       },
       "riskScore": 59,
-      "exploitationStatus": "KNOWN_EXPLOITED",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -1648,7 +1708,8 @@
           "CWE-200",
           "TOP-1-PERCENT-EPSS",
           "CISA-KEV",
-          "RANSOMWARE"
+          "RANSOMWARE",
+          "EXPLOIT-AVAILABLE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -1680,6 +1741,17 @@
           "dueDate": "2024-06-20",
           "knownRansomwareCampaignUse": "Known",
           "notes": "https://support.checkpoint.com/results/sk/sk182336 ; https://nvd.nist.gov/vuln/detail/CVE-2024-24919"
+        },
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
+            }
+          ],
+          "exploit_count": 1
         }
       }
     },
@@ -2082,7 +2154,7 @@
         "percentile": 99.283
       },
       "riskScore": 59,
-      "exploitationStatus": "KNOWN_EXPLOITED",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -2212,9 +2284,14 @@
               "source": "GitHub PoC",
               "url": "https://github.com/Notselwyn/CVE-2024-1086",
               "icon": "\ud83d\udd13"
+            },
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
             }
           ],
-          "exploit_count": 1
+          "exploit_count": 2
         },
         "epss_percentile": {
           "percentile": 99.283,
@@ -2494,7 +2571,7 @@
         "percentile": 99.961
       },
       "riskScore": 59,
-      "exploitationStatus": "KNOWN_EXPLOITED",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -2532,7 +2609,8 @@
         "tags": [
           "CWE-22",
           "TOP-1-PERCENT-EPSS",
-          "CISA-KEV"
+          "CISA-KEV",
+          "EXPLOIT-AVAILABLE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -2564,6 +2642,17 @@
           "dueDate": "2024-08-07",
           "knownRansomwareCampaignUse": "Unknown",
           "notes": "https://www.solarwinds.com/trust-center/security-advisories/cve-2024-28995; https://nvd.nist.gov/vuln/detail/CVE-2024-28995"
+        },
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
+            }
+          ],
+          "exploit_count": 1
         }
       }
     },
@@ -2963,7 +3052,7 @@
         "percentile": 99.98
       },
       "riskScore": 59,
-      "exploitationStatus": "KNOWN_EXPLOITED",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -3034,7 +3123,8 @@
         "tags": [
           "CWE-77",
           "TOP-1-PERCENT-EPSS",
-          "CISA-KEV"
+          "CISA-KEV",
+          "EXPLOIT-AVAILABLE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -3066,6 +3156,17 @@
           "dueDate": "2024-05-02",
           "knownRansomwareCampaignUse": "Unknown",
           "notes": "https://supportannouncement.us.dlink.com/security/publication.aspx?name=SAP10383; https://nvd.nist.gov/vuln/detail/CVE-2024-3273"
+        },
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
+            }
+          ],
+          "exploit_count": 1
         }
       }
     },
@@ -3089,7 +3190,7 @@
         "percentile": 98.866
       },
       "riskScore": 58,
-      "exploitationStatus": "KNOWN_EXPLOITED",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -3138,7 +3239,8 @@
           "CWE-822",
           "TOP-5-PERCENT-EPSS",
           "CISA-KEV",
-          "RANSOMWARE"
+          "RANSOMWARE",
+          "EXPLOIT-AVAILABLE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -3170,6 +3272,17 @@
           "dueDate": "2024-03-25",
           "knownRansomwareCampaignUse": "Known",
           "notes": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-21338; https://nvd.nist.gov/vuln/detail/CVE-2024-21338"
+        },
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
+            }
+          ],
+          "exploit_count": 1
         }
       }
     },
@@ -3612,7 +3725,7 @@
         "percentile": 99.409
       },
       "riskScore": 58,
-      "exploitationStatus": "KNOWN_EXPLOITED",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -3664,7 +3777,8 @@
         "tags": [
           "CWE-367",
           "TOP-1-PERCENT-EPSS",
-          "CISA-KEV"
+          "CISA-KEV",
+          "EXPLOIT-AVAILABLE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -3696,6 +3810,17 @@
           "dueDate": "2024-11-05",
           "knownRansomwareCampaignUse": "Unknown",
           "notes": "https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2024-30088 ; https://nvd.nist.gov/vuln/detail/CVE-2024-30088"
+        },
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
+            }
+          ],
+          "exploit_count": 1
         }
       }
     },
@@ -3719,7 +3844,7 @@
         "percentile": 98.364
       },
       "riskScore": 58,
-      "exploitationStatus": "KNOWN_EXPLOITED",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -3767,7 +3892,8 @@
         "tags": [
           "CWE-693",
           "TOP-5-PERCENT-EPSS",
-          "CISA-KEV"
+          "CISA-KEV",
+          "EXPLOIT-AVAILABLE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -3799,6 +3925,17 @@
           "dueDate": "2024-05-21",
           "knownRansomwareCampaignUse": "Unknown",
           "notes": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-29988; https://nvd.nist.gov/vuln/detail/CVE-2024-29988"
+        },
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
+            }
+          ],
+          "exploit_count": 1
         }
       }
     },
@@ -3988,7 +4125,7 @@
         "percentile": 99.095
       },
       "riskScore": 58,
-      "exploitationStatus": "KNOWN_EXPLOITED",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -4030,7 +4167,8 @@
           "CWE-502",
           "TOP-1-PERCENT-EPSS",
           "CISA-KEV",
-          "RANSOMWARE"
+          "RANSOMWARE",
+          "EXPLOIT-AVAILABLE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -4062,6 +4200,17 @@
           "dueDate": "2024-11-12",
           "knownRansomwareCampaignUse": "Known",
           "notes": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-38094 ; https://nvd.nist.gov/vuln/detail/CVE-2024-38094"
+        },
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
+            }
+          ],
+          "exploit_count": 1
         }
       }
     },
@@ -4400,7 +4549,7 @@
         "percentile": 98.76
       },
       "riskScore": 57,
-      "exploitationStatus": "KNOWN_EXPLOITED",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -4439,7 +4588,8 @@
       "metadata": {
         "tags": [
           "TOP-5-PERCENT-EPSS",
-          "CISA-KEV"
+          "CISA-KEV",
+          "EXPLOIT-AVAILABLE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -4471,6 +4621,17 @@
           "dueDate": "2024-12-12",
           "knownRansomwareCampaignUse": "Unknown",
           "notes": "https://www.oracle.com/security-alerts/alert-cve-2024-21287.html ; https://nvd.nist.gov/vuln/detail/CVE-2024-21287"
+        },
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
+            }
+          ],
+          "exploit_count": 1
         }
       }
     },
@@ -5321,7 +5482,7 @@
         "percentile": 99.903
       },
       "riskScore": 56,
-      "exploitationStatus": "KNOWN_EXPLOITED",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -5359,7 +5520,8 @@
         "tags": [
           "CWE-284",
           "TOP-1-PERCENT-EPSS",
-          "CISA-KEV"
+          "CISA-KEV",
+          "EXPLOIT-AVAILABLE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -5391,6 +5553,17 @@
           "dueDate": "2025-01-06",
           "knownRansomwareCampaignUse": "Unknown",
           "notes": "https://helpx.adobe.com/security/products/coldfusion/apsb24-14.html ; https://nvd.nist.gov/vuln/detail/CVE-2024-20767"
+        },
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
+            }
+          ],
+          "exploit_count": 1
         }
       }
     },
@@ -5567,7 +5740,7 @@
         "percentile": 99.269
       },
       "riskScore": 56,
-      "exploitationStatus": "KNOWN_EXPLOITED",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -5630,7 +5803,8 @@
           "CWE-78",
           "CWE-77",
           "TOP-1-PERCENT-EPSS",
-          "CISA-KEV"
+          "CISA-KEV",
+          "EXPLOIT-AVAILABLE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -5662,6 +5836,17 @@
           "dueDate": "2025-06-05",
           "knownRansomwareCampaignUse": "Unknown",
           "notes": "https://fw.draytek.com.tw/Vigor2960/Firmware/v1.5.1.5/DrayTek_Vigor2960_V1.5.1.5_01release-note.pdf ; https://fw.draytek.com.tw/Vigor300B/Firmware/v1.5.1.5/DrayTek_Vigor300B_V1.5.1.5_01release-note.pdf ; https://fw.draytek.com.tw/Vigor3900/Firmware/v1.5.1.5/DrayTek_Vigor3900_V1.5.1.5_01release-note.pdf ; https://nvd.nist.gov/vuln/detail/CVE-2024-12987"
+        },
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
+            }
+          ],
+          "exploit_count": 1
         }
       }
     },
@@ -6050,7 +6235,7 @@
         "percentile": 99.719
       },
       "riskScore": 55,
-      "exploitationStatus": "KNOWN_EXPLOITED",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -6086,7 +6271,8 @@
         "tags": [
           "CWE-78",
           "TOP-1-PERCENT-EPSS",
-          "CISA-KEV"
+          "CISA-KEV",
+          "EXPLOIT-AVAILABLE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -6118,6 +6304,17 @@
           "dueDate": "2024-10-04",
           "knownRansomwareCampaignUse": "Unknown",
           "notes": "https://forums.ivanti.com/s/article/Security-Advisory-Ivanti-Cloud-Service-Appliance-CSA-CVE-2024-8190; https://nvd.nist.gov/vuln/detail/CVE-2024-8190"
+        },
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
+            }
+          ],
+          "exploit_count": 1
         }
       }
     },
@@ -6476,7 +6673,7 @@
         "percentile": 98.264
       },
       "riskScore": 55,
-      "exploitationStatus": "KNOWN_EXPLOITED",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -6537,7 +6734,8 @@
         "tags": [
           "CWE-416",
           "TOP-5-PERCENT-EPSS",
-          "CISA-KEV"
+          "CISA-KEV",
+          "EXPLOIT-AVAILABLE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -6569,6 +6767,17 @@
           "dueDate": "2024-09-03",
           "knownRansomwareCampaignUse": "Unknown",
           "notes": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-38193; https://nvd.nist.gov/vuln/detail/CVE-2024-38193"
+        },
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
+            }
+          ],
+          "exploit_count": 1
         }
       }
     },
@@ -7277,7 +7486,7 @@
         "percentile": 99.266
       },
       "riskScore": 53,
-      "exploitationStatus": "KNOWN_EXPLOITED",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -7313,7 +7522,8 @@
         "tags": [
           "CWE-77",
           "TOP-1-PERCENT-EPSS",
-          "CISA-KEV"
+          "CISA-KEV",
+          "EXPLOIT-AVAILABLE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -7345,6 +7555,17 @@
           "dueDate": "2024-10-30",
           "knownRansomwareCampaignUse": "Unknown",
           "notes": "https://forums.ivanti.com/s/article/Security-Advisory-Ivanti-CSA-Cloud-Services-Appliance-CVE-2024-9379-CVE-2024-9380-CVE-2024-9381 ; https://nvd.nist.gov/vuln/detail/CVE-2024-9380"
+        },
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
+            }
+          ],
+          "exploit_count": 1
         }
       }
     },
@@ -8031,7 +8252,7 @@
         "percentile": 98.347
       },
       "riskScore": 50,
-      "exploitationStatus": "KNOWN_EXPLOITED",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -8077,7 +8298,8 @@
         "tags": [
           "CWE-78",
           "TOP-5-PERCENT-EPSS",
-          "CISA-KEV"
+          "CISA-KEV",
+          "EXPLOIT-AVAILABLE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -8109,6 +8331,17 @@
           "dueDate": "2024-11-25",
           "knownRansomwareCampaignUse": "Unknown",
           "notes": "https://ptzoptics.com/firmware-changelog/ ; https://nvd.nist.gov/vuln/detail/CVE-2024-8957"
+        },
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
+            }
+          ],
+          "exploit_count": 1
         }
       }
     }

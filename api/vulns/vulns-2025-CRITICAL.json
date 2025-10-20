@@ -23,7 +23,7 @@
         "percentile": 99.172
       },
       "riskScore": 70,
-      "exploitationStatus": "KNOWN_EXPLOITED",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -61,7 +61,8 @@
         "tags": [
           "TOP-1-PERCENT-EPSS",
           "CISA-KEV",
-          "RANSOMWARE"
+          "RANSOMWARE",
+          "EXPLOIT-AVAILABLE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -93,6 +94,17 @@
           "dueDate": "2025-10-27",
           "knownRansomwareCampaignUse": "Known",
           "notes": "https://www.oracle.com/security-alerts/alert-cve-2025-61882.html ; https://nvd.nist.gov/vuln/detail/CVE-2025-61882"
+        },
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
+            }
+          ],
+          "exploit_count": 1
         }
       }
     },
@@ -241,7 +253,7 @@
         "percentile": 99.36
       },
       "riskScore": 68,
-      "exploitationStatus": "KNOWN_EXPLOITED",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -285,7 +297,8 @@
           "CWE-502",
           "TOP-1-PERCENT-EPSS",
           "CISA-KEV",
-          "RANSOMWARE"
+          "RANSOMWARE",
+          "EXPLOIT-AVAILABLE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -317,6 +330,17 @@
           "dueDate": "2025-07-21",
           "knownRansomwareCampaignUse": "Known",
           "notes": "CISA Mitigation Instructions: https://www.cisa.gov/news-events/alerts/2025/07/20/microsoft-releases-guidance-exploitation-sharepoint-vulnerability-cve-2025-53770; https://www.microsoft.com/en-us/security/blog/2025/07/22/disrupting-active-exploitation-of-on-premises-sharepoint-vulnerabilities/ ; https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-53770 ; https://nvd.nist.gov/vuln/detail/CVE-2025-53770"
+        },
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
+            }
+          ],
+          "exploit_count": 1
         }
       }
     },
@@ -340,7 +364,7 @@
         "percentile": 99.7
       },
       "riskScore": 68,
-      "exploitationStatus": "KNOWN_EXPLOITED",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -395,7 +419,8 @@
         "tags": [
           "CWE-158",
           "TOP-1-PERCENT-EPSS",
-          "CISA-KEV"
+          "CISA-KEV",
+          "EXPLOIT-AVAILABLE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -427,6 +452,17 @@
           "dueDate": "2025-08-04",
           "knownRansomwareCampaignUse": "Unknown",
           "notes": "https://www.wftpserver.com/serverhistory.htm ; https://nvd.nist.gov/vuln/detail/CVE-2025-47812"
+        },
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
+            }
+          ],
+          "exploit_count": 1
         }
       }
     },
@@ -630,7 +666,7 @@
         "percentile": 99.916
       },
       "riskScore": 66,
-      "exploitationStatus": "KNOWN_EXPLOITED",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -668,7 +704,8 @@
           "CWE-288",
           "TOP-1-PERCENT-EPSS",
           "CISA-KEV",
-          "RANSOMWARE"
+          "RANSOMWARE",
+          "EXPLOIT-AVAILABLE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -700,6 +737,17 @@
           "dueDate": "2025-01-21",
           "knownRansomwareCampaignUse": "Known",
           "notes": "https://fortiguard.fortinet.com/psirt/FG-IR-24-535 ; https://nvd.nist.gov/vuln/detail/CVE-2024-55591"
+        },
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
+            }
+          ],
+          "exploit_count": 1
         }
       }
     },
@@ -1176,7 +1224,7 @@
         "percentile": 99.953
       },
       "riskScore": 64,
-      "exploitationStatus": "KNOWN_EXPLOITED",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -1222,7 +1270,8 @@
         "tags": [
           "CWE-78",
           "TOP-1-PERCENT-EPSS",
-          "CISA-KEV"
+          "CISA-KEV",
+          "EXPLOIT-AVAILABLE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -1254,6 +1303,17 @@
           "dueDate": "2025-02-06",
           "knownRansomwareCampaignUse": "Unknown",
           "notes": "https://docs.aviatrix.com/documentation/latest/release-notices/psirt-advisories/psirt-advisories.html?expand=true ; https://nvd.nist.gov/vuln/detail/CVE-2024-50603"
+        },
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
+            }
+          ],
+          "exploit_count": 1
         }
       }
     },
@@ -1277,7 +1337,7 @@
         "percentile": 99.681
       },
       "riskScore": 63,
-      "exploitationStatus": "KNOWN_EXPLOITED",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -1356,9 +1416,14 @@
               "source": "Potential Exploit",
               "url": "https://www.horizon3.ai/attack-research/disclosures/unsafe-at-any-speed-abusing-python-exec-for-unauth-rce-in-langflow-ai/",
               "icon": "\u26a0\ufe0f"
+            },
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
             }
           ],
-          "exploit_count": 1
+          "exploit_count": 2
         },
         "epss_percentile": {
           "percentile": 99.681,
@@ -1398,7 +1463,7 @@
         "percentile": 99.85
       },
       "riskScore": 62,
-      "exploitationStatus": "KNOWN_EXPLOITED",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -1437,7 +1502,8 @@
         "tags": [
           "CWE-502",
           "TOP-1-PERCENT-EPSS",
-          "CISA-KEV"
+          "CISA-KEV",
+          "EXPLOIT-AVAILABLE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -1469,6 +1535,17 @@
           "dueDate": "2025-07-01",
           "knownRansomwareCampaignUse": "Unknown",
           "notes": "https://wazuh.com/blog/addressing-the-cve-2025-24016-vulnerability/ ; https://github.com/wazuh/wazuh/security/advisories/GHSA-hcrc-79hj-m3qh ; https://nvd.nist.gov/vuln/detail/CVE-2025-24016"
+        },
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
+            }
+          ],
+          "exploit_count": 1
         }
       }
     },
@@ -1738,7 +1815,7 @@
         "percentile": 99.275
       },
       "riskScore": 62,
-      "exploitationStatus": "KNOWN_EXPLOITED",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -1784,7 +1861,8 @@
           "CWE-305",
           "TOP-1-PERCENT-EPSS",
           "CISA-KEV",
-          "RANSOMWARE"
+          "RANSOMWARE",
+          "EXPLOIT-AVAILABLE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -1816,6 +1894,17 @@
           "dueDate": "2025-04-28",
           "knownRansomwareCampaignUse": "Known",
           "notes": "https://www.crushftp.com/crush11wiki/Wiki.jsp?page=Update ; https://nvd.nist.gov/vuln/detail/CVE-2025-31161"
+        },
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
+            }
+          ],
+          "exploit_count": 1
         }
       }
     },
@@ -1839,7 +1928,7 @@
         "percentile": 99.863
       },
       "riskScore": 62,
-      "exploitationStatus": "KNOWN_EXPLOITED",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -1875,7 +1964,8 @@
         "tags": [
           "CWE-36",
           "TOP-1-PERCENT-EPSS",
-          "CISA-KEV"
+          "CISA-KEV",
+          "EXPLOIT-AVAILABLE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -1907,6 +1997,17 @@
           "dueDate": "2025-03-31",
           "knownRansomwareCampaignUse": "Unknown",
           "notes": "https://forums.ivanti.com/s/article/Security-Advisory-EPM-January-2025-for-EPM-2024-and-EPM-2022-SU6?language=en_US ; https://nvd.nist.gov/vuln/detail/CVE-2024-13159"
+        },
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
+            }
+          ],
+          "exploit_count": 1
         }
       }
     },
@@ -1930,7 +2031,7 @@
         "percentile": 99.694
       },
       "riskScore": 61,
-      "exploitationStatus": "KNOWN_EXPLOITED",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -1966,7 +2067,8 @@
         "tags": [
           "CWE-36",
           "TOP-1-PERCENT-EPSS",
-          "CISA-KEV"
+          "CISA-KEV",
+          "EXPLOIT-AVAILABLE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -1998,6 +2100,17 @@
           "dueDate": "2025-03-31",
           "knownRansomwareCampaignUse": "Unknown",
           "notes": "https://forums.ivanti.com/s/article/Security-Advisory-EPM-January-2025-for-EPM-2024-and-EPM-2022-SU6?language=en_US ; https://nvd.nist.gov/vuln/detail/CVE-2024-13161"
+        },
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
+            }
+          ],
+          "exploit_count": 1
         }
       }
     },
@@ -2021,7 +2134,7 @@
         "percentile": 99.763
       },
       "riskScore": 61,
-      "exploitationStatus": "KNOWN_EXPLOITED",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -2057,7 +2170,8 @@
         "tags": [
           "CWE-36",
           "TOP-1-PERCENT-EPSS",
-          "CISA-KEV"
+          "CISA-KEV",
+          "EXPLOIT-AVAILABLE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -2089,6 +2203,17 @@
           "dueDate": "2025-03-31",
           "knownRansomwareCampaignUse": "Unknown",
           "notes": "https://forums.ivanti.com/s/article/Security-Advisory-EPM-January-2025-for-EPM-2024-and-EPM-2022-SU6?language=en_US ; https://nvd.nist.gov/vuln/detail/CVE-2024-13160"
+        },
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
+            }
+          ],
+          "exploit_count": 1
         }
       }
     },
@@ -2179,7 +2304,7 @@
         "percentile": 99.309
       },
       "riskScore": 61,
-      "exploitationStatus": "KNOWN_EXPLOITED",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -2235,7 +2360,8 @@
         "tags": [
           "CWE-424",
           "TOP-1-PERCENT-EPSS",
-          "CISA-KEV"
+          "CISA-KEV",
+          "EXPLOIT-AVAILABLE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -2267,6 +2393,17 @@
           "dueDate": "2025-05-23",
           "knownRansomwareCampaignUse": "Unknown",
           "notes": "This vulnerability affects a common open-source component, third-party library, or a protocol used by different products. For more information, please see: https://www.yiiframework.com/news/709/please-upgrade-to-yii-2-0-52 ; https://nvd.nist.gov/vuln/detail/CVE-2024-58136"
+        },
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
+            }
+          ],
+          "exploit_count": 1
         }
       }
     },
@@ -2290,7 +2427,7 @@
         "percentile": 99.902
       },
       "riskScore": 60,
-      "exploitationStatus": "KNOWN_EXPLOITED",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -2329,7 +2466,8 @@
           "CWE-121",
           "TOP-1-PERCENT-EPSS",
           "CISA-KEV",
-          "RANSOMWARE"
+          "RANSOMWARE",
+          "EXPLOIT-AVAILABLE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -2361,6 +2499,17 @@
           "dueDate": "2025-01-15",
           "knownRansomwareCampaignUse": "Known",
           "notes": "CISA Mitigation Instructions: https://www.cisa.gov/cisa-mitigation-instructions-CVE-2025-0282 Additional References: https://forums.ivanti.com/s/article/Security-Advisory-Ivanti-Connect-Secure-Policy-Secure-ZTA-Gateways-CVE-2025-0282-CVE-2025-0283 ; https://nvd.nist.gov/vuln/detail/CVE-2025-0282"
+        },
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
+            }
+          ],
+          "exploit_count": 1
         }
       }
     },
@@ -2384,7 +2533,7 @@
         "percentile": 99.333
       },
       "riskScore": 60,
-      "exploitationStatus": "KNOWN_EXPLOITED",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -2420,7 +2569,8 @@
         "tags": [
           "CWE-78",
           "TOP-1-PERCENT-EPSS",
-          "CISA-KEV"
+          "CISA-KEV",
+          "EXPLOIT-AVAILABLE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -2452,6 +2602,17 @@
           "dueDate": "2025-04-09",
           "knownRansomwareCampaignUse": "Unknown",
           "notes": "https://www.edimax.com/edimax/post/post/data/edimax/global/press_releases/4801/ ; https://nvd.nist.gov/vuln/detail/CVE-2025-1316"
+        },
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
+            }
+          ],
+          "exploit_count": 1
         }
       }
     },
@@ -2553,7 +2714,7 @@
         "percentile": 98.26
       },
       "riskScore": 60,
-      "exploitationStatus": "KNOWN_EXPLOITED",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -2591,7 +2752,8 @@
           "CWE-502",
           "TOP-5-PERCENT-EPSS",
           "CISA-KEV",
-          "RANSOMWARE"
+          "RANSOMWARE",
+          "EXPLOIT-AVAILABLE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -2623,6 +2785,17 @@
           "dueDate": "2025-10-20",
           "knownRansomwareCampaignUse": "Known",
           "notes": "https://www.fortra.com/security/advisories/product-security/fi-2025-012 ; https://nvd.nist.gov/vuln/detail/CVE-2025-10035"
+        },
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
+            }
+          ],
+          "exploit_count": 1
         }
       }
     },
@@ -2840,7 +3013,7 @@
         "percentile": 98.28
       },
       "riskScore": 59,
-      "exploitationStatus": "KNOWN_EXPLOITED",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -2901,7 +3074,8 @@
         "tags": [
           "CWE-306",
           "TOP-5-PERCENT-EPSS",
-          "CISA-KEV"
+          "CISA-KEV",
+          "EXPLOIT-AVAILABLE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -2933,6 +3107,17 @@
           "dueDate": "2025-06-30",
           "knownRansomwareCampaignUse": "Unknown",
           "notes": "This vulnerability affects a common open-source project, third-party library, or a protocol used by different products. For more information, please see: https://github.com/erlang/otp/security/advisories/GHSA-37cp-fgq5-7wc2 ; https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-erlang-otp-ssh-xyZZy ; https://nvd.nist.gov/vuln/detail/CVE-2025-32433"
+        },
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
+            }
+          ],
+          "exploit_count": 1
         }
       }
     },
@@ -2956,7 +3141,7 @@
         "percentile": 99.278
       },
       "riskScore": 59,
-      "exploitationStatus": "KNOWN_EXPLOITED",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -2999,7 +3184,8 @@
         "tags": [
           "CWE-321",
           "TOP-1-PERCENT-EPSS",
-          "CISA-KEV"
+          "CISA-KEV",
+          "EXPLOIT-AVAILABLE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -3031,6 +3217,17 @@
           "dueDate": "2025-04-29",
           "knownRansomwareCampaignUse": "Unknown",
           "notes": "https://gladinetsupport.s3.us-east-1.amazonaws.com/gladinet/securityadvisory-cve-2005.pdf ; https://gladinetsupport.s3.us-east-1.amazonaws.com/gladinet/securityadvisory-cve-2025-triofox.pdf ; https://nvd.nist.gov/vuln/detail/CVE-2025-30406"
+        },
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
+            }
+          ],
+          "exploit_count": 1
         }
       }
     },
@@ -3355,7 +3552,7 @@
         "percentile": 98.74
       },
       "riskScore": 56,
-      "exploitationStatus": "KNOWN_EXPLOITED",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -3394,7 +3591,8 @@
           "CWE-121",
           "TOP-5-PERCENT-EPSS",
           "CISA-KEV",
-          "RANSOMWARE"
+          "RANSOMWARE",
+          "EXPLOIT-AVAILABLE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -3426,6 +3624,17 @@
           "dueDate": "2025-04-11",
           "knownRansomwareCampaignUse": "Known",
           "notes": "CISA Mitigation Instructions: https://www.cisa.gov/cisa-mitigation-instructions-cve-2025-22457 ; Additional References: https://forums.ivanti.com/s/article/April-Security-Advisory-Ivanti-Connect-Secure-Policy-Secure-ZTA-Gateways-CVE-2025-22457 ; https://nvd.nist.gov/vuln/detail/CVE-2025-22457"
+        },
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
+            }
+          ],
+          "exploit_count": 1
         }
       }
     },
@@ -3449,7 +3658,7 @@
         "percentile": 98.506
       },
       "riskScore": 56,
-      "exploitationStatus": "KNOWN_EXPLOITED",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -3485,7 +3694,8 @@
         "tags": [
           "CWE-502",
           "TOP-5-PERCENT-EPSS",
-          "CISA-KEV"
+          "CISA-KEV",
+          "EXPLOIT-AVAILABLE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -3517,6 +3727,17 @@
           "dueDate": "2025-10-02",
           "knownRansomwareCampaignUse": "Unknown",
           "notes": "https://www.3ds.com/trust-center/security/security-advisories/cve-2025-5086 ; https://nvd.nist.gov/vuln/detail/CVE-2025-5086"
+        },
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
+            }
+          ],
+          "exploit_count": 1
         }
       }
     }

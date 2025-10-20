@@ -23,7 +23,7 @@
         "percentile": 99.458
       },
       "riskScore": 62,
-      "exploitationStatus": "KNOWN_EXPLOITED",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -197,9 +197,14 @@
               "source": "Potential Exploit",
               "url": "https://www.sweet.security/blog/cve-2025-30066-tj-actions-supply-chain-attack",
               "icon": "\u26a0\ufe0f"
+            },
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
             }
           ],
-          "exploit_count": 4
+          "exploit_count": 5
         },
         "epss_percentile": {
           "percentile": 99.458,
@@ -328,7 +333,7 @@
         "percentile": 98.301
       },
       "riskScore": 61,
-      "exploitationStatus": "KNOWN_EXPLOITED",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -370,7 +375,8 @@
           "CWE-94",
           "TOP-5-PERCENT-EPSS",
           "CISA-KEV",
-          "RANSOMWARE"
+          "RANSOMWARE",
+          "EXPLOIT-AVAILABLE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -402,6 +408,17 @@
           "dueDate": "2025-07-23",
           "knownRansomwareCampaignUse": "Known",
           "notes": "CISA Mitigation Instructions: https://www.cisa.gov/news-events/alerts/2025/07/20/microsoft-releases-guidance-exploitation-sharepoint-vulnerability-cve-2025-53770; https://www.microsoft.com/en-us/security/blog/2025/07/22/disrupting-active-exploitation-of-on-premises-sharepoint-vulnerabilities/ ; https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49704 ; https://nvd.nist.gov/vuln/detail/CVE-2025-49704"
+        },
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
+            }
+          ],
+          "exploit_count": 1
         }
       }
     },
@@ -739,7 +756,7 @@
         "percentile": 99.881
       },
       "riskScore": 59,
-      "exploitationStatus": "KNOWN_EXPLOITED",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -780,7 +797,8 @@
         "tags": [
           "CWE-36",
           "TOP-1-PERCENT-EPSS",
-          "CISA-KEV"
+          "CISA-KEV",
+          "EXPLOIT-AVAILABLE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -812,6 +830,17 @@
           "dueDate": "2025-04-09",
           "knownRansomwareCampaignUse": "Unknown",
           "notes": "https://helpcenter.nakivo.com/Release-Notes/Content/Release-Notes.htm ; https://nvd.nist.gov/vuln/detail/CVE-2024-48248"
+        },
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
+            }
+          ],
+          "exploit_count": 1
         }
       }
     },
@@ -1351,7 +1380,7 @@
         "percentile": 98.479
       },
       "riskScore": 52,
-      "exploitationStatus": "KNOWN_EXPLOITED",
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -1388,7 +1417,8 @@
       "metadata": {
         "tags": [
           "TOP-5-PERCENT-EPSS",
-          "CISA-KEV"
+          "CISA-KEV",
+          "EXPLOIT-AVAILABLE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -1420,6 +1450,17 @@
           "dueDate": "2025-05-27",
           "knownRansomwareCampaignUse": "Unknown",
           "notes": "This vulnerability affects a common open-source component, third-party library, or a protocol used by different products. Please check with specific vendors for information on patching status. For more information, please see: https://source.android.com/docs/security/bulletin/2025-05-01 ; https://nvd.nist.gov/vuln/detail/CVE-2025-27363"
+        },
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
+            }
+          ],
+          "exploit_count": 1
         }
       }
     },
