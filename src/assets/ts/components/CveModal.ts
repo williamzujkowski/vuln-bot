@@ -10,7 +10,7 @@ export interface CveModalData {
   vulnerability: Vulnerability | null;
   loading: boolean;
   error: string | null;
-  activeTab: "overview" | "technical" | "timeline" | "references";
+  activeTab: "overview" | "technical" | "timeline" | "references" | "ssvc";
   chunkIndex: any | null;
   mainIndex: any | null;
 }
@@ -32,6 +32,11 @@ export interface CveModalMethods {
   getTimelineEvents(
     vulnerability: Vulnerability
   ): Array<{ date: string; event: string; type: "published" | "modified" | "discovered" }>;
+  getPriorityAction(tier: string): string;
+  formatExploitation(status: string): string;
+  getExploitationDesc(status: string): string;
+  getAutomatableDesc(automatable: string): string;
+  getImpactDesc(impact: string): string;
 }
 
 export type CveModal = CveModalData & CveModalMethods;
@@ -209,6 +214,7 @@ export function createCveModal(): CveModal {
         case "2":
         case "3":
         case "4":
+        case "5":
           if (event.altKey) {
             event.preventDefault();
             const tabs: CveModalData["activeTab"][] = [
@@ -216,6 +222,7 @@ export function createCveModal(): CveModal {
               "technical",
               "timeline",
               "references",
+              "ssvc",
             ];
             const tabIndex = parseInt(event.key) - 1;
             if (tabs[tabIndex]) {
@@ -391,6 +398,60 @@ export function createCveModal(): CveModal {
 
       // Sort by date, newest first
       return events.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    },
+
+    /**
+     * Get SSVC priority action guidance
+     */
+    getPriorityAction(tier: string): string {
+      const actions: { [key: string]: string } = {
+        ACT: "Immediate action required - patch within 24 hours",
+        ATTEND: "Schedule patching within 14 days",
+        TRACK: "Monitor for changes - standard patch cycle",
+      };
+      return actions[tier] || "Unknown priority level";
+    },
+
+    /**
+     * Format exploitation status for SSVC
+     */
+    formatExploitation(status: string): string {
+      const statuses: { [key: string]: string } = {
+        active: "Active Exploitation",
+        poc: "PoC Available",
+        none: "No Exploitation",
+      };
+      return statuses[status] || "Unknown";
+    },
+
+    /**
+     * Get exploitation description
+     */
+    getExploitationDesc(status: string): string {
+      const descriptions: { [key: string]: string } = {
+        active: "Exploitation observed in the wild",
+        poc: "Public proof-of-concept code available",
+        none: "No public exploitation evidence",
+      };
+      return descriptions[status] || "";
+    },
+
+    /**
+     * Get automatable description
+     */
+    getAutomatableDesc(automatable: string): string {
+      return automatable === "yes"
+        ? "Attack can be automated without human interaction"
+        : "Attack requires human intelligence/interaction";
+    },
+
+    /**
+     * Get technical impact description
+     */
+    getImpactDesc(impact: string): string {
+      return impact === "total"
+        ? "Complete system compromise possible"
+        : "Limited or partial system impact";
     },
   };
 }

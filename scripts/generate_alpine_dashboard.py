@@ -488,6 +488,8 @@ class AlpineDashboardGenerator:
                     # NEW: Phase 2 enhancements
                     "triage_priority": self._calculate_triage_priority(vuln),
                     "tech_categories": self._detect_technology_category(vuln),
+                    # SSVC data (Phase 2 - Frontend Integration)
+                    "ssvc": vuln.get("ssvc", {}),
                 }
             )
 
@@ -2148,6 +2150,334 @@ class AlpineDashboardGenerator:
             __CLOSE_BRACE__
         __CLOSE_BRACE__
     </script>
+
+    <!-- CVE Details Modal -->
+    <div x-data="cveModal()"
+         x-show="isOpen"
+         x-cloak
+         @keydown.window="handleKeydown($event)"
+         class="modal-overlay"
+         style="display: none;">
+
+        <!-- Backdrop -->
+        <div class="modal-backdrop" @click="closeModal()"></div>
+
+        <!-- Modal Container -->
+        <div class="modal-container">
+            <div class="modal-content">
+
+                <!-- Loading State -->
+                <div x-show="loading" class="modal-loading">
+                    <div class="loading-spinner"></div>
+                    <p class="loading-text">Loading vulnerability details...</p>
+                </div>
+
+                <!-- Error State -->
+                <div x-show="error && !loading" class="modal-error">
+                    <div class="error-icon">⚠️</div>
+                    <div class="error-content">
+                        <h3>Error Loading CVE Details</h3>
+                        <p x-text="error"></p>
+                        <button @click="closeModal()" class="btn btn-primary">Close</button>
+                    </div>
+                </div>
+
+                <!-- Modal Content (when loaded successfully) -->
+                <template x-if="vulnerability && !loading && !error">
+                    <div>
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <div class="modal-title-section">
+                                <h2 class="modal-title">
+                                    <span x-text="vulnerability.cveId"></span>
+                                    <span class="severity-badge"
+                                          :class="getSeverityClass(vulnerability.cvssScore || 0)"
+                                          x-text="vulnerability.severity"></span>
+                                </h2>
+                                <p class="modal-description" x-text="vulnerability.description || 'No description available'"></p>
+                            </div>
+                            <button @click="closeModal()"
+                                    class="modal-close"
+                                    aria-label="Close modal">
+                                ✕
+                            </button>
+                        </div>
+
+                        <!-- Tab Navigation -->
+                        <nav class="tab-nav" role="tablist">
+                            <button @click="switchTab('overview')"
+                                    :class="__OPEN_BRACE__ 'tab-active': activeTab === 'overview' __CLOSE_BRACE__"
+                                    class="tab-button"
+                                    role="tab"
+                                    aria-label="Overview"
+                                    accesskey="1">
+                                Overview
+                                <span class="keyboard-hint">(Alt+1)</span>
+                            </button>
+                            <button @click="switchTab('technical')"
+                                    :class="__OPEN_BRACE__ 'tab-active': activeTab === 'technical' __CLOSE_BRACE__"
+                                    class="tab-button"
+                                    role="tab"
+                                    aria-label="Technical Details"
+                                    accesskey="2">
+                                Technical
+                                <span class="keyboard-hint">(Alt+2)</span>
+                            </button>
+                            <button @click="switchTab('timeline')"
+                                    :class="__OPEN_BRACE__ 'tab-active': activeTab === 'timeline' __CLOSE_BRACE__"
+                                    class="tab-button"
+                                    role="tab"
+                                    aria-label="Timeline"
+                                    accesskey="3">
+                                Timeline
+                                <span class="keyboard-hint">(Alt+3)</span>
+                            </button>
+                            <button @click="switchTab('references')"
+                                    :class="__OPEN_BRACE__ 'tab-active': activeTab === 'references' __CLOSE_BRACE__"
+                                    class="tab-button"
+                                    role="tab"
+                                    aria-label="References"
+                                    accesskey="4">
+                                References
+                                <span class="keyboard-hint">(Alt+4)</span>
+                            </button>
+                            <button @click="switchTab('ssvc')"
+                                    :class="__OPEN_BRACE__ 'tab-active': activeTab === 'ssvc' __CLOSE_BRACE__"
+                                    class="tab-button"
+                                    role="tab"
+                                    aria-label="SSVC Decision Tree"
+                                    accesskey="5">
+                                SSVC Decision Tree
+                                <span class="keyboard-hint">(Alt+5)</span>
+                            </button>
+                        </nav>
+
+                        <!-- Tab Content Container -->
+                        <div class="modal-body">
+
+                            <!-- Overview Tab -->
+                            <div x-show="activeTab === 'overview'"
+                                 role="tabpanel"
+                                 id="overview-tab"
+                                 class="tab-content tab-panel">
+                                <div class="overview-grid">
+                                    <div class="card">
+                                        <h3 class="card-title">Risk Summary</h3>
+                                        <div class="risk-metrics">
+                                            <div class="metric">
+                                                <span class="metric-label">CVSS Score</span>
+                                                <span class="metric-value cvss-score"
+                                                      :class="getSeverityClass(vulnerability.cvssScore || 0)"
+                                                      x-text="vulnerability.cvssScore || 'N/A'"></span>
+                                                <span class="metric-description" x-text="getRiskLevelText(vulnerability.cvssScore || 0)"></span>
+                                            </div>
+                                            <div class="metric">
+                                                <span class="metric-label">EPSS Score</span>
+                                                <span class="metric-value" x-text="`${vulnerability.epssScore || 0}%`"></span>
+                                                <span class="metric-description">Exploitation Probability</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card full-width">
+                                        <h3 class="card-title">Details</h3>
+                                        <dl class="details-grid">
+                                            <div class="detail-item">
+                                                <dt>Published</dt>
+                                                <dd x-text="formatDate(vulnerability.publishedDate)"></dd>
+                                            </div>
+                                            <div class="detail-item">
+                                                <dt>Last Modified</dt>
+                                                <dd x-text="formatDate(vulnerability.lastModifiedDate)"></dd>
+                                            </div>
+                                            <div class="detail-item">
+                                                <dt>Attack Vector</dt>
+                                                <dd x-text="vulnerability.attackVector || 'Unknown'"></dd>
+                                            </div>
+                                        </dl>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Technical Tab -->
+                            <div x-show="activeTab === 'technical'"
+                                 role="tabpanel"
+                                 id="technical-tab"
+                                 class="tab-content tab-panel">
+                                <div class="technical-grid">
+                                    <div class="card">
+                                        <h3 class="card-title">CVSS Metrics</h3>
+                                        <div class="metrics-list">
+                                            <template x-for="metric in getCvssMetrics(vulnerability)">
+                                                <div class="metric-row">
+                                                    <span x-text="metric.label"></span>
+                                                    <strong x-text="metric.value"></strong>
+                                                </div>
+                                            </template>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Timeline Tab -->
+                            <div x-show="activeTab === 'timeline'"
+                                 role="tabpanel"
+                                 id="timeline-tab"
+                                 class="tab-content tab-panel">
+                                <div class="timeline-container">
+                                    <h3 class="timeline-title">Vulnerability Timeline</h3>
+                                    <div class="timeline">
+                                        <template x-for="event in getTimelineEvents(vulnerability)">
+                                            <div class="timeline-event">
+                                                <div class="timeline-marker" :class="`marker-${event.type}`"></div>
+                                                <div class="timeline-content">
+                                                    <span class="timeline-date" x-text="formatDate(event.date)"></span>
+                                                    <p class="timeline-description" x-text="event.event"></p>
+                                                </div>
+                                            </div>
+                                        </template>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- References Tab -->
+                            <div x-show="activeTab === 'references'"
+                                 role="tabpanel"
+                                 id="references-tab"
+                                 class="tab-content tab-panel">
+                                <div class="references-container">
+                                    <h3 class="references-title">External References</h3>
+                                    <div class="references-list">
+                                        <template x-if="vulnerability.references && vulnerability.references.length > 0">
+                                            <template x-for="ref in vulnerability.references">
+                                                <div class="reference-item">
+                                                    <a :href="ref.url"
+                                                       target="_blank"
+                                                       rel="noopener noreferrer"
+                                                       class="reference-link">
+                                                        <span x-text="ref.url"></span>
+                                                        <span class="external-link-icon">↗</span>
+                                                    </a>
+                                                </div>
+                                            </template>
+                                        </template>
+                                        <template x-if="!vulnerability.references || vulnerability.references.length === 0">
+                                            <p class="no-references">No external references available</p>
+                                        </template>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- SSVC Tab -->
+                            <div x-show="activeTab === 'ssvc'"
+                                 role="tabpanel"
+                                 id="ssvc-tab"
+                                 aria-labelledby="ssvc-tab-button"
+                                 class="tab-content tab-panel">
+
+                                <div class="ssvc-container">
+                                    <h3>SSVC Prioritization Decision Tree</h3>
+
+                                    <!-- Priority Tier Banner -->
+                                    <div x-show="vulnerability.ssvc?.priorityTier"
+                                         class="ssvc-priority-banner"
+                                         :class="__OPEN_BRACE__
+                                             'priority-act': vulnerability.ssvc?.priorityTier === 'ACT',
+                                             'priority-attend': vulnerability.ssvc?.priorityTier === 'ATTEND',
+                                             'priority-track': vulnerability.ssvc?.priorityTier === 'TRACK'
+                                         __CLOSE_BRACE__">
+                                        <div class="priority-icon">
+                                            <span x-show="vulnerability.ssvc?.priorityTier === 'ACT'">🔴</span>
+                                            <span x-show="vulnerability.ssvc?.priorityTier === 'ATTEND'">🟠</span>
+                                            <span x-show="vulnerability.ssvc?.priorityTier === 'TRACK'">🔵</span>
+                                        </div>
+                                        <div class="priority-label">
+                                            <div class="priority-tier" x-text="`Priority: ${vulnerability.ssvc?.priorityTier || 'Unknown'}`"></div>
+                                            <div class="priority-action" x-text="getPriorityAction(vulnerability.ssvc?.priorityTier)"></div>
+                                        </div>
+                                        <div class="ssvc-score">
+                                            <span class="score-label">SSVC Score</span>
+                                            <span class="score-value" x-text="vulnerability.ssvc?.ssvcScore || 0"></span>
+                                            <span class="score-total">/60</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Decision Factors Grid -->
+                                    <div class="ssvc-factors-grid" x-show="vulnerability.ssvc?.priorityTier">
+                                        <!-- Exploitation Factor -->
+                                        <div class="ssvc-factor">
+                                            <div class="factor-label">
+                                                <span class="factor-icon">⚔️</span>
+                                                <span class="factor-title">Exploitation</span>
+                                            </div>
+                                            <div class="factor-value"
+                                                 :class="`exploitation-${vulnerability.ssvc?.exploitation || 'none'}`"
+                                                 x-text="formatExploitation(vulnerability.ssvc?.exploitation)">
+                                            </div>
+                                            <div class="factor-description" x-text="getExploitationDesc(vulnerability.ssvc?.exploitation)"></div>
+                                        </div>
+
+                                        <!-- Automatable Factor -->
+                                        <div class="ssvc-factor">
+                                            <div class="factor-label">
+                                                <span class="factor-icon">🤖</span>
+                                                <span class="factor-title">Automatable</span>
+                                            </div>
+                                            <div class="factor-value"
+                                                 :class="`automatable-${vulnerability.ssvc?.automatable || 'no'}`"
+                                                 x-text="(vulnerability.ssvc?.automatable || 'no').toUpperCase()">
+                                            </div>
+                                            <div class="factor-description" x-text="getAutomatableDesc(vulnerability.ssvc?.automatable)"></div>
+                                        </div>
+
+                                        <!-- Technical Impact Factor -->
+                                        <div class="ssvc-factor">
+                                            <div class="factor-label">
+                                                <span class="factor-icon">💥</span>
+                                                <span class="factor-title">Technical Impact</span>
+                                            </div>
+                                            <div class="factor-value"
+                                                 :class="`impact-${vulnerability.ssvc?.technicalImpact || 'partial'}`"
+                                                 x-text="(vulnerability.ssvc?.technicalImpact || 'partial').toUpperCase()">
+                                            </div>
+                                            <div class="factor-description" x-text="getImpactDesc(vulnerability.ssvc?.technicalImpact)"></div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Compact Notation -->
+                                    <div class="ssvc-notation-display" x-show="vulnerability.ssvc?.compactNotation">
+                                        <strong>Compact Notation:</strong>
+                                        <code x-text="vulnerability.ssvc?.compactNotation || 'N/A'"></code>
+                                        <span class="notation-help">(Exploitation / Automatable / Technical Impact)</span>
+                                    </div>
+
+                                    <!-- Inference Indicator -->
+                                    <div x-show="vulnerability.ssvc?.inferred" class="ssvc-inference-notice">
+                                        <span class="notice-icon">ℹ️</span>
+                                        <div class="notice-content">
+                                            <strong>Inferred Decision</strong>
+                                            <p x-show="vulnerability.ssvc?.confidence">
+                                                Confidence: <span x-text="`${Math.round((vulnerability.ssvc?.confidence || 0) * 100)}%`"></span>
+                                            </p>
+                                            <p class="notice-text">This SSVC decision was automatically inferred from available vulnerability data using CVSS vectors and KEV status.</p>
+                                        </div>
+                                    </div>
+
+                                    <!-- No SSVC Data Message -->
+                                    <div x-show="!vulnerability.ssvc?.priorityTier" class="no-ssvc-message">
+                                        <p>⚠️ SSVC data not available for this vulnerability.</p>
+                                        <p class="help-text">This CVE may not have been assessed by CISA or may be outside the scoring criteria.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>"""
 
@@ -2181,6 +2511,8 @@ class AlpineDashboardGenerator:
                     "CVSS",
                     "EPSS %",
                     "Risk Score",
+                    "SSVC Priority",
+                    "SSVC Notation",
                     "Title",
                     "Vendors",
                     "Published",
@@ -2190,6 +2522,11 @@ class AlpineDashboardGenerator:
                 vendors = (
                     ", ".join(vuln["vendors_list"][:3]) if vuln["vendors_list"] else ""
                 )
+                # Extract SSVC data
+                ssvc = vuln.get("ssvc", {})
+                ssvc_priority = ssvc.get("priorityTier", "") if ssvc else ""
+                ssvc_notation = ssvc.get("compactNotation", "") if ssvc else ""
+
                 writer.writerow(
                     [
                         vuln["cve_id"],
@@ -2197,6 +2534,8 @@ class AlpineDashboardGenerator:
                         vuln["cvss_score"],
                         vuln["epss_percentile"],
                         vuln["risk_score"],
+                        ssvc_priority,
+                        ssvc_notation,
                         vuln["title"] or "",
                         vendors,
                         vuln["published_short"],
@@ -2207,8 +2546,8 @@ class AlpineDashboardGenerator:
 
 def main():
     """Main function"""
-    # Prefer JSON API over SQLite database
-    JSON_API_PATH = Path("api/vulns/index.json")
+    # Prefer JSON API over SQLite database (use src/api where briefing generator writes)
+    JSON_API_PATH = Path("src/api/vulns/index.json")
 
     if JSON_API_PATH.exists():
         print(f"Using JSON API data from {JSON_API_PATH}")
