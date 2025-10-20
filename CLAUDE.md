@@ -350,6 +350,66 @@ This is "Vuln-Bot" - a high-risk CVE intelligence platform that tracks Critical 
 - `scripts/generate_alpine_dashboard.py` (~30 additions, ~15 deletions)
 - `public/index.html` (auto-regenerated from script)
 
+### Filter Layout Overlap Fix (2025-10-20)
+
+**Problem Identified**: Published Date filter boxes (two date inputs side-by-side) were overlapping the Vendor filter box due to insufficient grid column width.
+
+**Root Cause Analysis**:
+- Published Date filter contains two date input boxes with 0.5rem gap between them
+- Each date input requires ~150px minimum width
+- Combined space needed: ~320-350px total (inputs + gap + label + padding)
+- Original grid setting: `grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))`
+- **250px minimum was insufficient** for the Published Date filter
+
+**Solution Implemented** (Commit: `7d9a8360b`):
+- **Approach**: Increased minimum column width and grid gap
+- **Changes**:
+  - Minimum column width: `250px` → `280px` (+30px, 12% increase)
+  - Grid gap: `1.25rem` → `1.5rem` (+0.25rem, 20% increase)
+- **Location**: `generate_alpine_dashboard.py` lines 719-723
+- **CSS**:
+  ```css
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  ```
+
+**Responsive Validation** (All viewports tested with Playwright):
+
+| Viewport | Resolution | Status | Layout | Grid Gap |
+|----------|------------|--------|--------|----------|
+| Desktop | 1920x1080 | ✅ PASS | 5 filters/row 1, 1/row 2 | 24px (1.5rem) |
+| Laptop | 1366x768 | ✅ PASS | 4 filters/row 1, 2/row 2 | 24px (1.5rem) |
+| Tablet | 768x1024 | ✅ PASS | Single column | 12px (0.75rem) |
+| Mobile | 375x667 | ✅ PASS | Single column | 12px (0.75rem) |
+
+**Validation Checklist** (All items PASSED):
+- ✅ Published Date filter boxes visible and not overlapping
+- ✅ Vendor filter box visible and not overlapping
+- ✅ All filters have adequate spacing (1.5rem gap)
+- ✅ No horizontal scrollbar in filter card
+- ✅ Desktop layout correct (1920x1080)
+- ✅ Laptop layout correct (1366x768)
+- ✅ Tablet layout correct (768x1024)
+- ✅ Mobile layout correct (375x667)
+- ✅ Filter functionality working (Alpine.js components)
+- ✅ Filters collapse properly on mobile
+
+**Live Site Status** (Verified: 2025-10-20 10:26 UTC):
+- **Deployment**: ✅ SUCCESS via GitHub Actions (20 seconds)
+- **URL**: https://williamzujkowski.github.io/vuln-bot/
+- **CDN Propagation**: Complete (validated 3 minutes post-deployment)
+- **Zero overlaps detected** on all tested viewports
+
+**Benefits**:
+- Simple CSS-only fix (no structural changes)
+- Future-proof for other filters needing more space
+- Improved visual breathing room with increased gap
+- Fully responsive across all device sizes
+
+**Files Modified**:
+- `scripts/generate_alpine_dashboard.py` (lines 719-723)
+- `public/index.html` (auto-regenerated from script)
+
 ## 📋 Implementation Status: SSVC Integration
 
 ### ✅ **Phase 1: Backend SSVC Calculation** (COMPLETE)
