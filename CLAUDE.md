@@ -248,6 +248,42 @@ This is "Vuln-Bot" - a high-risk CVE intelligence platform that tracks Critical 
 
 **Note**: Production API (public/api/) may differ from source (src/api/). Run `npm run build` to sync.
 
+## 🎯 Recent Dashboard Improvements (2025-10-20)
+
+### KEV Widget Fix & UI Enhancements
+
+**Problem Solved**: KEV widget was displaying "0" despite 73 CVEs being enriched with CISA KEV data.
+
+**Root Cause**: The `enrichments` field was never embedded in frontend JavaScript (line 548 in `generate_alpine_dashboard.py` was missing `"enrichments": vuln.get("enrichments", {})`).
+
+**Solutions Implemented**:
+
+1. **✅ KEV Widget Fix** (Commit: `21b28a97d`):
+   - Added missing enrichments field to vuln_data dictionary
+   - KEV widget now correctly displays 73 on live site
+   - Verified with Playwright validation
+
+2. **✅ Dashboard UI Improvements** (Commit: `a03fe7db8`):
+   - **Moved Build Timestamp and Data Last Updated to same row**: Now displayed as two adjacent stat cards with color-coded indicators (green for Build Timestamp, blue for Data Last Updated)
+   - **Removed redundant "KEV Listed" column**: Column was duplicate of Exploit Status column which already shows "🔴 KEV Listed"
+   - **Simplified data freshness indicator**: Shows "✓ Fresh" (green) or "⚠ Stale (>24h)" (red) based on data age
+
+3. **✅ GitHub Actions Deployment Automation**:
+   - **`.github/workflows/pages.yml`**: Triggers automatically on push to main when `public/**` or `scripts/generate_alpine_dashboard.py` changes
+   - **`.github/workflows/scheduled-harvest.yml`**: Already has deployment logic (lines 288-298) using `upload-pages-artifact@v3` and `deploy-pages@v4`
+   - **Both manual pushes AND scheduled harvests now trigger website deployments**
+
+**Live Site Validation** (Verified: 2025-10-20):
+- ✅ KEV widget shows 73 (correct count)
+- ✅ Build Timestamp and Data Last Updated on same row
+- ✅ Redundant KEV Listed column removed
+- ✅ GitHub Actions workflow triggered automatically on push
+
+**Files Modified**:
+- `scripts/generate_alpine_dashboard.py` (lines 548, 1415-1431, 1672-1674, 1714-1717)
+- `.github/workflows/pages.yml` (added automatic triggers)
+- `public/index.html` (regenerated with improvements)
+
 ## 📋 Implementation Status: SSVC Integration
 
 ### ✅ **Phase 1: Backend SSVC Calculation** (COMPLETE)
