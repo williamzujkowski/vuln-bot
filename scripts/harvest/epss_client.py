@@ -158,24 +158,35 @@ class EPSSClient(BaseAPIClient):
             with gzip.GzipFile(fileobj=io.BytesIO(response.content)) as f:
                 content = f.read().decode("utf-8")
 
+            # Parse metadata line (format: #model_version:v2025.03.14,score_date:2025-10-19T12:55:00Z)
+            lines = content.split('\n')
+            score_date = datetime.now(timezone.utc)
+
+            if lines and lines[0].startswith('#'):
+                metadata_line = lines[0]
+                # Extract score_date from metadata
+                if 'score_date:' in metadata_line:
+                    try:
+                        date_str = metadata_line.split('score_date:')[1].split('T')[0]
+                        date_parts = date_str.split('-')
+                        if len(date_parts) == 3:
+                            score_date = datetime(
+                                int(date_parts[0]),
+                                int(date_parts[1]),
+                                int(date_parts[2]),
+                                tzinfo=timezone.utc
+                            )
+                    except (ValueError, IndexError) as e:
+                        self.logger.warning("Failed to parse EPSS metadata date", error=str(e))
+
+                # Skip metadata line for CSV parsing
+                content = '\n'.join(lines[1:])
+
             reader = csv.DictReader(io.StringIO(content))
 
             scores = {}
-            score_date = datetime.now(timezone.utc)  # Will be updated from file
 
             for row in reader:
-                # First row contains the model version and date
-                if "model_version" in row:
-                    # Extract date from model version
-                    date_parts = row.get("score_date", "").split("-")
-                    if len(date_parts) == 3:
-                        score_date = datetime(
-                            int(date_parts[0]),
-                            int(date_parts[1]),
-                            int(date_parts[2]),
-                        )
-                    continue
-
                 cve_id = row.get("cve", "")
                 if not cve_id or not cve_id.startswith("CVE-"):
                     continue
