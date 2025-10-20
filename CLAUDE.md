@@ -284,6 +284,72 @@ This is "Vuln-Bot" - a high-risk CVE intelligence platform that tracks Critical 
 - `.github/workflows/pages.yml` (added automatic triggers)
 - `public/index.html` (regenerated with improvements)
 
+### Table Cleanup & Data Enhancement (2025-10-20)
+
+**Objective**: Streamline vulnerability table by removing redundant columns and adding actionable data freshness information.
+
+**Changes Implemented** (Commit: `c1e283c1f`):
+
+1. **✅ Removed Priority Column**:
+   - **Rationale**: Priority and Severity columns were redundant (both showing similar criticality information)
+   - **Impact**: Cleaner table layout, reduced information overload
+   - **Location**: `generate_alpine_dashboard.py` lines 1669-1671 (header), 1702-1710 (cells)
+
+2. **✅ Fixed Severity Column Styling**:
+   - **Before**: `⚠️ CRITICAL` (with emojis and warning icons)
+   - **After**: `CRITICAL` (clean text badge with color coding)
+   - **Impact**: More professional appearance, better accessibility for screen readers
+   - **Location**: `generate_alpine_dashboard.py` lines 1711-1716
+
+3. **✅ Removed Risk Score Column**:
+   - **Rationale**: Redundant metric - CVSS and EPSS scores provide sufficient severity indicators
+   - **Impact**: Focused on industry-standard metrics (CVSS, EPSS)
+   - **Location**: `generate_alpine_dashboard.py` lines 1681-1683 (header), 1719 (cells), 1775-1785 (mobile view)
+
+4. **✅ Added Last Updated Column**:
+   - **Data Source**: MITRE CVE JSON `last_modified_date` field
+   - **Format**: Short date format (YYYY-MM-DD) matching Published column
+   - **Value**: Shows data freshness for each CVE, helps users identify recently updated vulnerabilities
+   - **Location**: `generate_alpine_dashboard.py` lines 94-98, 192-196 (data processing), 540 (data embedding), 1686-1688 (header), 1725 (cells)
+
+5. **✅ Fixed Filter Card Spacing**:
+   - **Problem**: Filter controls overlapping on smaller screens
+   - **Solution**: Increased grid gap from 1rem to 1.25rem, increased bottom margin from 1rem to 1.5rem
+   - **Location**: `generate_alpine_dashboard.py` lines 722-723
+
+**Final Table Columns (9 total, down from 11)**:
+1. CVE ID - Link to MITRE CVE page
+2. Severity - Clean badge (CRITICAL/HIGH) without emojis
+3. CVSS - CVSS score (0-10)
+4. EPSS % - Exploit Prediction Scoring System percentage
+5. Product - Affected product name
+6. Vendors - Affected vendors (comma-separated)
+7. Exploit Status - KEV Listed / PoC Available / Not Listed
+8. Published - Initial publication date
+9. **Last Updated** - Most recent modification date (**NEW**)
+
+**Removed Columns**:
+- Priority (redundant with Severity)
+- Risk Score (redundant metric)
+
+**Playwright Validation Results** (All checks PASSED):
+- ✅ Priority column removed
+- ✅ Risk Score column removed
+- ✅ Last Updated column added with dates
+- ✅ Severity badges clean (no emojis)
+- ✅ Filter section spacing fixed (no overlaps)
+- ✅ Mobile card view updated (Risk Score removed)
+
+**Live Site Status** (Verified: 2025-10-20 05:49 ET):
+- **Deployment**: ✅ SUCCESS via GitHub Actions (23 seconds)
+- **Build Timestamp**: 2025-10-20 05:49:19 EDT
+- **Table Columns**: 9 columns displaying correctly
+- **URL**: https://williamzujkowski.github.io/vuln-bot/
+
+**Files Modified**:
+- `scripts/generate_alpine_dashboard.py` (~30 additions, ~15 deletions)
+- `public/index.html` (auto-regenerated from script)
+
 ## 📋 Implementation Status: SSVC Integration
 
 ### ✅ **Phase 1: Backend SSVC Calculation** (COMPLETE)
