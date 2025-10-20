@@ -1421,6 +1421,15 @@ class AlpineDashboardGenerator:
                     </div>
                 </div>
 
+                <div class="stat-card" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border: 2px solid #3b82f6;">
+                    <div class="stat-value" style="font-family: 'Courier New', monospace; color: #3b82f6; font-size: 0.875rem;" x-text="new Date(stats.last_updated).toLocaleString()"></div>
+                    <div class="stat-label" style="color: #3b82f6;">Data Last Updated</div>
+                    <div class="stat-trend" style="font-family: monospace; font-size: 0.75rem;">
+                        <span x-show="(new Date() - new Date(stats.last_updated)) / (1000 * 60 * 60) > 24" style="color: #ef4444;">⚠ Stale (>24h)</span>
+                        <span x-show="(new Date() - new Date(stats.last_updated)) / (1000 * 60 * 60) <= 24" style="color: #10b981;">✓ Fresh</span>
+                    </div>
+                </div>
+
                 <div class="stat-card">
                     <div class="stat-value" x-text="stats.total"></div>
                     <div class="stat-label">Total Vulnerabilities</div>
@@ -1454,24 +1463,6 @@ class AlpineDashboardGenerator:
                     <div class="stat-trend">
                         <span>Known</span>
                         <span>Exploited</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Data Freshness Indicator -->
-            <div style="background: var(--bg-card); border-radius: 16px; padding: 1rem; margin-bottom: 2rem; border-left: 4px solid var(--accent-primary);">
-                <div style="display: flex; align-items: center; gap: 0.75rem;">
-                    <span style="font-size: 1.5rem;">🕒</span>
-                    <div style="flex: 1;">
-                        <div style="font-weight: 600; color: var(--text-primary);">Data Last Updated</div>
-                        <div>
-                            <span style="color: var(--text-secondary); font-size: 0.875rem;" x-text="new Date(stats.last_updated).toLocaleString()"></span>
-                            <span x-show="(new Date() - new Date(stats.last_updated)) / (1000 * 60 * 60) > 24" style="color: #ef4444; font-size: 0.875rem; margin-left: 0.5rem;">⚠ Data is stale (>24 hours old)</span>
-                        </div>
-                        <div style="margin-top: 0.25rem;">
-                            <span style="color: var(--text-muted); font-size: 0.75rem;">Dashboard Built: </span>
-                            <span style="color: var(--text-secondary); font-size: 0.75rem; font-weight: 600;" x-text="stats.dashboard_built"></span>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -1678,9 +1669,6 @@ class AlpineDashboardGenerator:
                                 <th @click="sort('triage_priority')" style="cursor: pointer;">
                                     Priority <span x-show="sortField === 'triage_priority'" x-text="sortOrder === 'asc' ? '↑' : '↓'"></span>
                                 </th>
-                                <th @click="sort('kev_listed')" style="cursor: pointer;">
-                                    KEV Listed <span x-show="sortField === 'kev_listed'" x-text="sortOrder === 'asc' ? '↑' : '↓'"></span>
-                                </th>
                                 <th @click="sort('severity')" style="cursor: pointer;">
                                     Severity <span x-show="sortField === 'severity'" x-text="sortOrder === 'asc' ? '↑' : '↓'"></span>
                                 </th>
@@ -1719,10 +1707,6 @@ class AlpineDashboardGenerator:
                                             <span x-show="vuln.triage_priority === 'MONITOR'">🟢</span>
                                             <span x-text="vuln.triage_priority.replace('-', ' ')"></span>
                                         </span>
-                                    </td>
-                                    <td>
-                                        <span x-show="vuln.kev_status" style="color: #ef4444; font-weight: 600;">✓ Yes</span>
-                                        <span x-show="!vuln.kev_status" style="color: var(--text-muted);">No</span>
                                     </td>
                                     <td>
                                         <div style="display: flex; align-items: center; gap: 0.5rem;">
