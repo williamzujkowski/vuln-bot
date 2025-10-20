@@ -718,8 +718,8 @@ class AlpineDashboardGenerator:
 
         .filter-grid __OPEN_BRACE__
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.25rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
             margin-bottom: 1.5rem;
         __CLOSE_BRACE__
 
