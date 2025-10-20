@@ -235,18 +235,18 @@ class ThresholdComplianceAgent(BaseAgent):
                                                 vulnerabilities
                                             )
                                         )
-                                        validation_result["files"][
-                                            chunk_file
-                                        ] = file_result
+                                        validation_result["files"][chunk_file] = (
+                                            file_result
+                                        )
                                         validation_result["files_checked"] += 1
                                         validation_result[
                                             "vulnerabilities_checked"
                                         ] += len(vulnerabilities)
 
                                         # Aggregate results
-                                        validation_result[
-                                            "total_vulnerabilities"
-                                        ] += file_result["total_vulnerabilities"]
+                                        validation_result["total_vulnerabilities"] += (
+                                            file_result["total_vulnerabilities"]
+                                        )
                                         validation_result[
                                             "compliant_vulnerabilities"
                                         ] += file_result["compliant_vulnerabilities"]
