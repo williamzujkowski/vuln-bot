@@ -10,6 +10,7 @@ import sys
 from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any, Dict
+import pytz
 
 # Configuration
 OUTPUT_DIR = Path("public")
@@ -483,6 +484,7 @@ class AlpineDashboardGenerator:
             "week_count": week_count,
             "kev_count": kev_count,
             "last_updated": datetime.now().isoformat(),
+            "dashboard_built": datetime.now(pytz.timezone('America/New_York')).strftime('%Y-%m-%d %H:%M:%S %Z'),
             # NEW: Priority distribution for chart
             "priority_distribution": {
                 "CRITICAL-URGENT": critical_urgent,
@@ -542,6 +544,8 @@ class AlpineDashboardGenerator:
                     "tech_categories": self._detect_technology_category(vuln),
                     # SSVC data (Phase 2 - Frontend Integration)
                     "ssvc": vuln.get("ssvc", {}),
+                    # Enrichments data (CRITICAL: needed for KEV detection)
+                    "enrichments": vuln.get("enrichments", {}),
                 }
             )
 
@@ -1408,6 +1412,15 @@ class AlpineDashboardGenerator:
 
             <!-- Stats Section -->
             <div class="stats-grid">
+                <div class="stat-card" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border: 2px solid #00ff00;">
+                    <div class="stat-value" style="font-family: 'Courier New', monospace; color: #00ff00; font-size: 1rem;" x-text="stats.dashboard_built"></div>
+                    <div class="stat-label" style="color: #00ff00;">Build Timestamp (ET)</div>
+                    <div class="stat-trend" style="font-family: monospace; font-size: 0.75rem;">
+                        <span style="color: #00ff00;">🔄</span>
+                        <span style="color: #a3a3b8;">Check for CDN cache</span>
+                    </div>
+                </div>
+
                 <div class="stat-card">
                     <div class="stat-value" x-text="stats.total"></div>
                     <div class="stat-label">Total Vulnerabilities</div>
@@ -1454,6 +1467,10 @@ class AlpineDashboardGenerator:
                         <div>
                             <span style="color: var(--text-secondary); font-size: 0.875rem;" x-text="new Date(stats.last_updated).toLocaleString()"></span>
                             <span x-show="(new Date() - new Date(stats.last_updated)) / (1000 * 60 * 60) > 24" style="color: #ef4444; font-size: 0.875rem; margin-left: 0.5rem;">⚠ Data is stale (>24 hours old)</span>
+                        </div>
+                        <div style="margin-top: 0.25rem;">
+                            <span style="color: var(--text-muted); font-size: 0.75rem;">Dashboard Built: </span>
+                            <span style="color: var(--text-secondary); font-size: 0.75rem; font-weight: 600;" x-text="stats.dashboard_built"></span>
                         </div>
                     </div>
                 </div>
