@@ -51,7 +51,7 @@ class SSVCExtractor:
             if not cisa_adp:
                 logger.debug(
                     "No CISA-ADP container found",
-                    cve_id=cve_data.get("cveMetadata", {}).get("cveId")
+                    cve_id=cve_data.get("cveMetadata", {}).get("cveId"),
                 )
                 return None
 
@@ -62,7 +62,7 @@ class SSVCExtractor:
                 logger.debug(
                     "Extracted SSVC data",
                     cve_id=cve_data.get("cveMetadata", {}).get("cveId"),
-                    ssvc_data=ssvc_data
+                    ssvc_data=ssvc_data,
                 )
 
             return ssvc_data
@@ -71,7 +71,7 @@ class SSVCExtractor:
             logger.error(
                 "Failed to extract SSVC data",
                 cve_id=cve_data.get("cveMetadata", {}).get("cveId", "unknown"),
-                error=str(e)
+                error=str(e),
             )
             return None
 
@@ -125,8 +125,8 @@ class SSVCExtractor:
         """
         ssvc_data = {
             "exploitation": "none",  # Default: no exploitation
-            "automatable": "no",     # Default: not automatable
-            "technical_impact": "partial"  # Default: partial impact
+            "automatable": "no",  # Default: not automatable
+            "technical_impact": "partial",  # Default: partial impact
         }
 
         metrics = cisa_adp.get("metrics", [])
@@ -150,9 +150,7 @@ class SSVCExtractor:
                         if value in self.EXPLOITATION_VALUES:
                             ssvc_data["exploitation"] = value
                         else:
-                            logger.warning(
-                                f"Invalid SSVC Exploitation value: {value}"
-                            )
+                            logger.warning(f"Invalid SSVC Exploitation value: {value}")
 
                     # Check for Automatable
                     if "Automatable" in option:
@@ -160,9 +158,7 @@ class SSVCExtractor:
                         if value in self.AUTOMATABLE_VALUES:
                             ssvc_data["automatable"] = value
                         else:
-                            logger.warning(
-                                f"Invalid SSVC Automatable value: {value}"
-                            )
+                            logger.warning(f"Invalid SSVC Automatable value: {value}")
 
                     # Check for Technical Impact
                     if "Technical Impact" in option:
@@ -175,8 +171,12 @@ class SSVCExtractor:
                             )
 
             # If we found SSVC data, return it
-            if any(option.get("Exploitation") or option.get("Automatable")
-                   or option.get("Technical Impact") for option in options):
+            if any(
+                option.get("Exploitation")
+                or option.get("Automatable")
+                or option.get("Technical Impact")
+                for option in options
+            ):
                 return ssvc_data
 
         # No SSVC metric found
@@ -202,9 +202,11 @@ class SSVCExtractor:
         technical_impact = ssvc_data.get("technical_impact", "partial")
 
         # ACT: Active exploitation + Automatable + Total impact
-        if (exploitation == "active" and
-            automatable == "yes" and
-            technical_impact == "total"):
+        if (
+            exploitation == "active"
+            and automatable == "yes"
+            and technical_impact == "total"
+        ):
             return "ACT"
 
         # ATTEND: Active exploitation OR (PoC + Automatable)
@@ -238,21 +240,15 @@ class SSVCExtractor:
         technical_impact = ssvc_data.get("technical_impact", "partial")
 
         # Map to first letter (uppercase)
-        exploitation_code = {
-            "active": "A",
-            "poc": "P",
-            "none": "N"
-        }.get(exploitation, "?")
+        exploitation_code = {"active": "A", "poc": "P", "none": "N"}.get(
+            exploitation, "?"
+        )
 
-        automatable_code = {
-            "yes": "Y",
-            "no": "N"
-        }.get(automatable, "?")
+        automatable_code = {"yes": "Y", "no": "N"}.get(automatable, "?")
 
-        technical_impact_code = {
-            "total": "T",
-            "partial": "P"
-        }.get(technical_impact, "?")
+        technical_impact_code = {"total": "T", "partial": "P"}.get(
+            technical_impact, "?"
+        )
 
         return f"{exploitation_code}/{automatable_code}/{technical_impact_code}"
 
@@ -274,29 +270,15 @@ class SSVCExtractor:
         score = 0
 
         # Exploitation component (30 points max)
-        exploitation_scores = {
-            "active": 30,
-            "poc": 20,
-            "none": 0
-        }
-        score += exploitation_scores.get(
-            ssvc_data.get("exploitation", "none"), 0
-        )
+        exploitation_scores = {"active": 30, "poc": 20, "none": 0}
+        score += exploitation_scores.get(ssvc_data.get("exploitation", "none"), 0)
 
         # Automatable component (15 points max)
-        automatable_scores = {
-            "yes": 15,
-            "no": 0
-        }
-        score += automatable_scores.get(
-            ssvc_data.get("automatable", "no"), 0
-        )
+        automatable_scores = {"yes": 15, "no": 0}
+        score += automatable_scores.get(ssvc_data.get("automatable", "no"), 0)
 
         # Technical Impact component (15 points max)
-        technical_impact_scores = {
-            "total": 15,
-            "partial": 7.5
-        }
+        technical_impact_scores = {"total": 15, "partial": 7.5}
         score += technical_impact_scores.get(
             ssvc_data.get("technical_impact", "partial"), 0
         )
@@ -322,22 +304,22 @@ class SSVCExtractor:
             "exploitation": {
                 "active": "Active exploitation detected in the wild",
                 "poc": "Proof-of-concept exploit code is publicly available",
-                "none": "No known exploitation activity"
+                "none": "No known exploitation activity",
             },
             "automatable": {
                 "yes": "Vulnerability is automatable (wormable)",
-                "no": "Exploitation requires human interaction"
+                "no": "Exploitation requires human interaction",
             },
             "technical_impact": {
                 "total": "Total system compromise possible",
-                "partial": "Partial system compromise only"
-            }
+                "partial": "Partial system compromise only",
+            },
         }
 
         parts = [
             explanations["exploitation"].get(exploitation, ""),
             explanations["automatable"].get(automatable, ""),
-            explanations["technical_impact"].get(technical_impact, "")
+            explanations["technical_impact"].get(technical_impact, ""),
         ]
 
         explanation = ". ".join(filter(None, parts))
@@ -345,7 +327,7 @@ class SSVCExtractor:
         tier_guidance = {
             "ACT": "Immediate action required - patch within 24 hours",
             "ATTEND": "Scheduled action required - patch within 14 days",
-            "TRACK": "Routine monitoring - follow standard patch cycle"
+            "TRACK": "Routine monitoring - follow standard patch cycle",
         }
 
         return f"{explanation}. Priority: {tier_guidance.get(tier, '')}."

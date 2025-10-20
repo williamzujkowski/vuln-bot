@@ -159,28 +159,30 @@ class EPSSClient(BaseAPIClient):
                 content = f.read().decode("utf-8")
 
             # Parse metadata line (format: #model_version:v2025.03.14,score_date:2025-10-19T12:55:00Z)
-            lines = content.split('\n')
+            lines = content.split("\n")
             score_date = datetime.now(timezone.utc)
 
-            if lines and lines[0].startswith('#'):
+            if lines and lines[0].startswith("#"):
                 metadata_line = lines[0]
                 # Extract score_date from metadata
-                if 'score_date:' in metadata_line:
+                if "score_date:" in metadata_line:
                     try:
-                        date_str = metadata_line.split('score_date:')[1].split('T')[0]
-                        date_parts = date_str.split('-')
+                        date_str = metadata_line.split("score_date:")[1].split("T")[0]
+                        date_parts = date_str.split("-")
                         if len(date_parts) == 3:
                             score_date = datetime(
                                 int(date_parts[0]),
                                 int(date_parts[1]),
                                 int(date_parts[2]),
-                                tzinfo=timezone.utc
+                                tzinfo=timezone.utc,
                             )
                     except (ValueError, IndexError) as e:
-                        self.logger.warning("Failed to parse EPSS metadata date", error=str(e))
+                        self.logger.warning(
+                            "Failed to parse EPSS metadata date", error=str(e)
+                        )
 
                 # Skip metadata line for CSV parsing
-                content = '\n'.join(lines[1:])
+                content = "\n".join(lines[1:])
 
             reader = csv.DictReader(io.StringIO(content))
 

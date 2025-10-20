@@ -16,9 +16,7 @@ def calculate_triage_priority(vuln: dict) -> str:
     epss = vuln.get("epssPercentile", 0)
     cvss = vuln.get("cvssScore", 0)
     attack_complexity_raw = vuln.get("attackComplexity", "")
-    attack_complexity = (
-        attack_complexity_raw.upper() if attack_complexity_raw else ""
-    )
+    attack_complexity = attack_complexity_raw.upper() if attack_complexity_raw else ""
 
     # CRITICAL-URGENT: EPSS ≥95% AND CVSS ≥9.0 AND Low Complexity
     if epss >= 95 and cvss >= 9.0 and attack_complexity == "LOW":
@@ -42,8 +40,7 @@ def detect_technology_category(vuln: dict) -> list:
 
     # Web Servers
     if any(
-        keyword in all_text
-        for keyword in ["apache", "nginx", "iis", "httpd", "tomcat"]
+        keyword in all_text for keyword in ["apache", "nginx", "iis", "httpd", "tomcat"]
     ):
         categories.append("web-servers")
 

@@ -75,7 +75,9 @@ class SSVCData(BaseModel):
     compact_notation: str  # e.g., "A/Y/T" for Active/Yes/Total
     ssvc_score: int = Field(ge=0, le=60)  # 0-60 range (60% of risk score)
     inferred: bool = False  # True if inferred by fallback engine
-    confidence: Optional[float] = Field(None, ge=0.0, le=1.0)  # Confidence score for inferred data
+    confidence: Optional[float] = Field(
+        None, ge=0.0, le=1.0
+    )  # Confidence score for inferred data
 
 
 class Reference(BaseModel):

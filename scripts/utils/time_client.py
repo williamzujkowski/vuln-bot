@@ -1,4 +1,5 @@
 """Authoritative Time Client - Ensures all time calculations use external time sources"""
+
 import re
 from datetime import datetime, timezone
 from typing import Optional

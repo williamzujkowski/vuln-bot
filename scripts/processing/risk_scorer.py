@@ -16,17 +16,14 @@ class RiskScorer:
     WEIGHTS = {
         # SSVC Components (60% total) - CISA decision tree framework
         "ssvc_exploitation": 0.30,  # Active/PoC/None exploitation
-        "ssvc_automatable": 0.15,   # Wormable assessment
+        "ssvc_automatable": 0.15,  # Wormable assessment
         "ssvc_technical_impact": 0.15,  # Total/Partial compromise
-
         # Traditional Metrics (25% total)
         "cvss_score": 0.15,  # Base CVSS score (reduced from 25%)
         "epss_score": 0.10,  # Exploit prediction (reduced from 20%)
-
         # Context (15% total)
         "kev_status": 0.10,  # CISA KEV listing (explicit factor)
         "attack_vector": 0.05,  # Network vs local attack
-
         # Legacy factors (deprecated in SSVC-enhanced mode)
         "age": 0.00,  # Covered by SSVC exploitation
         "references": 0.00,  # Less predictive than SSVC
@@ -124,8 +121,8 @@ class RiskScorer:
             # 1. SSVC Exploitation (30 points max)
             exploitation_scores = {
                 "active": 100,  # Will be weighted at 30%
-                "poc": 67,      # 2/3 of max
-                "none": 0
+                "poc": 67,  # 2/3 of max
+                "none": 0,
             }
             scores["ssvc_exploitation"] = exploitation_scores.get(
                 vulnerability.ssvc_data.exploitation, 0
@@ -134,7 +131,7 @@ class RiskScorer:
             # 2. SSVC Automatable (15 points max)
             automatable_scores = {
                 "yes": 100,  # Will be weighted at 15%
-                "no": 0
+                "no": 0,
             }
             scores["ssvc_automatable"] = automatable_scores.get(
                 vulnerability.ssvc_data.automatable, 0
@@ -143,7 +140,7 @@ class RiskScorer:
             # 3. SSVC Technical Impact (15 points max)
             technical_impact_scores = {
                 "total": 100,  # Will be weighted at 15%
-                "partial": 50  # Half of max
+                "partial": 50,  # Half of max
             }
             scores["ssvc_technical_impact"] = technical_impact_scores.get(
                 vulnerability.ssvc_data.technical_impact, 0
@@ -185,16 +182,14 @@ class RiskScorer:
             ExploitationStatus.NONE: 0,
             ExploitationStatus.UNKNOWN: 20,  # Unknown status
         }
-        scores["kev_status"] = kev_scores.get(
-            vulnerability.exploitation_status, 20
-        )
+        scores["kev_status"] = kev_scores.get(vulnerability.exploitation_status, 20)
 
         # 7. Attack Vector Component (5% weight)
         attack_vector_scores = {
             "N": 100,  # Network - remotely exploitable
-            "A": 70,   # Adjacent - local network
-            "L": 40,   # Local - local access required
-            "P": 20,   # Physical - physical access required
+            "A": 70,  # Adjacent - local network
+            "L": 40,  # Local - local access required
+            "P": 20,  # Physical - physical access required
         }
         scores["attack_vector"] = attack_vector_scores.get(
             vulnerability.attack_vector, 50
@@ -219,13 +214,13 @@ class RiskScorer:
             "cve_id": vulnerability.cve_id,
             "final_score": final_score,
             "component_scores": {
-                "ssvc": scores.get("ssvc_exploitation", 0) * 0.30 +
-                       scores.get("ssvc_automatable", 0) * 0.15 +
-                       scores.get("ssvc_technical_impact", 0) * 0.15,
-                "traditional": scores.get("cvss_score", 0) * 0.15 +
-                              scores.get("epss_score", 0) * 0.10,
-                "context": scores.get("kev_status", 0) * 0.10 +
-                          scores.get("attack_vector", 0) * 0.05,
+                "ssvc": scores.get("ssvc_exploitation", 0) * 0.30
+                + scores.get("ssvc_automatable", 0) * 0.15
+                + scores.get("ssvc_technical_impact", 0) * 0.15,
+                "traditional": scores.get("cvss_score", 0) * 0.15
+                + scores.get("epss_score", 0) * 0.10,
+                "context": scores.get("kev_status", 0) * 0.10
+                + scores.get("attack_vector", 0) * 0.05,
             },
             "has_ssvc": vulnerability.ssvc_data is not None,
         }

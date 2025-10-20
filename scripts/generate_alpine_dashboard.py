@@ -303,7 +303,7 @@ class AlpineDashboardGenerator:
         status_map = {
             "KNOWN_EXPLOITED": "KEV Listed",
             "POC_AVAILABLE": "PoC Available",
-            "ACTIVE_EXPLOITATION": "Active"
+            "ACTIVE_EXPLOITATION": "Active",
         }
         if exploitation_status in status_map:
             return status_map[exploitation_status]
@@ -356,31 +356,60 @@ class AlpineDashboardGenerator:
         all_text = " ".join(vendors + products).lower()
 
         # Web Servers
-        if any(keyword in all_text for keyword in ["apache", "nginx", "iis", "httpd", "tomcat"]):
+        if any(
+            keyword in all_text
+            for keyword in ["apache", "nginx", "iis", "httpd", "tomcat"]
+        ):
             categories.append("web-servers")
 
         # Databases
-        if any(keyword in all_text for keyword in ["postgresql", "mysql", "mongodb", "redis", "mariadb", "oracle", "mssql"]):
+        if any(
+            keyword in all_text
+            for keyword in [
+                "postgresql",
+                "mysql",
+                "mongodb",
+                "redis",
+                "mariadb",
+                "oracle",
+                "mssql",
+            ]
+        ):
             categories.append("databases")
 
         # Containers/K8s
-        if any(keyword in all_text for keyword in ["docker", "kubernetes", "containerd", "k8s", "podman"]):
+        if any(
+            keyword in all_text
+            for keyword in ["docker", "kubernetes", "containerd", "k8s", "podman"]
+        ):
             categories.append("containers-k8s")
 
         # Windows
-        if any(keyword in all_text for keyword in ["microsoft", "windows", "azure", "exchange", "sharepoint"]):
+        if any(
+            keyword in all_text
+            for keyword in ["microsoft", "windows", "azure", "exchange", "sharepoint"]
+        ):
             categories.append("windows")
 
         # Linux
-        if any(keyword in all_text for keyword in ["linux", "ubuntu", "redhat", "centos", "debian", "fedora"]):
+        if any(
+            keyword in all_text
+            for keyword in ["linux", "ubuntu", "redhat", "centos", "debian", "fedora"]
+        ):
             categories.append("linux")
 
         # Network Gear
-        if any(keyword in all_text for keyword in ["cisco", "fortinet", "palo alto", "juniper", "netgear"]):
+        if any(
+            keyword in all_text
+            for keyword in ["cisco", "fortinet", "palo alto", "juniper", "netgear"]
+        ):
             categories.append("network-gear")
 
         # CMS
-        if any(keyword in all_text for keyword in ["wordpress", "drupal", "joomla", "typo3"]):
+        if any(
+            keyword in all_text
+            for keyword in ["wordpress", "drupal", "joomla", "typo3"]
+        ):
             categories.append("cms")
 
         return categories
@@ -413,14 +442,36 @@ class AlpineDashboardGenerator:
         kev_count = sum(1 for v in self.vulnerabilities if v.get("kev_status", False))
 
         # NEW: Priority distribution
-        critical_urgent = sum(1 for v in self.vulnerabilities if self._calculate_triage_priority(v) == "CRITICAL-URGENT")
-        high_priority = sum(1 for v in self.vulnerabilities if self._calculate_triage_priority(v) == "HIGH-PRIORITY")
-        monitor = sum(1 for v in self.vulnerabilities if self._calculate_triage_priority(v) == "MONITOR")
+        critical_urgent = sum(
+            1
+            for v in self.vulnerabilities
+            if self._calculate_triage_priority(v) == "CRITICAL-URGENT"
+        )
+        high_priority = sum(
+            1
+            for v in self.vulnerabilities
+            if self._calculate_triage_priority(v) == "HIGH-PRIORITY"
+        )
+        monitor = sum(
+            1
+            for v in self.vulnerabilities
+            if self._calculate_triage_priority(v) == "MONITOR"
+        )
 
         # NEW: Exploitation status distribution
         kev_listed = sum(1 for v in self.vulnerabilities if v.get("kev_status", False))
-        poc_available = sum(1 for v in self.vulnerabilities if not v.get("kev_status", False) and self._get_exploitation_status(v) != "Unknown")
-        not_listed = sum(1 for v in self.vulnerabilities if not v.get("kev_status", False) and self._get_exploitation_status(v) == "Unknown")
+        poc_available = sum(
+            1
+            for v in self.vulnerabilities
+            if not v.get("kev_status", False)
+            and self._get_exploitation_status(v) != "Unknown"
+        )
+        not_listed = sum(
+            1
+            for v in self.vulnerabilities
+            if not v.get("kev_status", False)
+            and self._get_exploitation_status(v) == "Unknown"
+        )
 
         return {
             "total": total,

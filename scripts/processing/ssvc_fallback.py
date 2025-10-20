@@ -39,7 +39,7 @@ class SSVCFallbackEngine:
         "nuclei",
         "github.com",  # GitHub PoCs
         "exploit code",
-        "working exploit"
+        "working exploit",
     }
 
     # Reference keywords indicating patch/vendor advisory (not exploits)
@@ -51,7 +51,7 @@ class SSVCFallbackEngine:
         "mitigation",
         "workaround",
         "fix",
-        "update"
+        "update",
     }
 
     def __init__(self):
@@ -59,10 +59,7 @@ class SSVCFallbackEngine:
         self.logger = structlog.get_logger(self.__class__.__name__)
 
     def infer_ssvc(
-        self,
-        cve_data: Dict,
-        has_kev: bool = False,
-        epss_score: Optional[float] = None
+        self, cve_data: Dict, has_kev: bool = False, epss_score: Optional[float] = None
     ) -> Dict:
         """
         Infer SSVC decision points from available CVE data
@@ -84,13 +81,13 @@ class SSVCFallbackEngine:
                 "exploitation": exploitation,
                 "automatable": automatable,
                 "technical_impact": technical_impact,
-                "inferred": True  # Mark as inferred (vs. direct CISA-ADP)
+                "inferred": True,  # Mark as inferred (vs. direct CISA-ADP)
             }
 
             self.logger.debug(
                 "Inferred SSVC data",
                 cve_id=self._get_cve_id(cve_data),
-                ssvc_data=inferred_ssvc
+                ssvc_data=inferred_ssvc,
             )
 
             return inferred_ssvc
@@ -99,21 +96,18 @@ class SSVCFallbackEngine:
             self.logger.error(
                 "Failed to infer SSVC data",
                 cve_id=self._get_cve_id(cve_data),
-                error=str(e)
+                error=str(e),
             )
             # Return safe defaults
             return {
                 "exploitation": "none",
                 "automatable": "no",
                 "technical_impact": "partial",
-                "inferred": True
+                "inferred": True,
             }
 
     def _infer_exploitation(
-        self,
-        cve_data: Dict,
-        has_kev: bool,
-        epss_score: Optional[float]
+        self, cve_data: Dict, has_kev: bool, epss_score: Optional[float]
     ) -> str:
         """
         Infer exploitation status (90% accuracy)
@@ -182,10 +176,10 @@ class SSVCFallbackEngine:
 
         # Check all criteria for automatability
         is_automatable = (
-            components.get("AV") == "N" and  # Network
-            components.get("AC") == "L" and  # Low complexity
-            components.get("PR") == "N" and  # No privileges
-            components.get("UI") == "N"      # No user interaction
+            components.get("AV") == "N"  # Network
+            and components.get("AC") == "L"  # Low complexity
+            and components.get("PR") == "N"  # No privileges
+            and components.get("UI") == "N"  # No user interaction
         )
 
         return "yes" if is_automatable else "no"
@@ -219,9 +213,11 @@ class SSVCFallbackEngine:
             return "total"
 
         # Check for complete CIA triad compromise
-        if (components.get("C") == "H" and
-            components.get("I") == "H" and
-            components.get("A") == "H"):
+        if (
+            components.get("C") == "H"
+            and components.get("I") == "H"
+            and components.get("A") == "H"
+        ):
             return "total"
 
         # Default: partial impact
@@ -249,13 +245,15 @@ class SSVCFallbackEngine:
             tags = [t.lower() for t in ref.get("tags", [])]
 
             # Check for exploit/PoC tags
-            if (any(tag in {"exploit", "poc", "code execution"} for tag in tags) and
-                not any(keyword in url for keyword in self.PATCH_KEYWORDS)):
+            if any(
+                tag in {"exploit", "poc", "code execution"} for tag in tags
+            ) and not any(keyword in url for keyword in self.PATCH_KEYWORDS):
                 return True
 
             # Check URL for PoC keywords
-            if (any(keyword in url for keyword in self.POC_KEYWORDS) and
-                not any(keyword in url for keyword in self.PATCH_KEYWORDS)):
+            if any(keyword in url for keyword in self.POC_KEYWORDS) and not any(
+                keyword in url for keyword in self.PATCH_KEYWORDS
+            ):
                 return True
 
         return False
@@ -356,10 +354,12 @@ class SSVCFallbackEngine:
                 if isinstance(ref, dict):
                     references.append(ref)
                 elif hasattr(ref, "url"):
-                    references.append({
-                        "url": ref.url,
-                        "tags": ref.tags if hasattr(ref, "tags") else []
-                    })
+                    references.append(
+                        {
+                            "url": ref.url,
+                            "tags": ref.tags if hasattr(ref, "tags") else [],
+                        }
+                    )
 
         return references
 
@@ -386,10 +386,7 @@ class SSVCFallbackEngine:
         return "unknown"
 
     def calculate_confidence_score(
-        self,
-        ssvc_data: Dict,
-        has_kev: bool,
-        epss_score: Optional[float]
+        self, ssvc_data: Dict, has_kev: bool, epss_score: Optional[float]
     ) -> float:
         """
         Calculate confidence level for inferred SSVC data (0.0-1.0)

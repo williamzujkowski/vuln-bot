@@ -459,15 +459,19 @@ class CVEListClient(BaseAPIClient):
                         ssvc_raw = self.ssvc_fallback.infer_ssvc(
                             cve_data,
                             has_kev=has_kev,
-                            epss_score=None  # EPSS enrichment happens later
+                            epss_score=None,  # EPSS enrichment happens later
                         )
 
                     # Build SSVCData model
                     if ssvc_raw:
                         from scripts.models import SSVCData
 
-                        priority_tier = self.ssvc_extractor.calculate_priority_tier(ssvc_raw)
-                        compact_notation = self.ssvc_extractor.get_compact_notation(ssvc_raw)
+                        priority_tier = self.ssvc_extractor.calculate_priority_tier(
+                            ssvc_raw
+                        )
+                        compact_notation = self.ssvc_extractor.get_compact_notation(
+                            ssvc_raw
+                        )
                         ssvc_score = self.ssvc_extractor.get_ssvc_score(ssvc_raw)
 
                         ssvc_data_dict = SSVCData(
@@ -478,7 +482,7 @@ class CVEListClient(BaseAPIClient):
                             compact_notation=compact_notation,
                             ssvc_score=ssvc_score,
                             inferred=ssvc_raw.get("inferred", False),
-                            confidence=ssvc_raw.get("confidence")
+                            confidence=ssvc_raw.get("confidence"),
                         )
 
                         self.logger.debug(
@@ -486,7 +490,7 @@ class CVEListClient(BaseAPIClient):
                             cve_id=cve_id,
                             priority_tier=priority_tier,
                             compact_notation=compact_notation,
-                            inferred=ssvc_raw.get("inferred", False)
+                            inferred=ssvc_raw.get("inferred", False),
                         )
                 except Exception as e:
                     self.logger.warning(
