@@ -300,12 +300,13 @@ class AlpineDashboardGenerator:
         """Determine exploitation status"""
         # Check exploitationStatus field first
         exploitation_status = vuln.get("exploitationStatus", "")
-        if exploitation_status == "KNOWN_EXPLOITED":
-            return "KEV Listed"
-        elif exploitation_status == "POC_AVAILABLE":
-            return "PoC Available"
-        elif exploitation_status == "ACTIVE_EXPLOITATION":
-            return "Active"
+        status_map = {
+            "KNOWN_EXPLOITED": "KEV Listed",
+            "POC_AVAILABLE": "PoC Available",
+            "ACTIVE_EXPLOITATION": "Active"
+        }
+        if exploitation_status in status_map:
+            return status_map[exploitation_status]
 
         # Check enrichments for exploit references
         enrichments = vuln.get("enrichments", {})

@@ -17,8 +17,9 @@ References:
 - CVSS v3.1 Specification: https://www.first.org/cvss/v3.1/specification-document
 """
 
-from typing import Dict, List, Optional
 import re
+from typing import Dict, List, Optional
+
 import structlog
 
 logger = structlog.get_logger(__name__)
@@ -248,16 +249,14 @@ class SSVCFallbackEngine:
             tags = [t.lower() for t in ref.get("tags", [])]
 
             # Check for exploit/PoC tags
-            if any(tag in {"exploit", "poc", "code execution"} for tag in tags):
-                # Filter out patch references
-                if not any(keyword in url for keyword in self.PATCH_KEYWORDS):
-                    return True
+            if (any(tag in {"exploit", "poc", "code execution"} for tag in tags) and
+                not any(keyword in url for keyword in self.PATCH_KEYWORDS)):
+                return True
 
             # Check URL for PoC keywords
-            if any(keyword in url for keyword in self.POC_KEYWORDS):
-                # Filter out patch references
-                if not any(keyword in url for keyword in self.PATCH_KEYWORDS):
-                    return True
+            if (any(keyword in url for keyword in self.POC_KEYWORDS) and
+                not any(keyword in url for keyword in self.PATCH_KEYWORDS)):
+                return True
 
         return False
 

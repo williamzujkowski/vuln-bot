@@ -5,7 +5,6 @@ This script reads existing API JSON files and adds Phase 2 enrichment fields.
 """
 
 import json
-import sys
 from datetime import datetime
 from pathlib import Path
 
