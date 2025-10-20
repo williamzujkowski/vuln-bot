@@ -282,9 +282,9 @@ class ComprehensiveLiveTester:
     async def _check_page_title(self, page: Page):
         """Check page title."""
         title = await page.title()
-        assert (
-            "Vulnerability" in title or "Vuln-Bot" in title
-        ), f"Unexpected title: {title}"
+        assert "Vulnerability" in title or "Vuln-Bot" in title, (
+            f"Unexpected title: {title}"
+        )
 
     async def _check_dashboard_visible(self, page: Page):
         """Check dashboard is visible."""
@@ -337,9 +337,9 @@ class ComprehensiveLiveTester:
             if await page.locator(selector).count() > 0:
                 found_stats += 1
 
-        assert (
-            found_stats >= 2
-        ), f"Insufficient statistics elements found: {found_stats}"
+        assert found_stats >= 2, (
+            f"Insufficient statistics elements found: {found_stats}"
+        )
 
     async def test_search_and_filtering(self, page: Page):
         """Test search and filtering functionality."""
@@ -409,9 +409,9 @@ class ComprehensiveLiveTester:
             await page.wait_for_timeout(1000)
 
             visible_rows = await page.locator("tbody tr:visible").count()
-            assert (
-                visible_rows > 0
-            ), f"Vendor search for '{vendor_found}' returned no results"
+            assert visible_rows > 0, (
+                f"Vendor search for '{vendor_found}' returned no results"
+            )
 
             await search_input.clear()
         else:
@@ -626,9 +626,9 @@ class ComprehensiveLiveTester:
 
             try:
                 download = await download_promise
-                assert download.suggested_filename.endswith(
-                    ".csv"
-                ), "Export file is not CSV"
+                assert download.suggested_filename.endswith(".csv"), (
+                    "Export file is not CSV"
+                )
             except Exception:
                 print("  ⚠️  Export button found but download didn't trigger")
         else:
@@ -667,9 +667,9 @@ class ComprehensiveLiveTester:
             is_responsive = "responsive" in (
                 await table_parent.get_attribute("class") or ""
             )
-            assert (
-                is_scrollable or is_responsive
-            ), "Table not properly responsive on mobile"
+            assert is_scrollable or is_responsive, (
+                "Table not properly responsive on mobile"
+            )
 
     async def test_accessibility(self, page: Page):
         """Test accessibility features."""

@@ -74,9 +74,7 @@ class TestGitHubAdvisorySource:
             mock_resp.status = 200
             mock_resp.json = AsyncMock(return_value=mock_response)
 
-            mock_session.return_value.__aenter__.return_value.post.return_value.__aenter__.return_value = (
-                mock_resp
-            )
+            mock_session.return_value.__aenter__.return_value.post.return_value.__aenter__.return_value = mock_resp
 
             vulns = await source.fetch_recent(days=1)
 
@@ -180,9 +178,7 @@ class TestGitHubAdvisorySource:
         mock_response.headers = {"X-RateLimit-Remaining": "0"}
 
         with patch("aiohttp.ClientSession") as mock_session:
-            mock_session.return_value.__aenter__.return_value.post.return_value.__aenter__.return_value = (
-                mock_response
-            )
+            mock_session.return_value.__aenter__.return_value.post.return_value.__aenter__.return_value = mock_response
 
             vulns = await source.fetch_recent(days=1)
 

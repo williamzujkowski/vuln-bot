@@ -532,9 +532,9 @@ class TestSSVCExtractor:
 
         for ssvc_data, expected_score in test_cases:
             score = extractor.get_ssvc_score(ssvc_data)
-            assert (
-                score == expected_score
-            ), f"Failed for {ssvc_data}: expected {expected_score}, got {score}"
+            assert score == expected_score, (
+                f"Failed for {ssvc_data}: expected {expected_score}, got {score}"
+            )
 
     # ============================================================
     # Test Human-Readable Explanations

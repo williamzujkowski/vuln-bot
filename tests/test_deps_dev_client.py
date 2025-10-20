@@ -66,9 +66,7 @@ class TestDepsDevClient:
                 }
             )
 
-            mock_session.return_value.__aenter__.return_value.get.return_value.__aenter__.return_value = (
-                mock_response
-            )
+            mock_session.return_value.__aenter__.return_value.get.return_value.__aenter__.return_value = mock_response
 
             result = await client.get_vulnerability_info("CVE-2024-1234")
 
@@ -83,9 +81,7 @@ class TestDepsDevClient:
             mock_response = AsyncMock()
             mock_response.status = 404
 
-            mock_session.return_value.__aenter__.return_value.get.return_value.__aenter__.return_value = (
-                mock_response
-            )
+            mock_session.return_value.__aenter__.return_value.get.return_value.__aenter__.return_value = mock_response
 
             result = await client.get_vulnerability_info("CVE-9999-9999")
 
@@ -116,9 +112,7 @@ class TestDepsDevClient:
                 }
             )
 
-            mock_session.return_value.__aenter__.return_value.get.return_value.__aenter__.return_value = (
-                mock_response
-            )
+            mock_session.return_value.__aenter__.return_value.get.return_value.__aenter__.return_value = mock_response
 
             result = await client.get_package_info("npm", "test-package", "1.0.0")
 
@@ -153,9 +147,7 @@ class TestDepsDevClient:
             mock_response.status = 200
             mock_response.json = AsyncMock(return_value={})
 
-            mock_session.return_value.__aenter__.return_value.get.return_value.__aenter__.return_value = (
-                mock_response
-            )
+            mock_session.return_value.__aenter__.return_value.get.return_value.__aenter__.return_value = mock_response
 
             await client.get_vulnerability_info("CVE-2024-0001")
             await client.get_vulnerability_info("CVE-2024-0002")

@@ -19,16 +19,16 @@ jobs:
     
     - name: Install dependencies
       run: |
-        pip install ruff black isort mypy
+        pip install ruff isort mypy
         pip install -r requirements.txt
-    
+
     - name: Run Ruff linting
       run: |
         ruff check scripts/ tests/ --statistics
-    
-    - name: Check code formatting with Black
+
+    - name: Check code formatting with Ruff
       run: |
-        black --check scripts/ tests/
+        ruff format --check scripts/ tests/
     
     
     - name: Run type checking with mypy

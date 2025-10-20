@@ -53,9 +53,7 @@ class TestDataEnrichmentAgent:
                 }
             )
 
-            mock_session.return_value.__aenter__.return_value.get.return_value.__aenter__.return_value = (
-                mock_response
-            )
+            mock_session.return_value.__aenter__.return_value.get.return_value.__aenter__.return_value = mock_response
 
             enriched = await agent.enrich_cve_data(sample_cve)
 

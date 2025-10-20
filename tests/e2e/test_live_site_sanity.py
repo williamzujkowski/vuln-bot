@@ -211,15 +211,15 @@ class TestLiveSiteSanity:
         api_count = len(api_data.get("vulnerabilities", []))
 
         # Counts should match exactly
-        assert (
-            api_count == ui_count
-        ), f"API count ({api_count}) doesn't match UI count ({ui_count})"
+        assert api_count == ui_count, (
+            f"API count ({api_count}) doesn't match UI count ({ui_count})"
+        )
 
         # API count should also be reasonable
         max_acceptable = int(EXPECTED_CVE_COUNT * (1 + TOLERANCE_PERCENT / 100))
-        assert (
-            api_count <= max_acceptable
-        ), f"API contains {api_count} CVEs, expected <= {max_acceptable}"
+        assert api_count <= max_acceptable, (
+            f"API contains {api_count} CVEs, expected <= {max_acceptable}"
+        )
 
         print(f"✓ API and UI counts match: {api_count}")
 
@@ -236,9 +236,9 @@ class TestLiveSiteSanity:
             if epss_score < MIN_EPSS_THRESHOLD:
                 violations.append({"cveId": vuln.get("cveId"), "epss": epss_score})
 
-        assert (
-            len(violations) == 0
-        ), f"Found {len(violations)} CVEs below {MIN_EPSS_THRESHOLD}% EPSS: {violations[:5]}"
+        assert len(violations) == 0, (
+            f"Found {len(violations)} CVEs below {MIN_EPSS_THRESHOLD}% EPSS: {violations[:5]}"
+        )
 
         print(f"✓ All sampled CVEs have EPSS >= {MIN_EPSS_THRESHOLD}%")
 
@@ -336,15 +336,15 @@ class TestLiveSiteSanity:
                     total_in_chunks += chunk_count
 
                     # Each chunk should be reasonable
-                    assert (
-                        chunk_count <= 100
-                    ), f"Chunk {chunk['file']} has {chunk_count} CVEs - likely contains stale data"
+                    assert chunk_count <= 100, (
+                        f"Chunk {chunk['file']} has {chunk_count} CVEs - likely contains stale data"
+                    )
 
             # Total across chunks should be reasonable
             max_acceptable = int(EXPECTED_CVE_COUNT * (1 + TOLERANCE_PERCENT / 100))
-            assert (
-                total_in_chunks <= max_acceptable
-            ), f"Chunks contain {total_in_chunks} total CVEs, expected <= {max_acceptable}"
+            assert total_in_chunks <= max_acceptable, (
+                f"Chunks contain {total_in_chunks} total CVEs, expected <= {max_acceptable}"
+            )
 
             print(f"✓ Chunk files are clean: {total_in_chunks} total CVEs")
 
@@ -392,9 +392,9 @@ class TestLiveSiteSanity:
                 total = int(match.group(1))
                 max_acceptable = int(EXPECTED_CVE_COUNT * (1 + TOLERANCE_PERCENT / 100))
 
-                assert (
-                    total <= max_acceptable
-                ), f"Search shows {total} total results, expected <= {max_acceptable}"
+                assert total <= max_acceptable, (
+                    f"Search shows {total} total results, expected <= {max_acceptable}"
+                )
 
                 print(f"✓ Search results count is reasonable: {total}")
 
@@ -461,16 +461,16 @@ class TestLiveSiteSanity:
                 count = len(data["vulnerabilities"])
 
                 # Each file should have reasonable count
-                assert (
-                    count <= 100
-                ), f"{endpoint} has {count} CVEs - likely contains stale data"
+                assert count <= 100, (
+                    f"{endpoint} has {count} CVEs - likely contains stale data"
+                )
 
                 # Verify EPSS threshold
                 for vuln in data["vulnerabilities"][:10]:  # Sample first 10
                     epss = vuln.get("epss", {}).get("score", 0) * 100
-                    assert (
-                        epss >= MIN_EPSS_THRESHOLD
-                    ), f"{endpoint} contains CVE with EPSS {epss}% < {MIN_EPSS_THRESHOLD}%"
+                    assert epss >= MIN_EPSS_THRESHOLD, (
+                        f"{endpoint} contains CVE with EPSS {epss}% < {MIN_EPSS_THRESHOLD}%"
+                    )
 
                 print(f"✓ {endpoint}: {count} CVEs, all above threshold")
 
@@ -497,9 +497,9 @@ class TestDataIntegritySanity:
             min_expected = int(expected_from_dev * (1 - tolerance))
             max_expected = int(expected_from_dev * (1 + tolerance))
 
-            assert (
-                min_expected <= prod_count <= max_expected
-            ), f"Production has {prod_count} CVEs but dev had {expected_from_dev}"
+            assert min_expected <= prod_count <= max_expected, (
+                f"Production has {prod_count} CVEs but dev had {expected_from_dev}"
+            )
 
             print(
                 f"✓ Production count ({prod_count}) matches dev ({expected_from_dev})"

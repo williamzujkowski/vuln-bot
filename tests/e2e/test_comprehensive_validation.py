@@ -136,9 +136,9 @@ class VulnBotE2ETests:
             # Validate each vulnerability
             for _i, vuln in enumerate(vuln_data):
                 # Check CVE ID format
-                assert re.match(
-                    r"^CVE-\d{4}-\d+$", vuln["cveId"]
-                ), f"Invalid CVE ID format: {vuln['cveId']}"
+                assert re.match(r"^CVE-\d{4}-\d+$", vuln["cveId"]), (
+                    f"Invalid CVE ID format: {vuln['cveId']}"
+                )
 
                 # Check severity
                 assert vuln["severity"] in [
@@ -149,24 +149,24 @@ class VulnBotE2ETests:
                 ], f"Invalid severity: {vuln['severity']}"
 
                 # Check CVSS score
-                assert (
-                    0 <= vuln["cvssScore"] <= 10
-                ), f"Invalid CVSS score: {vuln['cvssScore']}"
+                assert 0 <= vuln["cvssScore"] <= 10, (
+                    f"Invalid CVSS score: {vuln['cvssScore']}"
+                )
 
                 # Check EPSS percentile
-                assert (
-                    0 <= vuln["epssPercentile"] <= 100
-                ), f"Invalid EPSS percentile: {vuln['epssPercentile']}"
+                assert 0 <= vuln["epssPercentile"] <= 100, (
+                    f"Invalid EPSS percentile: {vuln['epssPercentile']}"
+                )
 
                 # Check products is array
-                assert isinstance(
-                    vuln["products"], list
-                ), f"Products should be array, got {type(vuln['products'])}"
+                assert isinstance(vuln["products"], list), (
+                    f"Products should be array, got {type(vuln['products'])}"
+                )
 
                 # Check vendors is array
-                assert isinstance(
-                    vuln["vendors"], list
-                ), f"Vendors should be array, got {type(vuln['vendors'])}"
+                assert isinstance(vuln["vendors"], list), (
+                    f"Vendors should be array, got {type(vuln['vendors'])}"
+                )
 
             self.record_success(test_name)
 
@@ -192,9 +192,9 @@ class VulnBotE2ETests:
             ]
 
             for expected in expected_headers:
-                assert any(
-                    expected in header for header in headers
-                ), f"Missing expected header: {expected}"
+                assert any(expected in header for header in headers), (
+                    f"Missing expected header: {expected}"
+                )
 
             # Check table rows
             rows = await page.locator("#vulnerability-table tbody tr").count()
@@ -213,9 +213,9 @@ class VulnBotE2ETests:
             first_product = await page.locator(
                 "#vulnerability-table tbody tr:first-child td:nth-child(7)"
             ).text_content()
-            assert (
-                "/" not in first_product
-            ), f"Product column still contains vendor/product: {first_product}"
+            assert "/" not in first_product, (
+                f"Product column still contains vendor/product: {first_product}"
+            )
 
             self.record_success(test_name)
 
@@ -251,9 +251,9 @@ class VulnBotE2ETests:
                 "#vulnerability-table .severity-badge"
             ).all_text_contents()
             for severity in severities[:5]:  # Check first 5
-                assert (
-                    "CRITICAL" in severity
-                ), f"Non-critical severity found: {severity}"
+                assert "CRITICAL" in severity, (
+                    f"Non-critical severity found: {severity}"
+                )
 
             # Reset filters
             await search_input.clear()
@@ -371,9 +371,9 @@ class VulnBotE2ETests:
             """
             )
 
-            assert (
-                len(contrast_issues) == 0
-            ), f"Contrast issues found: {contrast_issues}"
+            assert len(contrast_issues) == 0, (
+                f"Contrast issues found: {contrast_issues}"
+            )
 
             self.record_success(test_name)
 
@@ -409,9 +409,9 @@ class VulnBotE2ETests:
 
             # Memory shouldn't increase too much
             memory_increase = final_memory - initial_memory
-            assert (
-                memory_increase < 10 * 1024 * 1024
-            ), f"Potential memory leak: {memory_increase / 1024 / 1024:.2f}MB increase"
+            assert memory_increase < 10 * 1024 * 1024, (
+                f"Potential memory leak: {memory_increase / 1024 / 1024:.2f}MB increase"
+            )
 
             self.record_success(test_name)
 

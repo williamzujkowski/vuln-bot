@@ -160,9 +160,9 @@ class TestPostDeployValidation:
 
         stale_found = self.check_known_stale_cves(page)
 
-        assert (
-            len(stale_found) == 0
-        ), f"❌ Found stale CVEs that should not exist: {stale_found}"
+        assert len(stale_found) == 0, (
+            f"❌ Found stale CVEs that should not exist: {stale_found}"
+        )
 
         print("✅ No known stale CVEs found")
 
@@ -182,9 +182,9 @@ class TestPostDeployValidation:
         print(f"   API reports {len(vulnerabilities)} vulnerabilities")
 
         # Validate count
-        assert (
-            len(vulnerabilities) <= MAX_ALLOWED_CVES
-        ), f"❌ API contains {len(vulnerabilities)} CVEs (max: {MAX_ALLOWED_CVES})"
+        assert len(vulnerabilities) <= MAX_ALLOWED_CVES, (
+            f"❌ API contains {len(vulnerabilities)} CVEs (max: {MAX_ALLOWED_CVES})"
+        )
 
         # Validate EPSS thresholds
         violations = []
@@ -218,9 +218,9 @@ class TestPostDeployValidation:
                     total_in_chunks += chunk_count
 
                     # Each chunk should be reasonable
-                    assert (
-                        chunk_count <= 100
-                    ), f"❌ Chunk {chunk['file']} has {chunk_count} CVEs - likely stale data"
+                    assert chunk_count <= 100, (
+                        f"❌ Chunk {chunk['file']} has {chunk_count} CVEs - likely stale data"
+                    )
 
             print(f"✅ Chunk files validated: {total_in_chunks} CVEs in checked chunks")
         else:
@@ -247,9 +247,9 @@ class TestPostDeployValidation:
                 stale_pages_found.append(cve_path)
                 print(f"   ❌ Found stale page: {cve_path}")
 
-        assert (
-            len(stale_pages_found) == 0
-        ), f"❌ Stale CVE pages still exist: {stale_pages_found}"
+        assert len(stale_pages_found) == 0, (
+            f"❌ Stale CVE pages still exist: {stale_pages_found}"
+        )
 
         print("✅ No stale CVE pages found")
 
