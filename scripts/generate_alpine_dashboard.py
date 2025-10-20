@@ -334,7 +334,7 @@ class AlpineDashboardGenerator:
         """
         epss = vuln.get("epss_percentile", 0)
         cvss = vuln.get("cvss_score", 0)
-        attack_complexity = vuln.get("attack_complexity", "").upper()
+        attack_complexity = (vuln.get("attack_complexity") or "").upper()
 
         # CRITICAL-URGENT: EPSS ≥95% AND CVSS ≥9.0 AND Low Complexity
         if epss >= 95 and cvss >= 9.0 and attack_complexity == "LOW":

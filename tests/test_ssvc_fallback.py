@@ -12,6 +12,7 @@ Tests all inference logic paths for >90% code coverage:
 """
 
 import pytest
+
 from scripts.processing.ssvc_fallback import SSVCFallbackEngine
 
 

@@ -12,6 +12,7 @@ Tests cover:
 """
 
 import pytest
+
 from scripts.processing.ssvc_extractor import SSVCExtractor
 
 
