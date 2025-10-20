@@ -235,17 +235,246 @@ def audit_documentation_claims(doc_file: Path) -> List[str]:
 
 ## Project Overview (Updated: 2025-10-19)
 
-This is "Vuln-Bot" - a high-risk CVE intelligence platform that tracks Critical & High severity vulnerabilities with EPSS ≥ 60% exploitation probability. It automatically harvests, scores, and publishes vulnerability briefings every 4 hours. It's a Python-based project using Alpine.js for the frontend dashboard, with static HTML generation via `scripts/generate_alpine_dashboard.py`.
+This is "Vuln-Bot" - a high-risk CVE intelligence platform that tracks Critical & High severity vulnerabilities with EPSS ≥ 60% exploitation probability. It automatically harvests, scores, and publishes vulnerability briefings every 4 hours with **SSVC (Stakeholder-Specific Vulnerability Categorization)** decision framework integration. It's a Python-based project using Alpine.js for the frontend dashboard, with static HTML generation via `scripts/generate_alpine_dashboard.py`.
 
 **Current Production Status** (Verified: 2025-10-19):
-- **CVE Count**: 3 CVEs (Source: public/api/vulns/index.json)
-- **Data Freshness**: ⚠️ STALE (77 days old - requires harvest)
+- **CVE Count**: 295 CVEs (Source: src/api/vulns/index.json)
+- **SSVC Coverage**: 100% (295/295 CVEs) - All vulnerabilities categorized
+- **SSVC Distribution**: 45 ACT, 88 ATTEND, 162 TRACK
 - **EPSS Threshold**: ≥60% (configured in scripts/main.py)
 - **Live Site**: https://williamzujkowski.github.io/vuln-bot/
 - **Deployment**: GitHub Pages (gh-pages branch)
 - **Build System**: Python-based (11ty removed)
 
-**Note**: Low CVE count indicates stale data. Expected count after fresh harvest: ~60-100 CVEs depending on current vulnerability landscape and EPSS scores.
+**Note**: Production API (public/api/) may differ from source (src/api/). Run `npm run build` to sync.
+
+## 📋 Implementation Status: SSVC Integration
+
+### ✅ **Phase 1: Backend SSVC Calculation** (COMPLETE)
+**Status**: Fully implemented and validated
+**Completion Date**: 2025-10-19
+**Coverage**: 100% (295/295 CVEs)
+
+**Implementation Details**:
+- **SSVC Engine** (`scripts/processing/ssvc_calculator.py`):
+  - 4-factor decision tree: Exploitation, Automatable, Technical Impact, Mission Impact
+  - Priority tier assignment: ACT (immediate), ATTEND (scheduled), TRACK (monitor)
+  - Compact notation generation (e.g., "SSVC:E:A/A:N/T:T/M:M = ACT")
+  - Fallback logic for missing data with inference flags
+
+- **Data Pipeline Integration**:
+  - SQLite cache storage with SSVC fields
+  - JSON API generation with SSVC objects
+  - CSV export with SSVC columns (Priority, Notation)
+
+- **Validation Results**:
+  - 295 CVEs processed with 100% success rate
+  - Distribution: 45 ACT (15%), 88 ATTEND (30%), 162 TRACK (55%)
+  - Zero errors or missing data issues
+
+### ✅ **Phase 2: Frontend SSVC Visualization** (COMPLETE)
+**Status**: Fully implemented and deployed
+**Completion Date**: 2025-10-19
+**Commit**: `4fe0ce9d2` - "feat(ssvc): Phase 2 - Complete frontend integration"
+
+**Implementation Details**:
+
+#### 1. Dashboard Table Integration
+**File**: `public/index.html` (Alpine.js dashboard)
+- ✅ **Sortable SSVC Priority Column**:
+  - Column header: "SSVC Priority" with sort indicator
+  - Color-coded badges: 🔴 ACT (red), 🟠 ATTEND (orange), 🔵 TRACK (blue)
+  - Tier-based sorting logic (ACT > ATTEND > TRACK)
+  - Mobile-responsive card view with SSVC badges
+
+- ✅ **SSVC Filter Dropdowns**:
+  - **SSVC Priority Filter**: All, ACT, ATTEND, TRACK (4 options)
+  - **Exploitability Profile Filter**: All, Active Exploitation, PoC Available, None (4 options)
+  - Real-time filtering with Alpine.js reactivity
+  - URL hash state for shareable filtered views
+
+#### 2. CVE Detail Modal Enhancement
+**Files**: `public/index.html`, `src/assets/css/components/modal.css`
+- ✅ **SSVC Tab Implementation**:
+  - New tab: "SSVC Decision" (5th tab in modal)
+  - Keyboard shortcut: Alt+5 for quick access
+  - Comprehensive decision tree visualization
+
+- ✅ **SSVC Data Display**:
+  - Priority tier with action guidance (immediate/scheduled/monitor)
+  - Exploitation status with descriptions (Active/PoC/None)
+  - Automatable attack classification (Yes/No)
+  - Technical impact assessment (Total/Partial/None)
+  - Compact notation display (SSVC:E:A/A:N/T:T/M:M)
+  - Inference flags when data is missing
+
+- ✅ **Helper Methods** (5 total):
+  - `getPriorityAction()`: Action guidance per tier
+  - `formatExploitation()`: Exploitation status formatting
+  - `getExploitationDesc()`: Exploitation descriptions
+  - `getAutomatableDesc()`: Automatable attack descriptions
+  - `getImpactDesc()`: Technical impact descriptions
+
+#### 3. CSV Export Enhancement
+**File**: `public/index.html` (exportCSV function)
+- ✅ **SSVC Columns Added**:
+  - Column: "SSVC Priority" (ACT/ATTEND/TRACK)
+  - Column: "SSVC Profile" (compact notation)
+  - Proper escaping for CSV format
+  - Backwards compatible with existing columns
+
+#### 4. Styling & Accessibility
+**Files**: `src/assets/css/components/modal.css`, `public/index.html`
+- ✅ **SSVC Badge Styling**:
+  - Semantic color scheme (red/orange/blue)
+  - Dark mode support with adjusted colors
+  - High contrast for accessibility
+  - Consistent sizing and spacing
+
+- ✅ **Accessibility Features**:
+  - WCAG 2.1 AA compliance maintained
+  - ARIA labels for screen readers
+  - Keyboard navigation support
+  - Focus management in modal tabs
+
+#### 5. Data Verification
+**Verified Metrics** (Source: src/api/vulns/index.json, commit 4fe0ce9d2):
+- ✅ Total CVEs: 295
+- ✅ SSVC Coverage: 100% (295/295)
+- ✅ ACT Priority: 45 CVEs (15.3%)
+- ✅ ATTEND Priority: 88 CVEs (29.8%)
+- ✅ TRACK Priority: 162 CVEs (54.9%)
+- ✅ CSV Export: Tested with SSVC columns
+- ✅ All UI elements: Validated in browser
+
+### 🎯 **Phase 3: Testing & Documentation** (NEXT)
+**Status**: Not started
+**Planned Features**:
+- [ ] Playwright E2E tests for SSVC functionality
+- [ ] Visual regression tests for SSVC badges/modal
+- [ ] Unit tests for SSVC calculator edge cases
+- [ ] Performance testing for SSVC filtering
+- [ ] User guide for SSVC methodology
+- [ ] API documentation for SSVC fields
+
+---
+
+## 📊 SSVC Data Verification Commands
+
+**Use these commands to verify SSVC implementation and data quality:**
+
+### Verify SSVC Coverage
+```bash
+# Check SSVC coverage in source API
+python3 -c "
+import json
+data = json.load(open('src/api/vulns/index.json'))
+vulns = data['vulnerabilities']
+total = len(vulns)
+with_ssvc = sum(1 for v in vulns if v.get('ssvc'))
+print(f'Total CVEs: {total}')
+print(f'CVEs with SSVC: {with_ssvc}')
+print(f'SSVC Coverage: {with_ssvc/total*100:.1f}%')
+"
+```
+
+### Verify SSVC Distribution
+```bash
+# Check SSVC tier distribution
+python3 -c "
+import json
+data = json.load(open('src/api/vulns/index.json'))
+vulns = data['vulnerabilities']
+tiers = {}
+for v in vulns:
+    if v.get('ssvc', {}).get('priorityTier'):
+        tier = v['ssvc']['priorityTier']
+        tiers[tier] = tiers.get(tier, 0) + 1
+print('SSVC Tier Distribution:')
+for tier in ['ACT', 'ATTEND', 'TRACK']:
+    count = tiers.get(tier, 0)
+    pct = count/len(vulns)*100
+    print(f'  {tier}: {count} CVEs ({pct:.1f}%)')
+"
+```
+
+### Verify SSVC in CSV Export
+```bash
+# Check CSV has SSVC columns
+head -1 public/data/vulnerabilities.csv | grep -q "SSVC Priority" && \
+  echo "✅ CSV has SSVC Priority column" || \
+  echo "❌ CSV missing SSVC Priority column"
+
+head -1 public/data/vulnerabilities.csv | grep -q "SSVC Profile" && \
+  echo "✅ CSV has SSVC Profile column" || \
+  echo "❌ CSV missing SSVC Profile column"
+```
+
+### Verify SSVC in Dashboard HTML
+```bash
+# Check dashboard has SSVC filters
+grep -q "x-model=\"filters.ssvc_priority\"" public/index.html && \
+  echo "✅ Dashboard has SSVC Priority filter" || \
+  echo "❌ Dashboard missing SSVC Priority filter"
+
+grep -q "x-model=\"filters.ssvc_exploitation\"" public/index.html && \
+  echo "✅ Dashboard has Exploitability filter" || \
+  echo "❌ Dashboard missing Exploitability filter"
+
+# Check modal has SSVC tab
+grep -q "x-show=\"activeTab === 'ssvc'\"" public/index.html && \
+  echo "✅ Modal has SSVC tab" || \
+  echo "❌ Modal missing SSVC tab"
+```
+
+### Generate SSVC Report
+```bash
+# Generate comprehensive SSVC verification report
+cat > ssvc_verification_report.md <<EOF
+# SSVC Implementation Verification Report
+Generated: $(date -u +"%Y-%m-%d %H:%M UTC")
+
+## Data Coverage
+$(python3 -c "
+import json
+data = json.load(open('src/api/vulns/index.json'))
+vulns = data['vulnerabilities']
+total = len(vulns)
+with_ssvc = sum(1 for v in vulns if v.get('ssvc'))
+print(f'- Total CVEs: {total}')
+print(f'- CVEs with SSVC: {with_ssvc}')
+print(f'- Coverage: {with_ssvc/total*100:.1f}%')
+")
+
+## Tier Distribution
+$(python3 -c "
+import json
+data = json.load(open('src/api/vulns/index.json'))
+vulns = data['vulnerabilities']
+tiers = {}
+for v in vulns:
+    if v.get('ssvc', {}).get('priorityTier'):
+        tier = v['ssvc']['priorityTier']
+        tiers[tier] = tiers.get(tier, 0) + 1
+for tier in ['ACT', 'ATTEND', 'TRACK']:
+    count = tiers.get(tier, 0)
+    pct = count/len(vulns)*100
+    print(f'- {tier}: {count} CVEs ({pct:.1f}%)')
+")
+
+## Frontend Integration
+$(grep -q "x-model=\"filters.ssvc_priority\"" public/index.html && echo "- ✅ SSVC Priority filter" || echo "- ❌ SSVC Priority filter missing")
+$(grep -q "x-show=\"activeTab === 'ssvc'\"" public/index.html && echo "- ✅ SSVC modal tab" || echo "- ❌ SSVC modal tab missing")
+$(head -1 public/data/vulnerabilities.csv | grep -q "SSVC Priority" && echo "- ✅ CSV export" || echo "- ❌ CSV export missing SSVC")
+
+## Latest Commit
+$(git log --oneline --grep="ssvc" -i -1)
+EOF
+
+cat ssvc_verification_report.md
+```
+
+---
 
 ## Common Development Commands
 
@@ -299,6 +528,27 @@ python -m scripts.enhance_exploit_availability --api-dir api/vulns
 
 # Validate data quality at various stages
 python -m scripts.validate_data_quality --stage enriched --api-dir api
+
+# ========================================
+# SSVC (Stakeholder-Specific Vulnerability Categorization)
+# ========================================
+
+# Calculate SSVC decision scores for all CVEs
+python -m scripts.processing.ssvc_calculator \
+  --input .cache/enriched/ \
+  --output api/vulns/ \
+  --decision-model deployer
+
+# Validate SSVC coverage and distribution
+python -m scripts.validate_ssvc_coverage \
+  --api-dir api/vulns \
+  --min-coverage 95 \
+  --fail-on-violations
+
+# Export SSVC report (CSV format)
+python -m scripts.export_ssvc_report \
+  --api-dir api/vulns \
+  --output reports/ssvc_report.csv
 
 # Run Python linting (Ruff)
 ruff check scripts/
@@ -385,8 +635,11 @@ chmod +x .husky/pre-commit .husky/commit-msg
      - CISA KEV catalog integration (Known Exploited Vulnerabilities)
      - Exploit availability detection from multiple sources (Exploit-DB, Metasploit, GitHub PoCs)
      - deps.dev package impact analysis for supply chain visibility (implemented in `scripts/agents/deps_dev_enrichment_agent.py`)
+     - **SSVC (Stakeholder-Specific Vulnerability Categorization)**: 4-factor decision tree (Exploitation, Automatable, Technical Impact, Mission Impact) with priority tier assignment (ACT/ATTEND/TRACK)
      - Reference categorization (exploit, patch, advisory, vendor, technical)
-   - Normalizes data and calculates Risk Score (0-100) based on CVSS, EPSS, popularity, infrastructure tags, and newness
+   - Normalizes data and calculates:
+     - **Risk Score (0-100)**: Based on CVSS, EPSS, popularity, infrastructure tags, and newness
+     - **SSVC Priority**: Decision-tree based prioritization (ACT, ATTEND, TRACK)
    - **Data validation** at each stage (raw, filtered, enriched, published)
    - Caches responses in SQLite using GitHub Actions cache (10-day TTL, timezone-aware)
 
@@ -399,9 +652,14 @@ chmod +x .husky/pre-commit .husky/commit-msg
 
 3. **Frontend** (Alpine.js + Fuse.js):
    - Client-side filtering UI on the homepage
-   - Real-time search/filter on: CVE ID, severity, CVSS/EPSS scores, date ranges, vendors, exploitation status
+   - Real-time search/filter on: CVE ID, severity, CVSS/EPSS scores, date ranges, vendors, exploitation status, **SSVC priority tiers**, **exploitability profiles**
    - URL hash-based state for shareable filtered views
    - Paginated results (10/20/50/100 rows, default 50)
+   - **SSVC Integration**:
+     - Sortable SSVC Priority column with color-coded badges (🔴 ACT, 🟠 ATTEND, 🔵 TRACK)
+     - SSVC Priority filter (All, ACT, ATTEND, TRACK)
+     - Exploitability Profile filter (All, Active, PoC, None)
+     - CSV export with SSVC Priority and Compact Notation columns
    - **Data Visualization Dashboard** (Canvas-based for performance):
      - Severity distribution pie chart
      - Risk trend line chart (30-day vulnerability patterns)
@@ -416,16 +674,29 @@ chmod +x .husky/pre-commit .husky/commit-msg
      - Auto-hide filters on mobile after use
      - Optimized layouts for all screen sizes
    - Interactive CVE detail modal with:
-     - Overview, Technical Details, Timeline, and References tabs
+     - Overview, Technical Details, Timeline, References, and **SSVC Decision** tabs
+     - **SSVC Tab Features**:
+       - Complete decision tree visualization (Exploitation, Automatable, Technical Impact, Mission Impact)
+       - Priority tier with action guidance (ACT: immediate, ATTEND: scheduled, TRACK: monitor)
+       - Compact notation display (e.g., "SSVC:E:A/A:N/T:T/M:M = ACT")
+       - Inference flags when data is missing
+       - Keyboard shortcut: Alt+5 for SSVC tab
      - WCAG 2.1 AA accessibility compliance
-     - Keyboard navigation (Esc to close, Alt+1-4 for tabs)
+     - Keyboard navigation (Esc to close, Alt+1-5 for tabs)
      - Focus management and screen reader support
    - **Enhanced Accessibility & UX**:
-     - Comprehensive keyboard shortcuts (/, r, e, ←/→, 1-4, ?, Esc)
+     - Comprehensive keyboard shortcuts (/, r, e, ←/→, 1-5, ?, Esc)
+       - Alt+1-5: Switch between modal tabs (Overview, Technical, Timeline, References, SSVC)
+       - ←/→: Navigate between vulnerabilities
+       - /: Focus search box
+       - r: Reset filters
+       - e: Export CSV
+       - ?: Show keyboard shortcuts help
+       - Esc: Close modal
      - Screen reader announcements for filter results
      - High contrast mode support
      - Reduced motion preferences respected
-     - CSV export functionality with analytics tracking
+     - CSV export functionality with SSVC columns and analytics tracking
 
 ### Key Directories
 - `scripts/` - Python vulnerability harvesting and processing scripts
@@ -440,6 +711,7 @@ chmod +x .husky/pre-commit .husky/commit-msg
     - Data validation, cleanup, CISA KEV, exploit availability agents
   - `processing/` - Data processing and scoring:
     - `risk_scorer.py` - Risk score calculation (0-100)
+    - `ssvc_calculator.py` - SSVC decision tree (ACT/ATTEND/TRACK)
     - `normalizer.py` - Data normalization
     - `briefing_generator.py` - Briefing generation
     - `cache_manager.py` - SQLite caching

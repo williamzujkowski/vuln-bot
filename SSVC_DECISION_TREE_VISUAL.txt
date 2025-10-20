@@ -1,0 +1,159 @@
+================================================================================
+CISA SSVC DECISION TREE - VISUAL REFERENCE
+================================================================================
+
+                        ┌─────────────────────┐
+                        │  CVE Identified     │
+                        └──────────┬──────────┘
+                                   │
+                    ┌──────────────┴──────────────┐
+                    │   Exploitation Status?      │
+                    └──────────────┬──────────────┘
+                                   │
+          ┌────────────────────────┼────────────────────────┐
+          │                        │                        │
+    ┌─────▼──────┐          ┌──────▼──────┐         ┌──────▼──────┐
+    │   ACTIVE   │          │     PoC     │         │    NONE     │
+    └─────┬──────┘          └──────┬──────┘         └──────┬──────┘
+          │                        │                        │
+    ┌─────▼──────┐          ┌──────▼──────┐               │
+    │Automatable?│          │Automatable? │               │
+    └─────┬──────┘          └──────┬──────┘               │
+          │                        │                        │
+   ┌──────┴──────┐          ┌──────┴──────┐               │
+   │             │          │             │                │
+  YES           NO         YES           NO                │
+   │             │          │             │                │
+   │             │          │             │                │
+┌──▼──┐       ┌──▼──┐   ┌──▼──┐       ┌──▼──┐         ┌──▼──┐
+│Tech │       │Tech │   │Tech │       │Tech │         │     │
+│Impact│      │Impact│  │Impact│      │Impact│        │TRACK*│
+└──┬──┘       └──┬──┘   └──┬──┘       └──┬──┘         └─────┘
+   │             │          │             │
+   │             │          │             │
+┌──┴──┐       ┌──┴──┐   ┌──┴──┐       ┌──┴──┐
+│Total│Partial│Total│   │Any  │       │Any  │
+└──┬──┘   │   └──┬──┘   └──┬──┘       └──┬──┘
+   │      │      │          │             │
+┌──▼──┐ ┌─▼────┐ │       ┌──▼─────────────▼─┐
+│ ACT │ │ATTEND│ │       │      TRACK       │
+└─────┘ └──────┘ │       └──────────────────┘
+         ▲       │
+         └───────┘
+
+================================================================================
+PRIORITY TIER DEFINITIONS
+================================================================================
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│ ACT (Immediate Action Required)                                        │
+├─────────────────────────────────────────────────────────────────────────┤
+│ • Exploitation: ACTIVE (in-the-wild exploitation confirmed)            │
+│ • Automatable: YES (can be exploited without human intervention)       │
+│ • Technical Impact: TOTAL (complete system compromise possible)        │
+│ • Compact Notation: A/Y/T                                              │
+│ • Example: CVE-2024-45519 (Zimbra RCE)                                 │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│ ATTEND (Scheduled Action Required)                                     │
+├─────────────────────────────────────────────────────────────────────────┤
+│ • Exploitation: ACTIVE (in-the-wild exploitation confirmed)            │
+│ • Automatable: NO *OR* Technical Impact ≠ TOTAL                        │
+│ • Compact Notation: A/N/T or A/Y/P                                     │
+│ • Examples:                                                             │
+│   - A/N/T: CVE-2024-9380 (Ivanti CSA - requires authentication)       │
+│   - A/Y/P: CVE-2024-28995 (SolarWinds - partial impact only)          │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│ TRACK (Ongoing Monitoring)                                             │
+├─────────────────────────────────────────────────────────────────────────┤
+│ • Exploitation: PoC (proof-of-concept code exists)                     │
+│ • Priority: Lower urgency than ACT/ATTEND                              │
+│ • Action: Monitor for changes in exploitation status                   │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│ TRACK* (Defer)                                                          │
+├─────────────────────────────────────────────────────────────────────────┤
+│ • Exploitation: NONE (no known exploitation)                           │
+│ • Priority: Lowest urgency                                             │
+│ • Action: Apply patches during normal maintenance windows              │
+└─────────────────────────────────────────────────────────────────────────┘
+
+================================================================================
+VALIDATION RESULTS MAPPED TO DECISION TREE
+================================================================================
+
+Our Cache (295 CVEs):
+├─ ACT Priority:     45 CVEs  (15.3%)  ✓ All KEV CVEs with A/Y/T
+├─ ATTEND Priority:  88 CVEs  (29.8%)  ✓ Includes 28 KEV CVEs with A/N/T or A/Y/P
+└─ TRACK Priority:  162 CVEs  (54.9%)  ✓ PoC or None exploitation
+
+KEV-Listed CVEs in Cache (73 CVEs):
+├─ ACT:     45 CVEs (61.6%)  ✓ A/Y/T  - Fully automatable, total impact
+└─ ATTEND:  28 CVEs (38.4%)  ✓ A/N/T or A/Y/P - Requires user action or partial impact
+
+✅ 100% Accuracy: All KEV CVEs correctly marked with exploitation='active'
+✅ 100% Coverage: All KEV CVEs have complete SSVC data
+✅ Zero False Negatives: No KEV CVEs missed or misclassified
+
+================================================================================
+DECISION FACTORS EXPLAINED
+================================================================================
+
+1. EXPLOITATION (Primary Factor)
+   ─────────────────────────────
+   • ACTIVE:  Confirmed in-the-wild exploitation (e.g., detected by EDR/IDS)
+   • PoC:     Public proof-of-concept code available
+   • NONE:    No known exploitation attempts
+
+2. AUTOMATABLE (Secondary Factor)
+   ────────────────────────────────
+   • YES:  Exploit can run autonomously (worms, scanners)
+   • NO:   Requires human intervention (phishing, social engineering)
+
+3. TECHNICAL IMPACT (Tertiary Factor)
+   ───────────────────────────────────
+   • TOTAL:    Complete system compromise (RCE, privilege escalation to root)
+   • PARTIAL:  Limited access (information disclosure, DoS)
+
+================================================================================
+COMPACT NOTATION REFERENCE
+================================================================================
+
+Format: [Exploitation]/[Automatable]/[Technical Impact]
+
+Examples from Validated CVEs:
+├─ A/Y/T  →  ACT     (Active/Yes/Total)         - 45 KEV CVEs
+├─ A/N/T  →  ATTEND  (Active/No/Total)          - 20 KEV CVEs
+├─ A/Y/P  →  ATTEND  (Active/Yes/Partial)       -  8 KEV CVEs
+├─ P/Y/T  →  TRACK   (PoC/Yes/Total)            -  0 KEV CVEs
+└─ P/N/T  →  TRACK   (PoC/No/Total)             -  0 KEV CVEs
+
+================================================================================
+KEY INSIGHT
+================================================================================
+
+The 28 "ATTEND" priority KEV CVEs are NOT errors!
+
+CISA KEV inclusion guarantees exploitation='active', but priority tier
+depends on the COMBINATION of all three factors:
+
+  ✓ ACT    = active + automatable=yes + impact=total
+  ✓ ATTEND = active + (automatable=no OR impact≠total)
+
+Both are valid for actively exploited vulnerabilities, differing only in
+remediation urgency based on attack complexity and potential damage.
+
+================================================================================
+REFERENCES
+================================================================================
+
+• CISA SSVC Guide: https://www.cisa.gov/ssvc
+• KEV Catalog: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+• Our Implementation: scripts/agents/ssvc_agent.py
+• Validation Report: SSVC_VALIDATION_REPORT.md
+
+================================================================================

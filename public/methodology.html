@@ -471,7 +471,239 @@ else:
     # Filtered out (does not meet minimum criteria)
     exclude()</code></pre>
 
-        <h3>4. Technology Categorization</h3>
+        <h3>4. SSVC (Stakeholder-Specific Vulnerability Categorization)</h3>
+        <p>
+            Every CVE receives <strong>SSVC scoring</strong> based on the CISA-developed decision framework.
+            SSVC is a more nuanced approach to vulnerability prioritization that considers <strong>decision factors</strong>
+            beyond just CVSS severity, focusing on exploitation reality and stakeholder impact.
+        </p>
+
+        <div class="info-box">
+            <strong>SSVC Philosophy:</strong> Not all CRITICAL-severity vulnerabilities require immediate patching.
+            SSVC helps organizations make <strong>risk-based decisions</strong> by evaluating exploitation status,
+            automatable attack chains, and technical impact—resulting in three actionable priority tiers:
+            <strong>ACT</strong> (24h), <strong>ATTEND</strong> (14d), <strong>TRACK</strong> (standard cycle).
+        </div>
+
+        <h4>SSVC Decision Factors</h4>
+        <p>
+            SSVC evaluates three critical decision factors for each vulnerability:
+        </p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Decision Factor</th>
+                    <th>Values</th>
+                    <th>Description</th>
+                    <th>Risk Weight</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Exploitation</strong></td>
+                    <td>
+                        <code>active</code><br>
+                        <code>poc</code><br>
+                        <code>none</code>
+                    </td>
+                    <td>
+                        <strong>active:</strong> Confirmed exploitation in the wild (CISA KEV, threat intel)<br>
+                        <strong>poc:</strong> Public proof-of-concept code exists (GitHub, Exploit-DB)<br>
+                        <strong>none:</strong> No known exploitation or PoC
+                    </td>
+                    <td>30%</td>
+                </tr>
+                <tr>
+                    <td><strong>Automatable</strong></td>
+                    <td>
+                        <code>yes</code><br>
+                        <code>no</code>
+                    </td>
+                    <td>
+                        <strong>yes:</strong> Attack can be automated (Network accessible, Low complexity, No privileges/interaction required)<br>
+                        <strong>no:</strong> Requires human intervention, local access, or user interaction
+                    </td>
+                    <td>15%</td>
+                </tr>
+                <tr>
+                    <td><strong>Technical Impact</strong></td>
+                    <td>
+                        <code>total</code><br>
+                        <code>partial</code>
+                    </td>
+                    <td>
+                        <strong>total:</strong> Complete system compromise (scope change OR CIA triad all HIGH)<br>
+                        <strong>partial:</strong> Limited impact to confidentiality, integrity, or availability
+                    </td>
+                    <td>15%</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4>SSVC Priority Tiers & Actions</h4>
+        <p>
+            Based on the three decision factors, vulnerabilities are assigned to one of three priority tiers with
+            specific remediation timelines:
+        </p>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value" style="color: var(--accent-danger);">45</div>
+                <div class="stat-label">ACT Tier (15.3%)<br>Patch within 24 hours</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" style="color: var(--accent-warning);">88</div>
+                <div class="stat-label">ATTEND Tier (29.8%)<br>Schedule within 14 days</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" style="color: var(--accent-primary);">162</div>
+                <div class="stat-label">TRACK Tier (54.9%)<br>Standard patch cycle</div>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Tier</th>
+                    <th>Criteria</th>
+                    <th>Remediation Timeline</th>
+                    <th>Example Notation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="badge critical">ACT</span></td>
+                    <td>
+                        <code>Exploitation: active</code> AND<br>
+                        <code>Automatable: yes</code> AND<br>
+                        <code>Technical Impact: total</code>
+                    </td>
+                    <td><strong>24 hours</strong> - Immediate action required</td>
+                    <td><code>A/Y/T</code></td>
+                </tr>
+                <tr>
+                    <td><span class="badge high">ATTEND</span></td>
+                    <td>
+                        <code>Exploitation: active</code> OR <code>poc</code><br>
+                        (but not all ACT criteria met)
+                    </td>
+                    <td><strong>14 days</strong> - Schedule patching soon</td>
+                    <td><code>A/N/T</code>, <code>A/Y/P</code>, <code>P/Y/T</code></td>
+                </tr>
+                <tr>
+                    <td><span class="badge kev">TRACK</span></td>
+                    <td>
+                        <code>Exploitation: none</code> OR<br>
+                        Low automation/impact
+                    </td>
+                    <td><strong>Standard cycle</strong> - Monitor for changes</td>
+                    <td><code>N/N/P</code>, <code>N/Y/P</code></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4>Compact Notation Explained</h4>
+        <p>
+            SSVC uses a <strong>compact notation</strong> format to quickly communicate decision factors:
+        </p>
+
+        <pre><code>Format: [E]/[A]/[T]
+  E = Exploitation (A=active, P=poc, N=none)
+  A = Automatable (Y=yes, N=no)
+  T = Technical Impact (T=total, P=partial)
+
+Examples:
+  A/Y/T → Exploitation:active, Automatable:yes, Impact:total = ACT tier
+  A/N/T → Exploitation:active, Automatable:no, Impact:total = ATTEND tier
+  P/Y/T → Exploitation:poc, Automatable:yes, Impact:total = ATTEND tier
+  N/N/P → Exploitation:none, Automatable:no, Impact:partial = TRACK tier</code></pre>
+
+        <h4>SSVC Data Sources & Inference Logic</h4>
+        <p>
+            SSVC metrics are extracted from two sources:
+        </p>
+
+        <ol>
+            <li>
+                <strong>Official CISA-ADP Containers (Direct Extraction):</strong> When CISA has manually assessed
+                a CVE, SSVC metrics are embedded in the CVE 5.0 JSON under the
+                <code>containers.adp[].metrics[].ssvc</code> field. These are considered authoritative.
+            </li>
+            <li>
+                <strong>Automated Inference (Fallback Engine):</strong> For CVEs without CISA-ADP data, we infer
+                SSVC metrics using multi-source intelligence:
+                <ul style="margin-top: 0.5rem;">
+                    <li><strong>Exploitation:</strong> CISA KEV catalog, EPSS ≥80%, PoC detection in references</li>
+                    <li><strong>Automatable:</strong> CVSS vector analysis (AV:N/AC:L/PR:N/UI:N)</li>
+                    <li><strong>Technical Impact:</strong> CVSS scope change + CIA triad (S:C OR C:H/I:H/A:H)</li>
+                </ul>
+            </li>
+        </ol>
+
+        <div class="info-box success">
+            <strong>Validation Results:</strong> We validated SSVC accuracy against the CISA KEV catalog
+            (1,442 officially confirmed exploited vulnerabilities). Our SSVC extraction achieved:
+            <ul style="margin: 0.5rem 0 0 1.5rem;">
+                <li><strong>100% Accuracy</strong> - All 73 KEV CVEs correctly identified as <code>exploitation:active</code></li>
+                <li><strong>Zero False Negatives</strong> - No missed KEV CVEs in dataset</li>
+                <li><strong>100% SSVC Coverage</strong> - All 295 CVEs have complete SSVC data</li>
+            </ul>
+        </div>
+
+        <h4>SSVC Score Calculation</h4>
+        <p>
+            In addition to priority tiers, we calculate a <strong>quantitative SSVC score (0-60)</strong>
+            for fine-grained sorting within tiers:
+        </p>
+
+        <pre><code>SSVC Score Formula:
+  score = exploitation_weight + automatable_weight + impact_weight
+
+Weights:
+  Exploitation: active=30, poc=15, none=0
+  Automatable: yes=15, no=0
+  Technical Impact: total=15, partial=0
+
+Score Ranges:
+  60 points → A/Y/T (maximum risk, ACT tier)
+  45 points → A/N/T or A/Y/P (ATTEND tier)
+  30 points → A/N/P or P/Y/T (ATTEND tier)
+  15 points → P/Y/P or P/N/T (TRACK tier)
+  0 points  → N/N/P (minimum risk, TRACK tier)</code></pre>
+
+        <h4>Integration with Risk Scoring</h4>
+        <p>
+            SSVC complements (does not replace) our existing multi-factor risk scoring system.
+            The final <strong>risk score (0-100)</strong> integrates:
+        </p>
+
+        <ul>
+            <li><strong>SSVC Score (60% weight):</strong> Decision-focused prioritization from CISA framework</li>
+            <li><strong>CVSS Score (25% weight):</strong> Technical severity and attack complexity</li>
+            <li><strong>EPSS Score (15% weight):</strong> Exploitation probability prediction</li>
+        </ul>
+
+        <div class="info-box">
+            <strong>Example:</strong> A vulnerability with <code>CVSS 9.8</code>, <code>EPSS 85%</code>,
+            and <code>SSVC A/Y/T (60)</code> receives a risk score of:
+            <pre style="margin-top: 0.5rem;"><code>(9.8 × 2.5) + (85 × 0.15) + (60 × 0.6) = 24.5 + 12.75 + 36 = 73.25/100</code></pre>
+        </div>
+
+        <h4>Verification Commands</h4>
+        <pre><code># Verify SSVC coverage and accuracy
+cat api/vulns/index.json | jq '[.vulnerabilities[] | select(.ssvc != null)] | length'
+# Expected: 295 (100% coverage)
+
+# Count by SSVC priority tier
+cat api/vulns/index.json | jq '[.vulnerabilities[] | .ssvc.priorityTier] | group_by(.) | map({tier: .[0], count: length})'
+# Expected: [{"tier":"ACT","count":45}, {"tier":"ATTEND","count":88}, {"tier":"TRACK","count":162}]
+
+# Validate KEV exploitation detection
+cat api/vulns/index.json | jq '[.vulnerabilities[] | select(.enrichments.cisa_kev.isKnownExploited == true) | select(.ssvc.exploitation != "active")] | length'
+# Expected: 0 (no false negatives)</code></pre>
+
+        <h3>5. Technology Categorization</h3>
         <p>
             We automatically classify vulnerabilities into <strong>7 technology categories</strong> using keyword
             detection across CVE descriptions, vendor names, and product names:

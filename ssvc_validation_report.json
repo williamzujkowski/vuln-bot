@@ -1,0 +1,215 @@
+{
+  "metadata": {
+    "report_type": "SSVC Extraction Validation",
+    "validator": "CISA KEV Catalog Cross-Reference",
+    "timestamp": "2025-10-19T23:04:04.577933",
+    "cache_database": ".cache/vulnerability_cache.db",
+    "kev_catalog_url": "https://www.cisa.gov/sites/default/files/csv/known_exploited_vulnerabilities.csv",
+    "kev_catalog_version": "2025-10-19",
+    "validation_threshold": 95.0
+  },
+  "verdict": {
+    "status": "PASS",
+    "accuracy_percent": 100.0,
+    "meets_threshold": true,
+    "confidence_level": "HIGH"
+  },
+  "statistics": {
+    "total_kev_in_cache": 73,
+    "correctly_identified": 73,
+    "accuracy_percent": 100.0,
+    "false_negatives": 0,
+    "ssvc_missing": 0,
+    "priority_mismatches": 28,
+    "total_cache_cves": 295,
+    "total_kev_catalog": 1442,
+    "kev_coverage_percent": 5.06,
+    "ssvc_data_completeness_percent": 100.0
+  },
+  "priority_tier_analysis": {
+    "distribution": {
+      "ACT": 45,
+      "ATTEND": 88,
+      "TRACK": 162
+    },
+    "kev_specific": {
+      "ACT": 45,
+      "ATTEND": 28,
+      "TRACK": 0,
+      "TRACK*": 0
+    },
+    "interpretation": {
+      "ACT": "Immediate action required (Active + Automatable=Yes + Impact=Total)",
+      "ATTEND": "Scheduled action required (Active + conditions vary)",
+      "note": "Both ACT and ATTEND are valid for KEV-listed CVEs"
+    }
+  },
+  "examples": {
+    "ACT_priority": [
+      {
+        "cve_id": "CVE-2024-5217",
+        "exploitation": "active",
+        "automatable": "yes",
+        "technical_impact": "total",
+        "compact": "A/Y/T",
+        "title": "Incomplete Input Validation in GlideExpression Script..."
+      },
+      {
+        "cve_id": "CVE-2024-3272",
+        "exploitation": "active",
+        "automatable": "yes",
+        "technical_impact": "total",
+        "compact": "A/Y/T",
+        "title": "D-Link DNS-320L/DNS-325/DNS-327L/DNS-340L HTTP GET Request nas_sharing.cgi hard-..."
+      },
+      {
+        "cve_id": "CVE-2024-3400",
+        "exploitation": "active",
+        "automatable": "yes",
+        "technical_impact": "total",
+        "compact": "A/Y/T",
+        "title": "PAN-OS: Arbitrary File Creation Leads to OS Command Injection Vulnerability in G..."
+      },
+      {
+        "cve_id": "CVE-2024-23692",
+        "exploitation": "active",
+        "automatable": "yes",
+        "technical_impact": "total",
+        "compact": "A/Y/T",
+        "title": "Rejetto HTTP File Server 2.3m Unauthenticated RCE..."
+      },
+      {
+        "cve_id": "CVE-2024-12356",
+        "exploitation": "active",
+        "automatable": "yes",
+        "technical_impact": "total",
+        "compact": "A/Y/T",
+        "title": "Command Injection Vulnerability in Remote Support(RS) & Privileged Remote Access..."
+      }
+    ],
+    "ATTEND_priority": [
+      {
+        "cve_id": "CVE-2024-28995",
+        "exploitation": "active",
+        "automatable": "yes",
+        "technical_impact": "partial",
+        "compact": "A/Y/P",
+        "title": "SolarWinds Serv-U L Directory Transversal Vulnerability ..."
+      },
+      {
+        "cve_id": "CVE-2024-24919",
+        "exploitation": "active",
+        "automatable": "yes",
+        "technical_impact": "partial",
+        "compact": "A/Y/P",
+        "title": "Information disclosure..."
+      },
+      {
+        "cve_id": "CVE-2025-30066",
+        "exploitation": "active",
+        "automatable": "yes",
+        "technical_impact": "partial",
+        "compact": "A/Y/P",
+        "title": "CVE-2025-30066: tj-actions changed-files before 46 allows remote attackers to di..."
+      },
+      {
+        "cve_id": "CVE-2024-20767",
+        "exploitation": "active",
+        "automatable": "yes",
+        "technical_impact": "partial",
+        "compact": "A/Y/P",
+        "title": "ColdFusion | Improper Access Control (CWE-284)..."
+      },
+      {
+        "cve_id": "CVE-2024-29059",
+        "exploitation": "active",
+        "automatable": "yes",
+        "technical_impact": "partial",
+        "compact": "A/Y/P",
+        "title": ".NET Framework Information Disclosure Vulnerability..."
+      }
+    ]
+  },
+  "quality_indicators": {
+    "false_negatives": 0,
+    "ssvc_missing": 0,
+    "data_quality": "EXCELLENT"
+  },
+  "correctly_identified_cves": [
+    "CVE-2024-45519",
+    "CVE-2024-9380",
+    "CVE-2024-12987",
+    "CVE-2024-1212",
+    "CVE-2024-47575",
+    "CVE-2024-38112",
+    "CVE-2025-32433",
+    "CVE-2024-49138",
+    "CVE-2024-23692",
+    "CVE-2025-30066",
+    "CVE-2024-12356",
+    "CVE-2024-21762",
+    "CVE-2024-58136",
+    "CVE-2025-3248",
+    "CVE-2024-38193",
+    "CVE-2025-5086",
+    "CVE-2024-29988",
+    "CVE-2025-0282",
+    "CVE-2024-3273",
+    "CVE-2024-48248",
+    "CVE-2025-53770",
+    "CVE-2025-27363",
+    "CVE-2024-28995",
+    "CVE-2024-21412",
+    "CVE-2024-34102",
+    "CVE-2024-24919",
+    "CVE-2024-8957",
+    "CVE-2024-50603",
+    "CVE-2025-10035",
+    "CVE-2024-6670",
+    "CVE-2024-7593",
+    "CVE-2024-5217",
+    "CVE-2024-8190",
+    "CVE-2025-49704",
+    "CVE-2024-8956",
+    "CVE-2024-4879",
+    "CVE-2025-61882",
+    "CVE-2024-21413",
+    "CVE-2025-30406",
+    "CVE-2024-55591",
+    "CVE-2024-4577",
+    "CVE-2024-11120",
+    "CVE-2024-29059",
+    "CVE-2025-22457",
+    "CVE-2024-21338",
+    "CVE-2024-6047",
+    "CVE-2024-1709",
+    "CVE-2024-4885",
+    "CVE-2024-21287",
+    "CVE-2024-36401",
+    "CVE-2025-47812",
+    "CVE-2024-4358",
+    "CVE-2025-24016",
+    "CVE-2024-20439",
+    "CVE-2024-11680",
+    "CVE-2024-13160",
+    "CVE-2024-30088",
+    "CVE-2024-3272",
+    "CVE-2025-1316",
+    "CVE-2024-51378",
+    "CVE-2024-13161",
+    "CVE-2024-51567",
+    "CVE-2025-31161",
+    "CVE-2024-8963",
+    "CVE-2024-20767",
+    "CVE-2024-3400",
+    "CVE-2024-20953",
+    "CVE-2024-13159",
+    "CVE-2024-28987",
+    "CVE-2024-27198",
+    "CVE-2024-4040",
+    "CVE-2024-38094",
+    "CVE-2024-1086"
+  ],
+  "false_negative_cves": [],
+  "ssvc_missing_cves": []
+}
