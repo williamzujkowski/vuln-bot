@@ -91,6 +91,12 @@ class AlpineDashboardGenerator:
                 else:
                     vuln["published_short"] = "Unknown"
 
+                # Format last modified date
+                if vuln.get("last_modified_date"):
+                    vuln["last_modified_short"] = str(vuln["last_modified_date"])[:10]
+                else:
+                    vuln["last_modified_short"] = "Unknown"
+
                 # Calculate KEV status for use in stats
                 vuln["kev_status"] = self._get_kev_status(vuln)
 
@@ -182,6 +188,12 @@ class AlpineDashboardGenerator:
                     vuln["published_short"] = str(vuln["published_date"])[:10]
                 else:
                     vuln["published_short"] = "Unknown"
+
+                # Format last modified date
+                if vuln.get("last_modified_date"):
+                    vuln["last_modified_short"] = str(vuln["last_modified_date"])[:10]
+                else:
+                    vuln["last_modified_short"] = "Unknown"
 
                 self.vulnerabilities.append(vuln)
 
@@ -525,6 +537,7 @@ class AlpineDashboardGenerator:
                     "published_date": vuln["published_date"],
                     "published_short": vuln["published_short"],
                     "last_modified_date": vuln.get("last_modified_date"),
+                    "last_modified_short": vuln.get("last_modified_short", "Unknown"),
                     "attack_vector": vuln["attack_vector"],
                     "description": vuln["description"] or "No description available",
                     # Enhanced modal fields
@@ -706,8 +719,8 @@ class AlpineDashboardGenerator:
         .filter-grid __OPEN_BRACE__
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin-bottom: 1rem;
+            gap: 1.25rem;
+            margin-bottom: 1.5rem;
         __CLOSE_BRACE__
 
         .filter-group __OPEN_BRACE__
@@ -1666,9 +1679,6 @@ class AlpineDashboardGenerator:
                                 <th @click="sort('cve_id')" style="cursor: pointer;">
                                     CVE ID <span x-show="sortField === 'cve_id'" x-text="sortOrder === 'asc' ? '↑' : '↓'"></span>
                                 </th>
-                                <th @click="sort('triage_priority')" style="cursor: pointer;">
-                                    Priority <span x-show="sortField === 'triage_priority'" x-text="sortOrder === 'asc' ? '↑' : '↓'"></span>
-                                </th>
                                 <th @click="sort('severity')" style="cursor: pointer;">
                                     Severity <span x-show="sortField === 'severity'" x-text="sortOrder === 'asc' ? '↑' : '↓'"></span>
                                 </th>
@@ -1678,9 +1688,6 @@ class AlpineDashboardGenerator:
                                 <th @click="sort('epss_percentile')" style="cursor: pointer;">
                                     EPSS % <span x-show="sortField === 'epss_percentile'" x-text="sortOrder === 'asc' ? '↑' : '↓'"></span>
                                 </th>
-                                <th @click="sort('risk_score')" style="cursor: pointer;">
-                                    Risk Score <span x-show="sortField === 'risk_score'" x-text="sortOrder === 'asc' ? '↑' : '↓'"></span>
-                                </th>
                                 <th>Product</th>
                                 <th>Vendors</th>
                                 <th @click="sort('kev_status')" style="cursor: pointer;">
@@ -1688,6 +1695,9 @@ class AlpineDashboardGenerator:
                                 </th>
                                 <th @click="sort('published_date')" style="cursor: pointer;">
                                     Published <span x-show="sortField === 'published_date'" x-text="sortOrder === 'asc' ? '↑' : '↓'"></span>
+                                </th>
+                                <th @click="sort('last_modified_date')" style="cursor: pointer;">
+                                    Last Updated <span x-show="sortField === 'last_modified_date'" x-text="sortOrder === 'asc' ? '↑' : '↓'"></span>
                                 </th>
                             </tr>
                         </thead>
@@ -1700,23 +1710,10 @@ class AlpineDashboardGenerator:
                                         <a :href="`https://cve.mitre.org/cgi-bin/cvename.cgi?name=${vuln.cve_id}`" class="cve-link" x-text="vuln.cve_id" target="_blank" rel="noopener noreferrer"></a>
                                     </td>
                                     <td>
-                                        <span class="priority-badge"
-                                              :class="`priority-${vuln.triage_priority.toLowerCase().replace('_', '-')}`">
-                                            <span x-show="vuln.triage_priority === 'CRITICAL-URGENT'">🔴</span>
-                                            <span x-show="vuln.triage_priority === 'HIGH-PRIORITY'">🟡</span>
-                                            <span x-show="vuln.triage_priority === 'MONITOR'">🟢</span>
-                                            <span x-text="vuln.triage_priority.replace('-', ' ')"></span>
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <div style="display: flex; align-items: center; gap: 0.5rem;">
-                                            <span x-show="vuln.severity === 'CRITICAL' && vuln.kev_status" class="warning-icon">⚠️</span>
-                                            <span class="severity-badge" :class="`severity-${vuln.severity.toLowerCase()}`" x-text="vuln.severity"></span>
-                                        </div>
+                                        <span class="severity-badge" :class="`severity-${vuln.severity.toLowerCase()}`" x-text="vuln.severity"></span>
                                     </td>
                                     <td x-text="vuln.cvss_score"></td>
                                     <td x-text="vuln.epss_percentile"></td>
-                                    <td x-text="vuln.risk_score"></td>
                                     <td class="truncate" x-text="vuln.products"></td>
                                     <td class="truncate" x-text="vuln.vendors.join(', ') || 'Unknown'"></td>
                                     <td>
@@ -1725,6 +1722,7 @@ class AlpineDashboardGenerator:
                                         <span x-show="!vuln.kev_status && vuln.exploitation_status === 'Unknown'" style="color: #6b6b85;">⚪ Not Listed</span>
                                     </td>
                                     <td x-text="vuln.published_short"></td>
+                                    <td x-text="vuln.last_modified_short"></td>
                                 </tr>
                             </template>
                         </tbody>
@@ -1774,7 +1772,7 @@ class AlpineDashboardGenerator:
                                           x-text="vuln.exploitation_status"></span>
                                 </div>
 
-                                <!-- Score Grid: CVSS, EPSS, Risk -->
+                                <!-- Score Grid: CVSS, EPSS -->
                                 <div class="card-info-grid">
                                     <div class="card-info-item">
                                         <span class="card-info-label">CVSS</span>
@@ -1783,10 +1781,6 @@ class AlpineDashboardGenerator:
                                     <div class="card-info-item">
                                         <span class="card-info-label">EPSS</span>
                                         <span class="card-info-value" x-text="vuln.epss_percentile + '%'"></span>
-                                    </div>
-                                    <div class="card-info-item">
-                                        <span class="card-info-label">Risk</span>
-                                        <span class="card-info-value" x-text="vuln.risk_score"></span>
                                     </div>
                                 </div>
 
