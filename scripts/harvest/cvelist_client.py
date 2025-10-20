@@ -66,6 +66,19 @@ class CVEListClient(BaseAPIClient):
         self.vendor_product_extractor = VendorProductExtractor()
         self.cvss_parser = CVSSVectorParser()
 
+        # Initialize SSVC processors
+        try:
+            from scripts.processing.ssvc_extractor import SSVCExtractor
+            from scripts.processing.ssvc_fallback import SSVCFallbackEngine
+
+            self.ssvc_extractor = SSVCExtractor()
+            self.ssvc_fallback = SSVCFallbackEngine()
+            self.logger.info("SSVC processors initialized successfully")
+        except ImportError as e:
+            self.logger.warning(f"SSVC processors not available: {e}")
+            self.ssvc_extractor = None
+            self.ssvc_fallback = None
+
         if not use_github_api and local_repo_path:
             self._ensure_local_repo()
 
@@ -433,6 +446,53 @@ class CVEListClient(BaseAPIClient):
                     if desc.get("type") == "CWE":
                         problem_types.append(desc.get("cweId", ""))
 
+            # Extract SSVC data
+            ssvc_data_dict = None
+            if self.ssvc_extractor and self.ssvc_fallback:
+                try:
+                    # Try to extract from CISA-ADP first
+                    ssvc_raw = self.ssvc_extractor.extract_from_cve_data(cve_data)
+
+                    # If not found, use fallback inference
+                    if not ssvc_raw:
+                        has_kev = exploitation_status == ExploitationStatus.ACTIVE
+                        ssvc_raw = self.ssvc_fallback.infer_ssvc(
+                            cve_data,
+                            has_kev=has_kev,
+                            epss_score=None  # EPSS enrichment happens later
+                        )
+
+                    # Build SSVCData model
+                    if ssvc_raw:
+                        from scripts.models import SSVCData
+
+                        priority_tier = self.ssvc_extractor.calculate_priority_tier(ssvc_raw)
+                        compact_notation = self.ssvc_extractor.get_compact_notation(ssvc_raw)
+                        ssvc_score = self.ssvc_extractor.get_ssvc_score(ssvc_raw)
+
+                        ssvc_data_dict = SSVCData(
+                            exploitation=ssvc_raw["exploitation"],
+                            automatable=ssvc_raw["automatable"],
+                            technical_impact=ssvc_raw["technical_impact"],
+                            priority_tier=priority_tier,
+                            compact_notation=compact_notation,
+                            ssvc_score=ssvc_score,
+                            inferred=ssvc_raw.get("inferred", False),
+                            confidence=ssvc_raw.get("confidence")
+                        )
+
+                        self.logger.debug(
+                            "SSVC data extracted",
+                            cve_id=cve_id,
+                            priority_tier=priority_tier,
+                            compact_notation=compact_notation,
+                            inferred=ssvc_raw.get("inferred", False)
+                        )
+                except Exception as e:
+                    self.logger.warning(
+                        f"Failed to extract SSVC data for {cve_id}: {e}"
+                    )
+
             # Create vulnerability object
             vulnerability = Vulnerability(
                 cve_id=cve_id,
@@ -442,6 +502,7 @@ class CVEListClient(BaseAPIClient):
                 last_modified_date=last_modified_date,
                 cvss_metrics=cvss_metrics,
                 severity=severity,
+                ssvc_data=ssvc_data_dict,
                 affected_vendors=vendors,
                 affected_products=products,
                 attack_vector=attack_vector,

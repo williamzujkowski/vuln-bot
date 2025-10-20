@@ -11,16 +11,27 @@ from scripts.models import ExploitationStatus, SeverityLevel, Vulnerability
 class RiskScorer:
     """Calculate risk scores for vulnerabilities based on multiple factors."""
 
-    # Weight configuration for different factors
+    # SSVC-Enhanced Weight Configuration
+    # Total: 100% = 60% SSVC + 25% Traditional + 15% Context
     WEIGHTS = {
-        "cvss_score": 0.25,  # Base CVSS score
-        "epss_score": 0.20,  # Exploit prediction
-        "exploitation": 0.20,  # Known exploitation status
-        "age": 0.10,  # How new the vulnerability is
-        "references": 0.05,  # Number of references
-        "vendor_impact": 0.10,  # Impact based on affected vendors
+        # SSVC Components (60% total) - CISA decision tree framework
+        "ssvc_exploitation": 0.30,  # Active/PoC/None exploitation
+        "ssvc_automatable": 0.15,   # Wormable assessment
+        "ssvc_technical_impact": 0.15,  # Total/Partial compromise
+
+        # Traditional Metrics (25% total)
+        "cvss_score": 0.15,  # Base CVSS score (reduced from 25%)
+        "epss_score": 0.10,  # Exploit prediction (reduced from 20%)
+
+        # Context (15% total)
+        "kev_status": 0.10,  # CISA KEV listing (explicit factor)
         "attack_vector": 0.05,  # Network vs local attack
-        "complexity": 0.05,  # Attack complexity
+
+        # Legacy factors (deprecated in SSVC-enhanced mode)
+        "age": 0.00,  # Covered by SSVC exploitation
+        "references": 0.00,  # Less predictive than SSVC
+        "vendor_impact": 0.00,  # Context-specific filtering
+        "complexity": 0.00,  # Covered by SSVC automatable
     }
 
     # High-impact vendors/products (infrastructure focus)
@@ -90,7 +101,12 @@ class RiskScorer:
         self.logger = structlog.get_logger(self.__class__.__name__)
 
     def calculate_risk_score(self, vulnerability: Vulnerability) -> int:
-        """Calculate risk score (0-100) for a vulnerability.
+        """Calculate SSVC-enhanced risk score (0-100) for a vulnerability.
+
+        New Formula (SSVC-dominant):
+        - 60% SSVC (exploitation + automatable + technical_impact)
+        - 25% Traditional (CVSS + EPSS)
+        - 15% Context (KEV + attack_vector)
 
         Args:
             vulnerability: Vulnerability to score
@@ -100,123 +116,125 @@ class RiskScorer:
         """
         scores = {}
 
-        # 1. CVSS Score Component (normalized to 0-100)
+        # ===== SSVC COMPONENTS (60% total weight) =====
+        if vulnerability.ssvc_data:
+            # SSVC scores are pre-calculated in SSVCExtractor (0-60 range)
+            # But we normalize here for individual component tracking
+
+            # 1. SSVC Exploitation (30 points max)
+            exploitation_scores = {
+                "active": 100,  # Will be weighted at 30%
+                "poc": 67,      # 2/3 of max
+                "none": 0
+            }
+            scores["ssvc_exploitation"] = exploitation_scores.get(
+                vulnerability.ssvc_data.exploitation, 0
+            )
+
+            # 2. SSVC Automatable (15 points max)
+            automatable_scores = {
+                "yes": 100,  # Will be weighted at 15%
+                "no": 0
+            }
+            scores["ssvc_automatable"] = automatable_scores.get(
+                vulnerability.ssvc_data.automatable, 0
+            )
+
+            # 3. SSVC Technical Impact (15 points max)
+            technical_impact_scores = {
+                "total": 100,  # Will be weighted at 15%
+                "partial": 50  # Half of max
+            }
+            scores["ssvc_technical_impact"] = technical_impact_scores.get(
+                vulnerability.ssvc_data.technical_impact, 0
+            )
+        else:
+            # No SSVC data available - fall back to traditional scoring
+            # Map exploitation_status to SSVC-like scores
+            exploitation_scores_fallback = {
+                ExploitationStatus.ACTIVE: 100,
+                ExploitationStatus.WEAPONIZED: 90,
+                ExploitationStatus.POC: 67,
+                ExploitationStatus.NONE: 0,
+                ExploitationStatus.UNKNOWN: 33,
+            }
+            scores["ssvc_exploitation"] = exploitation_scores_fallback.get(
+                vulnerability.exploitation_status, 33
+            )
+            scores["ssvc_automatable"] = 0  # Unknown without SSVC
+            scores["ssvc_technical_impact"] = 0  # Unknown without SSVC
+
+        # ===== TRADITIONAL METRICS (25% total weight) =====
+
+        # 4. CVSS Score Component (15% weight)
         cvss_score = vulnerability.cvss_base_score or 0.0
         scores["cvss_score"] = (cvss_score / 10.0) * 100
 
-        # 2. EPSS Score Component
+        # 5. EPSS Score Component (10% weight)
         epss_prob = vulnerability.epss_probability or 0.0
         scores["epss_score"] = epss_prob
 
-        # 3. Exploitation Status Component
-        exploitation_scores = {
-            ExploitationStatus.ACTIVE: 100,
-            ExploitationStatus.WEAPONIZED: 90,
-            ExploitationStatus.POC: 70,
-            ExploitationStatus.NONE: 30,
-            ExploitationStatus.UNKNOWN: 50,
+        # ===== CONTEXT FACTORS (15% total weight) =====
+
+        # 6. KEV Status Component (10% weight)
+        # Explicit KEV listing is strongest indicator
+        kev_scores = {
+            ExploitationStatus.ACTIVE: 100,  # In KEV catalog
+            ExploitationStatus.WEAPONIZED: 80,  # Likely KEV candidate
+            ExploitationStatus.POC: 30,  # Watch for KEV addition
+            ExploitationStatus.NONE: 0,
+            ExploitationStatus.UNKNOWN: 20,  # Unknown status
         }
-        scores["exploitation"] = exploitation_scores.get(
-            vulnerability.exploitation_status, 50
+        scores["kev_status"] = kev_scores.get(
+            vulnerability.exploitation_status, 20
         )
 
-        # 4. Age Component (newer = higher risk)
-        # Ensure datetime is timezone-aware
-        published_date = vulnerability.published_date
-        if published_date.tzinfo is None:
-            published_date = published_date.replace(tzinfo=timezone.utc)
-        age_days = (datetime.now(timezone.utc) - published_date).days
-        if age_days <= 7:
-            scores["age"] = 100
-        elif age_days <= 30:
-            scores["age"] = 80
-        elif age_days <= 90:
-            scores["age"] = 60
-        elif age_days <= 180:
-            scores["age"] = 40
-        else:
-            scores["age"] = 20
-
-        # 5. References Component (more references = higher risk)
-        ref_count = len(vulnerability.references)
-        if ref_count >= 10:
-            scores["references"] = 100
-        elif ref_count >= 5:
-            scores["references"] = 80
-        else:
-            scores["references"] = ref_count * 16  # Linear scale up to 5
-
-        # 6. Vendor Impact Component
-        vendor_score = 0
-        affected_vendors_lower = {v.lower() for v in vulnerability.affected_vendors}
-        affected_products_lower = {p.lower() for p in vulnerability.affected_products}
-
-        # Check for high-impact vendors
-        high_impact_vendor_count = len(
-            affected_vendors_lower.intersection(self.HIGH_IMPACT_VENDORS)
-        )
-        high_impact_product_count = len(
-            affected_products_lower.intersection(self.HIGH_IMPACT_PRODUCTS)
-        )
-
-        if high_impact_vendor_count > 0 or high_impact_product_count > 0:
-            vendor_score = min(
-                100, 50 + (high_impact_vendor_count + high_impact_product_count) * 10
-            )
-        else:
-            vendor_score = min(100, len(vulnerability.affected_vendors) * 10)
-
-        scores["vendor_impact"] = vendor_score
-
-        # 7. Attack Vector Component
+        # 7. Attack Vector Component (5% weight)
         attack_vector_scores = {
-            "N": 100,  # Network
-            "A": 70,  # Adjacent
-            "L": 40,  # Local
-            "P": 20,  # Physical
+            "N": 100,  # Network - remotely exploitable
+            "A": 70,   # Adjacent - local network
+            "L": 40,   # Local - local access required
+            "P": 20,   # Physical - physical access required
         }
         scores["attack_vector"] = attack_vector_scores.get(
             vulnerability.attack_vector, 50
         )
 
-        # 8. Complexity Component (based on various factors)
-        complexity_score = 50  # Base score
-
-        # Adjust based on user interaction requirement
-        if vulnerability.requires_user_interaction is False:
-            complexity_score += 25
-
-        # Adjust based on privilege requirement
-        if vulnerability.requires_privileges == "N":  # None required
-            complexity_score += 25
-        elif vulnerability.requires_privileges == "L":  # Low required
-            complexity_score += 10
-
-        scores["complexity"] = min(100, complexity_score)
-
-        # Apply infrastructure tag bonus
-        tag_bonus = 0
-        if vulnerability.tags:
-            matching_tags = {t.lower() for t in vulnerability.tags}
-            infra_matches = matching_tags.intersection(self.INFRASTRUCTURE_TAGS)
-            if infra_matches:
-                tag_bonus = min(10, len(infra_matches) * 2)
+        # Legacy factors (0% weight in SSVC mode, kept for fallback compatibility)
+        scores["age"] = 0
+        scores["references"] = 0
+        scores["vendor_impact"] = 0
+        scores["complexity"] = 0
 
         # Calculate weighted score
         weighted_score = sum(
             scores.get(factor, 0) * weight for factor, weight in self.WEIGHTS.items()
         )
 
-        # Add tag bonus and ensure score is within bounds
-        final_score = int(min(100, max(0, weighted_score + tag_bonus)))
+        # Ensure score is within bounds
+        final_score = int(min(100, max(0, weighted_score)))
 
-        self.logger.debug(
-            "Calculated risk score",
-            cve_id=vulnerability.cve_id,
-            final_score=final_score,
-            component_scores=scores,
-            tag_bonus=tag_bonus,
-        )
+        # Log scoring details
+        log_data = {
+            "cve_id": vulnerability.cve_id,
+            "final_score": final_score,
+            "component_scores": {
+                "ssvc": scores.get("ssvc_exploitation", 0) * 0.30 +
+                       scores.get("ssvc_automatable", 0) * 0.15 +
+                       scores.get("ssvc_technical_impact", 0) * 0.15,
+                "traditional": scores.get("cvss_score", 0) * 0.15 +
+                              scores.get("epss_score", 0) * 0.10,
+                "context": scores.get("kev_status", 0) * 0.10 +
+                          scores.get("attack_vector", 0) * 0.05,
+            },
+            "has_ssvc": vulnerability.ssvc_data is not None,
+        }
+
+        if vulnerability.ssvc_data:
+            log_data["ssvc_priority_tier"] = vulnerability.ssvc_data.priority_tier
+            log_data["ssvc_notation"] = vulnerability.ssvc_data.compact_notation
+
+        self.logger.debug("Calculated SSVC-enhanced risk score", **log_data)
 
         return final_score
 

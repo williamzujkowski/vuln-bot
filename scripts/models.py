@@ -52,6 +52,32 @@ class EPSSScore(BaseModel):
         return round(v, 4)
 
 
+class SSVCData(BaseModel):
+    """SSVC (Stakeholder-Specific Vulnerability Categorization) data.
+
+    CISA's decision tree framework for vulnerability prioritization.
+
+    Decision Points:
+    - exploitation: active | poc | none
+    - automatable: yes | no (wormable assessment)
+    - technical_impact: total | partial
+
+    Priority Tiers:
+    - ACT: Immediate action (patch within 24h)
+    - ATTEND: Scheduled action (patch within 14d)
+    - TRACK: Routine monitoring (standard cycle)
+    """
+
+    exploitation: str = Field(pattern="^(active|poc|none)$")
+    automatable: str = Field(pattern="^(yes|no)$")
+    technical_impact: str = Field(pattern="^(total|partial)$")
+    priority_tier: str = Field(pattern="^(ACT|ATTEND|TRACK)$")
+    compact_notation: str  # e.g., "A/Y/T" for Active/Yes/Total
+    ssvc_score: int = Field(ge=0, le=60)  # 0-60 range (60% of risk score)
+    inferred: bool = False  # True if inferred by fallback engine
+    confidence: Optional[float] = Field(None, ge=0.0, le=1.0)  # Confidence score for inferred data
+
+
 class Reference(BaseModel):
     """External reference for a vulnerability."""
 
@@ -102,6 +128,7 @@ class Vulnerability(BaseModel):
     # Scoring
     cvss_metrics: List[CVSSMetric] = Field(default_factory=list)
     epss_score: Optional[EPSSScore] = None
+    ssvc_data: Optional[SSVCData] = None
     risk_score: int = Field(ge=0, le=100, default=0)
 
     # Severity and exploitation
@@ -249,6 +276,17 @@ class Vulnerability(BaseModel):
         # Create enhanced title format: Severity, Vendor, Product, Version(s)
         enhanced_title = self._create_enhanced_title()
 
+        ssvc_dict = None
+        if self.ssvc_data:
+            ssvc_dict = {
+                "compactNotation": self.ssvc_data.compact_notation,
+                "priorityTier": self.ssvc_data.priority_tier,
+                "exploitation": self.ssvc_data.exploitation,
+                "automatable": self.ssvc_data.automatable,
+                "technicalImpact": self.ssvc_data.technical_impact,
+                "inferred": self.ssvc_data.inferred,
+            }
+
         return {
             "cveId": self.cve_id,
             "title": enhanced_title,
@@ -257,6 +295,7 @@ class Vulnerability(BaseModel):
             "cvssScore": self.cvss_base_score,
             "epssScore": self.epss_probability,
             "epssPercentile": self.epss_score.percentile if self.epss_score else 0,
+            "ssvc": ssvc_dict,
             "riskScore": self.risk_score,
             "publishedDate": self.published_date.isoformat(),
             "lastModifiedDate": self.last_modified_date.isoformat(),
@@ -272,6 +311,19 @@ class Vulnerability(BaseModel):
 
     def to_detail_dict(self) -> Dict[str, Any]:
         """Convert to detailed dictionary for API."""
+        ssvc_dict = None
+        if self.ssvc_data:
+            ssvc_dict = {
+                "exploitation": self.ssvc_data.exploitation,
+                "automatable": self.ssvc_data.automatable,
+                "technicalImpact": self.ssvc_data.technical_impact,
+                "priorityTier": self.ssvc_data.priority_tier,
+                "compactNotation": self.ssvc_data.compact_notation,
+                "ssvcScore": self.ssvc_data.ssvc_score,
+                "inferred": self.ssvc_data.inferred,
+                "confidence": self.ssvc_data.confidence,
+            }
+
         return {
             "cveId": self.cve_id,
             "title": self.title,
@@ -296,6 +348,7 @@ class Vulnerability(BaseModel):
                 if self.epss_score
                 else None
             ),
+            "ssvc": ssvc_dict,
             "riskScore": self.risk_score,
             "exploitationStatus": self.exploitation_status.value,
             "affectedSystems": {
