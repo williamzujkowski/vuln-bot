@@ -30,18 +30,14 @@ class TestSSVCFallbackEngine:
 
     def test_exploitation_kev_active(self, engine):
         """Test exploitation = active when in CISA KEV catalog"""
-        cve_data = {
-            "cveMetadata": {"cveId": "CVE-2024-0001"}
-        }
+        cve_data = {"cveMetadata": {"cveId": "CVE-2024-0001"}}
 
         result = engine._infer_exploitation(cve_data, has_kev=True, epss_score=None)
         assert result == "active"
 
     def test_exploitation_epss_95_active(self, engine):
         """Test exploitation = active when EPSS >= 95%"""
-        cve_data = {
-            "cveMetadata": {"cveId": "CVE-2024-0002"}
-        }
+        cve_data = {"cveMetadata": {"cveId": "CVE-2024-0002"}}
 
         result = engine._infer_exploitation(cve_data, has_kev=False, epss_score=95.0)
         assert result == "active"
@@ -58,11 +54,11 @@ class TestSSVCFallbackEngine:
                     "references": [
                         {
                             "url": "https://github.com/attacker/exploit-poc",
-                            "tags": ["exploit"]
+                            "tags": ["exploit"],
                         }
                     ]
                 }
-            }
+            },
         }
 
         result = engine._infer_exploitation(cve_data, has_kev=False, epss_score=None)
@@ -70,9 +66,7 @@ class TestSSVCFallbackEngine:
 
     def test_exploitation_epss_70_poc(self, engine):
         """Test exploitation = poc when EPSS 70-95%"""
-        cve_data = {
-            "cveMetadata": {"cveId": "CVE-2024-0004"}
-        }
+        cve_data = {"cveMetadata": {"cveId": "CVE-2024-0004"}}
 
         result = engine._infer_exploitation(cve_data, has_kev=False, epss_score=70.0)
         assert result == "poc"
@@ -85,9 +79,7 @@ class TestSSVCFallbackEngine:
 
     def test_exploitation_none_default(self, engine):
         """Test exploitation = none when no indicators"""
-        cve_data = {
-            "cveMetadata": {"cveId": "CVE-2024-0005"}
-        }
+        cve_data = {"cveMetadata": {"cveId": "CVE-2024-0005"}}
 
         result = engine._infer_exploitation(cve_data, has_kev=False, epss_score=None)
         assert result == "none"
@@ -196,9 +188,7 @@ class TestSSVCFallbackEngine:
 
     def test_automatable_no_missing_cvss(self, engine):
         """Test automatable = no when CVSS data missing"""
-        cve_data = {
-            "cveMetadata": {"cveId": "CVE-2024-0006"}
-        }
+        cve_data = {"cveMetadata": {"cveId": "CVE-2024-0006"}}
 
         result = engine._infer_automatable(cve_data)
         assert result == "no"
@@ -266,9 +256,7 @@ class TestSSVCFallbackEngine:
 
     def test_technical_impact_partial_missing_cvss(self, engine):
         """Test technical_impact = partial when CVSS data missing"""
-        cve_data = {
-            "cveMetadata": {"cveId": "CVE-2024-0007"}
-        }
+        cve_data = {"cveMetadata": {"cveId": "CVE-2024-0007"}}
 
         result = engine._infer_technical_impact(cve_data)
         assert result == "partial"
@@ -285,7 +273,7 @@ class TestSSVCFallbackEngine:
                     "references": [
                         {
                             "url": "https://example.com/vuln-info",
-                            "tags": ["exploit", "technical-description"]
+                            "tags": ["exploit", "technical-description"],
                         }
                     ]
                 }
@@ -303,7 +291,7 @@ class TestSSVCFallbackEngine:
                     "references": [
                         {
                             "url": "https://github.com/attacker/exploit-poc-2024",
-                            "tags": []
+                            "tags": [],
                         }
                     ]
                 }
@@ -319,10 +307,7 @@ class TestSSVCFallbackEngine:
             "containers": {
                 "cna": {
                     "references": [
-                        {
-                            "url": "https://www.exploit-db.com/exploits/12345",
-                            "tags": []
-                        }
+                        {"url": "https://www.exploit-db.com/exploits/12345", "tags": []}
                     ]
                 }
             }
@@ -339,7 +324,7 @@ class TestSSVCFallbackEngine:
                     "references": [
                         {
                             "url": "https://www.rapid7.com/db/modules/exploit/metasploit/vuln",
-                            "tags": []
+                            "tags": [],
                         }
                     ]
                 }
@@ -357,7 +342,7 @@ class TestSSVCFallbackEngine:
                     "references": [
                         {
                             "url": "https://github.com/vendor/security-advisory",
-                            "tags": ["vendor-advisory"]
+                            "tags": ["vendor-advisory"],
                         }
                     ]
                 }
@@ -375,7 +360,7 @@ class TestSSVCFallbackEngine:
                     "references": [
                         {
                             "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-0001",
-                            "tags": ["technical-description"]
+                            "tags": ["technical-description"],
                         }
                     ]
                 }
@@ -389,10 +374,7 @@ class TestSSVCFallbackEngine:
         """Test PoC detection with enriched vulnerability format"""
         cve_data = {
             "references": [
-                {
-                    "url": "https://github.com/exploit/poc",
-                    "tags": ["exploit"]
-                }
+                {"url": "https://github.com/exploit/poc", "tags": ["exploit"]}
             ]
         }
 
@@ -445,9 +427,7 @@ class TestSSVCFallbackEngine:
         """Test CVSS vector extraction from enriched format"""
         cve_data = {
             "cvss_metrics": [
-                {
-                    "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H"
-                }
+                {"vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H"}
             ]
         }
 
@@ -456,18 +436,14 @@ class TestSSVCFallbackEngine:
 
     def test_get_cvss_vector_direct_field(self, engine):
         """Test CVSS vector extraction from direct field"""
-        cve_data = {
-            "cvssVector": "CVSS:3.1/AV:A/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H"
-        }
+        cve_data = {"cvssVector": "CVSS:3.1/AV:A/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H"}
 
         result = engine._get_cvss_vector(cve_data)
         assert result == "CVSS:3.1/AV:A/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H"
 
     def test_get_cvss_vector_missing(self, engine):
         """Test CVSS vector extraction when missing"""
-        cve_data = {
-            "cveMetadata": {"cveId": "CVE-2024-0008"}
-        }
+        cve_data = {"cveMetadata": {"cveId": "CVE-2024-0008"}}
 
         result = engine._get_cvss_vector(cve_data)
         assert result is None
@@ -490,7 +466,7 @@ class TestSSVCFallbackEngine:
             "S": "C",
             "C": "H",
             "I": "H",
-            "A": "H"
+            "A": "H",
         }
 
     def test_parse_cvss_vector_v3_0(self, engine):
@@ -525,7 +501,7 @@ class TestSSVCFallbackEngine:
                 "cna": {
                     "references": [
                         {"url": "https://example.com/1", "tags": ["vendor-advisory"]},
-                        {"url": "https://example.com/2", "tags": ["exploit"]}
+                        {"url": "https://example.com/2", "tags": ["exploit"]},
                     ]
                 }
             }
@@ -552,9 +528,7 @@ class TestSSVCFallbackEngine:
 
     def test_get_references_empty(self, engine):
         """Test reference extraction when empty"""
-        cve_data = {
-            "cveMetadata": {"cveId": "CVE-2024-0009"}
-        }
+        cve_data = {"cveMetadata": {"cveId": "CVE-2024-0009"}}
 
         result = engine._get_references(cve_data)
 
@@ -566,27 +540,21 @@ class TestSSVCFallbackEngine:
 
     def test_get_cve_id_metadata_format(self, engine):
         """Test CVE ID extraction from cveMetadata"""
-        cve_data = {
-            "cveMetadata": {"cveId": "CVE-2024-0001"}
-        }
+        cve_data = {"cveMetadata": {"cveId": "CVE-2024-0001"}}
 
         result = engine._get_cve_id(cve_data)
         assert result == "CVE-2024-0001"
 
     def test_get_cve_id_enriched_format(self, engine):
         """Test CVE ID extraction from enriched format"""
-        cve_data = {
-            "cve_id": "CVE-2024-0002"
-        }
+        cve_data = {"cve_id": "CVE-2024-0002"}
 
         result = engine._get_cve_id(cve_data)
         assert result == "CVE-2024-0002"
 
     def test_get_cve_id_alternate_field(self, engine):
         """Test CVE ID extraction from alternate field"""
-        cve_data = {
-            "cveId": "CVE-2024-0003"
-        }
+        cve_data = {"cveId": "CVE-2024-0003"}
 
         result = engine._get_cve_id(cve_data)
         assert result == "CVE-2024-0003"
@@ -607,7 +575,7 @@ class TestSSVCFallbackEngine:
         ssvc_data = {
             "exploitation": "active",
             "automatable": "yes",
-            "technical_impact": "total"
+            "technical_impact": "total",
         }
 
         result = engine.calculate_confidence_score(
@@ -621,7 +589,7 @@ class TestSSVCFallbackEngine:
         ssvc_data = {
             "exploitation": "active",
             "automatable": "yes",
-            "technical_impact": "total"
+            "technical_impact": "total",
         }
 
         result = engine.calculate_confidence_score(
@@ -635,7 +603,7 @@ class TestSSVCFallbackEngine:
         ssvc_data = {
             "exploitation": "poc",
             "automatable": "no",
-            "technical_impact": "partial"
+            "technical_impact": "partial",
         }
 
         result = engine.calculate_confidence_score(
@@ -649,7 +617,7 @@ class TestSSVCFallbackEngine:
         ssvc_data = {
             "exploitation": "none",
             "automatable": "no",
-            "technical_impact": "partial"
+            "technical_impact": "partial",
         }
 
         result = engine.calculate_confidence_score(
@@ -673,7 +641,7 @@ class TestSSVCFallbackEngine:
         ssvc_data = {
             "exploitation": "active",
             "automatable": "yes",
-            "technical_impact": "total"
+            "technical_impact": "total",
         }
 
         result = engine.calculate_confidence_score(
@@ -702,11 +670,11 @@ class TestSSVCFallbackEngine:
                     "references": [
                         {
                             "url": "https://github.com/attacker/exploit",
-                            "tags": ["exploit"]
+                            "tags": ["exploit"],
                         }
-                    ]
+                    ],
                 }
-            }
+            },
         }
 
         result = engine.infer_ssvc(cve_data, has_kev=True, epss_score=95.0)
@@ -732,11 +700,11 @@ class TestSSVCFallbackEngine:
                     "references": [
                         {
                             "url": "https://vendor.com/security-advisory",
-                            "tags": ["vendor-advisory"]
+                            "tags": ["vendor-advisory"],
                         }
-                    ]
+                    ],
                 }
-            }
+            },
         }
 
         result = engine.infer_ssvc(cve_data, has_kev=False, epss_score=5.0)
@@ -762,9 +730,7 @@ class TestSSVCFallbackEngine:
 
     def test_infer_ssvc_minimal_data(self, engine):
         """Test SSVC inference with minimal CVE data"""
-        cve_data = {
-            "cveMetadata": {"cveId": "CVE-2024-7777"}
-        }
+        cve_data = {"cveMetadata": {"cveId": "CVE-2024-7777"}}
 
         result = engine.infer_ssvc(cve_data, has_kev=False, epss_score=None)
 
@@ -831,15 +797,7 @@ class TestSSVCFallbackEngine:
         for vector in test_cases:
             cve_data = {
                 "containers": {
-                    "cna": {
-                        "metrics": [
-                            {
-                                "cvssV3_1": {
-                                    "vectorString": vector
-                                }
-                            }
-                        ]
-                    }
+                    "cna": {"metrics": [{"cvssV3_1": {"vectorString": vector}}]}
                 }
             }
 
@@ -854,7 +812,7 @@ class TestSSVCFallbackEngine:
                     "references": [
                         {
                             "url": "https://GITHUB.COM/attacker/EXPLOIT-PoC",
-                            "tags": ["EXPLOIT"]
+                            "tags": ["EXPLOIT"],
                         }
                     ]
                 }
@@ -879,7 +837,7 @@ class TestSSVCFallbackEngine:
                             "cvssV3_0": {
                                 "vectorString": "CVSS:3.0/AV:L/AC:H/PR:H/UI:R/S:U/C:L/I:N/A:N"
                             }
-                        }
+                        },
                     ]
                 }
             }
@@ -906,7 +864,7 @@ class TestSSVCFallbackEngine:
                     "references": [
                         {
                             "url": "https://github.com/vendor/security-patch-advisory",
-                            "tags": []
+                            "tags": [],
                         }
                     ]
                 }
@@ -918,6 +876,7 @@ class TestSSVCFallbackEngine:
 
     def test_get_references_with_object_format(self, engine):
         """Test reference extraction with object format (hasattr checks)"""
+
         # Create mock reference objects with attributes
         class MockReference:
             def __init__(self, url, tags):
@@ -926,12 +885,10 @@ class TestSSVCFallbackEngine:
 
         mock_refs = [
             MockReference("https://example.com/ref1", ["vendor-advisory"]),
-            MockReference("https://example.com/ref2", ["exploit"])
+            MockReference("https://example.com/ref2", ["exploit"]),
         ]
 
-        cve_data = {
-            "references": mock_refs
-        }
+        cve_data = {"references": mock_refs}
 
         result = engine._get_references(cve_data)
 
@@ -941,15 +898,14 @@ class TestSSVCFallbackEngine:
 
     def test_get_references_with_object_without_tags(self, engine):
         """Test reference extraction with object missing tags attribute"""
+
         class MockReference:
             def __init__(self, url):
                 self.url = url
 
         mock_ref = MockReference("https://example.com/ref")
 
-        cve_data = {
-            "references": [mock_ref]
-        }
+        cve_data = {"references": [mock_ref]}
 
         result = engine._get_references(cve_data)
 
@@ -972,7 +928,7 @@ class TestSSVCFallbackEngine:
         ssvc_data = {
             "exploitation": "poc",
             "automatable": "yes",
-            "technical_impact": "total"
+            "technical_impact": "total",
         }
 
         # Test with both EPSS and CVSS data

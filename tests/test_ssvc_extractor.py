@@ -32,15 +32,13 @@ class TestSSVCExtractor:
     def cve_with_cisa_adp(self):
         """CVE data with valid CISA-ADP container."""
         return {
-            "cveMetadata": {
-                "cveId": "CVE-2025-1001"
-            },
+            "cveMetadata": {"cveId": "CVE-2025-1001"},
             "containers": {
                 "adp": [
                     {
                         "providerMetadata": {
                             "shortName": "CISA-ADP",
-                            "orgId": "cisa-org"
+                            "orgId": "cisa-org",
                         },
                         "metrics": [
                             {
@@ -50,46 +48,39 @@ class TestSSVCExtractor:
                                         "options": [
                                             {"Exploitation": "active"},
                                             {"Automatable": "yes"},
-                                            {"Technical Impact": "total"}
+                                            {"Technical Impact": "total"},
                                         ]
-                                    }
+                                    },
                                 }
                             }
-                        ]
+                        ],
                     }
                 ]
-            }
+            },
         }
 
     @pytest.fixture
     def cve_without_cisa_adp(self):
         """CVE data without CISA-ADP container."""
         return {
-            "cveMetadata": {
-                "cveId": "CVE-2025-1002"
-            },
+            "cveMetadata": {"cveId": "CVE-2025-1002"},
             "containers": {
                 "adp": [
                     {
                         "providerMetadata": {
                             "shortName": "OTHER-ADP",
-                            "orgId": "other-org"
+                            "orgId": "other-org",
                         },
-                        "metrics": []
+                        "metrics": [],
                     }
                 ]
-            }
+            },
         }
 
     @pytest.fixture
     def cve_no_adp_containers(self):
         """CVE data with no ADP containers."""
-        return {
-            "cveMetadata": {
-                "cveId": "CVE-2025-1003"
-            },
-            "containers": {}
-        }
+        return {"cveMetadata": {"cveId": "CVE-2025-1003"}, "containers": {}}
 
     def test_find_cisa_adp_valid(self, extractor, cve_with_cisa_adp):
         """Test finding valid CISA-ADP container."""
@@ -109,11 +100,7 @@ class TestSSVCExtractor:
 
     def test_find_cisa_adp_empty_adp_list(self, extractor):
         """Test when ADP list is empty."""
-        cve_data = {
-            "containers": {
-                "adp": []
-            }
-        }
+        cve_data = {"containers": {"adp": []}}
         cisa_adp = extractor._find_cisa_adp(cve_data)
         assert cisa_adp is None
 
@@ -134,12 +121,12 @@ class TestSSVCExtractor:
                             "options": [
                                 {"Exploitation": "active"},
                                 {"Automatable": "yes"},
-                                {"Technical Impact": "total"}
+                                {"Technical Impact": "total"},
                             ]
-                        }
+                        },
                     }
                 }
-            ]
+            ],
         }
 
     @pytest.fixture
@@ -151,14 +138,10 @@ class TestSSVCExtractor:
                 {
                     "other": {
                         "type": "ssvc",
-                        "content": {
-                            "options": [
-                                {"Exploitation": "poc"}
-                            ]
-                        }
+                        "content": {"options": [{"Exploitation": "poc"}]},
                     }
                 }
-            ]
+            ],
         }
 
     @pytest.fixture
@@ -166,16 +149,7 @@ class TestSSVCExtractor:
         """CISA-ADP without SSVC metrics."""
         return {
             "providerMetadata": {"shortName": "CISA-ADP"},
-            "metrics": [
-                {
-                    "other": {
-                        "type": "cvss",
-                        "content": {
-                            "baseScore": 9.8
-                        }
-                    }
-                }
-            ]
+            "metrics": [{"other": {"type": "cvss", "content": {"baseScore": 9.8}}}],
         }
 
     def test_extract_ssvc_all_metrics(self, extractor, cisa_adp_all_metrics):
@@ -201,10 +175,7 @@ class TestSSVCExtractor:
 
     def test_extract_ssvc_empty_metrics(self, extractor):
         """Test when metrics array is empty."""
-        cisa_adp = {
-            "providerMetadata": {"shortName": "CISA-ADP"},
-            "metrics": []
-        }
+        cisa_adp = {"providerMetadata": {"shortName": "CISA-ADP"}, "metrics": []}
         ssvc_data = extractor._extract_ssvc_from_adp(cisa_adp)
         assert ssvc_data is None
 
@@ -219,9 +190,9 @@ class TestSSVCExtractor:
                             "options": [
                                 {"Exploitation": "ACTIVE"},
                                 {"Automatable": "YES"},
-                                {"Technical Impact": "TOTAL"}
+                                {"Technical Impact": "TOTAL"},
                             ]
-                        }
+                        },
                     }
                 }
             ]
@@ -243,9 +214,9 @@ class TestSSVCExtractor:
                             "options": [
                                 {"Exploitation": "invalid"},
                                 {"Automatable": "maybe"},
-                                {"Technical Impact": "unknown"}
+                                {"Technical Impact": "unknown"},
                             ]
-                        }
+                        },
                     }
                 }
             ]
@@ -266,7 +237,7 @@ class TestSSVCExtractor:
         ssvc_data = {
             "exploitation": "active",
             "automatable": "yes",
-            "technical_impact": "total"
+            "technical_impact": "total",
         }
         tier = extractor.calculate_priority_tier(ssvc_data)
         assert tier == "ACT"
@@ -276,7 +247,7 @@ class TestSSVCExtractor:
         ssvc_data = {
             "exploitation": "active",
             "automatable": "no",
-            "technical_impact": "partial"
+            "technical_impact": "partial",
         }
         tier = extractor.calculate_priority_tier(ssvc_data)
         assert tier == "ATTEND"
@@ -286,7 +257,7 @@ class TestSSVCExtractor:
         ssvc_data = {
             "exploitation": "active",
             "automatable": "no",
-            "technical_impact": "total"
+            "technical_impact": "total",
         }
         tier = extractor.calculate_priority_tier(ssvc_data)
         assert tier == "ATTEND"
@@ -296,7 +267,7 @@ class TestSSVCExtractor:
         ssvc_data = {
             "exploitation": "poc",
             "automatable": "yes",
-            "technical_impact": "partial"
+            "technical_impact": "partial",
         }
         tier = extractor.calculate_priority_tier(ssvc_data)
         assert tier == "ATTEND"
@@ -306,7 +277,7 @@ class TestSSVCExtractor:
         ssvc_data = {
             "exploitation": "poc",
             "automatable": "no",
-            "technical_impact": "total"
+            "technical_impact": "total",
         }
         tier = extractor.calculate_priority_tier(ssvc_data)
         assert tier == "TRACK"
@@ -316,7 +287,7 @@ class TestSSVCExtractor:
         ssvc_data = {
             "exploitation": "none",
             "automatable": "yes",
-            "technical_impact": "total"
+            "technical_impact": "total",
         }
         tier = extractor.calculate_priority_tier(ssvc_data)
         assert tier == "TRACK"
@@ -326,7 +297,7 @@ class TestSSVCExtractor:
         ssvc_data = {
             "exploitation": "none",
             "automatable": "no",
-            "technical_impact": "partial"
+            "technical_impact": "partial",
         }
         tier = extractor.calculate_priority_tier(ssvc_data)
         assert tier == "TRACK"
@@ -346,7 +317,7 @@ class TestSSVCExtractor:
         ssvc_data = {
             "exploitation": "active",
             "automatable": "yes",
-            "technical_impact": "total"
+            "technical_impact": "total",
         }
         notation = extractor.get_compact_notation(ssvc_data)
         assert notation == "A/Y/T"
@@ -356,7 +327,7 @@ class TestSSVCExtractor:
         ssvc_data = {
             "exploitation": "active",
             "automatable": "no",
-            "technical_impact": "partial"
+            "technical_impact": "partial",
         }
         notation = extractor.get_compact_notation(ssvc_data)
         assert notation == "A/N/P"
@@ -366,7 +337,7 @@ class TestSSVCExtractor:
         ssvc_data = {
             "exploitation": "poc",
             "automatable": "yes",
-            "technical_impact": "total"
+            "technical_impact": "total",
         }
         notation = extractor.get_compact_notation(ssvc_data)
         assert notation == "P/Y/T"
@@ -376,7 +347,7 @@ class TestSSVCExtractor:
         ssvc_data = {
             "exploitation": "none",
             "automatable": "no",
-            "technical_impact": "partial"
+            "technical_impact": "partial",
         }
         notation = extractor.get_compact_notation(ssvc_data)
         assert notation == "N/N/P"
@@ -386,7 +357,7 @@ class TestSSVCExtractor:
         ssvc_data = {
             "exploitation": "unknown",
             "automatable": "unknown",
-            "technical_impact": "unknown"
+            "technical_impact": "unknown",
         }
         notation = extractor.get_compact_notation(ssvc_data)
         assert notation == "?/?/?"
@@ -406,7 +377,7 @@ class TestSSVCExtractor:
         ssvc_data = {
             "exploitation": "active",
             "automatable": "yes",
-            "technical_impact": "total"
+            "technical_impact": "total",
         }
         score = extractor.get_ssvc_score(ssvc_data)
         assert score == 60  # 30 + 15 + 15
@@ -416,7 +387,7 @@ class TestSSVCExtractor:
         ssvc_data = {
             "exploitation": "active",
             "automatable": "no",
-            "technical_impact": "partial"
+            "technical_impact": "partial",
         }
         score = extractor.get_ssvc_score(ssvc_data)
         assert score == 37  # 30 + 0 + 7.5 = 37.5 -> 37
@@ -426,7 +397,7 @@ class TestSSVCExtractor:
         ssvc_data = {
             "exploitation": "poc",
             "automatable": "yes",
-            "technical_impact": "partial"
+            "technical_impact": "partial",
         }
         score = extractor.get_ssvc_score(ssvc_data)
         assert score == 42  # 20 + 15 + 7.5 = 42.5 -> 42
@@ -436,7 +407,7 @@ class TestSSVCExtractor:
         ssvc_data = {
             "exploitation": "poc",
             "automatable": "no",
-            "technical_impact": "total"
+            "technical_impact": "total",
         }
         score = extractor.get_ssvc_score(ssvc_data)
         assert score == 35  # 20 + 0 + 15
@@ -446,7 +417,7 @@ class TestSSVCExtractor:
         ssvc_data = {
             "exploitation": "none",
             "automatable": "no",
-            "technical_impact": "partial"
+            "technical_impact": "partial",
         }
         score = extractor.get_ssvc_score(ssvc_data)
         assert score == 7  # 0 + 0 + 7.5 = 7.5 -> 7
@@ -461,23 +432,109 @@ class TestSSVCExtractor:
         """Test SSVC scores for all valid combinations."""
         # All 12 valid combinations (3 * 2 * 2)
         test_cases = [
-            ({"exploitation": "active", "automatable": "yes", "technical_impact": "total"}, 60),
-            ({"exploitation": "active", "automatable": "yes", "technical_impact": "partial"}, 52),
-            ({"exploitation": "active", "automatable": "no", "technical_impact": "total"}, 45),
-            ({"exploitation": "active", "automatable": "no", "technical_impact": "partial"}, 37),
-            ({"exploitation": "poc", "automatable": "yes", "technical_impact": "total"}, 50),
-            ({"exploitation": "poc", "automatable": "yes", "technical_impact": "partial"}, 42),
-            ({"exploitation": "poc", "automatable": "no", "technical_impact": "total"}, 35),
-            ({"exploitation": "poc", "automatable": "no", "technical_impact": "partial"}, 27),
-            ({"exploitation": "none", "automatable": "yes", "technical_impact": "total"}, 30),
-            ({"exploitation": "none", "automatable": "yes", "technical_impact": "partial"}, 22),
-            ({"exploitation": "none", "automatable": "no", "technical_impact": "total"}, 15),
-            ({"exploitation": "none", "automatable": "no", "technical_impact": "partial"}, 7),
+            (
+                {
+                    "exploitation": "active",
+                    "automatable": "yes",
+                    "technical_impact": "total",
+                },
+                60,
+            ),
+            (
+                {
+                    "exploitation": "active",
+                    "automatable": "yes",
+                    "technical_impact": "partial",
+                },
+                52,
+            ),
+            (
+                {
+                    "exploitation": "active",
+                    "automatable": "no",
+                    "technical_impact": "total",
+                },
+                45,
+            ),
+            (
+                {
+                    "exploitation": "active",
+                    "automatable": "no",
+                    "technical_impact": "partial",
+                },
+                37,
+            ),
+            (
+                {
+                    "exploitation": "poc",
+                    "automatable": "yes",
+                    "technical_impact": "total",
+                },
+                50,
+            ),
+            (
+                {
+                    "exploitation": "poc",
+                    "automatable": "yes",
+                    "technical_impact": "partial",
+                },
+                42,
+            ),
+            (
+                {
+                    "exploitation": "poc",
+                    "automatable": "no",
+                    "technical_impact": "total",
+                },
+                35,
+            ),
+            (
+                {
+                    "exploitation": "poc",
+                    "automatable": "no",
+                    "technical_impact": "partial",
+                },
+                27,
+            ),
+            (
+                {
+                    "exploitation": "none",
+                    "automatable": "yes",
+                    "technical_impact": "total",
+                },
+                30,
+            ),
+            (
+                {
+                    "exploitation": "none",
+                    "automatable": "yes",
+                    "technical_impact": "partial",
+                },
+                22,
+            ),
+            (
+                {
+                    "exploitation": "none",
+                    "automatable": "no",
+                    "technical_impact": "total",
+                },
+                15,
+            ),
+            (
+                {
+                    "exploitation": "none",
+                    "automatable": "no",
+                    "technical_impact": "partial",
+                },
+                7,
+            ),
         ]
 
         for ssvc_data, expected_score in test_cases:
             score = extractor.get_ssvc_score(ssvc_data)
-            assert score == expected_score, f"Failed for {ssvc_data}: expected {expected_score}, got {score}"
+            assert (
+                score == expected_score
+            ), f"Failed for {ssvc_data}: expected {expected_score}, got {score}"
 
     # ============================================================
     # Test Human-Readable Explanations
@@ -488,7 +545,7 @@ class TestSSVCExtractor:
         ssvc_data = {
             "exploitation": "active",
             "automatable": "yes",
-            "technical_impact": "total"
+            "technical_impact": "total",
         }
         explanation = extractor.get_explanation(ssvc_data)
         assert "Active exploitation detected in the wild" in explanation
@@ -501,7 +558,7 @@ class TestSSVCExtractor:
         ssvc_data = {
             "exploitation": "active",
             "automatable": "no",
-            "technical_impact": "partial"
+            "technical_impact": "partial",
         }
         explanation = extractor.get_explanation(ssvc_data)
         assert "Active exploitation detected in the wild" in explanation
@@ -514,7 +571,7 @@ class TestSSVCExtractor:
         ssvc_data = {
             "exploitation": "poc",
             "automatable": "yes",
-            "technical_impact": "partial"
+            "technical_impact": "partial",
         }
         explanation = extractor.get_explanation(ssvc_data)
         assert "Proof-of-concept exploit code is publicly available" in explanation
@@ -526,7 +583,7 @@ class TestSSVCExtractor:
         ssvc_data = {
             "exploitation": "none",
             "automatable": "no",
-            "technical_impact": "partial"
+            "technical_impact": "partial",
         }
         explanation = extractor.get_explanation(ssvc_data)
         assert "No known exploitation activity" in explanation
@@ -558,7 +615,9 @@ class TestSSVCExtractor:
         ssvc_data = extractor.extract_from_cve_data(cve_without_cisa_adp)
         assert ssvc_data is None
 
-    def test_extract_from_cve_data_no_containers(self, extractor, cve_no_adp_containers):
+    def test_extract_from_cve_data_no_containers(
+        self, extractor, cve_no_adp_containers
+    ):
         """Test extraction when no containers present."""
         ssvc_data = extractor.extract_from_cve_data(cve_no_adp_containers)
         assert ssvc_data is None
@@ -567,7 +626,7 @@ class TestSSVCExtractor:
         """Test extraction with malformed CVE data."""
         cve_data = {
             "cveMetadata": {"cveId": "CVE-2025-9999"},
-            "containers": "not_a_dict"  # Invalid structure
+            "containers": "not_a_dict",  # Invalid structure
         }
         ssvc_data = extractor.extract_from_cve_data(cve_data)
         assert ssvc_data is None
@@ -588,27 +647,20 @@ class TestSSVCExtractor:
             "cveMetadata": {"cveId": "CVE-2025-1004"},
             "containers": {
                 "adp": [
-                    {
-                        "providerMetadata": {"shortName": "OTHER-ADP"},
-                        "metrics": []
-                    },
+                    {"providerMetadata": {"shortName": "OTHER-ADP"}, "metrics": []},
                     {
                         "providerMetadata": {"shortName": "CISA-ADP"},
                         "metrics": [
                             {
                                 "other": {
                                     "type": "ssvc",
-                                    "content": {
-                                        "options": [
-                                            {"Exploitation": "poc"}
-                                        ]
-                                    }
+                                    "content": {"options": [{"Exploitation": "poc"}]},
                                 }
                             }
-                        ]
-                    }
+                        ],
+                    },
                 ]
-            }
+            },
         }
         ssvc_data = extractor.extract_from_cve_data(cve_data)
         assert ssvc_data is not None
@@ -621,23 +673,15 @@ class TestSSVCExtractor:
                 {
                     "other": {
                         "type": "ssvc",
-                        "content": {
-                            "options": [
-                                {"Exploitation": "active"}
-                            ]
-                        }
+                        "content": {"options": [{"Exploitation": "active"}]},
                     }
                 },
                 {
                     "other": {
                         "type": "ssvc",
-                        "content": {
-                            "options": [
-                                {"Automatable": "yes"}
-                            ]
-                        }
+                        "content": {"options": [{"Automatable": "yes"}]},
                     }
-                }
+                },
             ]
         }
         # Should extract from first SSVC metric found
@@ -649,28 +693,14 @@ class TestSSVCExtractor:
         """Test extraction with mixed metric types."""
         cisa_adp = {
             "metrics": [
-                {
-                    "other": {
-                        "type": "cvss",
-                        "content": {"baseScore": 9.8}
-                    }
-                },
+                {"other": {"type": "cvss", "content": {"baseScore": 9.8}}},
                 {
                     "other": {
                         "type": "ssvc",
-                        "content": {
-                            "options": [
-                                {"Exploitation": "active"}
-                            ]
-                        }
+                        "content": {"options": [{"Exploitation": "active"}]},
                     }
                 },
-                {
-                    "other": {
-                        "type": "epss",
-                        "content": {"score": 0.95}
-                    }
-                }
+                {"other": {"type": "epss", "content": {"score": 0.95}}},
             ]
         }
         ssvc_data = extractor._extract_ssvc_from_adp(cisa_adp)
@@ -691,9 +721,9 @@ class TestSSVCExtractor:
                         "content": {
                             "options": [
                                 {"Exploitation": "active"},
-                                {"Automatable": "yes"}
+                                {"Automatable": "yes"},
                             ]
-                        }
+                        },
                     }
                 }
             ]
@@ -723,15 +753,15 @@ class TestSSVCExtractor:
                                         "options": [
                                             {"Exploitation": "active"},
                                             {"Automatable": "yes"},
-                                            {"Technical Impact": "total"}
+                                            {"Technical Impact": "total"},
                                         ]
-                                    }
+                                    },
                                 }
                             }
-                        ]
+                        ],
                     }
                 ]
-            }
+            },
         }
 
         # Extract SSVC data
@@ -770,15 +800,15 @@ class TestSSVCExtractor:
                                         "options": [
                                             {"Exploitation": "poc"},
                                             {"Automatable": "no"},
-                                            {"Technical Impact": "partial"}
+                                            {"Technical Impact": "partial"},
                                         ]
-                                    }
+                                    },
                                 }
                             }
-                        ]
+                        ],
                     }
                 ]
-            }
+            },
         }
 
         ssvc_data = extractor.extract_from_cve_data(cve_data)
