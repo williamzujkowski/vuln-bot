@@ -1,7 +1,14 @@
 name: Deploy to GitHub Pages
 
 on:
-  # Manual trigger only - automated deployment happens in scheduled-harvest.yml
+  # Trigger on push to main (when public directory is updated)
+  push:
+    branches:
+      - main
+    paths:
+      - 'public/**'
+      - 'scripts/generate_alpine_dashboard.py'
+  # Also allow manual trigger
   workflow_dispatch:
 
 permissions:
