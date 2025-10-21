@@ -7,7 +7,6 @@ from pathlib import Path
 from typing import Any, Dict, Generator, List, Optional
 
 import structlog
-from scripts.utils.time_client import get_authoritative_now
 from sqlalchemy import (
     Column,
     DateTime,
@@ -22,6 +21,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import Session, sessionmaker
 
 from scripts.models import Vulnerability, VulnerabilityBatch
+from scripts.utils.time_client import get_authoritative_now
 
 Base = declarative_base()
 
