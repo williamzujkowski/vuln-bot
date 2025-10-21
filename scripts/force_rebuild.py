@@ -21,7 +21,7 @@ logger = structlog.get_logger()
 @click.option(
     "--expected-count",
     type=int,
-    default=60,
+    default=295,
     help="Expected number of CVEs (for validation)",
 )
 @click.option("--min-epss", type=float, default=0.6, help="Minimum EPSS threshold")

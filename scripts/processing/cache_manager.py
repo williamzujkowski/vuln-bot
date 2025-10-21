@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Any, Dict, Generator, List, Optional
 
 import structlog
+from scripts.utils.time_client import get_authoritative_now
 from sqlalchemy import (
     Column,
     DateTime,
@@ -41,7 +42,7 @@ class VulnerabilityCache(Base):
     cached_at = Column(
         DateTime,
         nullable=False,
-        default=lambda: datetime.now(timezone.utc).replace(tzinfo=None),
+        default=lambda: get_authoritative_now().replace(tzinfo=None),
     )
     expires_at = Column(DateTime, nullable=False, index=True)
 
@@ -60,7 +61,7 @@ class HarvestMetadata(Base):
     created_at = Column(
         DateTime,
         nullable=False,
-        default=lambda: datetime.now(timezone.utc).replace(tzinfo=None),
+        default=lambda: get_authoritative_now().replace(tzinfo=None),
     )
 
 
@@ -162,7 +163,7 @@ class CacheManager:
         """
         with self.get_session() as session:
             # Calculate expiration (use naive datetime for SQLite)
-            expires_at = datetime.now(timezone.utc).replace(tzinfo=None) + timedelta(
+            expires_at = get_authoritative_now().replace(tzinfo=None) + timedelta(
                 days=self.ttl_days
             )
 
@@ -187,7 +188,7 @@ class CacheManager:
                 existing.last_modified_date = self._to_naive_datetime(
                     vulnerability.last_modified_date
                 )
-                existing.cached_at = datetime.now(timezone.utc).replace(tzinfo=None)
+                existing.cached_at = get_authoritative_now().replace(tzinfo=None)
                 existing.expires_at = expires_at
             else:
                 # Create new record
@@ -220,7 +221,7 @@ class CacheManager:
         # Record harvest metadata
         with self.get_session() as session:
             metadata_entry = HarvestMetadata(
-                harvest_date=datetime.now(timezone.utc).replace(tzinfo=None),
+                harvest_date=get_authoritative_now().replace(tzinfo=None),
                 vulnerability_count=batch.count,
                 sources=json.dumps(batch.metadata.get("sources", [])),
                 extra_metadata=json.dumps(batch.metadata),
@@ -239,7 +240,7 @@ class CacheManager:
         """
         with self.get_session() as session:
             # Use naive datetime for comparison
-            now_naive = datetime.now(timezone.utc).replace(tzinfo=None)
+            now_naive = get_authoritative_now().replace(tzinfo=None)
 
             cache_entry = (
                 session.query(VulnerabilityCache)
@@ -278,7 +279,7 @@ class CacheManager:
         """
         with self.get_session() as session:
             # Use naive datetime for comparison
-            now_naive = datetime.now(timezone.utc).replace(tzinfo=None)
+            now_naive = get_authoritative_now().replace(tzinfo=None)
 
             query = session.query(VulnerabilityCache).filter(
                 VulnerabilityCache.expires_at > now_naive
@@ -323,7 +324,7 @@ class CacheManager:
         """
         with self.get_session() as session:
             # Use naive datetime for comparison
-            now_naive = datetime.now(timezone.utc).replace(tzinfo=None)
+            now_naive = get_authoritative_now().replace(tzinfo=None)
 
             total_entries = session.query(func.count(VulnerabilityCache.id)).scalar()
             valid_entries = (
@@ -382,7 +383,7 @@ class CacheManager:
         """
         with self.get_session() as session:
             # Use naive datetime for comparison
-            now_naive = datetime.now(timezone.utc).replace(tzinfo=None)
+            now_naive = get_authoritative_now().replace(tzinfo=None)
 
             expired_count = (
                 session.query(VulnerabilityCache)

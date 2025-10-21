@@ -40,7 +40,7 @@ class PostDeployValidationAgent(BaseAgent):
     def validate_live_site(
         self,
         live_url: str,
-        expected_cve_count: int = 60,
+        expected_cve_count: int = 295,
         tolerance_percent: int = 20,
         min_epss: float = 60.0,
         screenshot_dir: Optional[Path] = None,

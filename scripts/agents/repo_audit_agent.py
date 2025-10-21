@@ -34,7 +34,7 @@ class RepoAuditAgent(BaseAgent):
         """Execute repository audit."""
         build_dir = kwargs.get("build_dir", Path("_site"))
         valid_cve_ids = kwargs.get("valid_cve_ids", set())
-        expected_count = kwargs.get("expected_count", 60)
+        expected_count = kwargs.get("expected_count", 295)
         return self.audit_build_directory(build_dir, valid_cve_ids, expected_count)
 
     def get_dependencies(self) -> set:
@@ -42,7 +42,7 @@ class RepoAuditAgent(BaseAgent):
         return {"_site", "public", "api/vulns", "src/_posts"}
 
     def audit_build_directory(
-        self, build_dir: Path, valid_cve_ids: Set[str], expected_count: int = 60
+        self, build_dir: Path, valid_cve_ids: Set[str], expected_count: int = 295
     ) -> Dict[str, Any]:
         """
         Comprehensive audit of build directory.

@@ -71,7 +71,7 @@ class BuildDeployAgent(BaseAgent):
             logger.info("Step 1: Running pre-build audit")
             valid_cve_ids = self._get_valid_cve_ids(api_dir, min_epss)
             audit_results = self.audit_agent.audit_build_directory(
-                build_dir, valid_cve_ids, expected_count=60
+                build_dir, valid_cve_ids, expected_count=295
             )
             results["statistics"]["pre_audit"] = {
                 "stale_files": len(audit_results["stale_files"]),
@@ -127,7 +127,7 @@ class BuildDeployAgent(BaseAgent):
             # Step 6: Post-build audit
             logger.info("Step 6: Running post-build audit")
             post_audit_results = self.audit_agent.audit_build_directory(
-                public_dir, valid_cve_ids, expected_count=60
+                public_dir, valid_cve_ids, expected_count=295
             )
             results["statistics"]["post_audit"] = {
                 "total_files": post_audit_results["file_counts"].get(

@@ -39,7 +39,7 @@ class CIGatecheck:
         logger.warning(message, details=details)
 
     def validate_cve_count_threshold(
-        self, api_dir: Path, max_count: int = 1000, expected_count: int = 60
+        self, api_dir: Path, max_count: int = 1000, expected_count: int = 295
     ):
         """
         Critical validation: Ensure CVE count is within reasonable bounds.
@@ -240,9 +240,9 @@ class CIGatecheck:
         self.metrics["data_age_hours"] = file_age_hours
 
         if file_age_hours > max_age_hours:
-            self.add_warning(
-                f"Data appears stale: {file_age_hours:.1f} hours old > {max_age_hours}h",
-                "This might indicate issues with the harvest pipeline",
+            self.add_error(
+                f"CRITICAL: Data is stale: {file_age_hours:.1f} hours old > {max_age_hours}h",
+                "Re-run harvest with --force-refresh or investigate harvest pipeline failures",
             )
 
         console.print(f"✅ Data freshness validated: {file_age_hours:.1f} hours old")

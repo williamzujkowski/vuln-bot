@@ -422,7 +422,7 @@ Run verify_no_stale_files() after build to ensure cleanup effectiveness.
                         )
 
     def force_purge_and_verify(
-        self, build_dir: Path, api_dir: Path, expected_count: int = 60
+        self, build_dir: Path, api_dir: Path, expected_count: int = 295
     ) -> Dict[str, Any]:
         """
         Force purge build directory and verify results.
