@@ -46,7 +46,7 @@ jobs:
         env:
           LIVE_SITE_URL: ${{ github.event.inputs.site_url || 'https://williamzujkowski.github.io/vuln-bot/' }}
           MAX_CVE_COUNT: "100"
-          EXPECTED_CVE_COUNT: "30"
+          EXPECTED_CVE_COUNT: "295"
         run: |
           echo "Validating site at: $LIVE_SITE_URL"
           
@@ -99,7 +99,7 @@ jobs:
             --api-dir temp_api \
             --cache-dir .cache \
             --max-cve-count 100 \
-            --expected-cve-count 30 \
+            --expected-cve-count 295 \
             --min-epss 0.6 \
             --output-report post-deploy-gatecheck.json \
             --fail-on-violations

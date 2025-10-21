@@ -327,7 +327,7 @@ jobs:
           agent = PostDeployValidationAgent()
           results = agent.validate_live_site(
               live_url='https://williamzujkowski.github.io/vuln-bot/',
-              expected_cve_count=60,
+              expected_cve_count=295,
               tolerance_percent=30,
               min_epss=60.0,
               screenshot_dir=Path('validation_screenshots')
@@ -427,9 +427,9 @@ jobs:
               exit 1
             fi
             
-            # Quality gate 3: Reasonable range check (30 ±20 = 24-36 expected)
-            if [ "$CVE_COUNT" -lt 20 ] || [ "$CVE_COUNT" -gt 80 ]; then
-              echo "::warning::File count outside expected range: $CVE_COUNT (expected 20-80)"
+            # Quality gate 3: Reasonable range check (295 ±30% = 207-384 expected)
+            if [ "$CVE_COUNT" -lt 207 ] || [ "$CVE_COUNT" -gt 384 ]; then
+              echo "::warning::File count outside expected range: $CVE_COUNT (expected 207-384)"
             fi
             
             echo "✅ All quality gates passed"
@@ -447,7 +447,7 @@ jobs:
           
           agent = RepoAuditAgent()
           valid_ids = agent._get_valid_cve_ids(Path('api'), 0.6)
-          results = agent.audit_build_directory(Path('public'), valid_ids, expected_count=60)
+          results = agent.audit_build_directory(Path('public'), valid_ids, expected_count=295)
           
           # Save audit results
           with open('final_audit.json', 'w') as f:

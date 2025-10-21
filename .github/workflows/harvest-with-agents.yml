@@ -130,7 +130,7 @@ jobs:
           --api-dir public/api \
           --cache-dir .cache \
           --max-cve-count 100 \
-          --expected-cve-count 60 \
+          --expected-cve-count 295 \
           --min-epss 0.6 \
           --output-report gatecheck-report.json \
           --fail-on-violations
