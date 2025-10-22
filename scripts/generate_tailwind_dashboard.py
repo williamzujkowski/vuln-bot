@@ -395,7 +395,8 @@ def generate_dashboard():
                 <h2 class="text-lg font-semibold text-gray-900 dark:text-white">Vulnerabilities</h2>
             </div>
             
-            <div class="overflow-x-auto scrollbar-thin">
+            <!-- Desktop/Tablet Table View (hidden on mobile) -->
+            <div class="hidden md:block overflow-x-auto scrollbar-thin">
                 <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-800">
                     <thead class="bg-gray-50 dark:bg-gray-800/50">
                         <tr>
@@ -465,7 +466,66 @@ def generate_dashboard():
                     </tbody>
                 </table>
             </div>
-            
+
+            <!-- Mobile Card View (visible only on mobile) -->
+            <div class="md:hidden px-4 py-4 space-y-4">
+                <template x-for="vuln in paginatedVulns" :key="vuln.cve_id">
+                    <div @click="openModal(vuln)" class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:shadow-lg transition-shadow cursor-pointer">
+                        <!-- Header with CVE ID and Severity -->
+                        <div class="flex items-start justify-between mb-3">
+                            <div class="flex-1">
+                                <a :href="'https://cve.mitre.org/cgi-bin/cvename.cgi?name=' + vuln.cve_id"
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                   @click.stop
+                                   class="text-base font-mono font-bold text-primary-600 dark:text-primary-400 hover:underline"
+                                   x-text="vuln.cve_id"></a>
+                            </div>
+                            <span x-text="vuln.severity"
+                                  :class="vuln.severity === 'CRITICAL' ? 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 border border-red-200 dark:border-red-800' : 'bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400 border border-orange-200 dark:border-orange-800'"
+                                  class="ml-3 px-2.5 py-1 rounded-lg text-xs font-bold uppercase tracking-wide whitespace-nowrap"></span>
+                        </div>
+
+                        <!-- Scores Grid -->
+                        <div class="grid grid-cols-2 gap-3 mb-3">
+                            <div class="bg-gray-50 dark:bg-gray-900/50 rounded-lg p-2">
+                                <div class="text-xs text-gray-600 dark:text-gray-400 mb-1">CVSS Score</div>
+                                <div class="text-lg font-bold text-gray-900 dark:text-gray-100" x-text="vuln.cvss_score.toFixed(1)"></div>
+                            </div>
+                            <div class="bg-gray-50 dark:bg-gray-900/50 rounded-lg p-2">
+                                <div class="text-xs text-gray-600 dark:text-gray-400 mb-1">EPSS %</div>
+                                <div class="text-lg font-bold text-gray-900 dark:text-gray-100" x-text="vuln.epss_percentile.toFixed(1) + '%'"></div>
+                            </div>
+                        </div>
+
+                        <!-- Product & Vendors -->
+                        <div class="space-y-2 mb-3">
+                            <div>
+                                <div class="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">Product</div>
+                                <div class="text-sm text-gray-700 dark:text-gray-300 truncate" x-text="vuln.products_display"></div>
+                            </div>
+                            <div>
+                                <div class="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-1">Vendors</div>
+                                <div class="text-sm text-gray-700 dark:text-gray-300 truncate" x-text="vuln.vendors_display"></div>
+                            </div>
+                        </div>
+
+                        <!-- Footer with KEV status and Published date -->
+                        <div class="flex items-center justify-between pt-3 border-t border-gray-200 dark:border-gray-700">
+                            <div class="flex items-center">
+                                <span x-show="vuln.kev" class="inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-bold bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 border border-purple-200 dark:border-purple-800">
+                                    ⭐ KEV
+                                </span>
+                                <span x-show="!vuln.kev" class="text-sm text-gray-500 dark:text-gray-400">—</span>
+                            </div>
+                            <div class="text-xs font-mono text-gray-600 dark:text-gray-400">
+                                Published: <span x-text="vuln.published"></span>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+
             <!-- Pagination -->
             <div class="px-4 sm:px-6 py-4 flex items-center justify-between border-t border-gray-200 dark:border-gray-800">
                 <div class="flex-1 flex items-center justify-between sm:justify-start space-x-4">
