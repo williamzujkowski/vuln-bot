@@ -63,7 +63,7 @@ def generate_dashboard():
             "last_modified": str(v.get("lastModifiedDate", ""))[:10],
 
             # Exploitation status
-            "kev": v.get("exploitationStatus") == "KNOWN_EXPLOITED",
+            "kev": v.get("enrichments", {}).get("cisa_kev", {}).get("isKnownExploited", False),
             "exploitation_status": v.get("exploitationStatus", "UNKNOWN"),
 
             # CVSS metrics
