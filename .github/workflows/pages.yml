@@ -7,7 +7,7 @@ on:
       - main
     paths:
       - 'public/**'
-      - 'scripts/generate_alpine_dashboard.py'
+      - 'scripts/generate_tailwind_dashboard.py'
   # Also allow manual trigger
   workflow_dispatch:
 

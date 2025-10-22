@@ -89,9 +89,9 @@ jobs:
           python -m agents.quality_agent report \
             --output reports/quality_report.html
             
-      - name: Build Alpine.js dashboard
+      - name: Build Tailwind dashboard
         run: |
-          python scripts/generate_alpine_dashboard.py
+          python -m scripts.generate_tailwind_dashboard
           
       - name: Setup Node.js
         uses: actions/setup-node@v4
