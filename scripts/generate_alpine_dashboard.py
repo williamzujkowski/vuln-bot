@@ -578,24 +578,26 @@ class AlpineDashboardGenerator:
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <style>
-        /* Modern Dark Theme */
+        /* Modern Dark Theme - Enhanced for Readability */
         :root __OPEN_BRACE__
             --bg-primary: #0a0a0f;
             --bg-secondary: #12121a;
             --bg-card: #1e1e2a;
-            --bg-hover: #252535;
+            --bg-hover: #2a2a3a;
 
-            --accent-primary: #00d4ff;
-            --accent-secondary: #7c3aed;
-            --accent-danger: #ef4444;
-            --accent-success: #10b981;
+            --accent-primary: #06b6d4;  /* Improved cyan - better contrast */
+            --accent-secondary: #8b5cf6;  /* Improved purple */
+            --accent-danger: #f87171;  /* Softer red for better readability */
+            --accent-warning: #fbbf24;  /* Amber for warnings */
+            --accent-success: #34d399;  /* Brighter green */
 
-            --text-primary: #ffffff;
-            --text-secondary: #a3a3b8;
-            --text-muted: #6b6b85;
+            --text-primary: #f9fafb;  /* Slightly off-white for reduced eye strain */
+            --text-secondary: #d1d5db;  /* Improved contrast */
+            --text-muted: #9ca3af;  /* Better visibility */
 
-            --gradient-primary: linear-gradient(135deg, #00d4ff 0%, #7c3aed 100%);
-            --shadow-glow: 0 0 40px rgba(0, 212, 255, 0.3);
+            --gradient-primary: linear-gradient(135deg, #06b6d4 0%, #8b5cf6 100%);
+            --shadow-glow: 0 0 40px rgba(6, 182, 212, 0.25);
+            --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
 
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         __CLOSE_BRACE__
@@ -609,7 +611,33 @@ class AlpineDashboardGenerator:
         body __OPEN_BRACE__
             background: var(--bg-primary);
             color: var(--text-primary);
-            line-height: 1.6;
+            line-height: 1.65;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        __CLOSE_BRACE__
+
+        /* Typography Enhancements */
+        h1, h2, h3, h4, h5, h6 __OPEN_BRACE__
+            font-weight: 600;
+            line-height: 1.3;
+            letter-spacing: -0.02em;
+        __CLOSE_BRACE__
+
+        h1 __OPEN_BRACE__
+            font-size: 2rem;
+        __CLOSE_BRACE__
+
+        h2 __OPEN_BRACE__
+            font-size: 1.5rem;
+        __CLOSE_BRACE__
+
+        h3 __OPEN_BRACE__
+            font-size: 1.25rem;
+        __CLOSE_BRACE__
+
+        p __OPEN_BRACE__
+            line-height: 1.7;
         __CLOSE_BRACE__
 
         /* Layout */
@@ -683,15 +711,17 @@ class AlpineDashboardGenerator:
 
         .stat-card __OPEN_BRACE__
             background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            padding: 2rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 1.75rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-card);
         __CLOSE_BRACE__
 
         .stat-card:hover __OPEN_BRACE__
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-glow);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 12px -2px rgba(0, 0, 0, 0.4), 0 4px 8px -2px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.12);
         __CLOSE_BRACE__
 
         .stat-value __OPEN_BRACE__
@@ -708,12 +738,14 @@ class AlpineDashboardGenerator:
             margin-bottom: 0.5rem;
         __CLOSE_BRACE__
 
-        /* Filters */
+        /* Filters - Enhanced Usability */
         .filters-section __OPEN_BRACE__
             background: var(--bg-card);
-            border-radius: 20px;
+            border-radius: 16px;
             padding: 2rem;
             margin-bottom: 2rem;
+            box-shadow: var(--shadow-card);
+            border: 1px solid rgba(255, 255, 255, 0.06);
         __CLOSE_BRACE__
 
         .filter-grid __OPEN_BRACE__
@@ -726,33 +758,36 @@ class AlpineDashboardGenerator:
         .filter-group __OPEN_BRACE__
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
+            gap: 0.625rem;
         __CLOSE_BRACE__
 
         .filter-group label __OPEN_BRACE__
             color: var(--text-secondary);
             font-size: 0.875rem;
-            font-weight: 500;
+            font-weight: 600;
+            letter-spacing: 0.025em;
         __CLOSE_BRACE__
 
         .filter-group input,
         .filter-group select __OPEN_BRACE__
             background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            padding: 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 10px;
+            padding: 0.875rem;
             color: var(--text-primary);
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
+            font-size: 0.9375rem;
         __CLOSE_BRACE__
 
         .filter-group input:focus,
         .filter-group select:focus __OPEN_BRACE__
             outline: none;
             border-color: var(--accent-primary);
-            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+            box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.12);
+            background: rgba(6, 182, 212, 0.04);
         __CLOSE_BRACE__
 
-        /* Search */
+        /* Search - Enhanced Visibility */
         .search-box __OPEN_BRACE__
             position: relative;
             margin-bottom: 1rem;
@@ -762,19 +797,25 @@ class AlpineDashboardGenerator:
             width: 100%;
             padding: 1rem 3rem 1rem 1.5rem;
             background: rgba(255, 255, 255, 0.05);
-            border: 2px solid transparent;
-            border-radius: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.12);
+            border-radius: 14px;
             font-size: 1rem;
             color: var(--text-primary);
+            transition: all 0.2s ease;
+        __CLOSE_BRACE__
+
+        .search-input::placeholder __OPEN_BRACE__
+            color: var(--text-muted);
         __CLOSE_BRACE__
 
         .search-input:focus __OPEN_BRACE__
             outline: none;
             border-color: var(--accent-primary);
-            background: rgba(0, 212, 255, 0.05);
+            background: rgba(6, 182, 212, 0.06);
+            box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.12);
         __CLOSE_BRACE__
 
-        /* Quick Filters */
+        /* Quick Filters - Enhanced Buttons */
         .quick-filters __OPEN_BRACE__
             display: flex;
             gap: 1rem;
@@ -785,67 +826,88 @@ class AlpineDashboardGenerator:
         .filter-chip __OPEN_BRACE__
             padding: 0.75rem 1.5rem;
             background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 24px;
             color: var(--text-secondary);
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
+            font-weight: 500;
+            font-size: 0.9375rem;
         __CLOSE_BRACE__
 
         .filter-chip:hover __OPEN_BRACE__
-            background: rgba(0, 212, 255, 0.1);
+            background: rgba(6, 182, 212, 0.12);
             border-color: var(--accent-primary);
             color: var(--accent-primary);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(6, 182, 212, 0.15);
         __CLOSE_BRACE__
 
         .filter-chip.active __OPEN_BRACE__
             background: var(--gradient-primary);
             color: white;
             border-color: transparent;
+            box-shadow: 0 4px 12px rgba(6, 182, 212, 0.25);
         __CLOSE_BRACE__
 
-        /* Data Table */
+        /* Data Table - Enhanced Readability */
         .data-section __OPEN_BRACE__
             background: var(--bg-card);
-            border-radius: 20px;
+            border-radius: 16px;
             padding: 2rem;
             overflow: hidden;
+            box-shadow: var(--shadow-card);
         __CLOSE_BRACE__
 
         .table-wrapper __OPEN_BRACE__
             overflow-x: auto;
+            border-radius: 12px;
         __CLOSE_BRACE__
 
         table __OPEN_BRACE__
             width: 100%;
-            border-collapse: collapse;
+            border-collapse: separate;
+            border-spacing: 0;
         __CLOSE_BRACE__
 
         th __OPEN_BRACE__
             text-align: left;
-            padding: 1rem;
+            padding: 1.25rem 1rem;
             color: var(--text-secondary);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.12);
             font-weight: 600;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
             cursor: pointer;
             user-select: none;
+            background: rgba(255, 255, 255, 0.02);
+            transition: all 0.2s ease;
         __CLOSE_BRACE__
 
         th:hover __OPEN_BRACE__
             color: var(--accent-primary);
+            background: rgba(6, 182, 212, 0.05);
         __CLOSE_BRACE__
 
         td __OPEN_BRACE__
-            padding: 1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1.25rem 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            font-size: 0.9375rem;
+            line-height: 1.6;
         __CLOSE_BRACE__
 
         tbody tr __OPEN_BRACE__
-            transition: background-color 0.2s ease;
+            transition: all 0.2s ease;
         __CLOSE_BRACE__
 
         tbody tr:hover __OPEN_BRACE__
-            background: rgba(0, 212, 255, 0.02);
+            background: rgba(6, 182, 212, 0.04);
+            transform: translateX(2px);
+        __CLOSE_BRACE__
+
+        tbody tr:last-child td __OPEN_BRACE__
+            border-bottom: none;
         __CLOSE_BRACE__
 
         /* Severity Badges */
@@ -981,7 +1043,7 @@ class AlpineDashboardGenerator:
             margin: 0.125rem;
         __CLOSE_BRACE__
 
-        /* Pagination */
+        /* Pagination - Enhanced Buttons */
         .pagination __OPEN_BRACE__
             display: flex;
             justify-content: center;
@@ -991,24 +1053,29 @@ class AlpineDashboardGenerator:
         __CLOSE_BRACE__
 
         .page-btn __OPEN_BRACE__
-            padding: 0.5rem 1rem;
+            padding: 0.75rem 1.25rem;
             background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 10px;
             color: var(--text-secondary);
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
+            font-weight: 500;
+            font-size: 0.9375rem;
         __CLOSE_BRACE__
 
         .page-btn:hover:not(:disabled) __OPEN_BRACE__
-            background: rgba(0, 212, 255, 0.1);
+            background: rgba(6, 182, 212, 0.12);
             border-color: var(--accent-primary);
             color: var(--accent-primary);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(6, 182, 212, 0.15);
         __CLOSE_BRACE__
 
         .page-btn:disabled __OPEN_BRACE__
-            opacity: 0.5;
+            opacity: 0.4;
             cursor: not-allowed;
+            background: rgba(255, 255, 255, 0.02);
         __CLOSE_BRACE__
 
         /* Charts */
@@ -1417,7 +1484,17 @@ class AlpineDashboardGenerator:
                     <div style="padding: 0.5rem 1rem; background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 20px; color: #10b981; font-size: 0.875rem; font-weight: 600;">
                         🎯 EPSS ≥60%
                     </div>
-                    <button class="filter-chip" @click="exportCSV()">
+                    <a href="https://github.com/williamzujkowski/vuln-bot" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: rgba(99, 102, 241, 0.15); border: 1px solid rgba(99, 102, 241, 0.3); border-radius: 8px; color: #818cf8; text-decoration: none; font-size: 0.875rem; font-weight: 600; transition: all 0.2s; cursor: pointer;" onmouseover="this.style.background='rgba(99, 102, 241, 0.25)'; this.style.borderColor='rgba(99, 102, 241, 0.5)';" onmouseout="this.style.background='rgba(99, 102, 241, 0.15)'; this.style.borderColor='rgba(99, 102, 241, 0.3)';">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                        </svg>
+                        <span>GitHub</span>
+                    </a>
+                    <button class="filter-chip" @click="exportCSV()" style="background: rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.3); color: #a78bfa;">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" style="margin-right: 0.25rem;">
+                            <path d="M8.5 6.5a.5.5 0 0 0-1 0v3.793L6.354 9.146a.5.5 0 1 0-.708.708l2 2a.5.5 0 0 0 .708 0l2-2a.5.5 0 0 0-.708-.708L8.5 10.293V6.5z"/>
+                            <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"/>
+                        </svg>
                         Export CSV
                     </button>
                 </div>
@@ -2042,30 +2119,53 @@ class AlpineDashboardGenerator:
 
 
                 exportCSV() __OPEN_BRACE__
-                    const headers = ['CVE ID', 'Severity', 'CVSS', 'EPSS %', 'Risk Score', 'KEV Listed', 'Exploit Status', 'Product', 'Vendors', 'Published'];
-                    const csvContent = [
-                        headers.join(','),
-                        ...this.filteredVulns.map(v => [
-                            v.cve_id,
-                            v.severity,
-                            v.cvss_score,
-                            v.epss_percentile,
-                            v.risk_score,
-                            v.kev_status ? 'Yes' : 'No',
-                            v.kev_status ? 'KEV Listed' : (v.exploitation_status && v.exploitation_status !== 'Unknown' ? v.exploitation_status : 'Not Listed'),
-                            `"${v.products.replace(/"/g, '""')}"`,
-                            `"${v.vendors.join(', ')}"`,
-                            v.published_short
-                        ].join(','))
-                    ].join('\\n');
+                    try __OPEN_BRACE__
+                        const headers = ['CVE ID', 'Severity', 'CVSS', 'EPSS %', 'Risk Score', 'KEV Listed', 'Exploit Status', 'Product', 'Vendors', 'Published', 'Last Updated'];
 
-                    const blob = new Blob([csvContent], { type: 'text/csv' __CLOSE_BRACE__);
-                    const url = window.URL.createObjectURL(blob);
-                    const a = document.createElement('a');
-                    a.href = url;
-                    a.download = 'vulnerabilities.csv';
-                    a.click();
-                    window.URL.revokeObjectURL(url);
+                        const escapeCsv = (value) => __OPEN_BRACE__
+                            if (value == null || value === undefined) return '';
+                            const str = String(value);
+                            // Escape quotes and wrap in quotes if contains comma, quote, or newline
+                            if (str.includes(',') || str.includes('"') || str.includes('\\n')) __OPEN_BRACE__
+                                return `"${str.replace(/"/g, '""')}"`;
+                            __CLOSE_BRACE__
+                            return str;
+                        __CLOSE_BRACE__;
+
+                        const csvContent = [
+                            headers.join(','),
+                            ...this.filteredVulns.map(v => [
+                                escapeCsv(v.cve_id),
+                                escapeCsv(v.severity),
+                                escapeCsv(v.cvss_score),
+                                escapeCsv(v.epss_percentile),
+                                escapeCsv(v.risk_score),
+                                v.kev_status ? 'Yes' : 'No',
+                                escapeCsv(v.kev_status ? 'KEV Listed' : (v.exploitation_status && v.exploitation_status !== 'Unknown' ? v.exploitation_status : 'Not Listed')),
+                                escapeCsv(v.products || 'N/A'),
+                                escapeCsv(Array.isArray(v.vendors) ? v.vendors.join(', ') : String(v.vendors || 'N/A')),
+                                escapeCsv(v.published_short),
+                                escapeCsv(v.last_modified_short)
+                            ].join(','))
+                        ].join('\\n');
+
+                        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' __CLOSE_BRACE__);
+                        const url = window.URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        const timestamp = new Date().toISOString().split('T')[0];
+                        a.download = `vulnerabilities-${timestamp}.csv`;
+                        document.body.appendChild(a);
+                        a.click();
+                        document.body.removeChild(a);
+                        window.URL.revokeObjectURL(url);
+
+                        // Show success notification
+                        console.log('✅ CSV export successful:', this.filteredVulns.length, 'vulnerabilities exported');
+                    __CLOSE_BRACE__ catch (error) __OPEN_BRACE__
+                        console.error('❌ CSV export failed:', error);
+                        alert('Failed to export CSV. Please try again.');
+                    __CLOSE_BRACE__
                 __CLOSE_BRACE__,
 
                 setupKeyboardShortcuts() __OPEN_BRACE__
