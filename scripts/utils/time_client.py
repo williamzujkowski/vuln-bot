@@ -1,7 +1,7 @@
 """Authoritative Time Client - Ensures all time calculations use external time sources"""
 
 import re
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from typing import Optional
 
 import requests
@@ -19,32 +19,52 @@ class AuthoritativeTimeClient:
 
     Primary: NIST Time API
     Fallback: WorldTimeAPI
+
+    Performance: Caches time fetches for 60 seconds to avoid excessive API calls
     """
 
     NIST_URL = "https://time.nist.gov/actualtime.cgi?lzbc=siqm9b"
     WORLDTIME_URL = "https://worldtimeapi.org/api/timezone/Etc/UTC"
     TIMEOUT = 5
     MAX_RETRIES = 3
+    CACHE_TTL_SECONDS = 60  # Cache time for 60 seconds
+
+    # Class-level cache
+    _cached_time: Optional[datetime] = None
+    _cache_timestamp: Optional[datetime] = None
 
     @classmethod
     def get_current_time(cls) -> datetime:
         """
         Get authoritative current time from external source.
 
+        Uses in-memory cache to avoid excessive API calls (60-second TTL).
+
         Priority order:
-        1. NIST Time API (official US government source)
-        2. WorldTimeAPI (reliable fallback)
-        3. System time (last resort, with warning logged)
+        1. Cache (if fresh)
+        2. NIST Time API (official US government source)
+        3. WorldTimeAPI (reliable fallback)
+        4. System time (last resort, with warning logged)
 
         Returns:
             datetime: Current time (UTC timezone)
         """
+        # Check cache first
+        now_system = datetime.now(timezone.utc)
+        if cls._cached_time and cls._cache_timestamp:
+            cache_age = (now_system - cls._cache_timestamp).total_seconds()
+            if cache_age < cls.CACHE_TTL_SECONDS:
+                # Return cached time adjusted for time elapsed
+                return cls._cached_time + timedelta(seconds=cache_age)
+
         # Try NIST first
         try:
             nist_time = cls._fetch_nist_time()
             if nist_time:
+                cls._cached_time = nist_time
+                cls._cache_timestamp = now_system
                 logger.info(
-                    "Fetched authoritative time from NIST",
+                    "Fetched authoritative time from NIST (cached for 60s)",
                     time=nist_time.isoformat(),
                 )
                 return nist_time
@@ -55,8 +75,10 @@ class AuthoritativeTimeClient:
         try:
             worldtime = cls._fetch_worldtime()
             if worldtime:
+                cls._cached_time = worldtime
+                cls._cache_timestamp = now_system
                 logger.info(
-                    "Fetched authoritative time from WorldTimeAPI",
+                    "Fetched authoritative time from WorldTimeAPI (cached for 60s)",
                     time=worldtime.isoformat(),
                 )
                 return worldtime
