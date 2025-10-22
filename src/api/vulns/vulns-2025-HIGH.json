@@ -1,7 +1,7 @@
 {
   "chunk": "2025-HIGH",
-  "count": 17,
-  "generated": "2025-10-20T02:39:19.208486",
+  "count": 18,
+  "generated": "2025-10-22T01:18:11.284010",
   "vulnerabilities": [
     {
       "cveId": "CVE-2024-48248",
@@ -249,7 +249,7 @@
       ],
       "epss": {
         "score": 0.634,
-        "percentile": 98.301
+        "percentile": 98.3
       },
       "ssvc": {
         "exploitation": "active",
@@ -321,7 +321,7 @@
       ],
       "epss": {
         "score": 0.6714,
-        "percentile": 98.479
+        "percentile": 98.477
       },
       "ssvc": {
         "exploitation": "active",
@@ -367,6 +367,83 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/27xxx/CVE-2025-27363.json",
             "lastModified": "2025-07-30T01:36:18.147000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-21333",
+      "title": "Windows Hyper-V NT Kernel Integration VSP Elevation of Privilege Vulnerability",
+      "description": "Windows Hyper-V NT Kernel Integration VSP Elevation of Privilege Vulnerability",
+      "publishedDate": "2025-01-14T18:04:50.962000+00:00",
+      "lastModifiedDate": "2025-09-09T23:46:56.269000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H/E:U/RL:O/RC:C",
+          "baseScore": 7.8,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.6035,
+        "percentile": 98.169
+      },
+      "ssvc": {
+        "exploitation": "active",
+        "automatable": "no",
+        "technicalImpact": "total",
+        "priorityTier": "ATTEND",
+        "compactNotation": "A/N/T",
+        "ssvcScore": 45,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 67,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Microsoft"
+        ],
+        "products": [
+          "Windows 10 Version 21h2",
+          "Windows 10 Version 22h2",
+          "Windows 11 Version 22h2",
+          "Windows 11 Version 22h3",
+          "Windows 11 Version 23h2",
+          "Windows 11 Version 24h2",
+          "Windows Server 2022, 23h2 Edition (server Core Installation)",
+          "Windows Server 2025",
+          "Windows Server 2025 (server Core Installation)"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-21333",
+          "source": "Windows Hyper-V NT Kernel Integration VSP Elevation of Privilege Vulnerability",
+          "tags": [
+            "vendor-advisory"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-122"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Local",
+        "attackComplexity": "Low",
+        "privilegesRequired": "Low",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/21xxx/CVE-2025-21333.json",
+            "lastModified": "2025-09-09T23:46:56.269000+00:00"
           }
         ]
       }
@@ -460,7 +537,7 @@
       ],
       "epss": {
         "score": 0.6878,
-        "percentile": 98.547
+        "percentile": 98.546
       },
       "ssvc": {
         "exploitation": "poc",
@@ -529,7 +606,7 @@
       ],
       "epss": {
         "score": 0.8212,
-        "percentile": 99.162
+        "percentile": 99.16
       },
       "ssvc": {
         "exploitation": "poc",
@@ -609,7 +686,7 @@
       ],
       "epss": {
         "score": 0.8661,
-        "percentile": 99.373
+        "percentile": 99.374
       },
       "ssvc": {
         "exploitation": "poc",
@@ -676,7 +753,7 @@
       ],
       "epss": {
         "score": 0.8044,
-        "percentile": 99.079
+        "percentile": 99.076
       },
       "ssvc": {
         "exploitation": "poc",
@@ -756,7 +833,7 @@
       ],
       "epss": {
         "score": 0.7782,
-        "percentile": 98.948
+        "percentile": 98.947
       },
       "ssvc": {
         "exploitation": "poc",
@@ -824,7 +901,7 @@
       ],
       "epss": {
         "score": 0.6212,
-        "percentile": 98.247
+        "percentile": 98.246
       },
       "ssvc": {
         "exploitation": "poc",
@@ -975,75 +1052,6 @@
       }
     },
     {
-      "cveId": "CVE-2025-24799",
-      "title": "GLPI allows unauthenticated SQL injection through the inventory endpoint",
-      "description": "GLPI is a free asset and IT management software package. An unauthenticated user can perform a SQL injection through the inventory endpoint. This vulnerability is fixed in 10.0.18.",
-      "publishedDate": "2025-03-18T18:27:54.631000+00:00",
-      "lastModifiedDate": "2025-03-18T18:53:35.088000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
-          "baseScore": 7.5,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.6376,
-        "percentile": 98.313
-      },
-      "ssvc": {
-        "exploitation": "none",
-        "automatable": "yes",
-        "technicalImpact": "partial",
-        "priorityTier": "TRACK",
-        "compactNotation": "N/Y/P",
-        "ssvcScore": 22,
-        "inferred": false,
-        "confidence": null
-      },
-      "riskScore": 44,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Glpi-project"
-        ],
-        "products": [
-          "Glpi"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://github.com/glpi-project/glpi/security/advisories/GHSA-jv89-g7f7-jwfg",
-          "source": "https://github.com/glpi-project/glpi/security/advisories/GHSA-jv89-g7f7-jwfg",
-          "tags": [
-            "x_refsource_CONFIRM"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-89"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/24xxx/CVE-2025-24799.json",
-            "lastModified": "2025-03-18T18:53:35.088000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2025-26794",
       "title": "CVE-2025-26794: Exim 4.98 before 4.98.1, when SQLite hints and ETRN serialization are used, allows remote SQL inject...",
       "description": "Exim 4.98 before 4.98.1, when SQLite hints and ETRN serialization are used, allows remote SQL injection.",
@@ -1060,7 +1068,7 @@
       ],
       "epss": {
         "score": 0.6694,
-        "percentile": 98.469
+        "percentile": 98.468
       },
       "ssvc": {
         "exploitation": "none",
@@ -1136,6 +1144,154 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/26xxx/CVE-2025-26794.json",
             "lastModified": "2025-02-22T00:09:59.316000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-24799",
+      "title": "GLPI allows unauthenticated SQL injection through the inventory endpoint",
+      "description": "GLPI is a free asset and IT management software package. An unauthenticated user can perform a SQL injection through the inventory endpoint. This vulnerability is fixed in 10.0.18.",
+      "publishedDate": "2025-03-18T18:27:54.631000+00:00",
+      "lastModifiedDate": "2025-03-18T18:53:35.088000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "baseScore": 7.5,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.6376,
+        "percentile": 98.312
+      },
+      "ssvc": {
+        "exploitation": "none",
+        "automatable": "yes",
+        "technicalImpact": "partial",
+        "priorityTier": "TRACK",
+        "compactNotation": "N/Y/P",
+        "ssvcScore": 22,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 44,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Glpi-project"
+        ],
+        "products": [
+          "Glpi"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://github.com/glpi-project/glpi/security/advisories/GHSA-jv89-g7f7-jwfg",
+          "source": "https://github.com/glpi-project/glpi/security/advisories/GHSA-jv89-g7f7-jwfg",
+          "tags": [
+            "x_refsource_CONFIRM"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-89"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/24xxx/CVE-2025-24799.json",
+            "lastModified": "2025-03-18T18:53:35.088000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-3102",
+      "title": "SureTriggers <= 1.0.78 - Authorization Bypass due to Missing Empty Value Check to Unauthenticated Administrative User Creation",
+      "description": "The SureTriggers: All-in-One Automation Platform plugin for WordPress is vulnerable to an authentication bypass leading to administrative account creation due to a missing empty value check on the 'secret_key' value in the 'autheticate_user' function in all versions up to, and including, 1.0.78. This makes it possible for unauthenticated attackers to create administrator accounts on the target website when the plugin is installed and activated but not configured with an API key.",
+      "publishedDate": "2025-04-10T04:22:05.560000+00:00",
+      "lastModifiedDate": "2025-04-10T13:10:32.671000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 8.1,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.8559,
+        "percentile": 99.324
+      },
+      "ssvc": {
+        "exploitation": "none",
+        "automatable": "no",
+        "technicalImpact": "total",
+        "priorityTier": "TRACK",
+        "compactNotation": "N/N/T",
+        "ssvcScore": 15,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 40,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Brainstormforce",
+          "WordPress"
+        ],
+        "products": [
+          "Ottokit: All-in-one Automation Platform (formerly Suretriggers)",
+          "Wordpress"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/ec017311-f150-4a14-a4b4-b5634f574e2b?source=cve",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://plugins.trac.wordpress.org/browser/suretriggers/trunk/src/Controllers/RestController.php#L59",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://plugins.trac.wordpress.org/changeset?sfp_email=&sfph_mail=&reponame=&new=3266499%40suretriggers%2Ftrunk&old=3264905%40suretriggers%2Ftrunk&sfp_email=&sfph_mail=",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-697"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "High",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/3xxx/CVE-2025-3102.json",
+            "lastModified": "2025-04-10T13:10:32.671000+00:00"
           }
         ]
       }
@@ -1230,85 +1386,6 @@
       }
     },
     {
-      "cveId": "CVE-2025-3102",
-      "title": "SureTriggers <= 1.0.78 - Authorization Bypass due to Missing Empty Value Check to Unauthenticated Administrative User Creation",
-      "description": "The SureTriggers: All-in-One Automation Platform plugin for WordPress is vulnerable to an authentication bypass leading to administrative account creation due to a missing empty value check on the 'secret_key' value in the 'autheticate_user' function in all versions up to, and including, 1.0.78. This makes it possible for unauthenticated attackers to create administrator accounts on the target website when the plugin is installed and activated but not configured with an API key.",
-      "publishedDate": "2025-04-10T04:22:05.560000+00:00",
-      "lastModifiedDate": "2025-04-10T13:10:32.671000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 8.1,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.8559,
-        "percentile": 99.323
-      },
-      "ssvc": {
-        "exploitation": "none",
-        "automatable": "no",
-        "technicalImpact": "total",
-        "priorityTier": "TRACK",
-        "compactNotation": "N/N/T",
-        "ssvcScore": 15,
-        "inferred": false,
-        "confidence": null
-      },
-      "riskScore": 40,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Brainstormforce",
-          "WordPress"
-        ],
-        "products": [
-          "Ottokit: All-in-one Automation Platform (formerly Suretriggers)",
-          "Wordpress"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/ec017311-f150-4a14-a4b4-b5634f574e2b?source=cve",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://plugins.trac.wordpress.org/browser/suretriggers/trunk/src/Controllers/RestController.php#L59",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://plugins.trac.wordpress.org/changeset?sfp_email=&sfph_mail=&reponame=&new=3266499%40suretriggers%2Ftrunk&old=3264905%40suretriggers%2Ftrunk&sfp_email=&sfph_mail=",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-697"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "High",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/3xxx/CVE-2025-3102.json",
-            "lastModified": "2025-04-10T13:10:32.671000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2024-46981",
       "title": "Redis' Lua library commands may lead to remote code execution",
       "description": "Redis is an open source, in-memory database that persists on disk. An authenticated user may use a specially crafted Lua script to manipulate the garbage collector and potentially lead to remote code execution. The problem is fixed in 7.4.2, 7.2.7, and 6.2.17. An additional workaround to mitigate the problem without patching the redis-server executable is to prevent users from executing Lua scripts. This can be done using ACL to restrict EVAL and EVALSHA commands.",
@@ -1325,7 +1402,7 @@
       ],
       "epss": {
         "score": 0.6381,
-        "percentile": 98.316
+        "percentile": 98.315
       },
       "ssvc": {
         "exploitation": "none",

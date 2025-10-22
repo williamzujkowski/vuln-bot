@@ -1,7 +1,7 @@
 {
   "chunk": "2024-HIGH",
   "count": 93,
-  "generated": "2025-10-20T02:39:19.208486",
+  "generated": "2025-10-22T01:18:11.284010",
   "vulnerabilities": [
     {
       "cveId": "CVE-2024-3273",
@@ -26,7 +26,7 @@
       ],
       "epss": {
         "score": 0.9443,
-        "percentile": 99.98
+        "percentile": 99.981
       },
       "ssvc": {
         "exploitation": "active",
@@ -134,7 +134,7 @@
       ],
       "epss": {
         "score": 0.843,
-        "percentile": 99.269
+        "percentile": 99.27
       },
       "ssvc": {
         "exploitation": "active",
@@ -212,6 +212,75 @@
       }
     },
     {
+      "cveId": "CVE-2024-28995",
+      "title": "SolarWinds Serv-U L Directory Transversal Vulnerability ",
+      "description": "\n\n\n\n\n\n\n\n\n\n\n\nSolarWinds Serv-U was susceptible to a directory transversal vulnerability that would allow access to read sensitive files on the host machine.    \n\n\n\n\n\n\n\n",
+      "publishedDate": "2024-06-06T09:01:23.314000+00:00",
+      "lastModifiedDate": "2025-07-30T01:37:02.238000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:N",
+          "baseScore": 8.6,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.9438,
+        "percentile": 99.962
+      },
+      "ssvc": {
+        "exploitation": "active",
+        "automatable": "yes",
+        "technicalImpact": "partial",
+        "priorityTier": "ATTEND",
+        "compactNotation": "A/Y/P",
+        "ssvcScore": 52,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 79,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Solarwinds"
+        ],
+        "products": [
+          "Solarwinds Serv-u"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.solarwinds.com/trust-center/security-advisories/CVE-2024-28995",
+          "source": "",
+          "tags": [
+            "vendor-advisory"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-22"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/28xxx/CVE-2024-28995.json",
+            "lastModified": "2025-07-30T01:37:02.238000+00:00"
+          }
+        ]
+      }
+    },
+    {
       "cveId": "CVE-2024-24919",
       "title": "Information disclosure",
       "description": "Potentially allowing an attacker to read certain information on Check Point Security Gateways once connected to the internet and enabled with remote Access VPN or Mobile Access Software Blades. A Security fix that mitigates this vulnerability is available.",
@@ -279,75 +348,6 @@
       }
     },
     {
-      "cveId": "CVE-2024-28995",
-      "title": "SolarWinds Serv-U L Directory Transversal Vulnerability ",
-      "description": "\n\n\n\n\n\n\n\n\n\n\n\nSolarWinds Serv-U was susceptible to a directory transversal vulnerability that would allow access to read sensitive files on the host machine.    \n\n\n\n\n\n\n\n",
-      "publishedDate": "2024-06-06T09:01:23.314000+00:00",
-      "lastModifiedDate": "2025-07-30T01:37:02.238000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:N",
-          "baseScore": 8.6,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.9438,
-        "percentile": 99.961
-      },
-      "ssvc": {
-        "exploitation": "active",
-        "automatable": "yes",
-        "technicalImpact": "partial",
-        "priorityTier": "ATTEND",
-        "compactNotation": "A/Y/P",
-        "ssvcScore": 52,
-        "inferred": false,
-        "confidence": null
-      },
-      "riskScore": 79,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Solarwinds"
-        ],
-        "products": [
-          "Solarwinds Serv-u"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://www.solarwinds.com/trust-center/security-advisories/CVE-2024-28995",
-          "source": "",
-          "tags": [
-            "vendor-advisory"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-22"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/28xxx/CVE-2024-28995.json",
-            "lastModified": "2025-07-30T01:37:02.238000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2024-29059",
       "title": ".NET Framework Information Disclosure Vulnerability",
       "description": ".NET Framework Information Disclosure Vulnerability",
@@ -364,7 +364,7 @@
       ],
       "epss": {
         "score": 0.9385,
-        "percentile": 99.858
+        "percentile": 99.859
       },
       "ssvc": {
         "exploitation": "active",
@@ -445,7 +445,7 @@
       ],
       "epss": {
         "score": 0.9413,
-        "percentile": 99.903
+        "percentile": 99.904
       },
       "ssvc": {
         "exploitation": "active",
@@ -608,75 +608,6 @@
       }
     },
     {
-      "cveId": "CVE-2024-21287",
-      "title": "CVE-2024-21287: Vulnerability in the Oracle Agile PLM Framework product of Oracle Supply Chain (component: Software ...",
-      "description": "Vulnerability in the Oracle Agile PLM Framework product of Oracle Supply Chain (component: Software Development Kit, Process Extension).   The supported version that is affected is 9.3.6. Easily exploitable vulnerability allows unauthenticated attacker with network access via HTTP to compromise Oracle Agile PLM Framework.  Successful attacks of this vulnerability can result in  unauthorized access to critical data or complete access to all Oracle Agile PLM Framework accessible data. CVSS 3.1 Base Score 7.5 (Confidentiality impacts).  CVSS Vector: (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N).",
-      "publishedDate": "2024-11-18T21:39:18.692000+00:00",
-      "lastModifiedDate": "2025-07-30T01:36:25.656000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
-          "baseScore": 7.5,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.7396,
-        "percentile": 98.76
-      },
-      "ssvc": {
-        "exploitation": "active",
-        "automatable": "yes",
-        "technicalImpact": "partial",
-        "priorityTier": "ATTEND",
-        "compactNotation": "A/Y/P",
-        "ssvcScore": 52,
-        "inferred": false,
-        "confidence": null
-      },
-      "riskScore": 75,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Oracle",
-          "Plm"
-        ],
-        "products": [
-          "Oracle Agile Plm Framework",
-          "Plm Framework"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://www.oracle.com/security-alerts/alert-cve-2024-21287.html",
-          "source": "Oracle Advisory",
-          "tags": [
-            "vendor-advisory"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/21xxx/CVE-2024-21287.json",
-            "lastModified": "2025-07-30T01:36:25.656000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2024-22319",
       "title": "IBM Operational Decision Manager JDNI injection",
       "description": "\n\n\nIBM Operational Decision Manager 8.10.3, 8.10.4, 8.10.5.1, 8.11, 8.11.0.1, 8.11.1 and 8.12.0.1 is susceptible to remote code execution attack via JNDI injection when passing an unchecked argument to a certain API. IBM X-Force ID: 279145.\n\n\n\n",
@@ -748,6 +679,75 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/22xxx/CVE-2024-22319.json",
             "lastModified": "2024-08-01T22:43:34.602000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2024-21287",
+      "title": "CVE-2024-21287: Vulnerability in the Oracle Agile PLM Framework product of Oracle Supply Chain (component: Software ...",
+      "description": "Vulnerability in the Oracle Agile PLM Framework product of Oracle Supply Chain (component: Software Development Kit, Process Extension).   The supported version that is affected is 9.3.6. Easily exploitable vulnerability allows unauthenticated attacker with network access via HTTP to compromise Oracle Agile PLM Framework.  Successful attacks of this vulnerability can result in  unauthorized access to critical data or complete access to all Oracle Agile PLM Framework accessible data. CVSS 3.1 Base Score 7.5 (Confidentiality impacts).  CVSS Vector: (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N).",
+      "publishedDate": "2024-11-18T21:39:18.692000+00:00",
+      "lastModifiedDate": "2025-07-30T01:36:25.656000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "baseScore": 7.5,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.7396,
+        "percentile": 98.758
+      },
+      "ssvc": {
+        "exploitation": "active",
+        "automatable": "yes",
+        "technicalImpact": "partial",
+        "priorityTier": "ATTEND",
+        "compactNotation": "A/Y/P",
+        "ssvcScore": 52,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 75,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Oracle",
+          "Plm"
+        ],
+        "products": [
+          "Oracle Agile Plm Framework",
+          "Plm Framework"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.oracle.com/security-alerts/alert-cve-2024-21287.html",
+          "source": "Oracle Advisory",
+          "tags": [
+            "vendor-advisory"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/21xxx/CVE-2024-21287.json",
+            "lastModified": "2025-07-30T01:36:25.656000+00:00"
           }
         ]
       }
@@ -839,7 +839,7 @@
       ],
       "epss": {
         "score": 0.9376,
-        "percentile": 99.846
+        "percentile": 99.847
       },
       "ssvc": {
         "exploitation": "active",
@@ -918,7 +918,7 @@
       ],
       "epss": {
         "score": 0.7697,
-        "percentile": 98.905
+        "percentile": 98.904
       },
       "ssvc": {
         "exploitation": "active",
@@ -969,140 +969,6 @@
       }
     },
     {
-      "cveId": "CVE-2024-1086",
-      "title": "Use-after-free in Linux kernel's netfilter: nf_tables component",
-      "description": "A use-after-free vulnerability in the Linux kernel's netfilter: nf_tables component can be exploited to achieve local privilege escalation.\n\nThe nft_verdict_init() function allows positive values as drop error within the hook verdict, and hence the nf_hook_slow() function can cause a double free vulnerability when NF_DROP is issued with a drop error which resembles NF_ACCEPT.\n\nWe recommend upgrading past commit f342de4e2f33e0e39165d8639387aa6c19dff660.",
-      "publishedDate": "2024-01-31T12:14:34.073000+00:00",
-      "lastModifiedDate": "2025-07-30T01:37:08.023000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 7.8,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.846,
-        "percentile": 99.283
-      },
-      "ssvc": {
-        "exploitation": "active",
-        "automatable": "no",
-        "technicalImpact": "total",
-        "priorityTier": "ATTEND",
-        "compactNotation": "A/N/T",
-        "ssvcScore": 45,
-        "inferred": false,
-        "confidence": null
-      },
-      "riskScore": 69,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Linux"
-        ],
-        "products": [
-          "Kernel"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=f342de4e2f33e0e39165d8639387aa6c19dff660",
-          "source": "",
-          "tags": [
-            "patch"
-          ]
-        },
-        {
-          "url": "https://kernel.dance/f342de4e2f33e0e39165d8639387aa6c19dff660",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/7LSPIOMIJYTLZB6QKPQVVAYSUETUWKPF/",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://github.com/Notselwyn/CVE-2024-1086",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://news.ycombinator.com/item?id=39828424",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://pwning.tech/nftables/",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "http://www.openwall.com/lists/oss-security/2024/04/15/2",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "http://www.openwall.com/lists/oss-security/2024/04/10/23",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "http://www.openwall.com/lists/oss-security/2024/04/10/22",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "http://www.openwall.com/lists/oss-security/2024/04/14/1",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "http://www.openwall.com/lists/oss-security/2024/04/17/5",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://security.netapp.com/advisory/ntap-20240614-0009/",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://lists.debian.org/debian-lts-announce/2024/06/msg00016.html",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://lists.debian.org/debian-lts-announce/2024/06/msg00020.html",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-416"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Local",
-        "attackComplexity": "Low",
-        "privilegesRequired": "Low",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/1xxx/CVE-2024-1086.json",
-            "lastModified": "2025-07-30T01:37:08.023000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2024-8190",
       "title": "CVE-2024-8190: An OS command injection vulnerability in Ivanti Cloud Services Appliance versions 4.6 Patch 518 and ...",
       "description": "An OS command injection vulnerability in Ivanti Cloud Services Appliance versions 4.6 Patch 518 and before allows a remote authenticated attacker to obtain remote code execution. The attacker must have admin level privileges to exploit this vulnerability.",
@@ -1118,8 +984,8 @@
         }
       ],
       "epss": {
-        "score": 0.9247,
-        "percentile": 99.719
+        "score": 0.9223,
+        "percentile": 99.699
       },
       "ssvc": {
         "exploitation": "active",
@@ -1170,85 +1036,6 @@
       }
     },
     {
-      "cveId": "CVE-2024-29988",
-      "title": "SmartScreen Prompt Security Feature Bypass Vulnerability",
-      "description": "SmartScreen Prompt Security Feature Bypass Vulnerability",
-      "publishedDate": "2024-04-09T17:00:35.822000+00:00",
-      "lastModifiedDate": "2025-07-30T01:37:04.898000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H/E:F/RL:O/RC:C",
-          "baseScore": 8.8,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.6477,
-        "percentile": 98.364
-      },
-      "ssvc": {
-        "exploitation": "active",
-        "automatable": "no",
-        "technicalImpact": "total",
-        "priorityTier": "ATTEND",
-        "compactNotation": "A/N/T",
-        "ssvcScore": 45,
-        "inferred": false,
-        "confidence": null
-      },
-      "riskScore": 69,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Microsoft"
-        ],
-        "products": [
-          "Windows 10 Version 1809",
-          "Windows 10 Version 21h2",
-          "Windows 10 Version 22h2",
-          "Windows 11 Version 21h2",
-          "Windows 11 Version 22h2",
-          "Windows 11 Version 22h3",
-          "Windows 11 Version 23h2",
-          "Windows Server 2019",
-          "Windows Server 2019 (server Core Installation)",
-          "Windows Server 2022",
-          "Windows Server 2022, 23h2 Edition (server Core Installation)"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-29988",
-          "source": "SmartScreen Prompt Security Feature Bypass Vulnerability",
-          "tags": [
-            "vendor-advisory"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-693"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "Required",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/29xxx/CVE-2024-29988.json",
-            "lastModified": "2025-07-30T01:37:04.898000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2024-49138",
       "title": "Windows Common Log File System Driver Elevation of Privilege Vulnerability",
       "description": "Windows Common Log File System Driver Elevation of Privilege Vulnerability",
@@ -1265,7 +1052,7 @@
       ],
       "epss": {
         "score": 0.8588,
-        "percentile": 99.336
+        "percentile": 99.337
       },
       "ssvc": {
         "exploitation": "active",
@@ -1429,23 +1216,23 @@
       }
     },
     {
-      "cveId": "CVE-2024-21338",
-      "title": "Windows Kernel Elevation of Privilege Vulnerability",
-      "description": "Windows Kernel Elevation of Privilege Vulnerability",
-      "publishedDate": "2024-02-13T18:02:09.738000+00:00",
-      "lastModifiedDate": "2025-07-30T01:37:07.604000+00:00",
+      "cveId": "CVE-2024-29988",
+      "title": "SmartScreen Prompt Security Feature Bypass Vulnerability",
+      "description": "SmartScreen Prompt Security Feature Bypass Vulnerability",
+      "publishedDate": "2024-04-09T17:00:35.822000+00:00",
+      "lastModifiedDate": "2025-07-30T01:37:04.898000+00:00",
       "severity": "HIGH",
       "cvssMetrics": [
         {
           "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H/E:F/RL:O/RC:C",
-          "baseScore": 7.8,
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H/E:F/RL:O/RC:C",
+          "baseScore": 8.8,
           "baseSeverity": "HIGH"
         }
       ],
       "epss": {
-        "score": 0.7619,
-        "percentile": 98.866
+        "score": 0.6477,
+        "percentile": 98.364
       },
       "ssvc": {
         "exploitation": "active",
@@ -1457,7 +1244,7 @@
         "inferred": false,
         "confidence": null
       },
-      "riskScore": 68,
+      "riskScore": 69,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
@@ -1480,8 +1267,8 @@
       },
       "references": [
         {
-          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-21338",
-          "source": "Windows Kernel Elevation of Privilege Vulnerability",
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-29988",
+          "source": "SmartScreen Prompt Security Feature Bypass Vulnerability",
           "tags": [
             "vendor-advisory"
           ]
@@ -1490,7 +1277,141 @@
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-822"
+          "CWE-693"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "Required",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/29xxx/CVE-2024-29988.json",
+            "lastModified": "2025-07-30T01:37:04.898000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2024-1086",
+      "title": "Use-after-free in Linux kernel's netfilter: nf_tables component",
+      "description": "A use-after-free vulnerability in the Linux kernel's netfilter: nf_tables component can be exploited to achieve local privilege escalation.\n\nThe nft_verdict_init() function allows positive values as drop error within the hook verdict, and hence the nf_hook_slow() function can cause a double free vulnerability when NF_DROP is issued with a drop error which resembles NF_ACCEPT.\n\nWe recommend upgrading past commit f342de4e2f33e0e39165d8639387aa6c19dff660.",
+      "publishedDate": "2024-01-31T12:14:34.073000+00:00",
+      "lastModifiedDate": "2025-07-30T01:37:08.023000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 7.8,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.846,
+        "percentile": 99.283
+      },
+      "ssvc": {
+        "exploitation": "active",
+        "automatable": "no",
+        "technicalImpact": "total",
+        "priorityTier": "ATTEND",
+        "compactNotation": "A/N/T",
+        "ssvcScore": 45,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 69,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Linux"
+        ],
+        "products": [
+          "Kernel"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=f342de4e2f33e0e39165d8639387aa6c19dff660",
+          "source": "",
+          "tags": [
+            "patch"
+          ]
+        },
+        {
+          "url": "https://kernel.dance/f342de4e2f33e0e39165d8639387aa6c19dff660",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/7LSPIOMIJYTLZB6QKPQVVAYSUETUWKPF/",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://github.com/Notselwyn/CVE-2024-1086",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=39828424",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://pwning.tech/nftables/",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "http://www.openwall.com/lists/oss-security/2024/04/15/2",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "http://www.openwall.com/lists/oss-security/2024/04/10/23",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "http://www.openwall.com/lists/oss-security/2024/04/10/22",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "http://www.openwall.com/lists/oss-security/2024/04/14/1",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "http://www.openwall.com/lists/oss-security/2024/04/17/5",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://security.netapp.com/advisory/ntap-20240614-0009/",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://lists.debian.org/debian-lts-announce/2024/06/msg00016.html",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://lists.debian.org/debian-lts-announce/2024/06/msg00020.html",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-416"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -1501,8 +1422,75 @@
         "sources": [
           {
             "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/21xxx/CVE-2024-21338.json",
-            "lastModified": "2025-07-30T01:37:07.604000+00:00"
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/1xxx/CVE-2024-1086.json",
+            "lastModified": "2025-07-30T01:37:08.023000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2024-9380",
+      "title": "CVE-2024-9380: An OS command injection vulnerability in the admin web console of Ivanti CSA before version 5.0.2 al...",
+      "description": "An OS command injection vulnerability in the admin web console of Ivanti CSA before version 5.0.2 allows a remote authenticated attacker with admin privileges to obtain remote code execution.",
+      "publishedDate": "2024-10-08T16:23:49.949000+00:00",
+      "lastModifiedDate": "2025-07-30T01:36:31.701000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 7.2,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.8424,
+        "percentile": 99.266
+      },
+      "ssvc": {
+        "exploitation": "active",
+        "automatable": "no",
+        "technicalImpact": "total",
+        "priorityTier": "ATTEND",
+        "compactNotation": "A/N/T",
+        "ssvcScore": 45,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 68,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Ivanti"
+        ],
+        "products": [
+          "Csa (cloud Services Appliance)"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://forums.ivanti.com/s/article/Security-Advisory-Ivanti-CSA-Cloud-Services-Appliance-CVE-2024-9379-CVE-2024-9380-CVE-2024-9381",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-77"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "High",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/9xxx/CVE-2024-9380.json",
+            "lastModified": "2025-07-30T01:36:31.701000+00:00"
           }
         ]
       }
@@ -1593,7 +1581,7 @@
       ],
       "epss": {
         "score": 0.8496,
-        "percentile": 99.297
+        "percentile": 99.298
       },
       "ssvc": {
         "exploitation": "poc",
@@ -1646,6 +1634,157 @@
       }
     },
     {
+      "cveId": "CVE-2024-21338",
+      "title": "Windows Kernel Elevation of Privilege Vulnerability",
+      "description": "Windows Kernel Elevation of Privilege Vulnerability",
+      "publishedDate": "2024-02-13T18:02:09.738000+00:00",
+      "lastModifiedDate": "2025-07-30T01:37:07.604000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H/E:F/RL:O/RC:C",
+          "baseScore": 7.8,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.7619,
+        "percentile": 98.866
+      },
+      "ssvc": {
+        "exploitation": "active",
+        "automatable": "no",
+        "technicalImpact": "total",
+        "priorityTier": "ATTEND",
+        "compactNotation": "A/N/T",
+        "ssvcScore": 45,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 68,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Microsoft"
+        ],
+        "products": [
+          "Windows 10 Version 1809",
+          "Windows 10 Version 21h2",
+          "Windows 10 Version 22h2",
+          "Windows 11 Version 21h2",
+          "Windows 11 Version 22h2",
+          "Windows 11 Version 22h3",
+          "Windows 11 Version 23h2",
+          "Windows Server 2019",
+          "Windows Server 2019 (server Core Installation)",
+          "Windows Server 2022",
+          "Windows Server 2022, 23h2 Edition (server Core Installation)"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-21338",
+          "source": "Windows Kernel Elevation of Privilege Vulnerability",
+          "tags": [
+            "vendor-advisory"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-822"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Local",
+        "attackComplexity": "Low",
+        "privilegesRequired": "Low",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/21xxx/CVE-2024-21338.json",
+            "lastModified": "2025-07-30T01:37:07.604000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2024-38094",
+      "title": "Microsoft SharePoint Remote Code Execution Vulnerability",
+      "description": "Microsoft SharePoint Remote Code Execution Vulnerability",
+      "publishedDate": "2024-07-09T17:03:24.222000+00:00",
+      "lastModifiedDate": "2025-10-14T22:14:07.954000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H/E:U/RL:O/RC:C",
+          "baseScore": 7.2,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.8079,
+        "percentile": 99.093
+      },
+      "ssvc": {
+        "exploitation": "active",
+        "automatable": "no",
+        "technicalImpact": "total",
+        "priorityTier": "ATTEND",
+        "compactNotation": "A/N/T",
+        "ssvcScore": 45,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 68,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Microsoft"
+        ],
+        "products": [
+          "Microsoft Sharepoint Enterprise Server 2016",
+          "Microsoft Sharepoint Server 2019",
+          "Microsoft Sharepoint Server Subscription Edition",
+          "Sharepoint"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-38094",
+          "source": "Microsoft SharePoint Remote Code Execution Vulnerability",
+          "tags": [
+            "vendor-advisory"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-502"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "High",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/38xxx/CVE-2024-38094.json",
+            "lastModified": "2025-10-14T22:14:07.954000+00:00"
+          }
+        ]
+      }
+    },
+    {
       "cveId": "CVE-2024-30088",
       "title": "Windows Kernel Elevation of Privilege Vulnerability",
       "description": "Windows Kernel Elevation of Privilege Vulnerability",
@@ -1662,7 +1801,7 @@
       ],
       "epss": {
         "score": 0.8734,
-        "percentile": 99.409
+        "percentile": 99.41
       },
       "ssvc": {
         "exploitation": "active",
@@ -1729,308 +1868,6 @@
       }
     },
     {
-      "cveId": "CVE-2024-38094",
-      "title": "Microsoft SharePoint Remote Code Execution Vulnerability",
-      "description": "Microsoft SharePoint Remote Code Execution Vulnerability",
-      "publishedDate": "2024-07-09T17:03:24.222000+00:00",
-      "lastModifiedDate": "2025-10-14T22:14:07.954000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H/E:U/RL:O/RC:C",
-          "baseScore": 7.2,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.8079,
-        "percentile": 99.095
-      },
-      "ssvc": {
-        "exploitation": "active",
-        "automatable": "no",
-        "technicalImpact": "total",
-        "priorityTier": "ATTEND",
-        "compactNotation": "A/N/T",
-        "ssvcScore": 45,
-        "inferred": false,
-        "confidence": null
-      },
-      "riskScore": 68,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Microsoft"
-        ],
-        "products": [
-          "Microsoft Sharepoint Enterprise Server 2016",
-          "Microsoft Sharepoint Server 2019",
-          "Microsoft Sharepoint Server Subscription Edition",
-          "Sharepoint"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-38094",
-          "source": "Microsoft SharePoint Remote Code Execution Vulnerability",
-          "tags": [
-            "vendor-advisory"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-502"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "High",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/38xxx/CVE-2024-38094.json",
-            "lastModified": "2025-10-14T22:14:07.954000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2024-9380",
-      "title": "CVE-2024-9380: An OS command injection vulnerability in the admin web console of Ivanti CSA before version 5.0.2 al...",
-      "description": "An OS command injection vulnerability in the admin web console of Ivanti CSA before version 5.0.2 allows a remote authenticated attacker with admin privileges to obtain remote code execution.",
-      "publishedDate": "2024-10-08T16:23:49.949000+00:00",
-      "lastModifiedDate": "2025-07-30T01:36:31.701000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 7.2,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.8424,
-        "percentile": 99.266
-      },
-      "ssvc": {
-        "exploitation": "active",
-        "automatable": "no",
-        "technicalImpact": "total",
-        "priorityTier": "ATTEND",
-        "compactNotation": "A/N/T",
-        "ssvcScore": 45,
-        "inferred": false,
-        "confidence": null
-      },
-      "riskScore": 68,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Ivanti"
-        ],
-        "products": [
-          "Csa (cloud Services Appliance)"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://forums.ivanti.com/s/article/Security-Advisory-Ivanti-CSA-Cloud-Services-Appliance-CVE-2024-9379-CVE-2024-9380-CVE-2024-9381",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-77"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "High",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/9xxx/CVE-2024-9380.json",
-            "lastModified": "2025-07-30T01:36:31.701000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2024-27199",
-      "title": "CVE-2024-27199: In JetBrains TeamCity before 2023.11.4 path traversal allowing to perform limited admin actions  was...",
-      "description": "In JetBrains TeamCity before 2023.11.4 path traversal allowing to perform limited admin actions  was possible",
-      "publishedDate": "2024-03-04T17:21:40.081000+00:00",
-      "lastModifiedDate": "2025-05-30T16:40:42.060000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
-          "baseScore": 7.3,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.9449,
-        "percentile": 99.998
-      },
-      "ssvc": {
-        "exploitation": "poc",
-        "automatable": "yes",
-        "technicalImpact": "partial",
-        "priorityTier": "ATTEND",
-        "compactNotation": "P/Y/P",
-        "ssvcScore": 42,
-        "inferred": false,
-        "confidence": null
-      },
-      "riskScore": 67,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Jetbrains"
-        ],
-        "products": [
-          "Teamcity"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://www.jetbrains.com/privacy-security/issues-fixed/",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://www.darkreading.com/cyberattacks-data-breaches/jetbrains-teamcity-mass-exploitation-underway-rogue-accounts-thrive",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/27xxx/CVE-2024-27199.json",
-            "lastModified": "2025-05-30T16:40:42.060000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2024-49113",
-      "title": "Windows Lightweight Directory Access Protocol (LDAP) Denial of Service Vulnerability",
-      "description": "Windows Lightweight Directory Access Protocol (LDAP) Denial of Service Vulnerability",
-      "publishedDate": "2024-12-10T17:49:45.354000+00:00",
-      "lastModifiedDate": "2025-05-13T15:25:44.347000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H/E:U/RL:O/RC:C",
-          "baseScore": 7.5,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.8688,
-        "percentile": 99.388
-      },
-      "ssvc": {
-        "exploitation": "poc",
-        "automatable": "yes",
-        "technicalImpact": "partial",
-        "priorityTier": "ATTEND",
-        "compactNotation": "P/Y/P",
-        "ssvcScore": 42,
-        "inferred": false,
-        "confidence": null
-      },
-      "riskScore": 67,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Microsoft"
-        ],
-        "products": [
-          "Windows 10 Version 1507",
-          "Windows 10 Version 1607",
-          "Windows 10 Version 1809",
-          "Windows 10 Version 21h2",
-          "Windows 10 Version 22h2",
-          "Windows 11 Version 22h2",
-          "Windows 11 Version 22h3",
-          "Windows 11 Version 23h2",
-          "Windows 11 Version 24h2",
-          "Windows Server 2008 R2 Service Pack 1",
-          "Windows Server 2008 R2 Service Pack 1 (server Core Installation)",
-          "Windows Server 2008 Service Pack 2",
-          "Windows Server 2008 Service Pack 2 (server Core Installation)",
-          "Windows Server 2012",
-          "Windows Server 2012 (server Core Installation)",
-          "Windows Server 2012 R2",
-          "Windows Server 2012 R2 (server Core Installation)",
-          "Windows Server 2016",
-          "Windows Server 2016 (server Core Installation)",
-          "Windows Server 2019",
-          "Windows Server 2019 (server Core Installation)",
-          "Windows Server 2022",
-          "Windows Server 2022, 23h2 Edition (server Core Installation)",
-          "Windows Server 2025",
-          "Windows Server 2025 (server Core Installation)"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-49113",
-          "source": "Windows Lightweight Directory Access Protocol (LDAP) Denial of Service Vulnerability",
-          "tags": [
-            "vendor-advisory"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-125"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/49xxx/CVE-2024-49113.json",
-            "lastModified": "2025-05-13T15:25:44.347000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2024-36991",
       "title": "Path Traversal on the “/modules/messaging/“ endpoint in Splunk Enterprise on Windows",
       "description": "In Splunk Enterprise on Windows versions below 9.2.2, 9.1.5, and 9.0.10, an attacker could perform a path traversal on the /modules/messaging/ endpoint in Splunk Enterprise on Windows. This vulnerability should only affect Splunk Enterprise on Windows.",
@@ -2047,7 +1884,7 @@
       ],
       "epss": {
         "score": 0.9327,
-        "percentile": 99.797
+        "percentile": 99.796
       },
       "ssvc": {
         "exploitation": "poc",
@@ -2101,23 +1938,23 @@
       }
     },
     {
-      "cveId": "CVE-2024-6781",
-      "title": "Calibre Arbitrary File Read",
-      "description": "Path traversal in Calibre <= 7.14.0 allow unauthenticated attackers to achieve arbitrary file read.",
-      "publishedDate": "2024-08-06T03:38:45.309000+00:00",
-      "lastModifiedDate": "2024-08-06T14:49:38.742000+00:00",
+      "cveId": "CVE-2024-27199",
+      "title": "CVE-2024-27199: In JetBrains TeamCity before 2023.11.4 path traversal allowing to perform limited admin actions  was...",
+      "description": "In JetBrains TeamCity before 2023.11.4 path traversal allowing to perform limited admin actions  was possible",
+      "publishedDate": "2024-03-04T17:21:40.081000+00:00",
+      "lastModifiedDate": "2025-05-30T16:40:42.060000+00:00",
       "severity": "HIGH",
       "cvssMetrics": [
         {
           "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
-          "baseScore": 7.5,
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+          "baseScore": 7.3,
           "baseSeverity": "HIGH"
         }
       ],
       "epss": {
-        "score": 0.9363,
-        "percentile": 99.827
+        "score": 0.9449,
+        "percentile": 99.999
       },
       "ssvc": {
         "exploitation": "poc",
@@ -2134,33 +1971,27 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
-          "Calibre"
+          "Jetbrains"
         ],
         "products": [
-          "Calibre"
+          "Teamcity"
         ]
       },
       "references": [
         {
-          "url": "https://starlabs.sg/advisories/24/24-6781/",
+          "url": "https://www.jetbrains.com/privacy-security/issues-fixed/",
           "source": "",
-          "tags": [
-            "third-party-advisory"
-          ]
+          "tags": []
         },
         {
-          "url": "https://github.com/kovidgoyal/calibre/commit/bcd0ab12c41a887f8290a9b56e46c3a29038d9c4",
+          "url": "https://www.darkreading.com/cyberattacks-data-breaches/jetbrains-teamcity-mass-exploitation-underway-rogue-accounts-thrive",
           "source": "",
-          "tags": [
-            "patch"
-          ]
+          "tags": []
         }
       ],
       "attackTechniques": [],
       "metadata": {
-        "tags": [
-          "CWE-22"
-        ],
+        "tags": [],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
         "attackVector": "Network",
@@ -2170,8 +2001,8 @@
         "sources": [
           {
             "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/6xxx/CVE-2024-6781.json",
-            "lastModified": "2024-08-06T14:49:38.742000+00:00"
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/27xxx/CVE-2024-27199.json",
+            "lastModified": "2025-05-30T16:40:42.060000+00:00"
           }
         ]
       }
@@ -2269,6 +2100,175 @@
       }
     },
     {
+      "cveId": "CVE-2024-6781",
+      "title": "Calibre Arbitrary File Read",
+      "description": "Path traversal in Calibre <= 7.14.0 allow unauthenticated attackers to achieve arbitrary file read.",
+      "publishedDate": "2024-08-06T03:38:45.309000+00:00",
+      "lastModifiedDate": "2024-08-06T14:49:38.742000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "baseScore": 7.5,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.9363,
+        "percentile": 99.826
+      },
+      "ssvc": {
+        "exploitation": "poc",
+        "automatable": "yes",
+        "technicalImpact": "partial",
+        "priorityTier": "ATTEND",
+        "compactNotation": "P/Y/P",
+        "ssvcScore": 42,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 67,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Calibre"
+        ],
+        "products": [
+          "Calibre"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://starlabs.sg/advisories/24/24-6781/",
+          "source": "",
+          "tags": [
+            "third-party-advisory"
+          ]
+        },
+        {
+          "url": "https://github.com/kovidgoyal/calibre/commit/bcd0ab12c41a887f8290a9b56e46c3a29038d9c4",
+          "source": "",
+          "tags": [
+            "patch"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-22"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/6xxx/CVE-2024-6781.json",
+            "lastModified": "2024-08-06T14:49:38.742000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2024-49113",
+      "title": "Windows Lightweight Directory Access Protocol (LDAP) Denial of Service Vulnerability",
+      "description": "Windows Lightweight Directory Access Protocol (LDAP) Denial of Service Vulnerability",
+      "publishedDate": "2024-12-10T17:49:45.354000+00:00",
+      "lastModifiedDate": "2025-05-13T15:25:44.347000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H/E:U/RL:O/RC:C",
+          "baseScore": 7.5,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.8688,
+        "percentile": 99.389
+      },
+      "ssvc": {
+        "exploitation": "poc",
+        "automatable": "yes",
+        "technicalImpact": "partial",
+        "priorityTier": "ATTEND",
+        "compactNotation": "P/Y/P",
+        "ssvcScore": 42,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 67,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Microsoft"
+        ],
+        "products": [
+          "Windows 10 Version 1507",
+          "Windows 10 Version 1607",
+          "Windows 10 Version 1809",
+          "Windows 10 Version 21h2",
+          "Windows 10 Version 22h2",
+          "Windows 11 Version 22h2",
+          "Windows 11 Version 22h3",
+          "Windows 11 Version 23h2",
+          "Windows 11 Version 24h2",
+          "Windows Server 2008 R2 Service Pack 1",
+          "Windows Server 2008 R2 Service Pack 1 (server Core Installation)",
+          "Windows Server 2008 Service Pack 2",
+          "Windows Server 2008 Service Pack 2 (server Core Installation)",
+          "Windows Server 2012",
+          "Windows Server 2012 (server Core Installation)",
+          "Windows Server 2012 R2",
+          "Windows Server 2012 R2 (server Core Installation)",
+          "Windows Server 2016",
+          "Windows Server 2016 (server Core Installation)",
+          "Windows Server 2019",
+          "Windows Server 2019 (server Core Installation)",
+          "Windows Server 2022",
+          "Windows Server 2022, 23h2 Edition (server Core Installation)",
+          "Windows Server 2025",
+          "Windows Server 2025 (server Core Installation)"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-49113",
+          "source": "Windows Lightweight Directory Access Protocol (LDAP) Denial of Service Vulnerability",
+          "tags": [
+            "vendor-advisory"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-125"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/49xxx/CVE-2024-49113.json",
+            "lastModified": "2025-05-13T15:25:44.347000+00:00"
+          }
+        ]
+      }
+    },
+    {
       "cveId": "CVE-2024-38193",
       "title": "Windows Ancillary Function Driver for WinSock Elevation of Privilege Vulnerability",
       "description": "Windows Ancillary Function Driver for WinSock Elevation of Privilege Vulnerability",
@@ -2284,8 +2284,8 @@
         }
       ],
       "epss": {
-        "score": 0.6252,
-        "percentile": 98.264
+        "score": 0.6716,
+        "percentile": 98.478
       },
       "ssvc": {
         "exploitation": "active",
@@ -2356,6 +2356,181 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/38xxx/CVE-2024-38193.json",
             "lastModified": "2025-07-30T01:36:35.984000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2024-8957",
+      "title": "PTZOptics NDI and SDI Cameras Command Injection via NTP Address Configuration",
+      "description": "PTZOptics PT30X-SDI/NDI-xx before firmware 6.3.40 is vulnerable to an OS command injection issue. The camera does not sufficiently validate the ntp_addr configuration value which may lead to arbitrary command execution when ntp_client is started. When chained with CVE-2024-8956, a remote and unauthenticated attacker can execute arbitrary OS commands on affected devices.",
+      "publishedDate": "2024-09-17T20:08:25.588000+00:00",
+      "lastModifiedDate": "2025-09-08T18:29:42.970000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 7.2,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.6444,
+        "percentile": 98.348
+      },
+      "ssvc": {
+        "exploitation": "active",
+        "automatable": "no",
+        "technicalImpact": "total",
+        "priorityTier": "ATTEND",
+        "compactNotation": "A/N/T",
+        "ssvcScore": 45,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 66,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Ptzoptics"
+        ],
+        "products": [
+          "Pt30x-ndi",
+          "Pt30x-sdi"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://ptzoptics.com/firmware-changelog/",
+          "source": "",
+          "tags": [
+            "vendor-advisory"
+          ]
+        },
+        {
+          "url": "https://vulncheck.com/advisories/ptzoptics-command-injection",
+          "source": "",
+          "tags": [
+            "third-party-advisory"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-78"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "High",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/8xxx/CVE-2024-8957.json",
+            "lastModified": "2025-09-08T18:29:42.970000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2024-7188",
+      "title": "Bylancer Quicklancer GET Parameter listing sql injection",
+      "description": "A vulnerability was found in Bylancer Quicklancer 2.4. It has been rated as critical. This issue affects some unknown processing of the file /listing of the component GET Parameter Handler. The manipulation of the argument range2 leads to sql injection. The attack may be initiated remotely. The exploit has been disclosed to the public and may be used. The identifier VDB-272609 was assigned to this vulnerability. NOTE: The vendor was contacted early about this disclosure but did not respond in any way.",
+      "publishedDate": "2024-07-29T07:00:10.139000+00:00",
+      "lastModifiedDate": "2024-08-01T21:52:31.086000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+          "baseScore": 7.3,
+          "baseSeverity": "HIGH"
+        },
+        {
+          "version": "3.0",
+          "vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+          "baseScore": 7.3,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.8208,
+        "percentile": 99.156
+      },
+      "ssvc": {
+        "exploitation": "poc",
+        "automatable": "yes",
+        "technicalImpact": "partial",
+        "priorityTier": "ATTEND",
+        "compactNotation": "P/Y/P",
+        "ssvcScore": 42,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 66,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Bylancer"
+        ],
+        "products": [
+          "Quicklancer"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://vuldb.com/?id.272609",
+          "source": "VDB-272609 | Bylancer Quicklancer GET Parameter listing sql injection",
+          "tags": [
+            "vdb-entry",
+            "technical-description"
+          ]
+        },
+        {
+          "url": "https://vuldb.com/?ctiid.272609",
+          "source": "VDB-272609 | CTI Indicators (IOB, IOC, TTP, IOA)",
+          "tags": [
+            "signature",
+            "permissions-required"
+          ]
+        },
+        {
+          "url": "https://vuldb.com/?submit.378279",
+          "source": "Submit #378279 | Bylancer Quicklancer 2.4 SQL Injection",
+          "tags": [
+            "third-party-advisory"
+          ]
+        },
+        {
+          "url": "https://github.com/bigb0x/CVEs/blob/main/quicklancer-2-4.md",
+          "source": "",
+          "tags": [
+            "exploit"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-89"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/7xxx/CVE-2024-7188.json",
+            "lastModified": "2024-08-01T21:52:31.086000+00:00"
           }
         ]
       }
@@ -2447,251 +2622,6 @@
       }
     },
     {
-      "cveId": "CVE-2024-8957",
-      "title": "PTZOptics NDI and SDI Cameras Command Injection via NTP Address Configuration",
-      "description": "PTZOptics PT30X-SDI/NDI-xx before firmware 6.3.40 is vulnerable to an OS command injection issue. The camera does not sufficiently validate the ntp_addr configuration value which may lead to arbitrary command execution when ntp_client is started. When chained with CVE-2024-8956, a remote and unauthenticated attacker can execute arbitrary OS commands on affected devices.",
-      "publishedDate": "2024-09-17T20:08:25.588000+00:00",
-      "lastModifiedDate": "2025-09-08T18:29:42.970000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 7.2,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.6444,
-        "percentile": 98.347
-      },
-      "ssvc": {
-        "exploitation": "active",
-        "automatable": "no",
-        "technicalImpact": "total",
-        "priorityTier": "ATTEND",
-        "compactNotation": "A/N/T",
-        "ssvcScore": 45,
-        "inferred": false,
-        "confidence": null
-      },
-      "riskScore": 66,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Ptzoptics"
-        ],
-        "products": [
-          "Pt30x-ndi",
-          "Pt30x-sdi"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://ptzoptics.com/firmware-changelog/",
-          "source": "",
-          "tags": [
-            "vendor-advisory"
-          ]
-        },
-        {
-          "url": "https://vulncheck.com/advisories/ptzoptics-command-injection",
-          "source": "",
-          "tags": [
-            "third-party-advisory"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-78"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "High",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/8xxx/CVE-2024-8957.json",
-            "lastModified": "2025-09-08T18:29:42.970000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2024-7188",
-      "title": "Bylancer Quicklancer GET Parameter listing sql injection",
-      "description": "A vulnerability was found in Bylancer Quicklancer 2.4. It has been rated as critical. This issue affects some unknown processing of the file /listing of the component GET Parameter Handler. The manipulation of the argument range2 leads to sql injection. The attack may be initiated remotely. The exploit has been disclosed to the public and may be used. The identifier VDB-272609 was assigned to this vulnerability. NOTE: The vendor was contacted early about this disclosure but did not respond in any way.",
-      "publishedDate": "2024-07-29T07:00:10.139000+00:00",
-      "lastModifiedDate": "2024-08-01T21:52:31.086000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
-          "baseScore": 7.3,
-          "baseSeverity": "HIGH"
-        },
-        {
-          "version": "3.0",
-          "vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
-          "baseScore": 7.3,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.8208,
-        "percentile": 99.158
-      },
-      "ssvc": {
-        "exploitation": "poc",
-        "automatable": "yes",
-        "technicalImpact": "partial",
-        "priorityTier": "ATTEND",
-        "compactNotation": "P/Y/P",
-        "ssvcScore": 42,
-        "inferred": false,
-        "confidence": null
-      },
-      "riskScore": 66,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Bylancer"
-        ],
-        "products": [
-          "Quicklancer"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://vuldb.com/?id.272609",
-          "source": "VDB-272609 | Bylancer Quicklancer GET Parameter listing sql injection",
-          "tags": [
-            "vdb-entry",
-            "technical-description"
-          ]
-        },
-        {
-          "url": "https://vuldb.com/?ctiid.272609",
-          "source": "VDB-272609 | CTI Indicators (IOB, IOC, TTP, IOA)",
-          "tags": [
-            "signature",
-            "permissions-required"
-          ]
-        },
-        {
-          "url": "https://vuldb.com/?submit.378279",
-          "source": "Submit #378279 | Bylancer Quicklancer 2.4 SQL Injection",
-          "tags": [
-            "third-party-advisory"
-          ]
-        },
-        {
-          "url": "https://github.com/bigb0x/CVEs/blob/main/quicklancer-2-4.md",
-          "source": "",
-          "tags": [
-            "exploit"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-89"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/7xxx/CVE-2024-7188.json",
-            "lastModified": "2024-08-01T21:52:31.086000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2024-32736",
-      "title": "CyberPower PowerPanel Enterprise SQL Injection",
-      "description": "A sql injection vulnerability exists in CyberPower PowerPanel Enterprise prior to v2.8.3. An unauthenticated remote attacker can leak sensitive information via the \"query_utask_verbose\" function within MCUDBHelper.\n",
-      "publishedDate": "2024-05-09T14:57:38.850000+00:00",
-      "lastModifiedDate": "2025-03-25T18:10:55.407000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
-          "baseScore": 7.5,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.7136,
-        "percentile": 98.643
-      },
-      "ssvc": {
-        "exploitation": "poc",
-        "automatable": "yes",
-        "technicalImpact": "partial",
-        "priorityTier": "ATTEND",
-        "compactNotation": "P/Y/P",
-        "ssvcScore": 42,
-        "inferred": false,
-        "confidence": null
-      },
-      "riskScore": 65,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Cyberpower"
-        ],
-        "products": [
-          "Cyberpower Powerpanel Enterprise"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://www.tenable.com/security/research/tra-2024-14",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://www.cyberpower.com/global/en/File/GetFileSampleByType?fileId=SU-18070002-07&fileSubType=FileReleaseNote",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/32xxx/CVE-2024-32736.json",
-            "lastModified": "2025-03-25T18:10:55.407000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2024-9916",
       "title": "HuangDou UTCMS cli.php os command injection",
       "description": "A vulnerability, which was classified as critical, has been found in HuangDou UTCMS V9. Affected by this issue is some unknown functionality of the file app/modules/ut-cac/admin/cli.php. The manipulation of the argument o leads to os command injection. The attack may be launched remotely. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
@@ -2714,7 +2644,7 @@
       ],
       "epss": {
         "score": 0.7342,
-        "percentile": 98.733
+        "percentile": 98.732
       },
       "ssvc": {
         "exploitation": "poc",
@@ -2790,6 +2720,76 @@
       }
     },
     {
+      "cveId": "CVE-2024-32736",
+      "title": "CyberPower PowerPanel Enterprise SQL Injection",
+      "description": "A sql injection vulnerability exists in CyberPower PowerPanel Enterprise prior to v2.8.3. An unauthenticated remote attacker can leak sensitive information via the \"query_utask_verbose\" function within MCUDBHelper.\n",
+      "publishedDate": "2024-05-09T14:57:38.850000+00:00",
+      "lastModifiedDate": "2025-03-25T18:10:55.407000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "baseScore": 7.5,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.7136,
+        "percentile": 98.644
+      },
+      "ssvc": {
+        "exploitation": "poc",
+        "automatable": "yes",
+        "technicalImpact": "partial",
+        "priorityTier": "ATTEND",
+        "compactNotation": "P/Y/P",
+        "ssvcScore": 42,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 65,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Cyberpower"
+        ],
+        "products": [
+          "Cyberpower Powerpanel Enterprise"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.tenable.com/security/research/tra-2024-14",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://www.cyberpower.com/global/en/File/GetFileSampleByType?fileId=SU-18070002-07&fileSubType=FileReleaseNote",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/32xxx/CVE-2024-32736.json",
+            "lastModified": "2025-03-25T18:10:55.407000+00:00"
+          }
+        ]
+      }
+    },
+    {
       "cveId": "CVE-2024-32739",
       "title": "CyberPower PowerPanel Enterprise SQL Injection",
       "description": "A sql injection vulnerability exists in CyberPower PowerPanel Enterprise prior to v2.8.3. An unauthenticated remote attacker can leak sensitive information via the \"query_ptask_verbose\" function within MCUDBHelper.\n",
@@ -2806,7 +2806,7 @@
       ],
       "epss": {
         "score": 0.6168,
-        "percentile": 98.226
+        "percentile": 98.225
       },
       "ssvc": {
         "exploitation": "poc",
@@ -2882,7 +2882,7 @@
       ],
       "epss": {
         "score": 0.9252,
-        "percentile": 99.722
+        "percentile": 99.723
       },
       "ssvc": {
         "exploitation": "poc",
@@ -2986,7 +2986,7 @@
       ],
       "epss": {
         "score": 0.7624,
-        "percentile": 98.871
+        "percentile": 98.87
       },
       "ssvc": {
         "exploitation": "poc",
@@ -3060,23 +3060,23 @@
       }
     },
     {
-      "cveId": "CVE-2024-24590",
-      "title": "CVE-2024-24590: Deserialization of untrusted data can occur in versions 0.17.0 to 1.14.2 of the client SDK of Allegr...",
-      "description": "Deserialization of untrusted data can occur in versions 0.17.0 to 1.14.2 of the client SDK of Allegro AI’s ClearML platform, enabling a maliciously uploaded artifact to run arbitrary code on an end user’s system when interacted with.\n",
-      "publishedDate": "2024-02-06T14:40:26.963000+00:00",
-      "lastModifiedDate": "2025-06-17T21:29:28.345000+00:00",
+      "cveId": "CVE-2024-3116",
+      "title": "Remote Code Execution Vulnerability through the validate binary path API in pgAdmin 4",
+      "description": "pgAdmin <= 8.4 is affected by a  Remote Code Execution (RCE) vulnerability through the validate binary path API. This vulnerability allows attackers to execute arbitrary code on the server hosting PGAdmin, posing a severe risk to the database management system's integrity and the security of the underlying data.",
+      "publishedDate": "2024-04-04T14:59:37.280000+00:00",
+      "lastModifiedDate": "2025-03-14T16:35:25.051000+00:00",
       "severity": "HIGH",
       "cvssMetrics": [
         {
           "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H",
-          "baseScore": 8.0,
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:L/I:L/A:L",
+          "baseScore": 7.4,
           "baseSeverity": "HIGH"
         }
       ],
       "epss": {
-        "score": 0.7866,
-        "percentile": 98.993
+        "score": 0.9068,
+        "percentile": 99.593
       },
       "ssvc": {
         "exploitation": "poc",
@@ -3093,35 +3093,50 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
-          "Allegro.ai"
+          "Pgadmin.org",
+          "The"
         ],
         "products": [
-          "Clearml"
+          "Pgadmin 4",
+          "The Database",
+          "The Server"
         ]
       },
       "references": [
         {
-          "url": "https://hiddenlayer.com/research/not-so-clear-how-mlops-solutions-can-muddy-the-waters-of-your-supply-chain/",
+          "url": "https://github.com/pgadmin-org/pgadmin4/issues/7326",
+          "source": "",
+          "tags": [
+            "issue-tracking"
+          ]
+        },
+        {
+          "url": "https://gist.github.com/aelmokhtar/689a8be7e3bd535ec01992d8ec7b2b98",
+          "source": "",
+          "tags": [
+            "mitigation"
+          ]
+        },
+        {
+          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/GIF5T34JTTYRGIN5YPT366BDFG6452A2/",
           "source": "",
           "tags": []
         }
       ],
       "attackTechniques": [],
       "metadata": {
-        "tags": [
-          "CWE-502"
-        ],
+        "tags": [],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
         "attackVector": "Network",
         "attackComplexity": "Low",
         "privilegesRequired": "Low",
-        "userInteraction": "Required",
+        "userInteraction": "None",
         "sources": [
           {
             "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/24xxx/CVE-2024-24590.json",
-            "lastModified": "2025-06-17T21:29:28.345000+00:00"
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/3xxx/CVE-2024-3116.json",
+            "lastModified": "2025-03-14T16:35:25.051000+00:00"
           }
         ]
       }
@@ -3215,7 +3230,7 @@
       ],
       "epss": {
         "score": 0.8007,
-        "percentile": 99.064
+        "percentile": 99.061
       },
       "ssvc": {
         "exploitation": "poc",
@@ -3298,8 +3313,8 @@
         }
       ],
       "epss": {
-        "score": 0.8241,
-        "percentile": 99.177
+        "score": 0.8217,
+        "percentile": 99.163
       },
       "ssvc": {
         "exploitation": "poc",
@@ -3374,23 +3389,23 @@
       }
     },
     {
-      "cveId": "CVE-2024-3116",
-      "title": "Remote Code Execution Vulnerability through the validate binary path API in pgAdmin 4",
-      "description": "pgAdmin <= 8.4 is affected by a  Remote Code Execution (RCE) vulnerability through the validate binary path API. This vulnerability allows attackers to execute arbitrary code on the server hosting PGAdmin, posing a severe risk to the database management system's integrity and the security of the underlying data.",
-      "publishedDate": "2024-04-04T14:59:37.280000+00:00",
-      "lastModifiedDate": "2025-03-14T16:35:25.051000+00:00",
+      "cveId": "CVE-2024-24590",
+      "title": "CVE-2024-24590: Deserialization of untrusted data can occur in versions 0.17.0 to 1.14.2 of the client SDK of Allegr...",
+      "description": "Deserialization of untrusted data can occur in versions 0.17.0 to 1.14.2 of the client SDK of Allegro AI’s ClearML platform, enabling a maliciously uploaded artifact to run arbitrary code on an end user’s system when interacted with.\n",
+      "publishedDate": "2024-02-06T14:40:26.963000+00:00",
+      "lastModifiedDate": "2025-06-17T21:29:28.345000+00:00",
       "severity": "HIGH",
       "cvssMetrics": [
         {
           "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:L/I:L/A:L",
-          "baseScore": 7.4,
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H",
+          "baseScore": 8.0,
           "baseSeverity": "HIGH"
         }
       ],
       "epss": {
-        "score": 0.9068,
-        "percentile": 99.594
+        "score": 0.7866,
+        "percentile": 98.992
       },
       "ssvc": {
         "exploitation": "poc",
@@ -3407,50 +3422,35 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
-          "Pgadmin.org",
-          "The"
+          "Allegro.ai"
         ],
         "products": [
-          "Pgadmin 4",
-          "The Database",
-          "The Server"
+          "Clearml"
         ]
       },
       "references": [
         {
-          "url": "https://github.com/pgadmin-org/pgadmin4/issues/7326",
-          "source": "",
-          "tags": [
-            "issue-tracking"
-          ]
-        },
-        {
-          "url": "https://gist.github.com/aelmokhtar/689a8be7e3bd535ec01992d8ec7b2b98",
-          "source": "",
-          "tags": [
-            "mitigation"
-          ]
-        },
-        {
-          "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/GIF5T34JTTYRGIN5YPT366BDFG6452A2/",
+          "url": "https://hiddenlayer.com/research/not-so-clear-how-mlops-solutions-can-muddy-the-waters-of-your-supply-chain/",
           "source": "",
           "tags": []
         }
       ],
       "attackTechniques": [],
       "metadata": {
-        "tags": [],
+        "tags": [
+          "CWE-502"
+        ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
         "attackVector": "Network",
         "attackComplexity": "Low",
         "privilegesRequired": "Low",
-        "userInteraction": "None",
+        "userInteraction": "Required",
         "sources": [
           {
             "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/3xxx/CVE-2024-3116.json",
-            "lastModified": "2025-03-14T16:35:25.051000+00:00"
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/24xxx/CVE-2024-24590.json",
+            "lastModified": "2025-06-17T21:29:28.345000+00:00"
           }
         ]
       }
@@ -3527,6 +3527,74 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/21xxx/CVE-2024-21633.json",
             "lastModified": "2025-06-03T14:43:19.426000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2024-22274",
+      "title": "CVE-2024-22274: The vCenter Server contains an authenticated remote code execution vulnerability. A malicious actor ...",
+      "description": "The vCenter Server contains an authenticated remote code execution vulnerability. A malicious actor with administrative privileges on the vCenter appliance shell may exploit this issue to run arbitrary commands on the underlying operating system.",
+      "publishedDate": "2024-05-21T17:29:33.899000+00:00",
+      "lastModifiedDate": "2024-08-01T22:43:34.161000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 7.2,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.6689,
+        "percentile": 98.465
+      },
+      "ssvc": {
+        "exploitation": "poc",
+        "automatable": "no",
+        "technicalImpact": "total",
+        "priorityTier": "TRACK",
+        "compactNotation": "P/N/T",
+        "ssvcScore": 35,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 57,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "N/a",
+          "Vcenter"
+        ],
+        "products": [
+          "Vcenter Server",
+          "Vmware Cloud Foundation (vcenter Server)",
+          "Vmware Vcenter Server"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/24308",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "High",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/22xxx/CVE-2024-22274.json",
+            "lastModified": "2024-08-01T22:43:34.161000+00:00"
           }
         ]
       }
@@ -3623,74 +3691,6 @@
       }
     },
     {
-      "cveId": "CVE-2024-22274",
-      "title": "CVE-2024-22274: The vCenter Server contains an authenticated remote code execution vulnerability. A malicious actor ...",
-      "description": "The vCenter Server contains an authenticated remote code execution vulnerability. A malicious actor with administrative privileges on the vCenter appliance shell may exploit this issue to run arbitrary commands on the underlying operating system.",
-      "publishedDate": "2024-05-21T17:29:33.899000+00:00",
-      "lastModifiedDate": "2024-08-01T22:43:34.161000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 7.2,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.6689,
-        "percentile": 98.466
-      },
-      "ssvc": {
-        "exploitation": "poc",
-        "automatable": "no",
-        "technicalImpact": "total",
-        "priorityTier": "TRACK",
-        "compactNotation": "P/N/T",
-        "ssvcScore": 35,
-        "inferred": false,
-        "confidence": null
-      },
-      "riskScore": 57,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "N/a",
-          "Vcenter"
-        ],
-        "products": [
-          "Vcenter Server",
-          "Vmware Cloud Foundation (vcenter Server)",
-          "Vmware Vcenter Server"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/24308",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "High",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/22xxx/CVE-2024-22274.json",
-            "lastModified": "2024-08-01T22:43:34.161000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2024-27130",
       "title": "QTS, QuTS hero",
       "description": "A buffer copy without checking size of input vulnerability has been reported to affect several QNAP operating system versions. If exploited, the vulnerability could allow users to execute code via a network.\n\nWe have already fixed the vulnerability in the following version:\nQTS 5.1.7.2770 build 20240520 and later\nQuTS hero h5.1.7.2770 build 20240520 and later",
@@ -3707,7 +3707,7 @@
       ],
       "epss": {
         "score": 0.8189,
-        "percentile": 99.15
+        "percentile": 99.148
       },
       "ssvc": {
         "exploitation": "none",
@@ -3776,7 +3776,7 @@
       ],
       "epss": {
         "score": 0.8115,
-        "percentile": 99.111
+        "percentile": 99.109
       },
       "ssvc": {
         "exploitation": "poc",
@@ -3882,7 +3882,7 @@
       ],
       "epss": {
         "score": 0.7352,
-        "percentile": 98.739
+        "percentile": 98.738
       },
       "ssvc": {
         "exploitation": "none",
@@ -3947,7 +3947,7 @@
       ],
       "epss": {
         "score": 0.8764,
-        "percentile": 99.424
+        "percentile": 99.425
       },
       "ssvc": {
         "exploitation": "poc",
@@ -4103,7 +4103,7 @@
       ],
       "epss": {
         "score": 0.8493,
-        "percentile": 99.296
+        "percentile": 99.297
       },
       "ssvc": {
         "exploitation": "none",
@@ -4223,100 +4223,6 @@
       }
     },
     {
-      "cveId": "CVE-2024-0352",
-      "title": "Likeshop HTTP POST Request File.php userFormImage unrestricted upload",
-      "description": "A vulnerability classified as critical was found in Likeshop up to 2.5.7.20210311. This vulnerability affects the function FileServer::userFormImage of the file server/application/api/controller/File.php of the component HTTP POST Request Handler. The manipulation of the argument file leads to unrestricted upload. The attack can be initiated remotely. The exploit has been disclosed to the public and may be used. The identifier of this vulnerability is VDB-250120.",
-      "publishedDate": "2024-01-09T23:00:06.729000+00:00",
-      "lastModifiedDate": "2025-06-03T14:29:27.523000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
-          "baseScore": 7.3,
-          "baseSeverity": "HIGH"
-        },
-        {
-          "version": "3.0",
-          "vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
-          "baseScore": 7.3,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.918,
-        "percentile": 99.671
-      },
-      "ssvc": {
-        "exploitation": "none",
-        "automatable": "yes",
-        "technicalImpact": "partial",
-        "priorityTier": "TRACK",
-        "compactNotation": "N/Y/P",
-        "ssvcScore": 22,
-        "inferred": false,
-        "confidence": null
-      },
-      "riskScore": 47,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "File",
-          "N/a"
-        ],
-        "products": [
-          "File Server",
-          "Likeshop"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://vuldb.com/?id.250120",
-          "source": "",
-          "tags": [
-            "vdb-entry",
-            "technical-description"
-          ]
-        },
-        {
-          "url": "https://vuldb.com/?ctiid.250120",
-          "source": "",
-          "tags": [
-            "signature",
-            "permissions-required"
-          ]
-        },
-        {
-          "url": "https://note.zhaoj.in/share/ciwYj7QXC4sZ",
-          "source": "",
-          "tags": [
-            "broken-link",
-            "exploit"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-434"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/0xxx/CVE-2024-0352.json",
-            "lastModified": "2025-06-03T14:29:27.523000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2024-27292",
       "title": "Docassemble unauthorized access through URL manipulation",
       "description": "Docassemble is an expert system for guided interviews and document assembly. The vulnerability allows attackers to gain unauthorized access to information on the system through URL manipulation. It affects versions 1.4.53 to 1.4.96. The vulnerability has been patched in version 1.4.97 of the master branch.",
@@ -4333,7 +4239,7 @@
       ],
       "epss": {
         "score": 0.9386,
-        "percentile": 99.86
+        "percentile": 99.861
       },
       "ssvc": {
         "exploitation": "none",
@@ -4388,6 +4294,158 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/27xxx/CVE-2024-27292.json",
             "lastModified": "2024-08-02T19:27:42.423000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2024-9935",
+      "title": "PDF Generator Addon for Elementor Page Builder <= 1.7.5 - Unauthenticated Arbitrary File Download",
+      "description": "The PDF Generator Addon for Elementor Page Builder plugin for WordPress is vulnerable to Path Traversal in all versions up to, and including, 1.7.5 via the rtw_pgaepb_dwnld_pdf() function. This makes it possible for unauthenticated attackers to read the contents of arbitrary files on the server, which can contain sensitive information.",
+      "publishedDate": "2024-11-16T03:20:45.226000+00:00",
+      "lastModifiedDate": "2024-11-19T15:14:19.116000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "baseScore": 7.5,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.9312,
+        "percentile": 99.779
+      },
+      "ssvc": {
+        "exploitation": "none",
+        "automatable": "yes",
+        "technicalImpact": "partial",
+        "priorityTier": "TRACK",
+        "compactNotation": "N/Y/P",
+        "ssvcScore": 22,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 47,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Redefiningtheweb",
+          "The",
+          "WordPress"
+        ],
+        "products": [
+          "Pdf Generator Addon For Elementor Page Builder",
+          "The Server",
+          "Wordpress"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/36daf2af-1db3-4b35-8849-480212660b2f?source=cve",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://plugins.trac.wordpress.org/browser/pdf-generator-addon-for-elementor-page-builder/trunk/public/class-pdf-generator-addon-for-elementor-page-builder-public.php#L133",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-22"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/9xxx/CVE-2024-9935.json",
+            "lastModified": "2024-11-19T15:14:19.116000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2024-10400",
+      "title": "Tutor LMS <= 2.7.6 - Unauthenticated SQL Injection via rating_filter",
+      "description": "The Tutor LMS plugin for WordPress is vulnerable to SQL Injection via the ‘rating_filter’ parameter in all versions up to, and including, 2.7.6 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
+      "publishedDate": "2024-11-21T07:35:36.980000+00:00",
+      "lastModifiedDate": "2024-11-21T14:42:16.859000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "baseScore": 7.5,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.9323,
+        "percentile": 99.789
+      },
+      "ssvc": {
+        "exploitation": "none",
+        "automatable": "yes",
+        "technicalImpact": "partial",
+        "priorityTier": "TRACK",
+        "compactNotation": "N/Y/P",
+        "ssvcScore": 22,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 47,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "The",
+          "Themeum",
+          "WordPress"
+        ],
+        "products": [
+          "The Database",
+          "Tutor Lms – Elearning And Online Course Solution",
+          "Wordpress"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/bcf37d4e-e94a-4046-9949-c208e4e70197?source=cve",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://plugins.trac.wordpress.org/changeset/3186319/tutor",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-89"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/10xxx/CVE-2024-10400.json",
+            "lastModified": "2024-11-21T14:42:16.859000+00:00"
           }
         ]
       }
@@ -4488,11 +4546,11 @@
       }
     },
     {
-      "cveId": "CVE-2024-10400",
-      "title": "Tutor LMS <= 2.7.6 - Unauthenticated SQL Injection via rating_filter",
-      "description": "The Tutor LMS plugin for WordPress is vulnerable to SQL Injection via the ‘rating_filter’ parameter in all versions up to, and including, 2.7.6 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
-      "publishedDate": "2024-11-21T07:35:36.980000+00:00",
-      "lastModifiedDate": "2024-11-21T14:42:16.859000+00:00",
+      "cveId": "CVE-2024-38816",
+      "title": "CVE-2024-38816: Path traversal vulnerability in functional web frameworks",
+      "description": "Applications serving static resources through the functional web frameworks WebMvc.fn or WebFlux.fn are vulnerable to path traversal attacks. An attacker can craft malicious HTTP requests and obtain any file on the file system that is also accessible to the process in which the Spring application is running.\n\nSpecifically, an application is vulnerable when both of the following are true:\n\n  *  the web application uses RouterFunctions to serve static resources\n  *  resource handling is explicitly configured with a FileSystemResource location\n\n\nHowever, malicious requests are blocked and rejected when any of the following is true:\n\n  *  the  Spring Security HTTP Firewall https://docs.spring.io/spring-security/reference/servlet/exploits/firewall.html  is in use\n  *  the application runs on Tomcat or Jetty",
+      "publishedDate": "2024-09-13T06:10:06.598000+00:00",
+      "lastModifiedDate": "2025-03-18T15:06:29.551000+00:00",
       "severity": "HIGH",
       "cvssMetrics": [
         {
@@ -4503,8 +4561,8 @@
         }
       ],
       "epss": {
-        "score": 0.9323,
-        "percentile": 99.789
+        "score": 0.9365,
+        "percentile": 99.83
       },
       "ssvc": {
         "exploitation": "none",
@@ -4521,33 +4579,22 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
-          "The",
-          "Themeum",
-          "WordPress"
+          "Spring"
         ],
         "products": [
-          "The Database",
-          "Tutor Lms – Elearning And Online Course Solution",
-          "Wordpress"
+          "Spring"
         ]
       },
       "references": [
         {
-          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/bcf37d4e-e94a-4046-9949-c208e4e70197?source=cve",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://plugins.trac.wordpress.org/changeset/3186319/tutor",
+          "url": "https://spring.io/security/cve-2024-38816",
           "source": "",
           "tags": []
         }
       ],
       "attackTechniques": [],
       "metadata": {
-        "tags": [
-          "CWE-89"
-        ],
+        "tags": [],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
         "attackVector": "Network",
@@ -4557,8 +4604,8 @@
         "sources": [
           {
             "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/10xxx/CVE-2024-10400.json",
-            "lastModified": "2024-11-21T14:42:16.859000+00:00"
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/38xxx/CVE-2024-38816.json",
+            "lastModified": "2025-03-18T15:06:29.551000+00:00"
           }
         ]
       }
@@ -4580,7 +4627,7 @@
       ],
       "epss": {
         "score": 0.8792,
-        "percentile": 99.437
+        "percentile": 99.438
       },
       "ssvc": {
         "exploitation": "none",
@@ -4633,164 +4680,29 @@
       }
     },
     {
-      "cveId": "CVE-2024-38816",
-      "title": "CVE-2024-38816: Path traversal vulnerability in functional web frameworks",
-      "description": "Applications serving static resources through the functional web frameworks WebMvc.fn or WebFlux.fn are vulnerable to path traversal attacks. An attacker can craft malicious HTTP requests and obtain any file on the file system that is also accessible to the process in which the Spring application is running.\n\nSpecifically, an application is vulnerable when both of the following are true:\n\n  *  the web application uses RouterFunctions to serve static resources\n  *  resource handling is explicitly configured with a FileSystemResource location\n\n\nHowever, malicious requests are blocked and rejected when any of the following is true:\n\n  *  the  Spring Security HTTP Firewall https://docs.spring.io/spring-security/reference/servlet/exploits/firewall.html  is in use\n  *  the application runs on Tomcat or Jetty",
-      "publishedDate": "2024-09-13T06:10:06.598000+00:00",
-      "lastModifiedDate": "2025-03-18T15:06:29.551000+00:00",
+      "cveId": "CVE-2024-0352",
+      "title": "Likeshop HTTP POST Request File.php userFormImage unrestricted upload",
+      "description": "A vulnerability classified as critical was found in Likeshop up to 2.5.7.20210311. This vulnerability affects the function FileServer::userFormImage of the file server/application/api/controller/File.php of the component HTTP POST Request Handler. The manipulation of the argument file leads to unrestricted upload. The attack can be initiated remotely. The exploit has been disclosed to the public and may be used. The identifier of this vulnerability is VDB-250120.",
+      "publishedDate": "2024-01-09T23:00:06.729000+00:00",
+      "lastModifiedDate": "2025-06-03T14:29:27.523000+00:00",
       "severity": "HIGH",
       "cvssMetrics": [
         {
           "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
-          "baseScore": 7.5,
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+          "baseScore": 7.3,
           "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.9337,
-        "percentile": 99.803
-      },
-      "ssvc": {
-        "exploitation": "none",
-        "automatable": "yes",
-        "technicalImpact": "partial",
-        "priorityTier": "TRACK",
-        "compactNotation": "N/Y/P",
-        "ssvcScore": 22,
-        "inferred": false,
-        "confidence": null
-      },
-      "riskScore": 47,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Spring"
-        ],
-        "products": [
-          "Spring"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://spring.io/security/cve-2024-38816",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/38xxx/CVE-2024-38816.json",
-            "lastModified": "2025-03-18T15:06:29.551000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2024-9935",
-      "title": "PDF Generator Addon for Elementor Page Builder <= 1.7.5 - Unauthenticated Arbitrary File Download",
-      "description": "The PDF Generator Addon for Elementor Page Builder plugin for WordPress is vulnerable to Path Traversal in all versions up to, and including, 1.7.5 via the rtw_pgaepb_dwnld_pdf() function. This makes it possible for unauthenticated attackers to read the contents of arbitrary files on the server, which can contain sensitive information.",
-      "publishedDate": "2024-11-16T03:20:45.226000+00:00",
-      "lastModifiedDate": "2024-11-19T15:14:19.116000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
-          "baseScore": 7.5,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.9312,
-        "percentile": 99.779
-      },
-      "ssvc": {
-        "exploitation": "none",
-        "automatable": "yes",
-        "technicalImpact": "partial",
-        "priorityTier": "TRACK",
-        "compactNotation": "N/Y/P",
-        "ssvcScore": 22,
-        "inferred": false,
-        "confidence": null
-      },
-      "riskScore": 47,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Redefiningtheweb",
-          "The",
-          "WordPress"
-        ],
-        "products": [
-          "Pdf Generator Addon For Elementor Page Builder",
-          "The Server",
-          "Wordpress"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/36daf2af-1db3-4b35-8849-480212660b2f?source=cve",
-          "source": "",
-          "tags": []
         },
         {
-          "url": "https://plugins.trac.wordpress.org/browser/pdf-generator-addon-for-elementor-page-builder/trunk/public/class-pdf-generator-addon-for-elementor-page-builder-public.php#L133",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-22"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/9xxx/CVE-2024-9935.json",
-            "lastModified": "2024-11-19T15:14:19.116000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2024-21182",
-      "title": "CVE-2024-21182: Vulnerability in the Oracle WebLogic Server product of Oracle Fusion Middleware (component: Core).  ...",
-      "description": "Vulnerability in the Oracle WebLogic Server product of Oracle Fusion Middleware (component: Core).  Supported versions that are affected are 12.2.1.4.0 and  14.1.1.0.0. Easily exploitable vulnerability allows unauthenticated attacker with network access via T3, IIOP to compromise Oracle WebLogic Server.  Successful attacks of this vulnerability can result in  unauthorized access to critical data or complete access to all Oracle WebLogic Server accessible data. CVSS 3.1 Base Score 7.5 (Confidentiality impacts).  CVSS Vector: (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N).",
-      "publishedDate": "2024-07-16T22:40:11.035000+00:00",
-      "lastModifiedDate": "2025-03-19T15:22:26.989000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
-          "baseScore": 7.5,
+          "version": "3.0",
+          "vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+          "baseScore": 7.3,
           "baseSeverity": "HIGH"
         }
       ],
       "epss": {
-        "score": 0.8689,
-        "percentile": 99.389
+        "score": 0.918,
+        "percentile": 99.671
       },
       "ssvc": {
         "exploitation": "none",
@@ -4802,99 +4714,49 @@
         "inferred": false,
         "confidence": null
       },
-      "riskScore": 46,
+      "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
-          "Oracle",
-          "Weblogic"
+          "File",
+          "N/a"
         ],
         "products": [
-          "Weblogic",
-          "Weblogic Server"
+          "File Server",
+          "Likeshop"
         ]
       },
       "references": [
         {
-          "url": "https://www.oracle.com/security-alerts/cpujul2024.html",
-          "source": "Oracle Advisory",
+          "url": "https://vuldb.com/?id.250120",
+          "source": "",
           "tags": [
-            "vendor-advisory"
+            "vdb-entry",
+            "technical-description"
           ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/21xxx/CVE-2024-21182.json",
-            "lastModified": "2025-03-19T15:22:26.989000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2024-21793",
-      "title": "BIG-IP Central Manager OData Injection Vulnerability",
-      "description": "An OData injection vulnerability exists in the BIG-IP Next Central Manager API (URI).  Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated.",
-      "publishedDate": "2024-05-08T15:01:28.422000+00:00",
-      "lastModifiedDate": "2025-09-18T19:52:06.787000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
+        },
         {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
-          "baseScore": 7.5,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.8492,
-        "percentile": 99.295
-      },
-      "ssvc": {
-        "exploitation": "none",
-        "automatable": "yes",
-        "technicalImpact": "partial",
-        "priorityTier": "TRACK",
-        "compactNotation": "N/Y/P",
-        "ssvcScore": 22,
-        "inferred": false,
-        "confidence": null
-      },
-      "riskScore": 46,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "F5"
-        ],
-        "products": [
-          "Big-ip Next Central Manager"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://my.f5.com/manage/s/article/K000138732",
+          "url": "https://vuldb.com/?ctiid.250120",
           "source": "",
           "tags": [
-            "vendor-advisory"
+            "signature",
+            "permissions-required"
+          ]
+        },
+        {
+          "url": "https://note.zhaoj.in/share/ciwYj7QXC4sZ",
+          "source": "",
+          "tags": [
+            "broken-link",
+            "exploit"
           ]
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-89"
+          "CWE-434"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -4905,77 +4767,8 @@
         "sources": [
           {
             "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/21xxx/CVE-2024-21793.json",
-            "lastModified": "2025-09-18T19:52:06.787000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2024-21006",
-      "title": "CVE-2024-21006: Vulnerability in the Oracle WebLogic Server product of Oracle Fusion Middleware (component: Core).  ...",
-      "description": "Vulnerability in the Oracle WebLogic Server product of Oracle Fusion Middleware (component: Core).  Supported versions that are affected are 12.2.1.4.0 and  14.1.1.0.0. Easily exploitable vulnerability allows unauthenticated attacker with network access via T3, IIOP to compromise Oracle WebLogic Server.  Successful attacks of this vulnerability can result in  unauthorized access to critical data or complete access to all Oracle WebLogic Server accessible data. CVSS 3.1 Base Score 7.5 (Confidentiality impacts).  CVSS Vector: (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N).",
-      "publishedDate": "2024-04-16T21:25:59.966000+00:00",
-      "lastModifiedDate": "2025-03-18T14:51:29.479000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
-          "baseScore": 7.5,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.8534,
-        "percentile": 99.315
-      },
-      "ssvc": {
-        "exploitation": "none",
-        "automatable": "yes",
-        "technicalImpact": "partial",
-        "priorityTier": "TRACK",
-        "compactNotation": "N/Y/P",
-        "ssvcScore": 22,
-        "inferred": false,
-        "confidence": null
-      },
-      "riskScore": 46,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Oracle",
-          "Weblogic"
-        ],
-        "products": [
-          "Weblogic",
-          "Weblogic Server"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://www.oracle.com/security-alerts/cpuapr2024.html",
-          "source": "Oracle Advisory",
-          "tags": [
-            "vendor-advisory"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/21xxx/CVE-2024-21006.json",
-            "lastModified": "2025-03-18T14:51:29.479000+00:00"
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/0xxx/CVE-2024-0352.json",
+            "lastModified": "2025-06-03T14:29:27.523000+00:00"
           }
         ]
       }
@@ -4997,7 +4790,7 @@
       ],
       "epss": {
         "score": 0.9179,
-        "percentile": 99.67
+        "percentile": 99.669
       },
       "ssvc": {
         "exploitation": "none",
@@ -5067,6 +4860,79 @@
       }
     },
     {
+      "cveId": "CVE-2024-54385",
+      "title": "WordPress Radio Player plugin <= 2.0.82 - Server Side Request Forgery (SSRF) vulnerability",
+      "description": "Server-Side Request Forgery (SSRF) vulnerability in SoftLab Radio Player allows Server Side Request Forgery.This issue affects Radio Player: from n/a through 2.0.82.",
+      "publishedDate": "2024-12-16T14:31:28.041000+00:00",
+      "lastModifiedDate": "2024-12-16T16:37:41.783000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N",
+          "baseScore": 7.2,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.8609,
+        "percentile": 99.349
+      },
+      "ssvc": {
+        "exploitation": "none",
+        "automatable": "yes",
+        "technicalImpact": "partial",
+        "priorityTier": "TRACK",
+        "compactNotation": "N/Y/P",
+        "ssvcScore": 22,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 46,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Allows",
+          "Softlab",
+          "WordPress"
+        ],
+        "products": [
+          "Allows Server",
+          "Radio Player",
+          "Wordpress"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://patchstack.com/database/wordpress/plugin/radio-player/vulnerability/wordpress-radio-player-plugin-2-0-82-server-side-request-forgery-ssrf-vulnerability?_s_id=cve",
+          "source": "",
+          "tags": [
+            "vdb-entry"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-918"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/54xxx/CVE-2024-54385.json",
+            "lastModified": "2024-12-16T16:37:41.783000+00:00"
+          }
+        ]
+      }
+    },
+    {
       "cveId": "CVE-2024-36117",
       "title": "Path traversal while serving Reposilite javadoc expanded files",
       "description": "Reposilite is an open source, lightweight and easy-to-use repository manager for Maven based artifacts in JVM ecosystem. Reposilite v3.5.10 is affected by an Arbitrary File Read vulnerability via path traversal while serving expanded javadoc files. Reposilite has addressed this issue in version 3.5.12. There are no known workarounds for this vulnerability. This issue was discovered and reported by the GitHub Security lab and is also tracked as GHSL-2024-074.",
@@ -5083,7 +4949,7 @@
       ],
       "epss": {
         "score": 0.6574,
-        "percentile": 98.413
+        "percentile": 98.414
       },
       "ssvc": {
         "exploitation": "none",
@@ -5145,6 +5011,241 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/36xxx/CVE-2024-36117.json",
             "lastModified": "2024-11-04T18:25:47.436000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2024-51479",
+      "title": "Authorization bypass in Next.js",
+      "description": "Next.js is a React framework for building full-stack web applications. In affected versions if a Next.js application is performing authorization in middleware based on pathname, it was possible for this authorization to be bypassed for pages directly under the application's root directory. For example: * [Not affected] `https://example.com/` * [Affected] `https://example.com/foo` * [Not affected] `https://example.com/foo/bar`. This issue is patched in Next.js `14.2.15` and later. If your Next.js application is hosted on Vercel, this vulnerability has been automatically mitigated, regardless of Next.js version. There are no official workarounds for this vulnerability.",
+      "publishedDate": "2024-12-17T18:13:02.806000+00:00",
+      "lastModifiedDate": "2024-12-17T20:36:28.402000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "baseScore": 7.5,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.78,
+        "percentile": 98.955
+      },
+      "ssvc": {
+        "exploitation": "none",
+        "automatable": "yes",
+        "technicalImpact": "partial",
+        "priorityTier": "TRACK",
+        "compactNotation": "N/Y/P",
+        "ssvcScore": 22,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 46,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "React",
+          "Vercel"
+        ],
+        "products": [
+          "Next.js",
+          "React Framework"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://github.com/vercel/next.js/security/advisories/GHSA-7gfc-8cq8-jh5f",
+          "source": "https://github.com/vercel/next.js/security/advisories/GHSA-7gfc-8cq8-jh5f",
+          "tags": [
+            "x_refsource_CONFIRM"
+          ]
+        },
+        {
+          "url": "https://github.com/vercel/next.js/releases/tag/v14.2.15",
+          "source": "https://github.com/vercel/next.js/releases/tag/v14.2.15",
+          "tags": [
+            "x_refsource_MISC"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-285"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/51xxx/CVE-2024-51479.json",
+            "lastModified": "2024-12-17T20:36:28.402000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2024-9061",
+      "title": "WP Popup Builder – Popup Forms and Marketing Lead Generation <= 1.3.5 - Unauthenticated Arbitrary Shortcode Execution via wp_ajax_nopriv_shortcode_Api_Add",
+      "description": "The The WP Popup Builder – Popup Forms and Marketing Lead Generation plugin for WordPress is vulnerable to arbitrary shortcode execution via the wp_ajax_nopriv_shortcode_Api_Add AJAX action in all versions up to, and including, 1.3.5. This is due to the software allowing users to execute an action that does not properly validate a value before running do_shortcode. This makes it possible for unauthenticated attackers to execute arbitrary shortcodes. NOTE: This vulnerability was partially fixed in version 1.3.5 with a nonce check, which effectively prevented access to the affected function. However, version 1.3.6 incorporates the correct authorization check to prevent unauthorized access.",
+      "publishedDate": "2024-10-16T07:31:49.028000+00:00",
+      "lastModifiedDate": "2024-10-16T18:02:58.970000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+          "baseScore": 7.3,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.8838,
+        "percentile": 99.458
+      },
+      "ssvc": {
+        "exploitation": "none",
+        "automatable": "yes",
+        "technicalImpact": "partial",
+        "priorityTier": "TRACK",
+        "compactNotation": "N/Y/P",
+        "ssvcScore": 22,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 46,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Themehunk",
+          "WordPress"
+        ],
+        "products": [
+          "Wordpress",
+          "Wp Popup Builder – Popup Forms And Marketing Lead Generation"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/0cac1dc0-87dc-43eb-9db1-638a91200b43?source=cve",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://plugins.trac.wordpress.org/changeset/3166506/wp-popup-builder",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-94"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/9xxx/CVE-2024-9061.json",
+            "lastModified": "2024-10-16T18:02:58.970000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2024-9593",
+      "title": "Time Clock <= 1.2.2 & Time Clock Pro <= 1.1.4 - Unauthenticated (Limited) Remote Code Execution",
+      "description": "The Time Clock plugin and Time Clock Pro plugin for WordPress are vulnerable to Remote Code Execution in versions up to, and including, 1.2.2 (for Time Clock) and 1.1.4 (for Time Clock Pro) via the 'etimeclockwp_load_function_callback' function. This allows unauthenticated attackers to execute code on the server. The invoked function's parameters cannot be specified.",
+      "publishedDate": "2024-10-18T17:32:30.648000+00:00",
+      "lastModifiedDate": "2024-10-18T18:56:31.697000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:L",
+          "baseScore": 8.3,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.7102,
+        "percentile": 98.633
+      },
+      "ssvc": {
+        "exploitation": "none",
+        "automatable": "yes",
+        "technicalImpact": "partial",
+        "priorityTier": "TRACK",
+        "compactNotation": "N/Y/P",
+        "ssvcScore": 22,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 46,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Scott Paterson",
+          "Scottpaterson",
+          "The",
+          "WordPress"
+        ],
+        "products": [
+          "The Server",
+          "Time Clock Pro",
+          "Time Clock – A Wordpress Employee & Volunteer Time Clock Plugin",
+          "Wordpress"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/247e599a-74e2-41d5-a1ba-978a807e6544?source=cve",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://plugins.trac.wordpress.org/browser/time-clock/tags/1.2.2/includes/admin/ajax_functions_admin.php#L58",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://plugins.trac.wordpress.org/changeset/3171046/time-clock#file40",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-94"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/9xxx/CVE-2024-9593.json",
+            "lastModified": "2024-10-18T18:56:31.697000+00:00"
           }
         ]
       }
@@ -5228,11 +5329,11 @@
       }
     },
     {
-      "cveId": "CVE-2024-51479",
-      "title": "Authorization bypass in Next.js",
-      "description": "Next.js is a React framework for building full-stack web applications. In affected versions if a Next.js application is performing authorization in middleware based on pathname, it was possible for this authorization to be bypassed for pages directly under the application's root directory. For example: * [Not affected] `https://example.com/` * [Affected] `https://example.com/foo` * [Not affected] `https://example.com/foo/bar`. This issue is patched in Next.js `14.2.15` and later. If your Next.js application is hosted on Vercel, this vulnerability has been automatically mitigated, regardless of Next.js version. There are no official workarounds for this vulnerability.",
-      "publishedDate": "2024-12-17T18:13:02.806000+00:00",
-      "lastModifiedDate": "2024-12-17T20:36:28.402000+00:00",
+      "cveId": "CVE-2024-21182",
+      "title": "CVE-2024-21182: Vulnerability in the Oracle WebLogic Server product of Oracle Fusion Middleware (component: Core).  ...",
+      "description": "Vulnerability in the Oracle WebLogic Server product of Oracle Fusion Middleware (component: Core).  Supported versions that are affected are 12.2.1.4.0 and  14.1.1.0.0. Easily exploitable vulnerability allows unauthenticated attacker with network access via T3, IIOP to compromise Oracle WebLogic Server.  Successful attacks of this vulnerability can result in  unauthorized access to critical data or complete access to all Oracle WebLogic Server accessible data. CVSS 3.1 Base Score 7.5 (Confidentiality impacts).  CVSS Vector: (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N).",
+      "publishedDate": "2024-07-16T22:40:11.035000+00:00",
+      "lastModifiedDate": "2025-03-19T15:22:26.989000+00:00",
       "severity": "HIGH",
       "cvssMetrics": [
         {
@@ -5243,8 +5344,8 @@
         }
       ],
       "epss": {
-        "score": 0.78,
-        "percentile": 98.956
+        "score": 0.8689,
+        "percentile": 99.39
       },
       "ssvc": {
         "exploitation": "none",
@@ -5261,35 +5362,26 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
-          "React",
-          "Vercel"
+          "Oracle",
+          "Weblogic"
         ],
         "products": [
-          "Next.js",
-          "React Framework"
+          "Weblogic",
+          "Weblogic Server"
         ]
       },
       "references": [
         {
-          "url": "https://github.com/vercel/next.js/security/advisories/GHSA-7gfc-8cq8-jh5f",
-          "source": "https://github.com/vercel/next.js/security/advisories/GHSA-7gfc-8cq8-jh5f",
+          "url": "https://www.oracle.com/security-alerts/cpujul2024.html",
+          "source": "Oracle Advisory",
           "tags": [
-            "x_refsource_CONFIRM"
-          ]
-        },
-        {
-          "url": "https://github.com/vercel/next.js/releases/tag/v14.2.15",
-          "source": "https://github.com/vercel/next.js/releases/tag/v14.2.15",
-          "tags": [
-            "x_refsource_MISC"
+            "vendor-advisory"
           ]
         }
       ],
       "attackTechniques": [],
       "metadata": {
-        "tags": [
-          "CWE-285"
-        ],
+        "tags": [],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
         "attackVector": "Network",
@@ -5299,30 +5391,30 @@
         "sources": [
           {
             "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/51xxx/CVE-2024-51479.json",
-            "lastModified": "2024-12-17T20:36:28.402000+00:00"
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/21xxx/CVE-2024-21182.json",
+            "lastModified": "2025-03-19T15:22:26.989000+00:00"
           }
         ]
       }
     },
     {
-      "cveId": "CVE-2024-54385",
-      "title": "WordPress Radio Player plugin <= 2.0.82 - Server Side Request Forgery (SSRF) vulnerability",
-      "description": "Server-Side Request Forgery (SSRF) vulnerability in SoftLab Radio Player allows Server Side Request Forgery.This issue affects Radio Player: from n/a through 2.0.82.",
-      "publishedDate": "2024-12-16T14:31:28.041000+00:00",
-      "lastModifiedDate": "2024-12-16T16:37:41.783000+00:00",
+      "cveId": "CVE-2024-21006",
+      "title": "CVE-2024-21006: Vulnerability in the Oracle WebLogic Server product of Oracle Fusion Middleware (component: Core).  ...",
+      "description": "Vulnerability in the Oracle WebLogic Server product of Oracle Fusion Middleware (component: Core).  Supported versions that are affected are 12.2.1.4.0 and  14.1.1.0.0. Easily exploitable vulnerability allows unauthenticated attacker with network access via T3, IIOP to compromise Oracle WebLogic Server.  Successful attacks of this vulnerability can result in  unauthorized access to critical data or complete access to all Oracle WebLogic Server accessible data. CVSS 3.1 Base Score 7.5 (Confidentiality impacts).  CVSS Vector: (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N).",
+      "publishedDate": "2024-04-16T21:25:59.966000+00:00",
+      "lastModifiedDate": "2025-03-18T14:51:29.479000+00:00",
       "severity": "HIGH",
       "cvssMetrics": [
         {
           "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N",
-          "baseScore": 7.2,
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "baseScore": 7.5,
           "baseSeverity": "HIGH"
         }
       ],
       "epss": {
-        "score": 0.8609,
-        "percentile": 99.348
+        "score": 0.8534,
+        "percentile": 99.316
       },
       "ssvc": {
         "exploitation": "none",
@@ -5339,29 +5431,94 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
-          "Allows",
-          "Softlab",
-          "WordPress"
+          "Oracle",
+          "Weblogic"
         ],
         "products": [
-          "Allows Server",
-          "Radio Player",
-          "Wordpress"
+          "Weblogic",
+          "Weblogic Server"
         ]
       },
       "references": [
         {
-          "url": "https://patchstack.com/database/wordpress/plugin/radio-player/vulnerability/wordpress-radio-player-plugin-2-0-82-server-side-request-forgery-ssrf-vulnerability?_s_id=cve",
+          "url": "https://www.oracle.com/security-alerts/cpuapr2024.html",
+          "source": "Oracle Advisory",
+          "tags": [
+            "vendor-advisory"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/21xxx/CVE-2024-21006.json",
+            "lastModified": "2025-03-18T14:51:29.479000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2024-21793",
+      "title": "BIG-IP Central Manager OData Injection Vulnerability",
+      "description": "An OData injection vulnerability exists in the BIG-IP Next Central Manager API (URI).  Note: Software versions which have reached End of Technical Support (EoTS) are not evaluated.",
+      "publishedDate": "2024-05-08T15:01:28.422000+00:00",
+      "lastModifiedDate": "2025-09-18T19:52:06.787000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "baseScore": 7.5,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.8492,
+        "percentile": 99.296
+      },
+      "ssvc": {
+        "exploitation": "none",
+        "automatable": "yes",
+        "technicalImpact": "partial",
+        "priorityTier": "TRACK",
+        "compactNotation": "N/Y/P",
+        "ssvcScore": 22,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 46,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "F5"
+        ],
+        "products": [
+          "Big-ip Next Central Manager"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://my.f5.com/manage/s/article/K000138732",
           "source": "",
           "tags": [
-            "vdb-entry"
+            "vendor-advisory"
           ]
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-918"
+          "CWE-89"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -5372,165 +5529,8 @@
         "sources": [
           {
             "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/54xxx/CVE-2024-54385.json",
-            "lastModified": "2024-12-16T16:37:41.783000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2024-9593",
-      "title": "Time Clock <= 1.2.2 & Time Clock Pro <= 1.1.4 - Unauthenticated (Limited) Remote Code Execution",
-      "description": "The Time Clock plugin and Time Clock Pro plugin for WordPress are vulnerable to Remote Code Execution in versions up to, and including, 1.2.2 (for Time Clock) and 1.1.4 (for Time Clock Pro) via the 'etimeclockwp_load_function_callback' function. This allows unauthenticated attackers to execute code on the server. The invoked function's parameters cannot be specified.",
-      "publishedDate": "2024-10-18T17:32:30.648000+00:00",
-      "lastModifiedDate": "2024-10-18T18:56:31.697000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:L",
-          "baseScore": 8.3,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.7102,
-        "percentile": 98.632
-      },
-      "ssvc": {
-        "exploitation": "none",
-        "automatable": "yes",
-        "technicalImpact": "partial",
-        "priorityTier": "TRACK",
-        "compactNotation": "N/Y/P",
-        "ssvcScore": 22,
-        "inferred": false,
-        "confidence": null
-      },
-      "riskScore": 46,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Scott Paterson",
-          "Scottpaterson",
-          "The",
-          "WordPress"
-        ],
-        "products": [
-          "The Server",
-          "Time Clock Pro",
-          "Time Clock – A Wordpress Employee & Volunteer Time Clock Plugin",
-          "Wordpress"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/247e599a-74e2-41d5-a1ba-978a807e6544?source=cve",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://plugins.trac.wordpress.org/browser/time-clock/tags/1.2.2/includes/admin/ajax_functions_admin.php#L58",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://plugins.trac.wordpress.org/changeset/3171046/time-clock#file40",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-94"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/9xxx/CVE-2024-9593.json",
-            "lastModified": "2024-10-18T18:56:31.697000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2024-9061",
-      "title": "WP Popup Builder – Popup Forms and Marketing Lead Generation <= 1.3.5 - Unauthenticated Arbitrary Shortcode Execution via wp_ajax_nopriv_shortcode_Api_Add",
-      "description": "The The WP Popup Builder – Popup Forms and Marketing Lead Generation plugin for WordPress is vulnerable to arbitrary shortcode execution via the wp_ajax_nopriv_shortcode_Api_Add AJAX action in all versions up to, and including, 1.3.5. This is due to the software allowing users to execute an action that does not properly validate a value before running do_shortcode. This makes it possible for unauthenticated attackers to execute arbitrary shortcodes. NOTE: This vulnerability was partially fixed in version 1.3.5 with a nonce check, which effectively prevented access to the affected function. However, version 1.3.6 incorporates the correct authorization check to prevent unauthorized access.",
-      "publishedDate": "2024-10-16T07:31:49.028000+00:00",
-      "lastModifiedDate": "2024-10-16T18:02:58.970000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
-          "baseScore": 7.3,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.8838,
-        "percentile": 99.457
-      },
-      "ssvc": {
-        "exploitation": "none",
-        "automatable": "yes",
-        "technicalImpact": "partial",
-        "priorityTier": "TRACK",
-        "compactNotation": "N/Y/P",
-        "ssvcScore": 22,
-        "inferred": false,
-        "confidence": null
-      },
-      "riskScore": 46,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Themehunk",
-          "WordPress"
-        ],
-        "products": [
-          "Wordpress",
-          "Wp Popup Builder – Popup Forms And Marketing Lead Generation"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/0cac1dc0-87dc-43eb-9db1-638a91200b43?source=cve",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://plugins.trac.wordpress.org/changeset/3166506/wp-popup-builder",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-94"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/9xxx/CVE-2024-9061.json",
-            "lastModified": "2024-10-16T18:02:58.970000+00:00"
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/21xxx/CVE-2024-21793.json",
+            "lastModified": "2025-09-18T19:52:06.787000+00:00"
           }
         ]
       }
@@ -5552,7 +5552,7 @@
       ],
       "epss": {
         "score": 0.7368,
-        "percentile": 98.748
+        "percentile": 98.746
       },
       "ssvc": {
         "exploitation": "none",
@@ -5679,80 +5679,6 @@
       }
     },
     {
-      "cveId": "CVE-2024-10793",
-      "title": "WP Activity Log <= 5.2.1 - Unauthenticated Stored Cross-Site Scripting via User_id Parameter",
-      "description": "The WP Activity Log plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the user_id parameter in all versions up to, and including, 5.2.1 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever an administrative user accesses an injected page.",
-      "publishedDate": "2024-11-15T05:30:56.843000+00:00",
-      "lastModifiedDate": "2024-11-15T18:15:26.182000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N",
-          "baseScore": 7.2,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.6846,
-        "percentile": 98.532
-      },
-      "ssvc": {
-        "exploitation": "none",
-        "automatable": "yes",
-        "technicalImpact": "partial",
-        "priorityTier": "TRACK",
-        "compactNotation": "N/Y/P",
-        "ssvcScore": 22,
-        "inferred": false,
-        "confidence": null
-      },
-      "riskScore": 44,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Melapress",
-          "WordPress"
-        ],
-        "products": [
-          "Wordpress",
-          "Wp Activity Log"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/44f3b2e4-c537-4369-b2d6-39fbc6cb8e08?source=cve",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://plugins.trac.wordpress.org/browser/wp-security-audit-log/tags/5.2.1/classes/WPSensors/class-wp-system-sensor.php#L679",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-79"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/10xxx/CVE-2024-10793.json",
-            "lastModified": "2024-11-15T18:15:26.182000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2024-10958",
       "title": "WP Photo Album Plus <= 8.8.08.007 - Unauthenticated Arbitrary Shortcode Execution via getshortcodedrenderedfenodelay",
       "description": "The The WP Photo Album Plus plugin for WordPress is vulnerable to arbitrary shortcode execution via getshortcodedrenderedfenodelay AJAX action in all versions up to, and including, 8.8.08.007 . This is due to the software allowing users to execute an action that does not properly validate a value before running do_shortcode. This makes it possible for unauthenticated attackers to execute arbitrary shortcodes.",
@@ -5769,7 +5695,7 @@
       ],
       "epss": {
         "score": 0.6154,
-        "percentile": 98.22
+        "percentile": 98.219
       },
       "ssvc": {
         "exploitation": "none",
@@ -5837,6 +5763,80 @@
       }
     },
     {
+      "cveId": "CVE-2024-10793",
+      "title": "WP Activity Log <= 5.2.1 - Unauthenticated Stored Cross-Site Scripting via User_id Parameter",
+      "description": "The WP Activity Log plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the user_id parameter in all versions up to, and including, 5.2.1 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever an administrative user accesses an injected page.",
+      "publishedDate": "2024-11-15T05:30:56.843000+00:00",
+      "lastModifiedDate": "2024-11-15T18:15:26.182000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N",
+          "baseScore": 7.2,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.6846,
+        "percentile": 98.531
+      },
+      "ssvc": {
+        "exploitation": "none",
+        "automatable": "yes",
+        "technicalImpact": "partial",
+        "priorityTier": "TRACK",
+        "compactNotation": "N/Y/P",
+        "ssvcScore": 22,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 44,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Melapress",
+          "WordPress"
+        ],
+        "products": [
+          "Wordpress",
+          "Wp Activity Log"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/44f3b2e4-c537-4369-b2d6-39fbc6cb8e08?source=cve",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://plugins.trac.wordpress.org/browser/wp-security-audit-log/tags/5.2.1/classes/WPSensors/class-wp-system-sensor.php#L679",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-79"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/10xxx/CVE-2024-10793.json",
+            "lastModified": "2024-11-15T18:15:26.182000+00:00"
+          }
+        ]
+      }
+    },
+    {
       "cveId": "CVE-2024-12270",
       "title": "Beautiful Taxonomy Filters <= 2.4.3 - Unauthenticated SQL Injection",
       "description": "The Beautiful taxonomy filters plugin for WordPress is vulnerable to SQL Injection via the 'selects[0][term]' parameter in all versions up to, and including, 2.4.3 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
@@ -5853,7 +5853,7 @@
       ],
       "epss": {
         "score": 0.6371,
-        "percentile": 98.313
+        "percentile": 98.312
       },
       "ssvc": {
         "exploitation": "none",
@@ -5913,78 +5913,6 @@
       }
     },
     {
-      "cveId": "CVE-2024-0692",
-      "title": "SolarWinds Security Event Manager Deserialization of Untrusted Data Remote Code Execution Vulnerability",
-      "description": "The SolarWinds Security Event Manager was susceptible to Remote Code Execution Vulnerability. This vulnerability allows an unauthenticated user to abuse SolarWinds’ service, resulting in remote code execution.",
-      "publishedDate": "2024-03-01T08:55:35.848000+00:00",
-      "lastModifiedDate": "2025-04-16T20:48:48.549000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 8.8,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.8392,
-        "percentile": 99.253
-      },
-      "ssvc": {
-        "exploitation": "none",
-        "automatable": "no",
-        "technicalImpact": "total",
-        "priorityTier": "TRACK",
-        "compactNotation": "N/N/T",
-        "ssvcScore": 15,
-        "inferred": false,
-        "confidence": null
-      },
-      "riskScore": 41,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Solarwinds"
-        ],
-        "products": [
-          "Security Event Manager"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://www.solarwinds.com/trust-center/security-advisories/CVE-2024-0692",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://documentation.solarwinds.com/en/success_center/sem/content/release_notes/sem_2023-4-1_release_notes.htm",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-502"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Adjacent Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/0xxx/CVE-2024-0692.json",
-            "lastModified": "2025-04-16T20:48:48.549000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2024-7340",
       "title": "W&B Weave server remote arbitrary file leak and privilege escalation",
       "description": "The Weave server API allows remote users to fetch files from a specific directory, but due to a lack of input validation, it is possible to traverse and leak arbitrary files remotely. In various common scenarios, this allows a low-privileged user to assume the role of the server admin.",
@@ -6001,7 +5929,7 @@
       ],
       "epss": {
         "score": 0.847,
-        "percentile": 99.286
+        "percentile": 99.287
       },
       "ssvc": {
         "exploitation": "none",
@@ -6137,23 +6065,171 @@
       }
     },
     {
-      "cveId": "CVE-2024-43425",
-      "title": "Moodle: remote code execution via calculated question types",
-      "description": "A flaw was found in Moodle. Additional restrictions are required to avoid a remote code execution risk in calculated question types. Note: This requires the capability to add/update questions.",
-      "publishedDate": "2024-11-07T13:21:59.014000+00:00",
-      "lastModifiedDate": "2024-11-07T14:45:17.071000+00:00",
+      "cveId": "CVE-2024-0692",
+      "title": "SolarWinds Security Event Manager Deserialization of Untrusted Data Remote Code Execution Vulnerability",
+      "description": "The SolarWinds Security Event Manager was susceptible to Remote Code Execution Vulnerability. This vulnerability allows an unauthenticated user to abuse SolarWinds’ service, resulting in remote code execution.",
+      "publishedDate": "2024-03-01T08:55:35.848000+00:00",
+      "lastModifiedDate": "2025-04-16T20:48:48.549000+00:00",
       "severity": "HIGH",
       "cvssMetrics": [
         {
           "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "vectorString": "CVSS:3.1/AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 8.8,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.8392,
+        "percentile": 99.253
+      },
+      "ssvc": {
+        "exploitation": "none",
+        "automatable": "no",
+        "technicalImpact": "total",
+        "priorityTier": "TRACK",
+        "compactNotation": "N/N/T",
+        "ssvcScore": 15,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 41,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Solarwinds"
+        ],
+        "products": [
+          "Security Event Manager"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.solarwinds.com/trust-center/security-advisories/CVE-2024-0692",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://documentation.solarwinds.com/en/success_center/sem/content/release_notes/sem_2023-4-1_release_notes.htm",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-502"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Adjacent Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/0xxx/CVE-2024-0692.json",
+            "lastModified": "2025-04-16T20:48:48.549000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2024-5246",
+      "title": "NETGEAR ProSAFE Network Management System Tomcat Remote Code Execution Vulnerability",
+      "description": "NETGEAR ProSAFE Network Management System Tomcat Remote Code Execution Vulnerability. This vulnerability allows remote attackers to execute arbitrary code on affected installations of NETGEAR ProSAFE Network Management System. Authentication is required to exploit this vulnerability.\n\nThe specific flaw exists within the product installer. The issue results from the use of a vulnerable version of Apache Tomcat. An attacker can leverage this vulnerability to execute code in the context of SYSTEM. Was ZDI-CAN-22868.",
+      "publishedDate": "2024-05-23T22:07:15.475000+00:00",
+      "lastModifiedDate": "2024-08-01T21:03:11.154000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.0",
+          "vectorString": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 8.8,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.7471,
+        "percentile": 98.796
+      },
+      "ssvc": {
+        "exploitation": "none",
+        "automatable": "no",
+        "technicalImpact": "total",
+        "priorityTier": "TRACK",
+        "compactNotation": "N/N/T",
+        "ssvcScore": 15,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 40,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Netgear"
+        ],
+        "products": [
+          "Prosafe Network Management System"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.zerodayinitiative.com/advisories/ZDI-24-497/",
+          "source": "ZDI-24-497",
+          "tags": [
+            "x_research-advisory"
+          ]
+        },
+        {
+          "url": "https://kb.netgear.com/000066164/Security-Advisory-for-Multiple-Vulnerabilities-on-the-NMS300-PSV-2024-0003-PSV-2024-0004",
+          "source": "vendor-provided URL",
+          "tags": [
+            "vendor-advisory"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-1395"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "Low",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/5xxx/CVE-2024-5246.json",
+            "lastModified": "2024-08-01T21:03:11.154000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2024-3656",
+      "title": "Keycloak: unguarded admin rest api endpoints allows low privilege users to use administrative functionalities",
+      "description": "A flaw was found in Keycloak. Certain endpoints in Keycloak's admin REST API allow low-privilege users to access administrative functionalities. This flaw allows users to perform actions reserved for administrators, potentially leading to data breaches or system compromise.",
+      "publishedDate": "2024-10-09T18:59:11.101000+00:00",
+      "lastModifiedDate": "2025-09-23T05:04:43.493000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N",
           "baseScore": 8.1,
           "baseSeverity": "HIGH"
         }
       ],
       "epss": {
-        "score": 0.9008,
-        "percentile": 99.553
+        "score": 0.8829,
+        "percentile": 99.454
       },
       "ssvc": {
         "exploitation": "none",
@@ -6172,37 +6248,67 @@
         "vendors": [
           "Red Hat"
         ],
-        "products": []
+        "products": [
+          "Red Hat Build Of Keycloak",
+          "Red Hat Jboss Enterprise Application Platform 8",
+          "Red Hat Single Sign-on 7"
+        ]
       },
       "references": [
         {
-          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2304253",
-          "source": "RHBZ#2304253",
+          "url": "https://access.redhat.com/errata/RHSA-2024:3572",
+          "source": "RHSA-2024:3572",
+          "tags": [
+            "vendor-advisory",
+            "x_refsource_REDHAT"
+          ]
+        },
+        {
+          "url": "https://access.redhat.com/errata/RHSA-2024:3575",
+          "source": "RHSA-2024:3575",
+          "tags": [
+            "vendor-advisory",
+            "x_refsource_REDHAT"
+          ]
+        },
+        {
+          "url": "https://access.redhat.com/security/cve/CVE-2024-3656",
+          "source": "",
+          "tags": [
+            "vdb-entry",
+            "x_refsource_REDHAT"
+          ]
+        },
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2274403",
+          "source": "RHBZ#2274403",
           "tags": [
             "issue-tracking",
             "x_refsource_REDHAT"
           ]
         },
         {
-          "url": "https://moodle.org/mod/forum/discuss.php?d=461193",
+          "url": "https://github.com/advisories/GHSA-2cww-fgmg-4jqc",
           "source": "",
           "tags": []
         }
       ],
       "attackTechniques": [],
       "metadata": {
-        "tags": [],
+        "tags": [
+          "CWE-200"
+        ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
         "attackVector": "Network",
-        "attackComplexity": "High",
-        "privilegesRequired": "None",
+        "attackComplexity": "Low",
+        "privilegesRequired": "Low",
         "userInteraction": "None",
         "sources": [
           {
             "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/43xxx/CVE-2024-43425.json",
-            "lastModified": "2024-11-07T14:45:17.071000+00:00"
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/3xxx/CVE-2024-3656.json",
+            "lastModified": "2025-09-23T05:04:43.493000+00:00"
           }
         ]
       }
@@ -6224,7 +6330,7 @@
       ],
       "epss": {
         "score": 0.7399,
-        "percentile": 98.762
+        "percentile": 98.76
       },
       "ssvc": {
         "exploitation": "none",
@@ -6274,6 +6380,77 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/22xxx/CVE-2024-22263.json",
             "lastModified": "2024-08-01T22:43:33.729000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2024-43425",
+      "title": "Moodle: remote code execution via calculated question types",
+      "description": "A flaw was found in Moodle. Additional restrictions are required to avoid a remote code execution risk in calculated question types. Note: This requires the capability to add/update questions.",
+      "publishedDate": "2024-11-07T13:21:59.014000+00:00",
+      "lastModifiedDate": "2024-11-07T14:45:17.071000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 8.1,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.9008,
+        "percentile": 99.554
+      },
+      "ssvc": {
+        "exploitation": "none",
+        "automatable": "no",
+        "technicalImpact": "total",
+        "priorityTier": "TRACK",
+        "compactNotation": "N/N/T",
+        "ssvcScore": 15,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 40,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Red Hat"
+        ],
+        "products": []
+      },
+      "references": [
+        {
+          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2304253",
+          "source": "RHBZ#2304253",
+          "tags": [
+            "issue-tracking",
+            "x_refsource_REDHAT"
+          ]
+        },
+        {
+          "url": "https://moodle.org/mod/forum/discuss.php?d=461193",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "High",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/43xxx/CVE-2024-43425.json",
+            "lastModified": "2024-11-07T14:45:17.071000+00:00"
           }
         ]
       }
@@ -6371,23 +6548,23 @@
       }
     },
     {
-      "cveId": "CVE-2024-3656",
-      "title": "Keycloak: unguarded admin rest api endpoints allows low privilege users to use administrative functionalities",
-      "description": "A flaw was found in Keycloak. Certain endpoints in Keycloak's admin REST API allow low-privilege users to access administrative functionalities. This flaw allows users to perform actions reserved for administrators, potentially leading to data breaches or system compromise.",
-      "publishedDate": "2024-10-09T18:59:11.101000+00:00",
-      "lastModifiedDate": "2025-09-23T05:04:43.493000+00:00",
+      "cveId": "CVE-2024-10516",
+      "title": "Swift Performance Lite <= 2.3.7.1 - Unauthenticated Local PHP File Inclusion via 'ajaxify'",
+      "description": "The Swift Performance Lite plugin for WordPress is vulnerable to Local PHP File Inclusion in all versions up to, and including, 2.3.7.1 via the 'ajaxify' function. This makes it possible for unauthenticated attackers to include and execute arbitrary files on the server, allowing the execution of any PHP code in those files. This can be used to bypass access controls, obtain sensitive data, or achieve code execution in cases where images and other “safe” file types can be uploaded and included.",
+      "publishedDate": "2024-12-06T13:45:19.633000+00:00",
+      "lastModifiedDate": "2024-12-06T15:56:53.802000+00:00",
       "severity": "HIGH",
       "cvssMetrics": [
         {
           "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N",
+          "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
           "baseScore": 8.1,
           "baseSeverity": "HIGH"
         }
       ],
       "epss": {
-        "score": 0.8829,
-        "percentile": 99.453
+        "score": 0.7804,
+        "percentile": 98.958
       },
       "ssvc": {
         "exploitation": "none",
@@ -6399,54 +6576,39 @@
         "inferred": false,
         "confidence": null
       },
-      "riskScore": 40,
+      "riskScore": 39,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
-          "Red Hat"
+          "Swte",
+          "The",
+          "WordPress"
         ],
         "products": [
-          "Red Hat Build Of Keycloak",
-          "Red Hat Jboss Enterprise Application Platform 8",
-          "Red Hat Single Sign-on 7"
+          "Swift Performance Lite",
+          "The Server",
+          "Wordpress"
         ]
       },
       "references": [
         {
-          "url": "https://access.redhat.com/errata/RHSA-2024:3572",
-          "source": "RHSA-2024:3572",
-          "tags": [
-            "vendor-advisory",
-            "x_refsource_REDHAT"
-          ]
-        },
-        {
-          "url": "https://access.redhat.com/errata/RHSA-2024:3575",
-          "source": "RHSA-2024:3575",
-          "tags": [
-            "vendor-advisory",
-            "x_refsource_REDHAT"
-          ]
-        },
-        {
-          "url": "https://access.redhat.com/security/cve/CVE-2024-3656",
+          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/4921f41a-a9b1-4ae2-a903-c14ed22dcc15?source=cve",
           "source": "",
-          "tags": [
-            "vdb-entry",
-            "x_refsource_REDHAT"
-          ]
+          "tags": []
         },
         {
-          "url": "https://bugzilla.redhat.com/show_bug.cgi?id=2274403",
-          "source": "RHBZ#2274403",
-          "tags": [
-            "issue-tracking",
-            "x_refsource_REDHAT"
-          ]
+          "url": "https://plugins.trac.wordpress.org/browser/swift-performance-lite/trunk/includes/classes/class.ajax.php#L824",
+          "source": "",
+          "tags": []
         },
         {
-          "url": "https://github.com/advisories/GHSA-2cww-fgmg-4jqc",
+          "url": "https://plugins.trac.wordpress.org/browser/swift-performance-lite/trunk/includes/classes/class.ajax.php#L795",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://plugins.trac.wordpress.org/changeset/3201933/",
           "source": "",
           "tags": []
         }
@@ -6454,95 +6616,19 @@
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-200"
+          "CWE-22"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
         "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "Low",
+        "attackComplexity": "High",
+        "privilegesRequired": "None",
         "userInteraction": "None",
         "sources": [
           {
             "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/3xxx/CVE-2024-3656.json",
-            "lastModified": "2025-09-23T05:04:43.493000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2024-5246",
-      "title": "NETGEAR ProSAFE Network Management System Tomcat Remote Code Execution Vulnerability",
-      "description": "NETGEAR ProSAFE Network Management System Tomcat Remote Code Execution Vulnerability. This vulnerability allows remote attackers to execute arbitrary code on affected installations of NETGEAR ProSAFE Network Management System. Authentication is required to exploit this vulnerability.\n\nThe specific flaw exists within the product installer. The issue results from the use of a vulnerable version of Apache Tomcat. An attacker can leverage this vulnerability to execute code in the context of SYSTEM. Was ZDI-CAN-22868.",
-      "publishedDate": "2024-05-23T22:07:15.475000+00:00",
-      "lastModifiedDate": "2024-08-01T21:03:11.154000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.0",
-          "vectorString": "CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 8.8,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.7471,
-        "percentile": 98.796
-      },
-      "ssvc": {
-        "exploitation": "none",
-        "automatable": "no",
-        "technicalImpact": "total",
-        "priorityTier": "TRACK",
-        "compactNotation": "N/N/T",
-        "ssvcScore": 15,
-        "inferred": false,
-        "confidence": null
-      },
-      "riskScore": 40,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Netgear"
-        ],
-        "products": [
-          "Prosafe Network Management System"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://www.zerodayinitiative.com/advisories/ZDI-24-497/",
-          "source": "ZDI-24-497",
-          "tags": [
-            "x_research-advisory"
-          ]
-        },
-        {
-          "url": "https://kb.netgear.com/000066164/Security-Advisory-for-Multiple-Vulnerabilities-on-the-NMS300-PSV-2024-0003-PSV-2024-0004",
-          "source": "vendor-provided URL",
-          "tags": [
-            "vendor-advisory"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-1395"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "Low",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/5xxx/CVE-2024-5246.json",
-            "lastModified": "2024-08-01T21:03:11.154000+00:00"
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/10xxx/CVE-2024-10516.json",
+            "lastModified": "2024-12-06T15:56:53.802000+00:00"
           }
         ]
       }
@@ -6640,75 +6726,6 @@
       }
     },
     {
-      "cveId": "CVE-2024-20931",
-      "title": "CVE-2024-20931: Vulnerability in the Oracle WebLogic Server product of Oracle Fusion Middleware (component: Core).  ...",
-      "description": "Vulnerability in the Oracle WebLogic Server product of Oracle Fusion Middleware (component: Core).  Supported versions that are affected are 12.2.1.4.0 and  14.1.1.0.0. Easily exploitable vulnerability allows unauthenticated attacker with network access via T3, IIOP to compromise Oracle WebLogic Server.  Successful attacks of this vulnerability can result in  unauthorized access to critical data or complete access to all Oracle WebLogic Server accessible data. CVSS 3.1 Base Score 7.5 (Confidentiality impacts).  CVSS Vector: (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N).",
-      "publishedDate": "2024-02-17T01:50:12.858000+00:00",
-      "lastModifiedDate": "2025-03-28T23:10:13.177000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
-          "baseScore": 7.5,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.8763,
-        "percentile": 99.424
-      },
-      "ssvc": {
-        "exploitation": "none",
-        "automatable": "no",
-        "technicalImpact": "total",
-        "priorityTier": "TRACK",
-        "compactNotation": "N/N/T",
-        "ssvcScore": 15,
-        "inferred": false,
-        "confidence": null
-      },
-      "riskScore": 39,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Oracle",
-          "Weblogic"
-        ],
-        "products": [
-          "Weblogic",
-          "Weblogic Server"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://www.oracle.com/security-alerts/cpujan2024.html",
-          "source": "Oracle Advisory",
-          "tags": [
-            "vendor-advisory"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/20xxx/CVE-2024-20931.json",
-            "lastModified": "2025-03-28T23:10:13.177000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2024-25092",
       "title": "WordPress NextMove Lite plugin <= 2.17.0 - Subscriber+ Arbitrary Plugin Installation/Activation vulnerability",
       "description": "Missing Authorization vulnerability in XLPlugins NextMove Lite.This issue affects NextMove Lite: from n/a through 2.17.0.",
@@ -6780,23 +6797,23 @@
       }
     },
     {
-      "cveId": "CVE-2024-10516",
-      "title": "Swift Performance Lite <= 2.3.7.1 - Unauthenticated Local PHP File Inclusion via 'ajaxify'",
-      "description": "The Swift Performance Lite plugin for WordPress is vulnerable to Local PHP File Inclusion in all versions up to, and including, 2.3.7.1 via the 'ajaxify' function. This makes it possible for unauthenticated attackers to include and execute arbitrary files on the server, allowing the execution of any PHP code in those files. This can be used to bypass access controls, obtain sensitive data, or achieve code execution in cases where images and other “safe” file types can be uploaded and included.",
-      "publishedDate": "2024-12-06T13:45:19.633000+00:00",
-      "lastModifiedDate": "2024-12-06T15:56:53.802000+00:00",
+      "cveId": "CVE-2024-20931",
+      "title": "CVE-2024-20931: Vulnerability in the Oracle WebLogic Server product of Oracle Fusion Middleware (component: Core).  ...",
+      "description": "Vulnerability in the Oracle WebLogic Server product of Oracle Fusion Middleware (component: Core).  Supported versions that are affected are 12.2.1.4.0 and  14.1.1.0.0. Easily exploitable vulnerability allows unauthenticated attacker with network access via T3, IIOP to compromise Oracle WebLogic Server.  Successful attacks of this vulnerability can result in  unauthorized access to critical data or complete access to all Oracle WebLogic Server accessible data. CVSS 3.1 Base Score 7.5 (Confidentiality impacts).  CVSS Vector: (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N).",
+      "publishedDate": "2024-02-17T01:50:12.858000+00:00",
+      "lastModifiedDate": "2025-03-28T23:10:13.177000+00:00",
       "severity": "HIGH",
       "cvssMetrics": [
         {
           "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 8.1,
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "baseScore": 7.5,
           "baseSeverity": "HIGH"
         }
       ],
       "epss": {
-        "score": 0.7804,
-        "percentile": 98.959
+        "score": 0.8763,
+        "percentile": 99.425
       },
       "ssvc": {
         "exploitation": "none",
@@ -6813,54 +6830,37 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
-          "Swte",
-          "The",
-          "WordPress"
+          "Oracle",
+          "Weblogic"
         ],
         "products": [
-          "Swift Performance Lite",
-          "The Server",
-          "Wordpress"
+          "Weblogic",
+          "Weblogic Server"
         ]
       },
       "references": [
         {
-          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/4921f41a-a9b1-4ae2-a903-c14ed22dcc15?source=cve",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://plugins.trac.wordpress.org/browser/swift-performance-lite/trunk/includes/classes/class.ajax.php#L824",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://plugins.trac.wordpress.org/browser/swift-performance-lite/trunk/includes/classes/class.ajax.php#L795",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://plugins.trac.wordpress.org/changeset/3201933/",
-          "source": "",
-          "tags": []
+          "url": "https://www.oracle.com/security-alerts/cpujan2024.html",
+          "source": "Oracle Advisory",
+          "tags": [
+            "vendor-advisory"
+          ]
         }
       ],
       "attackTechniques": [],
       "metadata": {
-        "tags": [
-          "CWE-22"
-        ],
+        "tags": [],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
         "attackVector": "Network",
-        "attackComplexity": "High",
+        "attackComplexity": "Low",
         "privilegesRequired": "None",
         "userInteraction": "None",
         "sources": [
           {
             "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/10xxx/CVE-2024-10516.json",
-            "lastModified": "2024-12-06T15:56:53.802000+00:00"
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/20xxx/CVE-2024-20931.json",
+            "lastModified": "2025-03-28T23:10:13.177000+00:00"
           }
         ]
       }
@@ -6882,7 +6882,7 @@
       ],
       "epss": {
         "score": 0.786,
-        "percentile": 98.99
+        "percentile": 98.989
       },
       "ssvc": {
         "exploitation": "none",
@@ -6935,89 +6935,6 @@
       }
     },
     {
-      "cveId": "CVE-2024-0200",
-      "title": "Unsafe Reflection in Github Enterprise Server leading to Command Injection",
-      "description": "An unsafe reflection vulnerability was identified in GitHub Enterprise Server that could lead to reflection injection. This vulnerability could lead to the execution of user-controlled methods and remote code execution. To exploit this bug, an actor would need to be logged into an account on the GHES instance with the organization owner role. This vulnerability affected all versions of GitHub Enterprise Server prior to 3.12 and was fixed in versions 3.8.13, 3.9.8, 3.10.5, and 3.11.3. This vulnerability was reported via the GitHub Bug Bounty program.\n\n",
-      "publishedDate": "2024-01-16T18:50:48.931000+00:00",
-      "lastModifiedDate": "2024-08-01T17:41:16.005000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:C/C:H/I:L/A:L",
-          "baseScore": 7.2,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.742,
-        "percentile": 98.773
-      },
-      "ssvc": {
-        "exploitation": "none",
-        "automatable": "no",
-        "technicalImpact": "total",
-        "priorityTier": "TRACK",
-        "compactNotation": "N/N/T",
-        "ssvcScore": 15,
-        "inferred": false,
-        "confidence": null
-      },
-      "riskScore": 37,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Enterprise",
-          "Github"
-        ],
-        "products": [
-          "Enterprise Server"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://docs.github.com/en/enterprise-server@3.8/admin/release-notes#3.8.13",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://docs.github.com/en/enterprise-server@3.9/admin/release-notes#3.9.8",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://docs.github.com/en/enterprise-server@3.10/admin/release-notes#3.10.5",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://docs.github.com/en/enterprise-server@3.11/admin/release-notes#3.11.3",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-470"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "High",
-        "privilegesRequired": "High",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/0xxx/CVE-2024-0200.json",
-            "lastModified": "2024-08-01T17:41:16.005000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2024-43464",
       "title": "Microsoft SharePoint Server Remote Code Execution Vulnerability",
       "description": "Microsoft SharePoint Server Remote Code Execution Vulnerability",
@@ -7033,8 +6950,8 @@
         }
       ],
       "epss": {
-        "score": 0.675,
-        "percentile": 98.491
+        "score": 0.6978,
+        "percentile": 98.591
       },
       "ssvc": {
         "exploitation": "none",
@@ -7092,6 +7009,73 @@
       }
     },
     {
+      "cveId": "CVE-2024-23478",
+      "title": "SolarWinds Access Rights Manager (ARM) Deserialization of Untrusted Data Remote Code Execution",
+      "description": "SolarWinds Access Rights Manager (ARM) was found to be susceptible to a Remote Code Execution Vulnerability. If exploited, this vulnerability allows an authenticated user to abuse a SolarWinds service, resulting in remote code execution.\n",
+      "publishedDate": "2024-02-15T20:35:46.029000+00:00",
+      "lastModifiedDate": "2024-08-12T20:38:34.859000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:A/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 8.0,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.6186,
+        "percentile": 98.233
+      },
+      "ssvc": {
+        "exploitation": "none",
+        "automatable": "no",
+        "technicalImpact": "total",
+        "priorityTier": "TRACK",
+        "compactNotation": "N/N/T",
+        "ssvcScore": 15,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 37,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Solarwinds"
+        ],
+        "products": [
+          "Access Rights Manager"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.solarwinds.com/trust-center/security-advisories/CVE-2024-23478",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-502"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Adjacent Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "Low",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/23xxx/CVE-2024-23478.json",
+            "lastModified": "2024-08-12T20:38:34.859000+00:00"
+          }
+        ]
+      }
+    },
+    {
       "cveId": "CVE-2024-6409",
       "title": "Openssh: possible remote code execution due to a race condition in signal handling affecting red hat enterprise linux 9",
       "description": "A race condition vulnerability was discovered in how signals are handled by OpenSSH's server (sshd). If a remote attacker does not authenticate within a set time period, then sshd's SIGALRM handler is called asynchronously. However, this signal handler calls various functions that are not async-signal-safe, for example, syslog(). As a consequence of a successful attack, in the worst case scenario, an attacker may be able to perform a remote code execution (RCE) as an unprivileged user running the sshd server.",
@@ -7108,7 +7092,7 @@
       ],
       "epss": {
         "score": 0.7846,
-        "percentile": 98.982
+        "percentile": 98.981
       },
       "ssvc": {
         "exploitation": "none",
@@ -7239,23 +7223,23 @@
       }
     },
     {
-      "cveId": "CVE-2024-23478",
-      "title": "SolarWinds Access Rights Manager (ARM) Deserialization of Untrusted Data Remote Code Execution",
-      "description": "SolarWinds Access Rights Manager (ARM) was found to be susceptible to a Remote Code Execution Vulnerability. If exploited, this vulnerability allows an authenticated user to abuse a SolarWinds service, resulting in remote code execution.\n",
-      "publishedDate": "2024-02-15T20:35:46.029000+00:00",
-      "lastModifiedDate": "2024-08-12T20:38:34.859000+00:00",
+      "cveId": "CVE-2024-0200",
+      "title": "Unsafe Reflection in Github Enterprise Server leading to Command Injection",
+      "description": "An unsafe reflection vulnerability was identified in GitHub Enterprise Server that could lead to reflection injection. This vulnerability could lead to the execution of user-controlled methods and remote code execution. To exploit this bug, an actor would need to be logged into an account on the GHES instance with the organization owner role. This vulnerability affected all versions of GitHub Enterprise Server prior to 3.12 and was fixed in versions 3.8.13, 3.9.8, 3.10.5, and 3.11.3. This vulnerability was reported via the GitHub Bug Bounty program.\n\n",
+      "publishedDate": "2024-01-16T18:50:48.931000+00:00",
+      "lastModifiedDate": "2024-08-01T17:41:16.005000+00:00",
       "severity": "HIGH",
       "cvssMetrics": [
         {
           "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:A/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 8.0,
+          "vectorString": "CVSS:3.1/AV:N/AC:H/PR:H/UI:N/S:C/C:H/I:L/A:L",
+          "baseScore": 7.2,
           "baseSeverity": "HIGH"
         }
       ],
       "epss": {
-        "score": 0.6186,
-        "percentile": 98.233
+        "score": 0.742,
+        "percentile": 98.771
       },
       "ssvc": {
         "exploitation": "none",
@@ -7272,15 +7256,31 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
-          "Solarwinds"
+          "Enterprise",
+          "Github"
         ],
         "products": [
-          "Access Rights Manager"
+          "Enterprise Server"
         ]
       },
       "references": [
         {
-          "url": "https://www.solarwinds.com/trust-center/security-advisories/CVE-2024-23478",
+          "url": "https://docs.github.com/en/enterprise-server@3.8/admin/release-notes#3.8.13",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://docs.github.com/en/enterprise-server@3.9/admin/release-notes#3.9.8",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://docs.github.com/en/enterprise-server@3.10/admin/release-notes#3.10.5",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://docs.github.com/en/enterprise-server@3.11/admin/release-notes#3.11.3",
           "source": "",
           "tags": []
         }
@@ -7288,19 +7288,19 @@
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-502"
+          "CWE-470"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
-        "attackVector": "Adjacent Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "Low",
+        "attackVector": "Network",
+        "attackComplexity": "High",
+        "privilegesRequired": "High",
         "userInteraction": "None",
         "sources": [
           {
             "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/23xxx/CVE-2024-23478.json",
-            "lastModified": "2024-08-12T20:38:34.859000+00:00"
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/0xxx/CVE-2024-0200.json",
+            "lastModified": "2024-08-01T17:41:16.005000+00:00"
           }
         ]
       }
@@ -7322,7 +7322,7 @@
       ],
       "epss": {
         "score": 0.9062,
-        "percentile": 99.59
+        "percentile": 99.589
       },
       "ssvc": {
         "exploitation": "none",

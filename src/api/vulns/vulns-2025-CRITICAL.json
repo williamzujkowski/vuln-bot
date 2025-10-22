@@ -1,7 +1,7 @@
 {
   "chunk": "2025-CRITICAL",
-  "count": 38,
-  "generated": "2025-10-20T02:39:19.208486",
+  "count": 39,
+  "generated": "2025-10-22T01:18:11.284010",
   "vulnerabilities": [
     {
       "cveId": "CVE-2025-47812",
@@ -19,8 +19,8 @@
         }
       ],
       "epss": {
-        "score": 0.9226,
-        "percentile": 99.7
+        "score": 0.9249,
+        "percentile": 99.72
       },
       "ssvc": {
         "exploitation": "active",
@@ -241,207 +241,6 @@
       }
     },
     {
-      "cveId": "CVE-2024-13161",
-      "title": "CVE-2024-13161: Absolute path traversal in Ivanti EPM before the 2024 January-2025 Security Update and 2022 SU6 Janu...",
-      "description": "Absolute path traversal in Ivanti EPM before the 2024 January-2025 Security Update and 2022 SU6 January-2025 Security Update allows a remote unauthenticated attacker to leak sensitive information.",
-      "publishedDate": "2025-01-14T17:11:32.061000+00:00",
-      "lastModifiedDate": "2025-07-30T01:36:22.275000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 9.8,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.9214,
-        "percentile": 99.694
-      },
-      "ssvc": {
-        "exploitation": "active",
-        "automatable": "yes",
-        "technicalImpact": "total",
-        "priorityTier": "ACT",
-        "compactNotation": "A/Y/T",
-        "ssvcScore": 60,
-        "inferred": false,
-        "confidence": null
-      },
-      "riskScore": 88,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Ivanti"
-        ],
-        "products": [
-          "Endpoint Manager"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://forums.ivanti.com/s/article/Security-Advisory-EPM-January-2025-for-EPM-2024-and-EPM-2022-SU6",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-36"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/13xxx/CVE-2024-13161.json",
-            "lastModified": "2025-07-30T01:36:22.275000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2024-13159",
-      "title": "CVE-2024-13159: Absolute path traversal in Ivanti EPM before the 2024 January-2025 Security Update and 2022 SU6 Janu...",
-      "description": "Absolute path traversal in Ivanti EPM before the 2024 January-2025 Security Update and 2022 SU6 January-2025 Security Update allows a remote unauthenticated attacker to leak sensitive information.",
-      "publishedDate": "2025-01-14T17:12:57.652000+00:00",
-      "lastModifiedDate": "2025-07-30T01:36:22.002000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 9.8,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.9388,
-        "percentile": 99.863
-      },
-      "ssvc": {
-        "exploitation": "active",
-        "automatable": "yes",
-        "technicalImpact": "total",
-        "priorityTier": "ACT",
-        "compactNotation": "A/Y/T",
-        "ssvcScore": 60,
-        "inferred": false,
-        "confidence": null
-      },
-      "riskScore": 88,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Ivanti"
-        ],
-        "products": [
-          "Endpoint Manager"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://forums.ivanti.com/s/article/Security-Advisory-EPM-January-2025-for-EPM-2024-and-EPM-2022-SU6",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-36"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/13xxx/CVE-2024-13159.json",
-            "lastModified": "2025-07-30T01:36:22.002000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2024-13160",
-      "title": "CVE-2024-13160: Absolute path traversal in Ivanti EPM before the 2024 January-2025 Security Update and 2022 SU6 Janu...",
-      "description": "Absolute path traversal in Ivanti EPM before the 2024 January-2025 Security Update and 2022 SU6 January-2025 Security Update allows a remote unauthenticated attacker to leak sensitive information.",
-      "publishedDate": "2025-01-14T17:12:23.237000+00:00",
-      "lastModifiedDate": "2025-07-30T01:36:22.139000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 9.8,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.9297,
-        "percentile": 99.763
-      },
-      "ssvc": {
-        "exploitation": "active",
-        "automatable": "yes",
-        "technicalImpact": "total",
-        "priorityTier": "ACT",
-        "compactNotation": "A/Y/T",
-        "ssvcScore": 60,
-        "inferred": false,
-        "confidence": null
-      },
-      "riskScore": 88,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Ivanti"
-        ],
-        "products": [
-          "Endpoint Manager"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://forums.ivanti.com/s/article/Security-Advisory-EPM-January-2025-for-EPM-2024-and-EPM-2022-SU6",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-36"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/13xxx/CVE-2024-13160.json",
-            "lastModified": "2025-07-30T01:36:22.139000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2024-50603",
       "title": "CVE-2024-50603: An issue was discovered in Aviatrix Controller before 7.1.4191 and 7.2.x before 7.2.4996. Due to the...",
       "description": "An issue was discovered in Aviatrix Controller before 7.1.4191 and 7.2.x before 7.2.4996. Due to the improper neutralization of special elements used in an OS command, an unauthenticated attacker is able to execute arbitrary code. Shell metacharacters can be sent to /v1/api in cloud_type for list_flightpath_destination_instances, or src_cloud_type for flightpath_connection_test.",
@@ -514,6 +313,512 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/50xxx/CVE-2024-50603.json",
             "lastModified": "2025-07-30T01:36:22.854000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2024-13160",
+      "title": "CVE-2024-13160: Absolute path traversal in Ivanti EPM before the 2024 January-2025 Security Update and 2022 SU6 Janu...",
+      "description": "Absolute path traversal in Ivanti EPM before the 2024 January-2025 Security Update and 2022 SU6 January-2025 Security Update allows a remote unauthenticated attacker to leak sensitive information.",
+      "publishedDate": "2025-01-14T17:12:23.237000+00:00",
+      "lastModifiedDate": "2025-07-30T01:36:22.139000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 9.8,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.9297,
+        "percentile": 99.761
+      },
+      "ssvc": {
+        "exploitation": "active",
+        "automatable": "yes",
+        "technicalImpact": "total",
+        "priorityTier": "ACT",
+        "compactNotation": "A/Y/T",
+        "ssvcScore": 60,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 88,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Ivanti"
+        ],
+        "products": [
+          "Endpoint Manager"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://forums.ivanti.com/s/article/Security-Advisory-EPM-January-2025-for-EPM-2024-and-EPM-2022-SU6",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-36"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/13xxx/CVE-2024-13160.json",
+            "lastModified": "2025-07-30T01:36:22.139000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2024-13161",
+      "title": "CVE-2024-13161: Absolute path traversal in Ivanti EPM before the 2024 January-2025 Security Update and 2022 SU6 Janu...",
+      "description": "Absolute path traversal in Ivanti EPM before the 2024 January-2025 Security Update and 2022 SU6 January-2025 Security Update allows a remote unauthenticated attacker to leak sensitive information.",
+      "publishedDate": "2025-01-14T17:11:32.061000+00:00",
+      "lastModifiedDate": "2025-07-30T01:36:22.275000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 9.8,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.9214,
+        "percentile": 99.693
+      },
+      "ssvc": {
+        "exploitation": "active",
+        "automatable": "yes",
+        "technicalImpact": "total",
+        "priorityTier": "ACT",
+        "compactNotation": "A/Y/T",
+        "ssvcScore": 60,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 88,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Ivanti"
+        ],
+        "products": [
+          "Endpoint Manager"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://forums.ivanti.com/s/article/Security-Advisory-EPM-January-2025-for-EPM-2024-and-EPM-2022-SU6",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-36"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/13xxx/CVE-2024-13161.json",
+            "lastModified": "2025-07-30T01:36:22.275000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2024-13159",
+      "title": "CVE-2024-13159: Absolute path traversal in Ivanti EPM before the 2024 January-2025 Security Update and 2022 SU6 Janu...",
+      "description": "Absolute path traversal in Ivanti EPM before the 2024 January-2025 Security Update and 2022 SU6 January-2025 Security Update allows a remote unauthenticated attacker to leak sensitive information.",
+      "publishedDate": "2025-01-14T17:12:57.652000+00:00",
+      "lastModifiedDate": "2025-07-30T01:36:22.002000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 9.8,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.9388,
+        "percentile": 99.864
+      },
+      "ssvc": {
+        "exploitation": "active",
+        "automatable": "yes",
+        "technicalImpact": "total",
+        "priorityTier": "ACT",
+        "compactNotation": "A/Y/T",
+        "ssvcScore": 60,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 88,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Ivanti"
+        ],
+        "products": [
+          "Endpoint Manager"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://forums.ivanti.com/s/article/Security-Advisory-EPM-January-2025-for-EPM-2024-and-EPM-2022-SU6",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-36"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/13xxx/CVE-2024-13159.json",
+            "lastModified": "2025-07-30T01:36:22.002000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-61882",
+      "title": "CVE-2025-61882: Vulnerability in the Oracle Concurrent Processing product of Oracle E-Business Suite (component: BI ...",
+      "description": "Vulnerability in the Oracle Concurrent Processing product of Oracle E-Business Suite (component: BI Publisher Integration).  Supported versions that are affected are 12.2.3-12.2.14. Easily exploitable vulnerability allows unauthenticated attacker with network access via HTTP to compromise Oracle Concurrent Processing.  Successful attacks of this vulnerability can result in takeover of Oracle Concurrent Processing. CVSS 3.1 Base Score 9.8 (Confidentiality, Integrity and Availability impacts).  CVSS Vector: (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H).",
+      "publishedDate": "2025-10-05T03:17:01.644000+00:00",
+      "lastModifiedDate": "2025-10-16T17:48:45.233000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 9.8,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.8234,
+        "percentile": 99.171
+      },
+      "ssvc": {
+        "exploitation": "active",
+        "automatable": "yes",
+        "technicalImpact": "total",
+        "priorityTier": "ACT",
+        "compactNotation": "A/Y/T",
+        "ssvcScore": 60,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 87,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Oracle"
+        ],
+        "products": [
+          "Oracle Concurrent Processing"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.oracle.com/security-alerts/alert-cve-2025-61882.html",
+          "source": "Oracle Advisory",
+          "tags": [
+            "vendor-advisory"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/61xxx/CVE-2025-61882.json",
+            "lastModified": "2025-10-16T17:48:45.233000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-31161",
+      "title": "CVE-2025-31161: CrushFTP 10 before 10.8.4 and 11 before 11.3.1 allows authentication bypass and takeover of the crus...",
+      "description": "CrushFTP 10 before 10.8.4 and 11 before 11.3.1 allows authentication bypass and takeover of the crushadmin account (unless a DMZ proxy instance is used), as exploited in the wild in March and April 2025, aka \"Unauthenticated HTTP(S) port access.\" A race condition exists in the AWS4-HMAC (compatible with S3) authorization method of the HTTP component of the FTP server. The server first verifies the existence of the user by performing a call to login_user_pass() with no password requirement. This will authenticate the session through the HMAC verification process and up until the server checks for user verification once more. The vulnerability can be further stabilized, eliminating the need for successfully triggering a race condition, by sending a mangled AWS4-HMAC header. By providing only the username and a following slash (/), the server will successfully find a username, which triggers the successful anypass authentication process, but the server will fail to find the expected SignedHeaders entry, resulting in an index-out-of-bounds error that stops the code from reaching the session cleanup. Together, these issues make it trivial to authenticate as any known or guessable user (e.g., crushadmin), and can lead to a full compromise of the system by obtaining an administrative account.",
+      "publishedDate": "2025-04-03T00:00:00+00:00",
+      "lastModifiedDate": "2025-07-30T01:36:16.050000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 9.8,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.8441,
+        "percentile": 99.274
+      },
+      "ssvc": {
+        "exploitation": "active",
+        "automatable": "yes",
+        "technicalImpact": "total",
+        "priorityTier": "ACT",
+        "compactNotation": "A/Y/T",
+        "ssvcScore": 60,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 87,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Crushftp",
+          "Ftp",
+          "The"
+        ],
+        "products": [
+          "Crushftp",
+          "Ftp Server",
+          "The Server"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://outpost24.com/blog/crushftp-auth-bypass-vulnerability/",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://crushftp.com/crush11wiki/Wiki.jsp?page=Update#section-Update-VulnerabilityInfo",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-305"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/31xxx/CVE-2025-31161.json",
+            "lastModified": "2025-07-30T01:36:16.050000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-2747",
+      "title": "Kentico Xperience Staging Sync Server None password type authentication bypass",
+      "description": "An authentication bypass vulnerability in Kentico Xperience allows authentication bypass via the Staging Sync Server component password handling for the server defined None type. Authentication bypass allows an attacker to control administrative objects.This issue affects Xperience through 13.0.178.",
+      "publishedDate": "2025-03-24T18:17:06.079000+00:00",
+      "lastModifiedDate": "2025-10-20T16:20:24.051000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 9.8,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.8316,
+        "percentile": 99.216
+      },
+      "ssvc": {
+        "exploitation": "active",
+        "automatable": "yes",
+        "technicalImpact": "total",
+        "priorityTier": "ACT",
+        "compactNotation": "A/Y/T",
+        "ssvcScore": 60,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 87,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Kentico",
+          "Sync",
+          "The"
+        ],
+        "products": [
+          "Sync Server",
+          "The Server",
+          "Xperience"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://labs.watchtowr.com/bypassing-authentication-like-its-the-90s-pre-auth-rce-chain-s-in-kentico-xperience-cms/",
+          "source": "",
+          "tags": [
+            "technical-description",
+            "exploit"
+          ]
+        },
+        {
+          "url": "https://devnet.kentico.com/download/hotfixes",
+          "source": "",
+          "tags": [
+            "vendor-advisory"
+          ]
+        },
+        {
+          "url": "https://github.com/watchtowrlabs/kentico-xperience13-AuthBypass-wt-2025-0011",
+          "source": "",
+          "tags": [
+            "exploit"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-288"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/2xxx/CVE-2025-2747.json",
+            "lastModified": "2025-10-20T16:20:24.051000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-53770",
+      "title": "Microsoft SharePoint Server Remote Code Execution Vulnerability",
+      "description": "Deserialization of untrusted data in on-premises Microsoft SharePoint Server allows an unauthorized attacker to execute code over a network.\nMicrosoft is aware that an exploit for CVE-2025-53770 exists in the wild.\nMicrosoft is preparing and fully testing a comprehensive update to address this vulnerability.  In the meantime, please make sure that the mitigation provided in this CVE documentation is in place so that you are protected from exploitation.",
+      "publishedDate": "2025-07-20T01:06:33.607000+00:00",
+      "lastModifiedDate": "2025-08-23T00:40:42.617000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H/E:F/RL:W/RC:C",
+          "baseScore": 9.8,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.8641,
+        "percentile": 99.36
+      },
+      "ssvc": {
+        "exploitation": "active",
+        "automatable": "yes",
+        "technicalImpact": "total",
+        "priorityTier": "ACT",
+        "compactNotation": "A/Y/T",
+        "ssvcScore": 60,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 87,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Microsoft",
+          "Sharepoint"
+        ],
+        "products": [
+          "Microsoft Sharepoint Enterprise Server 2016",
+          "Microsoft Sharepoint Server 2019",
+          "Microsoft Sharepoint Server Subscription Edition",
+          "Sharepoint",
+          "Sharepoint Server"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-53770",
+          "source": "Microsoft SharePoint Server Remote Code Execution Vulnerability",
+          "tags": [
+            "vendor-advisory"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-502"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/53xxx/CVE-2025-53770.json",
+            "lastModified": "2025-08-23T00:40:42.617000+00:00"
           }
         ]
       }
@@ -604,7 +909,7 @@
       ],
       "epss": {
         "score": 0.8582,
-        "percentile": 99.333
+        "percentile": 99.334
       },
       "ssvc": {
         "exploitation": "active",
@@ -655,23 +960,23 @@
       }
     },
     {
-      "cveId": "CVE-2025-53770",
-      "title": "Microsoft SharePoint Server Remote Code Execution Vulnerability",
-      "description": "Deserialization of untrusted data in on-premises Microsoft SharePoint Server allows an unauthorized attacker to execute code over a network.\nMicrosoft is aware that an exploit for CVE-2025-53770 exists in the wild.\nMicrosoft is preparing and fully testing a comprehensive update to address this vulnerability.  In the meantime, please make sure that the mitigation provided in this CVE documentation is in place so that you are protected from exploitation.",
-      "publishedDate": "2025-07-20T01:06:33.607000+00:00",
-      "lastModifiedDate": "2025-08-23T00:40:42.617000+00:00",
+      "cveId": "CVE-2025-10035",
+      "title": "Deserialization Vulnerability in GoAnywhere MFT's License Servlet",
+      "description": "A deserialization vulnerability in the License Servlet of Fortra's GoAnywhere MFT allows an actor with a validly forged license response signature to deserialize an arbitrary actor-controlled object, possibly leading to command injection.",
+      "publishedDate": "2025-09-18T22:01:51.337000+00:00",
+      "lastModifiedDate": "2025-09-29T22:20:24.526000+00:00",
       "severity": "CRITICAL",
       "cvssMetrics": [
         {
           "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H/E:F/RL:W/RC:C",
-          "baseScore": 9.8,
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+          "baseScore": 10.0,
           "baseSeverity": "CRITICAL"
         }
       ],
       "epss": {
-        "score": 0.8641,
-        "percentile": 99.36
+        "score": 0.6175,
+        "percentile": 98.229
       },
       "ssvc": {
         "exploitation": "active",
@@ -683,34 +988,28 @@
         "inferred": false,
         "confidence": null
       },
-      "riskScore": 87,
+      "riskScore": 85,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
-          "Microsoft",
-          "Sharepoint"
+          "Fortra"
         ],
         "products": [
-          "Microsoft Sharepoint Enterprise Server 2016",
-          "Microsoft Sharepoint Server 2019",
-          "Microsoft Sharepoint Server Subscription Edition",
-          "Sharepoint",
-          "Sharepoint Server"
+          "Goanywhere Mft"
         ]
       },
       "references": [
         {
-          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-53770",
-          "source": "Microsoft SharePoint Server Remote Code Execution Vulnerability",
-          "tags": [
-            "vendor-advisory"
-          ]
+          "url": "https://www.fortra.com/security/advisories/product-security/fi-2025-012",
+          "source": "",
+          "tags": []
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
+          "CWE-77",
           "CWE-502"
         ],
         "requiresUserInteraction": null,
@@ -722,151 +1021,8 @@
         "sources": [
           {
             "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/53xxx/CVE-2025-53770.json",
-            "lastModified": "2025-08-23T00:40:42.617000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-31161",
-      "title": "CVE-2025-31161: CrushFTP 10 before 10.8.4 and 11 before 11.3.1 allows authentication bypass and takeover of the crus...",
-      "description": "CrushFTP 10 before 10.8.4 and 11 before 11.3.1 allows authentication bypass and takeover of the crushadmin account (unless a DMZ proxy instance is used), as exploited in the wild in March and April 2025, aka \"Unauthenticated HTTP(S) port access.\" A race condition exists in the AWS4-HMAC (compatible with S3) authorization method of the HTTP component of the FTP server. The server first verifies the existence of the user by performing a call to login_user_pass() with no password requirement. This will authenticate the session through the HMAC verification process and up until the server checks for user verification once more. The vulnerability can be further stabilized, eliminating the need for successfully triggering a race condition, by sending a mangled AWS4-HMAC header. By providing only the username and a following slash (/), the server will successfully find a username, which triggers the successful anypass authentication process, but the server will fail to find the expected SignedHeaders entry, resulting in an index-out-of-bounds error that stops the code from reaching the session cleanup. Together, these issues make it trivial to authenticate as any known or guessable user (e.g., crushadmin), and can lead to a full compromise of the system by obtaining an administrative account.",
-      "publishedDate": "2025-04-03T00:00:00+00:00",
-      "lastModifiedDate": "2025-07-30T01:36:16.050000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 9.8,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.8441,
-        "percentile": 99.275
-      },
-      "ssvc": {
-        "exploitation": "active",
-        "automatable": "yes",
-        "technicalImpact": "total",
-        "priorityTier": "ACT",
-        "compactNotation": "A/Y/T",
-        "ssvcScore": 60,
-        "inferred": false,
-        "confidence": null
-      },
-      "riskScore": 87,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Crushftp",
-          "Ftp",
-          "The"
-        ],
-        "products": [
-          "Crushftp",
-          "Ftp Server",
-          "The Server"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://outpost24.com/blog/crushftp-auth-bypass-vulnerability/",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://crushftp.com/crush11wiki/Wiki.jsp?page=Update#section-Update-VulnerabilityInfo",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-305"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/31xxx/CVE-2025-31161.json",
-            "lastModified": "2025-07-30T01:36:16.050000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-61882",
-      "title": "CVE-2025-61882: Vulnerability in the Oracle Concurrent Processing product of Oracle E-Business Suite (component: BI ...",
-      "description": "Vulnerability in the Oracle Concurrent Processing product of Oracle E-Business Suite (component: BI Publisher Integration).  Supported versions that are affected are 12.2.3-12.2.14. Easily exploitable vulnerability allows unauthenticated attacker with network access via HTTP to compromise Oracle Concurrent Processing.  Successful attacks of this vulnerability can result in takeover of Oracle Concurrent Processing. CVSS 3.1 Base Score 9.8 (Confidentiality, Integrity and Availability impacts).  CVSS Vector: (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H).",
-      "publishedDate": "2025-10-05T03:17:01.644000+00:00",
-      "lastModifiedDate": "2025-10-16T17:48:45.233000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 9.8,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.8234,
-        "percentile": 99.172
-      },
-      "ssvc": {
-        "exploitation": "active",
-        "automatable": "yes",
-        "technicalImpact": "total",
-        "priorityTier": "ACT",
-        "compactNotation": "A/Y/T",
-        "ssvcScore": 60,
-        "inferred": false,
-        "confidence": null
-      },
-      "riskScore": 87,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Oracle"
-        ],
-        "products": [
-          "Oracle Concurrent Processing"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://www.oracle.com/security-alerts/alert-cve-2025-61882.html",
-          "source": "Oracle Advisory",
-          "tags": [
-            "vendor-advisory"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/61xxx/CVE-2025-61882.json",
-            "lastModified": "2025-10-16T17:48:45.233000+00:00"
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/10xxx/CVE-2025-10035.json",
+            "lastModified": "2025-09-29T22:20:24.526000+00:00"
           }
         ]
       }
@@ -887,8 +1043,8 @@
         }
       ],
       "epss": {
-        "score": 0.6289,
-        "percentile": 98.28
+        "score": 0.6002,
+        "percentile": 98.153
       },
       "ssvc": {
         "exploitation": "active",
@@ -964,11 +1120,11 @@
       }
     },
     {
-      "cveId": "CVE-2025-10035",
-      "title": "Deserialization Vulnerability in GoAnywhere MFT's License Servlet",
-      "description": "A deserialization vulnerability in the License Servlet of Fortra's GoAnywhere MFT allows an actor with a validly forged license response signature to deserialize an arbitrary actor-controlled object, possibly leading to command injection.",
-      "publishedDate": "2025-09-18T22:01:51.337000+00:00",
-      "lastModifiedDate": "2025-09-29T22:20:24.526000+00:00",
+      "cveId": "CVE-2025-47916",
+      "title": "CVE-2025-47916: Invision Community 5.0.0 before 5.0.7 allows remote code execution via crafted template strings to t...",
+      "description": "Invision Community 5.0.0 before 5.0.7 allows remote code execution via crafted template strings to themeeditor.php. The issue lies within the themeeditor controller (file: /applications/core/modules/front/system/themeeditor.php), where a protected method named customCss can be invoked by unauthenticated users. This method passes the value of the content parameter to the Theme::makeProcessFunction() method; hence it is evaluated by the template engine. Accordingly, this can be exploited by unauthenticated attackers to inject and execute arbitrary PHP code by providing crafted template strings.",
+      "publishedDate": "2025-05-16T00:00:00+00:00",
+      "lastModifiedDate": "2025-05-17T05:03:09.924000+00:00",
       "severity": "CRITICAL",
       "cvssMetrics": [
         {
@@ -979,33 +1135,40 @@
         }
       ],
       "epss": {
-        "score": 0.6244,
-        "percentile": 98.26
+        "score": 0.8838,
+        "percentile": 99.457
       },
       "ssvc": {
-        "exploitation": "active",
+        "exploitation": "poc",
         "automatable": "yes",
         "technicalImpact": "total",
-        "priorityTier": "ACT",
-        "compactNotation": "A/Y/T",
-        "ssvcScore": 60,
+        "priorityTier": "ATTEND",
+        "compactNotation": "P/Y/T",
+        "ssvcScore": 50,
         "inferred": false,
         "confidence": null
       },
-      "riskScore": 85,
+      "riskScore": 78,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
-          "Fortra"
+          "Invisioncommunity",
+          "Template"
         ],
         "products": [
-          "Goanywhere Mft"
+          "Invision Power Board",
+          "Template Engine"
         ]
       },
       "references": [
         {
-          "url": "https://www.fortra.com/security/advisories/product-security/fi-2025-012",
+          "url": "https://invisioncommunity.com/release-notes-v5/507-r41/",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://karmainsecurity.com/KIS-2025-02",
           "source": "",
           "tags": []
         }
@@ -1013,8 +1176,7 @@
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-77",
-          "CWE-502"
+          "CWE-1336"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -1025,8 +1187,8 @@
         "sources": [
           {
             "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/10xxx/CVE-2025-10035.json",
-            "lastModified": "2025-09-29T22:20:24.526000+00:00"
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/47xxx/CVE-2025-47916.json",
+            "lastModified": "2025-05-17T05:03:09.924000+00:00"
           }
         ]
       }
@@ -1145,7 +1307,7 @@
       ],
       "epss": {
         "score": 0.8776,
-        "percentile": 99.429
+        "percentile": 99.43
       },
       "ssvc": {
         "exploitation": "poc",
@@ -1197,80 +1359,6 @@
       }
     },
     {
-      "cveId": "CVE-2025-47916",
-      "title": "CVE-2025-47916: Invision Community 5.0.0 before 5.0.7 allows remote code execution via crafted template strings to t...",
-      "description": "Invision Community 5.0.0 before 5.0.7 allows remote code execution via crafted template strings to themeeditor.php. The issue lies within the themeeditor controller (file: /applications/core/modules/front/system/themeeditor.php), where a protected method named customCss can be invoked by unauthenticated users. This method passes the value of the content parameter to the Theme::makeProcessFunction() method; hence it is evaluated by the template engine. Accordingly, this can be exploited by unauthenticated attackers to inject and execute arbitrary PHP code by providing crafted template strings.",
-      "publishedDate": "2025-05-16T00:00:00+00:00",
-      "lastModifiedDate": "2025-05-17T05:03:09.924000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
-          "baseScore": 10.0,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.8838,
-        "percentile": 99.457
-      },
-      "ssvc": {
-        "exploitation": "poc",
-        "automatable": "yes",
-        "technicalImpact": "total",
-        "priorityTier": "ATTEND",
-        "compactNotation": "P/Y/T",
-        "ssvcScore": 50,
-        "inferred": false,
-        "confidence": null
-      },
-      "riskScore": 78,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Invisioncommunity",
-          "Template"
-        ],
-        "products": [
-          "Invision Power Board",
-          "Template Engine"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://invisioncommunity.com/release-notes-v5/507-r41/",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://karmainsecurity.com/KIS-2025-02",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-1336"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/47xxx/CVE-2025-47916.json",
-            "lastModified": "2025-05-17T05:03:09.924000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2025-27520",
       "title": "BentoML Allows Remote Code Execution (RCE) via Insecure Deserialization",
       "description": "BentoML is a Python library for building online serving systems optimized for AI apps and model inference. A Remote Code Execution (RCE) vulnerability caused by insecure deserialization has been identified in the latest version (v1.4.2) of BentoML. It allows any unauthenticated user to execute arbitrary code on the server. It exists an unsafe code segment in serde.py. This vulnerability is fixed in 1.4.3.",
@@ -1287,7 +1375,7 @@
       ],
       "epss": {
         "score": 0.7823,
-        "percentile": 98.969
+        "percentile": 98.968
       },
       "ssvc": {
         "exploitation": "poc",
@@ -1364,8 +1452,8 @@
         }
       ],
       "epss": {
-        "score": 0.7974,
-        "percentile": 99.045
+        "score": 0.8233,
+        "percentile": 99.171
       },
       "ssvc": {
         "exploitation": "poc",
@@ -1411,6 +1499,80 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/46xxx/CVE-2024-46506.json",
             "lastModified": "2025-05-13T19:09:51.072000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-48827",
+      "title": "CVE-2025-48827: vBulletin 5.0.0 through 5.7.5 and 6.0.0 through 6.0.3 allows unauthenticated users to invoke protect...",
+      "description": "vBulletin 5.0.0 through 5.7.5 and 6.0.0 through 6.0.3 allows unauthenticated users to invoke protected API controllers' methods when running on PHP 8.1 or later, as demonstrated by the /api.php?method=protectedMethod pattern, as exploited in the wild in May 2025.",
+      "publishedDate": "2025-05-27T00:00:00+00:00",
+      "lastModifiedDate": "2025-05-27T18:03:31.961000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+          "baseScore": 10.0,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.7284,
+        "percentile": 98.709
+      },
+      "ssvc": {
+        "exploitation": "poc",
+        "automatable": "yes",
+        "technicalImpact": "total",
+        "priorityTier": "ATTEND",
+        "compactNotation": "P/Y/T",
+        "ssvcScore": 50,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 76,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "PHP",
+          "Vbulletin"
+        ],
+        "products": [
+          "Php",
+          "Vbulletin"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://karmainsecurity.com/dont-call-that-protected-method-vbulletin-rce",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://kevintel.com/CVE-2025-48827",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-424"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/48xxx/CVE-2025-48827.json",
+            "lastModified": "2025-05-27T18:03:31.961000+00:00"
           }
         ]
       }
@@ -1504,80 +1666,6 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/21xxx/CVE-2025-21298.json",
             "lastModified": "2025-09-09T23:45:54.994000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-48827",
-      "title": "CVE-2025-48827: vBulletin 5.0.0 through 5.7.5 and 6.0.0 through 6.0.3 allows unauthenticated users to invoke protect...",
-      "description": "vBulletin 5.0.0 through 5.7.5 and 6.0.0 through 6.0.3 allows unauthenticated users to invoke protected API controllers' methods when running on PHP 8.1 or later, as demonstrated by the /api.php?method=protectedMethod pattern, as exploited in the wild in May 2025.",
-      "publishedDate": "2025-05-27T00:00:00+00:00",
-      "lastModifiedDate": "2025-05-27T18:03:31.961000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
-          "baseScore": 10.0,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.7284,
-        "percentile": 98.709
-      },
-      "ssvc": {
-        "exploitation": "poc",
-        "automatable": "yes",
-        "technicalImpact": "total",
-        "priorityTier": "ATTEND",
-        "compactNotation": "P/Y/T",
-        "ssvcScore": 50,
-        "inferred": false,
-        "confidence": null
-      },
-      "riskScore": 76,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "PHP",
-          "Vbulletin"
-        ],
-        "products": [
-          "Php",
-          "Vbulletin"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://karmainsecurity.com/dont-call-that-protected-method-vbulletin-rce",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://kevintel.com/CVE-2025-48827",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-424"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/48xxx/CVE-2025-48827.json",
-            "lastModified": "2025-05-27T18:03:31.961000+00:00"
           }
         ]
       }
@@ -1691,7 +1779,7 @@
       ],
       "epss": {
         "score": 0.938,
-        "percentile": 99.85
+        "percentile": 99.852
       },
       "ssvc": {
         "exploitation": "active",
@@ -1835,7 +1923,7 @@
       ],
       "epss": {
         "score": 0.8526,
-        "percentile": 99.309
+        "percentile": 99.31
       },
       "ssvc": {
         "exploitation": "active",
@@ -1906,75 +1994,6 @@
       }
     },
     {
-      "cveId": "CVE-2025-22457",
-      "title": "CVE-2025-22457: A stack-based buffer overflow in Ivanti Connect Secure before version 22.7R2.6, Ivanti Policy Secure...",
-      "description": "A stack-based buffer overflow in Ivanti Connect Secure before version 22.7R2.6, Ivanti Policy Secure before version 22.7R1.4, and Ivanti ZTA Gateways before version 22.8R2.2 allows a remote unauthenticated attacker to achieve remote code execution.",
-      "publishedDate": "2025-04-03T15:20:23.628000+00:00",
-      "lastModifiedDate": "2025-07-30T01:36:15.776000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:H/I:H/A:H",
-          "baseScore": 9.0,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.7353,
-        "percentile": 98.74
-      },
-      "ssvc": {
-        "exploitation": "active",
-        "automatable": "no",
-        "technicalImpact": "total",
-        "priorityTier": "ATTEND",
-        "compactNotation": "A/N/T",
-        "ssvcScore": 45,
-        "inferred": false,
-        "confidence": null
-      },
-      "riskScore": 70,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Ivanti"
-        ],
-        "products": [
-          "Connect Secure",
-          "Neurons For Zta Gateways",
-          "Policy Secure"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://forums.ivanti.com/s/article/April-Security-Advisory-Ivanti-Connect-Secure-Policy-Secure-ZTA-Gateways-CVE-2025-22457",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-121"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "High",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/22xxx/CVE-2025-22457.json",
-            "lastModified": "2025-07-30T01:36:15.776000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2025-5086",
       "title": "Deserialization of Untrusted Data vulnerability affecting DELMIA Apriso from Release 2020 through Release 2025",
       "description": "A deserialization of untrusted data vulnerability affecting DELMIA Apriso from Release 2020 through Release 2025 could lead to a remote code execution.",
@@ -1991,7 +2010,7 @@
       ],
       "epss": {
         "score": 0.6786,
-        "percentile": 98.506
+        "percentile": 98.505
       },
       "ssvc": {
         "exploitation": "active",
@@ -2037,6 +2056,75 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/5xxx/CVE-2025-5086.json",
             "lastModified": "2025-09-12T03:56:12.148000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-22457",
+      "title": "CVE-2025-22457: A stack-based buffer overflow in Ivanti Connect Secure before version 22.7R2.6, Ivanti Policy Secure...",
+      "description": "A stack-based buffer overflow in Ivanti Connect Secure before version 22.7R2.6, Ivanti Policy Secure before version 22.7R1.4, and Ivanti ZTA Gateways before version 22.8R2.2 allows a remote unauthenticated attacker to achieve remote code execution.",
+      "publishedDate": "2025-04-03T15:20:23.628000+00:00",
+      "lastModifiedDate": "2025-07-30T01:36:15.776000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:H/I:H/A:H",
+          "baseScore": 9.0,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.6938,
+        "percentile": 98.573
+      },
+      "ssvc": {
+        "exploitation": "active",
+        "automatable": "no",
+        "technicalImpact": "total",
+        "priorityTier": "ATTEND",
+        "compactNotation": "A/N/T",
+        "ssvcScore": 45,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 69,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Ivanti"
+        ],
+        "products": [
+          "Connect Secure",
+          "Neurons For Zta Gateways",
+          "Policy Secure"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://forums.ivanti.com/s/article/April-Security-Advisory-Ivanti-Connect-Secure-Policy-Secure-ZTA-Gateways-CVE-2025-22457",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-121"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "High",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/22xxx/CVE-2025-22457.json",
+            "lastModified": "2025-07-30T01:36:15.776000+00:00"
           }
         ]
       }
@@ -2170,7 +2258,7 @@
       ],
       "epss": {
         "score": 0.6882,
-        "percentile": 98.548
+        "percentile": 98.547
       },
       "ssvc": {
         "exploitation": "poc",
@@ -2244,7 +2332,7 @@
       ],
       "epss": {
         "score": 0.9145,
-        "percentile": 99.649
+        "percentile": 99.65
       },
       "ssvc": {
         "exploitation": "none",
@@ -2441,7 +2529,7 @@
       ],
       "epss": {
         "score": 0.7628,
-        "percentile": 98.873
+        "percentile": 98.872
       },
       "ssvc": {
         "exploitation": "none",
@@ -2517,85 +2605,6 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/32xxx/CVE-2025-32432.json",
             "lastModified": "2025-04-29T03:55:14.713000+00:00"
-          }
-        ]
-      }
-    },
-    {
-      "cveId": "CVE-2025-27007",
-      "title": "WordPress SureTriggers <= 1.0.82 - Privilege Escalation Vulnerability",
-      "description": "Incorrect Privilege Assignment vulnerability in Brainstorm Force SureTriggers allows Privilege Escalation.This issue affects SureTriggers: from n/a through 1.0.82.",
-      "publishedDate": "2025-05-01T10:54:56.209000+00:00",
-      "lastModifiedDate": "2025-05-05T17:09:59.911000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 9.8,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.7812,
-        "percentile": 98.963
-      },
-      "ssvc": {
-        "exploitation": "none",
-        "automatable": "yes",
-        "technicalImpact": "total",
-        "priorityTier": "TRACK",
-        "compactNotation": "N/Y/T",
-        "ssvcScore": 30,
-        "inferred": false,
-        "confidence": null
-      },
-      "riskScore": 57,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Brainstorm Force",
-          "WordPress"
-        ],
-        "products": [
-          "Suretriggers",
-          "Wordpress"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://patchstack.com/database/wordpress/plugin/suretriggers/vulnerability/wordpress-suretriggers-1-0-82-privilege-escalation-vulnerability?_s_id=cve",
-          "source": "",
-          "tags": [
-            "vdb-entry"
-          ]
-        },
-        {
-          "url": "https://patchstack.com/articles/additional-critical-ottokit-formerly-suretriggers-vulnerability-patched?_s_id=cve",
-          "source": "",
-          "tags": [
-            "third-party-advisory",
-            "technical-description"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-266"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/27xxx/CVE-2025-27007.json",
-            "lastModified": "2025-05-05T17:09:59.911000+00:00"
           }
         ]
       }
@@ -2700,6 +2709,85 @@
       }
     },
     {
+      "cveId": "CVE-2025-27007",
+      "title": "WordPress SureTriggers <= 1.0.82 - Privilege Escalation Vulnerability",
+      "description": "Incorrect Privilege Assignment vulnerability in Brainstorm Force SureTriggers allows Privilege Escalation.This issue affects SureTriggers: from n/a through 1.0.82.",
+      "publishedDate": "2025-05-01T10:54:56.209000+00:00",
+      "lastModifiedDate": "2025-05-05T17:09:59.911000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 9.8,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.7443,
+        "percentile": 98.781
+      },
+      "ssvc": {
+        "exploitation": "none",
+        "automatable": "yes",
+        "technicalImpact": "total",
+        "priorityTier": "TRACK",
+        "compactNotation": "N/Y/T",
+        "ssvcScore": 30,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 56,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Brainstorm Force",
+          "WordPress"
+        ],
+        "products": [
+          "Suretriggers",
+          "Wordpress"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://patchstack.com/database/wordpress/plugin/suretriggers/vulnerability/wordpress-suretriggers-1-0-82-privilege-escalation-vulnerability?_s_id=cve",
+          "source": "",
+          "tags": [
+            "vdb-entry"
+          ]
+        },
+        {
+          "url": "https://patchstack.com/articles/additional-critical-ottokit-formerly-suretriggers-vulnerability-patched?_s_id=cve",
+          "source": "",
+          "tags": [
+            "third-party-advisory",
+            "technical-description"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-266"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/27xxx/CVE-2025-27007.json",
+            "lastModified": "2025-05-05T17:09:59.911000+00:00"
+          }
+        ]
+      }
+    },
+    {
       "cveId": "CVE-2024-11613",
       "title": "WordPress File Upload <= 4.24.15 - Unauthenticated Remote Code Execution, Arbitrary File Read, and Arbitrary File Deletion",
       "description": "The WordPress File Upload plugin for WordPress is vulnerable to Remote Code Execution, Arbitrary File Read, and Arbitrary File Deletion in all versions up to, and including, 4.24.15 via the 'wfu_file_downloader.php' file. This is due to lack of proper sanitization of the 'source' parameter and allowing a user-defined directory path. This makes it possible for unauthenticated attackers to execute code on the server.",
@@ -2797,7 +2885,7 @@
       ],
       "epss": {
         "score": 0.6409,
-        "percentile": 98.33
+        "percentile": 98.329
       },
       "ssvc": {
         "exploitation": "none",
@@ -2858,73 +2946,6 @@
       }
     },
     {
-      "cveId": "CVE-2025-2945",
-      "title": "pgAdmin 4: Remote Code Execution in Query Tool and Cloud Deployment",
-      "description": "Remote Code Execution security vulnerability in pgAdmin 4  (Query Tool and Cloud Deployment modules).\n\nThe vulnerability is associated with the 2 POST endpoints; /sqleditor/query_tool/download, where the query_commited parameter and /cloud/deploy endpoint, where the high_availability parameter is unsafely passed to the Python eval() function, allowing arbitrary code execution.\n\n\nThis issue affects pgAdmin 4: before 9.2.",
-      "publishedDate": "2025-04-03T12:23:14.792000+00:00",
-      "lastModifiedDate": "2025-04-04T03:55:25.268000+00:00",
-      "severity": "CRITICAL",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H",
-          "baseScore": 9.9,
-          "baseSeverity": "CRITICAL"
-        }
-      ],
-      "epss": {
-        "score": 0.6378,
-        "percentile": 98.315
-      },
-      "ssvc": {
-        "exploitation": "none",
-        "automatable": "no",
-        "technicalImpact": "total",
-        "priorityTier": "TRACK",
-        "compactNotation": "N/N/T",
-        "ssvcScore": 15,
-        "inferred": false,
-        "confidence": null
-      },
-      "riskScore": 40,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Pgadmin.org"
-        ],
-        "products": [
-          "Pgadmin 4"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://github.com/pgadmin-org/pgadmin4/issues/8603",
-          "source": "",
-          "tags": [
-            "issue-tracking"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "Low",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/2xxx/CVE-2025-2945.json",
-            "lastModified": "2025-04-04T03:55:25.268000+00:00"
-          }
-        ]
-      }
-    },
-    {
       "cveId": "CVE-2025-23061",
       "title": "CVE-2025-23061: Mongoose before 8.9.5 can improperly use a nested $where filter with a populate() match, leading to ...",
       "description": "Mongoose before 8.9.5 can improperly use a nested $where filter with a populate() match, leading to search injection. NOTE: this issue exists because of an incomplete fix for CVE-2024-53900.",
@@ -2941,7 +2962,7 @@
       ],
       "epss": {
         "score": 0.7213,
-        "percentile": 98.676
+        "percentile": 98.678
       },
       "ssvc": {
         "exploitation": "none",
@@ -3002,6 +3023,73 @@
             "name": "CVEList",
             "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/23xxx/CVE-2025-23061.json",
             "lastModified": "2025-01-15T15:11:21.314000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-2945",
+      "title": "pgAdmin 4: Remote Code Execution in Query Tool and Cloud Deployment",
+      "description": "Remote Code Execution security vulnerability in pgAdmin 4  (Query Tool and Cloud Deployment modules).\n\nThe vulnerability is associated with the 2 POST endpoints; /sqleditor/query_tool/download, where the query_commited parameter and /cloud/deploy endpoint, where the high_availability parameter is unsafely passed to the Python eval() function, allowing arbitrary code execution.\n\n\nThis issue affects pgAdmin 4: before 9.2.",
+      "publishedDate": "2025-04-03T12:23:14.792000+00:00",
+      "lastModifiedDate": "2025-04-04T03:55:25.268000+00:00",
+      "severity": "CRITICAL",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H",
+          "baseScore": 9.9,
+          "baseSeverity": "CRITICAL"
+        }
+      ],
+      "epss": {
+        "score": 0.6378,
+        "percentile": 98.313
+      },
+      "ssvc": {
+        "exploitation": "none",
+        "automatable": "no",
+        "technicalImpact": "total",
+        "priorityTier": "TRACK",
+        "compactNotation": "N/N/T",
+        "ssvcScore": 15,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 40,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Pgadmin.org"
+        ],
+        "products": [
+          "Pgadmin 4"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://github.com/pgadmin-org/pgadmin4/issues/8603",
+          "source": "",
+          "tags": [
+            "issue-tracking"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "Low",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/2xxx/CVE-2025-2945.json",
+            "lastModified": "2025-04-04T03:55:25.268000+00:00"
           }
         ]
       }
