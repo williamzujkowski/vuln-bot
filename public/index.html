@@ -140,7 +140,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                     </svg>
                     <span>Built:</span>
-                    <time datetime="2025-10-21 23:39:35 " class="font-mono">2025-10-21 23:39:35 </time>
+                    <time datetime="2025-10-21 23:49:49 " class="font-mono">2025-10-21 23:49:49 </time>
                 </div>
                 <div class="flex items-center space-x-1.5 px-2.5 py-1.5 rounded-lg bg-sky-50 dark:bg-sky-900/20 text-sky-700 dark:text-sky-400 border border-sky-200 dark:border-sky-800/50">
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -312,7 +312,7 @@
                                           class="px-2.5 py-1 rounded-lg text-xs font-bold uppercase tracking-wide"></span>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-semibold text-gray-900 dark:text-gray-100" x-text="vuln.cvss_score.toFixed(1)"></td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100" x-text="(vuln.epss_percentile * 100).toFixed(1) + '%'"></td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100" x-text="vuln.epss_percentile.toFixed(1) + '%'"></td>
                                 <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300 max-w-xs truncate" x-text="vuln.products"></td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <span x-show="vuln.kev" class="inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-bold bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 border border-purple-200 dark:border-purple-800">
@@ -491,7 +491,7 @@
                                 escapeCsv(v.cve_id),
                                 escapeCsv(v.severity),
                                 escapeCsv(v.cvss_score),
-                                escapeCsv((v.epss_percentile * 100).toFixed(1)),
+                                escapeCsv(v.epss_percentile.toFixed(1)),
                                 escapeCsv(v.products),
                                 escapeCsv(Array.isArray(v.vendors) ? v.vendors.join('; ') : v.vendors),
                                 v.kev ? 'Yes' : 'No',

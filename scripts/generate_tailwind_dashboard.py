@@ -392,7 +392,7 @@ def generate_dashboard():
                                           class="px-2.5 py-1 rounded-lg text-xs font-bold uppercase tracking-wide"></span>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-semibold text-gray-900 dark:text-gray-100" x-text="vuln.cvss_score.toFixed(1)"></td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100" x-text="(vuln.epss_percentile * 100).toFixed(1) + '%'"></td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100" x-text="vuln.epss_percentile.toFixed(1) + '%'"></td>
                                 <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300 max-w-xs truncate" x-text="vuln.products"></td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <span x-show="vuln.kev" class="inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-bold bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 border border-purple-200 dark:border-purple-800">
@@ -571,7 +571,7 @@ def generate_dashboard():
                                 escapeCsv(v.cve_id),
                                 escapeCsv(v.severity),
                                 escapeCsv(v.cvss_score),
-                                escapeCsv((v.epss_percentile * 100).toFixed(1)),
+                                escapeCsv(v.epss_percentile.toFixed(1)),
                                 escapeCsv(v.products),
                                 escapeCsv(Array.isArray(v.vendors) ? v.vendors.join('; ') : v.vendors),
                                 v.kev ? 'Yes' : 'No',
