@@ -235,12 +235,14 @@ def audit_documentation_claims(doc_file: Path) -> List[str]:
 
 ## Project Overview (Updated: 2025-10-19)
 
-This is "Vuln-Bot" - a high-risk CVE intelligence platform that tracks Critical & High severity vulnerabilities with EPSS ≥ 60% exploitation probability. It automatically harvests, scores, and publishes vulnerability briefings every 4 hours with **SSVC (Stakeholder-Specific Vulnerability Categorization)** decision framework integration. It's a Python-based project using Alpine.js for the frontend dashboard, with static HTML generation via `scripts/generate_alpine_dashboard.py`.
+This is "Vuln-Bot" - a high-risk CVE intelligence platform that tracks Critical & High severity vulnerabilities with EPSS ≥ 60% exploitation probability. It automatically harvests, scores, and publishes vulnerability briefings every 4 hours with **SSVC (Stakeholder-Specific Vulnerability Categorization)** decision framework integration. It's a Python-based project using Tailwind CSS and Alpine.js for the frontend dashboard, with static HTML generation via `scripts/generate_tailwind_dashboard.py`.
 
-**Current Production Status** (Verified: 2025-10-19):
-- **CVE Count**: 295 CVEs (Source: src/api/vulns/index.json)
-- **SSVC Coverage**: 100% (295/295 CVEs) - All vulnerabilities categorized
-- **SSVC Distribution**: 45 ACT, 88 ATTEND, 162 TRACK
+**Current Production Status** (Verified: 2025-10-22):
+- **CVE Count**: 297 CVEs (Source: api/vulns/index.json)
+- **Critical Severity**: 186 (62.6%)
+- **High Severity**: 111 (37.4%)
+- **KEV Listed**: 75 (25.3%)
+- **SSVC Coverage**: 100% (all CVEs categorized)
 - **EPSS Threshold**: ≥60% (configured in scripts/main.py)
 - **Live Site**: https://williamzujkowski.github.io/vuln-bot/
 - **Deployment**: GitHub Pages (gh-pages branch)
@@ -409,6 +411,218 @@ This is "Vuln-Bot" - a high-risk CVE intelligence platform that tracks Critical 
 **Files Modified**:
 - `scripts/generate_alpine_dashboard.py` (lines 719-723)
 - `public/index.html` (auto-regenerated from script)
+
+## 🎯 Latest Dashboard Features (2025-10-22)
+
+### CVE Detail Modal with 4-Tab Interface
+
+**Feature**: Interactive modal dialog for viewing complete CVE details without leaving the dashboard.
+
+**Implementation** (Commit: `bd4ae2143`):
+
+**Trigger**: Click any table row to open modal
+**Close Methods**: Close button (X), ESC key, click backdrop
+
+**Tab Structure**:
+1. **Overview Tab**:
+   - Full CVE description (not truncated)
+   - Published and last modified dates
+   - Affected products (full list with badges)
+   - Affected vendors (full list with badges)
+   - SSVC priority tier and compact notation
+
+2. **Technical Details Tab**:
+   - Attack vector, complexity, privileges required, user interaction
+   - Exploitation status
+   - Vulnerability tags
+   - Scoring details grid (CVSS, EPSS score, EPSS percentile, Risk score)
+
+3. **References Tab**:
+   - External links with hover effects
+   - Source attribution for each reference
+   - External link icons
+   - Empty state when no references available
+
+4. **Enrichments Tab**:
+   - CISA KEV data (vendor, product, vulnerability name, dates, required action)
+   - Additional enrichment data when available
+   - Empty state when no enrichments exist
+
+**UX Features**:
+- Full-screen overlay with backdrop blur
+- Smooth fade-in/fade-out transitions
+- Sticky header with CVE ID and badges
+- Body scroll prevention when modal open
+- Responsive design (max-width 5xl, max-height 90vh)
+- Dark mode support throughout
+- ARIA labels and semantic HTML
+
+**Data Displayed**:
+- All CVSS metrics
+- EPSS score and percentile
+- Products and vendors (complete, not truncated)
+- Publication and modification dates
+- SSVC priority tier with color-coded badges
+- KEV enrichment details
+- Reference links
+
+**Files Modified**:
+- `scripts/generate_tailwind_dashboard.py`:
+  - Lines 36-85: Enhanced vuln_data embedding with all CVE fields
+  - Lines 776-779: Modal state (selectedVuln, modalOpen, activeTab)
+  - Lines 951-968: Modal methods (openModal, closeModal, switchTab)
+  - Lines 477-761: Modal HTML structure
+- `public/index.html` (auto-regenerated)
+
+### Sortable Table Columns
+
+**Feature**: Click column headers to sort vulnerability data ascending/descending.
+
+**Implementation** (Commit: `09e225638`):
+
+**Sortable Columns** (5 total):
+1. **CVE ID** - Alphabetical sorting
+2. **Severity** - Custom priority order (CRITICAL > HIGH)
+3. **CVSS Score** - Numeric sorting (0-10)
+4. **EPSS %** - Numeric sorting by percentile
+5. **Published Date** - Chronological sorting
+
+**Non-Sortable Columns**:
+- Product (too varied for meaningful sorting)
+- Vendors (too varied for meaningful sorting)
+- Exploit Status (binary KEV flag)
+
+**UX Indicators**:
+- ↕️ icon = unsorted (neutral state)
+- ↑ icon = ascending order
+- ↓ icon = descending order
+- Hover effect with gray background highlight
+- Cursor pointer on sortable headers
+- Text selection prevented (select-none)
+
+**Sort Logic**:
+- First click: Sort ascending
+- Second click: Toggle to descending
+- Clicking different column: Reset to ascending
+- Smart type detection (numeric vs string comparison)
+- Custom severity ordering logic
+
+**Implementation Details**:
+- Alpine.js state: `sortColumn`, `sortDirection`
+- `sortBy(column)` method with toggle logic
+- `getSortIcon(column)` for visual indicators
+- Sorting applied after filters in `filteredVulns` getter
+- Maintains current page on sort
+
+**Files Modified**:
+- `scripts/generate_tailwind_dashboard.py`:
+  - Lines 781-783: Sort state variables
+  - Lines 809-831: Sorting logic in filteredVulns getter
+  - Lines 972-988: sortBy() and getSortIcon() methods
+  - Lines 401-433: Clickable column headers with icons
+- `public/index.html` (auto-regenerated)
+
+### Vendors Column Addition
+
+**Feature**: New table column displaying affected vendors for supply chain risk analysis.
+
+**Implementation** (Commit: `a482016ba`):
+
+**Column Details**:
+- **Position**: Between Product and Exploit Status columns
+- **Data Format**: Comma-separated vendor names, truncated at 100 characters
+- **Display Field**: `vendors_display` (matching `products_display` pattern)
+- **Full Data**: Complete vendor array available in modal view
+
+**CSV Export**:
+- Column already included in CSV export (line 935)
+- Format: Semicolon-separated (v.vendors.join('; '))
+- Proper CSV escaping applied
+
+**Current Table Columns** (8 total):
+1. CVE ID (sortable)
+2. Severity (sortable)
+3. CVSS (sortable)
+4. EPSS % (sortable)
+5. Product
+6. **Vendors** (NEW)
+7. Exploit Status
+8. Published (sortable)
+
+**Benefits**:
+- Vendor visibility for supply chain risk analysis
+- Quick identification of affected vendors
+- Better filtering capability (vendors already in search filter)
+- Complete data available in modal view
+
+**Files Modified**:
+- `scripts/generate_tailwind_dashboard.py`:
+  - Line 59: Added `vendors_display` field to vuln_data
+  - Line 427: Table header "Vendors"
+  - Line 455: Table cell displaying `vendors_display`
+- `public/index.html` (auto-regenerated)
+
+### Mobile Card Layout
+
+**Feature**: Responsive card-based layout for mobile devices, replacing horizontal scroll.
+
+**Implementation** (Commit: `8a9c9c6ef`):
+
+**Responsive Strategy**:
+- **Desktop/Tablet (≥768px)**: Table view with `hidden md:block`
+- **Mobile (<768px)**: Card view with `md:hidden`
+- **Breakpoint**: Tailwind's md breakpoint (768px)
+
+**Card Layout Structure**:
+1. **Header Section**:
+   - CVE ID (clickable link to MITRE, with @click.stop)
+   - Severity badge (color-coded: red for CRITICAL, orange for HIGH)
+   - Flex layout with proper spacing
+
+2. **Scores Grid**:
+   - 2-column grid for CVSS and EPSS scores
+   - Background highlight boxes (gray-50/gray-900)
+   - Large, bold score display
+   - Descriptive labels
+
+3. **Product & Vendors Section**:
+   - Stacked vertical layout
+   - Section labels (Product, Vendors)
+   - Truncated display with ellipsis
+   - Full data available on card click
+
+4. **Footer Section**:
+   - KEV status indicator (purple badge or dash)
+   - Published date (monospace font)
+   - Border-top separator
+
+**UX Improvements**:
+- No horizontal scrolling on mobile
+- Entire card clickable to open modal
+- Hover shadow effect for visual feedback
+- Consistent spacing and padding
+- Dark mode support throughout
+- Better touch targets for mobile users
+
+**Implementation Details**:
+- Uses same `paginatedVulns` data as table
+- Alpine.js template x-for iteration
+- @click.stop on CVE link prevents modal opening
+- Tailwind responsive utilities (md: prefix)
+- Semantic HTML with proper structure
+
+**Files Modified**:
+- `scripts/generate_tailwind_dashboard.py`:
+  - Line 399: Hidden table on mobile (`hidden md:block`)
+  - Lines 471-527: Mobile card view HTML
+- `public/index.html` (auto-regenerated)
+
+**Current Status** (Verified: 2025-10-22):
+- **Total CVEs**: 297 (Source: api/vulns/index.json)
+- **Critical Severity**: 186 (62.6%)
+- **High Severity**: 111 (37.4%)
+- **KEV Listed**: 75 (25.3%)
+- **Live Site**: https://williamzujkowski.github.io/vuln-bot/
 
 ## 📋 Implementation Status: SSVC Integration
 
