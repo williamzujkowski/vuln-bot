@@ -93,20 +93,30 @@ def load_harvest_statistics() -> Dict[str, Any]:
             conn = sqlite3.connect(str(METRICS_DB))
             cursor = conn.cursor()
 
-            # Get latest harvest run
+            # Get latest COMPLETED harvest run (ignore incomplete runs)
             cursor.execute("""
-                SELECT start_time, end_time, duration_seconds, total_cves_processed
+                SELECT id, start_time, end_time, duration_seconds, total_cves_processed
                 FROM harvest_runs
+                WHERE status = 'completed'
                 ORDER BY id DESC LIMIT 1
             """)
             row = cursor.fetchone()
 
             if row:
+                harvest_id = row[0]
                 # Only override harvest_date if not already set from API
                 if not stats["harvest_date"]:
-                    stats["harvest_date"] = row[0]
-                stats["harvest_duration"] = round(row[2], 1) if row[2] else None
-                stats["total_cves_scanned"] = row[3]
+                    stats["harvest_date"] = row[1]
+                stats["harvest_duration"] = round(row[3], 1) if row[3] else None
+
+                # Get CVEs scanned from harvest_metrics
+                cursor.execute("""
+                    SELECT metric_value FROM harvest_metrics
+                    WHERE harvest_id = ? AND metric_name = 'source_CVEList_count'
+                """, (harvest_id,))
+                cve_count_row = cursor.fetchone()
+                if cve_count_row:
+                    stats["total_cves_scanned"] = int(cve_count_row[0])
 
             conn.close()
         except Exception as e:
