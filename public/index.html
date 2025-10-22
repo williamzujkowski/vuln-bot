@@ -12,7 +12,10 @@
     
     <!-- Alpine.js for interactivity -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    
+
+    <!-- Chart.js for data visualizations -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
     <!-- Tailwind Configuration -->
     <script>
         tailwind.config = {
@@ -140,7 +143,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                     </svg>
                     <span>Built:</span>
-                    <time datetime="2025-10-22 00:14:47 " class="font-mono">2025-10-22 00:14:47 </time>
+                    <time datetime="2025-10-22 00:32:24 " class="font-mono">2025-10-22 00:32:24 </time>
                 </div>
                 <div class="flex items-center space-x-1.5 px-2.5 py-1.5 rounded-lg bg-sky-50 dark:bg-sky-900/20 text-sky-700 dark:text-sky-400 border border-sky-200 dark:border-sky-800/50">
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -222,6 +225,33 @@
                     </div>
                 </div>
                 <div class="absolute bottom-0 left-0 right-0 h-1 bg-purple-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200"></div>
+            </article>
+        </section>
+
+        <!-- Data Visualizations -->
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6 sm:mb-8" aria-label="Data visualizations">
+            <!-- Severity Distribution Chart -->
+            <article class="bg-white dark:bg-gray-900 rounded-2xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Severity Distribution</h3>
+                <div class="relative h-64">
+                    <canvas id="severityChart" aria-label="Severity distribution pie chart"></canvas>
+                </div>
+            </article>
+
+            <!-- EPSS Score Distribution Chart -->
+            <article class="bg-white dark:bg-gray-900 rounded-2xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">EPSS Score Distribution</h3>
+                <div class="relative h-64">
+                    <canvas id="epssChart" aria-label="EPSS score distribution bar chart"></canvas>
+                </div>
+            </article>
+
+            <!-- Top Vendors Chart -->
+            <article class="bg-white dark:bg-gray-900 rounded-2xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Top 10 Vendors</h3>
+                <div class="relative h-64">
+                    <canvas id="vendorsChart" aria-label="Top vendors by vulnerability count bar chart"></canvas>
+                </div>
             </article>
         </section>
 
@@ -828,11 +858,178 @@
                     } else {
                         this.darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
                     }
-                    
+
                     if (this.darkMode) {
                         document.documentElement.classList.add('dark');
                     } else {
                         document.documentElement.classList.remove('dark');
+                    }
+
+                    // Initialize charts after a short delay to ensure DOM is ready
+                    setTimeout(() => this.initCharts(), 100);
+                },
+
+                initCharts() {
+                    const isDark = this.darkMode;
+                    const textColor = isDark ? '#e5e7eb' : '#374151';
+                    const gridColor = isDark ? '#374151' : '#e5e7eb';
+
+                    // 1. Severity Distribution Chart (Donut)
+                    const severityCtx = document.getElementById('severityChart');
+                    if (severityCtx) {
+                        const criticalCount = this.vulnerabilities.filter(v => v.severity === 'CRITICAL').length;
+                        const highCount = this.vulnerabilities.filter(v => v.severity === 'HIGH').length;
+
+                        new Chart(severityCtx, {
+                            type: 'doughnut',
+                            data: {
+                                labels: ['Critical', 'High'],
+                                datasets: [{
+                                    data: [criticalCount, highCount],
+                                    backgroundColor: ['#dc2626', '#ea580c'],
+                                    borderWidth: 2,
+                                    borderColor: isDark ? '#111827' : '#ffffff'
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                plugins: {
+                                    legend: {
+                                        labels: {
+                                            color: textColor,
+                                            font: { size: 12 }
+                                        }
+                                    }
+                                }
+                            }
+                        });
+                    }
+
+                    // 2. EPSS Score Distribution Chart (Bar)
+                    const epssCtx = document.getElementById('epssChart');
+                    if (epssCtx) {
+                        // Create buckets for EPSS scores
+                        const buckets = {
+                            '60-70%': 0,
+                            '70-80%': 0,
+                            '80-90%': 0,
+                            '90-95%': 0,
+                            '95-100%': 0
+                        };
+
+                        this.vulnerabilities.forEach(v => {
+                            const epss = v.epss_percentile;
+                            if (epss >= 95) buckets['95-100%']++;
+                            else if (epss >= 90) buckets['90-95%']++;
+                            else if (epss >= 80) buckets['80-90%']++;
+                            else if (epss >= 70) buckets['70-80%']++;
+                            else if (epss >= 60) buckets['60-70%']++;
+                        });
+
+                        new Chart(epssCtx, {
+                            type: 'bar',
+                            data: {
+                                labels: Object.keys(buckets),
+                                datasets: [{
+                                    label: 'Count',
+                                    data: Object.values(buckets),
+                                    backgroundColor: '#06b6d4',
+                                    borderWidth: 0
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                plugins: {
+                                    legend: { display: false },
+                                    title: {
+                                        display: false
+                                    }
+                                },
+                                scales: {
+                                    y: {
+                                        beginAtZero: true,
+                                        ticks: {
+                                            color: textColor,
+                                            precision: 0
+                                        },
+                                        grid: {
+                                            color: gridColor
+                                        }
+                                    },
+                                    x: {
+                                        ticks: {
+                                            color: textColor
+                                        },
+                                        grid: {
+                                            display: false
+                                        }
+                                    }
+                                }
+                            }
+                        });
+                    }
+
+                    // 3. Top Vendors Chart (Horizontal Bar)
+                    const vendorsCtx = document.getElementById('vendorsChart');
+                    if (vendorsCtx) {
+                        // Count vulnerabilities per vendor
+                        const vendorCounts = {};
+                        this.vulnerabilities.forEach(v => {
+                            v.vendors.forEach(vendor => {
+                                if (vendor) {
+                                    vendorCounts[vendor] = (vendorCounts[vendor] || 0) + 1;
+                                }
+                            });
+                        });
+
+                        // Get top 10 vendors
+                        const sortedVendors = Object.entries(vendorCounts)
+                            .sort((a, b) => b[1] - a[1])
+                            .slice(0, 10);
+
+                        new Chart(vendorsCtx, {
+                            type: 'bar',
+                            data: {
+                                labels: sortedVendors.map(v => v[0]),
+                                datasets: [{
+                                    label: 'Vulnerabilities',
+                                    data: sortedVendors.map(v => v[1]),
+                                    backgroundColor: '#8b5cf6',
+                                    borderWidth: 0
+                                }]
+                            },
+                            options: {
+                                indexAxis: 'y',
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                plugins: {
+                                    legend: { display: false }
+                                },
+                                scales: {
+                                    x: {
+                                        beginAtZero: true,
+                                        ticks: {
+                                            color: textColor,
+                                            precision: 0
+                                        },
+                                        grid: {
+                                            color: gridColor
+                                        }
+                                    },
+                                    y: {
+                                        ticks: {
+                                            color: textColor,
+                                            font: { size: 11 }
+                                        },
+                                        grid: {
+                                            display: false
+                                        }
+                                    }
+                                }
+                            }
+                        });
                     }
                 },
                 
