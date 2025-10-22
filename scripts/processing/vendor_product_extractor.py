@@ -345,10 +345,46 @@ class VendorProductExtractor:
         return list(vendors), list(products)
 
     def _normalize_vendors(self, vendors: List[str]) -> List[str]:
-        """Normalize vendor names."""
+        """Normalize vendor names with validation and stopword filtering."""
+        # Stopwords to filter out (common words that aren't vendor names)
+        stopwords = {
+            "the", "a", "an", "and", "or", "but", "in", "on", "at", "to", "for",
+            "of", "with", "by", "from", "up", "about", "into", "through", "during",
+            "before", "after", "above", "below", "between", "under", "again",
+            "further", "then", "once", "here", "there", "when", "where", "why",
+            "how", "all", "each", "every", "both", "few", "more", "most", "other",
+            "some", "such", "no", "nor", "not", "only", "own", "same", "so",
+            "than", "too", "very", "can", "will", "just", "should", "now",
+            # Common false positives from CVE descriptions
+            "web", "file", "server", "database", "framework", "engine", "browser",
+            "application", "system", "service", "software", "product", "project",
+            "inc", "llc", "ltd", "corporation", "corp", "company", "co",
+            # Placeholder values
+            "n/a", "na", "none", "unknown", "unspecified", "tbd", "pending",
+            "various", "multiple", "other", "misc", "miscellaneous",
+        }
+
         normalized = []
         for vendor in vendors:
             vendor_lower = vendor.lower().strip()
+
+            # Skip empty or very short vendors
+            if len(vendor_lower) < 2:
+                continue
+
+            # Skip stopwords
+            if vendor_lower in stopwords:
+                continue
+
+            # Skip if it's all digits
+            if vendor_lower.isdigit():
+                continue
+
+            # Skip if it contains no letters
+            if not any(c.isalpha() for c in vendor_lower):
+                continue
+
+            # Apply vendor mappings first
             if vendor_lower in self.vendor_mappings:
                 normalized_vendor = self.vendor_mappings[vendor_lower]
                 if normalized_vendor not in normalized:
@@ -358,21 +394,51 @@ class VendorProductExtractor:
                 capitalized = " ".join(
                     word.capitalize() for word in vendor_lower.split()
                 )
-                if capitalized not in normalized:
-                    normalized.append(capitalized)
+
+                # Final check: skip if the capitalized result is a stopword
+                if capitalized.lower() not in stopwords:
+                    if capitalized not in normalized:
+                        normalized.append(capitalized)
 
         return sorted(normalized)
 
     def _normalize_products(self, products: List[str]) -> List[str]:
-        """Normalize product names."""
+        """Normalize product names with validation."""
+        # Stopwords for products (similar to vendors but more permissive)
+        stopwords = {
+            "the", "a", "an", "and", "or", "but", "in", "on", "at", "to", "for",
+            # Placeholder values
+            "n/a", "na", "none", "unknown", "unspecified", "tbd", "pending",
+            "various", "multiple", "other", "misc", "miscellaneous",
+        }
+
         normalized = []
         for product in products:
             product_lower = product.lower().strip()
-            if len(product_lower) > 1:
-                # Capitalize first letter of each word
-                capitalized = " ".join(
-                    word.capitalize() for word in product_lower.split()
-                )
+
+            # Skip empty or very short products
+            if len(product_lower) < 2:
+                continue
+
+            # Skip stopwords
+            if product_lower in stopwords:
+                continue
+
+            # Skip if it's all digits
+            if product_lower.isdigit():
+                continue
+
+            # Skip if it contains no letters
+            if not any(c.isalpha() for c in product_lower):
+                continue
+
+            # Capitalize first letter of each word
+            capitalized = " ".join(
+                word.capitalize() for word in product_lower.split()
+            )
+
+            # Final check: skip if the result is a stopword
+            if capitalized.lower() not in stopwords:
                 if capitalized not in normalized:
                     normalized.append(capitalized)
 
