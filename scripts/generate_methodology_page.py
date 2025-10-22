@@ -23,25 +23,71 @@ METRICS_DB = Path(".cache/metrics.db")
 OUTPUT_DIR.mkdir(exist_ok=True)
 
 def load_harvest_statistics() -> Dict[str, Any]:
-    """Load harvest statistics from metrics database"""
+    """Load harvest statistics calculated from actual API data"""
     stats = {
-        "total_cves_published": 297,  # From API index
-        "total_cves_scanned": None,  # To be populated
+        "total_cves_published": 0,
+        "total_cves_scanned": None,  # Not available without metrics DB
         "epss_threshold": 60,
         "epss_filtered": None,
         "severity_filtered": None,
-        "final_count": 297,
+        "final_count": 0,
         "harvest_date": None,
         "harvest_duration": None,
         "avg_cvss": None,
         "avg_epss": None,
-        "kev_count": 75,  # From current dashboard
-        "ssvc_act_count": 45,
-        "ssvc_attend_count": 88,
-        "ssvc_track_count": 162,
+        "kev_count": 0,
+        "ssvc_act_count": 0,
+        "ssvc_attend_count": 0,
+        "ssvc_track_count": 0,
     }
 
-    # Try to load from metrics database
+    # Load from API index and calculate statistics
+    index_file = API_DIR / "index.json"
+    if index_file.exists():
+        try:
+            with open(index_file) as f:
+                data = json.load(f)
+                vulns = data.get("vulnerabilities", [])
+
+                # Basic counts
+                stats["final_count"] = len(vulns)
+                stats["harvest_date"] = data.get("generated", "")
+
+                if vulns:
+                    # Calculate average CVSS score
+                    cvss_scores = [v.get("cvssScore", 0) for v in vulns if v.get("cvssScore")]
+                    if cvss_scores:
+                        stats["avg_cvss"] = round(sum(cvss_scores) / len(cvss_scores), 1)
+
+                    # Calculate average EPSS score (already in percentage)
+                    epss_scores = [v.get("epssScore", 0) for v in vulns if v.get("epssScore")]
+                    if epss_scores:
+                        stats["avg_epss"] = round(sum(epss_scores) / len(epss_scores), 1)
+
+                    # Count KEV-listed vulnerabilities
+                    stats["kev_count"] = sum(
+                        1 for v in vulns
+                        if v.get("enrichments", {}).get("cisa_kev", {}).get("isKnownExploited", False)
+                    )
+
+                    # Count SSVC priority tiers
+                    stats["ssvc_act_count"] = sum(
+                        1 for v in vulns
+                        if v.get("ssvc", {}).get("priorityTier") == "ACT"
+                    )
+                    stats["ssvc_attend_count"] = sum(
+                        1 for v in vulns
+                        if v.get("ssvc", {}).get("priorityTier") == "ATTEND"
+                    )
+                    stats["ssvc_track_count"] = sum(
+                        1 for v in vulns
+                        if v.get("ssvc", {}).get("priorityTier") == "TRACK"
+                    )
+
+        except Exception as e:
+            print(f"Warning: Could not load statistics from API: {e}")
+
+    # Try to supplement with metrics database if available
     if METRICS_DB.exists():
         try:
             conn = sqlite3.connect(str(METRICS_DB))
@@ -49,33 +95,22 @@ def load_harvest_statistics() -> Dict[str, Any]:
 
             # Get latest harvest run
             cursor.execute("""
-                SELECT start_time, end_time, duration_seconds, total_cves_processed, metadata
+                SELECT start_time, end_time, duration_seconds, total_cves_processed
                 FROM harvest_runs
                 ORDER BY id DESC LIMIT 1
             """)
             row = cursor.fetchone()
 
             if row:
-                stats["harvest_date"] = row[0]
+                # Only override harvest_date if not already set from API
+                if not stats["harvest_date"]:
+                    stats["harvest_date"] = row[0]
                 stats["harvest_duration"] = round(row[2], 1) if row[2] else None
                 stats["total_cves_scanned"] = row[3]
 
-                if row[4]:  # metadata JSON
-                    metadata = json.loads(row[4])
-                    stats["avg_cvss"] = round(metadata.get("avg_cvss_score", 0), 1)
-                    stats["avg_epss"] = round(metadata.get("avg_epss_score", 0) * 100, 1)
-
             conn.close()
         except Exception as e:
-            print(f"Warning: Could not load metrics from database: {e}")
-
-    # Load from API index
-    index_file = API_DIR / "index.json"
-    if index_file.exists():
-        with open(index_file) as f:
-            data = json.load(f)
-            stats["final_count"] = data.get("count", 0)
-            stats["harvest_date"] = data.get("generated", "")
+            print(f"Info: Could not load metrics from database: {e}")
 
     return stats
 
@@ -317,7 +352,7 @@ def generate_methodology_page():
                     </div>
                     <div>
                         <dt class="text-sm font-medium text-gray-600 dark:text-gray-400">Harvest Duration</dt>
-                        <dd class="text-lg font-semibold text-gray-900 dark:text-white mt-1">{stats["harvest_duration"]}s</dd>
+                        <dd class="text-lg font-semibold text-gray-900 dark:text-white mt-1">{f'{stats["harvest_duration"]}s' if stats["harvest_duration"] else "N/A"}</dd>
                     </div>
                     <div>
                         <dt class="text-sm font-medium text-gray-600 dark:text-gray-400">KEV Listed</dt>
