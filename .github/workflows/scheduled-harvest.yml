@@ -222,8 +222,9 @@ jobs:
           # Copy the database to the expected location
           cp actions-cache/vulnerability_cache.db .cache/vulns.db || true
 
-          # Generate dashboard using Python (reads from api/vulns/index.json)
-          python -m scripts.generate_alpine_dashboard
+          # Generate dashboard and methodology page using Python
+          echo "Generating Tailwind CSS dashboard..."
+          python -m scripts.generate_tailwind_dashboard
           BUILD_EXIT_CODE=$?
 
           if [ $BUILD_EXIT_CODE -eq 0 ]; then
@@ -231,6 +232,16 @@ jobs:
           else
             echo "❌ Dashboard generation failed"
             exit 1
+          fi
+
+          echo "Generating methodology page..."
+          python -m scripts.generate_methodology_page
+          METHODOLOGY_EXIT_CODE=$?
+
+          if [ $METHODOLOGY_EXIT_CODE -eq 0 ]; then
+            echo "✓ Methodology page generated successfully"
+          else
+            echo "⚠️  Methodology page generation failed (non-critical)"
           fi
 
           # Step 5: Copy API files to public directory for deployment
