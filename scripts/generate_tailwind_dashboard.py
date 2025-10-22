@@ -56,6 +56,7 @@ def generate_dashboard():
             "products": v.get("products", []),
             "products_display": ", ".join(v.get("products", []))[:100],  # Truncated for table
             "vendors": v.get("vendors", []),
+            "vendors_display": ", ".join(v.get("vendors", []))[:100],  # Truncated for table
 
             # Dates
             "published": str(v.get("publishedDate", ""))[:10],
@@ -423,6 +424,7 @@ def generate_dashboard():
                                 </div>
                             </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">Product</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">Vendors</th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">Exploit Status</th>
                             <th scope="col" @click="sortBy('published')" class="px-6 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors select-none">
                                 <div class="flex items-center gap-2">
@@ -450,6 +452,7 @@ def generate_dashboard():
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-semibold text-gray-900 dark:text-gray-100" x-text="vuln.cvss_score.toFixed(1)"></td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100" x-text="vuln.epss_percentile.toFixed(1) + '%'"></td>
                                 <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300 max-w-xs truncate" x-text="vuln.products_display"></td>
+                                <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300 max-w-xs truncate" x-text="vuln.vendors_display"></td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <span x-show="vuln.kev" class="inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-bold bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 border border-purple-200 dark:border-purple-800">
                                         ⭐ KEV
