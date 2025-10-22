@@ -1,8 +1,80 @@
 {
   "chunk": "2025-HIGH",
-  "count": 17,
-  "generated": "2025-10-20T00:35:28.852951",
+  "count": 18,
+  "generated": "2025-10-22T01:18:11.284010",
   "vulnerabilities": [
+    {
+      "cveId": "CVE-2024-48248",
+      "title": "CVE-2024-48248: NAKIVO Backup & Replication before 11.0.0.88174 allows absolute path traversal for reading files via...",
+      "description": "NAKIVO Backup & Replication before 11.0.0.88174 allows absolute path traversal for reading files via getImageByPath to /c/router (this may lead to remote code execution across the enterprise because PhysicalDiscovery has cleartext credentials).",
+      "publishedDate": "2025-03-04T00:00:00+00:00",
+      "lastModifiedDate": "2025-07-30T01:36:18.985000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:N",
+          "baseScore": 8.6,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.9399,
+        "percentile": 99.881
+      },
+      "ssvc": {
+        "exploitation": "active",
+        "automatable": "yes",
+        "technicalImpact": "total",
+        "priorityTier": "ACT",
+        "compactNotation": "A/Y/T",
+        "ssvcScore": 60,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 86,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Nakivo"
+        ],
+        "products": [
+          "Backup & Replication Director"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://labs.watchtowr.com/the-best-security-is-when-we-all-agree-to-keep-everything-secret-except-the-secrets-nakivo-backup-replication-cve-2024-48248/",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://helpcenter.nakivo.com/Release-Notes/Content/Release-Notes.htm",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-36"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/48xxx/CVE-2024-48248.json",
+            "lastModified": "2025-07-30T01:36:18.985000+00:00"
+          }
+        ]
+      }
+    },
     {
       "cveId": "CVE-2025-30066",
       "title": "CVE-2025-30066: tj-actions changed-files before 46 allows remote attackers to discover secrets by reading actions lo...",
@@ -22,8 +94,18 @@
         "score": 0.8839,
         "percentile": 99.458
       },
-      "riskScore": 62,
-      "exploitationStatus": "EXPLOIT_AVAILABLE",
+      "ssvc": {
+        "exploitation": "active",
+        "automatable": "yes",
+        "technicalImpact": "partial",
+        "priorityTier": "ATTEND",
+        "compactNotation": "A/Y/P",
+        "ssvcScore": 52,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 78,
+      "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -82,9 +164,7 @@
         {
           "url": "https://sysdig.com/blog/detecting-and-mitigating-the-tj-actions-changed-files-supply-chain-attack-cve-2025-30066/",
           "source": "",
-          "tags": [],
-          "category": "exploit",
-          "icon": "\ud83d\udd25"
+          "tags": []
         },
         {
           "url": "https://github.com/espressif/arduino-esp32/issues/11127",
@@ -109,23 +189,17 @@
         {
           "url": "https://www.wiz.io/blog/github-action-tj-actions-changed-files-supply-chain-attack-cve-2025-30066",
           "source": "",
-          "tags": [],
-          "category": "exploit",
-          "icon": "\ud83d\udd25"
+          "tags": []
         },
         {
           "url": "https://www.stream.security/post/github-action-supply-chain-attack-exposes-secrets-what-you-need-to-know-and-how-to-respond",
           "source": "",
-          "tags": [],
-          "category": "exploit",
-          "icon": "\ud83d\udd25"
+          "tags": []
         },
         {
           "url": "https://www.sweet.security/blog/cve-2025-30066-tj-actions-supply-chain-attack",
           "source": "",
-          "tags": [],
-          "category": "exploit",
-          "icon": "\ud83d\udd25"
+          "tags": []
         },
         {
           "url": "https://github.com/tj-actions/changed-files/issues/2477",
@@ -136,29 +210,12 @@
           "url": "https://blog.gitguardian.com/compromised-tj-actions/",
           "source": "",
           "tags": []
-        },
-        {
-          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-          "source": "CISA KEV",
-          "tags": [
-            "exploit",
-            "kev"
-          ],
-          "category": "exploit",
-          "rel": "noopener noreferrer",
-          "target": "_blank",
-          "domain": "cisa.gov",
-          "icon": "\ud83d\udd25",
-          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-506",
-          "EXPLOIT-AVAILABLE",
-          "TOP-1-PERCENT-EPSS",
-          "CISA-KEV"
+          "CWE-506"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -173,144 +230,6 @@
             "lastModified": "2025-07-30T01:36:16.435000+00:00"
           }
         ]
-      },
-      "enrichments": {
-        "exploit_availability": {
-          "has_exploit": true,
-          "exploit_sources": [
-            {
-              "source": "Potential Exploit",
-              "url": "https://sysdig.com/blog/detecting-and-mitigating-the-tj-actions-changed-files-supply-chain-attack-cve-2025-30066/",
-              "icon": "\u26a0\ufe0f"
-            },
-            {
-              "source": "Potential Exploit",
-              "url": "https://www.wiz.io/blog/github-action-tj-actions-changed-files-supply-chain-attack-cve-2025-30066",
-              "icon": "\u26a0\ufe0f"
-            },
-            {
-              "source": "Potential Exploit",
-              "url": "https://www.stream.security/post/github-action-supply-chain-attack-exposes-secrets-what-you-need-to-know-and-how-to-respond",
-              "icon": "\u26a0\ufe0f"
-            },
-            {
-              "source": "Potential Exploit",
-              "url": "https://www.sweet.security/blog/cve-2025-30066-tj-actions-supply-chain-attack",
-              "icon": "\u26a0\ufe0f"
-            },
-            {
-              "source": "Potential Exploit",
-              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-              "icon": "\u26a0\ufe0f"
-            }
-          ],
-          "exploit_count": 5
-        },
-        "epss_percentile": {
-          "percentile": 99.458,
-          "rank": "Top 1%",
-          "is_top_1_percent": true,
-          "is_top_5_percent": true,
-          "is_top_10_percent": true
-        },
-        "cisa_kev": {
-          "isKnownExploited": true,
-          "dateAdded": "2025-03-18",
-          "vulnerabilityName": "tj-actions/changed-files GitHub Action Embedded Malicious Code Vulnerability",
-          "requiredAction": "Apply mitigations as set forth in the CISA instructions linked below. Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
-          "dueDate": "2025-04-08",
-          "knownRansomwareCampaignUse": "Unknown",
-          "notes": "This vulnerability affects a common open-source project, third-party library, or a protocol used by different products. For more information, please see: CISA Mitigation Instructions: https://www.cisa.gov/news-events/alerts/2025/03/18/supply-chain-compromise-third-party-tj-actionschanged-files-cve-2025-30066-and-reviewdogaction ; Additional References: https://github.com/tj-actions/changed-files/blob/45fb12d7a8bedb4da42342e52fe054c6c2c3fd73/README.md?plain=1#L20-L28 ; https://nvd.nist.gov/vuln/detail/CVE-2025-30066"
-        }
-      }
-    },
-    {
-      "cveId": "CVE-2025-21293",
-      "title": "Active Directory Domain Services Elevation of Privilege Vulnerability",
-      "description": "Active Directory Domain Services Elevation of Privilege Vulnerability",
-      "publishedDate": "2025-01-14T18:03:48.110000+00:00",
-      "lastModifiedDate": "2025-09-09T23:47:06.036000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H/E:U/RL:O/RC:C",
-          "baseScore": 8.8,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.7627,
-        "percentile": 98.872
-      },
-      "riskScore": 61,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Microsoft"
-        ],
-        "products": [
-          "Windows 10 Version 1507",
-          "Windows 10 Version 1607",
-          "Windows 10 Version 1809",
-          "Windows 10 Version 21h2",
-          "Windows 10 Version 22h2",
-          "Windows 11 Version 22h2",
-          "Windows 11 Version 22h3",
-          "Windows 11 Version 23h2",
-          "Windows 11 Version 24h2",
-          "Windows Server 2012",
-          "Windows Server 2012 (server Core Installation)",
-          "Windows Server 2012 R2",
-          "Windows Server 2012 R2 (server Core Installation)",
-          "Windows Server 2016",
-          "Windows Server 2016 (server Core Installation)",
-          "Windows Server 2019",
-          "Windows Server 2019 (server Core Installation)",
-          "Windows Server 2022",
-          "Windows Server 2022, 23h2 Edition (server Core Installation)",
-          "Windows Server 2025",
-          "Windows Server 2025 (server Core Installation)"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-21293",
-          "source": "Active Directory Domain Services Elevation of Privilege Vulnerability",
-          "tags": [
-            "vendor-advisory"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-284",
-          "TOP-5-PERCENT-EPSS"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "Low",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/21xxx/CVE-2025-21293.json",
-            "lastModified": "2025-09-09T23:47:06.036000+00:00"
-          }
-        ]
-      },
-      "enrichments": {
-        "epss_percentile": {
-          "percentile": 98.872,
-          "rank": "Top 5%",
-          "is_top_1_percent": false,
-          "is_top_5_percent": true,
-          "is_top_10_percent": true
-        }
       }
     },
     {
@@ -330,10 +249,20 @@
       ],
       "epss": {
         "score": 0.634,
-        "percentile": 98.301
+        "percentile": 98.3
       },
-      "riskScore": 61,
-      "exploitationStatus": "EXPLOIT_AVAILABLE",
+      "ssvc": {
+        "exploitation": "active",
+        "automatable": "no",
+        "technicalImpact": "total",
+        "priorityTier": "ATTEND",
+        "compactNotation": "A/N/T",
+        "ssvcScore": 45,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 69,
+      "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -353,30 +282,12 @@
           "tags": [
             "vendor-advisory"
           ]
-        },
-        {
-          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-          "source": "CISA KEV",
-          "tags": [
-            "exploit",
-            "kev"
-          ],
-          "category": "exploit",
-          "rel": "noopener noreferrer",
-          "target": "_blank",
-          "domain": "cisa.gov",
-          "icon": "\ud83d\udd25",
-          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-94",
-          "TOP-5-PERCENT-EPSS",
-          "CISA-KEV",
-          "RANSOMWARE",
-          "EXPLOIT-AVAILABLE"
+          "CWE-94"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -391,35 +302,438 @@
             "lastModified": "2025-08-23T00:40:27.115000+00:00"
           }
         ]
-      },
-      "enrichments": {
-        "epss_percentile": {
-          "percentile": 98.301,
-          "rank": "Top 5%",
-          "is_top_1_percent": false,
-          "is_top_5_percent": true,
-          "is_top_10_percent": true
-        },
-        "cisa_kev": {
-          "isKnownExploited": true,
-          "dateAdded": "2025-07-22",
-          "vulnerabilityName": "Microsoft SharePoint Code Injection Vulnerability",
-          "requiredAction": "Disconnect public-facing versions of SharePoint Server that have reached their end-of-life (EOL) or end-of-service (EOS) to include SharePoint Server 2013 and earlier versions. For supported versions, please follow the mitigations according to CISA (URL listed below in Notes) and vendor instructions (URL listed below in Notes). Adhere to the applicable BOD 22-01 guidance for cloud services or discontinue use of the product if mitigations are not available.",
-          "dueDate": "2025-07-23",
-          "knownRansomwareCampaignUse": "Known",
-          "notes": "CISA Mitigation Instructions: https://www.cisa.gov/news-events/alerts/2025/07/20/microsoft-releases-guidance-exploitation-sharepoint-vulnerability-cve-2025-53770; https://www.microsoft.com/en-us/security/blog/2025/07/22/disrupting-active-exploitation-of-on-premises-sharepoint-vulnerabilities/ ; https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49704 ; https://nvd.nist.gov/vuln/detail/CVE-2025-49704"
-        },
-        "exploit_availability": {
-          "has_exploit": true,
-          "exploit_sources": [
-            {
-              "source": "Potential Exploit",
-              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-              "icon": "\u26a0\ufe0f"
-            }
-          ],
-          "exploit_count": 1
+      }
+    },
+    {
+      "cveId": "CVE-2025-27363",
+      "title": "CVE-2025-27363: An out of bounds write exists in FreeType versions 2.13.0 and below (newer versions of FreeType are ...",
+      "description": "An out of bounds write exists in FreeType versions 2.13.0 and below (newer versions of FreeType are not vulnerable) when attempting to parse font subglyph structures related to TrueType GX and variable font files. The vulnerable code assigns a signed short value to an unsigned long and then adds a static value causing it to wrap around and allocate too small of a heap buffer. The code then writes up to 6 signed long integers out of bounds relative to this buffer. This may result in arbitrary code execution. This vulnerability may have been exploited in the wild.",
+      "publishedDate": "2025-03-11T13:28:31.705000+00:00",
+      "lastModifiedDate": "2025-07-30T01:36:18.147000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H/E:F/RL:O/RC:C/CR:H/IR:H/AR:H/MAV:N/MAC:L/MPR:N/MUI:N/MS:U/MC:H/MI:H/MA:H",
+          "baseScore": 8.1,
+          "baseSeverity": "HIGH"
         }
+      ],
+      "epss": {
+        "score": 0.6714,
+        "percentile": 98.477
+      },
+      "ssvc": {
+        "exploitation": "active",
+        "automatable": "no",
+        "technicalImpact": "total",
+        "priorityTier": "ATTEND",
+        "compactNotation": "A/N/T",
+        "ssvcScore": 45,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 68,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Freetype"
+        ],
+        "products": [
+          "Freetype"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.facebook.com/security/advisories/cve-2025-27363",
+          "source": "",
+          "tags": [
+            "x_refsource_CONFIRM"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "High",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/27xxx/CVE-2025-27363.json",
+            "lastModified": "2025-07-30T01:36:18.147000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-21333",
+      "title": "Windows Hyper-V NT Kernel Integration VSP Elevation of Privilege Vulnerability",
+      "description": "Windows Hyper-V NT Kernel Integration VSP Elevation of Privilege Vulnerability",
+      "publishedDate": "2025-01-14T18:04:50.962000+00:00",
+      "lastModifiedDate": "2025-09-09T23:46:56.269000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H/E:U/RL:O/RC:C",
+          "baseScore": 7.8,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.6035,
+        "percentile": 98.169
+      },
+      "ssvc": {
+        "exploitation": "active",
+        "automatable": "no",
+        "technicalImpact": "total",
+        "priorityTier": "ATTEND",
+        "compactNotation": "A/N/T",
+        "ssvcScore": 45,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 67,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Microsoft"
+        ],
+        "products": [
+          "Windows 10 Version 21h2",
+          "Windows 10 Version 22h2",
+          "Windows 11 Version 22h2",
+          "Windows 11 Version 22h3",
+          "Windows 11 Version 23h2",
+          "Windows 11 Version 24h2",
+          "Windows Server 2022, 23h2 Edition (server Core Installation)",
+          "Windows Server 2025",
+          "Windows Server 2025 (server Core Installation)"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-21333",
+          "source": "Windows Hyper-V NT Kernel Integration VSP Elevation of Privilege Vulnerability",
+          "tags": [
+            "vendor-advisory"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-122"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Local",
+        "attackComplexity": "Low",
+        "privilegesRequired": "Low",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/21xxx/CVE-2025-21333.json",
+            "lastModified": "2025-09-09T23:46:56.269000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2024-48766",
+      "title": "CVE-2024-48766: NetAlertX 24.7.18 before 24.10.12 allows unauthenticated file reading because an HTTP client can ign...",
+      "description": "NetAlertX 24.7.18 before 24.10.12 allows unauthenticated file reading because an HTTP client can ignore a redirect, and because of factors related to strpos and directory traversal, as exploited in the wild in May 2025. This is related to components/logs.php.",
+      "publishedDate": "2025-05-13T00:00:00+00:00",
+      "lastModifiedDate": "2025-05-13T19:53:28.974000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:N",
+          "baseScore": 8.6,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.7649,
+        "percentile": 98.881
+      },
+      "ssvc": {
+        "exploitation": "poc",
+        "automatable": "yes",
+        "technicalImpact": "partial",
+        "priorityTier": "ATTEND",
+        "compactNotation": "P/Y/P",
+        "ssvcScore": 42,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 67,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Netalertx"
+        ],
+        "products": [
+          "Netalertx"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://rhinosecuritylabs.com/research/cve-2024-46506-rce-in-netalertx/",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://raw.githubusercontent.com/rapid7/metasploit-framework/master/modules/auxiliary/scanner/http/netalertx_file_read.rb",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-698"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/48xxx/CVE-2024-48766.json",
+            "lastModified": "2025-05-13T19:53:28.974000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-2264",
+      "title": "Santesoft Sante PACS Server Path Traversal Information Disclosure",
+      "description": "A Path Traversal Information Disclosure vulnerability exists in \"Sante PACS Server.exe\". An unauthenticated remote attacker can exploit it to download arbitrary files on the disk drive where the application is installed.",
+      "publishedDate": "2025-03-13T16:29:07.468000+00:00",
+      "lastModifiedDate": "2025-03-14T13:41:13.356000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "baseScore": 7.5,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.6878,
+        "percentile": 98.546
+      },
+      "ssvc": {
+        "exploitation": "poc",
+        "automatable": "yes",
+        "technicalImpact": "partial",
+        "priorityTier": "ATTEND",
+        "compactNotation": "P/Y/P",
+        "ssvcScore": 42,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 65,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Pacs",
+          "Santesoft"
+        ],
+        "products": [
+          "Pacs Server",
+          "Sante Pacs Server"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.tenable.com/security/research/tra-2025-08",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-22"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/2xxx/CVE-2025-2264.json",
+            "lastModified": "2025-03-14T13:41:13.356000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-34510",
+      "title": "Sitecore XM, XC, and XP Post-Auth RCE via Zip Slip",
+      "description": "Sitecore Experience Manager (XM), Experience Platform (XP), and Experience Commerce (XC) versions 9.0 through 9.3 and 10.0 through 10.4 are affected by a Zip Slip vulnerability. A remote, authenticated attacker can exploit this issue by sending a crafted HTTP request to upload a ZIP archive containing path traversal sequences, allowing arbitrary file writes and leading to code execution.",
+      "publishedDate": "2025-06-17T18:46:04.239000+00:00",
+      "lastModifiedDate": "2025-06-26T19:26:12.608000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 8.8,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.8212,
+        "percentile": 99.16
+      },
+      "ssvc": {
+        "exploitation": "poc",
+        "automatable": "no",
+        "technicalImpact": "total",
+        "priorityTier": "TRACK",
+        "compactNotation": "P/N/T",
+        "ssvcScore": 35,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 61,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Sitecore"
+        ],
+        "products": [
+          "Experience Commerce",
+          "Experience Manager",
+          "Experience Platform"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://labs.watchtowr.com/is-b-for-backdoor-pre-auth-rce-chain-in-sitecore-experience-platform/",
+          "source": "",
+          "tags": [
+            "third-party-advisory",
+            "exploit",
+            "technical-description"
+          ]
+        },
+        {
+          "url": "https://support.sitecore.com/kb?id=kb_article_view&sysparm_article=KB1003667",
+          "source": "",
+          "tags": [
+            "vendor-advisory"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-23"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "Low",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/34xxx/CVE-2025-34510.json",
+            "lastModified": "2025-06-26T19:26:12.608000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2024-52875",
+      "title": "CVE-2024-52875: An issue was discovered in GFI Kerio Control 9.2.5 through 9.4.5. The dest GET parameter passed to t...",
+      "description": "An issue was discovered in GFI Kerio Control 9.2.5 through 9.4.5. The dest GET parameter passed to the /nonauth/addCertException.cs and /nonauth/guestConfirm.cs and /nonauth/expiration.cs pages is not properly sanitized before being used to generate a Location HTTP header in a 302 HTTP response. This can be exploited to perform Open Redirect or HTTP Response Splitting attacks, which in turn lead to Reflected Cross-Site Scripting (XSS). Remote command execution can be achieved by leveraging the upgrade feature in the admin interface.",
+      "publishedDate": "2025-01-31T00:00:00+00:00",
+      "lastModifiedDate": "2025-02-12T20:41:37.262000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          "baseScore": 8.8,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.8661,
+        "percentile": 99.374
+      },
+      "ssvc": {
+        "exploitation": "poc",
+        "automatable": "no",
+        "technicalImpact": "total",
+        "priorityTier": "TRACK",
+        "compactNotation": "P/N/T",
+        "ssvcScore": 35,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 61,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Gfi"
+        ],
+        "products": [
+          "Kerio Control"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://karmainsecurity.com/hacking-kerio-control-via-cve-2024-52875",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-113"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "Required",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/52xxx/CVE-2024-52875.json",
+            "lastModified": "2025-02-12T20:41:37.262000+00:00"
+          }
+        ]
       }
     },
     {
@@ -439,7 +753,17 @@
       ],
       "epss": {
         "score": 0.8044,
-        "percentile": 99.079
+        "percentile": 99.076
+      },
+      "ssvc": {
+        "exploitation": "poc",
+        "automatable": "no",
+        "technicalImpact": "total",
+        "priorityTier": "TRACK",
+        "compactNotation": "P/N/T",
+        "ssvcScore": 35,
+        "inferred": false,
+        "confidence": null
       },
       "riskScore": 60,
       "exploitationStatus": "UNKNOWN",
@@ -475,8 +799,7 @@
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-434",
-          "TOP-1-PERCENT-EPSS"
+          "CWE-434"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -491,72 +814,141 @@
             "lastModified": "2025-07-22T13:08:26.043000+00:00"
           }
         ]
-      },
-      "enrichments": {
-        "epss_percentile": {
-          "percentile": 99.079,
-          "rank": "Top 1%",
-          "is_top_1_percent": true,
-          "is_top_5_percent": true,
-          "is_top_10_percent": true
-        }
       }
     },
     {
-      "cveId": "CVE-2025-34510",
-      "title": "Sitecore XM, XC, and XP Post-Auth RCE via Zip Slip",
-      "description": "Sitecore Experience Manager (XM), Experience Platform (XP), and Experience Commerce (XC) versions 9.0 through 9.3 and 10.0 through 10.4 are affected by a Zip Slip vulnerability. A remote, authenticated attacker can exploit this issue by sending a crafted HTTP request to upload a ZIP archive containing path traversal sequences, allowing arbitrary file writes and leading to code execution.",
-      "publishedDate": "2025-06-17T18:46:04.239000+00:00",
-      "lastModifiedDate": "2025-06-26T19:26:12.608000+00:00",
+      "cveId": "CVE-2025-1094",
+      "title": "PostgreSQL quoting APIs miss neutralizing quoting syntax in text that fails encoding validation",
+      "description": "Improper neutralization of quoting syntax in PostgreSQL libpq functions PQescapeLiteral(), PQescapeIdentifier(), PQescapeString(), and PQescapeStringConn() allows a database input provider to achieve SQL injection in certain usage patterns.  Specifically, SQL injection requires the application to use the function result to construct input to psql, the PostgreSQL interactive terminal.  Similarly, improper neutralization of quoting syntax in PostgreSQL command line utility programs allows a source of command line arguments to achieve SQL injection when client_encoding is BIG5 and server_encoding is one of EUC_TW or MULE_INTERNAL.  Versions before PostgreSQL 17.3, 16.7, 15.11, 14.16, and 13.19 are affected.",
+      "publishedDate": "2025-02-13T13:00:02.061000+00:00",
+      "lastModifiedDate": "2025-03-14T03:55:17.849000+00:00",
       "severity": "HIGH",
       "cvssMetrics": [
         {
           "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 8.8,
+          "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 8.1,
           "baseSeverity": "HIGH"
         }
       ],
       "epss": {
-        "score": 0.8212,
-        "percentile": 99.162
+        "score": 0.7782,
+        "percentile": 98.947
       },
-      "riskScore": 60,
+      "ssvc": {
+        "exploitation": "poc",
+        "automatable": "no",
+        "technicalImpact": "total",
+        "priorityTier": "TRACK",
+        "compactNotation": "P/N/T",
+        "ssvcScore": 35,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 59,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
-          "Sitecore"
+          "N/a",
+          "PostgreSQL"
         ],
         "products": [
-          "Experience Commerce",
-          "Experience Manager",
-          "Experience Platform"
+          "Postgresql"
         ]
       },
       "references": [
         {
-          "url": "https://labs.watchtowr.com/is-b-for-backdoor-pre-auth-rce-chain-in-sitecore-experience-platform/",
+          "url": "https://www.postgresql.org/support/security/CVE-2025-1094/",
           "source": "",
-          "tags": [
-            "third-party-advisory",
-            "exploit",
-            "technical-description"
-          ]
-        },
-        {
-          "url": "https://support.sitecore.com/kb?id=kb_article_view&sysparm_article=KB1003667",
-          "source": "",
-          "tags": [
-            "vendor-advisory"
-          ]
+          "tags": []
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-23",
-          "TOP-1-PERCENT-EPSS"
+          "CWE-149"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "High",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/1xxx/CVE-2025-1094.json",
+            "lastModified": "2025-03-14T03:55:17.849000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-49619",
+      "title": "CVE-2025-49619: Skyvern through 0.1.85 is vulnerable to server-side template injection (SSTI) in the Prompt field of...",
+      "description": "Skyvern through 0.1.85 is vulnerable to server-side template injection (SSTI) in the Prompt field of workflow blocks such as the Navigation v2 Block. Improper sanitization of Jinja2 template input allows authenticated users to inject crafted expressions that are evaluated on the server, leading to blind remote code execution (RCE).",
+      "publishedDate": "2025-06-07T00:00:00+00:00",
+      "lastModifiedDate": "2025-06-17T21:01:16.030000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N",
+          "baseScore": 8.5,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.6212,
+        "percentile": 98.246
+      },
+      "ssvc": {
+        "exploitation": "poc",
+        "automatable": "no",
+        "technicalImpact": "partial",
+        "priorityTier": "TRACK",
+        "compactNotation": "P/N/P",
+        "ssvcScore": 27,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 51,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Skyvern",
+          "The",
+          "To"
+        ],
+        "products": [
+          "Skyvern",
+          "The Server",
+          "To Server"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://github.com/Skyvern-AI/skyvern/commit/db856cd8433a204c8b45979c70a4da1e119d949d",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://cristibtz.github.io/posts/CVE-2025-49619/",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://www.exploit-db.com/exploits/52335",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-1336"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -567,19 +959,10 @@
         "sources": [
           {
             "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/34xxx/CVE-2025-34510.json",
-            "lastModified": "2025-06-26T19:26:12.608000+00:00"
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/49xxx/CVE-2025-49619.json",
+            "lastModified": "2025-06-17T21:01:16.030000+00:00"
           }
         ]
-      },
-      "enrichments": {
-        "epss_percentile": {
-          "percentile": 99.162,
-          "rank": "Top 1%",
-          "is_top_1_percent": true,
-          "is_top_5_percent": true,
-          "is_top_10_percent": true
-        }
       }
     },
     {
@@ -601,7 +984,17 @@
         "score": 0.9239,
         "percentile": 99.711
       },
-      "riskScore": 60,
+      "ssvc": {
+        "exploitation": "none",
+        "automatable": "yes",
+        "technicalImpact": "partial",
+        "priorityTier": "TRACK",
+        "compactNotation": "N/Y/P",
+        "ssvcScore": 22,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 47,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
@@ -641,8 +1034,7 @@
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-22",
-          "TOP-1-PERCENT-EPSS"
+          "CWE-22"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -657,610 +1049,6 @@
             "lastModified": "2025-01-07T16:16:17.325000+00:00"
           }
         ]
-      },
-      "enrichments": {
-        "epss_percentile": {
-          "percentile": 99.711,
-          "rank": "Top 1%",
-          "is_top_1_percent": true,
-          "is_top_5_percent": true,
-          "is_top_10_percent": true
-        }
-      }
-    },
-    {
-      "cveId": "CVE-2025-1094",
-      "title": "PostgreSQL quoting APIs miss neutralizing quoting syntax in text that fails encoding validation",
-      "description": "Improper neutralization of quoting syntax in PostgreSQL libpq functions PQescapeLiteral(), PQescapeIdentifier(), PQescapeString(), and PQescapeStringConn() allows a database input provider to achieve SQL injection in certain usage patterns.  Specifically, SQL injection requires the application to use the function result to construct input to psql, the PostgreSQL interactive terminal.  Similarly, improper neutralization of quoting syntax in PostgreSQL command line utility programs allows a source of command line arguments to achieve SQL injection when client_encoding is BIG5 and server_encoding is one of EUC_TW or MULE_INTERNAL.  Versions before PostgreSQL 17.3, 16.7, 15.11, 14.16, and 13.19 are affected.",
-      "publishedDate": "2025-02-13T13:00:02.061000+00:00",
-      "lastModifiedDate": "2025-03-14T03:55:17.849000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 8.1,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.7782,
-        "percentile": 98.948
-      },
-      "riskScore": 59,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "N/a",
-          "PostgreSQL"
-        ],
-        "products": [
-          "Postgresql"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://www.postgresql.org/support/security/CVE-2025-1094/",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-149",
-          "TOP-5-PERCENT-EPSS"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "High",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/1xxx/CVE-2025-1094.json",
-            "lastModified": "2025-03-14T03:55:17.849000+00:00"
-          }
-        ]
-      },
-      "enrichments": {
-        "epss_percentile": {
-          "percentile": 98.948,
-          "rank": "Top 5%",
-          "is_top_1_percent": false,
-          "is_top_5_percent": true,
-          "is_top_10_percent": true
-        }
-      }
-    },
-    {
-      "cveId": "CVE-2024-48248",
-      "title": "CVE-2024-48248: NAKIVO Backup & Replication before 11.0.0.88174 allows absolute path traversal for reading files via...",
-      "description": "NAKIVO Backup & Replication before 11.0.0.88174 allows absolute path traversal for reading files via getImageByPath to /c/router (this may lead to remote code execution across the enterprise because PhysicalDiscovery has cleartext credentials).",
-      "publishedDate": "2025-03-04T00:00:00+00:00",
-      "lastModifiedDate": "2025-07-30T01:36:18.985000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:N",
-          "baseScore": 8.6,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.9399,
-        "percentile": 99.881
-      },
-      "riskScore": 59,
-      "exploitationStatus": "EXPLOIT_AVAILABLE",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Nakivo"
-        ],
-        "products": [
-          "Backup & Replication Director"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://labs.watchtowr.com/the-best-security-is-when-we-all-agree-to-keep-everything-secret-except-the-secrets-nakivo-backup-replication-cve-2024-48248/",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://helpcenter.nakivo.com/Release-Notes/Content/Release-Notes.htm",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-          "source": "CISA KEV",
-          "tags": [
-            "exploit",
-            "kev"
-          ],
-          "category": "exploit",
-          "rel": "noopener noreferrer",
-          "target": "_blank",
-          "domain": "cisa.gov",
-          "icon": "\ud83d\udd25",
-          "title": "CISA Known Exploited Vulnerabilities Catalog"
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-36",
-          "TOP-1-PERCENT-EPSS",
-          "CISA-KEV",
-          "EXPLOIT-AVAILABLE"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/48xxx/CVE-2024-48248.json",
-            "lastModified": "2025-07-30T01:36:18.985000+00:00"
-          }
-        ]
-      },
-      "enrichments": {
-        "epss_percentile": {
-          "percentile": 99.881,
-          "rank": "Top 1%",
-          "is_top_1_percent": true,
-          "is_top_5_percent": true,
-          "is_top_10_percent": true
-        },
-        "cisa_kev": {
-          "isKnownExploited": true,
-          "dateAdded": "2025-03-19",
-          "vulnerabilityName": "NAKIVO Backup and Replication Absolute Path Traversal Vulnerability",
-          "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
-          "dueDate": "2025-04-09",
-          "knownRansomwareCampaignUse": "Unknown",
-          "notes": "https://helpcenter.nakivo.com/Release-Notes/Content/Release-Notes.htm ; https://nvd.nist.gov/vuln/detail/CVE-2024-48248"
-        },
-        "exploit_availability": {
-          "has_exploit": true,
-          "exploit_sources": [
-            {
-              "source": "Potential Exploit",
-              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-              "icon": "\u26a0\ufe0f"
-            }
-          ],
-          "exploit_count": 1
-        }
-      }
-    },
-    {
-      "cveId": "CVE-2025-49619",
-      "title": "CVE-2025-49619: Skyvern through 0.1.85 is vulnerable to server-side template injection (SSTI) in the Prompt field of...",
-      "description": "Skyvern through 0.1.85 is vulnerable to server-side template injection (SSTI) in the Prompt field of workflow blocks such as the Navigation v2 Block. Improper sanitization of Jinja2 template input allows authenticated users to inject crafted expressions that are evaluated on the server, leading to blind remote code execution (RCE).",
-      "publishedDate": "2025-06-07T00:00:00+00:00",
-      "lastModifiedDate": "2025-06-17T21:01:16.030000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:L/A:N",
-          "baseScore": 8.5,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.6212,
-        "percentile": 98.247
-      },
-      "riskScore": 58,
-      "exploitationStatus": "EXPLOIT_AVAILABLE",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Skyvern",
-          "The",
-          "To"
-        ],
-        "products": [
-          "Skyvern",
-          "The Server",
-          "To Server"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://github.com/Skyvern-AI/skyvern/commit/db856cd8433a204c8b45979c70a4da1e119d949d",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://cristibtz.github.io/posts/CVE-2025-49619/",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://www.exploit-db.com/exploits/52335",
-          "source": "",
-          "tags": [],
-          "category": "exploit",
-          "icon": "\ud83d\udd25"
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-1336",
-          "EXPLOIT-AVAILABLE",
-          "TOP-5-PERCENT-EPSS"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "Low",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/49xxx/CVE-2025-49619.json",
-            "lastModified": "2025-06-17T21:01:16.030000+00:00"
-          }
-        ]
-      },
-      "enrichments": {
-        "exploit_availability": {
-          "has_exploit": true,
-          "exploit_sources": [
-            {
-              "source": "Exploit-DB",
-              "url": "https://www.exploit-db.com/exploits/52335",
-              "icon": "\ud83d\udca3"
-            }
-          ],
-          "exploit_count": 1
-        },
-        "epss_percentile": {
-          "percentile": 98.247,
-          "rank": "Top 5%",
-          "is_top_1_percent": false,
-          "is_top_5_percent": true,
-          "is_top_10_percent": true
-        }
-      }
-    },
-    {
-      "cveId": "CVE-2025-3102",
-      "title": "SureTriggers <= 1.0.78 - Authorization Bypass due to Missing Empty Value Check to Unauthenticated Administrative User Creation",
-      "description": "The SureTriggers: All-in-One Automation Platform plugin for WordPress is vulnerable to an authentication bypass leading to administrative account creation due to a missing empty value check on the 'secret_key' value in the 'autheticate_user' function in all versions up to, and including, 1.0.78. This makes it possible for unauthenticated attackers to create administrator accounts on the target website when the plugin is installed and activated but not configured with an API key.",
-      "publishedDate": "2025-04-10T04:22:05.560000+00:00",
-      "lastModifiedDate": "2025-04-10T13:10:32.671000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 8.1,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.8559,
-        "percentile": 99.323
-      },
-      "riskScore": 58,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Brainstormforce",
-          "WordPress"
-        ],
-        "products": [
-          "Ottokit: All-in-one Automation Platform (formerly Suretriggers)",
-          "Wordpress"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/ec017311-f150-4a14-a4b4-b5634f574e2b?source=cve",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://plugins.trac.wordpress.org/browser/suretriggers/trunk/src/Controllers/RestController.php#L59",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://plugins.trac.wordpress.org/changeset?sfp_email=&sfph_mail=&reponame=&new=3266499%40suretriggers%2Ftrunk&old=3264905%40suretriggers%2Ftrunk&sfp_email=&sfph_mail=",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-697",
-          "TOP-1-PERCENT-EPSS"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "High",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/3xxx/CVE-2025-3102.json",
-            "lastModified": "2025-04-10T13:10:32.671000+00:00"
-          }
-        ]
-      },
-      "enrichments": {
-        "epss_percentile": {
-          "percentile": 99.323,
-          "rank": "Top 1%",
-          "is_top_1_percent": true,
-          "is_top_5_percent": true,
-          "is_top_10_percent": true
-        }
-      }
-    },
-    {
-      "cveId": "CVE-2024-48766",
-      "title": "CVE-2024-48766: NetAlertX 24.7.18 before 24.10.12 allows unauthenticated file reading because an HTTP client can ign...",
-      "description": "NetAlertX 24.7.18 before 24.10.12 allows unauthenticated file reading because an HTTP client can ignore a redirect, and because of factors related to strpos and directory traversal, as exploited in the wild in May 2025. This is related to components/logs.php.",
-      "publishedDate": "2025-05-13T00:00:00+00:00",
-      "lastModifiedDate": "2025-05-13T19:53:28.974000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:N",
-          "baseScore": 8.6,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.7649,
-        "percentile": 98.881
-      },
-      "riskScore": 58,
-      "exploitationStatus": "EXPLOIT_AVAILABLE",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Netalertx"
-        ],
-        "products": [
-          "Netalertx"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://rhinosecuritylabs.com/research/cve-2024-46506-rce-in-netalertx/",
-          "source": "",
-          "tags": []
-        },
-        {
-          "url": "https://raw.githubusercontent.com/rapid7/metasploit-framework/master/modules/auxiliary/scanner/http/netalertx_file_read.rb",
-          "source": "",
-          "tags": [],
-          "category": "exploit",
-          "icon": "\ud83d\udd25"
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-698",
-          "EXPLOIT-AVAILABLE",
-          "TOP-5-PERCENT-EPSS"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/48xxx/CVE-2024-48766.json",
-            "lastModified": "2025-05-13T19:53:28.974000+00:00"
-          }
-        ]
-      },
-      "enrichments": {
-        "exploit_availability": {
-          "has_exploit": true,
-          "exploit_sources": [
-            {
-              "source": "Metasploit",
-              "url": "https://raw.githubusercontent.com/rapid7/metasploit-framework/master/modules/auxiliary/scanner/http/netalertx_file_read.rb",
-              "icon": "\ud83d\udd2b"
-            }
-          ],
-          "exploit_count": 1
-        },
-        "epss_percentile": {
-          "percentile": 98.881,
-          "rank": "Top 5%",
-          "is_top_1_percent": false,
-          "is_top_5_percent": true,
-          "is_top_10_percent": true
-        }
-      }
-    },
-    {
-      "cveId": "CVE-2024-52875",
-      "title": "CVE-2024-52875: An issue was discovered in GFI Kerio Control 9.2.5 through 9.4.5. The dest GET parameter passed to t...",
-      "description": "An issue was discovered in GFI Kerio Control 9.2.5 through 9.4.5. The dest GET parameter passed to the /nonauth/addCertException.cs and /nonauth/guestConfirm.cs and /nonauth/expiration.cs pages is not properly sanitized before being used to generate a Location HTTP header in a 302 HTTP response. This can be exploited to perform Open Redirect or HTTP Response Splitting attacks, which in turn lead to Reflected Cross-Site Scripting (XSS). Remote command execution can be achieved by leveraging the upgrade feature in the admin interface.",
-      "publishedDate": "2025-01-31T00:00:00+00:00",
-      "lastModifiedDate": "2025-02-12T20:41:37.262000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
-          "baseScore": 8.8,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.8661,
-        "percentile": 99.373
-      },
-      "riskScore": 58,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Gfi"
-        ],
-        "products": [
-          "Kerio Control"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://karmainsecurity.com/hacking-kerio-control-via-cve-2024-52875",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-113",
-          "TOP-1-PERCENT-EPSS"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "Required",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/52xxx/CVE-2024-52875.json",
-            "lastModified": "2025-02-12T20:41:37.262000+00:00"
-          }
-        ]
-      },
-      "enrichments": {
-        "epss_percentile": {
-          "percentile": 99.373,
-          "rank": "Top 1%",
-          "is_top_1_percent": true,
-          "is_top_5_percent": true,
-          "is_top_10_percent": true
-        }
-      }
-    },
-    {
-      "cveId": "CVE-2024-46981",
-      "title": "Redis' Lua library commands may lead to remote code execution",
-      "description": "Redis is an open source, in-memory database that persists on disk. An authenticated user may use a specially crafted Lua script to manipulate the garbage collector and potentially lead to remote code execution. The problem is fixed in 7.4.2, 7.2.7, and 6.2.17. An additional workaround to mitigate the problem without patching the redis-server executable is to prevent users from executing Lua scripts. This can be done using ACL to restrict EVAL and EVALSHA commands.",
-      "publishedDate": "2025-01-06T21:11:51.687000+00:00",
-      "lastModifiedDate": "2025-03-19T20:14:35.152000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
-          "baseScore": 7.0,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.6381,
-        "percentile": 98.316
-      },
-      "riskScore": 56,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Memory",
-          "Redis"
-        ],
-        "products": [
-          "Memory Database",
-          "Redis"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://github.com/redis/redis/security/advisories/GHSA-39h2-x6c4-6w4c",
-          "source": "https://github.com/redis/redis/security/advisories/GHSA-39h2-x6c4-6w4c",
-          "tags": [
-            "x_refsource_CONFIRM"
-          ]
-        },
-        {
-          "url": "https://github.com/redis/redis/releases/tag/6.2.17",
-          "source": "https://github.com/redis/redis/releases/tag/6.2.17",
-          "tags": [
-            "x_refsource_MISC"
-          ]
-        },
-        {
-          "url": "https://github.com/redis/redis/releases/tag/7.2.7",
-          "source": "https://github.com/redis/redis/releases/tag/7.2.7",
-          "tags": [
-            "x_refsource_MISC"
-          ]
-        },
-        {
-          "url": "https://github.com/redis/redis/releases/tag/7.4.2",
-          "source": "https://github.com/redis/redis/releases/tag/7.4.2",
-          "tags": [
-            "x_refsource_MISC"
-          ]
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-416",
-          "TOP-5-PERCENT-EPSS"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Local",
-        "attackComplexity": "High",
-        "privilegesRequired": "Low",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/46xxx/CVE-2024-46981.json",
-            "lastModified": "2025-03-19T20:14:35.152000+00:00"
-          }
-        ]
-      },
-      "enrichments": {
-        "epss_percentile": {
-          "percentile": 98.316,
-          "rank": "Top 5%",
-          "is_top_1_percent": false,
-          "is_top_5_percent": true,
-          "is_top_10_percent": true
-        }
       }
     },
     {
@@ -1280,9 +1068,19 @@
       ],
       "epss": {
         "score": 0.6694,
-        "percentile": 98.469
+        "percentile": 98.468
       },
-      "riskScore": 54,
+      "ssvc": {
+        "exploitation": "none",
+        "automatable": "yes",
+        "technicalImpact": "partial",
+        "priorityTier": "TRACK",
+        "compactNotation": "N/Y/P",
+        "ssvcScore": 22,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
@@ -1333,8 +1131,7 @@
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-89",
-          "TOP-5-PERCENT-EPSS"
+          "CWE-89"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -1349,188 +1146,6 @@
             "lastModified": "2025-02-22T00:09:59.316000+00:00"
           }
         ]
-      },
-      "enrichments": {
-        "epss_percentile": {
-          "percentile": 98.469,
-          "rank": "Top 5%",
-          "is_top_1_percent": false,
-          "is_top_5_percent": true,
-          "is_top_10_percent": true
-        }
-      }
-    },
-    {
-      "cveId": "CVE-2025-27363",
-      "title": "CVE-2025-27363: An out of bounds write exists in FreeType versions 2.13.0 and below (newer versions of FreeType are ...",
-      "description": "An out of bounds write exists in FreeType versions 2.13.0 and below (newer versions of FreeType are not vulnerable) when attempting to parse font subglyph structures related to TrueType GX and variable font files. The vulnerable code assigns a signed short value to an unsigned long and then adds a static value causing it to wrap around and allocate too small of a heap buffer. The code then writes up to 6 signed long integers out of bounds relative to this buffer. This may result in arbitrary code execution. This vulnerability may have been exploited in the wild.",
-      "publishedDate": "2025-03-11T13:28:31.705000+00:00",
-      "lastModifiedDate": "2025-07-30T01:36:18.147000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H/E:F/RL:O/RC:C/CR:H/IR:H/AR:H/MAV:N/MAC:L/MPR:N/MUI:N/MS:U/MC:H/MI:H/MA:H",
-          "baseScore": 8.1,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.6714,
-        "percentile": 98.479
-      },
-      "riskScore": 52,
-      "exploitationStatus": "EXPLOIT_AVAILABLE",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Freetype"
-        ],
-        "products": [
-          "Freetype"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://www.facebook.com/security/advisories/cve-2025-27363",
-          "source": "",
-          "tags": [
-            "x_refsource_CONFIRM"
-          ]
-        },
-        {
-          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-          "source": "CISA KEV",
-          "tags": [
-            "exploit",
-            "kev"
-          ],
-          "category": "exploit",
-          "rel": "noopener noreferrer",
-          "target": "_blank",
-          "domain": "cisa.gov",
-          "icon": "\ud83d\udd25",
-          "title": "CISA Known Exploited Vulnerabilities Catalog"
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "TOP-5-PERCENT-EPSS",
-          "CISA-KEV",
-          "EXPLOIT-AVAILABLE"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "High",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/27xxx/CVE-2025-27363.json",
-            "lastModified": "2025-07-30T01:36:18.147000+00:00"
-          }
-        ]
-      },
-      "enrichments": {
-        "epss_percentile": {
-          "percentile": 98.479,
-          "rank": "Top 5%",
-          "is_top_1_percent": false,
-          "is_top_5_percent": true,
-          "is_top_10_percent": true
-        },
-        "cisa_kev": {
-          "isKnownExploited": true,
-          "dateAdded": "2025-05-06",
-          "vulnerabilityName": "FreeType Out-of-Bounds Write Vulnerability",
-          "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
-          "dueDate": "2025-05-27",
-          "knownRansomwareCampaignUse": "Unknown",
-          "notes": "This vulnerability affects a common open-source component, third-party library, or a protocol used by different products. Please check with specific vendors for information on patching status. For more information, please see: https://source.android.com/docs/security/bulletin/2025-05-01 ; https://nvd.nist.gov/vuln/detail/CVE-2025-27363"
-        },
-        "exploit_availability": {
-          "has_exploit": true,
-          "exploit_sources": [
-            {
-              "source": "Potential Exploit",
-              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-              "icon": "\u26a0\ufe0f"
-            }
-          ],
-          "exploit_count": 1
-        }
-      }
-    },
-    {
-      "cveId": "CVE-2025-2264",
-      "title": "Santesoft Sante PACS Server Path Traversal Information Disclosure",
-      "description": "A Path Traversal Information Disclosure vulnerability exists in \"Sante PACS Server.exe\". An unauthenticated remote attacker can exploit it to download arbitrary files on the disk drive where the application is installed.",
-      "publishedDate": "2025-03-13T16:29:07.468000+00:00",
-      "lastModifiedDate": "2025-03-14T13:41:13.356000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
-          "baseScore": 7.5,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.6878,
-        "percentile": 98.547
-      },
-      "riskScore": 52,
-      "exploitationStatus": "UNKNOWN",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Pacs",
-          "Santesoft"
-        ],
-        "products": [
-          "Pacs Server",
-          "Sante Pacs Server"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://www.tenable.com/security/research/tra-2025-08",
-          "source": "",
-          "tags": []
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-22",
-          "TOP-5-PERCENT-EPSS"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/2xxx/CVE-2025-2264.json",
-            "lastModified": "2025-03-14T13:41:13.356000+00:00"
-          }
-        ]
-      },
-      "enrichments": {
-        "epss_percentile": {
-          "percentile": 98.547,
-          "rank": "Top 5%",
-          "is_top_1_percent": false,
-          "is_top_5_percent": true,
-          "is_top_10_percent": true
-        }
       }
     },
     {
@@ -1550,9 +1165,19 @@
       ],
       "epss": {
         "score": 0.6376,
-        "percentile": 98.313
+        "percentile": 98.312
       },
-      "riskScore": 50,
+      "ssvc": {
+        "exploitation": "none",
+        "automatable": "yes",
+        "technicalImpact": "partial",
+        "priorityTier": "TRACK",
+        "compactNotation": "N/Y/P",
+        "ssvcScore": 22,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 44,
       "exploitationStatus": "UNKNOWN",
       "affectedSystems": {
         "cpeMatches": [],
@@ -1575,8 +1200,7 @@
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-89",
-          "TOP-5-PERCENT-EPSS"
+          "CWE-89"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -1591,15 +1215,266 @@
             "lastModified": "2025-03-18T18:53:35.088000+00:00"
           }
         ]
-      },
-      "enrichments": {
-        "epss_percentile": {
-          "percentile": 98.313,
-          "rank": "Top 5%",
-          "is_top_1_percent": false,
-          "is_top_5_percent": true,
-          "is_top_10_percent": true
+      }
+    },
+    {
+      "cveId": "CVE-2025-3102",
+      "title": "SureTriggers <= 1.0.78 - Authorization Bypass due to Missing Empty Value Check to Unauthenticated Administrative User Creation",
+      "description": "The SureTriggers: All-in-One Automation Platform plugin for WordPress is vulnerable to an authentication bypass leading to administrative account creation due to a missing empty value check on the 'secret_key' value in the 'autheticate_user' function in all versions up to, and including, 1.0.78. This makes it possible for unauthenticated attackers to create administrator accounts on the target website when the plugin is installed and activated but not configured with an API key.",
+      "publishedDate": "2025-04-10T04:22:05.560000+00:00",
+      "lastModifiedDate": "2025-04-10T13:10:32.671000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 8.1,
+          "baseSeverity": "HIGH"
         }
+      ],
+      "epss": {
+        "score": 0.8559,
+        "percentile": 99.324
+      },
+      "ssvc": {
+        "exploitation": "none",
+        "automatable": "no",
+        "technicalImpact": "total",
+        "priorityTier": "TRACK",
+        "compactNotation": "N/N/T",
+        "ssvcScore": 15,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 40,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Brainstormforce",
+          "WordPress"
+        ],
+        "products": [
+          "Ottokit: All-in-one Automation Platform (formerly Suretriggers)",
+          "Wordpress"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://www.wordfence.com/threat-intel/vulnerabilities/id/ec017311-f150-4a14-a4b4-b5634f574e2b?source=cve",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://plugins.trac.wordpress.org/browser/suretriggers/trunk/src/Controllers/RestController.php#L59",
+          "source": "",
+          "tags": []
+        },
+        {
+          "url": "https://plugins.trac.wordpress.org/changeset?sfp_email=&sfph_mail=&reponame=&new=3266499%40suretriggers%2Ftrunk&old=3264905%40suretriggers%2Ftrunk&sfp_email=&sfph_mail=",
+          "source": "",
+          "tags": []
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-697"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "High",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/3xxx/CVE-2025-3102.json",
+            "lastModified": "2025-04-10T13:10:32.671000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2025-21293",
+      "title": "Active Directory Domain Services Elevation of Privilege Vulnerability",
+      "description": "Active Directory Domain Services Elevation of Privilege Vulnerability",
+      "publishedDate": "2025-01-14T18:03:48.110000+00:00",
+      "lastModifiedDate": "2025-09-09T23:47:06.036000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H/E:U/RL:O/RC:C",
+          "baseScore": 8.8,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.7627,
+        "percentile": 98.872
+      },
+      "ssvc": {
+        "exploitation": "none",
+        "automatable": "no",
+        "technicalImpact": "total",
+        "priorityTier": "TRACK",
+        "compactNotation": "N/N/T",
+        "ssvcScore": 15,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 40,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Microsoft"
+        ],
+        "products": [
+          "Windows 10 Version 1507",
+          "Windows 10 Version 1607",
+          "Windows 10 Version 1809",
+          "Windows 10 Version 21h2",
+          "Windows 10 Version 22h2",
+          "Windows 11 Version 22h2",
+          "Windows 11 Version 22h3",
+          "Windows 11 Version 23h2",
+          "Windows 11 Version 24h2",
+          "Windows Server 2012",
+          "Windows Server 2012 (server Core Installation)",
+          "Windows Server 2012 R2",
+          "Windows Server 2012 R2 (server Core Installation)",
+          "Windows Server 2016",
+          "Windows Server 2016 (server Core Installation)",
+          "Windows Server 2019",
+          "Windows Server 2019 (server Core Installation)",
+          "Windows Server 2022",
+          "Windows Server 2022, 23h2 Edition (server Core Installation)",
+          "Windows Server 2025",
+          "Windows Server 2025 (server Core Installation)"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-21293",
+          "source": "Active Directory Domain Services Elevation of Privilege Vulnerability",
+          "tags": [
+            "vendor-advisory"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-284"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "Low",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/21xxx/CVE-2025-21293.json",
+            "lastModified": "2025-09-09T23:47:06.036000+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "cveId": "CVE-2024-46981",
+      "title": "Redis' Lua library commands may lead to remote code execution",
+      "description": "Redis is an open source, in-memory database that persists on disk. An authenticated user may use a specially crafted Lua script to manipulate the garbage collector and potentially lead to remote code execution. The problem is fixed in 7.4.2, 7.2.7, and 6.2.17. An additional workaround to mitigate the problem without patching the redis-server executable is to prevent users from executing Lua scripts. This can be done using ACL to restrict EVAL and EVALSHA commands.",
+      "publishedDate": "2025-01-06T21:11:51.687000+00:00",
+      "lastModifiedDate": "2025-03-19T20:14:35.152000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H",
+          "baseScore": 7.0,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.6381,
+        "percentile": 98.315
+      },
+      "ssvc": {
+        "exploitation": "none",
+        "automatable": "no",
+        "technicalImpact": "total",
+        "priorityTier": "TRACK",
+        "compactNotation": "N/N/T",
+        "ssvcScore": 15,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 36,
+      "exploitationStatus": "UNKNOWN",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Memory",
+          "Redis"
+        ],
+        "products": [
+          "Memory Database",
+          "Redis"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://github.com/redis/redis/security/advisories/GHSA-39h2-x6c4-6w4c",
+          "source": "https://github.com/redis/redis/security/advisories/GHSA-39h2-x6c4-6w4c",
+          "tags": [
+            "x_refsource_CONFIRM"
+          ]
+        },
+        {
+          "url": "https://github.com/redis/redis/releases/tag/6.2.17",
+          "source": "https://github.com/redis/redis/releases/tag/6.2.17",
+          "tags": [
+            "x_refsource_MISC"
+          ]
+        },
+        {
+          "url": "https://github.com/redis/redis/releases/tag/7.2.7",
+          "source": "https://github.com/redis/redis/releases/tag/7.2.7",
+          "tags": [
+            "x_refsource_MISC"
+          ]
+        },
+        {
+          "url": "https://github.com/redis/redis/releases/tag/7.4.2",
+          "source": "https://github.com/redis/redis/releases/tag/7.4.2",
+          "tags": [
+            "x_refsource_MISC"
+          ]
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-416"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Local",
+        "attackComplexity": "High",
+        "privilegesRequired": "Low",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/46xxx/CVE-2024-46981.json",
+            "lastModified": "2025-03-19T20:14:35.152000+00:00"
+          }
+        ]
       }
     }
   ]
