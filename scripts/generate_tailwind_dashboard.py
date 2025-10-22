@@ -17,21 +17,21 @@ OUTPUT_DIR.mkdir(exist_ok=True)
 def load_vulnerabilities():
     """Load vulnerabilities from JSON API"""
     index_file = API_DIR / "index.json"
-    
+
     if not index_file.exists():
         print(f"Error: {index_file} not found")
         sys.exit(1)
-    
+
     with open(index_file) as f:
         data = json.load(f)
-    
-    return data.get("vulnerabilities", [])
+
+    return data.get("vulnerabilities", []), data.get("generated", "")
 
 def generate_dashboard():
     """Generate complete Tailwind CSS dashboard"""
-    
+
     print("Loading vulnerabilities...")
-    vulnerabilities = load_vulnerabilities()
+    vulnerabilities, data_generated = load_vulnerabilities()
     
     # Prepare vulnerability data for JavaScript embedding
     vuln_data = []
@@ -61,6 +61,18 @@ def generate_dashboard():
     
     # Build timestamp
     build_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S %Z")
+
+    # Parse and format data timestamp
+    if data_generated:
+        try:
+            # Parse ISO format timestamp: "2025-10-22T01:18:11.284010"
+            data_dt = datetime.fromisoformat(data_generated.replace('+00:00', ''))
+            data_last_updated = data_dt.strftime("%Y-%m-%d %H:%M UTC")
+        except Exception as e:
+            print(f"Warning: Could not parse data timestamp: {e}")
+            data_last_updated = "Unknown"
+    else:
+        data_last_updated = "Unknown"
     
     # Convert to JSON for embedding
     vuln_json = json.dumps(vuln_data)
@@ -205,7 +217,8 @@ def generate_dashboard():
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
                     </svg>
-                    <span>Data: Fresh (4h cycle)</span>
+                    <span>Data last updated:</span>
+                    <time datetime="{data_generated}" class="font-mono">{data_last_updated}</time>
                 </div>
             </div>
         </div>
@@ -414,9 +427,9 @@ def generate_dashboard():
     <footer class="mt-12 py-6 border-t border-gray-200 dark:border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <p class="text-center text-sm text-gray-600 dark:text-gray-400">
-                Built with <a href="https://alpinejs.dev" target="_blank" rel="noopener noreferrer" class="text-primary-600 dark:text-primary-400 hover:underline">Alpine.js</a> 
+                Built with <a href="https://alpinejs.dev" target="_blank" rel="noopener noreferrer" class="text-primary-600 dark:text-primary-400 hover:underline">Alpine.js</a>
                 & <a href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer" class="text-primary-600 dark:text-primary-400 hover:underline">Tailwind CSS</a>
-                • Data refreshed every 4 hours
+                • Data updated automatically via GitHub Actions
             </p>
         </div>
     </footer>
