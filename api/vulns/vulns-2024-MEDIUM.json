@@ -2006,8 +2006,8 @@
     },
     {
       "cveId": "CVE-2024-1380",
-      "title": "CVE-2024-1380: The Relevanssi – A Better Search plugin for WordPress is vulnerable to unauthorized access of data d...",
-      "description": "The Relevanssi – A Better Search plugin for WordPress is vulnerable to unauthorized access of data due to a missing capability check on the relevanssi_export_log_check() function in all versions up to, and including, 4.22.0. This makes it possible for unauthenticated attackers to export the query log data. The vendor has indicated that they may look into adding a capability check for proper authorization control, however, this vulnerability is theoretically patched as is.",
+      "title": "CVE-2024-1380: The Relevanssi \u2013 A Better Search plugin for WordPress is vulnerable to unauthorized access of data d...",
+      "description": "The Relevanssi \u2013 A Better Search plugin for WordPress is vulnerable to unauthorized access of data due to a missing capability check on the relevanssi_export_log_check() function in all versions up to, and including, 4.22.0. This makes it possible for unauthenticated attackers to export the query log data. The vendor has indicated that they may look into adding a capability check for proper authorization control, however, this vulnerability is theoretically patched as is.",
       "publishedDate": "2024-03-13T15:26:58.390000+00:00",
       "lastModifiedDate": "2024-08-08T18:38:38.193000+00:00",
       "severity": "MEDIUM",
@@ -2031,7 +2031,7 @@
           "msaari"
         ],
         "products": [
-          "relevanssi – a better search"
+          "relevanssi \u2013 a better search"
         ]
       },
       "references": [
@@ -2278,17 +2278,17 @@
           "jetmonsters"
         ],
         "products": [
-          "form maker by 10web – mobile-friendly drag & drop contact form builder",
-          "gallery plugin for wordpress – envira photo gallery",
+          "form maker by 10web \u2013 mobile-friendly drag & drop contact form builder",
+          "gallery plugin for wordpress \u2013 envira photo gallery",
           "responsive lightbox & gallery",
-          "carousel, slider, gallery by wp carousel – image carousel with lightbox & photo gallery, video slider, post carousel & post grid, product carousel & product grid",
+          "carousel, slider, gallery by wp carousel \u2013 image carousel with lightbox & photo gallery, video slider, post carousel & post grid, product carousel & product grid",
           "accordion slider",
           "wpc smart quick view for woocommerce",
           "colibri page builder",
-          "getwid – gutenberg blocks",
+          "getwid \u2013 gutenberg blocks",
           "firelight lightbox",
           "fv flowplayer video player",
-          "photo gallery, sliders, proofing and themes – nextgen gallery",
+          "photo gallery, sliders, proofing and themes \u2013 nextgen gallery",
           "fancybox for wordpress",
           "easy social feed premium",
           "visual portfolio, photo gallery & post grid"
@@ -2597,7 +2597,7 @@
     {
       "cveId": "CVE-2024-21645",
       "title": "pyLoad Log Injection",
-      "description": "pyLoad is the free and open-source Download Manager written in pure Python. A log injection vulnerability was identified in `pyload` allowing any unauthenticated actor to inject arbitrary messages into the logs gathered by `pyload`. Forged or otherwise, corrupted log files can be used to cover an attacker’s tracks or even to implicate another party in the commission of a malicious act. This vulnerability has been patched in version 0.5.0b3.dev77.\n",
+      "description": "pyLoad is the free and open-source Download Manager written in pure Python. A log injection vulnerability was identified in `pyload` allowing any unauthenticated actor to inject arbitrary messages into the logs gathered by `pyload`. Forged or otherwise, corrupted log files can be used to cover an attacker\u2019s tracks or even to implicate another party in the commission of a malicious act. This vulnerability has been patched in version 0.5.0b3.dev77.\n",
       "publishedDate": "2024-01-08T13:20:47.181000+00:00",
       "lastModifiedDate": "2024-11-14T17:38:32.866000+00:00",
       "severity": "MEDIUM",
@@ -2865,8 +2865,8 @@
     },
     {
       "cveId": "CVE-2024-37085",
-      "title": "CVE-2024-37085: VMware ESXi contains an authentication bypass vulnerability. A malicious actor with sufficient Activ...",
-      "description": "VMware ESXi contains an authentication bypass vulnerability. A malicious actor with sufficient Active Directory (AD) permissions can gain full access to an ESXi host that was previously  configured to use AD for user management https://blogs.vmware.com/vsphere/2012/09/joining-vsphere-hosts-to-active-directory.html  by re-creating the configured AD group ('ESXi Admins' by default) after it was deleted from AD.",
+      "title": "CVE-2024-37085: VMware ESXi contains an authentication bypass vulnerability.\u00a0A malicious actor with sufficient Activ...",
+      "description": "VMware ESXi contains an authentication bypass vulnerability.\u00a0A malicious actor with sufficient Active Directory (AD) permissions can gain full access to an ESXi host that was previously  configured to use AD for user management https://blogs.vmware.com/vsphere/2012/09/joining-vsphere-hosts-to-active-directory.html  by re-creating the configured AD group ('ESXi Admins' by default) after it was deleted from AD.",
       "publishedDate": "2024-06-25T14:16:01.280000+00:00",
       "lastModifiedDate": "2025-07-28T19:43:08.267000+00:00",
       "severity": "MEDIUM",
@@ -3268,8 +3268,8 @@
     },
     {
       "cveId": "CVE-2024-2242",
-      "title": "CVE-2024-2242: The Contact Form 7 plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the ‘act...",
-      "description": "The Contact Form 7 plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the ‘active-tab’ parameter in all versions up to, and including, 5.9 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link.",
+      "title": "CVE-2024-2242: The Contact Form 7 plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the \u2018act...",
+      "description": "The Contact Form 7 plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the \u2018active-tab\u2019 parameter in all versions up to, and including, 5.9 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link.",
       "publishedDate": "2024-03-13T21:32:56.042000+00:00",
       "lastModifiedDate": "2024-08-01T19:03:39.453000+00:00",
       "severity": "MEDIUM",
@@ -3918,7 +3918,7 @@
     {
       "cveId": "CVE-2024-56331",
       "title": "Local File Inclusion (LFI) via Improper URL Handling in uptime-kuma's `Real-Browser` monitor",
-      "description": "Uptime Kuma is an open source, self-hosted monitoring tool. An **Improper URL Handling Vulnerability** allows an attacker to access sensitive local files on the server by exploiting the `file:///` protocol. This vulnerability is triggered via the **\"real-browser\"** request type, which takes a screenshot of the URL provided by the attacker. By supplying local file paths, such as `file:///etc/passwd`, an attacker can read sensitive data from the server. This vulnerability arises because the system does not properly validate or sanitize the user input for the URL field. Specifically: 1. The URL input (`<input data-v-5f5c86d7=\"\" id=\"url\" type=\"url\" class=\"form-control\" pattern=\"https?://.+\" required=\"\">`) allows users to input arbitrary file paths, including those using the `file:///` protocol, without server-side validation. 2. The server then uses the user-provided URL to make a request, passing it to a browser instance that performs the \"real-browser\" request, which takes a screenshot of the content at the given URL. If a local file path is entered (e.g., `file:///etc/passwd`), the browser fetches and captures the file’s content. Since the user input is not validated, an attacker can manipulate the URL to request local files (e.g., `file:///etc/passwd`), and the system will capture a screenshot of the file's content, potentially exposing sensitive data. Any **authenticated user** who can submit a URL in \"real-browser\" mode is at risk of exposing sensitive data through screenshots of these files. This issue has been addressed in version 1.23.16 and all users are advised to upgrade. There are no known workarounds for this vulnerability.",
+      "description": "Uptime Kuma is an open source, self-hosted monitoring tool. An **Improper URL Handling Vulnerability** allows an attacker to access sensitive local files on the server by exploiting the `file:///` protocol. This vulnerability is triggered via the **\"real-browser\"** request type, which takes a screenshot of the URL provided by the attacker. By supplying local file paths, such as `file:///etc/passwd`, an attacker can read sensitive data from the server. This vulnerability arises because the system does not properly validate or sanitize the user input for the URL field. Specifically: 1. The URL input (`<input data-v-5f5c86d7=\"\" id=\"url\" type=\"url\" class=\"form-control\" pattern=\"https?://.+\" required=\"\">`) allows users to input arbitrary file paths, including those using the `file:///` protocol, without server-side validation. 2. The server then uses the user-provided URL to make a request, passing it to a browser instance that performs the \"real-browser\" request, which takes a screenshot of the content at the given URL. If a local file path is entered (e.g., `file:///etc/passwd`), the browser fetches and captures the file\u2019s content. Since the user input is not validated, an attacker can manipulate the URL to request local files (e.g., `file:///etc/passwd`), and the system will capture a screenshot of the file's content, potentially exposing sensitive data. Any **authenticated user** who can submit a URL in \"real-browser\" mode is at risk of exposing sensitive data through screenshots of these files. This issue has been addressed in version 1.23.16 and all users are advised to upgrade. There are no known workarounds for this vulnerability.",
       "publishedDate": "2024-12-20T19:48:45.641000+00:00",
       "lastModifiedDate": "2024-12-27T14:52:22.519000+00:00",
       "severity": "MEDIUM",
@@ -4202,8 +4202,8 @@
     },
     {
       "cveId": "CVE-2024-2387",
-      "title": "CVE-2024-2387: The Advanced Form Integration – Connect WooCommerce and Contact Form 7 to Google Sheets and other pl...",
-      "description": "The Advanced Form Integration – Connect WooCommerce and Contact Form 7 to Google Sheets and other platforms plugin for WordPress is vulnerable to SQL Injection via the ‘integration_id’ parameter in all versions up to, and including, 1.82.0 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries and subsequently inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link.",
+      "title": "CVE-2024-2387: The Advanced Form Integration \u2013 Connect WooCommerce and Contact Form 7 to Google Sheets and other pl...",
+      "description": "The Advanced Form Integration \u2013 Connect WooCommerce and Contact Form 7 to Google Sheets and other platforms plugin for WordPress is vulnerable to SQL Injection via the \u2018integration_id\u2019 parameter in all versions up to, and including, 1.82.0 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries and subsequently inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link.",
       "publishedDate": "2024-03-20T01:57:55.902000+00:00",
       "lastModifiedDate": "2024-08-02T20:29:12.557000+00:00",
       "severity": "MEDIUM",
@@ -4227,7 +4227,7 @@
           "nasirahmed"
         ],
         "products": [
-          "advanced form integration – connect woocommerce and contact form 7 to google sheets and other platforms"
+          "advanced form integration \u2013 connect woocommerce and contact form 7 to google sheets and other platforms"
         ]
       },
       "references": [
@@ -4584,8 +4584,8 @@
     },
     {
       "cveId": "CVE-2024-33508",
-      "title": "CVE-2024-33508: An improper neutralization of special elements used in a command ('Command Injection') vulnerability...",
-      "description": "An improper neutralization of special elements used in a command ('Command Injection') vulnerability [CWE-77] in Fortinet FortiClientEMS 7.2.0 through 7.2.4, 7.0.0 through 7.0.12 may allow an unauthenticated attacker to execute limited and temporary operations on the underlying database via crafted requests.",
+      "title": "CVE-2024-33508: An improper neutralization of special elements used in a command\u00a0('Command Injection') vulnerability...",
+      "description": "An improper neutralization of special elements used in a command\u00a0('Command Injection') vulnerability [CWE-77] in Fortinet FortiClientEMS 7.2.0 through 7.2.4, 7.0.0 through 7.0.12 may allow an unauthenticated attacker to execute limited and temporary operations on the underlying database via crafted requests.",
       "publishedDate": "2024-09-10T14:37:45.323000+00:00",
       "lastModifiedDate": "2024-09-10T17:32:21.879000+00:00",
       "severity": "MEDIUM",
@@ -5214,8 +5214,8 @@
     },
     {
       "cveId": "CVE-2024-1084",
-      "title": "CVE-2024-1084: Cross-site Scripting in the tag name pattern field in the tag protections UI in GitHub Enterprise Se...",
-      "description": "Cross-site Scripting in the tag name pattern field in the tag protections UI in GitHub Enterprise Server allows a malicious website that requires user interaction and social engineering to make changes to a user account via CSP bypass with created CSRF tokens. This vulnerability affected all versions of GitHub Enterprise Server prior to 3.12  and was fixed in all versions of 3.11.5, 3.10.7, 3.9.10, and 3.8.15. This vulnerability was reported via the GitHub Bug Bounty program.\n\n",
+      "title": "CVE-2024-1084: Cross-site Scripting in the\u00a0tag name pattern field in the tag protections UI in GitHub Enterprise Se...",
+      "description": "Cross-site Scripting in the\u00a0tag name pattern field in the tag protections UI in GitHub Enterprise Server allows a malicious website that requires user interaction and social engineering to make changes to a user account via CSP bypass with created\u00a0CSRF tokens. This vulnerability affected all versions of GitHub Enterprise Server prior to 3.12\u00a0 and was fixed in all versions of 3.11.5, 3.10.7, 3.9.10, and 3.8.15. This vulnerability was reported via the GitHub Bug Bounty program.\n\n",
       "publishedDate": "2024-02-13T18:44:05.830000+00:00",
       "lastModifiedDate": "2024-08-01T18:26:30.428000+00:00",
       "severity": "MEDIUM",
@@ -5287,7 +5287,7 @@
     {
       "cveId": "CVE-2024-1082",
       "title": "Path traversal vulnerability in GitHub Enterprise Server that allowed arbitrary file read with a specially crafted GitHub Pages artifact upload",
-      "description": "A path traversal vulnerability was identified in GitHub Enterprise Server that allowed an attacker to gain unauthorized read permission to files by deploying arbitrary symbolic links to a GitHub Pages site with a specially crafted artifact tarball. To exploit this vulnerability, an attacker would need permission to create and build a GitHub Pages site on the GitHub Enterprise Server instance. This vulnerability affected all versions of GitHub Enterprise Server prior to 3.12 and was fixed in versions 3.8.15, 3.9.10, 3.10.7, 3.11.5. This vulnerability was reported via the GitHub Bug Bounty program.\n",
+      "description": "A path traversal vulnerability was identified in GitHub Enterprise Server that allowed an\u00a0attacker to gain unauthorized read permission to files by deploying arbitrary symbolic links to a GitHub Pages site with a specially crafted artifact tarball. To exploit this vulnerability, an attacker would need permission to create and build a GitHub Pages site on the GitHub Enterprise Server instance. This vulnerability affected all versions of GitHub Enterprise Server prior to 3.12 and was fixed in versions 3.8.15, 3.9.10, 3.10.7, 3.11.5. This vulnerability was reported via the GitHub Bug Bounty program.\n",
       "publishedDate": "2024-02-13T18:47:10.591000+00:00",
       "lastModifiedDate": "2025-05-09T18:16:58.580000+00:00",
       "severity": "MEDIUM",
@@ -5617,7 +5617,7 @@
     {
       "cveId": "CVE-2024-0509",
       "title": "CVE-2024-0509: The WP 404 Auto Redirect to Similar Post plugin for WordPress is vulnerable to Reflected Cross-Site ...",
-      "description": "The WP 404 Auto Redirect to Similar Post plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the ‘request’ parameter in all versions up to, and including, 1.0.3 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link.",
+      "description": "The WP 404 Auto Redirect to Similar Post plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the \u2018request\u2019 parameter in all versions up to, and including, 1.0.3 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link.",
       "publishedDate": "2024-02-05T21:21:47.651000+00:00",
       "lastModifiedDate": "2024-08-01T18:11:34.428000+00:00",
       "severity": "MEDIUM",
@@ -5677,7 +5677,7 @@
     {
       "cveId": "CVE-2024-51470",
       "title": "IBM MQ denial of service",
-      "description": "IBM MQ 9.1 LTS, 9.2 LTS, 9.3 LTS, 9.3 CD, 9.4 LTS, 9.4 CD, IBM MQ Appliance 9.3 LTS, 9.3 CD, 9.4 LTS, and IBM MQ for HPE NonStop 8.1.0 through 8.1.0.25 could allow an authenticated user to cause a denial-of-service due to messages with improperly set values.",
+      "description": "IBM MQ\u00a09.1 LTS, 9.2 LTS, 9.3 LTS, 9.3 CD, 9.4 LTS, 9.4 CD, IBM MQ Appliance\u00a09.3 LTS, 9.3 CD, 9.4 LTS, and IBM MQ for HPE NonStop 8.1.0 through 8.1.0.25\u00a0could allow an authenticated user to cause a denial-of-service due to messages with improperly set values.",
       "publishedDate": "2024-12-18T19:56:10.377000+00:00",
       "lastModifiedDate": "2024-12-18T20:24:38.409000+00:00",
       "severity": "MEDIUM",
@@ -5752,7 +5752,7 @@
     {
       "cveId": "CVE-2024-9594",
       "title": "VM images built with Image Builder with some providers use default credentials during builds",
-      "description": "A security issue was discovered in the Kubernetes Image Builder versions <= v0.1.37 where default credentials are enabled during the image build process when using the Nutanix, OVA, QEMU or raw providers. The credentials can be used to gain root access. The credentials are disabled at the conclusion of the image build process. Kubernetes clusters are only affected if their nodes use VM images created via the Image Builder project. Because these images were vulnerable during the image build process, they are affected only if an attacker was able to reach the VM where the image build was happening and used the vulnerability to modify the image at the time the image build was occurring.",
+      "description": "A security issue was discovered in the Kubernetes Image Builder versions <= v0.1.37 where default credentials are enabled during the image build process\u00a0when using the Nutanix, OVA, QEMU or raw providers. The credentials can be used to gain root access. The credentials are disabled at the conclusion of the image build process. Kubernetes clusters are only affected if their nodes use VM images created via the Image Builder project. Because these images were vulnerable during the image build process, they are affected only if an attacker was able to reach the VM where the image build was happening and used the vulnerability to modify the image at the time the image build was occurring.",
       "publishedDate": "2024-10-15T20:37:01.308000+00:00",
       "lastModifiedDate": "2024-10-16T16:21:56.147000+00:00",
       "severity": "MEDIUM",
@@ -5952,7 +5952,7 @@
     {
       "cveId": "CVE-2024-1908",
       "title": "Improper Privilege Management vulnerability was identified in GitHub Enterprise Server that allowed Privilege Escalation",
-      "description": "An Improper Privilege Management vulnerability was identified in GitHub Enterprise Server that allowed an attacker to use the Enterprise Actions GitHub Connect download token to fetch private repository data. An attacker would require an account on the server instance with non-default settings for GitHub Connect. This vulnerability affected all versions of GitHub Enterprise Server prior to 3.12 and was fixed in versions 3.8.16, 3.9.11, 3.10.8, and 3.11.6. This vulnerability was reported via the GitHub Bug Bounty program. \n\n\n",
+      "description": "An Improper Privilege Management vulnerability\u00a0was identified in GitHub Enterprise Server that allowed an attacker to use the Enterprise Actions GitHub Connect download token to fetch private repository data. An attacker would require an account on the server instance with non-default settings for GitHub Connect. This vulnerability affected all versions of GitHub Enterprise Server prior to 3.12 and was fixed in versions 3.8.16, 3.9.11, 3.10.8, and 3.11.6. This vulnerability was reported via the GitHub Bug Bounty program.\u00a0\n\n\n",
       "publishedDate": "2024-02-29T18:23:21.156000+00:00",
       "lastModifiedDate": "2024-08-05T15:06:12.570000+00:00",
       "severity": "MEDIUM",

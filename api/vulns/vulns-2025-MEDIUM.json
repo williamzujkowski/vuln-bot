@@ -124,13 +124,13 @@
           "divi",
           "happy addons for elementor",
           "bold page builder",
-          "supreme modules lite – divi theme, extra theme and divi builder",
-          "divi torque – plugin for divi theme and builder",
-          "wp shortcodes plugin — shortcodes ultimate",
+          "supreme modules lite \u2013 divi theme, extra theme and divi builder",
+          "divi torque \u2013 plugin for divi theme and builder",
+          "wp shortcodes plugin \u2014 shortcodes ultimate",
           "divi extra",
-          "essential addons for elementor – popular elementor templates and widgets",
+          "essential addons for elementor \u2013 popular elementor templates and widgets",
           "divi builder",
-          "gutentor – gutenberg blocks – page builder for gutenberg editor",
+          "gutentor \u2013 gutenberg blocks \u2013 page builder for gutenberg editor",
           "carousel slider"
         ]
       },
@@ -239,7 +239,7 @@
     {
       "cveId": "CVE-2024-51977",
       "title": "Unauthenticated leak of sensitive information affecting multiple models from Brother Industries, Ltd., FUJIFILM Business Innovation, Ricoh, Toshiba Tec, and Konica Minolta, Inc.",
-      "description": "An unauthenticated attacker who can access either the HTTP service (TCP port 80), the HTTPS service (TCP port 443), or the IPP service (TCP port 631), can leak several pieces of sensitive information from a vulnerable device. The URI path /etc/mnt_info.csv can be accessed via a GET request and no authentication is required. The returned result is a comma separated value (CSV) table of information. The leaked information includes the device’s model, firmware version, IP address, and serial number.",
+      "description": "An unauthenticated attacker who can access either the HTTP service (TCP port 80), the HTTPS service (TCP port 443), or the IPP service (TCP port 631), can leak several pieces of sensitive information from a vulnerable device. The URI path /etc/mnt_info.csv can be accessed via a GET request and no authentication is required. The returned result is a comma separated value (CSV) table of information. The leaked information includes the device\u2019s model, firmware version, IP address, and serial number.",
       "publishedDate": "2025-06-25T07:15:16.800000+00:00",
       "lastModifiedDate": "2025-07-25T16:19:01.692000+00:00",
       "severity": "MEDIUM",
@@ -2804,7 +2804,7 @@
           "denis-de-bernardy"
         ],
         "products": [
-          "photo gallery, sliders, proofing and themes – nextgen gallery",
+          "photo gallery, sliders, proofing and themes \u2013 nextgen gallery",
           "auto thickbox",
           "youtube embed, playlist and popup by wpdevart"
         ]
@@ -3815,7 +3815,7 @@
     {
       "cveId": "CVE-2025-7780",
       "title": "Ai Engine <= 2.9.4 - Missing URL Scheme Validation to Authenticated (Subscriber+) Arbitrary File Read via simpleTranscribeAudio and get_audio Functions",
-      "description": "The AI Engine plugin for WordPress is vulnerable to Sensitive Information Exposure in all versions up to, and including, 2.9.4. The simpleTranscribeAudio endpoint fails to restrict URL schemes before calling get_audio(). This makes it possible for authenticated attackers, with Subscriber-level access and above, to read any file on the web server and exfiltrate it via the plugin’s OpenAI API integration.",
+      "description": "The AI Engine plugin for WordPress is vulnerable to Sensitive Information Exposure in all versions up to, and including, 2.9.4. The simpleTranscribeAudio endpoint fails to restrict URL schemes before calling get_audio(). This makes it possible for authenticated attackers, with Subscriber-level access and above, to read any file on the web server and exfiltrate it via the plugin\u2019s OpenAI API integration.",
       "publishedDate": "2025-07-24T09:22:16.242000+00:00",
       "lastModifiedDate": "2025-07-24T13:15:16.696000+00:00",
       "severity": "MEDIUM",
@@ -4901,7 +4901,7 @@
           "wpeverest"
         ],
         "products": [
-          "user registration & membership – custom registration form builder, custom login form, user profile, content restriction & membership plugin"
+          "user registration & membership \u2013 custom registration form builder, custom login form, user profile, content restriction & membership plugin"
         ]
       },
       "references": [
@@ -5309,7 +5309,7 @@
     {
       "cveId": "CVE-2025-5240",
       "title": "CRM and Lead Management by vcita <= 2.7.5 - Authenticated (Contributor+) Stored Cross-Site Scripting via type Parameter",
-      "description": "The CRM and Lead Management by vcita plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the ‘type’ parameter in all versions up to, and including, 2.7.5 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "description": "The CRM and Lead Management by vcita plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the \u2018type\u2019 parameter in all versions up to, and including, 2.7.5 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "publishedDate": "2025-07-22T01:44:27.426000+00:00",
       "lastModifiedDate": "2025-07-22T20:01:17.163000+00:00",
       "severity": "MEDIUM",
@@ -5381,7 +5381,7 @@
     {
       "cveId": "CVE-2025-2141",
       "title": "IBM System Storage Virtualization Engine TS7700 cross-site scripting",
-      "description": "IBM System Storage Virtualization Engine TS7700 3957 VED R5.4 8.54.2.17, R6.0 8.60.0.115, 3948 VED R5.4 8.54.2.17, R6.0 8.60.0.115, and 3948 VEF R6.0 8.60.0.115 is vulnerable to cross-site scripting. This vulnerability allows an authenticated user to embed arbitrary JavaScript code in the Web UI thus altering the intended functionality potentially leading to credentials disclosure within a trusted session.",
+      "description": "IBM System Storage Virtualization Engine TS7700 3957 VED R5.4 8.54.2.17, R6.0 8.60.0.115, 3948 VED R5.4 8.54.2.17, R6.0 8.60.0.115, and 3948 VEF R6.0 8.60.0.115\u00a0is vulnerable to cross-site scripting. This vulnerability allows an authenticated user to embed arbitrary JavaScript code in the Web UI thus altering the intended functionality potentially leading to credentials disclosure within a trusted session.",
       "publishedDate": "2025-07-01T01:01:51.136000+00:00",
       "lastModifiedDate": "2025-07-01T13:36:06.551000+00:00",
       "severity": "MEDIUM",
@@ -8768,8 +8768,8 @@
     },
     {
       "cveId": "CVE-2025-41234",
-      "title": "RFD Attack via “Content-Disposition” Header Sourced from Request",
-      "description": "Description\n\nIn Spring Framework, versions 6.0.x as of 6.0.5, versions 6.1.x and 6.2.x, an application is vulnerable to a reflected file download (RFD) attack when it sets a “Content-Disposition” header with a non-ASCII charset, where the filename attribute is derived from user-supplied input.\n\nSpecifically, an application is vulnerable when all the following are true:\n\n  *  The header is prepared with org.springframework.http.ContentDisposition.\n  *  The filename is set via ContentDisposition.Builder#filename(String, Charset).\n  *  The value for the filename is derived from user-supplied input.\n  *  The application does not sanitize the user-supplied input.\n  *  The downloaded content of the response is injected with malicious commands by the attacker (see RFD paper reference for details).\n\n\nAn application is not vulnerable if any of the following is true:\n\n  *  The application does not set a “Content-Disposition” response header.\n  *  The header is not prepared with org.springframework.http.ContentDisposition.\n  *  The filename is set via one of:  *  ContentDisposition.Builder#filename(String), or\n  *  ContentDisposition.Builder#filename(String, ASCII)\n\n\n\n  *  The filename is not derived from user-supplied input.\n  *  The filename is derived from user-supplied input but sanitized by the application.\n  *  The attacker cannot inject malicious content in the downloaded content of the response.\n\n\nAffected Spring Products and VersionsSpring Framework:\n\n  *  6.2.0 - 6.2.7\n  *  6.1.0 - 6.1.20\n  *  6.0.5 - 6.0.28\n  *  Older, unsupported versions are not affected\n\n\nMitigationUsers of affected versions should upgrade to the corresponding fixed version.\n\nAffected version(s)Fix versionAvailability6.2.x6.2.8OSS6.1.x6.1.21OSS6.0.x6.0.29 Commercial https://enterprise.spring.io/ No further mitigation steps are necessary.\n\n\nCWE-113 in `Content-Disposition` handling in VMware Spring Framework versions 6.0.5 to 6.2.7 allows remote attackers to launch Reflected File Download (RFD) attacks via unsanitized user input in `ContentDisposition.Builder#filename(String, Charset)` with non-ASCII charsets.",
+      "title": "RFD Attack via \u201cContent-Disposition\u201d Header Sourced from Request",
+      "description": "Description\n\nIn Spring Framework, versions 6.0.x as of 6.0.5, versions 6.1.x and 6.2.x, an application is vulnerable to a reflected file download (RFD) attack when it sets a \u201cContent-Disposition\u201d header with a non-ASCII charset, where the filename attribute is derived from user-supplied input.\n\nSpecifically, an application is vulnerable when all the following are true:\n\n  *  The header is prepared with org.springframework.http.ContentDisposition.\n  *  The filename is set via ContentDisposition.Builder#filename(String, Charset).\n  *  The value for the filename is derived from user-supplied input.\n  *  The application does not sanitize the user-supplied input.\n  *  The downloaded content of the response is injected with malicious commands by the attacker (see RFD paper reference for details).\n\n\nAn application is not vulnerable if any of the following is true:\n\n  *  The application does not set a \u201cContent-Disposition\u201d response header.\n  *  The header is not prepared with org.springframework.http.ContentDisposition.\n  *  The filename is set via one of:  *  ContentDisposition.Builder#filename(String), or\n  *  ContentDisposition.Builder#filename(String, ASCII)\n\n\n\n  *  The filename is not derived from user-supplied input.\n  *  The filename is derived from user-supplied input but sanitized by the application.\n  *  The attacker cannot inject malicious content in the downloaded content of the response.\n\n\nAffected Spring Products and VersionsSpring Framework:\n\n  *  6.2.0 - 6.2.7\n  *  6.1.0 - 6.1.20\n  *  6.0.5 - 6.0.28\n  *  Older, unsupported versions are not affected\n\n\nMitigationUsers of affected versions should upgrade to the corresponding fixed version.\n\nAffected version(s)Fix versionAvailability6.2.x6.2.8OSS6.1.x6.1.21OSS6.0.x6.0.29 Commercial https://enterprise.spring.io/ No further mitigation steps are necessary.\n\n\nCWE-113 in `Content-Disposition` handling in VMware Spring Framework versions 6.0.5 to 6.2.7 allows remote attackers to launch Reflected File Download (RFD) attacks via unsanitized user input in `ContentDisposition.Builder#filename(String, Charset)` with non-ASCII charsets.",
       "publishedDate": "2025-06-12T21:14:42.957000+00:00",
       "lastModifiedDate": "2025-06-13T14:03:35.406000+00:00",
       "severity": "MEDIUM",
@@ -9472,7 +9472,7 @@
     {
       "cveId": "CVE-2025-5753",
       "title": "Valuation Calculator <= 1.3.2 - Authenticated (Contributor+) Stored Cross-Site Scripting via link Parameter",
-      "description": "The Valuation Calculator plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the ‘link’ parameter in all versions up to, and including, 1.3.2 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "description": "The Valuation Calculator plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the \u2018link\u2019 parameter in all versions up to, and including, 1.3.2 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "publishedDate": "2025-07-23T02:24:39.743000+00:00",
       "lastModifiedDate": "2025-07-23T18:23:43.606000+00:00",
       "severity": "MEDIUM",
@@ -9539,7 +9539,7 @@
     {
       "cveId": "CVE-2025-5944",
       "title": "Element Pack Addons for Elementor <= 8.0.0 - Authenticated (Contributor+) DOM-Based Stored Cross-Site Scripting via data-caption Attribute",
-      "description": "The Element Pack Addons for Elementor plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the ‘data-caption’ attribute in all versions up to, and including, 8.0.0 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "description": "The Element Pack Addons for Elementor plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the \u2018data-caption\u2019 attribute in all versions up to, and including, 8.0.0 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "publishedDate": "2025-07-03T04:25:01.278000+00:00",
       "lastModifiedDate": "2025-07-03T13:17:43.130000+00:00",
       "severity": "MEDIUM",
@@ -9636,7 +9636,7 @@
     {
       "cveId": "CVE-2025-5084",
       "title": "Post Grid Master <= 3.4.13 - Reflected Cross-Site Scripting via argsArray['read_more_text']",
-      "description": "The Post Grid Master plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the ‘argsArray['read_more_text']’ parameter in all versions up to, and including, 3.4.13 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link.",
+      "description": "The Post Grid Master plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the \u2018argsArray['read_more_text']\u2019 parameter in all versions up to, and including, 3.4.13 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link.",
       "publishedDate": "2025-07-24T09:22:15.279000+00:00",
       "lastModifiedDate": "2025-07-24T13:15:54.619000+00:00",
       "severity": "MEDIUM",
@@ -9660,7 +9660,7 @@
           "mdshuvo"
         ],
         "products": [
-          "post grid master – custom post types, taxonomies & ajax filter everything with infinite scroll, load more, pagination & shortcode builder"
+          "post grid master \u2013 custom post types, taxonomies & ajax filter everything with infinite scroll, load more, pagination & shortcode builder"
         ]
       },
       "references": [
@@ -10790,8 +10790,8 @@
     },
     {
       "cveId": "CVE-2025-7354",
-      "title": "WP Shortcodes Plugin — Shortcodes Ultimate <= 7.4.2 - Authenticated (Contributor+) Stored Cross-Site Scripting via Plugin Shortcodes",
-      "description": "The WP Shortcodes Plugin — Shortcodes Ultimate plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the plugin's shortcodes in all versions up to, and including, 7.4.2 due to insufficient input sanitization and output escaping on user supplied attributes. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "title": "WP Shortcodes Plugin \u2014 Shortcodes Ultimate <= 7.4.2 - Authenticated (Contributor+) Stored Cross-Site Scripting via Plugin Shortcodes",
+      "description": "The WP Shortcodes Plugin \u2014 Shortcodes Ultimate plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the plugin's shortcodes in all versions up to, and including, 7.4.2 due to insufficient input sanitization and output escaping on user supplied attributes. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "publishedDate": "2025-07-21T07:23:25.369000+00:00",
       "lastModifiedDate": "2025-07-21T11:07:53.742000+00:00",
       "severity": "MEDIUM",
@@ -10815,7 +10815,7 @@
           "gn_themes"
         ],
         "products": [
-          "wp shortcodes plugin — shortcodes ultimate"
+          "wp shortcodes plugin \u2014 shortcodes ultimate"
         ]
       },
       "references": [
@@ -10981,7 +10981,7 @@
     {
       "cveId": "CVE-2025-7959",
       "title": "Station Pro <= 2.4.2 - Authenticated (Contributor+) Stored Cross-Site Scripting via width and height Parameters",
-      "description": "The Station Pro plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the ‘width' and 'height’ parameter in all versions up to, and including, 2.4.2 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "description": "The Station Pro plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the \u2018width' and 'height\u2019 parameter in all versions up to, and including, 2.4.2 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "publishedDate": "2025-07-24T09:22:22.729000+00:00",
       "lastModifiedDate": "2025-07-24T13:03:19.510000+00:00",
       "severity": "MEDIUM",
@@ -11005,7 +11005,7 @@
           "marviorocha"
         ],
         "products": [
-          "station pro – advanced audio streaming & player for wordpress"
+          "station pro \u2013 advanced audio streaming & player for wordpress"
         ]
       },
       "references": [
@@ -11048,7 +11048,7 @@
     {
       "cveId": "CVE-2025-7966",
       "title": "Get Youtube Subs <= 3.5 - Authenticated (Contributor+) Stored Cross-Site Scripting via subscribe_link_att Function",
-      "description": "The Get Youtube Subs plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the ‘channel', 'layout', and 'subs_count’ parameters in all versions up to, and including, 3.5 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "description": "The Get Youtube Subs plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the \u2018channel', 'layout', and 'subs_count\u2019 parameters in all versions up to, and including, 3.5 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "publishedDate": "2025-07-24T09:22:16.991000+00:00",
       "lastModifiedDate": "2025-07-24T13:36:12.507000+00:00",
       "severity": "MEDIUM",
@@ -11898,7 +11898,7 @@
           "ullakalim8"
         ],
         "products": [
-          "supreme addons for beaver builder –"
+          "supreme addons for beaver builder \u2013"
         ]
       },
       "references": [
@@ -12313,7 +12313,7 @@
     {
       "cveId": "CVE-2025-27365",
       "title": "IBM MQ Operator denial of service",
-      "description": "IBM MQ Operator LTS 2.0.0 through 2.0.29, MQ Operator CD 3.0.0, 3.0.1, 3.1.0 through 3.1.3, 3.3.0, 3.4.0, 3.4.1, 3.5.0, 3.5.1, and MQ Operator SC2 3.2.0 through 3.2.10 \n\nClient connecting to a MQ Queue Manager can cause a SIGSEGV in the AMQRMPPA channel process terminating it.",
+      "description": "IBM MQ Operator LTS 2.0.0 through 2.0.29, MQ Operator CD 3.0.0, 3.0.1, 3.1.0 through 3.1.3, 3.3.0, 3.4.0, 3.4.1, 3.5.0, 3.5.1, and MQ Operator SC2 3.2.0 through 3.2.10\u00a0\n\nClient connecting to a MQ Queue Manager can cause a SIGSEGV in the AMQRMPPA channel process terminating it.",
       "publishedDate": "2025-05-01T21:24:24.884000+00:00",
       "lastModifiedDate": "2025-05-02T12:45:05.894000+00:00",
       "severity": "MEDIUM",
@@ -12552,7 +12552,7 @@
     {
       "cveId": "CVE-2025-8071",
       "title": "Mine CloudVod <= 2.1.10 - Authenticated (Contributor+) Stored Cross-Site Scripting via audio Parameter",
-      "description": "Mine CloudVod plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the ‘audio’ parameter in all versions up to, and including, 2.1.10 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "description": "Mine CloudVod plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the \u2018audio\u2019 parameter in all versions up to, and including, 2.1.10 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "publishedDate": "2025-07-24T09:22:17.365000+00:00",
       "lastModifiedDate": "2025-07-24T13:36:07.444000+00:00",
       "severity": "MEDIUM",
@@ -12576,7 +12576,7 @@
           "995525477-1"
         ],
         "products": [
-          "video and audio player for wordpress – mine cloudvod lms"
+          "video and audio player for wordpress \u2013 mine cloudvod lms"
         ]
       },
       "references": [
@@ -13121,7 +13121,7 @@
         },
         {
           "url": "https://vuldb.com/?submit.616140",
-          "source": "Submit #616140 | Shanghai Lingdang Information Technology Lingdang CRM ≤V8.6.4.3 SQL Injection",
+          "source": "Submit #616140 | Shanghai Lingdang Information Technology Lingdang CRM \u2264V8.6.4.3 SQL Injection",
           "tags": [
             "third-party-advisory"
           ]
@@ -13576,8 +13576,8 @@
     },
     {
       "cveId": "CVE-2025-20200",
-      "title": "CVE-2025-20200: A vulnerability in the CLI of Cisco IOS XE Software could allow an authenticated, local attacker wit...",
-      "description": "A vulnerability in the CLI of Cisco IOS XE Software could allow an authenticated, local attacker with privilege level 15 to elevate privileges to root on the underlying operating system of an affected device.\r\n\r This vulnerability is due to insufficient input validation when processing specific configuration commands. An attacker could exploit this vulnerability by including crafted input in specific configuration commands. A successful exploit could allow the attacker to elevate privileges to root on the underlying operating system of an affected device. The security impact rating (SIR) of this advisory has been raised to High because an attacker could gain access to the underlying operating system of the affected device and perform potentially undetected actions.\r\n\r Note: The attacker must have privileges to enter configuration mode on the affected device. This is usually referred to as privilege level 15.",
+      "title": "CVE-2025-20200: A vulnerability\u00a0in the CLI of Cisco IOS XE Software could allow an authenticated, local attacker wit...",
+      "description": "A vulnerability\u00a0in the CLI of Cisco IOS XE Software could allow an authenticated, local attacker with privilege level 15 to elevate privileges to root on the underlying operating system of an affected device.\r\n\r This vulnerability is due to insufficient input validation when processing specific configuration commands. An attacker could exploit this vulnerability by including crafted input in specific configuration commands. A successful exploit could allow the attacker to elevate privileges to root on the underlying operating system of an affected device. The security impact rating (SIR) of this advisory has been raised to High because an attacker could gain access to the underlying operating system of the affected device and perform potentially undetected actions.\r\n\r Note: The attacker must have privileges to enter configuration mode on the affected device. This is usually referred to as privilege level 15.",
       "publishedDate": "2025-05-07T17:44:05.895000+00:00",
       "lastModifiedDate": "2025-05-08T03:56:38.810000+00:00",
       "severity": "MEDIUM",
@@ -13961,8 +13961,8 @@
     },
     {
       "cveId": "CVE-2025-20201",
-      "title": "CVE-2025-20201: A vulnerability in the CLI of Cisco IOS XE Software could allow an authenticated, local attacker wit...",
-      "description": "A vulnerability in the CLI of Cisco IOS XE Software could allow an authenticated, local attacker with privilege level 15 to elevate privileges to root on the underlying operating system of an affected device.\r\n\r This vulnerability is due to insufficient input validation when processing specific configuration commands. An attacker could exploit this vulnerability by including crafted input in specific configuration commands. A successful exploit could allow the attacker to elevate privileges to root on the underlying operating system of an affected device. The security impact rating (SIR) of this advisory has been raised to High because an attacker could gain access to the underlying operating system of the affected device and perform potentially undetected actions.\r\n\r Note: The attacker must have privileges to enter configuration mode on the affected device. This is usually referred to as privilege level 15.",
+      "title": "CVE-2025-20201: A vulnerability\u00a0in the CLI of Cisco IOS XE Software could allow an authenticated, local attacker wit...",
+      "description": "A vulnerability\u00a0in the CLI of Cisco IOS XE Software could allow an authenticated, local attacker with privilege level 15 to elevate privileges to root on the underlying operating system of an affected device.\r\n\r This vulnerability is due to insufficient input validation when processing specific configuration commands. An attacker could exploit this vulnerability by including crafted input in specific configuration commands. A successful exploit could allow the attacker to elevate privileges to root on the underlying operating system of an affected device. The security impact rating (SIR) of this advisory has been raised to High because an attacker could gain access to the underlying operating system of the affected device and perform potentially undetected actions.\r\n\r Note: The attacker must have privileges to enter configuration mode on the affected device. This is usually referred to as privilege level 15.",
       "publishedDate": "2025-05-07T17:44:57.035000+00:00",
       "lastModifiedDate": "2025-05-08T03:56:31.913000+00:00",
       "severity": "MEDIUM",
@@ -14128,7 +14128,7 @@
     {
       "cveId": "CVE-2025-22254",
       "title": "CVE-2025-22254: An Improper Privilege Management vulnerability [CWE-269] affecting Fortinet FortiOS version 7.6.0 th...",
-      "description": "An Improper Privilege Management vulnerability [CWE-269] affecting Fortinet FortiOS version 7.6.0 through 7.6.1, 7.4.0 through 7.4.6, 7.2.0 through 7.2.10, 7.0.0 through 7.0.16 and before 6.4.15, FortiProxy version 7.6.0 through 7.6.1 and before 7.4.7 & FortiWeb version 7.6.0 through 7.6.1 and before 7.4.6 allows an authenticated attacker with at least read-only admin permissions to gain super-admin privileges via crafted requests to Node.js websocket module.",
+      "description": "An Improper Privilege Management vulnerability [CWE-269] affecting Fortinet FortiOS version 7.6.0 through 7.6.1, 7.4.0 through 7.4.6, 7.2.0 through 7.2.10, 7.0.0 through 7.0.16 and before 6.4.15, FortiProxy version 7.6.0 through 7.6.1 and before 7.4.7 & FortiWeb version 7.6.0 through 7.6.1 and before 7.4.6 allows an authenticated attacker with at least read-only admin permissions to gain super-admin privileges via crafted requests to\u00a0Node.js websocket module.",
       "publishedDate": "2025-06-10T16:36:17.127000+00:00",
       "lastModifiedDate": "2025-06-11T04:01:44.767000+00:00",
       "severity": "MEDIUM",
@@ -14187,7 +14187,7 @@
     {
       "cveId": "CVE-2025-22240",
       "title": "CVE-2025-22240 salt advisory",
-      "description": "Arbitrary directory creation or file deletion. In the find_file method of the GitFS class, a path is created using os.path.join using unvalidated input from the “tgt_env” variable. This can be exploited by an attacker to delete any file on the Master's process has permissions to.",
+      "description": "Arbitrary directory creation or file deletion. In the find_file method of the GitFS class, a path is created using os.path.join using unvalidated input from the \u201ctgt_env\u201d variable. This can be exploited by an attacker to delete any file on the Master's process has permissions to.",
       "publishedDate": "2025-06-13T07:03:35.139000+00:00",
       "lastModifiedDate": "2025-06-13T13:42:42.561000+00:00",
       "severity": "MEDIUM",
@@ -14247,7 +14247,7 @@
     {
       "cveId": "CVE-2025-6976",
       "title": "Events Manager <= 7.0.3 - Authenticated(Contributor+) Stored Cross-Site Scripting via Plugin Shortcodes",
-      "description": "The Events Manager – Calendar, Bookings, Tickets, and more! plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the plugin's  shortcodes in all versions up to, and including, 7.0.3 due to insufficient input sanitization and output escaping on user supplied attributes. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "description": "The Events Manager \u2013 Calendar, Bookings, Tickets, and more! plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the plugin's  shortcodes in all versions up to, and including, 7.0.3 due to insufficient input sanitization and output escaping on user supplied attributes. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "publishedDate": "2025-07-09T22:22:47.733000+00:00",
       "lastModifiedDate": "2025-07-10T13:49:28.842000+00:00",
       "severity": "MEDIUM",
@@ -14271,7 +14271,7 @@
           "netweblogic"
         ],
         "products": [
-          "events manager – calendar, bookings, tickets, and more!"
+          "events manager \u2013 calendar, bookings, tickets, and more!"
         ]
       },
       "references": [
@@ -14339,7 +14339,7 @@
     {
       "cveId": "CVE-2025-6382",
       "title": "Taeggie Feed <= 0.1.10 - Authenticated (Contributor+) Stored Cross-Site Scripting via name Attribute",
-      "description": "The Taeggie Feed plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the plugin's taeggie-feed shortcode in all versions up to, and including, 0.1.10. The plugin’s render() method takes the user-supplied name attribute and injects it directly into a <script> tag - both in the id attribute and inside jQuery.getScript() - without proper escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "description": "The Taeggie Feed plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the plugin's taeggie-feed shortcode in all versions up to, and including, 0.1.10. The plugin\u2019s render() method takes the user-supplied name attribute and injects it directly into a <script> tag - both in the id attribute and inside jQuery.getScript() - without proper escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "publishedDate": "2025-07-24T09:22:20.550000+00:00",
       "lastModifiedDate": "2025-07-24T13:14:06.275000+00:00",
       "severity": "MEDIUM",
@@ -15288,7 +15288,7 @@
     {
       "cveId": "CVE-2025-41233",
       "title": "CVE-2025-41233: Description:\n\nVMware AVI Load Balancer contains an authenticated blind SQL Injection vulnerability. ...",
-      "description": "Description:\n\nVMware AVI Load Balancer contains an authenticated blind SQL Injection vulnerability. VMware has evaluated the severity of the issue to be in the  Moderate severity range https://www.broadcom.com/support/vmware-services/security-response  with a maximum CVSSv3 base score of  6.8 https://www.first.org/cvss/calculator/3-0#CVSS:3.0/AV:N/AC:L/PR:H/UI:N/S:C/C:H/I:N/A:N .\n\nKnown Attack Vectors:\n\nAn authenticated malicious user with network access may be able to use specially crafted SQL queries to gain database access.\n\nResolution:\n\nTo remediate CVE-2025-41233 apply the patches to the Avi Controller listed in the 'Fixed Version' column of the 'Response Matrix' found below.\n\nWorkarounds:\n\nNone.\n\nAdditional Documentation:\n\nNone.\n\nAcknowledgements:\n\nVMware would like to thank  Alexandru Copaceanu https://www.linkedin.com/in/alexandru-copaceanu-b39aaa1a8/  for reporting this issue to us.\n\nNotes:\n\nNone.\n\n \n\nResponse Matrix:\n\nProductVersionRunning OnCVECVSSv4SeverityFixed VersionWorkaroundsAdditional DocumentsVMware Avi Load Balancer30.1.1AnyCVE-2025-41233 6.8 https://www.first.org/cvss/calculator/3-0#CVSS:3.0/AV:N/AC:L/PR:H/UI:N/S:C/C:H/I:N/A:N Moderate 30.1.2-2p3 https://techdocs.broadcom.com/us/en/vmware-security-load-balancing/avi-load-balancer/avi-load-balancer/30-1/vmware-avi-load-balancer-release-notes/release-notes-30-1-2.html NoneNoneVMware Avi Load Balancer30.1.2AnyCVE-2025-41233 6.8 https://www.first.org/cvss/calculator/3-0#CVSS:3.0/AV:N/AC:L/PR:H/UI:N/S:C/C:H/I:N/A:N Moderate 30.1.2-2p3 https://techdocs.broadcom.com/us/en/vmware-security-load-balancing/avi-load-balancer/avi-load-balancer/30-1/vmware-avi-load-balancer-release-notes/release-notes-30-1-2.html NoneNoneVMware Avi Load Balancer30.2.1AnyCVE-2025-41233 6.8 https://www.first.org/cvss/calculator/3-0#CVSS:3.0/AV:N/AC:L/PR:H/UI:N/S:C/C:H/I:N/A:N Moderate 30.2.1-2p6 https://techdocs.broadcom.com/us/en/vmware-security-load-balancing/avi-load-balancer/avi-load-balancer/30-2/vmware-avi-load-balancer-release-notes/release-notes-for-avi-load-balancer-version-30-2-1.html NoneNoneVMware Avi Load Balancer30.2.2AnyCVE-2025-41233 6.8 https://www.first.org/cvss/calculator/3-0#CVSS:3.0/AV:N/AC:L/PR:H/UI:N/S:C/C:H/I:N/A:N Moderate 30.2.2-2p5 https://techdocs.broadcom.com/us/en/vmware-security-load-balancing/avi-load-balancer/avi-load-balancer/30-2/vmware-avi-load-balancer-release-notes/release-notes-for-avi-load-balancer-version-30-2-2.html NoneNoneVMware Avi Load Balancer30.2.3AnyCVE-2025-41233N/AN/AUnaffectedNoneNoneVMware Avi Load Balancer31.1.1AnyCVE-2025-41233 6.8 https://www.first.org/cvss/calculator/3-0#CVSS:3.0/AV:N/AC:L/PR:H/UI:N/S:C/C:H/I:N/A:N Moderate 31.1.1-2p2 https://techdocs.broadcom.com/us/en/vmware-security-load-balancing/avi-load-balancer/avi-load-balancer/31-1/vmware-avi-load-balancer-release-notes/Release-Note-Section-20627.html NoneNone\n\nCWE-89 in the Avi Load Balancer component of VMware allows an authenticated attacker to execute blind SQL injections in versions 30.1.1, 30.1.2, 30.2.1, and 30.2.2 due to improper input validation, enabling unauthorized database access.",
+      "description": "Description:\n\nVMware AVI Load Balancer contains an authenticated blind SQL Injection vulnerability. VMware has evaluated the severity of the issue to be in the  Moderate severity range https://www.broadcom.com/support/vmware-services/security-response \u00a0with a maximum CVSSv3 base score of  6.8 https://www.first.org/cvss/calculator/3-0#CVSS:3.0/AV:N/AC:L/PR:H/UI:N/S:C/C:H/I:N/A:N .\n\nKnown Attack Vectors:\n\nAn authenticated malicious user with network access may be able to use specially crafted SQL queries to gain database access.\n\nResolution:\n\nTo remediate CVE-2025-41233 apply the patches to the Avi Controller listed in the 'Fixed Version' column of the 'Response Matrix' found below.\n\nWorkarounds:\n\nNone.\n\nAdditional Documentation:\n\nNone.\n\nAcknowledgements:\n\nVMware would like to thank  Alexandru Copaceanu https://www.linkedin.com/in/alexandru-copaceanu-b39aaa1a8/ \u00a0for reporting this issue to us.\n\nNotes:\n\nNone.\n\n\u00a0\n\nResponse Matrix:\n\nProductVersionRunning OnCVECVSSv4SeverityFixed VersionWorkaroundsAdditional DocumentsVMware Avi Load Balancer30.1.1AnyCVE-2025-41233 6.8 https://www.first.org/cvss/calculator/3-0#CVSS:3.0/AV:N/AC:L/PR:H/UI:N/S:C/C:H/I:N/A:N Moderate 30.1.2-2p3 https://techdocs.broadcom.com/us/en/vmware-security-load-balancing/avi-load-balancer/avi-load-balancer/30-1/vmware-avi-load-balancer-release-notes/release-notes-30-1-2.html NoneNoneVMware Avi Load Balancer30.1.2AnyCVE-2025-41233 6.8 https://www.first.org/cvss/calculator/3-0#CVSS:3.0/AV:N/AC:L/PR:H/UI:N/S:C/C:H/I:N/A:N Moderate 30.1.2-2p3 https://techdocs.broadcom.com/us/en/vmware-security-load-balancing/avi-load-balancer/avi-load-balancer/30-1/vmware-avi-load-balancer-release-notes/release-notes-30-1-2.html NoneNoneVMware Avi Load Balancer30.2.1AnyCVE-2025-41233 6.8 https://www.first.org/cvss/calculator/3-0#CVSS:3.0/AV:N/AC:L/PR:H/UI:N/S:C/C:H/I:N/A:N Moderate 30.2.1-2p6 https://techdocs.broadcom.com/us/en/vmware-security-load-balancing/avi-load-balancer/avi-load-balancer/30-2/vmware-avi-load-balancer-release-notes/release-notes-for-avi-load-balancer-version-30-2-1.html NoneNoneVMware Avi Load Balancer30.2.2AnyCVE-2025-41233 6.8 https://www.first.org/cvss/calculator/3-0#CVSS:3.0/AV:N/AC:L/PR:H/UI:N/S:C/C:H/I:N/A:N Moderate 30.2.2-2p5 https://techdocs.broadcom.com/us/en/vmware-security-load-balancing/avi-load-balancer/avi-load-balancer/30-2/vmware-avi-load-balancer-release-notes/release-notes-for-avi-load-balancer-version-30-2-2.html NoneNoneVMware Avi Load Balancer30.2.3AnyCVE-2025-41233N/AN/AUnaffectedNoneNoneVMware Avi Load Balancer31.1.1AnyCVE-2025-41233 6.8 https://www.first.org/cvss/calculator/3-0#CVSS:3.0/AV:N/AC:L/PR:H/UI:N/S:C/C:H/I:N/A:N Moderate 31.1.1-2p2 https://techdocs.broadcom.com/us/en/vmware-security-load-balancing/avi-load-balancer/avi-load-balancer/31-1/vmware-avi-load-balancer-release-notes/Release-Note-Section-20627.html NoneNone\n\nCWE-89 in the Avi Load Balancer component of VMware allows an authenticated attacker to execute blind SQL injections in versions 30.1.1, 30.1.2, 30.2.1, and 30.2.2 due to improper input validation, enabling unauthorized database access.",
       "publishedDate": "2025-06-12T21:39:53.475000+00:00",
       "lastModifiedDate": "2025-06-13T14:05:40.989000+00:00",
       "severity": "MEDIUM",
@@ -15345,7 +15345,7 @@
     {
       "cveId": "CVE-2025-41226",
       "title": "Guest Operations Denial-of-Service Vulnerability",
-      "description": "VMware ESXi contains a denial-of-service vulnerability that occurs when performing a guest operation. A malicious actor with guest operation privileges on a VM, who is already authenticated through vCenter Server or ESXi may trigger this issue to create a denial-of-service condition of guest VMs with VMware Tools running and guest operations enabled.",
+      "description": "VMware\u00a0ESXi contains a denial-of-service vulnerability that occurs when performing a guest operation.\u00a0A malicious actor with guest operation privileges on a VM, who is already authenticated through vCenter Server or ESXi may trigger this issue to create a denial-of-service condition of guest VMs with VMware Tools running and guest operations enabled.",
       "publishedDate": "2025-05-20T14:24:24.680000+00:00",
       "lastModifiedDate": "2025-06-24T07:12:21.964000+00:00",
       "severity": "MEDIUM",
@@ -18194,7 +18194,7 @@
     {
       "cveId": "CVE-2025-33014",
       "title": "IBM Sterling B2B Integrator and IBM Sterling File Gateway link injection",
-      "description": "IBM Sterling B2B Integrator and IBM Sterling File Gateway 6.0.0.0 through 6.1.2.7 and 6.2.0.0 through 6.2.0.4 uses a web link with untrusted references to an external site. A remote attacker could exploit this vulnerability to expose sensitive information or perform unauthorized actions on the victims’ web browser.",
+      "description": "IBM Sterling B2B Integrator and IBM Sterling File Gateway 6.0.0.0 through 6.1.2.7 and 6.2.0.0 through 6.2.0.4\u00a0uses a web link with untrusted references to an external site. A remote attacker could exploit this vulnerability to expose sensitive information or perform unauthorized actions on the victims\u2019 web browser.",
       "publishedDate": "2025-07-18T18:51:05.486000+00:00",
       "lastModifiedDate": "2025-07-22T14:52:03.687000+00:00",
       "severity": "MEDIUM",
@@ -18734,8 +18734,8 @@
     },
     {
       "cveId": "CVE-2025-5314",
-      "title": "Dear Flipbook – PDF Flipbook, 3D Flipbook, PDF embed, PDF viewer <= 2.3.65 - DOM-Based Reflected Cross-Site Scripting via 'pdf-source'",
-      "description": "The Dear Flipbook – PDF Flipbook, 3D Flipbook, PDF embed, PDF viewer plugin for WordPress is vulnerable to DOM-Based Reflected Cross-Site Scripting via the ‘pdf-source’ parameter in all versions up to, and including, 2.3.65 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link.",
+      "title": "Dear Flipbook \u2013 PDF Flipbook, 3D Flipbook, PDF embed, PDF viewer <= 2.3.65 - DOM-Based Reflected Cross-Site Scripting via 'pdf-source'",
+      "description": "The Dear Flipbook \u2013 PDF Flipbook, 3D Flipbook, PDF embed, PDF viewer plugin for WordPress is vulnerable to DOM-Based Reflected Cross-Site Scripting via the \u2018pdf-source\u2019 parameter in all versions up to, and including, 2.3.65 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link.",
       "publishedDate": "2025-07-01T11:27:12.335000+00:00",
       "lastModifiedDate": "2025-07-01T13:57:50.512000+00:00",
       "severity": "MEDIUM",
@@ -18759,7 +18759,7 @@
           "dearhive"
         ],
         "products": [
-          "dear flipbook – pdf flipbook, 3d flipbook, pdf embed, pdf viewer"
+          "dear flipbook \u2013 pdf flipbook, 3d flipbook, pdf embed, pdf viewer"
         ]
       },
       "references": [
@@ -18996,8 +18996,8 @@
     },
     {
       "cveId": "CVE-2025-2330",
-      "title": "All-in-One Addons for Elementor – WidgetKit <= 2.5.4 - Authenticated (Contributor+) Stored Cross-Site Scripting via button+modal Widget",
-      "description": "The All-in-One Addons for Elementor – WidgetKit plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the plugin's 'button+modal' widget in all versions up to, and including, 2.5.4 due to insufficient input sanitization and output escaping on user supplied attributes. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "title": "All-in-One Addons for Elementor \u2013 WidgetKit <= 2.5.4 - Authenticated (Contributor+) Stored Cross-Site Scripting via button+modal Widget",
+      "description": "The All-in-One Addons for Elementor \u2013 WidgetKit plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the plugin's 'button+modal' widget in all versions up to, and including, 2.5.4 due to insufficient input sanitization and output escaping on user supplied attributes. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "publishedDate": "2025-07-02T09:23:24.595000+00:00",
       "lastModifiedDate": "2025-07-02T13:14:21.969000+00:00",
       "severity": "MEDIUM",
@@ -19021,7 +19021,7 @@
           "themesgrove"
         ],
         "products": [
-          "all-in-one addons for elementor – widgetkit"
+          "all-in-one addons for elementor \u2013 widgetkit"
         ]
       },
       "references": [
@@ -21712,7 +21712,7 @@
         },
         {
           "url": "https://vuldb.com/?submit.607261",
-          "source": "Submit #607261 | D-Link DIR-645 D-Link DIR‑645 A1 Command Injection",
+          "source": "Submit #607261 | D-Link DIR-645 D-Link DIR\u2011645 A1 Command Injection",
           "tags": [
             "third-party-advisory"
           ]
@@ -22935,8 +22935,8 @@
     },
     {
       "cveId": "CVE-2025-7644",
-      "title": "Pixel Gallery Addons for Elementor – Easy Grid, Creative Gallery, Drag and Drop Grid, Custom Grid Layout, Portfolio Gallery <= 1.6.7 - Authenticated (Contributor+) Stored Cross-Site Scripting",
-      "description": "The Pixel Gallery Addons for Elementor – Easy Grid, Creative Gallery, Drag and Drop Grid, Custom Grid Layout, Portfolio Gallery plugin for WordPress is vulnerable to Stored Cross-Site Scripting via URLs in all widgets in all versions up to, and including, 1.6.7 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "title": "Pixel Gallery Addons for Elementor \u2013 Easy Grid, Creative Gallery, Drag and Drop Grid, Custom Grid Layout, Portfolio Gallery <= 1.6.7 - Authenticated (Contributor+) Stored Cross-Site Scripting",
+      "description": "The Pixel Gallery Addons for Elementor \u2013 Easy Grid, Creative Gallery, Drag and Drop Grid, Custom Grid Layout, Portfolio Gallery plugin for WordPress is vulnerable to Stored Cross-Site Scripting via URLs in all widgets in all versions up to, and including, 1.6.7 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "publishedDate": "2025-07-22T04:25:07.911000+00:00",
       "lastModifiedDate": "2025-07-22T16:26:54.655000+00:00",
       "severity": "MEDIUM",
@@ -22960,7 +22960,7 @@
           "bdthemes"
         ],
         "products": [
-          "pixel gallery addons for elementor – easy grid, creative gallery, drag and drop grid, custom grid layout, portfolio gallery"
+          "pixel gallery addons for elementor \u2013 easy grid, creative gallery, drag and drop grid, custom grid layout, portfolio gallery"
         ]
       },
       "references": [
@@ -24076,8 +24076,8 @@
     },
     {
       "cveId": "CVE-2025-7932",
-      "title": "D-Link DIR‑817L ssdpcgi lxmldbc_system command injection",
-      "description": "A vulnerability classified as critical has been found in D-Link DIR‑817L up to 1.04B01. This affects the function lxmldbc_system of the file ssdpcgi. The manipulation leads to command injection. It is possible to initiate the attack remotely. The exploit has been disclosed to the public and may be used.",
+      "title": "D-Link DIR\u2011817L ssdpcgi lxmldbc_system command injection",
+      "description": "A vulnerability classified as critical has been found in D-Link DIR\u2011817L up to 1.04B01. This affects the function lxmldbc_system of the file ssdpcgi. The manipulation leads to command injection. It is possible to initiate the attack remotely. The exploit has been disclosed to the public and may be used.",
       "publishedDate": "2025-07-21T17:02:06.388000+00:00",
       "lastModifiedDate": "2025-07-21T17:51:28.544000+00:00",
       "severity": "MEDIUM",
@@ -24107,13 +24107,13 @@
           "d-link"
         ],
         "products": [
-          "dir‑817l"
+          "dir\u2011817l"
         ]
       },
       "references": [
         {
           "url": "https://vuldb.com/?id.317061",
-          "source": "VDB-317061 | D-Link DIR‑817L ssdpcgi lxmldbc_system command injection",
+          "source": "VDB-317061 | D-Link DIR\u2011817L ssdpcgi lxmldbc_system command injection",
           "tags": [
             "vdb-entry",
             "technical-description"
@@ -24129,7 +24129,7 @@
         },
         {
           "url": "https://vuldb.com/?submit.618951",
-          "source": "Submit #618951 | D-Link DIR‑817L Firmware version <= Firmware v1.04B01 RCE",
+          "source": "Submit #618951 | D-Link DIR\u2011817L Firmware version <= Firmware v1.04B01 RCE",
           "tags": [
             "third-party-advisory"
           ]
@@ -28186,7 +28186,7 @@
     {
       "cveId": "CVE-2025-36056",
       "title": "IBM System Storage Virtualization Engine TS7700 cross-site scripting",
-      "description": "IBM System Storage Virtualization Engine TS7700 3957 VED R5.4 8.54.2.17, R6.0 8.60.0.115, 3948 VED R5.4 8.54.2.17, R6.0 8.60.0.115, and 3948 VEF R6.0 8.60.0.115 is vulnerable to cross-site scripting. This vulnerability allows an authenticated user to embed arbitrary JavaScript code in the Web UI thus altering the intended functionality potentially leading to credentials disclosure within a trusted session.",
+      "description": "IBM System Storage Virtualization Engine TS7700 3957 VED R5.4 8.54.2.17, R6.0 8.60.0.115, 3948 VED R5.4 8.54.2.17, R6.0 8.60.0.115, and 3948 VEF R6.0 8.60.0.115\u00a0is vulnerable to cross-site scripting. This vulnerability allows an authenticated user to embed arbitrary JavaScript code in the Web UI thus altering the intended functionality potentially leading to credentials disclosure within a trusted session.",
       "publishedDate": "2025-07-01T01:00:03.022000+00:00",
       "lastModifiedDate": "2025-07-01T13:37:16.985000+00:00",
       "severity": "MEDIUM",
@@ -28843,7 +28843,7 @@
     {
       "cveId": "CVE-2025-8015",
       "title": "Shortcodes Ultimate <= 7.4.2 - Authenticated (Author+) Stored Cross-Site Scripting via Image Title and Slide Link",
-      "description": "The WP Shortcodes Plugin — Shortcodes Ultimate plugin for WordPress is vulnerable to Stored Cross-Site Scripting via an uploaded image's 'Title' and 'Slide link' fields in all versions up to, and including, 7.4.2 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Author-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "description": "The WP Shortcodes Plugin \u2014 Shortcodes Ultimate plugin for WordPress is vulnerable to Stored Cross-Site Scripting via an uploaded image's 'Title' and 'Slide link' fields in all versions up to, and including, 7.4.2 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Author-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "publishedDate": "2025-07-22T14:43:08.091000+00:00",
       "lastModifiedDate": "2025-07-22T14:55:47.508000+00:00",
       "severity": "MEDIUM",
@@ -28867,7 +28867,7 @@
           "gn_themes"
         ],
         "products": [
-          "wp shortcodes plugin — shortcodes ultimate"
+          "wp shortcodes plugin \u2014 shortcodes ultimate"
         ]
       },
       "references": [
@@ -29617,7 +29617,7 @@
     {
       "cveId": "CVE-2025-6214",
       "title": "Omnishop <= 1.0.9 - Cross-Site Request Forgery to Arbitrary User Deletion via /users/delete REST Endpoint",
-      "description": "The Omnishop plugin for WordPress is vulnerable to Cross-Site Request Forgery on its /users/delete REST route in all versions up to, and including, 1.0.9. The route’s permission_callback only verifies that the requester is logged in, but fails to require any nonce or other proof of intent. This makes it possible for unauthenticated attackers to delete arbitrary user accounts via a forged request granted they can trick a site administrator into performing an action such as clicking on a link.",
+      "description": "The Omnishop plugin for WordPress is vulnerable to Cross-Site Request Forgery on its /users/delete REST route in all versions up to, and including, 1.0.9. The route\u2019s permission_callback only verifies that the requester is logged in, but fails to require any nonce or other proof of intent. This makes it possible for unauthenticated attackers to delete arbitrary user accounts via a forged request granted they can trick a site administrator into performing an action such as clicking on a link.",
       "publishedDate": "2025-07-23T02:24:39.397000+00:00",
       "lastModifiedDate": "2025-07-23T18:28:29.460000+00:00",
       "severity": "MEDIUM",
@@ -29641,7 +29641,7 @@
           "omnishop"
         ],
         "products": [
-          "omnishop – mobile shop apps complementing your woocommerce webshop"
+          "omnishop \u2013 mobile shop apps complementing your woocommerce webshop"
         ]
       },
       "references": [
@@ -30374,7 +30374,7 @@
         },
         {
           "url": "https://vuldb.com/?submit.604444",
-          "source": "Submit #604444 | D-Link D-Link DI-7300G+、D-Link DI-8200G DI-7300G+ V19.12.25A1、DI_8200G-17.12.20A1 OS Command Injection",
+          "source": "Submit #604444 | D-Link D-Link DI-7300G+\u3001D-Link DI-8200G DI-7300G+ V19.12.25A1\u3001DI_8200G-17.12.20A1 OS Command Injection",
           "tags": [
             "third-party-advisory"
           ]
@@ -31578,7 +31578,7 @@
     {
       "cveId": "CVE-2025-6539",
       "title": "Voltax Video Player <= 1.6.5 - Authenticated (Contributor+) Stored Cross-Site Scripting via id Parameter",
-      "description": "The Voltax Video Player plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the ‘id’ parameter in all versions up to, and including, 1.6.5 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "description": "The Voltax Video Player plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the \u2018id\u2019 parameter in all versions up to, and including, 1.6.5 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "publishedDate": "2025-07-24T09:22:20.169000+00:00",
       "lastModifiedDate": "2025-07-24T13:14:20.966000+00:00",
       "severity": "MEDIUM",
@@ -31736,8 +31736,8 @@
     },
     {
       "cveId": "CVE-2025-6898",
-      "title": "D-Link DI-7300G+ in proxy_client.asp os command injection",
-      "description": "A vulnerability, which was classified as critical, has been found in D-Link DI-7300G+ 19.12.25A1. Affected by this issue is some unknown functionality of the file in proxy_client.asp. The manipulation of the argument proxy_srv/proxy_lanport/proxy_lanip/proxy_srvport leads to os command injection. The attack may be launched remotely. The exploit has been disclosed to the public and may be used.",
+      "title": "D-Link DI-7300G+ in\u00a0proxy_client.asp os command injection",
+      "description": "A vulnerability, which was classified as critical, has been found in D-Link DI-7300G+ 19.12.25A1. Affected by this issue is some unknown functionality of the file in\u00a0proxy_client.asp. The manipulation of the argument proxy_srv/proxy_lanport/proxy_lanip/proxy_srvport leads to os command injection. The attack may be launched remotely. The exploit has been disclosed to the public and may be used.",
       "publishedDate": "2025-06-30T08:02:06.036000+00:00",
       "lastModifiedDate": "2025-06-30T17:47:48.976000+00:00",
       "severity": "MEDIUM",
@@ -31773,7 +31773,7 @@
       "references": [
         {
           "url": "https://vuldb.com/?id.314390",
-          "source": "VDB-314390 | D-Link DI-7300G+ in proxy_client.asp os command injection",
+          "source": "VDB-314390 | D-Link DI-7300G+ in\u00a0proxy_client.asp os command injection",
           "tags": [
             "vdb-entry",
             "technical-description"
@@ -31833,7 +31833,7 @@
     {
       "cveId": "CVE-2025-6385",
       "title": "WP Applink <= 0.4.1 - Authenticated (Contributor+) Stored Cross-Site Scripting via title Parameter",
-      "description": "The WP Applink plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the ‘title’ parameter in all versions up to, and including, 0.4.1 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "description": "The WP Applink plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the \u2018title\u2019 parameter in all versions up to, and including, 0.4.1 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "publishedDate": "2025-07-24T09:22:18.661000+00:00",
       "lastModifiedDate": "2025-07-24T13:31:23.679000+00:00",
       "severity": "MEDIUM",
@@ -31990,7 +31990,7 @@
     {
       "cveId": "CVE-2025-6387",
       "title": "WP Get The Table <= 1.5 - Authenticated (Contributor+) Stored Cross-Site Scripting via url Parameter",
-      "description": "The WP Get The Table plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the ‘url’ parameter in all versions up to, and including, 1.5 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "description": "The WP Get The Table plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the \u2018url\u2019 parameter in all versions up to, and including, 1.5 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "publishedDate": "2025-07-24T09:22:19.383000+00:00",
       "lastModifiedDate": "2025-07-24T13:18:59.038000+00:00",
       "severity": "MEDIUM",
@@ -32436,8 +32436,8 @@
     },
     {
       "cveId": "CVE-2025-6977",
-      "title": "ProfileGrid – User Profiles, Groups and Communities <= 5.9.5.4 - Reflected Cross-Site Scripting via 'pm_get_messenger_notification' function",
-      "description": "The ProfileGrid – User Profiles, Groups and Communities plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the ‘pm_get_messenger_notification’ function in all versions up to, and including, 5.9.5.4 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a logged-in user into performing an action such as clicking on a link.",
+      "title": "ProfileGrid \u2013 User Profiles, Groups and Communities <= 5.9.5.4 - Reflected Cross-Site Scripting via 'pm_get_messenger_notification' function",
+      "description": "The ProfileGrid \u2013 User Profiles, Groups and Communities plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the \u2018pm_get_messenger_notification\u2019 function in all versions up to, and including, 5.9.5.4 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a logged-in user into performing an action such as clicking on a link.",
       "publishedDate": "2025-07-16T04:24:02.528000+00:00",
       "lastModifiedDate": "2025-07-18T14:45:52.322000+00:00",
       "severity": "MEDIUM",
@@ -32461,7 +32461,7 @@
           "metagauss"
         ],
         "products": [
-          "profilegrid – user profiles, groups and communities"
+          "profilegrid \u2013 user profiles, groups and communities"
         ]
       },
       "references": [
@@ -34360,7 +34360,7 @@
           "tobiasbg"
         ],
         "products": [
-          "tablepress – tables in wordpress made easy"
+          "tablepress \u2013 tables in wordpress made easy"
         ]
       },
       "references": [
@@ -34433,7 +34433,7 @@
     {
       "cveId": "CVE-2025-5752",
       "title": "Vertical scroll image slideshow gallery <= 11.1 - Authenticated (Contributor+) Stored Cross-Site Scripting via width Parameter",
-      "description": "The Vertical scroll image slideshow gallery plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the ‘width’ parameter in all versions up to, and including, 11.1 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "description": "The Vertical scroll image slideshow gallery plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the \u2018width\u2019 parameter in all versions up to, and including, 11.1 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "publishedDate": "2025-07-18T05:24:00.364000+00:00",
       "lastModifiedDate": "2025-07-18T14:02:21.701000+00:00",
       "severity": "MEDIUM",
@@ -34499,8 +34499,8 @@
     },
     {
       "cveId": "CVE-2025-5754",
-      "title": "Useful Tab Block – Responsive & AMP-Compatible <= 1.3.2 - Authenticated (Contributor+) Stored Cross-Site Scripting via className Parameter",
-      "description": "The Useful Tab Block – Responsive & AMP-Compatible plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the ‘className’ parameter in all versions up to, and including, 1.3.2 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "title": "Useful Tab Block \u2013 Responsive & AMP-Compatible <= 1.3.2 - Authenticated (Contributor+) Stored Cross-Site Scripting via className Parameter",
+      "description": "The Useful Tab Block \u2013 Responsive & AMP-Compatible plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the \u2018className\u2019 parameter in all versions up to, and including, 1.3.2 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "publishedDate": "2025-07-18T05:23:57.764000+00:00",
       "lastModifiedDate": "2025-07-18T13:51:41.768000+00:00",
       "severity": "MEDIUM",
@@ -34524,7 +34524,7 @@
           "bbc000tommy"
         ],
         "products": [
-          "useful tab block – responsive & amp-compatible"
+          "useful tab block \u2013 responsive & amp-compatible"
         ]
       },
       "references": [
@@ -34661,7 +34661,7 @@
     {
       "cveId": "CVE-2025-5845",
       "title": "Affiliate Reviews <= 1.0.6 - Authenticated (Contributor+) Stored Cross-Site Scripting via numColumns Parameter",
-      "description": "The Affiliate Reviews plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the ‘numColumns’ parameter in all versions up to, and including, 1.0.6 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "description": "The Affiliate Reviews plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the \u2018numColumns\u2019 parameter in all versions up to, and including, 1.0.6 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "publishedDate": "2025-07-16T06:40:42.277000+00:00",
       "lastModifiedDate": "2025-07-16T14:40:38.615000+00:00",
       "severity": "MEDIUM",
@@ -34831,7 +34831,7 @@
     {
       "cveId": "CVE-2025-5700",
       "title": "Simple Logo Carousel <= 1.9.3 - Authenticated (Contributor+) Stored Cross-Site Scripting via id Parameter",
-      "description": "The Simple Logo Carousel plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the ‘id’ parameter in all versions up to, and including, 1.9.3 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "description": "The Simple Logo Carousel plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the \u2018id\u2019 parameter in all versions up to, and including, 1.9.3 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "publishedDate": "2025-06-17T11:23:35.980000+00:00",
       "lastModifiedDate": "2025-06-17T14:13:52.737000+00:00",
       "severity": "MEDIUM",
@@ -34908,7 +34908,7 @@
     {
       "cveId": "CVE-2025-5843",
       "title": "Brandfolder <= 5.0.19 - Authenticated (Contributor+) Stored Cross-Site Scripting via id Parameter",
-      "description": "The Brandfolder plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the ‘id’ parameter in all versions up to, and including, 5.0.19 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "description": "The Brandfolder plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the \u2018id\u2019 parameter in all versions up to, and including, 5.0.19 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "publishedDate": "2025-07-16T06:40:41.784000+00:00",
       "lastModifiedDate": "2025-07-16T14:40:43.571000+00:00",
       "severity": "MEDIUM",
@@ -34932,7 +34932,7 @@
           "brandfolder"
         ],
         "products": [
-          "brandfolder – digital asset management simplified."
+          "brandfolder \u2013 digital asset management simplified."
         ]
       },
       "references": [
@@ -34975,7 +34975,7 @@
     {
       "cveId": "CVE-2025-5291",
       "title": "Master Slider <= 3.10.8 - Authenticated (Contributor+) Stored Cross-Site Scripting via masterslider_pb and ms_slide Shortcodes",
-      "description": "The Master Slider – Responsive Touch Slider plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the plugin's masterslider_pb and ms_slide shortcodes in all versions up to, and including, 3.10.8 due to insufficient input sanitization and output escaping on user supplied attributes. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "description": "The Master Slider \u2013 Responsive Touch Slider plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the plugin's masterslider_pb and ms_slide shortcodes in all versions up to, and including, 3.10.8 due to insufficient input sanitization and output escaping on user supplied attributes. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "publishedDate": "2025-06-17T11:23:37.205000+00:00",
       "lastModifiedDate": "2025-06-17T13:59:29.382000+00:00",
       "severity": "MEDIUM",
@@ -34999,7 +34999,7 @@
           "averta"
         ],
         "products": [
-          "master slider – responsive touch slider"
+          "master slider \u2013 responsive touch slider"
         ]
       },
       "references": [
@@ -35062,7 +35062,7 @@
     {
       "cveId": "CVE-2025-5116",
       "title": "WP Plugin Info Card <= 5.3.1 - Authenticated (Contributor+) Stored Cross-Site Scripting via containerid Parameter",
-      "description": "The WP Plugin Info Card plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the ‘containerid’ parameter in all versions up to, and including, 5.3.1 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This issue is due to an incomplete patch for CVE-2025-31835.",
+      "description": "The WP Plugin Info Card plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the \u2018containerid\u2019 parameter in all versions up to, and including, 5.3.1 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This issue is due to an incomplete patch for CVE-2025-31835.",
       "publishedDate": "2025-06-03T08:21:53.834000+00:00",
       "lastModifiedDate": "2025-06-03T13:29:52.353000+00:00",
       "severity": "MEDIUM",
@@ -35139,7 +35139,7 @@
     {
       "cveId": "CVE-2025-5767",
       "title": "Crowdfunding for WooCommerce <= 3.1.14 - Authenticated (Contributor+) Stored Cross-Site Scripting via width Parameter",
-      "description": "The Crowdfunding for WooCommerce plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the ‘width’ parameter in all versions up to, and including, 3.1.14 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "description": "The Crowdfunding for WooCommerce plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the \u2018width\u2019 parameter in all versions up to, and including, 3.1.14 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "publishedDate": "2025-07-18T05:23:59.515000+00:00",
       "lastModifiedDate": "2025-07-18T14:23:43.724000+00:00",
       "severity": "MEDIUM",
@@ -35206,7 +35206,7 @@
     {
       "cveId": "CVE-2025-5234",
       "title": "Gutenverse News <= 1.0.4 - Authenticated (Contributor+) Stored Cross-Site Scripting via elementId Parameter",
-      "description": "The Gutenverse News plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the ‘elementId’ parameter in all versions up to, and including, 1.0.4 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "description": "The Gutenverse News plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the \u2018elementId\u2019 parameter in all versions up to, and including, 1.0.4 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "publishedDate": "2025-06-19T09:23:48.419000+00:00",
       "lastModifiedDate": "2025-06-20T13:11:28.042000+00:00",
       "severity": "MEDIUM",
@@ -35230,7 +35230,7 @@
           "jegstudio"
         ],
         "products": [
-          "gutenverse news –  advanced news magazine blog gutenberg blocks addons"
+          "gutenverse news \u2013  advanced news magazine blog gutenberg blocks addons"
         ]
       },
       "references": [
@@ -35283,7 +35283,7 @@
     {
       "cveId": "CVE-2025-5800",
       "title": "Testimonial Post type <= 1.2.1 - Authenticated (Contributor+) Stored Cross-Site Scripting via auto_play Parameter",
-      "description": "The Testimonial Post type plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the ‘auto_play’ parameter in all versions up to, and including, 1.2.1 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "description": "The Testimonial Post type plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the \u2018auto_play\u2019 parameter in all versions up to, and including, 1.2.1 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "publishedDate": "2025-07-18T05:24:00.733000+00:00",
       "lastModifiedDate": "2025-07-18T14:01:11.966000+00:00",
       "severity": "MEDIUM",
@@ -35350,7 +35350,7 @@
     {
       "cveId": "CVE-2025-5235",
       "title": "OpenSheetMusicDisplay <= 1.4.0 - Authenticated (Contributor+) Stored Cross-Site Scripting via className Parameter",
-      "description": "The OpenSheetMusicDisplay plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the ‘className’ parameter in all versions up to, and including, 1.4.0 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "description": "The OpenSheetMusicDisplay plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the \u2018className\u2019 parameter in all versions up to, and including, 1.4.0 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "publishedDate": "2025-05-30T09:22:07.408000+00:00",
       "lastModifiedDate": "2025-05-30T12:51:12.386000+00:00",
       "severity": "MEDIUM",
@@ -35432,7 +35432,7 @@
     {
       "cveId": "CVE-2025-5289",
       "title": "3D FlipBook - Lite Edition <= 1.16.15 - Authenticated (Contributor+) Stored Cross-Site Scripting via style and mode Parameters",
-      "description": "The 3D FlipBook – PDF Embedder, PDF Flipbook Viewer, Flipbook Image Gallery plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the ‘style’ and 'mode' parameters in all versions up to, and including, 1.16.15 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Note: This issue affects only block-based themes.",
+      "description": "The 3D FlipBook \u2013 PDF Embedder, PDF Flipbook Viewer, Flipbook Image Gallery plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the \u2018style\u2019 and 'mode' parameters in all versions up to, and including, 1.16.15 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Note: This issue affects only block-based themes.",
       "publishedDate": "2025-06-21T11:09:40.461000+00:00",
       "lastModifiedDate": "2025-06-23T15:03:51.152000+00:00",
       "severity": "MEDIUM",
@@ -35456,7 +35456,7 @@
           "iberezansky"
         ],
         "products": [
-          "3d flipbook – pdf embedder, pdf flipbook viewer, flipbook image gallery"
+          "3d flipbook \u2013 pdf embedder, pdf flipbook viewer, flipbook image gallery"
         ]
       },
       "references": [
@@ -35508,8 +35508,8 @@
     },
     {
       "cveId": "CVE-2025-5284",
-      "title": "Master Addons – Elementor Addons with White Label, Free Widgets, Hover Effects, Conditions, & Animations <= 2.0.8.2 - Authenticated (Contributor+) Stored Cross-Site Scripting",
-      "description": "The Master Addons – Elementor Addons with White Label, Free Widgets, Hover Effects, Conditions, & Animations plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the Custom JS extension in all versions up to, and including, 2.0.8.2 due to insufficient capability restriction, and insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "title": "Master Addons \u2013 Elementor Addons with White Label, Free Widgets, Hover Effects, Conditions, & Animations <= 2.0.8.2 - Authenticated (Contributor+) Stored Cross-Site Scripting",
+      "description": "The Master Addons \u2013 Elementor Addons with White Label, Free Widgets, Hover Effects, Conditions, & Animations plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the Custom JS extension in all versions up to, and including, 2.0.8.2 due to insufficient capability restriction, and insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "publishedDate": "2025-07-16T09:22:55.999000+00:00",
       "lastModifiedDate": "2025-07-18T14:48:27.255000+00:00",
       "severity": "MEDIUM",
@@ -35533,7 +35533,7 @@
           "litonice13"
         ],
         "products": [
-          "master addons – elementor addons with white label, free widgets, hover effects, conditions, & animations"
+          "master addons \u2013 elementor addons with white label, free widgets, hover effects, conditions, & animations"
         ]
       },
       "references": [
@@ -35576,7 +35576,7 @@
     {
       "cveId": "CVE-2025-5336",
       "title": "Click to Chat <= 4.22 - Authenticated (Contributor+) Stored DOM-Based Cross-Site Scripting via data-no_number Parameter",
-      "description": "The Click to Chat plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the ‘data-no_number’ parameter in all versions up to, and including, 4.22 to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "description": "The Click to Chat plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the \u2018data-no_number\u2019 parameter in all versions up to, and including, 4.22 to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "publishedDate": "2025-06-14T08:23:26.308000+00:00",
       "lastModifiedDate": "2025-06-17T18:38:52.125000+00:00",
       "severity": "MEDIUM",
@@ -35600,7 +35600,7 @@
           "holithemes"
         ],
         "products": [
-          "click to chat – holithemes"
+          "click to chat \u2013 holithemes"
         ]
       },
       "references": [
@@ -35749,7 +35749,7 @@
     {
       "cveId": "CVE-2025-5238",
       "title": "YITH WooCommerce Wishlist <= 4.5.0 - Authenticated (Contributor+) Stored Cross-Site Scripting via id Parameter",
-      "description": "The YITH WooCommerce Wishlist plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the ‘id’ parameter in all versions up to, and including, 4.5.0 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "description": "The YITH WooCommerce Wishlist plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the \u2018id\u2019 parameter in all versions up to, and including, 4.5.0 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "publishedDate": "2025-06-14T09:23:34.023000+00:00",
       "lastModifiedDate": "2025-06-17T18:38:22.243000+00:00",
       "severity": "MEDIUM",
@@ -35825,8 +35825,8 @@
     },
     {
       "cveId": "CVE-2025-5290",
-      "title": "Borderless – Elementor Addons and Templates <= 1.7.1 - Authenticated (Contributor+) Stored Cross-Site Scripting",
-      "description": "The Borderless – Elementor Addons and Templates plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the ‘title’ parameter in all versions up to, and including, 1.7.1 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "title": "Borderless \u2013 Elementor Addons and Templates <= 1.7.1 - Authenticated (Contributor+) Stored Cross-Site Scripting",
+      "description": "The Borderless \u2013 Elementor Addons and Templates plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the \u2018title\u2019 parameter in all versions up to, and including, 1.7.1 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "publishedDate": "2025-05-31T07:22:11.704000+00:00",
       "lastModifiedDate": "2025-06-02T15:49:03.204000+00:00",
       "severity": "MEDIUM",
@@ -35850,7 +35850,7 @@
           "visualmodo"
         ],
         "products": [
-          "borderless – elementor addons and templates"
+          "borderless \u2013 elementor addons and templates"
         ]
       },
       "references": [
@@ -35918,7 +35918,7 @@
     {
       "cveId": "CVE-2025-5144",
       "title": "The Events Calendar <= 6.13.2 - Authenticated (Contributor+) DOM-Based Stored Cross-Site Scripting",
-      "description": "The The Events Calendar plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the ‘data-date-*’ parameters in all versions up to, and including, 6.13.2 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "description": "The The Events Calendar plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the \u2018data-date-*\u2019 parameters in all versions up to, and including, 6.13.2 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "publishedDate": "2025-06-11T12:22:52.030000+00:00",
       "lastModifiedDate": "2025-06-11T13:04:30.359000+00:00",
       "severity": "MEDIUM",
@@ -35999,8 +35999,8 @@
     },
     {
       "cveId": "CVE-2025-5678",
-      "title": "Kadence Blocks – Gutenberg Blocks for Page Builder Features <= 3.5.10 - Authenticated (Contributor+) Stored Cross-Site Scripting via `redirectURL` Parameter",
-      "description": "The Gutenberg Blocks with AI by Kadence WP – Page Builder Features plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the ‘redirectURL’ parameter in all versions up to, and including, 3.5.10 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "title": "Kadence Blocks \u2013 Gutenberg Blocks for Page Builder Features <= 3.5.10 - Authenticated (Contributor+) Stored Cross-Site Scripting via `redirectURL` Parameter",
+      "description": "The Gutenberg Blocks with AI by Kadence WP \u2013 Page Builder Features plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the \u2018redirectURL\u2019 parameter in all versions up to, and including, 3.5.10 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "publishedDate": "2025-07-09T01:44:51.406000+00:00",
       "lastModifiedDate": "2025-07-09T16:59:39.776000+00:00",
       "severity": "MEDIUM",
@@ -36024,7 +36024,7 @@
           "britner"
         ],
         "products": [
-          "gutenberg blocks with ai by kadence wp – page builder features"
+          "gutenberg blocks with ai by kadence wp \u2013 page builder features"
         ]
       },
       "references": [
@@ -36067,7 +36067,7 @@
     {
       "cveId": "CVE-2025-5956",
       "title": "WP Human Resource Management 2.0.0 - 2.2.17 - Missing Authorization to Authenticated (Employee+) Arbitrary User Deletion via ajax_delete_employee Function",
-      "description": "The WP Human Resource Management plugin for WordPress is vulnerable to Arbitrary User Deletion due to a missing authorization within the ajax_delete_employee() function in versions 2.0.0 through 2.2.17. The plugin’s deletion handler reads the client-supplied $_POST['delete'] array and passes each ID directly to wp_delete_user() without verifying that the caller has the delete_users capability or limiting which user IDs may be removed. This makes it possible for authenticated attackers, with Employee-level access and above, to delete arbitrary accounts, including administrators.",
+      "description": "The WP Human Resource Management plugin for WordPress is vulnerable to Arbitrary User Deletion due to a missing authorization within the ajax_delete_employee() function in versions 2.0.0 through 2.2.17. The plugin\u2019s deletion handler reads the client-supplied $_POST['delete'] array and passes each ID directly to wp_delete_user() without verifying that the caller has the delete_users capability or limiting which user IDs may be removed. This makes it possible for authenticated attackers, with Employee-level access and above, to delete arbitrary accounts, including administrators.",
       "publishedDate": "2025-07-04T01:44:02.706000+00:00",
       "lastModifiedDate": "2025-07-08T14:27:12.158000+00:00",
       "severity": "MEDIUM",
@@ -36134,7 +36134,7 @@
     {
       "cveId": "CVE-2025-5286",
       "title": "Bold Builder <= 5.3.6 - Authenticated (Contributor+) Stored Cross-Site Scripting via additional_settings Parameter",
-      "description": "The Bold Page Builder plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the ‘additional_settings’ parameter in all versions up to, and including, 5.3.6 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "description": "The Bold Page Builder plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the \u2018additional_settings\u2019 parameter in all versions up to, and including, 5.3.6 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "publishedDate": "2025-05-29T08:22:03.639000+00:00",
       "lastModifiedDate": "2025-05-29T14:04:16.426000+00:00",
       "severity": "MEDIUM",
@@ -36220,8 +36220,8 @@
     },
     {
       "cveId": "CVE-2025-2918",
-      "title": "Ultimate Blocks – WordPress Blocks Plugin <= 3.3.3 - Authenticated (Contributor+) Stored Cross-Site Scripting via Multiple Widgets",
-      "description": "The Ultimate Blocks – WordPress Blocks Plugin plugin for WordPress is vulnerable to Stored Cross-Site Scripting via multiple widgets in all versions up to, and including, 3.3.3 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "title": "Ultimate Blocks \u2013 WordPress Blocks Plugin <= 3.3.3 - Authenticated (Contributor+) Stored Cross-Site Scripting via Multiple Widgets",
+      "description": "The Ultimate Blocks \u2013 WordPress Blocks Plugin plugin for WordPress is vulnerable to Stored Cross-Site Scripting via multiple widgets in all versions up to, and including, 3.3.3 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "publishedDate": "2025-06-10T11:22:52.173000+00:00",
       "lastModifiedDate": "2025-06-10T13:59:37.592000+00:00",
       "severity": "MEDIUM",
@@ -36245,7 +36245,7 @@
           "ultimateblocks"
         ],
         "products": [
-          "ultimate blocks – wordpress blocks plugin"
+          "ultimate blocks \u2013 wordpress blocks plugin"
         ]
       },
       "references": [
@@ -37810,7 +37810,7 @@
         },
         {
           "url": "https://vuldb.com/?submit.609041",
-          "source": "Submit #609041 | Harry Yu MoneyPrinterTurbo  v1.2.6  未授权访问（路径遍历） (Duplicate)",
+          "source": "Submit #609041 | Harry Yu MoneyPrinterTurbo  v1.2.6  \u672a\u6388\u6743\u8bbf\u95ee\uff08\u8def\u5f84\u904d\u5386\uff09 (Duplicate)",
           "tags": [
             "third-party-advisory"
           ]
@@ -37891,7 +37891,7 @@
         },
         {
           "url": "https://vuldb.com/?submit.603778",
-          "source": "Submit #603778 | 贵州黔狐科技股份有限公司 FoxCMS <=1.2.5 SQL Injection",
+          "source": "Submit #603778 | \u8d35\u5dde\u9ed4\u72d0\u79d1\u6280\u80a1\u4efd\u6709\u9650\u516c\u53f8 FoxCMS <=1.2.5 SQL Injection",
           "tags": [
             "third-party-advisory"
           ]
@@ -38151,8 +38151,8 @@
     },
     {
       "cveId": "CVE-2025-7879",
-      "title": "Metasoft 美特软件 MetaCRM mobileupload.jsp unrestricted upload",
-      "description": "A vulnerability has been found in Metasoft 美特软件 MetaCRM up to 6.4.2 and classified as critical. Affected by this vulnerability is an unknown functionality of the file mobileupload.jsp. The manipulation of the argument File leads to unrestricted upload. The attack can be launched remotely. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "title": "Metasoft \u7f8e\u7279\u8f6f\u4ef6 MetaCRM mobileupload.jsp unrestricted upload",
+      "description": "A vulnerability has been found in Metasoft \u7f8e\u7279\u8f6f\u4ef6 MetaCRM up to 6.4.2 and classified as critical. Affected by this vulnerability is an unknown functionality of the file mobileupload.jsp. The manipulation of the argument File leads to unrestricted upload. The attack can be launched remotely. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
       "publishedDate": "2025-07-20T09:02:05.728000+00:00",
       "lastModifiedDate": "2025-07-21T14:42:27.404000+00:00",
       "severity": "MEDIUM",
@@ -38179,7 +38179,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
-          "metasoft 美特软件"
+          "metasoft \u7f8e\u7279\u8f6f\u4ef6"
         ],
         "products": [
           "metacrm"
@@ -38188,7 +38188,7 @@
       "references": [
         {
           "url": "https://vuldb.com/?id.316993",
-          "source": "VDB-316993 | Metasoft 美特软件 MetaCRM mobileupload.jsp unrestricted upload",
+          "source": "VDB-316993 | Metasoft \u7f8e\u7279\u8f6f\u4ef6 MetaCRM mobileupload.jsp unrestricted upload",
           "tags": [
             "vdb-entry",
             "technical-description"
@@ -38365,7 +38365,7 @@
     {
       "cveId": "CVE-2025-7059",
       "title": "Simple Featured Image <= 1.3.1 - Authenticated (Contributor+) Stored Cross-Site Scripting via slideshow Parameter",
-      "description": "The Simple Featured Image plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the ‘slideshow’ parameter in all versions up to, and including, 1.3.1 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "description": "The Simple Featured Image plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the \u2018slideshow\u2019 parameter in all versions up to, and including, 1.3.1 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "publishedDate": "2025-07-09T03:22:03.531000+00:00",
       "lastModifiedDate": "2025-07-09T15:58:53.565000+00:00",
       "severity": "MEDIUM",
@@ -38431,8 +38431,8 @@
     },
     {
       "cveId": "CVE-2025-7939",
-      "title": "jerryshensjf JPACookieShop 蛋糕商城JPA版 GoodsController.java addGoods unrestricted upload",
-      "description": "A vulnerability was found in jerryshensjf JPACookieShop 蛋糕商城JPA版 1.0. It has been classified as critical. Affected is the function addGoods of the file GoodsController.java. The manipulation leads to unrestricted upload. It is possible to launch the attack remotely.",
+      "title": "jerryshensjf JPACookieShop \u86cb\u7cd5\u5546\u57ceJPA\u7248 GoodsController.java addGoods unrestricted upload",
+      "description": "A vulnerability was found in jerryshensjf JPACookieShop \u86cb\u7cd5\u5546\u57ceJPA\u7248 1.0. It has been classified as critical. Affected is the function addGoods of the file GoodsController.java. The manipulation leads to unrestricted upload. It is possible to launch the attack remotely.",
       "publishedDate": "2025-07-21T20:32:05.579000+00:00",
       "lastModifiedDate": "2025-07-22T16:05:12.575000+00:00",
       "severity": "MEDIUM",
@@ -38462,13 +38462,13 @@
           "jerryshensjf"
         ],
         "products": [
-          "jpacookieshop 蛋糕商城jpa版"
+          "jpacookieshop \u86cb\u7cd5\u5546\u57cejpa\u7248"
         ]
       },
       "references": [
         {
           "url": "https://vuldb.com/?id.317076",
-          "source": "VDB-317076 | jerryshensjf JPACookieShop 蛋糕商城JPA版 GoodsController.java addGoods unrestricted upload",
+          "source": "VDB-317076 | jerryshensjf JPACookieShop \u86cb\u7cd5\u5546\u57ceJPA\u7248 GoodsController.java addGoods unrestricted upload",
           "tags": [
             "vdb-entry",
             "technical-description"
@@ -38484,7 +38484,7 @@
         },
         {
           "url": "https://vuldb.com/?submit.618986",
-          "source": "Submit #618986 | Gitee 蛋糕商城JPA版 1.0 Unrestricted Upload",
+          "source": "Submit #618986 | Gitee \u86cb\u7cd5\u5546\u57ceJPA\u7248 1.0 Unrestricted Upload",
           "tags": [
             "third-party-advisory"
           ]
@@ -38705,8 +38705,8 @@
     },
     {
       "cveId": "CVE-2025-7880",
-      "title": "Metasoft 美特软件 MetaCRM sendsms.jsp unrestricted upload",
-      "description": "A vulnerability was found in Metasoft 美特软件 MetaCRM up to 6.4.2 and classified as critical. Affected by this issue is some unknown functionality of the file /business/common/sms/sendsms.jsp. The manipulation of the argument File leads to unrestricted upload. The attack may be launched remotely. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "title": "Metasoft \u7f8e\u7279\u8f6f\u4ef6 MetaCRM sendsms.jsp unrestricted upload",
+      "description": "A vulnerability was found in Metasoft \u7f8e\u7279\u8f6f\u4ef6 MetaCRM up to 6.4.2 and classified as critical. Affected by this issue is some unknown functionality of the file /business/common/sms/sendsms.jsp. The manipulation of the argument File leads to unrestricted upload. The attack may be launched remotely. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
       "publishedDate": "2025-07-20T09:14:05.459000+00:00",
       "lastModifiedDate": "2025-07-21T14:41:54.637000+00:00",
       "severity": "MEDIUM",
@@ -38733,7 +38733,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
-          "metasoft 美特软件"
+          "metasoft \u7f8e\u7279\u8f6f\u4ef6"
         ],
         "products": [
           "metacrm"
@@ -38742,7 +38742,7 @@
       "references": [
         {
           "url": "https://vuldb.com/?id.316994",
-          "source": "VDB-316994 | Metasoft 美特软件 MetaCRM sendsms.jsp unrestricted upload",
+          "source": "VDB-316994 | Metasoft \u7f8e\u7279\u8f6f\u4ef6 MetaCRM sendsms.jsp unrestricted upload",
           "tags": [
             "vdb-entry",
             "technical-description"
@@ -39475,8 +39475,8 @@
     },
     {
       "cveId": "CVE-2025-7873",
-      "title": "Metasoft 美特软件 MetaCRM mcc_login.jsp sql injection",
-      "description": "A vulnerability was found in Metasoft 美特软件 MetaCRM up to 6.4.2. It has been declared as critical. Affected by this vulnerability is an unknown functionality of the file mcc_login.jsp. The manipulation of the argument workerid leads to sql injection. The attack can be launched remotely. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "title": "Metasoft \u7f8e\u7279\u8f6f\u4ef6 MetaCRM mcc_login.jsp sql injection",
+      "description": "A vulnerability was found in Metasoft \u7f8e\u7279\u8f6f\u4ef6 MetaCRM up to 6.4.2. It has been declared as critical. Affected by this vulnerability is an unknown functionality of the file mcc_login.jsp. The manipulation of the argument workerid leads to sql injection. The attack can be launched remotely. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
       "publishedDate": "2025-07-20T06:44:04.946000+00:00",
       "lastModifiedDate": "2025-07-22T13:48:46.655000+00:00",
       "severity": "MEDIUM",
@@ -39503,7 +39503,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
-          "metasoft 美特软件"
+          "metasoft \u7f8e\u7279\u8f6f\u4ef6"
         ],
         "products": [
           "metacrm"
@@ -39512,7 +39512,7 @@
       "references": [
         {
           "url": "https://vuldb.com/?id.316987",
-          "source": "VDB-316987 | Metasoft 美特软件 MetaCRM mcc_login.jsp sql injection",
+          "source": "VDB-316987 | Metasoft \u7f8e\u7279\u8f6f\u4ef6 MetaCRM mcc_login.jsp sql injection",
           "tags": [
             "vdb-entry",
             "technical-description"
@@ -39528,7 +39528,7 @@
         },
         {
           "url": "https://vuldb.com/?submit.611043",
-          "source": "Submit #611043 | 美特软件 MetaCRM 6.4.2 SQL Injection",
+          "source": "Submit #611043 | \u7f8e\u7279\u8f6f\u4ef6 MetaCRM 6.4.2 SQL Injection",
           "tags": [
             "third-party-advisory"
           ]
@@ -39922,8 +39922,8 @@
     },
     {
       "cveId": "CVE-2025-7878",
-      "title": "Metasoft 美特软件 MetaCRM upload2.jsp unrestricted upload",
-      "description": "A vulnerability, which was classified as critical, was found in Metasoft 美特软件 MetaCRM up to 6.4.2. Affected is an unknown function of the file /common/jsp/upload2.jsp. The manipulation of the argument File leads to unrestricted upload. It is possible to launch the attack remotely. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "title": "Metasoft \u7f8e\u7279\u8f6f\u4ef6 MetaCRM upload2.jsp unrestricted upload",
+      "description": "A vulnerability, which was classified as critical, was found in Metasoft \u7f8e\u7279\u8f6f\u4ef6 MetaCRM up to 6.4.2. Affected is an unknown function of the file /common/jsp/upload2.jsp. The manipulation of the argument File leads to unrestricted upload. It is possible to launch the attack remotely. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
       "publishedDate": "2025-07-20T08:32:05.287000+00:00",
       "lastModifiedDate": "2025-07-21T16:49:29.860000+00:00",
       "severity": "MEDIUM",
@@ -39950,7 +39950,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
-          "metasoft 美特软件"
+          "metasoft \u7f8e\u7279\u8f6f\u4ef6"
         ],
         "products": [
           "metacrm"
@@ -39959,7 +39959,7 @@
       "references": [
         {
           "url": "https://vuldb.com/?id.316992",
-          "source": "VDB-316992 | Metasoft 美特软件 MetaCRM upload2.jsp unrestricted upload",
+          "source": "VDB-316992 | Metasoft \u7f8e\u7279\u8f6f\u4ef6 MetaCRM upload2.jsp unrestricted upload",
           "tags": [
             "vdb-entry",
             "technical-description"
@@ -40435,8 +40435,8 @@
     },
     {
       "cveId": "CVE-2025-7876",
-      "title": "Metasoft 美特软件 MetaCRM download.jsp AnalyzeParam deserialization",
-      "description": "A vulnerability classified as critical was found in Metasoft 美特软件 MetaCRM up to 6.4.2. This vulnerability affects the function AnalyzeParam of the file download.jsp. The manipulation of the argument p leads to deserialization. The attack can be initiated remotely. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "title": "Metasoft \u7f8e\u7279\u8f6f\u4ef6 MetaCRM download.jsp AnalyzeParam deserialization",
+      "description": "A vulnerability classified as critical was found in Metasoft \u7f8e\u7279\u8f6f\u4ef6 MetaCRM up to 6.4.2. This vulnerability affects the function AnalyzeParam of the file download.jsp. The manipulation of the argument p leads to deserialization. The attack can be initiated remotely. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
       "publishedDate": "2025-07-20T07:44:05.111000+00:00",
       "lastModifiedDate": "2025-07-21T17:02:02.458000+00:00",
       "severity": "MEDIUM",
@@ -40463,7 +40463,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
-          "metasoft 美特软件"
+          "metasoft \u7f8e\u7279\u8f6f\u4ef6"
         ],
         "products": [
           "metacrm"
@@ -40472,7 +40472,7 @@
       "references": [
         {
           "url": "https://vuldb.com/?id.316990",
-          "source": "VDB-316990 | Metasoft 美特软件 MetaCRM download.jsp AnalyzeParam deserialization",
+          "source": "VDB-316990 | Metasoft \u7f8e\u7279\u8f6f\u4ef6 MetaCRM download.jsp AnalyzeParam deserialization",
           "tags": [
             "vdb-entry",
             "technical-description"
@@ -40703,8 +40703,8 @@
     },
     {
       "cveId": "CVE-2025-7877",
-      "title": "Metasoft 美特软件 MetaCRM sendfile.jsp unrestricted upload",
-      "description": "A vulnerability, which was classified as critical, has been found in Metasoft 美特软件 MetaCRM up to 6.4.2. This issue affects some unknown processing of the file sendfile.jsp. The manipulation of the argument File leads to unrestricted upload. The attack may be initiated remotely. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "title": "Metasoft \u7f8e\u7279\u8f6f\u4ef6 MetaCRM sendfile.jsp unrestricted upload",
+      "description": "A vulnerability, which was classified as critical, has been found in Metasoft \u7f8e\u7279\u8f6f\u4ef6 MetaCRM up to 6.4.2. This issue affects some unknown processing of the file sendfile.jsp. The manipulation of the argument File leads to unrestricted upload. The attack may be initiated remotely. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
       "publishedDate": "2025-07-20T08:02:05.225000+00:00",
       "lastModifiedDate": "2025-07-21T17:00:40.872000+00:00",
       "severity": "MEDIUM",
@@ -40731,7 +40731,7 @@
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
-          "metasoft 美特软件"
+          "metasoft \u7f8e\u7279\u8f6f\u4ef6"
         ],
         "products": [
           "metacrm"
@@ -40740,7 +40740,7 @@
       "references": [
         {
           "url": "https://vuldb.com/?id.316991",
-          "source": "VDB-316991 | Metasoft 美特软件 MetaCRM sendfile.jsp unrestricted upload",
+          "source": "VDB-316991 | Metasoft \u7f8e\u7279\u8f6f\u4ef6 MetaCRM sendfile.jsp unrestricted upload",
           "tags": [
             "vdb-entry",
             "technical-description"
@@ -41919,7 +41919,7 @@
     {
       "cveId": "CVE-2025-4667",
       "title": "Simply Schedule Appointments <= 1.6.8.30 - Authenticated (Contributor+) Stored Cross-Site Scripting via Multiple Shortcodes",
-      "description": "The Appointment Booking Calendar — Simply Schedule Appointments Booking Plugin plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the plugin's ssa_admin_upcoming_appointments, ssa_admin_upcoming_appointments, and ssa_past_appointments shortcodes in all versions up to, and including, 1.6.8.30 due to insufficient input sanitization and output escaping on user supplied attributes. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "description": "The Appointment Booking Calendar \u2014 Simply Schedule Appointments Booking Plugin plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the plugin's ssa_admin_upcoming_appointments, ssa_admin_upcoming_appointments, and ssa_past_appointments shortcodes in all versions up to, and including, 1.6.8.30 due to insufficient input sanitization and output escaping on user supplied attributes. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "publishedDate": "2025-06-14T09:23:33.636000+00:00",
       "lastModifiedDate": "2025-06-17T18:38:28.265000+00:00",
       "severity": "MEDIUM",
@@ -41943,7 +41943,7 @@
           "croixhaug"
         ],
         "products": [
-          "appointment booking calendar — simply schedule appointments booking plugin"
+          "appointment booking calendar \u2014 simply schedule appointments booking plugin"
         ]
       },
       "references": [
@@ -42097,7 +42097,7 @@
     {
       "cveId": "CVE-2025-4611",
       "title": "Slim SEO <= 4.5.3 - Authenticated (Contributor+) Stored Cross-Site Scripting via slim_seo_breadcrumbs Shortcode",
-      "description": "The Slim SEO – Fast & Automated WordPress SEO Plugin plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the plugin's slim_seo_breadcrumbs shortcode in all versions up to, and including, 4.5.3 due to insufficient input sanitization and output escaping on user supplied attributes. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "description": "The Slim SEO \u2013 Fast & Automated WordPress SEO Plugin plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the plugin's slim_seo_breadcrumbs shortcode in all versions up to, and including, 4.5.3 due to insufficient input sanitization and output escaping on user supplied attributes. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "publishedDate": "2025-05-21T09:21:50.279000+00:00",
       "lastModifiedDate": "2025-05-21T10:15:51.279000+00:00",
       "severity": "MEDIUM",
@@ -42121,7 +42121,7 @@
           "rilwis"
         ],
         "products": [
-          "slim seo – fast & automated wordpress seo plugin"
+          "slim seo \u2013 fast & automated wordpress seo plugin"
         ]
       },
       "references": [
@@ -42184,7 +42184,7 @@
     {
       "cveId": "CVE-2025-4666",
       "title": "ZotPress <= 7.3.15 - Authenticated (Author+) Stored Cross-Site Scripting via 'nickname'",
-      "description": "The Zotpress plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the ‘nickname’ parameter in all versions up to, and including, 7.3.15 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Author-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "description": "The Zotpress plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the \u2018nickname\u2019 parameter in all versions up to, and including, 7.3.15 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Author-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "publishedDate": "2025-06-11T03:41:52.079000+00:00",
       "lastModifiedDate": "2025-06-11T13:26:55.295000+00:00",
       "severity": "MEDIUM",
@@ -42465,7 +42465,7 @@
           "cozmoslabs"
         ],
         "products": [
-          "user profile builder – beautiful user registration forms, user profiles & user role editor"
+          "user profile builder \u2013 beautiful user registration forms, user profiles & user role editor"
         ]
       },
       "references": [
@@ -42906,7 +42906,7 @@
     {
       "cveId": "CVE-2025-3815",
       "title": "SurveyJS <= 1.12.32 - Authenticated (Contributor+) Stored Cross-Site Scripting via id Parameter",
-      "description": "The SurveyJS plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the ‘id’ parameter in all versions up to, and including, 1.12.32 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "description": "The SurveyJS plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the \u2018id\u2019 parameter in all versions up to, and including, 1.12.32 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "publishedDate": "2025-05-03T07:22:57.130000+00:00",
       "lastModifiedDate": "2025-05-05T14:57:37.323000+00:00",
       "severity": "MEDIUM",
@@ -42983,7 +42983,7 @@
     {
       "cveId": "CVE-2025-3107",
       "title": "Newsletters <= 4.9.9.8 - Authenticated (Contributor+) SQL Injection orderby Parameter",
-      "description": "The Newsletters plugin for WordPress is vulnerable to time-based SQL Injection via the ‘orderby' parameter in all versions up to, and including, 4.9.9.8 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for authenticated attackers, with Contributor-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
+      "description": "The Newsletters plugin for WordPress is vulnerable to time-based SQL Injection via the \u2018orderby' parameter in all versions up to, and including, 4.9.9.8 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for authenticated attackers, with Contributor-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
       "publishedDate": "2025-05-13T06:40:55.404000+00:00",
       "lastModifiedDate": "2025-05-13T13:24:50.688000+00:00",
       "severity": "MEDIUM",
@@ -43064,8 +43064,8 @@
     },
     {
       "cveId": "CVE-2025-3780",
-      "title": "WCFM – Frontend Manager for WooCommerce along with Bookings Subscription Listings Compatible <= 6.7.16 - Missing Authorization to Unauthenticated Plugin Settings Modification",
-      "description": "The WCFM – Frontend Manager for WooCommerce along with Bookings Subscription Listings Compatible plugin for WordPress is vulnerable to unauthorized modification of data due to a missing capability check on the wcfm_redirect_to_setup function in all versions up to, and including, 6.7.16. This makes it possible for unauthenticated attackers to view and modify the plugin settings, including payment details and API keys",
+      "title": "WCFM \u2013 Frontend Manager for WooCommerce along with Bookings Subscription Listings Compatible <= 6.7.16 - Missing Authorization to Unauthenticated Plugin Settings Modification",
+      "description": "The WCFM \u2013 Frontend Manager for WooCommerce along with Bookings Subscription Listings Compatible plugin for WordPress is vulnerable to unauthorized modification of data due to a missing capability check on the wcfm_redirect_to_setup function in all versions up to, and including, 6.7.16. This makes it possible for unauthenticated attackers to view and modify the plugin settings, including payment details and API keys",
       "publishedDate": "2025-07-08T23:22:48.619000+00:00",
       "lastModifiedDate": "2025-07-09T13:15:34.030000+00:00",
       "severity": "MEDIUM",
@@ -43089,7 +43089,7 @@
           "wclovers"
         ],
         "products": [
-          "wcfm – frontend manager for woocommerce along with bookings subscription listings compatible"
+          "wcfm \u2013 frontend manager for woocommerce along with bookings subscription listings compatible"
         ]
       },
       "references": [
@@ -43131,8 +43131,8 @@
     },
     {
       "cveId": "CVE-2025-3438",
-      "title": "MStore API – Create Native Android & iOS Apps On The Cloud <= 4.17.4 - Unauthenticated Limited Privilege Escalation",
-      "description": "The MStore API – Create Native Android & iOS Apps On The Cloud plugin for WordPress is vulnerable to limited privilege escalation in all versions up to, and including, 4.17.4. This is due to a lack of restriction of role when registering. This makes it possible for unauthenticated attackers to to register with the 'wcfm_vendor' role, which is a Store Vendor role in the WCFM Marketplace – Multivendor Marketplace for WooCommerce plugin for WordPress. The vulnerability can only be exploited if the WCFM Marketplace – Multivendor Marketplace for WooCommerce plugin is installed and activated. The vulnerability was partially patched in version 4.17.3.",
+      "title": "MStore API \u2013 Create Native Android & iOS Apps On The Cloud <= 4.17.4 - Unauthenticated Limited Privilege Escalation",
+      "description": "The MStore API \u2013 Create Native Android & iOS Apps On The Cloud plugin for WordPress is vulnerable to limited privilege escalation in all versions up to, and including, 4.17.4. This is due to a lack of restriction of role when registering. This makes it possible for unauthenticated attackers to to register with the 'wcfm_vendor' role, which is a Store Vendor role in the WCFM Marketplace \u2013 Multivendor Marketplace for WooCommerce plugin for WordPress. The vulnerability can only be exploited if the WCFM Marketplace \u2013 Multivendor Marketplace for WooCommerce plugin is installed and activated. The vulnerability was partially patched in version 4.17.3.",
       "publishedDate": "2025-05-02T05:22:34.308000+00:00",
       "lastModifiedDate": "2025-05-02T15:47:36.691000+00:00",
       "severity": "MEDIUM",
@@ -43156,7 +43156,7 @@
           "inspireui"
         ],
         "products": [
-          "mstore api – create native android & ios apps on the cloud"
+          "mstore api \u2013 create native android & ios apps on the cloud"
         ]
       },
       "references": [
@@ -43209,7 +43209,7 @@
     {
       "cveId": "CVE-2025-3862",
       "title": "Contest Gallery <= 26.0.6 - Authenticated (Contributor+) Stored Cross-Site Scripting via id Parameter",
-      "description": "Contest Gallery plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the ‘id’ parameter in all versions up to, and including, 26.0.6 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "description": "Contest Gallery plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the \u2018id\u2019 parameter in all versions up to, and including, 26.0.6 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "publishedDate": "2025-05-08T11:13:44.624000+00:00",
       "lastModifiedDate": "2025-05-08T13:36:41.869000+00:00",
       "severity": "MEDIUM",
@@ -43233,7 +43233,7 @@
           "contest-gallery"
         ],
         "products": [
-          "photos, files, youtube, twitter, instagram, tiktok, ecommerce contest gallery – upload, vote, sell via paypal or stripe, social share buttons"
+          "photos, files, youtube, twitter, instagram, tiktok, ecommerce contest gallery \u2013 upload, vote, sell via paypal or stripe, social share buttons"
         ]
       },
       "references": [
@@ -43653,7 +43653,7 @@
     {
       "cveId": "CVE-2025-27930",
       "title": "Stored XSS",
-      "description": "Zohocorp ManageEngine Applications Manager versions 176600 and prior are vulnerable to stored cross-site scripting in the File/Directory monitor.",
+      "description": "Zohocorp ManageEngine Applications Manager versions\u00a0176600 and prior are vulnerable to stored cross-site scripting in the\u00a0File/Directory monitor.",
       "publishedDate": "2025-07-23T10:20:09.411000+00:00",
       "lastModifiedDate": "2025-07-25T03:55:17.888000+00:00",
       "severity": "MEDIUM",
@@ -44599,7 +44599,7 @@
     {
       "cveId": "CVE-2025-22241",
       "title": "CVE-2025-22241 salt advisory",
-      "description": "File contents overwrite the VirtKey class is called when “on-demand pillar” data is requested and uses un-validated input to create paths to the “pki directory”. The functionality is used to auto-accept Minion authentication keys based on a pre-placed “authorization file” at a specific location and is present in the default configuration.",
+      "description": "File contents overwrite the VirtKey class is called when \u201con-demand pillar\u201d data is requested and uses un-validated input to create paths to the \u201cpki directory\u201d. The functionality is used to auto-accept Minion authentication keys based on a pre-placed \u201cauthorization file\u201d at a specific location and is present in the default configuration.",
       "publishedDate": "2025-06-13T07:04:38.695000+00:00",
       "lastModifiedDate": "2025-06-17T17:26:12.653000+00:00",
       "severity": "MEDIUM",
@@ -44772,7 +44772,7 @@
     {
       "cveId": "CVE-2025-22242",
       "title": "CVE-2025-22242 salt advisory",
-      "description": "Worker process denial of service through file read operation. .A vulnerability exists in the Master's “pub_ret” method which is exposed to all minions. The un-sanitized input value “jid” is used to construct a path which is then opened for reading. An attacker could exploit this vulnerabilities by attempting to read from a filename that will not return any data, e.g. by targeting a pipe node on the proc file system.",
+      "description": "Worker process denial of service through file read operation. .A vulnerability exists in the Master's \u201cpub_ret\u201d method which is exposed to all minions. The un-sanitized input value \u201cjid\u201d is used to construct a path which is then opened for reading. An attacker could exploit this vulnerabilities by attempting to read from a filename that will not return any data, e.g. by targeting a pipe node on the proc file system.",
       "publishedDate": "2025-06-13T07:08:12.518000+00:00",
       "lastModifiedDate": "2025-06-17T17:25:29.513000+00:00",
       "severity": "MEDIUM",
@@ -44832,7 +44832,7 @@
     {
       "cveId": "CVE-2025-22219",
       "title": "VMware Aria Operations for Logs stored cross-site scripting vulnerability (CVE-2025-22219)",
-      "description": "VMware Aria Operations for Logs contains a stored cross-site scripting vulnerability. A malicious actor with non-administrative privileges may be able to inject a malicious script that  (can perform stored cross-site scripting) may lead to arbitrary operations as admin user.",
+      "description": "VMware Aria Operations for Logs contains a stored cross-site scripting vulnerability.\u00a0A malicious actor with non-administrative privileges may be able to inject a malicious script that  (can perform stored cross-site scripting) may lead to arbitrary operations as admin\u00a0user.",
       "publishedDate": "2025-01-30T15:26:16.027000+00:00",
       "lastModifiedDate": "2025-03-13T18:03:28.501000+00:00",
       "severity": "MEDIUM",
@@ -45145,8 +45145,8 @@
     },
     {
       "cveId": "CVE-2025-6068",
-      "title": "FooGallery – Responsive Photo Gallery, Image Viewer, Justified, Masonry & Carousel <= 2.4.31 - Authenticated (Contributor+) DOM-Based Stored Cross-Site Scripting",
-      "description": "The FooGallery – Responsive Photo Gallery, Image Viewer, Justified, Masonry & Carousel plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the `data-caption-title` & `data-caption-description` HTML attributes in all versions up to, and including, 2.4.31 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "title": "FooGallery \u2013 Responsive Photo Gallery, Image Viewer, Justified, Masonry & Carousel <= 2.4.31 - Authenticated (Contributor+) DOM-Based Stored Cross-Site Scripting",
+      "description": "The FooGallery \u2013 Responsive Photo Gallery, Image Viewer, Justified, Masonry & Carousel plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the `data-caption-title` & `data-caption-description` HTML attributes in all versions up to, and including, 2.4.31 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "publishedDate": "2025-07-11T07:23:00.715000+00:00",
       "lastModifiedDate": "2025-07-11T16:52:22.590000+00:00",
       "severity": "MEDIUM",
@@ -45170,7 +45170,7 @@
           "bradvin"
         ],
         "products": [
-          "foogallery – responsive photo gallery, image viewer, justified, masonry & carousel"
+          "foogallery \u2013 responsive photo gallery, image viewer, justified, masonry & carousel"
         ]
       },
       "references": [
@@ -45591,7 +45591,7 @@
     {
       "cveId": "CVE-2025-6081",
       "title": "Pass-back attack in Konica Minolta bizhub 227 multifunctional printers",
-      "description": "Insufficiently Protected Credentials in LDAP in Konica Minolta bizhub 227 Multifunction printers version GCQ-Y3 or earlier allows an attacker can reconfigure the target device to use an external LDAP service controlled by the attacker. If an LDAP password is set on the target device, the attacker can force the target device to authenticate to the attacker controlled LDAP service. This will allow the attacker to capture the plaintext password of the configured LDAP service.",
+      "description": "Insufficiently Protected Credentials in LDAP in Konica Minolta\u00a0bizhub 227 Multifunction printers\u00a0version GCQ-Y3 or earlier\u00a0allows an attacker can reconfigure the target device to use an external LDAP service controlled by the attacker. If an LDAP password is set on the target device, the attacker can force the target device to authenticate to the attacker controlled LDAP service. This will allow the attacker to capture the plaintext password of the configured LDAP service.",
       "publishedDate": "2025-07-01T03:25:38.240000+00:00",
       "lastModifiedDate": "2025-07-02T13:24:52.549000+00:00",
       "severity": "MEDIUM",
@@ -45707,7 +45707,7 @@
         },
         {
           "url": "https://vuldb.com/?submit.603033",
-          "source": "Submit #603033 | 程序员二师兄 oasys master SQL Injection",
+          "source": "Submit #603033 | \u7a0b\u5e8f\u5458\u4e8c\u5e08\u5144 oasys master SQL Injection",
           "tags": [
             "third-party-advisory"
           ]
@@ -45847,7 +45847,7 @@
     {
       "cveId": "CVE-2025-6740",
       "title": "Contact Form 7 Database Addon <= 1.3.1 - Unauthenticated Stored Cross-Site Scripting via tmpD Parameter",
-      "description": "The Contact Form 7 Database Addon plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the ‘tmpD’ parameter in all versions up to, and including, 1.3.1 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "description": "The Contact Form 7 Database Addon plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the \u2018tmpD\u2019 parameter in all versions up to, and including, 1.3.1 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "publishedDate": "2025-07-04T11:18:24.720000+00:00",
       "lastModifiedDate": "2025-07-07T14:57:35.433000+00:00",
       "severity": "MEDIUM",
@@ -45871,7 +45871,7 @@
           "arshidkv12"
         ],
         "products": [
-          "contact form 7 database addon – cfdb7"
+          "contact form 7 database addon \u2013 cfdb7"
         ]
       },
       "references": [
@@ -45981,7 +45981,7 @@
     {
       "cveId": "CVE-2025-6550",
       "title": "The Pack Elementor addon <= 2.1.4 - Authenticated (Contributor+) Stored Cross-Site Scripting",
-      "description": "The The Pack Elementor addon plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the ‘slider_options’ parameter in all versions up to, and including, 2.1.4 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "description": "The The Pack Elementor addon plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the \u2018slider_options\u2019 parameter in all versions up to, and including, 2.1.4 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
       "publishedDate": "2025-06-27T07:22:22.424000+00:00",
       "lastModifiedDate": "2025-07-08T21:56:30.347000+00:00",
       "severity": "MEDIUM",
@@ -46078,7 +46078,7 @@
     {
       "cveId": "CVE-2025-6588",
       "title": "FunnelCockpit <= 1.4.2 - Reflected Cross-Site Scripting via `error` Parameter",
-      "description": "The FunnelCockpit plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the ‘error’ parameter in all versions up to, and including, 1.4.2 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick an administrative user into performing an action such as clicking on a link.",
+      "description": "The FunnelCockpit plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the \u2018error\u2019 parameter in all versions up to, and including, 1.4.2 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick an administrative user into performing an action such as clicking on a link.",
       "publishedDate": "2025-07-24T09:22:21.631000+00:00",
       "lastModifiedDate": "2025-07-24T13:10:35.907000+00:00",
       "severity": "MEDIUM",
@@ -46514,8 +46514,8 @@
     },
     {
       "cveId": "CVE-2025-24471",
-      "title": "CVE-2025-24471: An Improper Certificate Validation vulnerability [CWE-295] in FortiOS version 7.6.1 and below, versi...",
-      "description": "An Improper Certificate Validation vulnerability [CWE-295] in FortiOS version 7.6.1 and below, version 7.4.7 and below may allow an EAP verified remote user to connect from FortiClient via revoked certificate.",
+      "title": "CVE-2025-24471: An\u00a0Improper Certificate Validation vulnerability [CWE-295] in FortiOS version 7.6.1 and below, versi...",
+      "description": "An\u00a0Improper Certificate Validation vulnerability [CWE-295] in FortiOS version 7.6.1 and below, version 7.4.7 and below may allow an EAP verified remote user to connect from FortiClient via revoked certificate.",
       "publishedDate": "2025-06-10T16:36:18.093000+00:00",
       "lastModifiedDate": "2025-06-10T18:57:48.732000+00:00",
       "severity": "MEDIUM",
@@ -47664,7 +47664,7 @@
     {
       "cveId": "CVE-2025-43878",
       "title": "F5OS-A/C CLI vulnerability",
-      "description": "When running in Appliance mode, an authenticated attacker assigned the Administrator or Resource Administrator role may be able to bypass Appliance mode restrictions utilizing system diagnostics tcpdump command utility on a F5OS-C/A system. \n\n\n\nNote: Software versions which have reached End of Technical Support (EoTS) are not evaluated.",
+      "description": "When running in Appliance mode, an authenticated attacker assigned the Administrator or Resource Administrator role may be able to bypass Appliance mode restrictions utilizing system diagnostics tcpdump command utility on a F5OS-C/A system.\u00a0\n\n\n\nNote: Software versions which have reached End of Technical Support (EoTS) are not evaluated.",
       "publishedDate": "2025-05-07T22:04:08.402000+00:00",
       "lastModifiedDate": "2025-05-08T13:00:05.372000+00:00",
       "severity": "MEDIUM",
@@ -48104,7 +48104,7 @@
     {
       "cveId": "CVE-2025-0799",
       "title": "IBM App Connect Enterprise Arbitrary File Write",
-      "description": "IBM App Connect enterprise 12.0.1.0 through 12.0.12.10 and 13.0.1.0 through 13.0.2.1 could allow an authenticated user to write to an arbitrary file on the system during bar configuration deployment due to improper pathname limitations on restricted directories.",
+      "description": "IBM App Connect enterprise\u00a012.0.1.0 through 12.0.12.10 and\u00a013.0.1.0 through 13.0.2.1\u00a0could allow an authenticated user to write to an arbitrary file on the system during bar configuration deployment due to improper pathname limitations on restricted directories.",
       "publishedDate": "2025-02-06T00:24:40.878000+00:00",
       "lastModifiedDate": "2025-02-22T22:16:23.189000+00:00",
       "severity": "MEDIUM",
@@ -48392,7 +48392,7 @@
           "smub"
         ],
         "products": [
-          "photo gallery, sliders, proofing and themes – nextgen gallery",
+          "photo gallery, sliders, proofing and themes \u2013 nextgen gallery",
           "simplelightbox"
         ]
       },
@@ -48677,7 +48677,7 @@
     {
       "cveId": "CVE-2024-49782",
       "title": "IBM OpenPages improper certificate validation",
-      "description": "IBM OpenPages with Watson 8.3 and 9.0 \n\n\n\ncould allow a remote attacker to spoof mail server identity when using SSL/TLS security. An attacker could exploit this vulnerability to gain access to sensitive information disclosed through email notifications generated by OpenPages or disrupt notification delivery.",
+      "description": "IBM OpenPages with Watson 8.3 and 9.0\u00a0\n\n\n\ncould allow a remote attacker to spoof mail server identity when using SSL/TLS security. An attacker could exploit this vulnerability to gain access to sensitive information disclosed through email notifications generated by OpenPages or disrupt notification delivery.",
       "publishedDate": "2025-02-20T03:46:38.398000+00:00",
       "lastModifiedDate": "2025-02-20T16:40:23.057000+00:00",
       "severity": "MEDIUM",
@@ -48735,8 +48735,8 @@
     },
     {
       "cveId": "CVE-2024-54018",
-      "title": "CVE-2024-54018: Multiple improper neutralization of special elements used in an OS Command vulnerabilities [CWE-78] ...",
-      "description": "Multiple improper neutralization of special elements used in an OS Command vulnerabilities [CWE-78] in FortiSandbox before 4.4.5 allows a privileged attacker to execute unauthorized commands via crafted requests.",
+      "title": "CVE-2024-54018: Multiple\u00a0improper neutralization of special elements used in an OS Command vulnerabilities [CWE-78] ...",
+      "description": "Multiple\u00a0improper neutralization of special elements used in an OS Command vulnerabilities [CWE-78] in FortiSandbox before 4.4.5 allows a privileged attacker to execute unauthorized commands via crafted requests.",
       "publishedDate": "2025-03-11T14:54:37.970000+00:00",
       "lastModifiedDate": "2025-03-12T04:00:46.742000+00:00",
       "severity": "MEDIUM",
@@ -48850,7 +48850,7 @@
     {
       "cveId": "CVE-2024-54169",
       "title": "IBM EntireX path traversal",
-      "description": "IBM EntireX 11.1 could allow an authenticated attacker to traverse directories on the system. An attacker could send a specially crafted URL request containing \"dot dot\" sequences (/../) to view arbitrary files on the system.",
+      "description": "IBM EntireX 11.1\u00a0could allow an authenticated attacker to traverse directories on the system. An attacker could send a specially crafted URL request containing \"dot dot\" sequences (/../) to view arbitrary files on the system.",
       "publishedDate": "2025-02-27T14:54:33.884000+00:00",
       "lastModifiedDate": "2025-02-27T15:12:27.087000+00:00",
       "severity": "MEDIUM",
@@ -50135,7 +50135,7 @@
     {
       "cveId": "CVE-2024-52365",
       "title": "IBM Cloud Pak for Business Automation cross-site scripting",
-      "description": "IBM Cloud Pak for Business Automation 18.0.0, 18.0.1, 18.0.2, 19.0.1, 19.0.2, 19.0.3, 20.0.1, 20.0.2, 20.0.3, 21.0.1, 21.0.2, 21.0.3, 22.0.1, and 22.0.2 \n\nis vulnerable to stored cross-site scripting. This vulnerability allows authenticated users to embed arbitrary JavaScript code in the Web UI thus altering the intended functionality potentially leading to credentials disclosure within a trusted session.",
+      "description": "IBM Cloud Pak for Business Automation\u00a018.0.0, 18.0.1, 18.0.2, 19.0.1, 19.0.2, 19.0.3, 20.0.1, 20.0.2, 20.0.3, 21.0.1, 21.0.2, 21.0.3, 22.0.1, and 22.0.2 \n\nis vulnerable to stored cross-site scripting. This vulnerability allows authenticated users to embed arbitrary JavaScript code in the Web UI thus altering the intended functionality potentially leading to credentials disclosure within a trusted session.",
       "publishedDate": "2025-02-05T11:28:32.866000+00:00",
       "lastModifiedDate": "2025-02-22T22:09:50.667000+00:00",
       "severity": "MEDIUM",
@@ -50628,7 +50628,7 @@
     {
       "cveId": "CVE-2024-56472",
       "title": "IBM Aspera Shares Cross-Site Scripting",
-      "description": "IBM Aspera Shares 1.9.0 through 1.10.0 PL6  is vulnerable to stored cross-site scripting. This vulnerability allows authenticated users to embed arbitrary JavaScript code in the Web UI thus altering the intended functionality potentially leading to credentials disclosure within a trusted session.",
+      "description": "IBM Aspera Shares\u00a01.9.0 through 1.10.0 PL6  is vulnerable to stored cross-site scripting. This vulnerability allows authenticated users to embed arbitrary JavaScript code in the Web UI thus altering the intended functionality potentially leading to credentials disclosure within a trusted session.",
       "publishedDate": "2025-02-05T22:58:39.405000+00:00",
       "lastModifiedDate": "2025-02-22T22:14:37.136000+00:00",
       "severity": "MEDIUM",
