@@ -1,0 +1,86 @@
+{
+  "stage": "published",
+  "timestamp": "2025-10-22T08:15:03.008874",
+  "validation_count": 9,
+  "results": {
+    "passed": 8,
+    "failed": 1,
+    "warnings": 0,
+    "validations": [
+      {
+        "stage": "publication",
+        "timestamp": "2025-10-22T08:15:02.998387",
+        "file": "api/vulns/vulns-2025-CRITICAL.json",
+        "passed": true,
+        "failures": [],
+        "warnings": []
+      },
+      {
+        "stage": "publication",
+        "timestamp": "2025-10-22T08:15:02.999522",
+        "file": "api/vulns/chunk-index.json",
+        "passed": false,
+        "failures": [
+          "Missing vulnerabilities array in index"
+        ],
+        "warnings": []
+      },
+      {
+        "stage": "publication",
+        "timestamp": "2025-10-22T08:15:02.999592",
+        "file": "api/vulns/vulns-2025-NONE.json",
+        "passed": true,
+        "failures": [],
+        "warnings": []
+      },
+      {
+        "stage": "publication",
+        "timestamp": "2025-10-22T08:15:02.999636",
+        "file": "api/vulns/vulns-2024-MEDIUM.json",
+        "passed": true,
+        "failures": [],
+        "warnings": []
+      },
+      {
+        "stage": "publication",
+        "timestamp": "2025-10-22T08:15:03.000108",
+        "file": "api/vulns/vulns-2025-MEDIUM.json",
+        "passed": true,
+        "failures": [],
+        "warnings": []
+      },
+      {
+        "stage": "publication",
+        "timestamp": "2025-10-22T08:15:03.000234",
+        "file": "api/vulns/vulns-2024-HIGH.json",
+        "passed": true,
+        "failures": [],
+        "warnings": []
+      },
+      {
+        "stage": "publication",
+        "timestamp": "2025-10-22T08:15:03.002161",
+        "file": "api/vulns/index.json",
+        "passed": true,
+        "failures": [],
+        "warnings": []
+      },
+      {
+        "stage": "publication",
+        "timestamp": "2025-10-22T08:15:03.005099",
+        "file": "api/vulns/vulns-2024-CRITICAL.json",
+        "passed": true,
+        "failures": [],
+        "warnings": []
+      },
+      {
+        "stage": "publication",
+        "timestamp": "2025-10-22T08:15:03.008090",
+        "file": "api/vulns/vulns-2025-HIGH.json",
+        "passed": true,
+        "failures": [],
+        "warnings": []
+      }
+    ]
+  }
+}
