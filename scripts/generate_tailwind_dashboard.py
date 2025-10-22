@@ -36,21 +36,52 @@ def generate_dashboard():
     # Prepare vulnerability data for JavaScript embedding
     vuln_data = []
     for v in vulnerabilities:
+        # Get full description (not truncated for modal)
+        full_desc = v.get("title", v.get("originalTitle", "No description available"))
+
         vuln_data.append({
+            # Basic identification
             "cve_id": v.get("cveId", ""),
+            "title": v.get("title", ""),
+            "description": full_desc,
+
+            # Severity and scores
             "severity": v.get("severity", ""),
             "cvss_score": v.get("cvssScore", 0),
+            "epss_score": v.get("epssScore", 0),
             "epss_percentile": v.get("epssPercentile", 0),
             "risk_score": v.get("riskScore", 0),
-            "products": ", ".join(v.get("products", []))[:100],  # Truncate for display
+
+            # Products and vendors
+            "products": v.get("products", []),
+            "products_display": ", ".join(v.get("products", []))[:100],  # Truncated for table
             "vendors": v.get("vendors", []),
+
+            # Dates
             "published": str(v.get("publishedDate", ""))[:10],
             "last_modified": str(v.get("lastModifiedDate", ""))[:10],
+
+            # Exploitation status
             "kev": v.get("exploitationStatus") == "KNOWN_EXPLOITED",
             "exploitation_status": v.get("exploitationStatus", "UNKNOWN"),
-            "description": v.get("description", "")[:200],  # Truncate
+
+            # CVSS metrics
             "attack_vector": v.get("attackVector", ""),
+            "attack_complexity": v.get("attackComplexity", ""),
+            "privileges_required": v.get("privilegesRequired", ""),
+            "user_interaction": v.get("userInteraction", ""),
+
+            # SSVC data
+            "ssvc": v.get("ssvc", {}),
+
+            # Enrichments
             "enrichments": v.get("enrichments", {}),
+
+            # References
+            "references": v.get("references", []),
+
+            # Tags
+            "tags": v.get("tags", []),
         })
     
     # Calculate statistics
@@ -378,7 +409,7 @@ def generate_dashboard():
                     </thead>
                     <tbody class="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-800">
                         <template x-for="vuln in paginatedVulns" :key="vuln.cve_id">
-                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors cursor-pointer">
+                            <tr @click="openModal(vuln)" class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors cursor-pointer">
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <a :href="'https://cve.mitre.org/cgi-bin/cvename.cgi?name=' + vuln.cve_id" 
                                        target="_blank"
@@ -393,7 +424,7 @@ def generate_dashboard():
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-semibold text-gray-900 dark:text-gray-100" x-text="vuln.cvss_score.toFixed(1)"></td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100" x-text="vuln.epss_percentile.toFixed(1) + '%'"></td>
-                                <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300 max-w-xs truncate" x-text="vuln.products"></td>
+                                <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300 max-w-xs truncate" x-text="vuln.products_display"></td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <span x-show="vuln.kev" class="inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-bold bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 border border-purple-200 dark:border-purple-800">
                                         ⭐ KEV
@@ -443,6 +474,292 @@ def generate_dashboard():
         </div>
     </footer>
 
+    <!-- CVE Detail Modal -->
+    <div x-show="modalOpen"
+         x-cloak
+         @keydown.escape.window="closeModal()"
+         class="fixed inset-0 z-50 overflow-y-auto"
+         aria-labelledby="modal-title"
+         role="dialog"
+         aria-modal="true">
+
+        <!-- Backdrop -->
+        <div x-show="modalOpen"
+             x-transition:enter="transition ease-out duration-300"
+             x-transition:enter-start="opacity-0"
+             x-transition:enter-end="opacity-100"
+             x-transition:leave="transition ease-in duration-200"
+             x-transition:leave-start="opacity-100"
+             x-transition:leave-end="opacity-0"
+             class="fixed inset-0 bg-gray-900/75 dark:bg-gray-950/90 backdrop-blur-sm transition-opacity"
+             @click="closeModal()">
+        </div>
+
+        <!-- Modal Panel -->
+        <div class="flex min-h-full items-center justify-center p-4">
+            <div x-show="modalOpen"
+                 x-transition:enter="transition ease-out duration-300"
+                 x-transition:enter-start="opacity-0 scale-95"
+                 x-transition:enter-end="opacity-100 scale-100"
+                 x-transition:leave="transition ease-in duration-200"
+                 x-transition:leave-start="opacity-100 scale-100"
+                 x-transition:leave-end="opacity-0 scale-95"
+                 @click.stop
+                 class="relative w-full max-w-5xl bg-white dark:bg-gray-900 rounded-xl shadow-2xl overflow-hidden">
+
+                <template x-if="selectedVuln">
+                    <div class="flex flex-col max-h-[90vh]">
+                        <!-- Modal Header -->
+                        <div class="sticky top-0 z-10 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 px-6 py-4">
+                            <div class="flex items-start justify-between">
+                                <div class="flex-1">
+                                    <h2 id="modal-title" class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2" x-text="selectedVuln.cve_id"></h2>
+                                    <div class="flex items-center gap-3 flex-wrap">
+                                        <span :class="{{'
+                                            'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400': selectedVuln.severity === 'CRITICAL',
+                                            'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-400': selectedVuln.severity === 'HIGH'
+                                        }}" class="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold" x-text="selectedVuln.severity"></span>
+
+                                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400">
+                                            <span>CVSS:</span>
+                                            <span class="font-bold" x-text="selectedVuln.cvss_score"></span>
+                                        </span>
+
+                                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-400">
+                                            <span>EPSS:</span>
+                                            <span class="font-bold" x-text="selectedVuln.epss_percentile.toFixed(1) + '%'"></span>
+                                        </span>
+
+                                        <span x-show="selectedVuln.kev" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-semibold bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400">
+                                            🔴 KEV Listed
+                                        </span>
+                                    </div>
+                                </div>
+                                <button @click="closeModal()"
+                                        class="ml-4 rounded-lg p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500">
+                                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <!-- Tab Navigation -->
+                            <nav class="flex gap-2 mt-4 border-b border-gray-200 dark:border-gray-700" role="tablist">
+                                <button @click="switchTab('overview')"
+                                        :class="activeTab === 'overview' ? 'border-primary-500 text-primary-600 dark:text-primary-400' : 'border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300'"
+                                        class="px-4 py-2 border-b-2 font-medium text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+                                        role="tab">
+                                    Overview
+                                </button>
+                                <button @click="switchTab('details')"
+                                        :class="activeTab === 'details' ? 'border-primary-500 text-primary-600 dark:text-primary-400' : 'border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300'"
+                                        class="px-4 py-2 border-b-2 font-medium text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+                                        role="tab">
+                                    Technical Details
+                                </button>
+                                <button @click="switchTab('references')"
+                                        :class="activeTab === 'references' ? 'border-primary-500 text-primary-600 dark:text-primary-400' : 'border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300'"
+                                        class="px-4 py-2 border-b-2 font-medium text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+                                        role="tab">
+                                    References
+                                </button>
+                                <button @click="switchTab('enrichments')"
+                                        :class="activeTab === 'enrichments' ? 'border-primary-500 text-primary-600 dark:text-primary-400' : 'border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300'"
+                                        class="px-4 py-2 border-b-2 font-medium text-sm transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+                                        role="tab">
+                                    Enrichments
+                                </button>
+                            </nav>
+                        </div>
+
+                        <!-- Modal Content -->
+                        <div class="overflow-y-auto px-6 py-6 flex-1">
+                            <!-- Overview Tab -->
+                            <div x-show="activeTab === 'overview'" role="tabpanel" class="space-y-6">
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-3">Description</h3>
+                                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed" x-text="selectedVuln.description"></p>
+                                </div>
+
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <h4 class="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-2">Published Date</h4>
+                                        <p class="text-gray-700 dark:text-gray-300" x-text="selectedVuln.published"></p>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-2">Last Modified</h4>
+                                        <p class="text-gray-700 dark:text-gray-300" x-text="selectedVuln.last_modified"></p>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <h4 class="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-2">Affected Products</h4>
+                                    <div class="flex flex-wrap gap-2">
+                                        <template x-for="product in selectedVuln.products" :key="product">
+                                            <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm" x-text="product"></span>
+                                        </template>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <h4 class="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-2">Vendors</h4>
+                                    <div class="flex flex-wrap gap-2">
+                                        <template x-for="vendor in selectedVuln.vendors" :key="vendor">
+                                            <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm" x-text="vendor"></span>
+                                        </template>
+                                    </div>
+                                </div>
+
+                                <div x-show="selectedVuln.ssvc && selectedVuln.ssvc.priorityTier">
+                                    <h4 class="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-2">SSVC Priority</h4>
+                                    <div class="flex items-center gap-3">
+                                        <span :class="{{'
+                                            'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400': selectedVuln.ssvc.priorityTier === 'ACT',
+                                            'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-400': selectedVuln.ssvc.priorityTier === 'ATTEND',
+                                            'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400': selectedVuln.ssvc.priorityTier === 'TRACK'
+                                        }}" class="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold" x-text="selectedVuln.ssvc.priorityTier"></span>
+                                        <span class="text-sm text-gray-600 dark:text-gray-400" x-text="selectedVuln.ssvc.compactNotation"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Technical Details Tab -->
+                            <div x-show="activeTab === 'details'" role="tabpanel" class="space-y-6">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <h4 class="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-2">Attack Vector</h4>
+                                        <p class="text-gray-700 dark:text-gray-300" x-text="selectedVuln.attack_vector || 'N/A'"></p>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-2">Attack Complexity</h4>
+                                        <p class="text-gray-700 dark:text-gray-300" x-text="selectedVuln.attack_complexity || 'N/A'"></p>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-2">Privileges Required</h4>
+                                        <p class="text-gray-700 dark:text-gray-300" x-text="selectedVuln.privileges_required || 'N/A'"></p>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-2">User Interaction</h4>
+                                        <p class="text-gray-700 dark:text-gray-300" x-text="selectedVuln.user_interaction || 'N/A'"></p>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <h4 class="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-2">Exploitation Status</h4>
+                                    <p class="text-gray-700 dark:text-gray-300" x-text="selectedVuln.exploitation_status"></p>
+                                </div>
+
+                                <div x-show="selectedVuln.tags && selectedVuln.tags.length > 0">
+                                    <h4 class="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-2">Tags</h4>
+                                    <div class="flex flex-wrap gap-2">
+                                        <template x-for="tag in selectedVuln.tags" :key="tag">
+                                            <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full text-sm" x-text="tag"></span>
+                                        </template>
+                                    </div>
+                                </div>
+
+                                <div class="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-4">
+                                    <h4 class="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-3">Scoring Details</h4>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <p class="text-xs text-gray-600 dark:text-gray-400 mb-1">CVSS Base Score</p>
+                                            <p class="text-lg font-bold text-gray-900 dark:text-gray-100" x-text="selectedVuln.cvss_score"></p>
+                                        </div>
+                                        <div>
+                                            <p class="text-xs text-gray-600 dark:text-gray-400 mb-1">EPSS Score</p>
+                                            <p class="text-lg font-bold text-gray-900 dark:text-gray-100" x-text="selectedVuln.epss_score.toFixed(1) + '%'"></p>
+                                        </div>
+                                        <div>
+                                            <p class="text-xs text-gray-600 dark:text-gray-400 mb-1">EPSS Percentile</p>
+                                            <p class="text-lg font-bold text-gray-900 dark:text-gray-100" x-text="selectedVuln.epss_percentile.toFixed(1) + '%'"></p>
+                                        </div>
+                                        <div>
+                                            <p class="text-xs text-gray-600 dark:text-gray-400 mb-1">Risk Score</p>
+                                            <p class="text-lg font-bold text-gray-900 dark:text-gray-100" x-text="selectedVuln.risk_score"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- References Tab -->
+                            <div x-show="activeTab === 'references'" role="tabpanel" class="space-y-4">
+                                <template x-if="selectedVuln.references && selectedVuln.references.length > 0">
+                                    <ul class="space-y-3">
+                                        <template x-for="(ref, index) in selectedVuln.references" :key="index">
+                                            <li class="border-l-4 border-primary-500 pl-4 py-2 bg-gray-50 dark:bg-gray-800/50 rounded-r-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                                                <a :href="ref.url"
+                                                   target="_blank"
+                                                   rel="noopener noreferrer"
+                                                   class="flex items-center gap-2 text-primary-600 dark:text-primary-400 hover:underline group">
+                                                    <svg class="h-4 w-4 flex-shrink-0 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                                    </svg>
+                                                    <span class="break-all" x-text="ref.url"></span>
+                                                </a>
+                                                <p x-show="ref.source" class="text-xs text-gray-500 dark:text-gray-400 mt-1 ml-6" x-text="'Source: ' + ref.source"></p>
+                                            </li>
+                                        </template>
+                                    </ul>
+                                </template>
+                                <template x-if="!selectedVuln.references || selectedVuln.references.length === 0">
+                                    <p class="text-gray-500 dark:text-gray-400 text-center py-8">No references available</p>
+                                </template>
+                            </div>
+
+                            <!-- Enrichments Tab -->
+                            <div x-show="activeTab === 'enrichments'" role="tabpanel" class="space-y-6">
+                                <template x-if="selectedVuln.enrichments && selectedVuln.enrichments.cisa_kev">
+                                    <div class="border border-red-200 dark:border-red-800 rounded-lg p-4 bg-red-50 dark:bg-red-900/10">
+                                        <div class="flex items-start gap-3">
+                                            <div class="flex-shrink-0 text-2xl">🔴</div>
+                                            <div class="flex-1">
+                                                <h4 class="text-sm font-semibold text-red-900 dark:text-red-400 mb-2">CISA Known Exploited Vulnerability</h4>
+                                                <div class="space-y-2 text-sm text-red-800 dark:text-red-300">
+                                                    <p x-show="selectedVuln.enrichments.cisa_kev.vendorProject">
+                                                        <span class="font-medium">Vendor:</span>
+                                                        <span x-text="selectedVuln.enrichments.cisa_kev.vendorProject"></span>
+                                                    </p>
+                                                    <p x-show="selectedVuln.enrichments.cisa_kev.product">
+                                                        <span class="font-medium">Product:</span>
+                                                        <span x-text="selectedVuln.enrichments.cisa_kev.product"></span>
+                                                    </p>
+                                                    <p x-show="selectedVuln.enrichments.cisa_kev.vulnerabilityName">
+                                                        <span class="font-medium">Vulnerability:</span>
+                                                        <span x-text="selectedVuln.enrichments.cisa_kev.vulnerabilityName"></span>
+                                                    </p>
+                                                    <p x-show="selectedVuln.enrichments.cisa_kev.dateAdded">
+                                                        <span class="font-medium">Added to KEV:</span>
+                                                        <span x-text="selectedVuln.enrichments.cisa_kev.dateAdded"></span>
+                                                    </p>
+                                                    <p x-show="selectedVuln.enrichments.cisa_kev.dueDate">
+                                                        <span class="font-medium">Due Date:</span>
+                                                        <span x-text="selectedVuln.enrichments.cisa_kev.dueDate"></span>
+                                                    </p>
+                                                    <p x-show="selectedVuln.enrichments.cisa_kev.requiredAction" class="mt-3 p-3 bg-red-100 dark:bg-red-900/20 rounded border border-red-300 dark:border-red-700">
+                                                        <span class="font-medium block mb-1">Required Action:</span>
+                                                        <span x-text="selectedVuln.enrichments.cisa_kev.requiredAction"></span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </template>
+
+                                <template x-if="!selectedVuln.enrichments || Object.keys(selectedVuln.enrichments).length === 0">
+                                    <p class="text-gray-500 dark:text-gray-400 text-center py-8">No enrichment data available</p>
+                                </template>
+
+                                <div x-show="selectedVuln.enrichments && Object.keys(selectedVuln.enrichments).length > 0 && !selectedVuln.enrichments.cisa_kev" class="text-sm text-gray-600 dark:text-gray-400">
+                                    <p>Additional enrichment data may be available for this CVE.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+
     <!-- Alpine.js Dashboard Component -->
     <script>
         function vulnDashboard() {{
@@ -455,6 +772,11 @@ def generate_dashboard():
                 currentPage: 1,
                 perPage: 50,
                 darkMode: false,
+
+                // Modal state
+                selectedVuln: null,
+                modalOpen: false,
+                activeTab: 'overview',
                 
                 // Computed properties
                 get filteredVulns() {{
@@ -596,6 +918,26 @@ def generate_dashboard():
                         console.error('❌ CSV export failed:', error);
                         alert('Failed to export CSV. Please try again.');
                     }}
+                }},
+
+                // Modal methods
+                openModal(vuln) {{
+                    this.selectedVuln = vuln;
+                    this.modalOpen = true;
+                    this.activeTab = 'overview';
+                    // Prevent body scroll when modal is open
+                    document.body.style.overflow = 'hidden';
+                }},
+
+                closeModal() {{
+                    this.modalOpen = false;
+                    this.selectedVuln = null;
+                    // Restore body scroll
+                    document.body.style.overflow = 'auto';
+                }},
+
+                switchTab(tab) {{
+                    this.activeTab = tab;
                 }}
             }}
         }}
