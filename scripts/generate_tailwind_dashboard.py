@@ -398,13 +398,38 @@ def generate_dashboard():
                 <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-800">
                     <thead class="bg-gray-50 dark:bg-gray-800/50">
                         <tr>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">CVE ID</th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">Severity</th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">CVSS</th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">EPSS %</th>
+                            <th scope="col" @click="sortBy('cve_id')" class="px-6 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors select-none">
+                                <div class="flex items-center gap-2">
+                                    <span>CVE ID</span>
+                                    <span class="text-sm" x-text="getSortIcon('cve_id')"></span>
+                                </div>
+                            </th>
+                            <th scope="col" @click="sortBy('severity')" class="px-6 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors select-none">
+                                <div class="flex items-center gap-2">
+                                    <span>Severity</span>
+                                    <span class="text-sm" x-text="getSortIcon('severity')"></span>
+                                </div>
+                            </th>
+                            <th scope="col" @click="sortBy('cvss_score')" class="px-6 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors select-none">
+                                <div class="flex items-center gap-2">
+                                    <span>CVSS</span>
+                                    <span class="text-sm" x-text="getSortIcon('cvss_score')"></span>
+                                </div>
+                            </th>
+                            <th scope="col" @click="sortBy('epss_percentile')" class="px-6 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors select-none">
+                                <div class="flex items-center gap-2">
+                                    <span>EPSS %</span>
+                                    <span class="text-sm" x-text="getSortIcon('epss_percentile')"></span>
+                                </div>
+                            </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">Product</th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">Exploit Status</th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">Published</th>
+                            <th scope="col" @click="sortBy('published')" class="px-6 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors select-none">
+                                <div class="flex items-center gap-2">
+                                    <span>Published</span>
+                                    <span class="text-sm" x-text="getSortIcon('published')"></span>
+                                </div>
+                            </th>
                         </tr>
                     </thead>
                     <tbody class="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-800">
@@ -777,31 +802,59 @@ def generate_dashboard():
                 selectedVuln: null,
                 modalOpen: false,
                 activeTab: 'overview',
-                
+
+                // Sort state
+                sortColumn: null,
+                sortDirection: 'asc',
+
                 // Computed properties
                 get filteredVulns() {{
                     let filtered = this.vulnerabilities;
-                    
+
                     // Search filter
                     if (this.searchQuery) {{
                         const query = this.searchQuery.toLowerCase();
-                        filtered = filtered.filter(v => 
+                        filtered = filtered.filter(v =>
                             v.cve_id.toLowerCase().includes(query) ||
                             v.products.toLowerCase().includes(query) ||
                             v.vendors.some(vendor => vendor.toLowerCase().includes(query))
                         );
                     }}
-                    
+
                     // Severity filter
                     if (this.selectedSeverity) {{
                         filtered = filtered.filter(v => v.severity === this.selectedSeverity);
                     }}
-                    
+
                     // KEV filter
                     if (this.showKEVOnly) {{
                         filtered = filtered.filter(v => v.kev);
                     }}
-                    
+
+                    // Apply sorting
+                    if (this.sortColumn) {{
+                        filtered = [...filtered].sort((a, b) => {{
+                            let aVal = a[this.sortColumn];
+                            let bVal = b[this.sortColumn];
+
+                            // Handle severity sorting with custom order
+                            if (this.sortColumn === 'severity') {{
+                                const severityOrder = {{ 'CRITICAL': 2, 'HIGH': 1 }};
+                                aVal = severityOrder[aVal] || 0;
+                                bVal = severityOrder[bVal] || 0;
+                            }}
+
+                            // Handle numeric comparisons
+                            if (typeof aVal === 'number' && typeof bVal === 'number') {{
+                                return this.sortDirection === 'asc' ? aVal - bVal : bVal - aVal;
+                            }}
+
+                            // Handle string comparisons
+                            const comparison = String(aVal).localeCompare(String(bVal));
+                            return this.sortDirection === 'asc' ? comparison : -comparison;
+                        }});
+                    }}
+
                     return filtered;
                 }},
                 
@@ -938,6 +991,25 @@ def generate_dashboard():
 
                 switchTab(tab) {{
                     this.activeTab = tab;
+                }},
+
+                // Sort methods
+                sortBy(column) {{
+                    if (this.sortColumn === column) {{
+                        // Toggle direction if already sorting by this column
+                        this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+                    }} else {{
+                        // New column, default to ascending
+                        this.sortColumn = column;
+                        this.sortDirection = 'asc';
+                    }}
+                }},
+
+                getSortIcon(column) {{
+                    if (this.sortColumn !== column) {{
+                        return '↕️'; // Both arrows when not sorting
+                    }}
+                    return this.sortDirection === 'asc' ? '↑' : '↓';
                 }}
             }}
         }}
