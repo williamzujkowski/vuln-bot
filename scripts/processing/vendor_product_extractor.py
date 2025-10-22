@@ -352,8 +352,13 @@ class VendorProductExtractor:
             if len(vendor_clean) < 2:
                 continue
 
-            # Skip placeholder values
-            if vendor_clean.lower() in ["n/a", "na", "none", "unknown", "unspecified", "tbd", "pending", "*"]:
+            # Skip placeholder values and generic terms
+            if vendor_clean.lower() in [
+                "n/a", "na", "none", "unknown", "unspecified", "tbd", "pending", "*",
+                # Generic terms that were being extracted from descriptions
+                "the", "web", "file", "server", "database", "framework", "application",
+                "system", "software", "product", "service", "tool", "platform", "solution"
+            ]:
                 continue
 
             # Skip if it's all digits
@@ -397,8 +402,13 @@ class VendorProductExtractor:
             if len(product_clean) < 2:
                 continue
 
-            # Skip placeholder values
-            if product_clean.lower() in ["n/a", "na", "none", "unknown", "unspecified", "tbd", "pending", "*"]:
+            # Skip placeholder values and generic terms
+            if product_clean.lower() in [
+                "n/a", "na", "none", "unknown", "unspecified", "tbd", "pending", "*",
+                # Generic terms that were being extracted from descriptions
+                "the", "web", "file", "server", "database", "framework", "application",
+                "system", "software", "product", "service", "tool", "platform", "solution"
+            ]:
                 continue
 
             # Skip if it's all digits
