@@ -122,8 +122,11 @@ temp/
 # Development/test outputs
 optimized-storage/
 
-# Individual CVE files (we use chunked storage now)
-src/api/vulns/CVE-*.json
+# src/api is only created by local dev runs (default --output-dir src)
+# GitHub Actions workflow uses --output-dir . which creates api/vulns/
+# Ignore src/api to prevent committing unused data
+src/api/
+
 # HTMX specific
 public/fragments/
 public/data/

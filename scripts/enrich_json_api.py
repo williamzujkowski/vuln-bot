@@ -182,14 +182,9 @@ def main():
 
     print()
 
-    # Also enrich src API files if they exist
-    src_api_dir = Path("src/api/vulns")
-    if src_api_dir.exists():
-        index_file = src_api_dir / "index.json"
-        if index_file.exists():
-            enrich_json_file(index_file)
-        else:
-            print(f"⚠ {index_file} not found")
+    # Note: src/api/vulns is only created by local dev runs with default --output-dir
+    # GitHub Actions workflow uses --output-dir . which creates api/vulns
+    # No need to enrich src/api since it's not used in production
 
     print()
 
