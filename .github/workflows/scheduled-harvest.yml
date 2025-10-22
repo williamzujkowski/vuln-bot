@@ -143,16 +143,16 @@ jobs:
         run: |
           echo "Enriching vulnerabilities with CISA KEV data..."
           python -m scripts.enhance_cisa_kev \
-            --api-dir api \
-            --output-dir api
+            --api-dir api/vulns \
+            --output-dir api/vulns
 
       - name: Enrich with exploit availability
         continue-on-error: true  # Optional enrichment, don't block pipeline
         run: |
           echo "Adding exploit availability flags and EPSS percentiles..."
           python -m scripts.enhance_exploit_availability \
-            --api-dir api \
-            --output-dir api
+            --api-dir api/vulns \
+            --output-dir api/vulns
 
       - name: Enrich with priority tiers and tech categories
         run: |

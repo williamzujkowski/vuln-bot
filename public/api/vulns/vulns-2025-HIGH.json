@@ -33,7 +33,7 @@
         "confidence": null
       },
       "riskScore": 86,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -53,12 +53,27 @@
           "url": "https://helpcenter.nakivo.com/Release-Notes/Content/Release-Notes.htm",
           "source": "",
           "tags": []
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-36"
+          "CWE-36",
+          "CISA-KEV"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -73,6 +88,17 @@
             "lastModified": "2025-07-30T01:36:18.985000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2025-03-19",
+          "vulnerabilityName": "NAKIVO Backup and Replication Absolute Path Traversal Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2025-04-09",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "https://helpcenter.nakivo.com/Release-Notes/Content/Release-Notes.htm ; https://nvd.nist.gov/vuln/detail/CVE-2024-48248"
+        }
       }
     },
     {
@@ -105,7 +131,7 @@
         "confidence": null
       },
       "riskScore": 78,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -210,12 +236,27 @@
           "url": "https://blog.gitguardian.com/compromised-tj-actions/",
           "source": "",
           "tags": []
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-506"
+          "CWE-506",
+          "CISA-KEV"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -230,6 +271,17 @@
             "lastModified": "2025-07-30T01:36:16.435000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2025-03-18",
+          "vulnerabilityName": "tj-actions/changed-files GitHub Action Embedded Malicious Code Vulnerability",
+          "requiredAction": "Apply mitigations as set forth in the CISA instructions linked below. Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2025-04-08",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "This vulnerability affects a common open-source project, third-party library, or a protocol used by different products. For more information, please see: CISA Mitigation Instructions: https://www.cisa.gov/news-events/alerts/2025/03/18/supply-chain-compromise-third-party-tj-actionschanged-files-cve-2025-30066-and-reviewdogaction ; Additional References: https://github.com/tj-actions/changed-files/blob/45fb12d7a8bedb4da42342e52fe054c6c2c3fd73/README.md?plain=1#L20-L28 ; https://nvd.nist.gov/vuln/detail/CVE-2025-30066"
+        }
       }
     },
     {
@@ -262,7 +314,7 @@
         "confidence": null
       },
       "riskScore": 69,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -282,12 +334,28 @@
           "tags": [
             "vendor-advisory"
           ]
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-94"
+          "CWE-94",
+          "CISA-KEV",
+          "RANSOMWARE"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -302,6 +370,17 @@
             "lastModified": "2025-08-23T00:40:27.115000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2025-07-22",
+          "vulnerabilityName": "Microsoft SharePoint Code Injection Vulnerability",
+          "requiredAction": "Disconnect public-facing versions of SharePoint Server that have reached their end-of-life (EOL) or end-of-service (EOS) to include SharePoint Server 2013 and earlier versions. For supported versions, please follow the mitigations according to CISA (URL listed below in Notes) and vendor instructions (URL listed below in Notes). Adhere to the applicable BOD 22-01 guidance for cloud services or discontinue use of the product if mitigations are not available.",
+          "dueDate": "2025-07-23",
+          "knownRansomwareCampaignUse": "Known",
+          "notes": "CISA Mitigation Instructions: https://www.cisa.gov/news-events/alerts/2025/07/20/microsoft-releases-guidance-exploitation-sharepoint-vulnerability-cve-2025-53770; https://www.microsoft.com/en-us/security/blog/2025/07/22/disrupting-active-exploitation-of-on-premises-sharepoint-vulnerabilities/ ; https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49704 ; https://nvd.nist.gov/vuln/detail/CVE-2025-49704"
+        }
       }
     },
     {
@@ -334,7 +413,7 @@
         "confidence": null
       },
       "riskScore": 68,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -351,11 +430,27 @@
           "tags": [
             "x_refsource_CONFIRM"
           ]
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
-        "tags": [],
+        "tags": [
+          "CISA-KEV"
+        ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
         "attackVector": "Network",
@@ -369,6 +464,17 @@
             "lastModified": "2025-07-30T01:36:18.147000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2025-05-06",
+          "vulnerabilityName": "FreeType Out-of-Bounds Write Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2025-05-27",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "This vulnerability affects a common open-source component, third-party library, or a protocol used by different products. Please check with specific vendors for information on patching status. For more information, please see: https://source.android.com/docs/security/bulletin/2025-05-01 ; https://nvd.nist.gov/vuln/detail/CVE-2025-27363"
+        }
       }
     },
     {
@@ -401,7 +507,7 @@
         "confidence": null
       },
       "riskScore": 67,
-      "exploitationStatus": "UNKNOWN",
+      "exploitationStatus": "KNOWN_EXPLOITED",
       "affectedSystems": {
         "cpeMatches": [],
         "vendors": [
@@ -426,12 +532,27 @@
           "tags": [
             "vendor-advisory"
           ]
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
         }
       ],
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-122"
+          "CWE-122",
+          "CISA-KEV"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
@@ -446,6 +567,17 @@
             "lastModified": "2025-09-09T23:46:56.269000+00:00"
           }
         ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2025-01-14",
+          "vulnerabilityName": "Microsoft Windows Hyper-V NT Kernel Integration VSP Heap-based Buffer Overflow Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2025-02-04",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2025-21333 ; https://nvd.nist.gov/vuln/detail/CVE-2025-21333"
+        }
       }
     },
     {
