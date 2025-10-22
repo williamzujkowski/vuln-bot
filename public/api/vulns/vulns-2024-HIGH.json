@@ -1,8 +1,154 @@
 {
   "chunk": "2024-HIGH",
   "count": 93,
-  "generated": "2025-10-22T08:15:00.758331",
+  "generated": "2025-10-22T16:18:49.282633",
   "vulnerabilities": [
+    {
+      "cveId": "CVE-2024-12987",
+      "title": "DrayTek Vigor2960/Vigor300B Web Management Interface apmcfgupload os command injection",
+      "description": "A vulnerability, which was classified as critical, was found in DrayTek Vigor2960 and Vigor300B 1.5.1.4. Affected is an unknown function of the file /cgi-bin/mainfunction.cgi/apmcfgupload of the component Web Management Interface. The manipulation of the argument session leads to os command injection. It is possible to launch the attack remotely. The exploit has been disclosed to the public and may be used. Upgrading to version 1.5.1.5 is able to address this issue. It is recommended to upgrade the affected component.",
+      "publishedDate": "2024-12-27T16:00:13.600000+00:00",
+      "lastModifiedDate": "2025-10-21T22:55:33.312000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+          "baseScore": 7.3,
+          "baseSeverity": "HIGH"
+        },
+        {
+          "version": "3.0",
+          "vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
+          "baseScore": 7.3,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.8626,
+        "percentile": 99.352
+      },
+      "ssvc": {
+        "exploitation": "active",
+        "automatable": "yes",
+        "technicalImpact": "total",
+        "priorityTier": "ACT",
+        "compactNotation": "A/Y/T",
+        "ssvcScore": 60,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 84,
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Draytek"
+        ],
+        "products": [
+          "Vigor2960",
+          "Vigor300b"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://vuldb.com/?id.289380",
+          "source": "VDB-289380 | DrayTek Vigor2960/Vigor300B Web Management Interface apmcfgupload os command injection",
+          "tags": [
+            "vdb-entry",
+            "technical-description"
+          ]
+        },
+        {
+          "url": "https://vuldb.com/?ctiid.289380",
+          "source": "VDB-289380 | CTI Indicators (IOB, IOC, TTP, IOA)",
+          "tags": [
+            "signature",
+            "permissions-required"
+          ]
+        },
+        {
+          "url": "https://vuldb.com/?submit.468795",
+          "source": "Submit #468795 | DrayTek Vigor2960, Vigor300B 1.5.1.4 Command Injection",
+          "tags": [
+            "third-party-advisory"
+          ]
+        },
+        {
+          "url": "https://netsecfish.notion.site/Command-Injection-in-apmcfgupload-endpoint-for-DrayTek-Gateway-Devices-1676b683e67c8040b7f1f0ffe29ce18f?pvs=4",
+          "source": "",
+          "tags": [
+            "exploit"
+          ]
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-78",
+          "CWE-77",
+          "CISA-KEV",
+          "EXPLOIT-AVAILABLE",
+          "TOP-1-PERCENT-EPSS"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "Low",
+        "privilegesRequired": "None",
+        "userInteraction": "None",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/12xxx/CVE-2024-12987.json",
+            "lastModified": "2025-10-21T22:55:33.312000+00:00"
+          }
+        ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2025-05-15",
+          "vulnerabilityName": "DrayTek Vigor Routers OS Command Injection Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2025-06-05",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "https://fw.draytek.com.tw/Vigor2960/Firmware/v1.5.1.5/DrayTek_Vigor2960_V1.5.1.5_01release-note.pdf ; https://fw.draytek.com.tw/Vigor300B/Firmware/v1.5.1.5/DrayTek_Vigor300B_V1.5.1.5_01release-note.pdf ; https://fw.draytek.com.tw/Vigor3900/Firmware/v1.5.1.5/DrayTek_Vigor3900_V1.5.1.5_01release-note.pdf ; https://nvd.nist.gov/vuln/detail/CVE-2024-12987"
+        },
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
+            }
+          ],
+          "exploit_count": 1
+        },
+        "epss_percentile": {
+          "percentile": 99.352,
+          "rank": "Top 1%",
+          "is_top_1_percent": true,
+          "is_top_5_percent": true,
+          "is_top_10_percent": true
+        }
+      }
+    },
     {
       "cveId": "CVE-2024-3273",
       "title": "D-Link DNS-320L/DNS-325/DNS-327L/DNS-340L HTTP GET Request nas_sharing.cgi command injection",
@@ -158,152 +304,6 @@
       }
     },
     {
-      "cveId": "CVE-2024-12987",
-      "title": "DrayTek Vigor2960/Vigor300B Web Management Interface apmcfgupload os command injection",
-      "description": "A vulnerability, which was classified as critical, was found in DrayTek Vigor2960 and Vigor300B 1.5.1.4. Affected is an unknown function of the file /cgi-bin/mainfunction.cgi/apmcfgupload of the component Web Management Interface. The manipulation of the argument session leads to os command injection. It is possible to launch the attack remotely. The exploit has been disclosed to the public and may be used. Upgrading to version 1.5.1.5 is able to address this issue. It is recommended to upgrade the affected component.",
-      "publishedDate": "2024-12-27T16:00:13.600000+00:00",
-      "lastModifiedDate": "2025-10-21T22:55:33.312000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
-          "baseScore": 7.3,
-          "baseSeverity": "HIGH"
-        },
-        {
-          "version": "3.0",
-          "vectorString": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L",
-          "baseScore": 7.3,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.843,
-        "percentile": 99.27
-      },
-      "ssvc": {
-        "exploitation": "active",
-        "automatable": "yes",
-        "technicalImpact": "total",
-        "priorityTier": "ACT",
-        "compactNotation": "A/Y/T",
-        "ssvcScore": 60,
-        "inferred": false,
-        "confidence": null
-      },
-      "riskScore": 83,
-      "exploitationStatus": "EXPLOIT_AVAILABLE",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Draytek"
-        ],
-        "products": [
-          "Vigor2960",
-          "Vigor300b"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://vuldb.com/?id.289380",
-          "source": "VDB-289380 | DrayTek Vigor2960/Vigor300B Web Management Interface apmcfgupload os command injection",
-          "tags": [
-            "vdb-entry",
-            "technical-description"
-          ]
-        },
-        {
-          "url": "https://vuldb.com/?ctiid.289380",
-          "source": "VDB-289380 | CTI Indicators (IOB, IOC, TTP, IOA)",
-          "tags": [
-            "signature",
-            "permissions-required"
-          ]
-        },
-        {
-          "url": "https://vuldb.com/?submit.468795",
-          "source": "Submit #468795 | DrayTek Vigor2960, Vigor300B 1.5.1.4 Command Injection",
-          "tags": [
-            "third-party-advisory"
-          ]
-        },
-        {
-          "url": "https://netsecfish.notion.site/Command-Injection-in-apmcfgupload-endpoint-for-DrayTek-Gateway-Devices-1676b683e67c8040b7f1f0ffe29ce18f?pvs=4",
-          "source": "",
-          "tags": [
-            "exploit"
-          ]
-        },
-        {
-          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-          "source": "CISA KEV",
-          "tags": [
-            "exploit",
-            "kev"
-          ],
-          "category": "exploit",
-          "rel": "noopener noreferrer",
-          "target": "_blank",
-          "domain": "cisa.gov",
-          "icon": "\ud83d\udd25",
-          "title": "CISA Known Exploited Vulnerabilities Catalog"
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-78",
-          "CWE-77",
-          "CISA-KEV",
-          "EXPLOIT-AVAILABLE",
-          "TOP-1-PERCENT-EPSS"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "Low",
-        "privilegesRequired": "None",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/12xxx/CVE-2024-12987.json",
-            "lastModified": "2025-10-21T22:55:33.312000+00:00"
-          }
-        ]
-      },
-      "enrichments": {
-        "cisa_kev": {
-          "isKnownExploited": true,
-          "dateAdded": "2025-05-15",
-          "vulnerabilityName": "DrayTek Vigor Routers OS Command Injection Vulnerability",
-          "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
-          "dueDate": "2025-06-05",
-          "knownRansomwareCampaignUse": "Unknown",
-          "notes": "https://fw.draytek.com.tw/Vigor2960/Firmware/v1.5.1.5/DrayTek_Vigor2960_V1.5.1.5_01release-note.pdf ; https://fw.draytek.com.tw/Vigor300B/Firmware/v1.5.1.5/DrayTek_Vigor300B_V1.5.1.5_01release-note.pdf ; https://fw.draytek.com.tw/Vigor3900/Firmware/v1.5.1.5/DrayTek_Vigor3900_V1.5.1.5_01release-note.pdf ; https://nvd.nist.gov/vuln/detail/CVE-2024-12987"
-        },
-        "exploit_availability": {
-          "has_exploit": true,
-          "exploit_sources": [
-            {
-              "source": "Potential Exploit",
-              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-              "icon": "\u26a0\ufe0f"
-            }
-          ],
-          "exploit_count": 1
-        },
-        "epss_percentile": {
-          "percentile": 99.27,
-          "rank": "Top 1%",
-          "is_top_1_percent": true,
-          "is_top_5_percent": true,
-          "is_top_10_percent": true
-        }
-      }
-    },
-    {
       "cveId": "CVE-2024-24919",
       "title": "Information disclosure",
       "description": "Potentially allowing an attacker to read certain information on Check Point Security Gateways once connected to the internet and enabled with remote Access VPN or Mobile Access Software Blades. A Security fix that mitigates this vulnerability is available.",
@@ -320,7 +320,7 @@
       ],
       "epss": {
         "score": 0.9434,
-        "percentile": 99.949
+        "percentile": 99.95
       },
       "ssvc": {
         "exploitation": "active",
@@ -409,7 +409,7 @@
           "exploit_count": 1
         },
         "epss_percentile": {
-          "percentile": 99.949,
+          "percentile": 99.95,
           "rank": "Top 1%",
           "is_top_1_percent": true,
           "is_top_5_percent": true,
@@ -433,8 +433,8 @@
         }
       ],
       "epss": {
-        "score": 0.9438,
-        "percentile": 99.962
+        "score": 0.9435,
+        "percentile": 99.954
       },
       "ssvc": {
         "exploitation": "active",
@@ -524,7 +524,7 @@
           "exploit_count": 1
         },
         "epss_percentile": {
-          "percentile": 99.962,
+          "percentile": 99.954,
           "rank": "Top 1%",
           "is_top_1_percent": true,
           "is_top_5_percent": true,
@@ -674,7 +674,7 @@
       ],
       "epss": {
         "score": 0.9413,
-        "percentile": 99.904
+        "percentile": 99.905
       },
       "ssvc": {
         "exploitation": "active",
@@ -764,7 +764,7 @@
           "exploit_count": 1
         },
         "epss_percentile": {
-          "percentile": 99.904,
+          "percentile": 99.905,
           "rank": "Top 1%",
           "is_top_1_percent": true,
           "is_top_5_percent": true,
@@ -909,7 +909,7 @@
       ],
       "epss": {
         "score": 0.7396,
-        "percentile": 98.758
+        "percentile": 98.754
       },
       "ssvc": {
         "exploitation": "active",
@@ -998,7 +998,7 @@
           "exploit_count": 1
         },
         "epss_percentile": {
-          "percentile": 98.758,
+          "percentile": 98.754,
           "rank": "Top 5%",
           "is_top_1_percent": false,
           "is_top_5_percent": true,
@@ -1299,6 +1299,139 @@
       }
     },
     {
+      "cveId": "CVE-2024-38112",
+      "title": "Windows MSHTML Platform Spoofing Vulnerability",
+      "description": "Windows MSHTML Platform Spoofing Vulnerability",
+      "publishedDate": "2024-07-09T17:02:38.208000+00:00",
+      "lastModifiedDate": "2025-10-21T22:55:49.972000+00:00",
+      "severity": "HIGH",
+      "cvssMetrics": [
+        {
+          "version": "3.1",
+          "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H/E:F/RL:O/RC:C",
+          "baseScore": 7.5,
+          "baseSeverity": "HIGH"
+        }
+      ],
+      "epss": {
+        "score": 0.9253,
+        "percentile": 99.723
+      },
+      "ssvc": {
+        "exploitation": "active",
+        "automatable": "no",
+        "technicalImpact": "total",
+        "priorityTier": "ATTEND",
+        "compactNotation": "A/N/T",
+        "ssvcScore": 45,
+        "inferred": false,
+        "confidence": null
+      },
+      "riskScore": 70,
+      "exploitationStatus": "EXPLOIT_AVAILABLE",
+      "affectedSystems": {
+        "cpeMatches": [],
+        "vendors": [
+          "Microsoft"
+        ],
+        "products": [
+          "Windows 10 Version 1507",
+          "Windows 10 Version 1607",
+          "Windows 10 Version 1809",
+          "Windows 10 Version 21h2",
+          "Windows 10 Version 22h2",
+          "Windows 11 Version 21h2",
+          "Windows 11 Version 22h2",
+          "Windows 11 Version 22h3",
+          "Windows 11 Version 23h2",
+          "Windows Server 2008 Service Pack 2",
+          "Windows Server 2008 Service Pack 2 (server Core Installation)",
+          "Windows Server 2012 R2",
+          "Windows Server 2012 R2 (server Core Installation)",
+          "Windows Server 2016",
+          "Windows Server 2016 (server Core Installation)",
+          "Windows Server 2019",
+          "Windows Server 2019 (server Core Installation)",
+          "Windows Server 2022",
+          "Windows Server 2022, 23h2 Edition (server Core Installation)"
+        ]
+      },
+      "references": [
+        {
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-38112",
+          "source": "Windows MSHTML Platform Spoofing Vulnerability",
+          "tags": [
+            "vendor-advisory"
+          ]
+        },
+        {
+          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+          "source": "CISA KEV",
+          "tags": [
+            "exploit",
+            "kev"
+          ],
+          "category": "exploit",
+          "rel": "noopener noreferrer",
+          "target": "_blank",
+          "domain": "cisa.gov",
+          "icon": "\ud83d\udd25",
+          "title": "CISA Known Exploited Vulnerabilities Catalog"
+        }
+      ],
+      "attackTechniques": [],
+      "metadata": {
+        "tags": [
+          "CWE-451",
+          "CISA-KEV",
+          "EXPLOIT-AVAILABLE",
+          "TOP-1-PERCENT-EPSS"
+        ],
+        "requiresUserInteraction": null,
+        "requiresPrivileges": null,
+        "attackVector": "Network",
+        "attackComplexity": "High",
+        "privilegesRequired": "None",
+        "userInteraction": "Required",
+        "sources": [
+          {
+            "name": "CVEList",
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/38xxx/CVE-2024-38112.json",
+            "lastModified": "2025-10-21T22:55:49.972000+00:00"
+          }
+        ]
+      },
+      "enrichments": {
+        "cisa_kev": {
+          "isKnownExploited": true,
+          "dateAdded": "2024-07-09",
+          "vulnerabilityName": "Microsoft Windows MSHTML Platform Spoofing Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2024-07-30",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-38112; https://nvd.nist.gov/vuln/detail/CVE-2024-38112"
+        },
+        "exploit_availability": {
+          "has_exploit": true,
+          "exploit_sources": [
+            {
+              "source": "Potential Exploit",
+              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+              "icon": "\u26a0\ufe0f"
+            }
+          ],
+          "exploit_count": 1
+        },
+        "epss_percentile": {
+          "percentile": 99.723,
+          "rank": "Top 1%",
+          "is_top_1_percent": true,
+          "is_top_5_percent": true,
+          "is_top_10_percent": true
+        }
+      }
+    },
+    {
       "cveId": "CVE-2024-20953",
       "title": "CVE-2024-20953: Vulnerability in the Oracle Agile PLM product of Oracle Supply Chain (component: Export).   The supp...",
       "description": "Vulnerability in the Oracle Agile PLM product of Oracle Supply Chain (component: Export).   The supported version that is affected is 9.3.6. Easily exploitable vulnerability allows low privileged attacker with network access via HTTP to compromise Oracle Agile PLM.  Successful attacks of this vulnerability can result in takeover of Oracle Agile PLM. CVSS 3.1 Base Score 8.8 (Confidentiality, Integrity and Availability impacts).  CVSS Vector: (CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H).",
@@ -1314,8 +1447,8 @@
         }
       ],
       "epss": {
-        "score": 0.7697,
-        "percentile": 98.904
+        "score": 0.7727,
+        "percentile": 98.917
       },
       "ssvc": {
         "exploitation": "active",
@@ -1404,7 +1537,7 @@
           "exploit_count": 1
         },
         "epss_percentile": {
-          "percentile": 98.904,
+          "percentile": 98.917,
           "rank": "Top 5%",
           "is_top_1_percent": false,
           "is_top_5_percent": true,
@@ -1429,7 +1562,7 @@
       ],
       "epss": {
         "score": 0.846,
-        "percentile": 99.283
+        "percentile": 99.282
       },
       "ssvc": {
         "exploitation": "active",
@@ -1591,7 +1724,7 @@
           "exploit_count": 2
         },
         "epss_percentile": {
-          "percentile": 99.283,
+          "percentile": 99.282,
           "rank": "Top 1%",
           "is_top_1_percent": true,
           "is_top_5_percent": true,
@@ -1615,8 +1748,8 @@
         }
       ],
       "epss": {
-        "score": 0.9223,
-        "percentile": 99.699
+        "score": 0.922,
+        "percentile": 99.697
       },
       "ssvc": {
         "exploitation": "active",
@@ -1704,7 +1837,7 @@
           "exploit_count": 1
         },
         "epss_percentile": {
-          "percentile": 99.699,
+          "percentile": 99.697,
           "rank": "Top 1%",
           "is_top_1_percent": true,
           "is_top_5_percent": true,
@@ -1728,8 +1861,8 @@
         }
       ],
       "epss": {
-        "score": 0.6477,
-        "percentile": 98.364
+        "score": 0.6983,
+        "percentile": 98.589
       },
       "ssvc": {
         "exploitation": "active",
@@ -1829,7 +1962,7 @@
           "exploit_count": 1
         },
         "epss_percentile": {
-          "percentile": 98.364,
+          "percentile": 98.589,
           "rank": "Top 5%",
           "is_top_1_percent": false,
           "is_top_5_percent": true,
@@ -1853,8 +1986,8 @@
         }
       ],
       "epss": {
-        "score": 0.8588,
-        "percentile": 99.337
+        "score": 0.8737,
+        "percentile": 99.411
       },
       "ssvc": {
         "exploitation": "active",
@@ -1968,7 +2101,7 @@
           "exploit_count": 1
         },
         "epss_percentile": {
-          "percentile": 99.337,
+          "percentile": 99.411,
           "rank": "Top 1%",
           "is_top_1_percent": true,
           "is_top_5_percent": true,
@@ -1977,23 +2110,23 @@
       }
     },
     {
-      "cveId": "CVE-2024-38112",
-      "title": "Windows MSHTML Platform Spoofing Vulnerability",
-      "description": "Windows MSHTML Platform Spoofing Vulnerability",
-      "publishedDate": "2024-07-09T17:02:38.208000+00:00",
-      "lastModifiedDate": "2025-10-21T22:55:49.972000+00:00",
+      "cveId": "CVE-2024-38193",
+      "title": "Windows Ancillary Function Driver for WinSock Elevation of Privilege Vulnerability",
+      "description": "Windows Ancillary Function Driver for WinSock Elevation of Privilege Vulnerability",
+      "publishedDate": "2024-08-13T17:29:52.409000+00:00",
+      "lastModifiedDate": "2025-10-21T22:55:48.224000+00:00",
       "severity": "HIGH",
       "cvssMetrics": [
         {
           "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H/E:F/RL:O/RC:C",
-          "baseScore": 7.5,
+          "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H/E:F/RL:O/RC:C",
+          "baseScore": 7.8,
           "baseSeverity": "HIGH"
         }
       ],
       "epss": {
-        "score": 0.9235,
-        "percentile": 99.709
+        "score": 0.72,
+        "percentile": 98.673
       },
       "ssvc": {
         "exploitation": "active",
@@ -2005,7 +2138,7 @@
         "inferred": false,
         "confidence": null
       },
-      "riskScore": 69,
+      "riskScore": 68,
       "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
@@ -2022,8 +2155,13 @@
           "Windows 11 Version 22h2",
           "Windows 11 Version 22h3",
           "Windows 11 Version 23h2",
+          "Windows 11 Version 24h2",
+          "Windows Server 2008 R2 Service Pack 1",
+          "Windows Server 2008 R2 Service Pack 1 (server Core Installation)",
           "Windows Server 2008 Service Pack 2",
           "Windows Server 2008 Service Pack 2 (server Core Installation)",
+          "Windows Server 2012",
+          "Windows Server 2012 (server Core Installation)",
           "Windows Server 2012 R2",
           "Windows Server 2012 R2 (server Core Installation)",
           "Windows Server 2016",
@@ -2036,8 +2174,8 @@
       },
       "references": [
         {
-          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-38112",
-          "source": "Windows MSHTML Platform Spoofing Vulnerability",
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-38193",
+          "source": "Windows Ancillary Function Driver for WinSock Elevation of Privilege Vulnerability",
           "tags": [
             "vendor-advisory"
           ]
@@ -2060,34 +2198,34 @@
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-451",
+          "CWE-416",
           "CISA-KEV",
           "EXPLOIT-AVAILABLE",
-          "TOP-1-PERCENT-EPSS"
+          "TOP-5-PERCENT-EPSS"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
-        "attackVector": "Network",
-        "attackComplexity": "High",
-        "privilegesRequired": "None",
-        "userInteraction": "Required",
+        "attackVector": "Local",
+        "attackComplexity": "Low",
+        "privilegesRequired": "Low",
+        "userInteraction": "None",
         "sources": [
           {
             "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/38xxx/CVE-2024-38112.json",
-            "lastModified": "2025-10-21T22:55:49.972000+00:00"
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/38xxx/CVE-2024-38193.json",
+            "lastModified": "2025-10-21T22:55:48.224000+00:00"
           }
         ]
       },
       "enrichments": {
         "cisa_kev": {
           "isKnownExploited": true,
-          "dateAdded": "2024-07-09",
-          "vulnerabilityName": "Microsoft Windows MSHTML Platform Spoofing Vulnerability",
+          "dateAdded": "2024-08-13",
+          "vulnerabilityName": "Microsoft Windows Ancillary Function Driver for WinSock Privilege Escalation Vulnerability",
           "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
-          "dueDate": "2024-07-30",
+          "dueDate": "2024-09-03",
           "knownRansomwareCampaignUse": "Unknown",
-          "notes": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-38112; https://nvd.nist.gov/vuln/detail/CVE-2024-38112"
+          "notes": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-38193; https://nvd.nist.gov/vuln/detail/CVE-2024-38193"
         },
         "exploit_availability": {
           "has_exploit": true,
@@ -2101,9 +2239,9 @@
           "exploit_count": 1
         },
         "epss_percentile": {
-          "percentile": 99.709,
-          "rank": "Top 1%",
-          "is_top_1_percent": true,
+          "percentile": 98.673,
+          "rank": "Top 5%",
+          "is_top_1_percent": false,
           "is_top_5_percent": true,
           "is_top_10_percent": true
         }
@@ -2126,7 +2264,7 @@
       ],
       "epss": {
         "score": 0.7619,
-        "percentile": 98.866
+        "percentile": 98.863
       },
       "ssvc": {
         "exploitation": "active",
@@ -2227,7 +2365,7 @@
           "exploit_count": 1
         },
         "epss_percentile": {
-          "percentile": 98.866,
+          "percentile": 98.863,
           "rank": "Top 5%",
           "is_top_1_percent": false,
           "is_top_5_percent": true,
@@ -2409,8 +2547,8 @@
         }
       ],
       "epss": {
-        "score": 0.8734,
-        "percentile": 99.41
+        "score": 0.8712,
+        "percentile": 99.401
       },
       "ssvc": {
         "exploitation": "active",
@@ -2514,7 +2652,7 @@
           "exploit_count": 1
         },
         "epss_percentile": {
-          "percentile": 99.41,
+          "percentile": 99.401,
           "rank": "Top 1%",
           "is_top_1_percent": true,
           "is_top_5_percent": true,
@@ -2538,8 +2676,8 @@
         }
       ],
       "epss": {
-        "score": 0.8079,
-        "percentile": 99.093
+        "score": 0.834,
+        "percentile": 99.225
       },
       "ssvc": {
         "exploitation": "active",
@@ -2633,7 +2771,7 @@
           "exploit_count": 1
         },
         "epss_percentile": {
-          "percentile": 99.093,
+          "percentile": 99.225,
           "rank": "Top 1%",
           "is_top_1_percent": true,
           "is_top_5_percent": true,
@@ -2657,8 +2795,8 @@
         }
       ],
       "epss": {
-        "score": 0.8424,
-        "percentile": 99.266
+        "score": 0.8508,
+        "percentile": 99.3
       },
       "ssvc": {
         "exploitation": "active",
@@ -2746,7 +2884,7 @@
           "exploit_count": 1
         },
         "epss_percentile": {
-          "percentile": 99.266,
+          "percentile": 99.3,
           "rank": "Top 1%",
           "is_top_1_percent": true,
           "is_top_5_percent": true,
@@ -3222,144 +3360,6 @@
       }
     },
     {
-      "cveId": "CVE-2024-38193",
-      "title": "Windows Ancillary Function Driver for WinSock Elevation of Privilege Vulnerability",
-      "description": "Windows Ancillary Function Driver for WinSock Elevation of Privilege Vulnerability",
-      "publishedDate": "2024-08-13T17:29:52.409000+00:00",
-      "lastModifiedDate": "2025-10-21T22:55:48.224000+00:00",
-      "severity": "HIGH",
-      "cvssMetrics": [
-        {
-          "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H/E:F/RL:O/RC:C",
-          "baseScore": 7.8,
-          "baseSeverity": "HIGH"
-        }
-      ],
-      "epss": {
-        "score": 0.6716,
-        "percentile": 98.478
-      },
-      "ssvc": {
-        "exploitation": "active",
-        "automatable": "no",
-        "technicalImpact": "total",
-        "priorityTier": "ATTEND",
-        "compactNotation": "A/N/T",
-        "ssvcScore": 45,
-        "inferred": false,
-        "confidence": null
-      },
-      "riskScore": 67,
-      "exploitationStatus": "EXPLOIT_AVAILABLE",
-      "affectedSystems": {
-        "cpeMatches": [],
-        "vendors": [
-          "Microsoft"
-        ],
-        "products": [
-          "Windows 10 Version 1507",
-          "Windows 10 Version 1607",
-          "Windows 10 Version 1809",
-          "Windows 10 Version 21h2",
-          "Windows 10 Version 22h2",
-          "Windows 11 Version 21h2",
-          "Windows 11 Version 22h2",
-          "Windows 11 Version 22h3",
-          "Windows 11 Version 23h2",
-          "Windows 11 Version 24h2",
-          "Windows Server 2008 R2 Service Pack 1",
-          "Windows Server 2008 R2 Service Pack 1 (server Core Installation)",
-          "Windows Server 2008 Service Pack 2",
-          "Windows Server 2008 Service Pack 2 (server Core Installation)",
-          "Windows Server 2012",
-          "Windows Server 2012 (server Core Installation)",
-          "Windows Server 2012 R2",
-          "Windows Server 2012 R2 (server Core Installation)",
-          "Windows Server 2016",
-          "Windows Server 2016 (server Core Installation)",
-          "Windows Server 2019",
-          "Windows Server 2019 (server Core Installation)",
-          "Windows Server 2022",
-          "Windows Server 2022, 23h2 Edition (server Core Installation)"
-        ]
-      },
-      "references": [
-        {
-          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-38193",
-          "source": "Windows Ancillary Function Driver for WinSock Elevation of Privilege Vulnerability",
-          "tags": [
-            "vendor-advisory"
-          ]
-        },
-        {
-          "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-          "source": "CISA KEV",
-          "tags": [
-            "exploit",
-            "kev"
-          ],
-          "category": "exploit",
-          "rel": "noopener noreferrer",
-          "target": "_blank",
-          "domain": "cisa.gov",
-          "icon": "\ud83d\udd25",
-          "title": "CISA Known Exploited Vulnerabilities Catalog"
-        }
-      ],
-      "attackTechniques": [],
-      "metadata": {
-        "tags": [
-          "CWE-416",
-          "CISA-KEV",
-          "EXPLOIT-AVAILABLE",
-          "TOP-5-PERCENT-EPSS"
-        ],
-        "requiresUserInteraction": null,
-        "requiresPrivileges": null,
-        "attackVector": "Local",
-        "attackComplexity": "Low",
-        "privilegesRequired": "Low",
-        "userInteraction": "None",
-        "sources": [
-          {
-            "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2024/38xxx/CVE-2024-38193.json",
-            "lastModified": "2025-10-21T22:55:48.224000+00:00"
-          }
-        ]
-      },
-      "enrichments": {
-        "cisa_kev": {
-          "isKnownExploited": true,
-          "dateAdded": "2024-08-13",
-          "vulnerabilityName": "Microsoft Windows Ancillary Function Driver for WinSock Privilege Escalation Vulnerability",
-          "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
-          "dueDate": "2024-09-03",
-          "knownRansomwareCampaignUse": "Unknown",
-          "notes": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-38193; https://nvd.nist.gov/vuln/detail/CVE-2024-38193"
-        },
-        "exploit_availability": {
-          "has_exploit": true,
-          "exploit_sources": [
-            {
-              "source": "Potential Exploit",
-              "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-              "icon": "\u26a0\ufe0f"
-            }
-          ],
-          "exploit_count": 1
-        },
-        "epss_percentile": {
-          "percentile": 98.478,
-          "rank": "Top 5%",
-          "is_top_1_percent": false,
-          "is_top_5_percent": true,
-          "is_top_10_percent": true
-        }
-      }
-    },
-    {
       "cveId": "CVE-2024-21512",
       "title": "CVE-2024-21512: Versions of the package mysql2 before 3.9.8 are vulnerable to Prototype Pollution due to improper us...",
       "description": "Versions of the package mysql2 before 3.9.8 are vulnerable to Prototype Pollution due to improper user input sanitization passed to fields and tables when using nestTables.",
@@ -3473,7 +3473,7 @@
       ],
       "epss": {
         "score": 0.6444,
-        "percentile": 98.348
+        "percentile": 98.344
       },
       "ssvc": {
         "exploitation": "active",
@@ -3571,7 +3571,7 @@
           "exploit_count": 1
         },
         "epss_percentile": {
-          "percentile": 98.348,
+          "percentile": 98.344,
           "rank": "Top 5%",
           "is_top_1_percent": false,
           "is_top_5_percent": true,

@@ -1,7 +1,7 @@
 {
   "chunk": "2025-HIGH",
   "count": 18,
-  "generated": "2025-10-22T08:15:00.758331",
+  "generated": "2025-10-22T16:18:49.282633",
   "vulnerabilities": [
     {
       "cveId": "CVE-2024-48248",
@@ -20,7 +20,7 @@
       ],
       "epss": {
         "score": 0.9399,
-        "percentile": 99.881
+        "percentile": 99.882
       },
       "ssvc": {
         "exploitation": "active",
@@ -113,7 +113,7 @@
           "exploit_count": 1
         },
         "epss_percentile": {
-          "percentile": 99.881,
+          "percentile": 99.882,
           "rank": "Top 1%",
           "is_top_1_percent": true,
           "is_top_5_percent": true,
@@ -353,23 +353,23 @@
       }
     },
     {
-      "cveId": "CVE-2025-49704",
-      "title": "Microsoft SharePoint Remote Code Execution Vulnerability",
-      "description": "Improper control of generation of code ('code injection') in Microsoft Office SharePoint allows an authorized attacker to execute code over a network.",
-      "publishedDate": "2025-07-08T16:58:05.908000+00:00",
-      "lastModifiedDate": "2025-10-21T22:45:23.028000+00:00",
+      "cveId": "CVE-2025-21333",
+      "title": "Windows Hyper-V NT Kernel Integration VSP Elevation of Privilege Vulnerability",
+      "description": "Windows Hyper-V NT Kernel Integration VSP Elevation of Privilege Vulnerability",
+      "publishedDate": "2025-01-14T18:04:50.962000+00:00",
+      "lastModifiedDate": "2025-10-21T22:55:31.976000+00:00",
       "severity": "HIGH",
       "cvssMetrics": [
         {
           "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H/E:U/RL:O/RC:C",
-          "baseScore": 8.8,
+          "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H/E:U/RL:O/RC:C",
+          "baseScore": 7.8,
           "baseSeverity": "HIGH"
         }
       ],
       "epss": {
-        "score": 0.634,
-        "percentile": 98.3
+        "score": 0.6967,
+        "percentile": 98.583
       },
       "ssvc": {
         "exploitation": "active",
@@ -381,7 +381,7 @@
         "inferred": false,
         "confidence": null
       },
-      "riskScore": 69,
+      "riskScore": 68,
       "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
@@ -389,16 +389,21 @@
           "Microsoft"
         ],
         "products": [
-          "Microsoft Sharepoint Enterprise Server 2016",
-          "Microsoft Sharepoint Server 2019",
-          "Office",
-          "Sharepoint"
+          "Windows 10 Version 21h2",
+          "Windows 10 Version 22h2",
+          "Windows 11 Version 22h2",
+          "Windows 11 Version 22h3",
+          "Windows 11 Version 23h2",
+          "Windows 11 Version 24h2",
+          "Windows Server 2022, 23h2 Edition (server Core Installation)",
+          "Windows Server 2025",
+          "Windows Server 2025 (server Core Installation)"
         ]
       },
       "references": [
         {
-          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49704",
-          "source": "Microsoft SharePoint Remote Code Execution Vulnerability",
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-21333",
+          "source": "Windows Hyper-V NT Kernel Integration VSP Elevation of Privilege Vulnerability",
           "tags": [
             "vendor-advisory"
           ]
@@ -421,35 +426,34 @@
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-94",
+          "CWE-122",
           "CISA-KEV",
-          "RANSOMWARE",
           "EXPLOIT-AVAILABLE",
           "TOP-5-PERCENT-EPSS"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
-        "attackVector": "Network",
+        "attackVector": "Local",
         "attackComplexity": "Low",
         "privilegesRequired": "Low",
         "userInteraction": "None",
         "sources": [
           {
             "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/49xxx/CVE-2025-49704.json",
-            "lastModified": "2025-10-21T22:45:23.028000+00:00"
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/21xxx/CVE-2025-21333.json",
+            "lastModified": "2025-10-21T22:55:31.976000+00:00"
           }
         ]
       },
       "enrichments": {
         "cisa_kev": {
           "isKnownExploited": true,
-          "dateAdded": "2025-07-22",
-          "vulnerabilityName": "Microsoft SharePoint Code Injection Vulnerability",
-          "requiredAction": "Disconnect public-facing versions of SharePoint Server that have reached their end-of-life (EOL) or end-of-service (EOS) to include SharePoint Server 2013 and earlier versions. For supported versions, please follow the mitigations according to CISA (URL listed below in Notes) and vendor instructions (URL listed below in Notes). Adhere to the applicable BOD 22-01 guidance for cloud services or discontinue use of the product if mitigations are not available.",
-          "dueDate": "2025-07-23",
-          "knownRansomwareCampaignUse": "Known",
-          "notes": "CISA Mitigation Instructions: https://www.cisa.gov/news-events/alerts/2025/07/20/microsoft-releases-guidance-exploitation-sharepoint-vulnerability-cve-2025-53770; https://www.microsoft.com/en-us/security/blog/2025/07/22/disrupting-active-exploitation-of-on-premises-sharepoint-vulnerabilities/ ; https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49704 ; https://nvd.nist.gov/vuln/detail/CVE-2025-49704"
+          "dateAdded": "2025-01-14",
+          "vulnerabilityName": "Microsoft Windows Hyper-V NT Kernel Integration VSP Heap-based Buffer Overflow Vulnerability",
+          "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+          "dueDate": "2025-02-04",
+          "knownRansomwareCampaignUse": "Unknown",
+          "notes": "https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2025-21333 ; https://nvd.nist.gov/vuln/detail/CVE-2025-21333"
         },
         "exploit_availability": {
           "has_exploit": true,
@@ -463,7 +467,7 @@
           "exploit_count": 1
         },
         "epss_percentile": {
-          "percentile": 98.3,
+          "percentile": 98.583,
           "rank": "Top 5%",
           "is_top_1_percent": false,
           "is_top_5_percent": true,
@@ -488,7 +492,7 @@
       ],
       "epss": {
         "score": 0.6714,
-        "percentile": 98.477
+        "percentile": 98.475
       },
       "ssvc": {
         "exploitation": "active",
@@ -577,7 +581,7 @@
           "exploit_count": 1
         },
         "epss_percentile": {
-          "percentile": 98.477,
+          "percentile": 98.475,
           "rank": "Top 5%",
           "is_top_1_percent": false,
           "is_top_5_percent": true,
@@ -586,23 +590,23 @@
       }
     },
     {
-      "cveId": "CVE-2025-21333",
-      "title": "Windows Hyper-V NT Kernel Integration VSP Elevation of Privilege Vulnerability",
-      "description": "Windows Hyper-V NT Kernel Integration VSP Elevation of Privilege Vulnerability",
-      "publishedDate": "2025-01-14T18:04:50.962000+00:00",
-      "lastModifiedDate": "2025-10-21T22:55:31.976000+00:00",
+      "cveId": "CVE-2025-49704",
+      "title": "Microsoft SharePoint Remote Code Execution Vulnerability",
+      "description": "Improper control of generation of code ('code injection') in Microsoft Office SharePoint allows an authorized attacker to execute code over a network.",
+      "publishedDate": "2025-07-08T16:58:05.908000+00:00",
+      "lastModifiedDate": "2025-10-21T22:45:23.028000+00:00",
       "severity": "HIGH",
       "cvssMetrics": [
         {
           "version": "3.1",
-          "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H/E:U/RL:O/RC:C",
-          "baseScore": 7.8,
+          "vectorString": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H/E:U/RL:O/RC:C",
+          "baseScore": 8.8,
           "baseSeverity": "HIGH"
         }
       ],
       "epss": {
-        "score": 0.6035,
-        "percentile": 98.169
+        "score": 0.6024,
+        "percentile": 98.157
       },
       "ssvc": {
         "exploitation": "active",
@@ -614,7 +618,7 @@
         "inferred": false,
         "confidence": null
       },
-      "riskScore": 67,
+      "riskScore": 68,
       "exploitationStatus": "EXPLOIT_AVAILABLE",
       "affectedSystems": {
         "cpeMatches": [],
@@ -622,21 +626,16 @@
           "Microsoft"
         ],
         "products": [
-          "Windows 10 Version 21h2",
-          "Windows 10 Version 22h2",
-          "Windows 11 Version 22h2",
-          "Windows 11 Version 22h3",
-          "Windows 11 Version 23h2",
-          "Windows 11 Version 24h2",
-          "Windows Server 2022, 23h2 Edition (server Core Installation)",
-          "Windows Server 2025",
-          "Windows Server 2025 (server Core Installation)"
+          "Microsoft Sharepoint Enterprise Server 2016",
+          "Microsoft Sharepoint Server 2019",
+          "Office",
+          "Sharepoint"
         ]
       },
       "references": [
         {
-          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-21333",
-          "source": "Windows Hyper-V NT Kernel Integration VSP Elevation of Privilege Vulnerability",
+          "url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49704",
+          "source": "Microsoft SharePoint Remote Code Execution Vulnerability",
           "tags": [
             "vendor-advisory"
           ]
@@ -659,34 +658,35 @@
       "attackTechniques": [],
       "metadata": {
         "tags": [
-          "CWE-122",
+          "CWE-94",
           "CISA-KEV",
+          "RANSOMWARE",
           "EXPLOIT-AVAILABLE",
           "TOP-5-PERCENT-EPSS"
         ],
         "requiresUserInteraction": null,
         "requiresPrivileges": null,
-        "attackVector": "Local",
+        "attackVector": "Network",
         "attackComplexity": "Low",
         "privilegesRequired": "Low",
         "userInteraction": "None",
         "sources": [
           {
             "name": "CVEList",
-            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/21xxx/CVE-2025-21333.json",
-            "lastModified": "2025-10-21T22:55:31.976000+00:00"
+            "url": "https://github.com/CVEProject/cvelistV5/blob/main/cves/2025/49xxx/CVE-2025-49704.json",
+            "lastModified": "2025-10-21T22:45:23.028000+00:00"
           }
         ]
       },
       "enrichments": {
         "cisa_kev": {
           "isKnownExploited": true,
-          "dateAdded": "2025-01-14",
-          "vulnerabilityName": "Microsoft Windows Hyper-V NT Kernel Integration VSP Heap-based Buffer Overflow Vulnerability",
-          "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
-          "dueDate": "2025-02-04",
-          "knownRansomwareCampaignUse": "Unknown",
-          "notes": "https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2025-21333 ; https://nvd.nist.gov/vuln/detail/CVE-2025-21333"
+          "dateAdded": "2025-07-22",
+          "vulnerabilityName": "Microsoft SharePoint Code Injection Vulnerability",
+          "requiredAction": "Disconnect public-facing versions of SharePoint Server that have reached their end-of-life (EOL) or end-of-service (EOS) to include SharePoint Server 2013 and earlier versions. For supported versions, please follow the mitigations according to CISA (URL listed below in Notes) and vendor instructions (URL listed below in Notes). Adhere to the applicable BOD 22-01 guidance for cloud services or discontinue use of the product if mitigations are not available.",
+          "dueDate": "2025-07-23",
+          "knownRansomwareCampaignUse": "Known",
+          "notes": "CISA Mitigation Instructions: https://www.cisa.gov/news-events/alerts/2025/07/20/microsoft-releases-guidance-exploitation-sharepoint-vulnerability-cve-2025-53770; https://www.microsoft.com/en-us/security/blog/2025/07/22/disrupting-active-exploitation-of-on-premises-sharepoint-vulnerabilities/ ; https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-49704 ; https://nvd.nist.gov/vuln/detail/CVE-2025-49704"
         },
         "exploit_availability": {
           "has_exploit": true,
@@ -700,7 +700,7 @@
           "exploit_count": 1
         },
         "epss_percentile": {
-          "percentile": 98.169,
+          "percentile": 98.157,
           "rank": "Top 5%",
           "is_top_1_percent": false,
           "is_top_5_percent": true,

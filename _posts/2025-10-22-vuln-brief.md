@@ -1,22 +1,22 @@
 ---
 title: Morning Vulnerability Briefing - 2025-10-22
-date: 2025-10-22T08:15:00.758331
+date: 2025-10-22T16:18:49.282633
 layout: layouts/post.njk
 tags: [vulnerability, briefing, security]
-vulnerabilityCount: 297
+vulnerabilityCount: 298
 criticalCount: 0
-highCount: 104
+highCount: 108
 ---
 
 # Morning Vulnerability Briefing - 2025-10-22
 
-Today's briefing covers **297 vulnerabilities** from 0 sources.
+Today's briefing covers **298 vulnerabilities** from 0 sources.
 
 ## Risk Distribution
 
 - 🔴 **Critical Risk**: 0 vulnerabilities
-- 🟠 **High Risk**: 104 vulnerabilities
-- 🟡 **Medium Risk**: 175 vulnerabilities
+- 🟠 **High Risk**: 108 vulnerabilities
+- 🟡 **Medium Risk**: 172 vulnerabilities
 - 🟢 **Low Risk**: 18 vulnerabilities
 
 ## Top Vulnerabilities
@@ -149,31 +149,7 @@ The GeoTools library API that GeoServer calls evaluates property/attribute names
 
 ---
 
-### 6. [CVE-2024-8963](/api/vulns/CVE-2024-8963.json)
-
-**Risk Score**: 88/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.4 | 
-**EPSS**: 94.4%
-
-**Summary**: Path Traversal in the Ivanti CSA before 4.6 Patch 519 allows a remote unauthenticated attacker to access restricted functionality.
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 94.37% exploit probability
-
-**Affected Vendors**: Ivanti
-
-**Tags**: `CWE-22`
-
-**References**:
-
-- [https://forums.ivanti.com/s/article/Security-Advisory-Ivanti-CSA-4-6-Cloud-Services-Appliance-CVE-2024-8963](https://forums.ivanti.com/s/article/Security-Advisory-Ivanti-CSA-4-6-Cloud-Services-Appliance-CVE-2024-8963)
-
----
-
-### 7. [CVE-2024-1212](/api/vulns/CVE-2024-1212.json)
+### 6. [CVE-2024-1212](/api/vulns/CVE-2024-1212.json)
 
 **Risk Score**: 88/100 | 
 **Severity**: CRITICAL | 
@@ -202,7 +178,7 @@ The GeoTools library API that GeoServer calls evaluates property/attribute names
 
 ---
 
-### 8. [CVE-2024-4879](/api/vulns/CVE-2024-4879.json)
+### 7. [CVE-2024-4879](/api/vulns/CVE-2024-4879.json)
 
 **Risk Score**: 88/100 | 
 **Severity**: CRITICAL | 
@@ -228,7 +204,7 @@ The GeoTools library API that GeoServer calls evaluates property/attribute names
 
 ---
 
-### 9. [CVE-2024-50603](/api/vulns/CVE-2024-50603.json)
+### 8. [CVE-2024-50603](/api/vulns/CVE-2024-50603.json)
 
 **Risk Score**: 88/100 | 
 **Severity**: CRITICAL | 
@@ -254,7 +230,7 @@ The GeoTools library API that GeoServer calls evaluates property/attribute names
 
 ---
 
-### 10. [CVE-2024-4358](/api/vulns/CVE-2024-4358.json)
+### 9. [CVE-2024-4358](/api/vulns/CVE-2024-4358.json)
 
 **Risk Score**: 88/100 | 
 **Severity**: CRITICAL | 
@@ -278,7 +254,7 @@ The GeoTools library API that GeoServer calls evaluates property/attribute names
 
 ---
 
-### 11. [CVE-2024-1709](/api/vulns/CVE-2024-1709.json)
+### 10. [CVE-2024-1709](/api/vulns/CVE-2024-1709.json)
 
 **Risk Score**: 88/100 | 
 **Severity**: CRITICAL | 
@@ -296,7 +272,7 @@ critical systems.
 **Risk Factors**:
 
 - CRITICAL severity
-- 94.33% exploit probability
+- 94.32% exploit probability
 
 **Affected Vendors**: Connectwise
 
@@ -310,7 +286,7 @@ critical systems.
 
 ---
 
-### 12. [CVE-2024-3400](/api/vulns/CVE-2024-3400.json)
+### 11. [CVE-2024-3400](/api/vulns/CVE-2024-3400.json)
 
 **Risk Score**: 88/100 | 
 **Severity**: CRITICAL | 
@@ -335,6 +311,30 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 - [https://security.paloaltonetworks.com/CVE-2024-3400](https://security.paloaltonetworks.com/CVE-2024-3400)
 - [https://unit42.paloaltonetworks.com/cve-2024-3400/](https://unit42.paloaltonetworks.com/cve-2024-3400/)
 - [https://www.volexity.com/blog/2024/04/12/zero-day-exploitation-of-unauthenticated-remote-code-execution-vulnerability-in-globalprotect-cve-2024-3400/](https://www.volexity.com/blog/2024/04/12/zero-day-exploitation-of-unauthenticated-remote-code-execution-vulnerability-in-globalprotect-cve-2024-3400/)
+
+---
+
+### 12. [CVE-2024-8963](/api/vulns/CVE-2024-8963.json)
+
+**Risk Score**: 88/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 9.4 | 
+**EPSS**: 94.3%
+
+**Summary**: Path Traversal in the Ivanti CSA before 4.6 Patch 519 allows a remote unauthenticated attacker to access restricted functionality.
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 94.3% exploit probability
+
+**Affected Vendors**: Ivanti
+
+**Tags**: `CWE-22`
+
+**References**:
+
+- [https://forums.ivanti.com/s/article/Security-Advisory-Ivanti-CSA-4-6-Cloud-Services-Appliance-CVE-2024-8963](https://forums.ivanti.com/s/article/Security-Advisory-Ivanti-CSA-4-6-Cloud-Services-Appliance-CVE-2024-8963)
 
 ---
 
@@ -386,32 +386,7 @@ Cloud NGFW, Panorama appliances, and Prisma Access are not impacted by this vuln
 
 ---
 
-### 15. [CVE-2024-55591](/api/vulns/CVE-2024-55591.json)
-
-**Risk Score**: 88/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.6 | 
-**EPSS**: 94.2%
-
-**Summary**: An Authentication Bypass Using an Alternate Path or Channel vulnerability [CWE-288] affecting FortiOS version 7.0.0 through 7.0.16 and FortiProxy version 7.0.0 through 7.0.19 and 7.2.0 through 7.2.12 allows a remote attacker to gain super-admin privileges via crafted requests to Node.js websocket module.
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 94.2% exploit probability
-- Affects critical infrastructure: fortinet
-
-**Affected Vendors**: Fortinet
-
-**Tags**: `CWE-288`
-
-**References**:
-
-- [https://fortiguard.fortinet.com/psirt/FG-IR-24-535](https://fortiguard.fortinet.com/psirt/FG-IR-24-535)
-
----
-
-### 16. [CVE-2024-4885](/api/vulns/CVE-2024-4885.json)
+### 15. [CVE-2024-4885](/api/vulns/CVE-2024-4885.json)
 
 **Risk Score**: 88/100 | 
 **Severity**: CRITICAL | 
@@ -429,7 +404,7 @@ WhatsUp.ExportUtilities.Export.GetFileWithoutZip
 **Risk Factors**:
 
 - CRITICAL severity
-- 94.2% exploit probability
+- 94.21% exploit probability
 
 **Affected Vendors**: Progress Software Corporation
 
@@ -439,6 +414,31 @@ WhatsUp.ExportUtilities.Export.GetFileWithoutZip
 
 - [https://www.progress.com/network-monitoring](https://www.progress.com/network-monitoring)
 - [https://community.progress.com/s/article/WhatsUp-Gold-Security-Bulletin-June-2024](https://community.progress.com/s/article/WhatsUp-Gold-Security-Bulletin-June-2024)
+
+---
+
+### 16. [CVE-2024-55591](/api/vulns/CVE-2024-55591.json)
+
+**Risk Score**: 88/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 9.6 | 
+**EPSS**: 94.2%
+
+**Summary**: An Authentication Bypass Using an Alternate Path or Channel vulnerability [CWE-288] affecting FortiOS version 7.0.0 through 7.0.16 and FortiProxy version 7.0.0 through 7.0.19 and 7.2.0 through 7.2.12 allows a remote attacker to gain super-admin privileges via crafted requests to Node.js websocket module.
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 94.15% exploit probability
+- Affects critical infrastructure: fortinet
+
+**Affected Vendors**: Fortinet
+
+**Tags**: `CWE-288`
+
+**References**:
+
+- [https://fortiguard.fortinet.com/psirt/FG-IR-24-535](https://fortiguard.fortinet.com/psirt/FG-IR-24-535)
 
 ---
 
@@ -454,7 +454,7 @@ WhatsUp.ExportUtilities.Export.GetFileWithoutZip
 **Risk Factors**:
 
 - CRITICAL severity
-- 94.16% exploit probability
+- 94.15% exploit probability
 
 **References**:
 
@@ -528,7 +528,7 @@ WhatsUp.ExportUtilities.Export.GetFileWithoutZip
 **Risk Factors**:
 
 - CRITICAL severity
-- 94.09% exploit probability
+- 94.1% exploit probability
 
 **Affected Vendors**: Adobe
 
@@ -553,7 +553,7 @@ WhatsUp.ExportUtilities.Export.GetFileWithoutZip
 **Risk Factors**:
 
 - CRITICAL severity
-- 93.88% exploit probability
+- 93.91% exploit probability
 
 **Affected Vendors**: Ivanti
 
@@ -587,32 +587,7 @@ WhatsUp.ExportUtilities.Export.GetFileWithoutZip
 
 ---
 
-### 23. [CVE-2024-21413](/api/vulns/CVE-2024-21413.json)
-
-**Risk Score**: 88/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 93.8%
-
-**Summary**: Microsoft Outlook Remote Code Execution Vulnerability
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 93.77% exploit probability
-- Affects critical infrastructure: microsoft
-
-**Affected Vendors**: Microsoft
-
-**Tags**: `CWE-20`
-
-**References**:
-
-- [https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-21413](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-21413)
-
----
-
-### 24. [CVE-2024-12356](/api/vulns/CVE-2024-12356.json)
+### 23. [CVE-2024-12356](/api/vulns/CVE-2024-12356.json)
 
 **Risk Score**: 88/100 | 
 **Severity**: CRITICAL | 
@@ -635,6 +610,31 @@ WhatsUp.ExportUtilities.Export.GetFileWithoutZip
 - [https://www.cve.org/CVERecord?id=CVE-2024-12356](https://www.cve.org/CVERecord?id=CVE-2024-12356)
 - [https://nvd.nist.gov/vuln/detail/CVE-2024-12356](https://nvd.nist.gov/vuln/detail/CVE-2024-12356)
 - [https://www.beyondtrust.com/trust-center/security-advisories/bt24-10](https://www.beyondtrust.com/trust-center/security-advisories/bt24-10)
+
+---
+
+### 24. [CVE-2024-21413](/api/vulns/CVE-2024-21413.json)
+
+**Risk Score**: 88/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 9.8 | 
+**EPSS**: 93.6%
+
+**Summary**: Microsoft Outlook Remote Code Execution Vulnerability
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 93.58% exploit probability
+- Affects critical infrastructure: microsoft
+
+**Affected Vendors**: Microsoft
+
+**Tags**: `CWE-20`
+
+**References**:
+
+- [https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-21413](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-21413)
 
 ---
 
@@ -676,7 +676,7 @@ WhatsUp.ExportUtilities.Export.GetFileWithoutZip
 **Risk Factors**:
 
 - CRITICAL severity
-- 92.97% exploit probability
+- 93.03% exploit probability
 
 **Affected Vendors**: Ivanti
 
@@ -700,7 +700,7 @@ WhatsUp.ExportUtilities.Export.GetFileWithoutZip
 **Risk Factors**:
 
 - CRITICAL severity
-- 92.69% exploit probability
+- 92.74% exploit probability
 - Affects critical infrastructure: fortinet
 
 **Affected Vendors**: Fortinet
@@ -744,14 +744,14 @@ WhatsUp.ExportUtilities.Export.GetFileWithoutZip
 **Risk Score**: 88/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.8 | 
-**EPSS**: 92.1%
+**EPSS**: 92.2%
 
 **Summary**: Absolute path traversal in Ivanti EPM before the 2024 January-2025 Security Update and 2022 SU6 January-2025 Security Update allows a remote unauthenticated attacker to leak sensitive information.
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 92.14% exploit probability
+- 92.23% exploit probability
 
 **Affected Vendors**: Ivanti
 
@@ -891,7 +891,32 @@ Microsoft is preparing and fully testing a comprehensive update to address this 
 
 ---
 
-### 35. [CVE-2025-1316](/api/vulns/CVE-2025-1316.json)
+### 35. [CVE-2025-31161](/api/vulns/CVE-2025-31161.json)
+
+**Risk Score**: 87/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 9.8 | 
+**EPSS**: 86.4%
+
+**Summary**: CrushFTP 10 before 10.8.4 and 11 before 11.3.1 allows authentication bypass and takeover of the crushadmin account (unless a DMZ proxy instance is used), as exploited in the wild in March and April 2025, aka "Unauthenticated HTTP(S) port access." A race condition exists in the AWS4-HMAC (compatible with S3) authorization method of the HTTP component of the FTP server. The server first verifies the existence of the user by performing a call to login_user_pass() with no password requirement. This ...
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 86.4% exploit probability
+
+**Affected Vendors**: Crushftp
+
+**Tags**: `CWE-305`
+
+**References**:
+
+- [https://outpost24.com/blog/crushftp-auth-bypass-vulnerability/](https://outpost24.com/blog/crushftp-auth-bypass-vulnerability/)
+- [https://crushftp.com/crush11wiki/Wiki.jsp?page=Update#section-Update-VulnerabilityInfo](https://crushftp.com/crush11wiki/Wiki.jsp?page=Update#section-Update-VulnerabilityInfo)
+
+---
+
+### 36. [CVE-2025-1316](/api/vulns/CVE-2025-1316.json)
 
 **Risk Score**: 87/100 | 
 **Severity**: CRITICAL | 
@@ -912,31 +937,6 @@ Microsoft is preparing and fully testing a comprehensive update to address this 
 **References**:
 
 - [https://www.cisa.gov/news-events/ics-advisories/icsa-25-063-08](https://www.cisa.gov/news-events/ics-advisories/icsa-25-063-08)
-
----
-
-### 36. [CVE-2025-31161](/api/vulns/CVE-2025-31161.json)
-
-**Risk Score**: 87/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 9.8 | 
-**EPSS**: 84.4%
-
-**Summary**: CrushFTP 10 before 10.8.4 and 11 before 11.3.1 allows authentication bypass and takeover of the crushadmin account (unless a DMZ proxy instance is used), as exploited in the wild in March and April 2025, aka "Unauthenticated HTTP(S) port access." A race condition exists in the AWS4-HMAC (compatible with S3) authorization method of the HTTP component of the FTP server. The server first verifies the existence of the user by performing a call to login_user_pass() with no password requirement. This ...
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 84.41% exploit probability
-
-**Affected Vendors**: Crushftp
-
-**Tags**: `CWE-305`
-
-**References**:
-
-- [https://outpost24.com/blog/crushftp-auth-bypass-vulnerability/](https://outpost24.com/blog/crushftp-auth-bypass-vulnerability/)
-- [https://crushftp.com/crush11wiki/Wiki.jsp?page=Update#section-Update-VulnerabilityInfo](https://crushftp.com/crush11wiki/Wiki.jsp?page=Update#section-Update-VulnerabilityInfo)
 
 ---
 
@@ -971,14 +971,14 @@ Microsoft is preparing and fully testing a comprehensive update to address this 
 **Risk Score**: 87/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.8 | 
-**EPSS**: 82.3%
+**EPSS**: 81.9%
 
 **Summary**: Vulnerability in the Oracle Concurrent Processing product of Oracle E-Business Suite (component: BI Publisher Integration).  Supported versions that are affected are 12.2.3-12.2.14. Easily exploitable vulnerability allows unauthenticated attacker with network access via HTTP to compromise Oracle Concurrent Processing.  Successful attacks of this vulnerability can result in takeover of Oracle Concurrent Processing. CVSS 3.1 Base Score 9.8 (Confidentiality, Integrity and Availability impacts).  CV...
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 82.34% exploit probability
+- 81.91% exploit probability
 - Published within last month
 - Affects critical infrastructure: oracle
 
@@ -1070,14 +1070,14 @@ Microsoft is preparing and fully testing a comprehensive update to address this 
 **Risk Score**: 85/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 9.8 | 
-**EPSS**: 63.5%
+**EPSS**: 63.2%
 
 **Summary**: Certain EOL GeoVision devices have an OS Command Injection vulnerability. Unauthenticated remote attackers can exploit this vulnerability to inject and execute arbitrary system commands on the device. Moreover, this vulnerability has already been exploited by attackers, and we have received related reports.
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 63.47% exploit probability
+- 63.24% exploit probability
 
 **Affected Vendors**: Geovision
 
@@ -1090,43 +1090,19 @@ Microsoft is preparing and fully testing a comprehensive update to address this 
 
 ---
 
-### 43. [CVE-2025-10035](/api/vulns/CVE-2025-10035.json)
+### 43. [CVE-2025-32433](/api/vulns/CVE-2025-32433.json)
 
 **Risk Score**: 85/100 | 
 **Severity**: CRITICAL | 
 **CVSS**: 10.0 | 
-**EPSS**: 61.8%
-
-**Summary**: A deserialization vulnerability in the License Servlet of Fortra's GoAnywhere MFT allows an actor with a validly forged license response signature to deserialize an arbitrary actor-controlled object, possibly leading to command injection.
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 61.75% exploit probability
-
-**Affected Vendors**: Fortra
-
-**Tags**: `CWE-77`, `CWE-502`
-
-**References**:
-
-- [https://www.fortra.com/security/advisories/product-security/fi-2025-012](https://www.fortra.com/security/advisories/product-security/fi-2025-012)
-
----
-
-### 44. [CVE-2025-32433](/api/vulns/CVE-2025-32433.json)
-
-**Risk Score**: 85/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 10.0 | 
-**EPSS**: 60.0%
+**EPSS**: 62.5%
 
 **Summary**: Erlang/OTP is a set of libraries for the Erlang programming language. Prior to versions OTP-27.3.3, OTP-26.2.5.11, and OTP-25.3.2.20, a SSH server may allow an attacker to perform unauthenticated remote code execution (RCE). By exploiting a flaw in SSH protocol message handling, a malicious actor could gain unauthorized access to affected systems and execute arbitrary commands without valid credentials. This issue is patched in versions OTP-27.3.3, OTP-26.2.5.11, and OTP-25.3.2.20. A temporary w...
 
 **Risk Factors**:
 
 - CRITICAL severity
-- 60.02% exploit probability
+- 62.47% exploit probability
 
 **Affected Vendors**: Erlang
 
@@ -1137,6 +1113,30 @@ Microsoft is preparing and fully testing a comprehensive update to address this 
 - [https://github.com/erlang/otp/security/advisories/GHSA-37cp-fgq5-7wc2](https://github.com/erlang/otp/security/advisories/GHSA-37cp-fgq5-7wc2)
 - [https://github.com/erlang/otp/commit/0fcd9c56524b28615e8ece65fc0c3f66ef6e4c12](https://github.com/erlang/otp/commit/0fcd9c56524b28615e8ece65fc0c3f66ef6e4c12)
 - [https://github.com/erlang/otp/commit/6eef04130afc8b0ccb63c9a0d8650209cf54892f](https://github.com/erlang/otp/commit/6eef04130afc8b0ccb63c9a0d8650209cf54892f)
+
+---
+
+### 44. [CVE-2025-10035](/api/vulns/CVE-2025-10035.json)
+
+**Risk Score**: 85/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 10.0 | 
+**EPSS**: 60.1%
+
+**Summary**: A deserialization vulnerability in the License Servlet of Fortra's GoAnywhere MFT allows an actor with a validly forged license response signature to deserialize an arbitrary actor-controlled object, possibly leading to command injection.
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 60.12% exploit probability
+
+**Affected Vendors**: Fortra
+
+**Tags**: `CWE-77`, `CWE-502`
+
+**References**:
+
+- [https://www.fortra.com/security/advisories/product-security/fi-2025-012](https://www.fortra.com/security/advisories/product-security/fi-2025-012)
 
 ---
 
@@ -1168,17 +1168,17 @@ Microsoft is preparing and fully testing a comprehensive update to address this 
 
 ### 46. [CVE-2024-12987](/api/vulns/CVE-2024-12987.json)
 
-**Risk Score**: 83/100 | 
+**Risk Score**: 84/100 | 
 **Severity**: HIGH | 
 **CVSS**: 7.3 | 
-**EPSS**: 84.3%
+**EPSS**: 86.3%
 
 **Summary**: A vulnerability, which was classified as critical, was found in DrayTek Vigor2960 and Vigor300B 1.5.1.4. Affected is an unknown function of the file /cgi-bin/mainfunction.cgi/apmcfgupload of the component Web Management Interface. The manipulation of the argument session leads to os command injection. It is possible to launch the attack remotely. The exploit has been disclosed to the public and may be used. Upgrading to version 1.5.1.5 is able to address this issue. It is recommended to upgrade ...
 
 **Risk Factors**:
 
 - HIGH severity
-- 84.3% exploit probability
+- 86.26% exploit probability
 
 **Affected Vendors**: Draytek
 
@@ -1192,12 +1192,39 @@ Microsoft is preparing and fully testing a comprehensive update to address this 
 
 ---
 
-### 47. [CVE-2024-28995](/api/vulns/CVE-2024-28995.json)
+### 47. [CVE-2024-2389](/api/vulns/CVE-2024-2389.json)
+
+**Risk Score**: 79/100 | 
+**Severity**: CRITICAL | 
+**CVSS**: 10.0 | 
+**EPSS**: 94.4%
+
+**Summary**: In Flowmon versions prior to 11.1.14 and 12.3.5, an operating system command injection vulnerability has been identified.  An unauthenticated user can gain entry to the system via the Flowmon management interface, allowing for the execution of arbitrary system commands.
+
+
+
+**Risk Factors**:
+
+- CRITICAL severity
+- 94.37% exploit probability
+
+**Affected Vendors**: Progress Software
+
+**Tags**: `CWE-78`
+
+**References**:
+
+- [https://www.flowmon.com](https://www.flowmon.com)
+- [https://support.kemptechnologies.com/hc/en-us/articles/24878235038733-CVE-2024-2389-Flowmon-critical-security-vulnerability](https://support.kemptechnologies.com/hc/en-us/articles/24878235038733-CVE-2024-2389-Flowmon-critical-security-vulnerability)
+
+---
+
+### 48. [CVE-2024-28995](/api/vulns/CVE-2024-28995.json)
 
 **Risk Score**: 79/100 | 
 **Severity**: HIGH | 
 **CVSS**: 8.6 | 
-**EPSS**: 94.4%
+**EPSS**: 94.3%
 
 **Summary**: 
 
@@ -1224,7 +1251,7 @@ SolarWinds Serv-U was susceptible to a directory transversal vulnerability that 
 **Risk Factors**:
 
 - HIGH severity
-- 94.38% exploit probability
+- 94.35% exploit probability
 
 **Affected Vendors**: Solarwinds
 
@@ -1233,33 +1260,6 @@ SolarWinds Serv-U was susceptible to a directory transversal vulnerability that 
 **References**:
 
 - [https://www.solarwinds.com/trust-center/security-advisories/CVE-2024-28995](https://www.solarwinds.com/trust-center/security-advisories/CVE-2024-28995)
-
----
-
-### 48. [CVE-2024-2389](/api/vulns/CVE-2024-2389.json)
-
-**Risk Score**: 79/100 | 
-**Severity**: CRITICAL | 
-**CVSS**: 10.0 | 
-**EPSS**: 94.4%
-
-**Summary**: In Flowmon versions prior to 11.1.14 and 12.3.5, an operating system command injection vulnerability has been identified.  An unauthenticated user can gain entry to the system via the Flowmon management interface, allowing for the execution of arbitrary system commands.
-
-
-
-**Risk Factors**:
-
-- CRITICAL severity
-- 94.37% exploit probability
-
-**Affected Vendors**: Progress Software
-
-**Tags**: `CWE-78`
-
-**References**:
-
-- [https://www.flowmon.com](https://www.flowmon.com)
-- [https://support.kemptechnologies.com/hc/en-us/articles/24878235038733-CVE-2024-2389-Flowmon-critical-security-vulnerability](https://support.kemptechnologies.com/hc/en-us/articles/24878235038733-CVE-2024-2389-Flowmon-critical-security-vulnerability)
 
 ---
 
