@@ -90,7 +90,46 @@ def generate_dashboard():
     critical_count = sum(1 for v in vuln_data if v["severity"] == "CRITICAL")
     high_count = sum(1 for v in vuln_data if v["severity"] == "HIGH")
     kev_count = sum(1 for v in vuln_data if v["kev"])
-    
+
+    # SERVER-SIDE CHART CALCULATIONS (to avoid client-side caching issues)
+
+    # 1. Calculate Top 10 Vendors
+    vendor_counts = {}
+    for v in vuln_data:
+        for vendor in v.get("vendors", []):
+            if vendor:
+                vendor_counts[vendor] = vendor_counts.get(vendor, 0) + 1
+
+    # Get top 10 vendors sorted by count
+    top_vendors = sorted(vendor_counts.items(), key=lambda x: x[1], reverse=True)[:10]
+    vendor_labels = [vendor for vendor, count in top_vendors]
+    vendor_data = [count for vendor, count in top_vendors]
+
+    # 2. Calculate EPSS Distribution
+    epss_buckets = {
+        '60-70%': 0,
+        '70-80%': 0,
+        '80-90%': 0,
+        '90-95%': 0,
+        '95-100%': 0
+    }
+
+    for v in vuln_data:
+        epss = v.get("epss_score", 0)
+        if epss >= 95:
+            epss_buckets['95-100%'] += 1
+        elif epss >= 90:
+            epss_buckets['90-95%'] += 1
+        elif epss >= 80:
+            epss_buckets['80-90%'] += 1
+        elif epss >= 70:
+            epss_buckets['70-80%'] += 1
+        elif epss >= 60:
+            epss_buckets['60-70%'] += 1
+
+    epss_labels = list(epss_buckets.keys())
+    epss_data = list(epss_buckets.values())
+
     # Build timestamp
     build_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S %Z")
 
@@ -1021,31 +1060,17 @@ def generate_dashboard():
                     // 2. EPSS Score Distribution Chart (Bar)
                     const epssCtx = document.getElementById('epssChart');
                     if (epssCtx) {{
-                        // Create buckets for EPSS scores
-                        const buckets = {{
-                            '60-70%': 0,
-                            '70-80%': 0,
-                            '80-90%': 0,
-                            '90-95%': 0,
-                            '95-100%': 0
-                        }};
-
-                        this.vulnerabilities.forEach(v => {{
-                            const epss = v.epss_score;
-                            if (epss >= 95) buckets['95-100%']++;
-                            else if (epss >= 90) buckets['90-95%']++;
-                            else if (epss >= 80) buckets['80-90%']++;
-                            else if (epss >= 70) buckets['70-80%']++;
-                            else if (epss >= 60) buckets['60-70%']++;
-                        }});
+                        // SERVER-CALCULATED data (avoids client-side caching issues)
+                        const epssLabels = {json.dumps(epss_labels)};
+                        const epssData = {json.dumps(epss_data)};
 
                         new Chart(epssCtx, {{
                             type: 'bar',
                             data: {{
-                                labels: Object.keys(buckets),
+                                labels: epssLabels,
                                 datasets: [{{
                                     label: 'Count',
-                                    data: Object.values(buckets),
+                                    data: epssData,
                                     backgroundColor: '#06b6d4',
                                     borderWidth: 0
                                 }}]
@@ -1086,28 +1111,17 @@ def generate_dashboard():
                     // 3. Top Vendors Chart (Horizontal Bar)
                     const vendorsCtx = document.getElementById('vendorsChart');
                     if (vendorsCtx) {{
-                        // Count vulnerabilities per vendor
-                        const vendorCounts = {{}};
-                        this.vulnerabilities.forEach(v => {{
-                            v.vendors.forEach(vendor => {{
-                                if (vendor) {{
-                                    vendorCounts[vendor] = (vendorCounts[vendor] || 0) + 1;
-                                }}
-                            }});
-                        }});
-
-                        // Get top 10 vendors
-                        const sortedVendors = Object.entries(vendorCounts)
-                            .sort((a, b) => b[1] - a[1])
-                            .slice(0, 10);
+                        // SERVER-CALCULATED data (avoids client-side caching issues)
+                        const vendorLabels = {json.dumps(vendor_labels)};
+                        const vendorData = {json.dumps(vendor_data)};
 
                         new Chart(vendorsCtx, {{
                             type: 'bar',
                             data: {{
-                                labels: sortedVendors.map(v => v[0]),
+                                labels: vendorLabels,
                                 datasets: [{{
                                     label: 'Vulnerabilities',
-                                    data: sortedVendors.map(v => v[1]),
+                                    data: vendorData,
                                     backgroundColor: '#8b5cf6',
                                     borderWidth: 0
                                 }}]
