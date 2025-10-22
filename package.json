@@ -5,9 +5,9 @@
   "private": true,
   "scripts": {
     "clean": "rimraf _site public dist",
-    "build": "npm run clean && python -m scripts.generate_alpine_dashboard",
+    "build": "npm run clean && python -m scripts.generate_tailwind_dashboard && cp -r api/vulns public/api/",
     "build:force": "npm run clean && python -m scripts.force_rebuild --expected-count 60 --min-epss 0.6",
-    "serve": "python -m scripts.generate_alpine_dashboard && python -m http.server 8000 --directory public",
+    "serve": "python -m scripts.generate_tailwind_dashboard && cp -r api/vulns public/api/ && python -m http.server 8000 --directory public",
     "validate": "python -m scripts.ci_gatecheck --api-dir public/api --max-cve-count 1000 --expected-cve-count 60 --min-epss 0.6",
     "test": "pytest tests/ -v",
     "test:e2e": "pytest tests/e2e/ -v",

@@ -1031,7 +1031,7 @@ def generate_dashboard():
                         }};
 
                         this.vulnerabilities.forEach(v => {{
-                            const epss = v.epss_percentile;
+                            const epss = v.epss_score;
                             if (epss >= 95) buckets['95-100%']++;
                             else if (epss >= 90) buckets['90-95%']++;
                             else if (epss >= 80) buckets['80-90%']++;

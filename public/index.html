@@ -143,7 +143,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                     </svg>
                     <span>Built:</span>
-                    <time datetime="2025-10-22 08:15:14 " class="font-mono">2025-10-22 08:15:14 </time>
+                    <time datetime="2025-10-22 07:22:27 " class="font-mono">2025-10-22 07:22:27 </time>
                 </div>
                 <div class="flex items-center space-x-1.5 px-2.5 py-1.5 rounded-lg bg-sky-50 dark:bg-sky-900/20 text-sky-700 dark:text-sky-400 border border-sky-200 dark:border-sky-800/50">
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -919,7 +919,7 @@
                         };
 
                         this.vulnerabilities.forEach(v => {
-                            const epss = v.epss_percentile;
+                            const epss = v.epss_score;
                             if (epss >= 95) buckets['95-100%']++;
                             else if (epss >= 90) buckets['90-95%']++;
                             else if (epss >= 80) buckets['80-90%']++;
