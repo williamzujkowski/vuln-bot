@@ -1,0 +1,599 @@
+#!/usr/bin/env python3
+"""
+Complete Tailwind CSS-based dashboard generator with system dark/light mode
+Replaces generate_alpine_dashboard.py with modern utility-first CSS approach
+"""
+
+import json
+import sys
+from datetime import datetime
+from pathlib import Path
+
+# Configuration
+OUTPUT_DIR = Path("public")
+API_DIR = Path("api/vulns")
+OUTPUT_DIR.mkdir(exist_ok=True)
+
+def load_vulnerabilities():
+    """Load vulnerabilities from JSON API"""
+    index_file = API_DIR / "index.json"
+    
+    if not index_file.exists():
+        print(f"Error: {index_file} not found")
+        sys.exit(1)
+    
+    with open(index_file) as f:
+        data = json.load(f)
+    
+    return data.get("vulnerabilities", [])
+
+def generate_dashboard():
+    """Generate complete Tailwind CSS dashboard"""
+    
+    print("Loading vulnerabilities...")
+    vulnerabilities = load_vulnerabilities()
+    
+    # Prepare vulnerability data for JavaScript embedding
+    vuln_data = []
+    for v in vulnerabilities:
+        vuln_data.append({
+            "cve_id": v.get("cveId", ""),
+            "severity": v.get("severity", ""),
+            "cvss_score": v.get("cvssScore", 0),
+            "epss_percentile": v.get("epssPercentile", 0),
+            "risk_score": v.get("riskScore", 0),
+            "products": ", ".join(v.get("products", []))[:100],  # Truncate for display
+            "vendors": v.get("vendors", []),
+            "published": str(v.get("publishedDate", ""))[:10],
+            "last_modified": str(v.get("lastModifiedDate", ""))[:10],
+            "kev": v.get("exploitationStatus") == "KNOWN_EXPLOITED",
+            "exploitation_status": v.get("exploitationStatus", "UNKNOWN"),
+            "description": v.get("description", "")[:200],  # Truncate
+            "attack_vector": v.get("attackVector", ""),
+            "enrichments": v.get("enrichments", {}),
+        })
+    
+    # Calculate statistics
+    total_vulns = len(vuln_data)
+    critical_count = sum(1 for v in vuln_data if v["severity"] == "CRITICAL")
+    high_count = sum(1 for v in vuln_data if v["severity"] == "HIGH")
+    kev_count = sum(1 for v in vuln_data if v["kev"])
+    
+    # Build timestamp
+    build_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S %Z")
+    
+    # Convert to JSON for embedding
+    vuln_json = json.dumps(vuln_data)
+    
+    # Generate HTML with embedded data
+    html_content = f'''<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="High-risk CVE intelligence dashboard - EPSS ≥60% exploitation probability">
+    <meta name="author" content="Vuln-Bot">
+    <title>Vulnerability Intelligence Dashboard | Vuln-Bot</title>
+    
+    <!-- Tailwind CSS via CDN (v3.4 for stability) -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
+    
+    <!-- Alpine.js for interactivity -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {{
+            darkMode: 'class',
+            theme: {{
+                extend: {{
+                    colors: {{
+                        primary: {{
+                            50: '#ecfeff',
+                            100: '#cffafe',
+                            200: '#a5f3fc',
+                            300: '#67e8f9',
+                            400: '#22d3ee',
+                            500: '#06b6d4',
+                            600: '#0891b2',
+                            700: '#0e7490',
+                            800: '#155e75',
+                            900: '#164e63',
+                            950: '#083344',
+                        }}
+                    }}
+                }}
+            }}
+        }}
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer utilities {{
+            .scrollbar-thin::-webkit-scrollbar {{
+                width: 8px;
+                height: 8px;
+            }}
+            .scrollbar-thin::-webkit-scrollbar-track {{
+                @apply bg-gray-100 dark:bg-gray-900;
+            }}
+            .scrollbar-thin::-webkit-scrollbar-thumb {{
+                @apply bg-gray-300 dark:bg-gray-700 rounded hover:bg-gray-400 dark:hover:bg-gray-600;
+            }}
+        }}
+        
+        [x-cloak] {{ display: none !important; }}
+    </style>
+</head>
+
+<body class="h-full bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-200" 
+      x-data="vulnDashboard()" 
+      x-init="initDashboard()"
+      x-cloak>
+    
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary-600 focus:text-white focus:rounded-lg">
+        Skip to main content
+    </a>
+    
+    <!-- Header -->
+    <header class="sticky top-0 z-40 w-full bg-white/95 dark:bg-gray-900/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 dark:supports-[backdrop-filter]:bg-gray-900/80 border-b border-gray-200 dark:border-gray-800 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Main header row -->
+            <div class="flex items-center justify-between h-16">
+                <!-- Brand -->
+                <div class="flex items-center space-x-3">
+                    <div class="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-primary-500 to-purple-600 rounded-xl shadow-lg">
+                        <span class="text-xl" role="img" aria-label="Shield">🛡️</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <h1 class="text-lg sm:text-xl font-bold bg-gradient-to-r from-primary-600 to-purple-600 dark:from-primary-400 dark:to-purple-400 bg-clip-text text-transparent">
+                            Vuln-Bot
+                        </h1>
+                        <p class="text-xs text-gray-600 dark:text-gray-400">CVE Intelligence Dashboard</p>
+                    </div>
+                </div>
+                
+                <!-- Actions -->
+                <nav class="flex items-center space-x-2" aria-label="Primary navigation">
+                    <!-- Dark mode toggle -->
+                    <button @click="toggleDarkMode()" 
+                            type="button"
+                            class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500"
+                            aria-label="Toggle dark mode">
+                        <svg x-show="!darkMode" class="w-5 h-5 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                        </svg>
+                        <svg x-show="darkMode" class="w-5 h-5 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                    </button>
+                    
+                    <!-- GitHub link -->
+                    <a href="https://github.com/williamzujkowski/vuln-bot" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="hidden sm:flex items-center space-x-2 px-3 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-sm font-medium focus:outline-none focus:ring-2 focus:ring-primary-500">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                        </svg>
+                        <span>GitHub</span>
+                    </a>
+                    
+                    <!-- Export CSV -->
+                    <button @click="exportCSV()" 
+                            type="button"
+                            class="flex items-center space-x-2 px-3 py-2 rounded-lg bg-primary-600 hover:bg-primary-700 text-white transition-colors text-sm font-medium shadow-sm hover:shadow focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                        <span class="hidden sm:inline">Export CSV</span>
+                        <span class="sm:hidden">CSV</span>
+                    </button>
+                </nav>
+            </div>
+            
+            <!-- Status badges row -->
+            <div class="flex flex-wrap items-center gap-2 pb-3 text-xs font-medium">
+                <div class="flex items-center space-x-1.5 px-2.5 py-1.5 rounded-lg bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/50">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <span>Built:</span>
+                    <time datetime="{build_time}" class="font-mono">{build_time}</time>
+                </div>
+                <div class="flex items-center space-x-1.5 px-2.5 py-1.5 rounded-lg bg-sky-50 dark:bg-sky-900/20 text-sky-700 dark:text-sky-400 border border-sky-200 dark:border-sky-800/50">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                    </svg>
+                    <span>Data: Fresh (4h cycle)</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <main id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+        
+        <!-- Statistics Grid -->
+        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6 sm:mb-8" aria-label="Vulnerability statistics">
+            <!-- Total CVEs Card -->
+            <article class="group relative overflow-hidden bg-white dark:bg-gray-900 rounded-2xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-lg transition-all duration-200 hover:-translate-y-1">
+                <div class="flex items-start justify-between">
+                    <div class="flex-1">
+                        <p class="text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">Total CVEs</p>
+                        <p class="text-4xl font-bold mt-2 bg-gradient-to-r from-primary-600 to-purple-600 dark:from-primary-400 dark:to-purple-400 bg-clip-text text-transparent">
+                            {total_vulns}
+                        </p>
+                    </div>
+                    <div class="p-3 bg-gradient-to-br from-primary-100 to-purple-100 dark:from-primary-900/30 dark:to-purple-900/30 rounded-xl">
+                        <svg class="w-7 h-7 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary-500 to-purple-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200"></div>
+            </article>
+            
+            <!-- Critical Severity Card -->
+            <article class="group relative overflow-hidden bg-white dark:bg-gray-900 rounded-2xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-lg transition-all duration-200 hover:-translate-y-1">
+                <div class="flex items-start justify-between">
+                    <div class="flex-1">
+                        <p class="text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">Critical</p>
+                        <p class="text-4xl font-bold mt-2 text-red-600 dark:text-red-400">{critical_count}</p>
+                    </div>
+                    <div class="p-3 bg-red-100 dark:bg-red-900/30 rounded-xl">
+                        <svg class="w-7 h-7 text-red-600 dark:text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="absolute bottom-0 left-0 right-0 h-1 bg-red-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200"></div>
+            </article>
+            
+            <!-- High Severity Card -->
+            <article class="group relative overflow-hidden bg-white dark:bg-gray-900 rounded-2xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-lg transition-all duration-200 hover:-translate-y-1">
+                <div class="flex items-start justify-between">
+                    <div class="flex-1">
+                        <p class="text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">High</p>
+                        <p class="text-4xl font-bold mt-2 text-orange-600 dark:text-orange-400">{high_count}</p>
+                    </div>
+                    <div class="p-3 bg-orange-100 dark:bg-orange-900/30 rounded-xl">
+                        <svg class="w-7 h-7 text-orange-600 dark:text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="absolute bottom-0 left-0 right-0 h-1 bg-orange-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200"></div>
+            </article>
+            
+            <!-- KEV Listed Card -->
+            <article class="group relative overflow-hidden bg-white dark:bg-gray-900 rounded-2xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-lg transition-all duration-200 hover:-translate-y-1">
+                <div class="flex items-start justify-between">
+                    <div class="flex-1">
+                        <p class="text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">KEV Listed</p>
+                        <p class="text-4xl font-bold mt-2 text-purple-600 dark:text-purple-400">{kev_count}</p>
+                    </div>
+                    <div class="p-3 bg-purple-100 dark:bg-purple-900/30 rounded-xl">
+                        <svg class="w-7 h-7 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="absolute bottom-0 left-0 right-0 h-1 bg-purple-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200"></div>
+            </article>
+        </section>
+
+        <!-- Search and Filters -->
+        <section class="bg-white dark:bg-gray-900 rounded-2xl p-4 sm:p-6 border border-gray-200 dark:border-gray-800 shadow-sm mb-6" aria-label="Search and filters">
+            <!-- Search input -->
+            <div class="mb-4">
+                <label for="search" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Search CVEs</label>
+                <div class="relative">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                    </div>
+                    <input type="search" 
+                           id="search"
+                           x-model="searchQuery" 
+                           placeholder="Search CVE ID, product, or vendor..."
+                           class="block w-full pl-10 pr-3 py-3 border border-gray-300 dark:border-gray-700 rounded-xl bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors">
+                </div>
+            </div>
+            
+            <!-- Quick filters -->
+            <div class="flex flex-wrap gap-2">
+                <button @click="filterBySeverity('CRITICAL')" 
+                        type="button"
+                        :class="selectedSeverity === 'CRITICAL' ? 'bg-red-600 text-white border-red-600' : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-700'"
+                        class="px-4 py-2 rounded-lg border font-medium text-sm transition-colors hover:shadow-md focus:outline-none focus:ring-2 focus:ring-red-500">
+                    Critical
+                </button>
+                <button @click="filterBySeverity('HIGH')" 
+                        type="button"
+                        :class="selectedSeverity === 'HIGH' ? 'bg-orange-600 text-white border-orange-600' : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-700'"
+                        class="px-4 py-2 rounded-lg border font-medium text-sm transition-colors hover:shadow-md focus:outline-none focus:ring-2 focus:ring-orange-500">
+                    High
+                </button>
+                <button @click="filterByKEV()" 
+                        type="button"
+                        :class="showKEVOnly ? 'bg-purple-600 text-white border-purple-600' : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-700'"
+                        class="px-4 py-2 rounded-lg border font-medium text-sm transition-colors hover:shadow-md focus:outline-none focus:ring-2 focus:ring-purple-500">
+                    ⭐ KEV Only
+                </button>
+                <button @click="resetFilters()" 
+                        type="button"
+                        class="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium text-sm hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500">
+                    Reset
+                </button>
+            </div>
+            
+            <!-- Results count -->
+            <div class="mt-4 text-sm text-gray-600 dark:text-gray-400">
+                Showing <span class="font-semibold text-gray-900 dark:text-white" x-text="filteredVulns.length"></span> of <span class="font-semibold text-gray-900 dark:text-white">{total_vulns}</span> vulnerabilities
+            </div>
+        </section>
+
+        <!-- Vulnerabilities Table -->
+        <section class="bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm overflow-hidden">
+            <div class="px-4 sm:px-6 py-4 border-b border-gray-200 dark:border-gray-800">
+                <h2 class="text-lg font-semibold text-gray-900 dark:text-white">Vulnerabilities</h2>
+            </div>
+            
+            <div class="overflow-x-auto scrollbar-thin">
+                <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-800">
+                    <thead class="bg-gray-50 dark:bg-gray-800/50">
+                        <tr>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">CVE ID</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">Severity</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">CVSS</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">EPSS %</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">Product</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">Exploit Status</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">Published</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-800">
+                        <template x-for="vuln in paginatedVulns" :key="vuln.cve_id">
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors cursor-pointer">
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <a :href="'https://cve.mitre.org/cgi-bin/cvename.cgi?name=' + vuln.cve_id" 
+                                       target="_blank"
+                                       rel="noopener noreferrer"
+                                       class="text-sm font-mono font-medium text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 hover:underline focus:outline-none focus:ring-2 focus:ring-primary-500 rounded"
+                                       x-text="vuln.cve_id"></a>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span x-text="vuln.severity"
+                                          :class="vuln.severity === 'CRITICAL' ? 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 border border-red-200 dark:border-red-800' : 'bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400 border border-orange-200 dark:border-orange-800'"
+                                          class="px-2.5 py-1 rounded-lg text-xs font-bold uppercase tracking-wide"></span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-semibold text-gray-900 dark:text-gray-100" x-text="vuln.cvss_score.toFixed(1)"></td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100" x-text="(vuln.epss_percentile * 100).toFixed(1) + '%'"></td>
+                                <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300 max-w-xs truncate" x-text="vuln.products"></td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span x-show="vuln.kev" class="inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-bold bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 border border-purple-200 dark:border-purple-800">
+                                        ⭐ KEV
+                                    </span>
+                                    <span x-show="!vuln.kev" class="text-sm text-gray-500 dark:text-gray-400">—</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-mono text-gray-600 dark:text-gray-400" x-text="vuln.published"></td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Pagination -->
+            <div class="px-4 sm:px-6 py-4 flex items-center justify-between border-t border-gray-200 dark:border-gray-800">
+                <div class="flex-1 flex items-center justify-between sm:justify-start space-x-4">
+                    <div class="text-sm text-gray-700 dark:text-gray-300">
+                        Page <span class="font-semibold" x-text="currentPage"></span> of <span class="font-semibold" x-text="totalPages"></span>
+                    </div>
+                    <div class="flex space-x-2">
+                        <button @click="prevPage()" 
+                                :disabled="currentPage === 1"
+                                :class="currentPage === 1 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-200 dark:hover:bg-gray-700'"
+                                class="px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-sm font-medium text-gray-700 dark:text-gray-300 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500">
+                            Previous
+                        </button>
+                        <button @click="nextPage()" 
+                                :disabled="currentPage === totalPages"
+                                :class="currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-200 dark:hover:bg-gray-700'"
+                                class="px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-sm font-medium text-gray-700 dark:text-gray-300 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500">
+                            Next
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="mt-12 py-6 border-t border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="text-center text-sm text-gray-600 dark:text-gray-400">
+                Built with <a href="https://alpinejs.dev" target="_blank" rel="noopener noreferrer" class="text-primary-600 dark:text-primary-400 hover:underline">Alpine.js</a> 
+                & <a href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer" class="text-primary-600 dark:text-primary-400 hover:underline">Tailwind CSS</a>
+                • Data refreshed every 4 hours
+            </p>
+        </div>
+    </footer>
+
+    <!-- Alpine.js Dashboard Component -->
+    <script>
+        function vulnDashboard() {{
+            return {{
+                // State
+                vulnerabilities: {vuln_json},
+                searchQuery: '',
+                selectedSeverity: '',
+                showKEVOnly: false,
+                currentPage: 1,
+                perPage: 50,
+                darkMode: false,
+                
+                // Computed properties
+                get filteredVulns() {{
+                    let filtered = this.vulnerabilities;
+                    
+                    // Search filter
+                    if (this.searchQuery) {{
+                        const query = this.searchQuery.toLowerCase();
+                        filtered = filtered.filter(v => 
+                            v.cve_id.toLowerCase().includes(query) ||
+                            v.products.toLowerCase().includes(query) ||
+                            v.vendors.some(vendor => vendor.toLowerCase().includes(query))
+                        );
+                    }}
+                    
+                    // Severity filter
+                    if (this.selectedSeverity) {{
+                        filtered = filtered.filter(v => v.severity === this.selectedSeverity);
+                    }}
+                    
+                    // KEV filter
+                    if (this.showKEVOnly) {{
+                        filtered = filtered.filter(v => v.kev);
+                    }}
+                    
+                    return filtered;
+                }},
+                
+                get totalPages() {{
+                    return Math.ceil(this.filteredVulns.length / this.perPage);
+                }},
+                
+                get paginatedVulns() {{
+                    const start = (this.currentPage - 1) * this.perPage;
+                    const end = start + this.perPage;
+                    return this.filteredVulns.slice(start, end);
+                }},
+                
+                // Methods
+                initDashboard() {{
+                    // Initialize dark mode from localStorage or system preference
+                    const savedMode = localStorage.getItem('darkMode');
+                    if (savedMode !== null) {{
+                        this.darkMode = savedMode === 'true';
+                    }} else {{
+                        this.darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    }}
+                    
+                    if (this.darkMode) {{
+                        document.documentElement.classList.add('dark');
+                    }} else {{
+                        document.documentElement.classList.remove('dark');
+                    }}
+                }},
+                
+                toggleDarkMode() {{
+                    this.darkMode = !this.darkMode;
+                    if (this.darkMode) {{
+                        document.documentElement.classList.add('dark');
+                        localStorage.setItem('darkMode', 'true');
+                    }} else {{
+                        document.documentElement.classList.remove('dark');
+                        localStorage.setItem('darkMode', 'false');
+                    }}
+                }},
+                
+                filterBySeverity(severity) {{
+                    this.selectedSeverity = this.selectedSeverity === severity ? '' : severity;
+                    this.currentPage = 1;
+                }},
+                
+                filterByKEV() {{
+                    this.showKEVOnly = !this.showKEVOnly;
+                    this.currentPage = 1;
+                }},
+                
+                resetFilters() {{
+                    this.searchQuery = '';
+                    this.selectedSeverity = '';
+                    this.showKEVOnly = false;
+                    this.currentPage = 1;
+                }},
+                
+                nextPage() {{
+                    if (this.currentPage < this.totalPages) {{
+                        this.currentPage++;
+                        window.scrollTo({{ top: 0, behavior: 'smooth' }});
+                    }}
+                }},
+                
+                prevPage() {{
+                    if (this.currentPage > 1) {{
+                        this.currentPage--;
+                        window.scrollTo({{ top: 0, behavior: 'smooth' }});
+                    }}
+                }},
+                
+                exportCSV() {{
+                    try {{
+                        const headers = ['CVE ID', 'Severity', 'CVSS', 'EPSS %', 'Product', 'Vendors', 'KEV Listed', 'Published', 'Last Modified'];
+                        
+                        const escapeCsv = (value) => {{
+                            if (value == null || value === undefined) return '';
+                            const str = String(value);
+                            if (str.includes(',') || str.includes('"') || str.includes('\\n')) {{
+                                return `"${{str.replace(/"/g, '""')}}"`;
+                            }}
+                            return str;
+                        }};
+                        
+                        const csvContent = [
+                            headers.join(','),
+                            ...this.filteredVulns.map(v => [
+                                escapeCsv(v.cve_id),
+                                escapeCsv(v.severity),
+                                escapeCsv(v.cvss_score),
+                                escapeCsv((v.epss_percentile * 100).toFixed(1)),
+                                escapeCsv(v.products),
+                                escapeCsv(Array.isArray(v.vendors) ? v.vendors.join('; ') : v.vendors),
+                                v.kev ? 'Yes' : 'No',
+                                escapeCsv(v.published),
+                                escapeCsv(v.last_modified)
+                            ].join(','))
+                        ].join('\\n');
+                        
+                        const blob = new Blob([csvContent], {{ type: 'text/csv;charset=utf-8;' }});
+                        const url = window.URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        const timestamp = new Date().toISOString().split('T')[0];
+                        a.download = `vulnerabilities-${{timestamp}}.csv`;
+                        document.body.appendChild(a);
+                        a.click();
+                        document.body.removeChild(a);
+                        window.URL.revokeObjectURL(url);
+                        
+                        console.log('✅ CSV export successful:', this.filteredVulns.length, 'vulnerabilities exported');
+                    }} catch (error) {{
+                        console.error('❌ CSV export failed:', error);
+                        alert('Failed to export CSV. Please try again.');
+                    }}
+                }}
+            }}
+        }}
+    </script>
+</body>
+</html>
+'''
+    
+    # Write output file
+    output_file = OUTPUT_DIR / "index.html"
+    with open(output_file, "w", encoding="utf-8") as f:
+        f.write(html_content)
+    
+    print(f"✅ Tailwind dashboard generated successfully!")
+    print(f"📁 Output: {output_file}")
+    print(f"📊 Statistics:")
+    print(f"   • Total CVEs: {total_vulns}")
+    print(f"   • Critical: {critical_count}")
+    print(f"   • High: {high_count}")
+    print(f"   • KEV Listed: {kev_count}")
+
+if __name__ == "__main__":
+    generate_dashboard()
