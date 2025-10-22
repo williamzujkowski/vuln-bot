@@ -237,16 +237,13 @@ def audit_documentation_claims(doc_file: Path) -> List[str]:
 
 This is "Vuln-Bot" - a high-risk CVE intelligence platform that tracks Critical & High severity vulnerabilities with EPSS ≥ 60% exploitation probability. It automatically harvests, scores, and publishes vulnerability briefings every 4 hours with **SSVC (Stakeholder-Specific Vulnerability Categorization)** decision framework integration. It's a Python-based project using Tailwind CSS and Alpine.js for the frontend dashboard, with static HTML generation via `scripts/generate_tailwind_dashboard.py`.
 
-**Current Production Status** (Verified: 2025-10-22):
-- **CVE Count**: 297 CVEs (Source: api/vulns/index.json)
-- **Critical Severity**: 186 (62.6%)
-- **High Severity**: 111 (37.4%)
-- **KEV Listed**: 75 (25.3%)
-- **SSVC Coverage**: 100% (all CVEs categorized)
+**Current Production Status**:
 - **EPSS Threshold**: ≥60% (configured in scripts/main.py)
+- **SSVC Coverage**: 100% (all CVEs categorized with ACT/ATTEND/TRACK priorities)
 - **Live Site**: https://williamzujkowski.github.io/vuln-bot/
 - **Deployment**: GitHub Pages (gh-pages branch)
 - **Build System**: Python-based (11ty removed)
+- **Harvest Frequency**: Every 4 hours (incremental updates)
 
 **Note**: Production API (public/api/) may differ from source (src/api/). Run `npm run build` to sync.
 
