@@ -10,8 +10,7 @@ import sys
 from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any, Dict
-
-import pytz
+from zoneinfo import ZoneInfo
 
 # Configuration
 OUTPUT_DIR = Path("public")
@@ -497,7 +496,7 @@ class AlpineDashboardGenerator:
             "week_count": week_count,
             "kev_count": kev_count,
             "last_updated": datetime.now().isoformat(),
-            "dashboard_built": datetime.now(pytz.timezone('America/New_York')).strftime('%Y-%m-%d %H:%M:%S %Z'),
+            "dashboard_built": datetime.now(ZoneInfo('America/New_York')).strftime('%Y-%m-%d %H:%M:%S %Z'),
             # NEW: Priority distribution for chart
             "priority_distribution": {
                 "CRITICAL-URGENT": critical_urgent,
