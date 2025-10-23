@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vulnerability Intelligence Briefings - Curated security briefings for high-risk CVEs">
+    <meta name="author" content="Vuln-Bot">
+    <title>Vulnerability Briefings | Vuln-Bot</title>
+
+    <!-- Tailwind CSS via CDN (v3.4 for stability) -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
+
+    <!-- Alpine.js for interactivity -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Chart.js for data visualizations -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#ecfeff',
+                            100: '#cffafe',
+                            200: '#a5f3fc',
+                            300: '#67e8f9',
+                            400: '#22d3ee',
+                            500: '#06b6d4',
+                            600: '#0891b2',
+                            700: '#0e7490',
+                            800: '#155e75',
+                            900: '#164e63',
+                            950: '#083344',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .scrollbar-thin::-webkit-scrollbar {
+                width: 8px;
+                height: 8px;
+            }
+            .scrollbar-thin::-webkit-scrollbar-track {
+                @apply bg-gray-100 dark:bg-gray-900;
+            }
+            .scrollbar-thin::-webkit-scrollbar-thumb {
+                @apply bg-gray-300 dark:bg-gray-700 rounded hover:bg-gray-400 dark:hover:bg-gray-600;
+            }
+        }
+
+        [x-cloak] { display: none !important; }
+    </style>
+</head>
+
+<body class="h-full bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-200"
+      x-data="briefingsApp()"
+      x-init="initBriefings()"
+      x-cloak>
+
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary-600 focus:text-white focus:rounded-lg">
+        Skip to main content
+    </a>
+
+    <!-- Header -->
+    <header class="sticky top-0 z-40 w-full bg-white/95 dark:bg-gray-900/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 dark:supports-[backdrop-filter]:bg-gray-900/80 border-b border-gray-200 dark:border-gray-800 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Main header row -->
+            <div class="flex items-center justify-between h-16">
+                <!-- Brand -->
+                <div class="flex items-center space-x-3">
+                    <div class="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-primary-500 to-purple-600 rounded-xl shadow-lg">
+                        <span class="text-xl" role="img" aria-label="Shield">🛡️</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <h1 class="text-lg sm:text-xl font-bold bg-gradient-to-r from-primary-600 to-purple-600 dark:from-primary-400 dark:to-purple-400 bg-clip-text text-transparent">
+                            Vuln-Bot
+                        </h1>
+                        <p class="text-xs text-gray-600 dark:text-gray-400">Intelligence Briefings</p>
+                    </div>
+                </div>
+
+                <!-- Actions -->
+                <nav class="flex items-center space-x-2" aria-label="Primary navigation">
+                    <!-- Dashboard link -->
+                    <a href="./index.html"
+                       class="hidden sm:flex items-center space-x-2 px-3 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-sm font-medium focus:outline-none focus:ring-2 focus:ring-primary-500">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                        </svg>
+                        <span>Dashboard</span>
+                    </a>
+
+                    <!-- Methodology link -->
+                    <a href="./methodology.html"
+                       class="hidden sm:flex items-center space-x-2 px-3 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-sm font-medium focus:outline-none focus:ring-2 focus:ring-primary-500">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <span>Methodology</span>
+                    </a>
+
+                    <!-- Dark mode toggle -->
+                    <button @click="toggleDarkMode()"
+                            class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500"
+                            aria-label="Toggle dark mode">
+                        <svg x-show="!darkMode" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                        </svg>
+                        <svg x-show="darkMode" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <!-- Page Header -->
+        <div class="mb-8">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+                Vulnerability Intelligence Briefings
+            </h2>
+            <p class="text-gray-600 dark:text-gray-400">
+                Curated weekly briefings of high-risk vulnerabilities with EPSS ≥ 60%
+            </p>
+        </div>
+
+        <!-- Summary Stats -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+            <div class="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-200 dark:border-gray-800 p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Total CVEs</p>
+                        <p class="text-3xl font-bold text-gray-900 dark:text-white mt-2" x-text="totalCVEs"></p>
+                    </div>
+                    <div class="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
+                        <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-200 dark:border-gray-800 p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Critical</p>
+                        <p class="text-3xl font-bold text-red-600 dark:text-red-400 mt-2" x-text="criticalCount"></p>
+                    </div>
+                    <div class="p-3 bg-red-100 dark:bg-red-900/30 rounded-lg">
+                        <svg class="w-6 h-6 text-red-600 dark:text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-200 dark:border-gray-800 p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">KEV Listed</p>
+                        <p class="text-3xl font-bold text-purple-600 dark:text-purple-400 mt-2" x-text="kevCount"></p>
+                    </div>
+                    <div class="p-3 bg-purple-100 dark:bg-purple-900/30 rounded-lg">
+                        <svg class="w-6 h-6 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-200 dark:border-gray-800 p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">ACT Priority</p>
+                        <p class="text-3xl font-bold text-orange-600 dark:text-orange-400 mt-2" x-text="actCount"></p>
+                    </div>
+                    <div class="p-3 bg-orange-100 dark:bg-orange-900/30 rounded-lg">
+                        <svg class="w-6 h-6 text-orange-600 dark:text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-200 dark:border-gray-800 p-6 mb-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Severity Filter -->
+                <div>
+                    <label for="severity-filter" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                        Severity
+                    </label>
+                    <select id="severity-filter"
+                            x-model="filters.severity"
+                            class="w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-primary-500 focus:border-transparent">
+                        <option value="">All Severities</option>
+                        <option value="CRITICAL">Critical</option>
+                        <option value="HIGH">High</option>
+                    </select>
+                </div>
+
+                <!-- SSVC Priority Filter -->
+                <div>
+                    <label for="ssvc-filter" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                        SSVC Priority
+                    </label>
+                    <select id="ssvc-filter"
+                            x-model="filters.ssvcPriority"
+                            class="w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-primary-500 focus:border-transparent">
+                        <option value="">All Priorities</option>
+                        <option value="ACT">ACT (Immediate)</option>
+                        <option value="ATTEND">ATTEND (Scheduled)</option>
+                        <option value="TRACK">TRACK (Monitor)</option>
+                    </select>
+                </div>
+
+                <!-- KEV Status Filter -->
+                <div>
+                    <label for="kev-filter" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                        KEV Status
+                    </label>
+                    <select id="kev-filter"
+                            x-model="filters.kevStatus"
+                            class="w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-primary-500 focus:border-transparent">
+                        <option value="">All CVEs</option>
+                        <option value="true">KEV Listed Only</option>
+                        <option value="false">Non-KEV Only</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Reset Filters Button -->
+            <div class="mt-4">
+                <button @click="resetFilters()"
+                        class="px-4 py-2 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg transition-colors text-sm font-medium focus:outline-none focus:ring-2 focus:ring-primary-500">
+                    Reset Filters
+                </button>
+            </div>
+        </div>
+
+        <!-- Briefings List -->
+        <div class="space-y-8">
+            <template x-for="(briefing, index) in filteredBriefings" :key="index">
+                <div class="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-200 dark:border-gray-800 overflow-hidden">
+                    <!-- Briefing Header -->
+                    <div class="bg-gradient-to-r from-primary-500/10 to-purple-600/10 dark:from-primary-500/20 dark:to-purple-600/20 p-6 border-b border-gray-200 dark:border-gray-800">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-white" x-text="briefing.title"></h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 mt-1" x-text="briefing.dateRange"></p>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="text-right">
+                                    <p class="text-2xl font-bold text-primary-600 dark:text-primary-400" x-text="briefing.vulns.length"></p>
+                                    <p class="text-xs text-gray-600 dark:text-gray-400">CVEs</p>
+                                </div>
+                                <button @click="briefing.expanded = !briefing.expanded"
+                                        class="p-2 hover:bg-white/50 dark:hover:bg-gray-800/50 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500"
+                                        :aria-expanded="briefing.expanded"
+                                        :aria-label="briefing.expanded ? 'Collapse briefing' : 'Expand briefing'">
+                                    <svg class="w-5 h-5 text-gray-600 dark:text-gray-400 transition-transform"
+                                         :class="{'rotate-180': briefing.expanded}"
+                                         fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Briefing Summary Stats -->
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-4">
+                            <div class="bg-white/50 dark:bg-gray-800/50 rounded-lg p-3">
+                                <p class="text-xs text-gray-600 dark:text-gray-400">Critical</p>
+                                <p class="text-lg font-bold text-red-600 dark:text-red-400" x-text="briefing.stats.critical"></p>
+                            </div>
+                            <div class="bg-white/50 dark:bg-gray-800/50 rounded-lg p-3">
+                                <p class="text-xs text-gray-600 dark:text-gray-400">High</p>
+                                <p class="text-lg font-bold text-orange-600 dark:text-orange-400" x-text="briefing.stats.high"></p>
+                            </div>
+                            <div class="bg-white/50 dark:bg-gray-800/50 rounded-lg p-3">
+                                <p class="text-xs text-gray-600 dark:text-gray-400">KEV</p>
+                                <p class="text-lg font-bold text-purple-600 dark:text-purple-400" x-text="briefing.stats.kev"></p>
+                            </div>
+                            <div class="bg-white/50 dark:bg-gray-800/50 rounded-lg p-3">
+                                <p class="text-xs text-gray-600 dark:text-gray-400">Avg EPSS</p>
+                                <p class="text-lg font-bold text-primary-600 dark:text-primary-400" x-text="briefing.stats.avgEpss + '%'"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Briefing Content (Expandable) -->
+                    <div x-show="briefing.expanded" x-collapse>
+                        <div class="p-6">
+                            <div class="space-y-4">
+                                <template x-for="vuln in briefing.vulns" :key="vuln.cveId">
+                                    <div class="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-4 hover:shadow-md transition-shadow">
+                                        <div class="flex items-start justify-between">
+                                            <div class="flex-1">
+                                                <!-- CVE ID and Title -->
+                                                <div class="flex items-center space-x-3 mb-2">
+                                                    <a :href="'https://nvd.nist.gov/vuln/detail/' + vuln.cveId"
+                                                       target="_blank"
+                                                       rel="noopener noreferrer"
+                                                       class="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-mono text-sm font-medium"
+                                                       x-text="vuln.cveId"></a>
+
+                                                    <!-- Severity Badge -->
+                                                    <span class="px-2 py-1 rounded text-xs font-medium"
+                                                          :class="{
+                                                              'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400': vuln.severity === 'CRITICAL',
+                                                              'bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400': vuln.severity === 'HIGH'
+                                                          }"
+                                                          x-text="vuln.severity"></span>
+
+                                                    <!-- KEV Badge -->
+                                                    <template x-if="vuln.enrichments?.cisa_kev?.isKnownExploited">
+                                                        <span class="px-2 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 rounded text-xs font-medium">
+                                                            🔴 KEV
+                                                        </span>
+                                                    </template>
+
+                                                    <!-- SSVC Badge -->
+                                                    <span class="px-2 py-1 rounded text-xs font-medium"
+                                                          :class="{
+                                                              'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400': vuln.ssvc?.priorityTier === 'ACT',
+                                                              'bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400': vuln.ssvc?.priorityTier === 'ATTEND',
+                                                              'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400': vuln.ssvc?.priorityTier === 'TRACK'
+                                                          }"
+                                                          x-text="'SSVC: ' + (vuln.ssvc?.priorityTier || 'N/A')"></span>
+                                                </div>
+
+                                                <!-- Title -->
+                                                <h4 class="text-gray-900 dark:text-white font-medium mb-2" x-text="vuln.title"></h4>
+
+                                                <!-- Details Grid -->
+                                                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm">
+                                                    <div>
+                                                        <span class="text-gray-600 dark:text-gray-400">CVSS:</span>
+                                                        <span class="font-medium text-gray-900 dark:text-white ml-1" x-text="vuln.cvssScore"></span>
+                                                    </div>
+                                                    <div>
+                                                        <span class="text-gray-600 dark:text-gray-400">EPSS:</span>
+                                                        <span class="font-medium text-gray-900 dark:text-white ml-1" x-text="vuln.epssScore + '%'"></span>
+                                                    </div>
+                                                    <div>
+                                                        <span class="text-gray-600 dark:text-gray-400">Vendor:</span>
+                                                        <span class="font-medium text-gray-900 dark:text-white ml-1" x-text="vuln.vendors?.join(', ') || 'N/A'"></span>
+                                                    </div>
+                                                    <div>
+                                                        <span class="text-gray-600 dark:text-gray-400">Published:</span>
+                                                        <span class="font-medium text-gray-900 dark:text-white ml-1" x-text="formatDate(vuln.publishedDate)"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+
+        <!-- Empty State -->
+        <div x-show="filteredBriefings.length === 0" class="text-center py-12">
+            <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+            <h3 class="mt-2 text-sm font-medium text-gray-900 dark:text-white">No briefings found</h3>
+            <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">Try adjusting your filters to see more results.</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-16 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="text-center text-sm text-gray-600 dark:text-gray-400">
+                <p>© 2025 Vuln-Bot. All rights reserved.</p>
+                <p class="mt-2">Data sources: <a href="https://cve.mitre.org/" target="_blank" rel="noopener noreferrer" class="text-primary-600 dark:text-primary-400 hover:underline">CVE.org</a>, <a href="https://www.first.org/epss/" target="_blank" rel="noopener noreferrer" class="text-primary-600 dark:text-primary-400 hover:underline">FIRST EPSS</a>, <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer" class="text-primary-600 dark:text-primary-400 hover:underline">CISA KEV</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function briefingsApp() {
+            return {
+                // Data
+                vulnerabilities: [],
+                briefings: [],
+                totalCVEs: 0,
+                criticalCount: 0,
+                kevCount: 0,
+                actCount: 0,
+                darkMode: false,
+
+                // Filters
+                filters: {
+                    severity: '',
+                    ssvcPriority: '',
+                    kevStatus: ''
+                },
+
+                // Initialize
+                async initBriefings() {
+                    // Check for dark mode preference
+                    if (localStorage.getItem('darkMode') === 'true' ||
+                        (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                        this.darkMode = true;
+                        document.documentElement.classList.add('dark');
+                    }
+
+                    // Load vulnerability data
+                    await this.loadVulnerabilities();
+
+                    // Generate briefings
+                    this.generateBriefings();
+                },
+
+                // Load vulnerabilities from API
+                async loadVulnerabilities() {
+                    try {
+                        // Use relative path that works both locally and on GitHub Pages
+                        const basePath = window.location.hostname === 'localhost' ? '' : '/vuln-bot';
+                        const response = await fetch(`${basePath}/api/vulns/index.json`);
+                        const data = await response.json();
+                        this.vulnerabilities = data.vulnerabilities || [];
+
+                        // Calculate summary stats
+                        this.totalCVEs = this.vulnerabilities.length;
+                        this.criticalCount = this.vulnerabilities.filter(v => v.severity === 'CRITICAL').length;
+                        this.kevCount = this.vulnerabilities.filter(v => v.enrichments?.cisa_kev?.isKnownExploited).length;
+                        this.actCount = this.vulnerabilities.filter(v => v.ssvc?.priorityTier === 'ACT').length;
+                    } catch (error) {
+                        console.error('Error loading vulnerabilities:', error);
+                    }
+                },
+
+                // Generate weekly briefings
+                generateBriefings() {
+                    // Sort vulnerabilities by published date (newest first)
+                    const sorted = [...this.vulnerabilities].sort((a, b) =>
+                        new Date(b.publishedDate) - new Date(a.publishedDate)
+                    );
+
+                    // Group by week
+                    const grouped = {};
+                    sorted.forEach(vuln => {
+                        const date = new Date(vuln.publishedDate);
+                        const weekStart = this.getWeekStart(date);
+                        const weekKey = weekStart.toISOString().split('T')[0];
+
+                        if (!grouped[weekKey]) {
+                            grouped[weekKey] = [];
+                        }
+                        grouped[weekKey].push(vuln);
+                    });
+
+                    // Create briefing objects
+                    this.briefings = Object.entries(grouped).map(([weekKey, vulns]) => {
+                        const weekStart = new Date(weekKey);
+                        const weekEnd = new Date(weekStart);
+                        weekEnd.setDate(weekEnd.getDate() + 6);
+
+                        const stats = {
+                            critical: vulns.filter(v => v.severity === 'CRITICAL').length,
+                            high: vulns.filter(v => v.severity === 'HIGH').length,
+                            kev: vulns.filter(v => v.enrichments?.cisa_kev?.isKnownExploited).length,
+                            avgEpss: (vulns.reduce((sum, v) => sum + (v.epssScore || 0), 0) / vulns.length).toFixed(1)
+                        };
+
+                        return {
+                            title: `Week of ${this.formatDate(weekStart)}`,
+                            dateRange: `${this.formatDate(weekStart)} - ${this.formatDate(weekEnd)}`,
+                            weekStart: weekStart,
+                            vulns: vulns,
+                            stats: stats,
+                            expanded: false
+                        };
+                    });
+                },
+
+                // Get filtered briefings
+                get filteredBriefings() {
+                    return this.briefings.map(briefing => {
+                        const filteredVulns = briefing.vulns.filter(vuln => {
+                            // Severity filter
+                            if (this.filters.severity && vuln.severity !== this.filters.severity) {
+                                return false;
+                            }
+
+                            // SSVC priority filter
+                            if (this.filters.ssvcPriority && vuln.ssvc?.priorityTier !== this.filters.ssvcPriority) {
+                                return false;
+                            }
+
+                            // KEV status filter
+                            if (this.filters.kevStatus !== '') {
+                                const isKev = vuln.enrichments?.cisa_kev?.isKnownExploited || false;
+                                if (this.filters.kevStatus === 'true' && !isKev) return false;
+                                if (this.filters.kevStatus === 'false' && isKev) return false;
+                            }
+
+                            return true;
+                        });
+
+                        // Recalculate stats for filtered vulns
+                        const stats = {
+                            critical: filteredVulns.filter(v => v.severity === 'CRITICAL').length,
+                            high: filteredVulns.filter(v => v.severity === 'HIGH').length,
+                            kev: filteredVulns.filter(v => v.enrichments?.cisa_kev?.isKnownExploited).length,
+                            avgEpss: filteredVulns.length > 0
+                                ? (filteredVulns.reduce((sum, v) => sum + (v.epssScore || 0), 0) / filteredVulns.length).toFixed(1)
+                                : '0.0'
+                        };
+
+                        return {
+                            ...briefing,
+                            vulns: filteredVulns,
+                            stats: stats
+                        };
+                    }).filter(briefing => briefing.vulns.length > 0);
+                },
+
+                // Get start of week (Monday)
+                getWeekStart(date) {
+                    const d = new Date(date);
+                    const day = d.getDay();
+                    const diff = d.getDate() - day + (day === 0 ? -6 : 1);
+                    return new Date(d.setDate(diff));
+                },
+
+                // Format date
+                formatDate(dateString) {
+                    const date = new Date(dateString);
+                    return date.toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric'
+                    });
+                },
+
+                // Reset filters
+                resetFilters() {
+                    this.filters = {
+                        severity: '',
+                        ssvcPriority: '',
+                        kevStatus: ''
+                    };
+                },
+
+                // Toggle dark mode
+                toggleDarkMode() {
+                    this.darkMode = !this.darkMode;
+                    if (this.darkMode) {
+                        document.documentElement.classList.add('dark');
+                        localStorage.setItem('darkMode', 'true');
+                    } else {
+                        document.documentElement.classList.remove('dark');
+                        localStorage.setItem('darkMode', 'false');
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
