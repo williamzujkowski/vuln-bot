@@ -140,7 +140,17 @@ class CIGatecheck:
                 with open(chunk_file) as f:
                     chunk_data = json.load(f)
                     for vuln in chunk_data.get("vulnerabilities", []):
+                        # Try legacy format first (epss.score)
                         epss_score = vuln.get("epss", {}).get("score", 0)
+
+                        # If not found, try CVE 5.0 format (containers.adp[].enrichments.epss.score)
+                        if epss_score == 0 and "containers" in vuln:
+                            for adp in vuln.get("containers", {}).get("adp", []):
+                                epss_data = adp.get("enrichments", {}).get("epss", {})
+                                if epss_data.get("score"):
+                                    epss_score = epss_data["score"]
+                                    break
+
                         if epss_score < min_epss:
                             chunk_violations.append(
                                 {
