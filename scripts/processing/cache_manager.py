@@ -289,11 +289,15 @@ class CacheManager:
             if min_risk_score is not None:
                 query = query.filter(VulnerabilityCache.risk_score >= min_risk_score)
 
-            if min_epss_score is not None:
-                query = query.filter(VulnerabilityCache.epss_probability >= min_epss_score)
+            # Note: Can't filter by EPSS at SQL level since it's in JSON data field
+            # We'll filter in Python after deserialization
+
+            # Get more entries than limit if we need to filter by EPSS
+            # This ensures we get enough results after filtering
+            fetch_limit = limit * 3 if min_epss_score is not None else limit
 
             cache_entries = (
-                query.order_by(desc(VulnerabilityCache.risk_score)).limit(limit).all()
+                query.order_by(desc(VulnerabilityCache.risk_score)).limit(fetch_limit).all()
             )
 
             vulnerabilities = []
@@ -310,7 +314,19 @@ class CacheManager:
                             datetime.fromisoformat(vuln_dict["last_modified_date"])
                         )
                     vuln = Vulnerability.model_validate(vuln_dict)
+
+                    # Filter by EPSS score if specified
+                    if min_epss_score is not None:
+                        epss = vuln.epss_probability or 0.0
+                        if epss < min_epss_score:
+                            continue  # Skip this vulnerability
+
                     vulnerabilities.append(vuln)
+
+                    # Stop if we've reached the limit
+                    if len(vulnerabilities) >= limit:
+                        break
+
                 except Exception as e:
                     self.logger.warning(
                         "Failed to deserialize vulnerability",
