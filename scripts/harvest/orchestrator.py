@@ -367,11 +367,13 @@ class HarvestOrchestrator:
         # Clean up expired cache entries
         self.cache_manager.cleanup_expired()
 
-        # EPSS-FIRST FILTERING: For initial harvest, fetch EPSS scores first
+        # EPSS-FIRST FILTERING: Fetch EPSS scores first for both initial and incremental harvests
+        # This prevents harvesting CVEs without EPSS scores that would fail threshold validation
         high_epss_cve_ids = None
-        if is_initial_harvest:
+        if is_initial_harvest or incremental:
             self.logger.info(
-                "Initial harvest detected - performing EPSS-first filtering",
+                "Performing EPSS-first filtering (mode: %s)",
+                "initial" if is_initial_harvest else "incremental",
                 min_epss_score=min_epss_score,
             )
             high_epss_cve_ids = self._get_high_epss_cve_ids(min_epss_score)
