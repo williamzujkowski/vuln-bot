@@ -98,6 +98,13 @@ class OptimizedBriefingGenerator(BriefingGenerator):
         chunks = defaultdict(list)
         chunk_files = []
 
+        # Clean up existing chunk files to prevent stale data
+        self.logger.info("Cleaning up existing chunk files")
+        for old_chunk in self.api_dir.glob("vulns-*.json"):
+            if old_chunk.name != "index.json":  # Preserve index.json
+                old_chunk.unlink()
+                self.logger.debug("Deleted stale chunk file", file=old_chunk.name)
+
         # Group vulnerabilities
         for vuln in batch.vulnerabilities:
             year = vuln.published_date.year if vuln.published_date else "unknown"
