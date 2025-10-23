@@ -88,7 +88,6 @@ class CIGatecheck:
 
         # Check if count is reasonable for our filtering criteria (warning only)
         tolerance = 0.5  # 50% tolerance for expected count (not baseline)
-        min_acceptable = int(expected_count * (1 - tolerance))
         max_acceptable = int(expected_count * (1 + tolerance))
 
         if total_cves > max_acceptable:
