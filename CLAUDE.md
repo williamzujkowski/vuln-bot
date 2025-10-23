@@ -193,24 +193,30 @@ def audit_documentation_claims(doc_file: Path) -> List[str]:
 
 **Example Accurate Documentation**:
 ```markdown
-## Current System Status (Verified: 2025-10-23 03:20 UTC)
+## Current System Status (Verified: 2025-10-23 11:50 UTC)
 
 **Data Metrics** (Source: public/api/vulns/index.json):
 - Total CVEs: 298 (verified from API index)
+- Critical: 187 (62.8%)
+- High: 111 (37.2%)
+- SSVC Coverage: 100% (298/298 CVEs)
+- SSVC Distribution: 46 ACT, 90 ATTEND, 162 TRACK
+- KEV Listed: 76 (25.5%)
 - EPSS Threshold: ≥60% (configured threshold)
-- Data Age: <1 day (✅ FRESH - last updated 2025-10-23 00:34 UTC)
+- Data Age: <1 day (✅ FRESH - last updated 2025-10-22 20:45 UTC)
 
 **Test Metrics** (Source: pytest --collect-only):
-- Tests Collected: 399 (with 1 import error)
-- Import Errors: tests/test_nvd_client.py, tests/test_reference_analysis.py
+- Tests Collected: 507 (with 1 collection error)
+- Import Errors: 1 (collection error in test suite)
 
 **Coverage Metrics** (Source: pytest --cov=scripts):
-- Overall Coverage: 6% (8,978 total statements, 8,312 missing)
+- Overall Coverage: 7% (9,348 total statements, 8,606 missing)
 - Note: Low coverage due to many untested legacy files
 - New modules have higher coverage (verified individually)
+- Target Coverage: 90% (aspirational goal, not enforced)
 
 **Build Status**:
-- Last Successful Build: 2025-10-23 00:34 UTC
+- Last Successful Build: 2025-10-22 20:45 UTC
 - Build System: Python-based (11ty removed)
 - Deployment: GitHub Pages (gh-pages branch)
 - Live Site: https://williamzujkowski.github.io/vuln-bot/ (298 CVEs verified)
@@ -236,16 +242,18 @@ def audit_documentation_claims(doc_file: Path) -> List[str]:
 
 ## Project Overview (Updated: 2025-10-22)
 
-This is "Vuln-Bot" - a high-risk CVE intelligence platform that tracks Critical & High severity vulnerabilities with EPSS ≥ 60% exploitation probability. It automatically harvests, scores, and publishes vulnerability briefings every 4 hours with **SSVC (Stakeholder-Specific Vulnerability Categorization)** decision framework integration. It's a Python-based project using Tailwind CSS and Alpine.js for the frontend dashboard, with static HTML generation via `scripts/generate_tailwind_dashboard.py`.
+This is "Vuln-Bot" - a high-risk CVE intelligence platform that tracks Critical & High severity vulnerabilities with EPSS ≥ 60% exploitation probability. It automatically harvests, scores, and publishes vulnerability briefings every 4 hours with **SSVC (Stakeholder-Specific Vulnerability Categorization)** decision framework integration. It's a Python-based project using Tailwind CSS and Alpine.js for the frontend dashboard, with static HTML generation via `scripts/generate_alpine_dashboard.py`.
 
-**Current Production Status** (Verified: 2025-10-23):
-- **CVE Count**: 298 CVEs (Source: public/api/vulns/index.json - production data)
-- **Live Site Count**: 298 CVEs (Verified: https://williamzujkowski.github.io/vuln-bot/)
-- **Test Count**: 507 tests (Source: pytest --collect-only, 1 collection error)
-- **Test Coverage**: 7% (9,312 statements, 8,574 missing) (Source: pytest --cov=scripts)
+**Current Production Status** (Verified: 2025-10-23 11:50 UTC):
+- **CVE Count**: 298 CVEs (Source: public/api/vulns/index.json)
+- **Critical**: 187 (62.8%)
+- **High**: 111 (37.2%)
+- **KEV Listed**: 76 (25.5%)
+- **SSVC Coverage**: 100% (298/298 CVEs)
+- **SSVC Distribution**: 46 ACT, 90 ATTEND, 162 TRACK
+- **Test Count**: 507 tests (pytest --collect-only, 1 collection error)
+- **Test Coverage**: 7% (9,348 total statements, 8,606 missing)
 - **EPSS Threshold**: ≥60% (configured in scripts/main.py)
-- **SSVC Coverage**: 100% (all CVEs categorized with ACT/ATTEND/TRACK priorities)
-- **Data Format**: Legacy transformed schema (CVE 5.0 migration in progress)
 - **Live Site**: https://williamzujkowski.github.io/vuln-bot/
 - **Deployment**: GitHub Pages (gh-pages branch)
 - **Build System**: Python-based (11ty removed)

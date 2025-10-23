@@ -141,8 +141,8 @@ For alert notifications (feature-flagged):
 ### Running Tests
 
 ```bash
-# Python tests with coverage (90%+ enforced)
-pytest --cov=scripts --cov-report=term --cov-fail-under=90
+# Python tests with coverage (current: 7%)
+pytest --cov=scripts --cov-report=term
 
 # JavaScript linting
 npm run lint
@@ -275,8 +275,8 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
 ### Testing Requirements
 
-- Minimum test coverage: 90% (CI enforced)
-- Current test coverage: 90%+
+- Current test coverage: 7% (507 tests, verified 2025-10-23)
+- Target test coverage: 90% (aspirational goal)
 - No skipped tests allowed
 - All tests must pass before merging
 - Security scans must pass (Bandit, CodeQL)
