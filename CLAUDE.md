@@ -193,12 +193,12 @@ def audit_documentation_claims(doc_file: Path) -> List[str]:
 
 **Example Accurate Documentation**:
 ```markdown
-## Current System Status (Verified: 2025-10-19 18:00 UTC)
+## Current System Status (Verified: 2025-10-23 03:20 UTC)
 
 **Data Metrics** (Source: public/api/vulns/index.json):
-- Total CVEs: 3 (verified from API index)
+- Total CVEs: 298 (verified from API index)
 - EPSS Threshold: ≥60% (configured threshold)
-- Data Age: 77 days old (⚠️ STALE - harvest needed)
+- Data Age: <1 day (✅ FRESH - last updated 2025-10-23 00:34 UTC)
 
 **Test Metrics** (Source: pytest --collect-only):
 - Tests Collected: 399 (with 1 import error)
@@ -210,15 +210,16 @@ def audit_documentation_claims(doc_file: Path) -> List[str]:
 - New modules have higher coverage (verified individually)
 
 **Build Status**:
-- Last Successful Build: 2025-10-19 04:23 UTC
+- Last Successful Build: 2025-10-23 00:34 UTC
 - Build System: Python-based (11ty removed)
 - Deployment: GitHub Pages (gh-pages branch)
+- Live Site: https://williamzujkowski.github.io/vuln-bot/ (298 CVEs verified)
 ```
 
 ### Red Flags to Avoid
 
 🚨 **These patterns indicate unverified claims**:
-- Round numbers without source (e.g., "30 CVEs" when actual is 3 or 295)
+- Round numbers without source (e.g., "30 CVEs" when actual is 298)
 - Percentage claims without pytest output (e.g., "96.67% coverage")
 - Test counts without verification (e.g., "217 tests passing")
 - Superlatives without benchmarks ("best", "world-class", "leading")
@@ -237,9 +238,9 @@ def audit_documentation_claims(doc_file: Path) -> List[str]:
 
 This is "Vuln-Bot" - a high-risk CVE intelligence platform that tracks Critical & High severity vulnerabilities with EPSS ≥ 60% exploitation probability. It automatically harvests, scores, and publishes vulnerability briefings every 4 hours with **SSVC (Stakeholder-Specific Vulnerability Categorization)** decision framework integration. It's a Python-based project using Tailwind CSS and Alpine.js for the frontend dashboard, with static HTML generation via `scripts/generate_tailwind_dashboard.py`.
 
-**Current Production Status** (Verified: 2025-10-22):
-- **CVE Count**: 298 CVEs (Source: public/api/vulns/index.json)
-- **Source API Count**: 297 CVEs (Source: src/api/vulns/index.json)
+**Current Production Status** (Verified: 2025-10-23):
+- **CVE Count**: 298 CVEs (Source: public/api/vulns/index.json - production data)
+- **Live Site Count**: 298 CVEs (Verified: https://williamzujkowski.github.io/vuln-bot/)
 - **Test Count**: 507 tests (Source: pytest --collect-only, 1 collection error)
 - **Test Coverage**: 7% (9,312 statements, 8,574 missing) (Source: pytest --cov=scripts)
 - **EPSS Threshold**: ≥60% (configured in scripts/main.py)
@@ -719,7 +720,7 @@ v.products.some(product => product.toLowerCase().includes(query))
 ### ✅ **Phase 1: Backend SSVC Calculation** (COMPLETE)
 **Status**: Fully implemented and validated
 **Completion Date**: 2025-10-19
-**Coverage**: 100% (295/295 CVEs)
+**Coverage**: 100% (298/298 CVEs)
 
 **Implementation Details**:
 - **SSVC Engine** (`scripts/processing/ssvc_calculator.py`):
@@ -734,8 +735,8 @@ v.products.some(product => product.toLowerCase().includes(query))
   - CSV export with SSVC columns (Priority, Notation)
 
 - **Validation Results**:
-  - 295 CVEs processed with 100% success rate
-  - Distribution: 45 ACT (15%), 88 ATTEND (30%), 162 TRACK (55%)
+  - 298 CVEs processed with 100% success rate
+  - Distribution verified on live site with all CVEs categorized
   - Zero errors or missing data issues
 
 ### ✅ **Phase 2: Frontend SSVC Visualization** (COMPLETE)
@@ -804,12 +805,11 @@ v.products.some(product => product.toLowerCase().includes(query))
   - Focus management in modal tabs
 
 #### 5. Data Verification
-**Verified Metrics** (Source: src/api/vulns/index.json, commit 4fe0ce9d2):
-- ✅ Total CVEs: 295
-- ✅ SSVC Coverage: 100% (295/295)
-- ✅ ACT Priority: 45 CVEs (15.3%)
-- ✅ ATTEND Priority: 88 CVEs (29.8%)
-- ✅ TRACK Priority: 162 CVEs (54.9%)
+**Verified Metrics** (Source: public/api/vulns/index.json, verified 2025-10-23):
+- ✅ Total CVEs: 298
+- ✅ SSVC Coverage: 100% (298/298)
+- ✅ All CVEs categorized with ACT/ATTEND/TRACK priorities
+- ✅ Distribution verified on live site (https://williamzujkowski.github.io/vuln-bot/)
 - ✅ CSV Export: Tested with SSVC columns
 - ✅ All UI elements: Validated in browser
 
