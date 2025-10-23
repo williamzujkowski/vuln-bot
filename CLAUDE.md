@@ -942,6 +942,201 @@ cat ssvc_verification_report.md
 
 ---
 
+## 🔄 Harvest Strategy & Update Detection (Updated: 2025-10-23)
+
+### Comprehensive Harvest Approach
+
+The vulnerability harvest system is designed to capture **ALL CVEs that meet criteria**, including:
+1. **New CVEs** - Freshly published vulnerabilities
+2. **Updated CVEs** - Existing CVEs with changes to EPSS, CVSS, or metadata
+3. **Newly Qualifying CVEs** - CVEs that previously didn't meet thresholds but now do after updates
+
+### How Update Detection Works
+
+#### 1. **Release-Based Delta Files** (`cvelist_client.py:716-726`)
+```python
+# Incremental harvests use GitHub release delta files
+# Delta files contain ONLY CVEs that changed since last release
+if incremental and self.cache_manager:
+    cves.extend(self._process_delta_files(release_data, year, min_severity))
+
+# ALSO processes midnight file for comprehensive coverage
+cves.extend(self._process_midnight_file(release_data, year, min_severity, incremental))
+```
+
+**How It Works**:
+- CVEProject/cvelistV5 publishes daily release files
+- **Delta files**: Only CVEs added/modified in last 24 hours (~10-50 CVEs/day)
+- **Midnight files**: Complete snapshot of all CVEs at midnight UTC
+- Incremental mode processes BOTH for maximum coverage
+
+#### 2. **Individual CVE Update Detection** (`cvelist_client.py:610-683`)
+```python
+def _should_skip_cve(self, cve_id: str, file_path: str) -> bool:
+    """Check if CVE should be skipped in incremental mode."""
+    # Get cached CVE metadata
+    cached_vuln = self.cache_manager.get_vulnerability(cve_id)
+    if not cached_vuln:
+        return False  # No cache = fetch it
+
+    # Fetch current CVE metadata from GitHub
+    cve_content = fetch_from_github(file_path)
+    date_updated = cve_content['cveMetadata']['dateUpdated']
+
+    # Compare dates: Skip only if no updates since cache
+    if date_updated <= cached_vuln.last_modified_date:
+        return True  # Skip - no updates
+
+    return False  # Fetch - CVE has been updated
+```
+
+**How It Works**:
+- Compares `cveMetadata.dateUpdated` from CVEProject against cached `last_modified_date`
+- **Fetches CVE if**:
+  - No cached version exists (new CVE)
+  - `dateUpdated` is newer than cache (CVE updated)
+  - Any comparison fails (safety - fetch on error)
+- **Skips CVE only if**: `dateUpdated <= cached_date` (definitely no changes)
+
+#### 3. **EPSS-First Filtering** (Initial Harvest Only)
+```python
+# Initial harvest: Pre-filter using EPSS scores before fetching CVE details
+high_epss_cve_ids = self._get_high_epss_cve_ids(min_epss_score=0.6)
+# Result: ~1,000 CVE IDs with EPSS ≥60% (instead of 15,000+ all CVEs)
+
+# Then fetch only those CVE IDs that meet EPSS threshold
+vulnerabilities = self.cvelist_client.harvest(
+    years=[2024, 2025],
+    epss_filter_cve_ids=high_epss_cve_ids  # Pre-filtered list
+)
+```
+
+**Why This Matters**:
+- Without EPSS-first: Would fetch 15,000+ CVEs, then filter to ~300
+- With EPSS-first: Fetch ~1,000 CVEs, filter to ~300
+- **Performance**: 93% reduction in API calls and processing time
+
+### Baseline Count Regression Prevention (New: 2025-10-23)
+
+#### Problem Statement
+Previously, CVE counts could decrease if:
+- EPSS scores dropped below threshold
+- Harvest bugs missed existing CVEs
+- Filtering logic changed
+
+#### Solution: Baseline Enforcement
+
+**CI/CD Gatecheck** (`scripts/ci_gatecheck.py:41-103`):
+```python
+def validate_cve_count_threshold(
+    self,
+    api_dir: Path,
+    max_count: int = 1000,
+    expected_count: int = 298,
+    min_baseline: int = 298,  # NEW: Minimum count threshold
+):
+    # CRITICAL: Enforce minimum baseline (count should NEVER decrease)
+    if total_cves < min_baseline:
+        self.add_error(
+            f"CRITICAL: CVE count regression detected: {total_cves} < {min_baseline}",
+            f"Count dropped from baseline. Harvest is missing CVEs."
+        )
+        return False  # FAIL the build
+```
+
+**Baseline Policy**:
+- **Current Baseline**: 298 CVEs (set 2025-10-23)
+- **Rule**: CVE count must be ≥ 298 (can only increase, never decrease)
+- **Enforcement**: CI/CD pipeline FAILS if count < baseline
+- **Rationale**: Ensures harvest improvements or threshold changes never lose qualifying CVEs
+
+**Usage**:
+```bash
+# CI/CD gatecheck with baseline enforcement
+python -m scripts.ci_gatecheck \
+  --api-dir public/api \
+  --max-cve-count 1000 \
+  --expected-cve-count 298 \
+  --min-baseline 298 \        # NEW: Baseline parameter
+  --min-epss 0.6 \
+  --fail-on-violations
+
+# If count < 298: ❌ CRITICAL ERROR - build fails
+# If count >= 298: ✅ PASS - deployment proceeds
+```
+
+### Update Scenarios Handled
+
+| Scenario | Detection Method | Result |
+|----------|------------------|--------|
+| New CVE published | Delta file + cache miss | ✅ Fetched |
+| CVE metadata updated | `dateUpdated` comparison | ✅ Fetched |
+| CVSS score changed | `dateUpdated` triggers re-fetch | ✅ Fetched |
+| EPSS score increased | Weekly EPSS refresh + re-validation | ✅ Captured |
+| EPSS score decreased | EPSS filter + baseline enforcement | ⚠️ Kept if in baseline |
+| CVE threshold newly met | EPSS refresh detects new qualifying CVE | ✅ Fetched |
+| Count regression | Baseline enforcement in CI/CD | ❌ Build fails |
+
+### Harvest Modes
+
+#### 1. **Incremental Mode** (DEFAULT)
+```bash
+python -m scripts.main harvest --cache-dir .cache/
+# OR explicitly:
+python -m scripts.main harvest --cache-dir .cache/ --incremental
+```
+
+**Behavior**:
+- Processes delta files (last 24 hours of changes)
+- Checks `dateUpdated` for individual CVEs
+- Skips CVEs with no updates since last harvest
+- **Performance**: ~10-20 CVEs processed per run
+- **Use Case**: Daily automated harvests (every 4 hours)
+
+#### 2. **Full Refresh Mode**
+```bash
+python -m scripts.main harvest --cache-dir .cache/ --no-incremental
+```
+
+**Behavior**:
+- Processes all CVEs regardless of cache
+- Re-validates ALL EPSS scores
+- Recalculates all risk scores
+- **Performance**: ~300-1000 CVEs processed
+- **Use Case**: Weekly full refresh, EPSS threshold changes, baseline verification
+
+### Best Practices
+
+1. **Daily Incremental Harvests**: Capture new and updated CVEs automatically
+2. **Weekly Full Refresh**: Re-validate all CVEs against current EPSS scores
+3. **Baseline Enforcement**: Never allow count regressions
+4. **Delta + Midnight Processing**: Ensures comprehensive coverage of all changes
+
+### Verification Commands
+
+```bash
+# Verify harvest captured updates
+python3 -c "
+import json
+from datetime import datetime
+data = json.load(open('public/api/vulns/index.json'))
+recent = [v for v in data['vulnerabilities']
+          if datetime.fromisoformat(v['lastUpdated'].replace('Z', '+00:00')) >
+             datetime(2025, 10, 20, tzinfo=timezone.utc)]
+print(f'CVEs updated since Oct 20: {len(recent)}')
+"
+
+# Verify baseline enforcement
+python -m scripts.ci_gatecheck \
+  --api-dir public/api \
+  --min-baseline 298 \
+  --expected-cve-count 298 \
+  --fail-on-violations
+# Expected: ✅ PASS if count >= 298
+```
+
+---
+
 ## Common Development Commands
 
 ### Python Development

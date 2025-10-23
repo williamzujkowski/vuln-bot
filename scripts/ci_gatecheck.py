@@ -39,11 +39,21 @@ class CIGatecheck:
         logger.warning(message, details=details)
 
     def validate_cve_count_threshold(
-        self, api_dir: Path, max_count: int = 1000, expected_count: int = 295
+        self,
+        api_dir: Path,
+        max_count: int = 1000,
+        expected_count: int = 298,
+        min_baseline: int = 298,
     ):
         """
         Critical validation: Ensure CVE count is within reasonable bounds.
         This is the primary check to prevent the 15,000+ CVE issue.
+
+        Args:
+            api_dir: Directory containing API data
+            max_count: Maximum CVE count (prevents stale data issue)
+            expected_count: Expected CVE count for this harvest
+            min_baseline: Minimum baseline count (count should NEVER go below this)
         """
         console.print("\n[bold blue]🔍 Validating CVE Count Thresholds[/bold blue]")
 
@@ -57,6 +67,8 @@ class CIGatecheck:
                 total_cves = len(data.get("vulnerabilities", []))
 
         self.metrics["total_cves"] = total_cves
+        self.metrics["min_baseline"] = min_baseline
+        self.metrics["expected_count"] = expected_count
 
         # CRITICAL: Check for excessive CVE count (15,000+ issue)
         if total_cves > max_count:
@@ -66,24 +78,27 @@ class CIGatecheck:
             )
             return False
 
-        # Check if count is reasonable for our filtering criteria
-        tolerance = 0.5  # 50% tolerance
+        # CRITICAL: Enforce minimum baseline (count should NEVER decrease)
+        if total_cves < min_baseline:
+            self.add_error(
+                f"CRITICAL: CVE count regression detected: {total_cves} < {min_baseline} (baseline)",
+                f"Count dropped from baseline of {min_baseline}. This indicates harvest is missing CVEs that should be included.",
+            )
+            return False
+
+        # Check if count is reasonable for our filtering criteria (warning only)
+        tolerance = 0.5  # 50% tolerance for expected count (not baseline)
         min_acceptable = int(expected_count * (1 - tolerance))
         max_acceptable = int(expected_count * (1 + tolerance))
 
-        if total_cves < min_acceptable:
-            self.add_warning(
-                f"CVE count lower than expected: {total_cves} < {min_acceptable}",
-                "This might indicate data harvesting issues or overly strict filtering.",
-            )
-        elif total_cves > max_acceptable:
+        if total_cves > max_acceptable:
             self.add_warning(
                 f"CVE count higher than expected: {total_cves} > {max_acceptable}",
-                "This might indicate filtering issues or threshold changes.",
+                f"Expected ~{expected_count}. This might indicate new CVEs meeting criteria or threshold changes.",
             )
 
         console.print(
-            f"✅ CVE count validation passed: {total_cves} CVEs (expected ~{expected_count})"
+            f"✅ CVE count validation passed: {total_cves} CVEs (baseline: ≥{min_baseline}, expected: ~{expected_count})"
         )
         return True
 
@@ -366,8 +381,14 @@ class CIGatecheck:
 @click.option(
     "--expected-cve-count",
     type=int,
-    default=60,
-    help="Expected CVE count for reasonable validation",
+    default=298,
+    help="Expected CVE count for reasonable validation (updated from 60 to 298)",
+)
+@click.option(
+    "--min-baseline",
+    type=int,
+    default=298,
+    help="Minimum baseline CVE count (count should NEVER go below this)",
 )
 @click.option(
     "--min-epss", type=float, default=0.6, help="Minimum EPSS threshold (0.0-1.0)"
@@ -391,6 +412,7 @@ def main(
     cache_dir: Path,  # noqa: ARG001
     max_cve_count: int,
     expected_cve_count: int,
+    min_baseline: int,
     min_epss: float,
     output_report: Optional[Path],
     fail_on_warnings: bool,
@@ -436,7 +458,7 @@ def main(
         (
             "CVE Count Threshold",
             lambda: gatecheck.validate_cve_count_threshold(
-                api_dir, max_cve_count, expected_cve_count
+                api_dir, max_cve_count, expected_cve_count, min_baseline
             ),
         ),
         (

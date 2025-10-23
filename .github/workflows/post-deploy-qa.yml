@@ -45,8 +45,9 @@ jobs:
       - name: Run live site validation tests
         env:
           LIVE_SITE_URL: ${{ github.event.inputs.site_url || 'https://williamzujkowski.github.io/vuln-bot/' }}
-          MAX_CVE_COUNT: "100"
-          EXPECTED_CVE_COUNT: "295"
+          MAX_CVE_COUNT: "1000"
+          EXPECTED_CVE_COUNT: "298"
+          MIN_BASELINE: "298"
         run: |
           echo "Validating site at: $LIVE_SITE_URL"
           
@@ -98,8 +99,9 @@ jobs:
           python -m scripts.ci_gatecheck \
             --api-dir temp_api \
             --cache-dir .cache \
-            --max-cve-count 100 \
-            --expected-cve-count 295 \
+            --max-cve-count 1000 \
+            --expected-cve-count 298 \
+            --min-baseline 298 \
             --min-epss 0.6 \
             --output-report post-deploy-gatecheck.json \
             --fail-on-violations
