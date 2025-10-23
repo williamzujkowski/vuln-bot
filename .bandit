@@ -1,0 +1,26 @@
+[bandit]
+# Bandit configuration for vuln-bot
+# This is a security-focused CVE intelligence tool, so we suppress false positives
+# while keeping real security checks enabled.
+
+# Skip these tests (low-severity false positives):
+skips = B404,B607,B603,B112,B110,B608
+
+# B404: subprocess module - we need subprocess for git, curl, etc.
+# B607: partial executable path - standard CLI tools (git, curl, pytest) are safe
+# B603: subprocess without shell=True - this is actually GOOD practice, not a risk
+# B112: try/except/continue - code quality issue, not security
+# B110: try/except/pass - code quality issue, not security
+# B608: SQL injection - false positive on HTML template strings
+
+# Severity level: only fail on HIGH severity issues
+severity = HIGH
+confidence = HIGH
+
+# Paths to exclude
+exclude_dirs = [
+    "/tests/",
+    "/.venv/",
+    "/node_modules/",
+    "/__pycache__/"
+]

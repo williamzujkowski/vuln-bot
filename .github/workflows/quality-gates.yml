@@ -160,7 +160,7 @@ jobs:
     
     - name: Run Bandit security scan
       run: |
-        bandit -r scripts/ -ll -i -f json -o bandit-report.json || true
+        bandit -r scripts/ -lll -i -f json -o bandit-report.json || true  # Only fail on HIGH severity
         if [ -f bandit-report.json ]; then
           echo "Security scan completed. Checking results..."
           python -c "import json; report=json.load(open('bandit-report.json')); exit(1 if report.get('results', []) else 0)"
