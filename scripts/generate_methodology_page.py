@@ -17,7 +17,9 @@ from typing import Any, Dict
 
 # Configuration
 OUTPUT_DIR = Path("public")
-API_DIR = Path("public/api/vulns")  # Fixed: was "api/vulns", now correctly points to public/api/vulns
+API_DIR = Path(
+    "public/api/vulns"
+)  # Fixed: was "api/vulns", now correctly points to public/api/vulns
 METRICS_DB = Path(".cache/metrics.db")
 OUTPUT_DIR.mkdir(exist_ok=True)
 
