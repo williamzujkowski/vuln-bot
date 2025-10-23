@@ -116,7 +116,24 @@ class VulnerabilitySource(BaseModel):
 
 
 class Vulnerability(BaseModel):
-    """Complete vulnerability data model."""
+    """Complete vulnerability data model.
+
+    This model now stores the original CVE 5.0 JSON structure alongside
+    parsed fields for backward compatibility during the migration to native
+    CVE 5.0 schema.
+
+    CVE 5.0 Structure:
+    - cveMetadata: CVE ID, dates, state
+    - containers:
+      - cna: Official CVE Numbering Authority data (descriptions, metrics, references, affected)
+      - adp: Additional Data Providers (enrichments like CISA-ADP, EPSS, SSVC)
+
+    Enrichments are stored in containers.adp[] with providerMetadata.shortName:
+    - "EPSS": EPSS probability scores
+    - "SSVC": CISA's decision framework
+    - "CISA-ADP": Known Exploited Vulnerabilities
+    - "VulnBot-Enrichment": Custom enrichments (risk score, triage priority, etc.)
+    """
 
     # Core identifiers
     cve_id: str = Field(pattern=r"^CVE-\d{4}-\d{4,}$")
@@ -163,6 +180,10 @@ class Vulnerability(BaseModel):
 
     # Additional identifiers from other sources
     github_advisory_id: Optional[str] = None
+
+    # ===== CVE 5.0 Native Schema =====
+    # Store raw CVE 5.0 JSON for native schema support
+    raw_cve_v5: Optional[Dict[str, Any]] = None
 
     class Config:
         """Pydantic configuration."""
@@ -274,8 +295,24 @@ class Vulnerability(BaseModel):
         return ""
 
     def to_summary_dict(self) -> Dict[str, Any]:
-        """Convert to summary dictionary for index."""
-        # Create enhanced title format: Severity, Vendor, Product, Version(s)
+        """Convert to summary dictionary for index.
+
+        Extracts data from raw_cve_v5 if available, otherwise uses parsed fields.
+        This ensures compatibility during the migration to CVE 5.0 native schema.
+
+        Summary fields for search index:
+        - CVE ID, title, severity, scores (CVSS, EPSS, SSVC, Risk)
+        - Published/modified dates, exploitation status
+        - Top vendors/products, attack vector details, tags
+        """
+        # If raw CVE 5.0 exists, extract from it (future-proof extraction)
+        # For now, we still use parsed fields since enrichments haven't been
+        # moved to containers.adp[] yet. This will be updated in Phase 2.
+        if self.raw_cve_v5:
+            # Extract from CVE 5.0 structure (when enrichments are in adp[])
+            return self._extract_summary_from_cve_v5()
+
+        # Legacy extraction from parsed Pydantic fields
         enhanced_title = self._create_enhanced_title()
 
         ssvc_dict = None
@@ -311,8 +348,128 @@ class Vulnerability(BaseModel):
             "tags": self.tags,
         }
 
+    def _extract_summary_from_cve_v5(self) -> Dict[str, Any]:
+        """Extract summary from raw CVE 5.0 with enrichments in containers.adp[]."""
+        # For now, use parsed fields (backward compatibility during migration)
+        # In Phase 2, this will extract directly from raw_cve_v5.containers.adp[]
+        enhanced_title = self._create_enhanced_title()
+
+        ssvc_dict = None
+        if self.ssvc_data:
+            ssvc_dict = {
+                "compactNotation": self.ssvc_data.compact_notation,
+                "priorityTier": self.ssvc_data.priority_tier,
+                "exploitation": self.ssvc_data.exploitation,
+                "automatable": self.ssvc_data.automatable,
+                "technicalImpact": self.ssvc_data.technical_impact,
+                "inferred": self.ssvc_data.inferred,
+            }
+
+        return {
+            "cveId": self.cve_id,
+            "title": enhanced_title,
+            "originalTitle": self.title,
+            "severity": self.severity.value,
+            "cvssScore": self.cvss_base_score,
+            "epssScore": self.epss_probability,
+            "epssPercentile": self.epss_score.percentile if self.epss_score else 0,
+            "ssvc": ssvc_dict,
+            "riskScore": self.risk_score,
+            "publishedDate": self.published_date.isoformat(),
+            "lastModifiedDate": self.last_modified_date.isoformat(),
+            "exploitationStatus": self.exploitation_status.value,
+            "vendors": self.affected_vendors[:5],
+            "products": self.affected_products[:3],
+            "attackVector": self.attack_vector,
+            "attackComplexity": self.attack_complexity,
+            "privilegesRequired": self.privileges_required,
+            "userInteraction": self.user_interaction,
+            "tags": self.tags,
+        }
+
     def to_detail_dict(self) -> Dict[str, Any]:
-        """Convert to detailed dictionary for API."""
+        """Convert to detailed dictionary for API.
+
+        Returns CVE 5.0 native format if raw_cve_v5 is available,
+        otherwise returns legacy format for backward compatibility.
+
+        CVE 5.0 Format:
+        - Enrichments (EPSS, SSVC, risk score) are added to containers.adp[]
+        - Original CNA data is preserved in containers.cna
+        - Follows official CVE Record Format v5.x specification
+        """
+        # If raw CVE 5.0 data exists, return enhanced CVE 5.0 format
+        if self.raw_cve_v5:
+            return self._to_cve_v5_with_enrichments()
+
+        # Otherwise, return legacy format for backward compatibility
+        return self._to_legacy_detail_dict()
+
+    def _to_cve_v5_with_enrichments(self) -> Dict[str, Any]:
+        """Return CVE 5.0 format with enrichments in containers.adp[]."""
+        import copy
+
+        cve_v5 = copy.deepcopy(self.raw_cve_v5)
+
+        # Ensure containers.adp exists
+        if "containers" not in cve_v5:
+            cve_v5["containers"] = {}
+        if "adp" not in cve_v5["containers"]:
+            cve_v5["containers"]["adp"] = []
+
+        # Add VulnBot enrichments to ADP array
+        vulnbot_adp = {
+            "providerMetadata": {
+                "orgId": "vulnbot-enrichment",
+                "shortName": "VulnBot-Enrichment",
+                "dateUpdated": datetime.utcnow().isoformat() + "Z",
+            },
+            "title": "VulnBot Threat Intelligence Enrichment",
+            "enrichments": {},
+        }
+
+        # Add EPSS enrichment
+        if self.epss_score:
+            vulnbot_adp["enrichments"]["epss"] = {
+                "score": self.epss_score.score,
+                "percentile": self.epss_score.percentile,
+                "date": self.epss_score.date.isoformat(),
+            }
+
+        # Add SSVC enrichment
+        if self.ssvc_data:
+            vulnbot_adp["enrichments"]["ssvc"] = {
+                "exploitation": self.ssvc_data.exploitation,
+                "automatable": self.ssvc_data.automatable,
+                "technicalImpact": self.ssvc_data.technical_impact,
+                "priorityTier": self.ssvc_data.priority_tier,
+                "compactNotation": self.ssvc_data.compact_notation,
+                "ssvcScore": self.ssvc_data.ssvc_score,
+                "inferred": self.ssvc_data.inferred,
+                "confidence": self.ssvc_data.confidence,
+            }
+
+        # Add risk score and triage priority
+        vulnbot_adp["enrichments"]["riskScore"] = self.risk_score
+        vulnbot_adp["enrichments"]["exploitationStatus"] = (
+            self.exploitation_status.value
+        )
+
+        # Add attack vector details
+        vulnbot_adp["enrichments"]["attackVector"] = {
+            "vector": self.attack_vector,
+            "complexity": self.attack_complexity,
+            "privilegesRequired": self.privileges_required,
+            "userInteraction": self.user_interaction,
+        }
+
+        # Append VulnBot ADP to containers
+        cve_v5["containers"]["adp"].append(vulnbot_adp)
+
+        return cve_v5
+
+    def _to_legacy_detail_dict(self) -> Dict[str, Any]:
+        """Convert to legacy detailed dictionary format (pre-CVE 5.0 migration)."""
         ssvc_dict = None
         if self.ssvc_data:
             ssvc_dict = {

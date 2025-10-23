@@ -943,7 +943,7 @@ def generate_dashboard():
                         const query = this.searchQuery.toLowerCase();
                         filtered = filtered.filter(v =>
                             v.cve_id.toLowerCase().includes(query) ||
-                            v.products.toLowerCase().includes(query) ||
+                            v.products.some(product => product.toLowerCase().includes(query)) ||
                             v.vendors.some(vendor => vendor.toLowerCase().includes(query))
                         );
                     }}

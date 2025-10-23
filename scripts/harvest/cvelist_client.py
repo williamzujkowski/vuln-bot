@@ -333,6 +333,15 @@ class CVEListClient(BaseAPIClient):
     def parse_cve_v5_record(self, cve_data: Dict[str, Any]) -> Optional[Vulnerability]:
         """Parse CVE Record Format v5.x into Vulnerability model.
 
+        This method now stores the raw CVE 5.0 JSON structure in the
+        raw_cve_v5 field for native schema support, while also parsing
+        minimal fields needed for enrichment and filtering.
+
+        CVE 5.0 Native Schema Migration:
+        - raw_cve_v5: Full CVE 5.0 JSON (cveMetadata + containers)
+        - Parsed fields: Only extracted for backward compatibility
+        - Enrichments: Added to containers.adp[] by downstream agents
+
         Args:
             cve_data: Raw CVE v5 record
 
@@ -340,6 +349,11 @@ class CVEListClient(BaseAPIClient):
             Parsed Vulnerability object or None if parsing fails
         """
         try:
+            # Store raw CVE 5.0 data for native schema support
+            import copy
+
+            raw_cve_v5 = copy.deepcopy(cve_data)
+
             # Extract metadata
             cve_metadata = cve_data.get("cveMetadata", {})
             cve_id = cve_metadata.get("cveId", "")
@@ -497,7 +511,7 @@ class CVEListClient(BaseAPIClient):
                         f"Failed to extract SSVC data for {cve_id}: {e}"
                     )
 
-            # Create vulnerability object
+            # Create vulnerability object with raw CVE 5.0 data
             vulnerability = Vulnerability(
                 cve_id=cve_id,
                 title=title,
@@ -523,6 +537,14 @@ class CVEListClient(BaseAPIClient):
                     )
                 ],
                 tags=problem_types,  # Use CWE IDs as tags
+                raw_cve_v5=raw_cve_v5,  # Store raw CVE 5.0 JSON for native schema
+            )
+
+            self.logger.debug(
+                "Parsed CVE v5 record with native schema",
+                cve_id=cve_id,
+                has_raw_cve_v5=True,
+                severity=severity.value,
             )
 
             return vulnerability
