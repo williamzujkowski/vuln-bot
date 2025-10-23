@@ -1,8 +1,12 @@
-name: Enhanced CVE Harvest with Great Expectations
+name: Enhanced CVE Harvest with Great Expectations (DISABLED - Experimental)
+
+# DISABLED: This workflow uses non-existent `agents.controller_agent` module
+# The production harvest workflow is: .github/workflows/scheduled-harvest.yml
+# To re-enable, implement the agents/ module or switch to scripts.main
 
 on:
-  schedule:
-    - cron: '0 */4 * * *'  # Every 4 hours
+  # schedule:  # DISABLED
+  #   - cron: '0 */4 * * *'  # Every 4 hours
   workflow_dispatch:
     inputs:
       sources:

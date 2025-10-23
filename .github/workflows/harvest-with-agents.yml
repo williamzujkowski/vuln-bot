@@ -1,9 +1,13 @@
-name: Enhanced CVE Harvest with Agent Architecture
+name: Enhanced CVE Harvest with Agent Architecture (DISABLED - Experimental)
+
+# DISABLED: This experimental workflow is failing (exit code 2)
+# The production harvest workflow is: .github/workflows/scheduled-harvest.yml
+# To re-enable, debug the harvest command failure
 
 on:
-  schedule:
-    # Run every 4 hours
-    - cron: '0 */4 * * *'
+  # schedule:  # DISABLED
+  #   # Run every 4 hours
+  #   - cron: '0 */4 * * *'
   workflow_dispatch:
     inputs:
       dry_run:
