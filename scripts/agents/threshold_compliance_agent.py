@@ -462,6 +462,22 @@ class ThresholdComplianceAgent(BaseAgent):
             except (ValueError, TypeError):
                 pass
 
+        # CVE 5.0 format: containers.adp[].enrichments.epss.score
+        if "containers" in vuln and isinstance(vuln["containers"], dict):
+            adp_list = vuln["containers"].get("adp", [])
+            if isinstance(adp_list, list):
+                for adp in adp_list:
+                    if isinstance(adp, dict):
+                        enrichments = adp.get("enrichments", {})
+                        if isinstance(enrichments, dict):
+                            epss_data = enrichments.get("epss", {})
+                            if isinstance(epss_data, dict) and "score" in epss_data:
+                                try:
+                                    score = float(epss_data["score"])
+                                    return score / 100.0 if score > 1.0 else score
+                                except (ValueError, TypeError):
+                                    pass
+
         # Fall back to percentile / 100 if available
         if "epssPercentile" in vuln and vuln["epssPercentile"] is not None:
             try:
