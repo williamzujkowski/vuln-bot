@@ -14,6 +14,7 @@ OUTPUT_DIR = Path("public")
 API_DIR = Path("api/vulns")
 OUTPUT_DIR.mkdir(exist_ok=True)
 
+
 def load_vulnerabilities():
     """Load vulnerabilities from JSON API"""
     index_file = API_DIR / "index.json"
@@ -27,64 +28,64 @@ def load_vulnerabilities():
 
     return data.get("vulnerabilities", []), data.get("generated", "")
 
+
 def generate_dashboard():
     """Generate complete Tailwind CSS dashboard"""
 
     print("Loading vulnerabilities...")
     vulnerabilities, data_generated = load_vulnerabilities()
-    
+
     # Prepare vulnerability data for JavaScript embedding
     vuln_data = []
     for v in vulnerabilities:
         # Get full description (not truncated for modal)
         full_desc = v.get("title", v.get("originalTitle", "No description available"))
 
-        vuln_data.append({
-            # Basic identification
-            "cve_id": v.get("cveId", ""),
-            "title": v.get("title", ""),
-            "description": full_desc,
+        vuln_data.append(
+            {
+                # Basic identification
+                "cve_id": v.get("cveId", ""),
+                "title": v.get("title", ""),
+                "description": full_desc,
+                # Severity and scores
+                "severity": v.get("severity", ""),
+                "cvss_score": v.get("cvssScore", 0),
+                "epss_score": v.get("epssScore", 0),
+                "epss_percentile": v.get("epssPercentile", 0),
+                "risk_score": v.get("riskScore", 0),
+                # Products and vendors
+                "products": v.get("products", []),
+                "products_display": ", ".join(v.get("products", []))[
+                    :100
+                ],  # Truncated for table
+                "vendors": v.get("vendors", []),
+                "vendors_display": ", ".join(v.get("vendors", []))[
+                    :100
+                ],  # Truncated for table
+                # Dates
+                "published": str(v.get("publishedDate", ""))[:10],
+                "last_modified": str(v.get("lastModifiedDate", ""))[:10],
+                # Exploitation status
+                "kev": v.get("enrichments", {})
+                .get("cisa_kev", {})
+                .get("isKnownExploited", False),
+                "exploitation_status": v.get("exploitationStatus", "UNKNOWN"),
+                # CVSS metrics
+                "attack_vector": v.get("attackVector", ""),
+                "attack_complexity": v.get("attackComplexity", ""),
+                "privileges_required": v.get("privilegesRequired", ""),
+                "user_interaction": v.get("userInteraction", ""),
+                # SSVC data
+                "ssvc": v.get("ssvc", {}),
+                # Enrichments
+                "enrichments": v.get("enrichments", {}),
+                # References
+                "references": v.get("references", []),
+                # Tags
+                "tags": v.get("tags", []),
+            }
+        )
 
-            # Severity and scores
-            "severity": v.get("severity", ""),
-            "cvss_score": v.get("cvssScore", 0),
-            "epss_score": v.get("epssScore", 0),
-            "epss_percentile": v.get("epssPercentile", 0),
-            "risk_score": v.get("riskScore", 0),
-
-            # Products and vendors
-            "products": v.get("products", []),
-            "products_display": ", ".join(v.get("products", []))[:100],  # Truncated for table
-            "vendors": v.get("vendors", []),
-            "vendors_display": ", ".join(v.get("vendors", []))[:100],  # Truncated for table
-
-            # Dates
-            "published": str(v.get("publishedDate", ""))[:10],
-            "last_modified": str(v.get("lastModifiedDate", ""))[:10],
-
-            # Exploitation status
-            "kev": v.get("enrichments", {}).get("cisa_kev", {}).get("isKnownExploited", False),
-            "exploitation_status": v.get("exploitationStatus", "UNKNOWN"),
-
-            # CVSS metrics
-            "attack_vector": v.get("attackVector", ""),
-            "attack_complexity": v.get("attackComplexity", ""),
-            "privileges_required": v.get("privilegesRequired", ""),
-            "user_interaction": v.get("userInteraction", ""),
-
-            # SSVC data
-            "ssvc": v.get("ssvc", {}),
-
-            # Enrichments
-            "enrichments": v.get("enrichments", {}),
-
-            # References
-            "references": v.get("references", []),
-
-            # Tags
-            "tags": v.get("tags", []),
-        })
-    
     # Calculate statistics
     total_vulns = len(vuln_data)
     critical_count = sum(1 for v in vuln_data if v["severity"] == "CRITICAL")
@@ -106,26 +107,20 @@ def generate_dashboard():
     vendor_data = [count for vendor, count in top_vendors]
 
     # 2. Calculate EPSS Distribution
-    epss_buckets = {
-        '60-70%': 0,
-        '70-80%': 0,
-        '80-90%': 0,
-        '90-95%': 0,
-        '95-100%': 0
-    }
+    epss_buckets = {"60-70%": 0, "70-80%": 0, "80-90%": 0, "90-95%": 0, "95-100%": 0}
 
     for v in vuln_data:
         epss = v.get("epss_score", 0)
         if epss >= 95:
-            epss_buckets['95-100%'] += 1
+            epss_buckets["95-100%"] += 1
         elif epss >= 90:
-            epss_buckets['90-95%'] += 1
+            epss_buckets["90-95%"] += 1
         elif epss >= 80:
-            epss_buckets['80-90%'] += 1
+            epss_buckets["80-90%"] += 1
         elif epss >= 70:
-            epss_buckets['70-80%'] += 1
+            epss_buckets["70-80%"] += 1
         elif epss >= 60:
-            epss_buckets['60-70%'] += 1
+            epss_buckets["60-70%"] += 1
 
     epss_labels = list(epss_buckets.keys())
     epss_data = list(epss_buckets.values())
@@ -137,17 +132,17 @@ def generate_dashboard():
     if data_generated:
         try:
             # Parse ISO format timestamp: "2025-10-22T01:18:11.284010"
-            data_dt = datetime.fromisoformat(data_generated.replace('+00:00', ''))
+            data_dt = datetime.fromisoformat(data_generated.replace("+00:00", ""))
             data_last_updated = data_dt.strftime("%Y-%m-%d %H:%M UTC")
         except Exception as e:
             print(f"Warning: Could not parse data timestamp: {e}")
             data_last_updated = "Unknown"
     else:
         data_last_updated = "Unknown"
-    
+
     # Convert to JSON for embedding
     vuln_json = json.dumps(vuln_data)
-    
+
     # Generate HTML with embedded data
     html_content = f'''<!DOCTYPE html>
 <html lang="en" class="h-full">
@@ -157,10 +152,10 @@ def generate_dashboard():
     <meta name="description" content="High-risk CVE intelligence dashboard - EPSS ≥60% exploitation probability">
     <meta name="author" content="Vuln-Bot">
     <title>Vulnerability Intelligence Dashboard | Vuln-Bot</title>
-    
+
     <!-- Tailwind CSS via CDN (v3.4 for stability) -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
-    
+
     <!-- Alpine.js for interactivity -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
@@ -192,7 +187,7 @@ def generate_dashboard():
             }}
         }}
     </script>
-    
+
     <style type="text/tailwindcss">
         @layer utilities {{
             .scrollbar-thin::-webkit-scrollbar {{
@@ -206,21 +201,21 @@ def generate_dashboard():
                 @apply bg-gray-300 dark:bg-gray-700 rounded hover:bg-gray-400 dark:hover:bg-gray-600;
             }}
         }}
-        
+
         [x-cloak] {{ display: none !important; }}
     </style>
 </head>
 
-<body class="h-full bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-200" 
-      x-data="vulnDashboard()" 
+<body class="h-full bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-200"
+      x-data="vulnDashboard()"
       x-init="initDashboard()"
       x-cloak>
-    
+
     <!-- Skip to main content link for accessibility -->
     <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary-600 focus:text-white focus:rounded-lg">
         Skip to main content
     </a>
-    
+
     <!-- Header -->
     <header class="sticky top-0 z-40 w-full bg-white/95 dark:bg-gray-900/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 dark:supports-[backdrop-filter]:bg-gray-900/80 border-b border-gray-200 dark:border-gray-800 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -238,7 +233,7 @@ def generate_dashboard():
                         <p class="text-xs text-gray-600 dark:text-gray-400">CVE Intelligence Dashboard</p>
                     </div>
                 </div>
-                
+
                 <!-- Actions -->
                 <nav class="flex items-center space-x-2" aria-label="Primary navigation">
                     <!-- Methodology link -->
@@ -262,10 +257,10 @@ def generate_dashboard():
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
                         </svg>
                     </button>
-                    
+
                     <!-- GitHub link -->
-                    <a href="https://github.com/williamzujkowski/vuln-bot" 
-                       target="_blank" 
+                    <a href="https://github.com/williamzujkowski/vuln-bot"
+                       target="_blank"
                        rel="noopener noreferrer"
                        class="hidden sm:flex items-center space-x-2 px-3 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-sm font-medium focus:outline-none focus:ring-2 focus:ring-primary-500">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
@@ -273,9 +268,9 @@ def generate_dashboard():
                         </svg>
                         <span>GitHub</span>
                     </a>
-                    
+
                     <!-- Export CSV -->
-                    <button @click="exportCSV()" 
+                    <button @click="exportCSV()"
                             type="button"
                             class="flex items-center space-x-2 px-3 py-2 rounded-lg bg-primary-600 hover:bg-primary-700 text-white transition-colors text-sm font-medium shadow-sm hover:shadow focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -286,7 +281,7 @@ def generate_dashboard():
                     </button>
                 </nav>
             </div>
-            
+
             <!-- Status badges row -->
             <div class="flex flex-wrap items-center gap-2 pb-3 text-xs font-medium">
                 <div class="flex items-center space-x-1.5 px-2.5 py-1.5 rounded-lg bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/50">
@@ -309,7 +304,7 @@ def generate_dashboard():
 
     <!-- Main content -->
     <main id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
-        
+
         <!-- Statistics Grid -->
         <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6 sm:mb-8" aria-label="Vulnerability statistics">
             <!-- Total CVEs Card -->
@@ -329,7 +324,7 @@ def generate_dashboard():
                 </div>
                 <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary-500 to-purple-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200"></div>
             </article>
-            
+
             <!-- Critical Severity Card -->
             <article class="group relative overflow-hidden bg-white dark:bg-gray-900 rounded-2xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-lg transition-all duration-200 hover:-translate-y-1">
                 <div class="flex items-start justify-between">
@@ -345,7 +340,7 @@ def generate_dashboard():
                 </div>
                 <div class="absolute bottom-0 left-0 right-0 h-1 bg-red-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200"></div>
             </article>
-            
+
             <!-- High Severity Card -->
             <article class="group relative overflow-hidden bg-white dark:bg-gray-900 rounded-2xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-lg transition-all duration-200 hover:-translate-y-1">
                 <div class="flex items-start justify-between">
@@ -361,7 +356,7 @@ def generate_dashboard():
                 </div>
                 <div class="absolute bottom-0 left-0 right-0 h-1 bg-orange-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200"></div>
             </article>
-            
+
             <!-- KEV Listed Card -->
             <article class="group relative overflow-hidden bg-white dark:bg-gray-900 rounded-2xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-lg transition-all duration-200 hover:-translate-y-1">
                 <div class="flex items-start justify-between">
@@ -417,41 +412,41 @@ def generate_dashboard():
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
                         </svg>
                     </div>
-                    <input type="search" 
+                    <input type="search"
                            id="search"
-                           x-model="searchQuery" 
+                           x-model="searchQuery"
                            placeholder="Search CVE ID, product, or vendor..."
                            class="block w-full pl-10 pr-3 py-3 border border-gray-300 dark:border-gray-700 rounded-xl bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors">
                 </div>
             </div>
-            
+
             <!-- Quick filters -->
             <div class="flex flex-wrap gap-2">
-                <button @click="filterBySeverity('CRITICAL')" 
+                <button @click="filterBySeverity('CRITICAL')"
                         type="button"
                         :class="selectedSeverity === 'CRITICAL' ? 'bg-red-600 text-white border-red-600' : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-700'"
                         class="px-4 py-2 rounded-lg border font-medium text-sm transition-colors hover:shadow-md focus:outline-none focus:ring-2 focus:ring-red-500">
                     Critical
                 </button>
-                <button @click="filterBySeverity('HIGH')" 
+                <button @click="filterBySeverity('HIGH')"
                         type="button"
                         :class="selectedSeverity === 'HIGH' ? 'bg-orange-600 text-white border-orange-600' : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-700'"
                         class="px-4 py-2 rounded-lg border font-medium text-sm transition-colors hover:shadow-md focus:outline-none focus:ring-2 focus:ring-orange-500">
                     High
                 </button>
-                <button @click="filterByKEV()" 
+                <button @click="filterByKEV()"
                         type="button"
                         :class="showKEVOnly ? 'bg-purple-600 text-white border-purple-600' : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-700'"
                         class="px-4 py-2 rounded-lg border font-medium text-sm transition-colors hover:shadow-md focus:outline-none focus:ring-2 focus:ring-purple-500">
                     ⭐ KEV Only
                 </button>
-                <button @click="resetFilters()" 
+                <button @click="resetFilters()"
                         type="button"
                         class="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-medium text-sm hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500">
                     Reset
                 </button>
             </div>
-            
+
             <!-- Results count -->
             <div class="mt-4 text-sm text-gray-600 dark:text-gray-400">
                 Showing <span class="font-semibold text-gray-900 dark:text-white" x-text="filteredVulns.length"></span> of <span class="font-semibold text-gray-900 dark:text-white">{total_vulns}</span> vulnerabilities
@@ -463,7 +458,7 @@ def generate_dashboard():
             <div class="px-4 sm:px-6 py-4 border-b border-gray-200 dark:border-gray-800">
                 <h2 class="text-lg font-semibold text-gray-900 dark:text-white">Vulnerabilities</h2>
             </div>
-            
+
             <!-- Desktop/Tablet Table View (hidden on mobile) -->
             <div class="hidden md:block overflow-x-auto scrollbar-thin">
                 <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-800">
@@ -508,7 +503,7 @@ def generate_dashboard():
                         <template x-for="vuln in paginatedVulns" :key="vuln.cve_id">
                             <tr @click="openModal(vuln)" class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors cursor-pointer">
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                    <a :href="'https://cve.mitre.org/cgi-bin/cvename.cgi?name=' + vuln.cve_id" 
+                                    <a :href="'https://cve.mitre.org/cgi-bin/cvename.cgi?name=' + vuln.cve_id"
                                        target="_blank"
                                        rel="noopener noreferrer"
                                        class="text-sm font-mono font-medium text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 hover:underline focus:outline-none focus:ring-2 focus:ring-primary-500 rounded"
@@ -602,13 +597,13 @@ def generate_dashboard():
                         Page <span class="font-semibold" x-text="currentPage"></span> of <span class="font-semibold" x-text="totalPages"></span>
                     </div>
                     <div class="flex space-x-2">
-                        <button @click="prevPage()" 
+                        <button @click="prevPage()"
                                 :disabled="currentPage === 1"
                                 :class="currentPage === 1 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-200 dark:hover:bg-gray-700'"
                                 class="px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-sm font-medium text-gray-700 dark:text-gray-300 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500">
                             Previous
                         </button>
-                        <button @click="nextPage()" 
+                        <button @click="nextPage()"
                                 :disabled="currentPage === totalPages"
                                 :class="currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-200 dark:hover:bg-gray-700'"
                                 class="px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-sm font-medium text-gray-700 dark:text-gray-300 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500">
@@ -619,7 +614,7 @@ def generate_dashboard():
             </div>
         </section>
     </main>
-    
+
     <!-- Footer -->
     <footer class="mt-12 py-6 border-t border-gray-200 dark:border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -989,17 +984,17 @@ def generate_dashboard():
 
                     return filtered;
                 }},
-                
+
                 get totalPages() {{
                     return Math.ceil(this.filteredVulns.length / this.perPage);
                 }},
-                
+
                 get paginatedVulns() {{
                     const start = (this.currentPage - 1) * this.perPage;
                     const end = start + this.perPage;
                     return this.filteredVulns.slice(start, end);
                 }},
-                
+
                 // Methods
                 initDashboard() {{
                     // Initialize dark mode from localStorage or system preference
@@ -1158,7 +1153,7 @@ def generate_dashboard():
                         }});
                     }}
                 }},
-                
+
                 toggleDarkMode() {{
                     this.darkMode = !this.darkMode;
                     if (this.darkMode) {{
@@ -1169,42 +1164,42 @@ def generate_dashboard():
                         localStorage.setItem('darkMode', 'false');
                     }}
                 }},
-                
+
                 filterBySeverity(severity) {{
                     this.selectedSeverity = this.selectedSeverity === severity ? '' : severity;
                     this.currentPage = 1;
                 }},
-                
+
                 filterByKEV() {{
                     this.showKEVOnly = !this.showKEVOnly;
                     this.currentPage = 1;
                 }},
-                
+
                 resetFilters() {{
                     this.searchQuery = '';
                     this.selectedSeverity = '';
                     this.showKEVOnly = false;
                     this.currentPage = 1;
                 }},
-                
+
                 nextPage() {{
                     if (this.currentPage < this.totalPages) {{
                         this.currentPage++;
                         window.scrollTo({{ top: 0, behavior: 'smooth' }});
                     }}
                 }},
-                
+
                 prevPage() {{
                     if (this.currentPage > 1) {{
                         this.currentPage--;
                         window.scrollTo({{ top: 0, behavior: 'smooth' }});
                     }}
                 }},
-                
+
                 exportCSV() {{
                     try {{
                         const headers = ['CVE ID', 'Severity', 'CVSS', 'EPSS %', 'Product', 'Vendors', 'KEV Listed', 'Published', 'Last Modified'];
-                        
+
                         const escapeCsv = (value) => {{
                             if (value == null || value === undefined) return '';
                             const str = String(value);
@@ -1213,7 +1208,7 @@ def generate_dashboard():
                             }}
                             return str;
                         }};
-                        
+
                         const csvContent = [
                             headers.join(','),
                             ...this.filteredVulns.map(v => [
@@ -1228,7 +1223,7 @@ def generate_dashboard():
                                 escapeCsv(v.last_modified)
                             ].join(','))
                         ].join('\\n');
-                        
+
                         const blob = new Blob([csvContent], {{ type: 'text/csv;charset=utf-8;' }});
                         const url = window.URL.createObjectURL(blob);
                         const a = document.createElement('a');
@@ -1239,7 +1234,7 @@ def generate_dashboard():
                         a.click();
                         document.body.removeChild(a);
                         window.URL.revokeObjectURL(url);
-                        
+
                         console.log('✅ CSV export successful:', this.filteredVulns.length, 'vulnerabilities exported');
                     }} catch (error) {{
                         console.error('❌ CSV export failed:', error);
@@ -1291,19 +1286,20 @@ def generate_dashboard():
 </body>
 </html>
 '''
-    
+
     # Write output file
     output_file = OUTPUT_DIR / "index.html"
     with open(output_file, "w", encoding="utf-8") as f:
         f.write(html_content)
-    
-    print(f"✅ Tailwind dashboard generated successfully!")
+
+    print("✅ Tailwind dashboard generated successfully!")
     print(f"📁 Output: {output_file}")
-    print(f"📊 Statistics:")
+    print("📊 Statistics:")
     print(f"   • Total CVEs: {total_vulns}")
     print(f"   • Critical: {critical_count}")
     print(f"   • High: {high_count}")
     print(f"   • KEV Listed: {kev_count}")
+
 
 if __name__ == "__main__":
     generate_dashboard()

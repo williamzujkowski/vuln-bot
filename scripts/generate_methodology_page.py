@@ -11,16 +11,16 @@ This script creates a comprehensive methodology page explaining:
 
 import json
 import sqlite3
-import sys
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, Any
+from typing import Any, Dict
 
 # Configuration
 OUTPUT_DIR = Path("public")
 API_DIR = Path("api/vulns")
 METRICS_DB = Path(".cache/metrics.db")
 OUTPUT_DIR.mkdir(exist_ok=True)
+
 
 def load_harvest_statistics() -> Dict[str, Any]:
     """Load harvest statistics calculated from actual API data"""
@@ -55,32 +55,46 @@ def load_harvest_statistics() -> Dict[str, Any]:
 
                 if vulns:
                     # Calculate average CVSS score
-                    cvss_scores = [v.get("cvssScore", 0) for v in vulns if v.get("cvssScore")]
+                    cvss_scores = [
+                        v.get("cvssScore", 0) for v in vulns if v.get("cvssScore")
+                    ]
                     if cvss_scores:
-                        stats["avg_cvss"] = round(sum(cvss_scores) / len(cvss_scores), 1)
+                        stats["avg_cvss"] = round(
+                            sum(cvss_scores) / len(cvss_scores), 1
+                        )
 
                     # Calculate average EPSS score (already in percentage)
-                    epss_scores = [v.get("epssScore", 0) for v in vulns if v.get("epssScore")]
+                    epss_scores = [
+                        v.get("epssScore", 0) for v in vulns if v.get("epssScore")
+                    ]
                     if epss_scores:
-                        stats["avg_epss"] = round(sum(epss_scores) / len(epss_scores), 1)
+                        stats["avg_epss"] = round(
+                            sum(epss_scores) / len(epss_scores), 1
+                        )
 
                     # Count KEV-listed vulnerabilities
                     stats["kev_count"] = sum(
-                        1 for v in vulns
-                        if v.get("enrichments", {}).get("cisa_kev", {}).get("isKnownExploited", False)
+                        1
+                        for v in vulns
+                        if v.get("enrichments", {})
+                        .get("cisa_kev", {})
+                        .get("isKnownExploited", False)
                     )
 
                     # Count SSVC priority tiers
                     stats["ssvc_act_count"] = sum(
-                        1 for v in vulns
+                        1
+                        for v in vulns
                         if v.get("ssvc", {}).get("priorityTier") == "ACT"
                     )
                     stats["ssvc_attend_count"] = sum(
-                        1 for v in vulns
+                        1
+                        for v in vulns
                         if v.get("ssvc", {}).get("priorityTier") == "ATTEND"
                     )
                     stats["ssvc_track_count"] = sum(
-                        1 for v in vulns
+                        1
+                        for v in vulns
                         if v.get("ssvc", {}).get("priorityTier") == "TRACK"
                     )
 
@@ -110,10 +124,13 @@ def load_harvest_statistics() -> Dict[str, Any]:
                 stats["harvest_duration"] = round(row[3], 1) if row[3] else None
 
                 # Get CVEs scanned from harvest_metrics
-                cursor.execute("""
+                cursor.execute(
+                    """
                     SELECT metric_value FROM harvest_metrics
                     WHERE harvest_id = ? AND metric_name = 'source_CVEList_count'
-                """, (harvest_id,))
+                """,
+                    (harvest_id,),
+                )
                 cve_count_row = cursor.fetchone()
                 if cve_count_row:
                     stats["total_cves_scanned"] = int(cve_count_row[0])
@@ -124,6 +141,7 @@ def load_harvest_statistics() -> Dict[str, Any]:
 
     return stats
 
+
 def generate_methodology_page():
     """Generate comprehensive methodology page"""
 
@@ -133,9 +151,9 @@ def generate_methodology_page():
     # Format harvest date
     if stats["harvest_date"]:
         try:
-            dt = datetime.fromisoformat(stats["harvest_date"].replace('+00:00', ''))
+            dt = datetime.fromisoformat(stats["harvest_date"].replace("+00:00", ""))
             formatted_date = dt.strftime("%Y-%m-%d %H:%M UTC")
-        except:
+        except (ValueError, TypeError):
             formatted_date = stats["harvest_date"]
     else:
         formatted_date = "Unknown"
@@ -146,7 +164,7 @@ def generate_methodology_page():
     else:
         filter_efficiency = None
 
-    html_content = f'''<!DOCTYPE html>
+    html_content = f"""<!DOCTYPE html>
 <html lang="en" class="h-full">
 <head>
     <meta charset="UTF-8">
@@ -362,7 +380,7 @@ def generate_methodology_page():
                     </div>
                     <div>
                         <dt class="text-sm font-medium text-gray-600 dark:text-gray-400">Harvest Duration</dt>
-                        <dd class="text-lg font-semibold text-gray-900 dark:text-white mt-1">{f'{stats["harvest_duration"]}s' if stats["harvest_duration"] else "N/A"}</dd>
+                        <dd class="text-lg font-semibold text-gray-900 dark:text-white mt-1">{f"{stats['harvest_duration']}s" if stats["harvest_duration"] else "N/A"}</dd>
                     </div>
                     <div>
                         <dt class="text-sm font-medium text-gray-600 dark:text-gray-400">KEV Listed</dt>
@@ -598,21 +616,22 @@ def generate_methodology_page():
     </footer>
 </body>
 </html>
-'''
+"""
 
     # Write output file
     output_file = OUTPUT_DIR / "methodology.html"
     with open(output_file, "w", encoding="utf-8") as f:
         f.write(html_content)
 
-    print(f"✅ Methodology page generated successfully!")
+    print("✅ Methodology page generated successfully!")
     print(f"📁 Output: {output_file}")
-    print(f"📊 Statistics included:")
+    print("📊 Statistics included:")
     print(f"   • CVEs Scanned: {stats['total_cves_scanned'] or 'N/A'}")
     print(f"   • CVEs Published: {stats['final_count']}")
     print(f"   • Avg CVSS: {stats['avg_cvss'] or 'N/A'}")
     print(f"   • Avg EPSS: {stats['avg_epss'] or 'N/A'}%")
     print(f"   • KEV Count: {stats['kev_count']}")
+
 
 if __name__ == "__main__":
     generate_methodology_page()

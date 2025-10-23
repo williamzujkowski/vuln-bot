@@ -354,10 +354,29 @@ class VendorProductExtractor:
 
             # Skip placeholder values and generic terms
             if vendor_clean.lower() in [
-                "n/a", "na", "none", "unknown", "unspecified", "tbd", "pending", "*",
+                "n/a",
+                "na",
+                "none",
+                "unknown",
+                "unspecified",
+                "tbd",
+                "pending",
+                "*",
                 # Generic terms that were being extracted from descriptions
-                "the", "web", "file", "server", "database", "framework", "application",
-                "system", "software", "product", "service", "tool", "platform", "solution"
+                "the",
+                "web",
+                "file",
+                "server",
+                "database",
+                "framework",
+                "application",
+                "system",
+                "software",
+                "product",
+                "service",
+                "tool",
+                "platform",
+                "solution",
             ]:
                 continue
 
@@ -404,10 +423,29 @@ class VendorProductExtractor:
 
             # Skip placeholder values and generic terms
             if product_clean.lower() in [
-                "n/a", "na", "none", "unknown", "unspecified", "tbd", "pending", "*",
+                "n/a",
+                "na",
+                "none",
+                "unknown",
+                "unspecified",
+                "tbd",
+                "pending",
+                "*",
                 # Generic terms that were being extracted from descriptions
-                "the", "web", "file", "server", "database", "framework", "application",
-                "system", "software", "product", "service", "tool", "platform", "solution"
+                "the",
+                "web",
+                "file",
+                "server",
+                "database",
+                "framework",
+                "application",
+                "system",
+                "software",
+                "product",
+                "service",
+                "tool",
+                "platform",
+                "solution",
             ]:
                 continue
 
