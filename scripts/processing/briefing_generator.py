@@ -291,12 +291,18 @@ class BriefingGenerator:
         """
         filepath = self.api_dir / "index.json"
 
+        # Filter to only CRITICAL and HIGH severity vulnerabilities
+        filtered_vulns = [
+            vuln for vuln in batch.vulnerabilities
+            if vuln.severity.value in ("CRITICAL", "HIGH")
+        ]
+
         # Create index data
         index_data = {
             "generated": batch.generated_at.isoformat(),
-            "count": batch.count,
+            "count": len(filtered_vulns),
             "vulnerabilities": [
-                vuln.to_summary_dict() for vuln in batch.vulnerabilities
+                vuln.to_summary_dict() for vuln in filtered_vulns
             ],
         }
 

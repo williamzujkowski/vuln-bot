@@ -105,10 +105,21 @@ class OptimizedBriefingGenerator(BriefingGenerator):
                 old_chunk.unlink()
                 self.logger.debug("Deleted stale chunk file", file=old_chunk.name)
 
-        # Group vulnerabilities
+        # Group vulnerabilities (only CRITICAL and HIGH severity)
         for vuln in batch.vulnerabilities:
-            year = vuln.published_date.year if vuln.published_date else "unknown"
             severity = vuln.severity.value
+
+            # Skip MEDIUM, LOW, and NONE severity vulnerabilities
+            # These don't meet our ≥HIGH severity + ≥60% EPSS threshold
+            if severity not in ("CRITICAL", "HIGH"):
+                self.logger.debug(
+                    "Skipping non-critical/high severity vulnerability",
+                    cve_id=vuln.cve_id,
+                    severity=severity
+                )
+                continue
+
+            year = vuln.published_date.year if vuln.published_date else "unknown"
             chunk_key = f"{year}-{severity}"
             chunks[chunk_key].append(vuln.to_detail_dict())
 
