@@ -139,9 +139,17 @@ class CIGatecheck:
             for chunk_file in vulns_dir.glob("vulns-*.json"):
                 with open(chunk_file) as f:
                     chunk_data = json.load(f)
-                    for vuln in chunk_data.get("vulnerabilities", []):
+                    for idx, vuln in enumerate(chunk_data.get("vulnerabilities", [])):
                         # Try legacy format first (epss.score)
                         epss_score = vuln.get("epss", {}).get("score", 0)
+
+                        # Debug logging for first vuln in each file
+                        if idx == 0:
+                            print(f"DEBUG {chunk_file.name}: First vuln EPSS check")
+                            print(f"  - Has 'epss' key: {'epss' in vuln}")
+                            print(f"  - EPSS value: {vuln.get('epss')}")
+                            print(f"  - Extracted score: {epss_score}")
+                            print(f"  - Has 'containers': {'containers' in vuln}")
 
                         # If not found, try CVE 5.0 format (containers.adp[].enrichments.epss.score)
                         if epss_score == 0 and "containers" in vuln:
@@ -149,6 +157,8 @@ class CIGatecheck:
                                 epss_data = adp.get("enrichments", {}).get("epss", {})
                                 if epss_data.get("score"):
                                     epss_score = epss_data["score"]
+                                    if idx == 0:
+                                        print(f"  - Found CVE 5.0 EPSS: {epss_score}")
                                     break
 
                         if epss_score < min_epss:
