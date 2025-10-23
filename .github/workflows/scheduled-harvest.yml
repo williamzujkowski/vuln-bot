@@ -51,9 +51,9 @@ jobs:
         uses: actions/cache@v4
         with:
           path: actions-cache/
-          key: api-cache-${{ hashFiles('scripts/harvest/**/*.py') }}
+          key: api-cache-v2-epss60-${{ hashFiles('scripts/harvest/**/*.py') }}
           restore-keys: |
-            api-cache-
+            api-cache-v2-epss60-
       
       - name: Cache generation metadata
         uses: actions/cache@v4
