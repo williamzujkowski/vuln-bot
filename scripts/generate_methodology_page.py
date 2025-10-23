@@ -17,7 +17,7 @@ from typing import Any, Dict
 
 # Configuration
 OUTPUT_DIR = Path("public")
-API_DIR = Path("api/vulns")
+API_DIR = Path("public/api/vulns")  # Fixed: was "api/vulns", now correctly points to public/api/vulns
 METRICS_DB = Path(".cache/metrics.db")
 OUTPUT_DIR.mkdir(exist_ok=True)
 
@@ -507,7 +507,9 @@ def generate_methodology_page():
                 <ul>
                     <li><strong>Scheduled Harvesting:</strong> Runs every 4 hours to fetch new CVEs and update EPSS scores</li>
                     <li><strong>Incremental Updates:</strong> Default mode processes only CVEs updated in the last 48 hours (~10-20 CVEs per run)</li>
+                    <li><strong>Update Detection:</strong> Uses delta files and <code>dateUpdated</code> comparison to capture both new CVEs and updates to existing CVEs</li>
                     <li><strong>Initial Harvest:</strong> EPSS-first filtering fetches ~100 CVEs instead of 15,000+</li>
+                    <li><strong>Baseline Count Enforcement:</strong> CI/CD pipeline enforces minimum baseline of 298 CVEs—count can only increase, never decrease</li>
                     <li><strong>Weekly EPSS Refresh:</strong> Full rescan recommended to capture score changes</li>
                     <li><strong>Data Validation:</strong> Multi-stage validation at ingestion, filtering, enrichment, and publication</li>
                     <li><strong>Automatic Deployment:</strong> Changes automatically deployed to GitHub Pages after validation</li>
@@ -516,7 +518,7 @@ def generate_methodology_page():
                 <div class="bg-green-50 dark:bg-green-900/20 border-l-4 border-green-500 p-4 my-6">
                     <p class="text-sm mb-0">
                         <strong>Quality Gates:</strong> All deployments must pass EPSS threshold compliance validation,
-                        data quality checks, and post-deployment QA tests before going live.
+                        baseline count regression prevention (≥298 CVEs), data quality checks, and post-deployment QA tests before going live.
                     </p>
                 </div>
             </section>
