@@ -222,7 +222,7 @@ jobs:
           # Copy the database to the expected location
           cp actions-cache/vulnerability_cache.db .cache/vulns.db || true
 
-          # Generate dashboard and methodology page using Python
+          # Generate dashboard using Python (reads from api/vulns)
           echo "Generating Tailwind CSS dashboard..."
           python -m scripts.generate_tailwind_dashboard
           BUILD_EXIT_CODE=$?
@@ -234,6 +234,13 @@ jobs:
             exit 1
           fi
 
+          # Step 5: Copy API files to public directory FIRST (required by methodology generator)
+          echo "Step 5: Copying API files to public directory..."
+          mkdir -p public/api/vulns
+          cp -r api/vulns/* public/api/vulns/
+          echo "✓ API files copied to public directory"
+
+          # Generate methodology page AFTER API files are copied (reads from public/api/vulns)
           echo "Generating methodology page..."
           python -m scripts.generate_methodology_page
           METHODOLOGY_EXIT_CODE=$?
@@ -243,12 +250,6 @@ jobs:
           else
             echo "⚠️  Methodology page generation failed (non-critical)"
           fi
-
-          # Step 5: Copy API files to public directory for deployment
-          echo "Step 5: Copying API files to public directory..."
-          mkdir -p public/api/vulns
-          cp -r api/vulns/* public/api/vulns/
-          echo "✓ API files copied to public directory"
 
           # Step 4: Verify build produced valid files
           echo "Step 4: Verifying build output..."
