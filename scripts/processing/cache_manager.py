@@ -266,13 +266,14 @@ class CacheManager:
             return None
 
     def get_recent_vulnerabilities(
-        self, limit: int = 100, min_risk_score: Optional[int] = None
+        self, limit: int = 100, min_risk_score: Optional[int] = None, min_epss_score: Optional[float] = None
     ) -> List[Vulnerability]:
         """Get recent vulnerabilities from cache.
 
         Args:
             limit: Maximum number of vulnerabilities to return
             min_risk_score: Minimum risk score filter
+            min_epss_score: Minimum EPSS score filter (0.0-1.0)
 
         Returns:
             List of vulnerabilities ordered by risk score descending
@@ -287,6 +288,9 @@ class CacheManager:
 
             if min_risk_score is not None:
                 query = query.filter(VulnerabilityCache.risk_score >= min_risk_score)
+
+            if min_epss_score is not None:
+                query = query.filter(VulnerabilityCache.epss_probability >= min_epss_score)
 
             cache_entries = (
                 query.order_by(desc(VulnerabilityCache.risk_score)).limit(limit).all()
