@@ -233,19 +233,112 @@ def audit_documentation_claims(doc_file: Path) -> List[str]:
 4. **Document**: Add source citations and verification dates
 5. **Prevent**: Add CI/CD checks to catch future discrepancies
 
-## Project Overview (Updated: 2025-10-19)
+## Project Overview (Updated: 2025-10-22)
 
 This is "Vuln-Bot" - a high-risk CVE intelligence platform that tracks Critical & High severity vulnerabilities with EPSS ≥ 60% exploitation probability. It automatically harvests, scores, and publishes vulnerability briefings every 4 hours with **SSVC (Stakeholder-Specific Vulnerability Categorization)** decision framework integration. It's a Python-based project using Tailwind CSS and Alpine.js for the frontend dashboard, with static HTML generation via `scripts/generate_tailwind_dashboard.py`.
 
-**Current Production Status**:
+**Current Production Status** (Verified: 2025-10-22):
+- **CVE Count**: 298 CVEs (Source: public/api/vulns/index.json)
+- **Source API Count**: 297 CVEs (Source: src/api/vulns/index.json)
+- **Test Count**: 507 tests (Source: pytest --collect-only, 1 collection error)
+- **Test Coverage**: 7% (9,312 statements, 8,574 missing) (Source: pytest --cov=scripts)
 - **EPSS Threshold**: ≥60% (configured in scripts/main.py)
 - **SSVC Coverage**: 100% (all CVEs categorized with ACT/ATTEND/TRACK priorities)
+- **Data Format**: Legacy transformed schema (CVE 5.0 migration in progress)
 - **Live Site**: https://williamzujkowski.github.io/vuln-bot/
 - **Deployment**: GitHub Pages (gh-pages branch)
 - **Build System**: Python-based (11ty removed)
 - **Harvest Frequency**: Every 4 hours (incremental updates)
 
-**Note**: Production API (public/api/) may differ from source (src/api/). Run `npm run build` to sync.
+**Schema Migration Status**:
+- ✅ CVE 5.0 data models added to `scripts/models.py` (raw_cve_v5 field)
+- ✅ CVE 5.0 enrichment methods implemented (_to_cve_v5_with_enrichments)
+- ✅ Raw CVE 5.0 storage implemented in harvest pipeline (scripts/harvest/cvelist_client.py)
+- ✅ **Phase 1 Complete** (2025-10-23): Backend CVE 5.0 support with enrichments in `containers.adp[]`
+- ⏳ Data pipeline still uses legacy transformation for frontend (to_summary_dict, to_detail_dict)
+- 📅 Phase 2 (Frontend native CVE 5.0): Planned for future release
+
+**Note**: Production API (public/api/) is built from source API (src/api/). Run build process to sync.
+
+## 🔧 CVE 5.0 Migration & Critical Bug Fixes (2025-10-23)
+
+### ✅ Phase 1: CVE 5.0 Backend Support (COMPLETE)
+
+**Objective**: Enable native CVE 5.0 schema storage while maintaining backward compatibility with existing frontend.
+
+**Implementation** (Commit: `2ed430382`):
+
+1. **Raw CVE 5.0 Storage** (`scripts/harvest/cvelist_client.py`):
+   - Store complete CVE 5.0 JSON during ingestion using `deep copy`
+   - Preserve original schema structure for future native frontend support
+   - Location: `parse_cve_v5_record()` method (lines 352-355)
+
+2. **CVE 5.0 Serialization** (`scripts/models.py`):
+   - Added `raw_cve_v5: Optional[Dict[str, Any]]` field to Vulnerability model
+   - Implemented `_to_cve_v5_with_enrichments()` method (lines 371-432)
+   - Enrichments placed in `containers.adp[]` array with VulnBot-Enrichment provider
+   - Includes EPSS, SSVC, and Risk Score data in official CVE 5.0 format
+
+3. **Backward Compatibility**:
+   - Frontend continues using legacy flattened schema (no breaking changes)
+   - `to_summary_dict()` and `to_detail_dict()` remain unchanged
+   - API output unchanged for existing consumers
+
+**CVE 5.0 Enrichment Structure**:
+```json
+{
+  "containers": {
+    "adp": [
+      {
+        "providerMetadata": {
+          "orgId": "vulnbot-enrichment",
+          "shortName": "VulnBot-Enrichment",
+          "dateUpdated": "2025-10-23T03:01:59Z"
+        },
+        "title": "VulnBot Threat Intelligence Enrichment",
+        "enrichments": {
+          "epss": { "score": 0.997, "percentile": 99.9 },
+          "ssvc": { "priorityTier": "ACT", "compactNotation": "SSVC:E:A/A:N/T:T/M:M" },
+          "riskScore": 95.2
+        }
+      }
+    ]
+  }
+}
+```
+
+### ✅ Critical Bug Fix: Search Functionality (COMPLETE)
+
+**Problem**: Dashboard search throwing `TypeError: v.products.toLowerCase is not a function`
+
+**Root Cause**: Products and vendors changed from strings to arrays in data structure, but search filter code still called `.toLowerCase()` directly on arrays.
+
+**Solution** (`scripts/generate_tailwind_dashboard.py` line 946):
+```javascript
+// BEFORE (broken):
+v.products.toLowerCase().includes(query)
+
+// AFTER (fixed):
+v.products.some(product => product.toLowerCase().includes(query))
+```
+
+**Validation Results**:
+- ✅ Local testing (Playwright): Fortinet (4 results), Microsoft (24 results)
+- ✅ Live site testing: Search filtering correctly on https://williamzujkowski.github.io/vuln-bot/
+- ✅ Zero JavaScript errors (only harmless favicon 404)
+- ✅ Deployment: GitHub Actions completed in 16 seconds
+
+**Files Modified**:
+- `scripts/models.py` (CVE 5.0 serialization methods)
+- `scripts/harvest/cvelist_client.py` (raw CVE 5.0 storage)
+- `scripts/generate_tailwind_dashboard.py` (search bug fix)
+- `public/index.html` (rebuilt dashboard with fix)
+
+**Live Site Status** (Verified: 2025-10-23 03:02 UTC):
+- **URL**: https://williamzujkowski.github.io/vuln-bot/
+- **Total CVEs**: 298
+- **Search**: ✅ Working (Fortinet: 4 results, Microsoft: 24 results)
+- **Deployment**: ✅ SUCCESS (Run ID: 18736172476)
 
 ## 🎯 Recent Dashboard Improvements (2025-10-20)
 
@@ -996,12 +1089,84 @@ chmod +x .husky/pre-commit .husky/commit-msg
 
 ## Architecture Overview
 
+### CVE 5.0 Native Schema (Migration Status)
+
+**Current State**: The system is in transition from legacy transformed schema to CVE 5.0 native storage.
+
+#### What is CVE 5.0?
+
+CVE Record Format 5.0 is the official schema from the CVE Program for vulnerability data. It provides:
+- **Structured Metadata**: `cveMetadata` contains CVE ID, dates, state information
+- **Container Model**: `containers` holds data from different providers
+  - `containers.cna`: CVE Numbering Authority (official vulnerability data)
+  - `containers.adp[]`: Array of Additional Data Providers (enrichments)
+
+#### Migration Progress
+
+**✅ Completed**:
+- CVE 5.0 data models added to `scripts/models.py`
+  - `Vulnerability.raw_cve_v5` field to store original CVE 5.0 JSON
+  - `_to_cve_v5_with_enrichments()` method to add enrichments to `containers.adp[]`
+  - `_to_legacy_detail_dict()` for backward compatibility
+- CVE 5.0 enrichment structure designed:
+  - EPSS scores → `containers.adp[]` with `providerMetadata.shortName: "EPSS"`
+  - SSVC decisions → `containers.adp[]` with `providerMetadata.shortName: "SSVC"`
+  - CISA KEV data → `containers.adp[]` with `providerMetadata.shortName: "CISA-ADP"`
+  - VulnBot enrichments → `containers.adp[]` with `providerMetadata.orgId: "vulnbot-enrichment"`
+
+**⏳ In Progress / Planned**:
+- Harvest pipeline: Store raw CVE 5.0 JSON in `Vulnerability.raw_cve_v5`
+- Enrichment agents: Append to `containers.adp[]` instead of transforming
+- API generation: Output native CVE 5.0 format with enrichments
+- Frontend: Parse CVE 5.0 structure for display
+
+#### Current Workaround
+
+While migration is in progress, the system uses **legacy transformation**:
+1. Raw CVE data fetched from CVEProject/cvelistV5
+2. Parsed into Pydantic `Vulnerability` model (loses original structure)
+3. Enrichments added as Pydantic fields (not in `containers.adp[]`)
+4. Transformed to custom JSON via `to_summary_dict()` and `to_detail_dict()`
+5. Output schema: Custom format with fields like `cveId`, `severity`, `epssScore`, `ssvc`, `enrichments`
+
+#### Future CVE 5.0 Native Flow
+
+Once migration is complete:
+1. Raw CVE 5.0 JSON stored in `Vulnerability.raw_cve_v5`
+2. Enrichments appended to `containers.adp[]` with proper providerMetadata
+3. API outputs native CVE 5.0 format (no transformation)
+4. Frontend extracts data from CVE 5.0 structure
+5. Full compatibility with CVE Program ecosystem
+
+#### Why CVE 5.0 Native?
+
+**Benefits**:
+- **Standardization**: Follows official CVE Program schema
+- **Interoperability**: Compatible with other CVE 5.0 tools
+- **Provenance**: Clear attribution of enrichments to providers
+- **Extensibility**: Easy to add new enrichment providers
+- **No Data Loss**: Preserves original CVE structure
+
+**Drawbacks of Current Transformation**:
+- Loses original CVE 5.0 structure
+- Custom schema requires maintenance
+- Not compatible with CVE 5.0 ecosystem
+- Enrichment attribution unclear
+
+---
+
 ### Data Flow
+
+**Current Schema**: Legacy transformed format (CVE 5.0 migration in progress)
+
 1. **Scheduled Harvesting** (Python scripts in `scripts/`, runs every 4 hours):
    - **Pre-build cleanup**: Removes stale files from previous builds
    - Fetches from multiple sources:
      - CVEProject/cvelistV5 repository (official CVE List, updated every 7 minutes)
      - GitHub Security Advisory Database (via GraphQL API)
+   - **Data Transformation**: Raw CVE data is parsed and transformed into Pydantic models
+     - Currently uses legacy transformation (to_summary_dict, to_detail_dict)
+     - CVE 5.0 native storage planned for future phase
    - Filters for Critical/High severity CVEs from 2024-2025 with EPSS scores ≥ 60%
    - **Multi-stage enrichment**:
      - EPSS API data with percentile rankings (flags top 1%, 5%, 10%)
@@ -1010,18 +1175,21 @@ chmod +x .husky/pre-commit .husky/commit-msg
      - deps.dev package impact analysis for supply chain visibility (implemented in `scripts/agents/deps_dev_enrichment_agent.py`)
      - **SSVC (Stakeholder-Specific Vulnerability Categorization)**: 4-factor decision tree (Exploitation, Automatable, Technical Impact, Mission Impact) with priority tier assignment (ACT/ATTEND/TRACK)
      - Reference categorization (exploit, patch, advisory, vendor, technical)
-   - Normalizes data and calculates:
+   - Calculates derived metrics:
      - **Risk Score (0-100)**: Based on CVSS, EPSS, popularity, infrastructure tags, and newness
      - **SSVC Priority**: Decision-tree based prioritization (ACT, ATTEND, TRACK)
+   - **Deduplication**: Uses `VulnerabilityNormalizer.deduplicate_vulnerabilities()` to merge duplicate CVE records from multiple sources
    - **Data validation** at each stage (raw, filtered, enriched, published)
    - Caches responses in SQLite using GitHub Actions cache (10-day TTL, timezone-aware)
 
 2. **Content Generation** (Python-based):
-   - `scripts/generate_alpine_dashboard.py` creates single-page Alpine.js dashboard
+   - `scripts/generate_tailwind_dashboard.py` (formerly generate_alpine_dashboard.py) creates single-page dashboard
+   - Uses Pydantic models to transform data via `to_summary_dict()` and `to_detail_dict()` methods
    - Generates chunked vulnerability data files at `api/vulns/vulns-{{year}}-{{severity}}.json`
    - Builds consolidated search index at `api/vulns/index.json`
    - Creates chunk index at `api/vulns/chunk-index.json` for navigation
    - Output directory: `public/`
+   - **Note**: Currently outputs legacy transformed schema, not CVE 5.0 native format
 
 3. **Frontend** (Alpine.js + Fuse.js):
    - Client-side filtering UI on the homepage
