@@ -40,19 +40,32 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    
+
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
         python-version: '3.12'
-    
+        cache: 'pip'
+
+    - name: Cache Playwright browsers
+      uses: actions/cache@v4
+      with:
+        path: ~/.cache/ms-playwright
+        key: ${{ runner.os }}-playwright-${{ hashFiles('requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-playwright-
+
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
-    
-    - name: Run tests with coverage
+
+    - name: Install Playwright browsers
       run: |
-        pytest tests/ --cov=scripts --cov-report=term-missing --cov-report=xml --cov-fail-under=80 --ignore=tests/test_static_page_agent.py --ignore=tests/test_agent_base.py
+        playwright install --with-deps chromium
+
+    - name: Run tests with coverage (parallelized)
+      run: |
+        pytest tests/ --cov=scripts --cov-report=term-missing --cov-report=xml --cov-fail-under=80 --ignore=tests/test_static_page_agent.py --ignore=tests/test_agent_base.py -n auto --dist loadscope
       continue-on-error: true
     
     - name: Upload coverage to Codecov
