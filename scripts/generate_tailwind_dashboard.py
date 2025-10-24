@@ -5,7 +5,6 @@ Replaces generate_alpine_dashboard.py with modern utility-first CSS approach
 """
 
 import json
-import sys
 from datetime import datetime
 from pathlib import Path
 
