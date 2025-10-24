@@ -51,7 +51,9 @@ class TestRiskScorerSSVCMode:
             ],
             # Maximum EPSS
             epss_score=EPSSScore(
-                score=1.0, percentile=100.0, date=TEST_DATE  # 100 * 0.10 = 10 points
+                score=1.0,
+                percentile=100.0,
+                date=TEST_DATE,  # 100 * 0.10 = 10 points
             ),
             # Maximum KEV/Attack vector
             exploitation_status=ExploitationStatus.ACTIVE,  # 100 * 0.10 = 10 points
@@ -157,7 +159,9 @@ class TestRiskScorerBatchScoring:
                         base_severity=SeverityLevel.HIGH,
                     )
                 ],
-                epss_score=EPSSScore(score=0.5 + i * 0.1, percentile=50.0, date=TEST_DATE),
+                epss_score=EPSSScore(
+                    score=0.5 + i * 0.1, percentile=50.0, date=TEST_DATE
+                ),
                 exploitation_status=ExploitationStatus.POC,
                 attack_vector="N",
             )

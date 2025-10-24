@@ -41,7 +41,9 @@ class TestCacheManagerInitialization:
 
     def test_init_without_params_raises_error(self):
         """Test initialization fails without cache_dir or db_path."""
-        with pytest.raises(ValueError, match="Either cache_dir or db_path must be provided"):
+        with pytest.raises(
+            ValueError, match="Either cache_dir or db_path must be provided"
+        ):
             CacheManager()
 
 
@@ -58,14 +60,20 @@ class TestCacheManagerStorageRetrieval:
             title=sample_cve_compliant["title"],
             description=sample_cve_compliant["description"],
             severity=SeverityLevel.CRITICAL,
-            cvss_metrics=[CVSSMetric(
-                version="3.1",
-                vector_string="CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-                base_score=sample_cve_compliant["cvss"],
-                base_severity=SeverityLevel.CRITICAL,
-            )],
-            published_date=datetime.fromisoformat(sample_cve_compliant["published"].replace("Z", "+00:00")),
-            last_modified_date=datetime.fromisoformat(sample_cve_compliant["last_modified"].replace("Z", "+00:00")),
+            cvss_metrics=[
+                CVSSMetric(
+                    version="3.1",
+                    vector_string="CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                    base_score=sample_cve_compliant["cvss"],
+                    base_severity=SeverityLevel.CRITICAL,
+                )
+            ],
+            published_date=datetime.fromisoformat(
+                sample_cve_compliant["published"].replace("Z", "+00:00")
+            ),
+            last_modified_date=datetime.fromisoformat(
+                sample_cve_compliant["last_modified"].replace("Z", "+00:00")
+            ),
             epss_score=EPSSScore(
                 score=sample_cve_compliant["epss_score"],
                 percentile=sample_cve_compliant.get("epssPercentile", 0.0),
@@ -105,14 +113,20 @@ class TestCacheManagerStorageRetrieval:
             title="Original Title",
             description=sample_cve_compliant["description"],
             severity=SeverityLevel.HIGH,
-            cvss_metrics=[CVSSMetric(
-                version="3.1",
-                vector_string="CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-                base_score=7.5,
-                base_severity=SeverityLevel.HIGH,
-            )],
-            published_date=datetime.fromisoformat(sample_cve_compliant["published"].replace("Z", "+00:00")),
-            last_modified_date=datetime.fromisoformat(sample_cve_compliant["last_modified"].replace("Z", "+00:00")),
+            cvss_metrics=[
+                CVSSMetric(
+                    version="3.1",
+                    vector_string="CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                    base_score=7.5,
+                    base_severity=SeverityLevel.HIGH,
+                )
+            ],
+            published_date=datetime.fromisoformat(
+                sample_cve_compliant["published"].replace("Z", "+00:00")
+            ),
+            last_modified_date=datetime.fromisoformat(
+                sample_cve_compliant["last_modified"].replace("Z", "+00:00")
+            ),
             epss_score=EPSSScore(score=0.75, percentile=80.0, date=TEST_EPSS_DATE),
         )
         vuln.risk_score = 70
@@ -124,13 +138,17 @@ class TestCacheManagerStorageRetrieval:
             title="Updated Title",
             description="Updated description",
             severity=SeverityLevel.CRITICAL,
-            cvss_metrics=[CVSSMetric(
-                version="3.1",
-                vector_string="CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-                base_score=9.8,
-                base_severity=SeverityLevel.CRITICAL,
-            )],
-            published_date=datetime.fromisoformat(sample_cve_compliant["published"].replace("Z", "+00:00")),
+            cvss_metrics=[
+                CVSSMetric(
+                    version="3.1",
+                    vector_string="CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                    base_score=9.8,
+                    base_severity=SeverityLevel.CRITICAL,
+                )
+            ],
+            published_date=datetime.fromisoformat(
+                sample_cve_compliant["published"].replace("Z", "+00:00")
+            ),
             last_modified_date=datetime.now(timezone.utc),
             epss_score=EPSSScore(score=0.85, percentile=95.0, date=TEST_EPSS_DATE),
         )
@@ -149,7 +167,9 @@ class TestCacheManagerTTLHandling:
     """Test suite for TTL (Time-To-Live) handling."""
 
     @patch("scripts.processing.cache_manager.get_authoritative_now")
-    def test_expired_vulnerability_not_retrieved(self, mock_now, tmp_path, sample_cve_compliant):
+    def test_expired_vulnerability_not_retrieved(
+        self, mock_now, tmp_path, sample_cve_compliant
+    ):
         """Test that expired vulnerabilities are not retrieved."""
         manager = CacheManager(cache_dir=tmp_path, ttl_days=10)
 
@@ -163,14 +183,20 @@ class TestCacheManagerTTLHandling:
             title=sample_cve_compliant["title"],
             description=sample_cve_compliant["description"],
             severity=SeverityLevel.CRITICAL,
-            cvss_metrics=[CVSSMetric(
-                version="3.1",
-                vector_string="CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-                base_score=9.8,
-                base_severity=SeverityLevel.CRITICAL,
-            )],
-            published_date=datetime.fromisoformat(sample_cve_compliant["published"].replace("Z", "+00:00")),
-            last_modified_date=datetime.fromisoformat(sample_cve_compliant["last_modified"].replace("Z", "+00:00")),
+            cvss_metrics=[
+                CVSSMetric(
+                    version="3.1",
+                    vector_string="CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                    base_score=9.8,
+                    base_severity=SeverityLevel.CRITICAL,
+                )
+            ],
+            published_date=datetime.fromisoformat(
+                sample_cve_compliant["published"].replace("Z", "+00:00")
+            ),
+            last_modified_date=datetime.fromisoformat(
+                sample_cve_compliant["last_modified"].replace("Z", "+00:00")
+            ),
             epss_score=EPSSScore(score=0.85, percentile=95.0, date=TEST_EPSS_DATE),
         )
         vuln.risk_score = 95
@@ -197,14 +223,22 @@ class TestCacheManagerTTLHandling:
                 title=sample_cve["title"],
                 description=sample_cve["description"],
                 severity=SeverityLevel.CRITICAL,
-                cvss_metrics=[CVSSMetric(
-                version="3.1",
-                vector_string="CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-                base_score=sample_cve.get("cvss", 8.0),
-                base_severity=SeverityLevel.CRITICAL if sample_cve.get("cvss", 8.0) >= 9.0 else SeverityLevel.HIGH,
-            )],
-                published_date=datetime.fromisoformat(sample_cve["published"].replace("Z", "+00:00")),
-                last_modified_date=datetime.fromisoformat(sample_cve["last_modified"].replace("Z", "+00:00")),
+                cvss_metrics=[
+                    CVSSMetric(
+                        version="3.1",
+                        vector_string="CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                        base_score=sample_cve.get("cvss", 8.0),
+                        base_severity=SeverityLevel.CRITICAL
+                        if sample_cve.get("cvss", 8.0) >= 9.0
+                        else SeverityLevel.HIGH,
+                    )
+                ],
+                published_date=datetime.fromisoformat(
+                    sample_cve["published"].replace("Z", "+00:00")
+                ),
+                last_modified_date=datetime.fromisoformat(
+                    sample_cve["last_modified"].replace("Z", "+00:00")
+                ),
                 epss_score=EPSSScore(
                     score=sample_cve.get("epss_score", 0.6),
                     percentile=sample_cve.get("epssPercentile", 0.0),
@@ -235,15 +269,25 @@ class TestCacheManagerFiltering:
                 cve_id=sample_cve["cveId"],
                 title=sample_cve["title"],
                 description=sample_cve["description"],
-                severity=SeverityLevel.CRITICAL if risk_scores[i] > 80 else SeverityLevel.HIGH,
-                cvss_metrics=[CVSSMetric(
-                version="3.1",
-                vector_string="CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-                base_score=sample_cve.get("cvss", 8.0),
-                base_severity=SeverityLevel.CRITICAL if sample_cve.get("cvss", 8.0) >= 9.0 else SeverityLevel.HIGH,
-            )],
-                published_date=datetime.fromisoformat(sample_cve["published"].replace("Z", "+00:00")),
-                last_modified_date=datetime.fromisoformat(sample_cve["last_modified"].replace("Z", "+00:00")),
+                severity=SeverityLevel.CRITICAL
+                if risk_scores[i] > 80
+                else SeverityLevel.HIGH,
+                cvss_metrics=[
+                    CVSSMetric(
+                        version="3.1",
+                        vector_string="CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                        base_score=sample_cve.get("cvss", 8.0),
+                        base_severity=SeverityLevel.CRITICAL
+                        if sample_cve.get("cvss", 8.0) >= 9.0
+                        else SeverityLevel.HIGH,
+                    )
+                ],
+                published_date=datetime.fromisoformat(
+                    sample_cve["published"].replace("Z", "+00:00")
+                ),
+                last_modified_date=datetime.fromisoformat(
+                    sample_cve["last_modified"].replace("Z", "+00:00")
+                ),
                 epss_score=EPSSScore(
                     score=sample_cve.get("epss_score", 0.6),
                     percentile=sample_cve.get("epssPercentile", 0.0),
@@ -261,7 +305,9 @@ class TestCacheManagerFiltering:
         assert recent[0].cve_id == sample_cve_list[0]["cveId"]  # risk_score=95
         assert recent[1].cve_id == sample_cve_list[1]["cveId"]  # risk_score=85
 
-    def test_get_recent_vulnerabilities_with_min_risk_score(self, tmp_path, sample_cve_list):
+    def test_get_recent_vulnerabilities_with_min_risk_score(
+        self, tmp_path, sample_cve_list
+    ):
         """Test filtering vulnerabilities by minimum risk score."""
         manager = CacheManager(cache_dir=tmp_path)
 
@@ -272,15 +318,25 @@ class TestCacheManagerFiltering:
                 cve_id=sample_cve["cveId"],
                 title=sample_cve["title"],
                 description=sample_cve["description"],
-                severity=SeverityLevel.CRITICAL if risk_scores[i] > 80 else SeverityLevel.HIGH,
-                cvss_metrics=[CVSSMetric(
-                version="3.1",
-                vector_string="CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-                base_score=sample_cve.get("cvss", 8.0),
-                base_severity=SeverityLevel.CRITICAL if sample_cve.get("cvss", 8.0) >= 9.0 else SeverityLevel.HIGH,
-            )],
-                published_date=datetime.fromisoformat(sample_cve["published"].replace("Z", "+00:00")),
-                last_modified_date=datetime.fromisoformat(sample_cve["last_modified"].replace("Z", "+00:00")),
+                severity=SeverityLevel.CRITICAL
+                if risk_scores[i] > 80
+                else SeverityLevel.HIGH,
+                cvss_metrics=[
+                    CVSSMetric(
+                        version="3.1",
+                        vector_string="CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                        base_score=sample_cve.get("cvss", 8.0),
+                        base_severity=SeverityLevel.CRITICAL
+                        if sample_cve.get("cvss", 8.0) >= 9.0
+                        else SeverityLevel.HIGH,
+                    )
+                ],
+                published_date=datetime.fromisoformat(
+                    sample_cve["published"].replace("Z", "+00:00")
+                ),
+                last_modified_date=datetime.fromisoformat(
+                    sample_cve["last_modified"].replace("Z", "+00:00")
+                ),
                 epss_score=EPSSScore(
                     score=sample_cve.get("epss_score", 0.6),
                     percentile=sample_cve.get("epssPercentile", 0.0),
@@ -295,7 +351,9 @@ class TestCacheManagerFiltering:
 
         assert len(high_risk) == 2  # Only 95 and 85 scores
 
-    def test_get_recent_vulnerabilities_with_min_epss_score(self, tmp_path, sample_cve_list):
+    def test_get_recent_vulnerabilities_with_min_epss_score(
+        self, tmp_path, sample_cve_list
+    ):
         """Test filtering vulnerabilities by minimum EPSS score."""
         manager = CacheManager(cache_dir=tmp_path)
 
@@ -307,14 +365,20 @@ class TestCacheManagerFiltering:
                 title=sample_cve["title"],
                 description=sample_cve["description"],
                 severity=SeverityLevel.CRITICAL,
-                cvss_metrics=[CVSSMetric(
-                version="3.1",
-                vector_string="CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
-                base_score=9.0,
-                base_severity=SeverityLevel.CRITICAL,
-            )],
-                published_date=datetime.fromisoformat(sample_cve["published"].replace("Z", "+00:00")),
-                last_modified_date=datetime.fromisoformat(sample_cve["last_modified"].replace("Z", "+00:00")),
+                cvss_metrics=[
+                    CVSSMetric(
+                        version="3.1",
+                        vector_string="CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                        base_score=9.0,
+                        base_severity=SeverityLevel.CRITICAL,
+                    )
+                ],
+                published_date=datetime.fromisoformat(
+                    sample_cve["published"].replace("Z", "+00:00")
+                ),
+                last_modified_date=datetime.fromisoformat(
+                    sample_cve["last_modified"].replace("Z", "+00:00")
+                ),
                 epss_score=EPSSScore(
                     score=epss_scores[i],
                     percentile=90.0 if epss_scores[i] >= 0.6 else 50.0,

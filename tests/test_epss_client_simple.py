@@ -132,10 +132,26 @@ class TestEPSSClientSimple:
         with patch.object(EPSSClient, "get") as mock_get:
             mock_get.return_value = {
                 "data": [
-                    {"cve": "CVE-2024-0001", "epss": "0.85", "percentile": "0.98"},  # 85% - Pass
-                    {"cve": "CVE-2024-0002", "epss": "0.45", "percentile": "0.75"},  # 45% - Fail
-                    {"cve": "CVE-2024-0003", "epss": "0.60", "percentile": "0.80"},  # 60% - Pass (edge)
-                    {"cve": "CVE-2024-0004", "epss": "0.59", "percentile": "0.79"},  # 59% - Fail (edge)
+                    {
+                        "cve": "CVE-2024-0001",
+                        "epss": "0.85",
+                        "percentile": "0.98",
+                    },  # 85% - Pass
+                    {
+                        "cve": "CVE-2024-0002",
+                        "epss": "0.45",
+                        "percentile": "0.75",
+                    },  # 45% - Fail
+                    {
+                        "cve": "CVE-2024-0003",
+                        "epss": "0.60",
+                        "percentile": "0.80",
+                    },  # 60% - Pass (edge)
+                    {
+                        "cve": "CVE-2024-0004",
+                        "epss": "0.59",
+                        "percentile": "0.79",
+                    },  # 59% - Fail (edge)
                 ],
                 "score_date": "2025-01-01T00:00:00Z",
             }
@@ -145,9 +161,7 @@ class TestEPSSClientSimple:
 
             # Filter to ≥60% threshold
             high_risk_scores = {
-                cve_id: score
-                for cve_id, score in scores.items()
-                if score.score >= 0.6
+                cve_id: score for cve_id, score in scores.items() if score.score >= 0.6
             }
 
             assert len(high_risk_scores) == 2
@@ -191,10 +205,22 @@ CVE-2024-0004,0.30,0.60"""
         with patch.object(EPSSClient, "get") as mock_get:
             mock_get.return_value = {
                 "data": [
-                    {"cve": "CVE-2024-0001", "epss": "invalid", "percentile": "0.95"},  # Invalid
-                    {"cve": "CVE-2024-0002", "epss": "0.85", "percentile": "not_a_number"},  # Invalid
+                    {
+                        "cve": "CVE-2024-0001",
+                        "epss": "invalid",
+                        "percentile": "0.95",
+                    },  # Invalid
+                    {
+                        "cve": "CVE-2024-0002",
+                        "epss": "0.85",
+                        "percentile": "not_a_number",
+                    },  # Invalid
                     {"cve": "", "epss": "0.75", "percentile": "0.90"},  # Missing CVE ID
-                    {"cve": "CVE-2024-0004", "epss": "0.65", "percentile": "0.85"},  # Valid
+                    {
+                        "cve": "CVE-2024-0004",
+                        "epss": "0.65",
+                        "percentile": "0.85",
+                    },  # Valid
                 ],
                 "score_date": "2025-01-01T00:00:00Z",
             }
@@ -214,7 +240,9 @@ CVE-2024-0004,0.30,0.60"""
 
         with patch.object(EPSSClient, "get") as mock_get:
             mock_get.return_value = {
-                "data": [{"cve": "CVE-2024-0001", "epss": "0.85", "percentile": "0.95"}],
+                "data": [
+                    {"cve": "CVE-2024-0001", "epss": "0.85", "percentile": "0.95"}
+                ],
                 "score_date": "2024-12-15T00:00:00Z",
             }
 

@@ -99,9 +99,7 @@ def sample_cve_non_compliant() -> Dict[str, Any]:
         "cwe": ["CWE-79"],
         "product": "ExampleApp",
         "vendor": "Example Inc",
-        "references": [
-            {"url": "https://example.com/advisory", "type": "advisory"}
-        ],
+        "references": [{"url": "https://example.com/advisory", "type": "advisory"}],
     }
 
 

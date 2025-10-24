@@ -75,15 +75,14 @@ class TestCVECountValidation:
         """Test validation passes when CVE count is within expected bounds."""
         # Create index.json with 298 CVEs (baseline)
         index_file = temp_api_dir / "vulns" / "index.json"
-        index_data = {"vulnerabilities": [{"cveId": f"CVE-2024-{i:04d}"} for i in range(298)]}
+        index_data = {
+            "vulnerabilities": [{"cveId": f"CVE-2024-{i:04d}"} for i in range(298)]
+        }
         index_file.write_text(json.dumps(index_data))
 
         gatecheck = CIGatecheck()
         result = gatecheck.validate_cve_count_threshold(
-            temp_api_dir,
-            max_count=1000,
-            expected_count=298,
-            min_baseline=298
+            temp_api_dir, max_count=1000, expected_count=298, min_baseline=298
         )
 
         assert result is True
@@ -94,15 +93,14 @@ class TestCVECountValidation:
         """Test validation fails when CVE count exceeds maximum (15,000+ issue)."""
         # Create index.json with 1500 CVEs (exceeds max)
         index_file = temp_api_dir / "vulns" / "index.json"
-        index_data = {"vulnerabilities": [{"cveId": f"CVE-2024-{i:05d}"} for i in range(1500)]}
+        index_data = {
+            "vulnerabilities": [{"cveId": f"CVE-2024-{i:05d}"} for i in range(1500)]
+        }
         index_file.write_text(json.dumps(index_data))
 
         gatecheck = CIGatecheck()
         result = gatecheck.validate_cve_count_threshold(
-            temp_api_dir,
-            max_count=1000,
-            expected_count=298,
-            min_baseline=298
+            temp_api_dir, max_count=1000, expected_count=298, min_baseline=298
         )
 
         assert result is False
@@ -114,15 +112,14 @@ class TestCVECountValidation:
         """Test validation fails when CVE count drops below minimum baseline."""
         # Create index.json with 250 CVEs (below 298 baseline)
         index_file = temp_api_dir / "vulns" / "index.json"
-        index_data = {"vulnerabilities": [{"cveId": f"CVE-2024-{i:04d}"} for i in range(250)]}
+        index_data = {
+            "vulnerabilities": [{"cveId": f"CVE-2024-{i:04d}"} for i in range(250)]
+        }
         index_file.write_text(json.dumps(index_data))
 
         gatecheck = CIGatecheck()
         result = gatecheck.validate_cve_count_threshold(
-            temp_api_dir,
-            max_count=1000,
-            expected_count=298,
-            min_baseline=298
+            temp_api_dir, max_count=1000, expected_count=298, min_baseline=298
         )
 
         assert result is False
@@ -134,15 +131,14 @@ class TestCVECountValidation:
         # Create index.json with 450 CVEs (higher than max_acceptable=447, within max=1000)
         # max_acceptable = expected_count * (1 + tolerance) = 298 * 1.5 = 447
         index_file = temp_api_dir / "vulns" / "index.json"
-        index_data = {"vulnerabilities": [{"cveId": f"CVE-2024-{i:04d}"} for i in range(450)]}
+        index_data = {
+            "vulnerabilities": [{"cveId": f"CVE-2024-{i:04d}"} for i in range(450)]
+        }
         index_file.write_text(json.dumps(index_data))
 
         gatecheck = CIGatecheck()
         result = gatecheck.validate_cve_count_threshold(
-            temp_api_dir,
-            max_count=1000,
-            expected_count=298,
-            min_baseline=298
+            temp_api_dir, max_count=1000, expected_count=298, min_baseline=298
         )
 
         assert result is True  # Still passes (below max_count)
@@ -153,10 +149,7 @@ class TestCVECountValidation:
         """Test validation when index.json is missing."""
         gatecheck = CIGatecheck()
         result = gatecheck.validate_cve_count_threshold(
-            temp_api_dir,
-            max_count=1000,
-            expected_count=298,
-            min_baseline=298
+            temp_api_dir, max_count=1000, expected_count=298, min_baseline=298
         )
 
         # Should fail baseline check (0 < 298)
@@ -173,14 +166,20 @@ class TestEPSSThresholdValidation:
         index_file = temp_api_dir / "vulns" / "index.json"
         index_data = {
             "vulnerabilities": [
-                {**sample_cve_compliant, "cveId": f"CVE-2024-{i:04d}", "epssScore": 85.5}
+                {
+                    **sample_cve_compliant,
+                    "cveId": f"CVE-2024-{i:04d}",
+                    "epssScore": 85.5,
+                }
                 for i in range(10)
             ]
         }
         index_file.write_text(json.dumps(index_data))
 
         gatecheck = CIGatecheck()
-        result = gatecheck.validate_epss_threshold_compliance(temp_api_dir, min_epss=0.6)
+        result = gatecheck.validate_epss_threshold_compliance(
+            temp_api_dir, min_epss=0.6
+        )
 
         assert result is True
         assert len(gatecheck.errors) == 0
@@ -192,23 +191,43 @@ class TestEPSSThresholdValidation:
         index_file = temp_api_dir / "vulns" / "index.json"
         index_data = {
             "vulnerabilities": [
-                {"cveId": "CVE-2024-0001", "epssScore": 85.5, "severity": "CRITICAL"},  # Compliant
-                {"cveId": "CVE-2024-0002", "epssScore": 45.2, "severity": "HIGH"},  # Violation
-                {"cveId": "CVE-2024-0003", "epssScore": 92.1, "severity": "CRITICAL"},  # Compliant
-                {"cveId": "CVE-2024-0004", "epssScore": 35.8, "severity": "HIGH"},  # Violation
+                {
+                    "cveId": "CVE-2024-0001",
+                    "epssScore": 85.5,
+                    "severity": "CRITICAL",
+                },  # Compliant
+                {
+                    "cveId": "CVE-2024-0002",
+                    "epssScore": 45.2,
+                    "severity": "HIGH",
+                },  # Violation
+                {
+                    "cveId": "CVE-2024-0003",
+                    "epssScore": 92.1,
+                    "severity": "CRITICAL",
+                },  # Compliant
+                {
+                    "cveId": "CVE-2024-0004",
+                    "epssScore": 35.8,
+                    "severity": "HIGH",
+                },  # Violation
             ]
         }
         index_file.write_text(json.dumps(index_data))
 
         gatecheck = CIGatecheck()
-        result = gatecheck.validate_epss_threshold_compliance(temp_api_dir, min_epss=0.6)
+        result = gatecheck.validate_epss_threshold_compliance(
+            temp_api_dir, min_epss=0.6
+        )
 
         assert result is False
         assert len(gatecheck.errors) == 1
         assert "EPSS threshold violations found" in gatecheck.errors[0]["message"]
         assert gatecheck.metrics["epss_violations"] == 2
 
-    def test_validate_epss_chunk_files_cve50_format(self, temp_api_dir, sample_cve_cve50_format):
+    def test_validate_epss_chunk_files_cve50_format(
+        self, temp_api_dir, sample_cve_cve50_format
+    ):
         """Test validation handles CVE 5.0 format in chunk files."""
         # Create chunk file with CVE 5.0 format
         chunk_file = temp_api_dir / "vulns" / "vulns-2024-CRITICAL.json"
@@ -218,12 +237,14 @@ class TestEPSSThresholdValidation:
                     **sample_cve_cve50_format,
                     "cveId": f"CVE-2024-{i:04d}",
                     "containers": {
-                        "adp": [{
-                            "enrichments": {
-                                "epss": {"score": 0.75}  # 75% - compliant
+                        "adp": [
+                            {
+                                "enrichments": {
+                                    "epss": {"score": 0.75}  # 75% - compliant
+                                }
                             }
-                        }]
-                    }
+                        ]
+                    },
                 }
                 for i in range(5)
             ]
@@ -235,7 +256,9 @@ class TestEPSSThresholdValidation:
         index_file.write_text(json.dumps({"vulnerabilities": []}))
 
         gatecheck = CIGatecheck()
-        result = gatecheck.validate_epss_threshold_compliance(temp_api_dir, min_epss=0.6)
+        result = gatecheck.validate_epss_threshold_compliance(
+            temp_api_dir, min_epss=0.6
+        )
 
         assert result is True
         assert len(gatecheck.errors) == 0
@@ -248,7 +271,7 @@ class TestEPSSThresholdValidation:
             "vulnerabilities": [
                 {
                     "cveId": f"CVE-2024-{i:04d}",
-                    "epss": {"score": 0.82}  # 82% - compliant
+                    "epss": {"score": 0.82},  # 82% - compliant
                 }
                 for i in range(5)
             ]
@@ -260,7 +283,9 @@ class TestEPSSThresholdValidation:
         index_file.write_text(json.dumps({"vulnerabilities": []}))
 
         gatecheck = CIGatecheck()
-        result = gatecheck.validate_epss_threshold_compliance(temp_api_dir, min_epss=0.6)
+        result = gatecheck.validate_epss_threshold_compliance(
+            temp_api_dir, min_epss=0.6
+        )
 
         assert result is True
         assert len(gatecheck.errors) == 0
@@ -276,7 +301,7 @@ class TestChunkFileValidation:
         chunk_index = {
             "chunks": [
                 {"file": "vulns-2024-CRITICAL.json", "count": 150},
-                {"file": "vulns-2024-HIGH.json", "count": 148}
+                {"file": "vulns-2024-HIGH.json", "count": 148},
             ]
         }
         chunk_index_file.write_text(json.dumps(chunk_index))
@@ -286,8 +311,7 @@ class TestChunkFileValidation:
             chunk_file = temp_api_dir / "vulns" / chunk["file"]
             chunk_data = {
                 "vulnerabilities": [
-                    {"cveId": f"CVE-2024-{i:05d}"}
-                    for i in range(chunk["count"])
+                    {"cveId": f"CVE-2024-{i:05d}"} for i in range(chunk["count"])
                 ]
             }
             chunk_file.write_text(json.dumps(chunk_data))
@@ -331,14 +355,16 @@ class TestChunkFileValidation:
         chunk_index = {
             "chunks": [
                 {"file": "vulns-2024-CRITICAL.json", "count": 150},
-                {"file": "vulns-2024-MISSING.json", "count": 100}  # Missing!
+                {"file": "vulns-2024-MISSING.json", "count": 100},  # Missing!
             ]
         }
         chunk_index_file.write_text(json.dumps(chunk_index))
 
         # Create only first chunk file
         chunk_file = temp_api_dir / "vulns" / "vulns-2024-CRITICAL.json"
-        chunk_data = {"vulnerabilities": [{"cveId": f"CVE-2024-{i:05d}"} for i in range(150)]}
+        chunk_data = {
+            "vulnerabilities": [{"cveId": f"CVE-2024-{i:05d}"} for i in range(150)]
+        }
         chunk_file.write_text(json.dumps(chunk_data))
 
         gatecheck = CIGatecheck()
@@ -364,8 +390,12 @@ class TestAPIStructureValidation:
     def test_validate_api_structure_complete(self, temp_api_dir):
         """Test API structure validation when all required files exist."""
         # Create required files
-        (temp_api_dir / "vulns" / "index.json").write_text(json.dumps({"vulnerabilities": []}))
-        (temp_api_dir / "vulns" / "chunk-index.json").write_text(json.dumps({"chunks": []}))
+        (temp_api_dir / "vulns" / "index.json").write_text(
+            json.dumps({"vulnerabilities": []})
+        )
+        (temp_api_dir / "vulns" / "chunk-index.json").write_text(
+            json.dumps({"chunks": []})
+        )
 
         gatecheck = CIGatecheck()
         result = gatecheck.validate_api_structure(temp_api_dir)
@@ -410,6 +440,7 @@ class TestDataFreshnessValidation:
         old_time = (datetime.now() - timedelta(hours=10)).timestamp()
         index_file.touch()
         import os
+
         os.utime(index_file, (old_time, old_time))
 
         gatecheck = CIGatecheck()
@@ -434,8 +465,12 @@ class TestStaleDataPatternDetection:
     def test_check_stale_patterns_none(self, temp_api_dir):
         """Test no stale patterns detected in clean data."""
         # Create only valid chunk files (2024-2025)
-        (temp_api_dir / "vulns" / "vulns-2024-CRITICAL.json").write_text(json.dumps({"vulnerabilities": []}))
-        (temp_api_dir / "vulns" / "vulns-2025-HIGH.json").write_text(json.dumps({"vulnerabilities": []}))
+        (temp_api_dir / "vulns" / "vulns-2024-CRITICAL.json").write_text(
+            json.dumps({"vulnerabilities": []})
+        )
+        (temp_api_dir / "vulns" / "vulns-2025-HIGH.json").write_text(
+            json.dumps({"vulnerabilities": []})
+        )
 
         gatecheck = CIGatecheck()
         result = gatecheck.check_for_known_stale_patterns(temp_api_dir)
@@ -447,8 +482,12 @@ class TestStaleDataPatternDetection:
     def test_check_stale_patterns_old_year_chunks(self, temp_api_dir):
         """Test detection of old year chunk files (2020-2023)."""
         # Create old year chunk files
-        (temp_api_dir / "vulns" / "vulns-2020-CRITICAL.json").write_text(json.dumps({"vulnerabilities": []}))
-        (temp_api_dir / "vulns" / "vulns-2022-HIGH.json").write_text(json.dumps({"vulnerabilities": []}))
+        (temp_api_dir / "vulns" / "vulns-2020-CRITICAL.json").write_text(
+            json.dumps({"vulnerabilities": []})
+        )
+        (temp_api_dir / "vulns" / "vulns-2022-HIGH.json").write_text(
+            json.dumps({"vulnerabilities": []})
+        )
 
         gatecheck = CIGatecheck()
         result = gatecheck.check_for_known_stale_patterns(temp_api_dir)
@@ -461,7 +500,9 @@ class TestStaleDataPatternDetection:
     def test_check_stale_patterns_low_severity_chunks(self, temp_api_dir):
         """Test detection of LOW severity chunk files (shouldn't exist with ≥60% EPSS)."""
         # Create LOW severity chunk file
-        (temp_api_dir / "vulns" / "vulns-2024-LOW.json").write_text(json.dumps({"vulnerabilities": []}))
+        (temp_api_dir / "vulns" / "vulns-2024-LOW.json").write_text(
+            json.dumps({"vulnerabilities": []})
+        )
 
         gatecheck = CIGatecheck()
         result = gatecheck.check_for_known_stale_patterns(temp_api_dir)
