@@ -1508,21 +1508,30 @@ Environment secrets needed in GitHub Actions:
 - `GITHUB_TOKEN` - GitHub API access (for cloning CVEProject/cvelistV5)
 - `EPSS_API_KEY` - EPSS API access (optional, for enrichment)
 
-### Testing Strategy (Updated: 2025-10-24)
+### Testing Strategy (Verified: 2025-10-23)
 
 **Python Testing** (Source: `pytest --collect-only` and `pytest --cov=scripts`):
-- **Tests Collected**: 439 tests (with 1 collection error)
+- **Tests Collected**: 464 tests (with 1 collection error)
   - **Phase 1 Tests Added**: +40 tests (27 CI gatecheck + 13 EPSS client)
+  - **Phase 2 Tests Added**: +25 tests (12 cache manager + 13 risk scorer)
 - **Collection Errors**:
   - `tests/test_nvd_client.py` - import error
   - `tests/test_reference_analysis.py` - import error
 - **Coverage Target**: 80% (aspirational, not yet achieved)
-- **Overall Coverage**: 4.13% (9,392 statements total, 8,973 missing)
-- **Phase 1 Critical Module Coverage** (Verified: 2025-10-24):
+- **Overall Coverage**: 3% (9,392 statements total, ~9,030 missing)
+
+**Phase 1: Critical Business Logic** (Verified: 2025-10-24):
   - **CI Gatecheck**: 70% coverage (245 statements, 70 missing, 7 partial branches)
   - **EPSS Client**: 91% coverage (96 statements, 7 missing, 4 partial branches)
   - **Prevents**: 15,000+ CVE deployment issue, EPSS threshold violations
-- **Coverage Note**: Low overall coverage due to many untested legacy files. Phase 1 focused on critical business logic modules that prevent production failures.
+
+**Phase 2: Core Processing Modules** (Verified: 2025-10-23):
+  - **Cache Manager**: 78% coverage (152 statements, 29 missing, 10 partial branches)
+  - **Risk Scorer**: 57% coverage (77 statements, 26 missing)
+  - **Tests**: 25 total (12 cache_manager + 13 risk_scorer, 100% passing)
+  - **Coverage**: SQLite operations, TTL handling, SSVC-enhanced scoring, edge cases
+
+- **Coverage Note**: Low overall coverage due to many untested legacy files. Phases 1-2 focused on critical business logic modules (gatecheck, EPSS, caching, scoring).
 
 **E2E Testing** (Playwright - tests/e2e/):
 - Live site validation after deployment

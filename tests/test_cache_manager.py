@@ -1,145 +1,332 @@
-"""Tests for cache manager module."""
+"""Comprehensive tests for cache manager SQLite operations."""
 
-import sqlite3
-import time
-from unittest.mock import patch
+import json
+from datetime import datetime, timedelta, timezone
+from pathlib import Path
+from unittest.mock import MagicMock, patch
 
 import pytest
 
+from scripts.models import CVSSMetric, EPSSScore, SeverityLevel, Vulnerability
 from scripts.processing.cache_manager import CacheManager
 
+# Test constant for EPSS date
+TEST_EPSS_DATE = datetime(2025, 1, 1, tzinfo=timezone.utc)
 
-class TestCacheManager:
-    """Test cases for CacheManager."""
 
-    @pytest.fixture
-    def cache_dir(self, tmp_path):
-        """Create temporary cache directory."""
-        cache_path = tmp_path / "test_cache"
-        cache_path.mkdir()
-        return cache_path
+class TestCacheManagerInitialization:
+    """Test suite for cache manager initialization."""
 
-    @pytest.fixture
-    def cache_manager(self, cache_dir):
-        """Create cache manager instance."""
-        return CacheManager(cache_dir=str(cache_dir))
+    def test_init_with_cache_dir(self, tmp_path):
+        """Test initialization with cache_dir parameter."""
+        cache_dir = tmp_path / "cache"
+        manager = CacheManager(cache_dir=cache_dir)
 
-    def test_initialization(self, cache_manager, cache_dir):
-        """Test cache manager initialization."""
-        assert cache_manager.cache_dir == cache_dir
-        assert cache_manager.db_path == cache_dir / "cache.db"
-        assert cache_manager.db_path.exists()
+        assert manager.cache_dir == cache_dir
+        assert manager.db_path == cache_dir / "vulnerability_cache.db"
+        assert manager.ttl_days == 10
+        assert cache_dir.exists()
 
-    def test_set_and_get(self, cache_manager):
-        """Test basic cache operations."""
-        # Set cache entry
-        cache_manager.set("test_key", {"data": "test_value"}, ttl=3600)
+    def test_init_with_db_path(self, tmp_path):
+        """Test initialization with direct db_path parameter."""
+        db_path = tmp_path / "custom_cache.db"
+        manager = CacheManager(db_path=str(db_path))
 
-        # Get cache entry
-        result = cache_manager.get("test_key")
-        assert result is not None
-        assert result["data"] == "test_value"
+        assert manager.db_path == db_path
+        assert manager.cache_dir == db_path.parent
 
-    def test_cache_expiration(self, cache_manager):
-        """Test cache TTL expiration."""
-        # Set with 1 second TTL
-        cache_manager.set("expire_key", {"data": "test"}, ttl=1)
+    def test_init_with_custom_ttl(self, tmp_path):
+        """Test initialization with custom TTL."""
+        manager = CacheManager(cache_dir=tmp_path, ttl_days=5)
 
-        # Should exist immediately
-        assert cache_manager.get("expire_key") is not None
+        assert manager.ttl_days == 5
 
-        # Mock time to simulate expiration
-        with patch("time.time", return_value=time.time() + 2):
-            assert cache_manager.get("expire_key") is None
+    def test_init_without_params_raises_error(self):
+        """Test initialization fails without cache_dir or db_path."""
+        with pytest.raises(ValueError, match="Either cache_dir or db_path must be provided"):
+            CacheManager()
 
-    def test_delete(self, cache_manager):
-        """Test cache deletion."""
-        cache_manager.set("delete_key", {"data": "test"})
-        assert cache_manager.get("delete_key") is not None
 
-        cache_manager.delete("delete_key")
-        assert cache_manager.get("delete_key") is None
+class TestCacheManagerStorageRetrieval:
+    """Test suite for cache storage and retrieval operations."""
 
-    def test_clear(self, cache_manager):
-        """Test clearing all cache."""
-        # Set multiple entries
-        cache_manager.set("key1", {"data": 1})
-        cache_manager.set("key2", {"data": 2})
-        cache_manager.set("key3", {"data": 3})
+    def test_store_and_retrieve_vulnerability(self, tmp_path, sample_cve_compliant):
+        """Test storing and retrieving a single vulnerability."""
+        manager = CacheManager(cache_dir=tmp_path)
 
-        # Clear all
-        cache_manager.clear()
+        # Create vulnerability from sample
+        vuln = Vulnerability(
+            cve_id=sample_cve_compliant["cveId"],
+            title=sample_cve_compliant["title"],
+            description=sample_cve_compliant["description"],
+            severity=SeverityLevel.CRITICAL,
+            cvss_metrics=[CVSSMetric(
+                version="3.1",
+                vector_string="CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                base_score=sample_cve_compliant["cvss"],
+                base_severity=SeverityLevel.CRITICAL,
+            )],
+            published_date=datetime.fromisoformat(sample_cve_compliant["published"].replace("Z", "+00:00")),
+            last_modified_date=datetime.fromisoformat(sample_cve_compliant["last_modified"].replace("Z", "+00:00")),
+            epss_score=EPSSScore(
+                score=sample_cve_compliant["epss_score"],
+                percentile=sample_cve_compliant.get("epssPercentile", 0.0),
+                date=TEST_EPSS_DATE,
+            ),
+            references=sample_cve_compliant["references"],
+        )
 
-        # All should be gone
-        assert cache_manager.get("key1") is None
-        assert cache_manager.get("key2") is None
-        assert cache_manager.get("key3") is None
+        # Store vulnerability
+        vuln.risk_score = 85
+        manager.cache_vulnerability(vuln)
 
-    def test_cleanup_expired(self, cache_manager):
-        """Test cleanup of expired entries."""
-        # Set entries with different TTLs
-        cache_manager.set("keep", {"data": "keep"}, ttl=3600)
-        cache_manager.set("expire", {"data": "expire"}, ttl=1)
+        # Retrieve vulnerability
+        retrieved = manager.get_vulnerability(vuln.cve_id)
 
-        # Mock time and cleanup
-        with patch("time.time", return_value=time.time() + 2):
-            cache_manager.cleanup_expired()
+        assert retrieved is not None
+        assert retrieved.cve_id == vuln.cve_id
+        assert retrieved.title == vuln.title
+        assert retrieved.severity == vuln.severity
+        assert retrieved.cvss_base_score == sample_cve_compliant["cvss"]
 
-        assert cache_manager.get("keep") is not None
-        assert cache_manager.get("expire") is None
+    def test_retrieve_nonexistent_vulnerability(self, tmp_path):
+        """Test retrieving a vulnerability that doesn't exist."""
+        manager = CacheManager(cache_dir=tmp_path)
 
-    def test_large_data(self, cache_manager):
-        """Test caching large data."""
-        large_data = {
-            "items": [{"id": i, "data": f"item_{i}" * 100} for i in range(1000)]
-        }
+        result = manager.get_vulnerability("CVE-9999-0001")
 
-        cache_manager.set("large_key", large_data)
-        result = cache_manager.get("large_key")
+        assert result is None
 
-        assert result is not None
-        assert len(result["items"]) == 1000
+    def test_update_existing_vulnerability(self, tmp_path, sample_cve_compliant):
+        """Test updating an existing vulnerability in cache."""
+        manager = CacheManager(cache_dir=tmp_path)
 
-    def test_concurrent_access(self, cache_manager):
-        """Test concurrent cache access."""
-        import threading
+        # Create and store initial vulnerability
+        vuln = Vulnerability(
+            cve_id=sample_cve_compliant["cveId"],
+            title="Original Title",
+            description=sample_cve_compliant["description"],
+            severity=SeverityLevel.HIGH,
+            cvss_metrics=[CVSSMetric(
+                version="3.1",
+                vector_string="CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                base_score=7.5,
+                base_severity=SeverityLevel.HIGH,
+            )],
+            published_date=datetime.fromisoformat(sample_cve_compliant["published"].replace("Z", "+00:00")),
+            last_modified_date=datetime.fromisoformat(sample_cve_compliant["last_modified"].replace("Z", "+00:00")),
+            epss_score=EPSSScore(score=0.75, percentile=80.0, date=TEST_EPSS_DATE),
+        )
+        vuln.risk_score = 70
+        manager.cache_vulnerability(vuln)
 
-        def write_cache(i):
-            cache_manager.set(f"concurrent_{i}", {"thread": i})
+        # Update with new data
+        updated_vuln = Vulnerability(
+            cve_id=sample_cve_compliant["cveId"],
+            title="Updated Title",
+            description="Updated description",
+            severity=SeverityLevel.CRITICAL,
+            cvss_metrics=[CVSSMetric(
+                version="3.1",
+                vector_string="CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                base_score=9.8,
+                base_severity=SeverityLevel.CRITICAL,
+            )],
+            published_date=datetime.fromisoformat(sample_cve_compliant["published"].replace("Z", "+00:00")),
+            last_modified_date=datetime.now(timezone.utc),
+            epss_score=EPSSScore(score=0.85, percentile=95.0, date=TEST_EPSS_DATE),
+        )
+        updated_vuln.risk_score = 95
+        manager.cache_vulnerability(updated_vuln)
 
-        def read_cache(i):
-            return cache_manager.get(f"concurrent_{i}")
+        # Retrieve and verify update
+        retrieved = manager.get_vulnerability(vuln.cve_id)
 
-        # Create multiple threads
-        threads = []
-        for i in range(10):
-            t1 = threading.Thread(target=write_cache, args=(i,))
-            t2 = threading.Thread(target=read_cache, args=(i,))
-            threads.extend([t1, t2])
+        assert retrieved.title == "Updated Title"
+        assert retrieved.severity == SeverityLevel.CRITICAL
+        assert retrieved.cvss_base_score == 9.8
 
-        # Start all threads
-        for t in threads:
-            t.start()
 
-        # Wait for completion
-        for t in threads:
-            t.join()
+class TestCacheManagerTTLHandling:
+    """Test suite for TTL (Time-To-Live) handling."""
 
-        # Verify all writes succeeded
-        for i in range(10):
-            result = cache_manager.get(f"concurrent_{i}")
-            assert result is not None
+    @patch("scripts.processing.cache_manager.get_authoritative_now")
+    def test_expired_vulnerability_not_retrieved(self, mock_now, tmp_path, sample_cve_compliant):
+        """Test that expired vulnerabilities are not retrieved."""
+        manager = CacheManager(cache_dir=tmp_path, ttl_days=10)
 
-    def test_error_handling(self, cache_manager):
-        """Test error handling."""
-        # Invalid JSON serialization
-        with patch("json.dumps", side_effect=TypeError("Not serializable")):
-            # Should not raise, but return False
-            result = cache_manager.set("error_key", {"data": object()})
-            assert result is False
+        # Set initial time
+        initial_time = datetime(2025, 1, 1, tzinfo=timezone.utc)
+        mock_now.return_value = initial_time
 
-        # Database errors
-        with patch.object(
-            cache_manager, "_get_connection", side_effect=sqlite3.Error("DB Error")
-        ):
-            assert cache_manager.get("any_key") is None
+        # Create and store vulnerability
+        vuln = Vulnerability(
+            cve_id=sample_cve_compliant["cveId"],
+            title=sample_cve_compliant["title"],
+            description=sample_cve_compliant["description"],
+            severity=SeverityLevel.CRITICAL,
+            cvss_metrics=[CVSSMetric(
+                version="3.1",
+                vector_string="CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                base_score=9.8,
+                base_severity=SeverityLevel.CRITICAL,
+            )],
+            published_date=datetime.fromisoformat(sample_cve_compliant["published"].replace("Z", "+00:00")),
+            last_modified_date=datetime.fromisoformat(sample_cve_compliant["last_modified"].replace("Z", "+00:00")),
+            epss_score=EPSSScore(score=0.85, percentile=95.0, date=TEST_EPSS_DATE),
+        )
+        vuln.risk_score = 95
+        manager.cache_vulnerability(vuln)
+
+        # Move time forward past TTL (11 days)
+        future_time = initial_time + timedelta(days=11)
+        mock_now.return_value = future_time
+
+        # Try to retrieve expired vulnerability
+        retrieved = manager.get_vulnerability(vuln.cve_id)
+
+        # Should not retrieve expired data
+        assert retrieved is None
+
+    def test_clean_expired_entries(self, tmp_path, sample_cve_list):
+        """Test cleaning expired cache entries."""
+        manager = CacheManager(cache_dir=tmp_path, ttl_days=10)
+
+        # Store multiple vulnerabilities
+        for sample_cve in sample_cve_list[:3]:
+            vuln = Vulnerability(
+                cve_id=sample_cve["cveId"],
+                title=sample_cve["title"],
+                description=sample_cve["description"],
+                severity=SeverityLevel.CRITICAL,
+                cvss_metrics=[CVSSMetric(
+                version="3.1",
+                vector_string="CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                base_score=sample_cve.get("cvss", 8.0),
+                base_severity=SeverityLevel.CRITICAL if sample_cve.get("cvss", 8.0) >= 9.0 else SeverityLevel.HIGH,
+            )],
+                published_date=datetime.fromisoformat(sample_cve["published"].replace("Z", "+00:00")),
+                last_modified_date=datetime.fromisoformat(sample_cve["last_modified"].replace("Z", "+00:00")),
+                epss_score=EPSSScore(
+                    score=sample_cve.get("epss_score", 0.6),
+                    percentile=sample_cve.get("epssPercentile", 0.0),
+                    date=TEST_EPSS_DATE,
+                ),
+            )
+            vuln.risk_score = 85
+            manager.cache_vulnerability(vuln)
+
+        # Clean expired entries
+        deleted_count = manager.cleanup_expired()
+
+        # Should delete 0 (none expired yet)
+        assert deleted_count == 0
+
+
+class TestCacheManagerFiltering:
+    """Test suite for vulnerability filtering and retrieval."""
+
+    def test_get_recent_vulnerabilities_with_limit(self, tmp_path, sample_cve_list):
+        """Test retrieving recent vulnerabilities with limit."""
+        manager = CacheManager(cache_dir=tmp_path)
+
+        # Store multiple vulnerabilities with different risk scores
+        risk_scores = [95, 85, 75, 65]
+        for i, sample_cve in enumerate(sample_cve_list[:4]):
+            vuln = Vulnerability(
+                cve_id=sample_cve["cveId"],
+                title=sample_cve["title"],
+                description=sample_cve["description"],
+                severity=SeverityLevel.CRITICAL if risk_scores[i] > 80 else SeverityLevel.HIGH,
+                cvss_metrics=[CVSSMetric(
+                version="3.1",
+                vector_string="CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                base_score=sample_cve.get("cvss", 8.0),
+                base_severity=SeverityLevel.CRITICAL if sample_cve.get("cvss", 8.0) >= 9.0 else SeverityLevel.HIGH,
+            )],
+                published_date=datetime.fromisoformat(sample_cve["published"].replace("Z", "+00:00")),
+                last_modified_date=datetime.fromisoformat(sample_cve["last_modified"].replace("Z", "+00:00")),
+                epss_score=EPSSScore(
+                    score=sample_cve.get("epss_score", 0.6),
+                    percentile=sample_cve.get("epssPercentile", 0.0),
+                    date=TEST_EPSS_DATE,
+                ),
+            )
+            vuln.risk_score = risk_scores[i]
+            manager.cache_vulnerability(vuln)
+
+        # Retrieve with limit
+        recent = manager.get_recent_vulnerabilities(limit=2)
+
+        assert len(recent) == 2
+        # Should be sorted by risk_score descending
+        assert recent[0].cve_id == sample_cve_list[0]["cveId"]  # risk_score=95
+        assert recent[1].cve_id == sample_cve_list[1]["cveId"]  # risk_score=85
+
+    def test_get_recent_vulnerabilities_with_min_risk_score(self, tmp_path, sample_cve_list):
+        """Test filtering vulnerabilities by minimum risk score."""
+        manager = CacheManager(cache_dir=tmp_path)
+
+        # Store vulnerabilities with different risk scores
+        risk_scores = [95, 85, 75, 65]
+        for i, sample_cve in enumerate(sample_cve_list[:4]):
+            vuln = Vulnerability(
+                cve_id=sample_cve["cveId"],
+                title=sample_cve["title"],
+                description=sample_cve["description"],
+                severity=SeverityLevel.CRITICAL if risk_scores[i] > 80 else SeverityLevel.HIGH,
+                cvss_metrics=[CVSSMetric(
+                version="3.1",
+                vector_string="CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                base_score=sample_cve.get("cvss", 8.0),
+                base_severity=SeverityLevel.CRITICAL if sample_cve.get("cvss", 8.0) >= 9.0 else SeverityLevel.HIGH,
+            )],
+                published_date=datetime.fromisoformat(sample_cve["published"].replace("Z", "+00:00")),
+                last_modified_date=datetime.fromisoformat(sample_cve["last_modified"].replace("Z", "+00:00")),
+                epss_score=EPSSScore(
+                    score=sample_cve.get("epss_score", 0.6),
+                    percentile=sample_cve.get("epssPercentile", 0.0),
+                    date=TEST_EPSS_DATE,
+                ),
+            )
+            vuln.risk_score = risk_scores[i]
+            manager.cache_vulnerability(vuln)
+
+        # Filter by min_risk_score >= 80
+        high_risk = manager.get_recent_vulnerabilities(limit=100, min_risk_score=80)
+
+        assert len(high_risk) == 2  # Only 95 and 85 scores
+
+    def test_get_recent_vulnerabilities_with_min_epss_score(self, tmp_path, sample_cve_list):
+        """Test filtering vulnerabilities by minimum EPSS score."""
+        manager = CacheManager(cache_dir=tmp_path)
+
+        # Store vulnerabilities with different EPSS scores
+        epss_scores = [0.95, 0.75, 0.55, 0.35]
+        for i, sample_cve in enumerate(sample_cve_list[:4]):
+            vuln = Vulnerability(
+                cve_id=sample_cve["cveId"],
+                title=sample_cve["title"],
+                description=sample_cve["description"],
+                severity=SeverityLevel.CRITICAL,
+                cvss_metrics=[CVSSMetric(
+                version="3.1",
+                vector_string="CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                base_score=9.0,
+                base_severity=SeverityLevel.CRITICAL,
+            )],
+                published_date=datetime.fromisoformat(sample_cve["published"].replace("Z", "+00:00")),
+                last_modified_date=datetime.fromisoformat(sample_cve["last_modified"].replace("Z", "+00:00")),
+                epss_score=EPSSScore(
+                    score=epss_scores[i],
+                    percentile=90.0 if epss_scores[i] >= 0.6 else 50.0,
+                    date=TEST_EPSS_DATE,
+                ),
+            )
+            vuln.risk_score = 85
+            manager.cache_vulnerability(vuln)
+
+        # Filter by min_epss_score >= 60%
+        high_epss = manager.get_recent_vulnerabilities(limit=100, min_epss_score=60)
+
+        assert len(high_epss) == 2  # Only 95% and 75% scores
