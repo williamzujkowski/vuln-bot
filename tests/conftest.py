@@ -1,6 +1,5 @@
 """Pytest configuration and shared fixtures."""
 
-from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List
 from unittest.mock import MagicMock

@@ -12,9 +12,6 @@ Tests all critical validation checks including:
 
 import json
 from datetime import datetime, timedelta
-from pathlib import Path
-
-import pytest
 
 from scripts.ci_gatecheck import CIGatecheck
 
@@ -345,7 +342,7 @@ class TestChunkFileValidation:
         chunk_file.write_text(json.dumps(chunk_data))
 
         gatecheck = CIGatecheck()
-        result = gatecheck.validate_chunk_file_consistency(temp_api_dir)
+        gatecheck.validate_chunk_file_consistency(temp_api_dir)
 
         assert len(gatecheck.errors) == 1
         assert "Chunk file missing" in gatecheck.errors[0]["message"]
@@ -416,7 +413,7 @@ class TestDataFreshnessValidation:
         os.utime(index_file, (old_time, old_time))
 
         gatecheck = CIGatecheck()
-        result = gatecheck.validate_data_freshness(temp_api_dir, max_age_hours=8)
+        gatecheck.validate_data_freshness(temp_api_dir, max_age_hours=8)
 
         assert len(gatecheck.errors) == 1
         assert "Data is stale" in gatecheck.errors[0]["message"]

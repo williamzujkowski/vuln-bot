@@ -219,7 +219,7 @@ CVE-2024-0004,0.30,0.60"""
             }
 
             client = EPSSClient(cache_dir=tmp_path)
-            scores = client.fetch_epss_scores(cve_ids=["CVE-2024-0001"], date=specific_date)
+            client.fetch_epss_scores(cve_ids=["CVE-2024-0001"], date=specific_date)
 
             # Verify API was called with correct date parameter
             mock_get.assert_called_once()
