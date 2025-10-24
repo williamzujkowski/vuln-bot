@@ -2,8 +2,6 @@
 
 from datetime import datetime, timezone
 
-import pytest
-
 from scripts.models import (
     CVSSMetric,
     EPSSScore,
