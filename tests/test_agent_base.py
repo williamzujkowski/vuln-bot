@@ -11,6 +11,20 @@ from scripts.agents.base_agent import BaseAgent
 class TestAgent(BaseAgent):
     """Test implementation of BaseAgent."""
 
+    async def execute(self, **kwargs):
+        """Execute the agent's main task."""
+        # Wrap the process result in the expected format
+        result = await self.process(kwargs)
+        return {
+            "success": True,
+            "result": result,
+            "agent": self.name,
+        }
+
+    def get_dependencies(self):
+        """Get dependencies for change detection."""
+        return set()  # No dependencies for test agent
+
     async def process(self, data):
         """Test process method."""
         return {"processed": data}
