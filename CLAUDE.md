@@ -1508,16 +1508,21 @@ Environment secrets needed in GitHub Actions:
 - `GITHUB_TOKEN` - GitHub API access (for cloning CVEProject/cvelistV5)
 - `EPSS_API_KEY` - EPSS API access (optional, for enrichment)
 
-### Testing Strategy (Verified: 2025-10-19)
+### Testing Strategy (Updated: 2025-10-24)
 
 **Python Testing** (Source: `pytest --collect-only` and `pytest --cov=scripts`):
-- **Tests Collected**: 399 tests (with 1 collection error)
+- **Tests Collected**: 439 tests (with 1 collection error)
+  - **Phase 1 Tests Added**: +40 tests (27 CI gatecheck + 13 EPSS client)
 - **Collection Errors**:
   - `tests/test_nvd_client.py` - import error
   - `tests/test_reference_analysis.py` - import error
 - **Coverage Target**: 80% (aspirational, not yet achieved)
-- **Actual Coverage**: 6% (8,978 statements total, 8,312 missing)
-- **Coverage Note**: Low overall coverage due to many untested legacy files. New modules have higher individual coverage but are not reflected in aggregate metric.
+- **Overall Coverage**: 4.13% (9,392 statements total, 8,973 missing)
+- **Phase 1 Critical Module Coverage** (Verified: 2025-10-24):
+  - **CI Gatecheck**: 70% coverage (245 statements, 70 missing, 7 partial branches)
+  - **EPSS Client**: 91% coverage (96 statements, 7 missing, 4 partial branches)
+  - **Prevents**: 15,000+ CVE deployment issue, EPSS threshold violations
+- **Coverage Note**: Low overall coverage due to many untested legacy files. Phase 1 focused on critical business logic modules that prevent production failures.
 
 **E2E Testing** (Playwright - tests/e2e/):
 - Live site validation after deployment
