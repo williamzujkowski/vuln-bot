@@ -1,25 +1,26 @@
 # Vuln-Bot
 
-![Coverage](https://img.shields.io/badge/coverage-7%25-red)
+![Coverage](https://img.shields.io/badge/coverage-6%25-red)
 ![CI](https://github.com/williamzujkowski/vuln-bot/actions/workflows/ci.yml/badge.svg)
+![Quality Gates](https://github.com/williamzujkowski/vuln-bot/actions/workflows/quality-gates.yml/badge.svg)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
 🤖 A high-risk CVE intelligence platform that tracks Critical & High severity vulnerabilities with EPSS ≥ 60% exploitation probability. Automatically harvests, scores, and publishes vulnerability briefings every 4 hours using the official CVEProject/cvelistV5 repository.
 
 ## Features
 
-- 🎯 **High-Risk Focus**: Filters for EPSS ≥ 60% - focuses on vulnerabilities with 60%+ exploitation probability
-- 🔍 **Multiple Data Sources**: CVEProject/cvelistV5 repository and GitHub Security Advisory Database with EPSS enrichment and CISA-ADP container data
-- 📊 **Risk Scoring**: Calculates weighted scores (0-100) based on CVSS, EPSS, popularity, and infrastructure tags
-- 💾 **Optimized Storage**: Chunked data storage by severity-year reducing 33,000+ individual files to ~7 chunks
-- 🚀 **Static Site Generation**: Uses 11ty to generate fast, SEO-friendly briefings
-- 🔎 **Advanced Filtering**: High-performance client-side dashboard with debounced search, Web Worker filtering, virtual scrolling, CVSS/EPSS sliders, keyboard shortcuts, and shareable views
-- 📈 **Data Visualization Dashboard**: Interactive Canvas-based charts showing severity distribution, risk trends, EPSS ranges, and vendor analysis with accessibility support
-- 📱 **Mobile-First Design**: Touch gestures, responsive layouts, and collapsible interfaces optimized for all devices
-- 📋 **Interactive CVE Details**: Click any CVE ID to view detailed information in an accessible modal with technical details, timeline, and references
-- 📡 **RSS/Atom Feeds**: Subscribe to vulnerability briefings via RSS or Atom feeds
-- 🤖 **Fully Automated**: Harvesting every 4 hours with zero manual intervention required
-- 🔒 **Security First**: Comprehensive CI/CD with Bandit, CodeQL, and dependency scanning
+- 🎯 **High-Risk Focus**: Filters for EPSS ≥ 60% exploitation probability using authoritative FIRST.org data
+- 🔍 **Multiple Data Sources**: Official CVEProject/cvelistV5 repository, GitHub Security Advisory Database, CISA KEV catalog, and EPSS enrichment
+- 🧠 **SSVC Decision Framework**: Stakeholder-Specific Vulnerability Categorization with ACT/ATTEND/TRACK prioritization tiers
+- 📊 **Risk Scoring**: Calculates weighted scores based on CVSS, EPSS, popularity, infrastructure tags, and exploit availability
+- 💾 **Optimized Storage**: Chunked data storage by severity-year with efficient client-side loading
+- 🚀 **Python-Based Generation**: Fast Alpine.js dashboard with single-page application architecture
+- 🔎 **Advanced Filtering**: Client-side search with SSVC priority filters, CVSS/EPSS sliders, keyboard shortcuts, and shareable URLs
+- 📈 **Data Visualization**: Canvas-based charts for severity distribution, risk trends, EPSS analysis, and vendor risk assessment
+- 📱 **Mobile-First Design**: Touch gestures, responsive layouts, and collapsible interfaces for all screen sizes
+- 📋 **Interactive CVE Details**: Accessible modal with Overview, Technical Details, Timeline, References, and SSVC Decision tabs
+- 🤖 **Incremental Harvesting**: Processes only recent CVEs for faster updates with EPSS-first filtering
+- 🔒 **Security First**: Comprehensive CI/CD with Bandit, CodeQL, dependency scanning, and data validation gates
 
 ## Quick Start
 
@@ -68,7 +69,7 @@ python -m scripts.main send-alerts --risk-threshold 80
 npm run serve
 ```
 
-Visit http://localhost:8080 to view the dashboard.
+Visit http://localhost:8000 to view the dashboard.
 
 ### Keyboard Shortcuts
 
@@ -83,7 +84,7 @@ The dashboard supports keyboard shortcuts for improved productivity:
 - `Esc` - Close help modal or CVE details modal
 
 When viewing CVE details:
-- `Alt+1` through `Alt+4` - Switch between tabs (Overview, Technical, Timeline, References)
+- `Alt+1` through `Alt+5` - Switch between tabs (Overview, Technical, Timeline, References, SSVC)
 - `Tab` - Navigate through interactive elements (focus trapped within modal)
 
 When viewing data visualization charts:
@@ -113,26 +114,26 @@ For alert notifications (feature-flagged):
 
 ```
 ┌─────────────────┐     ┌──────────────────┐     ┌─────────────────┐
-│ CVE Sources     │────▶│ EPSS ≥ 70%       │────▶│ Risk Scoring &  │
-│ (CVEProject)    │     │ Filter           │     │ Normalization   │
+│ CVE Sources     │────▶│ EPSS ≥ 60%       │────▶│ Risk Scoring &  │
+│ (CVEProject)    │     │ Filter + SSVC    │     │ SSVC Decision   │
 └─────────────────┘     └──────────────────┘     └─────────────────┘
                                                           │
                                                           ▼
                         ┌──────────────────┐     ┌─────────────────┐
-                        │ Great            │────▶│ Chunked Storage │
-                        │ Expectations     │     │ (by severity/yr) │
+                        │ Data Validation  │────▶│ Chunked Storage │
+                        │ Gates            │     │ (by severity/yr) │
                         └──────────────────┘     └─────────────────┘
                                 │                          │
                                 ▼                          ▼
                         ┌──────────────────┐     ┌─────────────────┐
-                        │ SQLite Cache     │     │ Static Site     │
-                        │ (10-day TTL)     │     │ Generation      │
+                        │ SQLite Cache     │     │ Alpine.js       │
+                        │ (10-day TTL)     │     │ Dashboard       │
                         └──────────────────┘     └─────────────────┘
                                 │                          │
                                 ▼                          ▼
                         ┌──────────────────┐     ┌─────────────────┐
-                        │ Web Worker       │     │ GitHub Pages    │
-                        │ Filtering        │     │ (vuln-bot/)     │
+                        │ Incremental      │     │ GitHub Pages    │
+                        │ Harvesting       │     │ Deployment      │
                         └──────────────────┘     └─────────────────┘
 ```
 
@@ -141,8 +142,11 @@ For alert notifications (feature-flagged):
 ### Running Tests
 
 ```bash
-# Python tests with coverage (current: 7%)
+# Python tests with coverage
 pytest --cov=scripts --cov-report=term
+
+# Run Playwright E2E tests for live site validation
+pytest tests/e2e/test_live_site_sanity.py -v
 
 # JavaScript linting
 npm run lint
@@ -165,22 +169,35 @@ This project uses [Conventional Commits](https://www.conventionalcommits.org/):
 
 ```
 vuln-bot/
-├── scripts/              # Python harvesting and processing
-│   ├── harvest/         # API client implementations
-│   └── processing/      # Data normalization and scoring
-├── src/                 # 11ty source files
-│   ├── _posts/         # Generated vulnerability briefings
-│   ├── api/            # JSON API endpoints
-│   └── assets/         # Frontend assets and components
-│       ├── ts/         # TypeScript components and types
-│       │   ├── components/ # UI components (CveModal, DataVisualization)
-│       │   ├── types/     # TypeScript type definitions
-│       │   ├── analytics.ts # Frontend analytics
-│       │   └── dashboard.ts # Main dashboard component
-│       ├── css/        # Stylesheets with design tokens
-│       └── js/         # Compiled JavaScript output
-├── tests/              # Python test suite
-└── .github/workflows/  # CI/CD pipelines
+├── scripts/                      # Python harvesting and processing
+│   ├── harvest/                 # API client implementations
+│   │   ├── orchestrator.py     # Main harvest orchestration
+│   │   ├── cvelist_client.py   # CVEProject/cvelistV5 integration
+│   │   ├── epss_client.py      # EPSS API client
+│   │   └── nvd_client.py       # NVD API client
+│   ├── processing/              # Data processing and scoring
+│   │   ├── risk_scorer.py      # Risk score calculation (0-100)
+│   │   ├── ssvc_calculator.py  # SSVC decision tree
+│   │   ├── normalizer.py       # Data normalization
+│   │   └── cache_manager.py    # SQLite caching
+│   ├── agents/                  # Modular enrichment agents
+│   │   └── deps_dev_enrichment_agent.py # Package analysis
+│   └── generate_alpine_dashboard.py # Main dashboard generator
+├── public/                      # Built static site (deployed to gh-pages)
+│   ├── api/vulns/              # Chunked JSON API files
+│   └── index.html              # Alpine.js dashboard
+├── src/                        # Source templates and assets
+│   ├── api/                    # API data templates
+│   └── assets/                 # Frontend assets
+│       ├── css/               # Stylesheets
+│       └── ts/                # TypeScript components
+├── tests/                      # Test suite
+│   ├── e2e/                   # Playwright end-to-end tests
+│   └── *.test.ts              # TypeScript unit tests
+└── .github/workflows/         # CI/CD pipelines
+    ├── ci.yml                 # Main CI checks
+    ├── quality-gates.yml      # Quality gate enforcement
+    └── scheduled-harvest.yml  # Automated harvesting
 ```
 
 ## API Documentation
@@ -222,46 +239,41 @@ Both feeds include the 10 most recent briefings with summary statistics and top 
 
 ### Dashboard Performance Optimizations
 
-The dashboard implements several cutting-edge performance optimizations to ensure instant responsiveness even with large datasets:
+The dashboard implements several performance optimizations for responsive user experience:
 
-- **Debounced Search**: Uses Alpine.js `.debounce.300ms` modifier to prevent search on every keystroke
-- **Web Worker Filtering**: Offloads filtering logic to a Web Worker for datasets > 100 items, keeping the main thread responsive
-- **Virtual Scrolling**: Automatically enabled for datasets > 500 items, rendering only visible rows for optimal performance
-- **Session Storage Caching**: 5-minute TTL cache for vulnerability data to minimize network requests
+- **Debounced Search**: Uses Alpine.js debounce modifier to prevent excessive search operations
+- **Web Worker Filtering**: Offloads filtering logic to a Web Worker for larger datasets, keeping the main thread responsive
+- **Virtual Scrolling**: Automatically enabled for large datasets, rendering only visible rows
+- **Session Storage Caching**: Temporary cache for vulnerability data to reduce network requests
 - **Memoized Computations**: Frequently calculated values (risk scores, date formatting) are cached
-- **Request Animation Frame**: Chart updates and DOM manipulations are batched using RAF for smooth 60fps rendering
-
-### Performance Metrics
-
-- **Search Latency**: < 100ms (from keystroke to filtered results)
-- **Initial Page Load**: < 2s First Contentful Paint, < 5s Time to Interactive
-- **Bundle Size**: < 500KB per JavaScript file (enforced by CI)
-- **Memory Usage**: < 50MB for 1000 vulnerabilities in virtual scroll mode
+- **Request Animation Frame**: Chart updates and DOM manipulations are batched for smooth rendering
 
 ### Backend Performance
 
-- **Harvesting**: ~120x faster using GitHub releases vs individual API calls
-- **Dataset**: Processes 30,000+ vulnerabilities, filters to ~30-100 with EPSS ≥ 60%
-- **Storage**: Optimized from 33,000+ individual files to ~8 chunked files
-- **API Response**: < 200ms for chunked data retrieval
-- **Cache Hit Rate**: > 95% for repeated queries within 10-day TTL
+- **Incremental Harvesting**: Processes only recently updated CVEs (48-hour window) for faster updates
+- **EPSS-First Filtering**: Initial harvest focuses on high-probability threats, filtering early in the pipeline
+- **Chunked Storage**: Data organized by severity and year for efficient loading
+- **SQLite Caching**: 10-day TTL cache reduces redundant API calls
+- **CI Optimization**: Dependency and browser caching for faster build times
 
 ## Data Validation
 
-The platform implements comprehensive data validation using Great Expectations at every stage of the pipeline:
+The platform implements comprehensive data validation at multiple stages:
 
-### Validation Checkpoints
+### Validation Stages
 
 1. **Ingestion Stage**: Validates raw CVE data structure, required fields, and data types
-2. **Enrichment Stage**: Validates EPSS scores, exploitation status, and vendor/product mappings
-3. **Static Page Generation**: Validates generated markdown frontmatter and content structure
+2. **EPSS Threshold Gate**: Enforces EPSS ≥ 60% filtering with CI/CD validation
+3. **Enrichment Stage**: Validates CISA KEV data, exploit availability, and SSVC decision outputs
+4. **Publication Stage**: Multi-stage validation ensures API data quality before deployment
 
 ### Schema Compliance
 
-- Strict adherence to CVE Schema v5.1 specification
-- Automated validation of CVSS vectors and scores
-- EPSS percentile range validation (0-100)
+- Adherence to CVE Schema v5.1 specification
+- CVSS vector and score validation
+- EPSS probability range validation (0-1.0)
 - Date format compliance (ISO 8601)
+- SSVC decision tree validation for all prioritization outputs
 
 ## Contributing
 
@@ -275,11 +287,11 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
 ### Testing Requirements
 
-- Current test coverage: 7% (507 tests, verified 2025-10-23)
-- Target test coverage: 90% (aspirational goal)
-- No skipped tests allowed
 - All tests must pass before merging
-- Security scans must pass (Bandit, CodeQL)
+- Security scans must pass (Bandit for Python, npm audit for JavaScript)
+- CodeQL analysis required for security-sensitive changes
+- E2E tests validate live site functionality after deployment
+- CI enforces quality gates including linting, formatting, and test execution
 
 ## Releases
 
