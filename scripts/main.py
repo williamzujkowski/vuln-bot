@@ -287,7 +287,9 @@ def generate_briefing(
         # Get recent vulnerabilities from cache
         # Use a very high limit to get all available vulnerabilities
         # Filter by EPSS ≥60% threshold
-        vulnerabilities = cache_manager.get_recent_vulnerabilities(limit=50000, min_epss_score=0.6)
+        vulnerabilities = cache_manager.get_recent_vulnerabilities(
+            limit=50000, min_epss_score=0.6
+        )
 
         if not vulnerabilities:
             logger.warning("No vulnerabilities found in cache")

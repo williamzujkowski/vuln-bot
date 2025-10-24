@@ -115,7 +115,7 @@ class OptimizedBriefingGenerator(BriefingGenerator):
                 self.logger.debug(
                     "Skipping non-critical/high severity vulnerability",
                     cve_id=vuln.cve_id,
-                    severity=severity
+                    severity=severity,
                 )
                 continue
 

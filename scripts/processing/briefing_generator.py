@@ -293,7 +293,8 @@ class BriefingGenerator:
 
         # Filter to only CRITICAL and HIGH severity vulnerabilities
         filtered_vulns = [
-            vuln for vuln in batch.vulnerabilities
+            vuln
+            for vuln in batch.vulnerabilities
             if vuln.severity.value in ("CRITICAL", "HIGH")
         ]
 
@@ -301,9 +302,7 @@ class BriefingGenerator:
         index_data = {
             "generated": batch.generated_at.isoformat(),
             "count": len(filtered_vulns),
-            "vulnerabilities": [
-                vuln.to_summary_dict() for vuln in filtered_vulns
-            ],
+            "vulnerabilities": [vuln.to_summary_dict() for vuln in filtered_vulns],
         }
 
         # Write JSON file
