@@ -11,7 +11,7 @@ from pathlib import Path
 
 # Configuration
 OUTPUT_DIR = Path("public")
-API_DIR = Path("api/vulns")
+API_DIR = Path("public/api/vulns")  # Use public/api/vulns for production data
 OUTPUT_DIR.mkdir(exist_ok=True)
 
 
@@ -236,14 +236,44 @@ def generate_dashboard():
 
                 <!-- Actions -->
                 <nav class="flex items-center space-x-2" aria-label="Primary navigation">
-                    <!-- Methodology link -->
+                    <!-- Desktop Navigation Links (hidden on mobile) -->
+                    <a href="./index.html"
+                       class="hidden md:flex items-center space-x-2 px-3 py-2 rounded-lg bg-gradient-to-r from-primary-600 to-purple-600 text-white transition-colors text-sm font-medium focus:outline-none focus:ring-2 focus:ring-primary-500">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                        </svg>
+                        <span>Dashboard</span>
+                    </a>
+
+                    <a href="./briefings.html"
+                       class="hidden md:flex items-center space-x-2 px-3 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-sm font-medium focus:outline-none focus:ring-2 focus:ring-primary-500">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                        <span>Briefings</span>
+                    </a>
+
                     <a href="./methodology.html"
-                       class="hidden sm:flex items-center space-x-2 px-3 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-sm font-medium focus:outline-none focus:ring-2 focus:ring-primary-500">
+                       class="hidden md:flex items-center space-x-2 px-3 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-sm font-medium focus:outline-none focus:ring-2 focus:ring-primary-500">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                         </svg>
                         <span>Methodology</span>
                     </a>
+
+                    <!-- Mobile Hamburger Button (visible only on mobile) -->
+                    <button @click="mobileMenuOpen = !mobileMenuOpen"
+                            type="button"
+                            class="md:hidden p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500"
+                            aria-label="Toggle mobile menu"
+                            aria-expanded="mobileMenuOpen">
+                        <svg x-show="!mobileMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                        <svg x-show="mobileMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
 
                     <!-- Dark mode toggle -->
                     <button @click="toggleDarkMode()"
@@ -300,7 +330,80 @@ def generate_dashboard():
                 </div>
             </div>
         </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div x-show="mobileMenuOpen"
+             x-transition:enter="transition ease-out duration-200"
+             x-transition:enter-start="opacity-0 -translate-y-2"
+             x-transition:enter-end="opacity-100 translate-y-0"
+             x-transition:leave="transition ease-in duration-150"
+             x-transition:leave-start="opacity-100 translate-y-0"
+             x-transition:leave-end="opacity-0 -translate-y-2"
+             @click.away="mobileMenuOpen = false"
+             class="md:hidden absolute top-full left-0 right-0 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 shadow-lg z-50"
+             role="menu"
+             aria-label="Mobile navigation menu">
+            <div class="max-w-7xl mx-auto px-4 py-4 space-y-2">
+                <!-- Dashboard Link -->
+                <a href="./index.html"
+                   @click="mobileMenuOpen = false"
+                   class="flex items-center space-x-3 px-4 py-3 rounded-lg bg-gradient-to-r from-primary-600 to-purple-600 text-white transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500"
+                   role="menuitem">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                    </svg>
+                    <span class="font-medium">Dashboard</span>
+                </a>
+
+                <!-- Briefings Link -->
+                <a href="./briefings.html"
+                   @click="mobileMenuOpen = false"
+                   class="flex items-center space-x-3 px-4 py-3 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500"
+                   role="menuitem">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                    </svg>
+                    <span class="font-medium">Briefings</span>
+                </a>
+
+                <!-- Methodology Link -->
+                <a href="./methodology.html"
+                   @click="mobileMenuOpen = false"
+                   class="flex items-center space-x-3 px-4 py-3 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500"
+                   role="menuitem">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <span class="font-medium">Methodology</span>
+                </a>
+
+                <!-- GitHub Link (mobile only) -->
+                <a href="https://github.com/williamzujkowski/vuln-bot"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   @click="mobileMenuOpen = false"
+                   class="sm:hidden flex items-center space-x-3 px-4 py-3 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500"
+                   role="menuitem">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                    </svg>
+                    <span class="font-medium">GitHub</span>
+                </a>
+            </div>
+        </div>
     </header>
+
+    <!-- Backdrop overlay for mobile menu -->
+    <div x-show="mobileMenuOpen"
+         x-transition:enter="transition ease-out duration-200"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         x-transition:leave="transition ease-in duration-150"
+         x-transition:leave-start="opacity-100"
+         x-transition:leave-end="opacity-0"
+         @click="mobileMenuOpen = false"
+         class="md:hidden fixed inset-0 bg-gray-900/50 backdrop-blur-sm z-30"
+         aria-hidden="true"></div>
 
     <!-- Main content -->
     <main id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
@@ -924,6 +1027,7 @@ def generate_dashboard():
                 currentPage: 1,
                 perPage: 50,
                 darkMode: false,
+                mobileMenuOpen: false,
 
                 // Modal state
                 selectedVuln: null,
