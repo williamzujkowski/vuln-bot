@@ -63,9 +63,9 @@ jobs:
       run: |
         playwright install --with-deps chromium
 
-    - name: Run tests with coverage (parallelized)
+    - name: Run tests with coverage
       run: |
-        pytest tests/ --cov=scripts --cov-report=term-missing --cov-report=xml --cov-fail-under=80 --ignore=tests/test_static_page_agent.py --ignore=tests/test_agent_base.py -n auto --dist loadscope
+        pytest tests/ --cov=scripts --cov-report=term-missing --cov-report=xml --cov-fail-under=80 --ignore=tests/test_static_page_agent.py --ignore=tests/test_agent_base.py
       continue-on-error: true
     
     - name: Upload coverage to Codecov
