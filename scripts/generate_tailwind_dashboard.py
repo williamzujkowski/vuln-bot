@@ -20,8 +20,8 @@ def load_vulnerabilities():
     index_file = API_DIR / "index.json"
 
     if not index_file.exists():
-        print(f"Error: {index_file} not found")
-        sys.exit(1)
+        print(f"Warning: {index_file} not found, generating dashboard with empty data")
+        return [], datetime.now().isoformat()
 
     with open(index_file) as f:
         data = json.load(f)
